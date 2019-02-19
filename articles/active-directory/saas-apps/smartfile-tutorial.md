@@ -1,34 +1,34 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Degreed | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Degreed.
+title: 'Esercitazione: Integrazione di Azure Active Directory con SmartFile | Microsoft Docs'
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e SmartFile.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: 1eda2d1c-b5e2-4c53-ad46-bbeb91cd119a
+ms.assetid: 25610bd7-8943-4e04-8cbb-5e90ff3c054d
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/25/2019
+ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3b483310918bf58efc639b7d4220e54603b6561
+ms.openlocfilehash: f3a68a651ec62305f396dff07526d071bae82cc0
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210884"
+ms.locfileid: "56170229"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-degreed"></a>Esercitazione: Integrazione di Azure Active Directory con Degreed
+# <a name="tutorial-azure-active-directory-integration-with-smartfile"></a>Esercitazione: Integrazione di Azure Active Directory con SmartFile
 
-Questa esercitazione descrive come integrare Degreed con Azure Active Directory (Azure AD).
-L'integrazione di Degreed con Azure AD offre i vantaggi seguenti:
+Questa esercitazione descrive come integrare SmartFile con Azure Active Directory (Azure AD).
+L'integrazione di SmartFile con Azure AD offre i vantaggi seguenti:
 
-* È possibile controllare in Azure AD chi può accedere a Degreed.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Degreed con gli account Azure AD personali.
+* È possibile controllare in Azure AD chi può accedere a SmartFile.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a SmartFile con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,24 +36,22 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per configurare l'integrazione di Azure AD con Degreed, sono necessari gli elementi seguenti:
+Per configurare l'integrazione di Azure AD con SmartFile sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
-* Sottoscrizione di Degreed abilitata per l'accesso Single Sign-On
+* Sottoscrizione di SmartFile abilitata per l'accesso Single Sign-On
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* Degreed supporta l'accesso SSO avviato da **SP**
+* SmartFile supporta l'accesso SSO avviato da **SP**
 
-* Degreed supporta il provisioning utenti **JIT**
+## <a name="adding-smartfile-from-the-gallery"></a>Aggiunta di SmartFile dalla raccolta
 
-## <a name="adding-degreed-from-the-gallery"></a>Aggiunta di Degreed dalla raccolta
+Per configurare l'integrazione di SmartFile in Azure AD, è necessario aggiungere SmartFile dalla raccolta all'elenco di app SaaS gestite.
 
-Per configurare l'integrazione di Degreed in Azure AD, è necessario aggiungere Degreed dalla raccolta all'elenco di app SaaS gestite.
-
-**Per aggiungere Degreed dalla raccolta, seguire questa procedura:**
+**Per aggiungere SmartFile dalla raccolta, seguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
@@ -67,31 +65,31 @@ Per configurare l'integrazione di Degreed in Azure AD, è necessario aggiungere 
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **Degreed**, selezionare **Degreed** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **SmartFile**, selezionare **SmartFile** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![Degreed nell'elenco risultati](common/search-new-app.png)
+     ![SmartFile nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Degreed usando un utente di test di nome **Britta Simon**.
-Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Degreed.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con SmartFile usando un utente di test di nome **Britta Simon**.
+Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in SmartFile.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Degreed, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con SmartFile, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per Degreed](#configure-degreed-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On per SmartFile](#configure-smartfile-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Degreed](#create-degreed-test-user)**: per avere una controparte di Britta Simon in Degreed collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Creare l'utente di test di SmartFile](#create-smartfile-test-user)**: per avere una controparte di Britta Simon in SmartFile collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-Per configurare l'accesso Single Sign-On di Azure AD con Degreed, seguire questa procedura:
+Per configurare l'accesso Single Sign-On di Azure AD con SmartFile, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Degreed** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **SmartFile** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -105,20 +103,20 @@ Per configurare l'accesso Single Sign-On di Azure AD con Degreed, seguire questa
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Degreed](common/sp-identifier.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di SmartFile](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://degreed.com/?orgsso=<company code>`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.smartfile.com/ftp/login`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://degreed.com/<instancename>`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `<SUBDOMAIN>.smartfile.com`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Degreed](mailto:admin@degreed.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di SmartFile](https://support.lumanox.com/hc/sections/360003453152-SAML-Authentication). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
-6. Nella sezione **Configura Degreed** copiare gli URL appropriati in base alle esigenze.
+6. Nella sezione **Configura SmartFile** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -128,9 +126,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Degreed, seguire questa
 
     c. URL di chiusura sessione
 
-### <a name="configure-degreed-single-sign-on"></a>Configurare l'accesso Single Sign-On per Degreed
+### <a name="configure-smartfile-single-sign-on"></a>Configurare l'accesso Single Sign-On per SmartFile
 
-Per configurare l'accesso Single Sign-On sul lato **Degreed**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Degreed](mailto:admin@degreed.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **SmartFile**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di SmartFile](https://support.lumanox.com/hc/sections/360003453152-SAML-Authentication). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
@@ -159,15 +157,15 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Degreed.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a SmartFile.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Degreed**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **SmartFile**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Degreed**.
+2. Nell'elenco delle applicazioni selezionare **SmartFile**.
 
-    ![Collegamento di Degreed nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento di SmartFile nell'elenco delle applicazioni](common/all-applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -183,21 +181,15 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-degreed-test-user"></a>Creare l'utente di test di Degreed
+### <a name="create-smartfile-test-user"></a>Creare l'utente di test di SmartFile
 
-Questa sezione descrive come creare un utente chiamato Britta Simon in Degreed. Degreed supporta il provisioning JIT, che è abilitato per impostazione predefinita.
-
-Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Degreed viene creato un nuovo utente, se questo non esiste già.
-
-> [!NOTE]
-> Per creare un utente manualmente è necessario contattare il [team di supporto di Degreed](mailto:admin@degreed.com).
-
+In questa sezione viene creato un utente di nome Britta Simon in SmartFile. Collaborare con il  [team di supporto di SmartFile](https://support.lumanox.com/hc/sections/360003453152-SAML-Authentication) per aggiungere gli utenti alla piattaforma SmartFile. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Degreed nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Degreed per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di SmartFile nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione SmartFile per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

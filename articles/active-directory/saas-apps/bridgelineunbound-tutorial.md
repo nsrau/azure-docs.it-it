@@ -1,233 +1,210 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Bridgeline Unbound | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Bridgeline Unboundn.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Bridgeline Unbound.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: b018472f-c8b3-403d-ae66-9ed26a35f413
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/18/2018
+ms.topic: tutorial
+ms.date: 02/08/2019
 ms.author: jeedes
-ms.openlocfilehash: c429afa12bc11db68d041fef96f66b3f4c7f0b1b
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 77e7c2ef0bc9736ca0a97ac4e1874e5636295ce6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39206691"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56176901"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bridgeline-unbound"></a>Esercitazione: Integrazione di Azure Active Directory con Bridgeline Unbound
 
 Questa esercitazione descrive come integrare Bridgeline Unbound con Azure Active Directory (Azure AD).
-
 L'integrazione di Bridgeline Unbound con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD chi può accedere a Bridgeline Unbound.
-- È possibile abilitare gli utenti per l'accesso automatico a Bridgeline Unbound (Single Sign-On) con i propri account Azure AD.
-- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
+* È possibile controllare in Azure AD chi può accedere a Bridgeline Unbound.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Bridgeline Unbound con gli account Azure AD personali.
+* È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Bridgeline Unbound, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD
-- Una sottoscrizione Bridgeline Unbound abilitata per l'accesso Single Sign-On
-
-> [!NOTE]
-> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
-
-A questo scopo, è consigliabile seguire le indicazioni seguenti:
-
-- Non usare l'ambiente di produzione a meno che non sia necessario.
-- Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
+* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
+* Sottoscrizione di Bridgeline Unbound abilitata per l'accesso Single Sign-On
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
-1. Aggiunta di Bridgeline Unbound dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
+
+* Bridgeline Unbound supporta l'accesso SSO avviato da **SP e IDP**
+* Bridgeline Unbound supporta il provisioning utenti **JIT**
 
 ## <a name="adding-bridgeline-unbound-from-the-gallery"></a>Aggiunta di Bridgeline Unbound dalla raccolta
-Per configurare l'integrazione di Bridgeline Unbound in Azure AD, è necessario aggiungere Bridgeline Unbound dalla raccolta al proprio elenco di app SaaS gestite.
+
+Per configurare l'integrazione di Bridgeline Unbound in Azure AD, è necessario aggiungere Bridgeline Unbound dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Bridgeline Unbound dalla raccolta, seguire questa procedura:**
 
-1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
-    ![Pulsante Azure Active Directory][1]
+    ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
 
-    ![Pannello Applicazioni aziendali][2]
-    
+    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
+
 3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-    ![Pulsante Nuova applicazione][3]
+    ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **Bridgeline Unbound**, selezionare **Bridgeline Unbound** dal pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Bridgeline Unbound**, selezionare **Bridgeline Unbound** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-    ![Bridgeline Unbound nell'elenco risultati](./media/bridgelineunbound-tutorial/tutorial_bridgelineunbound_addfromgallery.png)
+     ![Bridgeline Unbound nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Bridgeline Unbound usando un utente di test di nome "Britta Simon".
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Bridgeline Unbound usando un utente di test di nome **Britta Simon**.
+Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Bridgeline Unbound.
 
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere l'utente controparte di Bridgeline Unbound corrispondente a un utente di Azure AD. In altre parole deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Bridgeline Unbound.
-
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Bridgeline Unbound, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Bridgeline Unbound, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creare un utente di test di Bridgeline Unbound](#create-a-bridgeline-unbound-test-user)**: per avere una controparte di Britta Simon in Bridgeline Unbound collegata alla rappresentazione dell'utente in Azure AD.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
+2. **[Configurare l'accesso Single Sign-On per Bridgeline Unbound](#configure-bridgeline-unbound-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di Bridgeline Unbound](#create-bridgeline-unbound-test-user)**: per avere una controparte di Britta Simon in Bridgeline Unbound collegata alla rappresentazione dell'utente in Azure AD.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Bridgeline Unbound.
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-**Per configurare l'accesso Single Sign-On di Azure AD con Bridgeline Unbound, seguire questa procedura:**
+Per configurare l'accesso Single Sign-On di Azure AD con Bridgeline Unbound, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Bridgeline Unbound** del portale di Azure fare clic su **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **Bridgeline Unbound** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
-    ![Collegamento Configura accesso Single Sign-On][4]
+    ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
- 
-    ![Finestra di dialogo Single Sign-On](./media/bridgelineunbound-tutorial/tutorial_bridgelineunbound_samlbase.png)
- 
-3. Nella sezione **URL e dominio Bridgeline Unbound** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare l'accesso Single Sign-On.
 
-    ![Informazioni sull'accesso Single Sign-On per URL e dominio di Bridgeline](./media/bridgelineunbound-tutorial/tutorial_bridgelineunbound_url.png)
+    ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-    a. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `iApps_UPSTT_<ENVIRONMENTNAME>`
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<SUBDOMAIN>.iapps.com/SAMLAssertionService.aspx`
+    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Selezionare **Mostra impostazioni URL avanzate** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni sull'accesso Single Sign-On per URL e dominio di Bridgeline](./media/bridgelineunbound-tutorial/tutorial_bridgelineunbound_url1.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Bridgeline Unbound](common/idp-intiated.png)
 
-    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<SUBDOMAIN>.iapps.com/CommonLogin/login?<INSTANCENAME>`
+    a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `iApps_UPSTT_<ENVIRONMENTNAME>`
 
-    > [!NOTE] 
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Bridgeline Unbound](mailto:support@iapps.com). 
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.iapps.com/SAMLAssertionService.aspx`
 
-4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
+5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Collegamento di download del certificato](./media/bridgelineunbound-tutorial/tutorial_bridgelineunbound_certificate.png) 
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Bridgeline Unbound](common/metadata-upload-additional-signon.png)
 
-5. Fare clic sul pulsante **Salva** .
+    Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.iapps.com/CommonLogin/login?<INSTANCENAME>`
 
-    ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/bridgelineunbound-tutorial/tutorial_general_400.png)
+    > [!NOTE]
+    > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Bridgeline Unbound](mailto:support@iapps.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-6. Nella sezione **Configurazione di Bridgeline Unbound** fare clic su **Configura Bridgeline Unbound** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
+6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
 
-    ![Configurazione Bridgeline Unbound](./media/bridgelineunbound-tutorial/tutorial_bridgelineunbound_configure.png) 
+    ![Collegamento di download del certificato](common/certificatebase64.png)
 
-7. Per configurare l'accesso Single Sign-On sul lato **Bridgeline Unbound**, è necessario inviare il file di **Certificato (Base64)** scaricato, **l'URL di disconnessione, l'ID entità SAML e l'URL del servizio Single Sign-On SAML** al [team di supporto di Bridgeline Unbound](mailto:support@iapps.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+7. Nella sezione **Configura Bridgeline Unbound** copiare gli URL appropriati in base alle esigenze.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+    ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+    a. URL di accesso
 
-   ![Creare un utente test di Azure AD][100]
+    b. Identificatore Azure AD
 
-**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
+    c. URL di chiusura sessione
 
-1. Nel portale di Azure fare clic sul pulsante **Azure Active Directory** nel riquadro sinistro.
+### <a name="configure-bridgeline-unbound-single-sign-on"></a>Configurare l'accesso Single Sign-On per Bridgeline Unbound
 
-    ![Pulsante Azure Active Directory](./media/bridgelineunbound-tutorial/create_aaduser_01.png)
+Per configurare l'accesso Single Sign-On sul lato **Bridgeline Unbound** è necessario inviare il file **Certificato (Base64)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Bridgeline Unbound](mailto:support@iapps.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-2. Per visualizzare l'elenco di utenti, passare a **Utenti e grobridgelineinbound** e quindi fare clic su **Tutti gli utenti**.
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-    ![I collegamenti "Utenti e grobridgelineinbound" e "Tutti gli utenti"](./media/bridgelineunbound-tutorial/create_aaduser_02.png)
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
-3. Per aprire la finestra di dialogo **Utente** fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
-    ![Pulsante Aggiungi](./media/bridgelineunbound-tutorial/create_aaduser_03.png)
+    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
-4. Nella finestra di dialogo **Utente** seguire questa procedura:
+2. Selezionare **Nuovo utente** in alto nella schermata.
 
-    ![Finestra di dialogo Utente](./media/bridgelineunbound-tutorial/create_aaduser_04.png)
+    ![Pulsante Nuovo utente](common/new-user.png)
 
-    a. Nella casella **Nome** digitare **BrittaSimon**.
+3. In Proprietà utente seguire questa procedura.
 
-    b. Nella casella **Nome utente** digitare l'indirizzo di posta elettronica dell'utente Britta Simon.
+    ![Finestra di dialogo Utente](common/user-properties.png)
 
-    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
+    a. Nel campo **Nome** immettere **BrittaSimon**.
+  
+    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    Ad esempio: BrittaSimon@contoso.com
 
-    d. Fare clic su **Create**(Crea).
- 
-### <a name="create-a-bridgeline-unbound-test-user"></a>Creare un utente test Bridgeline Unbound
+    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in Bridgeline Unbound. Bridgeline Unbound supporta il provisioning JIT, abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Bridgeline Unbound viene creato un nuovo utente, se questo non esiste già.
+    d. Fare clic su **Crea**.
 
->[!Note]
->Se è necessario creare un utente manualmente, contattare il [team di supporto di Bridgeline Unbound Support](mailto:support@iapps.com).
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Bridgeline Unbound.
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Bridgeline Unbound.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Bridgeline Unbound**.
 
-![Assegnare il ruolo utente][200] 
-
-**Per assegnare Britta Simon a Bridgeline Unbound, seguire questa procedura:**
-
-1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
-
-    ![Assegna utente][201] 
+    ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
 2. Nell'elenco delle applicazioni selezionare **Bridgeline Unbound**.
 
-    ![Il collegamento Bridgeline Unbound nell'elenco delle applicazioni](./media/bridgelineunbound-tutorial/tutorial_bridgelineunbound_app.png)  
+    ![Collegamento di Bridgeline Unbound nell'elenco delle applicazioni](common/all-applications.png)
 
-3. Scegliere **Utenti e grobridgelineinbound** dal menu a sinistra.
+3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
-    ![Il collegamento "Utenti e grobridgelineinbound"][202]
+    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e grobridgelineinbound** nella finestra di dialogo **Aggiungi assegnazione**.
+4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
-    ![Riquadro Aggiungi assegnazione][203]
+    ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
-5. Nella finestra di dialogo **Utenti e grobridgelineinbound** selezionare **Britta Simon** nell'elenco Utenti.
+5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e grobridgelineinbound**.
+6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
-    
+7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+
+### <a name="create-bridgeline-unbound-test-user"></a>Creare l'utente di test di Bridgeline Unbound
+
+In questa sezione viene creato un utente di nome Britta Simon in Bridgeline Unbound. Bridgeline Unbound supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Bridgeline Unbound, ne viene creato uno nuovo dopo l'autenticazione.
+
+> [!Note]
+> Se è necessario creare un utente manualmente, contattare il  [team di supporto di Bridgeline Unbound](mailto:support@iapps.com).
+
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro Bridgeline Unbound nel pannello di accesso, si dovrebbe accedere automaticamente all’applicazione Bridgeline Unbound.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Quando si fa clic sul riquadro di Bridgeline Unbound nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Bridgeline Unbound per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/bridgelineunbound-tutorial/tutorial_general_01.png
-[2]: ./media/bridgelineunbound-tutorial/tutorial_general_02.png
-[3]: ./media/bridgelineunbound-tutorial/tutorial_general_03.png
-[4]: ./media/bridgelineunbound-tutorial/tutorial_general_04.png
-
-[100]: ./media/bridgelineunbound-tutorial/tutorial_general_100.png
-
-[200]: ./media/bridgelineunbound-tutorial/tutorial_general_200.png
-[201]: ./media/bridgelineunbound-tutorial/tutorial_general_201.png
-[202]: ./media/bridgelineunbound-tutorial/tutorial_general_202.png
-[203]: ./media/bridgelineunbound-tutorial/tutorial_general_203.png
-
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

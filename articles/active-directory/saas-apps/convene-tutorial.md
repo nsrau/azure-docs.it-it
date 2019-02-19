@@ -1,12 +1,12 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Druva| Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Druva.
+title: 'Esercitazione: Integrazione di Azure Active Directory con Convene | Microsoft Docs'
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Convene.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: ab92b600-1fea-4905-b1c7-ef8e4d8c495c
+ms.assetid: 2540ac46-1aea-496b-a8c5-575a2690f7db
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,20 +15,20 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b82efa4b14800eabbbcb4b977f256a5d885fc93b
+ms.openlocfilehash: 7b6462083265c7fa93dd0fc496830fff21f80928
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211836"
+ms.locfileid: "56161339"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-druva"></a>Esercitazione: Integrazione di Azure Active Directory con Druva
+# <a name="tutorial-azure-active-directory-integration-with-convene"></a>Esercitazione: Integrazione di Azure Active Directory con Convene
 
-Questa esercitazione descrive come integrare Druva con Azure Active Directory (Azure AD).
-L'integrazione di Druva con Azure AD offre i vantaggi seguenti:
+Questa esercitazione descrive come integrare Convene con Azure Active Directory (Azure AD).
+L'integrazione di Convene con Azure AD offre i vantaggi seguenti:
 
-* È possibile controllare in Azure AD chi può accedere a Druva.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Druva con gli account Azure AD personali.
+* È possibile controllare in Azure AD chi può accedere a Convene.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Convene con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,22 +36,24 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per configurare l'integrazione di Azure AD con Druva, sono necessari gli elementi seguenti:
+Per configurare l'integrazione di Azure AD con Convene, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
-* Sottoscrizione di Druva abilitata per l'accesso Single Sign-On
+* Sottoscrizione di Convene abilitata per l'accesso Single Sign-On
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* Druva supporta l'accesso SSO avviato da **SP** e **IDP**
+* Convene supporta l'accesso SSO avviato da **SP**
 
-## <a name="adding-druva-from-the-gallery"></a>Aggiunta di Druva dalla raccolta
+* Convene supporta il provisioning utenti **JIT**
 
-Per configurare l'integrazione di Druva in Azure AD, è necessario aggiungere Druva dalla raccolta all'elenco di app SaaS gestite.
+## <a name="adding-convene-from-the-gallery"></a>Aggiunta di Convene dalla raccolta
 
-**Per aggiungere Druva dalla raccolta, seguire questa procedura:**
+Per configurare l'integrazione di Convene in Azure AD, è necessario aggiungere Convene dalla raccolta all'elenco di app SaaS gestite.
+
+**Per aggiungere Convene dalla raccolta, seguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
@@ -65,31 +67,31 @@ Per configurare l'integrazione di Druva in Azure AD, è necessario aggiungere Dr
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **Druva**, selezionare **Druva** nel pannello dei risultati quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Convene**, selezionare **Convene** nel pannello dei risultati, quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![Druva nell'elenco risultati](common/search-new-app.png)
+     ![Convene nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Druva usando un utente di test di nome **Britta Simon**.
-Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Druva.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Convene usando un utente di test di nome **Britta Simon**.
+Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Convene.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Druva, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Convene, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per Druva](#configure-druva-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On per Convene](#configure-convene-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Druva](#create-druva-test-user)**: per avere una controparte di Britta Simon in Druva collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Creare l'utente di test di Convene](#create-convene-test-user)**: per avere una controparte di Britta Simon in Convene collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-Per configurare l'accesso Single Sign-On di Azure AD con Druva, seguire questa procedura:
+Per configurare l'accesso Single Sign-On di Azure AD con Convene, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Druva** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **Convene** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -103,25 +105,28 @@ Per configurare l'accesso Single Sign-On di Azure AD con Druva, seguire questa p
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione nella modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Druva](common/idp-identifier.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Convene](common/both-replyurl.png)
 
-    Nella casella di testo **Identificatore** digitare un valore stringa: `druva-cloud`
+    Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://portal.convene.me.uk/saml/acs/<UID>`
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![image](common/both-preintegrated-signon.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Convene](common/both-signonurl.png)
 
-    Nella casella di testo **URL di accesso** digitare un URL: `https://cloud.druva.com/home`
+    Nella casella di testo **URL di accesso** digitare un URL: `https://portal.convene.me.uk/login`
 
-6. L'applicazione Druva prevede un formato specifico per le asserzioni SAML. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente** nella pagina di integrazione dell'applicazione. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Attributi utente**.
+    > [!NOTE] 
+    > Il valore di URL di risposta non è reale. è necessario aggiornare questo valore con l'URL di risposta effettivo. Per ottenere tale valore, contattare il [team di supporto clienti di Convene](mailto:support@convene.me.uk). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+
+6. L'applicazione Convene prevede un formato specifico per le asserzioni SAML. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente** nella pagina di integrazione dell'applicazione. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 
     ![image](common/edit-attribute.png)
 
 7. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura: 
 
     | Nome | Attributo di origine|
-    | ------------------- | -------------------- |
-    | insync\_auth\_token |Immettere il valore generato del token |
+    | ---------------| --------------- |
+    | nameidentifier | user.mail |
 
     a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
 
@@ -145,7 +150,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Druva, seguire questa p
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
-9. Nella sezione **Configura Druva** copiare gli URL appropriati in base alle esigenze.
+9. Nella sezione **Configura Convene** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -155,37 +160,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Druva, seguire questa p
 
     c. URL di chiusura sessione
 
-### <a name="configure-druva-single-sign-on"></a>Configurare l'accesso Single Sign-On per Druva
+### <a name="configure-convene-single-sign-on"></a>Configurare l'accesso Single Sign-On per Convene
 
-1. In un'altra finestra del Web browser accedere al sito aziendale di Druva come amministratore.
-
-2. Passare a **Manage \> Settings**.
-
-    ![Impostazioni](./media/druva-tutorial/ic795091.png "Impostazioni")
-
-3. Nella finestra di dialogo Single Sign-On Settings seguire questa procedura:
-
-    ![Single Sign-On Settings](./media/druva-tutorial/ic795092.png "Single Sign-On Settings")
-    
-    a. Nella casella di testo **ID Provider Login URL** (URL di accesso provider di identità) incollare il valore di **URL di accesso** copiato dal portale di Azure.
-        
-    b. Nella casella di testo**ID Provider Logout URL** (URL di disconnessione provider di identità) incollare il valore di **URL di disconnessione** copiato dal portale di Azure.
-        
-    c. Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e quindi incollarlo nella casella di testo **ID Provider Certificate**
-     
-    d. Per aprire la pagina **Settings** fare clic su **Save**.
-
-4. Nella pagina **Settings** fare clic su **Generate SSO Token**.
-
-    ![Impostazioni](./media/druva-tutorial/ic795093.png "Impostazioni")
-
-5. Nella finestra di dialogo **Single Sign-on Authentication Token** eseguire la procedura seguente:
-
-    ![Token SSO](./media/druva-tutorial/ic795094.png "Token SSO")
-    
-    a. Fare clic su **Copy** e incollare il valore copiato nella casella di testo **Valore** della sezione **Aggiungi attributo** nel portale di Azure.
-    
-    b. Fare clic su **Close**.
+Per configurare l'accesso Single Sign-On sul lato **Convene** è necessario inviare il file **Certificato (Base64)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Convene](mailto:support@convene.me.uk). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
@@ -214,15 +191,15 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Druva.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Convene.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Druva**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Convene**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Druva**.
+2. Nell'elenco delle applicazioni selezionare **Convene**.
 
-    ![Collegamento di Druva nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento di Convene nell'elenco delle applicazioni](common/all-applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -238,40 +215,18 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-druva-test-user"></a>Creare l'utente di test di Druva
+### <a name="create-convene-test-user"></a>Creare l'utente di test di Convene
 
-Per consentire agli utenti di Azure AD di accedere a Druva, è necessario eseguirne il provisioning in Druva. Nel caso di Druva, il provisioning è un'attività manuale.
+In questa sezione viene creato un utente di nome Britta Simon in Convene. Convene supporta il **provisioning JIT**, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Convene, ne viene creato uno nuovo dopo l'autenticazione.
 
-**Per configurare il provisioning utenti, seguire questa procedura:**
-
-1. Accedere al sito aziendale di **Druva** come amministratore.
-
-2. Passare a **Manage (Gestisci) \> Users (Utenti)**.
-   
-    ![Gestione utenti](./media/druva-tutorial/ic795097.png "Gestione utenti")
-
-3. Fare clic su **Create New**.
-   
-    ![Gestione utenti](./media/druva-tutorial/ic795098.png "Gestione utenti")
-
-4. Nella finestra di dialogo Create New User seguire questa procedura:
-   
-    ![Crea nuovo utente](./media/druva-tutorial/ic795099.png "Crea nuovo utente")
-   
-    a. Nella casella di testo **Email address** (Indirizzo di posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio **brittasimon@contoso.com**.
-   
-    b. Nella casella di testo **Name** (Nome) immettere il nome dell'utente, ad esempio **BrittaSimon**.
-   
-    c. Fare clic su **Create User**.
-
->[!NOTE]
->È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Druva per eseguire il provisioning degli account utente di Azure Active Directory.
+>[!Note]
+>Se è necessario creare un utente manualmente, contattare il [team di supporto di Convene](mailto:support@convene.me.uk).
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Druva nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Druva per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Convene nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Convene per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
