@@ -4,7 +4,7 @@ description: Questa Guida introduttiva illustra come eseguire l'aggiornamento al
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8a0467a383e2c8e3efab685187c5a37d1549f664
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3442ced47e50485da1ffdd475d9649243b1c8583
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838166"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116695"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Guida introduttiva: Caricamento della sottoscrizione di Azure al livello Standard del Centro di sicurezza
 Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la protezione dalle minacce per carichi di lavoro cloud ibridi. Mentre il livello gratuito offre sicurezza limitata delle risorse di Azure, il livello Standard estende le funzionalità in locale e in altri ambienti cloud. Il livello Standard del Centro sicurezza consente di individuare e risolvere le vulnerabilità di sicurezza, di applicare i controlli su applicazioni e accessi per bloccare le attività dannose, di rilevare le minacce usando funzioni di analisi e di intelligenza e di rispondere rapidamente in caso di attacco. È possibile provare il livello Standard del Centro sicurezza gratuitamente. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
@@ -107,7 +107,7 @@ Se si vuole disabilitare il provisioning automatico:
 In questa Guida rapida è stato eseguito l'aggiornamento al livello Standard ed è stato eseguito il provisioning di Microsoft Monitoring Agent per la gestione unificata della sicurezza e della protezione dalle minacce per i carichi di lavoro di cloud ibrido. Per altre informazioni su come usare il Centro sicurezza, continuare con le indicazioni presenti nella Guida introduttiva per l'onboarding di computer Windows in locale o in altri ambienti cloud.
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: Onboarding di computer Windows in Centro sicurezza](quick-onboard-windows-computer.md)
+> [Guida introduttiva: Onboarding di computer Windows in Centro sicurezza di Azure](quick-onboard-windows-computer.md)
 
 <!--Image references-->
 [2]: ./media/security-center-get-started/overview.png

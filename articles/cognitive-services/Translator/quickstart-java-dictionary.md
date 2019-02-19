@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: In questo argomento di avvio rapido verrà illustrato come ottenere traduzioni alternative per un termine e verranno forniti esempi di utilizzo di tali traduzioni usando Java e l'API Traduzione testuale.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: a1e59b8a6ceae3e2379a271a9ff55030f14a5622
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5e9c24d1f128267bcfd201de3aac27b81eb8b278
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223222"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961273"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-java"></a>Avvio rapido: Cercare le parole con il dizionario bilingue usando Java
 
@@ -171,6 +171,12 @@ A questo punto è possibile eseguire l'app di esempio. Dalla riga di comando, o 
 
 ```console
 gradle build
+```
+
+Al termine della compilazione, eseguire:
+
+```console
+gradle run
 ```
 
 ## <a name="sample-response"></a>Risposta di esempio

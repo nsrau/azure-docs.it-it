@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dee649c388ee1e9207d1fc0ecb454d03cda304b0
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 7ad5f22b0604cb9de38f7990c88d760df97098d9
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730765"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235836"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Individuare e valutare le macchine virtuali VMware locali per la migrazione ad Azure
 
@@ -30,7 +30,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- **VMware**: le macchine virtuali che si prevede di migrare devono essere gestite tramite il server vCenter versione 5.5, 6.0 o 6.5. Inoltre, è necessario che sia in esecuzione l'host ESXi versione 5.5 o versione successiva per distribuire la macchina virtuale dell'agente di raccolta.
+- **VMware**: le macchine virtuali di cui eseguire la migrazione devono essere gestite tramite il server vCenter versione 5.5, 6.0, 6.5 o 6.7. Inoltre, è necessario che sia in esecuzione l'host ESXi versione 5.5 o versione successiva per distribuire la macchina virtuale dell'agente di raccolta.
 - **Account server vCenter**: è necessario un account di sola lettura per accedere al server vCenter. Azure Migrate usa questo account per individuare le macchine virtuali.Azure Migrate usa questo account per individuare le macchine virtuali locali.
 - **Autorizzazioni**: nel server vCenter è necessario avere le autorizzazioni per creare una macchina virtuale importando un file con estensione ova.
 
@@ -182,7 +182,7 @@ Importare il file scaricato nel server vCenter.
     - Selezionare il cloud di Azure in cui si intende eseguire la migrazione (Azure globale o Azure per enti pubblici).
     - Accettare le condizioni di licenza e leggere le informazioni di terze parti.
     - L'agente di raccolta verifica che la macchina virtuale abbia accesso a Internet.
-    - Se la macchina virtuale accede a Internet tramite un proxy, fare clic su **Proxy settings** (Impostazioni proxy) e specificare l'indirizzo e la porta di ascolto del proxy. Se il proxy richiede l'autenticazione, specificare le credenziali. [Altre informazioni](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) sui requisiti di connettività Internet e l'[elenco di URL](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls) ai quali accede l'agente di raccolta.
+    - Se la macchina virtuale accede a Internet tramite un proxy, fare clic su **Proxy settings** (Impostazioni proxy) e specificare l'indirizzo e la porta di ascolto del proxy. Se il proxy richiede l'autenticazione, specificare le credenziali. [Altre informazioni](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) sui requisiti di connettività Internet e l'[elenco di URL](https://docs.microsoft.com/azure/migrate/concepts-collector) ai quali accede l'agente di raccolta.
 
       > [!NOTE]
       > È necessario immettere l'indirizzo proxy nel formato http://ProxyIPAddress o http://ProxyFQDN. È supportato solo il proxy HTTP. Se si ha un proxy di intercettazione, inizialmente la connessione Internet potrebbe non riuscire se non è stato importato il certificato proxy. [Altre informazioni](https://docs.microsoft.com/azure/migrate/concepts-collector) sul modo in cui è possibile risolvere il problema importando il certificato proxy come certificato attendibile nella macchina virtuale dell'agente di raccolta.

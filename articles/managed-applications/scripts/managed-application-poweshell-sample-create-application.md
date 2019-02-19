@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2429d561beffed5bc171b9dbc2c2c9c88eba3313
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 03b453e441b92d21f29e7e1f401bebae0b8589da
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2017
-ms.locfileid: "23637041"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105859"
 ---
 # <a name="deploy-a-managed-application-for-a-service-catalog-with-powershell"></a>Distribuire un'applicazione gestita per un catalogo di servizi con PowerShell
 
@@ -28,6 +28,8 @@ Questo script distribuisce una definizione di applicazione gestita dal catalogo 
 
 ## <a name="sample-script"></a>Script di esempio
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!code-powershell[main](../../../powershell_scripts/managed-applications/create-application/create-application.ps1 "Create application")]
 
 
@@ -37,7 +39,7 @@ Questo script usa il comando seguente per distribuire l'applicazione gestita. Og
 
 | Comando | Note |
 |---|---|
-| [New-AzureRmManagedApplication](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermmanagedapplication) | Crea un'applicazione gestita. Fornire l'ID della definizione e i parametri per il modello. |
+| [New-AzManagedApplication](https://docs.microsoft.com/powershell/module/az.resources/new-azmanagedapplication) | Crea un'applicazione gestita. Fornire l'ID della definizione e i parametri per il modello. |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

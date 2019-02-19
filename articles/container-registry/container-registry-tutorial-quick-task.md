@@ -8,20 +8,20 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 9d3b1c14ce872cd02fc8d4a8c2596d7d1e270895
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 901c844ecbfbbe68163c70b12cc061eae0f75d5a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754374"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860474"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Esercitazione: Compilare e distribuire immagini dei contenitori nel cloud con Attività del Registro Azure Container
 
-**ACR Tasks** è un gruppo di funzionalità in Registro contenitori di Azure che consente una compilazione efficiente e semplificata delle immagini dei contenitori Docker in Azure. Questo articolo illustra come usare la funzionalità di *attività rapida* di ACR Tasks.
+**ACR Tasks** è un gruppo di funzionalità in Registro Azure Container che consente una compilazione efficiente e semplificata delle immagini dei contenitori Docker in Azure. Questo articolo illustra come usare la funzionalità di *attività rapida* di ACR Tasks.
 
 Il ciclo di sviluppo "interno" è il processo iterativo di scrittura di codice, compilazione e test dell'applicazione prima di eseguire il commit nel controllo del codice sorgente. Un'attività rapida estende il ciclo interno al cloud, con convalida del completamento della compilazione e push automatico delle immagini compilate correttamente nel registro contenitori. Le immagini vengono compilate in modo nativo nel cloud, in prossimità del registro, in modo da velocizzare la distribuzione.
 
-Tutte le competenze acquisite nei documenti Dockerfile sono trasferibili direttamente ad ACR Tasks. Per la compilazione nel cloud con ACR Tasks non è necessario modificare i documenti Dockerfile, ma solo il comando che viene eseguito.
+Tutte le competenze acquisite nei documenti Dockerfile sono trasferibili direttamente ad ACR Tasks. Per la compilazione nel cloud con ACR Tasks non è necessario modificare i documenti Dockerfile, ma solo il comando che viene eseguito. 
 
 In questa esercitazione, che è la prima parte di una serie, si apprenderà come:
 
@@ -30,7 +30,7 @@ In questa esercitazione, che è la prima parte di una serie, si apprenderà come
 > * Compilare un'immagine del contenitore in Azure
 > * Distribuire un contenitore in Istanze di Azure Container
 
-Le esercitazioni successive illustrano come usare ACR Tasks per automatizzare la compilazione delle immagini dei contenitori in caso di commit del codice e di aggiornamento delle immagini di base.
+Le esercitazioni successive illustrano come usare ACR Tasks per automatizzare la compilazione delle immagini dei contenitori in caso di commit del codice e di aggiornamento delle immagini di base. Le funzionalità di Attività del Registro Azure Container consentono anche di eseguire [attività in più passi](container-registry-tasks-multi-step.md) (attualmente in anteprima), usando un file YAML per definire i passaggi per creare, eseguire il push e facoltativamente testare più contenitori.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

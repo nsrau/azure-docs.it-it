@@ -4,26 +4,24 @@ titleSuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per inviare richieste di ricerca di immagini all'API REST Ricerca immagini Bing usando C# e ricevere risposte JSON.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 9/07/2018
+ms.date: 02/06/2019
 ms.author: aahi
-ms.openlocfilehash: af67ca78921e677283148c4cb0350162eeb225f5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7051c8e6cc6464e8ff274e92bdb543638c9af46a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181980"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238188"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>Avvio rapido: Cercare immagini con l'API REST Ricerca immagini Bing e C#
 
-Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca immagini Bing e visualizzare un risultato di ricerca dalla risposta JSON. Questa semplice applicazione C# invia una query di ricerca immagine HTTP all'API e visualizza l'URL della prima immagine restituita.
+Usare questa guida introduttiva per iniziare a inviare richieste di ricerca all'API Ricerca immagini Bing. Questa applicazione C# invia una query di ricerca all'API e visualizza l'URL della prima immagine inclusa nei risultati. L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
-L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
-
-Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) con altre annotazioni di codice e informazioni sulla gestione degli errori.
+Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) con annotazioni aggiuntive e altre informazioni sulla gestione degli errori.
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Qualsiasi edizione di [Visual Studio 2017](https://www.visualstudio.com/downloads/).
@@ -31,8 +29,6 @@ Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.
 * Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](http://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
-
-Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-and-initialize-a-project"></a>Creare e inizializzare un progetto
 
@@ -110,7 +106,7 @@ Nel metodo `BingImageSearch` eseguire i passaggi seguenti.
     //...
     ```
 
-2. Eseguire la richiesta Web e ottenere la risposta come stringa JSON.
+2. Inviare la richiesta Web e ottenere la risposta come stringa JSON.
 
     ```csharp
     WebRequest request = WebRequest.Create(uriQuery);
@@ -157,7 +153,7 @@ Nel metodo `BingImageSearch` eseguire i passaggi seguenti.
     ```  
 
 
-## <a name="json-response"></a>Risposta JSON
+## <a name="example-json-response"></a>Risposta JSON di esempio
 
 Le risposte dell'API Ricerca immagini Bing vengono restituite in formato JSON. Questa risposta di esempio è stata troncata in modo da visualizzare un singolo risultato.
 
@@ -201,7 +197,7 @@ Le risposte dell'API Ricerca immagini Bing vengono restituite in formato JSON. Q
         },
         "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
         "accentColor":"0050B2"
-    }
+    }]
 }
 ```
 
@@ -213,7 +209,8 @@ Le risposte dell'API Ricerca immagini Bing vengono restituite in formato JSON. Q
 ## <a name="see-also"></a>Vedere anche 
 
 * [Informazioni su Ricerca immagini Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Provare una demo interattiva online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Provare una demo interattiva online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
+* [Dettagli sui prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) delle API Ricerca Bing. 
 * [Ottenere gratuitamente una chiave di accesso per Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Documentazione di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services)
 * [Informazioni di riferimento per l'API Ricerca immagini Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

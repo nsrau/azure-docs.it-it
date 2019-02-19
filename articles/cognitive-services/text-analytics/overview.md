@@ -3,25 +3,25 @@ title: Informazioni su Analisi del testo
 titleSuffix: Azure Cognitive Services
 description: Analisi del testo nei Servizi cognitivi di Azure per l'analisi del sentiment, l'estrazione di frasi chiave, il rilevamento della lingua e il collegamento delle entità.
 services: cognitive-services
-author: ashmaka
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 10/01/2018
-ms.author: ashmaka
-ms.openlocfilehash: 73505064bf5cde4e97cd210698e21883cc9f5e38
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: 0de4e0d750d8ae3061ed0b80d706dec545338a90
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227880"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242928"
 ---
 # <a name="what-is-text-analytics"></a>Informazioni su Analisi del testo
 
 L'API Analisi del testo è un servizio basato su cloud che garantisce l'elaborazione avanzata in linguaggio naturale su testo non elaborato e include tre funzioni principali: analisi del sentiment, estrazione di frasi chiave e rilevamento della lingua.
 
-L'API è supportata dalle risorse dei [Servizi cognitivi Microsoft](https://docs.microsoft.com/azure/cognitive-services/), una raccolta di algoritmi di apprendimento automatico e AI nel cloud, facilmente utilizzabili nei progetti di sviluppo.
+L'API fa parte di [Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/), una raccolta di algoritmi di Machine Learning e intelligenza artificiale disponibili nel cloud per i progetti di sviluppo.
 
 ## <a name="capabilities-in-text-analytics"></a>Funzionalità di Analisi del testo
 

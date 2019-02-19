@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/23/2019
+ms.date: 02/08/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: be78c91a4fb5c1e79e7b58620f65c9f17bfb4bae
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 14678ed789b611c0226d98fe11b3c9bacb993208
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226486"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991481"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Creare un'app Python nel Servizio app di Azure in Linux (anteprima)
 
@@ -39,7 +39,7 @@ Per completare questa guida introduttiva:
 * <a href="https://www.python.org/downloads/" target="_blank">Installare Python 3.7</a>
 * <a href="https://git-scm.com/" target="_blank">Installare Git</a>
 
-## <a name="download-the-sample"></a>Scaricare l'esempio
+## <a name="download-the-sample-locally"></a>Scaricare l'esempio in locale
 
 In una finestra del terminale eseguire i comandi seguenti per clonare l'applicazione di esempio nel computer locale e passare alla directory con il codice di esempio.
 
@@ -79,49 +79,80 @@ Nella finestra del terminale premere **CTRL+C** per uscire dal server Web.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
+## <a name="download-the-sample"></a>Scaricare l'esempio
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
+In Cloud Shell creare una directory quickstart e passare ad essa.
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
+```bash
+mkdir quickstart
+
+cd quickstart
+```
+
+Eseguire quindi il comando seguente per clonare il repository dell'app di esempio nella directory quickstart.
+
+```bash
+git clone https://github.com/Azure-Samples/python-docs-hello-world
+```
+
+Durante l'esecuzione, il comando visualizza informazioni simili all'esempio seguente:
+
+```bash
+Cloning into 'python-docs-hello-world'...
+remote: Enumerating objects: 43, done.
+remote: Total 43 (delta 0), reused 0 (delta 0), pack-reused 43
+Unpacking objects: 100% (43/43), done.
+Checking connectivity... done.
+```
 
 ## <a name="create-a-web-app"></a>Creare un'app Web
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
+Passare alla directory contenente il codice di esempio ed eseguire il comando `az webapp up`.
 
-Passare al sito per visualizzare la nuova app creata con l'immagine predefinita. Sostituire _&lt;app name>_ con il nome dell'app.
+Nell'esempio seguente sostituire <app_name> con un nome di app univoco.
 
 ```bash
-http://<app_name>.azurewebsites.net
+cd python-docs-hello-world
+
+az webapp up -n <app_name>
 ```
 
-Ecco l'aspetto che avrà la nuova app:
+L'esecuzione del comando può richiedere alcuni minuti. Durante l'esecuzione, il comando visualizza informazioni simili all'esempio seguente:
 
-![Pagina dell'app vuota](media/quickstart-php/app-service-web-service-created.png)
+```json
+The behavior of this command has been altered by the following extension: webapp
+Creating Resource group 'appsvc_rg_Linux_CentralUS' ...
+Resource group creation complete
+Creating App service plan 'appsvc_asp_Linux_CentralUS' ...
+App service plan creation complete
+Creating app '<app_name>' ....
+Webapp creation complete
+Creating zip with contents of dir /home/username/quickstart/python-docs-hello-world ...
+Preparing to deploy contents to app.
+All done.
+{
+  "app_url": "https:/<app_name>.azurewebsites.net",
+  "location": "Central US",
+  "name": "<app_name>",
+  "os": "Linux",
+  "resourcegroup": "appsvc_rg_Linux_CentralUS ",
+  "serverfarm": "appsvc_asp_Linux_CentralUS",
+  "sku": "BASIC",
+  "src_path": "/home/username/quickstart/python-docs-hello-world ",
+  "version_detected": "-",
+  "version_to_create": "python|3.7"
+}
+```
 
-[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
+Il comando `az webapp up` esegue le azioni seguenti:
 
-```bash
-Counting objects: 42, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (39/39), done.
-Writing objects: 100% (42/42), 9.43 KiB | 0 bytes/s, done.
-Total 42 (delta 15), reused 0 (delta 0)
-remote: Updating branch 'master'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id 'c40efbb40e'.
-remote: Generating deployment script.
-remote: Generating deployment script for python Web Site
-.
-.
-.
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Deployment successful.
-remote: App container will begin restart within 10 seconds.
-To https://user2234@cephalin-python.scm.azurewebsites.net/cephalin-python.git
- * [new branch]      master -> master
- ```
+- Crea un gruppo di risorse predefinito.
+
+- Crea un piano di servizio app predefinito.
+
+- Crea un'app con il nome specificato.
+
+- [Distribuire file ZIP](https://docs.microsoft.com/azure/app-service/deploy-zip) i dalla directory di lavoro corrente all'app.
 
 ## <a name="browse-to-the-app"></a>Passare all'app
 
@@ -139,17 +170,22 @@ Il codice di esempio Python è in esecuzione nel servizio app in Linux con un'im
 
 ## <a name="update-locally-and-redeploy-the-code"></a>Aggiornare e ridistribuire il codice in locale
 
-Nel repository locale aprire il file `application.py` e apportare una piccola modifica al testo nell'ultima riga:
+In Cloud Shell digitare `code application.py` per aprire l'editor di Cloud Shell.
+
+![Code application.py](media/quickstart-python/code-applicationpy.png)
+
+ Apportare una piccola modifica al testo nella chiamata a `return`:
 
 ```python
 return "Hello Azure!"
 ```
 
-Eseguire il commit delle modifiche in Git e quindi effettuare il push delle modifiche al codice in Azure.
+Salvare le modifiche e uscire dall'editor. Usare il comando `^S` per salvare e `^Q` per uscire.
+
+A questo punto occorre ridistribuire l'app. Sostituire `<app_name>` con l'app.
 
 ```bash
-git commit -am "updated output"
-git push azure master
+az webapp up -n <app_name>
 ```
 
 Al termine della distribuzione, tornare alla finestra del browser aperta nel passaggio **Passare all'app** e aggiornare la pagina.

@@ -1,34 +1,31 @@
 ---
-title: 'Avvio rapido: Ottenere le lingue supportate, Go: API Traduzione testuale'
+title: 'Guida introduttiva: Ottenere le lingue supportate, Go: API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari insieme a esempi usando l'API Traduzione testuale con Go.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/05/2018
+ms.date: 02/07/2019
 ms.author: erhopf
-ms.openlocfilehash: 45dcd87910e0dbfc57aa09751cbdaa7a043d7cf1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f750bfb07ee273f7b1d355657bfd3c4808f84ef5
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226656"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891719"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-go"></a>Avvio rapido: Usare l'API Traduzione testuale per ottenere un elenco delle lingue supportate usando Go
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-go"></a>Guida introduttiva: Usare l'API Traduzione testuale per ottenere un elenco delle lingue supportate usando Go
 
 In questa guida di avvio rapido si apprenderà come effettuare una richiesta GET che restituisce un elenco delle lingue supportate usando Go e l'API REST Traduzione testuale.
-
-Per questa guida introduttiva è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa Traduzione testuale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Questa guida introduttiva richiede:
 
 * [Go](https://golang.org/doc/install)
-* Una chiave di sottoscrizione di Azure per Traduzione testuale
 
 ## <a name="create-a-project-and-import-required-modules"></a>Creare un progetto e importare i moduli necessari
 
@@ -43,43 +40,32 @@ import (
     "log"
     "net/http"
     "net/url"
-    "os"
 )
 ```
 
 ## <a name="create-the-main-function"></a>Creare la funzione main
 
-Questo esempio proverà a leggere la chiave di sottoscrizione di Traduzione testuale dalla variabile di ambiente `TRANSLATOR_TEXT_KEY`. Se non si ha familiarità con le variabili di ambiente, è possibile impostare `subscriptionKey` come stringa e l'istruzione condizionale come commento.
+Creare la funzione main per l'applicazione. Come si può notare, si tratta di una singola riga di codice. Il motivo è che per ottenere e stampare l'elenco di lingue supportate per Traduzione testuale viene creata una singola funzione.
 
 Copiare questo codice nel progetto:
 
 ```go
 func main() {
     /*
-     * Read your subscription key from an env variable.
-     * Please note: You can replace this code block with
-     * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
-     * want to use env variables.
-     */
-    subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
-    if subscriptionKey == "" {
-       log.Fatal("Environment variable TRANSLATOR_TEXT_KEY is not set.")
-    }
-    /*
      * This calls our getLanguages function, which we'll
      * create in the next section. It takes a single argument,
      * the subscription key.
      */
-    getLanguages(subscriptionKey)
+    getLanguages()
 }
 ```
 
 ## <a name="create-a-function-to-get-a-list-of-supported-languages"></a>Creare una funzione per ottenere un elenco delle lingue supportate
 
-È possibile creare una funzione per ottenere un elenco delle lingue supportate. Questa funzione prenderà un unico argomento, la chiave di sottoscrizione di Traduzione testuale.
+È possibile creare una funzione per ottenere un elenco delle lingue supportate.
 
 ```go
-func getLanguages(subscriptionKey string) {
+func getLanguages() {
     /*  
      * In the next few sections, we'll add code to this
      * function to make a request and handle the response.
@@ -93,8 +79,9 @@ Copiare questo codice nella funzione `getLanguages`.
 
 ```go
 // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
-u, _ := url.Parse("https://api.cognitive.microsofttranslator.com/languages?api-version=3.0")
+u, _ := url.Parse("https://api.cognitive.microsofttranslator.com/languages")
 q := u.Query()
+q.Add("api-version", "3.0")
 u.RawQuery = q.Encode()
 ```
 
@@ -112,7 +99,6 @@ if err != nil {
     log.Fatal(err)
 }
 // Add required headers
-req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 req.Header.Add("Content-Type", "application/json")
 
 // Call the Translator Text API

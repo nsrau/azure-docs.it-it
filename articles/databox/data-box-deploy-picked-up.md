@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 02/13/2019
 ms.author: alkohli
-ms.openlocfilehash: 158c2a8919bccea03f5c7b67aef23cd07022c259
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 5a72bfccd69a51aa6bafb34bb768b48640e554af
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900511"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243009"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Esercitazione: Restituire Azure Data Box e verificare il caricamento dei dati in Azure
 
@@ -42,7 +42,7 @@ Prima di iniziare, verificare che:
 ## <a name="ship-data-box-back"></a>Rispedire il Data Box
 
 1. Verificare che il dispositivo sia spento e i cavi scollegati. Avvolgere il cavo di alimentazione fornito con il dispositivo e assicurarlo al retro del dispositivo.
-2. Se il dispositivo viene spedito negli Stati Uniti, assicurarsi che l'etichetta indirizzo sia visibile sul display E-ink e prenotare un corriere per il ritiro. Se l'etichetta è danneggiata, è stata smarrita o non è visibile sul display E-ink, passare a **Panoramica > Scarica etichetta di spedizione** nel portale di Azure. Scaricare l'etichetta di spedizione e applicarla sul dispositivo.
+2. Se il dispositivo viene spedito negli Stati Uniti, assicurarsi che l'etichetta indirizzo sia visibile sul display E-ink e prenotare un corriere per il ritiro. Se l'etichetta viene danneggiata o smarrita oppure non viene visualizzata sul display E-ink, contattare il supporto tecnico Microsoft. Solo se il supporto lo suggerisce, passare a **Panoramica > Scarica etichetta di spedizione** nel portale di Azure. Scaricare l'etichetta di spedizione e applicarla sul dispositivo.
 
     Se il dispositivo viene spedito in Europa, l'etichetta di spedizione non viene visualizzata sullo schermo E-ink. L'etichetta indirizzo per la spedizione di ritorno è invece inserita all'interno dell'involucro trasparente sotto l'etichetta indirizzo di inoltro. Rimuovere l'etichetta indirizzo precedente e verificare che l'etichetta di spedizione sia chiaramente visibile.
     

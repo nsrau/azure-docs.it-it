@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c89a239cd3abbdd59813626f4b64596ee8a1fd7e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e2dd02ada2c22fa8d6c2d79387ea01f3ec97dd7e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756802"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108127"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Esercitazione: Automatizzare la compilazione di immagini dei contenitori quando viene aggiornata un'immagine in Registro Azure Container 
 
@@ -78,6 +78,8 @@ Questa esercitazione illustra uno scenario di aggiornamento dell'immagine di bas
 [Dockerfile-base][dockerfile-base]: immagine specificata da `Dockerfile-app` come base. È a propria volta basata su un'immagine [Node][base-node] e include la variabile di ambiente `NODE_VERSION`.
 
 Nelle sezioni seguenti si crea un'attività, si aggiorna il valore di `NODE_VERSION` nel documento Dockerfile dell'immagine di base e quindi si usa ACR Tasks per compilare l'immagine di base. Quando l'attività di ACR Tasks esegue il push della nuova immagine di base nel registro, attiva automaticamente una compilazione dell'immagine dell'applicazione. Facoltativamente, si esegue l'immagine del contenitore dell'applicazione in locale per verificare le diverse stringhe della versione nelle immagini compilate.
+
+In questa esercitazione l'attività del Registro Azure Container crea ed esegue il push di una singola immagine del contenitore specificata in un Dockerfile. Le funzionalità di Attività del Registro Azure Container consentono anche di eseguire [attività in più passi](container-registry-tasks-multi-step.md) (attualmente in anteprima), usando un file YAML per definire i passaggi per creare, eseguire il push e facoltativamente testare più contenitori.
 
 ## <a name="build-the-base-image"></a>Compilare l'immagine di base
 
@@ -257,7 +259,7 @@ In questa esercitazione è stato illustrato come usare un'attività per attivare
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-build]: /cli/azure/acr#az-acr-build-run
 [az-acr-task-create]: /cli/azure/acr
-[az-acr-task-run]: /cli/azure/acr-run
+[az-acr-task-run]: /cli/azure/acr#az-acr-run
 [az-acr-login]: /cli/azure/acr#az-acr-login
 [az-acr-task-list-runs]: /cli/azure/acr
 [az-acr-task]: /cli/azure/acr

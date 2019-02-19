@@ -6,67 +6,67 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 183f596c213f833a2ca633398d1102e86f328912
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 445d9f220a215eb17436d52f637b57bd3492aaae
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468853"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864775"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Creare un contenitore in Azure Cosmos
 
-Questo articolo illustra i diversi modi per creare un contenitore (raccolta, tabella, grafo). Un contenitore può essere creato tramite il portale di Azure, l'interfaccia della riga di comando di Azure o gli SDK supportati. Questo articolo spiega come creare un contenitore, specificare la chiave di partizione ed effettuare il provisioning della velocità effettiva.
+Questo articolo illustra i diversi modi disponibili per creare un contenitore (raccolta, tabella o grafo). Vengono usati il portale di Azure, l'interfaccia della riga di comando di Azure o gli SDK supportati. Questo articolo spiega come creare un contenitore, specificare la chiave di partizione ed effettuare il provisioning della velocità effettiva.
 
-## <a name="create-a-container-using-azure-portal"></a>Creare un contenitore tramite il portale di Azure
+## <a name="create-a-container-by-using-azure-portal"></a>Creare un contenitore tramite il portale di Azure
 
 ### <a id="portal-sql"></a>API SQL
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-1. [Creare un nuovo account Cosmos DB](create-sql-api-dotnet.md#create-a-database-account) o selezionarne uno esistente.
+1. [Creare un nuovo account Azure Cosmos DB](create-sql-api-dotnet.md#create-a-database-account) o selezionarne uno esistente.
 
-1. Aprire il riquadro **Esplora dati** e selezionare **Nuova raccolta**. Compilare quindi il modulo con i dettagli seguenti:
+1. Aprire il riquadro **Esplora dati** e selezionare **Nuova raccolta**. Specificare quindi i dettagli seguenti:
 
-   * Creare un nuovo database o usarne uno esistente.
+   * Indicare se si intende creare un nuovo database o usarne uno esistente.
    * Immettere un ID raccolta.
    * Immettere una chiave di partizione.
    * Immettere una velocità effettiva, ad esempio 1000 UR/sec.
    * Selezionare **OK**.
 
-![Viene creata una raccolta con l'API SQL](./media/how-to-create-container/partitioned-collection-create-sql.png)
+![Screenshot del riquadro Esplora dati con l'opzione Nuova raccolta evidenziata](./media/how-to-create-container/partitioned-collection-create-sql.png)
 
-### <a id="portal-mongodb"></a>API di Azure Cosmos DB per MongoDB
+### <a id="portal-mongodb"></a>API Azure Cosmos DB per MongoDB
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-1. [Creare un nuovo account Cosmos DB](create-mongodb-dotnet.md#create-a-database-account) o selezionarne uno esistente.
+1. [Creare un nuovo account Azure Cosmos DB](create-mongodb-dotnet.md#create-a-database-account) o selezionarne uno esistente.
 
-1. Aprire il riquadro **Esplora dati** e selezionare **Nuova raccolta**. Compilare quindi il modulo con i dettagli seguenti:
+1. Aprire il riquadro **Esplora dati** e selezionare **Nuova raccolta**. Specificare quindi i dettagli seguenti:
 
-   * Creare un nuovo database o usarne uno esistente.
+   * Indicare se si intende creare un nuovo database o usarne uno esistente.
    * Immettere un ID raccolta.
    * Selezionare una capacità di archiviazione **Illimitata**.
    * Immettere una chiave di partizione.
    * Immettere una velocità effettiva, ad esempio 1000 UR/sec.
    * Selezionare **OK**.
 
-![L'API di Azure Cosmos DB per MongoDB crea una raccolta](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
+![Screenshot dell'API Azure Cosmos DB per MongoDB con la finestra di dialogo Aggiungi raccolta](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
 ### <a id="portal-cassandra"></a>API Cassandra
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-1. [Creare un nuovo account Cosmos DB](create-cassandra-dotnet.md#create-a-database-account) o selezionarne uno esistente.
+1. [Creare un nuovo account Azure Cosmos DB](create-cassandra-dotnet.md#create-a-database-account) o selezionarne uno esistente.
 
-1. Aprire il riquadro **Esplora dati** e selezionare **Nuova tabella**. Compilare quindi il modulo con i dettagli seguenti:
+1. Aprire il riquadro **Esplora dati** e selezionare **Nuova tabella**. Specificare quindi i dettagli seguenti:
 
-   * Creare un nuovo keyspace o usarne uno esistente.
+   * Indicare se si intende creare un nuovo keyspace o usarne uno esistente.
    * Immettere un nome per la tabella.
-   * Immettere le proprietà e specificare una CHIAVE PRIMARIA.
+   * Immettere le proprietà e specificare una chiave primaria.
    * Immettere una velocità effettiva, ad esempio 1000 UR/sec.
    * Selezionare **OK**.
 
-![Viene creata una raccolta con l'API Cassandra](./media/how-to-create-container/partitioned-collection-create-cassandra.png)
+![Screenshot dell'API Cassandra con la finestra di dialogo Aggiungi tabella](./media/how-to-create-container/partitioned-collection-create-cassandra.png)
 
 > [!NOTE]
 > Per l'API Cassandra, la chiave primaria viene usata come chiave di partizione.
@@ -75,38 +75,38 @@ Questo articolo illustra i diversi modi per creare un contenitore (raccolta, tab
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-1. [Creare un nuovo account Cosmos DB](create-graph-dotnet.md#create-a-database-account) o selezionarne uno esistente.
+1. [Creare un nuovo account Azure Cosmos DB](create-graph-dotnet.md#create-a-database-account) o selezionarne uno esistente.
 
-1. Aprire il riquadro **Esplora dati** e selezionare **Nuovo grafo**. Compilare quindi il modulo con i dettagli seguenti:
+1. Aprire il riquadro **Esplora dati** e selezionare **Nuovo grafo**. Specificare quindi i dettagli seguenti:
 
-   * Creare un nuovo database o usarne uno esistente.
+   * Indicare se si intende creare un nuovo database o usarne uno esistente.
    * Immettere un ID grafo.
    * Selezionare una capacità di archiviazione **Illimitata**.
    * Immettere una chiave di partizione per i vertici.
    * Immettere una velocità effettiva, ad esempio 1000 UR/sec.
    * Selezionare **OK**.
 
-![Viene creata una raccolta con l'API Gremlin](./media/how-to-create-container/partitioned-collection-create-gremlin.png)
+![Screenshot dell'API Gremlin con la finestra di dialogo Aggiungi Graph](./media/how-to-create-container/partitioned-collection-create-gremlin.png)
 
 ### <a id="portal-table"></a>API di tabella
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-1. [Creare un nuovo account Cosmos DB](create-table-dotnet.md#create-a-database-account) o selezionarne uno esistente.
+1. [Creare un nuovo account Azure Cosmos DB](create-table-dotnet.md#create-a-database-account) o selezionarne uno esistente.
 
-1. Aprire il riquadro **Esplora dati** e selezionare **Nuova tabella**. Compilare quindi il modulo con i dettagli seguenti:
+1. Aprire il riquadro **Esplora dati** e selezionare **Nuova tabella**. Specificare quindi i dettagli seguenti:
 
    * Immettere un ID tabella.
    * Selezionare una capacità di archiviazione **Illimitata**.
    * Immettere una velocità effettiva, ad esempio 1000 UR/sec.
    * Selezionare **OK**.
 
-![Viene creata una raccolta con l'API Tabella](./media/how-to-create-container/partitioned-collection-create-table.png)
+![Screenshot dell'API Tabella con la finestra di dialogo Aggiungi tabella](./media/how-to-create-container/partitioned-collection-create-table.png)
 
 > [!Note]
 > Per l'API Tabella, la chiave di partizione viene specificata ogni volta che si aggiunge una nuova riga.
 
-## <a name="create-a-container-using-azure-cli"></a>Creare un contenitore tramite l'interfaccia della riga di comando di Azure
+## <a name="create-a-container-by-using-azure-cli"></a>Creare un contenitore tramite l'interfaccia della riga di comando di Azure
 
 ### <a id="cli-sql"></a>API SQL
 
@@ -122,7 +122,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-### <a id="cli-mongodb"></a>API di Azure Cosmos DB per MongoDB
+### <a id="cli-mongodb"></a>API Azure Cosmos DB per MongoDB
 
 ```azurecli-interactive
 # Create a collection with a shard key and provision 1000 RU/s throughput.
@@ -174,7 +174,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-## <a name="create-a-container-using-net-sdk"></a>Creare un contenitore tramite .NET SDK
+## <a name="create-a-container-by-using-net-sdk"></a>Creare un contenitore tramite .NET SDK
 
 ### <a id="dotnet-sql-graph"></a>API SQL e API Gremlin
 
@@ -190,7 +190,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 1000 });
 ```
 
-### <a id="dotnet-mongodb"></a>API di Azure Cosmos DB per MongoDB
+### <a id="dotnet-mongodb"></a>API Azure Cosmos DB per MongoDB
 
 ```csharp
 // Create a collection with a partition key by using Mongo Shell:
@@ -198,7 +198,7 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 ```
 
 > [!Note]
-Il protocollo di collegamento MongoDB non prevede il concetto di unità di richieste. Per creare una nuova raccolta con velocità effettiva, usare il portale di Azure o l'API SQL, come mostrato negli esempi precedenti.
+Il protocollo di collegamento MongoDB non richiede unità. Per creare una nuova raccolta con velocità effettiva, usare il portale di Azure o l'API SQL.
 
 ### <a id="dotnet-cassandra"></a>API Cassandra
 
@@ -211,7 +211,5 @@ session.Execute(CREATE TABLE myKeySpace.myTable(
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-Vedere gli articoli seguenti per altre informazioni sul partizionamento in Cosmos DB:
 
 - [Partitioning in Azure Cosmos DB](partitioning-overview.md) (Partizionamento in Azure Cosmos DB)

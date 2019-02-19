@@ -4,31 +4,28 @@ titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari insieme a esempi usando l'API Traduzione testuale con Python.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 02/07/2019
 ms.author: erhopf
-ms.openlocfilehash: 6f52df9166da371b38069138bc4389a9be6b0121
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 099485f37cc188307b6c04343ef174740acf07cb
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692223"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891574"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-python"></a>Avvio rapido: Usare l'API Traduzione testuale per ottenere un elenco delle lingue supportate con Python
 
 In questa Guida introduttiva si apprenderà come effettuare una richiesta GET che restituisce un elenco delle lingue supportate usando Python e l'API REST Traduzione testuale.
-
-Per questa guida introduttiva è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa Traduzione testuale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Questa guida introduttiva richiede:
 
 * Python 2.7.x o 3.x
-* Una chiave di sottoscrizione di Azure per Traduzione testuale
 
 ## <a name="create-a-project-and-import-required-modules"></a>Creare un progetto e importare i moduli necessari
 
@@ -44,25 +41,7 @@ import os, requests, uuid, json
 
 Il primo commento indica all'interprete Python di usare la codifica UTF-8. I moduli necessari vengono quindi importati per leggere la chiave di sottoscrizione da una variabile di ambiente, costruire la richiesta http, creare un identificatore univoco e gestire la risposta JSON restituita dall'API Traduzione testuale.
 
-## <a name="set-the-subscription-key-base-url-and-path"></a>Impostare la chiave di sottoscrizione, l'URL di base e il percorso
-
-Questo esempio proverà a leggere la chiave di sottoscrizione di Traduzione testuale dalla variabile di ambiente `TRANSLATOR_TEXT_KEY`. Se non si ha familiarità con le variabili di ambiente, è possibile impostare `subscriptionKey` come stringa e l'istruzione condizionale come commento.
-
-Copiare questo codice nel progetto:
-
-```python
-# Checks to see if the Translator Text subscription key is available
-# as an environment variable. If you are setting your subscription key as a
-# string, then comment these lines out.
-if 'TRANSLATOR_TEXT_KEY' in os.environ:
-    subscriptionKey = os.environ['TRANSLATOR_TEXT_KEY']
-else:
-    print('Environment variable for TRANSLATOR_TEXT_KEY is not set.')
-    exit()
-# If you want to set your subscription key as a string, uncomment the line
-# below and add your subscription key.
-#subscriptionKey = 'put_your_key_here'
-```
+## <a name="set-the-base-url-and-path"></a>Impostare l'URL di base e il percorso
 
 L'endpoint globale di Traduzione testuale viene impostato come `base_url`. `path` imposta la route `languages` e identifica che si vuole usare la versione 3 dell'API.
 
@@ -77,13 +56,12 @@ constructed_url = base_url + path
 
 ## <a name="add-headers"></a>Aggiungere le intestazioni
 
-Il modo più semplice per autenticare una richiesta consiste nel passare la chiave di sottoscrizione come intestazione `Ocp-Apim-Subscription-Key`, metodo che viene appunto usato in questo esempio. In alternativa, è possibile sostituire la chiave di sottoscrizione con un token di accesso e passare il token di accesso insieme a un'intestazione `Authorization` per convalidare la richiesta. Per altre informazioni, vedere [Autenticazione](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+La richiesta di ottenere lingue supportate non richiede autenticazione. Impostare `Content-type` su `application/json` e aggiungere `X-ClientTraceId` per identificare in modo univoco la richiesta.
 
 Copiare questo frammento di codice nel progetto:
 
 ```python
 headers = {
-    'Ocp-Apim-Subscription-Key': subscriptionKey,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }

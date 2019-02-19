@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 00415cab4d5c36c74cf78a10cb71682d97236517
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 604f135cc3dffdb9ac6533826eff6926ad5467df
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099159"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117749"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Esercitazione: Effettuare il provisioning di Azure Data Box Gateway in VMware (anteprima)
 
@@ -51,7 +51,7 @@ Prima di iniziare, verificare che:
 
 ### <a name="for-the-data-box-gateway-virtual-device"></a>Per il dispositivo virtuale Data Box Gateway
 
-Prima di distribuire un dispositivo virtuale, assicurarsi che:
+Prima di distribuire un dispositivo virtuale, è necessario:
 
 * Sia possibile accedere a un sistema host che VMware (ESXi 6.0, 6.5 o 6.7) utilizzabile per il provisioning di un dispositivo.
 * Il sistema host è in grado di dedicare le risorse seguenti per eseguire il provisioning del dispositivo virtuale:
@@ -66,7 +66,7 @@ Prima di distribuire un dispositivo virtuale, assicurarsi che:
 
 Prima di iniziare:
 
-- Verificare i requisiti di rete per distribuire un Data Box Gateway e configurare la rete del data center in base ai requisiti. Per altre informazioni, vedere i [requisiti di rete di Data Box Gateway](data-box-gateway-system-requirements.md#networking-requirements).
+- Verificare i requisiti di rete per distribuire un Data Box Gateway e configurare la rete del data center in base ai requisiti. Per altre informazioni, vedere i [requisiti di rete di Data Box Gateway](data-box-gateway-system-requirements.md#networking-port-requirements).
 - Assicurarsi che la larghezza di banda Internet sia di almeno 20 Mbps per consentire il funzionamento ottimale del dispositivo.
 
 ## <a name="check-the-host-system"></a>Controllare il sistema host
@@ -77,7 +77,7 @@ Per creare un dispositivo virtuale, è necessario quanto segue:
  
   * Un minimo di 4 memorie centrali.
   * Almeno 8 GB di RAM. 
-  * Un'interfaccia di rete connessa alla rete in grado di indirizzare il traffico a Internet. 
+  * Un'interfaccia di rete connessa alla rete in grado di indirizzare il traffico a Internet.
   * Un disco del sistema operativo da 250 GB.
   * Un disco virtuale da 2 TB per i dati.
 * Client VMware vSphere nel sistema per gestire l'host ESXi.
@@ -89,7 +89,7 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 
 1. Copiare l'immagine del dispositivo virtuale nel sistema. Si tratta dell'immagine virtuale (due file) scaricata tramite il portale di Azure. Prendere nota della posizione in cui è stata copiata l'immagine da usare più avanti nella procedura.
 
-2. Accedere al server ESXi con il client Web di vSphere. È necessario disporre dei privilegi di amministratore per creare una macchina virtuale.
+2. Accedere al server ESXi tramite un browser a questo URL: `https://<IP address of the ESXi server>`. È necessario disporre dei privilegi di amministratore per creare una macchina virtuale.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
@@ -149,20 +149,24 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
-    Scorrere verso il basso fino all'elenco a discesa **New hard disk** (Nuovo disco rigido) ed espanderlo per visualizzare le impostazioni. Impostare **Virtual Device Node** (Nodo dispositivo virtuale) su **IDE controller 0** (Controller IDE 0). Fare clic su **Avanti**.
+    Scorrere verso il basso fino all'elenco a discesa **New hard disk** (Nuovo disco rigido) ed espanderlo per visualizzare le impostazioni. Impostare **Virtual Device Node** (Nodo dispositivo virtuale) su **IDE controller 0** (Controller IDE 0).
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image15.png)
 
-27. Nella pagina **Ready to Complete** , verificare tutte le impostazioni associate alla nuova macchina virtuale. Verificare che il valore per la CPU sia 4, per la memoria sia 8192 MB, per la scheda di rete sia 1 e che il disco rigido 2 sia impostato sul controller IDE 0. Fare clic su **Fine**. 
+17. (Facoltativo) *Completare questo passaggio solo se si esegue VMware ESXi Server 6.7*. Nella pagina **Customize settings** (Personalizza impostazioni) fare clic su **VM options** (Opzioni VM). Passare a **Boot options > Firmware** (Opzioni di avvio > Firmware) e impostare il valore su **BIOS**. Per impostazione predefinita, il valore è impostato su EFI. Fare clic su **Avanti**.
+
+    ![](./media/data-box-gateway-deploy-provision-vmware/image15a.png)
+
+18. Nella pagina **Ready to Complete** , verificare tutte le impostazioni associate alla nuova macchina virtuale. Verificare che il valore per la CPU sia 4, per la memoria sia 8192 MB, per la scheda di rete sia 1 e che il disco rigido 2 sia impostato sul controller IDE 0. Fare clic su **Fine**.
    
     ![](./media/data-box-gateway-deploy-provision-vmware/image16.png)
     ![](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
-La macchina virtuale viene ora sottoposta a provisioning. Verrà visualizzata una notifica e la nuova macchina virtuale verrà aggiunta all'elenco di macchine virtuali. 
+La macchina virtuale viene ora sottoposta a provisioning. Verrà visualizzata una notifica e la nuova macchina virtuale verrà aggiunta all'elenco di macchine virtuali.
 
 ![](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
-Il passaggio successivo consiste nell'accendere la macchina e ottenere l'indirizzo IP.
+Il passaggio successivo consiste nell'attivare la macchina virtuale e ottenere l'indirizzo IP.
 
 > [!NOTE]
 > È consigliabile non installare strumenti VMware nel dispositivo virtuale (di cui è stato appena effettuato il provisioning). L'installazione di strumenti di VMware produrrà una configurazione non supportata.

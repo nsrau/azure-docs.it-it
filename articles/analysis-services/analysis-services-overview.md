@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 01/08/2019
+ms.date: 02/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3e192449858d6cbd2d054fa7c70276739cfe1143
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 427f3f498ac04c68ef0b335b50c60db46b46d042
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189480"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243855"
 ---
 # <a name="what-is-azure-analysis-services"></a>Informazioni su Azure Analysis Services
 
@@ -140,17 +140,19 @@ La modalità DirectQuery* sfrutta il database relazionale back-end per l'esecuzi
 
 \* La disponibilità delle funzionalità dipende dal livello.
 
-## <a name="supported-datasources"></a>Origini dati supportate
+## <a name="supported-data-sources"></a>Origini dati supportate
 
 I modelli tabulari in Azure Analysis Services supportano un'ampia gamma di origini dati, dai semplici file di testo ai Big Data in Azure Data Lake Store. Per altre informazioni, vedere [Origini dati supportate in Azure Analysis Services](analysis-services-datasource.md).
 
 ## <a name="your-data-is-secure"></a>I dati sono protetti
 
-Azure Analysis Services fornisce la sicurezza per i dati sensibili a più livelli. A livello di server: firewall, autenticazione di Azure, ruoli di amministratore del server e crittografia lato server. A livello di modello di dati, i ruoli utente e la sicurezza a livello di riga e a livello di oggetto assicurano che i dati siano sicuri e vengano visualizzati solo dagli utenti che devono visualizzarli.
+Azure Analysis Services fornisce la sicurezza per i dati sensibili a più livelli. Essendo un servizio di Azure, Analysis Services prevede che il livello **Basic** degli attacchi Distributed Denial of Service (DDoS) sia automaticamente abilitato come parte della piattaforma Azure. Per altre informazioni, vedere [Panoramica di Protezione DDoS di Azure Standard](../virtual-network/ddos-protection-overview.md). 
+
+A livello di server, Analysis Services fornisce firewall, autenticazione di Azure, ruoli di amministratore del server e crittografia sul lato server. A livello di modello di dati, i ruoli utente e la sicurezza a livello di riga e a livello di oggetto assicurano che i dati siano sicuri e vengano visualizzati solo dagli utenti autorizzati.
 
 ### <a name="firewall"></a>Firewall
 
-Il firewall di Azure Analysis Services blocca tutte le connessioni client diverse dagli indirizzi IP specificati nelle regole. Configurare le regole che specificano gli indirizzi IP consentiti in base agli indirizzi IP dei singoli client o per intervalli di indirizzi IP. Le connessioni di Power BI (servizio) possono essere consentite o bloccate. Configurare il firewall e le regole nel portale o usando PowerShell. Per altre informazioni, vedere [Configurare un firewall del server](analysis-services-qs-firewall.md).
+Il firewall di Azure Analysis Services blocca tutte le connessioni client diverse dagli indirizzi IP specificati nelle regole. Per impostazione predefinita, la protezione del firewall non è abilitata per i nuovi server. È consigliabile abilitarla e configurare regole come parte di uno script di provisioning del server o nel portale immediatamente dopo aver creato il server. Configurare le regole che specificano gli indirizzi IP consentiti in base agli indirizzi IP dei singoli client o per intervalli di indirizzi IP. Le connessioni di Power BI (servizio) possono essere consentite o bloccate. Configurare il firewall e le regole nel portale o usando PowerShell. Per altre informazioni, vedere [Configurare un firewall del server](analysis-services-qs-firewall.md).
 
 ### <a name="authentication"></a>Authentication
 

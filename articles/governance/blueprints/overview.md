@@ -4,17 +4,17 @@ description: Azure Blueprint è un servizio disponibile in Azure usato per crear
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 02/08/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 7803ed99a61a9b4ad819da882daf38cbfd6fffe9
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 29670b94450e9f145a96b737ef96970db40aeed8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563372"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998553"
 ---
 # <a name="what-is-azure-blueprints"></a>Informazioni su Azure Blueprint
 
@@ -112,6 +112,12 @@ Tutte le autorizzazioni precedenti sono incluse nel ruolo **Proprietario**. Il r
 
 > [!NOTE]
 > Per poter abilitare la distribuzione, l'entità servizio per Azure Blueprint richiede il ruolo **proprietario** nella sottoscrizione assegnata. Se si usa il portale, questo ruolo viene automaticamente concesso e revocato per la distribuzione. Se si usa l'API REST, questo ruolo deve essere concesso manualmente, ma viene comunque revocato automaticamente al termine della distribuzione.
+
+## <a name="video-overview"></a>Video introduttivo
+
+La panoramica seguente di Azure Blueprints deriva da Azure Fridays. Per il download del video, visitare [Azure Fridays - Panoramica di Azure Blueprints](https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints) su Channel 9.
+
+> [!VIDEO https://www.youtube.com/embed/cQ9D-d6KkMY]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

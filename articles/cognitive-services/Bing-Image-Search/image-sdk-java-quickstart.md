@@ -4,19 +4,19 @@ description: Usare questa guida introduttiva per effettuare la prima ricerca di 
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: a7603895d623bba9d5023379643b5ea9752344a7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: dd2bf11781a6dd013f033fc535b068d449dd04d4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195597"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238131"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-java"></a>Guida introduttiva: Cercare immagini con l’SDK di Ricerca immagini Bing per Java
 
@@ -63,9 +63,10 @@ Installare le dipendenze dell'SDK di Ricerca immagini Bing usando Maven, Gradle 
     BingImageSearchAPI client = BingImageSearchManager.authenticate(subscriptionKey);
     ```
 
-## <a name="send-a-search-request-to-the-bing-image-search-api"></a>Inviare una richiesta di ricerca all'API Ricerca immagini Bing
+## <a name="send-a-search-request-to-the-api"></a>Inviare una richiesta di ricerca all'API
 
 1. Tramite `bingImages().search()`, inviare la richiesta HTTP contenente la query di ricerca. Salvare la risposta come `ImagesModel`.
+
    ```java
     ImagesModel imageResults = client.bingImages().search()
                 .withQuery(searchTerm)

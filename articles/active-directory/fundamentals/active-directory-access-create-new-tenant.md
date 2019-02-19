@@ -11,12 +11,13 @@ ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 33bab4b66532a4cdcbd33c2f8594476d07985f4b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 39a5ef9d929899ac5e66c5a0e342040fc3c5074b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096943"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194819"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Guida introduttiva: Creare un nuovo tenant in Azure Active Directory
 Nel portale di Azure Active Directory (Azure AD) è possibile eseguire tutte le attività amministrative, inclusa la creazione di un nuovo tenant per l'organizzazione. 
@@ -34,7 +35,7 @@ Accedere al [portale di Azure](https://portal.azure.com/) dell'organizzazione co
 Dopo aver eseguito l'accesso al portale di Azure, è possibile creare un nuovo tenant per l'organizzazione. Il nuovo tenant rappresenta l'organizzazione e consente di gestire un'istanza specifica dei servizi cloud Microsoft per gli utenti interni ed esterni.
 
 ### <a name="to-create-a-new-tenant"></a>Per creare un nuovo tenant
-1. Selezionare **Azure Active Directory**, selezionare **Crea risorse**, selezionare **Identità** e quindi selezionare **Azure Active Directory**.
+1. Selezionare **Crea una risorsa**, **Identità** e quindi **Azure Active Directory**.
 
     Viene visualizzata la pagina **Crea directory**.
 

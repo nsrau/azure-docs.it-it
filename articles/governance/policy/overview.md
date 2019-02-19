@@ -8,12 +8,12 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 11384d1bbffb675bd322469d129464f58a48bb6b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 1cfe7dab907a332f1a38560c39d4f6476cee81aa
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311832"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004736"
 ---
 # <a name="what-is-azure-policy"></a>Informazioni su Criteri di Azure
 
@@ -103,7 +103,7 @@ Analogamente ai parametri dei criteri, i parametri delle iniziative consentono d
 
 Si consideri ad esempio uno scenario con una definizione di iniziativa, **initiativeC**, che include le definizioni di criteri **policyA** e **policyB**, per ognuna delle quali è previsto un diverso tipo di parametro:
 
-| Criterio | Nome del parametro |Tipo di parametro  |Note |
+| Policy | Nome del parametro |Tipo di parametro  |Note |
 |---|---|---|---|
 | policyA | allowedLocations | array  |Questo parametro prevede come valore un elenco di stringhe, perché il parametro è stato definito come di tipo matrice |
 | policyB | allowedSingleLocation |stringa |Questo parametro prevede come valore una parola, perché il parametro è stato definito come di tipo stringa |

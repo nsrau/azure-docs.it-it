@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Accedere ai dati della versione di anteprima di Azure Data Lake Storage Gen2 con Azure Databricks usando Spark | Microsoft Docs'
+title: 'Esercitazione: Accedere ai dati di Azure Data Lake Storage Gen2 con Azure Databricks usando Spark | Microsoft Docs'
 description: Questa esercitazione mostra come eseguire query Spark su un cluster Azure Databricks per accedere ai dati in un account di archiviazione Azure Data Lake Storage Gen2.
 services: storage
 author: dineshmurthy
@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: dineshm
-ms.openlocfilehash: 533665ebfa3d35ed5f03326cf5614e37056b7713
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e448ef0de9ef5560c1b4ea0df5c02e8efd8c0ea9
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813603"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891658"
 ---
-# <a name="tutorial-access-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Esercitazione: Accedere ai dati della versione di anteprima di Azure Data Lake Storage Gen2 con Azure Databricks tramite Spark
+# <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Esercitazione: Accedere ai dati di Data Lake Storage Gen2 con Azure Databricks usando Spark
 
-Questa esercitazione mostra come connettere il cluster Azure Databricks ai dati archiviati in un account di archiviazione di Azure per cui è abilitato Azure Data Lake Storage Gen2 (anteprima). Questa connessione permette di eseguire in modo nativo query e analisi dal cluster sui dati.
+Questa esercitazione illustra come connettere un cluster di Azure Databricks ai dati archiviati in un account di archiviazione di Azure per cui è abilitato Azure Data Lake Storage Gen2. Questa connessione permette di eseguire in modo nativo query e analisi dal cluster sui dati.
 
 In questa esercitazione si apprenderà come:
 
@@ -145,7 +145,7 @@ In questa sezione si creeranno un file system e una cartella nell'account di arc
     mount_point = "/mnt/flightdata",
     extra_configs = configs)
     ```
-18. In questo blocco di codice, sostituire i valori segnaposto `storage-account-name`, `application-id`, `authentication-id` e `tenant-id` con i valori che sono stati ottenuti dopo aver completato i passaggi descritti nelle sezioni [Esaminare l'account di archiviazione](#config) e [Creare un'entità servizio](#service-principal) di questo articolo. Sostituire il segnaposto `file-system-name` con il nome che si vuole assegnare al file system.
+18. In questo blocco di codice, sostituire i valori segnaposto `storage-account-name`, `application-id`, `authentication-id` e `tenant-id` con i valori raccolti completando i passaggi descritti nelle sezioni "Recuperare il nome dell'account di archiviazione" e [Creare un'entità servizio](#service-principal) di questo articolo. Sostituire il segnaposto `file-system-name` con il nome che si vuole assegnare al file system.
 
 19. Premere **MAIUSC + INVIO** per eseguire il codice in questo blocco. 
 

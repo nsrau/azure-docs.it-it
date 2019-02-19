@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/30/2019
+ms.date: 02/08/2019
 ms.author: jdial
-ms.openlocfilehash: 5472878542078e2a2dbb900965b59844d6e3b4b3
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e145642a12db941d52c55081032e247b6d65d38b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488095"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997330"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipi di indirizzi IP e metodi di allocazione in Azure
 
@@ -71,7 +71,7 @@ Tutti gli indirizzi IP pubblici creati prima dell'introduzione degli SKU sono in
 Gli indirizzi IP pubblici con SKU Standard sono:
 
 - Assegnati sempre con il metodo di allocazione statica.
-- Caratterizzati da un timeout di inattività per i flussi in ingresso e in uscita modificabile di 4-66 minuti, con un valore predefinito di 4 minuti.
+- Caratterizzati da un timeout di inattività per i flussi in ingresso e in uscita modificabile di 4-30 minuti, con un valore predefinito di 4 minuti.
 - Sono protetti per impostazione predefinita e chiusi al traffico in ingresso. È necessario inserire esplicitamente in un elenco di elementi consentiti il traffico di rete in ingresso con un [gruppo di sicurezza di rete](security-overview.md#network-security-groups).
 - Assegnato a interfacce di rete, servizi pubblici di bilanciamento del carico standard, gateway applicazione o gateway VPN. Per altre informazioni su Load Balancer Standard, vedere [Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Con ridondanza della zona per impostazione predefinita e facoltativamente di zona (può essere creato a livello di zona ed è garantito in una zona di disponibilità specifica). Per altre informazioni sulle zone di disponibilità, vedere [Panoramica delle zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

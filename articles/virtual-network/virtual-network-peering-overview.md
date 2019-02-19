@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 6bb075857d67885d968b495cc8d545af9994eaf0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c91292bff22a76e4c15f031094809e20fdc43031
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169315"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175728"
 ---
 # <a name="virtual-network-peering"></a>Peering di rete virtuale
 
@@ -78,7 +78,7 @@ Per verificare un peering di rete virtuale, è possibile [verificare le route va
 ## <a name="requirements-and-constraints"></a>Requisiti e vincoli
 
 I vincoli seguenti si applicano quando il peering viene eseguito globalmente nelle reti virtuali:
-- Le reti virtuali possono trovarsi in qualsiasi area di cloud pubblico di Azure, ma non nei cloud nazionali di Azure.
+- Le reti virtuali possono trovarsi in qualsiasi area di cloud pubblico di Azure e nelle aree dei cloud di Azure Cina, ma non nei cloud di Azure per enti pubblici.
 - Le risorse in una rete virtuale non possono comunicare con l'indirizzo IP front-end di un servizio di bilanciamento del carico interno di Azure nella rete virtuale con peering globale. Il servizio di bilanciamento del carico e le risorse che comunicano con quest'ultimo devono essere nella stessa area.
 - Non è possibile usare i gateway remoti o consentire il transito del gateway. Per usare i gateway remoti o per consentire il transito gateway,  le reti virtuali con peering devono trovarsi nella stessa area.
 

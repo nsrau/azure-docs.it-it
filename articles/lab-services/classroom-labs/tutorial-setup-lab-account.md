@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/15/2018
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 4b8b5502090e1b115829b65834532dd6ce15a934
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 28710ebfaef4c82212e0208c36f50a96f0dda083
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835914"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892049"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Esercitazione: Configurare un account lab con Azure Lab Services
 In Azure Lab Services l'account lab funge da account centrale in cui vengono gestiti tutti i lab dell'organizzazione. Nell'account lab si concedono ad altri utenti le autorizzazioni alla creazione di lab e di impostano criteri che si applicano a tutti i lab all'interno dell'account lab. Questa esercitazione illustra come creare un account lab come amministratore del lab. 
@@ -37,21 +37,25 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 La procedura seguente illustra come usare il portale di Azure per creare un account lab con Azure Lab Services. 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Scegliere **Creare una risorsa** dal menu principale a sinistra.
-3. Cercare **Lab Services** in Azure Marketplace e quindi selezionare **Lab Services** nell'elenco a discesa. 
-4. Selezionare **Lab Services (Preview)** nell'elenco filtrato dei servizi. 
-1. Nella finestra **Create a lab account** (Crea un account lab) selezionare **Crea**.
-2. Nella finestra **Lab account** (Account lab) eseguire queste operazioni: 
+2. Scegliere **Tutti i servizi** dal menu a sinistra. Selezionare **Account Lab** nella sezione **DEVOPS**. Se si seleziona l'asterisco (`*`) accanto a **Account Lab**, l'opzione verrà aggiunta alla sezione **PREFERITI** nel menu a sinistra. Da questo momento in poi, selezionare **Account Lab** in **PREFERITI**.
+
+    ![Tutti i servizi -> Account Lab](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
+3. Nella pagina **Account Lab** selezionare **Aggiungi** sulla barra degli strumenti. 
+
+    ![Selezionare Aggiungi nella pagina Account Lab](../media/tutorial-setup-lab-account/add-lab-account-button.png)
+4. Nella pagina **Account Lab** eseguire queste operazioni: 
     1. In **Lab account name** (Nome account lab) immettere un nome. 
     2. Selezionare la **sottoscrizione di Azure** in cui creare l'account lab.
     3. In **Gruppo di risorse** selezionare **Crea nuovo** e immettere un nome per il gruppo di risorse.
     4. In **Posizione** selezionare una posizione o un'area in cui si vuole creare l'account lab. 
-    5. Selezionare **Crea**. 
+    5. Selezionare **Create**. 
 
         ![Finestra Create a lab account (Crea un account lab)](../media/tutorial-setup-lab-account/lab-account-settings.png)
-5. Se non viene visualizzata la pagina dell'account lab, selezionare il pulsante delle **notifiche** e quindi fare clic su **Vai alla risorsa** in Notifiche. 
+5. Selezionare l'**icona del campanello** sulla barra degli strumenti (**Notifiche**), verificare se la distribuzione è riuscita e quindi selezionare **Vai alla risorsa**. 
 
-    ![Finestra Create a lab account (Crea un account lab)](../media/tutorial-setup-lab-account/notification-go-to-resource.png)    
+    In alternativa, selezionare **Aggiorna** nella pagina **Account Lab** e selezionare l'account lab creato. 
+
+    ![Finestra Create a lab account (Crea un account lab)](../media/tutorial-setup-lab-account/go-to-lab-account.png)    
 6. Verrà visualizzata la pagina dell'**account lab** seguente:
 
     ![Pagina dell'account lab](../media/tutorial-setup-lab-account/lab-account-page.png)
@@ -62,9 +66,13 @@ Per configurare un lab per le classi in un account del lab, l'utente deve essere
 Per fornire ai docenti l'autorizzazione per creare lab per le proprie classi, aggiungerli al ruolo **Autore di laboratori**:
 
 1. Nella pagina **Account Lab** selezionare **Controllo di accesso (IAM)** e fare clic su **+ Aggiungi assegnazione di ruolo** sulla barra degli strumenti. 
-2. Nella pagina **Aggiungi autorizzazioni** selezionare **Autore di laboratori** per **Ruolo**, scegliere l'utente che si vuole aggiungere al ruolo Autore di laboratori e fare clic su **Salva**. 
 
-## <a name="specify-marketplace-images-available-to-lab-owners"></a>Specificare le immagini del Marketplace disponibili per i proprietari del lab
+    ![Fare clic su Controllo di accesso -> Aggiungi un'assegnazione di ruolo](../media/tutorial-setup-lab-account/add-role-assignment-button.png)
+1. Nella pagina **Aggiungi un'assegnazione di ruolo** selezionare **Autore di lab** per **Ruolo**, scegliere l'utente che si vuole aggiungere a questo ruolo e fare clic su **Salva**. 
+
+    ![Aggiungere l'autore di lab](../media/tutorial-setup-lab-account/add-lab-creator.png)
+
+## <a name="specify-marketplace-images-available-to-lab-creators"></a>Specificare le immagini del Marketplace disponibili per gli autori di lab
 In quanto proprietario di un account del lab, è possibile specificare le immagini del Marketplace che gli autori di lab possono usare per creare lab nell'account del lab. 
 
 1. Selezionare **Immagini del Marketplace** nel menu a sinistra. Per impostazione predefinita, verrà visualizzato l'elenco completo delle immagini (abilitate e disabilitate). È possibile filtrare l'elenco per visualizzare solo le immagini abilitate o disabilitate selezionando l'opzione **Enabled only**/**Disabled only** (Solo abilitate, Solo disabilitate) nell'elenco a discesa nella parte superiore. 

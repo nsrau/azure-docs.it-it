@@ -4,7 +4,7 @@ description: Questa esercitazione illustra la procedura di caricamento di file i
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 3ad3dcea-95be-4711-9aae-a455a32434f6
 ms.service: media-services
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/07/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 36e1f797263e367a73fde140d979243f96e83948
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7730d15b0d3be9c0ffc7c7fbafe40fece713afbd
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33780552"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976793"
 ---
-# <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Caricare file in un account Servizi multimediali nel portale di Azure
+# <a name="upload-files-to-a-media-services-account-in-the-azure-portal-legacy"></a>Caricare file in un account Servizi multimediali nel portale di Azure (legacy)
+
 > [!div class="op_single_selector"]
 > * [Portale](media-services-portal-upload-files.md)
 > * [.NET](media-services-dotnet-upload-files.md)
@@ -63,6 +64,6 @@ Al termine del caricamento, il nuovo asset viene visualizzato nel riquadro **Ass
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [codificare gli asset caricati](media-services-portal-encode.md).
 
-* È anche possibile usare Funzioni di Azure per attivare un processo di codifica quando un file arriva nel contenitore configurato. Per altre informazioni, vedere l'esempio in [Media Services: Integrating Azure Media Services with Azure Functions and Logic Apps](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/) (Servizi multimediali: Integrazione di Servizi multimediali di Azure con Funzioni di Azure e App per la logica).
+* È anche possibile usare Funzioni di Azure per attivare un processo di codifica quando un file arriva nel contenitore configurato. Per altre informazioni, vedere l'esempio riportato in [Servizi multimediali: Integrazione di Servizi multimediali di Azure con Funzioni di Azure e App per la logica](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/).
 
 

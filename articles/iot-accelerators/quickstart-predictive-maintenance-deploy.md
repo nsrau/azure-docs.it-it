@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 22f0eae805ad112c5a6a7746897dac7e37d90028
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: fdb481961680d5f84170a25c7a76bffa8423e0cc
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604338"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097168"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Guida introduttiva: Provare una soluzione basata sul cloud per eseguire un'analisi di manutenzione predittiva sui dispositivi connessi
 
@@ -42,7 +42,7 @@ Nella pagina **Crea soluzione Manutenzione predittiva** immettere un valore univ
 
 Selezionare **Sottoscrizione** e **Area** da usare per distribuire l'acceleratore della soluzione. In genere, si sceglie l'area più vicina. Per questa guida introduttiva selezionare **Visual Studio Enterprise** e **Stati Uniti orientali**. È necessario essere [amministratore globale o utente](iot-accelerators-permissions.md) nella sottoscrizione.
 
-Fare clic su **Create Solution** (Crea soluzione) per iniziare la distribuzione. Questo processo richiede almeno cinque minuti:
+Fare clic su **Crea** per iniziare la distribuzione. Questo processo richiede almeno cinque minuti:
 
 ![Dettagli della soluzione di manutenzione predittiva](./media/quickstart-predictive-maintenance-deploy/createform.png)
 
@@ -50,9 +50,13 @@ Fare clic su **Create Solution** (Crea soluzione) per iniziare la distribuzione.
 
 Al termine della distribuzione nella sottoscrizione di Azure, verrà visualizzato un segno di spunta verde e la dicitura **Pronto** nel riquadro della soluzione. È ora possibile accedere al dashboard dell'acceleratore di soluzione Manutenzione predittiva.
 
-Nella pagina **Soluzioni di cui è stato effettuato il provisioning** fare clic sul nuovo acceleratore della soluzione di manutenzione predittiva. È possibile visualizzare informazioni sull'acceleratore della soluzione nel pannello visualizzato. Scegliere **Dashboard soluzione** per visualizzare l'acceleratore della soluzione di manutenzione predittiva:
+Nella pagina **Soluzioni di cui è stato effettuato il provisioning** fare clic sul nuovo acceleratore della soluzione di manutenzione predittiva.
 
-![Riquadro della soluzione](./media/quickstart-predictive-maintenance-deploy/solutionpanel.png)
+![Riquadro della soluzione](./media/quickstart-predictive-maintenance-deploy/solution.png)
+
+ È possibile visualizzare informazioni sull'acceleratore di soluzione nella pagina che si apre. Scegliere **Vai a Acceleratore di soluzione** per visualizzare l'acceleratore della soluzione Manutenzione predittiva:
+
+![Riquadro della soluzione](./media/quickstart-predictive-maintenance-deploy/solutionpaneldetails.png)
 
 Fare clic su **Accetta** per accettare la richiesta di autorizzazioni. Il dashboard della soluzione di manutenzione predittiva viene visualizzato nel browser:
 

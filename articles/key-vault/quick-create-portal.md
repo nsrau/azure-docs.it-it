@@ -3,7 +3,7 @@ title: Guida introduttiva di Azure - Impostare e recuperare un segreto da Key Va
 description: Guida introduttiva che illustra come impostare e recuperare un segreto da Azure Key Vault usando il portale di Azure
 services: key-vault
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 98cf8387-34de-468e-ac8f-5c02c9e83e68
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: c3b605507c3878770db2c7dcb53a2ff9bb512b6b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 4dd81fd03c39dec3c34e614234a563ec8c2ced38
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078389"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117103"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault usando il portale di Azure
 
@@ -58,14 +58,14 @@ A questo punto, l'account Azure è l'unico autorizzato a eseguire operazioni su 
 
 ## <a name="add-a-secret-to-key-vault"></a>Aggiungere un segreto all'istanza di Key Vault
 
-Per aggiungere un segreto all'insieme di credenziali, sono sufficienti un paio di passaggi aggiuntivi. In questo caso si aggiunge una password che può essere usata da un'applicazione. La password è denominata **ExamplePassword** e al suo interno viene archiviato il valore di **Pa$$w0rd**.
+Per aggiungere un segreto all'insieme di credenziali, sono sufficienti un paio di passaggi aggiuntivi. In questo caso si aggiunge una password che può essere usata da un'applicazione. La password è denominata **ExamplePassword** e al suo interno viene archiviato il valore di **hVFkk965BuUv**.
 
 1. Nella pagina delle proprietà dell'istanza di Key Vault selezionare **Segreti**.
 2. Fare clic su **Genera/Importa**.
 3. Nella schermata **Crea un segreto** selezionare i seguenti valori:
     - **Opzioni di caricamento**: manuale.
     - **Nome**: ExamplePassword.
-    - **Value**: Pa$$w0rd.
+    - **Valore**: hVFkk965BuUv
     - Lasciare invariati gli altri valori predefiniti. Fare clic su **Create**(Crea).
 
 Dopo avere ricevuto il messaggio che indica che il segreto è stato creato, è possibile fare clic sul segreto nell'elenco. Sarà quindi possibile vedere alcune delle proprietà. Se si fa clic sulla versione corrente è possibile visualizzare il valore specificato nel passaggio precedente.

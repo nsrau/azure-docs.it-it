@@ -1,22 +1,22 @@
 ---
-title: Come eseguire il rilevamento della lingua nell'API REST di Analisi del testo (Servizi cognitivi Microsoft in Azure) | Microsoft Docs
-description: In questa esercitazione dettagliata si apprenderà come rilevare la lingua usando l'API REST di Analisi del testo in Servizi cognitivi Microsoft in Azure.
+title: Rilevamento della lingua con l'API REST Analisi del testo | Microsoft Docs
+description: Come rilevare la lingua usando l'API REST Analisi del testo di Servizi cognitivi di Azure.
 services: cognitive-services
-author: HeidiSteen
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/12/2018
-ms.author: heidist
-ms.openlocfilehash: e613652511a18f2234c82cce47f0beeb2d3bbdd6
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: 549ef0d073a740edf700c54d02a0d9ef247db0b7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211951"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245088"
 ---
-# <a name="example-how-to-detect-language-in-text-analytics"></a>Esempio: Come rilevare la lingua in Analisi del testo
+# <a name="example-how-to-detect-language-with-text-analytics"></a>Esempio: Come rilevare la lingua con Analisi del testo
 
 L'[API Rilevamento lingua](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) valuta il testo di input e per ogni documento restituisce gli identificatori della lingua con un punteggio indicante il livello di attendibilità dell'analisi. Analisi del testo riconosce fino a 120 lingue.
 

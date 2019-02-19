@@ -1,22 +1,22 @@
 ---
-title: Come eseguire l'estrazione di espressioni chiave nell'API REST di Analisi del testo (Servizi cognitivi Microsoft in Azure) | Microsoft Docs
-description: In questa esercitazione dettagliata si apprenderà come estrarre espressioni chiave usando l'API REST di Analisi del testo in Servizi cognitivi Microsoft in Azure.
+title: Estrazione di frasi chiave con l'API REST Analisi del testo | Microsoft Docs
+description: Come estrarre frasi chiave usando l'API REST Analisi del testo di Servizi cognitivi di Azure.
 services: cognitive-services
-author: HeidiSteen
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/12/2018
-ms.author: heidist
-ms.openlocfilehash: bbca745da1fe657c1316d9e4e5fbeeeabfa5e1ef
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: bbf72847dd9d9a29bf1f2fa0574b83194d07a5c6
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216745"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245610"
 ---
-# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Esempio: Come estrarre espressioni chiave in Analisi del testo
+# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Esempio: Come estrarre frasi chiave con Analisi del testo
 
 L'API [Estrazione frasi chiave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) valuta il testo non strutturato e restituisce un elenco di espressioni chiave per ogni documento JSON. 
 
@@ -29,13 +29,13 @@ Per l'estrazione di espressioni chiave sono attualmente supportate le lingue ing
 
 ## <a name="preparation"></a>Operazioni preliminari
 
-L'estrazione di espressioni chiave risulta più efficiente quando si elaborano blocchi di testo più grandi, diversamente dall'analisi del sentiment, che offre prestazioni migliori con blocchi di testo più piccoli. Per ottenere risultati ottimali da entrambe le operazioni, provare a ristrutturare gli input di conseguenza.
+L'estrazione di frasi chiave risulta più efficiente quando si elaborano grandi quantità di testo, diversamente dall'analisi del sentiment, che offre prestazioni migliori con quantità minori di testo. Per ottenere risultati ottimali da entrambe le operazioni, provare a ristrutturare gli input di conseguenza.
 
 È necessario disporre di documenti JSON nel formato seguente: id, testo, lingua
 
 Le dimensioni dei singoli documenti devono essere inferiori a 5000 caratteri e si possono avere fino a 1000 elementi (ID) per ogni raccolta. La raccolta viene inviata nel corpo della richiesta. L'esempio seguente illustra il contenuto che è possibile inviare per l'estrazione di espressioni chiave.
 
-```
+```json
     {
         "documents": [
             {
@@ -94,9 +94,9 @@ Tutte le richieste POST restituiscono una risposta JSON formattata con gli ID e 
 
 L'output viene restituito immediatamente. Si possono trasmettere i risultati a un'applicazione che accetta JSON o salvare l'output in un file nel sistema locale e quindi importarlo in un'applicazione che consente di ordinare, cercare e modificare i dati.
 
-Di seguito è illustrato un esempio dell'output per l'estrazione di espressioni chiave:
+Di seguito è illustrato un esempio dell'output di estrazione di frasi chiave:
 
-```
+```json
     "documents": [
         {
             "keyPhrases": [

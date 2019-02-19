@@ -1,22 +1,22 @@
 ---
-title: Come eseguire l'analisi del sentiment nell'API REST Analisi del testo (Servizi cognitivi Microsoft in Azure) | Microsoft Docs
-description: In questa esercitazione dettagliata si apprenderà come rilevare il sentiment usando l'API REST Analisi del testo in Servizi cognitivi Microsoft in Azure.
+title: Analisi del sentiment con Analisi del testo di Servizi cognitivi di Azure | Microsoft Docs
+description: Informazioni su come rilevare il sentiment con l'API REST Analisi del testo.
 services: cognitive-services
-author: HeidiSteen
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/12/2018
-ms.author: heidist
-ms.openlocfilehash: e5ceb6208229baf3e07e4030992d5de85309789c
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: add284a3a001d5bc2e756f9ad4a2a3b9550b212c
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212495"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242131"
 ---
-# <a name="example-how-to-detect-sentiment-in-text-analytics"></a>Esempio: Come rilevare il sentiment in Analisi del testo
+# <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Esempio: Come rilevare il sentiment con Analisi del testo
 
 L'[API Analisi del sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) valuta l'input di testo e restituisce un punteggio di sentiment per ogni documento, con valori compresi tra 0 (negativo) e 1 (positivo).
 

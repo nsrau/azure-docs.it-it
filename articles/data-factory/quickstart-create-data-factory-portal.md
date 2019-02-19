@@ -11,19 +11,20 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: fc4b1dce1b01d9294cf422c910f39d68cbd49c87
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 6f5a4e04c0d135e85624b04dbcdcda6b7d15a427
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018248"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989390"
 ---
-# <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Creare una data factory usando l'interfaccia utente di Azure Data Factory
-> [!div class="op_single_selector" title1="Seleziona la versione del servizio Data Factory che stai utilizzando:"]
+# <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Guida introduttiva: Creare una data factory usando l'interfaccia utente di Azure Data Factory
+
+> [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [Versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versione corrente](quickstart-create-data-factory-portal.md)
 
-La guida introduttiva descrive come usare l'interfaccia utente di Azure Data Factory per creare e monitorare una data factory. La pipeline creata in questa data factory *copia* dati da una cartella a un'altra nell'archivio BLOB di Azure. Per un'esercitazione su come *trasformare* i dati usando Azure Data Factory, vedere [Esercitazione: Trasformare dati usando Spark](tutorial-transform-data-spark-portal.md).
+La guida introduttiva descrive come usare l'interfaccia utente di Azure Data Factory per creare e monitorare una data factory. La pipeline creata in questa data factory *copia* dati da una cartella a un'altra nell'archivio BLOB di Azure. Per un'esercitazione su come *trasformare* i dati usando Azure Data Factory, vedere [Esercitazione: Trasformare i dati usando Spark](tutorial-transform-data-spark-portal.md).
 
 > [!NOTE]
 > Se non si ha familiarità con Azure Data Factory, vedere [Introduzione ad Azure Data Factory](data-factory-introduction.md) prima di seguire la guida introduttiva. 
@@ -91,7 +92,7 @@ In questa procedura viene creato un servizio collegato per collegare l'account d
    ![Impostazioni del servizio collegato Archiviazione di Azure](./media/quickstart-create-data-factory-portal/azure-storage-linked-service.png) 
 
 ## <a name="create-datasets"></a>Creare set di dati
-In questa procedura vengono creati due set di dati, **InputDataset** e **OutputDataset**. I set di dati sono di tipo **AzureBlob**. Fanno riferimento al servizio collegato Archiviazione di Azure creato nella sezione precedente. 
+In questa procedura verranno creati due set di dati: **InputDataset** e **OutputDataset**. I set di dati sono di tipo **AzureBlob**. Fanno riferimento al servizio collegato Archiviazione di Azure creato nella sezione precedente. 
 
 Il set di dati di input rappresenta i dati di origini nella cartella di input. Nella definizione del set di dati di input specificare il contenitore BLOB (**adftutorial**), la cartella (**input**) e il file (**emp.txt**) che includono i dati di origine. 
 
@@ -117,7 +118,8 @@ Nelle impostazioni del servizio collegato è stato specificato l'account di arch
 
     ![Sfogliare per selezionare il file di input](./media/quickstart-create-data-factory-portal/choose-file-folder.png)
     
-   d. (Facoltativo) Selezionare **Anteprima dati** per visualizzare l'anteprima dei dati nel file emp.txt.     
+    d. (Facoltativo) Selezionare **Anteprima dati** per visualizzare l'anteprima dei dati nel file emp.txt.     
+
 1. Ripetere la procedura per creare il set di dati di output:  
 
    a. Selezionare il pulsante **+** (segno più) e quindi selezionare **Set di dati**.

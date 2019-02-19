@@ -12,16 +12,17 @@ ms.topic: overview
 ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: fc18353ff89f8613847c977066e51620fb3e834f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: df5d42135c538ca3d0a63252805efb44cef7e8b0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494665"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190467"
 ---
 # <a name="what-is-hybrid-identity"></a>Informazioni sull'identità ibrida 
 
-Attualmente in aziende di piccole e grandi dimensioni si ricorre sempre più spesso a una combinazione di applicazioni locali e cloud e  gli utenti devono poter accedere a tali applicazioni sia in locale che nel cloud. Questo requisito comporta la definizione di uno scenario complesso. 
+Oggi nelle aziende di piccole e grandi dimensioni si ricorre sempre più spesso a una combinazione di applicazioni locali e cloud e  gli utenti devono poter accedere a tali applicazioni sia in locale che nel cloud. Questo requisito comporta la definizione di uno scenario complesso. 
 
 Le soluzioni di gestione delle identità di Microsoft includono sia funzionalità locali che basate sul cloud,  in modo da creare una singola identità utente per l'autenticazione e l'autorizzazione a tutte le risorse, indipendentemente dalla loro posizione. Tale identità costituisce la cosiddetta **identità ibrida**.
 
@@ -42,14 +43,14 @@ Di seguito sono riportati alcuni scenari comuni di gestione di identità ibride 
 |Esigenza:|PHS e SSO<sup>1</sup>| PTA e SSO<sup>2</sup> | AD FS<sup>3</sup>| 
 |-----|-----|-----|-----| 
 |Sincronizzare automaticamente nel cloud nuovi account utente, di contatti o di gruppo creati in Active Directory locale.|![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| ![Consigliato](./media/whatis-hybrid-identity/ic195031.png) |![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| 
-|Configurare il tenant per scenari ibridi di Office 365|![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| ![Consigliato](./media/whatis-hybrid-identity/ic195031.png) |![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| 
-|Consentire agli utenti di accedere ai servizi cloud usando la propria password locale|![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| ![Consigliato](./media/whatis-hybrid-identity/ic195031.png) |![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| 
-|Implementare l'accesso SSO usando le credenziali aziendali|![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| ![Consigliato](./media/whatis-hybrid-identity/ic195031.png) |![Consigliato](./media/whatis-hybrid-identity/ic195031.png)|  
-|Assicurarsi che gli hash delle password non vengano archiviati nel cloud| |![Consigliato](./media/whatis-hybrid-identity/ic195031.png)|![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| 
-|Abilitare soluzioni di autenticazione a più fattori nel cloud| |![Consigliato](./media/whatis-hybrid-identity/ic195031.png)|![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| 
-|Abilitare soluzioni di autenticazione a più fattori locali| | |![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| 
-|Supportare l'autenticazione di smart card per gli utenti<sup>4</sup>| | |![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| 
-|Visualizzare le notifiche di scadenza delle password nel portale di Office e sul desktop di Windows 10| | |![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| 
+|Configurare il tenant per scenari ibridi di Office 365.|![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| ![Consigliato](./media/whatis-hybrid-identity/ic195031.png) |![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| 
+|Consentire agli utenti di accedere ai servizi cloud usando la propria password locale.|![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| ![Consigliato](./media/whatis-hybrid-identity/ic195031.png) |![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| 
+|Implementare l'accesso SSO usando le credenziali aziendali.|![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| ![Consigliato](./media/whatis-hybrid-identity/ic195031.png) |![Consigliato](./media/whatis-hybrid-identity/ic195031.png)|  
+|Assicurarsi che gli hash delle password non vengano archiviati nel cloud.| |![Consigliato](./media/whatis-hybrid-identity/ic195031.png)|![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| 
+|Abilitare soluzioni di autenticazione a più fattori nel cloud.| |![Consigliato](./media/whatis-hybrid-identity/ic195031.png)|![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| 
+|Abilitare soluzioni di autenticazione a più fattori locali.| | |![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| 
+|Supportare l'autenticazione tramite smart card per gli utenti.<sup>4</sup>| | |![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| 
+|Visualizzare le notifiche di scadenza delle password nel portale di Office e sul desktop di Windows 10.| | |![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| 
 
 > <sup>1</sup> Sincronizzazione dell'hash delle password con accesso Single Sign-On. 
 > 

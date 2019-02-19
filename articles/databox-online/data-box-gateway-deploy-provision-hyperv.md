@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 3187c516ef22a97d2af89e08d5b99ad7a00d875d
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: cf47919ead890f0ad0e89646dde26276ebfb1127
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166458"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109742"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v-preview"></a>Esercitazione: Effettuare il provisioning di Azure Data Box Gateway in Hyper-V (anteprima)
 
@@ -66,7 +66,7 @@ Prima di distribuire un dispositivo, verificare che:
 
 Prima di iniziare:
 
-- Verificare i requisiti di rete per distribuire un Data Box Gateway e configurare la rete del data center in base ai requisiti. Per altre informazioni, vedere i [requisiti di rete di Data Box Gateway](data-box-gateway-system-requirements.md#networking-requirements).
+- Verificare i requisiti di rete per distribuire un Data Box Gateway e configurare la rete del data center in base ai requisiti. Per altre informazioni, vedere i [requisiti di rete di Data Box Gateway](data-box-gateway-system-requirements.md#networking-port-requirements).
 - Assicurarsi che la larghezza di banda Internet sia di almeno 20 Mbps per consentire il funzionamento ottimale del dispositivo.
 
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 49598eb8579e20dd20ca63d11529ba106a510102
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 71ddf1d70953b721911a7315ab6875dd41a9a4db
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170522"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894174"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Esercitazione: Eseguire lo streaming live con Servizi multimediali v3 usando .NET
 
@@ -166,7 +166,7 @@ Il codice seguente mostra come pulire l'account da tutti gli eventi live:
 
 ## <a name="watch-the-event"></a>Guardare l'evento
 
-Per controllare l'evento, copiare l'URL di streaming ottenuto durante l'esecuzione del codice descritto in [Creare un localizzatore di streaming](#create-a-streaminglocator) e usare un lettore di propria scelta. È possibile usare [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) per testare il flusso all'indirizzo http://ampdemo.azureedge.net. 
+Per guardare l'evento, copiare l'URL di streaming ottenuto durante l'esecuzione del codice descritto in Creare un localizzatore di streaming e usare un lettore a scelta. È possibile usare [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) per testare il flusso all'indirizzo http://ampdemo.azureedge.net. 
 
 Quando viene arrestato, l'evento live converte automaticamente gli eventi in contenuto su richiesta. Anche dopo l'arresto e l'eliminazione dell'evento, gli utenti saranno in grado di riprodurre in streaming il contenuto archiviato sotto forma di video on demand, finché non si elimina l'asset. Un asset non può essere eliminato se è usato da un evento. Per farlo, eliminare prima l'evento. 
 

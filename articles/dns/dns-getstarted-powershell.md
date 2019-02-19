@@ -7,14 +7,16 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 12/4/2018
 ms.author: victorh
-ms.openlocfilehash: db6ac089f11477ecdb1568195855fae00d3eac61
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 839c97ccccbc1ce2cf646afcd27894a190eda1b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888359"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000891"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Guida introduttiva: Creare una zona e un record DNS di Azure con Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 In questa guida introduttiva vengono creati una zona e un record DNS con Azure PowerShell. È anche possibile eseguire questi passaggi tramite il [portale di Azure](dns-getstarted-portal.md) o l'[interfaccia della riga di comando di Azure](dns-getstarted-cli.md). 
 
@@ -26,28 +28,28 @@ DNS di Azure supporta anche la creazione di domini privati. Per istruzioni detta
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="create-the-resource-group"></a>Creare il gruppo di risorse.
+## <a name="create-the-resource-group"></a>Creare il gruppo di risorse
 
 Prima di creare la zona DNS, creare un gruppo di risorse per contenere la zona DNS:
 
 ```powershell
-New-AzureRMResourceGroup -name MyResourceGroup -location "eastus"
+New-AzResourceGroup -name MyResourceGroup -location "eastus"
 ```
 
 ## <a name="create-a-dns-zone"></a>Creare una zona DNS
 
-Viene creata una zona DNS con il cmdlet `New-AzureRmDnsZone` . L'esempio seguente crea una zona DNS denominata *contoso.com* nel gruppo di risorse denominato *MyResourceGroup*. Usare l'esempio per creare una zona DNS, sostituendo i valori con quelli personalizzati.
+Viene creata una zona DNS con il cmdlet `New-AzDnsZone` . L'esempio seguente crea una zona DNS denominata *contoso.com* nel gruppo di risorse denominato *MyResourceGroup*. Usare l'esempio per creare una zona DNS, sostituendo i valori con quelli personalizzati.
 
 ```powershell
-New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
+New-AzDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
 ```
 
 ## <a name="create-a-dns-record"></a>Creare un record DNS
 
-I set di record vengono creati usando il cmdlet `New-AzureRmDnsRecordSet`. L'esempio seguente crea un record con il nome relativo "www" nella zona DNS "contoso.com" nel gruppo di risorse "MyResourceGroup". Il nome completo del set di record è "www.contoso.com". Il tipo di record è "A", con indirizzo IP "1.2.3.4", e la durata (TTL) è 3600 secondi.
+I set di record vengono creati usando il cmdlet `New-AzDnsRecordSet`. L'esempio seguente crea un record con il nome relativo "www" nella zona DNS "contoso.com" nel gruppo di risorse "MyResourceGroup". Il nome completo del set di record è "www.contoso.com". Il tipo di record è "A", con indirizzo IP "1.2.3.4", e la durata (TTL) è 3600 secondi.
 
 ```powershell
-New-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4")
+New-AzDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -IPv4Address "1.2.3.4")
 ```
 
 ## <a name="view-records"></a>Visualizzare i record
@@ -55,17 +57,17 @@ New-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceG
 Per elencare i record DNS nella zona, usare:
 
 ```powershell
-Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyResourceGroup
+Get-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyResourceGroup
 ```
 
 ## <a name="update-name-servers"></a>Aggiornare i server dei nomi
 
 Dopo essersi assicurati che la zona e i record DNS siano stati configurati correttamente, è necessario configurare il nome di dominio in modo che usi i server dei nomi di DNS Azure. Ciò consente agli altri utenti su Internet di trovare i record DNS.
 
-I server dei nomi per la zona vengono specificati tramite il cmdlet `Get-AzureRmDnsZone`:
+I server dei nomi per la zona vengono specificati tramite il cmdlet `Get-AzDnsZone`:
 
 ```powershell
-Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
+Get-AzDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
 
 Name                  : contoso.com
 ResourceGroupName     : myresourcegroup
@@ -83,7 +85,7 @@ I server dei nomi devono essere configurati con il registrar dei nomi di dominio
 Quando non sono più necessarie, è possibile eliminare tutte le risorse create in questa guida introduttiva eliminando il gruppo di risorse:
 
 ```powershell
-Remove-AzureRMResourceGroup -Name MyResourceGroup
+Remove-AzResourceGroup -Name MyResourceGroup
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

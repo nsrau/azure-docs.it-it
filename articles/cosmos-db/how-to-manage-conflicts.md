@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: a9883edc712b1524561f3bac3efd1608da695313
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c8dfbe7fbeacdb42fd9b96b62e7da25084c4aabe
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477285"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105740"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gestire i criteri di risoluzione dei conflitti in Azure Cosmos DB
 
@@ -278,6 +278,6 @@ while conflict:
 
 Apprendere i concetti di Azure Cosmos DB seguenti:
 
+* [Come configurare funzionalità multimaster nelle applicazioni](how-to-multi-master.md).
 * [Partizionamento e distribuzione dei dati](partition-data.md)
 * [Indicizzazione in Azure Cosmos DB](indexing-policies.md)
-

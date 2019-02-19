@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e3687ac5941d4f4fda70f96fa9df1ec1904e102e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 783f8006ba19622761beef0ff931bcbb80edde46
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822477"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115896"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Failover e failback di macchine virtuali VMware e server fisici replicati in Azure
 
@@ -98,7 +98,7 @@ Seguire i passaggi descritti [qui](site-recovery-failover-to-azure-troubleshoot.
 > [!IMPORTANT]
 > Se si dispone di una connessione VPN tra l'ambiente locale e Azure, è necessario configurare una VM di Azure come server di elaborazione per la riprotezione e il failback. Per configurare un server di elaborazione in Azure, seguire le istruzioni fornite in [questo articolo](vmware-azure-set-up-process-server-azure.md).
 
-Per ulteriori informazioni sui prerequisiti per la riprotezione e il failback fare riferimento a questa [sezione](vmware-azure-reprotect.md##before-you-begin). 
+Per altre informazioni sui prerequisiti per la riprotezione e il failback, fare riferimento a questa [sezione](vmware-azure-reprotect.md##before-you-begin). 
 
 ### <a name="configure-the-master-target-server"></a>Configurare il server di destinazione master
 

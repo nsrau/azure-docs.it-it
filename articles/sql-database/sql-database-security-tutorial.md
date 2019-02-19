@@ -1,6 +1,6 @@
 ---
-title: Proteggere un database autonomo o in pool in database SQL di Azure | Microsoft Docs
-description: Informazioni sulle tecniche e le funzionalità per proteggere un database autonomo o in pool in database SQL di Azure.
+title: Proteggere un database singolo o in pool in Database SQL di Azure | Microsoft Docs
+description: Informazioni sulle tecniche e le funzionalità per proteggere un database singolo o in pool in Database SQL di Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,17 +9,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/30/2019
-ms.openlocfilehash: 2ea87b36d8b489abf59ac4550121369a2ddf540f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: b9141fcef8bda181cd7b679f58d22d4ba2895b14
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752518"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004583"
 ---
-# <a name="tutorial-secure-a-standalone-or-pooled-database"></a>Esercitazione: Proteggere un database autonomo o in pool
+# <a name="tutorial-secure-a-single-or-pooled-database"></a>Esercitazione: Proteggere un database singolo o in pool
 
-Il database SQL di Azure protegge i dati in un database autonomo o in pool consentendo di:
+Database SQL di Azure protegge i dati in un database singolo o in pool consentendo di:
 
 - Limitare l'accesso tramite regole del firewall
 - Usare meccanismi di autenticazione che verificano l'identità

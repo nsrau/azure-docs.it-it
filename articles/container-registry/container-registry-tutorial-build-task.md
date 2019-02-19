@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: dd99a6b49894b3489d1cc01f1fcbc56d29247b41
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 763ff0d5f619d2808fb06c05d5b266160b3a7069
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756360"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868566"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Esercitazione: Automatizzare la compilazione di immagini dei contenitori nel cloud quando si esegue il commit di codice sorgente
 
@@ -51,6 +51,8 @@ ACR Tasks attualmente supporta i trigger seguenti:
 
 * Commit in un repository Git
 * Aggiornamento dell'immagine di base
+
+In questa esercitazione l'attività del Registro Azure Container crea ed esegue il push di una singola immagine del contenitore specificata in un Dockerfile. Le funzionalità di Attività del Registro Azure Container consentono anche di eseguire [attività in più passi](container-registry-tasks-multi-step.md) (attualmente in anteprima), usando un file YAML per definire i passaggi per creare, eseguire il push e facoltativamente testare più contenitori.
 
 ## <a name="create-a-build-task"></a>Creare un'attività di compilazione
 
@@ -99,7 +101,7 @@ az acr task create \
 > [!IMPORTANT]
 > Se in precedenza sono state create attività durante l'anteprima con il comando `az acr build-task`, tali attività devono essere ricreate con il comando [az acr task][az-acr-task].
 
-L'attività specifica che ogni volta che verrà eseguito il commit di codice nel ramo *principale* del repository specificato da `--context`, ACR Tasks compilerà l'immagine del contenitore dal codice in tale ramo. Viene usato il documento Dockerfile specificato da `--file` presente nella radice del repository. L'argomento `--image` specifica un valore `{{.Run.ID}}` con parametri per la parte della versione del tag dell'immagine, affinché l'immagine compilata sia correlata a una compilazione specifica e contrassegnata con un tag univoco.
+L'attività specifica che ogni volta che verrà eseguito il commit di codice nel ramo *principale* del repository specificato da `--context`, ACR Tasks compilerà l'immagine del contenitore dal codice in tale ramo. Per creare l'immagine viene usato il Dockerfile specificato da `--file` presente nella radice del repository. L'argomento `--image` specifica un valore `{{.Run.ID}}` con parametri per la parte della versione del tag dell'immagine, affinché l'immagine compilata sia correlata a una compilazione specifica e contrassegnata con un tag univoco.
 
 L'output di un comando [az acr task create][az-acr-task-create] riuscito è simile al seguente:
 

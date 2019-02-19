@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/17/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 8ea1afbfb90a55ec1c34f5c59cf38ea5417118ff
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 387e59eccc7dd9b20142bd692a1fe361435d3d57
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390904"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965019"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Come accedere a un lab per le classi in Azure Lab Services
 Questo articolo descrive come accedere a un lab per le classi, connettersi alla macchina virtuale nel lab e arrestare la macchina virtuale. 
@@ -44,10 +44,8 @@ Dopo la registrazione ai lab, è possibile visualizzare tutti i lab per le class
 
 ## <a name="connect-to-the-virtual-machine-in-a-classroom-lab"></a>Connettersi alla macchina virtuale in un lab della classe
 
-1. Avviare la macchina virtuale, se non è già stata avviata, selezionando **Avvia**.
+1. Avviare la macchina virtuale, se non è già stata avviata, selezionando **Avvia** nel riquadro. 
 2. Selezionare **Connetti** sul riquadro che rappresenta la macchina virtuale del lab a cui si vuole accedere. 
-
-    ![Visualizzare tutti i lab](../media/how-to-use-classroom-lab/connect-button.png)
 3. Salvare il file RDP (per la macchina virtuale Windows) nel disco rigido e aprirlo. 
 4. Usare **nome utente** e **password** ricevuti dal docente per accedere alla macchina virtuale. 
 

@@ -1,36 +1,34 @@
 ---
-title: 'Avvio rapido: Eseguire una ricerca con Ruby - API Ricerca Web Bing'
+title: 'Guida introduttiva: Eseguire una ricerca con Ruby - API Ricerca Web Bing'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per inviare richieste all'API REST Ricerca Web Bing usando Ruby e ricevere una risposta JSON
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 8/16/2018
+ms.date: 2/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 4b5194628e47340f9582800e3fdd9117d9ade212
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 117271b0a952090bf8af2416206652972ae274ff
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192640"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210832"
 ---
-# <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>Avvio rapido: Usare Ruby per chiamare l'API Ricerca Web Bing  
+# <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>Guida introduttiva: Usare Ruby per chiamare l'API Ricerca Web Bing  
 
-Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca Web Bing e ricevere una risposta JSON in meno di 10 minuti.  
-
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
-
-Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca Web Bing e ricevere la risposta JSON. Questa applicazione Ruby invia una richiesta di ricerca all'API e visualizza la risposta. L'applicazione è scritta in Ruby, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di eseguire i passaggi illustrati in questa guida introduttiva, verificare di avere quanto segue:
 
 * [Ruby 2.4 o versione successiva](https://www.ruby-lang.org/en/downloads/)
 * Una chiave di sottoscrizione
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-a-project-and-declare-required-modules"></a>Creare un progetto e dichiarare i moduli necessari
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 1328835714086dcec71b0e9dd4d1916794f557a6
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 2e34aef9a6f184c60fbb23023f798941a1fc11da
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390178"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894429"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Esercitazione: Accedere a un lab per le classi in Azure Lab Services
 Questa esercitazione descrive come uno studente può connettersi a una macchina virtuale (VM) in un lab per le classi. 
@@ -32,10 +32,10 @@ In questa esercitazione vengono completate le azioni seguenti:
 
 ## <a name="use-the-registration-link"></a>Usare il collegamento di registrazione
 
-1. Passare all'**URL di registrazione** ricevuto dal docente. 
-2. Accedere al servizio usando l'account dell'istituto di istruzione per completare la registrazione. 
-3. Al termine della registrazione, verificare che le macchine virtuali per i lab a cui si ha accesso siano disponibili. 
-2. Attendere che la macchina virtuale sia pronta e quindi **avviarla**. L'esecuzione di questo processo richiede tempo.  
+1. Passare all'**URL di registrazione** ricevuto dal docente. Non è necessario usare l'URL di registrazione dopo aver completato la registrazione. Usare invece l'URL [https://labs.azure.com](https://labs.azure.com). 
+1. Accedere al servizio usando l'account dell'istituto di istruzione per completare la registrazione. 
+2. Al termine della registrazione, verificare che le macchine virtuali per i lab a cui si ha accesso siano disponibili. 
+3. Attendere che la macchina virtuale sia pronta e quindi **avviarla**. L'esecuzione di questo processo richiede tempo.  
 
     ![Avviare la VM](../media/tutorial-connect-vm-in-classroom-lab/start-vm.png)
 

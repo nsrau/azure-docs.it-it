@@ -3,7 +3,7 @@ title: Guida introduttiva di Azure - Impostare e recuperare un segreto da Key Va
 description: Guida introduttiva che illustra come impostare e recuperare un segreto da Azure Key Vault usando l'interfaccia della riga di comando di Azure
 services: key-vault
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 4acc894f-fee0-4c2f-988e-bc0eceea5eda
 ms.service: key-vault
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/08/2019
 ms.author: barclayn
-ms.openlocfilehash: a78cc79031a8dc9b0c98beddf759fbc8674c6dd1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8065f670da6614db8c3524fd351a31ad095f8257
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168261"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113040"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault usando l'interfaccia della riga di comando di Azure
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault usando l'interfaccia della riga di comando di Azure
 
 Azure Key Vault è un servizio cloud che funziona come archivio protetto dei segreti. È possibile archiviare in modo sicuro chiavi, password, certificati e altri segreti. Per altre informazioni su Key Vault, vedere la [panoramica](key-vault-overview.md). L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure con comandi o script. In questa guida introduttiva viene creata un'istanza di Key Vault. Successivamente verrà archiviato un segreto.
 
@@ -67,12 +67,12 @@ A questo punto, l'account Azure è l'unico autorizzato a eseguire qualsiasi oper
 
 ## <a name="add-a-secret-to-key-vault"></a>Aggiungere un segreto all'istanza di Key Vault
 
-Per aggiungere un segreto all'insieme di credenziali, sono sufficienti un paio di passaggi aggiuntivi. Questa password può essere usata da un'applicazione. La password sarà denominata **ExamplePassword** e al suo interno verrà archiviato il valore di **Pa$$w0rd**.
+Per aggiungere un segreto all'insieme di credenziali, sono sufficienti un paio di passaggi aggiuntivi. Questa password può essere usata da un'applicazione. La password sarà denominata **ExamplePassword** e al suo interno verrà archiviato il valore di **hVFkk965BuUv**.
 
-Digitare i comandi seguenti per creare in Key Vault un segreto denominato **ExamplePassword** che archivierà il valore **Pa$$w0rd**:
+Digitare i comandi seguenti per creare in Key Vault un segreto denominato **ExamplePassword** in cui verrà archiviato il valore **hVFkk965BuUv**:
 
 ```azurecli
-az keyvault secret set --vault-name "Contoso-Vault2" --name "ExamplePassword" --value "Pa$$w0rd"
+az keyvault secret set --vault-name "Contoso-Vault2" --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
 
 È ora possibile fare riferimento a questa password aggiunta ad Azure Key Vault usando il relativo URI. Usare **https://ContosoVault.vault.azure.net/secrets/ExamplePassword** per ottenere la versione corrente. 

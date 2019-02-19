@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 09/18/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 6581c389cb7b1aa9c6ce6b9e84b56017264822f4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 7ef7216b2d3adf99b0c1fd9ace84991169106529
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232954"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976266"
 ---
-# <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Introduzione a Java Client SDK per Servizi multimediali di Azure
+# <a name="get-started-with-the-java-client-sdk-for-azure-media-services-legacy"></a>Introduzione a Java Client SDK per Servizi multimediali di Azure (legacy)
+
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 Questa esercitazione illustra in modo dettagliato la procedura di implementazione di un servizio di base per la distribuzione di contenuto video con Servizi multimediali di Azure Media Services tramite Java Client SDK.
@@ -48,7 +49,7 @@ Ad esempio, se lo strumento di compilazione è `gradle`, aggiungere la dipendenz
 >[!NOTE]
 >È possibile trovare il codice sorgente di Azure Media Services Java SDK nel [repository di GitHub](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media). Assicurarsi di passare al ramo 0.9, non al ramo principale. 
 
-## <a name="how-to-use-azure-media-services-with-java"></a>Procedura: come usare Servizi multimediali di Azure con Java
+## <a name="how-to-use-azure-media-services-with-java"></a>Procedura: Usare Servizi multimediali di Azure con Java
 
 >[!NOTE]
 >Quando l'account di Servizi multimediali viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**.
@@ -58,10 +59,10 @@ Il codice seguente illustra come creare un asset, caricare un file multimediale 
 Prima di usare il codice, configurare un account Servizi multimediali. Per informazioni su come configurare un account, vedere [Creare un account Servizi multimediali di Azure con il portale di Azure](media-services-portal-create-account.md).
 
 Il codice si connette all'API di Servizi multimediali di Azure tramite l'autenticazione dell'entità servizio di Azure AD. Creare un'applicazione di Azure AD e specificare i valori per le variabili seguenti nel codice:
-* `tenant`: dominio del tenant di Azure AD in cui si trova l'applicazione di Azure AD
-* `clientId`: ID client dell'applicazione di Azure AD
-* `clientKey`: chiave client dell'applicazione di Azure AD
-* `restApiEndpoint`: endpoint dell'API REST dell'account di Servizi multimediali di Azure
+* `tenant`: il dominio del tenant di Azure AD in cui si trova l'applicazione di Azure AD
+* `clientId`: l'ID client dell'applicazione di Azure AD
+* `clientKey`: la chiave client dell'applicazione di Azure AD
+* `restApiEndpoint`: l'endpoint dell'API REST dell'account di Servizi multimediali di Azure
 
 È possibile creare un'applicazione di Azure AD e ottenere i valori di configurazione precedenti dal portale di Azure. Per altre informazioni, vedere la sezione **Autenticazione di un'entità servizio** di [Introduzione all'autenticazione di Azure AD tramite il portale di Azure](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad).
 

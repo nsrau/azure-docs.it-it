@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: alkohli
-ms.openlocfilehash: b542ca2876149b9a60e5c5b9e3fa17284477864f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: d94e2db66c8c5dac2b4d8551ae34a07cd68fd635
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241601"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106981"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Risolvere i problemi di Azure Data Box Gateway 
 
@@ -103,6 +103,7 @@ Gli eventuali errori riscontrati durante i processi di caricamento e aggiornamen
     |    2006            |    ERROR_CLOUD_ACCOUNT_DISABLED                            |    Non è stato possibile caricare i dati nell'account perché l'account o la condivisione sono disabilitati.                                                                                                                                                            |
     |    2007            |    ERROR_CLOUD_ACCOUNT_PERMISSIONS                         |    Non è stato possibile connettersi al contenitore perché le autorizzazioni dell'account sono errate o non aggiornate. Controllare l'accesso.                                                                                                               |
     |    2008            |    ERROR_CLOUD_CONTAINER_SIZE_LIMIT_REACHED                |    Non è stato possibile aggiungere nuovi dati perché il contenitore è pieno. Verificare le specifiche di Azure per le dimensioni del contenitore supportate in base al tipo. Ad esempio, File di Azure supporta solo dimensioni massime di 5 TB.                                     |
+    |    2997            |    ERROR_ITEM_CANCELED                                     |    Si è verificato un errore imprevisto. Si tratta di un errore temporaneo che si risolverà automaticamente.                                                                           |
     |    2998            |    ERROR_UNMAPPED_FAILURE                                  |    Si è verificato un errore imprevisto. L'errore potrebbe risolversi da solo, ma se persiste per oltre 24 ore, contattare il supporto tecnico Microsoft.                                                                                                     |
     |    16000           |    RefreshException                                        |    Non è stato possibile trasferire questo file.                                                                                                                                                                                                        |
     |    16001           |    RefreshAlreadyExistsException                           |    Non è stato possibile trasferire questo file perché è già presente nel sistema locale.                                                                                                                                                         |

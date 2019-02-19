@@ -4,17 +4,17 @@ description: Usare Azure Blueprint per creare, definire e distribuire elementi.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 78ce7c1063623e0c002bb6084d8c18139b3f889f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d7b2e6848c88d9c3ac61f2eaf059e0836dc19903
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566965"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989967"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definire e assegnare un progetto Azure Blueprint con l'API REST
 
@@ -329,6 +329,12 @@ Il valore per `{BlueprintVersion}` è una stringa di lettere, numeri e trattini 
 
 Dopo aver pubblicato un progetto usando l'API REST, è possibile assegnarlo a una sottoscrizione. Assegnare il progetto creato a una delle sottoscrizioni nella gerarchia dei gruppi di gestione. Se il progetto viene salvato in una sottoscrizione, può essere assegnato solo a tale sottoscrizione. Il **corpo della richiesta** specifica il progetto da assegnare, fornisce il nome e la località per tutti i gruppi di risorse nella definizione del progetto e fornisce tutti i parametri definiti nel progetto e usati da uno o più elementi collegati.
 
+In ogni URI dell'API REST vengono usate variabili che è necessario sostituire con i propri valori:
+
+- `{tenantId}`: sostituire con il proprio ID tenant
+- `{YourMG}`: sostituire con l'ID del gruppo di gestione
+- `{subscriptionId}`: sostituire con l'ID sottoscrizione
+
 1. Fornire all'entità servizio di Azure Blueprint il ruolo **Proprietario** nella sottoscrizione di destinazione. L'ID app è statico (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), ma l'ID entità servizio varia in base al tenant. È possibile richiedere dettagli per il tenant usando l'API REST seguente. Viene usata l'[API Graph di Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md), che ha autorizzazione diverse.
 
    - URI DELL'API REST
@@ -387,6 +393,25 @@ Dopo aver pubblicato un progetto usando l'API REST, è possibile assegnarlo a un
          "location": "westus"
      }
      ```
+
+   - Identità gestita assegnata dall'utente
+
+     L'assegnazione di un progetto può anche usare un'[identità gestita assegnata dall'utente](../../active-directory/managed-identities-azure-resources/overview.md). In questo caso, la parte **identity** del corpo della richiesta cambia come segue.  Sostituire `{yourRG}` e `{userIdentity}` rispettivamente con il nome del gruppo di risorse e il nome dell'identità gestita assegnata dall'utente.
+
+     ```json
+     "identity": {
+         "type": "userAssigned",
+         "tenantId": "{tenantId}",
+         "userAssignedIdentities": {
+             "/subscriptions/{subscriptionId}/resourceGroups/{yourRG}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userIdentity}": {}
+         }
+     },
+     ```
+
+     L'**identità gestita assegnata dall'utente** può trovarsi in qualsiasi sottoscrizione e gruppo di risorse per cui l'utente che assegna il progetto abbia le autorizzazioni.
+
+     > [!IMPORTANT]
+     > I progetti non gestiscono l'identità gestita assegnata dall'utente. Gli utenti sono responsabili dell'assegnazione di ruoli e autorizzazioni sufficienti, altrimenti l'assegnazione del progetto non riesce.
 
 ## <a name="unassign-a-blueprint"></a>Annullare l'assegnazione di un progetto
 

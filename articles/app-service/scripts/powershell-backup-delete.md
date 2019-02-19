@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: d8a3d8f890001138f0582a099021b4537227a337
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: dbe8417e8a26cb222fe52ac7c0284b3956ed65fb
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53586412"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106937"
 ---
 # <a name="delete-a-backup-for-a-web-using-azure-powershell"></a>Eliminare un backup per un'app Web usando Azure PowerShell
 
@@ -30,6 +30,8 @@ Per eseguire questo script, è necessario un backup esistente di un'app Web. Per
 
 ## <a name="sample-script"></a>Script di esempio
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/backup-delete/backup-delete.ps1?highlight=1-2,11 "Delete a backup for a web app")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
@@ -37,7 +39,7 @@ Per eseguire questo script, è necessario un backup esistente di un'app Web. Per
 Dopo aver eseguito lo script di esempio, usare il comando seguente per rimuovere il gruppo di risorse, l'App Web e tutte le risorse correlate.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="script-explanation"></a>Spiegazione dello script
@@ -46,8 +48,8 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 | Comando | Note |
 |---|---|
-| [Get-AzureRmWebAppBackupList](/powershell/module/azurerm.websites/get-azurermwebappbackuplist) | Ottiene un elenco di copie di backup per un'app Web. |
-| [Remove-AzureRmWebAppBackup](/powershell/module/azurerm.websites/remove-azurermwebappbackup) | Rimuove il backup specificato di un'app Web. |
+| [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | Ottiene un elenco di copie di backup per un'app Web. |
+| [Remove-AzWebAppBackup](/powershell/module/az.websites/remove-azwebappbackup) | Rimuove il backup specificato di un'app Web. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
