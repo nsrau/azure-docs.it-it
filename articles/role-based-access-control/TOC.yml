@@ -1,5 +1,5 @@
 items:
-- name: Documentazione sul controllo degli accessi in base al ruolo
+- name: Documentazione di Controllo degli accessi in base al ruolo per le risorse di Azure
   href: index.yml
 - name: Panoramica
   items:
@@ -9,15 +9,15 @@ items:
     href: rbac-and-directory-admin-roles.md
 - name: Guide introduttive
   items:
-  - name: Visualizzare i ruoli per un utente
+  - name: Visualizzare l'accesso per un utente
     href: check-access.md
 - name: Esercitazioni
   items:
-  - name: Concedere l'accesso per un utente - Portale
+  - name: Concedere l'accesso a un utente - Portale
     href: quickstart-assign-role-user-portal.md
-  - name: Concedere l'accesso per un utente - PowerShell
+  - name: Concedere l'accesso a un utente - PowerShell
     href: tutorial-role-assignments-user-powershell.md
-  - name: Concedere l'accesso per un gruppo - PowerShell
+  - name: Concedere l'accesso a un gruppo - PowerShell
     href: tutorial-role-assignments-group-powershell.md
   - name: Creare un ruolo personalizzato - PowerShell
     href: tutorial-custom-role-powershell.md
@@ -29,7 +29,7 @@ items:
     href: role-definitions.md
   - name: Informazioni sulle assegnazioni di rifiuto
     href: deny-assignments.md
-  - name: Privileged Identity Management (PIM) per il controllo degli accessi in base al ruolo
+  - name: PIM per risorse di Azure
     href: pim-azure-resource.md
   - name: Accesso condizionale per la gestione di Azure
     href: conditional-access-azure-management.md
@@ -96,9 +96,9 @@ items:
   items:
   - name: Sviluppare le proprie competenze con Microsoft Learn
     href: /learn/browse/?products=azure-active-directory
-ms.openlocfilehash: 46ff0e024e2c7dc466120054b4a8e69fa47c14cd
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 20500ad90e710b2c0e4359832a24a352c14ea0b2
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099208"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408766"

@@ -15,12 +15,15 @@ items:
 - name: Esercitazioni
   items:
   - name: Codificare il file remoto e trasmettere il video in streaming - REST
+    displayName: encoding, job, transform
     href: stream-files-tutorial-with-rest.md
   - name: Codificare il file caricato e trasmettere il video in streaming - .NET
+    displayName: encode, encoding, job, transform
     href: stream-files-tutorial-with-api.md
   - name: Streaming live - .NET
     href: stream-live-tutorial-with-api.md
   - name: Analizzare i video - .NET
+    displayName: job, transform
     href: analyze-videos-tutorial-with-api.md
   expanded: true
 - name: Esempi
@@ -31,32 +34,54 @@ items:
     href: cli-samples.md
 - name: Concetti
   items:
-  - name: Inserimento
+  - name: Caricamento e archiviazione nel cloud
+    href: storage-account-concept.md
     items:
     - name: Asset
       href: assets-concept.md
-  - name: Codificare
-    href: encoding-concept.md
+  - name: Codifica
     items:
+    - name: Panoramica
+      displayName: Presets
+      href: encoding-concept.md
     - name: Trasformazioni e processi
       href: transforms-jobs-concept.md
     - name: Formati di Media Encoder Standard
       href: media-encoder-standard-formats.md
     - name: Generare automaticamente una tabella adattiva di coppie bitrate-risoluzione
       href: autogen-bitrate-ladder.md
-  - name: Analizzare
-    href: analyzing-video-audio-files-concept.md
+  - name: Analisi di contenuti multimediali
     items:
+    - name: Panoramica
+      displayName: Presets
+      href: analyzing-video-audio-files-concept.md
     - name: Trasformazioni e processi
       href: transforms-jobs-concept.md
-  - name: Flusso
+  - name: Creazione di pacchetti, distribuzione, protezione
     items:
+    - name: Packaging
+      items:
+      - name: creazione dinamica dei pacchetti
+        href: dynamic-packaging-overview.md
+      - name: Filtri
+        href: filters-concept.md
+      - name: Manifesti dinamici
+        href: filters-dynamic-manifest-overview.md
+    - name: Protezione del contenuto
+      href: content-protection-overview.md
+      items:
+      - name: Sistema con più tecnologie DRM e controllo di accesso
+        href: design-multi-drm-system-with-access-control.md
     - name: Endpoint di streaming
+      displayName: Origins
       href: streaming-endpoint-concept.md
     - name: Localizzatori di streaming
+      displayName: URLs
       href: streaming-locators-concept.md
     - name: Criteri di streaming
       href: streaming-policy-concept.md
+    - name: Criteri di chiave simmetrica
+      href: content-key-policy-concept.md
   - name: Streaming live
     href: live-streaming-overview.md
     items:
@@ -72,36 +97,19 @@ items:
       href: live-event-states-billing.md
     - name: Latenza
       href: live-event-latency.md
-  - name: Distribuzione
+  - name: Monitoraggio
     items:
-    - name: Filtri e manifesto dinamico
-      href: filters-dynamic-manifest-overview.md
-  - name: Monitorare
-    items:
-    - name: Griglia di eventi
+    - name: Eventi con Griglia di eventi
       href: reacting-to-media-services-events.md
-  - name: Proteggere
-    href: content-protection-overview.md
+  - name: Clienti più importanti
     items:
-    - name: Criteri di chiave simmetrica
-      href: content-key-policy-concept.md
-    - name: Criteri di streaming
-      href: streaming-policy-concept.md
-    - name: Localizzatori di streaming
-      href: streaming-locators-concept.md
-    - name: Sistema con più tecnologie DRM e controllo di accesso
-      href: design-multi-drm-system-with-access-control.md
-  - name: Riproduzione
-    href: use-azure-media-player.md
-  - name: Account
+    - name: Azure Media Player
+      href: use-azure-media-player.md
+  - name: Entità di Servizi multimediali
     items:
-    - name: Quote e limitazioni
-      href: limits-quotas-constraints.md
-    - name: Account di archiviazione
-      href: storage-account-concept.md
-  - name: Filtrare, ordinare e organizzare in pagine le entità
-    href: entities-overview.md
-  - name: Eseguire la migrazione dalla versione 2 alla versione 3
+    - name: Ordinamento, applicazione di filtri e organizzazione in pagine di entità
+      href: entities-overview.md
+  - name: Indicazioni sulla migrazione dalla versione 2 alla versione 3
     href: migrate-from-v2-to-v3.md
 - name: Guide alle procedure
   items:
@@ -113,19 +121,34 @@ items:
       href: access-api-cli-how-to.md
     - name: Ridimensionare le Media Reserved Unit - Interfaccia della riga di comando
       href: media-reserved-units-cli-how-to.md
-  - name: Configurare Postman
-    href: media-rest-apis-with-postman.md
+    - name: Iniziare a sviluppare
+      href: developers-guide.md
+    - name: Configurare Postman
+      href: media-rest-apis-with-postman.md
   - name: Caricare contenuti
     items:
-    - name: Da HTTP(S) - .NET
+    - name: Da HTTPS - .NET
+      displayName: upload
       href: job-input-from-http-how-to.md
     - name: Da un file locale - .NET
+      displayName: upload
       href: job-input-from-local-file-how-to.md
     - name: Da un file locale - REST
+      displayName: upload
       href: upload-files-rest-how-to.md
   - name: Codificare contenuti
     items:
-    - name: Personalizzare i set di impostazioni di trasformazione - .NET
+    - name: HTTPS come input del processo - .NET
+      displayName: encode, encoding
+      href: job-input-from-http-how-to.md
+    - name: File locale come input del processo - .NET
+      displayName: encode, encoding
+      href: job-input-from-local-file-how-to.md
+    - name: File locale come input del processo - REST
+      displayName: encode
+      href: upload-files-rest-how-to.md
+    - name: Usare una trasformazione personalizzata - .NET
+      displayName: encode, encoding, tranform
       href: customize-encoder-presets-how-to.md
   - name: Usare Griglia di eventi
     items:
@@ -155,7 +178,7 @@ items:
       href: filters-dynamic-manifest-rest-howto.md
     - name: Con l'interfaccia della riga di comando
       href: filters-dynamic-manifest-cli-howto.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Specifica OpenAPI (Swagger)
     href: https://aka.ms/ams-v3-rest-sdk
@@ -215,13 +238,15 @@ items:
     href: https://github.com/Azure/Azure-Media-Services-Explorer
   - name: Note sulla versione
     href: release-notes.md
+  - name: Quote e limitazioni
+    href: limits-quotas-constraints.md
   - name: Domande frequenti
     href: frequently-asked-questions.md
   - name: Aree e cloud di Azure
     href: azure-clouds-regions.md
-ms.openlocfilehash: 0ca98ea27a77418ee5a111a67bd013ab6ad40e55
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 05b20d905a5848cfcfd0f9c6d20e4addb5c776fc
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330019"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340434"

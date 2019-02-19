@@ -1,6 +1,6 @@
 ---
 title: Indice di esempi di criteri
-description: Indice degli esempi per Criteri di Azure
+description: Indice degli esempi per Criteri di Azure. Le categorie includono l'assegnazione di nomi, i tag, il Key Vault, la rete, l'archiviazione e altro ancora.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: af16a65214ea28f7a4b53a6fa0e6606edef1045a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 6b820da0e124805ad866ab7fedef8495aca1d7e8
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100819"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339839"
 ---
 # <a name="azure-policy-samples"></a>Esempi di Criteri di Azure
 

@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6972ad521ac5622086b5294dc6b49e35f10ba178
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 2f0465b954e48822470374abeadb13e90a03fa3a
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431482"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408732"
 documentType: LandingData
-title: Documentazione sul controllo degli accessi in base al ruolo
+title: Documentazione di Controllo degli accessi in base al ruolo per le risorse di Azure
 metadata:
   document_id: 
-  title: Documentazione sul controllo degli accessi in base al ruolo in Azure | Microsoft Docs
+  title: Documentazione sul controllo degli accessi in base al ruolo per le risorse di Azure | Microsoft Docs
   description: Informazioni sul controllo degli accessi in base al ruolo per la gestione degli utenti autorizzati ad accedere alle risorse di Azure, delle operazioni che possono eseguire su tali risorse e delle aree a cui hanno accesso.
   services: active-directory
   author: rolyon
@@ -18,10 +18,10 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 06/15/2018
+  ms.date: 02/16/2019
   ms.author: rolyon
 abstract:
-  description: Il controllo degli accessi in base al ruolo è un sistema che offre una gestione con granularità fine dell'accesso alle risorse in Azure. Usando il Controllo degli accessi in base al ruolo, è possibile separare i compiti all'interno del team e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il proprio lavoro.
+  description: Il controllo degli accessi in base al ruolo è un sistema che consente di gestire in modo granulare l'accesso per le risorse di Azure. Usando il Controllo degli accessi in base al ruolo, è possibile separare i compiti all'interno del team e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il proprio lavoro.
   aside:
     image:
       alt: 
@@ -37,13 +37,14 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/role-based-access-control/quickstart-assign-role-user-portal">Concedere l'accesso per un utente</a>
+    - html: <a href="/azure/role-based-access-control/check-access">Visualizzare l'accesso per un utente</a>
 - title: Esercitazioni dettagliate
   items:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/role-based-access-control/tutorial-role-assignments-group-powershell">Concedere l'accesso per un gruppo - PowerShell</a>
+    - html: <a href="/azure/role-based-access-control/quickstart-assign-role-user-portal">Concedere l'accesso a un utente - Portale</a>
+    - html: <a href="/azure/role-based-access-control/tutorial-role-assignments-group-powershell">Concedere l'accesso a un gruppo - PowerShell</a>
     - html: <a href="/azure/role-based-access-control/tutorial-custom-role-powershell">Creare un ruolo personalizzato - PowerShell</a>
     - html: <a href="/azure/role-based-access-control/tutorial-custom-role-cli">Creare un ruolo personalizzato - Interfaccia della riga di comando</a>
 - title: Sviluppare le proprie competenze con Microsoft Learn
