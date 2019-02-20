@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: overview-article
 ms.date: 04/10/2018
 ms.author: stevelas
-ms.openlocfilehash: 784174c1fb2427441e0ed1a13b147d2440539fa9
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: a83cf6b37a28ec38165778faa7a9ecc266cce7bd
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870339"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858262"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replica geografica nel servizio Registro Azure Container
 
@@ -26,14 +26,18 @@ Un registro con replica geografica è caratterizzato dai vantaggi seguenti:
 * Nessun costo aggiuntivo per il traffico in uscita perché viene eseguito il pull delle immagini da un registro replicato in locale nella stessa area dell'host del contenitore
 * Gestione unica di registro in più aree
 
+> [!NOTE]
+> Se è necessario conservare una copia delle immagini del contenitore in più di un registro contenitori di Azure, il Registro Azure Container supporta anche l'[importazione delle immagini](container-registry-import-images.md). In un flusso di lavoro di DevOps, ad esempio, è possibile importare un'immagine da un registro di sviluppo in un registro di produzione anche senza usare comandi Docker.
+>
+
 ## <a name="example-use-case"></a>Esempio di caso d'uso
-Contoso gestisce un sito Web per la presenza online pubblica esteso a Stati Uniti, Canada ed Europa. Per gestire questi mercati con contenuti in locale e in una posizione di rete vicina, Contoso esegue cluster Kubernetes del [servizio Azure Container](/azure/container-service/kubernetes/) nelle aree Stati Uniti occidentali, Stati Uniti orientali, Canada centrale ed Europa occidentale. L'applicazione del sito Web, distribuita come un'immagine Docker, usa lo stesso codice e la stessa immagine in tutte le aree. Il contenuto locale per un'area specifica viene recuperato da un database, di cui viene eseguito il provisioning in modo univoco in ogni area. Ogni distribuzione regionale dispone della relativa configurazione univoca per risorse quali, ad esempio, il database locale.
+Contoso gestisce un sito Web per la presenza online pubblica esteso a Stati Uniti, Canada ed Europa. Per gestire questi mercati con contenuti in locale e in una posizione di rete vicina, Contoso esegue cluster del [servizio Azure Kubernetes](/azure/aks/) nelle aree Stati Uniti occidentali, Stati Uniti orientali, Canada centrale ed Europa occidentale. L'applicazione del sito Web, distribuita come un'immagine Docker, usa lo stesso codice e la stessa immagine in tutte le aree. Il contenuto locale per un'area specifica viene recuperato da un database, di cui viene eseguito il provisioning in modo univoco in ogni area. Ogni distribuzione regionale dispone della relativa configurazione univoca per risorse quali, ad esempio, il database locale.
 
 Il team di sviluppo si trova a Seattle (Washington) e usa il data center degli Stati Uniti occidentali.
 
 ![Esecuzione del push in più registri](media/container-registry-geo-replication/before-geo-replicate.png)<br />*Esecuzione del push in più registri*
 
-Prima di usare le funzionalità di replica geografica, Contoso dispone di un registro situato negli Stati Uniti e di un registro aggiuntivo situato in Europa occidentale. Per gestire queste due aree, il team di sviluppo deve eseguire il push delle immagini da due registri diversi.
+Prima di usare le funzionalità di replica geografica, Contoso dispone di un registro situato negli Stati Uniti e di un registro aggiuntivo situato in Europa occidentale. Per gestire queste due aree, il team di sviluppo ha eseguito il push delle immagini in due registri diversi.
 
 ```bash
 docker push contoso.azurecr.io/public/products/web:1.2
@@ -102,4 +106,4 @@ Grazie alla replica geografica è possibile gestire data center regionali come u
 Fare riferimento alla serie di esercitazioni in tre parti relativa alla [replica geografica in Registro Azure Container](container-registry-tutorial-prepare-registry.md). Eseguire la procedura dettagliata relativa alla creazione di un registro con replica geografica, alla compilazione di un contenitore e alla sua distribuzione mediante un unico comando `docker push` in più istanze regionali delle app Web per contenitori.
 
 > [!div class="nextstepaction"]
-> [Replica geografica nel servizio Registro contenitori di Azure](container-registry-tutorial-prepare-registry.md)
+> [Replica geografica nel servizio Registro Azure Container](container-registry-tutorial-prepare-registry.md)

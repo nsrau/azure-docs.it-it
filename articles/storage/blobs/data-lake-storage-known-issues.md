@@ -6,14 +6,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 02/07/2018
 ms.author: normesta
-ms.openlocfilehash: 5677649b8f002490900ec32bee954348b2f444e6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: ff158b726c57f4aa5b7822dc0273ab42c350522c
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731547"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895534"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemi noti con Azure Data Lake Storage Gen2
 
@@ -23,7 +23,7 @@ Questo articolo contiene i problemi noti e le limitazioni temporanee con Azure D
 
 Le API di archiviazione BLOB e le API di Azure Data Lake Gen2 non sono interoperative tra loro.
 
-Se si dispone di strumenti personalizzati o di script che usano le API BLOB e si vuole usarli per lavorare con tutto il contenuto caricato nell'account, non abilitare spazi dei nomi gerarchici in account di archiviazione BLOB finché le API BLOB non diventano interoperative con le API Azure Data Lake Gen2. Usare un account di archiviazione senza lo spazio dei nomi gerarchico implica che non si dispone dell'accesso alle funzionalità specifiche di Data Lake Storage Gen2, ad esempio l'elenco di controllo di accesso alla directory e a filesystem.
+Se si dispone di strumenti, applicazioni, servizi o script che usano le API BLOB e si intende usarli per interagire con tutto il contenuto caricato nell'account, non abilitare uno spazio dei nomi gerarchico in account di archiviazione BLOB finché le API BLOB non diventano interoperative con le API Azure Data Lake Gen2. Usando un account di archiviazione senza uno spazio dei nomi gerarchico non si dispone dell'accesso alle funzionalità specifiche di Data Lake Storage Gen2, ad esempio l'elenco di controllo di accesso alla directory e al file system.
 
 ## <a name="blob-storage-apis"></a>Api di archiviazione BLOB
 
@@ -41,15 +41,15 @@ Se sono state usate queste API per caricare i dati prima che venissero disabilit
 
 * Anche se non si è coinvolti in modo attivo nella produzione, indicare se è necessario che i dati vengano copiati in un altro account di archiviazione per qualche motivo e in tal caso, perché?
 
-In queste circostanze è possibile ripristinare l'accesso all'API BLOB per un periodo di tempo limitato in modo che sia possibile copiare i dati in un account di archiviazione che non dispone dell'abilitazione degli spazi dei nomi gerarchici.
+In queste circostanze è possibile ripristinare l'accesso all'API BLOB per un periodo di tempo limitato, in modo che sia possibile copiare i dati in un account di archiviazione in cui la funzionalità degli spazi dei nomi gerarchici non è abilitata.
 
-I dischi non gestiti di macchine virtuali (VM) dipendono da queste API BLOB disabilitate, quindi se si desidera abilitare spazi dei nomi gerarchici in un account di archiviazione, considerare l'inserimento di dischi non gestiti delle macchine virtuali in un account di archiviazione che non dispone dell'abilitazione degli spazi dei nomi gerarchici.
+I dischi non gestiti di macchine virtuali dipendono da queste API BLOB disabilitate e, pertanto, se si intende abilitare spazi dei nomi gerarchici in un account di archiviazione, considerare l'inserimento di dischi non gestiti delle macchine virtuali in un account di archiviazione in cui la funzionalità degli spazi dei nomi gerarchici non è abilitata.
 
 ## <a name="azure-storage-explorer"></a>Esplora archivi Azure
 
 Per visualizzare o gestire gli account Data Lake Storage Gen2 con Azure Storage Explorer, è necessario disporre almeno della versione `1.6.0` dello strumento disponibile come [download gratuito](https://azure.microsoft.com/features/storage-explorer/).
 
-Si noti che la versione di Azure Storage Explorer incorporata nel portale di Azure attualmente non supporta la visualizzazione o la gestione degli account Data Lake Storage Gen2 con spazi dei nomi gerarchici abilitati.
+La versione di Storage Explorer incorporata nel portale di Azure non supporta attualmente la visualizzazione o la gestione di account Data Lake Storage Gen2 con la funzionalità degli spazi dei nomi gerarchici abilitata.
 
 ## <a name="blob-viewing-tool"></a>Strumento di visualizzazione BLOB
 
@@ -75,17 +75,17 @@ La [griglia di eventi di Azure](https://azure.microsoft.com/services/event-grid/
 
 Snapshot ed eliminazione temporanea non sono disponibili per gli account Azure Data Lake Storage Gen2.
 
-Tutte le funzionalità di controllo delle versioni compresi [snapshot](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) ed [eliminazione temporanea](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) non sono ancora disponibili per gli account di archiviazione con spazi dei nomi gerarchici abilitati.
+Per gli account di archiviazione con la funzionalità degli spazi dei nomi gerarchici abilitata non sono ancora disponibili tutte le funzionalità di controllo delle versioni, compresi [snapshot](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) ed [eliminazione temporanea](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete).
 
 ## <a name="object-level-storage-tiers"></a>Livelli di archiviazione a livello di oggetto
 
-I livelli di archiviazione a livello di oggetto (accesso frequente, accesso sporadico e archivio) non sono ancora disponibili per gli account Azure Data Lake Storage Gen2, ma sono disponibili per gli account di archiviazione che non hanno spazi dei nomi gerarchici abilitati.
+I livelli di archiviazione a livello di oggetto (accesso frequente, accesso sporadico e archivio) non sono ancora disponibili per gli account Azure Data Lake Storage Gen2, ma sono disponibili per gli account di archiviazione senza la funzionalità degli spazi dei nomi gerarchici abilitata.
 
-## <a name="azure-blob-storage-lifecycle-management-preview-policies"></a>Criteri di gestione del ciclo di vita di archiviazione BLOB di Azure (anteprima)
+## <a name="azure-blob-storage-lifecycle-management-policies"></a>Criteri di gestione del ciclo di vita di Archiviazione BLOB di Azure
 
-I criteri di gestione del ciclo di vita di archiviazione BLOB di Azure (anteprima) non sono ancora disponibili per gli account Azure Data Lake Storage Gen2.
+I criteri di gestione del ciclo di vita di Archiviazione BLOB di Azure non sono ancora disponibili per gli account Azure Data Lake Storage Gen2,
 
-Questi criteri sono disponibili per gli account di archiviazione che non hanno spazi dei nomi gerarchici abilitati.
+ma sono disponibili per gli account di archiviazione senza la funzionalità degli spazi dei nomi gerarchici abilitata.
 
 ## <a name="diagnostic-logs"></a>Log di diagnostica
 

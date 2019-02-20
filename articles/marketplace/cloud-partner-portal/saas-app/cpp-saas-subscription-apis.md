@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c09816d45169ce9bb6c926b8b17b075ea1059ec7
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: e56169d74d1669c3bb7adda06590145d2ca31b72
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695373"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893341"
 ---
 # <a name="saas-sell-through-azure---apis"></a>Vendita SaaS tramite Azure - API
 
@@ -68,7 +68,7 @@ Per registrare una nuova applicazione nel portale di Azure, seguire i passaggi s
     -   **URL di accesso**: Per le applicazioni API o le app Web, specificare l'URL di base dell'app. Ad esempio, **http://localhost:31544** potrebbe essere l'URL per un'app Web in esecuzione sul computer locale. Gli utenti possono quindi usare questo URL per accedere a un'applicazione client Web.
     -   **URI di reindirizzamento**: per le applicazione native, specificare l'URI usato da Azure AD per restituire le risposte dei token. Immettere un valore specifico per l'applicazione, ad esempio **http://MyFirstAADApp**.
 
-        ![Registrazioni per l'App AD SaaS](./media/saas-offer-app-registration-2.png) per esempi specifici relativi alle applicazioni Web o native, controllare le impostazioni guidate dell'avvio rapido, disponibili nella sezione Introduzione della [Guida per sviluppatori Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#get-started).
+        ![Registrazioni per l'App AD SaaS](./media/saas-offer-app-registration-2.png) per esempi specifici relativi alle applicazioni Web o native, controllare le impostazioni guidate dell'avvio rapido, disponibili nella sezione Introduzione della [Guida per sviluppatori Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
 5.  Al termine, fare clic su **Crea**. Azure AD assegna un ID applicazione univoco all'applicazione e l'utente viene reindirizzato alla pagina di registrazione principale dell'applicazione. A seconda che si tratti di un'applicazione Web o nativa, sono fornite opzioni diverse per l'aggiunta di altre funzionalità all'applicazione.
 
@@ -148,7 +148,9 @@ La versione API corrente è `api-version=2017-04-15`.
 
 ### <a name="resolve-subscription"></a>Risolvere la sottoscrizione
 
-L'azione POST nel risolvere endpoint consente agli utenti di risolvere un token per un ID risorsa permanente.
+L'azione POST durante la risoluzione di un endpoint consente agli utenti di risolvere un token del Marketplace in un ID risorsa permanente.  L'ID risorsa è l'identificatore univoco per la sottoscrizione SAAS. 
+
+Quando un utente viene reindirizzato al sito Web di un ISV, l'URL contiene un token nei parametri di query. Si presuppone che l'ISV usi questo token ed esegua una richiesta per risolverlo. La risposta contiene l'ID di sottoscrizione SAAS univoco, il nome, l'ID dell'offerta e il piano per la risorsa. Questo token è valido solo per un'ora.
 
 *Richiesta*
 

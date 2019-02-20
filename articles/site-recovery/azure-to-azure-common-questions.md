@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: bfce998fbabb89d5e9e964bd504571756941afb4
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 555c8b0b4046fd20583597ae4f0215a815806b8e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770487"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860408"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Domande frequenti: Replica da Azure ad Azure
 
@@ -33,6 +33,10 @@ Questo articolo fornisce le risposte alle domande frequenti relative all'impleme
 
 ### <a name="how-is-site-recovery-priced"></a>Come viene stabilito il prezzo di Site Recovery?
 Vedere [Dettagli relativi ai prezzi di Azure Site Recovery](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/).
+### <a name="how-does-the-free-tier-for-azure-site-recovery-work"></a>Come funziona il livello gratuito di Azure Site Recovery?
+Ogni istanza protetta con Azure Site Recovery è gratuita per i primi 31 giorni di protezione. Dal trentaduesimo giorno in avanti, per la protezione dell'istanza vengono addebitati i costi sopra indicati.
+###<a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante i primi 31 giorni, sono previsti altri addebiti per Azure?
+Sì, anche se Azure Site Recovery è gratuito durante i primi 31 giorni di un'istanza protetta, è possibile che vengano addebitati i costi per Archiviazione di Azure, transazioni di archiviazione e trasferimento dati. Per una macchina virtuale ripristinata possono venire addebitati anche i costi di calcolo di Azure. Informazioni dettagliate sui prezzi sono disponibili [qui](https://azure.microsoft.com/pricing/details/site-recovery)
 
 ### <a name="what-are-the-best-practices-for-configuring-site-recovery-on-azure-vms"></a>Quali sono le procedure consigliate per la configurazione di Site Recovery nelle macchine virtuali di Azure?
 1. [Informazioni sull'architettura da Azure ad Azure](azure-to-azure-architecture.md)
@@ -70,6 +74,10 @@ Con Site Recovery è possibile eseguire la replica e il ripristino di macchine v
 
 No, Site Recovery non richiede la connettività Internet. È tuttavia necessario l'accesso agli intervalli IP e agli URL di Site Recovery, come indicato in [questo articolo](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
 
+### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>È possibile eseguire la replica dell'applicazione con un gruppo di risorse separato per livelli diversi? 
+Sì, è possibile eseguire la replica dell'applicazione e mantenere la configurazione di ripristino di emergenza in un gruppo di risorse separato.
+Se ad esempio si ha un'applicazione con ogni livello (app, database e Web) in un gruppo di risorse separato, è necessario fare clic tre volte sulla [procedura guidata di replica](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) per proteggere tutti i livelli. Azure Site Recovery eseguirà la replica dei tre livelli in tre gruppi di risorse distinti.
+
 ## <a name="replication-policy"></a>Criteri di replica
 
 ### <a name="what-is-a-replication-policy"></a>Cosa sono i criteri di replica?
@@ -89,9 +97,12 @@ La maggior parte delle applicazioni esegue ora correttamente il ripristino da sn
 Site Recovery crea un punto di recupero coerente con l'arresto anomalo del sistema ogni 5 minuti.
 
 ### <a name="what-is-an-application-consistent-recovery-point"></a>Che cos'è un punto di recupero coerente con l'applicazione? 
-I punti di recupero coerenti con l'applicazione vengono creati dagli snapshot coerenti con l'applicazione. Questi ultimi acquisiscono gli stessi dati di snapshot coerenti con l'arresto anomalo del sistema, oltre a tutti i dati in memoria e a tutte le transazioni in corso. 
+I punti di recupero coerenti con l'applicazione vengono creati dagli snapshot coerenti con l'applicazione. I punti di recupero coerenti con l'applicazione acquisiscono gli stessi dati di snapshot coerenti con l'arresto anomalo del sistema, oltre a tutti i dati in memoria e a tutte le transazioni in corso. 
 
 Per via del loro contenuto aggiuntivo, gli snapshot coerenti con l'applicazione impiegano più tempo di esecuzione e sono i più coinvolti. È consigliabile usare i punti di recupero coerenti con l'applicazione per sistemi operativi e applicazioni di database come SQL Server.
+
+### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>Qual è l'impatto dei punti di recupero coerenti con l'applicazione sulle prestazioni dell'applicazione?
+Considerando che i punti di recupero coerenti con l'applicazione acquisiscono tutti i dati in memoria e tutte le transazioni in corso, per disattivare l'applicazione è necessario un framework come VSS in Windows. Questa operazione, se eseguita con frequenza elevata, può incidere in modo significativo sulle prestazioni, soprattutto se il carico di lavoro è già molto pesante. In genere è quindi consigliabile non usare una frequenza ridotta per i punti di recupero coerenti con l'app, sia per carichi di lavoro non di database sia per quelli di database: un'ora è sufficiente. 
 
 ### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>Qual è la frequenza minima di generazione di punti di recupero coerenti nell'arresto anomalo del sistema?
 Site Recovery può creare un punto di recupero coerente nell'applicazione con una frequenza minima di 1 ora.

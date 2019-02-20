@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 02/07/2019
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: 0b56451231f1fda4e5bd156d0aded6e84c9c0162
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 8e9cb570f69eb29887f4f904ba7b2b35548f3771
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117453"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965359"
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
 
@@ -195,6 +195,63 @@ Quando si [configurano le pagine Web per Application Insights](../../azure-monit
 Come percentuale di campionamento, sceglierne una vicina a 100/N dove N è un numero intero.  Il campionamento attualmente non supporta altri valori.
 
 Se si abilita il campionamento a frequenza fissa nel server, i client e il server si sincronizzeranno in modo che nella ricerca sia possibile spostarsi tra le visualizzazioni pagina e le richieste correlate.
+
+## <a name="aspnet-core-sampling"></a>Campionamento di ASP.NET Core
+
+Il campionamento adattivo è abilitato per impostazione predefinita in tutte le applicazioni ASP.NET Core, ma può essere disabilitato o è possibile personalizzarne il comportamento.
+
+### <a name="turning-off-adaptive-sampling"></a>Disabilitazione del campionamento adattivo
+
+La funzionalità di campionamento predefinita può essere disabilitata quando si aggiunge il servizio Application Insights nel metodo ```ConfigureServices``` usando ```ApplicationInsightsServiceOptions```:
+
+``` c#
+public void ConfigureServices(IServiceCollection services)
+{
+// ...
+
+var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
+aiOptions.EnableAdaptiveSampling = false;
+services.AddApplicationInsightsTelemetry(aiOptions);
+
+//...
+}
+```
+
+Il codice sopra riportato disabilita la funzionalità di campionamento. Seguire la procedura descritta di seguito per aggiungere al campionamento più opzioni di personalizzazione.
+
+### <a name="configure-sampling-settings"></a>Configurare le impostazioni del campionamento
+
+Usare i metodi di estensione di ```TelemetryProcessorChainBuilder```, come illustrato di seguito, per personalizzare il comportamento della funzionalità di campionamento.
+
+> [!IMPORTANT]
+> Se si usa questo metodo per configurare il campionamento, assicurarsi di usare le impostazioni aiOptions.EnableAdaptiveSampling = false; con AddApplicationInsightsTelemetry().
+
+``` c#
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
+
+var builder = configuration .TelemetryProcessorChainBuilder;
+// version 2.5.0-beta2 and above should use the following line instead of above. (https://github.com/Microsoft/ApplicationInsights-aspnetcore/blob/develop/CHANGELOG.md#version-250-beta2)
+// var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
+
+// Using adaptive sampling
+builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:10);
+ 
+// OR Using fixed rate sampling   
+double fixedSamplingPercentage = 50;
+builder.UseSampling(fixedSamplingPercentage);
+
+builder.Build();
+
+// ...
+}
+
+```
+
+**Se si usa il metodo sopra indicato per configurare il campionamento, assicurarsi di usare le impostazioni ```aiOptions.EnableAdaptiveSampling = false;``` con AddApplicationInsightsTelemetry().**
+
+In caso contrario, nella catena TelemetryProcessor saranno presenti più processori di campionamento, con possibili conseguenze impreviste.
 
 ## <a name="fixed-rate-sampling-for-aspnet-and-java-web-sites"></a>Campionamento a frequenza fissa per siti Web ASP.NET e Java
 Il campionamento a frequenza fissa riduce il traffico inviato dal server e dai Web browser. A differenza del campionamento adattivo, riduce i dati di telemetria a una frequenza fissa definita dall'utente. Sincronizza inoltre il campionamento del client e del server in modo che gli elementi correlati vengano mantenuti, ad esempio quando si esamina una pagina di ricerca, è possibile trovare la richiesta correlata.

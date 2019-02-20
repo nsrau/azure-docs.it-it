@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: f1adcca48882ca3a149046cbc0729612666363cc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: 59599686b2a9ccee7250e33f0786d4c7af816983
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734607"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894310"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Differenze T-SQL tra un'istanza gestita del database SQL di Azure e SQL Server
 
@@ -27,7 +27,7 @@ L'opzione di distribuzione dell'istanza gestita assicura una compatibilità elev
 
 Esistono tuttavia alcune differenze nella sintassi e nel comportamento, riepilogate e illustrate in questo articolo. <a name="Differences"></a>
 - [Disponibilità](#availability) incluse le differenze relative a [Always On](#always-on-availability) e [Backup](#backup),
-- [Sicurezza](#security) incluse le differenze relative a [Controllo](#auditing), [Certificati](#certificates), [Credenziali](#credentials), [Provider del servizio di crittografia](#cryptographic-providers), [Accessi/utenti](#logins--users), [Chiave del servizio e chiave master del servizio](#service-key-and-service-master-key),
+- [Sicurezza](#security) incluse le differenze relative a [Controllo](#auditing), [Certificati](#certificates), [Credenziali](#credential), [Provider del servizio di crittografia](#cryptographic-providers), [Accessi/utenti](#logins--users), [Chiave del servizio e chiave master del servizio](#service-key-and-service-master-key),
 - [Configurazione](#configuration) incluse le differenze relative a [Estensione del pool di buffer](#buffer-pool-extension), [Regole di confronto](#collation), [Livelli di compatibilità](#compatibility-levels), [Mirroring del database](#database-mirroring), [Opzioni di database](#database-options), [SQL Server Agent](#sql-server-agent), [Opzioni tabella](#tables),
 - [Funzionalità](#functionalities) tra cui [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [Transazioni distribuite](#distributed-transactions), [Eventi estesi](#extended-events), [Librerie esterne](#external-libraries), [FileStream e FileTable](#filestream-and-filetable), [Ricerca semantica full-text](#full-text-semantic-search), [Server collegati](#linked-servers), [PolyBase](#polybase), [Replica](#replication), [RIPRISTINO](#restore-statement), [Service Broker](#service-broker), [Stored procedure, funzioni e trigger](#stored-procedures-functions-triggers),
 - [Funzionalità con un comportamento diverso nelle istanze gestite](#Changes)
@@ -72,15 +72,15 @@ Per informazioni sui backup con T-SQL, vedere [BACKUP](https://docs.microsoft.co
 
 ### <a name="auditing"></a>Controllo
 
-Le principali differenze tra il controllo nei database nel database SQL di Azure e il controllo nei database in SQL Server sono le seguenti:
+Le principali differenze tra il controllo nei database nel database SQL di Azure e quello in SQL Server sono le seguenti:
 
-- Con l'opzione di distribuzione dell'istanza gestita nel database SQL di Azure, il controllo viene eseguito a livello del server e archivia file di log `.xel` nell'account di archiviazione BLOB di Azure.
+- Con l'opzione di distribuzione dell'istanza gestita nel database SQL di Azure, il controllo viene eseguito al livello del server e archivia file di log `.xel` in Archiviazione BLOB di Azure.
 - Con le opzioni di distribuzione dei database singoli e dei pool elastici nel database SQL di Azure, il controllo viene eseguito a livello del database.
 - In SQL Server locale o nelle macchine virtuali SQL Server il controllo viene eseguito a livello del server, ma archivia gli eventi nei log eventi del file system o di Windows.
   
-Il controllo XEvent nell'istanza gestita supporta le destinazioni di archiviazione BLOB di Azure. I log di file e di Windows non sono supportati.
+Il controllo XEvent nell'istanza gestita supporta le destinazioni di Archiviazione BLOB di Azure. I log di file e di Windows non sono supportati.
 
-Le principali differenze nella sintassi `CREATE AUDIT` per il controllo nell'archivio BLOB di Azure sono le seguenti:
+Di seguito sono illustrate le principali differenze nella sintassi `CREATE AUDIT` per il controllo in Archiviazione BLOB di Azure:
 
 - È disponibile una nuova sintassi `TO URL` che consente di specificare l'URL del contenitore di archiviazione BLOB di Azure in cui verranno inseriti i file di `.xel`.
 - La sintassi `TO FILE` non è supportata perché un'istanza gestita non può accedere alle condivisioni file di Windows.
@@ -170,7 +170,7 @@ Per altre informazioni, vedere [ALTER DATABASE SET PARTNER e SET WITNESS](https:
 - Gli oggetti in memoria non sono supportati nel livello di servizio per utilizzo generico.  
 - Esiste un limite di 280 file per istanza, che quindi implica un massimo di 280 file per database. I file di dati e i file di log vengono conteggiati per il limite.  
 - I database non possono contenere filegroup che contengono a loro volta dati FileStream.  Se il file con estensione bak contiene dati `FILESTREAM`, il ripristino non riesce.  
-- Ogni file viene inserito in Archiviazione Premium di Azure. L'I/O e la velocità effettiva per file dipendono dalle dimensioni di ogni singolo file, esattamente come per i dischi di Archiviazione Premium di Azure. Vedere [Prestazioni di Archiviazione Premium](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes).  
+- Ogni file viene inserito in Archiviazione BLOB di Azure. L'I/O e la velocità effettiva per file dipendono dalle dimensioni di ogni singolo file.  
 
 #### <a name="create-database-statement"></a>Istruzione CREATE DATABASE
 
@@ -275,10 +275,10 @@ Per informazioni sulla creazione e la modifica di tabelle, vedere [CREATE TABLE]
 
 ### <a name="bulk-insert--openrowset"></a>Inserimento bulk/openrowset
 
-Un'istanza gestita non può accedere a condivisioni file e cartelle di Windows e pertanto i file devono essere importati dall'archiviazione BLOB di Azure:
+Un'istanza gestita non può accedere a condivisioni file e cartelle di Windows e i file devono essere quindi importati da Archiviazione BLOB di Azure:
 
-- `DATASOURCE` è obbligatorio nel comando `BULK INSERT` durante l'importazione di file dall'archivio BLOB di Azure. Vedere [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
-- `DATASOURCE` è obbligatorio nella funzione `OPENROWSET` quando si legge il contenuto di un file dall'archivio BLOB di Azure. Vedere [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+- `DATASOURCE` è obbligatorio nel comando `BULK INSERT` durante l'importazione dei file da Archiviazione BLOB di Azure. Vedere [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
+- `DATASOURCE` è obbligatorio nella funzione `OPENROWSET` quando si legge il contenuto di un file da Archiviazione BLOB di Azure. Vedere [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
 
 ### <a name="clr"></a>CLR
 
@@ -305,7 +305,7 @@ Né MSDTC, né le [transazioni elastiche](sql-database-elastic-transactions-over
 
 Alcune destinazioni specifiche di Windows per XEvents non sono supportate:
 
-- `etw_classic_sync target` non è supportato. Archiviare i file `.xel` nell'archivio BLOB di Azure. Vedere [Destinazione etw_classic_sync_target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etwclassicsynctarget-target).
+- `etw_classic_sync target` non è supportato. Archiviare i file `.xel` nell'archivio BLOB di Azure. Vedere [Destinazione etw_classic_sync_target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etw_classic_sync_target-target).
 - `event_file target` non è supportato. Archiviare i file `.xel` nell'archivio BLOB di Azure. Vedere [Destinazione event_file](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
 
 ### <a name="external-libraries"></a>Librerie esterne
@@ -347,7 +347,7 @@ Operazioni
 
 ### <a name="polybase"></a>PolyBase
 
-Le tabelle esterne che fanno riferimento ai file in HDFS o nell'archivio BLOB di Azure non sono supportate. Per informazioni su Polybase, vedere [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide).
+Non sono supportate tabelle esterne che fanno riferimento ai file in HDFS o in Archiviazione BLOB di Azure. Per informazioni su Polybase, vedere [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Replica
 
@@ -365,7 +365,7 @@ La replica è disponibile in anteprima pubblica per le istanze gestite. Per info
   - `RESTORE LOG ONLY`
   - `RESTORE REWINDONLY ONLY`
 - Source (Sorgente)  
-  - `FROM URL` (archivio BLOB di Azure) è l'unica opzione supportata.
+  - `FROM URL` (Archiviazione BLOB di Azure) è l'unica opzione supportata.
   - `FROM DISK`/`TAPE`/dispositivo di backup non è supportato.
   - I set di backup non sono supportati.
 - Le opzioni `WITH` (`DIFFERENTIAL`, `STATS` ecc.) non sono supportate

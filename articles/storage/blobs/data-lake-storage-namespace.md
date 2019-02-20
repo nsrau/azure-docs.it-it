@@ -1,6 +1,6 @@
 ---
-title: Anteprima di Azure Data Lake Storage Gen2 - Spazio dei nomi gerarchico
-description: Descrive la nozione di spazio dei nomi gerarchico per Anteprima di Azure Data Lake Storage Gen2
+title: Spazio dei nomi gerarchico per Azure Data Lake Storage Gen2
+description: Descrive la nozione di spazio dei nomi gerarchico per Azure Data Lake Storage Gen2
 services: storage
 author: jamesbak
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 967e24ae6e004fe6ce2b1c0aa6c039f46be2598c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b423d40884dd9132312e79ba0cbff00b8771b207
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244505"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55877032"
 ---
-# <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Spazio dei nomi gerarchico per Anteprima di Azure Data Lake Storage Gen2
+# <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Spazio dei nomi gerarchico per Azure Data Lake Storage Gen2
 
-Meccanismo chiave che consente alla versione di anteprima di Azure Data Lake Storage Gen2 di fornire prestazioni del file system scalabili in base all'archiviazione di oggetti e ai prezzi tramite l'aggiunta di uno **spazio dei nomi gerarchico**. Consente la raccolta di oggetti o file all'interno di un account per organizzarli in una gerarchia di directory e sottodirectory annidate allo stesso modo in cui sono organizzate nel file system o sul computer. Con lo spazio dei nomi gerarchico abilitato, l'account di archiviazione è in grado di offrire la scalabilità e l'efficacia di archiviazione di oggetti, con la semantica del file system già nota ai motori e ai framework di analisi.
+Meccanismo chiave che consente ad Azure Data Lake Storage Gen2 di fornire prestazioni del file system scalabili in base all'archiviazione di oggetti e ai prezzi tramite l'aggiunta di uno **spazio dei nomi gerarchico**. Consente la raccolta di oggetti o file all'interno di un account per organizzarli in una gerarchia di directory e sottodirectory annidate allo stesso modo in cui sono organizzate nel file system o sul computer. Con lo spazio dei nomi gerarchico abilitato, l'account di archiviazione è in grado di offrire la scalabilità e l'efficacia di archiviazione di oggetti, con la semantica del file system già nota ai motori e ai framework di analisi.
 
 ## <a name="the-benefits-of-the-hierarchical-namespace"></a>Vantaggi dello spazio dei nomi gerarchico
 
@@ -33,14 +33,13 @@ Uno dei motivi per cui gli archivi di oggetti non hanno tradizionalmente mai sup
 
 ## <a name="when-to-enable-the-hierarchical-namespace"></a>Quando abilitare lo spazio dei nomi gerarchico
 
-L'attivazione dello spazio dei nomi gerarchico è consigliata per carichi di lavoro di archiviazione progettati per file system che consentono di modificare le directory. Sono inclusi tutti i carichi di lavoro destinati principalmente all'elaborazione analitica. Anche i set di dati che richiedono un elevato livello di organizzazione potranno usufruire dell'abilitazione dello spazio dei nomi gerarchico.
+È consigliabile attivare lo spazio dei nomi gerarchico per carichi di lavoro di archiviazione progettati per file system che consentono di modificare le directory. Sono inclusi tutti i carichi di lavoro destinati principalmente all'elaborazione analitica. Anche i set di dati che richiedono un elevato livello di organizzazione potranno usufruire dell'abilitazione dello spazio dei nomi gerarchico.
 
 I motivi per abilitare lo spazio dei nomi gerarchico sono determinati da un'analisi del costo totale di proprietà. In generale, i miglioramenti in termini di latenza di carico di lavoro dovuti a un'accelerazione dell'archiviazione richiederanno risorse di calcolo per un tempo inferiore. È possibile migliorare la latenza per molti carichi di lavoro tramite la modifica della directory atomica, abilitata dallo spazio dei nomi gerarchico. In molti carichi di lavoro, la risorsa di calcolo rappresenta > 85% del costo totale e pertanto anche una riduzione modesta della latenza del carico di lavoro implica un risparmio significativo in termini di costo totale di proprietà. Anche nei casi in cui l'abilitazione dello spazio dei nomi gerarchico aumenta i costi di archiviazione, il costo totale di proprietà è comunque ridotto per via dei minori costi di calcolo.
 
 ## <a name="when-to-disable-the-hierarchical-namespace"></a>Quando disabilitare lo spazio dei nomi gerarchico
 
-Alcuni carichi di lavoro di archiviazione di oggetti non usufruiscono di alcun vantaggio abilitando lo spazio dei nomi gerarchico. Backup, archiviazione di immagini e altre applicazioni in cui l'organizzazione di oggetti è archiviata separatamente dagli oggetti stessi (*ad esempio*, in un database separato) sono solo alcuni esempi di tali carichi di lavoro.
-
+È possibile che alcuni carichi di lavoro di archiviazione di oggetti non ottengano alcun vantaggio abilitando lo spazio dei nomi gerarchico, come nel caso di backup, archiviazione di immagini e altre applicazioni in cui l'organizzazione di oggetti è archiviata separatamente dagli oggetti stessi (ad esempio, in un database separato).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

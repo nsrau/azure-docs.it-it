@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 946a2a05cee0cf8f3b91eef58442fbb2e26935c4
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 834674eb63af75088434db0f614b11c7a36e7adf
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490448"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964815"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configurare le impostazioni e i criteri di utilizzo
 Questo articolo descrive come aggiungere utenti al lab, registrarli al lab, controllare il numero di ore in cui possono usare la macchina virtuale e altro ancora. 
@@ -29,7 +29,9 @@ Se è stata abilitata l'opzione **Limitare l'accesso**, aggiungere gli utenti (i
 
 1. Selezionare **Utenti** nel menu a sinistra.
 2. Selezionare **Aggiungi utenti** sulla barra degli strumenti. 
-3. Nella pagina **Aggiungi utenti** immettere gli indirizzi di posta elettronica degli utenti in righe separate o in una singola riga, separati da punti e virgola. 
+
+    ![Pulsante Aggiungi utenti](../media/how-to-configure-student-usage/add-users-button.png)
+1. Nella pagina **Aggiungi utenti** immettere gli indirizzi di posta elettronica degli utenti in righe separate o in una singola riga, separati da punti e virgola. 
 
     ![Aggiungere gli indirizzi di posta elettronica degli utenti](../media/how-to-configure-student-usage/add-users-email-addresses.png)
 4. Selezionare **Salva**. Gli indirizzi di posta elettronica degli utenti e i relativi stati (registrati o no) saranno visualizzati nell'elenco. 
@@ -64,11 +66,14 @@ Selezionare **Utenti** nel menu a sinistra per visualizzare l'elenco di utenti r
 
 1. Selezionare **Utenti** nel menu a sinistra.
 2. Selezionare **Quota per user: unlimited** (Quota per utente: illimitata) sulla barra degli strumenti. 
-3. Nella pagina **Quota per user** (Quota per utente), selezionare **Limit the number of hours a user can use a VM** (Limitare il numero di ore in cui un utente può usare una macchina virtuale). 
-4. Per **How many hours do you want to give to each user?** (Quante ore si desidera assegnare a ogni utente?), immettere il numero di ore e selezionare **Salva**. 
+3. Nella pagina **Quota per user** (Quota per utente) selezionare una delle opzioni seguenti: 
+    1. **Nessuno**. Gli utenti possono usare le macchine virtuali solo durante l'orario pianificato o quando il proprietario del lab attiva le macchine virtuali appositamente per loro.
+    2. **Illimitato (impostazione predefinita)**. Gli utenti possono usare le macchine virtuali senza alcun vincolo temporale.
+    3. **Specificare il numero di ore per utente**. Gli utenti possono usare le macchine virtuali per il numero di ore specificato (riportato di seguito), in aggiunta all'orario pianificato. Se si seleziona questa opzione, immettere il **numero di ore** nella casella di testo. 
 
-    ![Numero di ore per utente](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
-5. È ora visibile il numero di ore sulla barra degli strumenti: **Quota per user (Quota per utente): &lt;numero di ore&gt;**. 
+        ![Numero di ore per utente](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
+    4. Selezionare **Salva**. 
+5. Nella barra degli strumenti verranno visualizzati ora i valori modificati: **Quota per user (Quota per utente): &lt;numero di ore&gt;**. 
 
     ![Quota per user (Quota per utente)](../media/how-to-configure-student-usage/quota-per-user.png)
 
@@ -78,8 +83,19 @@ Selezionare **Utenti** nel menu a sinistra per visualizzare l'elenco di utenti r
 ### <a name="add-users-by-uploading-a-csv-file"></a>Aggiungere gli utenti caricando un file CSV
 È anche possibile aggiungere gli utenti caricando un file CSV con gli indirizzi di posta elettronica degli utenti.
 
-1. Selezionare **Carica CSV** sulla barra degli strumenti.
-2. Selezionare il file CSV con gli indirizzi di posta elettronica degli utenti. Quando si apre il file con Excel, tutti gli indirizzi di posta elettronica devono trovarsi in una colonna. 
+1. Creare un file CSV con gli indirizzi di posta elettronica degli utenti in un'unica colonna.
+
+    ![Quota per user (Quota per utente)](../media/how-to-configure-student-usage/csv-file-with-users.png)
+2. Nella pagina **Utenti** dell'esercitazione, selezionare **Carica CSV** sulla barra degli strumenti.
+
+    ![Pulsante Carica CSV](../media/how-to-configure-student-usage/upload-csv-button.png)
+3. Selezionare il file CSV con gli indirizzi di posta elettronica degli utenti. Se si seleziona **Apri** dopo aver selezionato il file CSV, verrà visualizzata la finestra **Aggiungi utenti** seguente. L'elenco di indirizzi di posta elettronica viene riempito con gli indirizzi di posta elettronica contenuti nel file CSV. 
+
+    ![Finestra Aggiungi utenti popolata con gli indirizzi di posta elettronica del file CSV](../media/how-to-configure-student-usage/add-users-window.png)
+4. Nella finestra **Aggiunti utenti** selezionare **Salva**. 
+5. Verificare che nell'elenco di utenti siano presenti gli utenti corretti. 
+
+    ![Elenco di utenti aggiunti](../media/how-to-configure-student-usage/list-of-added-users.png)
 
 ## <a name="manage-user-vms"></a>Gestire le macchine virtuali utente
 Dopo che gli studenti si sono registrati al servizio Azure Lab Services usando il collegamento di registrazione che gli viene fornito, è possibile visualizzare le VM assegnate agli studenti nella scheda **Macchine virtuali** . 
