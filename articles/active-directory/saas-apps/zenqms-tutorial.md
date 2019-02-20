@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con ZenQMS | Documentazione Microsoft'
+title: 'Esercitazione: integrazione di Azure Active Directory con ZenQMS | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e ZenQMS.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 57a8c698133b2b5516a1f5d352f28148afe6f3d2
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f9804dee56e9f099654359e7c336f706cedbd1f7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42447217"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56204866"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zenqms"></a>Esercitazione: Integrazione di Azure Active Directory con ZenQMS
+# <a name="tutorial-azure-active-directory-integration-with-zenqms"></a>Esercitazione: integrazione di Azure Active Directory con ZenQMS
 
 Questa esercitazione descrive come integrare ZenQMS con Azure Active Directory (Azure AD).
 
@@ -172,7 +173,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ### <a name="create-a-zenqms-test-user"></a>Creare un utente test di ZenQMS
 
-In questa sezione viene creato un utente chiamato Britta Simon in ZenQMS. Collaborare con il [team di supporto di ZenQMS](mailto:help@zenqms.com) per aggiungere gli utenti alla piattaforma ZenQMS. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente chiamato Britta Simon in ZenQMS. Collaborare con il  [team di supporto di ZenQMS](mailto:help@zenqms.com) per aggiungere gli utenti alla piattaforma ZenQMS. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -209,7 +210,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro ZenQMS nel pannello di accesso, si accederà automaticamente all'applicazione ZenQMS.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

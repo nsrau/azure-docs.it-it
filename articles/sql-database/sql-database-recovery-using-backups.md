@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 8d2cac7635b9d97561b3cebf517c95855407cbe3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: 27a8e160fc33729c5b5266dffeb346f0296276fd
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462784"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005285"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Ripristinare un database SQL di Azure mediante i backup automatici del database
 
@@ -71,7 +71,7 @@ Non è disponibile una funzionalità incorporata per il ripristino in blocco. Lo
 
 ## <a name="point-in-time-restore"></a>Ripristino temporizzato
 
-È possibile ripristinare un database autonomo, in pool o di istanza a un punto specifico nel tempo come un nuovo database nello stesso server tramite il portale di Azure, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) o l'[API REST](https://docs.microsoft.com/rest/api/sql/databases). Un database può essere ripristinato a qualsiasi livello di servizio o dimensione di calcolo. Assicurarsi di disporre di risorse sufficienti sul server in cui si sta ripristinando il database. Al termine, il database ripristinato è un normale database online completamente accessibile alle tariffe normali in base al livello di prestazioni e alla dimensione di calcolo. Non è previsto alcun addebito fino al completamento del ripristino del database.
+È possibile ripristinare un database singolo, in pool o di istanza a un punto specifico nel tempo come un nuovo database nello stesso server tramite il portale di Azure, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) o l'[API REST](https://docs.microsoft.com/rest/api/sql/databases). Un database può essere ripristinato a qualsiasi livello di servizio o dimensione di calcolo. Assicurarsi di disporre di risorse sufficienti sul server in cui si sta ripristinando il database. Al termine, il database ripristinato è un normale database online completamente accessibile alle tariffe normali in base al livello di prestazioni e alla dimensione di calcolo. Non è previsto alcun addebito fino al completamento del ripristino del database.
 
 In genere si ripristina un database a un punto precedente per scopi di ripristino. Quando si esegue questa operazione, è possibile considerare il database ripristinato come una sostituzione per il database originale o usarlo per recuperare i dati e quindi aggiornare il database originale.
 
@@ -83,7 +83,7 @@ In genere si ripristina un database a un punto precedente per scopi di ripristin
 
   Se si prevede di recuperare dati dal database ripristinato in caso di errore dell'applicazione o dell'utente, è necessario scrivere ed eseguire gli opportuni script di ripristino per estrarre i dati dal database ripristinato e inserirli nel database originale. Anche se il completamento dell'operazione di ripristino può richiedere molto tempo, il database in fase di ripristino è visibile nell'elenco dei database per tutto il processo. Se si elimina il database durante il ripristino, l'operazione verrà annullata e non verrà addebitata per il database il cui ripristino non è stato completato.
 
-Per eseguire il ripristino di un database autonomo, in pool o di istanza a un determinato momento nel tempo tramite il portale di Azure, aprire la pagina per il database e fare clic su **Ripristina** nella barra degli strumenti.
+Per eseguire il ripristino di un database singolo, in pool o di istanza a un determinato momento nel tempo tramite il portale di Azure, aprire la pagina per il database e fare clic su **Ripristina** nella barra degli strumenti.
 
 ![ripristino a un determinato momento nel tempo](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
@@ -139,7 +139,7 @@ Come indicato in precedenza, oltre al portale di Azure, il ripristino di databas
 
 ### <a name="powershell"></a>PowerShell
 
-- Per ripristinare un database autonomo o in pool, vedere [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase)
+- Per ripristinare un database singolo o in pool, vedere [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase)
 
   | Cmdlet | DESCRIZIONE |
   | --- | --- |
@@ -155,7 +155,7 @@ Come indicato in precedenza, oltre al portale di Azure, il ripristino di databas
 
 ### <a name="rest-api"></a>API REST
 
-Per ripristinare un database autonomo o in pool con l'API REST:
+Per ripristinare un database singolo o in pool con l'API REST:
 
 | API | DESCRIZIONE |
 | --- | --- |
@@ -164,7 +164,7 @@ Per ripristinare un database autonomo o in pool con l'API REST:
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Per ripristinare un database autonomo o in pool usando l'interfaccia della riga di comando di Azure, vedere [Ripristino az sql db](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-restore).
+Per ripristinare un database singolo o in pool con l'interfaccia della riga di comando di Azure, vedere [Ripristino az sql db](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-restore).
 
 ## <a name="summary"></a>Summary
 

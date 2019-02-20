@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 1bada751ffac45b36faad6e978567233901adc7d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 9f5cf0e8be0529ce59edc9aa4cd33d470415c8a6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700316"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190960"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quote e limitazioni in Servizi multimediali di Azure v3
 
@@ -37,7 +37,7 @@ Questo articolo descrive le quote e le limitazioni in Servizi multimediali di Az
 | Account di Servizi multimediali in una singola sottoscrizione | 25 (fisso) |
 | Output live in stato di esecuzione per ogni LiveEvent |3|
 | Account di archiviazione | 100<sup>(4)</sup> (fisso) |
-| Endpoint di streaming in esecuzione per ogni account di Servizi multimediali|2|
+| Endpoint di streaming (interrotti o in esecuzione) per account di Servizi multimediali|2|
 | Criteri di streaming | 100 <sup>(3)</sup> |
 | Transform per ogni account di Servizi multimediali | 100 (fisso)|
 | Localizzatori di streaming univoci associati contemporaneamente a un asset | 100<sup>(5)</sup> (fisso) |

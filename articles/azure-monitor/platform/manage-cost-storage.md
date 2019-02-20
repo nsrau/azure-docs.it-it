@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 95dc004e1a4b34f1f3a3c547da4ea7cd35e8c753
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 851098840356c7d391c2b10fae1c18884f5dab02
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821474"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236109"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Gestire l'utilizzo e i costi per Log Analytics
 
@@ -116,6 +116,9 @@ Se si desidera spostare l'area di lavoro nel piano tariffario corrente, è neces
 
 > [!NOTE]
 > Se l'area di lavoro è collegata a un account di Automazione, prima di poter selezionare il piano tariffario *Standalone (Per GB)* (Autonomo - per GB), è necessario eliminare eventuali soluzioni di **Automazione e controllo** e scollegare l'account di Automazione. Nel pannello dell'area di lavoro in **Generale** fare clic su **Soluzioni** per visualizzare ed eliminare le soluzioni. Per scollegare l'account di Automazione, fare clic sul nome dell'account di Automazione nel pannello **Piano tariffario**.
+
+> [!NOTE]
+> Altre informazioni sull'impostazione del piano tariffario tramite ARM [https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace] e su come assicurarsi che la distribuzione ARM avrà esito positivo indipendentemente dal fatto che la sottoscrizione si trova nel modello di tariffe legacy o nuovo. 
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Risoluzione dei problemi se Log Analytics non sta più raccogliendo dati

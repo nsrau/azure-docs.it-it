@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 8d6ca6395e4f5e1aca361c56e21afc4e6bd1fc0c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6a1022ce74fd5514b274f498a4d4f764393e6428
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43132589"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185775"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workteam"></a>Esercitazione: integrazione di Azure Active Directory con Workteam
 
@@ -145,7 +146,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     c. Nella casella di testo **ID entità SAML** incollare il valore dell'**ID di entità SAML** copiato dal portale di Azure.
 
-    d. Nel Blocco note, aprire il **certificato con codifica Base 64** scaricato dal portale di Azure, copiarne il contenuto e quindi incollarlo nella casella **Certificato di firma SAML (Base64)**.
+    d. Nel Blocco note, aprire il **certificato con codifica Base 64** scaricato dal portale di Azure, copiarne il contenuto e quindi incollarlo nella casella **Certificato di firma SAML (Base64)** .
 
     e. Fare clic su **OK**.
 
@@ -238,7 +239,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Workteam nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Workteam.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

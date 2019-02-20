@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: fc4d09b59e568a693b7f7951e9e716d04a5a2a49
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: d664c33c4535d25ec93fd1f36c990f2764a4e071
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729269"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000814"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Esempi JavaScript da usare in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-È possibile aggiungere codice lato server JavaScript personalizzato alle applicazioni Azure Active Directory (Azure AD) B2C. Questo articolo descrive come modificare i [criteri personalizzati](active-directory-b2c-overview-custom.md) per abilitare l'esecuzione di script.
+È possibile aggiungere codice lato server JavaScript personalizzato alle applicazioni Azure Active Directory (Azure AD) B2C. Questo articolo descrive come modificare il [flusso utente](user-flow-javascript-overview.md) o i [criteri personalizzati](active-directory-b2c-overview-custom.md) per abilitare l'esecuzione di script.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Selezionare un [contratto di pagina](page-contract.md) per gli elementi dell'interfaccia utente dell'applicazione. Se si prevede di usare JavaScript, è necessario definire una versione del contratto di pagina per tutte le definizioni del contenuto nei criteri personalizzati.
+Selezionare un [contratto di pagina](page-contract.md) per gli elementi dell'interfaccia utente dell'applicazione. Se si prevede di usare JavaScript, è necessario definire una versione del contratto di pagina per tutte le definizioni del contenuto nel flusso utente o nei criteri personalizzati.
 
 ## <a name="add-the-scriptexecution-element"></a>Aggiungere l'elemento ScriptExecution
 
