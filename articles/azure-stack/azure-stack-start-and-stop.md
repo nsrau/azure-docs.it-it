@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/19/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: b8d13377b2fb1545ecf88645a5e19bf5eab24c74
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6b14f5e8967567030ce854d05c53a8d26027e9a6
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238136"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428840"
 ---
 # <a name="start-and-stop-azure-stack"></a>Avviare e arrestare Azure Stack
-È necessario seguire le procedure descritte in questo articolo per arrestare e riavviare i servizi di Azure Stack in modo corretto. Arresto verrà fisicamente spegnere l'intero ambiente Azure Stack. Avvio consente il funzionamento in tutti i ruoli di infrastruttura e restituisce le risorse del tenant e lo stato di alimentazione che si trovavano prima dell'arresto.
+È necessario seguire le procedure descritte in questo articolo per arrestare e riavviare i servizi di Azure Stack in modo corretto. Arresto verrà fisicamente spegnere l'intero ambiente Azure Stack. Avvia powers su tutti i ruoli di infrastruttura e restituisce le risorse per lo stato di alimentazione che si trovavano prima dell'arresto del tenant.
 
 ## <a name="stop-azure-stack"></a>Arrestare Azure Stack 
 

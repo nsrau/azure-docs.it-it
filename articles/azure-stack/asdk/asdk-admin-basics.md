@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/19/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 79e031226f11d45121827795c34b0103235d8d79
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9a07a829aac9659ac7ab8d04b64a1ea1a9a2de78
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248164"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428058"
 ---
 # <a name="asdk-administration-basics"></a>Nozioni fondamentali sull'amministrazione ASDK 
 Esistono diversi aspetti da sapere se si ha familiarità con amministrazione di Azure Stack Development Kit (ASDK). Questa guida viene fornita una panoramica del ruolo come operatore di Azure Stack nell'ambiente di valutazione e come garantire agli utenti di test può diventare rapidamente produttivi.
@@ -37,7 +37,7 @@ Esistono alcune considerazioni sull'account che è necessario tenere presenti du
 |-----|-----|-----|
 |Amministratore locale (. \Administrator)|Amministratore di host ASDK|Amministratore di host ASDK|
 |AzureStack\AzureStackAdmin|Amministratore di host ASDK<br><br>Può essere utilizzato per accedere al portale di amministrazione di Azure Stack<br><br>Accesso per visualizzare e amministrare gli anelli di Service Fabric|Amministratore di host ASDK<br><br>Nessun accesso al portale di amministrazione di Azure Stack<br><br>Accesso per visualizzare e amministrare gli anelli di Service Fabric<br><br>Non è più proprietario del Provider di sottoscrizione predefinite (DPS)|
-|AzureStack\CloudAdmin|Può accedere ed eseguire i comandi consentiti all'interno dell'Endpoint con privilegi|Può accedere ed eseguire i comandi consentiti all'interno dell'Endpoint con privilegi<br><br>Non può accedere all'host ASDK<br><br>Proprietario della sottoscrizione del Provider predefinito (DPS)|
+|AzureStack\CloudAdmin|Può accedere ed eseguire i comandi consentiti all'interno dell'Endpoint con privilegi|Può accedere ed eseguire i comandi consentiti all'interno dell'Endpoint con privilegi<br><br>Non è possibile accedere all'host ASDK<br><br>Proprietario della sottoscrizione del Provider predefinito (DPS)|
 |Amministratore globale di Azure AD|Usato durante l'installazione<br><br>Proprietario della sottoscrizione del Provider predefinito (DPS)|Non applicabile|
 |
 

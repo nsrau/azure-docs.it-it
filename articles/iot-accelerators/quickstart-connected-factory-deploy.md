@@ -7,16 +7,16 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/26/2018
+ms.date: 02/08/2019
 ms.author: dobett
-ms.openlocfilehash: d02e72a46e2bec69792eacef673c779310561f83
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 46ea73e0a0c2dd14dcafcaa332c7feb1c70445df
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602648"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098886"
 ---
-# <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Guida introduttiva: Provare una soluzione basata sul cloud per gestire dispositivi IoT industriali
+# <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Avvio rapido: Provare una soluzione basata sul cloud per gestire dispositivi IoT industriali
 
 Questa guida introduttiva illustra come distribuire l'acceleratore di soluzione Connected Factory di Azure IoT per l'esecuzione di una simulazione del monitoraggio e della gestione basati sul cloud per dispositivi IoT industriali. Nel momento in cui viene distribuito, l'acceleratore di soluzione Connected Factory viene prepopolato con risorse simulate che consentono di esaminare uno scenario IoT industriale comune. Diversi stabilimenti simulati connessi alla soluzione generano report con i valori dei dati necessari per calcolare l'efficienza complessiva delle attrezzature e gli indicatori di prestazioni chiave (KPI). Questa guida introduttiva illustra come usare il dashboard della soluzione per:
 
@@ -42,7 +42,7 @@ Nella pagina **Crea soluzione Connected Factory** immettere un valore univoco pe
 
 Selezionare **Sottoscrizione** e **Area** da usare per distribuire l'acceleratore della soluzione. In genere, si sceglie l'area più vicina. Per questa guida introduttiva selezionare **Visual Studio Enterprise** e **Stati Uniti orientali**. È necessario essere [amministratore globale o utente](iot-accelerators-permissions.md) nella sottoscrizione.
 
-Fare clic su **Crea soluzione** per iniziare la distribuzione. Questo processo richiede almeno cinque minuti:
+Fare clic su **Crea** per avviare la distribuzione. Questo processo richiede almeno cinque minuti:
 
 ![Dettagli della soluzione Connected Factory](./media/quickstart-connected-factory-deploy/createform.png)
 
@@ -54,7 +54,7 @@ Nella pagina **Soluzioni di cui è stato effettuato il provisioning** fare clic 
 
 ![Scegliere nuova soluzione](./media/quickstart-connected-factory-deploy/choosenew.png)
 
-È possibile esaminare le informazioni sull'acceleratore di soluzione Connected Factory nel pannello visualizzato. Scegliere **Dashboard soluzione** per visualizzare l'acceleratore di soluzione Connected Factory:
+È possibile visualizzare informazioni sull'acceleratore della soluzione Connected Factory nella pagina che si apre. Scegliere **Vai a Acceleratore di soluzione** per visualizzare l'acceleratore della soluzione Connected Factory:
 
 ![Riquadro della soluzione](./media/quickstart-connected-factory-deploy/solutionpanel.png)
 
@@ -116,7 +116,7 @@ Un pannello **Factory locations** (Posizioni factory) che visualizza stato, loca
 
 ### <a name="map"></a>Mappa
 
-Se la sottoscrizione ha accesso all'[API di Bing Mappe](iot-accelerators-faq-cf.md), la mappa degli stabilimenti visualizza la posizione geografica e lo stato di tutti gli stabilimenti presenti nella soluzione. Per esaminare i dettagli, fare clic sulle località visualizzate sulla mappa.
+Se la sottoscrizione ha accesso all'[API di Bing Mappe](iot-accelerators-faq-cf.md), la mappa degli *stabilimenti* visualizza la posizione geografica e lo stato di tutti gli stabilimenti presenti nella soluzione. Per esaminare i dettagli, fare clic sulle località visualizzate sulla mappa.
 
 [![Mappa](./media/quickstart-connected-factory-deploy/map-inline.png)](./media/quickstart-connected-factory-deploy/map-expanded.png#lightbox)
 

@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: ac52e3b824efdbd5277982a7f1939e8aa0deeeb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a7930ea86f7972a6e4abb939fb148d519ca924e9
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201789"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416718"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Riferimento al servizio Backup di infrastruttura
 
@@ -108,6 +108,23 @@ Controller di infrastruttura di Backup eseguirà il backup dei dati su richiesta
 > [!Note]  
 > Nessuna porta in ingresso deve essere aperta.
 
+### <a name="encryption-requirements"></a>Requisiti di crittografia
+
+A partire da 1901, il servizio backup di infrastruttura userà un certificato con una chiave pubblica (. Area a esecuzione vincolata) per crittografare i dati di backup e un certificato con la chiave privata (. File PFX) per la decrittografia dei dati di backup durante il ripristino di cloud.   
+ - Il certificato viene usato per il trasporto delle chiavi e non viene usato per stabilire una comunicazione sicura autenticata. Per questo motivo il certificato può essere un certificato autofirmato. Azure Stack non è necessario verificare radice o relazione di trust per questo certificato in modo che l'accesso a internet esterno non è necessaria.
+ 
+Il certificato autofirmato è disponibile in due parti, una con la chiave pubblica e una con la chiave privata:
+ - Crittografare i dati di backup: Certificato con la chiave pubblica (esportata. File CER) viene usato per crittografare i dati di backup
+ - Decrittografare i dati di backup: Certificato con la chiave privata (esportata. File PFX) viene usato per decrittografare i dati di backup
+
+Il certificato con la chiave pubblica (. Area a esecuzione vincolata) non è gestito da rotazione segreta interna. Per ruotare il certificato, è necessario creare un nuovo certificato autofirmato e aggiornare le impostazioni di backup con il nuovo file (. AREA A ESECUZIONE VINCOLATA).  
+ - Tutti i backup esistenti rimangono crittografati usando la chiave pubblica precedente. I nuovi backup userà la nuova chiave pubblica. 
+ 
+Il certificato usato durante il ripristino di cloud con la chiave privata (. Per Azure Stack, PFX) non viene mantenuto per motivi di sicurezza. Questo file dovranno essere specificati in modo esplicito durante il ripristino di cloud.  
+
+**Con le versioni precedenti la modalità di compatibilità** partire 1901, supporto di chiavi di crittografia è deprecato e verrà rimossa in una versione futura. Se è stato aggiornato da 1811 con backup già abilitato con una chiave di crittografia, Azure Stack continuerà a usare la chiave di crittografia. Modalità di compatibilità con le versioni precedenti sarà supportata per versione almeno 3. Dopo tale periodo, verrà richiesto un certificato. 
+ * L'aggiornamento dalla chiave di crittografia al certificato è un'operazione irreversibile.  
+ * Tutti i backup esistenti rimarranno crittografati usando la chiave di crittografia. I nuovi backup userà il certificato. 
 
 ## <a name="infrastructure-backup-limits"></a>Limiti relativi a Backup di infrastruttura
 
