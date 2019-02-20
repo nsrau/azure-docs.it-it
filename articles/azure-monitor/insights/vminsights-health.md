@@ -44,7 +44,7 @@ Per informazioni sulla configurazione di Monitoraggio di Azure per le macchine v
 >
 >Nessuna regressione di qualsiasi funzionalità fornita oggi con la funzionalità di integrità di Monitoraggio di Azure per le macchine virtuali.
 
->In seguito a questa modifica vengono influenzate due esperienze in Diagnostica integrità: la cronologia di modifica dello stato verrà reimpostata e le modifiche dello stato precedenti per i criteri di integrità non saranno disponibili per la revisione nella colonna Cambiamento stato della pagina Diagnostica integrità. Se si è interessati ai dati cronologici di qualsiasi macchina virtuale considerata cruciale, è possibile acquisire come riferimento una schermata dei dati dei criteri di integrità e delle modifiche stato corrispondenti. 
+>Questa modifica influisce su due esperienze di Diagnostica integrità: la cronologia delle modifiche dello stato verrà reimpostata e le modifiche dello stato precedenti per i criteri di integrità non saranno disponibili per la revisione nella colonna Modifiche stato della pagina Diagnostica integrità. Se si è interessati ai dati cronologici di qualsiasi macchina virtuale considerata cruciale, è possibile acquisire come riferimento una schermata dei dati dei criteri di integrità e delle modifiche stato corrispondenti. 
 
 ## <a name="monitoring-configuration-details"></a>Dettagli di configurazione di monitoraggio
 Questa sezione descrive i criteri di integrità predefiniti per monitorare le macchine virtuali Linux e Windows Azure. Tutti i criteri di integrità sono preconfigurati per l'invio di un avviso quando viene rilevata una condizione di non integrità. 
@@ -192,7 +192,7 @@ La pagina Diagnostica integrità ha tre sezioni principali:
 
 * Modello componente 
 * Criteri di integrità
-* Modifiche di stato 
+* Modifiche stato 
 
 ![Sezioni della pagina Diagnostica integrità](./media/vminsights-health/health-diagnostics-page-02.png)
 
@@ -227,18 +227,18 @@ Nel riquadro di configurazione per i criteri di integrità selezionato, usando l
 Per altre informazioni sull'indicatore di integrità, sono inclusi articoli della Knowledge Base sull'identificazione di problemi, cause e risoluzioni. Fare clic sul collegamento **Visualizza informazioni** nella pagina per aprire una nuova scheda del browser che mostra lo specifico articolo della Knowledge Base. In qualsiasi momento, è possibile esaminare tutti gli articoli della Knowledge Base sui criteri di integrità inclusi con la funzionalità dell'integrità di Monitoraggio di Azure per le macchine virtuali [qui](https://docs.microsoft.com/azure/monitoring/infrastructure-health/).
   
 ### <a name="state-changes"></a>Modifiche stato
-La colonna più a destra nella pagina Diagnostica integrità è **Modifiche stato**. Elenca tutte le modifiche di state associate ai criteri di integrità selezionati nella sezione **Criteri di integrità** o la modifica di stato della macchina virtuale se ne è stata selezionata una nella colonna **Modello componente** o **Criteri di integrità** della tabella. 
+La colonna più a destra nella pagina Diagnostica integrità è **Modifiche stato**. Elenca tutte le modifiche di stato associate ai criteri di integrità selezionati nella sezione **Criteri di integrità** o la modifica di stato della macchina virtuale se ne è stata selezionata una nella colonna **Modello componente** o **Criteri di integrità** della tabella. 
 
 ![Esempio di modifiche di stato presentato in Diagnostica integrità](./media/vminsights-health/health-diagnostics-page-statechanges.png)
 
 Questa sezione è costituita dallo stato dei criteri di integrità e dall'ora associata ordinati con lo stato più recente in alto.   
 
-### <a name="association-of-component-model-health-criteria-and-state-change-columns"></a>Associazione delle colonne Modello componente, Criteri di integrità e Modifica stato 
-Le tre colonne sono correlate tra loro. Quando un utente seleziona un'istanza individuata nella sezione **Modello componente**, la sezione **Criteri di integrità** viene filtrata in base alla visualizzazione di tale componente e, di conseguenza, la sezione **Modifica stato** viene aggiornata in base ai criteri di integrità selezionati. 
+### <a name="association-of-component-model-health-criteria-and-state-change-columns"></a>Associazione delle colonne Modello componente, Criteri di integrità e Modifiche stato 
+Le tre colonne sono correlate tra loro. Quando un utente seleziona un'istanza individuata nella sezione **Modello componente**, la sezione **Criteri di integrità** viene filtrata in base alla visualizzazione di tale componente e, di conseguenza, la sezione **Modifiche stato** viene aggiornata in base ai criteri di integrità selezionati. 
 
 ![Esempio di selezione dell'istanza monitorata e dei risultati](./media/vminsights-health/health-diagnostics-vm-example-01.png)
 
-Nell'esempio precedente, quando si seleziona **Disk - 1 D:**, l'albero Criteri di integrità viene filtrato in base a **Disk - 1 D:**. La colonna **State Change** (Modifica stato) indica il cambiamento dello stato in base alla disponibilità di **Disk - 1 D:**. 
+Nell'esempio precedente, quando si seleziona **Disk - 1 D:**, l'albero Criteri di integrità viene filtrato in base a **Disk - 1 D:**. La colonna **Modifiche stato** indica il cambiamento dello stato in base alla disponibilità di **Disk - 1 D:**. 
 
 Per visualizzare lo stato di integrità aggiornato, è possibile aggiornare la pagina Diagnostica integrità facendo clic sul collegamento **Aggiorna**.  Se lo stato di integrità del criterio di integrità viene aggiornato in base all'intervallo di polling predefinito, questa attività consente di evitare l'attesa e riflette lo stato di integrità più recente.  Il filtro **Stato criteri di integrità** consente di esaminare i risultati in base allo stato di integrità selezionato: *Integro*, *Avviso*, *Critico*, *Sconosciuti* e *tutti*.  L'ora riportata in **Ultimo aggiornamento** nell'angolo in alto a destra indica l'ora dell'ultimo aggiornamento della pagina Diagnostica integrità.  
 

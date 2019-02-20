@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: b85afeb18fdd93afdedbee00df995ba52a66cd5e
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: 3c5f087ed44c252737e7f45fde12a4b509637499
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731853"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892882"
 ---
 # <a name="azure-sql-database-data-discovery--classification"></a>Individuazione dati e classificazione nel database SQL di Azure
 
@@ -143,7 +143,8 @@ Un aspetto importante del paradigma di Information Protection è la possibilità
 - [Creazione o aggiornamento](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate): crea o aggiorna l'etichetta Riservatezza di una colonna specifica
 - [Eliminazione](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete): elimina l'etichetta Riservatezza di una colonna specifica
 - [Recupero](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): ottiene l'etichetta Riservatezza di una colonna specifica
-- [Elenco per database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listbydatabase): ottiene le etichette Riservatezza di un database specifico
+- [List Current By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) - (Elenca elementi correnti per database): consente di ottenere le etichette Riservatezza correnti di un database specifico
+- [List Recommended By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) - (Elenca elementi consigliati per database): consente di ottenere le etichette Riservatezza correnti di un database specifico
 
 ## <a id="subheading-5"></a>Passaggi successivi
 

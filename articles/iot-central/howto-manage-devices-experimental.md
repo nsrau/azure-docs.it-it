@@ -64,7 +64,7 @@ Per registrare in blocco i dispositivi nell'applicazione:
 1. Nel riquadro di sinistra scegliere il modello di dispositivo per il quale si vuole creare in blocco i dispositivi.
 
     > [!NOTE]
-    > Se non si dispone ancora di un modello di dispositivo, è possibile importare i dispositivi elencati in **Unassociated devices** (Dispositivi senza associazione) e registrarli senza modello. Dopo aver importato i dispositivi, è possibile associarli a un modello.
+    > Se non si dispone ancora di un modello di dispositivo, è possibile importare i dispositivi elencati in **Dispositivi non associati** e registrarli senza modello. Dopo aver importato i dispositivi, è possibile associarli a un modello.
 
 1. Fare clic su **Importa**.
 
@@ -82,13 +82,13 @@ Se l'importazione di dispositivi ha esito negativo, verrà visualizzato un messa
 
 **Associazione di dispositivi con un modello**
 
-Se si registrano i dispositivi avviando l'importazione sotto **Unassociated devices** (Dispositivi senza associazione), i dispositivi vengono creati senza l'associazione di modelli dispositivo. I dispositivi devono essere associati a un modello per esplorare i dati e altri dettagli relativi al dispositivo. Per associare i dispositivi a un modello attenersi a questa procedura:
+Se si registrano i dispositivi avviando l'importazione sotto **Dispositivi non associati**, i dispositivi vengono creati senza l'associazione di modelli dispositivo. I dispositivi devono essere associati a un modello per esplorare i dati e altri dettagli relativi al dispositivo. Per associare i dispositivi a un modello attenersi a questa procedura:
 
 1. Selezionare **Device Explorer** nel menu di spostamento a sinistra.
 
-1. Nel pannello di sinistra scegliere **Unassociated devices** (Dispositivi senza associazione):
+1. Nel pannello di sinistra scegliere **Dispositivi non associati**:
 
-    ![Dispositivi senza associazione](./media/howto-manage-devices-experimental/UnassociatedDevices1.png)
+    ![Dispositivi non associati](./media/howto-manage-devices-experimental/UnassociatedDevices1.png)
 
 1. Selezionare i dispositivi da associare a un modello:
 
@@ -101,7 +101,7 @@ Se si registrano i dispositivi avviando l'importazione sotto **Unassociated devi
 1. I dispositivi selezionati verranno associati al modello di dispositivo scelto.
 
 > [!NOTE]
-> Dopo che un dispositivo è stato associato un modello, non è possibile rimuovere l'associazione o associarlo a un modello diverso.
+> Dopo che un dispositivo è stato associato a un modello, non è possibile rimuovere l'associazione o associarlo a un modello diverso.
 
 ## <a name="export-devices"></a>Esportare dispositivi
 
