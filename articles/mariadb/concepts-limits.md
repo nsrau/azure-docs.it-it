@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/03/2018
-ms.openlocfilehash: e611c5e11d3c86474a7775971918ba95b8487da4
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.date: 02/07/2019
+ms.openlocfilehash: 79d6e185b64fdaf332f877718487809ba6273441
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970288"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895789"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limiti di Database di Azure per MariaDB
 Le sezioni seguenti illustrano la capacità, il supporto del motore di archiviazione, dei privilegi e delle istruzioni di gestione dei dati e i limiti funzionali del servizio di database.
@@ -52,6 +52,7 @@ Quando le connessioni superano il limite, è possibile che venga visualizzato l'
 ### <a name="unsupported"></a>Non supportato
 - Ruolo DBA: molti parametri e impostazioni server possono accidentalmente influire in modo negativo sulle prestazioni del server o negare le proprietà ACID del sistema DBMS. Per mantenere quindi l'integrità del servizio e un contratto di servizio a livello di prodotto, il ruolo DBA non è esposto. L'account utente predefinito, costruito quando viene creata una nuova istanza di database, consente agli utenti di eseguire la maggior parte delle istruzioni DDL e DML nell'istanza di database gestita.
 - Privilegi SUPER: in modo analogo, anche i [privilegi SUPER](https://mariadb.com/kb/en/library/grant/#global-privileges) presentano limitazioni.
+- DEFINER: Richiede privilegi avanzati per la creazione e presenta restrizioni. Se vengono importati dati tramite backup, rimuovere i comandi `CREATE DEFINER` manualmente o tramite il comando `--skip-definer` quando si esegue mysqldump.
 
 ## <a name="data-manipulation-statement-support"></a>Supporto delle istruzioni di gestione dei dati
 
@@ -76,6 +77,9 @@ Quando le connessioni superano il limite, è possibile che venga visualizzato l'
 
 ### <a name="subscription-management"></a>Gestione sottoscrizioni
 - Lo spostamento dinamico di server creati in precedenza tra le sottoscrizioni e il gruppo di risorse non è attualmente supportato.
+
+### <a name="vnet-service-endpoints"></a>Endpoint del servizio di rete virtuale
+- Gli endpoint di servizio di rete virtuale sono supportati solo per i server per utilizzo generico e ottimizzati per la memoria.
 
 ## <a name="current-known-issues"></a>Problemi attualmente noti
 - Quando viene stabilita la connessione, l'istanza del server MariaDB visualizza una versione di server non corretta. Per ottenere la versione corretta del motore dell'istanza del server, usare il comando `select version();`.

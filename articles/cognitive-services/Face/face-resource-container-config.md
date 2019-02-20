@@ -4,19 +4,19 @@ titlesuffix: Face - Azure Cognitive Services
 description: Impostazioni di configurazione per i contenitori.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 218343db4d8ac7e35f58951ee177f5c288aed3d9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a70c200f0260d87d35eae8728ed1f908e7061f32
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476418"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979106"
 ---
 # <a name="configure-face-docker-containers"></a>Configurare i contenitori di Viso Docker
 
@@ -45,7 +45,7 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 ## <a name="billing-configuration-setting"></a>Impostazione di configurazione Billing
 
-L'impostazione `Billing` specifica l'URI dell'endpoint della risorsa _Viso_ in Azure usata per misurare i dati di fatturazione per il contenitore. È necessario specificare un valore per questa impostazione di configurazione e il valore deve essere un URI dell'endpoint valido per una risorsa _Viso_ in Azure.
+L'impostazione `Billing` specifica l'URI dell'endpoint della risorsa _Viso_ in Azure usata per misurare i dati di fatturazione per il contenitore. È necessario specificare un valore per questa impostazione di configurazione e il valore deve essere un URI dell'endpoint valido per una risorsa _Viso_ in Azure. Il contenitore segnala l'utilizzo ogni 10-15 minuti.
 
 Questa impostazione è disponibile nelle posizioni seguenti:
 
@@ -53,7 +53,7 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 |Obbligatoria| NOME | Tipo di dati | DESCRIZIONE |
 |--|------|-----------|-------------|
-|Yes| `Billing` | string | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
+|Sì| `Billing` | string | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
 
 ## <a name="eula-setting"></a>Impostazione Eula
 
@@ -112,7 +112,7 @@ Gli esempi Docker seguenti sono per il contenitore Viso.
 
 ### <a name="basic-example"></a>Esempio di base 
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
@@ -122,7 +122,7 @@ Gli esempi Docker seguenti sono per il contenitore Viso.
 
 ### <a name="logging-example-with-command-line-arguments"></a>Esempio di registrazione con argomenti della riga di comando
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
   Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} \
@@ -131,7 +131,7 @@ Gli esempi Docker seguenti sono per il contenitore Viso.
 
 ### <a name="logging-example-with-environment-variable"></a>Esempio di registrazione con variabile di ambiente
 
-  ```Docker
+  ```
   SET Logging:Console:LogLevel=Information
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \

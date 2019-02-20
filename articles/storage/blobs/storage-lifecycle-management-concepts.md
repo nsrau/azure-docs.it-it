@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: dd74cac3000f6a280d5b8faa858c2143d17a7e55
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 284a590a484052fdb7da2f03c6155078268b2aac
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247800"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211445"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gestione del ciclo di vita di Archiviazione BLOB di Azure (anteprima)
 
@@ -37,7 +37,7 @@ I criteri di gestione del ciclo di vita sono disponibili sia con gli account per
 La funzionalità di gestione del ciclo di vita è gratuita in anteprima. Ai clienti viene addebitato il normale costo dell'operazione per le chiamate API [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) (Elenca BLOB) e [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) (Imposta livello BLOB). Per altre informazioni sui prezzi, vedere [Prezzi dei BLOB in blocchi](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="register-for-preview"></a>Eseguire la registrazione per l'anteprima 
-Per registrarsi per l'anteprima pubblica è necessario inviare una richiesta per registrare questa funzionalità nella propria sottoscrizione. Le richieste vengono generalmente approvate entro due settimane. Dopo l'approvazione, tutti gli account di archiviazione GPv2 o BLOB esistenti e nuovi nelle aree seguenti includono la funzionalità: Stati Uniti occidentali 2, Stati Uniti centro-occidentali, Stati Uniti orientali 2 ed Europa occidentale. L'anteprima supporta solo il BLOB in blocchi. Come per la maggior parte delle anteprime, non usare questa funzione per i carichi di lavoro di produzione fino al momento della disponibilità generale.
+Per registrarsi per l'anteprima pubblica è necessario inviare una richiesta per registrare questa funzionalità nella propria sottoscrizione. Le richieste vengono generalmente approvate entro 72 ore. Dopo l'approvazione, tutti gli account di archiviazione GPv2 o BLOB esistenti e nuovi nelle aree seguenti includono la funzionalità: Stati Uniti occidentali 2, Stati Uniti centro-occidentali, Stati Uniti orientali 2 ed Europa occidentale. L'anteprima supporta solo il BLOB in blocchi. Come per la maggior parte delle anteprime, non usare questa funzione per i carichi di lavoro di produzione fino al momento della disponibilità generale.
 
 Per inviare una richiesta, eseguire i comandi PowerShell o dell'interfaccia della riga di comando seguenti.
 
@@ -189,7 +189,7 @@ Durante l'anteprima, i filtri validi includono:
 
 | Nome filtro | Tipo di filtro | Note | Obbligatorio |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Una matrice di valori di enumerazione predefiniti. | La versione di anteprima supporta solo `blockBlob`. | Yes |
+| blobTypes   | Una matrice di valori di enumerazione predefiniti. | La versione di anteprima supporta solo `blockBlob`. | Sì |
 | prefixMatch | Una matrice di stringhe per i prefissi corrispondenti. Una stringa di prefisso deve iniziare con un nome di contenitore. Se ad esempio si vogliono cercare tutti i BLOB sotto "https://myaccount.blob.core.windows.net/container1/foo/..." per una regola, prefixMatch è `container1/foo`. | Se prefixMatch non è definito, le regole si applicano a tutti i BLOB all'interno dell'account. | No  |
 
 ### <a name="rule-actions"></a>Azioni della regola

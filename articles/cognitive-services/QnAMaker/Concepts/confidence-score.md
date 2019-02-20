@@ -8,15 +8,15 @@ manager: pchoudh
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 35d447fb7024b8be0bd427305b9e43fa60b1a90d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 757ef07c1268cbf159ce98dfb8ba1980616e4a3a
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223188"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245134"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Punteggio di attendibilità di una knowledge base di QnA Maker
 Quando una query dell'utente viene confrontata con una knowledge base, QnA Maker restituisce le risposte pertinenti insieme a un punteggio di attendibilità. Questo punteggio indica la probabilità che la risposta corrisponda perfettamente alla query dell'utente specificata. 
@@ -58,7 +58,7 @@ Quando si sceglie la soglia, tenere presente il bilanciamento tra Accuracy (Prec
 > Le versioni più recenti di QnA Maker includono miglioramenti della logica di assegnazione dei punteggi e potrebbero influire sulla soglia. Ogni volta che si aggiorna il servizio, assicurarsi di testare e modificare la soglia, se necessario. È possibile controllare la versione del servizio QnA [qui](https://www.qnamaker.ai/UserSettings) e scoprire come ottenere gli aggiornamenti più recenti [qui](../How-To/troubleshooting-runtime.md).
 
 ## <a name="improve-confidence-scores"></a>Migliorare i punteggi di attendibilità
-Per ottimizzare il punteggio di attendibilità di una particolare risposta a una query dell'utente, è possibile aggiungere la query alla Knowledge Base come domanda alternativa per tale risposta. È anche possibile usare [variazioni delle parole](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) per aggiungere i sinonimi alle parole chiave nella Knowledge Base.
+Per ottimizzare il punteggio di attendibilità di una particolare risposta a una query dell'utente, è possibile aggiungere la query alla Knowledge Base come domanda alternativa per tale risposta. È anche possibile usare [variazioni delle parole](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) senza distinzione tra maiuscole e minuscole per aggiungere i sinonimi alle parole chiave nella Knowledge Base.
 
 
 ## <a name="similar-confidence-scores"></a>Punteggi di attendibilità simili
@@ -66,8 +66,9 @@ Quando più risposte hanno un punteggio di attendibilità simile, è probabile c
 
 
 ## <a name="confidence-score-differences"></a>Differenze tra punteggi di attendibilità
-Il punteggio di attendibilità di una risposta può variare in modo trascurabile tra la versione di test e la versione pubblicata della Knowledge Base, anche se il contenuto è lo stesso. Questo accade perché il contenuto della versione di test e della versione pubblicata della Knowledge Base si trova in indici diversi di Ricerca di Azure.
-Vedere qui come funziona l'operazione di [pubblicazione](../How-To/publish-knowledge-base.md).
+Il punteggio di attendibilità di una risposta può variare in modo trascurabile tra la versione di test e la versione pubblicata della Knowledge Base, anche se il contenuto è lo stesso. Questo accade perché il contenuto della versione di test e della versione pubblicata della Knowledge Base si trova in indici diversi di Ricerca di Azure. Quando si pubblica una knowledge base, il contenuto di domande e risposte della knowledge base passa dall'indice di test a un indice di produzione in Ricerca di Azure. Vedere come funziona l'operazione di [pubblicazione](../How-To/publish-knowledge-base.md).
+
+Se si dispone di una Knowledge Base in aree diverse, ogni area usa il proprio indice di Ricerca di Azure. Poiché vengono usati indici diversi, i punteggi non saranno esattamente gli stessi. 
 
 
 ## <a name="no-match-found"></a>Nessuna corrispondenza trovata

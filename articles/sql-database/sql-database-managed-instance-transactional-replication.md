@@ -1,6 +1,6 @@
 ---
 title: Replica transazionale con database SQL di Azure | Microsoft Docs
-description: Informazioni sull'uso della replica transazionale di SQL Server con database autonomi, in pool e in istanza nel database SQL di Azure.
+description: Informazioni sull'uso della replica transazionale di SQL Server con database singoli, in pool e di istanza nel database SQL di Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,15 +11,15 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 1c542c1e906b078b76b78ed30af8bdf67110199c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/08/2019
+ms.openlocfilehash: d0f9ea15b692d9aba2fde217805ea5e0ecfb4dfd
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814113"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993810"
 ---
-# <a name="transactional-replication-with-standalone-pooled-and-instance-databases-in-azure-sql-database"></a>Replica transazionale con database autonomi, in pool e in istanza nel database SQL di Azure
+# <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Replica transazionale con database singoli, in pool e di istanza nel database SQL di Azure
 
 La replica transazionale è una funzionalità del database SQL di Azure e di SQL Server che consente di replicare i dati da una tabella nel database SQL di Azure o in un SQL Server verso tabelle inserite in database remoti. Questa funzionalità consente di sincronizzare più tabelle in database diversi.
 
@@ -37,22 +37,21 @@ I componenti chiave della replica transazionale sono illustrati nell'immagine se
 
 ![Replica con database SQL](media/replication-to-sql-database/replication-to-sql-database.png)
 
-
 Il **server di pubblicazione** è un'istanza o un server che pubblica le modifiche apportate in alcune tabelle (articoli) inviando gli aggiornamenti al database di distribuzione. La pubblicazione in un database SQL di Azure qualsiasi da un SQL Server locale è supportata dalle versioni seguenti di SQL Server:
 
-   - SQL Server 2019 (anteprima)
-   - SQL Server da 2016 a 2017
-   - SQL Server 2014 SP1 CU3 o versione successiva (12.00.4427)
-   - SQL Server 2014 RTM CU10 (12.00.2556)
-   - SQL Server 2012 SP3 o versione successiva (11.0.6020)
-   - SQL Server 2012 SP2 CU8 (11.0.5634.0)
-   - Per altre versioni di SQL Server che non supportano la pubblicazione in oggetti in Azure, è possibile usare il metodo di [ripubblicazione dei dati](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) per spostare i dati in versioni più recenti di SQL Server. 
+- SQL Server 2019 (anteprima)
+- SQL Server da 2016 a 2017
+- SQL Server 2014 SP1 CU3 o versione successiva (12.00.4427)
+- SQL Server 2014 RTM CU10 (12.00.2556)
+- SQL Server 2012 SP3 o versione successiva (11.0.6020)
+- SQL Server 2012 SP2 CU8 (11.0.5634.0)
+- Per altre versioni di SQL Server che non supportano la pubblicazione in oggetti in Azure, è possibile usare il metodo di [ripubblicazione dei dati](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) per spostare i dati in versioni più recenti di SQL Server. 
 
 Il **database di distribuzione** è un'istanza o un server che raccoglie le modifiche negli articoli da un server di pubblicazione e li distribuisce ai sottoscrittori. Il database di distribuzione può essere un'istanza gestita di database SQL di Azure o SQL Server (qualsiasi versione purché uguale o superiore alla versione del server di pubblicazione). 
 
-Il **sottoscrittore** è un'istanza o un server che riceve le modifiche apportate nel server di pubblicazione. I sottoscrittori possono essere database autonomi, in pool e in istanza del database SQL di Azure o di database SQL Server. Un sottoscrittore in un database autonomo o in pool deve essere configurato come sottoscrittore push. 
+Il **sottoscrittore** è un'istanza o un server che riceve le modifiche apportate nel server di pubblicazione. I sottoscrittori possono essere database singoli, in pool e di istanza del database SQL di Azure o di database SQL Server. Un sottoscrittore in un database singolo o in pool deve essere configurato come sottoscrittore push. 
 
-| Ruolo | Database autonomi e in pool | Database in istanza |
+| Ruolo | Database singoli e in pool | Database in istanza |
 | :----| :------------- | :--------------- |
 | **Autore** | No  | Sì | 
 | **Database di distribuzione** | No  | Sì|
@@ -63,7 +62,7 @@ Il **sottoscrittore** è un'istanza o un server che riceve le modifiche apportat
 Esistono diversi [tipi di replica](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication?view=sql-server-2017):
 
 
-| Replica | Database autonomi e in pool | Database in istanza|
+| Replica | Database singoli e in pool | Database in istanza|
 | :----| :------------- | :--------------- |
 | [**Transazionale**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sì (solo come sottoscrittore) | Sì | 
 | [**Snapshot**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sì (solo come sottoscrittore) | Sì|
@@ -107,11 +106,11 @@ Il server di pubblicazione e il database di pubblicazione sono configurati in du
 - Le due istanze gestite sono nella stessa posizione.
 - Le istanze gestite che ospitano server di pubblicazione e database di distribuzione non possono eseguire la [replica geografica usando i gruppi di failover automatico](sql-database-auto-failover-group.md).
 
-### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-standalone-pooled-and-instance-database"></a>Server di pubblicazione e database di distribuzione locali con sottoscrittore in database autonomo, in pool e in istanza 
+### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-single-pooled-and-instance-database"></a>Server di pubblicazione e database di distribuzione locali con sottoscrittore in un database singolo, in pool e di istanza 
 
 ![Database SQL di Azure come sottoscrittore](media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
  
-In questa configurazione, un database SQL di Azure (database autonomo, in pool e in istanza) è un sottoscrittore. Questa configurazione supporta la migrazione dal database locale al database di Azure. Se un sottoscrittore si trova in un database in pool o autonomo, deve essere in modalità push.  
+In questa configurazione, un database SQL di Azure (database singolo, in pool e di istanza) è un sottoscrittore. Questa configurazione supporta la migrazione dal database locale al database di Azure. Se un sottoscrittore si trova in un database in pool o singolo, deve essere in modalità push.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

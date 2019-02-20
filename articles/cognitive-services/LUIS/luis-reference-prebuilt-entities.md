@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Questo articolo contiene gli elenchi delle entità predefinite incluse in Language Understanding, ovvero LUIS.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/12/2019
 ms.author: diberry
-ms.openlocfilehash: 4d5ce9775e7844fcc82aa993f5b01c7cc7ae4779
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 880c825ab8923dbdf17277a51378b6f4b624e091
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213736"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179897"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entità per impostazioni cultura nel modello LUIS
 
@@ -34,6 +34,7 @@ Language Understanding offre entità predefinite. Quando un'entità predefinita 
 |Coreano|[ko-KR](#korean-entity-support)|
 |Portoghese|[pt-BR (Brasile)](#portuguese-brazil-entity-support)|
 |Spagnolo|[es-ES (Spagna)](#spanish-spain-entity-support), [es-MX (Messico)](#spanish-mexico-entity-support)|
+|Turco|[turkish](#turkish-entity-support)|
 
 ## <a name="chinese-entity-support"></a>Supporto entità cinesi
 
@@ -51,7 +52,7 @@ Sono supportate le entità seguenti:
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |  
 [Ordinale](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Percentuale](luis-reference-prebuilt-percentage.md)   |    ✔   | 
-[PersonName](luis-reference-prebuilt-person.md)   |    -   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
 [Numero di telefono](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
@@ -169,7 +170,7 @@ Sono supportate le entità seguenti:
 ------|:------:|
 [Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervallo di tempo   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervallo di tempo   |    -   | 
 [Dimensioni](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    ✔   | 
 [Indirizzo di posta elettronica](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -190,7 +191,7 @@ Sono supportate le entità seguenti:
 ------|:------:|
 [Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervallo di tempo   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervallo di tempo   |    -   | 
 [Dimensioni](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    ✔   | 
 [Indirizzo di posta elettronica](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -290,6 +291,32 @@ Sono supportate le entità seguenti:
 Vedere le note in [Entità predefinite deprecate](luis-reference-prebuilt-deprecated.md)
 
 KeyPhrase non è disponibile in tutte le impostazioni cultura secondarie del portoghese (Brasile) - ```pt-BR```.
+
+## <a name="turkish-entity-support"></a>Supporto entità turche
+
+Sono supportate le entità seguenti:
+
+|Entità predefinita|```tr-tr``` |
+------|:------:|
+[Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
+[Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    -   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervallo di tempo   |    -   | 
+[Dimensioni](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    -   | 
+[Indirizzo di posta elettronica](luis-reference-prebuilt-email.md)   |    -   | 
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   | 
+[Number](luis-reference-prebuilt-number.md)   |    -   |  
+[Ordinale](luis-reference-prebuilt-ordinal.md)   |    -   |  
+[Percentuale](luis-reference-prebuilt-percentage.md)   |    -   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    -   | 
+[Numero di telefono](luis-reference-prebuilt-phonenumber.md)   |    -   | 
+[Temperatura](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   | 
+[URL](luis-reference-prebuilt-url.md)   |    -   |
+
+Vedere le note in [Entità predefinite deprecate](luis-reference-prebuilt-deprecated.md)
+
+La KeyPhrase non è disponibile.
+
 
 ## <a name="contribute-to-prebuilt-entity-cultures"></a>Contribuire alle impostazioni cultura delle entità predefinite
 Le entità predefinite vengono sviluppate nel progetto open source Recognizers-Text. [Contribuire](https://github.com/Microsoft/Recognizers-Text) al progetto. Questo progetto include esempi di valuta per le impostazioni cultura. 

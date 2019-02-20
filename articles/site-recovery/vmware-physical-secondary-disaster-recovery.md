@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 34b38f979fcab765a35d8aa6f0714ce85beec6fe
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 0cc9c8dc214589e03e5a6a5405c07c9f6b3e53e6
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105186"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895840"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurare il ripristino di emergenza di macchine virtuali VMware locali o server fisici in un sito secondario
 
@@ -218,7 +218,7 @@ Scout Update 5 è un aggiornamento cumulativo. Include tutte le correzioni appor
 
 #### <a name="new-platform-support"></a>Supporto di nuove piattaforme
 * SUSE Linux Enterprise Server 11 Service Pack 4 (SP4)
-* SLES 11 SP4 a 64 bit  **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** è incluso nel pacchetto Scout GA di base (**InMage_Scout_Standard_8.0.1 GA.zip**). Scaricare il pacchetto GA dal portale come descritto in [creare un insieme di credenziali](#create-a-vault).
+* SLES 11 SP4 a 64 bit  **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** è incluso nel pacchetto Scout GA di base (**InMage_Scout_Standard_8.0.1 GA.zip**). Scaricare il pacchetto GA dal portale come descritto in Creare un insieme di credenziali.
 
 
 #### <a name="bug-fixes-and-enhancements"></a>Correzioni di bug e miglioramenti
@@ -252,7 +252,7 @@ Scout Update 4 è un aggiornamento cumulativo. Include tutte le correzioni appor
   * CentOS 6.8
 
 > [!NOTE]
-> RHEL/CentOS 7 a 64 bit  **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** è incluso nel pacchetto Scout GA di base **InMage_Scout_Standard_8.0.1 GA.zip**. Scaricare il pacchetto Scout GA dal portale come descritto in [creare un insieme di credenziali](#create-a-vault).
+> RHEL/CentOS 7 a 64 bit  **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** è incluso nel pacchetto Scout GA di base **InMage_Scout_Standard_8.0.1 GA.zip**. Scaricare il pacchetto Scout GA dal portale come descritto in Creare un insieme di credenziali.
 
 #### <a name="bug-fixes-and-enhancements"></a>Correzioni di bug e miglioramenti
 

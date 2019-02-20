@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
 ms.author: sogup
-ms.openlocfilehash: 0ed7260f35c483d17eb97e625ef72c310a3fcfdb
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d0fac3a075923b000c453480edbf18599f5fed3d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564137"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994898"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Gestire i backup delle macchine virtuali di Azure
 
@@ -142,7 +142,7 @@ Se si sceglie di arrestare la protezione di una macchina virtuale, viene chiesto
 
 Al mantenimento dei punti di ripristino nella risorsa di archiviazione è associato un costo. Tuttavia, la possibilità di mantenere i punti di ripristino per ripristinare la macchina virtuale in un secondo momento, se necessario, costituisce un vantaggio. Per informazioni sul costo associato al mantenimento dei punti di ripristino, vedere [Dettagli prezzi](https://azure.microsoft.com/pricing/details/backup/). Se si sceglie di eliminare tutti i punti di ripristino, non sarà possibile ripristinare la macchina virtuale.
 
-Ogni volta che si interrompe il backup con conservazione dei dati, i punti di ripristino scadranno in base ai criteri di conservazione, ma Backup di Azure manterrà sempre un ultimo punto di ripristino fino a quando non si eliminano in modo esplicito i dati di backup. Allo stesso modo se si elimina un'origine dati senza eseguire l'interruzione del backup, i nuovi backup avranno esito negativo e i vecchi punti di ripristino scadranno in base ai criteri di conservazione, ma un ultimo punto di ripristino verrà sempre mantenuto fino a quando non si esegue l'interruzione del backup con eliminazione dei dati.
+Il punto di ripristino verrà conservato per sempre fino a quando l'elemento di backup è riprotetto con un criterio di conservazione o fino a quando non si interrompe la protezione con dati da eliminare. In caso di riprotezione, il nuovo criterio associato determinerà la conservazione dei punti di recupero. Allo stesso modo se si elimina un'origine dati senza eseguire l'interruzione del backup, i nuovi backup avranno esito negativo e i vecchi punti di ripristino scadranno in base ai criteri di conservazione, ma un ultimo punto di ripristino verrà sempre mantenuto fino a quando non si esegue l'interruzione del backup con eliminazione dei dati.
 
 Per arrestare la protezione per una macchina virtuale:
 

@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 02/05/2018
 ms.author: ramamill
-ms.openlocfilehash: 1d5c2dccabbc2acdddec6176d9b52681d4a18e68
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: b7454226b96ff2f6a76285d708a7ce2ad1c3a6de
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744093"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235887"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuire un server di configurazione
 
@@ -130,38 +130,42 @@ Per evitare interruzioni nella replica in corso, verificare che l'indirizzo IP d
 
 ## <a name="faq"></a>Domande frequenti
 
-1. È possibile usare la macchina virtuale, in cui è installato il server di configurazione, per scopi diversi?
+1. Per quanto tempo è valida la licenza fornita sul server di configurazione distribuito tramite OVF? Cosa accade se non si riattiva la licenza?
+
+    La licenza fornita con il modello OVA è una licenza di valutazione valida per 180 giorni. Prima della scadenza, è necessario attivare la licenza. In caso contrario, questo può comportare l'arresto frequente del server di configurazione, pregiudicando le attività di replica.
+
+2. È possibile usare la macchina virtuale, in cui è installato il server di configurazione, per scopi diversi?
 
     **No**, è consigliabile usare la macchina virtuale solo per il server di configurazione. Assicurarsi di seguire tutte le specifiche indicate in [Prerequisiti](#prerequisites) per una gestione efficiente del ripristino di emergenza.
-2. È possibile sostituire l'insieme di credenziali già registrate nel server di configurazione con un insieme di credenziali nuovo?
+3. È possibile sostituire l'insieme di credenziali già registrate nel server di configurazione con un insieme di credenziali nuovo?
 
     **No**, una volta registrato con il server di configurazione, l'insieme di credenziali non può più essere cambiato.
-3. È possibile usare lo stesso server di configurazione per proteggere sia i computer fisici che le macchine virtuali?
+4. È possibile usare lo stesso server di configurazione per proteggere sia i computer fisici che le macchine virtuali?
 
     **Sì**, lo stesso server di configurazione può essere usato per la replica di computer fisici e macchine virtuali. Tuttavia, è possibile eseguire il failback del computer fisico solo in una macchina virtuale VMware.
-4. Qual è lo scopo di un server di configurazione e dove viene usato?
+5. Qual è lo scopo di un server di configurazione e dove viene usato?
 
     Per altre informazioni sul server di configurazione e sulle sue funzionalità, fare riferimento a [VMware per l'architettura di replica di Azure](vmware-azure-architecture.md).
-5. Dove è possibile trovare la versione più recente del server di configurazione?
+6. Dove è possibile trovare la versione più recente del server di configurazione?
 
     Per informazioni sui passaggi da eseguire per aggiornare il server di configurazione tramite il portale, vedere [Aggiornare il server di configurazione](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Per istruzioni dettagliate su come aggiornare tutti i componenti di Site Recovery, vedere [qui](https://aka.ms/asr_how_to_upgrade).
-6. Dove è possibile scaricare la passphrase per il server di configurazione?
+7. Dove è possibile scaricare la passphrase per il server di configurazione?
 
     Fare riferimento a [questo articolo](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) per scaricare la passphrase.
-7. È possibile modificare la passphrase?
+8. È possibile modificare la passphrase?
 
     **No**. Si **consiglia vivamente di non modificare la passphrase** del server di configurazione. La modifica della passphrase interrompe la replica delle macchine protette e porta a uno stato di integrità critico.
-8. Dove è possibile scaricare le chiavi di registrazione dell'insieme di credenziali?
+9. Dove è possibile scaricare le chiavi di registrazione dell'insieme di credenziali?
 
     Nelle **credenziali di Servizi di ripristino**, **Gestisci** > **Infrastruttura di Site Recovery** > **Server di configurazione**. In Server, selezionare **Scarica chiave di registrazione** per scaricare il file di credenziali dell'insieme di credenziali.
-9. È possibile clonare un server di configurazione esistente e usarlo per l'orchestrazione della replica?
+10. È possibile clonare un server di configurazione esistente e usarlo per l'orchestrazione della replica?
 
     **No**, l'uso di un componente server di configurazione clonato non è supportato.
 
-10. È possibile cambiare l'indirizzo IP del server di configurazione?
+11. È possibile cambiare l'indirizzo IP del server di configurazione?
 
     **No**, è consigliabile non modificare l'indirizzo IP di un server di configurazione. Verificare che gli indirizzi IP assegnati al server di configurazione siano indirizzi IP STATICI e non DHCP.
-11. È possibile impostare il server di configurazione in Azure?
+12. È possibile impostare il server di configurazione in Azure?
 
     È consigliabile impostare il server di configurazione nell'ambiente locale con visuale diretta su vCenter per ridurre al minimo le latenze di trasferimento dei dati. È possibile eseguire backup pianificati del server di configurazione [a scopo di failback](vmware-azure-manage-configuration-server.md#failback-requirements).
 

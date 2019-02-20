@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/16/2018
-ms.openlocfilehash: 7d409db839f94e27ac036550c22302188f37cc90
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 2/7/2019
+ms.openlocfilehash: 28e99f64fdee414549c55f9666bfd53f07fb3efb
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545874"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892695"
 ---
 # <a name="restart-azure-database-for-postgresql-server-using-azure-portal"></a>Riavviare un server di Database di Azure per PostgreSQL usando il portale di Azure
 In questo argomento viene descritta la procedura per riavviare un server di Database di Azure per PostgreSQL. Potrebbe essere necessario riavviare il server per motivi di manutenzione, causando così una breve interruzione del servizio mentre il server esegue l'operazione.
@@ -48,4 +48,4 @@ La procedura seguente consente di riavviare il server PostgreSQL:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Avvio rapido: Creare un server di Database di Azure per PostgreSQL usando il portale di Azure](./quickstart-create-server-database-portal.md)
+[Guida introduttiva: Creare un server di Database di Azure per PostgreSQL usando il portale di Azure](./quickstart-create-server-database-portal.md)

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: jingwang
-ms.openlocfilehash: cd07343e056493369d2093651ecf7c466595f412
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 16d0002ec8e42eec92895aaf582a8c2b3df2c3a6
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656584"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895262"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copiare dati da Amazon Simple Storage Service usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,7 +57,7 @@ Per il servizio collegato di Amazon S3 sono supportate le proprietà seguenti:
 | type | La proprietà type deve essere impostata su **AmazonS3**. | Sì |
 | accessKeyId | ID della chiave di accesso segreta. |Sì |
 | secretAccessKey | La stessa chiave di accesso segreta. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
-| serviceUrl | Specificare l'endpoint S3 personalizzato se si copiano dati da un provider di archiviazione compatibile con S3 diverso dal servizio ufficiale Amazon S3. Per [copiare dati da Google Cloud Storage](#copy-from-google-cloud-storage), ad esempio, specificare `https://storage.googleapis.com`. | No  |
+| serviceUrl | Specificare l'endpoint S3 personalizzato se si copiano dati da un provider di archiviazione compatibile con S3 diverso dal servizio ufficiale Amazon S3. Per copiare dati da Google Cloud Storage, ad esempio, specificare `https://storage.googleapis.com`. | No  |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
 
 >[!TIP]

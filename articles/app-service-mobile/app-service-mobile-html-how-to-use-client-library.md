@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: ba2eb5a7f888e4cffcd798259afa8194b4021025
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 16871bdc59d141334bc2c95f26929f270d7971cf
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488893"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100534"
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Come usare la libreria client JavaScript per App per dispositivi mobili di Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "38488893"
 Questa guida descrive come eseguire scenari comuni usando il più recente [JavaScript SDK per le app per dispositivi mobili di Azure]. Se si ha familiarità con le app per dispositivi mobili di Azure, prima è necessario completare l' [Avvio rapido alle app per dispositivi mobili di Azure] per creare un back-end e una tabella. In questa Guida, l'attenzione è posta sull'uso di un back-end mobile nelle applicazioni Web HTML/JavaScript.
 
 ## <a name="supported-platforms"></a>Piattaforme supportate
-Il supporto del browser è limitato alle versioni correnti e aggiornate dei browser principali: Google Chrome, Microsoft Edge, Microsoft Internet Explorer e Mozilla Firefox.  L'SDK dovrebbe funzionare con qualsiasi browser abbastanza aggiornato.
+Il supporto browser è limitato alle versioni correnti e più recenti dei browser principali:  Google Chrome, Microsoft Edge, Microsoft Internet Explorer e Mozilla Firefox.  L'SDK dovrebbe funzionare con qualsiasi browser abbastanza aggiornato.
 
 Il pacchetto viene distribuito come Universal JavaScript Module, in modo da supportare i formati globali, AMD e CommonJS.
 
@@ -42,10 +42,10 @@ npm install azure-mobile-apps-client --save
 
 La libreria può anche essere utilizzata come modulo ES2015, all'interno di ambienti CommonJS come ad esempio Browserify e Webpack, e come libreria AMD.  Ad esempio: 
 
-```
-# For ECMAScript 5.1 CommonJS
+```javascript
+// For ECMAScript 5.1 CommonJS
 var WindowsAzure = require('azure-mobile-apps-client');
-# For ES2015 modules
+// For ES2015 modules
 import * as WindowsAzure from 'azure-mobile-apps-client';
 ```
 
@@ -58,13 +58,13 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
 
 ## <a name="auth"></a>Procedura: Autenticare gli utenti
-Il servizio app di Azure supporta l'autenticazione e l'autorizzazione degli utenti di app usando diversi provider di identità esterni, a esempio Facebook, Google, account Microsoft e Twitter. È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. È inoltre possibile utilizzare l'identità degli utenti autenticati per implementare regole di autorizzazione negli script del server. Per ulteriori informazioni, vedere l'esercitazione [Introduzione all'autenticazione] .
+Il servizio app di Azure supporta l'autenticazione e l'autorizzazione degli utenti di app usando diversi provider di identità esterni, ad esempio Facebook, Google, account Microsoft e Twitter. È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. È inoltre possibile utilizzare l'identità degli utenti autenticati per implementare regole di autorizzazione negli script del server. Per ulteriori informazioni, vedere l'esercitazione [Introduzione all'autenticazione] .
 
 Sono supportati due flussi di autenticazione, ovvero un flusso server e un flusso client.  Il flusso server è il processo di autenticazione più semplice, poiché si basa sull'interfaccia di autenticazione Web del provider. Il flusso client assicura una maggiore integrazione con funzionalità specifiche del dispositivo, ad esempio Single-Sign-On, poiché si basa su SDK specifici del provider.
 
 [!INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="configure-external-redirect-urls"></a>Procedura: Configurare il servizio App per dispositivi mobili per URL di reindirizzamento esterni.
+### <a name="configure-external-redirect-urls"></a>Procedura: Configurare il servizio app per dispositivi mobili per URL di reindirizzamento esterni.
 Molti tipi di applicazioni JavaScript usano una funzionalità di loopback per gestire i flussi dell'interfaccia utente di OAuth.  Queste funzionalità includono:
 
 * Esecuzione del servizio in locale

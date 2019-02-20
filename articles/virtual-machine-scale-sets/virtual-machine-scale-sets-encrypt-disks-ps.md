@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 8beebfc0bd845fc7dbe8b1f1665aba7820c78767
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: cc1405d2dd972aff6091a9d5b60ff9da18185286
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432082"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978103"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell-preview"></a>Crittografare il disco del sistema operativo e i dischi dati collegati in un set di scalabilità di macchine virtuali con Azure PowerShell (anteprima)
 
@@ -36,49 +36,53 @@ Crittografia dischi di Azure è supportata per le risorse seguenti:
 
 Le operazioni di creazione di una nuova immagine e di aggiornamento delle macchine virtuali dei set di scalabilità non sono supportate nell'anteprima corrente. È consigliabile usare l'anteprima di Crittografia dischi di Azure per i set di scalabilità di macchine virtuali solo in ambienti di test. Usando l'anteprima, non abilitare la crittografia dei dischi in ambienti di produzione in cui può essere necessario aggiornare un'immagine del sistema operativo in un set di scalabilità crittografato.
 
+[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 5.7.0 o successiva. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per creare una connessione con Azure.
 
 ## <a name="register-for-disk-encryption-preview"></a>Eseguire la registrazione per l'anteprima di Crittografia dischi
 
-Per usare l'anteprima di Crittografia dischi di Azure per i set di scalabilità di macchine virtuali è necessario eseguire la registrazione automatica della sottoscrizione con [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature). È sufficiente eseguire la procedura seguente la prima volta che si usa la funzionalità in anteprima di crittografia dei dischi:
+Per usare l'anteprima di Crittografia dischi di Azure per i set di scalabilità di macchine virtuali, è necessario eseguire la registrazione automatica della sottoscrizione con [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature). È sufficiente eseguire la procedura seguente la prima volta che si usa la funzionalità di anteprima per la crittografia dei dischi:
 
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
+Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 
-Possono essere necessari fino a 10 minuti per la propagazione della richiesta di registrazione. È possibile controllare lo stato di registrazione con [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Quando `RegistrationState` indica *Registered*, registrare nuovamente il provider *Microsoft.Compute* con [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider):
+
+Possono essere necessari fino a 10 minuti per la propagazione della richiesta di registrazione. È possibile controllare lo stato di registrazione con [Get-AzProviderFeature](/powershell/module/az.resources/Get-AzProviderFeature). Quando `RegistrationState` indica *Registered*, registrare nuovamente il provider *Microsoft.Compute* con [Register-AzResourceProvider](/powershell/module/az.resources/Register-AzResourceProvider):
+
 
 ```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
 ## <a name="create-an-azure-key-vault-enabled-for-disk-encryption"></a>Creare un insieme di credenziali delle chiavi di Azure abilitato per la crittografia dei dischi
 
 L'insieme di credenziali delle chiavi di Azure consente di archiviare chiavi, chiavi private o password da implementare in tutta sicurezza in applicazioni e servizi. Le chiavi di crittografia vengono archiviate nell'insieme di credenziali delle chiavi di Azure che usano la protezione del software oppure è possibile importare o generare le chiavi in moduli di protezione hardware certificati per gli standard FIPS 140-2 di livello 2. Queste chiavi di crittografia vengono usate per crittografare e decrittografare i dischi virtuali collegati alla VM. È possibile esercitare il controllo su queste chiavi di crittografia e sul loro uso.
 
-Creare un insieme di credenziali delle chiavi con [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault). Per consentire l'uso dell'insieme di credenziali delle chiavi per la crittografia dei dischi, impostare il parametro *EnabledForDiskEncryption*. L'esempio seguente definisce anche le variabili per il nome del gruppo di risorse, il nome dell'insieme di credenziali delle chiavi e la posizione. Specificare il nome dell'insieme di credenziali delle chiavi:
+Creare un insieme di credenziali delle chiavi con [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault). Per consentire l'uso dell'insieme di credenziali delle chiavi per la crittografia dei dischi, impostare il parametro *EnabledForDiskEncryption*. L'esempio seguente definisce anche le variabili per il nome del gruppo di risorse, il nome dell'insieme di credenziali delle chiavi e la posizione. Specificare il nome dell'insieme di credenziali delle chiavi:
 
 ```azurepowershell-interactive
 $rgName="myResourceGroup"
 $vaultName="myuniquekeyvault"
 $location = "EastUS"
 
-New-AzureRmResourceGroup -Name $rgName -Location $location
-New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $rgName -Location $location -EnabledForDiskEncryption
+New-AzResourceGroup -Name $rgName -Location $location
+New-AzKeyVault -VaultName $vaultName -ResourceGroupName $rgName -Location $location -EnabledForDiskEncryption
 ```
 
 ### <a name="use-an-existing-key-vault"></a>Usare un insieme di credenziali delle chiavi esistente
 
 Questo passaggio è necessario solo se si vuole usare un insieme di credenziali delle chiavi già esistente con la crittografia dei dischi. Ignorare questo passaggio se si è creato un insieme di credenziali delle chiavi nella sezione precedente.
 
-È possibile abilitare un insieme di credenziali delle chiavi esistente nella stessa sottoscrizione e nella stessa area del set di scalabilità per la crittografia dei dischi con [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/AzureRM.KeyVault/Set-AzureRmKeyVaultAccessPolicy). Definire il nome dell'insieme di credenziali delle chiavi esistente nella variabile *$vaultName*, come segue:
+È possibile abilitare un insieme di credenziali delle chiavi esistente nella stessa sottoscrizione e nella stessa area del set di scalabilità per la crittografia dei dischi con [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/Set-AzKeyVaultAccessPolicy). Definire il nome dell'insieme di credenziali delle chiavi esistente nella variabile *$vaultName*, come segue:
+
 
 ```azurepowershell-interactive
 $vaultName="myexistingkeyvault"
-Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -EnabledForDiskEncryption
+Set-AzKeyVaultAccessPolicy -VaultName $vaultName -EnabledForDiskEncryption
 ```
 
 ## <a name="create-a-scale-set"></a>Creare un set di scalabilità
@@ -89,12 +93,12 @@ Impostare prima di tutto nome utente e password dell'amministratore delle istanz
 $cred = Get-Credential
 ```
 
-Ora si può creare un set di scalabilità di macchine virtuali con [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). Per distribuire il traffico alle singole istanze di macchine virtuali, viene creato anche un servizio di bilanciamento del carico. Il servizio di bilanciamento del carico include regole per la distribuzione del traffico sulla porta TCP 80, oltre che per consentire il traffico di Desktop remoto sulla porta TCP 3389 e la comunicazione remota di PowerShell sulla porta TCP 5985:
+Creare ora un set di scalabilità di macchine virtuali con [New-AzVmss](/powershell/module/az.compute/new-azvmss). Per distribuire il traffico alle singole istanze di macchine virtuali, viene creato anche un servizio di bilanciamento del carico. Il servizio di bilanciamento del carico include regole per la distribuzione del traffico sulla porta TCP 80, oltre che per consentire il traffico di Desktop remoto sulla porta TCP 3389 e la comunicazione remota di PowerShell sulla porta TCP 5985:
 
 ```azurepowershell-interactive
 $vmssName="myScaleSet"
 
-New-AzureRmVmss `
+New-AzVmss `
     -ResourceGroupName $rgName `
     -VMScaleSetName $vmssName `
     -Location $location `
@@ -108,13 +112,14 @@ New-AzureRmVmss `
 
 ## <a name="enable-encryption"></a>Abilitare la crittografia
 
-Per crittografare le istanze di macchine virtuali in un set di scalabilità, ottenere prima di tutto alcune informazioni sull'URI e l'ID di risorsa dell'insieme di credenziali delle chiavi con [Get-AzureRmKeyVault](/powershell/module/AzureRM.KeyVault/Get-AzureRmKeyVault). Queste variabili vengono quindi usate per avviare il processo di crittografia con [Set-AzureRmVmssDiskEncryptionExtension](/powershell/module/AzureRM.Compute/Set-AzureRmVmssDiskEncryptionExtension):
+Per crittografare le istanze di macchine virtuali in un set di scalabilità, ottenere prima di tutto alcune informazioni sull'URI e l'ID di risorsa dell'insieme di credenziali delle chiavi con [Get-AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault). Queste variabili vengono quindi usate per avviare il processo di crittografia con [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/Set-AzVmssDiskEncryptionExtension):
+
 
 ```azurepowershell-interactive
-$diskEncryptionKeyVaultUrl=(Get-AzureRmKeyVault -ResourceGroupName $rgName -Name $vaultName).VaultUri
-$keyVaultResourceId=(Get-AzureRmKeyVault -ResourceGroupName $rgName -Name $vaultName).ResourceId
+$diskEncryptionKeyVaultUrl=(Get-AzKeyVault -ResourceGroupName $rgName -Name $vaultName).VaultUri
+$keyVaultResourceId=(Get-AzKeyVault -ResourceGroupName $rgName -Name $vaultName).ResourceId
 
-Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $vmssName `
+Set-AzVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $vmssName `
     -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId –VolumeType "All"
 ```
 
@@ -122,10 +127,11 @@ Quando richiesto, digitare *y* per continuare il processo di crittografia dei di
 
 ## <a name="check-encryption-progress"></a>Verificare lo stato della crittografia
 
-Per controllare lo stato della crittografia dei dischi, usare [Get-AzureRmVmssDiskEncryption](/powershell/module/AzureRM.Compute/Get-AzureRmVmssDiskEncryption):
+Per controllare lo stato della crittografia dei dischi, usare [Get-AzVmssDiskEncryption](/powershell/module/az.compute/Get-AzVmssDiskEncryption):
+
 
 ```azurepowershell-interactive
-Get-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssName
+Get-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssName
 ```
 
 Quando le istanze di macchine virtuali sono crittografate, il codice *EncryptionSummary* riporta *ProvisioningState/succeeded*, come mostrato nell'output di esempio seguente:
@@ -150,10 +156,11 @@ EncryptionExtensionInstalled : True
 
 ## <a name="disable-encryption"></a>Disabilitare la crittografia
 
-Se non si vogliono più usare i dischi delle istanze di macchine virtuali crittografate, è possibile disabilitare la crittografia con [Disable-AzureRmVmssDiskEncryption](/powershell/module/AzureRM.Compute/Disable-AzureRmVmssDiskEncryption), come segue:
+Se non si vogliono più usare i dischi delle istanze di macchine virtuali crittografate, è possibile disabilitare la crittografia con [Disable-AzVmssDiskEncryption](/powershell/module/az.compute/Disable-AzVmssDiskEncryption), come segue:
+
 
 ```azurepowershell-interactive
-Disable-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssName
+Disable-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssName
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

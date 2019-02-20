@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 80208c83c96ba78db052017c2baa3bc0db63953f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f8a5c12bb57a8f59960320c6227174b240bcbc3d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258851"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892236"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Sicurezza a livello di riga con le raccolte di aree di lavoro di Power BI
 
@@ -94,7 +94,7 @@ Queste sono tutte le operazioni da eseguire in Power BI Desktop, ma per consenti
 * **username** (facoltativo): usata con la sicurezza a livello di riga, questa stringa può semplificare l'identificazione dell'utente quando si applicano le regole di sicurezza a livello di riga. Vedere l'articolo relativo all'uso della sicurezza a livello di riga con Power BI Embedded.
 * **roles** : stringa contenente i ruoli da selezionare quando si applicano le regole di sicurezza a livello di riga. Se si passa più di un ruolo, è consigliabile passarli come matrice di stringhe.
 
-Per creare il token, usare il metodo [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#Microsoft_PowerBI_Security_PowerBIToken_CreateReportEmbedToken_System_String_System_String_System_String_System_DateTime_System_String_System_Collections_Generic_IEnumerable_System_String__). Se la proprietà username è presente, è necessario passare anche almeno un valore in roles.
+Per creare il token, usare il metodo [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN). Se la proprietà username è presente, è necessario passare anche almeno un valore in roles.
 
 È possibile ad esempio modificare EmbedSample. La riga 55 di DashboardController può essere aggiornata da
 

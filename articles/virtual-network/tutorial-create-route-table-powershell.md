@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 0c2ff94d65e775a12fd76b3115aa8b69ae9a405f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9b4dc2e48093398077071eb2423a80c86eb62c67
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815014"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894939"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Indirizzare il traffico di rete con una tabella di route usando PowerShell
 
@@ -248,7 +248,7 @@ New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
 
 Anche se in questo articolo viene usato il tracciamento delle route per testare il routing, non è consigliabile consentire il protocollo ICMP tramite Windows Firewall per le distribuzioni di produzione.
 
-In [Enable IP forwarding](#enable-ip-forwarding) (Abilitare l'inoltro IP) è stato abilitato l'inoltro IP all'interno di Azure per l'interfaccia di rete della macchina virtuale. All'interno della macchina virtuale è necessario che il sistema operativo o un'applicazione in esecuzione nella macchina virtuale sia anche in grado di inoltrare il traffico di rete. Abilitare l'inoltro IP all'interno del sistema operativo della macchina virtuale *myVmNva*.
+In Enable IP forwarding (Abilitare l'inoltro IP) è stato abilitato l'inoltro IP all'interno di Azure per l'interfaccia di rete della macchina virtuale. All'interno della macchina virtuale è necessario che il sistema operativo o un'applicazione in esecuzione nella macchina virtuale sia anche in grado di inoltrare il traffico di rete. Abilitare l'inoltro IP all'interno del sistema operativo della macchina virtuale *myVmNva*.
 
 Da un prompt dei comandi nella macchina virtuale *myVmPrivate*, avviare una sessione Desktop remoto con *myVmNva*:
 

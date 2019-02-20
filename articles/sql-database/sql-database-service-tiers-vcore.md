@@ -11,25 +11,25 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 240715fe6d3e8344c15cddf80a23829ec84e81a2
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/07/2019
+ms.openlocfilehash: da43d1261b0ba9bd65998fbaa9fe9e364e686071
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511990"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992127"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>Livelli di servizio vCore, Vantaggio Azure Hybrid e migrazione
 
 Il modello di acquisto basato su vCore consente di ridimensionare le risorse di calcolo e archiviazione in modo indipendente, soddisfare le esigenze di prestazioni locali e ottimizzare i costi. Permette anche di scegliere la generazione di hardware:
 
-- Generazione 4 - fino a 24 CPU logiche basate su processori Intel E5-2673 v3 (Haswell) da 2,4 GHz, vCore = 1 PP (core fisici), 7 GB per core, collegato a unità SSD
-- Generazione 5 - fino a 80 CPU logiche basate su processori Intel E5-2673 v4 (Broadwell) da 2,3 GHz, vCore = 1 LP (hyper-thread), 5.1 per core, velocità eNVM SSD
+- Gen4 - fino a 24 CPU logiche basate su processori Intel E5-2673 v3 (Haswell) da 2.4 GHz, vCore = 1 PP (core fisici), 7 GB per core, collegato a unità SSD
+- Gen5 - fino a 80 CPU logiche basate su processori Intel E5-2673 v4 (Broadwell) da 2.3 GHz, vCore = 1 LP (hyper-thread), 5.1 GB per core, velocità eNVM SSD
 
-Il modello vCore offre inoltre la possibilità di usare il [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) per ottenere un risparmio sui costi.
+L'hardware Gen4 offre molta più memoria per ogni vCore. L'hardware Gen5 consente tuttavia di aumentare molto di più le risorse di calcolo.
 
 > [!NOTE]
-> Per informazioni sui livelli di servizio basati su DTU, vedere [Livelli di servizio basati su DTU](sql-database-service-tiers-dtu.md). Per informazioni sulle differenze tra i livelli di servizio basati su DTU e quelli basati su vCore, vedere [Modelli di acquisto del database SQL di Azure](sql-database-service-tiers.md).
+> Per informazioni sui livelli di servizio basati su DTU, vedere [Livelli di servizio basati su DTU](sql-database-service-tiers-dtu.md). Per informazioni sulle differenze tra i livelli di servizio basati su DTU e quelli basati su vCore, vedere [Modelli di acquisto del database SQL di Azure](sql-database-purchase-models.md).
 
 ## <a name="service-tier-characteristics"></a>Caratteristiche del livello di servizio
 
@@ -58,8 +58,6 @@ La tabella seguente consente di comprendere le differenze tra questi tre livelli
 
 > [!IMPORTANT]
 > Se per la capacità di calcolo è necessario meno di un vCore, usare il modello di acquisto basato su DTU.
-
-Per le risposte alle domande più frequenti, vedere [Domande frequenti sul database SQL](sql-database-faq.md).
 
 ## <a name="azure-hybrid-benefit"></a>Vantaggio Azure Hybrid
 

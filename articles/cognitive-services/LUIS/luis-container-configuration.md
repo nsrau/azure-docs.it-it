@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: L'ambiente di runtime del contenitore LUIS si configura mediante gli argomenti del comando `docker run`. LUIS ha diverse impostazioni necessarie e alcune impostazioni facoltative.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 5437e81397182ede37ef98ad40b54c64f94e2092
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 281358e51ed8585e5deb407b2432ee3b7ee1537f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55294724"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983264"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurare i contenitori Docker di Language Understanding 
 
@@ -30,14 +30,14 @@ Questo contenitore ha le impostazioni di configurazione seguenti:
 
 |Obbligatoria|Impostazione|Scopo|
 |--|--|--|
-|Yes|[ApiKey](#apikey-setting)|Si usa per rilevare le informazioni di fatturazione.|
+|Sì|[ApiKey](#apikey-setting)|Si usa per rilevare le informazioni di fatturazione.|
 |No |[ApplicationInsights](#applicationinsights-setting)|Consente di aggiungere al contenitore il supporto per i dati di telemetria di [Azure Application Insights](https://docs.microsoft.com/azure/application-insights).|
-|Yes|[Billing](#billing-setting)|Specifica l'URI dell'endpoint della risorsa del servizio in Azure.|
-|Yes|[Eula](#eula-setting)| Indica che è stata accettata la licenza per il contenitore.|
+|Sì|[Fatturazione](#billing-setting)|Specifica l'URI dell'endpoint della risorsa del servizio in Azure.|
+|Sì|[Eula](#eula-setting)| Indica che è stata accettata la licenza per il contenitore.|
 |No |[Fluentd](#fluentd-settings)|Scrivere il log e, facoltativamente, i dati delle metriche in un server Fluentd.|
 |No |[Proxy HTTP](#http-proxy-credentials-settings)|Configurare un proxy HTTP per le richieste in uscita.|
-|No |[Logging](#logging-settings)|Fornisce il supporto di registrazione ASP.NET Core per il contenitore. |
-|Yes|[Mounts](#mount-settings)|Leggere e scrivere dati dal computer host al contenitore e dal contenitore al computer host.|
+|No |[registrazione](#logging-settings)|Fornisce il supporto di registrazione ASP.NET Core per il contenitore. |
+|Sì|[Mounts](#mount-settings)|Leggere e scrivere dati dal computer host al contenitore e dal contenitore al computer host.|
 
 > [!IMPORTANT]
 > Le impostazioni [`ApiKey`](#apikey-setting), [`Billing`](#billing-setting) e [`Eula`](#eula-setting) vengono usate insieme ed è necessario fornire valori validi per tutte e tre, altrimenti il contenitore non verrà avviato. Per altre informazioni sull'uso di queste impostazioni di configurazione per creare un'istanza di un contenitore, vedere [Billing](luis-container-howto.md#billing) (Fatturazione).
@@ -59,7 +59,7 @@ Non usare il tasto starter o la chiave di creazione.
 
 ## <a name="billing-setting"></a>Impostazione di fatturazione
 
-L'impostazione `Billing` specifica l'URI dell'endpoint della risorsa _Language Understanding_ in Azure utilizzata per misurare i dati di fatturazione per il contenitore. È necessario specificare un valore per questa impostazione di configurazione e tale valore deve essere un URI dell'endpoint valido per una risorsa _Language Understanding_ in Azure.
+L'impostazione `Billing` specifica l'URI dell'endpoint della risorsa _Language Understanding_ in Azure utilizzata per misurare i dati di fatturazione per il contenitore. È necessario specificare un valore per questa impostazione di configurazione e tale valore deve essere un URI dell'endpoint valido per una risorsa _Language Understanding_ in Azure. Il contenitore segnala l'utilizzo ogni 10-15 minuti.
 
 Questa impostazione è disponibile nelle posizioni seguenti:
 
@@ -68,7 +68,7 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 |Obbligatoria| NOME | Tipo di dati | DESCRIZIONE |
 |--|------|-----------|-------------|
-|Yes| `Billing` | string | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
+|Sì| `Billing` | string | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
 
 ## <a name="eula-setting"></a>Impostazione Eula
 
@@ -100,7 +100,7 @@ La tabella seguente descrive le impostazioni supportate.
 
 |Obbligatoria| NOME | Tipo di dati | DESCRIZIONE |
 |-------|------|-----------|-------------|
-|Yes| `Input` | string | Destinazione del montaggio di input. Il valore predefinito è `/input`. Questo è il percorso del file del pacchetto LUIS. <br><br>Esempio:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Sì| `Input` | string | Destinazione del montaggio di input. Il valore predefinito è `/input`. Questo è il percorso del file del pacchetto LUIS. <br><br>Esempio:<br>`--mount type=bind,src=c:\input,target=/input`|
 |No | `Output` | string | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log di query LUIS e i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="hierarchical-settings"></a>Impostazioni gerarchiche
@@ -124,7 +124,7 @@ Sostituire {_nome_argomento_} con i propri valori:
 |{BILLING_ENDPOINT} | Il valore dell'endpoint billing (fatturazione) è disponibile nella pagina della panoramica di Language Understanding del portale di Azure.|https://westus.api.cognitive.microsoft.com/luis/v2.0|
 
 > [!IMPORTANT]
-> È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore e avviarlo; altrimenti il contenitore non si avvia.  Per altre informazioni, vedere[Billing](luis-container-howto.md#billing).
+> È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore e avviarlo; altrimenti il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](luis-container-howto.md#billing).
 > Il valore ApiKey è la **chiave** della pagina delle chiavi ed endpoint nel portale di LUIS ed è anche disponibile nella pagina delle chiavi di Azure Language Understanding Resource. 
 
 ### <a name="basic-example"></a>Esempio di base

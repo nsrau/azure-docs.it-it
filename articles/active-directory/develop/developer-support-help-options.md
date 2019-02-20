@@ -1,6 +1,6 @@
 ---
-title: Opzioni di supporto tecnico e assistenza per gli sviluppatori di identità di Azure | Microsoft Docs
-description: Scoprire come ottenere assistenza e supporto per domande e problemi correlati allo sviluppo durante la creazione di applicazioni che si integrano con le identità di Microsoft Azure (Azure Active Directory e account del servizio gestito)
+title: Opzioni di supporto tecnico e assistenza per gli sviluppatori di app Azure AD | Microsoft Docs
+description: Scoprire come ottenere assistenza e supporto per domande e problemi correlati allo sviluppo durante la creazione di applicazioni che si integrano con le identità di Microsoft (Azure Active Directory e account Microsoft)
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -13,94 +13,90 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/27/2017
+ms.date: 02/14/2019
 ms.author: celested
-ms.reviewer: andret
+ms.reviewer: jmprieur, dadobali
 ms.custom: aaddev
-ms.openlocfilehash: f8c5e5f598ab8566eacb594ff66b63ce3793f57f
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e9f3f041fa3b594b4b680d794c1c013e55b97da4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093192"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235190"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opzioni di supporto tecnico e assistenza per gli sviluppatori
 
-Indipendentemente dal fatto che si stia iniziando l'integrazione con Azure Active Directory, con le identità di Microsoft o con l'API Microsoft Graph, o che si stia implementando una nuova funzionalità nell'applicazione, in alcuni momenti è necessario l'aiuto della community o la comprensione approfondita delle opzioni di supporto disponibili per gli sviluppatori. Questo articolo aiuta a comprendere queste opzioni. Ecco un riepilogo:
+Se si stia iniziando l'integrazione con Azure Active Directory (Azure AD), con le identità di Microsoft o con l'API Microsoft Graph o se si sta implementando una nuova funzionalità nell'applicazione, in alcuni momenti è necessario l'aiuto della community o la comprensione approfondita delle opzioni di supporto disponibili per gli sviluppatori. Questo articolo aiuta a comprendere queste opzioni, tra cui:
 
 > [!div class="checklist"]
-> * Eseguire una ricerca per verificare se la community non ha ancora risposto alla domanda che si vuole porre per un problema o se esiste già la documentazione della funzionalità che si sta tentando di implementare
-> * In alcuni casi si vogliono solo usare gli strumenti di supporto che consentano di eseguire il debug per un problema specifico
+> * Come eseguire una ricerca per verificare se la community non ha ancora risposto alla domanda che si vuole porre o se esiste già la documentazione della funzionalità che si sta provando a implementare
+> * In alcuni casi si vogliono solo usare gli strumenti di supporto che consentono di eseguire il debug per un problema specifico
 > * Se non si riesce a trovare la risposta che serve, è consigliabile porre una domanda in *Stack Overflow*
 > * In caso di problemi con una delle librerie di autenticazione Microsoft, segnalare il problema in *GitHub*
 > * Se, infine, è necessario contattare direttamente il personale di assistenza, è consigliabile aprire una richiesta di supporto
 
-
 ## <a name="search"></a>Ricerca
 
-In caso di domande correlate allo sviluppo, le risposte necessarie potrebbero essere disponibili nella documentazione, negli [esempi in GitHub](https://github.com/azure-samples) o nelle risposte a domande in [Stack Overflow](https://www.stackoverflow.com).
+In caso di domande correlate allo sviluppo, le risposte potrebbero essere disponibili nella documentazione, negli [esempi in GitHub](https://github.com/azure-samples) o nelle risposte a domande in [Stack Overflow](https://www.stackoverflow.com).
 
 ### <a name="scoped-search"></a>Ricerca per ambito
-Per risultati più veloci, delimitare l'ambito della ricerca in Stack Overflow, nella documentazione e negli esempi di codice usando quanto segue nel [motore di ricerca preferito](https://bing.com):
+
+Per risultati più veloci, delimitare l'ambito della ricerca in Stack Overflow, nella documentazione e negli esempi di codice usando la query seguente nel motore di ricerca preferito:
+
 ```
-{Your Search Terms} (site:stackoverflow.com OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/en-us/graph)
+{Your Search Terms} (site:stackoverflow.com OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/graph)
 ```
+
 Dove *{Your Search Terms}* corrisponde alle parole chiave di ricerca.
-<br/>
 
-## <a name="use-our-development-support-tools"></a>Usare gli strumenti di supporto Microsoft per lo sviluppo
+## <a name="use-the-development-support-tools"></a>Usare gli strumenti di supporto Microsoft per lo sviluppo
 
-|Strumento  |DESCRIZIONE  |
+| Strumento  | DESCRIZIONE  |
 |---------|---------|
-|[jwt.ms](https://jwt.ms)| Incollare un ID o un token di accesso per decodificare i nomi e i valori di un'attestazione |
-|[Analizzatore dei codici di errore](https://apps.dev.microsoft.com/portal/tools/errors)| Incollare un codice di errore ricevuto durante l'accesso o dalle pagine di consenso per visualizzare le possibili cause e le soluzioni corrispondenti |
-|[Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Strumento che consente di effettuare richieste e visualizzare le risposte con l'API Microsoft Graph|
+| [jwt.ms](https://jwt.ms) | Incollare un ID o un token di accesso per decodificare i nomi e i valori di un'attestazione. |
+| [Analizzatore dei codici di errore](https://apps.dev.microsoft.com/portal/tools/errors)| Incollare un codice di errore ricevuto durante l'accesso o dalle pagine di consenso per visualizzare le possibili cause e le soluzioni corrispondenti. |
+| [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Strumento che consente di effettuare richieste e visualizzare le risposte con l'API Microsoft Graph. |
 
-<br/>
-
-[![Stack Overflow](./media/developer-support-help-options/stackoverflow-logo.png)](https://www.stackoverflow.com)
 ## <a name="post-a-question-to-stack-overflow"></a>Pubblicare una domanda in Stack Overflow
 
-Stack Overflow è il canale preferito per le domande correlate allo sviluppo. In questo canale, membri della community e membri dei team Microsoft sono direttamente coinvolti nell'assistenza agli utenti per la risoluzione dei problemi di questi ultimi.
+Stack Overflow è il canale da scegliere per le domande correlate allo sviluppo. Qui, membri della community degli sviluppatori e membri dei team Microsoft sono direttamente coinvolti nell'assistenza agli utenti per la risoluzione dei problemi.
 
-Se non si riesce a trovare la soluzione a un problema tramite la ricerca, è possibile inviare una nuova domanda a Stack Overflow. Al momento di creare una domanda, usare uno dei tag seguenti per facilitare l'identificazione del problema e consentire quindi una risposta tempestiva alla domanda stessa:
+Se non si trova una risposta alla domanda tramite la ricerca, inviare una nuova domanda a Stack Overflow. Per porre domande alla community in modo che possa identificarle e rispondere più rapidamente, usare uno dei tag seguenti:
 
-|Componente/Area  |Tag  |
+|Componente/area  | Tag |
 |---------|---------|
-|Libreria ADAL |[[adal]](https://stackoverflow.com/questions/tagged/adal)|
-|Libreria MSAL     |[[msal]](https://stackoverflow.com/questions/tagged/msal)|
-|Middleware OWIN  |[[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)|
-|[Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  |[[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b)|
-|[Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  |[[azure-ad-b2c]](https://stackoverflow.com/questions/tagged/azure-ad-b2b)|
-|[API Microsoft Graph](https://developer.microsoft.com/graph/) |[[microsoft-graph]](https://stackoverflow.com/questions/tagged/microsoft-graph)
-|Qualsiasi altra area correlata ad argomenti relativi all'autenticazione o all'autorizzazione |[[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)
-<br/>
-> [!TIP]
-> Il post di Stack Overflow seguente contiene suggerimenti su come porre domande e su come aggiungere codice sorgente. Se ci si attiene a queste linee guida, aumenta la probabilità che i membri della community valutino le domande e rispondano rapidamente:
-> - [Come creare una domanda utile](https://stackoverflow.com/help/how-to-ask)
-> - [Come creare un esempio minimo, completo e verificabile](https://stackoverflow.com/help/mcve)
+| Libreria ADAL | [[adal]](https://stackoverflow.com/questions/tagged/adal) |
+| Libreria MSAL     | [[msal]](https://stackoverflow.com/questions/tagged/msal) |
+| Middleware OWIN  | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
+| [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | [[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b) |
+| [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://stackoverflow.com/questions/tagged/azure-ad-b2c) |
+| [API Microsoft Graph](https://developer.microsoft.com/graph/) | [[microsoft-graph]](https://stackoverflow.com/questions/tagged/microsoft-graph) |
+| Qualsiasi altra area correlata ad argomenti relativi all'autenticazione o all'autorizzazione | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
 
-<br/>
+I post di Stack Overflow seguenti contengono suggerimenti su come porre domande e su come aggiungere codice sorgente. Seguire queste linee guida per aumentare la probabilità che i membri della community valutino le domande e rispondano rapidamente:
 
+* [Come creare una domanda utile](https://stackoverflow.com/help/how-to-ask)
+* [Come creare un esempio minimo, completo e verificabile](https://stackoverflow.com/help/mcve)
 
-[![Stack Overflow](./media/developer-support-help-options/github-logo.png)](https://www.github.com)
 ## <a name="create-a-github-issue"></a>Segnalare un problema in GitHub
 
- In caso di bug o di un problema relativo alle librerie Microsoft, segnalare il problema nei repository di GitHub. Le librerie sono open source e gli utenti sono quindi liberi di inviare anche una richiesta pull. L'articolo seguente contiene un elenco di librerie e i repository corrispondenti in GitHub:
+In caso di bug o di problema relativo alle librerie Microsoft, segnalare il problema nei repository di GitHub. Le librerie sono open source, quindi gli utenti possono anche inviare anche una richiesta pull.
 
-- Librerie [ADAL, MSAL e middleware Owin](active-directory-authentication-libraries.md)e repository GitHub
+Per visualizzare un elenco di librerie e i repository corrispondenti in GitHub, vedere gli articoli seguenti (in inglese):
 
-<br/>
+* Librerie [ADAL](active-directory-authentication-libraries.md) e repository di GitHub
+* Librerie [MSAL](reference-v2-libraries.md) e repository di GitHub
 
 ## <a name="open-a-support-request"></a>Aprire una richiesta di supporto
 
 Se è necessario rivolgersi a qualcuno, è consigliabile aprire una richiesta di supporto. Per i clienti Azure sono disponibili diverse opzioni di supporto. Per confrontare i piani, vedere [questa pagina](https://azure.microsoft.com/support/plans/). Il supporto per gli sviluppatori è disponibile anche per i clienti Azure. Per informazioni su come acquistare piani di supporto per sviluppatori, vedere [questa pagina](https://azure.microsoft.com/support/plans/developer/).
 
-- Se si ha già un piano di supporto per Azure, [aprire una richiesta di supporto qui](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+* Se si ha già un piano di supporto per Azure, [aprire una richiesta di supporto qui](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
-- Se l'utente non è un cliente Azure, è anche possibile aprire una richiesta di supporto con Microsoft tramite [il supporto commerciale](https://support.microsoft.com/en-us/gp/contactus81?Audience=Commercial).
+* Se l'utente non è un cliente Azure, è anche possibile aprire una richiesta di supporto con Microsoft tramite [il supporto commerciale](https://support.microsoft.com/en-us/gp/contactus81?Audience=Commercial).
 
-Per ottenere supporto o porre domande, è anche possibile provare [l'agente virtuale](https://support.microsoft.com/contactus/?ws=support).
+Per ottenere supporto o porre domande, è anche possibile provare un [agente virtuale](https://support.microsoft.com/contactus/?ws=support).
 
 ### <a name="free-chat-support-for-a-limited-time"></a>Supporto tecnico via chat disponibile gratuitamente per un periodo di tempo limitato
 

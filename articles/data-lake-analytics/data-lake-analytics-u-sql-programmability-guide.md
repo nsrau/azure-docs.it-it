@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: 9ff75cbd0a4915cdf7045be9a45d11075dda15bd
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: eca1379c4f721a0201b01f149b581859c49c6540
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402320"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234374"
 ---
 # <a name="u-sql-programmability-guide"></a>Guida alla programmabilità di U-SQL
 
@@ -525,9 +525,9 @@ public class MyTypeFormatter : IFormatter<MyType>
 }
 ```
 
-L'interfaccia `IFormatter` serializza e deserializza un grafo di oggetti con il tipo radice \<typeparamref name="T">.
+L'interfaccia `IFormatter` serializza e deserializza un oggetto grafico con il tipo radice \<typeparamref name="T">.
 
-\<typeparam name="T"&gt; il tipo radice per il grafo di oggetti da serializzare e deserializzare.
+\<typeparam name="T"&gt; il tipo radice per l'oggetto grafico da serializzare e deserializzare.
 
 * **Deserialize**: deserializza i dati nel flusso fornito e ricostruisce il grafo di oggetti.
 
@@ -946,7 +946,7 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 ```
 
 * T1: primo parametro per Accumulate
-* T2: primo parametro per Accumulate
+* T2: secondo parametro per Accumulate
 * TResult: tipo restituito di Terminate
 
 Ad esempio: 

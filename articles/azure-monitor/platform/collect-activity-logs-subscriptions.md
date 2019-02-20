@@ -10,18 +10,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 344b049c46243c06c32ed061410f48f71bc70f54
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 4d336f657baef99d97568ba722e64a1f4440367f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580944"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984580"
 ---
-# <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Raccogliere log attività di Azure in Log Analytics tra sottoscrizioni
+# <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions-in-different-azure-active-directory-tenants"></a>Raccogliere log attività di Azure in Log Analytics tra sottoscrizioni in tenant di Azure Active Directory diversi
 
-Questo articolo descrive un metodo per raccogliere i log attività di Azure in un'area di lavoro di Azure Log Analytics tramite il connettore Agente di raccolta dati di Log Analytics per app per la logica. Usare il processo in questo articolo quando è necessario inviare i log a un'area di lavoro in un'altra istanza di Azure Active Directory. Ad esempio, è possibile che i provider di servizi gestiti intendano raccogliere log attività da una sottoscrizione del cliente e archiviarli in un'area di lavoro di Log Analytics nella propria sottoscrizione.
+Questo articolo descrive un metodo per raccogliere i log attività di Azure in un'area di lavoro di Azure Log Analytics tramite il connettore Agente di raccolta dati di Log Analytics per app per la logica. Usare il processo descritto in questo articolo quando è necessario inviare log a un'area di lavoro in un tenant di Azure Active Directory diverso. Ad esempio, è possibile che i provider di servizi gestiti intendano raccogliere log attività da una sottoscrizione del cliente e archiviarli in un'area di lavoro di Log Analytics nella propria sottoscrizione.
 
 Se l'area di lavoro di Log Analytics si trova nella stessa sottoscrizione di Azure o in una sottoscrizione diversa ma nella stessa istanza di Azure Active Directory, attenersi ai passaggi nella [soluzione per i log attività di Azure](collect-activity-logs.md) per raccogliere i log attività di Azure.
 

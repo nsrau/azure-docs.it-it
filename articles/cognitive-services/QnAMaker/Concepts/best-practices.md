@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Usare queste procedure consigliate per migliorare la knowledge base e fornire risultati migliori per gli utenti finali dell'applicazione/chat bot.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 02/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 4adadf4951ffbb31a354284340a3716b194d864d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9ea62d731cf0c16c17f3c2e4f3e1954661289934
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219278"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245542"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedure consigliate per una knowledge base di QnA Maker
 Il [ciclo di vita di sviluppo della knowledge base](../Concepts/development-lifecycle-knowledge-base.md) fornisce informazioni sulla gestione della KB dall'inizio alla fine. Usare queste procedure consigliate per migliorare la knowledge base e fornire risultati migliori per gli utenti finali dell'applicazione/chat bot.
@@ -74,7 +74,7 @@ Le [domande alternative](../How-To/edit-knowledge-base.md) aumentano la probabil
 I [metadati](../How-To/edit-knowledge-base.md) aiutano a restringere i risultati di una query utente in base ai tag dei metadati. La risposta della knowledge base può essere diversa in base al tag di metadati, anche se la query è la stessa. Ad esempio, la domanda *"Dove si trova il parcheggio?"* può avere risposte diverse se l'attributo Location del ramo relativo al ristorante è diverso, ovvero se i metadati sono *Location: Seattle* piuttosto che *Location: Redmond*.
 
 ### <a name="use-synonyms"></a>Usare sinonimi
-Sebbene, in parte, sia disponibile il supporto per i sinonimi in lingua inglese, usare [variazioni delle parole](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) per aggiungere sinonimi alle parole chiave che accettano una forma diversa. I sinonimi devono essere aggiunti a livello di servizio in QnA Maker e condivisi da tutte le knowledge base nel servizio.
+Sebbene, in parte, sia disponibile il supporto per i sinonimi in lingua inglese, usare [variazioni delle parole](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) con distinzione maiuscole/minuscole per aggiungere sinonimi alle parole chiave che accettano una forma diversa. I sinonimi devono essere aggiunti a livello di servizio in QnA Maker e condivisi da tutte le knowledge base nel servizio.
 
 |Parola originale|Sinonimi|
 |--|--|

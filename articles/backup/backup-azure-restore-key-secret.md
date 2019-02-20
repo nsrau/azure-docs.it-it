@@ -8,19 +8,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: geetha
-ms.openlocfilehash: 233325f0032dc31445bbaa9d9e522f401f43c093
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 9ec6760e790bc540554cf18a9f85f24048becbed
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488765"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114672"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Ripristinare la chiave dell'insieme di credenziali delle chiavi e il segreto per le macchine virtuali crittografate con Backup di Azure
 Questo articolo illustra l'uso di Backup di Azure per eseguire il ripristino delle macchine virtuali crittografate di Azure nel caso in cui la chiave e il segreto non siano presenti nell'insieme di credenziali delle chiavi. Questa procedura può essere usata anche per conservare una copia separata della chiave (chiave di crittografia della chiave) e del segreto (chiave di crittografia BitLocker) per la macchina virtuale ripristinata.
 
 ## <a name="prerequisites"></a>Prerequisiti
 * **Backup delle macchine virtuali crittografate**: il backup delle macchine virtuali crittografate di Azure deve essere eseguito tramite Backup di Azure. Per informazioni dettagliate sul backup di macchine virtuali crittografate di Azure, vedere l'articolo relativo alla [gestione del backup e ripristino di macchine virtuali di Azure con PowerShell](backup-azure-vms-automation.md).
-* **Configurazione dell'insieme di credenziali delle chiavi di Azure**: assicurarsi che l'insieme di credenziali delle chiavi in cui eseguire il ripristino di chiavi e segreti sia presente. Per informazioni dettagliate sulla gestione dell'insieme di credenziali delle chiavi, vedere l'articolo [Introduzione all'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-get-started.md).
+* **Configurazione dell'insieme di credenziali delle chiavi di Azure**: assicurarsi che l'insieme di credenziali delle chiavi in cui eseguire il ripristino di chiavi e segreti sia presente. Per informazioni dettagliate sulla gestione dell'insieme di credenziali delle chiavi, vedere l'articolo [Che cos'è Azure Key Vault?](../key-vault/key-vault-overview.md).
 * **Ripristino del disco**: assicurarsi di aver attivato il processo di ripristino per ripristinare i dischi delle macchine virtuali crittografate usando le [procedure di PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm). Questo processo, infatti, genera un file JSON nell'account di archiviazione contenente le chiavi e i segreti della macchina virtuale crittografata da ripristinare.
 
 ## <a name="get-key-and-secret-from-azure-backup"></a>Ottenere la chiave e il segreto da Backup di Azure

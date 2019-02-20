@@ -7,19 +7,19 @@ ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: douglaslMS
-ms.author: douglasl
+author: CarlRabeler
+ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6066ca586ce9923158026fbeaa405de16681de9b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 6e25c0970a48674e157dac5f51c9508596ff6ea1
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461340"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097083"
 ---
-# <a name="copy-an-transactionally-consistent-copy-of-an-azure-sql-database"></a>Creare una copia coerente a livello transazionale di un database SQL di Azure
+# <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Creare una copia coerente a livello transazionale di un database SQL di Azure
 
 Il Database SQL di Azure fornisce diversi metodi per la creazione di una copia coerente a livello transazionale di un database SQL di Azure esistente nello stesso server o un altro server. È possibile copiare un database SQL tramite il portale di Azure, PowerShell o T-SQL. 
 
@@ -68,6 +68,7 @@ Accedere al database master con l'account di accesso dell'entità di livello ser
 Iniziare a copiare il database di origine con l'istruzione [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) . L'esecuzione di questa istruzione avvia il processo di copia del database. Poiché la copia di un database è un processo asincrono, l'istruzione CREATE DATABASE viene restituita prima del completamento della copia del database.
 
 ### <a name="copy-a-sql-database-to-the-same-server"></a>Copiare un database SQL nello stesso server
+
 Accedere al database master con l'account di accesso dell'entità di livello server o l'account di accesso con cui è stato creato il database che si desidera copiare. Affinché il processo di copia del database abbia esito positivo, gli account di accesso che non corrispondono all'entità di livello server devono essere membri del ruolo dbmanager.
 
 Questo comando copia Database1 in un nuovo database denominato Database2 sullo stesso server. A seconda delle dimensioni del database, l'operazione di copia potrebbe richiedere alcuni minuti.
@@ -86,6 +87,9 @@ Questo comando copia Database1 sul server1 in un nuovo database denominato Datab
     -- Start copying from Server1 to Server2
     CREATE DATABASE Database2 AS COPY OF server1.Database1;
 
+## <a name="to-move-a-database-between-subscriptions"></a>Per spostare un database tra sottoscrizioni
+
+Nel [portale di Azure](https://portal.azure.com)fare clic su **SQL Server** e quindi selezionare dall'elenco il server che ospita il database. Fare clic su **Sposta**, quindi selezionare le risorse da spostare e la sottoscrizione in cui spostarle.
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>Monitorare lo stato dell'operazione di copia
 
@@ -96,7 +100,6 @@ Monitorare il processo di copia eseguendo una query sulle visualizzazioni sys.da
 
 > [!NOTE]
 > Se si decide di annullare il processo di copia mentre è in corso, eseguire l'istruzione [DROP DATABASE](https://msdn.microsoft.com/library/ms178613.aspx) nel nuovo database. In alternativa, anche l'esecuzione dell'istruzione DROP DATABASE sul database di origine annulla il processo di copia.
-> 
 
 ## <a name="resolve-logins"></a>Risolvere gli account di accesso
 

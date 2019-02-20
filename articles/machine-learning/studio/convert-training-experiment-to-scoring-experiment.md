@@ -9,12 +9,12 @@ ms.topic: article
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: fe7d3956c1a5ead55acd8605086668e20e85e1d2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 22cfdd22a8d2adacb5a5a5c817a628fe2c072755
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496075"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001698"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Come preparare il modello per la distribuzione in Azure Machine Learning Studio
 
@@ -22,7 +22,7 @@ Azure Machine Learning Studio offre gli strumenti necessari per sviluppare un mo
 
 A tale scopo, è necessario utilizzare Studio per creare un esperimento, chiamato *esperimento di training*, in cui eseguire il training del modello, assegnare un punteggio al modello e modificarlo. Quando si è soddisfatti del risultato, è possibile procedere alla distribuzione del modello convertendo l'esperimento di training in un *esperimento predittivo* configurato in modo da assegnare un punteggio ai dati utente.
 
-Per un esempio di questo processo, vedere [Procedura dettagliata: Sviluppare una soluzione di analisi predittiva per la valutazione del rischio di credito in Azure Machine Learning](walkthrough-develop-predictive-solution.md).
+Per un esempio di questo processo, vedere [Esercitazione 1: Prevedere il rischio di credito](tutorial-part1-credit-risk.md).
 
 Questo articolo contiene informazioni approfondite su come convertire un esperimento di training in un esperimento predittivo e successivamente distribuirlo. La comprensione di questi dettagli è fondamentale per imparare a configurare il modello distribuito in modo da renderlo più efficace.
 

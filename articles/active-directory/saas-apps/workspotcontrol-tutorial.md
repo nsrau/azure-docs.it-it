@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Workspot Control | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Workspot Control | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Workspot Control.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 520e625ba9689ebf35e985fe95609c62102e2493
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8716d018756d1e6eadcd6ebeeaf4f67ad0bc4741
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311942"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211156"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Esercitazione: Integrazione di Azure Active Directory con Workspot Control
+# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Esercitazione: integrazione di Azure Active Directory con Workspot Control
 
 Questa esercitazione descrive come integrare Workspot Control con Azure Active Directory (Azure AD).
 
@@ -99,7 +100,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![image](./media/workspotcontrol-tutorial/B1_B2_Select_SSO.png)
 
-2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML** per abilitare il Single Sign-On.
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML** per abilitare l'accesso Single Sign-On.
 
     ![image](./media/workspotcontrol-tutorial/b1_b2_saml_sso.png)
 
@@ -124,7 +125,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE]
     > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere tali valori, contattare il [team di supporto clienti di Workspot Control](mailto:support@workspot.com). 
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML** fare clic su **Scarica** per scaricare il file **Certificato (Base64)** e salvarlo nel computer.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML** fare clic su **Scarica** per scaricare il file **Certificato (Base64)** e salvarlo nel computer in uso.
 
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_certficate.png) 
 
@@ -142,7 +143,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 7. In un'altra finestra del Web browser accedere a Workspot Control come amministratore della sicurezza.
 
-8. Sulla barra degli strumenti nella parte superiore della pagina fare clic su **Setup** (Configurazione) e quindi passare a **SAML**.
+8. Sulla barra degli strumenti nella parte superiore della pagina fare clic su  **Setup** e quindi passare a  **SAML**.
 
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_setup.png)
 
@@ -150,7 +151,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
  
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_saml.png)
 
-    a. Nella casella di testo **Entity ID** (ID entità) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.   
+    a. Nella casella di testo **Entity ID** (ID entità) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.   
 
     b. Nella casella di testo **Signon Service URL** (URL del servizio di accesso) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
@@ -164,7 +165,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel portale di Azure, nel riquadro sinistro, selezionare **Azure Active Directory**, selezionare **Utenti** e quindi selezionare **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![image](./media/workspotcontrol-tutorial/d_users_and_groups.png)
 
@@ -193,7 +194,7 @@ Per consentire agli utenti di Azure AD di accedere a Workspot Control, è necess
 
 1. Accedere a Workspot Control come amministratore della sicurezza.
 
-2. Sulla barra degli strumenti nella parte superiore della pagina fare clic su **Users** (Utenti) e quindi passare ad **Add User** (Aggiungi utente).
+2. Sulla barra degli strumenti nella parte superiore della pagina fare clic su  **Utenti** e quindi passare a  **Aggiungi utente**.
 
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_adduser.png)
 
@@ -242,7 +243,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Workspot Control nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Workspot Control.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

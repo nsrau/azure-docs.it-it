@@ -3,7 +3,7 @@ title: Limiti delle risorse basate su vCore del database SQL di Azure - database
 description: Questa pagina descrive alcuni limiti delle risorse comuni basate su vCore per un database singolo nel database SQL di Azure.
 services: sql-database
 ms.service: sql-database
-ms.subservice: standalone-database
+ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/01/2019
-ms.openlocfilehash: 494b9b5d8be804842406aac98d3b328c7848570d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.date: 02/08/2019
+ms.openlocfilehash: 735c3dc4764f45512386a0c53a389f355f069aa3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663979"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998131"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Limiti del modello di acquisto basato su vCore per il database SQL di Azure per un database singolo
 
@@ -260,5 +260,9 @@ Per i limiti del modello di acquisto basati su DTU per i singoli database in un 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per le risposte alle domande più frequenti, vedere [Domande frequenti sul database SQL](sql-database-faq.md).
+- Per i limiti delle risorse DTU per un database singolo, vedere [Limiti delle risorse per database singoli usando il modello di acquisto basato su DTU](sql-database-dtu-resource-limits-single-databases.md)
+- Per i limiti delle risorse vCore per i pool elastici, vedere [Limiti delle risorse per pool elastici usando il modello di acquisto basato su vCore](sql-database-vcore-resource-limits-elastic-pools.md)
+- Per i limiti delle risorse DTU per i pool elastici, vedere [Limiti delle risorse per i pool elastici usando il modello di acquisto basato su DTU](sql-database-dtu-resource-limits-elastic-pools.md)
+- Per i limiti delle risorse delle istanze gestite, vedere [Limiti delle risorse dell'istanza gestita](sql-database-managed-instance-resource-limits.md).
 - Per informazioni sui limiti generici di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
+- Per informazioni sui limiti delle risorse in un server di database, vedere [Panoramica dei limiti delle risorse in un server di database SQL](sql-database-resource-limits-database-server.md).

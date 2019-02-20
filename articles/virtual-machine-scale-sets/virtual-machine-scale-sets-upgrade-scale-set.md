@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: manayar
-ms.openlocfilehash: c0c9554a6c8868a8aeb90947dbbb0e251e42733f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 4e6186310f63fde8648ded03a62b207b5f81a8e2
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733230"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984801"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificare un set di scalabilità di macchine virtuali
+
 Per tutto il ciclo di vita delle applicazioni, potrebbe essere necessario modificare o aggiornare il set di scalabilità di macchine virtuali. Questi aggiornamenti possono includere come aggiornare la configurazione del set di scalabilità o modificare la configurazione dell'applicazione. Questo articolo descrive come modificare un set di scalabilità esistente con le API REST, Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
 ## <a name="fundamental-concepts"></a>Concetti fondamentali
@@ -36,10 +37,10 @@ Un set di scalabilità ha un "modello" che acquisisce lo stato *desiderato* del 
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version={apiVersion}
     ```
 
-- Azure PowerShell con [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss):
+- Azure PowerShell con [Get-AzVmss](/powershell/module/az.compute/get-azvmss):
 
     ```powershell
-    Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+    Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
     ```
 
 - Interfaccia della riga di comando di Azure con [az vmss show](/cli/azure/vmss):
@@ -80,10 +81,10 @@ Un set di scalabilità ha anche una "visualizzazione dell'istanza" che acquisisc
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/instanceView?api-version={apiVersion}
     ```
 
-- Azure PowerShell con [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss):
+- Azure PowerShell con [Get-AzVmss](/powershell/module/az.compute/get-azvmss):
 
     ```powershell
-    Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
+    Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
     ```
 
 - Interfaccia della riga di comando di Azure con [az vmss get-instance-view](/cli/azure/vmss):
@@ -134,10 +135,10 @@ Come un set di scalabilità ha una visualizzazione modello, così anche ogni ist
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/virtualmachines/instanceId?api-version={apiVersion}
     ```
 
-- Azure PowerShell con [Get-AzureRmVmssVm](/powershell/module/azurerm.compute/get-azurermvmssvm):
+- Azure PowerShell con [Get-AzVmssVm](/powershell/module/az.compute/get-azvmssvm):
 
     ```powershell
-    Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
+    Get-AzVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
 - Interfaccia della riga di comando di Azure con [az vmss show](/cli/azure/vmss):
@@ -174,10 +175,10 @@ Come un set di scalabilità ha una visualizzazione istanza, così anche ogni ist
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/virtualmachines/instanceId/instanceView?api-version={apiVersion}
     ```
 
-- Azure PowerShell con [Get-AzureRmVmssVm](/powershell/module/azurerm.compute/get-azurermvmssvm):
+- Azure PowerShell con [Get-AzVmssVm](/powershell/module/az.compute/get-azvmssvm):
 
     ```powershell
-    Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
+    Get-AzVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
     ```
 
 - Interfaccia della riga di comando di Azure con [az vmss get-instance-view](/cli/azure/vmss)
@@ -253,10 +254,10 @@ Per aggiornare una proprietà globale del set di scalabilità, occorre eseguire 
 
 - È possibile distribuire un modello di Resource Manager con le proprietà dell'API REST per aggiornare le proprietà globali del set di scalabilità.
 
-- Azure PowerShell con [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss):
+- Azure PowerShell con [Update-AzVmss](/powershell/module/az.compute/update-azvmss):
 
     ```powershell
-    Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet {scaleSetConfigPowershellObject}
+    Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet {scaleSetConfigPowershellObject}
     ```
 
 - Interfaccia della riga di comando di Azure con [az vmss update](/cli/azure/vmss):
@@ -300,10 +301,10 @@ Per aggiornare le macchine virtuali esistenti, è necessario eseguire un "aggior
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/manualupgrade?api-version={apiVersion}
     ```
 
-- Azure PowerShell con [Update-AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance):
+- Azure PowerShell con [Update-AzVmssInstance](/powershell/module/az.compute/update-azvmssinstance):
     
     ```powershell
-    Update-AzureRmVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
+    Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
 - Interfaccia della riga di comando di Azure con [az vmss update-instances](/cli/azure/vmss)
@@ -325,10 +326,10 @@ Esiste un tipo di modifica alle proprietà globali del set di scalabilità che n
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
     ```
 
-- Azure PowerShell con [Set-AzureRmVmssVm](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm):
+- Azure PowerShell con [Set-AzVmssVm](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm):
 
     ```powershell
-    Set-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
+    Set-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
     ```
 
 - Interfaccia della riga di comando di Azure con [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss):
@@ -386,10 +387,10 @@ Se si usano immagini personalizzate, è possibile aggiornare l'immagine aggiorna
 ### <a name="update-the-os-image-for-your-scale-set"></a>Aggiornare l'immagine del sistema operativo per il set di scalabilità
 Si può avere un set di scalabilità che esegue una versione precedente di Ubuntu LTS 16.04. Si vuole eseguire l'aggiornamento a una versione più recente di Ubuntu LTS 16.04, ad esempio la versione *16.04.201801090*. La proprietà della versione del riferimento all'immagine non fa parte di un elenco, quindi è possibile modificare direttamente queste proprietà con uno dei comandi seguenti:
 
-- Azure PowerShell con [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) come segue:
+- Azure PowerShell con [Update-AzVmss](/powershell/module/az.compute/update-azvmss) come segue:
 
     ```powershell
-    Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
+    Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
     ```
 
 - Interfaccia della riga di comando di Azure con [az vmss update](/cli/azure/vmss):
@@ -400,10 +401,10 @@ Si può avere un set di scalabilità che esegue una versione precedente di Ubunt
 
 In alternativa è possibile modificare l'immagine usata dal set di scalabilità. Ad esempio è possibile aggiornare o modificare un'immagine personalizzata usata dal set di scalabilità. È possibile modificare l'immagine usata dal set di scalabilità aggiornando la proprietà dell'ID di riferimento all'immagine. La proprietà dell'ID del riferimento all'immagine non fa parte di un elenco, quindi è possibile modificare direttamente questa proprietà con uno dei comandi seguenti:
 
-- Azure PowerShell con [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) come segue:
+- Azure PowerShell con [Update-AzVmss](/powershell/module/az.compute/update-azvmss) come segue:
 
     ```powershell
-    Update-AzureRmVmss `
+    Update-AzVmss `
         -ResourceGroupName "myResourceGroup" `
         -VMScaleSetName "myScaleSet" `
         -ImageReferenceId /subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myNewImage
@@ -426,16 +427,16 @@ Supponiamo di avere un set di scalabilità con un servizio Azure Load Balancer e
 
     ```powershell
     # Get the current model of the scale set and store it in a local PowerShell object named $vmss
-    $vmss=Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
+    $vmss=Get-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
     
     # Create a local PowerShell object for the new desired IP configuration, which includes the reference to the application gateway
-    $ipconf = New-AzureRmVmssIPConfig "myNic" -ApplicationGatewayBackendAddressPoolsId /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendAddressPoolName} -SubnetId $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Subnet.Id –Name $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Name
+    $ipconf = New-AzVmssIPConfig "myNic" -ApplicationGatewayBackendAddressPoolsId /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendAddressPoolName} -SubnetId $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Subnet.Id –Name $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Name
     
     # Replace the existing IP configuration in the local PowerShell object (which contains the references to the current Azure Load Balancer) with the new IP configuration
     $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0] = $ipconf
     
     # Update the model of the scale set with the new configuration in the local PowerShell object
-    Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -virtualMachineScaleSet $vmss
+    Update-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -virtualMachineScaleSet $vmss
     ```
 
 - Interfaccia della riga di comando di Azure:

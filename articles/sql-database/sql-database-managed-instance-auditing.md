@@ -13,13 +13,13 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: f82c96b972baa161658f4a864572bfcb791939ed
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: 452811cae74253570591e5ffe2c58708fe632b39
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728998"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894395"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introduzione al controllo dell'istanza gestita del database SQL di Azure
 
@@ -154,7 +154,7 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
 Per altre informazioni:
 
-- [Differenze di controllo tra database singoli, pool elastici e istanze gestite nel database SQL di Azure e i database in SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
+- [Differenze di controllo tra database singoli, pool elastici e istanze gestite nel database SQL di Azure e i database in SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
@@ -223,13 +223,13 @@ Log Analytics consente di ottenere informazioni operative in tempo reale tramite
 
 Le principali differenze tra il controllo nei database nel database SQL di Azure e quello in SQL Server sono le seguenti:
 
-- Con l'opzione di distribuzione dell'istanza gestita nel database SQL di Azure, il controllo viene eseguito a livello del server e archivia file di log `.xel` nell'account di Archiviazione BLOB di Azure.
+- Con l'opzione di distribuzione dell'istanza gestita nel database SQL di Azure, il controllo viene eseguito a livello del server e archivia file di log `.xel` in Archivio BLOB di Azure.
 - Con le opzioni di distribuzione dei database singoli e dei pool elastici nel database SQL di Azure, il controllo viene eseguito a livello del database.
 - In SQL Server locale o nelle macchine virtuali SQL Server il controllo viene eseguito a livello del server, ma archivia gli eventi nei log eventi del file system o di Windows.
 
-Il controllo XEvent nell'istanza gestita supporta le destinazioni di Archiviazione BLOB di Azure. I log di file e di Windows **non sono supportati**.
+Il controllo XEvent nell'istanza gestita supporta le destinazioni di Archivio BLOB di Azure. I log di file e di Windows **non sono supportati**.
 
-Le principali differenze nella sintassi `CREATE AUDIT` per il controllo in Archiviazione BLOB di Azure sono le seguenti:
+Le principali differenze nella sintassi `CREATE AUDIT` per il controllo in Archivio BLOB di Azure sono le seguenti:
 
 - È disponibile una nuova sintassi `TO URL` che consente di specificare l'URL del contenitore di archiviazione BLOB di Azure in cui vengono inseriti i file con estensione `.xel`.
 - Viene fornita una nuova sintassi `TO EXTERNAL MONITOR` per abilitare i target Hub eventi e Log Analytics.

@@ -6,17 +6,18 @@ keywords: clip;clip secondarie;codifica;file multimediali
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 1deca68cd6a61ede7536c4d5544036a10c54209b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 510176331a1b79a1069b42afabb63b6b326951cc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782790"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992313"
 ---
-# <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>Creare clip con Azure Media Clipper nel portale
+# <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>Creare clip con Azure Media Clipper nel portale  
+
 È possibile usare Azure Media Clipper nel portale per creare clip da asset negli account Servizi multimediali. Per iniziare, passare all'account Servizi multimediali nel portale. Selezionare quindi la scheda **Subclip** (Clip secondaria).
 
 Nella scheda **Subclip** (Clip secondaria) si può iniziare a comporre clip. Nel portale, Clipper carica file MP4 a bitrate singolo, file MP4 a bitrate multipli e archivi live pubblicati con un localizzatore di streaming valido. Gli asset non pubblicati non vengono caricati.
@@ -35,7 +36,7 @@ I [filtri manifesto dinamico](https://azure.microsoft.com/blog/dynamic-manifest/
 
 Per creare un filtro manifesto dinamico, accedere alla scheda **Asset** e selezionare l'asset desiderato. Selezionare il pulsante **Clip secondaria** per il menu superiore. Selezionare il filtro manifesto dinamico come modalità di ritaglio nel menu delle impostazioni avanzate. È possibile quindi seguire lo stesso processo per generare una clip di cui è stato eseguito il rendering per la creazione del filtro. I filtri possono essere creati solo da un singolo asset.
 
-L'immagine seguente illustra Clipper in modalità di filtro manifesto dinamico nel portale di Azure: ![Azure Media Clipper in modalità filtro manifesto dinamico nel portale di Azure](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-filter.PNG)
+L'immagine seguente illustra Clipper in modalità filtro manifesto dinamico nel portale di Azure: ![Azure Media Clipper in modalità filtro manifesto dinamico nel portale di Azure](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-filter.PNG)
 
 ## <a name="submitting-clipping-jobs"></a>Invio di processi di ritaglio
 Al termine della composizione della clip, selezionare il pulsante per l'invio del processo per avviare il processo di ritaglio o la chiamata del manifesto dinamico corrispondente.

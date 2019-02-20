@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: cec6da78ae47b509e2bb5f8ba0007208545062e7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 493f6f3380dee4ed70bb6e0bc9bba24f93071097
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478067"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165332"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gestire i server registrati con Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Tutto questo avviene trasformando i sistemi Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale (tra cui SMB, NFS e FTPS) ed è possibile scegliere tutte le cache necessarie in tutto il mondo.
@@ -165,7 +165,10 @@ Dato che Sincronizzazione file di Azure raramente è l'unico servizio in esecuzi
 > L'impostazione di limiti troppo bassi influirà sulle prestazioni di sincronizzazione e richiamo di Sincronizzazione file di Azure.
 
 ### <a name="set-azure-file-sync-network-limits"></a>Impostare limiti di rete per Sincronizzazione file di Azure
-È possibile limitare l'utilizzo della rete da parte di Sincronizzazione file di Azure usando i cmdlet `StorageSyncNetworkLimit`. 
+È possibile limitare l'utilizzo della rete da parte di Sincronizzazione file di Azure usando i cmdlet `StorageSyncNetworkLimit`.
+
+> [!Note]  
+> I limiti di rete non si applicano quando viene effettuato l'accesso a un file a livelli o viene usato il cmdlet Invoke-StorageSyncFileRecall.
 
 È possibile, ad esempio, creare un nuovo limite di rete per fare il modo che Sincronizzazione file di Azure non usi più di 10 Mbps tra le 9:00 e le 17:00 durante la settimana lavorativa: 
 

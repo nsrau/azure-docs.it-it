@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/22/2017
+ms.date: 02/06/2019
 ms.author: mikeray
-ms.openlocfilehash: 76ebdc85db2c65b1ad99c1e7abe5e697f1c1284c
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: b412d2b054fc8703c7524479359a3670782fd646
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063999"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980892"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurare uno o più listener di gruppi di disponibilità AlwaysOn - Resource Manager
 Questo argomento illustra come:
@@ -38,24 +38,52 @@ Gli argomenti correlati includono:
 * [Configurare i gruppi di disponibilità AlwaysOn nelle VM di Azure (GUI)](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
 * [Configurare una connessione da VNet a VNet tramite Azure Resource Manager e PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
+[!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
+
 [!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
 
+## <a name="verify-powershell-version"></a>Verificare la versione di PowerShell
+
+Gli esempi di questo articolo sono stati testati usando la versione 5.4.1 del modulo di Azure PowerShell.
+
+Verificare che la versione del modulo di PowerShell in uso sia 5.4.1 o successiva.
+
+Vedere [Installare il modulo Azure PowerShell](http://docs.microsoft.com/powershell/azure/install-az-ps).
+
 ## <a name="configure-the-windows-firewall"></a>Configurare Windows Firewall
+
 Configurare Windows Firewall per consentire l'accesso a SQL Server. Le regole del firewall consentono le connessioni TCP alle porte usate dall'istanza di SQL Server e al probe di listener. Per informazioni dettagliate, vedere [Configurazione di Windows Firewall per l'accesso al Motore di database](https://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Creare una regola in entrata per la porta SQL Server e per la porta probe.
 
 Se si limita l'accesso con un gruppo di sicurezza di rete di Azure, assicurarsi che le regole di autorizzazione includano gli indirizzi IP della macchina virtuale di SQL Server di back-end e gli indirizzi IP del bilanciamento del carico mobile per il listener AG e l'indirizzo IP principale del cluster, se disponibile.
 
-## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Script di esempio: Creare un servizio di bilanciamento del carico interno con PowerShell
-> [!NOTE]
-> Se il gruppo di disponibilità è stato creato con il [modello Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), il bilanciamento del carico interno è già stato creato. 
-> 
-> 
+## <a name="determine-the-load-balancer-sku-required"></a>Determinare lo SKU di Load Balancer necessario
 
-Il seguente script di PowerShell crea un servizio di bilanciamento del carico interno, configura le regole di bilanciamento del carico e imposta un indirizzo IP per il bilanciamento del carico. Per eseguire lo script, aprire Windows PowerShell ISE e copiare lo script nel riquadro Script. Usare `Connect-AzureRmAccount` per l'accesso a PowerShell. Se si dispone di più sottoscrizioni di Azure, usare `Select-AzureRmSubscription ` per impostare la sottoscrizione. 
+Per [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) sono disponibili 2 SKU: Basic e Standard. È consigliato l'uso di Load Balancer Standard. Se, tuttavia, le macchine virtuali sono in un set di disponibilità, è consentito l'uso di Load Balancer Basic. Load Balancer Standard richiede che tutti gli indirizzi IP delle macchine virtuali usino indirizzi IP standard.
+
+Il [modello Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) corrente per un gruppo di disponibilità usa un'istanza di Load Balancer Basic con indirizzi IP di base.
+
+Gli esempi in questo articolo si riferiscono a un'istanza di Load Balancer Standard. Negli esempi lo script include `-sku Standard`.
+
+```PowerShell
+$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
+```
+
+Per creare un'istanza di Load Balancer Basic, rimuovere `-sku Standard` dalla riga che consente di creare le istanze di Load Balancer. Ad esempio:
+
+```PowerShell
+$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
+```
+
+## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Script di esempio: Creare un servizio di bilanciamento del carico interno con PowerShell
+
+> [!NOTE]
+> Se il gruppo di disponibilità è stato creato con il [modello Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), il bilanciamento del carico interno è già stato creato.
+
+Il seguente script di PowerShell crea un servizio di bilanciamento del carico interno, configura le regole di bilanciamento del carico e imposta un indirizzo IP per il bilanciamento del carico. Per eseguire lo script, aprire Windows PowerShell ISE e copiare lo script nel riquadro Script. Usare `Connect-AzAccount` per l'accesso a PowerShell. Se si dispone di più sottoscrizioni di Azure, usare `Select-AzSubscription ` per impostare la sottoscrizione. 
 
 ```powershell
-# Connect-AzureRmAccount
-# Select-AzureRmSubscription -SubscriptionId <xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>
+# Connect-AzAccount
+# Select-AzSubscription -SubscriptionId <xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>
 
 $ResourceGroupName = "<Resource Group Name>" # Resource group name
 $VNetName = "<Virtual Network Name>"         # Virtual network name
@@ -74,30 +102,30 @@ $LBConfigRuleName = "ILBCR_$ListenerPort"    # The Load Balancer Rule Object Nam
 $FrontEndConfigurationName = "FE_SQLAGILB_1" # Object name for the front-end configuration 
 $BackEndConfigurationName ="BE_SQLAGILB_1"   # Object name for the back-end configuration
 
-$VNet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $ResourceGroupName 
+$VNet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $ResourceGroupName 
 
-$Subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $VNet -Name $SubnetName 
+$Subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $VNet -Name $SubnetName 
 
-$FEConfig = New-AzureRMLoadBalancerFrontendIpConfig -Name $FrontEndConfigurationName -PrivateIpAddress $ILBIP -SubnetId $Subnet.id
+$FEConfig = New-AzLoadBalancerFrontendIpConfig -Name $FrontEndConfigurationName -PrivateIpAddress $ILBIP -SubnetId $Subnet.id
 
-$BEConfig = New-AzureRMLoadBalancerBackendAddressPoolConfig -Name $BackEndConfigurationName 
+$BEConfig = New-AzLoadBalancerBackendAddressPoolConfig -Name $BackEndConfigurationName 
 
-$SQLHealthProbe = New-AzureRmLoadBalancerProbeConfig -Name $LBProbeName -Protocol tcp -Port $ProbePort -IntervalInSeconds 15 -ProbeCount 2
+$SQLHealthProbe = New-AzLoadBalancerProbeConfig -Name $LBProbeName -Protocol tcp -Port $ProbePort -IntervalInSeconds 15 -ProbeCount 2
 
-$ILBRule = New-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -Probe $SQLHealthProbe -Protocol tcp -FrontendPort $ListenerPort -BackendPort $ListenerPort -LoadDistribution Default -EnableFloatingIP 
+$ILBRule = New-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -Probe $SQLHealthProbe -Protocol tcp -FrontendPort $ListenerPort -BackendPort $ListenerPort -LoadDistribution Default -EnableFloatingIP 
 
-$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe 
+$ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe 
 
-$bepool = Get-AzureRmLoadBalancerBackendAddressPoolConfig -Name $BackEndConfigurationName -LoadBalancer $ILB 
+$bepool = Get-AzLoadBalancerBackendAddressPoolConfig -Name $BackEndConfigurationName -LoadBalancer $ILB 
 
 foreach($VMName in $VMNames)
     {
-        $VM = Get-AzureRmVM -ResourceGroupName $ResourceGroupName -Name $VMName 
+        $VM = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $VMName 
         $NICName = ($vm.NetworkProfile.NetworkInterfaces.Id.split('/') | select -last 1)
-        $NIC = Get-AzureRmNetworkInterface -name $NICName -ResourceGroupName $ResourceGroupName
+        $NIC = Get-AzNetworkInterface -name $NICName -ResourceGroupName $ResourceGroupName
         $NIC.IpConfigurations[0].LoadBalancerBackendAddressPools = $BEPool
-        Set-AzureRmNetworkInterface -NetworkInterface $NIC
-        start-AzureRmVM -ResourceGroupName $ResourceGroupName -Name $VM.Name 
+        Set-AzNetworkInterface -NetworkInterface $NIC
+        start-AzVM -ResourceGroupName $ResourceGroupName -Name $VM.Name 
     }
 ```
 
@@ -115,8 +143,8 @@ La porta front-end è quella usata dalle applicazioni per connettersi all'istanz
 Lo script seguente aggiunge un nuovo indirizzo IP a un servizio di bilanciamento del carico esistente. Il servizio di bilanciamento del carico interno usa la porta del listener per la porta front-end di bilanciamento del carico. Questa porta può essere la porta su cui SQL Server è in ascolto. Per le istanze predefinite di SQL Server, la porta è la numero 1433. La regola di bilanciamento del carico per un gruppo di disponibilità richiede un indirizzo IP mobile (Direct Server Return), quindi la porta back-end corrisponde alla porta front-end. Aggiornare le variabili per l'ambiente. 
 
 ```powershell
-# Connect-AzureRmAccount
-# Select-AzureRmSubscription -SubscriptionId <xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>
+# Connect-AzAccount
+# Select-AzSubscription -SubscriptionId <xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>
 
 $ResourceGroupName = "<ResourceGroup>"          # Resource group name
 $VNetName = "<VirtualNetwork>"                  # Virtual network name
@@ -127,7 +155,7 @@ $ILBIP = "<n.n.n.n>"                            # IP address
 [int]$ListenerPort = "<nnnn>"                   # AG listener port
 [int]$ProbePort = "<nnnnn>"                     # Probe port 
 
-$ILB = Get-AzureRmLoadBalancer -Name $ILBName -ResourceGroupName $ResourceGroupName 
+$ILB = Get-AzLoadBalancer -Name $ILBName -ResourceGroupName $ResourceGroupName 
 
 $count = $ILB.FrontendIpConfigurations.Count+1
 $FrontEndConfigurationName ="FE_SQLAGILB_$count"  
@@ -135,22 +163,22 @@ $FrontEndConfigurationName ="FE_SQLAGILB_$count"
 $LBProbeName = "ILBPROBE_$count"
 $LBConfigrulename = "ILBCR_$count"
 
-$VNet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $ResourceGroupName 
-$Subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $VNet -Name $SubnetName
+$VNet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $ResourceGroupName 
+$Subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $VNet -Name $SubnetName
 
-$ILB | Add-AzureRmLoadBalancerFrontendIpConfig -Name $FrontEndConfigurationName -PrivateIpAddress $ILBIP -SubnetId $Subnet.Id 
+$ILB | Add-AzLoadBalancerFrontendIpConfig -Name $FrontEndConfigurationName -PrivateIpAddress $ILBIP -SubnetId $Subnet.Id 
 
-$ILB | Add-AzureRmLoadBalancerProbeConfig -Name $LBProbeName  -Protocol Tcp -Port $Probeport -ProbeCount 2 -IntervalInSeconds 15  | Set-AzureRmLoadBalancer 
+$ILB | Add-AzLoadBalancerProbeConfig -Name $LBProbeName  -Protocol Tcp -Port $Probeport -ProbeCount 2 -IntervalInSeconds 15  | Set-AzLoadBalancer 
 
-$ILB = Get-AzureRmLoadBalancer -Name $ILBname -ResourceGroupName $ResourceGroupName
+$ILB = Get-AzLoadBalancer -Name $ILBname -ResourceGroupName $ResourceGroupName
 
-$FEConfig = get-AzureRMLoadBalancerFrontendIpConfig -Name $FrontEndConfigurationName -LoadBalancer $ILB
+$FEConfig = get-AzLoadBalancerFrontendIpConfig -Name $FrontEndConfigurationName -LoadBalancer $ILB
 
-$SQLHealthProbe  = Get-AzureRmLoadBalancerProbeConfig -Name $LBProbeName -LoadBalancer $ILB
+$SQLHealthProbe  = Get-AzLoadBalancerProbeConfig -Name $LBProbeName -LoadBalancer $ILB
 
-$BEConfig = Get-AzureRmLoadBalancerBackendAddressPoolConfig -Name $ILB.BackendAddressPools[0].Name -LoadBalancer $ILB 
+$BEConfig = Get-AzLoadBalancerBackendAddressPoolConfig -Name $ILB.BackendAddressPools[0].Name -LoadBalancer $ILB 
 
-$ILB | Add-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfiguration $FEConfig  -BackendAddressPool $BEConfig -Probe $SQLHealthProbe -Protocol tcp -FrontendPort  $ListenerPort -BackendPort $ListenerPort -LoadDistribution Default -EnableFloatingIP | Set-AzureRmLoadBalancer   
+$ILB | Add-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfiguration $FEConfig  -BackendAddressPool $BEConfig -Probe $SQLHealthProbe -Protocol tcp -FrontendPort  $ListenerPort -BackendPort $ListenerPort -LoadDistribution Default -EnableFloatingIP | Set-AzLoadBalancer   
 ```
 
 ## <a name="configure-the-listener"></a>Configurare il listener
@@ -188,7 +216,7 @@ Per testare la connessione:
 La connessione SQLCMD si connette automaticamente a qualsiasi istanza di SQL Server ospiti la replica primaria. 
 
 > [!NOTE]
-> Verificare che la porta specificata sia aperta nel firewall di entrambe le istanze di SQL Server. Per entrambi i server è necessaria una regola in ingresso per la porta TCP usata. Per altre informazioni, vedere [Aggiungere o modificare una regola del firewall](https://technet.microsoft.com/library/cc753558.aspx) . 
+> Verificare che la porta specificata sia aperta nel firewall di entrambe le istanze di SQL Server. Per entrambi i server è necessaria una regola in ingresso per la porta TCP usata. Per altre informazioni, vedere [Aggiungere o modificare una regola del firewall](https://technet.microsoft.com/library/cc753558.aspx). 
 > 
 > 
 
@@ -205,9 +233,9 @@ Per altre informazioni, vedere [Configurare manualmente i gruppi di disponibilit
 ## <a name="powershell-cmdlets"></a>Cmdlet PowerShell
 Usare i seguenti cmdlet PowerShell per creare un servizio di bilanciamento del carico interno per le macchine virtuali di Azure.
 
-* [New-AzureRmLoadBalancer](https://msdn.microsoft.com/library/mt619450.aspx) crea un bilanciamento del carico. 
-* [New-AzureRMLoadBalancerFrontendIpConfig](https://msdn.microsoft.com/library/mt603510.aspx) crea una configurazione IP per un bilanciamento del carico. 
-* [New-AzureRmLoadBalancerRuleConfig](https://msdn.microsoft.com/library/mt619391.aspx) crea una regola di configurazione per un bilanciamento del carico. 
-* [New-AzureRmLoadBalancerBackendAddressPoolConfig](https://msdn.microsoft.com/library/mt603791.aspx) crea una configurazione di pool di indirizzi per un bilanciamento del carico. 
-* [New-AzureRmLoadBalancerProbeConfig](https://msdn.microsoft.com/library/mt603847.aspx) crea una configurazione di probe per un bilanciamento del carico.
-* [Remove-AzureRmLoadBalancer](https://msdn.microsoft.com/library/mt603862.aspx) rimuove un bilanciamento del carico da un gruppo di risorse di Azure.
+* [New-AzLoadBalancer](https://msdn.microsoft.com/library/mt619450.aspx) crea un'istanza di Load Balancer. 
+* [New-AzLoadBalancerFrontendIpConfig](https://msdn.microsoft.com/library/mt603510.aspx) crea una configurazione IP front-end per un'istanza di Load Balancer. 
+* [New-AzLoadBalancerRuleConfig](https://msdn.microsoft.com/library/mt619391.aspx) crea una regola di configurazione per un'istanza di Load Balancer. 
+* [New-AzLoadBalancerBackendAddressPoolConfig](https://msdn.microsoft.com/library/mt603791.aspx) crea una configurazione di pool di indirizzi back-end per un'istanza di Load Balancer. 
+* [New-AzLoadBalancerProbeConfig](https://msdn.microsoft.com/library/mt603847.aspx) crea una configurazione di probe per un'istanza di Load Balancer.
+* [Remove-AzLoadBalancer](https://msdn.microsoft.com/library/mt603862.aspx) rimuove un'istanza di Load Balancer da un gruppo di risorse di Azure.

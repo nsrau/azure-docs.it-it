@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 8031c8810d9916c3f6e02e1f2474c1ca9cdd528d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 8254e3221fee3d76e2d27715f76c26397c309f08
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038756"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55862718"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Usare la libreria Java dell'executor bulk per eseguire operazioni in blocco sui dati di Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Attualmente la libreria dell'executor bulk è supportata solo dagli account dell
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.  
 
-* È possibile [provare Microsoft Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure, gratuitamente e senza impegno. In alternativa è possibile usare l'[emulatore di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) con l'URI `https://localhost:8081`. La chiave primaria viene fornita in [Autenticazione delle richieste](local-emulator.md#authenticating-requests).  
+* È possibile [provare Microsoft Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure, gratuitamente e senza impegno. In alternativa è possibile usare l'[emulatore di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) con l'endpoint `https://localhost:8081`. La chiave primaria viene fornita in [Autenticazione delle richieste](local-emulator.md#authenticating-requests).  
 
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)  
   - In Ubuntu eseguire `apt-get install default-jdk` per installare JDK.  
@@ -130,7 +130,7 @@ Il repository clonato contiene due esempi "bulkimport" e "bulkupdate" relativi a
 6. Dopo avere generato le dipendenze di destinazione, è possibile richiamare l'applicazione di importazione in blocco usando il comando seguente:  
 
    ```java
-   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB’s endpoint URI>*  -masterKey *<Fill in your Azure Cosmos DB’s master key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
+   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB’s endpoint>*  -masterKey *<Fill in your Azure Cosmos DB’s master key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
    L'utilità di importazione in blocco crea un nuovo database e una nuova raccolta con il nome del database, il nome della raccolta e i valori di velocità effettiva specificati nel file App.config. 
@@ -193,7 +193,7 @@ Il repository clonato contiene due esempi "bulkimport" e "bulkupdate" relativi a
 4. Dopo avere generato le dipendenze di destinazione, è possibile richiamare l'applicazione di aggiornamento in blocco usando il comando seguente:
 
    ```
-   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB’s endpoint URI>* -masterKey **<Fill in your Azure Cosmos DB’s master key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
+   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB’s endpoint>* -masterKey **<Fill in your Azure Cosmos DB’s master key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
 ## <a name="performance-tips"></a>Suggerimenti per incrementare le prestazioni 

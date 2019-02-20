@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
-ms.openlocfilehash: e93c51365adfc867082e180d8e4db804d02003ca
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 945d8690ccb61916455ba4137f59c67c9a3d9f76
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297725"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237689"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
 Questo articolo illustra i passaggi da seguire per configurare report per Backup di Azure tramite un insieme di credenziali di Servizi di ripristino. Descrive inoltre come accedere ai report con Power BI. Dopo aver completato questi passaggi, sarà possibile passare direttamente a Power BI per visualizzare, personalizzare e creare report.
@@ -38,6 +38,7 @@ Scaricare l'app più recente (versione 1.8) per evitare questo problema.
 
 ## <a name="configure-storage-account-for-reports"></a>Configurare l'account di archiviazione per i report
 Usare la procedura seguente per configurare l'account di archiviazione per un insieme di credenziali di Servizi di ripristino tramite il portale di Azure. Si tratta di una configurazione una tantum. Dopo aver configurato l'account di archiviazione, sarà possibile passare direttamente a Power BI per visualizzare il pacchetto di contenuto e usare i report.
+
 1. Se l'insieme di credenziali di Servizi di ripristino è già aperto, procedere al passaggio successivo. Se non è presente un insieme di credenziali di Servizi di ripristino aperto, nel portale di Azure selezionare **Tutti i servizi**.
 
    * Nell'elenco di risorse digitare **Servizi di ripristino**.
@@ -54,7 +55,7 @@ Usare la procedura seguente per configurare l'account di archiviazione per un in
 3. Nel pannello **Report di backup** selezionare il collegamento **Impostazioni di diagnostica**. Verrà visualizzata l'interfaccia utente **Impostazioni di diagnostica**, usata per eseguire il push dei dati nell'account di archiviazione di un cliente.
 
       ![Abilitare la diagnostica - Passaggio 3](./media/backup-azure-configure-reports/backup-azure-configure-reports.png)
-4. Selezionare **Abilita diagnostica** per aprire un'interfaccia utente da usare per configurare un account di archiviazione. 
+4. Selezionare **Abilita diagnostica** per aprire un'interfaccia utente da usare per configurare un account di archiviazione.
 
       ![Attivare la diagnostica - Passaggio 4](./media/backup-azure-configure-reports/enable-diagnostics.png)
 5. Nella casella **Nome** immettere un nome per l'impostazione. Selezionare la casella di controllo **Archivia in un account di archiviazione** in modo da avviare il trasferimento dei dati dei report nell'account di archiviazione.
@@ -73,11 +74,11 @@ Usare la procedura seguente per configurare l'account di archiviazione per un in
       ![Visualizzare l'impostazione di diagnostica - Passaggio 9](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
-> Dopo aver configurato i report con il salvataggio dell'account di archiviazione, *attendere 24 ore* affinché venga completato il push di dati iniziale. Importare l'app Backup di Azure in Power BI solo dopo tale intervallo. Per altre informazioni, vedere la [sezione delle domande frequenti](#frequently-asked-questions). 
+> Dopo aver configurato i report con il salvataggio dell'account di archiviazione, *attendere 24 ore* affinché venga completato il push di dati iniziale. Importare l'app Backup di Azure in Power BI solo dopo tale intervallo. Per altre informazioni, vedere la [sezione delle domande frequenti](#frequently-asked-questions).
 >
 >
 
-## <a name="view-reports-in-power-bi"></a>Visualizzare i report in Power BI 
+## <a name="view-reports-in-power-bi"></a>Visualizzare i report in Power BI
 Dopo aver configurato un account di archiviazione per i report usando un insieme di credenziali di Servizi di ripristino, il trasferimento dei dati dei report inizierà dopo circa 24 ore. Trascorse 24 ore per la configurazione dell'account di archiviazione, seguire questa procedura per visualizzare i report in Power BI.
 Per personalizzare e condividere il report, creare un'area di lavoro e seguire questa procedura
 
@@ -90,20 +91,20 @@ Per personalizzare e condividere il report, creare un'area di lavoro e seguire q
 4. Immettere il nome dell'account di archiviazione configurato nel passaggio 5 precedente e selezionare **Avanti**.
 
     ![Immettere il nome dell'account di archiviazione](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. Usando il metodo di autenticazione "Chiave", immettere la chiave per l'account di archiviazione. Per [visualizzare e copiare le chiavi di accesso alle risorse di archiviazione](../storage/common/storage-account-manage.md#access-keys), passare al proprio account di archiviazione nel portale di Azure. 
+5. Usando il metodo di autenticazione "Chiave", immettere la chiave per l'account di archiviazione. Per [visualizzare e copiare le chiavi di accesso alle risorse di archiviazione](../storage/common/storage-account-manage.md#access-keys), passare al proprio account di archiviazione nel portale di Azure.
 
      ![Immettere l'account di archiviazione](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
-     
+
 6. Fare clic su **Accedi**. Dopo aver eseguito l'accesso, viene visualizzata una notifica di importazione di dati.
 
     ![Importazione del pacchetto di contenuto](./media/backup-azure-configure-reports/content-pack-importing-data.png) <br/>
-    
+
     Al termine dell'importazione viene visualizzata una notifica di **operazione riuscita**. Se è presente una grande quantità di dati nell'account di archiviazione, l'importazione del pacchetto di contenuto potrebbe richiedere più tempo.
-    
+
     ![Importazione riuscita del pacchetto di contenuto](./media/backup-azure-configure-reports/content-pack-import-success.png) <br/>
-    
+
 7. Dopo aver importato i dati, il pacchetto di contenuto **Backup di Azure** è visibile nelle **app** nel riquadro di spostamento. In **Dashboard**, **Report** e **Set di dati** l'elenco mostra ora Backup di Azure.
-     
+
 8. In **Dashboard** selezionare **Backup di Azure**, che illustra un set di report con chiavi associate.
 
       ![Dashboard di Backup di Azure](./media/backup-azure-configure-reports/azure-backup-dashboard.png) <br/>
@@ -117,38 +118,32 @@ Per personalizzare e condividere il report, creare un'area di lavoro e seguire q
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
-**Come verificare se è stato avviato il trasferimento dei dati dei report in un account di archiviazione?**
-    
-   Passare all'account di archiviazione configurato e selezionare i contenitori. Se il contenitore include una voce per insights-logs-azurebackupreport, indica che è stato avviato il trasferimento dei dati dei report.
+### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-storage-account"></a>Come verificare se è stato avviato il trasferimento dei dati dei report in un account di archiviazione?
+Passare all'account di archiviazione configurato e selezionare i contenitori. Se il contenitore include una voce per insights-logs-azurebackupreport, indica che è stato avviato il trasferimento dei dati dei report.
 
-**Qual è la frequenza del push di dati nell'account di archiviazione e nel pacchetto di contenuto di Backup di Azure in Power BI?**
+### <a name="what-is-the-frequency-of-data-push-to-a-storage-account-and-the-azure-backup-content-pack-in-power-bi"></a>Qual è la frequenza del push di dati nell'account di archiviazione e nel pacchetto di contenuto di Backup di Azure in Power BI?
+  Per gli utenti al primo tentativo sono necessarie circa 24 ore per il push dei dati in un account di archiviazione. Dopo aver completato il push iniziale, i dati vengono aggiornati con la frequenza illustrata nella figura riportata di seguito.
 
-   Per gli utenti al primo tentativo sono necessarie circa 24 ore per il push dei dati in un account di archiviazione. Dopo aver completato il push iniziale, i dati vengono aggiornati con la frequenza illustrata nella figura riportata di seguito. 
-      
-* I dati correlati a **processi**, **avvisi**, **elementi di backup**, **insiemi di credenziali**, **server protetti** e **criteri** vengono sottoposti a push in un account di archiviazione a ogni accesso.
-      
-* I dati correlati all'**archiviazione** vengono sottoposti a push nell'account di archiviazione di un cliente ogni 24 ore.
-   
-   ![Frequenza del push di dati dei report di Backup di Azure](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
+  * I dati correlati a **processi**, **avvisi**, **elementi di backup**, **insiemi di credenziali**, **server protetti** e **criteri** vengono sottoposti a push in un account di archiviazione a ogni accesso.
 
-* Power BI esegue un [aggiornamento pianificato una volta al giorno](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). È possibile eseguire un aggiornamento manuale dei dati in Power BI per il pacchetto di contenuto.
+  * I dati correlati all'**archiviazione** vengono sottoposti a push nell'account di archiviazione di un cliente ogni 24 ore.
 
-**Per quanto tempo è possibile conservare i report?**
+       ![Frequenza del push di dati dei report di Backup di Azure](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
 
-   Quando si configura un account di archiviazione, è possibile selezionare un periodo di conservazione per i dati dei report al suo interno. Eseguire il passaggio 6 nella sezione precedente "Configurare l'account di archiviazione per i report". È anche possibile [analizzare i report in Excel](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/) e salvarli per un periodo di conservazione più lungo, in base alle esigenze.
+  * Power BI esegue un [aggiornamento pianificato una volta al giorno](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). È possibile eseguire un aggiornamento manuale dei dati in Power BI per il pacchetto di contenuto.
 
-**I dati saranno visibili nei report dopo aver configurato l'account di archiviazione?**
+### <a name="how-long-can-i-retain-reports"></a>Per quanto tempo è possibile conservare i report?
+Quando si configura un account di archiviazione, è possibile selezionare un periodo di conservazione per i dati dei report al suo interno. Eseguire il passaggio 6 nella sezione precedente [Configurare l'account di archiviazione per i report](backup-azure-configure-reports.md#configure-storage-account-for-reports). È anche possibile [analizzare i report in Excel](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/) e salvarli per un periodo di conservazione più lungo, in base alle esigenze.
 
-   Tutti i dati generati dopo aver configurato l'account di archiviazione verranno sottoposti a push nell'account di archiviazione e saranno disponibili nei report. I processi in corso non vengono sottoposti a push per la creazione dei report. Dopo che il processo viene completato o ha esito negativo, viene inviato ai report.
+### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-storage-account"></a>Tutti i dati saranno visibili nei report dopo aver configurato l'account di archiviazione?
+ Tutti i dati generati dopo aver configurato l'account di archiviazione verranno sottoposti a push nell'account di archiviazione e saranno disponibili nei report. I processi in corso non vengono sottoposti a push per la creazione dei report. Dopo che il processo viene completato o ha esito negativo, viene inviato ai report.
 
-**Se è già stato configurato l'account di archiviazione per visualizzare i report, è possibile modificare la configurazione per usare un altro account di archiviazione?**
+### <a name="if-i-already-configured-the-storage-account-to-view-reports-can-i-change-the-configuration-to-use-another-storage-account"></a>Se è già stato configurato l'account di archiviazione per visualizzare i report, è possibile modificare la configurazione per usare un altro account di archiviazione?
+Sì, è possibile modificare la configurazione in modo che punti a un account di archiviazione diverso. Durante la connessione al pacchetto di contenuto di Backup di Azure usare l'account di archiviazione appena configurato. Dopo aver configurato un account di archiviazione diverso, i nuovi dati verranno trasferiti in questo account di archiviazione. I dati meno recenti (prima di modificare la configurazione) rimarranno tuttavia nell'account di archiviazione precedente.
 
-   Sì, è possibile modificare la configurazione in modo che punti a un account di archiviazione diverso. Durante la connessione al pacchetto di contenuto di Backup di Azure usare l'account di archiviazione appena configurato. Dopo aver configurato un account di archiviazione diverso, i nuovi dati verranno trasferiti in questo account di archiviazione. I dati meno recenti (prima di modificare la configurazione) rimarranno tuttavia nell'account di archiviazione precedente.
+### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>È possibile visualizzare i report negli insiemi di credenziali e nelle sottoscrizioni?
+Sì, è possibile configurare lo stesso account di archiviazione per vari insiemi di credenziali per visualizzare i report tra loro. È anche possibile configurare lo stesso account di archiviazione per gli insiemi di credenziali nelle sottoscrizioni. È quindi possibile usare questo account di archiviazione durante la connessione al pacchetto di contenuto di Backup di Azure in Power BI per visualizzare i report. L'account di archiviazione selezionato deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino.
 
-**È possibile visualizzare i report negli insiemi di credenziali e nelle sottoscrizioni?**
-
-   Sì, è possibile configurare lo stesso account di archiviazione per vari insiemi di credenziali per visualizzare i report tra loro. È anche possibile configurare lo stesso account di archiviazione per gli insiemi di credenziali nelle sottoscrizioni. È quindi possibile usare questo account di archiviazione durante la connessione al pacchetto di contenuto di Backup di Azure in Power BI per visualizzare i report. L'account di archiviazione selezionato deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino.
-   
 ## <a name="troubleshooting-errors"></a>Risoluzione dei problemi
 | Dettagli errore | Risoluzione |
 | --- | --- |
@@ -161,4 +156,3 @@ Dopo aver configurato l'account di archiviazione e importato il pacchetto di con
 * [Utilizzo del modello dati di Backup di Azure](backup-azure-reports-data-model.md)
 * [Filtraggio dei report in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
 * [Creazione dei report in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
-

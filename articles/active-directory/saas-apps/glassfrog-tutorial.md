@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con GlassFrog | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con GlassFrog | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e GlassFrog.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 1fdd1e8acf446ba3e409e2ff0bf9ca18f581c299
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d6bdc9f2214f8a23ffd1a126905faf00f2fc4264
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432652"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199635"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-glassfrog"></a>Esercitazione: integrazione di Azure Active Directory con GlassFrog
 
@@ -109,7 +110,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-    Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://app.glassfrog.com/people/sso?org_id=<ORGANIZATIONID>`.
+    Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://app.glassfrog.com/people/sso?org_id=<ORGANIZATIONID>`
 
     ![image](./media/glassfrog-tutorial/tutorial_glassfrog_url.png)
 
@@ -149,7 +150,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="create-a-glassfrog-test-user"></a>Creare un utente di test di GlassFrog
 
-In questa sezione viene creato un utente di nome Britta Simon in GlassFrog. Collaborare con il [team di supporto di GlassFrog](https://support.glassfrog.com/support/solutions/9000107654) per aggiungere gli utenti alla piattaforma GlassFrog. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in GlassFrog. Collaborare con il  [team di supporto di GlassFrog](https://support.glassfrog.com/support/solutions/9000107654) per aggiungere gli utenti alla piattaforma GlassFrog. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -180,7 +181,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro GlassFrog nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione GlassFrog.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -1,41 +1,43 @@
 ---
 title: Come amministrare Cache Redis di Azure | Microsoft Docs
 description: Informazioni su come eseguire attività di amministrazione, ad esempio il riavvio e la pianificazione degli aggiornamenti con Cache Redis di Azure
-services: azure-cache-for-redis
+services: cache
 documentationcenter: na
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: tysonn
 ms.assetid: 8c915ae6-5322-4046-9938-8f7832403000
 ms.service: cache
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
-ms.author: wesmc
-ms.openlocfilehash: 0f86bd807bf7bf0d00ad659f86b6e1170f31074c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.author: yegu
+ms.openlocfilehash: b75a2faa2030fc343cbabb17eb37b63c9ea34f70
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53021673"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232382"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Come amministrare Cache Redis di Azure
 Questo argomento descrive come eseguire attività di amministrazione, ad esempio il [riavvio](#reboot) e la [pianificazione degli aggiornamenti](#schedule-updates) per le istanze di Cache Redis di Azure.
 
-## <a name="reboot"></a>Reboot
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## <a name="reboot"></a>Riavvio
 Il pannello **Riavvia** consente di riavviare uno o più nodi della cache. La funzionalità di riavvio consente di testare la resilienza dell'applicazione in presenza di un errore di un nodo della cache.
 
-![Reboot](./media/cache-administration/redis-cache-administration-reboot.png)
+![Riavvio](./media/cache-administration/redis-cache-administration-reboot.png)
 
 Selezionare i nodi per il riavvio e fare clic su **Riavvia**.
 
-![Reboot](./media/cache-administration/redis-cache-reboot.png)
+![Riavvio](./media/cache-administration/redis-cache-reboot.png)
 
 Se si dispone di una cache Premium con clustering abilitato, è possibile selezionare le partizioni della cache da riavviare.
 
-![Reboot](./media/cache-administration/redis-cache-reboot-cluster.png)
+![Riavvio](./media/cache-administration/redis-cache-reboot-cluster.png)
 
 Per riavviare uno o più nodi della cache, selezionare i nodi desiderati e fare clic su **Reboot**(Riavvia). Se si dispone di una cache Premium con clustering abilitato, selezionare le partizioni desiderate per riavviare il computer e quindi fare clic su **Reboot**(Riavvia). Dopo alcuni minuti, i nodi selezionati si riavviano e vengono ripristinati online pochi minuti dopo.
 
@@ -92,7 +94,7 @@ Il pannello **Pianifica aggiornamenti** consente di definire un intervallo di ma
 
 Per specificare un intervallo di manutenzione, selezionare i giorni desiderati e specificare l'ora di inizio dell'intervallo per ogni giorno, quindi fare clic su **OK**. Si noti che l'orario dell'intervallo di manutenzione è in formato UTC. 
 
-L'intervallo di manutenzione minimo predefinito per gli aggiornamenti è di cinque ore. Questo valore non è configurabile dal portale di Azure, ma può essere configurato in PowerShell usando il parametro `MaintenanceWindow` del cmdlet [New-AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry) . Per altre informazioni, vedere [È possibile gestire gli aggiornamenti pianificati usando PowerShell, l'interfaccia della riga di comando o altri strumenti di gestione?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
+L'intervallo di manutenzione minimo predefinito per gli aggiornamenti è di cinque ore. Questo valore non è configurabile dal portale di Azure, ma può essere configurato in PowerShell usando il parametro `MaintenanceWindow` del cmdlet [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry). Per altre informazioni, vedere [È possibile gestire gli aggiornamenti pianificati usando PowerShell, l'interfaccia della riga di comando o altri strumenti di gestione?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
 
 
 ## <a name="schedule-updates-faq"></a>Domande frequenti sulla pianificazione degli aggiornamenti
@@ -110,10 +112,10 @@ Durante l'intervallo di manutenzione pianificato vengono eseguiti solo gli aggio
 ### <a name="can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools"></a>È possibile gestire gli aggiornamenti pianificati usando PowerShell, l'interfaccia della riga di comando o altri strumenti di gestione?
 Sì, è possibile gestire gli aggiornamenti pianificati con i cmdlet di PowerShell seguenti:
 
-* [Get-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/get-azurermrediscachepatchschedule)
-* [New-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/new-azurermrediscachepatchschedule)
-* [New-AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry)
-* [Remove-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/remove-azurermrediscachepatchschedule)
+* [Get-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/get-azrediscachepatchschedule)
+* [New-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/new-azrediscachepatchschedule)
+* [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry)
+* [Remove-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/remove-azrediscachepatchschedule)
 
 ### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality"></a>Con quali piani tariffari è possibile usufruire della funzionalità di pianificazione degli aggiornamenti?
 La funzionalità di **pianificazione degli aggiornamenti** è disponibile solo nel piano tariffario Premium.

@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2f21c54100a46d2f6ba28d2063bea91b84ea06d4
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 160bc0e67b2686d17357241887a207cb4a03002c
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769322"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098103"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>Utilizzare SSL per proteggere il servizio Web con il servizio Azure Machine Learning
 
@@ -82,6 +82,16 @@ Per distribuire (o ridistribuire) il servizio con SSL abilitato, impostare il pa
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
++ **Eseguire la distribuzione in dispositivi FPGA**
+
+  Durante la distribuzione in dispositivi FPGA, specificare i valori per i parametri associati a SSL come illustrato nel frammento di codice:
+
+    ```python
+    from azureml.contrib.brainwave import BrainwaveWebservice
+
+    deployment_config = BrainwaveWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem")
+    ```
+
 ## <a name="update-your-dns"></a>Aggiorna DNS
 
 Successivamente, è necessario aggiornare il DNS in modo che punti al servizio Web.
@@ -97,10 +107,6 @@ Successivamente, è necessario aggiornare il DNS in modo che punti al servizio W
   Aggiornare il DNS nella scheda "Configurazione" di "Indirizzo IP pubblico" del cluster servizio Azure Kubernetes come illustrato nell'immagine. È possibile trovare l'indirizzo IP pubblico come uno dei tipi di risorse create nel gruppo di risorse che contiene i nodi agente servizio Azure Kubernetes e altre risorse di rete.
 
   ![Servizio Azure Machine Learning: Protezione del servizio Web con SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
-
-+ **Per FPGA**:
-
-L'uso di SSL con servizi distribuiti in FPGA non è attualmente supportato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 È possibile passare agli argomenti seguenti:

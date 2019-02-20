@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 84f2b4d68bf95d18a63401f796e2ffca682c808f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: bc52c4eaf77b9441683eea8e5f899c6ef34d62e8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567275"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002358"
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -66,7 +66,7 @@ Nel portale basato sul Web di Video Indexer è possibile caricare un file multim
 
 ### <a name="how-long-does-it-take-video-indexer-to-extract-insights-from-media"></a>Quanto tempo occorre a Video Indexer per estrarre informazioni dettagliate dai file multimediali?
 
-Il tempo necessario per l'indicizzazione di un file audio o video, sia tramite l'API Video Indexer che usando l'interfaccia basata sul Web di Video Indexer, dipende da più parametri, come la lunghezza e la qualità del file, il numero di informazioni dettagliate contenute nel file, il numero di [unità riservate](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) disponibili e il fatto che l'[endpoint di streaming](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview) sia abilitato o meno. Per la maggior parte dei tipi di contenuto, presupponendo che siano abilitate 10 unità riservate di tipo S3, si stima che l'indicizzazione richieda da 1/3 a ½ della durata del file audio o video. Un video di origine di 10 minuti, ad esempio, richiede da 3,5 a 5 minuti. Per avere un'idea migliore, è tuttavia consigliabile eseguire alcuni file di test con il proprio contenuto e calcolare il tempo medio.
+Il tempo necessario per l'indicizzazione di un file audio o video, sia tramite l'API Video Indexer che usando l'interfaccia basata sul Web di Video Indexer, dipende da più parametri, come la lunghezza e la qualità del file, il numero di informazioni dettagliate contenute nel file, il numero di [unità riservate](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) disponibili e il fatto che l'[endpoint di streaming](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview) sia abilitato o meno. Per avere un'idea migliore, è consigliabile eseguire alcuni file di test con il proprio contenuto e calcolare il tempo medio.
 
 ### <a name="can-i-create-customized-workflows-to-automate-processes-with-video-indexer"></a>È possibile creare flussi di lavoro personalizzati per automatizzare i processi con Video Indexer?
 

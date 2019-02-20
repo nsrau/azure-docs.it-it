@@ -1,6 +1,6 @@
 ---
-title: Come configurare un database SQL di Azure autonomo | Microsoft Docs
-description: Informazioni su come configurare e gestire un database SQL di Azure - Database autonomo
+title: Procedura per configurare il database SQL di Azure (database singolo)| Microsoft Docs
+description: Informazioni su come configurare e gestire il database SQL di Azure (database singolo)
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 613b4b700be580c2a0847881e64eedbeedee0c65
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/08/2019
+ms.openlocfilehash: c85a7106e9567859c34345528c6549bcd752f1c6
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510539"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100466"
 ---
 # <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Come usare un database singolo in Database SQL di Azure
 
@@ -25,7 +25,7 @@ In questa sezione sono disponibili varie guide, script e spiegazioni che possono
 
 ## <a name="migrate"></a>Migrazione
 
-- [Eseguire la migrazione nel database SQL](sql-database-cloud-migrate.md): ottenere informazioni sul processo di migrazione consigliato e sugli strumenti per la migrazione in un'istanza gestita.
+- [Eseguire la migrazione nel database SQL](sql-database-single-database-migrate.md): ottenere informazioni sul processo di migrazione consigliato e sugli strumenti per la migrazione in un'istanza gestita.
 - Imparare a [gestire il database SQL dopo la migrazione](sql-database-manage-after-migration.md).
 
 ## <a name="configure-features"></a>Configurare le funzionalità

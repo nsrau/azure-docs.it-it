@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: ec61b179627702af7f2c4bc0fc0989230f5eca84
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 02b4b2efb447e3ba8c45caa378268ec402b5c3e7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885797"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001985"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Uso di dati di monitoraggio in Azure
 
 Nella piattaforma di Azure il monitoraggio dati e la pipeline di Monitoraggio di Azure sono stati unificati in un unica posizione, ma è noto che attualmente non tutti i dati di monitoraggio sono disponibili nella pipeline. In questo articolo vengono riepilogati i vari metodi per accedere a livello di programmazione ai dati di monitoraggio dai servizi di Azure.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="options-for-data-consumption"></a>Opzioni per l'uso di dati
 
@@ -40,7 +42,7 @@ Nella piattaforma di Azure il monitoraggio dati e la pipeline di Monitoraggio di
 | Avvisi delle metriche di Monitoraggio di Azure | Notifiche | [Vedere l'elenco di seguito](metrics-supported.md) | <ul><li>**Webhook:** [avvisi delle metriche di Azure](alerts-webhooks.md)</li></ul> |
 | Avvisi di Log attività di Monitoraggio di Azure | Notifiche | Tutti i servizi di Azure | <ul><li>**Webhook:** avvisi dei log attività di Azure</li></ul> |
 | Notifiche relative alla scalabilità automatica | Notifiche | [Vedere l'elenco di seguito](autoscale-overview.md#supported-services-for-autoscale) | <ul><li>**Webhook:** [schema di payload del webhook di notifica di scalabilità automatica](autoscale-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| Avvisi di query di ricerca log | Notifiche | Log Analytics | <ul><li>**Webhook:** [azione webhook per le regole di avviso relative ai log](alerts-log-webhook.md)</li></ul> |
+| Avvisi di query di ricerca log | Notifiche | Log di Monitoraggio di Azure | <ul><li>**Webhook:** [azione webhook per le regole di avviso relative ai log](alerts-log-webhook.md)</li></ul> |
 | Avvisi relativi alle metriche in Application Insights | Notifiche | Application Insights | <ul><li>**Webhook:** [avvisi di Application Insights](../../azure-monitor/app/alerts.md)</li></ul> |
 | Test Web in Application Insights | Notifiche | Application Insights | <ul><li>**Webhook:** [avvisi di Application Insights](../../azure-monitor/app/alerts.md)</li></ul> |
 

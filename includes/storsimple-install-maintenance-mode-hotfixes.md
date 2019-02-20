@@ -4,22 +4,20 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 5e4921be3116754f146ed0845513010f2642c97b
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 2d0fd904dd704c704662192e1e92fe403f0971c5
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166360"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888510"
 ---
-<!--author=SharS last changed: 9/17/15-->
-
 #### <a name="to-install-maintenance-mode-hotfixes-via-windows-powershell-for-storsimple"></a>Per installare gli aggiornamenti rapidi in modalità di manutenzione tramite Windows PowerShell per StorSimple
 > [!IMPORTANT]
 > In modalità di manutenzione, è necessario applicare l’aggiornamento rapido prima in un controller e quindi nell’altro controller.
 > 
 > 
 
-1. Attivare la modalità di manutenzione per il dispositivo. Per istruzioni su come attivare la modalità di manutenzione, vedere [Passaggio 2: Attivare la modalità di manutenzione](../articles/storsimple/storsimple-update-device.md#step2).
+1. Attivare la modalità di manutenzione per il dispositivo. Vedere [Passaggio 2: Attivare la modalità di manutenzione](../articles/storsimple/storsimple-update-device.md#step2) per istruzioni su come attivare la modalità di manutenzione.
 2. Per applicare l’aggiornamento rapido, digitare:
    
      `Start-HcsHotfix` 

@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: caafd5ac43ca94f8b01298b4e18e48065b7001b9
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: c83342e5eb0e6c1f45daa54ea3c4f3c602ff7a39
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766623"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878613"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuire modelli con il servizio di Azure Machine Learning
 
@@ -493,7 +493,7 @@ Per eliminare un modello registrato, usare `model.delete()`.
 
 Per altre informazioni, vedere la documentazione di riferimento per [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--) e [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 * __Se si verificano errori durante la distribuzione__, usare `service.get_logs()` per visualizzare i log del servizio. Le informazioni registrate potrebbero indicare la causa dell'errore.
 

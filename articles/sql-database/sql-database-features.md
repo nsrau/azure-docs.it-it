@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 7445496154d9fc2ca59e19059a87a794a1361b14
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.date: 02/08/2019
+ms.openlocfilehash: c2a1cbd75bb3ff0b936d8dd801572e5783ab5260
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747408"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100918"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Confronto delle funzionalità: Database SQL di Azure e SQL Server
 
@@ -35,7 +35,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server. Per ogni f
 | **Funzionalità di SQL** | **Supportato in database singoli e pool elastici** | **Supportata nel database SQL di Azure/istanza gestita** |
 | --- | --- | --- |
 | [Replica geografica attiva](sql-database-active-geo-replication.md) | Sì, solo livelli di servizio Utilizzo generico e Business Critical| No, vedere i [Gruppi di failover automatico](sql-database-auto-failover-group.md) |
-| [Gruppi di failover automatico](sql-database-auto-failover-group.md) | Sì, solo livelli di servizio Utilizzo generico e Business Critical| [Sì (anteprima)](sql-database-auto-failover-group.md)|
+| [Gruppi di failover automatico](sql-database-auto-failover-group.md) | Sì, solo livelli di servizio Utilizzo generico e Business Critical| Sì, in [anteprima pubblica](sql-database-auto-failover-group.md)|
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Sì. Vedere [Archivio certificati](sql-database-always-encrypted.md) e [Insieme di credenziali delle chiavi](sql-database-always-encrypted-azure-key-vault.md) | Sì. Vedere [Archivio certificati](sql-database-always-encrypted.md) e [Insieme di credenziali delle chiavi](sql-database-always-encrypted-azure-key-vault.md) |
 | [Gruppi di disponibilità AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | La [disponibilità elevata](sql-database-high-availability.md) è inclusa in ogni database. Il ripristino di emergenza è trattato in [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md) | La [disponibilità elevata](sql-database-high-availability.md) è inclusa in ogni database. Il ripristino di emergenza è trattato in [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md) |
 | [Collegamento di un database](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | No  | No  |
@@ -52,7 +52,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server. Per ogni f
 | [Change Data Capture](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | No  | Sì |
 | [Rilevamento modifiche](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | Sì |Sì |
 | [Regole di confronto - database](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation) | Sì | Sì |
-| [Regole di confronto - server/istanza](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | No  | [Sì (anteprima)](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)|
+| [Regole di confronto - server/istanza](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | No  | Sì, in [anteprima pubblica](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)|
 | [Indici columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Sì, [livello Premium, livello Standard; S3 e versioni successive, livello Utilizzo generico e livelli Business Critical](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Sì |
 | [Common Language Runtime (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | No  | Sì, vedere le [differenze relative a CLR](sql-database-managed-instance-transact-sql-information.md#clr) |
 | [Database indipendenti](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Sì | Sì |
@@ -110,7 +110,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server. Per ogni f
 | [Gestione basata su criteri](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | No  | No  |
 | [Predicati](https://docs.microsoft.com/sql/t-sql/queries/predicates) | Sì | Sì |
 | [Notifiche della query](https://docs.microsoft.com/sql/relational-databases/native-client/features/working-with-query-notifications) | No  | Sì |
-| [Servizi R](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Versione di anteprima; vedere [Novità di Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | No  |
+| [Servizi R](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Sì, in [anteprima pubblica](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | No  |
 | [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | No  | Sì |
 | [Istruzioni RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | No  | Sì, vedere le [differenze relative al ripristino](sql-database-managed-instance-transact-sql-information.md#restore-statement) |
 | [Ripristino del database da backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | Solo da backup automatici, vedere [Ripristino di un database SQL](sql-database-recovery-using-backups.md) | Da backup automatici, vedere [Ripristino di un database SQL](sql-database-recovery-using-backups.md), e da backup completi, vedere le [differenze relative al backup](sql-database-managed-instance-transact-sql-information.md#backup) |
@@ -131,7 +131,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server. Per ogni f
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Sì | Sì |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Sì | Sì |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | No. Vedere [Eventi estesi](sql-database-xevent-db-diff-from-svr.md) | Sì |
-| [Replica di SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Solo per iscritti alla replica transazionale e snapshot](sql-database-cloud-migrate.md) | Sì (anteprima pubblica) - [Replica con Istanza gestita di database SQL](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
+| [Replica di SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Solo per iscritti alla replica transazionale e snapshot](sql-database-single-database-migrate.md) | Sì, in [anteprima pubblica](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
 | [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | No, vedere [Power BI](https://docs.microsoft.com/power-bi/) | No, vedere [Power BI](https://docs.microsoft.com/power-bi/) |
 | [Stored procedure](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) | Sì | Sì |
 | [Funzioni archiviate nel sistema](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | Supportate per la maggior parte. Vedere le singole funzioni | Sì, vedere le [differenze relative a stored procedure, funzioni e trigger](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |

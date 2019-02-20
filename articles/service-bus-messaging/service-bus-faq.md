@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 0b419343829e7e7bbbd31260b9cd0c8d93cd255d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: fce3c2975e4b82583aa09a3862f704f05a363828
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847816"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210595"
 ---
 # <a name="service-bus-faq"></a>Domande frequenti sul bus di servizio
 
@@ -83,6 +83,9 @@ Come gli altri servizi in Azure, il bus di servizio applica un set specifico di 
 I servizi di messaggistica del bus di servizio (code e argomenti/sottoscrizioni) consentono all'applicazione di inviare messaggi di dimensioni fino a 256 KB (livello standard) o 1 MB (livello premium). Se è necessario gestire messaggi di dimensioni superiori a 1 MB, usare il modello claim check descritto in [questo post di blog](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
+### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Come si crea uno spazio dei nomi dopo l'eliminazione da un'altra sottoscrizione? 
+Quando si elimina uno spazio dei nomi da una sottoscrizione, attendere 4 ore prima di ricrearla con lo stesso nome in un'altra sottoscrizione. In caso contrario, è possibile che venga visualizzato il messaggio di errore seguente: `Namespace already exists`. 
+
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Quali sono alcune delle eccezioni generate dalle API del bus di servizio di Azure e le azioni consigliate?
 Per un elenco delle possibili eccezioni del bus di servizio, vedere [Eccezioni di messaggistica del bus di servizio][Exceptions overview].
 

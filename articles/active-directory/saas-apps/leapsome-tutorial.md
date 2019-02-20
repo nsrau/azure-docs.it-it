@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Leapsome | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Leapsome | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Leapsome.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 898d7cf6cdded08cd09c4b1f1f845473af1650a3
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 37549cc76e1490b0758de8e296523b0e70c98dbf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824005"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56191232"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Esercitazione: Integrazione di Azure Active Directory con Leapsome
+# <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Esercitazione: integrazione di Azure Active Directory con Leapsome
 
 Questa esercitazione descrive come integrare Leapsome con Azure Active Directory (Azure AD).
 

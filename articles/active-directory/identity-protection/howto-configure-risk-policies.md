@@ -13,15 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 02/07/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: f9ffbebee06ab7b9e010c7e6c84fee533611fb38
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c9f759eb815e8d0d03d4cdd7fe4ed603ff39d34f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567656"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56197539"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Procedura: Configurare i criteri di rischio in Azure Active Directory Identity Protection (procedura aggiornata)
 
@@ -81,7 +82,7 @@ Per motivi di sicurezza, tuttavia, questa impostazione funziona soltanto per gli
 
 Per richiedere l'autenticazione MFA per gli accessi a rischio, è necessario:
 
-1. Abilitare il [criterio di registrazione per l'autenticazione a più fattori](#multi-factor-authentication-registration-policy) per gli utenti interessati.
+1. Abilitare i criteri di registrazione per l'autenticazione a più fattori per gli utenti interessati.
 
 2. Richiedere agli utenti interessati di accedere in una sessione non rischiosa per eseguire la registrazione per l'autenticazione a più fattori.
 

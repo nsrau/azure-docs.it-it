@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 3888242f0379cc97bbe511e49a31a0f7eb8c5372
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f84fe995e65d2b67aaaf4ff9acc4a6a44ce607dc
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165006"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889487"
 ---
-<!--author=SharS last changed: 1/14/2016 -->
-
 > [!NOTE]
 > Quando si apportano modifiche all'adattatore StorSimple per la configurazione RBS di SharePoint, è necessario essere connessi con un account utente che appartiene al gruppo Domain Admins. Inoltre, è necessario accedere alla pagina configurazione da un browser in esecuzione nello stesso host di amministrazione centrale.
 > 
@@ -115,7 +113,7 @@ ms.locfileid: "50165006"
    > [!WARNING]
    > Se RBS non è abilitato, non è consigliabile spostare il database del contenuto nel dispositivo StorSimple. Si tratta di una configurazione non testata.
    
-9. Andare al passaggio successivo: [Configurare garbage collection](#configure-garbage-collection).
+9. Passare alla fase successiva: [Configurare Garbage Collection](#configure-garbage-collection).
 
 [6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
 [7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx

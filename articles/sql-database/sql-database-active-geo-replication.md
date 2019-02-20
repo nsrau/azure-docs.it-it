@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ae57605b0fb2cba8cdb0c2f9ecfbab8eef7a5197
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: b39967c071b21978324f205eb62d305011b65fb6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468275"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995059"
 ---
 # <a name="create-readable-secondary-databases-using-active-geo-replication"></a>Creare database secondari leggibili usando la replica geografica attiva
 
@@ -46,6 +46,14 @@ Se per qualsiasi motivo il database primario restituisce un errore o deve essere
 Dopo il failover, verificare che nel nuovo database primario siano configurati i requisiti di autenticazione relativi al server e al database. Per tutti i dettagli, vedere l'articolo sulla [sicurezza del database SQL di Azure dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md).
 
 La replica geografica attiva sfrutta la tecnologia [Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) di SQL Server per replicare in modo asincrono in un database secondario le transazioni di cui è stato eseguito il commit nel database primario usando l'isolamento dello snapshot. I gruppi di failover automatico forniscono la semantica del gruppo sulla replica geografica attiva, ma viene usato lo stesso meccanismo di replica asincrona. Anche se a un certo punto i dati del database secondario possono essere leggermente indietro rispetto al database primario, per tali dati sono sempre garantite transazioni complete. La ridondanza tra aree consente il ripristino rapido delle applicazioni dalla perdita definitiva di un intero data center o di parti di esso causata da calamità naturali, errori umani irreversibili o atti dolosi. È possibile consultare i dati RPO specifici in [Panoramica della continuità aziendale](sql-database-business-continuity.md).
+
+> [!NOTE]
+> Se si verifica un errore di rete tra due aree, viene eseguito un tentativo ogni 10 secondi per ristabilire le connessioni.
+> [!IMPORTANT]
+> Per garantire che una modifica importante al database primario venga replicata in un database secondario prima del failover, è possibile forzare la sincronizzazione per ottenere la replica delle modifiche importanti (ad esempio, gli aggiornamenti della password). La sincronizzazione forzata si riflette sulle prestazioni poiché blocca il thread delle chiamante fino a quando non vengono replicate tutte le transazioni. Per informazioni dettagliate, vedere [sp_wait_for_database_copy_sync](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync). Per monitorare l'intervallo di replica tra il database primario e la replica geografica secondaria, vedere [sys.dm_geo_replication_link_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).
+
+
+
 
 La figura seguente illustra un esempio di replica geografica attiva configurata con il database primario nell'area Stati Uniti centro-settentrionali e il database secondario nell'area Stati Uniti centro-meridionali.
 
@@ -94,7 +102,7 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 
 - **Dimensioni di calcolo configurabili del database secondario**
 
-  I database primari e secondari devono avere lo stesso livello di servizio. È anche consigliabile creare tale database secondario con le stesse dimensioni dell'ambiente di calcolo (DTU o vCore) del database primario. Per un database secondario con una dimensione dell'ambiente di calcolo inferiore sussiste il rischio di un intervallo di replica maggiore e di una potenziale indisponibilità e, di conseguenza, il rischio di una perdita di dati consistente dopo un failover. Di conseguenza, il valore RPO = 5 secondi pubblicato non può essere garantito. Un altro rischio è che dopo il failover le prestazioni dell'applicazione risentano di una mancanza capacità di calcolo del nuovo database primario finché quest'ultimo non viene aggiornato a una dimensione dell'ambiente di calcolo superiore. Il momento dell'aggiornamento dipende dalle dimensioni del database. Inoltre, attualmente tale aggiornamento richiede che i database primari e secondari siano online e, di conseguenza, non possono essere completati fino a quando non viene risolta l'interruzione del servizio. Se si decide di creare il database secondario con una dimensione dell'ambiente di calcolo inferiore, il grafico della percentuale IO del log nel portale di Azure costituisce un buon metodo per stimare la dimensione dell'ambiente di calcolo minima del database secondario che deve sostenere il carico della replica. Ad esempio, se il database primario è P6 (1000 DTU) e la percentuale IO del log è del 50%, il database secondario deve essere almeno P4 (500 DTU). È anche possibile recuperare i dati di I/O del log usando la vista di database [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) o [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).  Per altre informazioni sulla dimensione dell'ambiente di calcolo del database SQL, vedere [Quali sono i livelli di servizio del database SQL di Azure?](sql-database-service-tiers.md).
+  I database primari e secondari devono avere lo stesso livello di servizio. È anche consigliabile creare tale database secondario con le stesse dimensioni dell'ambiente di calcolo (DTU o vCore) del database primario. Per un database secondario con una dimensione dell'ambiente di calcolo inferiore sussiste il rischio di un intervallo di replica maggiore e di una potenziale indisponibilità e, di conseguenza, il rischio di una perdita di dati consistente dopo un failover. Di conseguenza, il valore RPO = 5 secondi pubblicato non può essere garantito. Un altro rischio è che dopo il failover le prestazioni dell'applicazione risentano di una mancanza capacità di calcolo del nuovo database primario finché quest'ultimo non viene aggiornato a una dimensione dell'ambiente di calcolo superiore. Il momento dell'aggiornamento dipende dalle dimensioni del database. Inoltre, attualmente tale aggiornamento richiede che i database primari e secondari siano online e, di conseguenza, non possono essere completati fino a quando non viene risolta l'interruzione del servizio. Se si decide di creare il database secondario con una dimensione dell'ambiente di calcolo inferiore, il grafico della percentuale IO del log nel portale di Azure costituisce un buon metodo per stimare la dimensione dell'ambiente di calcolo minima del database secondario che deve sostenere il carico della replica. Ad esempio, se il database primario è P6 (1000 DTU) e la percentuale IO del log è del 50%, il database secondario deve essere almeno P4 (500 DTU). È anche possibile recuperare i dati di I/O del log usando la vista di database [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) o [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).  Per altre informazioni sulla dimensione dell'ambiente di calcolo del database SQL, vedere [Quali sono i livelli di servizio del database SQL di Azure?](sql-database-purchase-models.md).
 
 - **Failover e failback controllati dall'utente**
 
@@ -122,12 +130,12 @@ A causa della latenza elevata delle reti WAN, per la copia continua viene usato 
 
 Come indicato in precedenza, la replica geografica attiva può essere gestita a livello di codice usando Azure PowerShell e l'API REST. Le tabelle seguenti descrivono il set di comandi disponibili. La replica geografica attiva include un set di API di Azure Resource Manager per la gestione, compresa l'[API REST del Database SQL di Azure](https://docs.microsoft.com/rest/api/sql/) e i [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Queste API richiedono l'uso di gruppi di risorse e supportano la sicurezza basata sui ruoli (Controllo degli accessi in base al ruolo). Per altre informazioni su come implementare i ruoli di accesso, vedere [Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md).
 
-### <a name="t-sql-manage-failover-of-standalone-and-pooled-databases"></a>T-SQL: gestire il failover di database autonomi e in pool
+### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL: gestire il failover di database singoli e in pool
 
 > [!IMPORTANT]
 > Questi comandi Transact-SQL si applicano solo alla replica geografica attiva e non ai gruppi di failover. Di conseguenza potrebbero anche non applicarsi a istanze gestite, perché supportano solo i gruppi di failover.
 
-| Comando | DESCRIZIONE |
+| Comando | Descrizione |
 | --- | --- |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Usare l'argomento ADD SECONDARY ON SERVER per creare un database secondario per un database esistente e avviare la replica dei dati |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Usare FAILOVER o FORCE_FAILOVER_ALLOW_DATA_LOSS per passare un database secondario al ruolo di database primario per avviare il failover |
@@ -138,9 +146,9 @@ Come indicato in precedenza, la replica geografica attiva può essere gestita a 
 | [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |fa sì che l'applicazione rimanga in attesa finché tutte le transazioni vengono replicate e riconosciute dal database secondario attivo. |
 |  | |
 
-### <a name="powershell-manage-failover-of-standalone-and-pooled-databases"></a>PowerShell: gestire il failover di database autonomi e in pool
+### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell: gestire il failover di database singoli e in pool
 
-| Cmdlet | DESCRIZIONE |
+| Cmdlet | Descrizione |
 | --- | --- |
 | [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabase) |Ottiene uno o più database. |
 | [New-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Crea un database secondario per un database esistente e avvia la replica dei dati. |
@@ -152,9 +160,9 @@ Come indicato in precedenza, la replica geografica attiva può essere gestita a 
 > [!IMPORTANT]
 > Per script di esempio, vedere [Configurare un database singolo ed eseguirne il failover usando la replica geografica attiva](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) e [Configurare un database in pool ed eseguirne il failover usando la replica geografica attiva](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md).
 
-### <a name="rest-api-manage-failover-of-standalone-and-pooled-databases"></a>API REST: gestire il failover di database autonomi e in pool
+### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>API REST: gestire il failover di database singoli e in pool
 
-| API | DESCRIZIONE |
+| API | Descrizione |
 | --- | --- |
 | [Creare o aggiornare database (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Crea, aggiorna o ripristina un database primario o secondario. |
 | [Get Create or Update Database Status](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Restituisce lo stato durante un'operazione di creazione. |

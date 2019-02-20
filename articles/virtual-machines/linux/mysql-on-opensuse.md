@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: za-rhoads
-ms.openlocfilehash: 98eb331fbd82ff718b01c99afd6840e3c2252777
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 06fb4b9c39b773393d7a58bba44f240265e2200f
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227855"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893702"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Installazione di MySQL in una macchina virtuale che esegue OpenSUSE Linux in Azure
 
@@ -130,7 +130,7 @@ Questo comando consente di passare prompt di MySQL, in cui è possibile eseguire
 
 Ora creare un nuovo utente MySQL.
 
-```   
+```sql
 CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 ```
    
@@ -142,7 +142,7 @@ Il punto e virgola (;) alla fine della riga è essenziale per la conclusione del
 
 Creare un database e concedere le autorizzazioni all'utente `mysqluser`.
 
-```   
+```sql
 CREATE DATABASE testdatabase;
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 ```
@@ -151,7 +151,7 @@ I nomi utente e le password per il database sono usati solo da script per la con
 
 Abilitare l'accesso da un altro computer. In questo esempio, l'indirizzo IP del computer da cui consentire l'accesso è *10.112.113.114*.
 
-```   
+```sql
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'10.112.113.114' IDENTIFIED BY 'password';
 ```
    

@@ -11,13 +11,13 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 395bf57b967ebeefe0a4168b53a4341c304e3d4f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/08/2019
+ms.openlocfilehash: 5f20fc6ac19e2c9d304f4ab429e485fedaa29f64
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729507"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001886"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Rilevamento delle minacce per il database SQL di Azure
 
@@ -77,8 +77,8 @@ Fare clic su **Avviso rilevamento minacce**per avviare la pagina degli avvisi de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sul [rilevamento delle minacce nei database autonomi e in pool](sql-database-threat-detection.md).
-- Altre informazioni sul [rilevamento delle minacce nell'istanza gestita](sql-database-managed-instance-threat-detection.md).
+- Altre informazioni sul [rilevamento delle minacce nei database singoli e in pool](sql-database-threat-detection.md).
+- Altre informazioni su [Rilevamento delle minacce in istanza gestita](sql-database-managed-instance-threat-detection.md).
 - Altre informazioni su [Sicurezza dei dati avanzata](sql-database-advanced-data-security.md).
 - Altre informazioni sul [controllo del database SQL di Azure](sql-database-auditing.md)
 - Altre informazioni sul [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)

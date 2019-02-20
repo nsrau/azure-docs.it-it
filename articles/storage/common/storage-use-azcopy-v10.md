@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: artemuwka
 ms.subservice: common
-ms.openlocfilehash: a4e115194d7e903edae4b4713c4f65eef9895cbf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c9009e898b00212dba4dec9bf38af2bfa057b8ea
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467119"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244607"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>Trasferire dati con AzCopy v10 (anteprima)
 
@@ -54,8 +54,11 @@ AzCopy v10 non richiede un'installazione. Aprire un'applicazione della riga di c
 ## <a name="authentication-options"></a>Opzioni di autenticazione
 
 AzCopy v10 consente di usare le opzioni seguenti durante l'autenticazione con Archiviazione di Azure:
-- **Azure Active Directory [supportato in BLOB e ADLS Gen2]**. Usare ```.\azcopy login``` per accedere tramite Azure Active Directory.  L'utente deve avere [assegnato il ruolo "Collaboratore ai dati del BLOB di archiviazione"](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) per scrivere nell'archivio BLOB usando l'autenticazione di Azure Active Directory.
-- **Token di firma di accesso condiviso [supportato in BLOB e Servizio file]**. Per usarlo, aggiungere il token di firma di accesso condiviso al percorso del BLOB nella riga di comando. È possibile generare token di firma di accesso condiviso tramite il portale di Azure, [Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken) o altri strumenti di propria scelta. Per altre informazioni, vedere gli [esempi](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
+- **Azure Active Directory [supportato per i servizi BLOB e ADLS Gen2]**. Usare ```.\azcopy login``` per accedere tramite Azure Active Directory.  L'utente deve avere [assegnato il ruolo "Collaboratore ai dati del BLOB di archiviazione"](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) per scrivere nell'archivio BLOB usando l'autenticazione di Azure Active Directory.
+- **Token di firma di accesso condiviso [supportato per i servizi BLOB e File]**. Per usarlo, aggiungere il token di firma di accesso condiviso al percorso del BLOB nella riga di comando. È possibile generare token di firma di accesso condiviso tramite il portale di Azure, [Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken) o altri strumenti di propria scelta. Per altre informazioni, vedere gli [esempi](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
+
+> [!IMPORTANT]
+> Quando si invia una richiesta al supporto tecnico Microsoft (o si risolve il problema coinvolgendo terze parti), condividere la versione con alcune modifiche del comando che si sta provando a eseguire per essere sicuri che la firma di accesso condiviso non venga accidentalmente condivisa con altri. È possibile trovare la versione con modifiche all'inizio del file di log. Vedere la sezione Risoluzione dei problemi più avanti in questo articolo per altre informazioni.
 
 ## <a name="getting-started"></a>Introduzione
 
@@ -206,11 +209,33 @@ set AZCOPY_CONCURRENCY_VALUE=<value>
 export AZCOPY_CONCURRENCY_VALUE=<value>
 # For MacOS
 export AZCOPY_CONCURRENCY_VALUE=<value>
+# To check the current value of the variable on all the platforms
+.\azcopy env
+# If the value is blank then the default value is currently in use
 ```
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-AzCopy v10 crea file di log e file di piano per tutti i processi. È possibile usare i log per analizzare e risolvere eventuali problemi potenziali. Il log conterrà lo stato dell'errore (UPLOADFAILED, COPYFAILED e DOWNLOADFAILED), il percorso completo e il motivo dell'errore. I file di piano e i log dei processi si trovano nella cartella %USERPROFILE\\.azcopy.
+AzCopy v10 crea file di log e file di piano per tutti i processi. È possibile usare i log per analizzare e risolvere eventuali problemi potenziali. Il log conterrà lo stato dell'errore (UPLOADFAILED, COPYFAILED e DOWNLOADFAILED), il percorso completo e il motivo dell'errore. I file di piano e i log dei processi si trovano nella cartella %USERPROFILE\\.azcopy su Windows oppure in $HOME\\.azcopy su Mac e Linux.
+
+> [!IMPORTANT]
+> Quando si invia una richiesta al supporto tecnico Microsoft (o si risolve il problema coinvolgendo terze parti), condividere la versione con alcune modifiche del comando che si sta provando a eseguire per essere sicuri che la firma di accesso condiviso non venga accidentalmente condivisa con altri. È possibile trovare la versione con modifiche all'inizio del file di log.
+
+### <a name="change-the-location-of-the-log-files"></a>Modificare il percorso dei file di log
+
+È possibile modificare il percorso dei file di log, se è necessario o se si vuole evitare di esaurire lo spazio sul disco del sistema operativo.
+
+```cmd
+# For Windows:
+set AZCOPY_LOG_LOCATION=<value>
+# For Linux:
+export AZCOPY_LOG_LOCATION=<value>
+# For MacOS
+export AZCOPY_LOG_LOCATION=<value>
+# To check the current value of the variable on all the platforms
+.\azcopy env
+# If the value is blank then the default value is currently in use
+```
 
 ### <a name="review-the-logs-for-errors"></a>Esaminare i log degli errori
 

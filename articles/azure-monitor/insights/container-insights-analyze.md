@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 02/08/2019
 ms.author: magoedte
-ms.openlocfilehash: f0f929e7caece9bea10dbe09e237bc987ad93d44
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 5a72c0539cabec3bf4168280c85a2afb92569b25
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159656"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234001"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Conoscere le prestazioni del cluster del servizio Azure Kubernetes con Monitoraggio di Azure per contenitori 
 Con Monitoraggio di Azure per i contenitori è possibile usare i grafici delle prestazioni e lo stato di integrità per monitorare il carico di lavoro dei cluster del servizio Azure Kubernetes (AKS) da due prospettive, direttamente da un cluster AKS o visualizzando tutti i cluster AKS in una sottoscrizione da Monitoraggio di Azure. Quando si monitora uno specifico cluster AKS è anche possibile visualizzare Istanze di Azure Container (ACI).
@@ -59,7 +59,7 @@ Lo stato di integrità calcola lo stato complessivo del cluster come il *peggior
 
 La tabella seguente fornisce i dettagli del calcolo controllando gli stati di integrità per un cluster monitorato nella vista multicluster.
 
-| |Status |Disponibilità |  
+| |Stato |Disponibilità |  
 |-------|-------|-----------------|  
 |**Pod utente**| | |  
 | |Healthy |100% |  
@@ -146,7 +146,7 @@ Le informazioni presentate quando si visualizzano i nodi sono descritte nella ta
 | Colonna | DESCRIZIONE | 
 |--------|-------------|
 | NOME | Nome dell'host. |
-| Status | Visualizzazione Kubernetes dello stato del nodo. |
+| Stato | Visualizzazione Kubernetes dello stato del nodo. |
 | Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% (% media, % min, % max, % 50°, % 90°) | Percentuale media dei nodi in base al percentile durante l'intervallo di tempo selezionato. |
 | Avg, Min, Max, 50th, 90th (Media, Min, Max, 50°, 90°) | Valore effettivo dei nodi medio durante l'intervallo di tempo selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un nodo. Per i pod e i contenitori, è il valore medio segnalato dall'host. |
 | Contenitori | Numero di contenitori. |
@@ -175,7 +175,7 @@ Le informazioni presentate quando si visualizzano i controller sono descritte ne
 | Colonna | DESCRIZIONE | 
 |--------|-------------|
 | NOME | Nome del controller.|
-| Status | Stato di rollup quando l'esecuzione è stata completata con uno stato, ad esempio *OK*, *Terminated* (Terminato), *Failed* (Non riuscito), *Stopped* (Arrestato) o *Paused* (In pausa). Se il contenitore è in esecuzione, ma lo stato non è stato presentato correttamente o non è stato rilevato dall'agente e non è stata inviata alcuna risposta per più di 30 minuti, lo stato è *Unknown* (Sconosciuto). La tabella seguente contiene dettagli aggiuntivi sull'icona dello stato.|
+| Stato | Stato di rollup quando l'esecuzione è stata completata con uno stato, ad esempio *OK*, *Terminated* (Terminato), *Failed* (Non riuscito), *Stopped* (Arrestato) o *Paused* (In pausa). Se il contenitore è in esecuzione, ma lo stato non è stato presentato correttamente o non è stato rilevato dall'agente e non è stata inviata alcuna risposta per più di 30 minuti, lo stato è *Unknown* (Sconosciuto). La tabella seguente contiene dettagli aggiuntivi sull'icona dello stato.|
 | Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% (% media, % min, % max, % 50°, % 90°) | Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
 | Avg, Min, Max, 50th, 90th (Media, Min, Max, 50°, 90°)  | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
 | Contenitori | Numero totale di contenitori per il controller o il pod. |
@@ -186,7 +186,7 @@ Le informazioni presentate quando si visualizzano i controller sono descritte ne
 
 Le icone nel campo relativo allo stato indicano lo stato online dei contenitori:
  
-| Icona | Status | 
+| Icona | Stato | 
 |--------|-------------|
 | ![Icona di stato In esecuzione (Pronto)](./media/container-insights-analyze/containers-ready-icon.png) | In esecuzione (Pronto)|
 | ![Icona di stato In attesa o In pausa](./media/container-insights-analyze/containers-waiting-icon.png) | In attesa o In pausa|
@@ -212,7 +212,7 @@ Le informazioni presentate quando si visualizzano i contenitori sono descritte n
 | Colonna | DESCRIZIONE | 
 |--------|-------------|
 | NOME | Nome del controller.|
-| Status | Stato dei contenitori, se presente. La tabella seguente contiene dettagli aggiuntivi sull'icona dello stato.|
+| Stato | Stato dei contenitori, se presente. La tabella seguente contiene dettagli aggiuntivi sull'icona dello stato.|
 | Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% (% media, % min, % max, % 50°, % 90°) | Rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
 | Avg, Min, Max, 50th, 90th (Media, Min, Max, 50°, 90°)  | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato. Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
 | Pod | Contenitore in cui è presente il pod.| 
@@ -223,7 +223,7 @@ Le informazioni presentate quando si visualizzano i contenitori sono descritte n
 
 Le icone nel campo relativo allo stato indicano lo stato online dei pod, come descritto nella tabella seguente:
  
-| Icona | Status |  
+| Icona | Stato |  
 |--------|-------------|  
 | ![Icona di stato In esecuzione (Pronto)](./media/container-insights-analyze/containers-ready-icon.png) | In esecuzione (Pronto)|  
 | ![Icona di stato In attesa o In pausa](./media/container-insights-analyze/containers-waiting-icon.png) | In attesa o In pausa|  
@@ -275,5 +275,5 @@ Spesso è utile creare una query a partire da qualche esempio e quindi modificar
 | **Selezionare l'opzione di visualizzazione corrispondente al grafico a linee**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | CPU del contenitore | 
 | **Selezionare l'opzione di visualizzazione corrispondente al grafico a linee**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Memoria del contenitore |
 
-## <a name="alerting"></a>Creazione di avvisi
-Monitoraggio di Azure per i contenitori non include un set predefinito di avvisi che è possibile copiare e modificare in base ai processi e alle procedure di supporto. Nel frattempo, vedere come [creare avvisi relativi ai log con Monitoraggio di Azure](../../azure-monitor/platform/alerts-log.md?toc=/azure/azure-monitor/toc.json) per imparare a creare un set di avvisi personalizzato.  
+## <a name="next-steps"></a>Passaggi successivi
+Monitoraggio di Azure per i contenitori non include un set predefinito di avvisi che è possibile copiare e modificare in base ai processi e alle procedure di supporto. Rivedere [Creare avvisi sulle prestazioni con Monitoraggio di Azure per i contenitori](container-insights-alerts.md) per imparare a creare gli avvisi consigliati per un utilizzo elevato di CPU e memoria.  

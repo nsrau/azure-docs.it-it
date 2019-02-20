@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 08/16/2018
+ms.date: 02/07/2019
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 0394d1cc44dae270682691e2091543e5aab321f6
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: fe1993a914ea4d3bd8ab9116748198cbb0c1c43c
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513982"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55905146"
 ---
 <a name="virtual-networking-limits-classic"></a>I limiti seguenti si applicano solo per le risorse di rete gestite tramite il modello di distribuzione classica per sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md).
 
@@ -76,11 +76,12 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure Resource Manager per area per sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md)
 
 | Risorsa | Limite predefinito |
-| --- | --- | --- |
+| --- | --- |
 | Servizi di bilanciamento del carico | 1000 | 
 | Regole per risorsa, Basic | 250 |
 | Regole per risorsa, Standard | 1500 | 
 | Regole per configurazione IP | 299 |
+| Regole per NIC | 500 |
 | Configurazioni IP front-end, Basic | 200 |
 | Configurazioni IP front-end, Standard | 600 |
 | Pool back-end, Basic | 100, singolo set di disponibilità |
@@ -88,7 +89,5 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Risorse di back-end per Load Balancer, Standard* | 150 |
 | Porte a disponibilità elevata, Standard | 1 per front-end interno |
 
-**Fino a 150 risorse, qualsiasi combinazione di macchine virtuali, set di disponibilità e set di scalabilità di macchine virtuali autonomi.
-
-Se è necessario aumentare i limiti rispetto all'impostazione predefinita, [contattare il supporto tecnico](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
+**Fino a 150 risorse, qualsiasi combinazione di risorse di macchine virtuali, set di disponibilità e set di scalabilità di macchine virtuali autonome.
 

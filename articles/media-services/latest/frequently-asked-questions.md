@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: juliako
-ms.openlocfilehash: be4c08bc31c8811655230ab89b48271f4c2b3164
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a447c359c38c2173ea42b6d717067fc8b3a88f9a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756581"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875492"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Domande frequenti su Servizi multimediali di Azure v3
 
@@ -36,17 +36,7 @@ Per informazioni dettagliate, vedere [Ridimensionamento dell'elaborazione di con
 
 ### <a name="how-does-pagination-work"></a>Come funziona la paginazione?
 
-Servizi multimediali supporta $top per le risorse che supportano OData, ma il valore passato a $top deve essere minore di 1000 (ad esempio, le dimensioni di pagina per la paginazione).
-
-Questo consente di ottenere un piccolo campione di elementi usando $top (ad esempio, i 100 elementi più recenti) o per scorrere tra tutti gli elementi usando la paginazione. 
-
-Servizi multimediali non supporta la restituzione di pagine di dati con dimensioni di pagina specificate dall'utente.
-
-Per altre informazioni, vedere [Filtraggio, ordinamento, restituzione di più pagine](entities-overview.md).
-
-### <a name="how-to-retrieve-an-entity-in-media-services-v3"></a>Come si recupera un'entità in Servizi multimediali v3?
-
-La versione v3 si basa su una superficie dell'API unificata, che espone funzionalità operative e di gestione basate su **Azure Resource Manager**. In conformità con **Azure Resource Manager**, i nomi delle risorse sono sempre univoci. Di conseguenza, per la risorsa è possibile usare qualsiasi stringa di identificatore univoco (ad esempio, GUID).
+Quando si usa la paginazione, usare sempre il collegamento seguente per enumerare la raccolta e non dipendere da una determinata dimensione di pagina. Per informazioni dettagliate ed esempi, vedere [Filtro, ordinamento, restituzione di più pagine](entities-overview.md).
 
 ## <a name="live-streaming"></a>Streaming live 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: fbafd2d224879dbe33c581c13dfe52fc9a22ae55
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: ecbc1af97ce5ed158138f2bcf47f5729842c0fe9
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510819"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098536"
 ---
 # <a name="api-management-cross-domain-policies"></a>Criteri tra domini di Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -145,7 +145,7 @@ In questo esempio viene illustrato come supportare richieste preliminari, ad ese
 Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
 - **Sezioni del criterio:** inbound
-- **Ambiti del criterio:** Operazione API
+- **Ambiti del criterio:** globale, API, operazione
 
 ## <a name="JSONP"></a> JSONP
 Il criterio `jsonp` aggiunge il supporto per JSON con riempimento (JSONP) a un'operazione o a un'API per permettere le chiamate tra domini da client JavaScript basati su browser. JSONP è un metodo usato in programmi JavaScript per richiedere dati da un server in un dominio diverso. JSONP supera le limitazioni applicate dalla maggior parte dei Web browser, in cui l'accesso alle pagine Web deve essere effettuato nello stesso dominio.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 0020d1a830932ffe77f7edc54e9e2e52e04dcb15
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7a0b679ef7a1a468c8a849b0a3fb9f744a392dd3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439103"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243604"
 ---
 # <a name="load-balancer-outbound-rules"></a>Regole in uscita di Load Balancer
 
@@ -34,7 +34,7 @@ Le regole in uscita consentono di controllare:
 - Quali macchine virtuali devono essere convertite in quali indirizzi IP pubblici. 
 - La modalità di allocazione delle [porte SNAT in uscita](load-balancer-outbound-connections.md#snat).
 - Per quali protocolli implementare la conversione in uscita.
-- Quale durata usare per il timeout di inattività delle connessioni in uscita.
+- Quale durata usare per il timeout di inattività delle connessioni in uscita (4-120 minuti).
 - Se inviare un TCP Reset per il timeout di inattività (anteprima pubblica). 
 
 Le regole in uscite estendono lo [scenario 2](load-balancer-outbound-connections.md#lb) descritto nell'articolo dedicato alle [connessioni in uscita](load-balancer-outbound-connections.md) senza variazioni per l'ordine di precedenza degli scenari.
@@ -90,7 +90,7 @@ Ogni indirizzo IP pubblico da tutti i front-end di una regola in uscita rende di
 
 ### <a name="idletimeout"></a> Controllare il timeout di inattività per i flussi in uscita
 
-Le regole in uscita includono un parametro di configurazione per controllare il timeout di inattività per i flussi in uscita in modo da adattarlo alle esigenze dell'applicazione.  Il timeout di inattività in uscita è per impostazione predefinita di 4 minuti.  Il parametro accetta un valore compreso tra 4 e 66 a specifica il numero di minuti per il timeout di inattività per i flussi corrispondenti alla specifica regola.
+Le regole in uscita includono un parametro di configurazione per controllare il timeout di inattività per i flussi in uscita in modo da adattarlo alle esigenze dell'applicazione.  Il timeout di inattività in uscita è per impostazione predefinita di 4 minuti.  Il parametro accetta un valore compreso tra 4 e 120 e specifica il numero di minuti per il timeout di inattività per i flussi corrispondenti alla specifica regola.
 
 Per impostare il timeout di inattività in uscita su 1 ora, usare il parametro seguente:
 
@@ -205,7 +205,7 @@ Quando si usa un Load Balancer Standard interno, NAT in uscita non è disponibil
 ## <a name="limitations"></a>Limitazioni
 
 - Il numero massimo di porte temporanee utilizzabili per ogni indirizzo IP front-end è 51.200.
-- L'intervallo del timeout di inattività in uscita configurabile è compreso tra 4 a 66 minuti (da 240 a 4000 secondi).
+- L'intervallo del timeout di inattività in uscita configurabile è compreso tra 4 a 120 minuti (da 240 a 7200 secondi).
 - Load Balancer non supporta ICMP per NAT in uscita.
 - Non è possibile usare il portale per configurare o visualizzare le regole in uscita.  Usare in alternativa i modelli, l'API REST, l'interfaccia della riga di comando di Azure 2.0 o PowerShell.
 - Le regole in uscita possono essere applicate solo alla configurazione dell'IP primario e della scheda di interfaccia di rete primaria.

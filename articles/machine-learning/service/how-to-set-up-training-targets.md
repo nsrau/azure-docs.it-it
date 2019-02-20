@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14a6bdfff486f13f18d42b1bd20880347d3ebbc8
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 292063183561722eae76c3d30ce242facd22df26
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756530"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981452"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurare le destinazioni di calcolo per il training del modello
 
@@ -47,6 +47,11 @@ Il servizio Azure Machine Learning offre un supporto variabile per le diverse de
 |[Azure Data Lake Analytics.](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
+**Tutte le destinazioni di calcolo possono essere riutilizzate per più processi di training**. Ad esempio, dopo aver collegato una macchina virtuale remota all'area di lavoro, è possibile riutilizzarla per più processi.
+
+> [!NOTE]
+> L'ambiente di calcolo di Azure Machine Learning può essere creato come risorsa permanente o in modo dinamico quando si richiede un'esecuzione. Al termine del training, la creazione basata sull'esecuzione rimuove la destinazione di calcolo. Non è quindi possibile riutilizzare le destinazioni di calcolo create in questo modo.
+
 ## <a name="whats-a-run-configuration"></a>Che cos'è una configurazione di esecuzione?
 
 Solitamente il training si avvia nel computer locale e in un secondo momento si esegue tale script di training in una destinazione di calcolo diversa. Con il servizio Azure Machine Learning è possibile eseguire lo script in diverse destinazioni di calcolo senza doverlo modificare. 
@@ -73,7 +78,7 @@ Il codice seguente illustra un esempio per un ambiente gestito dal sistema che r
 
 #### <a name="user-managed-environment"></a>Ambiente gestito dall'utente
 
-Per gli ambienti gestiti dall'utente è necessario configurare l'ambiente e installare ogni pacchetto richiesto dallo script di training nella destinazione di calcolo. Se l'ambiente di training è già configurato (ad esempio nel computer locale) è possibile ignorare il passaggio di configurazione impostando `user_managed_dependencies` su True. Conda non controllerà l'ambiente e non istallerà alcun elemento.
+Per un ambiente gestito dall'utente è necessario configurare l'ambiente e installare ogni pacchetto richiesto dallo script di training nella destinazione di calcolo. Se l'ambiente di training è già configurato (ad esempio nel computer locale), è possibile ignorare il passaggio di configurazione impostando `user_managed_dependencies` su True. Conda non controllerà l'ambiente e non istallerà alcun elemento.
 
 Il codice seguente illustra un esempio di configurazione di esecuzioni di training per un ambiente gestito dall'utente:
 
@@ -242,7 +247,7 @@ Dopo aver collegato le risorse di calcolo e aver configurato l'esecuzione, il pa
 
 * [Visualizzare le destinazioni di calcolo](#portal-view) collegate all'area di lavoro
 * [Creare una destinazione di calcolo](#portal-create) nell'area di lavoro
-* [Usare nuovamente le destinazioni di calcolo esistenti](#portal-reuse)
+* [Collegare una destinazione di calcolo](#portal-reuse) creata esternamente all'area di lavoro
 
 Dopo la creazione e il collegamento di una destinazione all'area di lavoro, questa verrà usata nella configurazione di esecuzione con un oggetto `ComputeTarget`: 
 
@@ -293,9 +298,11 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
 
 
 
-### <a id="portal-reuse"></a>Usare nuovamente le destinazioni di calcolo esistenti
+### <a id="portal-reuse"></a>Collegare destinazioni di calcolo
 
-Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di calcolo. Usare quindi questi passaggi per usare nuovamente una destinazione di calcolo: 
+Per usare le destinazioni di calcolo create al di fuori dell'area di lavoro del servizio Azure Machine Learning, è necessario collegarle. Il collegamento di una destinazione di calcolo rende quest'ultima disponibile nell'area di lavoro.
+
+Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di calcolo. Usare quindi i passaggi seguenti per collegare una destinazione di calcolo: 
 
 1. Selezionare il segno più (+) per aggiungere una destinazione di calcolo. 
 1. Immettere un nome per la destinazione di calcolo. 

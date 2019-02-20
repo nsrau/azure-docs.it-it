@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 61d0f74f59b4d6f59b3fbc87556b260751d33baa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9194d5fe6553607ac5a0bb4e133da97f53790984
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809630"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005353"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Eseguire operazioni con un runbook di automazione dai risultati della ricerca log di Log Analytics
 
-Dai risultati della ricerca log di Azure Log Analytics è ora possibile selezionare **Take action** (Intervieni) per eseguire un runbook di automazione. Il runbook consente di risolvere il problema o eseguire altre operazioni, come raccogliere informazioni sulla risoluzione del problema, inviare un messaggio di posta elettronica o creare una richiesta di servizio. 
+> [!NOTE]
+> L'avvio di un runbook dai risultati della ricerca è una funzionalità del portale classico di ricerca log che sarà deprecata a partire dal 15 febbraio 2019. È possibile configurare un gruppo di azioni in grado di avviare un runbook oltre ad altre azioni da una [regola di avviso](../platform/alerts-log.md) in Monitoraggio di Azure.
+
+Dai risultati della ricerca log di Azure Log Analytics è ora possibile selezionare **Take action** (Intervieni) per eseguire un runbook di automazione.  Il runbook consente di risolvere il problema o eseguire altre operazioni, come raccogliere informazioni sulla risoluzione del problema, inviare un messaggio di posta elettronica o creare una richiesta di servizio. 
+
 
 ## <a name="components-and-features-used"></a>Componenti e le funzionalità usati
 * [Account di automazione di Azure](../../automation/automation-quickstart-create-account.md)

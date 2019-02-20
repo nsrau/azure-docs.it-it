@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 29105f97385b11e59ccd3af9d13521ea803bfdb0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 80d84fcede0d293b083ea75f24e9b0bd3125b265
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024230"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55959674"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Runtime di integrazione in Azure Data Factory
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le seguenti funzionalità di integrazione di dati in diversi ambienti di rete:
 
-- **Spostamento dei dati**: spostare dati tra gli archivi dati nella rete pubblica e gli archivi dati nella rete privata (locale o VPN). Fornisce il supporto per i connettori predefiniti, la conversione dei formati, il mapping di colonne e il trasferimento di dati scalabile e ad alte prestazioni.
+- **Spostamento dei dati**: copiare dati tra gli archivi dati nella rete pubblica e gli archivi dati nella rete privata (locale o VPN). Fornisce il supporto per i connettori predefiniti, la conversione dei formati, il mapping di colonne e il trasferimento di dati scalabile e ad alte prestazioni.
 - **Invio di attività**:  inviare e monitorare le attività di trasformazione in esecuzione in diversi servizi di calcolo, come Azure HDInsight, Azure Machine Learning, il database SQL di Azure, SQL Server e altro ancora.
 - **Esecuzione di pacchetti SSIS**: eseguire in modo nativo i pacchetti SQL Server Integration Services (SSIS) in un ambiente di calcolo Azure gestito.
 

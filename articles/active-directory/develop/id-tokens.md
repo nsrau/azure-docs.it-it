@@ -16,24 +16,25 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 74f071d91003c63fd8db590572a7c9dea1b8915b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c92472d276b3f03e5a3855587de4ca8a045bfec2
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092754"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234426"
 ---
 # <a name="id-tokens"></a>Token ID
 
-Gli `id_tokens` vengono inviati all'applicazione client nell'ambito di un flusso di [OpenID Connect](v1-protocols-openid-connect-code.md). Possono essere inviati insieme o in sostituzione di un token di accesso e vengono usati dal client per autenticare l'utente. 
+Gli `id_tokens` vengono inviati all'applicazione client nell'ambito di un flusso di [OpenID Connect](v1-protocols-openid-connect-code.md). Possono essere inviati insieme o in sostituzione di un token di accesso e vengono usati dal client per autenticare l'utente.
 
 ## <a name="using-the-idtoken"></a>Uso degli id_token
 
-I token ID devono essere usati per attestare che un utente sia effettivamente chi dichiara di essere e ottenere utili informazioni sul suo conto: non devono essere usati a scopo di autorizzazione in sostituzione dei [token di accesso](access-tokens.md). Le attestazioni che fornisce possono essere usate per definire l'esperienza utente all'interno dell'applicazione, compilare un database e consentire l'accesso all'applicazione client. 
+I token ID devono essere usati per attestare che un utente sia effettivamente chi dichiara di essere e ottenere utili informazioni sul suo conto: non devono essere usati a scopo di autorizzazione in sostituzione dei [token di accesso](access-tokens.md). Le attestazioni che fornisce possono essere usate per definire l'esperienza utente all'interno dell'applicazione, compilare un database e consentire l'accesso all'applicazione client.
 
 ## <a name="claims-in-an-idtoken"></a>Attestazioni in un id_token
 
-Per un'identità Microsoft, gli `id_tokens` sono token [JWT](https://tools.ietf.org/html/rfc7519), ovvero sono costituiti da un'intestazione, un payload e la parte della firma. L'intestazione e il payload consentono di verificare l'autenticità del token, e il payload contiene anche le informazioni sull'utente richieste dal client. Se non diversamente specificato, tutte le attestazioni elencate di seguito vengono visualizzate in entrambi i token v1.0 e v2.0.
+Per un'identità Microsoft, gli `id_tokens` sono token [JWT](https://tools.ietf.org/html/rfc7519), ovvero sono costituiti da un'intestazione, un payload e la parte della firma. L'intestazione e la firma consentono di verificare l'autenticità del token, mentre il payload contiene anche le informazioni sull'utente richieste dal client. Se non diversamente specificato, tutte le attestazioni elencate di seguito vengono visualizzate in entrambi i token v1.0 e v2.0.
 
 ### <a name="v10"></a>v1.0
 

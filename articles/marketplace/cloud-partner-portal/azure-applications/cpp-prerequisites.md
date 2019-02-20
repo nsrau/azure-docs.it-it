@@ -14,16 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 1fe847bd0cdceec7eccab8218ccf787d8f4366ba
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: b3f978635127ef6aabb123d1c95b76ed06fccbbf
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195821"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097791"
 ---
 # <a name="azure-application-prerequisites"></a>Prerequisiti per un'applicazione Azure
 
-Questo articolo descrive i prerequisiti tecnici e aziendali per la pubblicazione di un'offerta di un'applicazione gestita in Azure Marketplace.
+Questo articolo descrive i prerequisiti tecnici e aziendali per la pubblicazione di un'offerta di un'applicazione gestita in Azure Marketplace.  Se non è già stato fatto, guardare il video [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) (Creazione di modelli di soluzione e applicazioni gestite per Azure Marketplace).
+
 
 ## <a name="technical-requirements"></a>Requisiti tecnici
 
@@ -36,6 +37,7 @@ I requisiti tecnici includono gli elementi seguenti:
   * [GitHub: Modelli di avvio rapido di Azure Resource Manager](https://github.com/azure/azure-quickstart-templates). Questo repository contiene tutti i modelli di Azure Resource Manager attualmente disponibili offerti dalla community. Un indice dei modelli in cui è possibile eseguire ricerche è disponibile all'indirizzo https://azure.microsoft.com/en-us/documentation/templates/.
 * Creare la definizione dell'interfaccia utente<br>
 Per altre informazioni, vedere [Creare l'interfaccia utente del portale di Azure per l'applicazione gestita](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview). Questo articolo illustra i concetti di base del file createUiDefinition.json. Il portale di Azure usa questo file per generare l'interfaccia utente per la creazione di un'applicazione gestita.
+
 
 ## <a name="business-requirements"></a>Requisiti aziendali
 
@@ -54,6 +56,7 @@ I requisiti aziendali includono gli obblighi procedurali, legali e contrattuali 
 * È necessario accettare le condizioni dei Criteri di partecipazione a Microsoft Azure Marketplace e del contratto per editori.
 * È necessario rispettare le Condizioni per l'utilizzo del sito Web di Microsoft Azure, l'Informativa sulla privacy di Microsoft e il Contratto del Programma Microsoft Azure Certified.
 
+
 ## <a name="publishing-requirements"></a>Requisiti per la pubblicazione
 
 Per pubblicare una nuova offerta di applicazione Azure, è necessario soddisfare i prerequisiti seguenti:
@@ -62,10 +65,12 @@ Per pubblicare una nuova offerta di applicazione Azure, è necessario soddisfare
   * Un titolo
   * Una descrizione (in formato HTML)
   * Un'immagine del logo (in formato PNG), con queste dimensioni fisse dell'immagine: 40 x 40 pixel, 90 x 90 pixel, 115 x 115 pixel e 255 x 115 pixel.
-* Condizioni per l'utilizzo e Informativa sulla privacy
+* *Condizioni per l'utilizzo* e *Informativa sulla privacy*
 * Documentazione
 * Contatti del supporto tecnico
 
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Creare un'offerta di applicazione Azure](./cpp-create-offer.md) 
+Dopo aver soddisfatto tutti i requisiti, sarà possibile iniziare a [creare un'offerta di applicazione di Azure](./cpp-create-offer.md). 
+ 

@@ -1,38 +1,40 @@
 ---
-title: Modificare i criteri personalizzati di accesso e configurare il provider di autocertificazione | Microsoft Docs
-description: Procedura dettagliata relativa all'aggiunta di attestazioni all'iscrizione e alla configurazione dell'input utente
+title: Aggiungere attestazioni e input di personalizzazione dell'esperienza utente tramite criteri personalizzati - Azure Active Directory B2C | Microsoft Docs
+description: Informazioni su come personalizzare l'input dell'esperienza utente e aggiungere attestazioni al percorso di accesso o di registrazione in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/29/2017
+ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 2989af12407bdddf6e55e8967a0a574fff690208
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3e48ce4adc64f434b80210ff8aa36a983ba88c26
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179209"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894922"
 ---
-# <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: modificare l'iscrizione per aggiungere nuove attestazioni e configurare l'input utente.
+#  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Aggiungere attestazioni e input di personalizzazione dell'esperienza utente tramite criteri personalizzati in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Questo articolo illustra come aggiungere una nuova voce specificata dall'utente, un'attestazione, al percorso utente di iscrizione.  La voce verrà configurata come elenco a discesa e verrà indicato se è obbligatoria.
+Questo articolo illustra come aggiungere una nuova voce specificata dall'utente, un'attestazione, al percorso utente di registrazione in Azure Active Directory (Azure AD) B2C.  La voce viene configurata come elenco a discesa e si precisa se è obbligatoria.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Completare la procedura descritta nell'articolo [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md).  Prima di procedere, testare il percorso utente di iscrizione/accesso per l'iscrizione di un nuovo account locale.
+Completare la procedura descritta nell'articolo [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md). Prima di procedere, testare il percorso utente di iscrizione o accesso per l'iscrizione di un nuovo account locale.
+
+## <a name="add-claims"></a>Aggiungere le attestazioni
+
+La raccolta dei dati iniziali da parte degli utenti si ottiene usando il percorso utente di iscrizione o accesso. In un secondo momento è possibile raccogliere attestazioni aggiuntive usando il percorso utente di modifica del profilo. Ogni volta che Azure AD B2C raccoglie informazioni direttamente dall'utente in modo interattivo, l'Identity Experience Framework usa il provider di fiducia.
 
 
-La raccolta dei dati iniziali dagli utenti avviene mediante l'iscrizione/accesso.  In un secondo momento è possibile raccogliere attestazioni aggiuntive tramite i percorsi utente di modifica del profilo. Ogni volta che Azure AD B2C raccoglie informazioni direttamente dall'utente in modo interattivo, il framework dell'esperienza di gestione delle identità usa il relativo `selfasserted provider`. I passaggi seguenti si applicano ogni volta che tale provider viene usato.
+### <a name="define-the-claim"></a>Definire l'attestazione
 
-
-## <a name="define-the-claim-its-display-name-and-the-user-input-type"></a>Definire l'attestazione, il nome visualizzato e il tipo di input utente
-Per chiedere all'utente di indicare la propria città,  Aggiungere l'elemento seguente all'elemento `<ClaimsSchema>` nel file dei criteri TrustFrameworkBase:
+Per chiedere all'utente di indicare la propria città, Aggiungere l'elemento seguente all'elemento **ClaimsSchema** nel file dei criteri TrustFrameworkBase:
 
 ```xml
 <ClaimType Id="city">
@@ -42,14 +44,15 @@ Per chiedere all'utente di indicare la propria città,  Aggiungere l'elemento se
   <UserInputType>TextBox</UserInputType>
 </ClaimType>
 ```
-Sono disponibili opzioni aggiuntive che è possibile definire qui per personalizzare l'attestazione.  Per uno schema completo, vedere il documento **Identity Experience Framework Technical Reference Guide** (Guida di riferimento tecnico al framework dell'esperienza di gestione delle identità),  che verrà presto pubblicata nella sezione dei riferimenti.
 
-* `<DisplayName>` è una stringa che definisce l'*etichetta* destinata all'utente.
+Vengono usati gli elementi seguenti per definire l'attestazione:
 
-* `<UserHelpText>` consente all'utente di identificare i requisiti.
+- **DisplayName**: una stringa che definisce l'etichetta destinata all'utente.
+- **UserHelpText**: consente all'utente di identificare i requisiti.
+- **UserInputType**: può essere una casella di testo, una selezione radio, un elenco a discesa o una selezione multipla.
 
-* `<UserInputType>` include le quattro opzioni evidenziate di seguito.
-    * `TextBox`
+#### <a name="textbox"></a>TextBox
+
 ```xml
 <ClaimType Id="city">
   <DisplayName>city where you work</DisplayName>
@@ -59,7 +62,8 @@ Sono disponibili opzioni aggiuntive che è possibile definire qui per personaliz
 </ClaimType>
 ```
 
-    * `RadioSingleSelectduration` applica una selezione singola.
+#### <a name="radiosingleselect"></a>RadioSingleSelect
+
 ```xml
 <ClaimType Id="city">
   <DisplayName>city where you work</DisplayName>
@@ -73,10 +77,9 @@ Sono disponibili opzioni aggiuntive che è possibile definire qui per personaliz
 </ClaimType>
 ```
 
-    * `DropdownSingleSelect` consente di selezionare solo valori validi.
+#### <a name="dropdownsingleselect"></a>DropdownSingleSelect
 
 ![Screenshot dell'opzione nell'elenco a discesa](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
-
 
 ```xml
 <ClaimType Id="city">
@@ -91,11 +94,9 @@ Sono disponibili opzioni aggiuntive che è possibile definire qui per personaliz
 </ClaimType>
 ```
 
-
-* `CheckboxMultiSelect` consente di selezionare uno o più valori.
+#### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
 
 ![Screenshot dell'opzione di selezione multipla](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
-
 
 ```xml
 <ClaimType Id="city">
@@ -110,142 +111,169 @@ Sono disponibili opzioni aggiuntive che è possibile definire qui per personaliz
 </ClaimType>
 ```
 
-## <a name="add-the-claim-to-the-sign-upsign-in-user-journey"></a>Aggiungere l'attestazione al percorso utente di iscrizione/accesso
+### <a name="add-the-claim-to-the-user-journey"></a>Aggiungere l'attestazione al percorso utente
 
-1. Aggiungere l'attestazione come `<OutputClaim ClaimTypeReferenceId="city"/>` all'oggetto TechnicalProfile `LocalAccountSignUpWithLogonEmail` incluso nel file dei criteri TrustFrameworkBase.  Si noti che TechnicalProfile qui usa SelfAssertedAttributeProvider.
+1. Aggiungere l'attestazione come `<OutputClaim ClaimTypeReferenceId="city"/>` all'oggetto profilo tecnico `LocalAccountSignUpWithLogonEmail` incluso nel file dei criteri TrustFrameworkBase. Questo profilo tecnico usa SelfAssertedAttributeProvider.
 
-  ```xml
-  <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
-    <DisplayName>Email signup</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Metadata>
-      <Item Key="IpAddressClaimReferenceId">IpAddress</Item>
-      <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
-      <Item Key="language.button_continue">Create</Item>
-    </Metadata>
-    <CryptographicKeys>
-      <Key Id="issuer_secret" StorageReferenceId="TokenSigningKeyContainer" />
-    </CryptographicKeys>
-    <InputClaims>
-      <InputClaim ClaimTypeReferenceId="email" />
-    </InputClaims>
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="objectId" />
-      <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
-      <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
-      <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
-      <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
-      <OutputClaim ClaimTypeReferenceId="authenticationSource" />
-      <OutputClaim ClaimTypeReferenceId="newUser" />
-      <!-- Optional claims, to be collected from the user -->
-      <OutputClaim ClaimTypeReferenceId="givenName" />
-      <OutputClaim ClaimTypeReferenceId="surName" />
-      <OutputClaim ClaimTypeReferenceId="city"/>
-    </OutputClaims>
-    <ValidationTechnicalProfiles>
-      <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
-    </ValidationTechnicalProfiles>
-    <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
-  </TechnicalProfile>
-  ```
-
-2. Aggiungere l'attestazione ad AAD-UserWriteUsingLogonEmail come `<PersistedClaim ClaimTypeReferenceId="city" />` per scrivere l'attestazione nella directory di AAD dopo averla raccolta dall'utente. Se non si vuole mantenere l'attestazione nella directory per un uso futuro, è possibile ignorare questo passaggio.
-
-  ```xml
-  <!-- Technical profiles for local accounts -->
-  <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
-    <Metadata>
-      <Item Key="Operation">Write</Item>
-      <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">true</Item>
-    </Metadata>
-    <IncludeInSso>false</IncludeInSso>
-    <InputClaims>
-      <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" Required="true" />
-    </InputClaims>
-    <PersistedClaims>
-      <!-- Required claims -->
-      <PersistedClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" />
-      <PersistedClaim ClaimTypeReferenceId="newPassword" PartnerClaimType="password" />
-      <PersistedClaim ClaimTypeReferenceId="displayName" DefaultValue="unknown" />
-      <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration" />
-      <!-- Optional claims. -->
-      <PersistedClaim ClaimTypeReferenceId="givenName" />
-      <PersistedClaim ClaimTypeReferenceId="surname" />
-      <PersistedClaim ClaimTypeReferenceId="city" />
-    </PersistedClaims>
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="objectId" />
-      <OutputClaim ClaimTypeReferenceId="newUser" PartnerClaimType="newClaimsPrincipalCreated" />
-      <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
-      <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
-      <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
-    </OutputClaims>
-    <IncludeTechnicalProfile ReferenceId="AAD-Common" />
-    <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
-  </TechnicalProfile>
-  ```
-
-3. Aggiungere l'attestazione all'oggetto TechnicalProfile che legge dalla directory quando un utente esegue l'accesso come `<OutputClaim ClaimTypeReferenceId="city" />`.
-
-  ```xml
-  <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
-    <Metadata>
-      <Item Key="Operation">Read</Item>
-      <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
-      <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be found for the provided user ID.</Item>
-    </Metadata>
-    <IncludeInSso>false</IncludeInSso>
-    <InputClaims>
-      <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames" Required="true" />
-    </InputClaims>
-    <OutputClaims>
-      <!-- Required claims -->
-      <OutputClaim ClaimTypeReferenceId="objectId" />
-      <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
-      <!-- Optional claims -->
-      <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
-      <OutputClaim ClaimTypeReferenceId="displayName" />
-      <OutputClaim ClaimTypeReferenceId="otherMails" />
-      <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
-      <OutputClaim ClaimTypeReferenceId="city" />
-    </OutputClaims>
-    <IncludeTechnicalProfile ReferenceId="AAD-Common" />
-  </TechnicalProfile>
-  ```
-
-4. Aggiungere `<OutputClaim ClaimTypeReferenceId="city" />` al file dei criteri relying party SignUporSignIn.xml in modo che l'attestazione venga inviata all'applicazione nel token quando il percorso utente ha esito positivo.
-
-  ```xml
-  <RelyingParty>
-    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
-    <TechnicalProfile Id="PolicyProfile">
-      <DisplayName>PolicyProfile</DisplayName>
-      <Protocol Name="OpenIdConnect" />
+    ```xml
+    <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
+      <DisplayName>Email signup</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
+        <Item Key="IpAddressClaimReferenceId">IpAddress</Item>
+        <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
+        <Item Key="language.button_continue">Create</Item>
+      </Metadata>
+      <CryptographicKeys>
+        <Key Id="issuer_secret" StorageReferenceId="TokenSigningKeyContainer" />
+      </CryptographicKeys>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="email" />
+      </InputClaims>
       <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="displayName" />
+        <OutputClaim ClaimTypeReferenceId="objectId" />
+        <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
+        <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
+        <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
+        <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
+        <OutputClaim ClaimTypeReferenceId="authenticationSource" />
+        <OutputClaim ClaimTypeReferenceId="newUser" />
+        <!-- Optional claims, to be collected from the user -->
         <OutputClaim ClaimTypeReferenceId="givenName" />
-        <OutputClaim ClaimTypeReferenceId="surname" />
-        <OutputClaim ClaimTypeReferenceId="email" />
-        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-        <OutputClaim ClaimTypeReferenceId="identityProvider" />
+        <OutputClaim ClaimTypeReferenceId="surName" />
+        <OutputClaim ClaimTypeReferenceId="city"/>
+      </OutputClaims>
+      <ValidationTechnicalProfiles>
+        <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
+      </ValidationTechnicalProfiles>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
+    </TechnicalProfile>
+    ```
+
+2. Aggiungere l'attestazione al profilo tecnico AAD-UserWriteUsingLogonEmail come `<PersistedClaim ClaimTypeReferenceId="city" />` per scrivere l'attestazione nella directory di AAD dopo averla raccolta dall'utente. Se non si vuole mantenere l'attestazione nella directory per un uso futuro, è possibile ignorare questo passaggio.
+
+    ```xml
+    <!-- Technical profiles for local accounts -->
+    <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
+      <Metadata>
+        <Item Key="Operation">Write</Item>
+        <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">true</Item>
+      </Metadata>
+      <IncludeInSso>false</IncludeInSso>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" Required="true" />
+      </InputClaims>
+      <PersistedClaims>
+        <!-- Required claims -->
+        <PersistedClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" />
+        <PersistedClaim ClaimTypeReferenceId="newPassword" PartnerClaimType="password" />
+        <PersistedClaim ClaimTypeReferenceId="displayName" DefaultValue="unknown" />
+        <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration" />
+        <!-- Optional claims. -->
+        <PersistedClaim ClaimTypeReferenceId="givenName" />
+        <PersistedClaim ClaimTypeReferenceId="surname" />
+        <PersistedClaim ClaimTypeReferenceId="city" />
+      </PersistedClaims>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="objectId" />
+        <OutputClaim ClaimTypeReferenceId="newUser" PartnerClaimType="newClaimsPrincipalCreated" />
+        <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
+        <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
+        <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
+      </OutputClaims>
+      <IncludeTechnicalProfile ReferenceId="AAD-Common" />
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
+    </TechnicalProfile>
+    ```
+
+3. Aggiungere l'attestazione `<OutputClaim ClaimTypeReferenceId="city" />` ai profili tecnici che leggono dalla directory quando un utente esegue l'accesso.
+
+    ```xml
+    <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
+      <Metadata>
+        <Item Key="Operation">Read</Item>
+        <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
+        <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be found for the provided user ID.</Item>
+      </Metadata>
+      <IncludeInSso>false</IncludeInSso>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames" Required="true" />
+      </InputClaims>
+      <OutputClaims>
+        <!-- Required claims -->
+        <OutputClaim ClaimTypeReferenceId="objectId" />
+        <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
+        <!-- Optional claims -->
+        <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
+        <OutputClaim ClaimTypeReferenceId="displayName" />
+        <OutputClaim ClaimTypeReferenceId="otherMails" />
+        <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
         <OutputClaim ClaimTypeReferenceId="city" />
       </OutputClaims>
-      <SubjectNamingInfo ClaimType="sub" />
+      <IncludeTechnicalProfile ReferenceId="AAD-Common" />
     </TechnicalProfile>
-  </RelyingParty>
-  ```
+    ```
 
-## <a name="test-the-custom-policy-using-run-now"></a>Testare i criteri personalizzati tramite "Esegui adesso"
+    ```xml
+    <TechnicalProfile Id="AAD-UserReadUsingObjectId">
+      <Metadata>
+        <Item Key="Operation">Read</Item>
+        <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
+      </Metadata>
+      <IncludeInSso>false</IncludeInSso>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="objectId" Required="true" />
+      </InputClaims>
+      <OutputClaims>
+        <!-- Optional claims -->
+        <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
+        <OutputClaim ClaimTypeReferenceId="displayName" />
+        <OutputClaim ClaimTypeReferenceId="otherMails" />
+        <OutputClaim ClaimTypeReferenceId="givenName" />
+        <OutputClaim ClaimTypeReferenceId="city" />
+      </OutputClaims>
+      <IncludeTechnicalProfile ReferenceId="AAD-Common" />
+    </TechnicalProfile>
+    ```
+   
+4. Aggiungere l'attestazione `<OutputClaim ClaimTypeReferenceId="city" />` al file SignUporSignIn.xml in modo che l'attestazione venga inviata all'applicazione nel token quando il percorso utente ha esito positivo.
 
-1. Aprire il pannello **Azure AD B2C** e passare a **Framework dell'esperienza di gestione delle identità > Criteri personalizzati**.
-2. Selezionare il criterio personalizzato che è stato caricato e fare clic sul pulsante **Esegui adesso**.
+    ```xml
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+      <TechnicalProfile Id="PolicyProfile">
+        <DisplayName>PolicyProfile</DisplayName>
+        <Protocol Name="OpenIdConnect" />
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="displayName" />
+          <OutputClaim ClaimTypeReferenceId="givenName" />
+          <OutputClaim ClaimTypeReferenceId="surname" />
+          <OutputClaim ClaimTypeReferenceId="email" />
+          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+          <OutputClaim ClaimTypeReferenceId="identityProvider" />
+          <OutputClaim ClaimTypeReferenceId="city" />
+        </OutputClaims>
+        <SubjectNamingInfo ClaimType="sub" />
+      </TechnicalProfile>
+    </RelyingParty>
+    ```
+
+## <a name="test-the-custom-policy"></a>Testare i criteri personalizzati
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Assicurarsi di usare la directory contenente il tenant di Azure AD facendo clic sul **filtro per directory e sottoscrizione** nel menu in alto e scegliendo tale directory.
+3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
+4. Selezionare **Identity Experience Framework (anteprima)**.
+5. Selezionare **Carica criteri personalizzati**e caricare i file dei due criteri modificati.
+2. Selezionare il criterio di iscrizione o di accesso che è stato caricato e fare clic sul pulsante **Esegui adesso**.
 3. Dovrebbe essere possibile iscriversi usando un indirizzo di posta elettronica.
 
-La schermata di iscrizione in modalità di test avrà un aspetto simile al seguente:
+La schermata di iscrizione avrà un aspetto simile al seguente:
 
 ![Screenshot dell'opzione di iscrizione modificata](./media/active-directory-b2c-configure-signup-self-asserted-custom/signup-with-city-claim-dropdown-example.png)
 
-  Il token restituito all'applicazione ora include l'attestazione `city`, come illustrato di seguito.
+Il token inviato all'applicazione include l'attestazione `city`.
+
 ```json
 {
   "exp": 1493596822,
@@ -266,19 +294,16 @@ La schermata di iscrizione in modalità di test avrà un aspetto simile al segue
 }
 ```
 
-## <a name="optional-remove-email-verification-from-signup-journey"></a>Facoltativo: Rimuovere la verifica di posta elettronica dal percorso di iscrizione
+## <a name="optional-remove-email-verification"></a>Facoltativo: Rimuovere la verifica tramite posta elettronica
 
-Per ignorare la verifica di posta elettronica, l'autore dei criteri può scegliere di rimuovere `PartnerClaimType="Verified.Email"`. L'indirizzo di posta elettronica verrà richiesto ma non verificato, a meno che "Required" = true non venga rimosso.  Valutare attentamente se questa opzione è adatta ai casi d'uso.
+Per ignorare la verifica tramite posta elettronica, si può scegliere di rimuovere `PartnerClaimType="Verified.Email"`. In questo caso, l'indirizzo di posta elettronica è obbligatorio ma non sarà verificato, a meno che "Required" = true non venga rimosso.  Valutare attentamente se questa opzione è adatta ai casi d'uso.
 
-La verifica di posta elettronica è abilitata per impostazione predefinita in `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` nel file dei criteri TrustFrameworkBase nel pacchetto iniziale:
+La verifica della posta elettronica è abilitata per impostazione predefinita in `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` nel file dei criteri TrustFrameworkBase:
+
 ```xml
 <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se il criterio supporta gli account di social networking, aggiungere la nuova attestazione ai flussi per gli accessi con account di social networking modificando i profili tecnici elencati di seguito. Queste attestazioni vengono usate dagli accessi con account di social networking per raccogliere e scrivere dati dell'utente.
-
-1. Individuare il profilo tecnico **SelfAsserted-Social** e aggiungere l'attestazione di output. L'ordine delle attestazioni in **OutputClaims** controlla l'ordine in cui Azure AD B2C esegue il rendering delle attestazioni sullo schermo. Ad esempio: `<OutputClaim ClaimTypeReferenceId="city" />`.
-2. Individuare il profilo tecnico **AAD-UserWriteUsingAlternativeSecurityId** e aggiungere l'attestazione di persistenza. Ad esempio: `<PersistedClaim ClaimTypeReferenceId="city" />`.
-3. Individuare il profilo tecnico **AAD-UserReadUsingAlternativeSecurityId** e aggiungere l'attestazione di output. Ad esempio: `<OutputClaim ClaimTypeReferenceId="city" />`.
+Informazioni su come [Usare gli attributi personalizzati in un criterio di modifica del profilo personalizzato](active-directory-b2c-create-custom-attributes-profile-edit-custom.md).

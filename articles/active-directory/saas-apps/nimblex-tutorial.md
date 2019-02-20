@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Nimblex | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Nimblex | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Nimblex.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 7b5dc6d892741f63596589a48ad5d45891b14c21
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d7801b5ea73cf94439ae2974f91d2032f9bf8a3b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040406"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166743"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Esercitazione: Integrazione di Azure Active Directory con Nimblex
+# <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Esercitazione: integrazione di Azure Active Directory con Nimblex
 
 Questa esercitazione illustra come integrare Nimblex con Azure Active Directory (Azure AD).
 
@@ -148,7 +149,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     a. Nella casella di testo **Descrizione**, digitare il nome dell'istanza.
 
-    b. Nel Blocco note, aprire il certificato con codifica Base 64 scaricato dal portale di Azure, copiarne il contenuto e quindi incollarlo nella casella **Certificato**.
+    b. Nel Blocco note, aprire il certificato con codifica Base 64 scaricato dal portale di Azure, copiarne il contenuto e quindi incollarlo nella casella **Certificato** .
 
     c. Nella casella di testo **URL di destinazione Single Sign-On del provider di identità**, incollare il valore di **URL servizio Single Sign-On SAML** copiato dal portale di Azure.
 
@@ -184,14 +185,14 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="create-a-nimblex-test-user"></a>Creare un utente test di Nimblex
 
 Questa sezione descrive come creare un utente chiamato Britta Simon in Nimblex. Nimblex supporta il provisioning just-in-time, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Nimblex viene creato un nuovo utente, se non esiste già.
 
 >[!Note]
->Per creare un utente manualmente, contattare il [team del supporto clienti di Nimblex](mailto:support@ebms.com.au).
+>Per creare un utente manualmente, contattare il  [team del supporto clienti di Nimblex](mailto:support@ebms.com.au).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -228,7 +229,7 @@ In questa sezione Britta Simon viene autorizzata a usare l'accesso Single Sign-O
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Nimblex nel pannello di accesso, dovrebbe essere possibile accedere automaticamente all'applicazione Nimblex.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

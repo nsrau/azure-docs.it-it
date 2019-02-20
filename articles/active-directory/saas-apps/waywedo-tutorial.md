@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Way We Do | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Way We Do | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Way We Do.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: jeedes
-ms.openlocfilehash: bc415ec7c577e221a1ab5af585dff5b4fc9ab7dc
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5dc6d8e2cf7ac4786f30484325406a1fe696dff3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259595"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165128"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-way-we-do"></a>Esercitazione: Integrazione di Azure Active Directory con Way We Do
+# <a name="tutorial-azure-active-directory-integration-with-way-we-do"></a>Esercitazione: integrazione di Azure Active Directory con Way We Do
 
 Questa esercitazione descrive come integrare Way We Do con Azure Active Directory (Azure AD).
 
@@ -198,7 +199,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in Way We Do. Way We Do supporta il provisioning just-in-time, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Way We Do viene creato un nuovo utente, se questo non esiste già.
 
 > [!Note]
-> Per creare un utente manualmente, contattare il [team del supporto clienti di Way We Do](mailto:support@waywedo.com).
+> Per creare un utente manualmente, contattare il  [team del supporto clienti di Way We Do](mailto:support@waywedo.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -235,7 +236,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Way We Do nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Way We Do.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -12,19 +12,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/29/2018
+ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 1c4b3819494ecb4c0897edeb08e2ce45d867b626
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 68b0dba0280ce7875e797634a5dc2254cb889ad7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179073"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244982"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-directory-roles-in-pim"></a>Approvare o rifiutare le richieste per i ruoli della directory di Azure AD in PIM
 
-Con Azure AD Privileged Identity Management (PIM) è possibile configurare ruoli per richiedere l'approvazione per l'attivazione e scegliere uno o più utenti o gruppi come responsabili dell'approvazione con delega. Seguire i passaggi descritti in questo articolo per approvare o rifiutare le richieste per i ruoli della directory di Azure AD.
+Con Azure AD Privileged Identity Management (PIM) è possibile configurare ruoli per richiedere l'approvazione per l'attivazione e scegliere uno o più utenti o gruppi come responsabili dell'approvazione con delega. I responsabili approvazione delegati hanno 24 ore di tempo per approvare le richieste. Se una richiesta non viene approvata entro 24 ore, l'utente idoneo deve inviare una nuova richiesta. L'intervallo di tempo di 24 ore per l'approvazione non è configurabile.
+
+Seguire i passaggi descritti in questo articolo per approvare o rifiutare le richieste per i ruoli della directory di Azure AD.
 
 ## <a name="view-pending-requests"></a>Visualizzare le richieste in sospeso
 

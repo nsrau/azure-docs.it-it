@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con SecureW2 JoinNow Connector | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con SecureW2 JoinNow Connector | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e SecureW2 JoinNow Connector.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 283f8c935556006a21812578d0638b72adb6eed0
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5b367befb90ec28ece963d67b479749e1c8ad363
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906317"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175320"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-securew2-joinnow-connector"></a>Esercitazione: Integrazione di Azure Active Directory con SecureW2 JoinNow Connector
+# <a name="tutorial-azure-active-directory-integration-with-securew2-joinnow-connector"></a>Esercitazione: integrazione di Azure Active Directory con SecureW2 JoinNow Connector
 
 Questa esercitazione descrive come integrare SecureW2 JoinNow Connector con Azure Active Directory (Azure AD).
 
@@ -38,7 +39,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 Per configurare l'integrazione di Azure AD con SecureW2 JoinNow Connector, sono necessari gli elementi seguenti:
 
 - Sottoscrizione di Azure AD
-- Una sottoscrizione abilitata per un SecureW2 JoinNow Connector single sign-on
+- Una sottoscrizione abilitata all'accesso Single Sign-On SecureW2 JoinNow Connector
 
 > [!NOTE]
 > Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
@@ -122,7 +123,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/securejoinnow-tutorial/tutorial_general_400.png)
 
-6. Per configurare l'accesso single sign-on nel lato **SecureW2 JoinNow Connector**, è necessario inviare il file scaricato **XML Metadati** nel [team di supporto di SecureW2 JoinNow Connector](mailto:support@securew2.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+6. Per configurare l'accesso Single Sign-On nel lato **SecureW2 JoinNow Connector**, è necessario inviare il file scaricato **XML Metadati** al [team di supporto di SecureW2 JoinNow Connector](mailto:support@securew2.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -158,7 +159,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="create-a-securew2-joinnow-connector-test-user"></a>Creare un utente di test SecureW2 JoinNow Connector
 
-In questa sezione viene creato un utente chiamato Britta Simon in SecureW2 JoinNow Connector. Rivolgersi al [team di supporto clienti di SecureW2 JoinNow Connector](mailto:support@securew2.com) per aggiungere gli utenti alla piattaforma SecureW2 JoinNow Connector. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente chiamato Britta Simon in SecureW2 JoinNow Connector. Rivolgersi al  [team di supporto clienti di withSecureW2 JoinNow Connector](mailto:support@securew2.com) per aggiungere gli utenti alla piattaforma SecureW2 JoinNow Connector. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 

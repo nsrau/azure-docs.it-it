@@ -1,6 +1,6 @@
 ---
-title: Connettere Excel al database SQL | Documentazione Microsoft
-description: Informazioni su come connettere Microsoft Excel al database SQL di Azure nel cloud. Importare i dati in Excel per creare report ed esplorare i dati.
+title: Connettere Excel a un database singolo in database SQL di Azure | Microsoft Docs
+description: Informazioni su come connettere Microsoft Excel a un database singolo in database SQL di Azure. Importare i dati in Excel per creare report ed esplorare i dati.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,19 +11,21 @@ author: joseidz
 ms.author: craigg
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 552293b402c697073587e887522d2daa3e33cdb6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/12/2019
+ms.openlocfilehash: c456954c3bf68fd87e51162ea6aab1d0a54b86ad
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754582"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237013"
 ---
-# <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>Connettere Excel a un database SQL di Azure e creare un report
+# <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Connettere Excel a un database singolo in database SQL di Azure e creare un report
 
-Connettere Excel a un database SQL nel cloud, importare dati e creare tabelle e grafici in base ai valori nel database. In questa esercitazione sarà necessario configurare la connessione tra Excel e una tabella di database, salvare il file che archivia i dati e le informazioni di connessione per Excel e quindi creare un grafico pivot dai valori del database.
+Connettere Excel a un database singolo in database SQL di Azure e quindi importare dati e creare tabelle e grafici in base ai valori nel database. In questa esercitazione sarà necessario configurare la connessione tra Excel e una tabella di database, salvare il file che archivia i dati e le informazioni di connessione per Excel e quindi creare un grafico pivot dai valori del database.
 
-Per iniziare, è necessario un database SQL in Azure. Se non ne è già stato creato uno, vedere [Creare il primo database SQL di Azure](sql-database-single-database-get-started.md) per ottenere un database con dati di esempio operativo in pochi minuti. Questo articolo descrive come importare i dati di esempio in Excel, ma è anche possibile seguire la procedura con dati personalizzati.
+Prima di iniziare, è necessario avere un database singolo. Se non è stato ancora creato, vedere [Creare un database singolo](sql-database-single-database-get-started.md) e [Creare un firewall IP a livello di server](sql-database-server-level-firewall-rule.md) per avere in pochi minuti un database singolo funzionante con dati di esempio.
+
+Questo articolo descrive come importare i dati di esempio in Excel, ma è anche possibile seguire la procedura con dati personalizzati.
 
 Sarà necessaria anche una copia di Excel. In questa esercitazione viene usato [Microsoft Excel 2016](https://products.office.com/).
 

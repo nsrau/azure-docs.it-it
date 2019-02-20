@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: c20f455a0a325dadd3eeeb77dea7026de4834c56
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 4522914f249413300ffa5bb1545d840711777bff
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757356"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235915"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Aggiungere un'applicazione API Web al tenant di Azure Active Directory B2C
 
@@ -27,9 +27,9 @@ Per poter accettare e rispondere a richieste di risorse protette da parte di app
 4. Selezionare **Applicazioni** e quindi **Aggiungi**.
 5. Immettere un nome per l'applicazione. Ad esempio, *webapi1*.
 6. Per **Includi app Web/API Web** e **Consenti il flusso implicito**, selezionare **Sì**.
-7. Per **URL di risposta**, immettere un endpoint a cui Azure AD B2C deve restituire eventuali token richiesti dall'applicazione. In questa esercitazione l'esempio viene eseguito in locale ed è in ascolto su `https://localhost:44332`.
+7. Per **URL di risposta**, immettere un endpoint a cui Azure AD B2C deve restituire eventuali token richiesti dall'applicazione. In questa esercitazione, l'esempio viene eseguito in locale ed è in ascolto su `https://localhost:44332`.
 8. Per **URI ID app** immettere l'identificatore usato per l'API Web. L'URI completo dell'identificatore, incluso il dominio, viene generato automaticamente. Ad esempio: `https://contosotenant.onmicrosoft.com/api`.
-9. Fare clic su **Crea**.
+9. Fare clic su **Create**(Crea).
 10. Nella pagina delle proprietà prendere nota dell'ID applicazione, che verrà usato durante la configurazione dell'applicazione Web.
 
 ## <a name="configure-scopes"></a>Configurare gli ambiti
@@ -38,20 +38,20 @@ Gli ambiti consentono di regolamentare l'accesso alle risorse protette. Vengono 
 
 1. Selezionare **Applicazioni** e quindi *webapi1*.
 2. Selezionare **Ambiti pubblicati**.
-3. Immettere `Hello.Read` come **ambito** e `Read access to hello` come descrizione.
-4. Immettere `Hello.Write` come **ambito** e `Write access to hello` come descrizione.
-5. Fare clic su **Salva**.
+3. Immettere `Read` come **ambito** e `Read access to the application` come descrizione.
+4. Immettere `Write` come **ambito** e `Write access to the application` come descrizione.
+5. Fare clic su **Save**.
 
 Gli ambiti pubblicati possono essere usati per concedere a un'applicazione client l'autorizzazione per l'API Web.
 
 ## <a name="grant-permissions"></a>Concedere le autorizzazioni
 
-Per chiamare da un'applicazione un'API Web protetta, è necessario concedere all'applicazione le autorizzazioni per l'API. Nell'esercitazione preliminare è stata creata in Azure AD B2C un'applicazione Web denominata *webapp1*. Questa applicazione client verrà usata per chiamare l'API Web.
+Per chiamare un'API Web protetta da un'applicazione, è necessario concedere all'applicazione le autorizzazioni per l'API. Ad esempio, in [Esercitazione: Registrare un'applicazione in Azure Active Directory B2C](tutorial-register-applications.md), viene creata un'applicazione Web in Azure AD B2C denominata *webapp1*. Questa applicazione può essere usata per chiamare l'API Web.
 
 1. Selezionare **Applicazioni** e quindi l'applicazione Web.
 2. Selezionare **Accesso all'API** e quindi **Aggiungi**.
 3. Nell'elenco a discesa **Seleziona API** selezionare *webapi1*.
-4. Nell'elenco a discesa **Seleziona ambiti** selezionare gli ambiti **Hello.Read** e **Hello.Write** definiti in precedenza.
+4. Nell'elenco a discesa **Selezionare gli ambiti** selezionare gli ambiti **Lettura** e **Scrittura** definiti in precedenza.
 5. Fare clic su **OK**.
 
 L'applicazione verrà registrata per la chiamata dell'API Web protetta. Un utente esegue l'autenticazione con Azure AD B2C per usare l'applicazione. L'applicazione ottiene una concessione di autorizzazione da Azure AD B2C per l'accesso all'API Web protetta.

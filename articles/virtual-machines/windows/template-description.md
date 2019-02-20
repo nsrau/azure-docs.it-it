@@ -15,18 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: e32e2833edc7027a984bb27b34608e4b1b898113
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 6821c2000efa4a03f803871d9b33272175f1265c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767080"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113244"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Macchine virtuali in un modello di Azure Resource Manager
 
 Questo articolo descrive gli aspetti di un modello di Azure Resource Manager che si applicano alle macchine virtuali. L'articolo descrive un modello completo per la creazione di una macchina virtuale; a tale scopo sono necessarie definizioni di risorse per gli account di archiviazione, le interfacce di rete, gli indirizzi IP pubblici e le reti virtuali. Per altre informazioni su come queste risorse possono essere definite insieme, vedere [Procedura dettagliata per un modello di Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
 Sono disponibili numerosi [modelli nella raccolta](https://azure.microsoft.com/documentation/templates/?term=VM) che includono la risorsa di VM. Di seguito sono descritti solo alcuni elementi che possono essere inclusi in un modello.
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 Questo esempio mostra una sezione di risorse tipica di un modello per la creazione di un numero specificato di VM:
 
@@ -163,8 +165,9 @@ La versione dell'API specificata nel modello influisce sulle proprietà che è p
 Per ottenere le versioni dell'API più aggiornate:
 
 - API REST: [Elencare tutti i provider di risorse](https://docs.microsoft.com/rest/api/resources/providers)
-- PowerShell: [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
+- PowerShell - [Get-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider)
 - Interfaccia della riga di comando di Azure: [az provider show](https://docs.microsoft.com/cli/azure/provider)
+
 
 ## <a name="parameters-and-variables"></a>Parametri e variabili
 
@@ -442,7 +445,7 @@ Lo script start.ps1 può eseguire molte attività di configurazione. Ad esempio,
 
 ![Recuperare lo stato dell'estensione](./media/template-description/virtual-machines-show-extensions.png)
 
-È possibile anche ottenere informazioni sull'estensione mediante il comando **Get-AzureRmVMExtension** di PowerShell, il comando **vm extension get** dell'interfaccia della riga di comando di Azure oppure l'API REST **Get extension information**.
+È possibile anche ottenere informazioni sull'estensione mediante il comando **Get-AzVMExtension** di PowerShell, il comando **vm extension get** dell'interfaccia della riga di comando di Azure oppure l'API REST **Get extension information**.
 
 ## <a name="deployments"></a>Deployments
 

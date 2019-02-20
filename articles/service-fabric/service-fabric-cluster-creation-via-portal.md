@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2018
 ms.author: aljo
-ms.openlocfilehash: f0c2108ee75f843e8285c5e2c5c55834643dc7da
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 71448125d7308ca28e7241fd4019aadba430214e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620541"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106138"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creare un cluster di Service Fabric in Azure tramite il portale di Azure
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Se è la prima volta che si sta creando un cluster dell'infrastruttura di serviz
 #### <a name="cluster-and-server-certificate-required"></a>Cluster e certificato del server (obbligatorio)
 Questo certificato è richiesto per proteggere un cluster e impedirne accessi non autorizzati. Il certificato fornisce protezione del cluster in due modi:
 
-* **Autenticazione del cluster:** autentica la comunicazione da nodo a nodo per la federazione di cluster. Solo i nodi che possono dimostrare la propria identità con il certificato possono essere aggiunti al cluster.
+* **Autenticazione del cluster:** Autentica la comunicazione da nodo a nodo per la federazione di cluster. Solo i nodi che possono dimostrare la propria identità con il certificato possono essere aggiunti al cluster.
 * **Autenticazione del server:** autentica gli endpoint di gestione del cluster in un client di gestione, in modo che il client di gestione sappia con certezza di comunicare con il cluster reale. Questo certificato fornisce anche SSL per l'API di gestione HTTPS e per Service Fabric Explorer tramite HTTPS.
 
 A tale scopo, il certificato deve soddisfare i requisiti seguenti:
@@ -129,7 +129,7 @@ Configurare i nodi del cluster. poiché definiscono le dimensioni delle VM, il n
 > Microsoft supporta solo i cluster che eseguono versioni supportate di Service Fabric. Selezionando la modalità **Manual** (Manuali), l'utente si assume la responsabilità di aggiornare il cluster a una versione supportata.
 > 
 
-### <a name="3-security"></a>3. Sicurezza
+### <a name="3-security"></a>3. Security
 ![Schermata delle configurazioni di sicurezza nel portale di Azure.][BasicSecurityConfigs]
 
 Per facilitare l'impostazione di un cluster di test sicuro per l'utente, Microsoft ha fornito l'opzione **Basic**. Se si ha già un certificato caricato nell'[insieme di credenziali delle chiavi](/azure/key-vault/) e tale insieme è abilitato per la distribuzione, usare l'opzione **Personalizzata**.
@@ -216,7 +216,7 @@ A questo punto, è stato creato un cluster protetto tramite i certificati per l'
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [service-fabric-rp-helpers]: https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers
 [azure-portal]: https://portal.azure.com/
-[key-vault-get-started]: ../key-vault/key-vault-get-started.md
+[key-vault-get-started]: ../key-vault/key-vault-overview.md
 [create-cluster-arm]: service-fabric-cluster-creation-via-arm.md
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [service-fabric-cluster-security-roles]: service-fabric-cluster-security-roles.md

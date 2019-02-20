@@ -14,18 +14,21 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5ab5c769280bdd91a15e6107df8c9c6b7814571c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 7f0af2c64d04d83cc3eb4043007979c17c75e051
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599911"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55877287"
 ---
+> [!NOTE]
+> Ogni ambiente del servizio App ha un IP virtuale (VIP), che può essere usato per contattare l'ambiente del servizio app.
+>
 # <a name="create-an-external-app-service-environment"></a>Creare un ambiente del servizio app esterno #
 
-Ambiente del servizio app di Azure è una distribuzione di Servizio app di Azure in una subnet nella rete virtuale di Azure. È possibile distribuire un ambiente del servizio app in due modi:
+L'ambiente del servizio app di Azure è una distribuzione di Servizio app di Azure in una subnet in una rete virtuale di Azure. È possibile distribuire un ambiente del servizio app in due modi:
 
-- Con un indirizzo VIP in un indirizzo IP esterno, spesso denominato ambiente del servizio app esterno.
+- Con un indirizzo VIP su un indirizzo IP esterno, spesso denominato ambiente del servizio app esterno.
 - Con l'indirizzo VIP in un indirizzo IP interno, spesso denominato ambiente del servizio app con bilanciamento del carico interno perché l'endpoint interno è un servizio di bilanciamento del carico interno.
 
 In questo articolo viene illustrato come creare un ambiente del servizio app esterno. Per una panoramica dell'ambiente del servizio app, vedere [Introduzione ad Ambiente del servizio app][Intro]. Per informazioni su come creare un ambiente del servizio app con bilanciamento del carico interno, vedere [Creare e usare un ambiente del servizio app con bilanciamento del carico interno][MakeILBASE].

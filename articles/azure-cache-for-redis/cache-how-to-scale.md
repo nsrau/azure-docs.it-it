@@ -1,25 +1,25 @@
 ---
 title: Come ridimensionare Cache Redis di Azure | Microsoft Docs
 description: Informazioni su come ridimensionare le istanze di Cache Redis di Azure
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: wesmc
-ms.openlocfilehash: 009fbd3b86518758e9654fab547bab99bec369de
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.author: yegu
+ms.openlocfilehash: 5f448c1c66520a5941ad867eaf3c89c22693cc45
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105203"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235573"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Come ridimensionare Cache Redis di Azure
 Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache. Se i requisiti dell'applicazione cambiano dopo la creazione di una cache, è possibile aumentare o ridurre le dimensioni e il piano tariffario della cache. Questo articolo illustra come ridimensionare la cache usando il portale di Azure e strumenti come Azure PowerShell e l'interfaccia della riga di comando di Azure.
@@ -69,9 +69,12 @@ Oltre a usare il portale di Azure, per ridimensionare le istanze di Cache Redis 
 * [Ridimensionare la cache tramite le librerie di gestione di Microsoft Azure](#scale-using-maml)
 
 ### <a name="scale-using-powershell"></a>Ridimensionare la cache tramite PowerShell
-È possibile ridimensionare le istanze di Cache Redis di Azure con PowerShell usando il cmdlet [Set-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/set-azurermrediscache?view=azurermps-6.6.0) quando le proprietà `Size`, `Sku` o `ShardCount` vengono modificate. L'esempio seguente illustra come ridimensionare una cache denominata `myCache` in una cache di 2,5 GB. 
 
-    Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+È possibile ridimensionare le istanze di Cache Redis di Azure con PowerShell usando il cmdlet [Set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) quando le proprietà `Size`, `Sku` o `ShardCount` vengono modificate. L'esempio seguente illustra come ridimensionare una cache denominata `myCache` in una cache di 2,5 GB. 
+
+    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
 Per altre informazioni sul ridimensionamento con PowerShell, vedere le istruzioni per [ridimensionare una cache Redis di Azure mediante PowerShell](cache-howto-manage-redis-cache-powershell.md#scale).
 

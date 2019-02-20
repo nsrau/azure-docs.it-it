@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Phraseanet | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Phraseanet | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Phraseanet.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2018
 ms.author: jeedes
-ms.openlocfilehash: cfeadbf1d46d9e36f8619cafe29d9dd69aad6eec
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 49a311b74fbc48f414f530e962af39d17a346353
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49118186"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175541"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-phraseanet"></a>Esercitazione: Integrazione di Azure Active Directory con Phraseanet
+# <a name="tutorial-azure-active-directory-integration-with-phraseanet"></a>Esercitazione: integrazione di Azure Active Directory con Phraseanet
 
 Questa esercitazione descrive come integrare Phraseanet con Azure Active Directory (Azure AD).
 
@@ -99,7 +100,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![image](./media/phraseanet-tutorial/b1_b2_select_sso.png)
 
-2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** fare clic su **Seleziona** per la modalità **SAML** per abilitare il Single Sign-On.
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** fare clic su **Seleziona** per la modalità **SAML** per abilitare l'accesso Single Sign-On.
 
     ![image](./media/phraseanet-tutorial/b1_b2_saml_sso.png)
 
@@ -109,14 +110,14 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-    Nella casella di testo **URL di accesso** digitare l'URL come: `https://<SUBDOMAIN>.alchemyasp.com`
+    Nella casella di testo **URL di accesso** digitare un URL, ad esempio: `https://<SUBDOMAIN>.alchemyasp.com`
 
     ![image](./media/phraseanet-tutorial/tutorial_phraseanet_url.png)
 
     > [!NOTE] 
     > Poiché il valore dell'URL di accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Contattare il [team di supporto di Phraseanet](mailto:support@alchemy.fr) per ottenere il valore.
  
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML dei metadati federazione** e salvarlo nel computer in uso.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML** fare clic su **Scarica** per scaricare il file **XML dei metadati federazione** e salvarlo nel computer in uso.
 
     ![image](./media/phraseanet-tutorial/tutorial_phraseanet_certificate.png) 
 
@@ -126,7 +127,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel portale di Azure, nel riquadro sinistro, selezionare **Azure Active Directory**, selezionare **Utenti** e quindi selezionare **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![image](./media/phraseanet-tutorial/d_users_and_groups.png)
 
@@ -149,7 +150,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="create-a-phraseanet-test-user"></a>Creare un utente di test Phraseanet
 
-In questa sezione viene creato un utente chiamato Britta Simon in Phraseanet. Rivolgersi al [team di supporto di Phraseanet](mailto:support@alchemy.fr) per aggiungere gli utenti nella piattaforma Phraseanet. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente chiamato Britta Simon in Phraseanet. Rivolgersi al  [team di supporto di Phraseanet](mailto:support@alchemy.fr) per aggiungere utenti alla piattaforma Phraseanet. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -180,7 +181,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Phraseanet nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Phraseanet.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

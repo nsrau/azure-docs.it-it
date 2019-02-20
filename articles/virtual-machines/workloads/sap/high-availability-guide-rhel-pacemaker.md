@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: 6001681376011d03f7417d2099c0765e1a6cb5ae
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 3c4f1be97308062adc28a0b49ee36c3492906d63
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750119"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990209"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configurazione di Pacemaker in Red Hat Enterprise Linux in Azure
 
@@ -216,7 +216,7 @@ Per il file di input usare il contenuto seguente. Tale contenuto deve essere ada
 }
 ```
 
-### <a name="1-assign-the-custom-role-to-the-service-principal"></a>**[1]** Assegnare il ruolo personalizzato all'entità servizio
+### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** Assegnare il ruolo personalizzato all'entità servizio
 
 Assegnare all'entità servizio il ruolo personalizzato "Linux Fence Agent Role" creato nel capitolo precedente. Non usare più il ruolo Owner.
 

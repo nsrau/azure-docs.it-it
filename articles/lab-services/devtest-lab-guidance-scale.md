@@ -10,14 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 02/11/2019
 ms.author: spelluru
-ms.openlocfilehash: ed6c21762fed331e2f11378ec9b6d91cba9bec11
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.reviewer: christianreddington,anthdela,juselph
+ms.openlocfilehash: 781a897c99a28fbd1b695876f477b140521068e3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250866"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244880"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Aumentare l'infrastruttura di Azure DevTestLabs
 Prima di implementare DevTest Labs su scala aziendale, esistono diversi punti fondamentali da decidere. La comprensione di questi punti a livello generale aiuta un'organizzazione a progettare le decisioni per il futuro. Questi punti non devono tuttavia trattenere un'organizzazione dall'avviare un modello di verifica. Di seguito sono elencate le tre aree principali che interessano la pianificazione iniziale della scalabilità verticale:

@@ -4,17 +4,19 @@ description: Informazioni sui tipi di risorse di Azure che supportano i tag. Inc
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 1/24/2019
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: d9892b158eae1a83ab1f8eed6c14224e1d4bca15
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: add222c024b5adde1ce81d6ed7f725d0a691c232
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509915"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246052"
 ---
 # <a name="tag-support-for-azure-resources"></a>Supporto dei tag per le risorse di Azure
 Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-using-tags.md).
+
+Per ottenere gli stessi dati come file con valori delimitati da virgole, scaricare [tag-support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
 | Tipo di risorsa | Tag supportati |
@@ -1123,13 +1125,14 @@ Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-usi
 | servers/communicationLinks | No  | 
 | servers/databases | Sì (vedere la nota seguente) | 
 | servers/encryptionProtector | No  | 
+| servers/firewallRules | No  | 
 | servers/keys | No  | 
 | servers/restorableDroppedDatabases | No  | 
 | servers/serviceobjectives | No  | 
 | servers/tdeCertificates | No  | 
 
 > [!NOTE]
-> Il database master non supporta i tag, ma altri database supportano i tag.
+> Il database master non supporta i tag, ma altri database, inclusi i database del data warehouse, supportano i tag.
 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine

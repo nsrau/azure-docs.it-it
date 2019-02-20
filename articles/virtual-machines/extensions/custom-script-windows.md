@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2018
 ms.author: roiyz
-ms.openlocfilehash: 1370f541f8913d86db948a3165d6660a8cd66528
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f29c995c4fb4a1e87c95295779ff83dd133ac61c
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963505"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984393"
 ---
 # <a name="custom-script-extension-for-windows"></a>Estensione Script personalizzato per Windows
 
@@ -31,7 +31,7 @@ Questo documento descrive come usare l'estensione di script personalizzata con i
 ## <a name="prerequisites"></a>Prerequisiti
 
 > [!NOTE]  
-> Non usare l'estensione script personalizzata per eseguire Update-AzureRmVM con la stessa macchina virtuale del relativo parametro, poiché attenderà se stessa.  
+> Non usare l'estensione script personalizzata per eseguire Update-AzVM con la stessa macchina virtuale del relativo parametro, poiché attenderà se stessa.  
 >   
 > 
 
@@ -145,10 +145,10 @@ Le estensioni macchina virtuale di Azure possono essere distribuite con i modell
 
 ## <a name="powershell-deployment"></a>Distribuzione PowerShell
 
-Il comando `Set-AzureRmVMCustomScriptExtension` consente di aggiungere l'estensione di script personalizzata a una macchina virtuale esistente. Per altre informazioni, vedere [Set-AzureRmVMCustomScriptExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension).
+Il comando `Set-AzVMCustomScriptExtension` consente di aggiungere l'estensione di script personalizzata a una macchina virtuale esistente. Per altre informazioni, vedere [Set-AzVMCustomScriptExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmcustomscriptextension).
 
 ```powershell
-Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
+Set-AzVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -VMName myVM `
     -Location myLocation `
     -FileUri myURL `
@@ -173,7 +173,7 @@ $storagekey = "1234ABCD"
 $ProtectedSettings = @{"storageAccountName" = $storageaccname; "storageAccountKey" = $storagekey; "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File 1_Add_Tools.ps1"};
 
 #run command
-Set-AzureRmVMExtension -ResourceGroupName myRG `
+Set-AzVMExtension -ResourceGroupName myRG `
     -Location myLocation ` 
     -VMName myVM ` 
     -Name "buildserver1" ` 
@@ -190,7 +190,7 @@ In questo esempio è possibile usare un server SMB locale come percorso dello sc
 ```powershell
 $ProtectedSettings = @{"commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File \\filesvr\build\serverUpdate1.ps1"};
  
-Set-AzureRmVMExtension -ResourceGroupName myRG 
+Set-AzVMExtension -ResourceGroupName myRG 
     -Location myLocation ` 
     -VMName myVM ` 
     -Name "serverUpdate" 
@@ -213,7 +213,7 @@ Si può eseguire più volte l'estensione script personalizzata solo nelle condiz
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite il modulo Azure PowerShell. Per visualizzare lo stato di distribuzione delle estensioni per una determinata macchina virtuale, eseguire il comando seguente:
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
 L'output dell'esecuzione dell'estensione viene registrato nei file presenti nella directory seguente nella macchina virtuale di destinazione.

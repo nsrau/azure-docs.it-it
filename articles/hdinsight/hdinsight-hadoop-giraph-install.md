@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ec80be0ece3596eab418ac39507954142944e34a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 4bcd7bcef0969cec82d42ead6307e72a3abea6e1
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260491"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978869"
 ---
 # <a name="install-and-use-apache-giraph-on-windows-based-hdinsight-clusters"></a>Installare e usare Apache Giraph nei cluster HDInsight basati su Windows
 
@@ -46,17 +46,12 @@ Informazioni su come personalizzare i cluster HDInsight basati su Windows con Ap
 
     ![Usare l'azione script per personalizzare un cluster](./media/hdinsight-hadoop-giraph-install/hdi-script-action-giraph.png "Usare l'azione script per personalizzare un cluster")
 
-    <table border='1'>
-        <tr><th>Proprietà</th><th>Valore</th></tr>
-        <tr><td>NOME</td>
-            <td>Specificare un nome per l'azione script. Ad esempio, <b>Installare Giraph</b>.</td></tr>
-        <tr><td>URI script</td>
-            <td>Specificare l'URI (Uniform Resource Identifier) dello script da richiamare per personalizzare il cluster. Ad esempio, <i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>
-        <tr><td>Tipo di nodo</td>
-            <td>Specificare i nodi in cui viene eseguito lo script di personalizzazione. È possibile scegliere <b>Tutti i nodi</b>, <b>Solo nodi head</b> o <b>Solo nodi di lavoro</b>.
-        <tr><td>Parametri</td>
-            <td>Specificare i parametri, se richiesti dallo script. Lo script per installare Giraph non richiede alcun parametro, di conseguenza è possibile lasciare vuoto questo campo.</td></tr>
-    </table>
+    |Proprietà|Valore|  
+    |---|---|  
+    |NOME|Specificare un nome per l'azione script. Ad esempio, **Installare Giraph**|
+    |URI script|Specificare l'URI (Uniform Resource Identifier) dello script da richiamare per personalizzare il cluster. Ad esempio, *https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1*|
+    |Tipo di nodo|Specificare i nodi in cui viene eseguito lo script di personalizzazione. È possibile scegliere **Tutti i nodi**, **Solo nodi head** o **Solo nodi di lavoro**.
+    |Parametri|Specificare i parametri, se richiesti dallo script. Lo script per installare Giraph non richiede alcun parametro, di conseguenza è possibile lasciare vuoto questo campo.|  
 
     È possibile aggiungere altre azioni di script per installare più componenti nel cluster. Dopo aver aggiunto gli script, fare clic sul segno di spunta per avviare la creazione del cluster.
 
@@ -78,6 +73,7 @@ L'esempio SimpleShortestPathsComputation viene usato per illustrare l'implementa
     I dati disegnati usando il valore (o peso) come distanza tra gli oggetti sono simili a quelli raffigurati di seguito:
 
     ![tiny_graph.txt drawn as circles with lines of varying distance between](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
+
 2. Eseguire l'esempio SimpleShortestPathsComputation. Usare i cmdlet di Azure PowerShell seguenti per eseguire l'esempio specificando come input il file tiny_graph.txt.
 
     > [!IMPORTANT]  

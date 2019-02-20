@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con ZephyrSSO | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con ZephyrSSO | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e ZephyrSSO.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 47bbdc1c50f0d96f1f26d5595a9e54814fa85188
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3be3008367f5c405f65dfd37b4384726ab2456c5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43310599"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209524"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zephyrsso"></a>Esercitazione: integrazione di Azure Active Directory con ZephyrSSO
 
@@ -160,7 +161,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
   
 ### <a name="create-a-zephyrsso-test-user"></a>Creare un utente di test ZephyrSSO
 
-In questa sezione viene creato un utente di nome Britta Simon in ZephyrSSO. Collaborare con il [team di supporto di ZephyrSSO](https://support.getzephyr.com) per aggiungere gli utenti alla piattaforma ZephyrSSO. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in ZephyrSSO. Collaborare con il  [team di supporto di ZephyrSSO](https://support.getzephyr.com)  per aggiungere gli utenti alla piattaforma ZephyrSSO. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -197,7 +198,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro ZephyrSSO nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione ZephyrSSO.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

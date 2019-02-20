@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con My Award Points Top Sub/Top Team | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con My Award Points Top Sub/Top Team | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e My Award Points Top Sub/Top Team.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 479fcc0408021ff63dbcabe3734f60a4ad6d542f
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 19ed1c12768eed0265f65388984a5859b8f0630b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247755"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210731"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Esercitazione: Integrazione di Azure Active Directory con My Award Points Top Sub/Top Team
+# <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Esercitazione: integrazione di Azure Active Directory con My Award Points Top Sub/Top Team
 
 Questa esercitazione descrive come integrare My Award Points Top Sub/Top Team con Azure Active Directory (Azure AD).
 
@@ -161,7 +162,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ### <a name="create-a-my-award-points-top-subtop-team-test-user"></a>Creare un utente test di My Award Points Top Sub/Top Team
 
-In questa sezione viene creato un utente chiamato Britta Simon in My Award Points Top Sub/Top Team. Collaborare con il [team di supporto di My Award Points Top Sub/Top Team](mailto:myawardpoints@biworldwide.com) per aggiungere gli utenti alla piattaforma My Award Points Top Sub/Top Team. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente chiamato Britta Simon in My Award Points Top Sub/Top Team. Collaborare con il  [team di supporto di My Award Points Top Sub/Top Team](mailto:myawardpoints@biworldwide.com)  per aggiungere gli utenti alla piattaforma My Award Points Top Sub/Top Team. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -198,7 +199,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro My Award Points Top Sub/Top Team nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione My Award Points Top Sub/Top Team.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

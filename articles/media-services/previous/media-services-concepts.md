@@ -4,24 +4,24 @@ description: Questo argomento fornisce una panoramica dei concetti relativi ai S
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: dcefc8bc-e2ea-4b38-a643-9010f4436fb5
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/07/2017
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: f9d51869b9a6ba63c73637c50f5a19e864bc23e4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 413e005762ab557e0605f9b4e79a6fe5b45448b7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942303"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993912"
 ---
-# <a name="azure-media-services-concepts"></a>Concetti relativi ai Servizi multimediali di Azure
+# <a name="azure-media-services-concepts"></a>Concetti relativi ai Servizi multimediali di Azure 
+
 Questo argomento fornisce una panoramica dei concetti più importanti su Servizi multimediali.
 
 ## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>Asset e archiviazione
@@ -108,8 +108,8 @@ Per informazioni sui codificatori supportati, vedere [Codificatori](media-servic
 ## <a name="live-streaming"></a>Streaming live
 In Servizi multimediali di Azure un canale rappresenta una pipeline per l'elaborazione di contenuto in streaming live. Un canale riceve i flussi di input live in uno dei due modi seguenti:
 
-* Un codificatore live locale invia al canale un flusso RTMP o Smooth Streaming (MP4 frammentato) a più velocità in bit. È possibile usare i codificatori live seguenti che generano output in formato Smooth Streaming a bitrate multipli: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco ed Elemental. I codificatori live seguenti generano output in formato RTMP: Adobe Flash Live Encoder, Telestream Wirecast, Teradek, Haivision e codificatori Tricaster. I flussi inseriti attraversano i canali senza ulteriori operazioni di transcodifica e codifica. Quando richiesto, Servizi multimediali invia il flusso ai clienti.
-* Un flusso a bitrate singolo (in uno dei formati seguenti: RTMP o Smooth Streaming (MP4 frammentato)) viene inviato al canale abilitato per l'esecuzione della codifica live con Servizi multimediali. Il canale esegue quindi la codifica live del flusso in ingresso a velocità in bit singola in un flusso video a più velocità in bit (adattivo). Quando richiesto, Servizi multimediali invia il flusso ai clienti.
+* Un codificatore live locale invia al canale un flusso RTMP o Smooth Streaming (MP4 frammentato) a più velocità in bit. È possibile usare i codificatori live seguenti che generano output in formato Smooth Streaming a bitrate multipli: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco ed Elemental. I codificatori live seguenti generano output in formato RTMP: Adobe Flash Live Encoder, Telestream Wirecast, Teradek, Haivision e Tricaster. I flussi inseriti attraversano i canali senza ulteriori operazioni di transcodifica e codifica. Quando richiesto, Servizi multimediali invia il flusso ai clienti.
+* Un flusso a bitrate singolo (in uno dei formati seguenti: RTMP o Smooth Streaming - MP4 frammentato) viene inviato al canale abilitato per l'esecuzione della codifica live con Servizi multimediali. Il canale esegue quindi la codifica live del flusso in ingresso a velocità in bit singola in un flusso video a più velocità in bit (adattivo). Quando richiesto, Servizi multimediali invia il flusso ai clienti.
 
 ### <a name="channel"></a>Canale
 In Servizi multimediali le entità [Channel](https://docs.microsoft.com/rest/api/media/operations/channel)sono responsabili dell'elaborazione dei contenuti in streaming live. Un'entità Channel, o canale, fornisce un endpoint di input (URL di inserimento) che può essere a sua volta fornito al transcodificatore live. Un'entità Channel riceve flussi di input live dal trascodificatore live e li rende disponibili per lo streaming mediante uno o più StreamingEndpoints. I canali forniscono anche un endpoint di anteprima(URL di anteprima) che consente di visualizzare in anteprima e convalidare il flusso prima dell'ulteriore elaborazione e del recapito.
@@ -147,7 +147,7 @@ Se si vuole trasmettere l'asset crittografato di archiviazione, è necessario co
 Quando un flusso viene richiesto da un lettore, Servizi multimediali usa la chiave specificata per crittografare dinamicamente i contenuti mediante la crittografia envelope (con AES) o la crittografia common (con PlayReady o Widevine). Per decrittografare il flusso, il lettore richiederà la chiave dal servizio di distribuzione delle chiavi. Per decidere se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione specificati.
 
 ### <a name="token-restriction"></a>Restrizione Token
-I criteri di autorizzazione delle chiavi simmetriche possono avere una o più restrizioni di tipo Open, Token o IP. I criteri con restrizione Token devono essere accompagnati da un token rilasciato da un servizio STS (Secure Token Service, servizio token di sicurezza). Servizi multimediali supporta i token nei formati Simple Web Tokens (SWT) e JSON Web Token (JWT). Servizi multimediali non fornisce servizi token di sicurezza. Per il rilascio di token è possibile creare un servizio token di sicurezza personalizzato oppure usare il Servizio di controllo di accesso di Microsoft Azure. Il servizio token di sicurezza deve essere configurato in modo da creare un token firmato con la chiave specificata e rilasciare le attestazioni specificate nella configurazione della restrizione token. Il servizio di distribuzione di chiavi di Servizi multimediali restituirà al client la chiave o la licenza richiesta se il token è valido e le attestazioni del token corrispondono a quelle configurate per la chiave o la licenza.
+I criteri di autorizzazione delle chiavi simmetriche possono avere una o più restrizioni di tipo Open, Token o IP. I criteri con restrizione Token devono essere accompagnati da un token rilasciato da un servizio STS (Secure Token Service, servizio token di sicurezza). Servizi multimediali supporta i token nei formati Simple Web Tokens (SWT) e JSON Web Token (JWT). Servizi multimediali non fornisce servizi token di sicurezza. È possibile creare un servizio token di sicurezza personalizzato. Il servizio token di sicurezza deve essere configurato in modo da creare un token firmato con la chiave specificata e rilasciare le attestazioni specificate nella configurazione della restrizione token. Il servizio di distribuzione di chiavi di Servizi multimediali restituirà al client la chiave o la licenza richiesta se il token è valido e le attestazioni del token corrispondono a quelle configurate per la chiave o la licenza.
 
 Quando si configurano i criteri di restrizione Token, è necessario specificare i parametri primary verification key, issuer e audience. Il parametro primary verification key include la chiave usata per firmare il token. Il parametro issuer è il servizio token di sicurezza che emette il token. Il parametro audience (talvolta denominato scope) descrive l'ambito del token o la risorsa a cui il token autorizza l'accesso. Il servizio di distribuzione delle chiavi di Servizi multimediali verifica che i valori nel token corrispondano ai valori nel modello.
 

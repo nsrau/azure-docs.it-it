@@ -3,7 +3,7 @@ title: Panoramica di DSC (Desired State Configuration) per Azure
 description: Informazioni sull'uso del gestore dell'estensione di Microsoft Azure per PowerShell DSC (Desired State Configuration). L'articolo include prerequisiti, architettura e cmdlet.
 services: virtual-machines-windows
 documentationcenter: ''
-author: DCtheGeek
+author: bobbytreed
 manager: carmonm
 editor: ''
 tags: azure-resource-manager
@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
-ms.author: dacoulte
-ms.openlocfilehash: 60560a4a656d0ad5df15208261ab8462f4271ec5
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: robreed
+ms.openlocfilehash: e5e134fa7dd08bad4220866dd4f5bd9b788e624e
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012445"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980602"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure
 
@@ -33,7 +33,7 @@ Il caso d'uso principale per l'estensione DSC (Desired State Configuration) di A
 
 Questo articolo fornisce informazioni relative a entrambi gli scenari: uso dell'estensione DSC per l'onboarding in Automazione e uso dell'estensione DSC come strumento per l'assegnazione di configurazioni a VM tramite Azure SDK.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - **Computer locale**: per interagire con l'estensione della macchina virtuale di Azure, è necessario usare il portale di Azure o Azure PowerShell SDK.
 - **Agente guest**: la macchina virtuale di Azure configurata tramite l'estensione DSC deve essere un sistema operativo che supporta Windows Management Framework (WMF) 4.0 o versione successiva. Per l'elenco completo delle versioni dei sistemi operativi supportati, vedere la [cronologia delle versioni dell'estensione DSC](/powershell/dsc/azuredscexthistory).
@@ -46,7 +46,7 @@ Questa guida presuppone che si abbia familiarità con i concetti seguenti:
 - **Nodo**: destinazione di una configurazione DSC. In questo documento, *nodo* fa sempre riferimento a una VM di Azure.
 - **Dati di configurazione**: file con estensione psd1 con i dati ambientali di una configurazione.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 L'estensione DSC di Azure usa il framework dell'agente VM di Azure per recapitare, applicare e generare report sulle configurazioni DSC in esecuzione nelle VM di Azure. L'estensione DSC accetta un documento di configurazione e un set di parametri. Se non viene fornito alcun file, uno [script di configurazione predefinito](#default-configuration-script) viene incorporato con l'estensione. Lo script di configurazione predefinito viene usato solo per l'impostazione dei metadati in [Gestione configurazione locale](/powershell/dsc/metaconfig).
 
@@ -70,17 +70,17 @@ Nella maggior parte degli scenari l'estensione DSC viene usata per lo più trami
 
 I cmdlet PowerShell che vengono usati per la gestione dell'estensione DSC sono la scelta ottimale per gli scenari di risoluzione interattiva dei problemi e raccolta di informazioni. È possibile usare i cmdlet per creare pacchetti, pubblicare e monitorare le distribuzioni dell'estensione DSC. I cmdlet per l'estensione DSC non sono ancora aggiornati per funzionare con lo [script di configurazione predefinito](#default-configuration-script).
 
-Il cmdlet **Publish-AzureRmVMDscConfiguration** riceve un file di configurazione, lo analizza per cercare risorse DSC dipendenti e quindi crea un file con estensione zip. Il file ZIP contiene la configurazione e le risorse DSC necessarie per applicare la configurazione. Il cmdlet può anche creare il pacchetto in locale usando il parametro *-OutputArchivePath*. In alternativa, il cmdlet pubblica il file ZIP nell'archiviazione BLOB e quindi lo protegge con un token di firma di accesso condiviso.
+Il cmdlet **Publish-AzVMDscConfiguration** riceve un file di configurazione, lo analizza per cercare risorse DSC dipendenti e quindi crea un file con estensione zip. Il file ZIP contiene la configurazione e le risorse DSC necessarie per applicare la configurazione. Il cmdlet può anche creare il pacchetto in locale usando il parametro *-OutputArchivePath*. In alternativa, il cmdlet pubblica il file ZIP nell'archiviazione BLOB e quindi lo protegge con un token di firma di accesso condiviso.
 
 Lo script di configurazione con estensione ps1 creato dal cmdlet è nel file ZIP nella radice della cartella di archiviazione. La cartella del modulo è posizionata nella cartella di archiviazione nelle risorse.
 
-Il cmdlet **Set-AzureRmVMDscExtension** inserisce le impostazioni necessarie per l'estensione DSC di PowerShell in un oggetto di configurazione di una macchina virtuale.
+Il cmdlet **Set-AzVMDscExtension** inserisce le impostazioni necessarie per l'estensione DSC di PowerShell in un oggetto di configurazione di una macchina virtuale.
 
-Il cmdlet **Get-AzureRmVMDscExtension** recupera lo stato dell'estensione DSC di una macchina virtuale specifica.
+Il cmdlet **Get-AzVMDscExtension** recupera lo stato dell'estensione DSC di una macchina virtuale specifica.
 
-Il cmdlet **Get-AzureRmVMDscExtensionStatus** recupera lo stato della configurazione DSC applicata dal gestore dell'estensione DSC. Questa azione può essere eseguita su una singola VM o su un gruppo di VM.
+Il cmdlet **Get-AzVMDscExtensionStatus** recupera lo stato della configurazione DSC applicata dal gestore dell'estensione DSC. Questa azione può essere eseguita su una singola VM o su un gruppo di VM.
 
-Il cmdlet **Remove-AzureRmVMDscExtension** rimuove il gestore dell'estensione da una macchina virtuale specifica. Questo cmdlet *non* rimuove la configurazione, non disinstalla WMF e non modifica le impostazioni applicate nella VM. Rimuove soltanto il gestore dell'estensione. 
+Il cmdlet **Remove-AzVMDscExtension** rimuove il gestore dell'estensione da una macchina virtuale specifica. Questo cmdlet *non* rimuove la configurazione, non disinstalla WMF e non modifica le impostazioni applicate nella VM. Rimuove soltanto il gestore dell'estensione. 
 
 Informazioni importanti sui cmdlet dell'estensione DSC di Resource Manager:
 
@@ -117,9 +117,9 @@ $location = 'westus'
 $vmName = 'myVM'
 $storageName = 'demostorage'
 #Publish the configuration script to user storage
-Publish-AzureRmVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
+Publish-AzVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
 #Set the VM to run the DSC configuration
-Set-AzureRmVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName 'iisInstall.ps1.zip' -AutoUpdate $true -ConfigurationName 'IISInstall'
+Set-AzVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName 'iisInstall.ps1.zip' -AutoUpdate $true -ConfigurationName 'IISInstall'
 ```
 
 ## <a name="azure-portal-functionality"></a>Funzionalità del portale di Azure
@@ -135,13 +135,13 @@ Il portale consente di raccogliere l'input seguente:
 
 - **Configuration Modules or Script** (Moduli o script di configurazione): questo campo è obbligatorio. Il modulo non è stato aggiornato per lo [script di configurazione predefinito](#default-configuration-script). I moduli e gli script di configurazione richiedono un file con estensione ps1 contenente uno script di configurazione oppure un file ZIP con uno script di configurazione con estensione ps1 nella directory radice. Se si usa un file ZIP, tutte le risorse dipendenti devono essere incluse nelle cartelle del modulo all'interno del file ZIP. È possibile creare il file con estensione zip con il cmdlet **Publish-AzureVMDscConfiguration -OutputArchivePath** incluso in Azure PowerShell SDK. Il file ZIP viene caricato nell'archiviazione BLOB dell'utente e protetto da un token di firma di accesso condiviso.
 
-- **Module-Qualified Name of Configuration** (Nome della configurazione qualificato dal modulo): è possibile includere più funzioni di configurazione in un file con estensione ps1. Immettere il nome dello script di configurazione con estensione ps1 seguito da \\ e dal nome della funzione di configurazione. Ad esempio, se lo script con estensione ps1 ha il nome configuration.ps1 e la configurazione è **IisInstall**, immettere **configuration.ps1\IisInstall**.
+- **Module-qualified Name of Configuration** (Nome della configurazione qualificato dal modulo): è possibile includere più funzioni di configurazione in un file con estensione ps1. Immettere il nome dello script di configurazione con estensione ps1 seguito da \\ e dal nome della funzione di configurazione. Ad esempio, se lo script con estensione ps1 ha il nome configuration.ps1 e la configurazione è **IisInstall**, immettere **configuration.ps1\IisInstall**.
 
 - **Configuration Arguments** (Argomenti di configurazione): se la funzione di configurazione accetta argomenti, immetterli qui nel formato **argumentName1=value1,argumentName2=value2**. Questo è un formato diverso in cui vengono accettati gli argomenti di configurazione nei cmdlet di PowerShell o nei modelli di Resource Manager.
 
-- **Configuration Data PSD1 File**(File PSD1 dati di configurazione): questo è un campo facoltativo. Se la configurazione richiede un file di dati della configurazione con estensione psd1, usare questo campo per selezionare il file di dati e quindi caricarlo nell'archiviazione BLOB dell'utente. Il file di dati della configurazione è protetto da un token di firma di accesso condiviso nell'archiviazione BLOB.
+- **Configuration Data PSD1 File** (File psd1 dati di configurazione): questo campo è facoltativo. Se la configurazione richiede un file di dati della configurazione con estensione psd1, usare questo campo per selezionare il file di dati e quindi caricarlo nell'archiviazione BLOB dell'utente. Il file di dati della configurazione è protetto da un token di firma di accesso condiviso nell'archiviazione BLOB.
 
-- **WMF Version** (Versione WMF): specifica la versione di Windows Management Framework (WMF) da installare nella macchina virtuale. Impostando questa proprietà su latest (più recente) verrà installata la versione più recente di WMF. Attualmente, gli unici valori possibili per questa proprietà sono 4.0, 5.0, 5.1 e latest. Questi valori possibili sono soggetti ad aggiornamenti. Il valore predefinito è **latest**.
+- **WMF Version** (Versione WMF): Specifica la versione di Windows Management Framework (WMF) da installare nella macchina virtuale. Impostando questa proprietà su latest (più recente) verrà installata la versione più recente di WMF. Attualmente, gli unici valori possibili per questa proprietà sono 4.0, 5.0, 5.1 e latest. Questi valori possibili sono soggetti ad aggiornamenti. Il valore predefinito è **latest**.
 
 - **Raccolta dati**: determina se l'estensione raccoglierà dati di telemetria. Per altre informazioni, vedere [Azure DSC extension data collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) (Raccolta di dati dell'estensione DSC di Azure).
 

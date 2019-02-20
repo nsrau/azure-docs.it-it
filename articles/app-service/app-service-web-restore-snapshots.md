@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: aelnably;nicking
 ms.custom: seodec18
-ms.openlocfilehash: ab1ae63352e66da557cad49bf5f320b577055877
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 8d4290f1411749e2d8d3d27fbd792ceeeea47ef7
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726562"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100499"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Ripristinare un'app in Azure da uno snapshot
 Questo articolo illustra come ripristinare un'app in [Servizio app di Azure](../app-service/overview.md) da uno snapshot. È possibile ripristinare uno stato precedente dell'app, in base a uno degli snapshot dell'app. Non è necessario abilitare il backup degli snapshot. La piattaforma salva automaticamente uno snapshot di tutte le app per scopi di ripristino dei dati.
@@ -38,6 +38,7 @@ Il ripristino da snapshot è disponibile per le app in esecuzione a livello **Pr
 - Il servizio app arresta l'app di destinazione o lo slot di destinazione durante il ripristino.
 - Il servizio app conserva tre mesi di snapshot per scopi di ripristino dei dati della piattaforma.
 - È possibile ripristinare gli snapshot solo per gli ultimi 30 giorni.
+- I Servizi app in esecuzione in un ambiente del servizio app non supportano gli snapshot.
  
 
 ## <a name="restore-an-app-from-a-snapshot"></a>Ripristinare un'app da uno snapshot

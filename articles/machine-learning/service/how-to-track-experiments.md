@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 83e17d4988753e757d6e30299e648af083b0a1a5
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 07b29b05bc15f57d6fd3ec64ceaee812b912b0f6
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239163"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977899"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Tenere traccia di esperimenti e metriche di training in Azure Machine Learning
 
@@ -241,6 +241,12 @@ if r.get_status() not in ['Complete', 'Failed']:
     r.cancel()
 ```
 Si noti che attualmente solo i tipi ScriptRun e PipelineRun supportano l'operazione di annullamento.
+
+È anche possibile annullare un'esecuzione tramite l'interfaccia della riga di comando usando il comando seguente:
+```shell
+az ml run cancel -r <run_id> -p <project_path>
+```
+
 
 ## <a name="view-run-details"></a>Visualizzare i dettagli dell'esecuzione
 

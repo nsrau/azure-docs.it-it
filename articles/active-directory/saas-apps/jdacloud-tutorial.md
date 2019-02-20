@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con JDA Cloud | Documentazione Microsoft'
+title: 'Esercitazione: integrazione di Azure Active Directory con JDA Cloud | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e JDA Cloud.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 371ff15121e3da0bec5be6159fea9c6764b0aeda
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 86f2dfaf281130115ff04ff84b413e224f54cfcf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703372"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168341"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-jda-cloud"></a>Esercitazione: Integrazione di Azure Active Directory con JDA Cloud
+# <a name="tutorial-azure-active-directory-integration-with-jda-cloud"></a>Esercitazione: integrazione di Azure Active Directory con JDA Cloud
 
 Questa esercitazione descrive come integrare JDA Cloud con Azure Active Directory (Azure AD).
 
@@ -170,7 +171,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ### <a name="create-a-jda-cloud-test-user"></a>Creare un utente di test per JDA Cloud
 
-In questa sezione viene creato un utente di nome Britta Simon in JDA Cloud. Per aggiungere gli utenti nella piattaforma JDA Cloud, collaborare con il [team di supporto di JDA Cloud](https://support.jda.com/). Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in JDA Cloud. Per aggiungere gli utenti nella piattaforma JDA Cloud, collaborare con il  [team di supporto di JDA Cloud](https://support.jda.com/) . Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -207,7 +208,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro JDA Cloud nel pannello di accesso, viene automaticamente eseguito l'accesso all'applicazione JDA Cloud.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 1a5b9f7abbb17aeefa3647e965c63c1f6dc4b0a7
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b1ad5aa074a7719dbe6000301c8cd04e6e1ad632
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429260"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984546"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Caricare un disco rigido virtuale generalizzato e usarlo per creare nuove macchine virtuali in Azure
 
@@ -32,7 +32,8 @@ Per uno script di esempio, vedere [Script di esempio per caricare un disco rigid
 
 - Prima di caricare dischi rigidi virtuali in Azure, è necessario seguire la procedura in [Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - Rivedere l'articolo [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) (Piano per la migrazione a Managed Disks) prima di avviare la migrazione a [Managed Disks](managed-disks-overview.md).
-- Questo articolo richiede il modulo AzureRM 5.6 o versioni successive. Eseguire ` Get-Module -ListAvailable AzureRM.Compute` per trovare la versione in uso. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 
 ## <a name="generalize-the-source-vm-by-using-sysprep"></a>Generalizzare la macchina virtuale di origine con Sysprep
@@ -65,17 +66,17 @@ Se il disco rigido virtuale verrà usato per creare un disco gestito per una mac
 Per visualizzare gli account di archiviazione disponibili, digitare:
 
 ```azurepowershell
-Get-AzureRmStorageAccount | Format-Table
+Get-AzStorageAccount | Format-Table
 ```
 
 ## <a name="upload-the-vhd-to-your-storage-account"></a>Caricare il disco rigido virtuale nell'account di archiviazione
 
-Usare il cmdlet [Add-AzureRmVhd](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd) per caricare il disco rigido virtuale in un contenitore nell'account di archiviazione. In questo esempio, il file *myVHD.vhd* viene caricato da *C:\Users\Public\Documents\Virtual hard disks\\* in un account di archiviazione denominato *mystorageaccount* nel gruppo di risorse *myResourceGroup*. Il file viene inserito nel contenitore denominato *mycontainer* e il nuovo nome del file sarà *myUploadedVHD.vhd*.
+Usare il cmdlet [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) per caricare il disco rigido virtuale in un contenitore nell'account di archiviazione. In questo esempio, il file *myVHD.vhd* viene caricato da *C:\Users\Public\Documents\Virtual hard disks\\* in un account di archiviazione denominato *mystorageaccount* nel gruppo di risorse *myResourceGroup*. Il file viene inserito nel contenitore denominato *mycontainer* e il nuovo nome del file sarà *myUploadedVHD.vhd*.
 
 ```powershell
 $rgName = "myResourceGroup"
 $urlOfUploadedImageVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
+Add-AzVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
     -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
 ```
 
@@ -129,15 +130,15 @@ $imageName = "myImage"
 Creare un'immagine tramite il disco rigido virtuale del sistema operativo generalizzato.
 
 ```powershell
-$imageConfig = New-AzureRmImageConfig `
+$imageConfig = New-AzImageConfig `
    -Location $location
-$imageConfig = Set-AzureRmImageOsDisk `
+$imageConfig = Set-AzImageOsDisk `
    -Image $imageConfig `
    -OsType Windows `
    -OsState Generalized `
    -BlobUri $urlOfUploadedImageVhd `
    -DiskSizeGB 20
-New-AzureRmImage `
+New-AzImage `
    -ImageName $imageName `
    -ResourceGroupName $rgName `
    -Image $imageConfig
@@ -150,7 +151,7 @@ Ora che si dispone di un'immagine, è possibile creare una o più nuove VM dall'
 
 
 ```powershell
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName $rgName `
     -Name "myVM" `
     -ImageName $imageName `

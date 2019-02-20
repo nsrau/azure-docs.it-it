@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 3a1ffb3b7a0f154b1d74ca7a8789e5fdadadec31
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 2fc09ccdf68605e444ed4b196162df6205557272
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883773"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002106"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorare l'attività di sottoscrizione con il log attività di Azure
 
@@ -83,7 +83,7 @@ Nel portale di Azure è possibile filtrare il log attività in base a questi cam
 
 Dopo aver definito un set di filtri è anche possibile aggiungere una query al dashboard di Azure per avere sempre sotto controllo eventi specifici.
 
-Per eseguire operazioni più avanzate è possibile fare clic sull'icona **Log**, che visualizza i dati del Log attività nella [soluzione Analisi log attività di Log Analytics](../../azure-monitor/platform/collect-activity-logs.md). Il pannello Log attività offre un'esperienza di filtro/esplorazione di base con i log, ma Log Analytics consente di trasformare tramite Pivot, eseguire query e visualizzare i dati in modo più dettagliato.
+Per eseguire operazioni più avanzate è possibile fare clic sull'icona **Log**, che visualizza i dati del Log attività nella [soluzione Raccogli e analizza di Log attività](../../azure-monitor/platform/collect-activity-logs.md). Il pannello Log attività offre un'esperienza di filtro/esplorazione di base con i log, ma la funzionalità di log di Monitoraggio di Azure consente di trasformare tramite Pivot, eseguire query e visualizzare i dati in modo più dettagliato.
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>Esportare il log attività con un profilo di log
 Un **profilo di log** controlla la modalità di esportazione del log attività. Un profilo di log permette di configurare quanto segue:
@@ -142,11 +142,11 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 
 | Proprietà | Obbligatoria | DESCRIZIONE |
 | --- | --- | --- |
-| Name |Yes |Nome del profilo di log. |
+| Name |Sì |Nome del profilo di log. |
 | StorageAccountId |No  |ID risorsa dell'account di archiviazione in cui salvare il log attività. |
 | serviceBusRuleId |No  |ID regola del bus di servizio per lo spazio dei nomi del bus di servizio in cui creare gli hub eventi. Si tratta di una stringa nel formato seguente: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Località |Yes |Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. |
-| RetentionInDays |Yes |Numero di giorni per cui gli eventi devono essere mantenuti, compreso tra 1 e 2147483647. Se il valore è zero, i log vengono mantenuti per un periodo illimitato. |
+| Località |Sì |Elenco delimitato da virgole di aree per cui raccogliere eventi del log attività. |
+| RetentionInDays |Sì |Numero di giorni per cui gli eventi devono essere mantenuti, compreso tra 1 e 2147483647. Se il valore è zero, i log vengono mantenuti per un periodo illimitato. |
 | Categoria |No  |Elenco delimitato da virgole di categorie di eventi che devono essere raccolti. I valori possibili sono Write, Delete e Action. |
 
 #### <a name="remove-a-log-profile"></a>Rimozione di un profilo di log

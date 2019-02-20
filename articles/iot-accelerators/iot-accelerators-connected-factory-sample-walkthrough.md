@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 23b36fb647c2949dca1c5efe7f8194ec5a397965
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 19e340609e80998037938bdad59e9e6e74894bad
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140401"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098307"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Procedura dettagliata dell'acceleratore di soluzioni di connected factory
 
@@ -46,7 +46,7 @@ Il diagramma seguente illustra i componenti logici dell'acceleratore di soluzion
 
 La soluzione usa la [specifica OPC UA Pub/Sub](https://opcfoundation.org/news/opc-foundation-news/opc-foundation-announces-support-of-publish-subscribe-for-opc-ua/) per inviare i dati di telemetria OPC UA all'hub IoT in formato JSON. La soluzione usa il [modulo di pubblicazione OPC](https://github.com/Azure/iot-edge-opc-publisher) IoT Edge per questo scopo.
 
-La soluzione ha anche un client OPC UA integrato in un'applicazione Web che può stabilire connessioni con server OPC UA locali. Il client usa un [proxy inverso](https://wikipedia.org/wiki/Reverse_proxy) e riceve assistenza dall'hub IoT per stabilire la connessione senza che sia necessario aprire le porte nel firewall locale. Questo modello di comunicazione è denominato [modello di comunicazione assistita con servizi](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/). La soluzione usa il modulo [proxy OPC](https://github.com/Azure/iot-edge-opc-proxy/) IoT Edge per questo scopo.
+La soluzione ha anche un client OPC UA integrato in un'applicazione Web che può stabilire connessioni con server OPC UA locali. Il client usa un [proxy inverso](https://wikipedia.org/wiki/Reverse_proxy) e riceve assistenza dall'hub IoT per stabilire la connessione senza che sia necessario aprire le porte nel firewall locale. Questo modello di comunicazione è denominato modello di comunicazione assistita con servizi. La soluzione usa il modulo [proxy OPC](https://github.com/Azure/iot-edge-opc-proxy/) IoT Edge per questo scopo.
 
 
 ## <a name="simulation"></a>Simulazione

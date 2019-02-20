@@ -15,12 +15,12 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1bd9710edddde04f76c6373a7718519f8ede8a19
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: fdc2cd8f2218d50aa49d6b4eab2800eb6c92d9c9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730009"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869093"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creare una formula di scalabilità automatica per la scalabilità dei nodi di calcolo in un pool Batch
 
@@ -376,7 +376,7 @@ await pool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Quando si crea un pool abilitato per la scalabilità automatica, non specificare il parametro _targetDedicatedComputeNodes_ o il parametro _targetLowPriorityComputeNodes_ nella chiamata a **CreatePool**. Specificare invece le proprietà **AutoScaleEnabled** e **AutoScaleFormula** nel pool. I valori per queste proprietà determinano il numero di destinazione di ogni tipo di nodo. Inoltre, per ridimensionare manualmente un pool abilitato per la scalabilità automatica, ad esempio con [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync], è prima necessario **disabilitare** la scalabilità automatica nel pool e quindi ridimensionarlo.
+> Quando si crea un pool abilitato per la scalabilità automatica, non specificare il parametro _targetDedicatedNodes_ o il parametro _targetLowPriorityNodes_ nella chiamata a **CreatePool**. Specificare invece le proprietà **AutoScaleEnabled** e **AutoScaleFormula** nel pool. I valori per queste proprietà determinano il numero di destinazione di ogni tipo di nodo. Inoltre, per ridimensionare manualmente un pool abilitato per la scalabilità automatica, ad esempio con [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync], è prima necessario **disabilitare** la scalabilità automatica nel pool e quindi ridimensionarlo.
 >
 >
 
@@ -412,7 +412,7 @@ Quando si abilita la scalabilità automatica in un pool esistente, tenere presen
   * Se si omette la formula di scalabilità automatica o l'intervallo di valutazione, il servizio Batch continuerà a usare il valore corrente.
 
 > [!NOTE]
-> Se si specificano valori per i parametri *targetDedicatedComputeNodes* o *targetLowPriorityComputeNodes* del metodo **CreatePool** al momento della creazione del pool in .NET, o per parametri analoghi in un altro linguaggio, questi valori vengono ignorati quando viene valutata la formula di scalabilità automatica.
+> Se si specificano valori per i parametri *targetDedicatedNodes* o *targetLowPriorityNodes* del metodo **CreatePool** al momento della creazione del pool in .NET, o per parametri analoghi in un altro linguaggio, questi valori vengono ignorati quando viene valutata la formula di scalabilità automatica.
 >
 >
 

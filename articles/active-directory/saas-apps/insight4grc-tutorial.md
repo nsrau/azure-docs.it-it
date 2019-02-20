@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Insight4GRC | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Insight4GRC | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Insight4GRC.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 256550dc6aaa832599747f6fe39c2ca77ed3f8d7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 08913fc2e12026d70976ea8e2169c190378f4054
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441582"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193731"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-insight4grc"></a>Esercitazione: Integrazione di Azure Active Directory con Insight4GRC
+# <a name="tutorial-azure-active-directory-integration-with-insight4grc"></a>Esercitazione: integrazione di Azure Active Directory con Insight4GRC
 
 Questa esercitazione descrive come integrare Insight4GRC con Azure Active Directory (Azure AD).
 
@@ -167,7 +168,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in Insight4GRC. Insight4GRC. supporta il provisioning just-in-time, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già, un nuovo utente viene creato durante un tentativo di accesso ad Insight4GRC.
 
 >[!Note]
->Per creare un utente manualmente, contattare il [team del supporto clienti di Insight4GRC](mailto:support.ss@rsmuk.com).
+>Per creare un utente manualmente, contattare il  [team del supporto clienti di contactInsight4GRC](mailto:support.ss@rsmuk.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -204,7 +205,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Insight4GRC nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Insight4GRC.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

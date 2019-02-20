@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 34902016578d92847bd83a7dede8ef73bb640b3e
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: da3c90579dafebf1b5b362c7129e681663a0a7ab
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301578"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891879"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzato dell'autenticazione e dell'autorizzazione in Servizio app di Azure
 
@@ -174,7 +174,7 @@ Dal codice server, i token specifici del provider vengono inseriti nell'intestaz
 Dal codice client (ad esempio un'app per dispositivi mobili o codice JavaScript nel browser), inviare una richiesta `GET` HTTP a `/.auth/me`. Il codice JSON restituito include i token specifici del provider.
 
 > [!NOTE]
-> I token di accesso consentono l'accesso alle risorse del provider, quindi sono presenti solo se si configura un provider con un segreto client. Per informazioni su come ottenere i token di aggiornamento, vedere [Aggiornare i token di accesso](#refresh-access-tokens).
+> I token di accesso consentono l'accesso alle risorse del provider, quindi sono presenti solo se si configura un provider con un segreto client. Per informazioni su come ottenere i token di aggiornamento, vedere Aggiornare i token di accesso.
 
 ## <a name="refresh-identity-provider-tokens"></a>Aggiornare i token del provider di identità
 

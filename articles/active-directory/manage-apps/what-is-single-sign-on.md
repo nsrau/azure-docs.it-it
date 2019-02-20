@@ -2,21 +2,22 @@
 title: Accesso Single Sign-On alle applicazioni - Azure Active Directory | Microsoft Docs
 description: Informazioni su come scegliere un metodo di accesso Single Sign-On quando si configurano le applicazioni in Azure Active Directory (Azure AD). Usare il metodo di accesso Single Sign-On in modo che gli utenti non debbano ricordare le password per ogni applicazione e per semplificare l'amministrazione della gestione degli account.
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: arvindh
-ms.openlocfilehash: 8216eb9c076111bfa70633b24f36ac97b0ee319a
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6984307dda58aeba840f2b6d08e84fb4f60cacc8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664030"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163071"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Accesso Single Sign-On alle applicazioni in Azure Active Directory
 L'accesso Single Sign-On (SSO) offre sicurezza e praticità quando gli utenti accedono alle applicazioni in Azure Active Directory (Azure AD). Questo articolo descrive i metodi di accesso Single Sign-On e consente di scegliere il metodo SSO più appropriato quando si configurano le applicazioni.
@@ -58,7 +59,7 @@ Per altre informazioni, vedere:
 - [Guida per gli sviluppatori di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
 ## <a name="saml-sso"></a>SAML SSO
-Con l'**accesso Single Sign-On SAML**, Azure AD esegue l'autenticazione all'applicazione usando l'account Azure AD dell'utente. Azure AD comunica le informazioni di accesso all'applicazione tramite un protocollo di connessione. Con l'accesso Single Sign-On basato su SAML è possibile eseguire il mapping degli utenti a ruoli specifici dell'applicazione in base alle regole definite nelle attestazioni SAML
+Con l'**accesso Single Sign-On SAML**, Azure AD esegue l'autenticazione all'applicazione usando l'account Azure AD dell'utente. Azure AD comunica le informazioni di accesso all'applicazione tramite un protocollo di connessione. Con l'accesso Single Sign-On basato su SAML è possibile eseguire il mapping degli utenti a ruoli specifici dell'applicazione in base alle regole definite nelle attestazioni SAML.
 
 Scegliere l'accesso Single Sign-On basato su SAML quando l'applicazione lo supporta.
 
@@ -85,7 +86,7 @@ Scegliere l'accesso Single Sign-On basato su password quando:
 L'accesso Single Sign-On basato su password è supportato per qualunque applicazione basata su cloud con pagina di accesso basata su HTML. L'utente può usare uno dei browser seguenti:
 
 - Internet Explorer 11 su Windows 7 o versioni successive
-- Microsoft Edge su Windows 10 Anniversary Edition o versioni successive 
+- Microsoft Edge su Windows 10 Anniversary Edition o versioni successive
 - Chrome in Windows 7 o versione successiva e in MacOS X o versione successiva
 - Firefox 26.0 o versione successiva in Windows XP SP2 o versione successiva e in Mac OS X 10.6 o versione successiva
 

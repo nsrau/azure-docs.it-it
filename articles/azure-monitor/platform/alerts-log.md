@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: cb4b063d17555084f4065d7d7df931b96b95d9a4
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 29050be7587f88ce7a1f5370f50dcfa1ecd68306
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751481"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990446"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log tramite Monitoraggio di Azure
 
@@ -106,8 +106,7 @@ Di seguito è riportata una Guida dettagliata all'uso degli avvisi del log trami
 
     Dopo pochi minuti l'avviso è funzionante e si attiva come descritto in precedenza.
 
-Gli utenti possono anche finalizzare le query di analisi nella [pagina Log Analytics nel portale di Azure](../../azure-monitor/log-query/portals.md#log-analytics-page
-) e quindi eseguirne il push per creare un avviso tramite il pulsante "Nuova regola di avviso", quindi seguendo le istruzioni dal passaggio 6 nell'esercitazione precedente.
+Gli utenti possono anche finalizzare le query di analisi in [Log Analytics](../log-query/portals.md) e quindi eseguirne il push per creare un avviso tramite il pulsante "Imposta avviso", quindi seguendo le istruzioni dal passaggio 6 nell'esercitazione precedente.
 
  ![Log Analytics - Imposta avviso](media/alerts-log/AlertsAnalyticsCreate.png)
 
@@ -317,12 +316,12 @@ L'[API delle regole di query pianificate in Monitoraggio di Azure](https://docs.
 > Gli avvisi dei log per Log Analytics possono essere gestiti anche usando l'[API degli avvisi di Log Analytics](../../azure-monitor/platform/api-alerts.md) legacy e i modelli legacy di [avvisi e di ricerche salvate di Log Analytics](../../azure-monitor/insights/solutions-resources-searches-alerts.md). Per altre informazioni sull'uso della nuova API ScheduledQueryRules illustrata qui in dettaglio per impostazione predefinita, vedere [Passare alla nuova API per gli avvisi di Log Analytics](alerts-log-api-switch.md).
 
 
-Gli avvisi dei log non hanno attualmente comandi di PowerShell o dell'interfaccia della riga di comando dedicati, ma, come illustrato di seguito, possono essere usati tramite il cmdlet di Azure Resource Manager in PowerShell per il modello di risorsa di esempio riportato in precedenza (sampleScheduledQueryRule.json) nella [sezione Modello di risorsa](#azure-resource-template-for-application-insights):
+Gli avvisi dei log non hanno attualmente comandi di PowerShell o dell'interfaccia della riga di comando dedicati, ma, come illustrato di seguito, possono essere usati tramite il cmdlet di Azure Resource Manager in PowerShell per il modello di risorsa di esempio riportato in precedenza (sampleScheduledQueryRule.json) nella sezione Modello di risorsa:
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
 ```
 
-Di seguito viene illustrato l'utilizzo tramite il comando di Azure Resource Manager nell'interfaccia della riga di comando di Azure per il modello di risorsa di esempio riportato in precedenza (sampleScheduledQueryRule.json) nella [sezione Modello di risorsa](#azure-resource-template-for-application-insights):
+Di seguito viene illustrato l'utilizzo tramite il comando di Azure Resource Manager nell'interfaccia della riga di comando di Azure per il modello di risorsa di esempio riportato in precedenza (sampleScheduledQueryRule.json) nella sezione Modello di risorsa:
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json

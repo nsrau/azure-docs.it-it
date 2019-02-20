@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d5b44011607a393a682112e56aff1803c6d7cf72
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ce7b73afa150ef5fef58c5baf861da92c5203548
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811597"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980501"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Linee guida sulle prestazioni per SQL Server in Macchine virtuali di Azure
 
@@ -135,7 +135,7 @@ Esiste un'eccezione a questo consiglio: _se TempDB è soggetto a un utilizzo int
 
   * Le raccomandazioni precedenti si applicano ai dischi di Archiviazione Premium. Se non si usa Archiviazione Premium, non abilitare la memorizzazione nella cache per i dischi dati.
 
-  * Per istruzioni sulla configurazione della memorizzazione nella cache su disco, vedere gli articoli seguenti. Per il modello di distribuzione (ASM) classica, vedere: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) e [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Per il modello di distribuzione di Azure Resource Manager, vedere: [Set-AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) e [Set-AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1).
+  * Per istruzioni sulla configurazione della memorizzazione nella cache su disco, vedere gli articoli seguenti. Per il modello di distribuzione (ASM) classica, vedere: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) e [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Per il modello di distribuzione di Azure Resource Manager, vedere: [Set-AzOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk?view=azurermps-4.4.1) e [Set-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdatadisk?view=azurermps-4.4.1).
 
      > [!WARNING]
      > Arrestare il servizio SQL Server quando si modifica l'impostazione della cache dei dischi della VM di Azure per evitare danneggiamenti al database.

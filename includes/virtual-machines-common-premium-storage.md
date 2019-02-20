@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 2e8b2753a441b0d7f27745fdf622b26dcee7784a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 125f1a2a041c8c05289c95bd12c10618bfc622a8
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572321"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246965"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Archiviazione Premium a prestazioni elevate e dischi gestiti per le VM
 
@@ -51,7 +51,7 @@ Di seguito sono illustrate alcune delle funzionalità di Archiviazione Premium:
 
 * **Limiti dei dischi di Archiviazione Premium**
 
-    Archiviazione Premium supporta i dischi di VM che possono essere collegati a VM delle serie con dimensioni specifiche. Archiviazione Premium supporta un'ampia gamma di macchine virtuali di Azure. È possibile scegliere tra otto dimensioni di disco nella versione di disponibilità generale: P4 (32 GiB), P6 (64 GiB), P10 (128 GiB), P15 (256 GiB), P20 (512 GiB), P30 (1.024 GiB), P40 (2.048 GiB), P50 (4.095 GiB). Oltre a tre dimensioni di disco in anteprima: P60 8.192 GiB (TiB 8), P70 16.348 GiB (16 TiB), P80 32.767 GiB (32 TiB). Le dimensioni di disco P4, P6, P15, P60, P70 e P80 sono attualmente supportate solo per Managed Disks. Ciascuna dimensione di disco ha le proprie specifiche in termini di prestazioni. A seconda dei requisiti dell'applicazione è possibile collegare uno o più dischi alla VM. Le specifiche saranno descritte dettagliatamente nella sezione [Obiettivi di scalabilità e prestazioni di Archiviazione Premium](#scalability-and-performance-targets).
+    Archiviazione Premium supporta i dischi di VM che possono essere collegati a VM delle serie con dimensioni specifiche. Archiviazione Premium supporta un'ampia gamma di macchine virtuali di Azure. È possibile scegliere tra otto dimensioni dei dischi disponibili a livello generale:  P4 (32 GiB), P6 (64 GiB), P10 (128 GiB), P15 (256 GiB), P20 (512 GiB), P30 (1024 GiB), P40 (2048 GiB), P50 (4095 GiB). Sono disponibili anche tre dimensioni dei dischi in anteprima: P60 8192 GiB (8 TiB), P70 16.348 GiB (16 TiB), P80 32.767 GiB (32 TiB). Le dimensioni di disco P4, P6, P15, P60, P70 e P80 sono attualmente supportate solo per Managed Disks. Ciascuna dimensione di disco ha le proprie specifiche in termini di prestazioni. A seconda dei requisiti dell'applicazione è possibile collegare uno o più dischi alla VM. Le specifiche saranno descritte dettagliatamente nella sezione [Obiettivi di scalabilità e prestazioni di Archiviazione Premium](#scalability-and-performance-targets).
 
 * **BLOB di pagine Premium**
 
@@ -67,7 +67,7 @@ Di seguito sono illustrate alcune delle funzionalità di Archiviazione Premium:
     - [Interfaccia della riga di comando di Azure per Archiviazione di Azure](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
     - [API REST del provider delle risorse di archiviazione di Azure](https://docs.microsoft.com/rest/api/storagerp) (per le distribuzioni di Azure Resource Manager) o una delle librerie client dei provider di risorse di Archiviazione di Azure
 
-    Nella sezione [Obiettivi di scalabilità e prestazioni di Archiviazione Premium](#premium-storage-scalability-and-performance-targets) sono riportate informazioni sui limiti dell'account di Archiviazione Premium.
+    Per informazioni sui limiti dell'account di Archiviazione Premium, vedere la sezione Obiettivi di scalabilità e prestazioni di Archiviazione Premium.
 
 * **Archiviazione Premium con ridondanza locale**
 
@@ -149,7 +149,7 @@ Per altre informazioni, vedere [Obiettivi di scalabilità e prestazioni per Arch
 Se si usano account di archiviazione Premium per dischi non gestiti e l'applicazione supera gli obiettivi di scalabilità di un singolo account di archiviazione, si potrebbe prendere in considerazione la migrazione a Managed Disks. Se non si vuole eseguire la migrazione a Managed Disks, compilare l'applicazione per l'uso di più account di archiviazione. Quindi partizionare i dati tra tali account di archiviazione. Ad esempio, se si desidera collegare dischi da 51 TB tra più VM, distribuirli in due account di archiviazione. Il limite per un account di Archiviazione Premium singolo è 35 TB. Accertarsi che i dischi di cui viene effettuato il provisioning in un singolo account di archiviazione Premium non superino mai i 35 TB.
 
 ### <a name="premium-storage-disk-limits"></a>Limiti dei dischi di Archiviazione Premium
-Quando si effettua il provisioning di un disco di archiviazione Premium, la dimensione del disco determina il livello massimo di IOPS e velocità effettiva (larghezza di banda). Azure offre otto tipi GA di dischi di Archiviazione Premium: P4 (solo Managed Disks), P6 (solo Managed Disks), P10, P15 (solo Managed Disks), P20, P30, P40 e P50. Oltre a tre dimensioni di disco in anteprima: P60, P70 e P80. Ogni tipo di disco di Archiviazione Premium ha limiti specifici di IOPS e velocità effettiva. I limiti per i tipi di dischi sono descritti nella tabella seguente:
+Quando si effettua il provisioning di un disco di archiviazione Premium, la dimensione del disco determina il livello massimo di IOPS e velocità effettiva (larghezza di banda). Azure offre otto tipi di dischi di Archiviazione Premium disponibili a livello generale: P4 (solo Managed Disks), P6 (solo Managed Disks), P10, P15 (solo Managed Disks), P20, P30, P40 e P50. Sono disponibili anche tre dimensioni dei dischi in anteprima: P60, P70 e P80. Ogni tipo di disco di Archiviazione Premium ha limiti specifici di IOPS e velocità effettiva. I limiti per i tipi di dischi sono descritti nella tabella seguente:
 
 Le dimensioni indicate con un asterisco sono attualmente in anteprima.
 
@@ -160,7 +160,7 @@ Le dimensioni indicate con un asterisco sono attualmente in anteprima.
 | Velocità effettiva per disco | 25 MB al secondo | 50 MB al secondo | 100 MB al secondo | 125 MB al secondo | 150 MB al secondo | 200 MB al secondo | 250 MB al secondo | 250 MB al secondo | 480 MB al secondo | 750 MB al secondo | 750 MB al secondo |
 
 > [!NOTE]
-> Assicurarsi che nella VM sia disponibile una larghezza di banda sufficiente per il traffico dell'unità disco, come descritto in [Macchine virtuali supportate da Archiviazione Premium](#premium-storage-supported-vms). In caso contrario, la velocità effettiva del disco e IOPS sarà limitata a valori più bassi. IOPS e velocità effettiva massima si basano sui limiti della VM, non sui limiti del disco descritti nella tabella precedente.  
+> Assicurarsi che nella VM sia disponibile una larghezza di banda sufficiente per il traffico dell'unità disco, come descritto in [Macchine virtuali supportate da Archiviazione Premium](). In caso contrario, la velocità effettiva del disco e IOPS sarà limitata a valori più bassi. IOPS e velocità effettiva massima si basano sui limiti della VM, non sui limiti del disco descritti nella tabella precedente.  
 > Azure ha progettato la piattaforma di Archiviazione Premium in modo che sia notevolmente parallela. Le applicazioni multithread consentono di raggiungere gli elevati obiettivi in termini di prestazioni offerti da dimensioni di disco maggiori.
 
 Ecco alcuni aspetti importanti da conoscere sulla scalabilità e le prestazioni di Archiviazione Premium:
@@ -261,7 +261,7 @@ Per raggiungere gli obiettivi di scalabilità per Archiviazione Premium per tutt
 
 Le seguenti distribuzioni Linux sono state convalidate per Archiviazione Premium di Azure. Per prestazioni e stabilità migliori con Archiviazione Premium si consiglia di aggiornare le VM ad almeno una di queste versioni (o versioni successive). Alcune versioni richiedono la versione più recente di Linux Integration Services (LIS) 4.0 per Azure. Per scaricare e installare una distribuzione, fare clic sul collegamento riportato nella tabella seguente. Nuove immagini vengono aggiunte all'elenco non appena viene completata la convalida. Si noti che le nostre convalide mostrano che le prestazioni variano per ogni immagine. Le prestazioni dipendono dalle caratteristiche del carico di lavoro e dalle impostazioni. Immagini diverse sono ottimizzate per tipi di carico di lavoro diversi.
 
-| Distribuzione | Version | Kernel supportato | Dettagli |
+| Distribuzione | Versione | Kernel supportato | Dettagli |
 | --- | --- | --- | --- |
 | Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
 | Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
@@ -294,7 +294,7 @@ Quando si usa Archiviazione Premium, tenere conto delle considerazioni seguenti 
 
 * **Dimensione del BLOB e del disco di Archiviazione Premium**
 
-    La fatturazione per un BLOB o un disco di Archiviazione Premium dipende dalla dimensione del BLOB o del disco di cui è stato effettuato il provisioning. Azure associa le dimensioni di provisioning (arrotondate per eccesso) all'opzione relativa al disco di Archiviazione Premium più vicina. Per informazioni dettagliate, vedere [Obiettivi di scalabilità e prestazioni di Archiviazione Premium](#premium-storage-scalability-and-performance-targets). Viene eseguito il mapping di ogni disco gestito a una delle dimensioni di provisioning dei dischi supportate e viene eseguita la relativa fatturazione. La fatturazione per qualsiasi disco di cui sia stato effettuato il provisioning viene ripartita in modo proporzionale in base alle ore usando il prezzo mensile dell'offerta di Archiviazione Premium. Ad esempio, se è stato effettuato il provisioning di un disco P10 e lo si è eliminato dopo 20 ore verranno fatturate 20 ore per l'offerta P10, indipendentemente dalla quantità di dati effettivamente scritti sul disco, dalle operazioni IOPS eseguite e dalla velocità effettiva usata.
+    La fatturazione per un BLOB o un disco di Archiviazione Premium dipende dalla dimensione del BLOB o del disco di cui è stato effettuato il provisioning. Azure associa le dimensioni di provisioning (arrotondate per eccesso) all'opzione relativa al disco di Archiviazione Premium più vicina. Per informazioni dettagliate, vedere [Obiettivi di scalabilità e prestazioni di Archiviazione Premium](). Viene eseguito il mapping di ogni disco gestito a una delle dimensioni di provisioning dei dischi supportate e viene eseguita la relativa fatturazione. La fatturazione per qualsiasi disco di cui sia stato effettuato il provisioning viene ripartita in modo proporzionale in base alle ore usando il prezzo mensile dell'offerta di Archiviazione Premium. Ad esempio, se è stato effettuato il provisioning di un disco P10 e lo si è eliminato dopo 20 ore verranno fatturate 20 ore per l'offerta P10, indipendentemente dalla quantità di dati effettivamente scritti sul disco, dalle operazioni IOPS eseguite e dalla velocità effettiva usata.
 
 * **Snapshot dei dischi non gestiti Premium**
 

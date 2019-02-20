@@ -11,32 +11,32 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 95f7d5cafa39daccccbd35c44510038d28601aed
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 58306780978189749b592b6cd9d13c63ecd25641
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241753"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996152"
 ---
 # <a name="media-encoder-standard-schema"></a>Schema di Media Encoder Standard
 Questo articolo descrive alcuni elementi e tipi di schema XML su cui si basa il [set di impostazioni di Media Encoder Standard](media-services-mes-presets-overview.md). L'articolo spiega gli elementi e i valori possibili per ognuno.  
 
-## <a name="Preset"></a> Preset (elemento radice)
+## <a name="Preset"></a> Set di impostazioni (elemento radice)
 Definisce un set di impostazioni per la codifica.  
 
 ### <a name="elements"></a>Elementi
-| Nome | Tipo | Descrizione |
+| NOME | Type | Descrizione |
 | --- | --- | --- |
 | **Encoding** |[Encoding](media-services-mes-schema.md#Encoding) |Elemento radice, indica che le origini dell'input devono essere codificate. |
 | **Outputs** |[Outputs](media-services-mes-schema.md#Output) |Raccolta dei file dell'output desiderato. |
-| **StretchMode**<br/>minOccurs="0"<br/>default="AutoSize|xs:string|Controlla la dimensione dei fotogrammi, la spaziatura interna, le proporzioni dei pixel o quelle di visualizzazione del video di output. **StretchMode** può essere impostato su uno dei valori seguenti: **None**, **AutoSize** (impostazione predefinita) o **AutoFit**.<br/><br/>**None**: segue rigorosamente la risoluzione dell'output (ad esempio, i valori di **Width** e **Height** nel set di impostazioni) senza considerare le proporzioni dei pixel o quelle di visualizzazione del video di input. Questo valore è consigliato per gli scenari, ad esempio il [ritaglio](media-services-crop-video.md), in cui il video di output ha proporzioni diverse rispetto all'input. <br/><br/>**AutoSize**: la risoluzione dell'output viene adattata alle dimensioni della finestra (Width * Height) specificate dal set di impostazioni. Il codificatore genera tuttavia un video di output con proporzioni pixel quadrate (1:1). È pertanto possibile che la larghezza o l'altezza di output venga sostituita in modo da stabilire una corrispondenza con le proporzioni di visualizzazione dell'input, senza spaziatura interna. Se ad esempio l'input è 1920x1080 e il set di impostazioni di codifica richiede 1280x1280, il valore dell'altezza nel set di impostazioni verrà sostituito e l'output sarà 1280x720, in modo da mantenere le proporzioni di 16:9 dell'input. <br/><br/>**AutoFit**: se necessario, nel video di output viene aggiunta la spaziatura interna (nel formato 16:9 o 4:3) per rispettare la risoluzione di output desiderata, assicurando che l'area attiva del video nell'output abbia le stesse proporzioni dell'input. Si supponga, ad esempio, che l'input abbia una risoluzione di 1920x1080 e che il set di impostazioni di codifica richieda invece 1280x1280. Il video di output avrà una risoluzione pari a 1280x1280, ma conterrà un rettangolo di 1280x720 per il video attivo con proporzioni di 16:9 e, nella parte superiore e inferiore, aree in formato 16:9 con 280 pixel di altezza. Sempre a titolo di esempio, se l'input ha una risoluzione di 1440x1080 e il set di impostazioni di codifica richiede invece 1280x720, l'output avrà una risoluzione pari a 1280x720 e conterrà un rettangolo interno di 960x720 con proporzioni di 4:3 e, a sinistra e destra, aree in formato 4:3 con 160 pixel di larghezza. 
+| **StretchMode**<br/>minOccurs="0"<br/>default="AutoSize|xs:string|Controlla la dimensione dei fotogrammi, la spaziatura interna, le proporzioni dei pixel o quelle di visualizzazione del video di output. **StretchMode** può corrispondere a uno dei valori seguenti: **None**, **AutoSize** (impostazione predefinita) o **AutoFit**.<br/><br/>**None**: segue rigorosamente la risoluzione dell'output (ad esempio, i valori di **Width** e **Height** nel set di impostazioni) senza considerare le proporzioni dei pixel o quelle di visualizzazione del video di input. Questo valore è consigliato per gli scenari, ad esempio il [ritaglio](media-services-crop-video.md), in cui il video di output ha proporzioni diverse rispetto all'input. <br/><br/>**AutoSize**: la risoluzione dell'output viene adattata alle dimensioni della finestra (Width * Height) specificate dal set di impostazioni. Il codificatore genera tuttavia un video di output con proporzioni pixel quadrate (1:1). È pertanto possibile che la larghezza o l'altezza di output venga sostituita in modo da stabilire una corrispondenza con le proporzioni di visualizzazione dell'input, senza spaziatura interna. Se ad esempio l'input è 1920x1080 e il set di impostazioni di codifica richiede 1280x1280, il valore dell'altezza nel set di impostazioni verrà sostituito e l'output sarà 1280x720, in modo da mantenere le proporzioni di 16:9 dell'input. <br/><br/>**AutoFit**: se necessario, nel video di output viene aggiunta la spaziatura interna (nel formato 16:9 o 4:3) per rispettare la risoluzione di output desiderata, assicurando che l'area attiva del video nell'output abbia le stesse proporzioni dell'input. Si supponga, ad esempio, che l'input abbia una risoluzione di 1920x1080 e che il set di impostazioni di codifica richieda invece 1280x1280. Il video di output avrà una risoluzione pari a 1280x1280, ma conterrà un rettangolo di 1280x720 per il video attivo con proporzioni di 16:9 e, nella parte superiore e inferiore, aree in formato 16:9 con 280 pixel di altezza. Sempre a titolo di esempio, se l'input ha una risoluzione di 1440x1080 e il set di impostazioni di codifica richiede invece 1280x720, l'output avrà una risoluzione pari a 1280x720 e conterrà un rettangolo interno di 960x720 con proporzioni di 4:3 e, a sinistra e destra, aree in formato 4:3 con 160 pixel di larghezza. 
 
 ### <a name="attributes"></a>Attributi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **Version**<br/><br/> Obbligatoria |**xs: decimal** |Versione predefinita. Valgono le limitazioni seguenti: xs:fractionDigits value="1" e xs:minInclusive value="1" Ad esempio, **version="1.0"**. |
+| **Versione**<br/><br/> Obbligatoria |**xs: decimal** |Versione predefinita. Valgono le limitazioni seguenti: xs:fractionDigits value="1" e xs:minInclusive value="1" Ad esempio, **version="1.0"**. |
 
 ## <a name="Encoding"></a> Encoding
 Contiene una sequenza degli elementi seguenti:  
@@ -57,7 +57,7 @@ Contiene una sequenza degli elementi seguenti:
 | **TwoPass**<br/><br/> minOccurs="0" |**xs:boolean** |Al momento è supportata solo la codifica in un passaggio. |
 | **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |Determina la spaziatura fissa tra i frame IDR in unità di secondi. Chiamata anche la durata GOP. Per controllare se il codificatore può deviare da questo valore, vedere **SceneChangeDetection**. |
 | **SceneChangeDetection**<br/><br/> minOccurs="0"<br/><br/> default="false" |**xs: boolean** |Se impostato su true, il codificatore tenta di rilevare i cambi scena nel video e inserisce un frame IDR. |
-| **Complexity**<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**xs:string** |Consente di controllare il compromesso tra qualità video e velocità di codifica. Può corrispondere a uno dei valori seguenti: **Speed**, **Balanced** o **Quality**.<br/><br/> Valore predefinito: **Balanced** |
+| **Complexity**<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**xs:string** |Consente di controllare il compromesso tra qualità video e velocità di codifica. Può avere uno dei valori seguenti: **Speed**, **Balanced** o **Quality**<br/><br/> Valore predefinito: **Balanced** |
 | **SyncMode**<br/><br/> minOccurs="0" | |La funzionalità sarà disponibile in una delle prossime versioni. |
 | **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |Raccolta di livelli video di output. |
 
@@ -84,7 +84,7 @@ Per impostazione predefinita, se si invia al codificatore un input che contiene 
 ### <a name="elements"></a>Elementi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **Profile**<br/><br/> minOccurs="0"<br/><br/> default="Auto" |**xs: string** |Può corrispondere a uno dei valori **xs:string** seguenti: **Auto**, **Baseline**, **Main**, **High**. |
+| **Profilo**<br/><br/> minOccurs="0"<br/><br/> default="Auto" |**xs: string** |Può corrispondere a uno dei valori **xs:string** seguenti: **Auto**, **Baseline**, **Main** o **High**. |
 | **Level**<br/><br/> minOccurs="0"<br/><br/> default="Auto" |**xs: string** | |
 | **Bitrate**<br/><br/> minOccurs="0" |**xs:int** |La velocità in bit usata per questo livello video, espressa in kbps. |
 | **MaxBitrate**<br/><br/> minOccurs="0" |**xs: int** |La velocità in bit massima usata per questo livello video, espressa in kbps. |
@@ -93,7 +93,7 @@ Per impostazione predefinita, se si invia al codificatore un input che contiene 
 | **Height**<br/><br/> minOccurs="0" |**xs:int** |Altezza del frame video di output, espressa in pixel.<br/><br/> Al momento è necessario specificare entrambi i valori di larghezza e altezza, che devono essere numeri pari.|
 | **BFrames**<br/><br/> minOccurs="0" |**xs: int** |Numero di fotogrammi B tra frame di riferimento. |
 | **ReferenceFrames**<br/><br/> minOccurs="0"<br/><br/> default=”3” |**xs:int** |Numero di frame di riferimento in un GOP. |
-| **EntropyMode**<br/><br/> minOccurs="0"<br/><br/> default="Cabac" |**xs: string** |Può corrispondere a uno dei valori seguenti: **Cabac** e **Cavlc**. |
+| **EntropyMode**<br/><br/> minOccurs="0"<br/><br/> default="Cabac" |**xs: string** |Può avere uno dei valori seguenti: **Cabac** e **Cavlc**. |
 | **FrameRate**<br/><br/> minOccurs="0" |numero razionale |Determina la frequenza dei fotogrammi del video di output. Usare il valore predefinito "0/1" per consentire al codificatore di usare la stessa frequenza dei fotogrammi del video di input. I valori consentiti sono in genere le normali frequenze dei fotogrammi video. Tuttavia, è consentito qualunque numero razionale. Ad esempio 1/1 corrisponderebbe a 1 fps e sarebbe valido.<br/><br/> - 12/1 (12 fps)<br/><br/> - 15/1 (15 fps)<br/><br/> - 24/1 (24 fps)<br/><br/> - 24.000/1.001 (23,976 fps)<br/><br/> - 25/1 (25 fps)<br/><br/>  - 30/1 (30 fps)<br/><br/> - 30.000/1.001 (29,97 fps) <br/> <br/>**NOTA** se si sta creando un set di impostazioni personalizzato per la codifica a bitrate multipli, tutti i livelli del set di impostazioni **devono** usare lo stesso valore di FrameRate.|
 | **AdaptiveBFrame**<br/><br/> minOccurs="0" |**xs: boolean** |Copiare da Azure Media Encoder |
 | **Slices**<br/><br/> minOccurs="0"<br/><br/> default="0" |**xs:int** |Stabilisce il numero di sezioni in cui è suddiviso un frame. È consigliabile usare il valore predefinito. |
@@ -106,7 +106,7 @@ Per impostazione predefinita, se si invia al codificatore un input che contiene 
 ### <a name="elements"></a>Elementi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **Profile**<br/><br/> minOccurs="0 "<br/><br/> default="AACLC" |**xs: string** |Può corrispondere a uno dei valori seguenti: **AACLC**, **HEAACV1**, or **HEAACV2**. |
+| **Profilo**<br/><br/> minOccurs="0 "<br/><br/> default="AACLC" |**xs: string** |Può avere uno dei valori seguenti: **AACLC**, **HEAACV1** o **HEAACV2**. |
 
 ### <a name="attributes"></a>Attributi
 | Nome | Tipo | Descrizione |
@@ -114,7 +114,7 @@ Per impostazione predefinita, se si invia al codificatore un input che contiene 
 | **Condition** |**xs: string** |Per forzare la generazione di un asset contenente una traccia audio silenziosa da parte del codificatore quando l'input è privo di audio, specificare il valore "InsertSilenceIfNoAudio".<br/><br/> Per impostazione predefinita, se si invia al codificatore un input che contiene solo video e nessun audio, l'asset di output contiene file di soli dati video. Alcuni lettori non possono gestire flussi di output di questo tipo. In tal caso, è possibile usare questa impostazione per forzare l'aggiunta di una traccia audio silenziosa all'output da parte del codificatore. |
 
 ### <a name="groups"></a>Gruppi
-| Riferimento | Descrizione |
+| riferimento | Descrizione |
 | --- | --- |
 | [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |Vedere la descrizione di [AudioGroup](media-services-mes-schema.md#AudioGroup) per conoscere il numero di canali, la frequenza di campionamento e la velocità in bit appropriati che è possibile impostare per ogni profilo. |
 
@@ -124,16 +124,16 @@ Per altre informazioni sui valori validi per ogni profilo, vedere la tabella "De
 ### <a name="elements"></a>Elementi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **Channels**<br/><br/> minOccurs="0" |**xs: int** |Numero dei canali audio codificati. Le opzioni valide sono: 1, 2, 5, 6, 8.<br/><br/> Valore predefinito: 2. |
+| **Channels**<br/><br/> minOccurs="0" |**xs: int** |Numero dei canali audio codificati. Le opzioni valide sono: 1, 2, 5, 6, 8.<br/><br/> Predefinito: 2. |
 | **SamplingRate**<br/><br/> minOccurs="0" |**xs: int** |Frequenza di campionamento audio, espressa in Hz. |
 | **Bitrate**<br/><br/> minOccurs="0" |**xs: int** |Velocità in bit usata per la codifica audio, specificata in kbps. |
 
 ### <a name="audio-codec-details"></a>Dettagli sui codec audio
 Codec audio|Dettagli  
 -----------------|---  
-**AACLC**|1:<br/><br/> - 11025: 8 &lt;= bitrate &lt; 16<br/><br/> - 12000: 8 &lt;= bitrate &lt; 16<br/><br/> - 16000: 8 &lt;= bitrate &lt;32<br/><br/>- 22050: 24 &lt;= bitrate &lt; 32<br/><br/> - 24000: 24 &lt;= bitrate &lt; 32<br/><br/> - 32000: 32 &lt;= bitrate &lt;= 192<br/><br/> - 44100: 56 &lt;= bitrate &lt;= 288<br/><br/> - 48000: 56 &lt;= bitrate &lt;= 288<br/><br/> - 88200: 128 &lt;= bitrate &lt;= 288<br/><br/> - 96000: 128 &lt;= bitrate &lt;= 288<br/><br/> 2:<br/><br/> - 11025: 16 &lt;= bitrate &lt; 24<br/><br/> - 12000: 16 &lt;= bitrate &lt; 24<br/><br/> - 16000: 16 &lt;= bitrate &lt; 40<br/><br/> - 22050: 32 &lt;= bitrate &lt; 40<br/><br/> - 24000: 32 &lt;= bitrate &lt; 40<br/><br/> - 32000: 40 &lt;= bitrate &lt;= 384<br/><br/> - 44100: 96 &lt;= bitrate &lt;= 576<br/><br/> - 48000: 96 &lt;= bitrate &lt;= 576<br/><br/> - 88200: 256 &lt;= bitrate &lt;= 576<br/><br/> - 96000: 256 &lt;= bitrate &lt;= 576<br/><br/> 5/6:<br/><br/> - 32000: 160 &lt;= bitrate &lt;= 896<br/><br/> - 44100: 240 &lt;= bitrate &lt;= 1024<br/><br/> - 48000: 240 &lt;= bitrate &lt;= 1024<br/><br/> - 88200: 640 &lt;= bitrate &lt;= 1024<br/><br/> - 96000: 640 &lt;= bitrate &lt;= 1024<br/><br/> 8:<br/><br/> - 32000: 224 &lt;= bitrate &lt;= 1024<br/><br/> - 44100: 384 &lt;= bitrate &lt;= 1024<br/><br/> - 48000: 384 &lt;= bitrate &lt;= 1024<br/><br/> - 88200: 896 &lt;= bitrate &lt;= 1024<br/><br/> - 96000: 896 &lt;= bitrate &lt;= 1024  
-**HEAACV1**|1:<br/><br/> - 22050: bitrate = 8<br/><br/> - 24000: 8 &lt;= bitrate &lt;= 10<br/><br/> - 32000: 12 &lt;= bitrate &lt;= 64<br/><br/> - 44100: 20 &lt;= bitrate &lt;= 64<br/><br/> - 48000: 20 &lt;= bitrate &lt;= 64<br/><br/> - 88200: bitrate = 64<br/><br/> 2:<br/><br/> - 32000: 16 &lt;= bitrate &lt;= 128<br/><br/> - 44100: 16 &lt;= bitrate &lt;= 128<br/><br/> - 48000: 16 &lt;= bitrate &lt;= 128<br/><br/> - 88200: 96 &lt;= bitrate &lt;= 128<br/><br/> - 96000: 96 &lt;= bitrate &lt;= 128<br/><br/> 5/6:<br/><br/> - 32000: 64 &lt;= bitrate &lt;= 320<br/><br/> - 44100: 64 &lt;= bitrate &lt;= 320<br/><br/> - 48000: 64 &lt;= bitrate &lt;= 320<br/><br/> - 88200: 256 &lt;= bitrate &lt;= 320<br/><br/> - 96000: 256 &lt;= bitrate &lt;= 320<br/><br/> 8:<br/><br/> - 32000: 96 &lt;= bitrate &lt;= 448<br/><br/> - 44100: 96 &lt;= bitrate &lt;= 448<br/><br/> - 48000: 96 &lt;= bitrate &lt;= 448<br/><br/> - 88200: 384 &lt;= bitrate &lt;= 448<br/><br/> - 96000: 384 &lt;= bitrate &lt;= 448  
-**HEAACV2**|2:<br/><br/> - 22050: 8 &lt;= bitrate &lt;= 10<br/><br/> - 24000: 8 &lt;= bitrate &lt;= 10<br/><br/> - 32000: 12 &lt;= bitrate &lt;= 64<br/><br/> - 44100: 20 &lt;= bitrate &lt;= 64<br/><br/> - 48000: 20 &lt;= bitrate &lt;= 64<br/><br/> - 88200: 64 &lt;= bitrate &lt;= 64  
+**AACLC**|1:<br/><br/> - 11025: 8 &lt;= velocità in bit &lt; 16<br/><br/> - 12000: 8 &lt;= velocità in bit &lt; 16<br/><br/> - 16000: 8 &lt;= velocità in bit &lt;32<br/><br/>- 22050: 24 &lt;= velocità in bit &lt; 32<br/><br/> - 24000: 24 &lt;= velocità in bit &lt; 32<br/><br/> - 32000: 32 &lt;= velocità in bit &lt;= 192<br/><br/> - 44100: 56 &lt;= velocità in bit &lt;= 288<br/><br/> - 48000: 56 &lt;= velocità in bit &lt;= 288<br/><br/> - 88200: 128 &lt;= velocità in bit &lt;= 288<br/><br/> - 96000: 128 &lt;= velocità in bit &lt;= 288<br/><br/> 2:<br/><br/> - 11025: 16 &lt;= velocità in bit &lt; 24<br/><br/> - 12000: 16 &lt;= velocità in bit &lt; 24<br/><br/> - 16000: 16 &lt;= velocità in bit &lt; 40<br/><br/> - 22050: 32 &lt;= velocità in bit &lt; 40<br/><br/> - 24000: 32 &lt;= velocità in bit &lt; 40<br/><br/> - 32000:  40 &lt;= velocità in bit &lt;= 384<br/><br/> - 44100: 96 &lt;= velocità in bit &lt;= 576<br/><br/> - 48000: 96 &lt;= velocità in bit &lt;= 576<br/><br/> - 88200: 256 &lt;= velocità in bit &lt;= 576<br/><br/> - 96000: 256 &lt;= velocità in bit &lt;= 576<br/><br/> 5/6:<br/><br/> - 32000: 160 &lt;= velocità in bit &lt;= 896<br/><br/> - 44100: 240 &lt;= velocità in bit &lt;= 1024<br/><br/> - 48000: 240 &lt;= velocità in bit &lt;= 1024<br/><br/> - 88200: 640 &lt;= velocità in bit &lt;= 1024<br/><br/> - 96000: 640 &lt;= velocità in bit &lt;= 1024<br/><br/> 8:<br/><br/> - 32000: 224 &lt;= velocità in bit &lt;= 1024<br/><br/> - 44100: 384 &lt;= velocità in bit &lt;= 1024<br/><br/> - 48000: 384 &lt;= velocità in bit &lt;= 1024<br/><br/> - 88200: 896 &lt;= velocità in bit &lt;= 1024<br/><br/> - 96000: 896 &lt;= velocità in bit &lt;= 1024  
+**HEAACV1**|1:<br/><br/> - 22050: velocità in bit = 8<br/><br/> - 24000: 8 &lt;= velocità in bit &lt;= 10<br/><br/> - 32000: 12 &lt;= velocità in bit &lt;= 64<br/><br/> - 44100: 20 &lt;= velocità in bit &lt;= 64<br/><br/> - 48000: 20 &lt;= velocità in bit &lt;= 64<br/><br/> - 88200: velocità in bit = 64<br/><br/> 2:<br/><br/> - 32000: 16 &lt;= velocità in bit &lt;= 128<br/><br/> - 44100: 16 &lt;= velocità in bit &lt;= 128<br/><br/> - 48000: 16 &lt;= velocità in bit &lt;= 128<br/><br/> - 88200: 96 &lt;= velocità in bit &lt;= 128<br/><br/> - 96000: 96 &lt;= velocità in bit &lt;= 128<br/><br/> 5/6:<br/><br/> - 32000: - 64 &lt;= velocità in bit &lt;= 320<br/><br/> - 44100: - 64 &lt;= velocità in bit &lt;= 320<br/><br/> - 48000: - 64 &lt;= velocità in bit &lt;= 320<br/><br/> - 88200: 256 &lt;= velocità in bit &lt;= 320<br/><br/> - 96000: 256 &lt;= velocità in bit &lt;= 320<br/><br/> 8:<br/><br/> - 32000: 96 &lt;= velocità in bit &lt;= 448<br/><br/> - 44100: 96 &lt;= velocità in bit &lt;= 448<br/><br/> - 48000: 96 &lt;= velocità in bit &lt;= 448<br/><br/> - 88200: 384 &lt;= velocità in bit &lt;= 448<br/><br/> - 96000: 384 &lt;= velocità in bit &lt;= 448  
+**HEAACV2**|2:<br/><br/> - 22050: 8 &lt;= velocità in bit &lt;= 10<br/><br/> - 24000: 8 &lt;= velocità in bit &lt;= 10<br/><br/> - 32000: 12 &lt;= velocità in bit &lt;= 64<br/><br/> - 44100: 20 &lt;= velocità in bit &lt;= 64<br/><br/> - 48000: 20 &lt;= velocità in bit &lt;= 64<br/><br/> - 88200: 64 &lt;= velocità in bit &lt;= 64  
   
 ## <a name="Clip"></a> Clip
 ### <a name="attributes"></a>Attributi
@@ -222,7 +222,7 @@ In alternativa, è possibile usare il flag **PreserveResolutionAfterRotation** e
 | --- | --- | --- |
 | **Width**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Height**<br/><br/> minOccurs="0" |**xs:int** | |
-| **Quality**<br/><br/> minOccurs="0" |**xs:int** |I valori validi sono 1(worst)-100(best) |
+| **Quality**<br/><br/> minOccurs="0" |**xs:int** |Valori validi:  1 (peggiore) -100 (migliore) |
 
 ### <a name="attributes"></a>Attributi
 | Nome | Tipo | Descrizione |

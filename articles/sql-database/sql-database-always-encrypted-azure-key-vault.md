@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: fa37a83799ec50c7a8a87a0ac8a3232035a49234
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 670bdd43a4a581f349ca84c17ead67975fa0232e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755663"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110167"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted: Proteggere i dati sensibili e archiviare le chiavi di crittografia in Azure Key Vault
 
@@ -53,7 +53,7 @@ Per ottenere l'*ID applicazione* e la *chiave*, eseguire la procedura descritta 
 ## <a name="create-a-key-vault-to-store-your-keys"></a>Creare un insieme di credenziali delle chiavi per archiviare le chiavi
 Quando l'app client è configurata e si dispone dell'ID applicazione, è necessario creare un insieme di credenziali delle chiavi e configurare il criterio di accesso per consentire all'utente e all'applicazione di accedere alle chiavi private dell'insieme di credenziali, ovvero le chiavi Always Encrypted. Sono necessarie le autorizzazioni *create*, *get*, *list*, *sign*, *verify*, *wrapKey* e *unwrapKey* per creare una nuova chiave master di colonna e per configurare la crittografia con SQL Server Management Studio.
 
-È possibile creare rapidamente un insieme di credenziali delle chiavi eseguendo lo script seguente. Per una spiegazione dettagliata di questi cmdlet e altre informazioni sulla creazione e la configurazione di un insieme di credenziali delle chiavi, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-get-started.md).
+È possibile creare rapidamente un insieme di credenziali delle chiavi eseguendo lo script seguente. Per una spiegazione dettagliata di questi cmdlet e altre informazioni sulla creazione e la configurazione di un insieme di credenziali delle chiavi, vedere [Che cos'è Azure Key Vault?](../key-vault/key-vault-overview.md).
 
 ```powershell
     $subscriptionName = '<your Azure subscription name>'

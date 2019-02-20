@@ -1,6 +1,6 @@
 ---
-title: Uso dell'interfaccia della riga di comando di Hadoop Distributed File System con Anteprima di Azure Data Lake Storage Gen2
-description: Introduzione all'interfaccia della riga di comando di Hadoop Distributed File System per Anteprima di Azure Data Lake Storage Gen2
+title: Uso dell'interfaccia della riga di comando di Hadoop Distributed File System con Azure Data Lake Storage Gen2
+description: Introduzione all'interfaccia della riga di comando di Hadoop Distributed File System per Azure Data Lake Storage Gen2
 services: storage
 author: artemuwka
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: artek
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 2691346433b3cc29b22446152ea797cefb02a380
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 649fe5ebadf69a90b4794fcaf4519ea5bcc0c4a2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241271"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874184"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Uso dell'interfaccia della riga di comando di Hadoop Distributed File System con Anteprima di Azure Data Lake Storage Gen2
 
-Anteprima di Azure Data Lake Storage Gen2 consente di gestire i dati e accedervi esattamente come si farebbe con [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Se si dispone di un cluster HDInsight collegato o si esegue un processo di Apache Spark tramite Azure Databricks per eseguire l'analisi dei dati archiviati in un account di Archiviazione di Azure è possibile usare l'interfaccia della riga di comando (CLI) per recuperare e modificare i dati caricati.
+Azure Data Lake Storage Gen2 consente di gestire i dati e accedervi esattamente come si farebbe con [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Se si dispone di un cluster HDInsight collegato o si esegue un processo di Apache Spark tramite Azure Databricks per eseguire l'analisi dei dati archiviati in un account di Archiviazione di Azure è possibile usare l'interfaccia della riga di comando (CLI) per recuperare e modificare i dati caricati.
 
 ## <a name="hdfs-cli-with-hdinsight"></a>Interfaccia della riga di comando di Hadoop Distributed File System con HDInsight
 

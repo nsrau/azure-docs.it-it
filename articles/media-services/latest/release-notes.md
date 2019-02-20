@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: a1d52e0c6f87b9075d73508c97bd270d67d3ecf5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 8e2af866dcea3bd8ece29811b2cc8ccd4318ee54
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817623"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242806"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -34,6 +34,10 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 
 Per altre informazioni, vedere [Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3](migrate-from-v2-to-v3.md#known-issues).
 
+## <a name="february-2019"></a>Febbraio 2019
+
+La versione 3 di Servizi multimediali è ora supportata nei cloud nazionali di Azure. Non tutte le funzionalità sono già disponibili in tutti i cloud. Per informazioni, vedere [Cloud e aree in cui sono presenti Servizi multimediali di Azure v3](azure-clouds-regions.md).
+
 ## <a name="january-2019"></a>Gennaio 2019
 
 ### <a name="media-encoder-standard-and-mpi-files"></a>Media Encoder Standard e file MPI 
@@ -46,7 +50,7 @@ Non è consigliabile modificare o rimuovere il file MPI né creare dipendenze ne
 
 Gli aggiornamenti dalla versione disponibile a livello generale dell'API V3 includono:
        
-* Le proprietà **PresentationTimeRange** non sono più "obbligatorie" per **Assetfilter** e **AccountFilters**. 
+* Le proprietà **PresentationTimeRange** non sono più "obbligatorie" per i **filtri degli asset** e i **filtri degli account**. 
 * Sono state rimosse le opzioni di query $top e $skip per **Processi** e **Trasformazioni** ed è stata aggiunta $orderby. Come parte dell'aggiunta della nuova funzionalità di ordinamento, è stato rilevato che le opzioni $top e $skip sono state accidentalmente esposte in precedenza anche se non sono implementate.
 * L'estendibilità di enumerazione è stata riabilitata. Questa funzionalità è stata abilitata nelle versioni di anteprima di SDK ed è stata disattivata accidentalmente nella versione disponibile a livello generale.
 * Due criteri di streaming predefiniti sono stati rinominati. **SecureStreaming** è ora **MultiDrmCencStreaming**. **SecureStreamingWithFairPlay** è ora **Predefined_MultiDrmStreaming**.
@@ -67,7 +71,7 @@ Il modulo dell'interfaccia della riga di comando 2.0 è ora disponibile per [Ser
 - [az ams live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
 - [az ams streaming-endpoint](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
 - [az ams streaming-locator](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
-- [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) - consente di gestire le unità riservate di codifica
+- [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest): consente di gestire le Media Reserved Unit. Per altre informazioni, vedere [Ridimensionare le Media Reserved Unit](media-reserved-units-cli-how-to.md).
 
 ### <a name="new-features-and-breaking-changes"></a>Nuove funzionalità e modifiche di rilievo
 
@@ -141,7 +145,7 @@ Sono stati introdotti gli aggiornamenti della codifica live seguenti:
 - Supporto RTMP migliorato (maggiore stabilità e più supporto per i codificatori di origine).
 - Inserimento RTMPS sicuro.
 
-    Quando si crea un LiveEvent, si ottengono ora quattro URL di inserimento pressoché identici: hanno lo stesso token di streaming (AppId) e solo la parte del numero di porta è diversa. Due URL sono primari e due sono di backup per RTMPS. 
+    Quando si crea un live event, ora si ottengono quattro URL di inserimento. pressoché identici: hanno lo stesso token di streaming (AppId) e solo la parte del numero di porta è diversa. Due URL sono primari e due sono di backup per RTMPS. 
 - Supporto per la transcodifica 24 ore su 24. 
 - Supporto per annunci pubblicitari migliorato in RTMP tramite SCTE35.
 
@@ -149,7 +153,7 @@ Sono stati introdotti gli aggiornamenti della codifica live seguenti:
 
 È possibile osservare i miglioramenti seguenti al supporto di Griglia di eventi:
 
-- Integrazione di Azure EventGrid per facilitare lo sviluppo con App per la logica e Funzioni di Azure. 
+- Integrazione di Griglia di eventi di Azure per facilitare lo sviluppo con App per la logica e Funzioni di Azure. 
 - Possibilità di eseguire la sottoscrizione a eventi di codifica, canali live e altro ancora.
 
 ### <a name="cmaf-support"></a>Supporto per CMAF
@@ -179,11 +183,11 @@ Se sono stati creati filtri di asset o di account tra il 28/09 e il 12/10 con le
 Le funzionalità seguenti sono presenti in .Net SDK:
 
 * **Transforms** e **Jobs** per codificare o analizzare i contenuti multimediali. Per alcuni esempi, vedere [Eseguire lo streaming di file](stream-files-tutorial-with-api.md) e [Analyze](analyze-videos-tutorial-with-api.md) (Analizzare).
-* **StreamingLocators** per pubblicare e ed eseguire lo streaming dei contenuti ai dispositivi degli utenti finali
-* **StreamingPolicies** e **ContentKeyPolicies** per configurare il recapito della chiave e la protezione (Digital Rights Management) per la distribuzione dei contenuti.
-* **LiveEvents** e **LiveOutputs** per configurare l'inserimento e l'archiviazione dei contenuti in streaming live.
-* **Assets** per archiviare e pubblicare i contenuti multimediali in Archiviazione di Azure. 
-* **StreamingEndpoints** per configurare e ridimensionare la creazione dinamica dei pacchetti, la crittografia e lo streaming di contenuti multimediali live e on demand.
+* **Localizzatori di streaming** per pubblicare ed eseguire lo streaming dei contenuti ai dispositivi degli utenti finali
+* **Criteri di streaming** e **Criteri di chiave simmetrica** per configurare il recapito della chiave e la protezione del contenuto (Digital Rights Management) per la distribuzione dei contenuti.
+* **Eventi live** e **Output live** per configurare l'inserimento e l'archiviazione dei contenuti in streaming live.
+* **Asset** per archiviare e pubblicare i contenuti multimediali in Archiviazione di Azure. 
+* **Endpoint di streaming** per configurare e ridimensionare la creazione dinamica dei pacchetti, la crittografia e lo streaming di contenuti multimediali live e on demand.
 
 ### <a name="known-issues"></a>Problemi noti
 
@@ -191,4 +195,4 @@ Le funzionalità seguenti sono presenti in .Net SDK:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Overview](media-services-overview.md)
+[Panoramica](media-services-overview.md)

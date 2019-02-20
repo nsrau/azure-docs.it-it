@@ -3,8 +3,8 @@ title: Provisioning di utenti automatizzato per app SaaS in Azure AD | Microsoft
 description: Introduzione all'uso di Azure AD per eseguire automaticamente il provisioning, il deprovisioning e l'aggiornamento continuo degli account utente in più applicazioni SaaS di terze parti.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/30/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser
-ms.openlocfilehash: a4fc037ed566905133f59163ef99d5e107ca4bcc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3e8b099f845df66dfe8c43bc6f968fd63b30d09d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190922"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186353"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory
 
@@ -39,7 +40,7 @@ Azure Active Directory (Azure AD) consente di automatizzare la creazione, la man
 
 * Possibilità di ottenere una corrispondenza tra identità esistenti in sistemi di origine e di destinazione.
 * Mapping personalizzabili degli attributi che definiscono quali dati degli utenti devono essere trasferiti dal sistema di origine a quello di destinazione.
-* Avvisi di posta elettronica facoltativi per segnalare gli errori di provisioning.
+* Avvisi di posta elettronica facoltativi per errori di provisioning.
 * Log di report e attività per facilitare il monitoraggio e la risoluzione dei problemi.
 
 ## <a name="why-use-automated-provisioning"></a>Perché usare il provisioning automatico?
@@ -214,13 +215,13 @@ Nella configurazione **Sincronizza solo utenti e gruppi assegnati**, è possibil
     
 Riepilogo dei fattori che influenzano il tempo necessario per completare una **sincronizzazione iniziale**:
 
-* Numero totale di utenti e gruppi nell'ambito del provisioning
+* Numero totale di utenti e gruppi nell'ambito del provisioning.
 
-* Numero totale di utenti, gruppi e membri del gruppo presenti nel sistema di origine (Azure AD)
+* Numero totale di utenti, gruppi e membri del gruppo presenti nel sistema di origine (Azure AD).
 
 * Se gli utenti nell'ambito del provisioning corrispondono o meno agli utenti esistenti nell'applicazione di destinazione o se devono essere creati per la prima volta. I processi di sincronizzazione nei quali tutti gli utenti vengono creati per la prima volta hanno una durata approssimativa *doppia* rispetto ai processi di sincronizzazione nei quali tutti gli utenti corrispondono a utenti esistenti.
 
-* Numero di errori nei [log di controllo](check-status-user-account-provisioning.md). Le prestazioni risultano ridotte se sono presenti troppi errori e se il servizio di provisioning è in stato di quarantena 
+* Numero di errori nei [log di controllo](check-status-user-account-provisioning.md). Le prestazioni risultano ridotte se sono presenti troppi errori e se il servizio di provisioning è in stato di quarantena.    
 
 * Limitazioni relative al numero e alla frequenza delle richieste implementate dal sistema di destinazione. Alcuni sistemi di destinazione implementano limitazioni relative al numero e alla frequenza delle richieste, che possono influire negativamente sulle prestazioni durante la sincronizzazione di grandi quantità di dati. In queste condizioni, un'applicazione che riceve un numero eccessivo di richieste potrebbe ridurre la propria velocità di risposta o interrompere la connessione. Per migliorare le prestazioni, il connettore deve essere regolato in modo da non inviare le richieste di app più velocemente di quanto l'app possa elaborarle. I connettori di provisioning creati da Microsoft sono in grado di eseguire questa regolazione. 
 

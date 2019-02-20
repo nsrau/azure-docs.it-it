@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 33d3454e50cb6eeb0e48b52f01923c8a344620eb
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 31a42e316dab3d751fffa3353200c0185c56ee9e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944125"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997135"
 ---
-# <a name="use-azure-cli-to-create-an-azure-ad-app-and-configure-it-to-access-azure-media-services-api"></a>Usare l'interfaccia della riga di comando di Azure per creare un'app Azure AD e configurarla per l'accesso all'API Servizi multimediali di Azure
+# <a name="use-azure-cli-to-create-an-azure-ad-app-and-configure-it-to-access-media-services-api"></a>Usare l'interfaccia della riga di comando di Azure per creare un'app Azure AD e configurarla per l'accesso all'API Servizi multimediali 
 
 Questo argomento illustra come usare l'interfaccia della riga di comando di Azure per creare un'applicazione e un'entità servizio di Azure Active Directory (Azure AD) per accedere alle risorse di Servizi multimediali di Azure. 
 

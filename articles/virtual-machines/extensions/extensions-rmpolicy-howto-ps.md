@@ -13,18 +13,20 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 82b01cec892f15f7f85f6b5f822475114b5b73c6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 68a652fe16162d96d4ec07e6690f10f0bd34f2c0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434990"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980874"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Usare Criteri di Azure per limitare l'installazione di estensioni in macchine virtuali Windows
 
 Se si vuole impedire l'uso o l'installazione di determinate estensioni nelle macchine virtuali Windows, è possibile creare criteri di Azure tramite PowerShell per limitare le estensioni per le macchine virtuali all'interno di un gruppo di risorse. 
 
-Questa esercitazione usa Azure PowerShell all'interno di Cloud Shell, che viene costantemente aggiornato alla versione più recente. Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 3.6 o successiva. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). 
+Questa esercitazione usa Azure PowerShell all'interno di Cloud Shell, che viene costantemente aggiornato alla versione più recente. 
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="create-a-rules-file"></a>Creare un file delle regole
 
@@ -97,13 +99,13 @@ Al termine premere **CTRL + O** e quindi **INVIO** per salvare il file. Premere 
 
 ## <a name="create-the-policy"></a>Creare i criteri
 
-Una definizione di criteri è un oggetto usato per archiviare la configurazione che si desidera usare. La definizione di criteri usa i file di regole e parametri per definire i criteri. Creare una definizione di criteri usando il cmdlet [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
+Una definizione di criteri è un oggetto usato per archiviare la configurazione che si desidera usare. La definizione di criteri usa i file di regole e parametri per definire i criteri. Creare una definizione di criteri usando il cmdlet [New-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicydefinition).
 
  Le regole e i parametri dei criteri sono file creati e archiviati come file con estensione JSON in Cloud Shell.
 
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition `
+$definition = New-AzPolicyDefinition `
    -Name "not-allowed-vmextension-windows" `
    -DisplayName "Not allowed VM Extensions" `
    -description "This policy governs which VM extensions that are explicitly denied."   `
@@ -116,13 +118,13 @@ $definition = New-AzureRmPolicyDefinition `
 
 ## <a name="assign-the-policy"></a>Assegnare i criteri
 
-Questo esempio assegna i criteri a un gruppo di risorse usando [New-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment). Qualsiasi macchina virtuale creata nel gruppo di risorse **myResourceGroup** non potrà installare le estensioni dell'agente di accesso alle macchine virtuali o di script personalizzato. 
+Questo esempio assegna i criteri a un gruppo di risorse usando [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment). Qualsiasi macchina virtuale creata nel gruppo di risorse **myResourceGroup** non potrà installare le estensioni dell'agente di accesso alle macchine virtuali o di script personalizzato. 
 
-Usare il cmdlet [Get-AzureRMSubscription | Format-Table](/powershell/module/azurerm.profile/get-azurermsubscription) per ottenere l'ID della sottoscrizione da sostituire a quello nell'esempio.
+Usare il cmdlet [Get-AzSubscription | Format-Table](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription) per ottenere l'ID della sottoscrizione da sostituire a quello nell'esempio.
 
 ```azurepowershell-interactive
 $scope = "/subscriptions/<subscription id>/resourceGroups/myResourceGroup"
-$assignment = New-AzureRMPolicyAssignment `
+$assignment = New-AzPolicyAssignment `
    -Name "not-allowed-vmextension-windows" `
    -Scope $scope `
    -PolicyDefinition $definition `
@@ -139,10 +141,10 @@ $assignment
 
 ## <a name="test-the-policy"></a>Testare i criteri
 
-Per testare i criteri, provare a usare l'estensione di accesso alla macchina virtuale. Il comando seguente avrà esito negativo e presenterà il messaggio "Set-AzureRmVMAccessExtension: Resource 'myVMAccess' was disallowed by policy." (Set-AzureRmVMAccessExtension: la risorsa "myVMAccess" non è stata autorizzata dai criteri.)
+Per testare i criteri, provare a usare l'estensione di accesso alla macchina virtuale. Il comando seguente avrà esito negativo e presenterà il messaggio "Set-AzVMAccessExtension: Resource 'myVMAccess' was disallowed by policy." (Set-AzureRmVMAccessExtension: la risorsa "myVMAccess" non è stata autorizzata dai criteri.)
 
 ```azurepowershell-interactive
-Set-AzureRmVMAccessExtension `
+Set-AzVMAccessExtension `
    -ResourceGroupName "myResourceGroup" `
    -VMName "myVM" `
    -Name "myVMAccess" `
@@ -154,13 +156,13 @@ Nel portale la modifica della password avrà esito negativo e presenterà il mes
 ## <a name="remove-the-assignment"></a>Rimuovere l'assegnazione
 
 ```azurepowershell-interactive
-Remove-AzureRMPolicyAssignment -Name not-allowed-vmextension-windows -Scope $scope
+Remove-AzPolicyAssignment -Name not-allowed-vmextension-windows -Scope $scope
 ```
 
 ## <a name="remove-the-policy"></a>Rimuovere i criteri
 
 ```azurepowershell-interactive
-Remove-AzureRmPolicyDefinition -Name not-allowed-vmextension-windows
+Remove-AzPolicyDefinition -Name not-allowed-vmextension-windows
 ```
     
 ## <a name="next-steps"></a>Passaggi successivi

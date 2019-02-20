@@ -3,20 +3,20 @@ title: Aumentare la quota di endpoint
 titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) offre la possibilità di aumentare la quota di endpoint oltre la quota della singola chiave. Questa operazione viene eseguita creando più chiavi per LUIS e aggiungendole all'applicazione LUIS sulla pagina **Publish** (Pubblica) nella sezione **Resources and Keys** (Risorse e chiavi).
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 802a5cc629a467527c916c5a41a9c00d06e85600
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 89778375c6362007a81eab72663f56492f4fe206
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491723"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997907"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Usare Gestione traffico di Microsoft Azure per gestire la quota di endpoint tra le chiavi
 Language Understanding (LUIS) offre la possibilità di aumentare la quota di endpoint oltre la quota della singola chiave. Questa operazione viene eseguita creando più chiavi per LUIS e aggiungendole all'applicazione LUIS sulla pagina **Publish** (Pubblica) nella sezione **Resources and Keys** (Risorse e chiavi). 
@@ -362,6 +362,9 @@ La risposta con esito positivo con l'endpoint LUIS è:
 ## <a name="use-the-traffic-manager-parent-profile"></a>Usare il profilo padre di Gestione traffico
 Per gestire il traffico tra gli endpoint, è necessario inserire una chiamata al DNS di Gestione traffico per trovare l'endpoint LUIS. Questa chiamata viene effettuata per ogni richiesta dell'endpoint LUIS e deve simulare la posizione geografica dell'utente dell'applicazione client LUIS. Aggiungere il codice di risposta DNS tra l'applicazione client LUIS e la richiesta inviata a LUIS per la previsione dell'endpoint. 
 
+## <a name="resolving-a-degraded-state"></a>Risoluzione di uno stato danneggiato
+
+Abilitare i [log di diagnostica](../../traffic-manager/traffic-manager-diagnostic-logs.md) per Gestione traffico per visualizzare il motivo per cui lo stato dell'endpoint è danneggiato.
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 Rimuovere le due chiavi endpoint LUIS, i tre profili di Gestione traffico e il gruppo di risorse che conteneva queste cinque risorse. Questa operazione viene eseguita dal portale di Azure. Si eliminano le cinque risorse dall'elenco delle risorse. Quindi si elimina il gruppo di risorse. 

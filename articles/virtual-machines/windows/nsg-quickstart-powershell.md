@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: f79db8cdec0aa48ae300aff4c58072fb6afdc932
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 1bd5c63db63bea24e5cf088cf9974233d3535912
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932783"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976471"
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Come aprire le porte e gli endpoint in una VM in Azure usando PowerShell
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -30,15 +30,15 @@ Per creare un gruppo di sicurezza di rete e le regole del controllo di accesso, 
 Accedere all'account di Azure:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Negli esempi seguenti sostituire i nomi dei parametri con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myNetworkSecurityGroup* e *myVnet*.
 
-Creare una regola con [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). L'esempio seguente crea una regola denominata *myNetworkSecurityGroupRule* per consentire il traffico *tcp* sulla porta *80*:
+Creare una regola con [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig). L'esempio seguente crea una regola denominata *myNetworkSecurityGroupRule* per consentire il traffico *tcp* sulla porta *80*:
 
 ```powershell
-$httprule = New-AzureRmNetworkSecurityRuleConfig `
+$httprule = New-AzNetworkSecurityRuleConfig `
     -Name "myNetworkSecurityGroupRule" `
     -Description "Allow HTTP" `
     -Access "Allow" `
@@ -51,40 +51,40 @@ $httprule = New-AzureRmNetworkSecurityRuleConfig `
     -DestinationPortRange 80
 ```
 
-Creare quindi il gruppo di sicurezza di rete con [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) e assegnare la regola HTTP appena creata come indicato di seguito. L'esempio seguente crea un gruppo di sicurezza di rete denominato *myNetworkSecurityGroup*:
+Creare quindi il gruppo di sicurezza di rete con [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup) e assegnare la regola HTTP appena creata come indicato di seguito. L'esempio seguente crea un gruppo di sicurezza di rete denominato *myNetworkSecurityGroup*:
 
 ```powershell
-$nsg = New-AzureRmNetworkSecurityGroup `
+$nsg = New-AzNetworkSecurityGroup `
     -ResourceGroupName "myResourceGroup" `
     -Location "EastUS" `
     -Name "myNetworkSecurityGroup" `
     -SecurityRules $httprule
 ```
 
-Ora si assegnerà il gruppo di sicurezza di rete a una subnet. L'esempio seguente assegna una rete virtuale esistente denominata *myVnet* alla variabile *$vnet* con [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork):
+Ora si assegnerà il gruppo di sicurezza di rete a una subnet. L'esempio seguente assegna una rete virtuale esistente denominata *myVnet* alla variabile *$vnet* con [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork):
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork `
+$vnet = Get-AzVirtualNetwork `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVnet"
 ```
 
-Associare il gruppo di sicurezza di rete alla subnet con [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig). L'esempio seguente associa la subnet denominata *mySubnet* al gruppo di sicurezza di rete:
+Associare il gruppo di sicurezza di rete alla subnet con [Set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworksubnetconfig). L'esempio seguente associa la subnet denominata *mySubnet* al gruppo di sicurezza di rete:
 
 ```powershell
 $subnetPrefix = $vnet.Subnets|?{$_.Name -eq 'mySubnet'}
 
-Set-AzureRmVirtualNetworkSubnetConfig `
+Set-AzVirtualNetworkSubnetConfig `
     -VirtualNetwork $vnet `
     -Name "mySubnet" `
     -AddressPrefix $subnetPrefix.AddressPrefix `
     -NetworkSecurityGroup $nsg
 ```
 
-Infine, aggiornare la rete virtuale con [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) affinché le modifiche abbiano effetto:
+Infine, aggiornare la rete virtuale con [Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetwork) affinché le modifiche abbiano effetto:
 
 ```powershell
-Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+Set-AzVirtualNetwork -VirtualNetwork $vnet
 ```
 
 

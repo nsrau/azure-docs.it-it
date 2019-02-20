@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: f417338205b17c8b949156a6d5a60ef609458fc1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 504436060a71847641635b12baa63c79c77251e6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088137"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112210"
 ---
 # <a name="management-in-azure"></a>Gestione in Azure
 
@@ -24,7 +24,7 @@ Il diagramma seguente illustra le diverse aree della gestione necessarie per ges
 
 ![Discipline di gestione](../monitoring/media/management-overview/management-capabilities.png)
 
-Nessun singolo servizio di Azure soddisfa completamente i requisiti di un'area di gestione specifica. Al contrario, ognuno viene realizzato mediante numerosi servizi che interagiscono l’uno con l’altro. Alcuni servizi, come Application Insights, offrono funzionalità mirate di monitoraggio per le applicazioni Web. Altri, come Log Analytics, archiviano i dati di gestione per gli altri servizi. Questa funzionalità consente di analizzare i dati di diverso tipo raccolti dai molteplici servizi.
+Nessun singolo servizio di Azure soddisfa completamente i requisiti di un'area di gestione specifica. Al contrario, ognuno viene realizzato mediante numerosi servizi che interagiscono l’uno con l’altro. Alcuni servizi, come Application Insights, offrono funzionalità mirate di monitoraggio per le applicazioni Web. Altri, come i log di Monitoraggio di Azure, archiviano dati di gestione per altri servizi. Questa funzionalità consente di analizzare i dati di diverso tipo raccolti dai molteplici servizi.
 
 Le sezioni seguenti descrivono brevemente le diverse aree di gestione e includono collegamenti a contenuti dettagliati sui servizi di Azure principali specifici per ogni area.
 

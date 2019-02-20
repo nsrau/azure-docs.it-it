@@ -4,14 +4,14 @@ description: Informazioni su uno schema progettuale per social network che sfrut
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 02/11/2019
 ms.author: maquaran
-ms.openlocfilehash: 8d6dfa292bd597c2e37f7111e3a068010dc4653c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 36b77ff6666c2c8b0d27cbdc8552ade15b21d005
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042684"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100364"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Integrazione con i social con Azure Cosmos DB
 
@@ -222,7 +222,7 @@ Un'altra opzione disponibile consiste nell'usare [Servizi cognitivi di Azure](ht
 
 C'è un ultimo, ma non meno importante, articolo da affrontare: la **scalabilità**. Quando si progetta un'architettura, ogni componente deve poter essere ridimensionato in modo autonomo. Potrebbe diventare necessario elaborare più dati o ottenere una copertura geografica più ampia. Per fortuna, entrambe le attività sono un'**esperienza chiavi in mano** con Cosmos DB.
 
-Cosmos DB supporta il [partizionamento dinamico](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) per impostazione predefinita e crea automaticamente partizioni in base a una determinata **chiave di partizione**, definita come attributo nei documenti. La definizione della chiave di partizione corretta deve essere eseguita in fase di progettazione. Per altre informazioni, vedere l'articolo [Scelta di una chiave di partizione](partitioning-overview.md#choose-partitionkey).
+Cosmos DB supporta il partizionamento dinamico per impostazione predefinita. e crea automaticamente partizioni in base a una determinata **chiave di partizione**, definita come attributo nei documenti. La definizione della chiave di partizione corretta deve essere eseguita in fase di progettazione. Per altre informazioni, vedere [Partizionamento in Azure Cosmos DB](partitioning-overview.md).
 
 Per un'esperienza social, è necessario allineare la strategia di partizionamento al modo in cui si eseguono query e scrittura. (Ad esempio, le letture all'interno della stessa partizione sono consigliabili ed è possibile evitare "hot spot" distribuendo le scritture su più partizioni.) Alcune opzioni sono: partizioni basate su una chiave temporale (giorno/mese/settimana), sulla categoria del contenuto, sull'area geografica o sull'utente. Tutto dipende da come verranno eseguite le query sui dati e visualizzati i dati nell'esperienza social.
 

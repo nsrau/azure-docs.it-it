@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Informazioni ed esempi di codice basati su Python per iniziare rapidamente a usare l'API Traduzione testuale Microsoft in Servizi cognitivi Microsoft in Azure.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: ca0d8bcbf2d4b050560d1575ef690205eacca830
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e732417daada836dc7de58fadf69e8edb4ebcb14
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222168"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244641"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-python"></a>Come usare l'API REST QnA Maker con Python
 <a name="HOLTop"></a>
@@ -35,8 +35,8 @@ Questo articolo illustra come usare l'[API QnA Maker Microsoft](../Overview/over
 - [Eliminare una knowledge base.](#Delete)
 - [Ottenere le chiavi dell'endpoint correnti.](#GetKeys)
 - [Rigenerare le chiavi dell'endpoint correnti.](#PutKeys)
-- [Ottenere il set corrente di variazioni delle parole.](#GetAlterations)
-- [Sostituire il set corrente di variazioni delle parole.](#PutAlterations)
+- [Ottenere il set corrente di variazioni delle parole senza distinzione maiuscole/minuscole.](#GetAlterations)
+- [Sostituire il set corrente di variazioni delle parole senza distinzione maiuscole/minuscole.](#PutAlterations)
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 

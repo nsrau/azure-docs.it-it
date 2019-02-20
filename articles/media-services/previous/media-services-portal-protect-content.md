@@ -4,7 +4,7 @@ description: Questo articolo illustra come usare il portale di Azure per configu
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 270b3272-7411-40a9-ad42-5acdbba31154
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: c46faf2298ebaac4f40fb1d18cbfca83076e0d4f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: dc5439c98b5abc69b6cb1ba144e015426bb887ce
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423548"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996947"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Configurare i criteri di protezione dei contenuti tramite il portale di Azure
  Con Servizi multimediali di Azure, è possibile proteggere i file multimediali dal momento in cui escono dal computer fino alle fasi di archiviazione, elaborazione e distribuzione. È possibile usare Servizi multimediali per distribuire contenuti crittografati dinamicamente con Advanced Encryption Standard (AES), tramite chiavi di crittografia a 128 bit. È inoltre possibile usarlo con crittografia comune (CENC) tramite Digital Rights Management (DRM) PlayReady e/o Widevine e Apple FairPlay. 

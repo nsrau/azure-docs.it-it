@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: abfaf76743f42a3fc4a13878d528c755feeef42a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 791322c71b4d1b49e1367fb0f179e7b0513a1e94
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458568"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55975654"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Collegare un disco dati a una macchina virtuale Windows con PowerShell
 
@@ -31,9 +31,9 @@ Esaminare prima di tutto i suggerimenti seguenti:
 * La dimensione della macchina virtuale controlla il numero di dischi dati che è possibile collegare. Per altre informazioni, vedere [Dimensioni delle macchine virtuali in Azure](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Per usare Archiviazione Premium, è necessario un tipo di macchina virtuale abilitato per Archiviazione Premium, ad esempio una macchina virtuale serie DS o GS. Per altre informazioni, vedere [Archiviazione Premium: Archiviazione ad alte prestazioni per i carichi di lavoro delle macchine virtuali di Azure](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
-Per installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell 6.0.0 o versione successiva. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure.
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Aggiungere un disco dati vuoto a una macchina virtuale
@@ -49,17 +49,17 @@ $location = 'East US'
 $storageType = 'Premium_LRS'
 $dataDiskName = $vmName + '_datadisk1'
 
-$diskConfig = New-AzureRmDiskConfig -SkuName $storageType -Location $location -CreateOption Empty -DiskSizeGB 128
-$dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
+$diskConfig = New-AzDiskConfig -SkuName $storageType -Location $location -CreateOption Empty -DiskSizeGB 128
+$dataDisk1 = New-AzDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
 
-$vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName 
+$vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
 
-Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+Update-AzVM -VM $vm -ResourceGroupName $rgName
 ```
 
 ### <a name="using-managed-disks-in-an-availability-zone"></a>Uso di Managed Disks in una zona di disponibilità
-Per creare un disco in una zona di disponibilità, usare [New AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig) con il parametro `-Zone`. L'esempio seguente crea un disco nella zona *1*.
+Per creare un disco in una zona di disponibilità, usare [New AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) con il parametro `-Zone`. L'esempio seguente crea un disco nella zona *1*.
 
 
 ```powershell
@@ -69,13 +69,13 @@ $location = 'East US 2'
 $storageType = 'Premium_LRS'
 $dataDiskName = $vmName + '_datadisk1'
 
-$diskConfig = New-AzureRmDiskConfig -SkuName $storageType -Location $location -CreateOption Empty -DiskSizeGB 128 -Zone 1
-$dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
+$diskConfig = New-AzDiskConfig -SkuName $storageType -Location $location -CreateOption Empty -DiskSizeGB 128 -Zone 1
+$dataDisk1 = New-AzDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
 
-$vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName 
+$vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
 
-Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+Update-AzVM -VM $vm -ResourceGroupName $rgName
 ```
 
 
@@ -87,7 +87,7 @@ Dopo aver aggiunto un disco vuoto, è necessario inizializzarlo. Per inizializza
     $location = "location-name"
     $scriptName = "script-name"
     $fileName = "script-file-name"
-    Set-AzureRmVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
+    Set-AzVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
 ```
         
 Il file di script può contenere il codice per inizializzare i dischi, ad esempio:
@@ -119,13 +119,13 @@ $rgName = "myResourceGroup"
 $vmName = "myVM"
 $location = "East US" 
 $dataDiskName = "myDisk"
-$disk = Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $dataDiskName 
+$disk = Get-AzDisk -ResourceGroupName $rgName -DiskName $dataDiskName 
 
-$vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName 
 
-$vm = Add-AzureRmVMDataDisk -CreateOption Attach -Lun 0 -VM $vm -ManagedDiskId $disk.Id
+$vm = Add-AzVMDataDisk -CreateOption Attach -Lun 0 -VM $vm -ManagedDiskId $disk.Id
 
-Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+Update-AzVM -VM $vm -ResourceGroupName $rgName
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

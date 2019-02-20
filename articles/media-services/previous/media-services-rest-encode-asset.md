@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: ada3210a59e0c3044551bee54b0a705b4b513594
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e51fa086b26e5692d8dd572654b7c1ec50c641c5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254435"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005149"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Come codificare un asset mediante Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -30,6 +30,7 @@ ms.locfileid: "51254435"
 >
 
 ## <a name="overview"></a>Panoramica
+
 Per distribuire un video digitale in Internet è necessario comprimere il file multimediale. I file video digitali hanno dimensioni piuttosto elevate e possono risultare troppo grandi per la distribuzione su Internet o per la visualizzazione corretta nei dispositivi dei clienti. Mediante il processo di codifica è possibile comprimere video e audio per consentire ai clienti di visualizzare i file multimediali.
 
 I processi di codifica sono tra le operazioni di elaborazione più frequenti in Servizi multimediali di Azure. Questi processi vengono creati per convertire i file multimediali da una codifica all'altra. Durante la codifica è possibile usare il codificatore multimediale incorporato in Servizi multimediali (Media Encoder Standard). È inoltre possibile usare un codificatore fornito da un partner di Servizi multimediali. I codificatori di terze parti sono disponibili tramite il Marketplace di Azure. È possibile specificare i dettagli relativi alle attività di codifica usando stringhe di set di impostazioni definite per il codificatore oppure file di configurazione di set di impostazioni. Per i tipi di set di impostazioni disponibili, vedere [Task Presets for Media Encoder Standard](https://msdn.microsoft.com/library/mt269960) (Set di impostazioni disponibili per Media Encoder Standard).
@@ -54,12 +55,13 @@ Prima di iniziare a fare riferimento ai supporti multimediali, verificare di ave
 Per informazioni su come connettersi all'API AMS, vedere [Accedere all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 ## <a name="create-a-job-with-a-single-encoding-task"></a>Creare un processo con una singola attività di codifica
+
 > [!NOTE]
 > Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
 >
 > Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Configurazione dello sviluppo dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
 >
-> Se si usa JSON e si specifica di usare la parola chiave **__metadata** nella richiesta (ad esempio, per fare riferimento a un oggetto collegato) è necessario impostare l'intestazione **Accetta** sul [formato JSON Verbose](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accetta: application/json;odata=verbose.
+> Se si usa JSON e si specifica di usare la parola chiave **__metadata** nella richiesta, ad esempio, per fare riferimento a un oggetto collegato, si deve impostare l'intestazione **Accept** sul [formato JSON Verbose](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accept: application/json;odata=verbose.
 >
 >
 

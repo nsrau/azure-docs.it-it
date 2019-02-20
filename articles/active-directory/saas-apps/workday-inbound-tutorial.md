@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
-ms.openlocfilehash: d4a47130dadb782f41579bd20c4b5e1d1e9978bb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f5ac06200766f37c64252599ec8a4dddb6846ea7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188593"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175405"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workday per il provisioning utenti automatico
 
@@ -713,7 +714,7 @@ Dopo aver completato le configurazioni dell'app di provisioning Workday, è poss
 
 3. Questa operazione avvierà la sincronizzazione iniziale, che può richiedere un numero variabile di ore a seconda del numero di utenti nel tenant di Workday. 
 
-4. In qualsiasi momento è possibile controllare la scheda **Log di controllo** nel portale di Azure per vedere le azioni che sono state eseguite dal servizio di provisioning. I log di controllo elencano tutti i singoli eventi di sincronizzazione eseguiti dal servizio di provisioning, ad esempio quali utenti vengono letti da Workday e successivamente aggiunti o aggiornati in Active Directory. Vedere la sezione [Troubleshooting](#troubleshooting-provisioning-issues) (Risoluzione dei problemi) per istruzioni su come esaminare i log di controllo e correggere gli errori di provisioning.
+4. In qualsiasi momento è possibile controllare la scheda **Log di controllo** nel portale di Azure per vedere le azioni che sono state eseguite dal servizio di provisioning. I log di controllo elencano tutti i singoli eventi di sincronizzazione eseguiti dal servizio di provisioning, ad esempio quali utenti vengono letti da Workday e successivamente aggiunti o aggiornati in Active Directory. Vedere la sezione Troubleshooting (Risoluzione dei problemi) per istruzioni su come esaminare i log di controllo e correggere gli errori di provisioning.
 
 5. Al termine della sincronizzazione iniziale, verrà scritto un report di riepilogo di controllo nella scheda **Provisioning**, come illustrato di seguito.
 

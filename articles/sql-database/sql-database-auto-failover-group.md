@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: d24f7ce20a9dfb8ede184e8f013c2d988a8a96c2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: 2857b7f5347cf546a9745dcbea02f636a798f4a2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468700"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004248"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 
@@ -331,7 +331,7 @@ Come indicato in precedenza, i gruppi di failover automatico e la replica geogra
 | Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Attiva il failover del gruppo di failover per il server secondario|
 | Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Rimuove un gruppo di failover|
 
-### <a name="rest-api-manage-sql-database-failover-groups-with-standalone-and-pooled-databases"></a>API REST: Gestire gruppi di failover del database SQL con database autonomi e in pool
+### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>API REST: Gestire gruppi di failover del database SQL con database singoli e in pool
 
 | API | DESCRIZIONE |
 | --- | --- |

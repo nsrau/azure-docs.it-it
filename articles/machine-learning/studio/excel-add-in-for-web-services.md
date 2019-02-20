@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 57c9f9a0b6f3a0502a07ca3124cbe157d8008117
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: c9c5ad0af39b698175c4bc7cb7f720452546ec10
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486895"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997068"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Componente aggiuntivo Excel per i servizi Web di Azure Machine Learning Studio
 Excel consente di chiamare servizi Web direttamente senza dover scrivere alcun codice.
@@ -24,8 +24,8 @@ Excel consente di chiamare servizi Web direttamente senza dover scrivere alcun c
 
 1. Aprire il [file di Excel di esempio](https://aka.ms/amlexcel-sample-2)che contiene il componente aggiuntivo Excel e i dati relativi ai passeggeri sul Titanic. 
  
-> [!NOTE]
-> Verranno visualizzati l'elenco dei servizi Web correlati al file e nella parte inferiore una casella di controllo "Auto-predict" (Stima automatica). Se si abilita la stima automatica, le stime per **tutti** i servizi verranno aggiornate per ogni modifica degli input. Se l'opzione è deselezionata sarà necessario fare clic su "Predict All" (Stima tutto) per l'aggiornamento. Per abilitare la previsione automatica a livello di servizio, procedere al passaggio 6.
+    > [!NOTE]
+    > Verranno visualizzati l'elenco dei servizi Web correlati al file e nella parte inferiore una casella di controllo "Auto-predict" (Stima automatica). Se si abilita la stima automatica, le stime per **tutti** i servizi verranno aggiornate per ogni modifica degli input. Se l'opzione è deselezionata sarà necessario fare clic su "Predict All" (Stima tutto) per l'aggiornamento. Per abilitare la previsione automatica a livello di servizio, procedere al passaggio 6.
 
 2. Scegliere un servizio Web facendo clic su di esso: in questo esempio "Stime sopravvissuti Titanic (esempio componente aggiuntivo Excel) [Score]".
    
@@ -37,7 +37,7 @@ Excel consente di chiamare servizi Web direttamente senza dover scrivere alcun c
    
     ![Sezione Stima][02]
 
-Distribuire un servizio Web o usarne uno esistente. Per altre informazioni sulla distribuzione di un servizio Web, vedere [Passaggio 5 della procedura dettagliata: Distribuire il servizio Web di Azure Machine Learning](walkthrough-5-publish-web-service.md).
+Distribuire un servizio Web o usarne uno esistente. Per altre informazioni sulla distribuzione di un servizio Web, vedere [Esercitazione 3: Distribuire il modello di rischio di credito](tutorial-part3-credit-risk-deploy.md).
 
 Ottenere la chiave API per il servizio Web. La posizione in cui viene eseguita l'operazione varia a seconda che sia stato pubblicato un servizio Web classico o un nuovo servizio Web di Machine Learning.
 
@@ -65,7 +65,7 @@ Ottenere la chiave API per il servizio Web. La posizione in cui viene eseguita l
 
 ## <a name="steps-to-add-a-new-web-service"></a>Procedura per aggiungere un nuovo servizio Web
 
-1. Distribuire un servizio Web o usarne uno esistente. Per altre informazioni sulla distribuzione di un servizio Web, vedere [Passaggio 5 della procedura dettagliata: Distribuire il servizio Web di Azure Machine Learning](walkthrough-5-publish-web-service.md).
+1. Distribuire un servizio Web o usarne uno esistente. Per altre informazioni sulla distribuzione di un servizio Web, vedere [Esercitazione 3: Distribuire il modello di rischio di credito](tutorial-part3-credit-risk-deploy.md).
 2. Fare clic su **Consume**(Uso).
 3. Cercare la sezione **Basic consumption info** (Informazioni di base sull'uso). Copiare e salvare il valore di **Primary Key** (Chiave primaria) e l'URL **Request-Response** (Richiesta-risposta).
 4. In Excel passare alla sezione **Servizi Web** (se si è nella sezione **Stima**, fare clic sulla freccia indietro per tornare all'elenco dei servizi Web).

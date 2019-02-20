@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0d14b2eeb90bd360b71b315d7b4f4459f17f5672
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 8898149e6858c5a1cdb2d4510ad2764ffe25fda5
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073765"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964254"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Configurare la gestione dei clienti potenziali usando un endpoint HTTPS
 
@@ -65,7 +65,7 @@ ms.locfileid: "54073765"
 
     ![Selezionare i clienti potenziali](./media/cloud-partner-portal-lead-management-instructions-https/https-image011.png)
 
-4. Flow visualizza un modulo per l'immissione delle informazioni sui clienti potenziali. È possibile mappare elementi dalla richiesta di input scegliendo di aggiungere contenuto dinamico. L'acquisizione di schermata seguente mostra **LeadTitle** come esempio.
+4. Flow visualizza un modulo per l'immissione delle informazioni sui clienti potenziali. È possibile mappare elementi dalla richiesta di input scegliendo di aggiungere contenuto dinamico. L'acquisizione di schermata seguente mostra **OfferTitle** come esempio.
 
     ![Aggiungere contenuto dinamico](./media/cloud-partner-portal-lead-management-instructions-https/https-image013.png)
 

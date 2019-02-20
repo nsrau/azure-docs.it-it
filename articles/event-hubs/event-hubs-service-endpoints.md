@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 2ad525ee0e10064d4d606dc1f899ef813fe92ab5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 077202e65c9e63c8ca5ea1a555ccd70bf27028c6
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273502"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232604"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usare gli endpoint del servizio della rete virtuale con Hub eventi di Azure
 
@@ -29,9 +29,9 @@ Il risultato è una relazione privata e isolata tra i carichi di lavoro associat
 >[!WARNING]
 > L'implementazione dell'integrazione delle reti virtuali può impedire l'interazione da parte di altri servizi Azure con l'Hub eventi di Azure.
 >
-> I servizi Microsoft attendibili non sono supportati quando sono implementate le reti virtuali, ma saranno presto disponibili.
+> I servizi Microsoft considerati attendibili non sono supportati quando sono implementate reti virtuali.
 >
-> Scenari comuni di Azure che non supportano le reti virtuali (l'elenco **NON** è esaustivo)
+> Scenari comuni di Azure che non supportano le reti virtuali (l'elenco **NON** è esaustivo) -
 > - Monitoraggio di Azure
 > - Analisi di flusso di Azure
 > - Integrazione con Griglia di eventi di Azure

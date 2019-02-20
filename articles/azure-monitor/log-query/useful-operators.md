@@ -1,6 +1,6 @@
 ---
-title: Operatori utili nelle query di Azure Log Analytics | Microsoft Docs
-description: Funzioni comuni da usare per diversi scenari nelle query di Log Analytics.
+title: Operatori utili nelle query di log di Monitoraggio di Azure | Microsoft Docs
+description: Funzioni comuni da usare per diversi scenari nelle query dei log di Monitoraggio di Azure.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: 060b1e469a31c335f062ccd332157d13e64f9318
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d11445c3f31f9aced6fdb9783575d10a026de1f0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183983"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000149"
 ---
-# <a name="useful-operators-in-log-analytics-queries"></a>Operatori utili nelle query di Log Analytics
+# <a name="useful-operators-in-azure-monitor-log-queries"></a>Operatori utili nelle query di log di Monitoraggio di Azure
 
-La tabella di seguito riporta alcune funzioni comuni da usare per diversi scenari nelle query di Log Analytics.
+La tabella di seguito riporta alcune funzioni comuni da usare per diversi scenari nelle query dei log di Monitoraggio di Azure.
 
 ## <a name="useful-operators"></a>Operatori utili
 
@@ -46,4 +46,4 @@ Machine learning                        |`evaluate autocluster`, `basket`, `diff
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Esaminare la lezione sulla [scrittura di query in Log Analytics](get-started-queries.md).
+- Seguire una lezione sulla [scrittura di query di log in Monitoraggio di Azure](get-started-queries.md).

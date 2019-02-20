@@ -6,17 +6,18 @@ keywords: clip;clip secondaria;codifica;multimediale
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 0fc04fb64e6d34c46f20b4ba5ff8a1ffc8da9c31
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9d306bc3b9e206e5f21f9c16c0cd32bc599f1b6d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237911"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003160"
 ---
-# <a name="create-clips-with-azure-media-clipper"></a>Creare clip con Azure Media Clipper
+# <a name="create-clips-with-azure-media-clipper"></a>Creare clip con Azure Media Clipper 
+
 Azure Media Clipper è una libreria JavaScript gratuita che consente agli sviluppatori Web di offrire agli utenti un'interfaccia per la creazione di clip multimediali. Questo strumento può essere integrato in qualsiasi pagina Web e offre API per il caricamento di asset e l'invio di processi di ritaglio.
 
 Azure Media Clipper consente di:

@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 1477242e10918a9836ceea15d418fb462e193b1b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f367d6e1b1c545bcad0faf030a56fdec2ffafca2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811741"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989066"
 ---
-# <a name="implement-failover-streaming-with-azure-media-services"></a>Implementare lo streaming del failover con Servizi multimediali di Azure
+# <a name="implement-failover-streaming-with-media-services-legacy"></a>Implementare lo streaming del failover con Servizi multimediali (legacy)
 
 Questa procedura dettagliata illustra come copiare il contenuto (BLOB) da un asset all'altro per gestire la ridondanza dello streaming on demand. Questo scenario è utile se si desidera configurare la rete di distribuzione dei contenuti di Azure affinché esegua il failover tra due data center, in caso di interruzione in uno di essi. In questa procedura dettagliata viene usato l'SDK dei Servizi multimediali di Azure, l'API REST di Servizi multimediali di Microsoft Azure e l'SDK di Archiviazione di Azure per dimostrare queste attività:
 

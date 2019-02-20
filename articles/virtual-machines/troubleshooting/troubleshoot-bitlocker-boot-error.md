@@ -13,19 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: b5f851fe5c8aebba441903ccc004b7dbd0029ba3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 3a615beeec45871aab1e98ad338ffa053ddbec92
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412036"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984767"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Problemi di avvio di BitLocker in una macchina virtuale di Azure
 
  Questo articolo descrive i potenziali problemi di BitLocker che possono verificarsi all'avvio di una macchina virtuale Windows in Microsoft Azure.
 
-> [!NOTE] 
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l’utilizzo del modello di distribuzione Gestione risorse. Invece del modello di distribuzione classica, per le nuove distribuzioni è consigliabile usare questo modello.
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
  ## <a name="symptom"></a>Sintomo
 
@@ -33,7 +32,7 @@ ms.locfileid: "47412036"
 
 - Collegare l'unità USB contenente la chiave BitLocker
 
-- Il tuo account è bloccato. Immetti la chiave di ripristino per continuare (Layout di tastiera: US) Troppi tentativi di accesso con informazioni errate. Il PC è stato bloccato per proteggere la privacy dell'utente. Per recuperare la chiave di ripristino, visitare http://windows.microsoft.com/recoverykeyfaq da un altro PC o dispositivo mobile. Nel caso sia necessario, l'ID della chiave è XXXXXXX. In alternativa, è possibile ripristinare le impostazioni di fabbrica del PC.
+- Il tuo account è bloccato. Immettere la chiave di ripristino per continuare (layout tastiera: US) Troppi tentativi di accesso con informazioni errate. Il PC è stato bloccato per proteggere la privacy dell'utente. Per recuperare la chiave di ripristino, visitare http://windows.microsoft.com/recoverykeyfaq da un altro PC o dispositivo mobile. Nel caso sia necessario, l'ID della chiave è XXXXXXX. In alternativa, è possibile ripristinare le impostazioni di fabbrica del PC.
 
 - Digitare la password per sbloccare l'unità [ ] Premere INS per visualizzare la password durante la digitazione.
 - Immetti la chiave di ripristino Carica la chiave di ripristino da un dispositivo USB.
@@ -57,17 +56,17 @@ Se questo metodo non risolve il problema, seguire questa procedura per ripristin
     $rgName = "myResourceGroup"
     $osDiskName = "ProblemOsDisk"
 
-    New-AzureRmDiskUpdateConfig -EncryptionSettingsEnabled $false |Update-AzureRmDisk -diskName $osDiskName -ResourceGroupName $rgName
+    New-AzDiskUpdateConfig -EncryptionSettingsEnabled $false |Update-AzDisk -diskName $osDiskName -ResourceGroupName $rgName
 
     $recoveryVMName = "myRecoveryVM" 
     $recoveryVMRG = "RecoveryVMRG" 
-    $OSDisk = Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $osDiskName;
+    $OSDisk = Get-AzDisk -ResourceGroupName $rgName -DiskName $osDiskName;
 
-    $vm = get-AzureRMVM -ResourceGroupName $recoveryVMRG -Name $recoveryVMName 
+    $vm = get-AzVM -ResourceGroupName $recoveryVMRG -Name $recoveryVMName 
 
-    Add-AzureRmVMDataDisk -VM $vm -Name $osDiskName -ManagedDiskId $osDisk.Id -Caching None -Lun 3 -CreateOption Attach 
+    Add-AzVMDataDisk -VM $vm -Name $osDiskName -ManagedDiskId $osDisk.Id -Caching None -Lun 3 -CreateOption Attach 
 
-    Update-AzureRMVM -VM $vm -ResourceGroupName $recoveryVMRG
+    Update-AzVM -VM $vm -ResourceGroupName $recoveryVMRG
     ```
      Non è possibile collegare un disco gestito a una macchina virtuale che è stata ripristinata dall'immagine di un BLOB.
 
@@ -76,7 +75,7 @@ Se questo metodo non risolve il problema, seguire questa procedura per ripristin
 4. Aprire una sessione di Azure PowerShell con privilegi elevati (Esegui come amministratore). Eseguire i comandi seguenti per accedere alla sottoscrizione di Azure:
 
     ```Powershell
-    Add-AzureRMAccount -SubscriptionID [SubscriptionID]
+    Add-AzAccount -SubscriptionID [SubscriptionID]
     ```
 
 5. Eseguire lo script seguente per controllare il nome del file con estensione BEK:

@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 5f111fea8fa1ef9f6e07c01f507e487c992729d5
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 36350f8f359c6ad5cc5637ce0ce38838698cd68b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233532"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56177445"
 ---
-# <a name="media-services-development-with-net"></a>Sviluppo di applicazioni di Servizi multimediali con .NET
+# <a name="media-services-development-with-net"></a>Sviluppo di applicazioni di Servizi multimediali con .NET 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
 
 Questo articolo illustra come iniziare a sviluppare applicazioni di Servizi multimediali con .NET.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 32679e37062fbf77ce6ab03b6ea708c0d5eeea30
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: dbf614f9749039b054e1134df31334a6248e2b78
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816238"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981401"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creare un set di scalabilità di macchine virtuali che usa le zone di disponibilità
 
@@ -117,12 +117,12 @@ Le operazioni da eseguire per creare e configurare tutte le macchine virtuali e 
 
 ## <a name="use-azure-powershell"></a>Usare Azure PowerShell
 
-Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'area di Azure supportata. Aggiungere il parametro `-Zone` al comando [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) e specificare quale zona usare, ad esempio la zona *1*, *2* o *3*.
+Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'area di Azure supportata. Aggiungere il parametro `-Zone` al comando [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) e specificare quale zona usare, ad esempio la zona *1*, *2* o *3*.
 
 L'esempio seguente crea un set di scalabilità a zona singola denominato *myScaleSet* nella zona *1* dell'area *East US 2*. Vengono create automaticamente le risorse di rete di Azure per la rete virtuale, l'indirizzo IP pubblico e il bilanciamento del carico. Quando richiesto, fornire le proprie credenziali amministrative desiderate per le istanze di macchina virtuale nel set di scalabilità:
 
 ```powershell
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS2" `
   -VMScaleSetName "myScaleSet" `
@@ -139,7 +139,7 @@ New-AzureRmVmss `
 Per creare un set di scalabilità con ridondanza della zona, specificare più zone nel parametro `-Zone`. L'esempio seguente crea un set di scalabilità con ridondanza della zona denominato *myScaleSet* nelle zone *1, 2, 3* dell'area *East US 2*. Vengono create automaticamente le risorse di rete di Azure con ridondanza della zona per la rete virtuale, l'indirizzo IP pubblico e il bilanciamento del carico. Quando richiesto, fornire le proprie credenziali amministrative desiderate per le istanze di macchina virtuale nel set di scalabilità:
 
 ```powershell
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS2" `
   -VMScaleSetName "myScaleSet" `

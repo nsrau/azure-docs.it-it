@@ -3,8 +3,8 @@ title: Creazione di report sul provisioning automatico dell'account utente di Az
 description: Informazioni su come controllare lo stato dei processi di provisioning automatico dell'account utente e risolvere i problemi di provisioning di singoli utenti.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,14 +12,15 @@ ms.tgt_pltfrm: app-mgmt
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/09/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser
-ms.openlocfilehash: 833fe24f83a2f159fd00d24c67b6864ce614c445
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0a6d1684c4bc0031978fb5e76548a3112b0f1ef2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203913"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206991"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Esercitazione: Creazione di report sul provisioning automatico degli account utente
 
@@ -58,7 +59,7 @@ A questo punto, è possibile accedere al report di riepilogo del provisioning e 
 
 Il report di riepilogo del provisioning è visibile nella scheda **Provisioning** di una determinata applicazione. Si trova nella sezione **Dettagli sincronizzazione** in **Impostazioni** e contiene le informazioni seguenti:
 
-* Il numero totale di utenti e gruppi che sono stati sincronizzati e che attualmente si trovano nell'ambito per il provisioning tra il sistema di origine e quello di destinazione.
+* Il numero totale di utenti e gruppi che sono stati sincronizzati e che attualmente si trovano nell'ambito per il provisioning tra il sistema di origine e il sistema di destinazione.
 
 * Ora dell'ultima sincronizzazione. Le sincronizzazioni in genere vengono eseguite ogni 20-40 minuti, dopo il completamento di una [sincronizzazione iniziale](user-provisioning.md#what-happens-during-provisioning).
 
@@ -79,7 +80,7 @@ Tutte le attività eseguite dal servizio di provisioning vengono registrate nei 
 
 * **Eventi di esportazione**: ogni volta che il servizio di provisioning di Azure AD scrive un oggetto account utente o gruppo in un sistema di destinazione, viene registrato un evento di "esportazione". Questi eventi registrano tutti gli attributi utente e i relativi valori scritti dal servizio di provisioning di Azure AD al momento dell'evento. Se si è verificato un errore durante la scrittura dell'oggetto account utente o gruppo nel sistema di destinazione, verrà visualizzato qui.
 
-* **Eventi di deposito dei processi**: i depositi dei processi si verificano quando il servizio di provisioning rileva un errore durante il tentativo di eseguire un'operazione e inizia a ripetere l'operazione su un intervallo di tempo di interruzione temporanea. Ogni volta che un'operazione di provisioning viene ritirata viene registrato un evento "deposito".
+* **Eventi di deposito dei processi**: i depositi dei processi si verificano quando il servizio di provisioning rileva un errore durante il tentativo di eseguire un'operazione e inizia a ripetere l'operazione su un intervallo di tempo di interruzione temporanea. Ogni volta che viene ritentata un'operazione di provisioning, viene registrato un evento "deposito".
 
 Se si esaminano gli eventi di provisioning per un singolo utente si nota che in genere tali eventi si verificano nell'ordine indicato:
 

@@ -1,6 +1,6 @@
 ---
-title: Visualizzare i log dei flussi dei gruppi di sicurezza di rete di Azure Network Watcher con strumenti open source | Microsoft Docs
-description: Questa pagina illustra come usare strumenti open source per visualizzare i log dei flussi dei gruppi di sicurezza di rete.
+title: Gestire e analizzare i log di flusso dei gruppi di sicurezza di rete con Network Watcher ed Elastic Stack | Microsoft Docs
+description: Gestire e analizzare i log di flusso dei gruppi di sicurezza di rete in Azure con Network Watcher ed Elastic Stack.
 services: network-watcher
 documentationcenter: na
 author: mattreatMSFT
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 10f76ea58b859611483c99c2f4accec607bc2939
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7361eff0f76271564fd5a0e9b8a18221ec4138e3
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822909"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099004"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizzare i log dei flussi dei gruppi di sicurezza di rete di Azure Network Watcher con strumenti open source
 

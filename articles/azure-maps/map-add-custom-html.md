@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5df3b9541dafad64e012519802b09b19ef199a03
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 1c812a77429e13ea39b2f4946043c13e10aaf097
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231735"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993743"
 ---
 # <a name="add-html-markers-to-the-map"></a>Aggiungere indicatori HTML alla mappa
 
@@ -68,20 +68,11 @@ Questo esempio mostra come rendere trascinabile un indicatore HTML. Gli indicato
 
 ## <a name="add-mouse-events-to-html-markers"></a>Aggiungere eventi del mouse a indicatori HTML
 
-Questi esempi mostrano come aggiungere eventi del mouse a un indicatore HTML aggiungendo eventi JavaScript standard al contenuto HTML dell'indicatore. 
-
-Se l'elemento `htmlContent` dell'indicatore è un elemento DOM (div, img...), è possibile aggiungere eventi direttamente. 
+Questi esempi illustrano come aggiungere eventi mouse-and-drag a un marcatore HTML.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='Aggiungere eventi del mouse a indicatori HTML' src='//codepen.io/azuremaps/embed/RqOKRz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento 2078801 <a href='https://codepen.io/azuremaps/pen/RqOKRz/'>Aggiungere eventi del mouse a indicatori HTML</a> di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
-Se l'elemento `htmlContent` è una stringa (ad es. come l'impostazione predefinita), è possibile creare un elemento DOM e aggiungervi la stringa come innerHTML, quindi aggiungere l'elemento DOM come htmlContent. Se l'elemento `htmlContent` è una stringa basata su modelli, sarà prima necessario trovare/sostituire i valori `{text}` e `{color}` nella stringa.
-
-<br/>
-
-<iframe height='500' scrolling='no' title='Aggiungere eventi del mouse a indicatori HTML predefinito' src='//codepen.io/azuremaps/embed/ZmZLBa/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento 2078801 <a href='https://codepen.io/azuremaps/pen/ZmZLBa/'>Aggiungere eventi del mouse a indicatori HTML predefinito</a> di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Passaggi successivi

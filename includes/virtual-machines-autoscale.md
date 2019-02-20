@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0ccb502cd5ae21468e52bdc4d56202a595cd19ef
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 3c008e77116a9b42a2ea137069529c5e241adddd
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53594211"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56213079"
 ---
 È possibile [ridimensionare automaticamente](../articles/azure-monitor/platform/autoscale-best-practices.md) le [macchine virtuali (VM)](../articles/virtual-machines/windows/overview.md) con facilità usando [set di scalabilità di macchine virtuali](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) e la [funzionalità di ridimensionamento automatico di Monitoraggio di Azure](../articles/azure-monitor/platform/autoscale-overview.md). Per poter essere ridimensionate automaticamente, le VM devono essere membri di un set di scalabilità. Questo articolo contiene informazioni che consentono di comprendere meglio come ridimensionare sia orizzontalmente che verticalmente le VM usando metodi automatici e manuali.
 
@@ -57,11 +57,11 @@ Le [regole](../articles/monitoring-and-diagnostics/monitoring-autoscale-scale-by
 
 È possibile aggiungere o rimuovere VM modificando la capacità del set di scalabilità. Nel portale di Azure si può ridurre o aumentare il numero di VM (riportato come **numero di istanze**) nel set di scalabilità spostando verso sinistra o destra la barra del dispositivo di scorrimento in Override condition (Condizione di override) nella schermata Ridimensionamento.
 
-Usando Azure PowerShell, è necessario ottenere l'oggetto set di scalabilità con [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). Si imposta quindi la proprietà **sku.capacity** sul numero di VM desiderato e si aggiorna il set di scalabilità con [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Usando l'interfaccia della riga di comando di Azure, si modifica la capacità con il parametro **--new-capacity** del comando [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale).
+Usando Azure PowerShell, è necessario ottenere l'oggetto set di scalabilità con [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss). Si imposta quindi la proprietà **sku.capacity** sul numero di macchine virtuali desiderato e si aggiorna il set di scalabilità con [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss). Usando l'interfaccia della riga di comando di Azure, si modifica la capacità con il parametro **--new-capacity** del comando [az vmss scale](/cli/azure/vmss?view=azure-cli-latest#az-vmss-scale).
 
 ### <a name="vertical"></a>Vertical
 
-È possibile modificare manualmente le dimensioni delle VM nel portale di Azure nella schermata Dimensioni relativa al set di scalabilità. È possibile usare Azure PowerShell con Get-AzureRmVmss, impostando la proprietà dello SKU di riferimento dell'immagine, e quindi usare [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) e [Update-AzureRmVmssInstance](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance).
+È possibile modificare manualmente le dimensioni delle VM nel portale di Azure nella schermata Dimensioni relativa al set di scalabilità. È possibile usare Azure PowerShell con Get-AzVmss, impostando la proprietà dello SKU di riferimento dell'immagine e quindi usando [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) e [Update-AzVmssInstance](https://docs.microsoft.com/powershell/module/az.compute/update-azvmssinstance).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

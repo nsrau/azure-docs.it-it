@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1b5c32d79e3664caf18cfc81fca563b295574cf4
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 7cc65c0564b6171e66c4337ce02e1c2d6449e101
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329318"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55975416"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatizzare le attività di gestione in macchine virtuali SQL con l'estensione SQL Server Agent (Resource Manager)
 > [!div class="op_single_selector"]
@@ -64,6 +64,8 @@ Requisiti per l'uso dell'Estensione Agente IaaS di SQL Server nella VM:
 
 * [Scaricare e configurare i comandi di Azure PowerShell più recenti](/powershell/azure/overview)
 
+[!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
 > A questo punto, l'[Estensione Agente IaaS di SQL Server](virtual-machines-windows-sql-server-agent-extension.md) non è supportata per le istanze del cluster di failover di SQL Server in Azure. È consigliabile disinstallare l'estensione dalle VM che fanno parte delle istanze del cluster di failover. Le funzionalità supportate dall'estensione non sono disponibili per le VM di SQL dopo la disinstallazione dell'agente.
 
@@ -71,7 +73,7 @@ Requisiti per l'uso dell'Estensione Agente IaaS di SQL Server nella VM:
 L'Estensione Agente IaaS di SQL Server viene installata automaticamente quando si esegue il provisioning di una delle immagini della galleria di macchine virtuali SQL Server. Se è necessario reinstallare manualmente l'estensione in una di queste macchine virtuali di SQL Server, usare il comando PowerShell seguente:
 
 ```powershell
-Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension" -Version "2.0" -Location "East US 2"
+Set-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension" -Version "2.0" -Location "East US 2"
 ```
 
 > [!IMPORTANT]
@@ -80,18 +82,18 @@ Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "
 > [!NOTE]
 > L'estensione SQL Server IaaS Agent è supportata solo nelle [immagini della raccolta di macchine virtuali di SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (con pagamento in base al consumo o Bring Your Own License). Non è supportata se si installa manualmente SQL Server in una macchina virtuale di Windows Server con solo sistema operativo o se si distribuisce un disco rigido virtuale personalizzato della VM di SQL Server. In questi casi, potrebbe essere possibile installare e gestire l'estensione manualmente usando PowerShell, ma non si ottengono le impostazioni di configurazione di SQL Server nel portale di Azure. Tuttavia, è consigliabile invece installare un'immagine dalla raccolta della VM di SQL Server e quindi personalizzarla.
 
-## <a name="status"></a>Status
+## <a name="status"></a>Stato
 Un modo per verificare che l'estensione sia installata consiste nel visualizzare lo stato dell'agente nel portale di Azure. Selezionare **Tutte le impostazioni** nel pannello della macchina virtuale e quindi fare clic su **Estensioni**. L'estensione **SQLIaaSExtension** dovrebbe essere visualizzata nell'elenco.
 
 ![Estensione SQL Server IaaS Agent nel portale di Azure](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-portal.png)
 
-È anche possibile usare il cmdlet **Get-AzureRmVMSqlServerExtension** di Azure PowerShell.
+È anche possibile usare il cmdlet **Get-AzVMSqlServerExtension** di Azure PowerShell.
 
-    Get-AzureRmVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
+    Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
 
 Il comando precedente conferma l'installazione dell'agente e ne fornisce informazioni generali sullo stato. È inoltre possibile ottenere informazioni specifiche sullo stato del backup e dell'applicazione di patch in modalità automatizzata con i comandi seguenti.
 
-    $sqlext = Get-AzureRmVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
+    $sqlext = Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
     $sqlext.AutoPatchingSettings
     $sqlext.AutoBackupSettings
 
@@ -100,9 +102,9 @@ Nel portale di Azure è possibile disinstallare l'estensione facendo clic sui pu
 
 ![Disinstallare l'estensione SQL Server IaaS Agent nel portale di Azure](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-uninstall.png)
 
-È anche possibile usare il cmdlet **Remove-AzureRmVMSqlServerExtension** di PowerShell.
+È anche possibile usare il cmdlet **Remove-AzVMSqlServerExtension** di Azure PowerShell.
 
-    Remove-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension"
+    Remove-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension"
 
 ## <a name="next-steps"></a>Passaggi successivi
 Iniziare a usare uno dei servizi supportati dall'estensione. Per altre informazioni, vedere gli articoli citati nella sezione [Servizi supportati](#supported-services) di questo articolo.

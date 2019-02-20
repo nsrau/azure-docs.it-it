@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8f22885d67537194342115f07e4d04bc4b5c66da
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 3e1d5ed05b7acc8f7e0fcc772a4124984c6cba45
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911745"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884533"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali in Azure HDInsight - Procedure consigliate di archiviazione
 
@@ -50,7 +50,7 @@ Archiviazione di Azure offre l'[eliminazione temporanea per gli oggetti BLOB](..
 È possibile creare [snapshot di BLOB](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob). Uno snapshot è una versione di sola lettura di un BLOB e viene acquisito in un determinato momento per eseguire il backup di un BLOB. Una volta creato uno snapshot, è possibile leggerlo, copiarlo o eliminarlo, ma non modificarlo.
 
 > [!Note]
-> Per la versione precedente di distribuzioni di Hadoop locali che non dispone del certificato "wasbs", è necessario che il certificato venga importato nell'archivio di attendibilità di Java.
+> Per le versioni precedenti di distribuzioni di Hadoop locali che non dispongono del certificato "wasbs", è necessario che il certificato venga importato nell'archivio di attendibilità di Java.
 
 I metodi seguenti consentono di importare i certificati nell'archivio di attendibilità di Java.
 

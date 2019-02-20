@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: d86df171de807c23aad6dd2cb8e2128098dede81
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 880b4e4ce09fec3caf70586c2cfb54236d13b668
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812459"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996305"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Impostare Application Insights: rilevamento delle dipendenze
 Una *dipendenza* è un componente esterno chiamato dall'app. In genere è un servizio chiamato con il protocollo HTTP, oppure un database o un file system. [Application Insights](../../azure-monitor/app/app-insights-overview.md) misura per quanto tempo l'applicazione attende le dipendenze e la frequenza con la quale una chiamata alle dipendenze non riesce. È possibile esaminare chiamate specifiche e correlarle a richieste ed eccezioni.
@@ -133,7 +133,7 @@ Fare clic su un'occorrenza di una richiesta non riuscita ed esaminare gli eventi
 ![Fare clic su un tipo di richiesta, fare clic sull'istanza per ottenere una vista diversa della stessa istanza, fare clic su di essa per ottenere informazioni dettagliate sull'eccezione.](./media/asp-net-dependencies/07-faildetail.png)
 
 ## <a name="analytics"></a>Analytics
-È possibile tenere traccia delle dipendenze nel [linguaggio di query di Log Analytics](https://aka.ms/LogAnalyticsLanguage). Di seguito sono riportati alcuni esempi.
+È possibile tenere traccia delle dipendenze nel [linguaggio di query di Esplora dati](https://aka.ms/LogAnalyticsLanguage). Di seguito sono riportati alcuni esempi.
 
 * Trovare eventuali chiamate alle dipendenze non riuscite:
 

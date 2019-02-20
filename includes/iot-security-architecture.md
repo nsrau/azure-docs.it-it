@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: f2c7111373ac880d27298deb4fc919d797713f3e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 61fb8380bcad7a30d822ab610f52e8515477d683
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53995720"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56246946"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Architettura della sicurezza di Internet delle cose (IoT)
 
@@ -225,7 +225,7 @@ Minacce presenti nel percorso di comunicazione tra dispositivi, dispositivi e ga
 | **Componente** | **Minaccia** | **Attenuazione** | **Rischio** | **Implementazione** |
 | --- | --- | --- | --- | --- |
 | Dispositivo - Hub IoT |TID |(D)TLS (PSK/RSA) per crittografare il traffico |Intercettazione o interferenza nella comunicazione tra il dispositivo e il gateway |Sicurezza a livello di protocollo. Con i protocolli personalizzati, è necessario capire come proteggerli. Nella maggior parte dei casi, la comunicazione avviene dal dispositivo all'hub IoT (connessione avviata dal dispositivo). |
-| Dispositivo - dispositivo |TID |(D) TLS (PSK/RSA) per crittografare il traffico. |Lettura dei dati in transito tra i dispositivi. Manomissione dei dati. Sovraccarico del dispositivo con nuove connessioni |Sicurezza a livello di protocollo (MQTT/AMQP/HTTP/CoAP). Con i protocolli personalizzati, è necessario capire come proteggerli. La soluzione per la minaccia Denial of Service consiste nell'eseguire il peering dei dispositivi attraverso un gateway cloud o sul campo e far sì che agiscano solo da client verso la rete. Il peering può comportare una connessione diretta tra i peer dopo che è stata negoziata dal gateway |
+| Da dispositivo a dispositivo |TID |(D) TLS (PSK/RSA) per crittografare il traffico. |Lettura dei dati in transito tra i dispositivi. Manomissione dei dati. Sovraccarico del dispositivo con nuove connessioni |Sicurezza a livello di protocollo (MQTT/AMQP/HTTP/CoAP). Con i protocolli personalizzati, è necessario capire come proteggerli. La soluzione per la minaccia Denial of Service consiste nell'eseguire il peering dei dispositivi attraverso un gateway cloud o sul campo e far sì che agiscano solo da client verso la rete. Il peering può comportare una connessione diretta tra i peer dopo che è stata negoziata dal gateway |
 | Entità esterna - dispositivo |TID |Associazione complessa dell'entità esterna al dispositivo |Intercettazione della connessione al dispositivo. Interferenza nella connessione al dispositivo |Associazione sicura dell'entità esterna al dispositivo NFC/Bluetooth LE. Controllo del pannello operativo del dispositivo (fisico) |
 | Gateway sul campo - Gateway cloud |TID |TLS (PSK/RSA) per crittografare il traffico. |Intercettazione o interferenza nella comunicazione tra il dispositivo e il gateway |Sicurezza a livello di protocollo (MQTT/AMQP/HTTP/CoAP). Con i protocolli personalizzati, è necessario capire come proteggerli. |
 | Dispositivo - Gateway cloud |TID |TLS (PSK/RSA) per crittografare il traffico. |Intercettazione o interferenza nella comunicazione tra il dispositivo e il gateway |Sicurezza a livello di protocollo (MQTT/AMQP/HTTP/CoAP). Con i protocolli personalizzati, è necessario capire come proteggerli. |

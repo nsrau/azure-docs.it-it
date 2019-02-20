@@ -1,6 +1,6 @@
 ---
-title: Aggregazioni avanzate nelle query di Azure Log Analytics | Microsoft Docs
-description: Descrive alcune delle opzioni di aggregazione più avanzate disponibili per le query di Log Analytics.
+title: Aggregazioni avanzate nelle query dei log di Monitoraggio di Azure | Microsoft Docs
+description: Descrive alcune delle opzioni di aggregazione più avanzate disponibili per le query dei log di Monitoraggio di Azure.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 1116d03fc9c2328365b0bde29cf9ea900e58b7ed
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5e2152397a4a965e6d62f8fafc2a59bf318b4a5e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186362"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005421"
 ---
-# <a name="advanced-aggregations-in-log-analytics-queries"></a>Aggregazioni avanzate nelle query di Log Analytics
+# <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Aggregazioni avanzate nelle query dei log di Monitoraggio di Azure
 
 > [!NOTE]
-> Prima di seguire questa lezione, è consigliabile completare [Aggregazioni nelle query di Log Analytics](./aggregations.md).
+> Prima di seguire questa lezione, è consigliabile completare [Aggregazioni nelle query di Monitoraggio di Azure](./aggregations.md).
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Questo articolo descrive alcune delle opzioni di aggregazione più avanzate disponibili per le query di Log Analytics.
+Questo articolo descrive alcune delle opzioni di aggregazione più avanzate disponibili per le query di Monitoraggio di Azure.
 
 ## <a name="generating-lists-and-sets"></a>Generazione di elenchi e set
 È possibile usare `makelist` per variare la visualizzazione dei dati in base all'ordine dei valori di una determinata colonna. Se ad esempio è necessario esaminare l'ordine più comune in cui si verificano gli eventi nei computer, è possibile scegliere di visualizzare i dati in base all'ordine degli ID evento in ogni computer. 
@@ -181,7 +181,7 @@ WindowsFirewall
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere altre lezioni relative all'uso del linguaggio di query di Log Analytics:
+Vedere altre lezioni per l'uso del [linguaggio di query di Esplora dati](/azure/kusto/query/) con i dati di log di Monitoraggio di Azure:
 
 - [Operazioni con stringhe](string-operations.md)
 - [Operazioni con data e ora](datetime-operations.md)

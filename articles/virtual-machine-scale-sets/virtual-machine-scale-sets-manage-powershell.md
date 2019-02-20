@@ -15,97 +15,99 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 32bcc87cad23c8a9145e2104794701997fca8998
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 5746d8b1f4c12a9b39f1599da753db8109790a55
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883263"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984141"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Gestire un set di scalabilità di macchine virtuali con Azure PowerShell
+
 Nel ciclo di vita del set di scalabilità di una macchina virtuale potrebbe essere necessario eseguire una o più attività di gestione. Si potrebbe anche voler creare script per automatizzare le attività di ciclo di vita. Questo articolo descrive alcuni dei cmdlet comuni di Azure PowerShell che consentono di eseguire queste attività.
 
-Per completare queste attività di gestione è necessario il modulo Azure PowerShell più recente. Per informazioni, vedere [Introduzione ad Azure PowerShell](/powershell/azure/get-started-azureps). Se è necessario creare un set di scalabilità di macchine virtuali, è possibile [creare un set di scalabilità con Azure PowerShell](quick-create-powershell.md).
+Se è necessario creare un set di scalabilità di macchine virtuali, è possibile [creare un set di scalabilità con Azure PowerShell](quick-create-powershell.md).
 
+[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
 
 ## <a name="view-information-about-a-scale-set"></a>Visualizzare informazioni su un set di scalabilità
-Per visualizzare informazioni generali su un set di scalabilità, usare [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss). Nell'esempio seguente si ottengono informazioni su un set di scalabilità denominato *myScaleSet* nel gruppo di risorse *myResourceGroup*. Immettere i nomi personalizzati nel modo seguente:
+Per visualizzare informazioni generali su un set di scalabilità, usare [Get-AzVmss](/powershell/module/az.compute/get-azvmss). Nell'esempio seguente si ottengono informazioni su un set di scalabilità denominato *myScaleSet* nel gruppo di risorse *myResourceGroup*. Immettere i nomi personalizzati nel modo seguente:
 
 ```powershell
-Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 
 
 ## <a name="view-vms-in-a-scale-set"></a>Visualizzare le macchine virtuali in un set di scalabilità
-Per visualizzare l'elenco delle istanze di VM in un set di scalabilità, usare [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). L'esempio seguente elenca tutte le istanze di VM presenti nel set di scalabilità denominato *myScaleSet* e nel gruppo di risorse *myResourceGroup*. Specificare valori personalizzati per questi nomi:
+Per visualizzare un elenco di istanze di macchina virtuale in un set di scalabilità, usare [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm). L'esempio seguente elenca tutte le istanze di VM presenti nel set di scalabilità denominato *myScaleSet* e nel gruppo di risorse *myResourceGroup*. Specificare valori personalizzati per questi nomi:
 
 ```powershell
-Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 
-Per visualizzare altre informazioni su un'istanza di VM specifica, aggiungere il parametro `-InstanceId` a [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) e specificare un'istanza da visualizzare. L'esempio seguente visualizza informazioni su un'istanza di VM *0* nel set di scalabilità denominato *myScaleSet* e nel gruppo di risorse *myResourceGroup*. Immettere i nomi personalizzati nel modo seguente:
+Per visualizzare altre informazioni su un'istanza di macchina virtuale specifica, aggiungere il parametro `-InstanceId` a [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) e specificare un'istanza da visualizzare. L'esempio seguente visualizza informazioni su un'istanza di VM *0* nel set di scalabilità denominato *myScaleSet* e nel gruppo di risorse *myResourceGroup*. Immettere i nomi personalizzati nel modo seguente:
 
 ```powershell
-Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
+Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
 ```
 
 
 ## <a name="change-the-capacity-of-a-scale-set"></a>Modificare la capacità di un set di scalabilità
 Con i comandi precedenti vengono visualizzate informazioni sul set di scalabilità e sulle istanze di VM. Per aumentare o diminuire il numero di istanze in un set di scalabilità è possibile modificare la capacità. Il set di scalabilità crea o rimuove automaticamente il numero necessario di VM, quindi configura le VM per la ricezione del traffico dell'applicazione.
 
-Creare prima un oggetto set di scalabilità con [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss), quindi specificare un nuovo valore per `sku.capacity`. Per applicare la modifica della capacità, usare [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). L'esempio seguente aggiorna *myScaleSet* nel gruppo di risorse *myResourceGroup* a una capacità di *5* istanze. Specificare i valori personalizzati nel modo seguente:
+Creare prima un oggetto set di scalabilità con [Get-AzVmss](/powershell/module/az.compute/get-azvmss) e quindi specificare un nuovo valore per `sku.capacity`. Per applicare la modifica della capacità, usare [Update-AzVmss](/powershell/module/az.compute/update-azvmss). L'esempio seguente aggiorna *myScaleSet* nel gruppo di risorse *myResourceGroup* a una capacità di *5* istanze. Specificare i valori personalizzati nel modo seguente:
 
 ```powershell
 # Get current scale set
-$vmss = Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+$vmss = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 
 # Set and update the capacity of your scale set
 $vmss.sku.capacity = 5
-Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss
+Update-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss
 ```
 
 Sono necessari alcuni minuti per aggiornare la capacità del set di scalabilità. Quando si riduce la capacità di un set di scalabilità, vengono rimosse prima le macchine virtuali con l'ID istanza più elevato.
 
 
-## <a name="stop-and-start-vms-in-a-scale-set"></a>Arrestare e avviare VM in un set di scalabilità
-Per arrestare una o più VM in un set di scalabilità, usare [Stop-AzureRmVmss](/powershell/module/azurerm.compute/stop-azurermvmss). Il parametro `-InstanceId` consente di specificare una o più VM da arrestare. Se non si specifica un ID istanza, vengono arrestate tutte le VM del set di scalabilità. Per arrestare più VM, separare gli ID istanza con una virgola.
+## <a name="stop-and-start-vms-in-a-scale-set"></a>Arrestare e avviare le macchine virtuali in un set di scalabilità
+Per arrestare una o più macchine virtuali in un set di scalabilità, usare [Stop-AzVmss](/powershell/module/az.compute/stop-azvmss). Il parametro `-InstanceId` consente di specificare una o più macchine virtuali da arrestare. Se non si specifica un ID istanza, vengono arrestate tutte le VM del set di scalabilità. Per arrestare più VM, separare gli ID istanza con una virgola.
 
 L'esempio seguente arresta l'istanza *0* nel set di scalabilità denominato *myScaleSet* e nel gruppo di risorse *myResourceGroup*. Specificare i valori personalizzati nel modo seguente:
 
 ```powershell
-Stop-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
+Stop-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
 ```
 
 Per impostazione predefinita, le VM arrestate vengono deallocate e quindi non generano costi di calcolo. Se si vuole che la VM resti nello stato di provisioning quando viene arrestata, aggiungere il parametro `-StayProvisioned` al comando precedente. Le VM arrestate che rimangono nello stato di provisioning generano costi di calcolo.
 
 
-### <a name="start-vms-in-a-scale-set"></a>Avviare VM in un set di scalabilità
-Per avviare una o più VM in un set di scalabilità, usare [Start-AzureRmVmss](/powershell/module/azurerm.compute/start-azurermvmss). Il parametro `-InstanceId` consente di specificare una o più VM da avviare. Se non si specifica un ID istanza, vengono avviate tutte le VM del set di scalabilità. Per avviare più VM, separare gli ID istanza con una virgola.
+### <a name="start-vms-in-a-scale-set"></a>Avviare le macchine virtuali in un set di scalabilità
+Per avviare una o più macchine virtuali in un set di scalabilità, usare [Start-AzVmss](/powershell/module/az.compute/start-azvmss). Il parametro `-InstanceId` consente di specificare una o più macchine virtuali da avviare. Se non si specifica un ID istanza, vengono avviate tutte le VM del set di scalabilità. Per avviare più VM, separare gli ID istanza con una virgola.
 
 L'esempio seguente avvia l'istanza *0* nel set di scalabilità denominato *myScaleSet* e nel gruppo di risorse *myResourceGroup*. Specificare i valori personalizzati nel modo seguente:
 
 ```powershell
-Start-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
+Start-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
 ```
 
 
 ## <a name="restart-vms-in-a-scale-set"></a>Riavviare le macchine virtuali in un set di scalabilità
-Per riavviare una o più VM in un set di scalabilità, usare [Restart-AzureRmVmss](/powershell/module/azurerm.compute/restart-azurermvmss). Il parametro `-InstanceId` consente di specificare una o più VM da riavviare. Se non si specifica un ID istanza, vengono riavviate tutte le VM del set di scalabilità. Per riavviare più VM, separare gli ID istanza con una virgola.
+Per riavviare una o più macchine virtuali in un set di scalabilità, usare [Restart-AzVmss](/powershell/module/az.compute/restart-azvmss). Il parametro `-InstanceId` consente di specificare una o più macchine virtuali da riavviare. Se non si specifica un ID istanza, vengono riavviate tutte le VM del set di scalabilità. Per riavviare più VM, separare gli ID istanza con una virgola.
 
 L'esempio seguente riavvia l'istanza *0* nel set di scalabilità denominato *myScaleSet* e nel gruppo di risorse *myResourceGroup*. Specificare i valori personalizzati nel modo seguente:
 
 ```powershell
-Restart-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
+Restart-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
 ```
 
 
 ## <a name="remove-vms-from-a-scale-set"></a>Rimuovere le macchine virtuali da un set di scalabilità
-Per rimuovere una o più VM in un set di scalabilità, usare [Remove-AzureRmVmss](/powershell/module/azurerm.compute/remove-azurermvmss). Il parametro `-InstanceId` consente di specificare una o più VM da rimuovere. Se non si specifica un ID istanza, vengono rimosse tutte le VM del set di scalabilità. Per rimuovere più VM, separare gli ID istanza con una virgola.
+Per rimuovere una o più macchine virtuali in un set di scalabilità, usare [Remove-AzVmss](/powershell/module/az.compute/remove-azvmss). Il parametro `-InstanceId` consente di specificare una o più VM da rimuovere. Se non si specifica un ID istanza, vengono rimosse tutte le VM del set di scalabilità. Per rimuovere più VM, separare gli ID istanza con una virgola.
 
 L'esempio seguente rimuove l'istanza *0* nel set di scalabilità denominato *myScaleSet* e nel gruppo di risorse *myResourceGroup*. Specificare i valori personalizzati nel modo seguente:
 
 ```powershell
-Remove-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
+Remove-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
 ```
 
 

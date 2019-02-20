@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Manabi Pocket | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Manabi Pocket | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Manabi Pocket.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 0116cac7d0e44efee0112d57aedd4f5ee02833b3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3f5dd7012d280580dca76e50290bc2de4322d55c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430716"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198416"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>Esercitazione: Integrazione di Azure Active Directory con Manabi Pocket
+# <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>Esercitazione: integrazione di Azure Active Directory con Manabi Pocket
 
 Questa esercitazione descrive come integrare Manabi Pocket con Azure Active Directory (Azure AD).
 
@@ -158,7 +159,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="create-a-manabi-pocket-test-user"></a>Creare un utente di test di Manabi Pocket
 
-In questa sezione viene creato un utente di nome Britta Simon in Manabi Pocket. Collaborare con il [team di supporto di Manabi Pocket](mailto:info-ed-cl@ntt.com) per aggiungere utenti nella piattaforma Manabi Pocket. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in Manabi Pocket. Collaborare con il  [team di supporto di Manabi Pocket](mailto:info-ed-cl@ntt.com)  per aggiungere utenti nella piattaforma Manabi Pocket. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -195,7 +196,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Manabi Pocket nel pannello di accesso, si accederà automaticamente all'applicazione Manabi Pocket.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -2,28 +2,27 @@
 title: Note sulla versione di Azure SQL Data Warehouse | Microsoft Docs
 description: Note sulla versione di Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: twounder
-manager: craigg
+author: mlee3gsd
+ms.author: anumjs
+ms.reviewer: jrasnick
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 11/11/2018
-ms.author: twounder
-ms.reviewer: twounder
-ms.openlocfilehash: 7a131429d8f70255e47efaac0c4b5fa99a6df7d6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/09/2019
+ms.openlocfilehash: 2ac60287c9d92ab6230e1dd6777504036e54492d
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460812"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244675"
 ---
-# <a name="azure-sql-data-warehouse-release-notes"></a>Note sulla versione di Azure SQL Data Warehouse
+# <a name="azure-sql-data-warehouse-release-notes-and-documentation-updates"></a>Note sulla versione di Azure SQL Data Warehouse e aggiornamenti della documentazione
 
 Azure SQL Data Warehouse è un data warehouse aziendale basato sul cloud che sfrutta l'elaborazione parallela elevata (Massively Parallel Processing, MPP) per eseguire rapidamente query complesse su petabyte di dati. Usare SQL Data Warehouse come componente chiave di una soluzione per Big Data. Importare i Big Data in SQL Data Warehouse con semplici query T-SQL PolyBase e quindi sfruttare la potenza dell'elaborazione MPP per eseguire analisi ad alte prestazioni. Man mano che si procede con l'integrazione e l'analisi, il data warehouse diventerà il punto di riferimento dell'azienda da cui ricavare informazioni dettagliate.
 
 Fare clic sui collegamenti seguenti per altre informazioni sulle funzionalità nuove e migliorate previste nella versione più recente di Azure SQL Data Warehouse. Si dovrebbero ricevere questi aggiornamenti del servizio durante la pianificazione della manutenzione identificata.
 
-- [SQL Data Warehouse versione 10.0.10106.0](./release-notes-10-0-10106-0.md)
+- [SQL Data Warehouse versione 10.0.10106.0 (gennaio)](./release-notes-10-0-10106-0.md)
 - [Dicembre 2018](./release-notes-december-2018.md)
 - [Ottobre 2018](./release-notes-october-2018.md)
 - [Settembre 2018](./release-notes-september-2018.md)

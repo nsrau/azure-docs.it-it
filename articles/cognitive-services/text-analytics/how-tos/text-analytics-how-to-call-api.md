@@ -3,19 +3,19 @@ title: Chiamare l'API Analisi del testo
 titlesuffix: Azure Cognitive Services
 description: Informazioni su come chiamare l'API REST Analisi del testo.
 services: cognitive-services
-author: ashmaka
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/01/2018
-ms.author: ashmaka
-ms.openlocfilehash: 579040c3a1466d431a9ae2105edbf02fa41570b6
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: 52c5cb640bfb861fb2da52ee711fe3955a169bcf
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211589"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244029"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Come chiamare l'API REST Analisi del testo
 
@@ -30,9 +30,7 @@ Ogni richiesta deve includere la chiave di accesso e un endpoint HTTP. L'endpoin
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessario avere un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Analisi del testo**. 
-
-È necessario disporre dell'[endpoint e la chiave di accesso](text-analytics-how-to-access-key.md) che viene generata automaticamente con la registrazione ai Servizi cognitivi. 
+È necessario disporre di un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con API di Analisi del testo, nonché dell'[endpoint e la chiave di accesso](text-analytics-how-to-access-key.md) che viene generata automaticamente con la registrazione ai Servizi cognitivi. 
 
 <a name="json-schema"></a>
 

@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 9f717f0ae70c503d3527d5df2e6556c120146f3b
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 430e3f0db2f053a2d5a6ea2a3e2a2d1c4418b501
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249321"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995136"
 ---
-# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Come generare anteprime utilizzando Media Encoder Standard con .NET
+# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Come generare anteprime utilizzando Media Encoder Standard con .NET 
 
 È possibile usare Media Encoder Standard per generare una o più anteprime dal video di input in un formato file di immagine a scelta tra [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) e [BMP](https://en.wikipedia.org/wiki/BMP_file_format). È possibile inviare attività che producono solo immagini oppure combinare la generazione di anteprime con la codifica. Questo articolo offre alcuni set di impostazioni di anteprima XML e JSON di esempio per questi scenari. Nella sezione finale dell'articolo è disponibile un [codice di esempio](#code_sample) che illustra come usare SDK di Servizi multimediali di Azure per .NET per eseguire l'attività di codifica.
 
@@ -551,14 +551,14 @@ Si applicano le considerazioni seguenti:
 * L'utilizzo di timestamp espliciti per Inizio/Passaggio/Intervallo presuppone che l'origine dell'input duri almeno 1 minuto.
 * Gli elementi Jpg/Png/BmpImage hanno gli attributi inizio, passaggio e intervallo della stringa, che possono essere interpretati come:
   
-  * Se sono numeri interi non negativi, numero di frame, ad esempio "Start": "120",
+  * Numero di frame se sono numeri interi non negativi, ad esempio "Start": "120",
   * Relativi alla durata di origine se espressi con il suffisso %, ad esempio "Start": "15%", OR
-  * Timestamp se espresso come HH:MM:SS (formato). Ad esempio "Start" : "00:01:00"
+  * Timestamp se espresso come HH:MM:SS (formato). Ad esempio "Start": "00:01:00"
     
     È possibile combinare e associare le notazioni a piacimento.
     
-    Inoltre, Inizio supporta anche una Macro speciale: {Best}, che tenta di determinare il primo fotogramma "interessante" della NOTA contenuto: (Passaggio e Intervallo vengono ignorati quando Inizio è impostato su {Best})
-  * Impostazioni predefinite: Start: {Best}
+    Start inoltre supporta anche una macro speciale, ovvero {Best}, che tenta di determinare il primo frame "interessante" del contenuto. NOTA: Step e Range vengono ignorati quando Start è impostato su {Best}
+  * Valori predefiniti: Start:{Best}
 * Il formato di output deve essere specificato in modo esplicito per ogni formato immagine: Jpg/Png/BmpFormat. Quando è presente, MES collega JpgVideo a JpgFormat e così via. OutputFormat presenta una nuova Macro specifica di codec di immagine : {Index}, che deve essere presente (una volta e una sola volta) per i formati immagine.
 
 ## <a name="next-steps"></a>Passaggi successivi

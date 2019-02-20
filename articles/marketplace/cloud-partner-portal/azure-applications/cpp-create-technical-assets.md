@@ -14,18 +14,23 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6050ad98c87dbe38516a6ee3c4862495ad868031
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 78aa65614920d093b6ba0b8fa43614fd7f3c5176
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53414351"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100432"
 ---
 # <a name="prepare-your-azure-application-technical-assets"></a>Preparare gli asset tecnici dell'applicazione di Azure
 
 Questo articolo descrive le risorse necessarie per preparare gli asset tecnici per l'applicazione di Azure.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
+
+Vedere il video seguente, [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) (Creazione di modelli di soluzioni e applicazioni gestite per Azure Marketplace), che offre una panoramica su come creare un modello di Azure Resource Manager per definire una soluzione di applicazione Azure e su come pubblicare successivamente l'offerta dell'app in Azure Marketplace.
+
+>[!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK3603/player]
+
 
 Rivedere la documentazione seguente relativa all'applicazione di Azure, che include argomenti di avvio rapido, esercitazioni ed esempi.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Certain Admin SSO | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Certain Admin SSO | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Certain Admin SSO.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 40bdba8e7ce699f0fd6ca589c753f51b550fae05
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7d85e8dbac47bd41c759e9c225df5544c659cc05
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439454"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205529"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-certain-admin-sso"></a>Esercitazione: Integrazione di Azure Active Directory con Certain Admin SSO
+# <a name="tutorial-azure-active-directory-integration-with-certain-admin-sso"></a>Esercitazione: integrazione di Azure Active Directory con Certain Admin SSO
 
 Questa esercitazione descrive come integrare Certain Admin SSO con Azure Active Directory (Azure AD).
 
@@ -162,7 +163,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="create-a-certain-admin-sso-test-user"></a>Creare un utente di test di Certain Admin SSO
 
-In questa sezione viene creato un utente chiamato Britta Simon in Certain Admin SSO. Con l’aiuto del [team di supporto di Certain Admin SSO](mailto:integrations@certain.com), aggiungere gli utenti nella piattaforma di Certain Admin SSO. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente chiamato Britta Simon in Certain Admin SSO. Con l'aiuto del  [team di supporto di Certain Admin SSO](mailto:integrations@certain.com), aggiungere gli utenti nella piattaforma di Certain Admin SSO. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -199,7 +200,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Certain Admin SSO nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Certain Admin SSO.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

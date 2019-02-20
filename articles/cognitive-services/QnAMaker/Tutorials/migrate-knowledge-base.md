@@ -4,21 +4,21 @@ titleSuffix: Azure Cognitive Services
 description: Spostare una knowledge base creata con QnA Maker in una nuova knowledge base.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 73f355a6e8c9373a5c31dd7cfebd4455aa324302
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e91f41633bf6cf6581c237e7634150a5b92746a7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809743"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245916"
 ---
-# <a name="migrate-a-knowledge-base-using-export-import"></a>Eseguire la migrazione di una knowledge base usando la funzione di importazione ed esportazione
+# <a name="migrate-a-knowledge-base-using-export-import"></a>Eseguire la migrazione di una knowledge base utilizzando la funzione di importazione ed esportazione
 
 Il processo di migrazione consiste nell'esportazione del contenuto di una knowledge base e nella relativa importazione in un'altra knowledge base. 
 
@@ -39,7 +39,7 @@ Il processo di migrazione consiste nell'esportazione del contenuto di una knowle
 
     - Assegnare un **nome** al servizio. Sono supportati nomi duplicati e caratteri speciali.
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Create**.
 
     ![Creare la knowledge base](../media/qnamaker-how-to-create-kb/create-kb.png)
 
@@ -56,7 +56,7 @@ Il processo di migrazione consiste nell'esportazione del contenuto di una knowle
     A questo punto, tutti i contenuti della knowledge base, domande, risposte e metadati, insieme ai nomi dei file sorgente e agli URL, vengono importati nella nuova knowledge base. 
 
 ## <a name="chat-logs-and-alterations"></a>Chatlog e modifiche
-Le modifiche (sinonimi) non vengono importate automaticamente. Usare le [API V2](https://aka.ms/qnamaker-v2-apis) per esportare le modifiche dalla knowledge base precedente e le [API V4](https://aka.ms/qnamaker-v4-apis) per spostare le modifiche nella nuova knowledge base.
+Le modifiche (sinonimi) senza distinzione tra maiuscole e minuscole non vengono importate automaticamente. Usare le [API V2](https://aka.ms/qnamaker-v2-apis) per esportare le modifiche dalla knowledge base precedente e le [API V4](https://aka.ms/qnamaker-v4-apis) per spostare le modifiche nella nuova knowledge base.
 
 Non è possibile eseguire la migrazione dei chatlog, poiché la nuova knowledge base usa Application Insights per l'archiviazione dei chatlog. 
 

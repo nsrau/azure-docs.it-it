@@ -1,6 +1,6 @@
 ---
-title: Creazione di grafici e diagrammi da query di Azure Log Analytics| Microsoft Docs
-description: Descrive le diverse modalità di visualizzazione dei dati in Azure Log Analytics.
+title: Creazione di grafici e diagrammi da query di Monitoraggio di Azure | Microsoft Docs
+description: Descrive le diverse modalità di visualizzazione dei dati dei log in Monitoraggio di Azure.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 049e50f5800194c4126003f7e5ff7ae60b3de768
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 381e8361d31660d90eaee3f7a500139af1ef2a82
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186226"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992986"
 ---
-# <a name="creating-charts-and-diagrams-from-log-analytics-queries"></a>Creazione di grafici e diagrammi da query di Log Analytics
+# <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Creazione di grafici e diagrammi da query di Monitoraggio di Azure
 
 > [!NOTE]
-> Prima di seguire questa lezione, è consigliabile completare [Aggregazioni avanzate nelle query di Log Analytics](advanced-aggregations.md).
+> Prima di seguire questa lezione, è consigliabile completare [Aggregazioni avanzate nelle query di Monitoraggio di Azure](advanced-aggregations.md).
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Questo articolo descrive le diverse modalità di visualizzazione dei dati in Azure Log Analytics.
+Questo articolo descrive le diverse modalità di visualizzazione dei dati dei log in Monitoraggio di Azure.
 
 ## <a name="charting-the-results"></a>Disegnare i risultati
 Iniziare esaminando il numero di computer disponibili nell'ultima ora per ogni sistema operativo:
@@ -93,7 +93,7 @@ Quando si visualizzano i risultati sotto forma di grafico, viene usata la prima 
 ![Grafico a barre per AccountType](media/charts/charts-and-diagrams-multiDimension2.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere altre lezioni relative all'uso del linguaggio di query di Log Analytics:
+Vedere altre lezioni per l'uso del [linguaggio di query di Esplora dati](/azure/kusto/query/) con i dati di log di Monitoraggio di Azure:
 
 - [Operazioni con stringhe](string-operations.md)
 - [Operazioni con data e ora](datetime-operations.md)

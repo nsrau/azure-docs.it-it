@@ -17,12 +17,13 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c569d1be9a301b2282ad1b4fd6e21130f7de2575
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ec47e6d52a3aef8533a3d16f0f81693b8f01f3cf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103531"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205053"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>Protocolli della versione 2.0: applicazioni a singola pagina che usano il flusso implicito
 
@@ -79,7 +80,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `client_id` | Obbligatoria |ID applicazione che il portale di registrazione ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) ha assegnato all'app. |
 | `response_type` | Obbligatoria |Deve includere `id_token` per l'accesso a OpenID Connect. Può anche includere `token` come response_type. Usando qui il `token` , l'app può ricevere immediatamente un token di accesso dall'endpoint di autorizzazione senza dover inviare una seconda richiesta a tale endpoint. Se si usa il `token` come response_type, il parametro `scope` deve contenere un ambito che indica la risorsa per cui emettere il token. |
 | `redirect_uri` | Consigliato |URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. |
-| `scope` | Obbligatoria |Elenco di ambiti separati da spazi. Per OpenID Connect, deve includere l'ambito `openid`che esegue la conversione all'autorizzazione per l'accesso nell'interfaccia utente di consenso. Facoltativamente, è anche possibile includere l'[ambito](v2-permissions-and-consent.md) `email` o `profile` per ottenere l'accesso a dati aggiuntivi dell'utente. È anche possibile includere altri ambiti in questa richiesta per richiedere il consenso per varie risorse. |
+| `scope` | Obbligatoria |Elenco di ambiti separati da [spazi](v2-permissions-and-consent.md). Per OpenID Connect, deve includere l'ambito `openid`che esegue la conversione all'autorizzazione per l'accesso nell'interfaccia utente di consenso. Facoltativamente, è anche possibile includere l'ambito `email` o `profile` per ottenere l'accesso a dati aggiuntivi dell'utente. È anche possibile includere altri ambiti in questa richiesta per richiedere il consenso per varie risorse. |
 | `response_mode` | Facoltativo |Specifica il metodo da usare per restituire il token risultante all'app. L'impostazione predefinita è la query per un token di accesso, ma è un frammento se la richiesta include un id_token. |
 | `state` | Consigliato |Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Per [evitare gli attacchi di richiesta intersito falsa](https://tools.ietf.org/html/rfc6749#section-10.12), viene in genere usato un valore univoco generato casualmente. Lo stato viene inoltre usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
 | `nonce` | Obbligatoria |Valore incluso nella richiesta, generata dall'app, che verrà incluso nel token ID risultante come attestazione. L'app può verificare questo valore per ridurre gli attacchi di riproduzione del token. Il valore è in genere una stringa casuale univoca che può essere usata per identificare l'origine della richiesta. Obbligatorio solo quando viene richiesto un id_token. |
@@ -100,7 +101,7 @@ GET https://localhost/myapp/#
 access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &token_type=Bearer
 &expires_in=3599
-&scope=https%3a%2f%2fgraph.microsoft.com%2fmail.read 
+&scope=https%3a%2f%2fgraph.microsoft.com%2fuser.read 
 &id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=12345
 ```
@@ -156,7 +157,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=token
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
-&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&response_mode=fragment
 &state=12345&nonce=678910
 &prompt=none
 &domain_hint=organizations
@@ -166,9 +167,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 Per informazioni dettagliate sui parametri di query nell'URL, vedere [Inviare la richiesta di accesso](#send-the-sign-in-request).
 
 > [!TIP]
-> Provare a copiare e incollare questa richiesta in una scheda del browser. (Non dimenticare di sostituire i valori `domain_hint` e `login_hint` con i valori corretti per l'utente)
+> Provare a copiare e incollare questa richiesta in una scheda del browser. (Non dimenticare di sostituire i valori `login_hint` con i valori corretti per l'utente)
 >
->`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&domain_hint=consumers-or-organizations&login_hint=your-username`
+>`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2user.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&login_hint=your-username`
 >
 
 Con il parametro `prompt=none` , questa richiesta avrà immediatamente esito positivo o negativo e farà tornare all'applicazione. Un risposta con esito positivo verrà inviata all'app all'indirizzo `redirect_uri` indicato, usando il metodo specificato nel parametro `response_mode`.

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2018
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: ac07b5af28dc869b6aa05c269c9225d546d651a0
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 92e5fb782eed3344a55178d6ba74dfd6d7b8cafd
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490431"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235909"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso di modelli collegati e annidati nella distribuzione di risorse di Azure
 
@@ -31,7 +31,9 @@ Quando si usano modelli collegati, si crea un modello principale che riceve i va
 
 Per un'esercitazione, vedere [Esercitazione: Creare modelli collegati di Azure Resource Manager](./resource-manager-tutorial-create-linked-templates.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!NOTE]
+> Per modelli collegati o annidati, è possibile usare solo la modalità di distribuzione [Incrementale](deployment-modes.md).
+>
 
 ## <a name="link-or-nest-a-template"></a>Collegare o annidare un modello
 
@@ -52,8 +54,6 @@ Per stabilire un collegamento a un altro modello, aggiungere una risorsa **deplo
 ```
 
 Le proprietà fornite per la risorsa di distribuzione variano in base al fatto che si stia stabilendo un collegamento a un modello esterno o annidando un modello inline nel modello principale.
-
-Per entrambi modelli collegati e annidati, è possibile usare solo la modalità di distribuzione [Incrementale](deployment-modes.md).
 
 ### <a name="nested-template"></a>Modello annidato
 
@@ -467,8 +467,8 @@ In PowerShell ottenere un token per il contenitore e distribuire i modelli con i
 
 ```azurepowershell-interactive
 Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
-$token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
-$url = (Get-AzureStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri.AbsoluteUri
+$token = New-AzStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
+$url = (Get-AzStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri.AbsoluteUri
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 

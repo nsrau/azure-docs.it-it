@@ -16,16 +16,17 @@ ms.workload: identity
 ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2c889368afe601bc7188f3b0989e7799c88131b4
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e950450a1ebe710a56ccfa0e8abefc7104602ec5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081960"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206175"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Avvio rapido: Bloccare l'accesso quando viene rilevato un rischio per la sessione con l'accesso condizionale di Azure Active Directory  
 
-Per mantenere l'ambiente protetto, è possibile bloccare l'accesso alle attività di utenti sospetti. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analizza ciascun accesso e calcola la probabilità che un tentativo di accesso non venga eseguito dal proprietario legittimo di un account utente. La probabilità (bassa, media, elevata) è indicata in forma di valore calcolato denominato [livelli di rischio di accesso](conditions.md#sign-in-risk). Impostando la condizione di rischio di accesso, è possibile configurare i criteri di accesso condizionale per rispondere ai livelli di rischio di accesso specifico. 
+Per mantenere l'ambiente protetto, è possibile bloccare l'accesso per gli utenti sospetti. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analizza ciascun accesso e calcola la probabilità che un tentativo di accesso non venga eseguito dal proprietario legittimo di un account utente. La probabilità (bassa, media, elevata) è indicata in forma di valore calcolato denominato [livelli di rischio di accesso](conditions.md#sign-in-risk). Impostando la condizione di rischio di accesso, è possibile configurare i criteri di accesso condizionale per rispondere ai livelli di rischio di accesso specifico. 
 
 Questa guida introduttiva illustra come configurare i [criteri di accesso condizionale](../active-directory-conditional-access-azure-portal.md) che bloccano l'accesso quando viene rilevato un livello di rischio di accesso configurato. 
 

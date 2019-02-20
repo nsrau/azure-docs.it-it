@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: fb8922424de064bc63f793479d8c3a98b506b844
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 3f41edef56b238d8789264d00d73998794fec7eb
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232516"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55881996"
 ---
 # <a name="traffic-manager-endpoints"></a>Endpoint di Gestione traffico
 Gestione traffico di Microsoft Azure consente di controllare la distribuzione del traffico di rete a distribuzioni di applicazioni in esecuzione in diversi data center. In Gestione traffico ogni distribuzione di applicazioni viene configurata come "endpoint". Quando Gestione traffico riceve una richiesta DNS, sceglie un endpoint disponibile da restituire nella risposta DNS. Gestione traffico basa la scelta sullo stato dell'endpoint corrente e sul metodo di routing del traffico. Per altre informazioni, vedere [Modalità di funzionamento di Gestione traffico](traffic-manager-how-it-works.md).
@@ -63,7 +63,7 @@ Gli endpoint annidati combinano diversi profili di Gestione traffico per creare 
 
 Per la configurazione di app Web come endpoint in Gestione traffico si rendono necessarie alcune considerazioni aggiuntive:
 
-1. Solo le app Web a partire dallo SKU "standard" sono idonee all'uso con Gestione traffico. I tentativi di aggiungere app Web dello SKU di una versione precedente hanno esito negativo. Se si esegue il downgrade dello SKU di un'app Web esistente, Gestione traffico smette di inviare traffico a tale app Web.
+1. Solo le app Web a partire dallo SKU "standard" sono idonee all'uso con Gestione traffico. I tentativi di aggiungere app Web dello SKU di una versione precedente hanno esito negativo. Se si esegue il downgrade dello SKU di un'app Web esistente, Gestione traffico smette di inviare traffico a tale app Web. Per altre informazioni sui piani supportati vedere [Piani di Servizio app](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/)
 2. Quando un endpoint riceve una richiesta HTTP, usa l'intestazione "host" della richiesta per determinare quale app Web usare per gestirla. L'intestazione host contiene il nome DNS usato per avviare la richiesta, ad esempio "contosoapp.azurewebsites.net". Per usare un nome DNS diverso con l'app Web, tale nome DNS deve essere registrato come nome di dominio personalizzato per l'app. Quando si aggiunge un endpoint di app Web come endpoint di Azure, il nome DNS del profilo di Gestione traffico viene registrato automaticamente per l'app. Questa registrazione viene rimossa automaticamente quando l'endpoint viene eliminato.
 3. Ogni profilo di Gestione traffico può avere al massimo un endpoint di app Web da ogni area di Azure. Per ovviare a questa limitazione, è possibile configurare un'app Web come endpoint esterno. Per altre informazioni, vedere la sezione [Domande frequenti](traffic-manager-faqs.md#traffic-manager-endpoints).
 

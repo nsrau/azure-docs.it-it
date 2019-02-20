@@ -11,17 +11,17 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 64302a04050196b4299be45d910f7136f3ecaaa6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/08/2019
+ms.openlocfilehash: 4e853b9edbd000d8b61b5e05f3ae65c07258d73f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734267"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002157"
 ---
-# <a name="azure-sql-database-threat-detection-for-standalone-or-pooled-databases"></a>Rilevamento delle minacce del database SQL di Azure per database autonomi o in pool
+# <a name="azure-sql-database-threat-detection-for-single-or-pooled-databases"></a>Rilevamento delle minacce del database SQL di Azure per database autonomi o in pool
 
-[Rilevamento delle minacce](sql-database-threat-detection-overview.md) consente di rilevare le attività anomale in database autonomi e in pool, che possono indicare tentativi di accesso o exploit dei database, insoliti e potenzialmente dannosi. Rilevamento delle minacce può identificare **potenziali attacchi SQL injection**, **accesso da una posizione o un data center insoliti**, **accesso da un'entità di sicurezza insolita o da un'applicazione potenzialmente dannosa** e **attacco di forza bruta a credenziali SQL**. Per altre informazioni dettagliate, vedere [Avvisi di rilevamento minacce](sql-database-threat-detection-overview.md#threat-detection-alerts).
+[Rilevamento delle minacce](sql-database-threat-detection-overview.md) consente di rilevare le attività anomale in database singoli e in pool, che possono indicare tentativi di accesso o exploit dei database, insoliti e potenzialmente dannosi. Rilevamento delle minacce può identificare **potenziali attacchi SQL injection**, **accesso da una posizione o un data center insoliti**, **accesso da un'entità di sicurezza insolita o da un'applicazione potenzialmente dannosa** e **attacco di forza bruta a credenziali SQL**. Per altre informazioni dettagliate, vedere [Avvisi di rilevamento minacce](sql-database-threat-detection-overview.md#threat-detection-alerts).
 
 È possibile ricevere notifiche sulle minacce rilevate tramite [posta elettronica](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) o il [portale di Azure](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)
 

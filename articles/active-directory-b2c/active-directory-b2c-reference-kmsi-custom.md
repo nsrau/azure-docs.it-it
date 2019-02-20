@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e2aa52e8ad19274d45f648978e7b2f021139fe4a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a8ad5c3091c3c78aa31dbf38eb6b3032e4dc7662
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812303"
+ms.locfileid: "55870963"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Abilitare "Mantieni l'accesso (KMSI)" in Active Directory B2C di Azure
 

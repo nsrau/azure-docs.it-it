@@ -11,17 +11,18 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: bdb4db2d1a9447e8e328728288c1cf425c65a988
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/13/2019
+ms.openlocfilehash: 59eb0b842392faa2adfcd99b028f1e283a7e8db7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511828"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243830"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Livelli di servizio del database SQL di Azure
 
 Il Database SQL di Azure si basa sull'architettura del motore di database di SQL Server che viene rettificata per l'ambiente cloud per garantire la disponibilità del 99,99% anche in caso di errori dell'infrastruttura. Esistono tre modelli architetturali usati nel database SQL di Azure:
+
 - [Utilizzo generico](sql-database-service-tier-general-purpose.md) progettato per la maggior parte dei carichi di lavoro generici.
 - [Business Critical](sql-database-service-tier-business-critical.md) progettato per carichi di lavoro a bassa latenza con una replica leggibile.
 - [Iperscalabilità](sql-database-service-tier-hyperscale.md) progettato per database di dimensioni molto grandi (fino a 100 TB) con più repliche leggibili.
@@ -29,7 +30,7 @@ Il Database SQL di Azure si basa sull'architettura del motore di database di SQL
 Questo articolo contiene alcune considerazioni sull'archiviazione e il backup per i livelli di servizio Utilizzo generico e Business critical nel modello di acquisto basato su vCore.
 
 > [!NOTE]
-> Per informazioni dettagliate sul livello di servizio con iperscalabilità nel modello di acquisto basato su vCore, vedere [Livello di servizio con iperscalabilità (anteprima) per database fino a 100 TB](sql-database-service-tier-hyperscale.md). Per un confronto tra il modello di acquisto basato su vCore e quello basato su DTU, vedere [Modelli di acquisto e risorse del database SQL di Azure](sql-database-service-tiers.md).
+> Per informazioni dettagliate sul livello di servizio con iperscalabilità nel modello di acquisto basato su vCore, vedere [Livello di servizio con iperscalabilità (anteprima) per database fino a 100 TB](sql-database-service-tier-hyperscale.md). Per un confronto tra il modello di acquisto basato su vCore e quello basato su DTU, vedere [Modelli di acquisto e risorse del database SQL di Azure](sql-database-purchase-models.md).
 
 ## <a name="data-and-log-storage"></a>Archiviazione di dati e log
 
@@ -40,8 +41,8 @@ Valutare gli aspetti seguenti:
 - Quando si configura la dimensione del database singolo desiderata (dimensione dei file MDF), viene aggiunto automaticamente il 30% delle risorse di archiviazione per il supporto dei file LDF
 - Le dimensioni di archiviazione in istanza gestita devono essere specificate in multipli di 32 GB.
 - È possibile selezionare qualsiasi dimensione di database singolo compresa tra 10 GB e il valore massimo supportato
-  - Per l'archiviazione Standard, aumentare o diminuire la dimensione in base a incrementi di 10 GB
-  - Per l'archiviazione Premium, aumentare o diminuire la dimensione in base a incrementi di 250 GB
+  - Per l'archiviazione nei livelli di servizio per uso generico o standard, aumentare o ridurre le dimensioni in incrementi di 10 GB
+  - Per l'archiviazione nei livelli di servizio premium o business critical, aumentare o ridurre le dimensioni in incrementi di 250 GB
 - Nel livello di servizio Utilizzo generico `tempdb` usa un'unità SSD collegata e questo costo di archiviazione è incluso nel prezzo del vCore.
 - Nel livello di servizio Business Critical `tempdb` condivide l'unità SSD collegata con i file MDF e LDF e il costo di archiviazione di tempDB è incluso nel prezzo del vCore.
 
@@ -57,7 +58,7 @@ Per monitorare la dimensione totale corrente dei file MDF e LDF, usare [sp_space
 
 Le risorse di archiviazione per i backup di database vengono allocate per supportare le funzionalità di ripristino temporizzato e di [conservazione a lungo termine](sql-database-long-term-retention.md) del database SQL. Queste risorse vengono allocate separatamente per ogni database e fatturate come due costi distinti.
 
-- **PITR**: i singoli backup di database vengono copiati automaticamente in [risorse di archiviazione con ridondanza geografica e accesso in lettura](../storage/common/storage-designing-ha-apps-with-ragrs.md) (RA-GRS, Read-Access Geographically Redundant Storage). Le dimensioni di archiviazione aumentano dinamicamente con la creazione di nuovi backup.  Le risorse di archiviazione vengono usate da backup completi settimanali, backup differenziali giornalieri e backup del log delle transazioni copiati ogni 5 minuti. L'utilizzo delle risorse di archiviazione dipende dalla frequenza con cui vengono apportate modifiche al database e dal periodo di conservazione. È possibile configurare un periodo di conservazione separato per ogni database compreso tra 7 e 35 giorni. Una quantità minima di risorse di archiviazione, equivalente al 100% della dimensione dei dati, viene fornita senza costi aggiuntivi. Per la maggior parte dei database, questa quantità è sufficiente per un periodo di archiviazione dei backup di 7 giorni.
+- **PITR**: i singoli backup di database vengono copiati automaticamente in [risorse di archiviazione con ridondanza geografica e accesso in lettura](../storage/common/storage-designing-ha-apps-with-ragrs.md). Le dimensioni di archiviazione aumentano dinamicamente con la creazione di nuovi backup.  Le risorse di archiviazione vengono usate da backup completi settimanali, backup differenziali giornalieri e backup del log delle transazioni copiati ogni 5 minuti. L'utilizzo delle risorse di archiviazione dipende dalla frequenza con cui vengono apportate modifiche al database e dal periodo di conservazione. È possibile configurare un periodo di conservazione separato per ogni database compreso tra 7 e 35 giorni. Una quantità minima di risorse di archiviazione, equivalente al 100% della dimensione dei dati, viene fornita senza costi aggiuntivi. Per la maggior parte dei database, questa quantità è sufficiente per un periodo di archiviazione dei backup di 7 giorni.
 - **LTR**: il database SQL offre la possibilità di configurare la conservazione a lungo termine dei backup completi fino a 10 anni. Se i criteri di conservazione a lungo termine sono abilitati, questi backup vengono archiviati automaticamente in risorse di archiviazione RA-GRS, ma è possibile controllare la frequenza con cui vengono copiati. A secondo dei vari requisiti di conformità, è possibile selezionare periodi di conservazione diversi per i backup settimanali, mensili e/o annuali. Questa configurazione definirà la quantità di risorse di archiviazione usate per i backup con conservazione a lungo termine. È possibile usare lo strumento di calcolo dei prezzi per la conservazione a lungo termine per stimare il costo di questo tipo di archiviazione. Per altre informazioni, vedere [Long-term retention](sql-database-long-term-retention.md) (Conservazione a lungo termine).
 
 ## <a name="next-steps"></a>Passaggi successivi

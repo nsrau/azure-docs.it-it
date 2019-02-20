@@ -4,24 +4,24 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 32d09722e8c396a64451018ac92fbc7bc072f461
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: ff7ba04271c150018f2c55b62e40542a686608cf
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50134463"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55905090"
 ---
 ## <a name="create-client"></a>Creare una connessione client
 Creare una connessione client creando un oggetto `WindowsAzure.MobileServiceClient` .  Sostituire `appUrl` con l'URL dell'app per dispositivi mobili.
 
-```
+```javascript
 var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
 ## <a name="table-reference"></a>Usare le tabelle
 Per l'accesso o l'aggiornamento dei dati, creare un riferimento alla tabella di back-end. Sostituire `tableName` con il nome della tabella
 
-```
+```javascript
 var table = client.getTable(tableName);
 ```
 
@@ -39,7 +39,7 @@ Dopo aver creato un riferimento a tabella, saranno disponibili le operazioni seg
 Dopo aver creato un riferimento a tabella, è possibile usarlo per eseguire una query sui dati nel server.  Le query vengono eseguite in un linguaggio "simile a LINQ".
 Per restituire tutti i dati dalla tabella, usare il codice seguente:
 
-```
+```javascript
 /**
  * Process the results that are received by a call to table.read()
  *
@@ -72,7 +72,7 @@ Per altre informazioni sulla sintassi delle query, vedere la [documentazione rel
 #### <a name="table-filter"></a>Filtro dei dati nel server
 È possibile usare una clausola `where` nel riferimento a tabella:
 
-```
+```javascript
 table
     .where({ userId: user.userId, complete: false })
     .read()
@@ -81,7 +81,7 @@ table
 
 È anche possibile usare una funzione che filtra l'oggetto.  In questo caso la variabile `this` viene assegnata all'oggetto che si sta filtrando.  A livello funzionale, il codice seguente è equivalente al precedente:
 
-```
+```javascript
 function filterByUserId(currentUserId) {
     return this.userId === currentUserId && this.complete === false;
 }
@@ -95,7 +95,7 @@ table
 #### <a name="table-paging"></a>Paging dei dati
 Usare i metodi `take()` e `skip()`.  Ad esempio, se si vuole dividere la tabella in record di 100 righe:
 
-```
+```javascript
 var totalCount = 0, pages = 0;
 
 // Step 1 - get the total number of records
@@ -123,7 +123,7 @@ Si potrà quindi usare la variabile pages e alcuni pulsanti dell'interfaccia ute
 #### <a name="sorting-data"></a>Procedura: Restituire i dati ordinati
 Usare i metodi di query `.orderBy()` o `.orderByDescending()`:
 
-```
+```javascript
 table
     .orderBy('name')
     .read()
@@ -168,10 +168,10 @@ table
     }, failure);
 ```
 
-### <a name="deleting"></a>Procedura: Eliminare dati
+### <a name="deleting"></a>Procedura: Eliminare i dati
 Per eliminare un record, chiamare il metodo `.del()`.  Passare l'ID in un riferimento all'oggetto:
 
-```
+```javascript
 table
     .del({ id: '7163bc7a-70b2-4dde-98e9-8818969611bd' })
     .done(function () {

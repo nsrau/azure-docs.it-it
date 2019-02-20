@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: cd45384bfd548cb73c10306dfee942cbcf7c8ca1
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 93b92a8a3b8aacd1f665725643314858fe92ad3c
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491910"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233769"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione
 
@@ -128,7 +128,6 @@ Per l'interfaccia della riga di comando di Azure usare:
 ```azurecli
 az group create --name $resourceGroupName --location $location
 az group deployment create \
-    --name $deploymentName \
     --resource-group $resourceGroupName \
     --template-uri <The Template File URI> \
     --parameters <The Parameter File>
@@ -139,7 +138,6 @@ Per PowerShell, usare:
 ```powershell
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
-  -Name $deploymentName `
   -ResourceGroupName $resourceGroupName `
   -TemplateUri <The Template File URI> `
   -TemplateParameterFile <The Parameter File>
@@ -255,7 +253,6 @@ Per l'interfaccia della riga di comando di Azure usare:
 ```azurecli
 az group create --name $resourceGroupName --location $location
 az group deployment create \
-    --name $deploymentName \
     --resource-group $resourceGroupName \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-key-vault-use-dynamic-id/azuredeploy.json \
     --parameters vaultName=$keyVaultName vaultResourceGroupName=examplegroup secretName=examplesecret
@@ -266,7 +263,6 @@ Per PowerShell, usare:
 ```powershell
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
-  -Name $deploymentName `
   -ResourceGroupName $resourceGroupName `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-key-vault-use-dynamic-id/azuredeploy.json `
   -vaultName $keyVaultName -vaultResourceGroupName $keyVaultResourceGroupName -secretName $secretName
@@ -274,5 +270,5 @@ New-AzResourceGroupDeployment `
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni generali sugli insiemi di credenziali delle chiavi, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-get-started.md).
+- Per informazioni generali su Key Vault, vedere [Cos'è Azure Key Vault?](../key-vault/key-vault-overview.md).
 - Per esempi completi di segreti di riferimento alle chiavi private, vedere [Esempi di insiemi di credenziali chiave](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).

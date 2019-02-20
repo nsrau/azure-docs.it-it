@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Gra-Pe | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Gra-Pe | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Gra-Pe.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 5e642cba3354f4f8589e44d975c0cecf5692c5b5
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 02df0a5d13aeb90049383f61d743e8a11e93fc79
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432922"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56188529"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Esercitazione: Integrazione di Azure Active Directory con Gra-Pe
+# <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Esercitazione: integrazione di Azure Active Directory con Gra-Pe
 
 Questa esercitazione descrive come integrare Gra-Pe con Azure Active Directory (Azure AD).
 
@@ -156,7 +157,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="create-a-gra-pe-test-user"></a>Creare un utente di test di Gra-Pe
 
-In questa sezione viene creato un utente di nome Britta Simon in Gra-Pe. Insieme al [team di supporto di Gra-Pe](https://www.toppantravel.com/inquiry/) aggiungere gli utenti alla piattaforma Gra-Pe. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in Gra-Pe. Collaborare con il  [team di supporto di Gra-Pe](https://www.toppantravel.com/inquiry/) per aggiungere gli utenti alla piattaforma Gra-Pe. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -187,7 +188,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Gra-Pe nel pannello di accesso si accederà automaticamente all'applicazione Gra-Pe.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

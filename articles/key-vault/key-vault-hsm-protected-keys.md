@@ -4,23 +4,25 @@ description: Questo argomento permette di pianificare, generare e quindi trasfer
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 51abafa1-812b-460f-a129-d714fdc391da
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: 3458bdc0f010cab622a5ddbb87cb8e1077c404a5
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: cc7d9a8e0d2689be4a8beb5d42c43b9e18157472
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693885"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238114"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Come generare e trasferire chiavi HSM protette per l'insieme di credenziali delle chiavi di Azure
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Per una maggiore sicurezza, quando si usa l'insieme di credenziali delle chiavi di Azure è possibile importare o generare le chiavi in moduli di protezione hardware (HSM) che rimangono sempre entro il limite HSM. Questo scenario viene spesso definito con il termine modalità *Bring Your Own Key*o BYOK. I moduli di protezione hardware sono certificati per FIPS 140-2 livello 2. L'insieme di credenziali delle chiavi di Azure usa la famiglia di HSM nShield di Thales per proteggere le chiavi.
 
@@ -30,7 +32,7 @@ Questa funzionalità non è disponibile per la versione di Azure per la Cina.
 
 > [!NOTE]
 > Per altre informazioni sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali delle chiavi di Azure?](key-vault-whatis.md)  
-> Per un'esercitazione introduttiva che illustra la creazione di un insieme di credenziali delle chiavi per chiavi HSM protette, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md).
+> Per un'esercitazione introduttiva che illustra la creazione di un insieme di credenziali delle chiavi per chiavi con protezione HSM, vedere [Che cos'è Azure Key Vault?](key-vault-overview.md).
 
 Altre informazioni su generazione e trasferimento di una chiave HSM protetta tramite Internet:
 
@@ -60,7 +62,7 @@ Nella tabella seguente sono elencati i prerequisiti relativi alla modalità BYOK
 | Sottoscrizione di Azure |Per creare un insieme di credenziali delle chiavi di Azure, è necessaria una sottoscrizione di Azure: [Iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/) |
 | È inoltre necessario il livello di servizio Premium dell'insieme di credenziali delle chiavi di Azure per supportare chiavi HSM protette. |Per altre informazioni su livelli di servizio e funzionalità per l'insieme di credenziali delle chiavi di Azure, vedere il sito Web relativo ai [prezzi dell'insieme di credenziali delle chiavi di Azure](https://azure.microsoft.com/pricing/details/key-vault/) . |
 | Moduli di protezione hardware Thales, smart card e software di supporto |È necessario avere l'accesso ai moduli di protezione hardware Thales e averne una conoscenza a livello operativo. Per l'elenco dei modelli compatibili o per acquistare un modulo di protezione hardware qualora non se ne sia già in possesso, vedere la pagina relativa ai [moduli di protezione hardware Thales](https://www.thales-esecurity.com/msrms/buy) . |
-| Componenti hardware e software seguenti:<ol><li>Una workstation x64 offline con Windows 7 come versione minima del sistema operativo Windows e software Thales nShield con versione minima 11.50.<br/><br/>Se questa workstation esegue Windows 7, è necessario [installare Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Una workstation connessa a Internet con sistema operativo Windows 7 o versione successiva e con [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.7.0) **1.1.0** o versione successiva installato.</li><li>Unità USB o un altro dispositivo di archiviazione portatile con almeno 16 MB di spazio disponibile.</li></ol> |Per motivi di sicurezza, si consiglia che la prima workstation non sia connessa a una rete. Questa indicazione tuttavia non viene applicata a livello di codice.<br/><br/>Nelle istruzioni seguenti questa workstation viene indicata come workstation disconnessa.</p></blockquote><br/>Inoltre, se la chiave del tenant è destinata a una rete di produzione, è consigliabile usare una seconda workstation separata per scaricare il set di strumenti e caricare la chiave del tenant. A scopo di test è comunque possibile usare la prima workstation.<br/><br/>Nelle istruzioni seguenti la seconda workstation viene indicata come workstation connessa a Internet.</p></blockquote><br/> |
+| Componenti hardware e software seguenti:<ol><li>Una workstation x64 offline con Windows 7 come versione minima del sistema operativo Windows e software Thales nShield con versione minima 11.50.<br/><br/>Se questa workstation esegue Windows 7, è necessario [installare Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Una workstation connessa a Internet con sistema operativo Windows 7 o versione successiva e con [Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) **1.1.0** o versione successiva installato.</li><li>Unità USB o un altro dispositivo di archiviazione portatile con almeno 16 MB di spazio disponibile.</li></ol> |Per motivi di sicurezza, si consiglia che la prima workstation non sia connessa a una rete. Questa indicazione tuttavia non viene applicata a livello di codice.<br/><br/>Nelle istruzioni seguenti questa workstation viene indicata come workstation disconnessa.</p></blockquote><br/>Inoltre, se la chiave del tenant è destinata a una rete di produzione, è consigliabile usare una seconda workstation separata per scaricare il set di strumenti e caricare la chiave del tenant. A scopo di test è comunque possibile usare la prima workstation.<br/><br/>Nelle istruzioni seguenti la seconda workstation viene indicata come workstation connessa a Internet.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Generare e trasferire la chiave al modulo di protezione hardware dell'insieme di credenziali delle chiavi di Azure
 
@@ -78,21 +80,19 @@ Per questo primo passaggio è necessario eseguire le procedure seguenti nella wo
 
 ### <a name="step-11-install-azure-powershell"></a>Passaggio 1.1: Installare Azure PowerShell
 
-Dalla workstation connessa a Internet scaricare e installare il modulo di Azure PowerShell che include i cmdlet per la gestione dell'insieme di credenziali delle chiavi di Azure. È necessaria la versione minima 0.8.13.
-
-Per le istruzioni di installazione, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
+Dalla workstation connessa a Internet scaricare e installare il modulo di Azure PowerShell che include i cmdlet per la gestione dell'insieme di credenziali delle chiavi di Azure. Per le istruzioni di installazione, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="step-12-get-your-azure-subscription-id"></a>Passaggio 1.2: Ottenere l'ID della sottoscrizione di Azure
 
 Avviare una sessione di Azure PowerShell e accedere al proprio account Azure con il comando seguente:
 
 ```Powershell
-   Add-AzureRMAccount
+   Connect-AzAccount
 ```
-Nella finestra del browser a comparsa, immettere il nome utente e la password dell'account Azure. Usare quindi il comando [Get-AzureSubscription](/powershell/module/servicemanagement/azure/get-azuresubscription?view=azuresmps-3.7.0) :
+Nella finestra del browser a comparsa, immettere il nome utente e la password dell'account Azure. Usare quindi il comando [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription):
 
 ```powershell
-   Get-AzureRMSubscription
+   Get-AzSubscription
 ```
 Nell'output individuare l'ID della sottoscrizione che si userà per l'insieme di credenziali delle chiavi di Azure. Questo ID sottoscrizione verrà usato in seguito.
 
@@ -246,7 +246,6 @@ Copiare il pacchetto del set di strumenti BYOK dall'unità USB o da un altro dis
 
 Per questo terzo passaggio eseguire le procedure seguenti nella workstation disconnessa. Per poter completare questo passaggio, il modulo di protezione hardware deve essere in modalità di inizializzazione. 
 
-
 ### <a name="step-31-change-the-hsm-mode-to-i"></a>Passaggio 3.1: Modificare la modalità del modulo di protezione hardware in 'I'
 
 Se si usa Thales nShield Edge, per modificare la modalità: 1. Usare il pulsante Modalità per evidenziare la modalità richiesta. 2. Entro pochi secondi, premere e tenere premuto per pochi secondi il pulsante Cancella. Se la modalità viene modificata, il LED della nuova modalità smette di lampeggiare e rimane acceso. È possibile che il LED di stato lampeggi in modo irregolare per pochi secondi e quindi lampeggi in modo regolare quando il dispositivo è pronto. In caso contrario, il dispositivo rimane nella modalità corrente, con il LED della modalità appropriata acceso.
@@ -256,13 +255,13 @@ Se si usa Thales nShield Edge, per modificare la modalità: 1. Usare il pulsante
 Avviare un prompt dei comandi ed eseguire il programma new-world di Thales.
 
    ```cmd
-    new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
+    new-world.exe --initialize --cipher-suite=DLf3072s256mRijndael --module=1 --acs-quorum=2/3
    ```
 
 Questo programma crea un file di **ambiente di sicurezza** nel percorso %NFAST_KMDATA%\local\world, che corrisponde alla cartella C:\ProgramData\nCipher\Key Management Data\local. È possibile creare valori diversi per il quorum, ma nell'esempio viene chiesto di immettere tre schede vuote e un codice PIN per ogni scheda. Qualsiasi coppia di schede consente di accedere in modo completo all'ambiente di sicurezza. Queste schede diventano il **set di schede amministrative** per il nuovo ambiente di sicurezza.
 
 > [!NOTE]
-> Se il modulo di protezione hardware supporta il gruppo di crittografia DLf3072s256mRijndael più recente, è possibile sostituire --cipher-suite=DLf1024s160mRijndael con --cipher-suite=DLf3072s256mRijndael
+> Se il modulo di protezione hardware non supporta il gruppo di crittografia DLf3072s256mRijndael più recente, è possibile sostituire --cipher-suite= DLf3072s256mRijndael con --cipher-suite=DLf1024s160mRijndael
 
 Eseguire quindi le operazioni seguenti:
 
@@ -493,14 +492,14 @@ Usare un'unità USB o un altro dispositivo di archiviazione portatile per copiar
 
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>Passaggio 5: Trasferire la chiave ad Azure Key Vault
 
-Per questo passaggio finale, nella workstation connessa a Internet usare il cmdlet [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey), per caricare il pacchetto di trasferimento della chiave copiato dalla workstation disconnessa al modulo di protezione hardware dell'insieme di credenziali delle chiavi di Azure:
+Per questo passaggio finale, nella workstation connessa a Internet usare il cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey), per caricare il pacchetto di trasferimento della chiave copiato dalla workstation disconnessa al modulo di protezione hardware di Azure Key Vault:
 
    ```powershell
-        Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+        Add-AzKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
    ```
 
 Se il pacchetto viene caricato correttamente, verranno visualizzate le proprietà della chiave aggiunta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È ora possibile usare questa chiave HSM protetta nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere la sezione **Per usare un modulo di protezione hardware (HSM)** nell'esercitazione [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md) .
+È ora possibile usare questa chiave HSM protetta nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere la sezione **Per usare un modulo di protezione hardware (HSM)** nell'esercitazione [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-overview.md) .

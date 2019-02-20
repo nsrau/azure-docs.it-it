@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 5ddee0ca94535688a0634ef8575f3aedad649a43
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a863915ceef437957170d87ac4cc452d651a8dab
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037497"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994950"
 ---
-# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Usare l'archiviazione code di Azure per monitorare le notifiche dei processi di Servizi multimediali con .NET
+# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net-legacy"></a>Usare l'archiviazione code di Azure per monitorare le notifiche dei processi di Servizi multimediali con .NET (legacy)
+
 Quando si eseguono processi di codifica, spesso è necessario monitorarne l'avanzamento. È possibile configurare Servizi multimediali per recapitare le notifiche ad [archiviazione code di Azure](../../storage/storage-dotnet-how-to-use-queues.md). È possibile controllare l'avanzamento del processo ottenendo le notifiche da archiviazione code. 
 
 È possibile accedere ai messaggi distribuiti al servizio di archiviazione di accodamento da ogni parte del mondo. L'architettura di messaggistica di archiviazione code è affidabile e altamente scalabile. Tra i vari metodi disponibili è preferibile usare il polling dell'archiviazione code per i messaggi.
@@ -338,7 +339,7 @@ namespace JobNotification
 }
 ```
 
-L'esempio precedente ha generato l'output seguente: i valori possono variare.
+Il precedente esempio ha prodotto l'output seguente: I valori possono variare.
 
     Created assetFile BigBuckBunny.mp4
     Upload BigBuckBunny.mp4

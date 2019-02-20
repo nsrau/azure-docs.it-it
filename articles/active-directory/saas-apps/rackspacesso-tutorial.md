@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Rackspace SSO | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Rackspace SSO | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Rackspace SSO.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2018
 ms.author: jeedes
-ms.openlocfilehash: b825fb1d7f56aae923f6760c4fd6384e03274b7a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 24864fd1e21efaf37f846fc95b9dae39ffb19e5f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042058"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186837"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Esercitazione: Integrazione di Azure Active Directory con Rackspace SSO
+# <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Esercitazione: integrazione di Azure Active Directory con Rackspace SSO
 
 Questa esercitazione descrive come integrare Rackspace SSO con Azure Active Directory (Azure AD).
 
@@ -192,7 +193,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Rackspace SSO nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Rackspace SSO.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

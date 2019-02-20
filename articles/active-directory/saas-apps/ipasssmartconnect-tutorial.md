@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con iPass SmartConnect | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con iPass SmartConnect | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e iPass SmartConnect.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: ecfdd3fae1d394e3b57fcd325f44cad0d1a98534
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 91a68a208496904fcc8bfe13a227c61bf313214f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444895"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198168"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>Esercitazione: Integrazione di Azure Active Directory con iPass SmartConnect
+# <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>Esercitazione: integrazione di Azure Active Directory con iPass SmartConnect
 
 Questa esercitazione descrive come integrare iPass SmartConnect con Azure Active Directory (Azure AD).
 
@@ -184,7 +185,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ### <a name="create-an-ipass-smartconnect-test-user"></a>Creare un utente di test di iPass SmartConnect
 
-In questa sezione viene creato un utente chiamato Britta Simon in iPass SmartConnect. Rivolgersi al [team di supporto di iPass SmartConnect](mailto:help@ipass.com) per aggiungere gli utenti o il dominio necessario per essere inclusi nella piattaforma iPass SmartConnect. Se il dominio viene aggiunto dal team, verrà automaticamente effettuato il provisioning degli utenti per la piattaforma iPass SmartConnect. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente chiamato Britta Simon in iPass SmartConnect. Rivolgersi al  [team di supporto di iPass SmartConnect](mailto:help@ipass.com)  per aggiungere gli utenti o il dominio necessario per essere inclusi nella piattaforma iPass SmartConnect. Se il dominio viene aggiunto dal team, verrà automaticamente effettuato il provisioning degli utenti per la piattaforma iPass SmartConnect. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 

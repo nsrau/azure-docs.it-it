@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 40e0230e6a8e03aa53a24f2497fcd016909c0ada
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: d16214bf08b0e0b5a95acae380f8d644fc4461ce
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55757622"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56213075"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Archiviazione Premium di Azure: Progettata per prestazioni elevate
 
@@ -63,7 +63,7 @@ Come illustrato dalla formula seguente, esiste una relazione tra la velocità ef
 
 ## <a name="latency"></a>Latenza
 
-La latenza è il tempo necessario perché un'applicazione riceva una singola richiesta, la invii ai dischi di archiviazione e restituisca la risposta al client. Si tratta di una misura essenziale delle prestazioni di un'applicazione, oltre a IOPS e velocità effettiva. La latenza di un disco di Archiviazione Premium è il tempo necessario per recuperare le informazioni per una richiesta e restituirle all'applicazione. L'Archiviazione Premium offre latenze uniformemente basse. Se si abilita la memorizzazione nella cache host ReadOnly nei dischi di Archiviazione Premium, sarà possibile ottenere una latenza di lettura molto più bassa. La memorizzazione nella cache dei dischi sarà illustrata in modo più dettagliato nella sezione successiva, *Ottimizzazione delle prestazioni dell'applicazione*.
+La latenza è il tempo necessario perché un'applicazione riceva una singola richiesta, la invii ai dischi di archiviazione e restituisca la risposta al client. Si tratta di una misura essenziale delle prestazioni di un'applicazione, oltre a IOPS e velocità effettiva. La latenza di un disco di Archiviazione Premium è il tempo necessario per recuperare le informazioni per una richiesta e restituirle all'applicazione. L'Archiviazione Premium offre latenze uniformemente basse. I dischi Premium sono progettati per offrire latenze di pochi millisecondi a cifra singola per la maggior parte delle operazioni di I/O. Se si abilita la memorizzazione nella cache host ReadOnly nei dischi di Archiviazione Premium, sarà possibile ottenere una latenza di lettura molto più bassa. La memorizzazione nella cache dei dischi sarà illustrata in modo più dettagliato nella sezione successiva, *Ottimizzazione delle prestazioni dell'applicazione*.
 
 Quando si ottimizza l'applicazione per ottenere valori più elevati per IOPS e velocità effettiva, ciò influirà sulla latenza dell'applicazione. Dopo il perfezionamento delle prestazioni dell'app, è necessario valutare sempre la latenza dell'applicazione per evitare comportamenti imprevisti con latenza elevata.
 

@@ -1,6 +1,6 @@
 ---
-title: Introduzione alle query in Azure Log Analytics| Microsoft Docs
-description: Questo articolo fornisce un'esercitazione per iniziare a scrivere query in Log Analytics.
+title: Introduzione alle query di log in Monitoraggio di Azure | Microsoft Docs
+description: Questo articolo include un'esercitazione per iniziare a scrivere query di log in Monitoraggio di Azure.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 326e12444067e950b9d6ae0862424589d444b83d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 599e6b0cd615be7275df127b0b2f174bd8e6c290
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52885499"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994888"
 ---
-# <a name="get-started-with-queries-in-log-analytics"></a>Introduzione alle query in Log Analytics
+# <a name="get-started-with-azure-monitor-log-queries"></a>Introduzione alle query di log in Monitoraggio di Azure
 
 
 > [!NOTE]
-> Prima di seguire questa esercitazione, è consigliabile completare l'esercitazione [Introduzione al portale di analisi](get-started-portal.md).
+> Prima di seguire questa esercitazione, è consigliabile completare l'esercitazione [Introduzione a Log Analytics in Monitoraggio di Azure](get-started-portal.md).
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-In questa esercitazione si apprenderà come scrivere query di Azure Log Analytics. Si apprenderà come:
+In questa esercitazione si apprenderà come scrivere query di log in Monitoraggio di Azure. Si apprenderà come:
 
 - Comprendere la struttura delle query
 - Ordinare i risultati di query
@@ -43,10 +43,10 @@ In questa esercitazione si apprenderà come scrivere query di Azure Log Analytic
 Le query possono iniziare con un nome di tabella o con il comando *search*. È consigliabile iniziare con un nome di tabella, perché definisce un chiaro ambito per la query e consente di migliorare sia le prestazioni di query che la pertinenza dei risultati.
 
 > [!NOTE]
-> Il linguaggio di query di Azure Log Analytics fa distinzione tra maiuscole e minuscole. Le parole chiave del linguaggio sono in genere scritte in lettere minuscole. Quando si usano nomi di tabelle o di colonne in una query, assicurarsi di usare la giusta combinazione di maiuscole e minuscole, come indicato nel riquadro dello schema.
+> Il linguaggio di query di Esplora dati usato da Monitoraggio di Azure fa distinzione tra maiuscole e minuscole. Le parole chiave del linguaggio sono in genere scritte in lettere minuscole. Quando si usano nomi di tabelle o di colonne in una query, assicurarsi di usare la giusta combinazione di maiuscole e minuscole, come indicato nel riquadro dello schema.
 
 ### <a name="table-based-queries"></a>Query basate su tabella
-Azure Log Analytics organizza i dati in tabelle, ognuna composta da più colonne. Tutte le tabelle e le colonne vengono visualizzate nel riquadro dello schema, nel portale di analisi. Identificare una tabella di interesse ed esaminarne i dati:
+Monitoraggio di Azure organizza i dati in tabelle, ognuna composta da più colonne. Tutte le tabelle e le colonne vengono visualizzate nel riquadro Schema del portale di Log Analytics. Identificare una tabella di interesse ed esaminarne i dati:
 
 ```Kusto
 SecurityEvent
@@ -108,7 +108,7 @@ SecurityEvent
 
 Quando si scrivono le condizioni di filtro, è possibile usare le espressioni seguenti:
 
-| Expression | DESCRIZIONE | Esempio |
+| Expression | Descrizione | Esempio |
 |:---|:---|:---|
 | == | Controllo dell'uguaglianza<br>(fa distinzione tra maiuscole e minuscole) | `Level == 8` |
 | =~ | Controllo dell'uguaglianza<br>(non fa distinzione tra maiuscole e minuscole) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
@@ -164,7 +164,7 @@ SecurityEvent
 
 L'esempio precedente genera l'output seguente:
 
-![Risultati del comando project di Log Analytics](media/get-started-queries/project.png)
+![Risultati della query project](media/get-started-queries/project.png)
 
 È anche possibile usare **project** per rinominare le colonne e definirne di nuove. L'esempio seguente usa il comando project per questi scopi:
 
@@ -236,7 +236,7 @@ Perf
 
 Per rendere più chiaro l'output, visualizzarlo come un grafico temporale, che mostra la memoria disponibile nel tempo:
 
-![Memoria di Log Analytics nel tempo](media/get-started-queries/chart.png)
+![Query relativa alla memoria disponibile nel tempo](media/get-started-queries/chart.png)
 
 
 

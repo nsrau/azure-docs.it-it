@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con SafeConnect | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con SafeConnect | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e SafeConnect.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: jeedes
-ms.openlocfilehash: f011b9ef7229ba1e588e488be8b4fc5b098ee5ac
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: cbb94c28d56b0492fe3488d7c9e2e1257a8b9388
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40024675"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56183803"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-safeconnect"></a>Esercitazione: Integrazione di Azure Active Directory con SafeConnect
+# <a name="tutorial-azure-active-directory-integration-with-safeconnect"></a>Esercitazione: integrazione di Azure Active Directory con SafeConnect
 
 Questa esercitazione descrive come integrare SafeConnect con Azure Active Directory (Azure AD).
 
@@ -153,7 +154,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="create-a-safeconnect-test-user"></a>Creare un utente di test di SafeConnect
 
-In questa sezione viene creato un utente di nome Britta Simon in SafeConnect. Collaborare con il [team di supporto di SafeConnect](mailto:support@impulse.com) per aggiungere gli utenti nella piattaforma SafeConnect. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
+In questa sezione viene creato un utente di nome Britta Simon in SafeConnect. Collaborare con il  [team di supporto di SafeConnect](mailto:support@impulse.com) per l'aggiunta di utenti alla piattaforma SafeConnect. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -190,7 +191,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro SafeConnect nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione SafeConnect.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

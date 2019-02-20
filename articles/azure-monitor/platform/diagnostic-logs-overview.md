@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 55c1bc18422bc2be5172aebcd46b76ac6051a8a4
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: e9fcf36d6ece441c73e7d1224bd5918d2e74bf84
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885848"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001984"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Raccogliere e usare i dati dei log dalle risorse di Azure
 
@@ -40,7 +40,9 @@ Ecco alcune delle attività che è possibile eseguire con i log di diagnostica:
 
 * Salvarli in un [**account di archiviazione**](../../azure-monitor/platform/archive-diagnostic-logs.md) per il controllo o l'ispezione manuale. È possibile specificare il tempo di conservazione in giorni tramite le **impostazioni di diagnostica di risorsa**.
 * [Trasmetterli a **Hub eventi**](diagnostic-logs-stream-event-hubs.md) per l'inserimento da parte di un servizio di terze parti o una soluzione di analisi personalizzata come Power BI.
-* Analizzarli con [Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md), qualora i dati vengano scritti subito in Log Analytics e non sia necessario scriverli prima nella risorsa di archiviazione.  
+* Analizzarli con [Monitoraggio di Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md), qualora i dati vengano scritti subito in Monitoraggio di Azure e non sia necessario scriverli prima nella risorsa di archiviazione.  
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 È possibile usare un account di archiviazione o uno spazio dei nomi di Hub eventi che non si trovi nella stessa sottoscrizione della risorsa che crea i log. L'utente che configura l'impostazione deve disporre dell'accesso RBAC appropriato a entrambe le sottoscrizioni.
 
@@ -56,7 +58,7 @@ Ecco alcune delle attività che è possibile eseguire con i log di diagnostica:
 
 I log di diagnostica di risorsa sono configurati usando le impostazioni di diagnostica delle risorse. I log di diagnostica del tenant sono configurati usando un'impostazione di diagnostica del tenant. **Le impostazioni di diagnostica** per un servizio controllano:
 
-* Destinazione dei log di diagnostica di risorsa e delle metriche, ad esempio un account di archiviazione, un Hub eventi e/o Log Analytics.
+* Destinazione dei log di diagnostica di risorsa e delle metriche, ad esempio un account di archiviazione, un Hub eventi e/o Monitoraggio di Azure.
 * Categorie di log e metriche da inviare.
 * Periodo di tempo in cui ogni log di categoria deve essere mantenuto nell'account di archiviazione
     - Un periodo di conservazione di zero giorni significa che i log vengono conservati all'infinito. Se impostato su zero giorni, i log vengono conservati all'infinito.
@@ -235,5 +237,4 @@ Aggiungendo un'impostazione di diagnostica verrà visualizzata la vista Impostaz
 
 * [Trasmettere log di diagnostica di Azure a **Hub eventi**](diagnostic-logs-stream-event-hubs.md)
 * [Modificare le impostazioni di diagnostica di risorsa usando l'API REST di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/)
-* [Analizzare i log di Archiviazione di Azure con Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
-
+* [Analizzare i log di Archiviazione di Azure con Monitoraggio di Azure](collect-azure-metrics-logs.md)

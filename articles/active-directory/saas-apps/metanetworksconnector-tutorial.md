@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Meta Networks Connector | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Meta Networks Connector | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Meta Networks Connector.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a3f40624e51ef287d70bed547eba7ec9e0882b0e
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3c4d702a33742da5501be208154cbdd593fa0524
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669196"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199713"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Esercitazione: Integrazione di Azure Active Directory con Meta Networks Connector
+# <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Esercitazione: integrazione di Azure Active Directory con Meta Networks Connector
 
 Questa esercitazione descrive come integrare Meta Networks Connector con Azure Active Directory (Azure AD).
 
@@ -240,7 +241,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 Questa sezione descrive come creare un utente di nome Britta Simon in Meta Networks Connector. Meta Networks Connector supporta il provisioning JIT (Just-In-Time), che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già, un nuovo utente viene creato durante un tentativo di accesso a Meta Networks Connector.
 
 >[!Note]
->Per creare un utente manualmente, contattare il [team del supporto clienti di Meta Networks Connector](mailto:support@metanetworks.com).
+>Per creare un utente manualmente, contattare il  [team del supporto clienti di Meta Networks Connector](mailto:support@metanetworks.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -277,7 +278,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Meta Networks Connector nel pannello di accesso, si accederà automaticamente all'applicazione Meta Networks Connector.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md).
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

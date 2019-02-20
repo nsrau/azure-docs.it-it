@@ -3,7 +3,7 @@ title: Limiti delle risorse basati su DTU del database SQL di Azure per i singol
 description: Questa pagina descrive alcuni limiti di risorse comuni basati su DTU per i database singoli nel database SQL di Azure.
 services: sql-database
 ms.service: sql-database
-ms.subservice: standalone-database
+ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,19 +11,19 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: e73bb2f1908abd049ea6e2406c0d1db02381695f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: bf4c823d42d26d9fa97ee6eb5ee6ea20b857cde8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455542"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993015"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Limiti di risorse per i database singoli usando il modello di acquisto basato su DTU
 
 Questo articolo illustra in modo dettagliato i limiti delle risorse per i database singoli del database SQL di Azure usando il modello di acquisto basato su DTU.
 
-Per i limiti di risorse basati su DTU per pool elastici, vedere [Limiti di risorse basati su DTU - pool elastici](sql-database-vcore-resource-limits-elastic-pools.md). Per i limiti di risorse in base ai VCore, vedere [Limiti delle risorse basati su vCore per i database singoli](sql-database-vcore-resource-limits-single-databases.md) e [Limiti delle risorse basati su vCore per pool elastici](sql-database-vcore-resource-limits-elastic-pools.md). Per altre informazioni sui vari modelli di acquisto, vedere l'articolo sui [modelli di acquisto e i livelli di servizio](sql-database-service-tiers.md).
+Per i limiti di risorse basati su DTU per pool elastici, vedere [Limiti di risorse basati su DTU - pool elastici](sql-database-vcore-resource-limits-elastic-pools.md). Per i limiti di risorse in base ai VCore, vedere [Limiti delle risorse basati su vCore per i database singoli](sql-database-vcore-resource-limits-single-databases.md) e [Limiti delle risorse basati su vCore per pool elastici](sql-database-vcore-resource-limits-elastic-pools.md). Per altre informazioni sui vari modelli di acquisto, vedere l'articolo sui [modelli di acquisto e i livelli di servizio](sql-database-purchase-models.md).
 
 > [!IMPORTANT]
 > In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [Gestire lo spazio file nel database SQL di Azure](sql-database-file-space-management.md).
@@ -130,8 +130,9 @@ Ai database P11 e P15 con dimensioni massime maggiori di 1 TB vengono applicate 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per le risposte alle domande più frequenti, vedere [Domande frequenti sul database SQL](sql-database-faq.md).
-- Per informazioni sui limiti a livello di server e sottoscrizione, vedere [Panoramica dei limiti delle risorse in un server di database SQL](sql-database-resource-limits-database-server.md).
+- Per i limiti delle risorse vCore per un database singolo, vedere [Limiti delle risorse per database singoli usando il modello di acquisto basato su vCore](sql-database-vcore-resource-limits-single-databases.md)
+- Per i limiti delle risorse vCore per i pool elastici, vedere [Limiti delle risorse per pool elastici usando il modello di acquisto basato su vCore](sql-database-vcore-resource-limits-elastic-pools.md)
+- Per i limiti delle risorse DTU per i pool elastici, vedere [Limiti delle risorse per i pool elastici usando il modello di acquisto basato su DTU](sql-database-dtu-resource-limits-elastic-pools.md)
+- Per i limiti delle risorse delle istanze gestite, vedere [Limiti delle risorse dell'istanza gestita](sql-database-managed-instance-resource-limits.md).
 - Per informazioni sui limiti generici di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
-- Per informazioni su DTU ed eDTU, vedere [DTU ed eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model).
-- Per informazioni sui limiti di tempDB relativi alle dimensioni, vedere [Limiti tempDB nel database SQL](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
+- Per informazioni sui limiti delle risorse in un server di database a livello di server e sottoscrizione, vedere [Panoramica dei limiti delle risorse in un server di database SQL](sql-database-resource-limits-database-server.md).

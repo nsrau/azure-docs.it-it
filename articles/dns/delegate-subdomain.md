@@ -5,24 +5,27 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/22/2019
+ms.date: 2/7/2019
 ms.author: victorh
-ms.openlocfilehash: 87a80703c473245660a850645ca3fef21bbd80f6
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 31543db8e177701ddfe6beaaa3091d6465b0e9cd
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452718"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895481"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Delegare un sottodominio DNS di Azure
 
-È possibile usare il portale di Azure per delegare un sottodominio DNS. Ad esempio, se si è proprietari del dominio contoso.com, è possibile delegare un sottodominio denominato *engineering* a un'altra zona distinta che può essere amministrata separatamente dalla zona di contoso.com.
+È possibile usare il portale di Azure per delegare un sottodominio DNS. Se, ad esempio, si è proprietari del dominio contoso.com, è possibile delegare un sottodominio denominato *engineering* a un'altra zona distinta che può essere amministrata separatamente dalla zona di contoso.com.
+
+Se si preferisce, è possibile delegare un sottodominio tramite [Azure PowerShell](delegate-subdomain-ps.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per delegare un sottodominio DNS di Azure occorre prima delegare il dominio pubblico alla zona DNS di Azure. Per istruzioni sulla configurazione dei server dei nomi per la delega, vedere [Esercitazione: Ospitare il dominio in DNS di Azure](./dns-delegate-domain-azure-dns.md). Una volta delegato il dominio alla zona del servizio DNS di Azure, è possibile delegare il sottodominio.
 
-Gli esempi di questo articolo usano il dominio contoso.com. Occorre sostituirlo con il proprio dominio quando si usano queste procedure.
+> [!NOTE]
+> Contoso.com viene usato come esempio in questo articolo. Sostituire contoso.com con il nome del proprio dominio.
 
 ## <a name="create-a-zone-for-your-subdomain"></a>Creare una zona per il sottodominio
 
@@ -30,18 +33,21 @@ Creare prima di tutto la zona per il sottodominio **engineering**.
 
 1. Nel portale di Azure selezionare **Crea una risorsa**.
 2. Nella casella di ricerca digitare **DNS** e selezionare **Zona DNS**.
-3. Selezionare **Crea**.
+3. Selezionare **Create**.
 4. Nel riquadro **Crea zona DNS** digitare **engineering.contoso.com** nella casella di testo **Nome**.
 5. Selezionare il gruppo di risorse della zona. È consigliabile usare lo stesso gruppo di risorse della zona padre per tenere insieme le risorse simili.
-6. Fare clic su **Crea**.
+6. Fare clic su **Create**(Crea).
 7. Al termine della distribuzione, passare alla nuova zona.
 
 ## <a name="note-the-name-servers"></a>Prendere nota dei server dei nomi
 
-Copiare quindi i quattro server dei nomi per il sottodominio.
+Prendere nota dei quattro server dei nomi relativi al sottodominio "engineering".
 
-1. Nel riquadro della zona **engineering** prendere nota dei quattro server dei nomi della zona. Questi server dovranno essere usati più tardi.
-2. Creare un record **A** da usare per il testing. Ad esempio, creare un record A **www** e configurarlo con l'indirizzo IP **10.10.10.10**.
+Nel riquadro della zona **engineering** prendere nota dei quattro server dei nomi della zona. Questi server dovranno essere usati più tardi.
+
+## <a name="create-a-test-record"></a>Creare un record di test
+
+Creare un record **A** da usare per il testing. Ad esempio, creare un record A **www** e configurarlo con l'indirizzo IP **10.10.10.10**.
 
 ## <a name="create-an-ns-record"></a>Creare un record NS
 
@@ -59,10 +65,8 @@ Creare un record server dei nomi (NS) per la zona **engineering**.
 Usare nslookup per testare la delega.
 
 1. Aprire una finestra di PowerShell.
-2. Al prompt dei comandi digitare `nslookup www.engineering.<your domain name>.`
+2. Al prompt dei comandi digitare `nslookup www.engineering.contoso.com.`
 3. Si dovrebbe ricevere una risposta non autorevole che mostra l'indirizzo **10.10.10.10**.
-
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

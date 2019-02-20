@@ -4,7 +4,7 @@ description: Questo argomento illustra come elaborare i contenuti multimediali c
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 18213fc1-74f5-4074-a32b-02846fe90601
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: d8c3bb07c88dc96b7ca779ca0f4dfe09052ab290
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 02b972c0591bb05f72887e3e1c3d057d373ff48c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666171"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004872"
 ---
-# <a name="analyze-your-media-using-the-azure-portal"></a>Analizzare i contenuti multimediali usando il portale di Azure
+# <a name="analyze-your-media-using-the-azure-portal-legacy"></a>Analizzare i contenuti multimediali usando il portale di Azure (legacy)
 > [!NOTE]
 > Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
@@ -141,7 +141,7 @@ Questo processore consente di rilevare contenuti potenzialmente pornografici e p
 
 ![Moderare i video](./media/media-services-portal-analyze/media-services-portal-analyze-content-moderator.PNG)
 
-### <a name="version"></a>Version 
+### <a name="version"></a>Versione 
 Usare "2.0".
 
 ### <a name="mode"></a>Mode

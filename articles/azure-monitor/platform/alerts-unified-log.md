@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 18c05f2a9dd9f7e4a6d5ec62806870311c5eb130
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 5722db5be656641301299956172ee19249be7895
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745709"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106405"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Avvisi del log in Monitoraggio di Azure
-Questo articolo contiene informazioni dettagliate sugli avvisi di log, uno dei tipi di avvisi supportati nel nuovo servizio [Avvisi di Azure](../../azure-monitor/platform/alerts-overview.md) che consente agli utenti di usare la piattaforma di analisi di Azure come base per la generazione di avvisi.
+Questo articolo contiene informazioni dettagliate sugli avvisi di log, uno dei tipi di avvisi supportati nel nuovo servizio [Avvisi di Azure](../platform/alerts-overview.md) che consente agli utenti di usare la piattaforma di analisi di Azure come base per la generazione di avvisi.
 
-Un avviso di log è costituito da regole di ricerca log create per [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) o [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events). Per altre informazioni sull'utilizzo, vedere [Creating log alerts in Azure](../../azure-monitor/platform/alerts-log.md) (Creazione di avvisi dei log in Azure).
+Un avviso di log è costituito da regole di query di log create per [Monitoraggio di Azure](../learn/tutorial-viewdata.md) o [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events). Per altre informazioni sull'utilizzo, vedere [Creating log alerts in Azure](../platform/alerts-log.md) (Creazione di avvisi dei log in Azure).
 
 > [!NOTE]
-> I dati di log più comuni di [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) sono ora disponibili anche nella piattaforma di metriche in Monitoraggio di Azure. Per i dettagli, vedere [Metric Alert for Logs](../../azure-monitor/platform/alerts-metric-logs.md) (Avvisi di metrica per i log).
+> I dati di log più comuni di [Monitoraggio di Azure](../learn/tutorial-viewdata.md) sono ora disponibili anche nella piattaforma di metriche in Monitoraggio di Azure. Per i dettagli, vedere [Metric Alert for Logs](../platform/alerts-metric-logs.md) (Avvisi di metrica per i log).
 
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Regole di avviso di ricerca log - Definizioni e tipi
@@ -41,7 +41,7 @@ Le regole di ricerca log sono definite dai dettagli seguenti:
 
 - **Soglia**.  Per determinare se è necessario creare un avviso, vengono valutati i risultati della ricerca log.  La soglia è diversa per tipi diversi di regole di avviso di ricerca log.
 
-Le regole di ricerca log, sia per [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) sia per [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events), possono essere di due tipi diversi. Ognuno di questi tipi viene descritto in dettaglio nelle sezioni seguenti.
+Le regole di query di log, sia per [Monitoraggio di Azure](../learn/tutorial-viewdata.md) sia per [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events), possono essere di due tipi diversi. Ognuno di questi tipi viene descritto in dettaglio nelle sezioni seguenti.
 
 - **[Numero di risultati](#number-of-results-alert-rules)**. Singolo avviso creato quando i record di numeri restituiti dalla ricerca log superano un numero specificato.
 - **[Unità di misura della metrica](#metric-measurement-alert-rules)**.  Avviso creato per ogni oggetto nei risultati della ricerca log quando i valori superano la soglia specificata.
@@ -99,14 +99,28 @@ Si consideri uno scenario in cui si desidera creare un avviso se l'uso del proce
 - **Query:** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer<br>
 - **Periodo di tempo:** 30 minuti<br>
 - **Frequenza avviso:** cinque minuti<br>
-- **Valore di aggregazione:** Maggiore di 90<br>
+- **Logica avvisi - Condizione e soglia:** Maggiore di 90<br>
+- **Campo Gruppo (funzione Aggregate On):** Computer
 - **Attiva l'avviso in base a:** Violazioni della protezione totali maggiori di 2<br>
 
-La query crea un valore medio per ogni computer a intervalli di 5 minuti.  Questa query verrebbe eseguita ogni 5 minuti per i dati raccolti nei 30 minuti precedenti.  Di seguito sono illustrati dati di esempio per tre computer.
+La query crea un valore medio per ogni computer a intervalli di 5 minuti.  Questa query verrebbe eseguita ogni 5 minuti per i dati raccolti nei 30 minuti precedenti. Dato che il campo Gruppo (funzione Aggregate On) scelto fa parte della colonna "Computer" - AggregatedValue viene suddiviso in valori diversi di "Computer" e si determina l'utilizzo medio del processore per ogni computer a intervalli di 5 minuti.  Ad esempio, il risultato della query di esempio per tre computer, sarebbe il seguente.
+
+
+|TimeGenerated [UTC] |Computer  |AggregatedValue  |
+|---------|---------|---------|
+|20xx-xx-xxT01:00:00Z     |   srv01.contoso.com      |    72     |
+|20xx-xx-xxT01:00:00Z     |   srv02.contoso.com      |    91     |
+|20xx-xx-xxT01:00:00Z     |   srv03.contoso.com      |    83     |
+|...     |   ...      |    ...     |
+|20xx-xx-xxT01:30:00Z     |   srv01.contoso.com      |    88     |
+|20xx-xx-xxT01:30:00Z     |   srv02.contoso.com      |    84     |
+|20xx-xx-xxT01:30:00Z     |   srv03.contoso.com      |    92     |
+
+Se il risultato della query dovesse essere tracciato, verrebbe visualizzato come segue.
 
 ![Risultati della query di esempio](media/alerts-unified-log/metrics-measurement-sample-graph.png)
 
-In questo esempio vengono creati avvisi separati per srv02 e srv03, in quanto hanno superato la soglia del 90% per tre volte nel periodo di tempo.  Se l'impostazione di **Attiva l'avviso in base a:** venisse modificata in **Consecutivo** verrebbe creato un avviso solo per srv03 poiché ha violato la soglia di tre volte consecutive.
+In questo esempio vediamo l'utilizzo medio del processore calcolato per un arco di tempo di 5 minuti, suddiviso a intervalli di 5 minuti per ognuno dei tre computer. La soglia di 90 viene violata una sola volta da srv01 nell'intervallo 1:25. In confronto, srv02 supera la soglia di 90 negli intervalli 1:10, 1:15 e 1:25, mentre srv03 supera la soglia di 90 negli intervalli 1:10, 1:15, 1:20 e 1:30. Dato che l'avviso è configurato per attivarsi nel caso in cui il totale delle violazioni sia superiore a due, vediamo che solo srv02 e srv03 soddisfano questi criteri. Di conseguenza vengono creati avvisi separati per srv02 e srv03, in quanto hanno superato la soglia del 90% per due volte in svariati intervalli di tempo.  Se invece l'utente avesse configurato il parametro *Attiva l'avviso in base a:* all'opzione *Violazioni continue*, si attiverebbe un avviso **solo** per srv03, poiché ha violato la soglia per tre intervalli di tempo consecutivi compresi tra 1:10 e 1:20. **Non** verrebbe attivato per srv02, dal momento che ha violato la soglia di due intervalli tempo consecutivi compresi tra 1:10 e 1:15.
 
 ## <a name="log-search-alert-rule---firing-and-state"></a>Regola di avviso di ricerca log - attivazione e stato
 
@@ -114,11 +128,11 @@ La regola di avviso di ricerca log funziona sulla logica dichiarata dall'utente 
 
 Supponiamo ora di avere una regola di avviso di log denominata *Contoso-Log-Alert*, come da configurazione nell'[esempio presentato per l'avviso di log di tipo Numero di risultati](#example-of-number-of-records-type-log-alert). 
 - Alle 13.05, dopo l'esecuzione di Contoso-Log-Alert in Avvisi di Azure, il risultato della ricerca log ha prodotto 0 record: sotto la soglia e quindi non viene generato alcun avviso. 
-- Alla successiva iterazione che avviene alle 13.10, dopo l'esecuzione di Contoso-Log-Alert in Avvisi di Azure, il risultato della ricerca log ha prodotto 5 record: la soglia è superata e l'avviso viene generato. Subito dopo viene attivato il [gruppo di azioni](../../azure-monitor/platform/action-groups.md) associato. 
-- Alle 13.15, dopo l'esecuzione di Contoso-Log-Alert in Avvisi di Azure, il risultato della ricerca log ha prodotto 2 record: la soglia è superata e l'avviso viene generato. Subito dopo viene attivato il [gruppo di azioni](../../azure-monitor/platform/action-groups.md) associato.
+- Alla successiva iterazione che avviene alle 13.10, dopo l'esecuzione di Contoso-Log-Alert in Avvisi di Azure, il risultato della ricerca log ha prodotto 5 record: la soglia è superata e l'avviso viene generato. Subito dopo viene attivato il [gruppo di azioni](../platform/action-groups.md) associato. 
+- Alle 13.15, dopo l'esecuzione di Contoso-Log-Alert in Avvisi di Azure, il risultato della ricerca log ha prodotto 2 record: la soglia è superata e l'avviso viene generato. Subito dopo viene attivato il [gruppo di azioni](../platform/action-groups.md) associato.
 - Alla successiva iterazione delle 13:20, dopo l'esecuzione di Contoso-Log-Alert in Avvisi di Azure, il risultato della ricerca log ha prodotto di nuovo 0 record: sotto la soglia e quindi non viene generato alcun avviso.
 
-Nel caso sopra elencato, tuttavia, alle 13.15 Avvisi di Azure non può determinare che i problemi sottostanti incontrati alle 13:10 persistono e se si sono verificati errori del tutto nuovi. Poiché la query specificata dall'utente potrebbe prendere in considerazione i record precedenti, Avvisi di Azure non può avere certezze. Per sicurezza, quando Contoso-Log-Alert viene eseguito alle 13:15, viene nuovamente generato il [gruppo di azioni](../../azure-monitor/platform/action-groups.md) configurato. Alle 13.20, quando non vengono riscontrati record, Avvisi di Azure non può essere certo che la causa dei record sia stata risolta. Contoso-Log-Alert non verrà pertanto impostato su Risolto nel dashboard di Avvisi di Azure e/o non verranno inviate notifiche di risoluzione dell'avviso.
+Nel caso sopra elencato, tuttavia, alle 13.15 Avvisi di Azure non può determinare che i problemi sottostanti incontrati alle 13:10 persistono e se si sono verificati errori del tutto nuovi. Poiché la query specificata dall'utente potrebbe prendere in considerazione i record precedenti, Avvisi di Azure non può avere certezze. Per sicurezza, quando Contoso-Log-Alert viene eseguito alle 13:15, viene nuovamente generato il [gruppo di azioni](../platform/action-groups.md) configurato. Alle 13.20, quando non vengono riscontrati record, Avvisi di Azure non può essere certo che la causa dei record sia stata risolta. Contoso-Log-Alert non verrà pertanto impostato su Risolto nel dashboard di Avvisi di Azure e/o non verranno inviate notifiche di risoluzione dell'avviso.
 
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Prezzi e fatturazione degli avvisi dei log
@@ -133,9 +147,8 @@ I prezzi applicabili agli avvisi dei log sono disponibili nella pagina [Prezzi d
     > Se sono presenti caratteri non validi, ad esempio `<, >, %, &, \, ?, /`, nella fattura saranno sostituiti con `_`. Per eliminare le risorse scheduleQueryRules create per la fatturazione delle regole di avviso con l'[API legacy Log Analytics](api-alerts.md), l'utente deve eliminare la pianificazione originale e l'azione di avviso usando l'[API legacy Log Analytics](api-alerts.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni sulla [creazione di avvisi dei log in Azure](../../azure-monitor/platform/alerts-log.md).
+* Informazioni sulla [creazione di avvisi dei log in Azure](../platform/alerts-log.md).
 * Acquisire familiarità con i [webhook negli avvisi dei log in Azure](alerts-log-webhook.md).
-* Informazioni su [Avvisi di Azure](../../azure-monitor/platform/alerts-overview.md).
-* Altre informazioni su [Application Insights](../../azure-monitor/app/analytics.md).
-* Altre informazioni su [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).    
-
+* Informazioni su [Avvisi di Azure](../platform/alerts-overview.md).
+* Altre informazioni su [Application Insights](../app/analytics.md).
+* Altre informazioni su [query log di Monitoraggio di Azure](../log-query/log-query-overview.md).    

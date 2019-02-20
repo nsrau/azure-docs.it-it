@@ -1,6 +1,6 @@
 ---
-title: Targeting delle soluzioni di gestione in Azure | Microsoft Docs
-description: Il targeting delle soluzioni di gestione consente di limitare le soluzioni di gestione a un set specifico di agenti.  Questo articolo descrive come creare una configurazione di ambito e applicarla a una soluzione.
+title: Targeting delle soluzioni di monitoraggio in Monitoraggio di Azure | Microsoft Docs
+description: Il targeting delle soluzioni di monitoraggio consente di limitare le soluzioni di monitoraggio a un set specifico di agenti.  Questo articolo descrive come creare una configurazione di ambito e applicarla a una soluzione.
 services: monitoring
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: d82c42fa734932655f536d4fc04a50b4d6904ac5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d1d2dd689cb389b6adfe1dd534e7c73e17f755f5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192754"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989186"
 ---
-# <a name="targeting-management-solutions-in-azure-preview"></a>Targeting delle soluzioni di gestione in Azure (anteprima)
-Quando viene aggiunta una soluzione di gestione alla sottoscrizione, la soluzione viene automaticamente distribuita per impostazione predefinita a tutti gli agenti di Windows e Linux connessi all'area di lavoro di Log Analytics.  Si consiglia di gestire i costi e limitare la quantità di dati raccolti per una soluzione limitandola a un determinato set di agenti.  Questo articolo descrive come usare il **targeting della soluzione**, una funzionalità che consente di applicare un ambito alle soluzioni.
+# <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Targeting delle soluzioni di monitoraggio in Monitoraggio di Azure (Anteprima)
+Quando viene aggiunta una soluzione di monitoraggio alla sottoscrizione, la soluzione viene automaticamente distribuita per impostazione predefinita a tutti gli agenti di Windows e Linux connessi all'area di lavoro di Log Analytics.  Si consiglia di gestire i costi e limitare la quantità di dati raccolti per una soluzione limitandola a un determinato set di agenti.  Questo articolo descrive come usare il **targeting della soluzione**, una funzionalità che consente di applicare un ambito alle soluzioni.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="how-to-target-a-solution"></a>Come definire un ambito per una soluzione
 Definire l'ambito di una soluzione è una procedura di tre passaggi, come descritto nelle sezioni seguenti. 
 
 
 ### <a name="1-create-a-computer-group"></a>1. Creare un gruppo di computer
-Specificare i computer che si desidera includere in un ambito creando un [gruppo di computer](../../azure-monitor/platform/computer-groups.md) in Log Analytics.  Il gruppo di computer può essere basato su una ricerca log o importato da altre origini, ad esempio gruppi di Active Directory o WSUS. Come [descritto di seguito](#solutions-and-agents-that-cant-be-targeted), solo i computer direttamente collegati a Log Analytics verranno inclusi nell'ambito.
+Specificare i computer da includere in un ambito creando un [gruppo di computer](../platform/computer-groups.md) in Monitoraggio di Azure.  Il gruppo di computer si può basare su una query di log o può essere importato da altre origini, ad esempio gruppi di Active Directory o WSUS. Come [descritto di seguito](#solutions-and-agents-that-cant-be-targeted), solo i computer direttamente collegati a Monitoraggio di Azure verranno inclusi nell'ambito.
 
 Dopo avere creato il gruppo di computer nell'area di lavoro è necessario includerlo in una configurazione di ambito che può essere applicata a una o più soluzioni.
  
@@ -38,7 +40,7 @@ Dopo avere creato il gruppo di computer nell'area di lavoro è necessario includ
  
  Creare una configurazione ambito con la seguente procedura.  
 
- 1. Nel portale di Azure passare a **Log Analytics** e selezionare la propria area di lavoro.
+ 1. Nel portale di Azure passare ad **Aree di lavoro di Log Analytics** e selezionare l'area di lavoro personale.
  2. Nelle proprietà dell'area di lavoro in **Origini dati dell'area di lavoro** selezionare **Configurazioni ambito**.
  3. Fare clic su **Aggiungi** per creare una nuova configurazione ambito.
  4. Digitare un **Nome** per la configurazione ambito.
@@ -52,7 +54,7 @@ Dopo aver creato una configurazione ambito, è possibile applicarla a una o più
 
 Applicare una configurazione ambito con la seguente procedura.  
 
- 1. Nel portale di Azure passare a **Log Analytics** e selezionare la propria area di lavoro.
+ 1. Nel portale di Azure passare ad **Aree di lavoro di Log Analytics** e selezionare l'area di lavoro personale.
  2. Nelle proprietà dell'area di lavoro selezionare **Soluzioni**.
  3. Fare clic sulla soluzione a cui applicare l'ambito.
  4. Nelle proprietà della soluzione in **Origini dati dell'area di lavoro** selezionare **Targeting della soluzione**.  Se l'opzione non è disponibile significa che [non è possibile eseguire il targeting di questa soluzione](#solutions-and-agents-that-cant-be-targeted).
@@ -65,7 +67,7 @@ Di seguito sono riportati i criteri che determinano gli agenti e le soluzioni no
 
 - Il targeting della soluzione si applica alle soluzioni distribuite agli agenti.
 - Il targeting della soluzione si applica alle soluzioni fornite da Microsoft.  Non è applicabile alle soluzioni [create dall'utente o da partner](solutions-creating.md).
-- È possibile filtrare solo gli agenti che si connettono direttamente a Log Analytics.  Le soluzioni saranno distribuite automaticamente a tutti gli agenti che fanno parte di un gruppo di gestione Operations Manager connesso, che siano o meno inclusi in una configurazione di ambito.
+- È possibile filtrare solo gli agenti che si connettono direttamente a Monitoraggio di Azure.  Le soluzioni saranno distribuite automaticamente a tutti gli agenti che fanno parte di un gruppo di gestione Operations Manager connesso, che siano o meno inclusi in una configurazione di ambito.
 
 ### <a name="exceptions"></a>Eccezioni
 Il targeting della soluzione non può essere usato con le soluzioni seguenti anche se soddisfano i criteri stabiliti.
@@ -73,5 +75,5 @@ Il targeting della soluzione non può essere usato con le soluzioni seguenti anc
 - Valutazione dell'integrità dell'agente
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni sulle soluzioni di gestione, tra cui le soluzioni disponibili per l'installazione nell'ambiente, sono riportate in [Aggiungere soluzioni di gestione di Log Analytics di Azure all'area di lavoro](solutions.md).
-- Altre informazioni sulla creazione di gruppi di computer sono riportate in [Gruppi di computer nelle ricerche log in Log Analytics](../../azure-monitor/platform/computer-groups.md).
+- Vedere altre informazioni sulle soluzioni di monitoraggio, tra cui le soluzioni disponibili per l'installazione nell'ambiente, riportate in [Aggiungere soluzioni di monitoraggio di Azure Log Analytics all'area di lavoro](solutions.md).
+- Vedere altre informazioni sulla creazione di gruppi di computer riportate in [Gruppi di computer nelle query di log in Monitoraggio di Azure](../platform/computer-groups.md).

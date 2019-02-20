@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: bfc3ed5553802c8a87776dc1a5372bc27ac8d13d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 457f64b9ae9101628df5347c921bfa057a7cb754
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475187"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991430"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Informazioni di riferimento sul linguaggio SQL per Azure Cosmos DB 
 
@@ -493,7 +493,7 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |**aritmetico**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Addizione.<br /><br /> Sottrazione.<br /><br /> Moltiplicazione.<br /><br /> Divisione.<br /><br /> Modulazione.|  
 |**bit per bit**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|OR bit per bit.<br /><br /> AND bit per bit.<br /><br /> XOR bit per bit.<br /><br /> Spostamento a sinistra.<br /><br /> Spostamento a destra.<br /><br /> Spostamento a destra riempimento zero.|  
-|**logico**|**AND**<br /><br /> **OR**|Congiunzione logica. Restituisce **true** se entrambi gli argomenti sono **true**, altrimenti restituisce **false**.<br /><br /> Congiunzione logica. Restituisce **true** se entrambi gli argomenti sono **true**, altrimenti restituisce **false**.|  
+|**logico**|**AND**<br /><br /> **OR**|Congiunzione logica. Restituisce **true** se entrambi gli argomenti sono **true**, altrimenti restituisce **false**.<br /><br /> Disgiunzione logica. Restituisce **true** se almeno un argomento è **true**, altrimenti restituisce **false**.|  
 |**confronto**|**=**<br /><br /> **!=, &lt;&gt;**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Uguale a. Restituisce **true** se gli argomenti sono uguali, altrimenti restituisce **false**.<br /><br /> Diverso da. Restituisce **true** se gli argomenti non sono uguali, altrimenti restituisce **false**.<br /><br /> Maggiore di. Restituisce **true** se il primo argomento è maggiore del secondo, altrimenti restituisce **false**.<br /><br /> Maggiore o uguale a. Restituisce **true** se il primo argomento è maggiore o uguale al secondo, altrimenti restituisce **false**.<br /><br /> Minore di. Restituisce **true** se il primo argomento è minore del secondo, altrimenti restituisce **false**.<br /><br /> Minore o uguale a. Restituisce **true** se il primo argomento è minore o uguale al secondo, altrimenti restituisce **false**.<br /><br /> Unione. Restituisce il secondo argomento se il primo argomento è un valore **non definito**.|  
 |**Stringa**|**&#124;&#124;**|Concatenazione. Restituisce una concatenazione di entrambi gli argomenti.|  
   
@@ -620,7 +620,7 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |\\'|apostrofo (')|U + 0027|  
 |\\"|virgolette doppie (")|U + 0022|  
-|\\\|barra rovesciata (\\)|U + 005C|  
+|\\\ |barra rovesciata (\\)|U + 005C|  
 |\\/|barra (/)|U + 002F|  
 |\b|BACKSPACE|U + 0008|  
 |\f|avanzamento carta|U + 000C|  

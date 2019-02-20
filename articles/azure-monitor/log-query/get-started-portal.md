@@ -1,30 +1,25 @@
 ---
-title: Introduzione a Log Analytics nel portale di Azure | Microsoft Docs
+title: Introduzione a Log Analytics in Monitoraggio di Azure | Microsoft Docs
 description: Questo articolo contiene un'esercitazione per l'uso di Log Analytics nel portale di Azure per la scrittura di query.
 services: log-analytics
-documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: 6ed8906066d66b6e16ec482a53137f9ca70ae9c7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 2adb23b63c3a8be56dc55293c7bb06534d9305c4
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000044"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242108"
 ---
-# <a name="get-started-with-log-analytics-in-the-azure-portal"></a>Introduzione a Log Analytics nel portale di Azure
+# <a name="get-started-with-azure-monitor-log-analytics"></a>Introduzione a Log Analytics in Monitoraggio di Azure
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-In questa esercitazione si apprenderà come usare la pagina di Log Analytics nel portale di Azure (attualmente in anteprima) per scrivere query di Log Analytics. Si apprenderà come:
+In questa esercitazione si apprenderà come usare Log Analytics nel portale di Azure per scrivere query relative ai log di Monitoraggio di Azure. Si apprenderà come:
 
 - Scrivere query semplici
 - Comprendere lo schema dei dati
@@ -35,8 +30,8 @@ In questa esercitazione si apprenderà come usare la pagina di Log Analytics nel
 - Esportare e condividere query
 
 
-## <a name="meet-the-log-analytics-page"></a>La pagina Log Analytics 
-La pagina di Log Analytics è uno strumento Web usato per scrivere ed eseguire query di Azure Log Analytics. Aprirla selezionando **Registri (anteprima)** nel menu Log Analytics. Viene visualizzata una nuova query vuota.
+## <a name="meet-log-analytics"></a>Informazioni preliminari su Log Analytics
+Log Analytics è uno strumento Web usato per scrivere ed eseguire query relative ai log di Monitoraggio di Azure. Per aprirlo, selezionare **Log** nel menu di Monitoraggio di Azure. Viene visualizzata una nuova query vuota.
 
 ![Home page](media/get-started-portal/homepage.png)
 
@@ -83,7 +78,7 @@ Per iniziare, recuperare tutti gli elementi della tabella _Event_.
 Event
 ```
 
-La pagina di Log Analytics definisce automaticamente l'ambito dei risultati in base a:
+Log Analytics definisce automaticamente l'ambito dei risultati in base a:
 
 - Intervallo di tempo:  per impostazione predefinita, le query sono limitate alle ultime 24 ore.
 - Numero di risultati: i risultati sono limitati a un massimo di 10.000 record.
@@ -121,7 +116,7 @@ La tabella dei risultati include spesso molte colonne. Alcune colonne restituite
 
 
 ## <a name="select-a-time-range"></a>Selezionare un intervallo di tempo
-Per impostazione predefinita, la pagina di Log Analytics applica un intervallo di tempo corrispondente alle _ultime 24 ore_. Per usare un intervallo diverso, selezionare un valore diverso tramite il controllo di selezione di data e ora e fare clic su **Esegui**. Oltre ai valori predefiniti, è possibile usare l'opzione _Intervallo di tempo personalizzato_ per selezionare un intervallo assoluto per la query.
+Per impostazione predefinita, Log Analytics applica un intervallo di tempo corrispondente alle _ultime 24 ore_. Per usare un intervallo diverso, selezionare un valore diverso tramite il controllo di selezione di data e ora e fare clic su **Esegui**. Oltre ai valori predefiniti, è possibile usare l'opzione _Intervallo di tempo personalizzato_ per selezionare un intervallo assoluto per la query.
 
 ![Controllo di selezione di data e ora](media/get-started-portal/time-picker.png)
 
@@ -183,12 +178,12 @@ L'icona Esplora query si trova nell'area in alto a destra. Permette di elencare 
 ![Esplora query](media/get-started-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>Esportare e condividere come collegamento
-La pagina di Log Analytics supporta diversi metodi di esportazione:
+Log Analytics supporta diversi metodi di esportazione:
 
 - Excel: salvare i risultati come file CSV.
-- Power BI: esportare i risultati in Power BI. Per informazioni dettagliate, vedere [Importare dati di Azure Log Analytics in Power BI](../../azure-monitor/platform/powerbi.md).
+- Power BI: esportare i risultati in Power BI. Per informazioni dettagliate, vedere [Importare i dati dei log di Monitoraggio di Azure in Power BI](../../azure-monitor/platform/powerbi.md).
 - Condividere un collegamento: la query stessa può essere condivisa come collegamento che altri utenti che hanno accesso alla stessa area di lavoro possono quindi inviare ed eseguire.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Leggere altre informazioni sulla [scrittura di query di Log Analytics](get-started-queries.md).
+- Vedere altre informazioni sulla [scrittura di query relative ai log di Monitoraggio di Azure](get-started-queries.md).

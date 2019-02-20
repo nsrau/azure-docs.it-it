@@ -1,6 +1,6 @@
 ---
-title: Aggregazioni nelle query di Azure Log Analytics | Microsoft Docs
-description: Descrive le funzioni di aggregazione disponibili per le query di Log Analytics che offrono soluzioni utili per analizzare i dati.
+title: Aggregazioni nelle query dei log di Monitoraggio di Azure | Microsoft Docs
+description: Descrive le funzioni di aggregazione disponibili per le query dei log di Monitoraggio di Azure che offrono soluzioni utili per analizzare i dati.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: f5ecd68c1538fb9e21345221aa22c28217002271
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 31ff0435487592577915e526abcb97197f591449
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185750"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000848"
 ---
-# <a name="aggregations-in-log-analytics-queries"></a>Aggregazioni nelle query di Log Analytics
+# <a name="aggregations-in-azure-monitor-log-queries"></a>Aggregazioni nelle query dei log di Monitoraggio di Azure
 
 > [!NOTE]
 > Prima di seguire questa lezione, è consigliabile completare [Introduzione al portale di Analytics](get-started-portal.md) e [Introduzione alle query](get-started-queries.md).
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Questo articolo descrive le funzioni di aggregazione disponibili per le query di Log Analytics che offrono soluzioni utili per analizzare i dati. Tutte queste funzioni usano l'operatore `summarize` che genera una tabella con i risultati aggregati della tabella di input.
+Questo articolo descrive le funzioni di aggregazione disponibili per le query dei log di Monitoraggio di Azure che offrono soluzioni utili per analizzare i dati. Tutte queste funzioni usano l'operatore `summarize` che genera una tabella con i risultati aggregati della tabella di input.
 
 ## <a name="counts"></a>Conteggi
 
@@ -147,7 +147,7 @@ Perf
 | summarize stdev(CounterValue), percentiles(CounterValue, 50) by Computer
 ```
 
-Vedere altre lezioni relative all'uso del linguaggio di query di Log Analytics:
+Vedere altre lezioni per l'uso del [linguaggio di query di Esplora dati](/azure/kusto/query/) con i dati di log di Monitoraggio di Azure:
 
 - [Operazioni con stringhe](string-operations.md)
 - [Operazioni con data e ora](datetime-operations.md)

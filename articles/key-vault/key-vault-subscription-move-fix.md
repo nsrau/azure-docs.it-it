@@ -4,7 +4,7 @@ description: Informazioni su come modificare l'ID tenant per un insieme di crede
 services: key-vault
 documentationcenter: ''
 author: amitbapat
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 46d7bc21-fa79-49e4-8c84-032eef1d813e
 ms.service: key-vault
@@ -13,14 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: ea6fc4b155075084150d5bb732f3f8a08846974f
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: a83bff5a494ce338f43b6e967df5fe67cacfab01
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074309"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112190"
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>Modificare l'ID tenant per un insieme di credenziali delle chiavi dopo lo spostamento di una sottoscrizione
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="q-my-subscription-was-moved-from-tenant-a-to-tenant-b-how-do-i-change-the-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b"></a>D: La sottoscrizione è stata spostata dal tenant A al tenant B. Come è possibile modificare l'ID tenant per l'insieme di credenziali delle chiavi esistente e impostare gli ACL corretti per le entità nel tenant B?
 
@@ -33,17 +35,17 @@ Quando si crea un nuovo insieme di credenziali delle chiavi in una sottoscrizion
 Se ad esempio è presente un insieme di credenziali delle chiavi 'myvault' in una sottoscrizione che è stata spostata dal tenant A al tenant B, sarà possibile modificare l'ID tenant per questo insieme di credenziali delle chiavi e rimuovere i criteri di accesso precedenti come segue.
 
 <pre>
-Select-AzureRmSubscription -SubscriptionId YourSubscriptionID
-$vaultResourceId = (Get-AzureRmKeyVault -VaultName myvault).ResourceId
-$vault = Get-AzureRmResource –ResourceId $vaultResourceId -ExpandProperties
-$vault.Properties.TenantId = (Get-AzureRmContext).Tenant.TenantId
+Select-AzSubscription -SubscriptionId YourSubscriptionID
+$vaultResourceId = (Get-AzKeyVault -VaultName myvault).ResourceId
+$vault = Get-AzResource –ResourceId $vaultResourceId -ExpandProperties
+$vault.Properties.TenantId = (Get-AzContext).Tenant.TenantId
 $vault.Properties.AccessPolicies = @()
-Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
+Set-AzResource -ResourceId $vaultResourceId -Properties $vault.Properties
 </pre>
 
-Prima dello spostamento, questo insieme di credenziali si trovava nel tenant A. Il valore originale di **$vault.Properties.TenantId** è quindi il tenant A, mentre **(Get-AzureRmContext).Tenant.TenantId** è il tenant B.
+Prima dello spostamento, questo insieme di credenziali si trovava nel tenant A. Il valore originale di **$vault.Properties.TenantId** è quindi il tenant A, mentre per **(Get-AzContext).Tenant.TenantId** è il tenant B.
 
-Ora che l'insieme di credenziali è associato all'ID tenant corretto e le voci dei criteri di accesso precedenti sono state rimosse, impostare le nuove voci dei criteri di accesso con [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy).
+Ora che l'insieme di credenziali è associato all'ID tenant corretto e le voci dei criteri di accesso precedenti sono state rimosse, impostare le nuove voci dei criteri di accesso con [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

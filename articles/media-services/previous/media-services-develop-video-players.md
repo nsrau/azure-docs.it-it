@@ -2,7 +2,7 @@
 title: Sviluppo di applicazioni di lettore video
 description: L'argomento offre collegamenti a Player Framework e plug-in che è possibile usare per sviluppare le applicazioni client in modo che usino i flussi multimediali da Servizi multimediali.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: d7f55022dc526f44251814ac953787d6652e6f90
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6c57c8ad85ef83e8739bc2bf35b3bd0dc6d5a902
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237044"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004843"
 ---
 # <a name="develop-video-player-applications"></a>Sviluppo di applicazioni di lettore video
 ## <a name="overview"></a>Panoramica
@@ -46,7 +46,7 @@ Per altre informazioni:
 
 * [Smooth Streaming Client SDK](http://www.iis.net/downloads/microsoft/smooth-streaming) 
 * [App Smooth Streaming Windows Store](media-services-build-smooth-streaming-apps.md)
-* [Microsoft Media Platform: Player Framework](http://playerframework.codeplex.com/) 
+* [Piattaforma multimediale Microsoft: framework lettore](http://playerframework.codeplex.com/) 
 * [Documentazione di HTML5 Player Framework](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 * [Plug-in Microsoft Smooth Streaming per OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
 * [Licenza per Microsoft® Smooth Streaming Client Porting Kit](https://aka.ms/sspk) 

@@ -4,7 +4,7 @@ description: Informazioni su come scaricare asset nel computer. Negli esempi di 
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 8908a1dd-3ffb-4f18-955d-4c8e2d82fc5d
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: ed53fe191dcf740f949b2d9cdcc3c97e30d85544
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 798c7e4b5efa3ca016f5e1b7e5c0967599fa6436
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782800"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993113"
 ---
-# <a name="how-to-deliver-an-asset-by-download"></a>Procedura: Distribuire un asset mediante download
+# <a name="how-to-deliver-an-asset-by-download"></a>Procedura: Distribuire un asset tramite download  
 Questo articolo illustra le opzioni per la distribuzione di asset di file multimediali caricati in Servizi multimediali. È possibile distribuire contenuti di Servizi multimediali in numerosi scenari di applicazione. Dopo la codifica, scaricare gli asset di file multimediali generati o accedervi tramite un localizzatore di streaming. Per ottenere livelli più elevati di prestazioni e scalabilità, è anche possibile distribuire contenuti usando una rete per la distribuzione di contenuti (CDN).
 
 Questo esempio illustra come scaricare asset di file multimediali da Servizi multimediali nel computer locale. Il codice esegue query sui processi associati all'account di Servizi multimediali mediante l'ID processo e accede alla relativa raccolta **OutputMediaAssets** , ovvero il set con uno o più asset di file multimediali di output risultante dall'esecuzione di un processo. In questo esempio di codice viene illustrato come scaricare asset di file multimediali di output da un processo, ma lo stesso approccio può essere utilizzato anche per scaricare altri asset.

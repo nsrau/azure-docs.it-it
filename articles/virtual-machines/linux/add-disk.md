@@ -16,12 +16,12 @@ ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 8457df9ba809e183122fd53de75a40108e4a4ed1
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1f545747b883ab70b597b4e598a86b192f89b027
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754303"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892766"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Aggiungere un disco a una VM Linux
 Questo articolo illustra come collegare un disco persistente alla macchina virtuale per poter mantenere i dati, anche se si effettua di nuovo il provisioning della macchina virtuale per manutenzione o ridimensionamento.
@@ -73,10 +73,10 @@ L'output è simile all'esempio seguente:
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-In questo caso, *sdc* è il disco interessato. Eseguire la partizione del disco con `parted`: se le dimensioni del disco sono di 2 tebibyte (TiB) o maggiori è necessario usare il partizionamento GPT, se invece sono minori di 2 TiB è possibile usare il partizionamento MBR o GPT. Renderlo un disco principale nella partizione 1 e accettare le altre impostazioni predefinite. Nell'esempio seguente viene avviato il processo `parted` su *dev/sdc*:
+In questo caso, *sdc* è il disco interessato. Eseguire la partizione del disco con `parted`, se le dimensioni del disco sono di 2 tebibyte (TiB) o maggiori è necessario usare il partizionamento GPT, se invece sono minori di 2 TiB è possibile usare sia il partizionamento MBR che il partizionamento GPT. Se si usa il partizionamento MBR, è possibile usare `fdisk`. Renderlo un disco principale nella partizione 1 e accettare le altre impostazioni predefinite. Nell'esempio seguente viene avviato il processo `fdisk` su *dev/sdc*:
 
 ```bash
-sudo parted /dev/sdc
+sudo fdisk /dev/sdc
 ```
 
 Usare il comando `n` per aggiungere una nuova partizione. In questo esempio si sceglie il comando `p` anche per una partizione primaria e si accettano gli altri valori predefiniti. L'output sarà simile all'esempio seguente:

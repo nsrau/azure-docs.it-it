@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 9db6736813b6d99efad687581f19d23023e1593a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 093fa1414ec624f66bc7cb4559fa8c0535834c10
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814538"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981928"
 ---
 # <a name="create-wsfc-listener-and-configure-ilb-for-an-always-on-availability-group-on-a-sql-server-vm-with-azure-quickstart-template"></a>Creare il cluster WSFC, il listener e configurare il servizio di bilanciamento del carico interno per un gruppo di disponibilità Always On in una macchina virtuale (VM) di SQL Server con il modello di avvio rapido di Azure
 Questo articolo descrive come usare i modelli di avvio rapido di Azure per automatizzare parzialmente la distribuzione di una configurazione di gruppo di disponibilità Always On per macchine virtuali di SQL Server in Azure. In questo processo vengono usati due modelli di avvio rapido di Azure. 
@@ -153,8 +153,8 @@ Il frammento di codice seguente elimina il listener del gruppo di disponibilità
 
 ```PowerShell
 # Remove the AG listener
-# example: Remove-AzureRmResource -ResourceId '/subscriptions/a1a11a11-1a1a-aa11-aa11-1aa1a11aa11a/resourceGroups/SQLAG-RG/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/Cluster/availabilitygrouplisteners/aglistener' -Force
-Remove-AzureRmResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<resource-group-name>/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/<cluster-name>/availabilitygrouplisteners/<listener-name>' -Force
+# example: Remove-AzResource -ResourceId '/subscriptions/a1a11a11-1a1a-aa11-aa11-1aa1a11aa11a/resourceGroups/SQLAG-RG/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/Cluster/availabilitygrouplisteners/aglistener' -Force
+Remove-AzResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<resource-group-name>/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/<cluster-name>/availabilitygrouplisteners/<listener-name>' -Force
 ```
  
 ## <a name="common-errors"></a>Errori comuni
@@ -166,7 +166,7 @@ Il gruppo di disponibilità selezionato usato nel modello di avvio rapido di Azu
 ### <a name="connection-only-works-from-primary-replica"></a>La connessione funziona solo dalla replica primaria
 Questo comportamento è probabilmente causato da una distribuzione non riuscita del modello **101-sql-vm-aglistener-setup**, che ha lasciato la configurazione dell'ILB in uno stato incoerente. Verificare che il pool back-end elenchi il set di disponibilità e che esistano regole per il probe di integrità e per le regole di bilanciamento del carico. Se manca qualche elemento, la configurazione dell'ILB è in uno stato incoerente. 
 
-Per risolvere questo problema, rimuovere il listener usando [PowerShell](#remove-availability-group-listener), eliminare il servizio di bilanciamento del carico interno tramite il portale di Azure e ricominciare dal [Passaggio 3](#step-3---manually-create-the-internal-load-balanced-ilb). 
+Per risolvere questo problema, rimuovere il listener usando [PowerShell](#remove-availability-group-listener), eliminare il servizio di bilanciamento del carico interno tramite il portale di Azure e ricominciare dal Passaggio 3. 
 
 ### <a name="badrequest---only-sql-virtual-machine-list-can-be-updated"></a>Richiesta non valida - È possibile aggiornare solo l'elenco di macchine virtuali SQL
 Questo errore può verificarsi quando si distribuisce il modello **101-sql-vm-aglistener-setup** se il listener è stato eliminato tramite SQL Server Management Studio (SSMS), ma non è stato eliminato dal provider di risorse di macchine virtuali SQL. L'eliminazione del listener tramite SQL Server Management Studio non rimuove i metadati del listener dal provider di risorse di macchine virtuali SQL. Il listener deve essere eliminato dal provider di risorse usando [PowerShell](#remove-availability-group-listener). 

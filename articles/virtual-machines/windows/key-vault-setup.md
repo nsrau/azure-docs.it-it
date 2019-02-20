@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: kasing
-ms.openlocfilehash: 599b16f633d9a0de5165bdf5cb3d7b82abca655b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: bc83a2cde841e7d1e90cb46304c879fcc6cedb72
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597711"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105774"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Configurare l'insieme di credenziali delle chiavi per le macchine virtuali in Azure Resource Manager
 
@@ -35,15 +35,15 @@ In Azure Resource Manager gli stack, i segreti e i certificati vengono modellati
 >
 
 ## <a name="use-powershell-to-set-up-key-vault"></a>Utilizzare PowerShell per configurare l'insieme di credenziali delle chiavi
-Per creare un insieme di credenziali delle chiavi usando PowerShell, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-get-started.md#vault).
+Per creare un insieme di credenziali delle chiavi con PowerShell, vedere [Impostare e recuperare un segreto da Azure Key Vault tramite PowerShell](../../key-vault/quick-create-powershell.md).
 
 Per i nuovi insiemi di credenziali delle chiavi, è possibile usare questo cmdlet di PowerShell:
 
-    New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -EnabledForDeployment
+    New-AzKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -EnabledForDeployment
 
 Per gli insiemi di credenziali delle chiavi esistenti, è possibile usare questo cmdlet di PowerShell:
 
-    Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
+    Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 
 ## <a name="use-cli-to-set-up-key-vault"></a>Usare l'interfaccia della riga di comando per impostare l'insieme di credenziali delle chiavi
 Per creare un insieme di credenziali delle chiavi usando l'interfaccia della riga di comando (CLI), vedere l'articolo su come [gestire l'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando](../../key-vault/key-vault-manage-with-cli2.md#create-a-key-vault).

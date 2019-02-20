@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 01/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5e4a3a1fd450cf855e0ced142e6bc93d4536f2a8
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 24e757c80e23cecb50419a4855ec3ea9f94bcf3b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827721"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112126"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Prerequisiti di Crittografia dischi di Azure
 
@@ -133,7 +133,7 @@ Se si ha già familiarità con i prerequisiti di Key Vault e Azure AD per Critto
 >Prima di eliminare un insieme di credenziali delle chiavi, assicurarsi di non averlo utilizzato per crittografare delle macchine virtuali esistenti. Per impedire l'eliminazione accidentale di un insieme di credenziali, [abilitare l'eliminazione temporanea](../key-vault/key-vault-soft-delete-powershell.md#enabling-soft-delete) e un [blocco risorsa](../azure-resource-manager/resource-group-lock-resources.md) sull'insieme di credenziali. 
  
 ## <a name="bkmk_KeyVault"></a> Creare un insieme di credenziali delle chiavi 
-La soluzione Crittografia dischi di Azure è integrata con [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) per semplificare il controllo e la gestione delle chiavi di crittografia dei dischi e dei segreti nella sottoscrizione dell'insieme di credenziali delle chiavi. È possibile creare un insieme di credenziali delle chiavi o usarne uno esistente per Crittografia dischi di Azure. Per altre informazioni sugli insiemi di credenziali delle chiavi, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-get-started.md) e [Proteggere l'insieme di credenziali delle chiavi](../key-vault/key-vault-secure-your-key-vault.md). Per creare un insieme di credenziali delle chiavi è possibile usare un modello di Resource Manager, Azure PowerShell o l'interfaccia della riga di comando di Azure. 
+La soluzione Crittografia dischi di Azure è integrata con [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) per semplificare il controllo e la gestione delle chiavi di crittografia dei dischi e dei segreti nella sottoscrizione dell'insieme di credenziali delle chiavi. È possibile creare un insieme di credenziali delle chiavi o usarne uno esistente per Crittografia dischi di Azure. Per altre informazioni sugli insiemi di credenziali delle chiavi, vedere [Cos'è l'Insieme di credenziali delle chiavi di Azure?](../key-vault/key-vault-overview.md) e [Proteggere l'insieme di credenziali delle chiavi](../key-vault/key-vault-secure-your-key-vault.md). Per creare un insieme di credenziali delle chiavi è possibile usare un modello di Resource Manager, Azure PowerShell o l'interfaccia della riga di comando di Azure. 
 
 
 >[!WARNING]

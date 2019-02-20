@@ -7,16 +7,16 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 9689854d9a28debbfbcf908391806fffac6a2006
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 3c7feda32bf162499888720ce56edac55197abe4
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450176"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005523"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure
 
-Gli avvisi delle metriche in Monitoraggio di Azure si basano su metriche multidimensionali. Queste metriche possono essere metriche di piattaforma, [metriche personalizzate](../../azure-monitor/platform/metrics-custom-overview.md), [log comuni di Log Analytics convertiti in metriche](../../azure-monitor/platform/alerts-metric-logs.md) e metriche standard di Application Insights. Gli avvisi delle metriche eseguono valutazioni a intervalli regolari per verificare se le condizioni in una o più serie temporale di metriche vengono soddisfatte e, in caso affermativo, inviano una notifica. Gli avvisi delle metriche sono avvisi con stato, ovvero inviano notifiche solo quando lo stato cambia.
+Gli avvisi delle metriche in Monitoraggio di Azure si basano su metriche multidimensionali. Queste metriche possono essere metriche di piattaforma, [metriche personalizzate](../../azure-monitor/platform/metrics-custom-overview.md), [log comuni di Monitoraggio di Azure convertiti in metriche](../../azure-monitor/platform/alerts-metric-logs.md) e metriche standard di Application Insights. Gli avvisi delle metriche eseguono valutazioni a intervalli regolari per verificare se le condizioni in una o più serie temporale di metriche vengono soddisfatte e, in caso affermativo, inviano una notifica. Gli avvisi delle metriche sono avvisi con stato, ovvero inviano notifiche solo quando lo stato cambia.
 
 ## <a name="how-do-metric-alerts-work"></a>Funzionamento degli avvisi delle metriche
 
@@ -147,34 +147,34 @@ Se si usano avvisi delle metriche classici e si vuole verificare se gli avvisi d
 
 |Tipo di risorsa supportato da avvisi delle metriche classici | Supportato dagli avvisi delle metriche |
 |-------------------------------------------------|----------------------------|
-| Microsoft.ApiManagement/service | Yes |
-| Microsoft.Batch/batchAccounts| Yes|
-|Microsoft.Cache/redis| Yes
+| Microsoft.ApiManagement/service | Sì |
+| Microsoft.Batch/batchAccounts| Sì|
+|Microsoft.Cache/redis| Sì
 |Microsoft.ClassicCompute/virtualMachines | No  |
 |Microsoft.ClassicCompute/domainNames/slots/roles | No |
 |Microsoft.CognitiveServices/accounts | No  |
-|Microsoft.Compute/virtualMachines | Yes|
-|Microsoft.Compute/virtualMachineScaleSets| Yes|
+|Microsoft.Compute/virtualMachines | Sì|
+|Microsoft.Compute/virtualMachineScaleSets| Sì|
 |Microsoft.ClassicStorage/storageAccounts| No  |
-|Microsoft.DataFactory/datafactories | Yes|
-|Microsoft.DBforMySQL/servers| Yes|
-|Microsoft.DBforPostgreSQL/servers| Yes|
+|Microsoft.DataFactory/datafactories | Sì|
+|Microsoft.DBforMySQL/servers| Sì|
+|Microsoft.DBforPostgreSQL/servers| Sì|
 |Microsoft.Devices/IotHubs | No |
 |Microsoft.DocumentDB/databaseAccounts| No |
-|Microsoft.EventHub/namespaces | Yes|
-|Microsoft.Logic/workflows | Yes|
-|Microsoft.Network/loadBalancers |Yes|
-|Microsoft.Network/publicIPAddresses| Yes|
-|Microsoft.Network/applicationGateways| Yes|
-|Microsoft.Network/expressRouteCircuits| Yes|
-|Microsoft.Network/trafficManagerProfiles | Yes|
+|Microsoft.EventHub/namespaces | Sì|
+|Microsoft.Logic/workflows | Sì|
+|Microsoft.Network/loadBalancers |Sì|
+|Microsoft.Network/publicIPAddresses| Sì|
+|Microsoft.Network/applicationGateways| Sì|
+|Microsoft.Network/expressRouteCircuits| Sì|
+|Microsoft.Network/trafficManagerProfiles | Sì|
 |Microsoft.Search/searchServices | No |
 |Microsoft.ServiceBus/namespaces| No |
-|Microsoft.Storage/storageAccounts | Yes|
-|Microsoft.StreamAnalytics/streamingjobs| Yes|
-|Microsoft.TimeSeriesInsights/environments | Yes|
-|Microsoft. Web/serverfarms | Yes |
-|Microsoft. Web/sites (escluse le funzioni) | Yes|
+|Microsoft.Storage/storageAccounts | Sì|
+|Microsoft.StreamAnalytics/streamingjobs| Sì|
+|Microsoft.TimeSeriesInsights/environments | Sì|
+|Microsoft. Web/serverfarms | Sì |
+|Microsoft. Web/sites (escluse le funzioni) | Sì|
 |Microsoft. Web/hostingEnvironments/multiRolePools | No |
 |Microsoft. Web/hostingEnvironments/workerPools| No 
 |Microsoft.SQL/Servers | No |

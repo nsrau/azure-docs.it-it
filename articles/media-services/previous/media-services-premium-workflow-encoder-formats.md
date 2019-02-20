@@ -1,6 +1,6 @@
 ---
-title: Codec e formati di Media Encoder Premium Workflow | Microsoft Docs
-description: Questo argomento offre una panoramica dei codec e dei formati di Media Encoder Premium Workflow
+title: Codec e formati del flusso di lavoro Premium del codificatore multimediale | Microsoft Docs
+description: Questo argomento offre una panoramica dei codec e dei formati del flusso di lavoro Premium del codificatore multimediale
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,31 +13,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: c38ca56bc71215ed7fb64d346571ca517a79914f
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: a24448507fa16a48ab3522c3307261d989d773ee
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450201"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895022"
 ---
-# <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Codec e formati di Media Encoder Premium Workflow
+# <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Codec e formati del flusso di lavoro Premium del codificatore multimediale
 
 > [!NOTE]
 > Per domande relative al codificatore Premium, inviare un messaggio di posta elettronica a mepd@microsoft.com.
 > 
-> Il processore di contenuti multimediali Media Encoder Premium Workflow descritto in questo argomento non è disponibile in Cina. 
+> Il processore di contenuti multimediali del flusso di lavoro Premium del codificatore multimediale descritto in questo argomento non è disponibile in Cina. 
 > 
 > 
 
-Questo documento include un elenco dei codec e dei formati di file di input e output supportati nella versione di anteprima pubblica del codificatore **Media Encoder Premium Workflow**.
+Questo documento include un elenco dei codec e dei formati di file di input e output supportati nella versione di anteprima pubblica del codificatore per il **flusso di lavoro Premium del codificatore multimediale**.
 
 [Codec e formati di input di Media Encoder Premium Workflow](#input_formats)
 
-[Codec e formati di output di Media Encoder Premium Workflow](#output_formats)
+Codec e formati di output di Media Encoder Premium Workflow
 
-**Media Encoder Premium Workflow** supporta i sottotitoli codificati descritti in [questa](#closed_captioning) sezione. 
+**Flusso di lavoro Premium del codificatore multimediale** supporta i sottotitoli codificati descritti in [questa](#closed_captioning) sezione. 
 
-## <a id="input_formats"></a>Codec e formati di input di Media Encoder Premium Workflow
+## <a id="input_formats"></a>Codec e formati di input del flusso di lavoro Premium del codificatore multimediale
 
 La seguente sezione include l'elenco dei codec e dei formati di file supportati come input da questo processore di contenuti multimediali.
 
@@ -74,7 +74,7 @@ La seguente sezione include l'elenco dei codec e dei formati di file supportati 
 * Windows Media Audio
 * WAV/PCM
 
-## <a id="output_format"></a>Codec e formati di output di Media Encoder Premium Workflow
+## <a id="output_format"></a>Codec e formati di output del flusso di lavoro Premium del codificatore multimediale
 
 La seguente sezione include l'elenco dei codec e dei formati di file supportati come output da questo processore di contenuti multimediali.
 
@@ -119,7 +119,7 @@ La seguente sezione include l'elenco dei codec e dei formati di file supportati 
 
 ## <a id="closed_captioning"></a>Supporto per sottotitoli codificati
 
-In ingresso, **Media Encoder Premium Workflow** supporta:
+In ingresso, il **flusso di lavoro Premium del codificatore multimediale** supporta:
 
 1. File SCC
 2. File SMPTE-TT

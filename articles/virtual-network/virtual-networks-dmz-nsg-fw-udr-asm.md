@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 36d6733ddc73ace2026ea838cf8f701db95469e6
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 93402f9124a5c2f6a251cb0e3b3dab21386fa5ff
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448467"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965257"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Esempio 3: Creare una rete perimetrale per proteggere le reti con un firewall, routing definito dall'utente e un gruppo di sicurezza di rete
 [Tornare alla pagina relativa alle procedure consigliate sui limiti di sicurezza][HOME]
@@ -109,35 +109,46 @@ Dopo la creazione, le tabelle di routing vengono associate alle rispettive subne
 Per questo esempio si usano i comandi seguenti per compilare la tabella di route, aggiungere una route definita dall'utente e quindi associare la tabella di route a una subnet. Si noti che tutte le voci seguenti che iniziano con un segno di dollaro, ad esempio $BESubnet, sono variabili definite dall'utente dallo script disponibile nella sezione Riferimenti di questo documento:
 
 1. Prima di tutto è necessario creare la tabella di routing di base. Questo frammento di codice mostra la creazione della tabella per la subnet back-end. Nello script viene creata anche una tabella corrispondente per la subnet front-end.
-   
-     New-AzureRouteTable -Name $BERouteTableName `
-   
-         -Location $DeploymentLocation `
-         -Label "Route table for $BESubnet subnet"
+
+   ```powershell
+   New-AzureRouteTable -Name $BERouteTableName `
+       -Location $DeploymentLocation `
+       -Label "Route table for $BESubnet subnet"
+   ```
+
 2. Una volta creata la tabella di route, si possono aggiungere route definite dall'utente specifiche. In questo frammento di codice, tutto il traffico (0.0.0.0/0) verrà instradato tramite il dispositivo virtuale. Per passare l'indirizzo IP assegnato quando è stato creato il dispositivo virtuale nella parte precedente dello script, viene usata una variabile, $VMIP[0]. Nello script viene anche creata una regola corrispondente nella tabella front-end.
-   
-     Get-AzureRouteTable $BERouteTableName | `
-   
-         Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
-         -NextHopType VirtualAppliance `
-         -NextHopIpAddress $VMIP[0]
+
+   ```powershell
+   Get-AzureRouteTable $BERouteTableName | `
+       Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
+       -NextHopType VirtualAppliance `
+       -NextHopIpAddress $VMIP[0]
+   ```
+
 3. La voce della route precedente sovrascrive la route predefinita "0.0.0.0/0", ma esiste ancora la regola predefinita per 10.0.0.0/16 che consente il routing del traffico della rete virtuale direttamente alla destinazione e non al dispositivo virtuale di rete. Per correggere questo comportamento, è necessario aggiungere la regola seguente.
-   
-        Get-AzureRouteTable $BERouteTableName | `
-            Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
-            -NextHopType VirtualAppliance `
-            -NextHopIpAddress $VMIP[0]
+
+   ```powershell
+   Get-AzureRouteTable $BERouteTableName | `
+       Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
+       -NextHopType VirtualAppliance `
+       -NextHopIpAddress $VMIP[0]
+   ```
+
 4. A questo punto occorre fare una scelta. Con le due route precedenti tutto il traffico viene instradato al firewall per la valutazione, anche quello all'interno di una singola subnet. Questo comportamento potrebbe risultare utile, tuttavia per consentire il routing locale del traffico all'interno di una subnet senza coinvolgere il firewall, è possibile aggiungere una terza regola molto specifica. Questa route stabilisce che qualsiasi indirizzo destinato alla subnet locale può essere instradato direttamente alla subnet (NextHopType = VNETLocal).
-   
-        Get-AzureRouteTable $BERouteTableName | `
-            Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
-            -NextHopType VNETLocal
+
+   ```powershell
+   Get-AzureRouteTable $BERouteTableName | `
+       Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
+           -NextHopType VNETLocal
+   ```
+
 5. Infine, dopo aver creato la tabella di routing e averla popolata con le route definite dall'utente, è necessario associarla a una subnet. Nello script la tabella di route front-end è associata anche alla subnet front-end. Ecco lo script di associazione per la subnet back-end.
-   
-     Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
-   
-        -SubnetName $BESubnet `
-        -RouteTableName $BERouteTableName
+
+   ```powershell
+   Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
+       -SubnetName $BESubnet `
+       -RouteTableName $BERouteTableName
+   ```
 
 ## <a name="ip-forwarding"></a>Inoltro IP
 L'inoltro IP è una funzionalità complementare del routing definito dall'utente. Si tratta di un'impostazione in un dispositivo virtuale che consente al dispositivo di ricevere traffico non indirizzato in modo specifico ad esso e quindi di inoltrare il traffico alla destinazione finale.
@@ -149,13 +160,14 @@ Ad esempio, se il traffico da AppVM01 effettua una richiesta al server DNS01, il
 > 
 > 
 
-La configurazione dell'inoltro IP è costituita da un singolo comando e può essere eseguita al momento della creazione della macchina virtuale. Per il flusso di questo esempio, il frammento di codice si trova verso la fine dello script ed è raggruppato con i comandi relativi al routing definito dall'utente:
+La configurazione dell'inoltro IP è costituita da un singolo comando e può essere eseguita al momento della creazione della macchina virtuale. Per il flusso di questo esempio, il frammento di codice si trova verso la fine dello script ed è raggruppato con i comandi relativi al routing definito dall'utente (User Defined Routing, UDR):
 
 1. Chiamare l'istanza della macchina virtuale corrispondente al dispositivo virtuale, in questo caso il firewall, e abilitare l'inoltro IP. Notare che qualsiasi elemento formattato in rosso che inizia con un segno di dollaro, ad esempio $VMName[0], è una variabile definita dall'utente contenuta nello script disponibile nella sezione Riferimenti di questo documento. Lo zero tra parentesi quadre, [0], rappresenta la prima macchina virtuale dell'array di VM. Per il funzionamento dello script di esempio senza modifiche, la prima macchina virtuale (VM 0) deve essere il firewall:
-   
-     Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
-   
+
+    ```powershell
+    Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
         Set-AzureIPForwarding -Enable
+    ```
 
 ## <a name="network-security-groups-nsg"></a>Gruppi di sicurezza di rete (NGS)
 In questo esempio viene creato un gruppo di sicurezza di rete, in cui viene poi caricata una singola regola. Questo gruppo viene quindi associato solo alle subnet front-end e back-end, non a SecNet. La regola seguente viene creata in modo dichiarativo:
@@ -166,22 +178,26 @@ Anche se in questo esempio vengono usati i gruppi di sicurezza di rete, lo scopo
 
 Un aspetto interessante del gruppo di sicurezza di rete di questo esempio consiste nel fatto che include solo una regola, illustrata di seguito, ovvero non consentire il traffico Internet nell'intera rete virtuale, inclusa la subnet di sicurezza. 
 
-    Get-AzureNetworkSecurityGroup -Name $NSGName | `
-        Set-AzureNetworkSecurityRule -Name "Isolate the $VNetName VNet `
-        from the Internet" `
-        -Type Inbound -Priority 100 -Action Deny `
-        -SourceAddressPrefix INTERNET -SourcePortRange '*' `
-        -DestinationAddressPrefix VIRTUAL_NETWORK `
-        -DestinationPortRange '*' `
-        -Protocol *
+```powershell
+Get-AzureNetworkSecurityGroup -Name $NSGName | `
+    Set-AzureNetworkSecurityRule -Name "Isolate the $VNetName VNet `
+    from the Internet" `
+    -Type Inbound -Priority 100 -Action Deny `
+    -SourceAddressPrefix INTERNET -SourcePortRange '*' `
+    -DestinationAddressPrefix VIRTUAL_NETWORK `
+    -DestinationPortRange '*' `
+    -Protocol *
+```
 
 Poiché, tuttavia, il gruppo di sicurezza di rete è associato solo alle subnet front-end e back-end, la regola non viene elaborata sul traffico in ingresso verso la subnet di sicurezza. Anche se la regola del gruppo di sicurezza di rete non consente il traffico Internet verso qualsiasi indirizzo sulla rete virtuale, perché il gruppo di sicurezza di rete non è mai stato associato alla subnet di sicurezza, il traffico raggiungerà quindi la subnet di sicurezza.
 
-    Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
-        -SubnetName $FESubnet -VirtualNetworkName $VNetName
+```powershell
+Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
+    -SubnetName $FESubnet -VirtualNetworkName $VNetName
 
-    Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
-        -SubnetName $BESubnet -VirtualNetworkName $VNetName
+Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
+    -SubnetName $BESubnet -VirtualNetworkName $VNetName
+```
 
 ## <a name="firewall-rules"></a>Regole del firewall
 Sul firewall sarà necessario creare regole di inoltro. Poiché il firewall blocca o inoltra tutto il traffico in ingresso, in uscita e tra le reti virtuali, sono necessarie molte regole del firewall. Tutto il traffico in ingresso, inoltre, raggiungerà l'indirizzo IP pubblico del servizio di sicurezza su porte diverse, per l'elaborazione da parte del firewall. Una procedura consigliata consiste nel creare un diagramma dei flussi logici prima di configurare le regole delle subnet e del firewall, per evitare modifiche successive. La figura seguente è una visualizzazione logica delle regole del firewall per questo esempio:
@@ -233,9 +249,11 @@ Un prerequisito per la macchina virtuale che esegue il firewall è costituito da
 
 Un endpoint può essere aperto sia al momento della creazione della VM sia dopo la compilazione, come nello script di esempio e come è illustrato nel frammento di codice seguente. Notare che qualsiasi elemento che inizia con un segno di dollaro, ad esempio $VMName[$i], è una variabile definita dall'utente contenuta nello script disponibile nella sezione Riferimenti di questo documento. L'elemento"$i" tra parentesi graffe, [$i], rappresenta il numero di array di una VM specifica in un array di VM:
 
-    Add-AzureEndpoint -Name "HTTP" -Protocol tcp -PublicPort 80 -LocalPort 80 `
-        -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | `
-        Update-AzureVM
+```powershell
+Add-AzureEndpoint -Name "HTTP" -Protocol tcp -PublicPort 80 -LocalPort 80 `
+    -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | `
+    Update-AzureVM
+```
 
 Anche se qui non è chiaramente illustrato a causa dell'uso delle variabili, gli endpoint vengono aperti **solo** nel servizio cloud di sicurezza, in modo da assicurare che tutto il traffico in ingresso, sia instradato, tramite NAT o eliminato, venga gestito dal firewall.
 
@@ -592,6 +610,7 @@ Questo script di PowerShell deve essere eseguito localmente in un server o un PC
 > 
 > 
 
+```powershell
     <# 
      .SYNOPSIS
       Example of DMZ and User Defined Routing in an isolated network (Azure only, no hybrid connections)
@@ -604,7 +623,7 @@ Questo script di PowerShell deve essere eseguito localmente in un server o un PC
        - A Network Virtual Appliance (NVA), in this case a Barracuda NextGen Firewall
        - One server on the FrontEnd Subnet
        - Three Servers on the BackEnd Subnet
-       - IP Forwading from the FireWall out to the internet
+       - IP Forwarding from the FireWall out to the internet
        - User Defined Routing FrontEnd and BackEnd Subnets to the NVA
 
       Before running script, ensure the network configuration file is created in
@@ -702,7 +721,7 @@ Questo script di PowerShell deve essere eseguito localmente in un server o un PC
           $SubnetName += $FESubnet
           $VMIP += "10.0.1.4"
 
-        # VM 2 - The First Appliaction Server
+        # VM 2 - The First Application Server
           $VMName += "AppVM01"
           $ServiceName += $BackEndService
           $VMFamily += "Windows"
@@ -711,7 +730,7 @@ Questo script di PowerShell deve essere eseguito localmente in un server o un PC
           $SubnetName += $BESubnet
           $VMIP += "10.0.2.5"
 
-        # VM 3 - The Second Appliaction Server
+        # VM 3 - The Second Application Server
           $VMName += "AppVM02"
           $ServiceName += $BackEndService
           $VMFamily += "Windows"
@@ -730,7 +749,7 @@ Questo script di PowerShell deve essere eseguito localmente in un server o un PC
           $VMIP += "10.0.2.4"
 
     # ----------------------------- #
-    # No User Defined Varibles or   #
+    # No User Defined Variables or   #
     # Configuration past this point #
     # ----------------------------- #
 
@@ -741,7 +760,7 @@ Questo script di PowerShell deve essere eseguito localmente in un server o un PC
 
       # Create Storage Account
         If (Test-AzureName -Storage -Name $StorageAccountName) { 
-            Write-Host "Fatal Error: This storage account name is already in use, please pick a diffrent name." -ForegroundColor Red
+            Write-Host "Fatal Error: This storage account name is already in use, please pick a different name." -ForegroundColor Red
             Return}
         Else {Write-Host "Creating Storage Account" -ForegroundColor Cyan 
               New-AzureStorageAccount -Location $DeploymentLocation -StorageAccountName $StorageAccountName}
@@ -872,7 +891,7 @@ Questo script di PowerShell deve essere eseguito localmente in un server o un PC
             |Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $FEPrefix `
             -NextHopType VNETLocal
 
-      # Assoicate the Route Tables with the Subnets
+      # Associate the Route Tables with the Subnets
         Write-Host "Binding Route Tables to the Subnets" -ForegroundColor Cyan 
         Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
             -SubnetName $BESubnet `
@@ -920,11 +939,12 @@ Questo script di PowerShell deve essere eseguito localmente in un server o un PC
       Write-Host " - Install Test Web App (Run Post-Build Script on the IIS Server)" -ForegroundColor Gray
       Write-Host " - Install Backend resource (Run Post-Build Script on the AppVM01)" -ForegroundColor Gray
       Write-Host
-
+```
 
 #### <a name="network-config-file"></a>File di configurazione di rete
 Salvare questo file XML con il percorso aggiornato e aggiungere il collegamento a questo file nella variabile $NetworkConfigFile dello script precedente.
 
+```xml
     <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
@@ -957,6 +977,7 @@ Salvare questo file XML con il percorso aggiornato e aggiungere il collegamento 
         </VirtualNetworkSites>
       </VirtualNetworkConfiguration>
     </NetworkConfiguration>
+```
 
 #### <a name="sample-application-scripts"></a>Script di applicazione di esempio
 Per installare un'applicazione di esempio per questo e altri esempi di rete perimetrale, è possibile trovarne una in: [Script di applicazione di esempio][SampleApp]

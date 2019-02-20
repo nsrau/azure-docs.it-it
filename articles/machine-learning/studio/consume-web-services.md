@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: c3f10e268101cfa5aff6506a64aab98b07fb948a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4af7af6616b5415cd13abacd6aca13bd412d4ad8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464382"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998086"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Come usare un servizio Web di Azure Machine Learning Studio
 
@@ -70,7 +70,7 @@ Per recuperare la chiave API per un nuovo servizio Web Machine Learning di tipo 
 ## <a id="connect"></a>Connettersi a un servizio Web di Machine Learning
 È possibile connettersi a un servizio Web di Machine Learning usando qualsiasi linguaggio di programmazione che supporta la risposta e la richiesta HTTP. È possibile visualizzare gli esempi in C#, Python e R da una pagina della guida del servizio Web di Machine Learning.
 
-**Guida alle API di Machine Learning** Una Guida per l'API di Machine Learning viene creata quando si distribuisce un servizio Web. Vedere [Procedura dettagliata di Azure Machine Learning - Distribuire il servizio Web](walkthrough-5-publish-web-service.md).
+**Guida alle API di Machine Learning** Una Guida per l'API di Machine Learning viene creata quando si distribuisce un servizio Web. Vedere [Tutorial 3: Deploy credit risk model](tutorial-part3-credit-risk-deploy.md) (Esercitazione 3: Distribuire un modello di rischio di credito).
 La Guida per l'API di Machine Learning contiene i dettagli su un servizio Web di stima.
 
 1. Fare clic sul servizio Web in uso.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: d6fed65dad0e8f12495177b274cef181e9e91879
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 7c47e6df1e8b92d122dcc6bed55506f2fccf9e89
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044315"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55877508"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Usare la libreria .NET dell'executor bulk per eseguire operazioni in blocco in Azure Cosmos DB
 
@@ -28,7 +28,7 @@ Attualmente la libreria dell'executor bulk è supportata solo dagli account dell
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare. 
 
-* È possibile [provare Microsoft Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure, gratuitamente e senza impegno. In alternativa è possibile usare l'[emulatore di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) con l'URI `https://localhost:8081`. La chiave primaria viene fornita in [Autenticazione delle richieste](local-emulator.md#authenticating-requests).
+* È possibile [provare Microsoft Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure, gratuitamente e senza impegno. In alternativa è possibile usare l'[emulatore di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) con l'endpoint `https://localhost:8081`. La chiave primaria viene fornita in [Autenticazione delle richieste](local-emulator.md#authenticating-requests).
 
 * Creare un account API SQL di Azure Cosmos DB tramite la procedura descritta nella sezione [Creare un account di database](create-sql-api-dotnet.md#create-a-database-account) dell'articolo sulla guida introduttiva per .NET. 
 

@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: ce7892401b2b04565a00c33c5301b9c0cd05d5f5
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/11/2019
+ms.openlocfilehash: 1460b595e8887fc932d5be335ae51b07a000b9fb
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732754"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098358"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migrazione di un'istanza di SQL Server a un'istanza gestita di database SQL di Azure
 
-Questo articolo illustra i metodi disponibili per eseguire la migrazione di un'istanza di SQL Server 2005 o versione successiva a un'[istanza gestita di database SQL di Azure](sql-database-managed-instance.md).
+Questo articolo illustra i metodi disponibili per eseguire la migrazione di un'istanza di SQL Server 2005 o versione successiva a un'[istanza gestita di database SQL di Azure](sql-database-managed-instance.md). Per informazioni sulla migrazione a un database singolo o a un pool elastico, vedere [Migrate to a single or pooled database](sql-database-cloud-migrate.md) (Eseguire la migrazione a un database singolo o in pool). Per informazioni sulla migrazione da altre piattaforme, vedere [Azure Database Migration Guide](https://datamigration.microsoft.com/) (Guida alla migrazione di database di Azure).
 
 A livello generale, il processo di migrazione del database è simile a quello indicato di seguito:
 
@@ -34,7 +34,7 @@ A livello generale, il processo di migrazione del database è simile a quello in
 - [Monitorare le applicazioni](#monitor-applications)
 
 > [!NOTE]
-> Per eseguire la migrazione di un database singolo in un database singolo o un pool di database elastico, vedere l'articolo relativo alla [migrazione di un database di SQL Server nel database SQL di Azure](sql-database-cloud-migrate.md).
+> Per eseguire la migrazione di un database singolo in un database singolo o un pool di database elastico, vedere l'articolo relativo alla [migrazione di un database di SQL Server nel database SQL di Azure](sql-database-single-database-migrate.md).
 
 ## <a name="assess-managed-instance-compatibility"></a>Valutare la compatibilità dell'istanza gestita
 
@@ -47,7 +47,7 @@ Se sono presenti problemi che causano un blocco che non sono stati risolti con l
 - Se è necessario l'accesso diretto al sistema operativo o al file system, ad esempio per installare agenti personalizzati o di terze parti nella stessa macchina virtuale con SQL Server.
 - Se è presente una stretta dipendenza da funzionalità non ancora supportate, come FileStream/FileTable, PolyBase e le transazioni tra istanze.
 - Se è assolutamente necessario mantenere una versione specifica di SQL Server (ad esempio, 2012).
-- Se i requisiti di calcolo sono nettamente inferiori rispetto a quanto offerto dall'istanza gestita in anteprima pubblica (ad esempio, un vCore) e il consolidamento di database non è un'opzione accettabile.
+- Se i requisiti di calcolo sono nettamente inferiori rispetto a quanto offerto dall'istanza gestita, ad esempio, un vCore, e il consolidamento di database non è un'opzione accettabile.
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Eseguire la distribuzione in un'istanza gestita di dimensioni ottimali
 

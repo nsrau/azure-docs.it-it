@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 88618e5b9de9cb8ac46b9b167e6fa6dbccd73687
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 717b895696ca93444744955937c6de23626c7835
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732312"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234749"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Windows nel cluster di Service Fabric
 
@@ -133,9 +133,9 @@ Per abilitare il servizio di gestione della riparazione:
 
 3. Aggiornare il manifesto del cluster con queste modifiche usando il manifesto del cluster aggiornato [Creare un cluster autonomo in esecuzione su Windows Server](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) o [Aggiornare il cluster autonomo di Azure Service Fabric in Windows Server](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server). Quando il cluster è in esecuzione con il manifesto del cluster aggiornato, è possibile vedere il servizio del sistema di gestione della riparazione in esecuzione nel cluster, denominato `fabric:/System/RepairManagerService`, nella sezione relativa ai servizi del sistema in Service Fabric Explorer.
 
-### <a name="disable-automatic-windows-update-on-all-nodes"></a>Disabilitare la connessione automatica a Windows Update su tutti i nodi
+### <a name="configure-windows-updates-for-all-nodes"></a>Configurare gli aggiornamenti di Windows per tutti i nodi
 
-Gli aggiornamenti automatici di Windows potrebbero causare la perdita di disponibilità perché più nodi del cluster possono riavviarsi nello stesso momento. Patch Orchestration App, per impostazione predefinita, tenta di disabilitare la connessione automatica a Windows Update su ogni nodo del cluster. Tuttavia, nel caso in cui le impostazioni vengano gestite da un amministratore o dai criteri di gruppo, è consigliabile impostare i criteri di Windows Update sulla notifica prima del download in modo esplicito.
+Gli aggiornamenti automatici di Windows potrebbero causare la perdita di disponibilità perché più nodi del cluster possono riavviarsi nello stesso momento. Patch Orchestration App, per impostazione predefinita, tenta di disabilitare la connessione automatica a Windows Update su ogni nodo del cluster. Tuttavia, nel caso in cui le impostazioni vengano gestite da un amministratore o dai Criteri di gruppo, è consigliabile impostare i criteri di Windows Update sulla notifica prima del download in modo esplicito.
 
 ## <a name="download-the-app-package"></a>Scaricare il pacchetto dell'app
 

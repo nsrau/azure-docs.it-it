@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: ad45b117df545c361f17c299bee47b314a408b06
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: e2d258f327ade2149adc92bdb7fb4bcc87cdd58c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166042"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889210"
 ---
-<!--author=SharS last changed: 9/17/15-->
-
 #### <a name="to-install-the-storsimple-adapter-for-sharepoint"></a>Installare l’adattatore StorSimple per SharePoint
 1. Copiare il programma di installazione al server web front-end (WFE) configurato anche per eseguire l'applicazione web Amministrazione centrale SharePoint. 
 2. Usare un account con privilegi di amministratore per l'accesso al server front-end Web.
@@ -29,5 +27,5 @@ ms.locfileid: "50166042"
    
     ![Pagina di completamento dell'installazione adattatore StorSimple](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup_finish-include.png) 
 7. Aprire la pagina Amministrazione centrale SharePoint. Verrà visualizzato un gruppo di configurazione di StorSimple contenente l'adattatore StorSimple per i collegamenti di SharePoint.
-8. Andare al passaggio successivo: [Configurare RBS](#configure-rbs).
+8. Passare alla fase successiva: [Configurare l'Archivio BLOB remoto](#configure-rbs).
 

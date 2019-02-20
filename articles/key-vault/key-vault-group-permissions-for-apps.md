@@ -4,7 +4,7 @@ description: Informazioni su come concedere a molte applicazioni l'autorizzazion
 services: key-vault
 documentationcenter: ''
 author: amitbapat
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 785d4e40-fb7b-485a-8cbc-d9c8c87708e6
 ms.service: key-vault
@@ -13,14 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: cd680f24eafe61bc73fa6eb91df4b4dfa5f5399b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 187d455003cf8b1c9402e24755c5f15b703cd9ad
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073429"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114400"
 ---
 # <a name="grant-several-applications-access-to-a-key-vault"></a>Concedere a più applicazioni l'accesso a un insieme di credenziali delle chiavi
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Per concedere a più applicazioni l'accesso a un insieme di credenziali delle chiavi, è possibile usare criteri di controllo di accesso. Un criterio di controllo di accesso può supportare fino a 1024 applicazioni e viene configurato come segue:
 
@@ -28,12 +30,16 @@ Per concedere a più applicazioni l'accesso a un insieme di credenziali delle ch
 2. Aggiungere al gruppo di sicurezza tutte le entità servizio associate alle applicazioni.
 3. Concedere al gruppo di sicurezza l'accesso all'insieme di credenziali delle chiavi.
 
-Di seguito vengono indicati i prerequisiti:
-* [Installare il modulo di Azure Active Directory V2 per PowerShell](https://www.powershellgallery.com/packages/AzureAD).
-* [Installare Azure PowerShell](/powershell/azure/overview).
-* Per eseguire questi comandi, sono necessarie le autorizzazioni per creare o modificare gruppi nel tenant di Azure Active Directory. Se non si dispone delle autorizzazioni, può essere necessario contattare l'amministratore di Azure Active Directory. Per informazioni dettagliate sulle autorizzazioni dei criteri di accesso dell'insieme di credenziali delle chiavi, vedere [Informazioni su chiavi, segreti e certificati di Azure Key Vault](about-keys-secrets-and-certificates.md).
+## <a name="prerequisites"></a>Prerequisiti
 
-Eseguire ora i comandi seguenti in PowerShell:
+Di seguito vengono indicati i prerequisiti:
+* [Installare Azure PowerShell](/powershell/azure/overview).
+* Installare il [modulo Azure Active Directory V2 PowerShell](https://www.powershellgallery.com/packages/AzureAD).
+* Autorizzazioni per la creazione/modifica di gruppi nel tenant di Azure Active Directory. Se non si dispone delle autorizzazioni, può essere necessario contattare l'amministratore di Azure Active Directory. Per informazioni dettagliate sulle autorizzazioni dei criteri di accesso dell'insieme di credenziali delle chiavi, vedere [Informazioni su chiavi, segreti e certificati di Azure Key Vault](about-keys-secrets-and-certificates.md).
+
+## <a name="granting-key-vault-access-to-applications"></a>Concessione dell'accesso Key Vault alle applicazioni
+
+Eseguire i comandi seguenti in PowerShell:
 
 ```powershell
 # Connect to Azure AD 
@@ -49,7 +55,7 @@ Add-AzureADGroupMember –ObjectId $aadGroup.ObjectId -RefObjectId $spn.ObjectId
 # You can add several members to this group, in this fashion. 
  
 # Set the Key Vault ACLs 
-Set-AzureRmKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.ObjectId `
+Set-AzKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.ObjectId `
 -PermissionsToKeys decrypt,encrypt,unwrapKey,wrapKey,verify,sign,get,list,update,create,import,delete,backup,restore,recover,purge `
 –PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge `
 –PermissionsToCertificates get,list,delete,create,import,update,managecontacts,getissuers,listissuers,setissuers,deleteissuers,manageissuers,recover,purge,backup,restore `

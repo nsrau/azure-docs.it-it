@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Adaptive Insights | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Adaptive Insights | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Adaptive Insights.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 74f38ef3043cfa0e6df40c264b72cc5eae38544e
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e334795a63ff298ff8f0695340f35fdff1ad03e0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430290"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166522"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>Esercitazione: Integrazione di Azure Active Directory con Adaptive Insights
+# <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>Esercitazione: integrazione di Azure Active Directory con Adaptive Insights
 
 Questa esercitazione descrive come integrare Adaptive Insights con Azure Active Directory (Azure AD).
 
@@ -255,7 +256,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Adaptive Insights nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Adaptive Insights.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

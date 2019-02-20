@@ -11,17 +11,17 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: a2500988b174e49870f4da7087b3fa4c81f3c77a
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: e8af73c955305c54efc478290608e627acb431ea
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754983"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099327"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Informazioni sull'opzione database singolo del database SQL di Azure
 
-L'opzione di distribuzione database singolo crea un database autonomo nel database SQL di Azure con il proprio set di risorse e viene gestita tramite un server di database SQL. Con un database singolo, ogni database è isolato dagli altri e portabile e a ognuno viene assegnato uno specifico livello di servizio all'interno del [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) o del [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md), con una dimensione di calcolo garantita.
+L'opzione di distribuzione database singolo crea un database nel database SQL di Azure con il proprio set di risorse e viene gestita tramite un server di database SQL. Con un database singolo, ogni database è isolato dagli altri e portabile e a ognuno viene assegnato uno specifico livello di servizio all'interno del [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) o del [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md), con una dimensione di calcolo garantita.
 
 > [!IMPORTANT]
 > Il database singolo è una delle tre opzioni di distribuzione per il database SQL di Azure. Le altre due sono i [pool elastici](sql-database-elastic-pool.md) e l'[istanza gestita](sql-database-managed-instance.md).
@@ -51,12 +51,12 @@ Inoltre, alcune funzionalità e sintassi non sono affatto supportate, perché il
 
 Per altre informazioni, vedere [Risoluzione delle differenze di Transact-SQL durante la migrazione al database SQL](sql-database-transact-sql-information.md).
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 Il database SQL offre un'ampia gamma di [funzionalità predefinite per sicurezza e conformità](sql-database-security-overview.md) utili per fare in modo che le applicazioni possano soddisfare svariati requisiti di sicurezza e conformità.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per iniziare rapidamente a usare un database singolo, partire con [Avvio rapido per database singolo](sql-database-single-database-quickstart-guide.md).
-- Per altre informazioni sulla migrazione di un database SQL Server in Azure, vedere [Migrazione al database SQL di Azure](sql-database-cloud-migrate.md).
+- Per altre informazioni sulla migrazione di un database SQL Server in Azure, vedere [Migrazione al database SQL di Azure](sql-database-single-database-migrate.md).
 - Per informazioni sulle funzionalità supportate, vedere [Azure SQL Database features](sql-database-features.md) (Funzioni del database SQL di Azure).

@@ -4,7 +4,7 @@ description: Usare questo articolo per automatizzare le attività comuni nell'in
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: barclayn
-ms.openlocfilehash: 11ace1b5cce742579256d08ecfe9d9a7412d3d7c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1679fbe0dedc88ca3e8293512f9a79bb7da69790
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822494"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115624"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gestire Key Vault tramite l'interfaccia della riga di comando di Azure 
 
@@ -145,18 +145,18 @@ Per usare Azure Key Vault per creare automaticamente una chiave protetta tramite
 az keyvault key create --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --protection software
 ```
 
-Se si ha una chiave esistente in un file con estensione pem, è possibile caricarla in Azure Key Vault. È possibile scegliere di proteggere la chiave con il modulo di protezione hardware o il software. Per importare la chiave dal file con estensione pem e proteggerla con il software, usare il codice seguente:
+Se si ha una chiave esistente in un file con estensione pem, è possibile caricarla in Azure Key Vault. È possibile scegliere di proteggere la chiave con il modulo di protezione hardware o il software. In questo esempio si importa la chiave dal file con estensione PEM e la si protegge con il software, usando la password "hVFkk965BuUv":
 
 ```azurecli
-az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "Pa$$w0rd" --protection software
+az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "hVFkk965BuUv" --protection software
 ```
 
 A questo punto è possibile fare riferimento alla chiave creata o caricata nell'insieme di credenziali delle chiavi di Azure, usando il relativo URI. Usare **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** per ottenere sempre la versione corrente. Usare https://[nome-insiemedicredenzialidellechiavi].vault.azure.net/keys/[nomechiave]/[id-univoco-chiave] per ottenere questa versione specifica. Ad esempio, **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**. 
 
-Aggiungere un segreto all'insieme di credenziali, ovvero una password denominata SQLPassword con il valore Pa$$w0rd per Azure Key Vault. 
+Aggiungere un segreto all'insieme di credenziali, ovvero una password denominata SQLPassword con il valore "hVFkk965BuUv" per Azure Key Vault. 
 
 ```azurecli
-az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "Pa$$w0rd"
+az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "hVFkk965BuUv "
 ```
 
 Fare riferimento a questa password usando il relativo URI. Usare **https://ContosoVault.vault.azure.net/secrets/SQLPassword** per ottenere sempre la versione corrente e https://[nome-insiemedicredenzialidellechiavi].vault.azure.net/secret/[nome-segreto]/[id-univoco-segreto] per ottenere questa versione specifica. Ad esempio, **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**.
@@ -164,7 +164,7 @@ Fare riferimento a questa password usando il relativo URI. Usare **https://Conto
 Importare un certificato nell'insieme di credenziali usando un file PEM o PFX.
 
 ```azurecli
-az keyvault certificate import --vault-name "ContosoKeyVault" --file "c:\cert\cert.pfx" --name "ContosoCert" --password "Pa$$w0rd"
+az keyvault certificate import --vault-name "ContosoKeyVault" --file "c:\cert\cert.pfx" --name "ContosoCert" --password "hVFkk965BuUv"
 ```
 
 Verrà ora visualizzata la chiave, il segreto o il certificato creato:
@@ -203,7 +203,7 @@ Per la procedura dettagliata per registrare un'applicazione in Azure Active Dire
 Per registrare un'applicazione in Azure Active Directory:
 
 ```azurecli
-az ad sp create-for-rbac -n "MyApp" --password "Pa$$w0rd" --skip-assignment
+az ad sp create-for-rbac -n "MyApp" --password "hVFkk965BuUv" --skip-assignment
 # If you don't specify a password, one will be created for you.
 ```
 

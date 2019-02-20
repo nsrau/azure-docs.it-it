@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: af5baf3444196e5a0e8412d9ab4f019fdccb033e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7cab21919eca9ba62fa57e1c6b2089c0b8e115dc
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783680"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979973"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Gestione di asset ed entità correlate con Media Services .NET SDK
 > [!div class="op_single_selector"]
@@ -28,12 +28,12 @@ ms.locfileid: "33783680"
 > 
 > 
 
-Questo argomento illustra come gestire le entità dei Servizi multimediali di Azure con .NET. 
+Questo argomento illustra come gestire le entità dei Servizi multimediali di Azure con .NET (legacy)
 
 >[!NOTE]
 > A partire dal 1° aprile 2017, tutti i record di processo presenti nell'account e più vecchi di 90 giorni verranno eliminati automaticamente, insieme ai record attività associati, anche se il numero totale di record è inferiore alla quota massima. Ad esempio, il 1° aprile 2017 qualsiasi record di processo nell'account precedente il 31 dicembre 2016 verrà automaticamente eliminato. Se è necessario archiviare le informazioni sul processo o sull'attività, è possibile usare il codice descritto in questo argomento.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in [Sviluppo di applicazioni di Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
 

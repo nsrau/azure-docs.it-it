@@ -1,6 +1,6 @@
 ---
-title: Join nelle query di Azure Log Analytics | Microsoft Docs
-description: Questo articolo include una lezione sull'uso dei join nel linguaggio di query di Log Analytics.
+title: Join nelle query di log di Monitoraggio di Azure | Microsoft Docs
+description: Questo articolo include una lezione sull'utilizzo dei join nelle query di log di Monitoraggio di Azure.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: c1f578c11fff963ee4bec47bd3737cd224b14720
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 91ff85d8c32c0bcfa984cc690382d09765a068a2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884861"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004642"
 ---
-# <a name="joins-in-log-analytics-queries"></a>Join nelle query di Log Analytics
+# <a name="joins-in-azure-monitor-log-queries"></a>Join nelle query di log di Monitoraggio di Azure
 
 > [!NOTE]
-> Prima di seguire questa lezione, è consigliabile completare [Introduzione al portale di Analytics](get-started-portal.md) e [Introduzione alle query](get-started-queries.md).
+> Prima di seguire questa lezione, è consigliabile completare [Getting started with Azure Monitor log analytics](get-started-portal.md) (Introduzione a Log Analytics in Monitoraggio di Azure) e [Query di log in Monitoraggio di Azure](get-started-queries.md).
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -105,7 +105,7 @@ Per prestazioni ottimali, prendere in considerazione i punti seguenti:
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere altre lezioni relative all'uso del linguaggio di query di Log Analytics:
+Vedere altre lezioni per l'utilizzo di query di log di Monitoraggio di Azure:
 
 - [Operazioni con stringhe](string-operations.md)
 - [Funzioni di aggregazione](aggregations.md)

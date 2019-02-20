@@ -12,12 +12,12 @@ ms.workload: search
 ms.date: 06/28/2018
 ms.author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: e496e4e2e7e2f66033d090a0534911bff4c53baa
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 524c1a6d083db02349c7dae9a0131228613dc170
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310281"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997611"
 ---
 # <a name="azure-search-service-rest-api-version-2017-11-11-preview"></a>API REST per il servizio Ricerca di Azure: versione 2017-11-11-Preview
 Questo articolo descrive la versione `api-version=2017-11-11-Preview` dell'API REST per il servizio Ricerca di Azure, che fornisce funzionalità sperimentali non ancora disponibili a livello generale.
@@ -28,7 +28,7 @@ Questo articolo descrive la versione `api-version=2017-11-11-Preview` dell'API R
 
 ## <a name="new-in-2017-11-11-preview"></a>Novità della versione 2017-11-11-Preview
 
-[**Completamento automatico**](search-autocomplete-tutorial.md): crea un join all'[API Suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions) esistente per aggiungere esperienze type-ahead complementari alla barra di ricerca. Il completamento automatico restituisce i termini di query candidati, che un utente può scegliere, come stringa di query per una ricerca successiva. Suggerimenti restituisce documenti effettivi in risposta a input parziali: i risultati della ricerca sono immediati e cambiano in modo dinamico man mano che l'input del termine di ricerca aumenta di lunghezza e specificità.
+[**completamento automatico**](search-autocomplete-tutorial.md): crea un join all'[API Suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions) esistente per aggiungere esperienze type-ahead complementari alla barra di ricerca. il completamento automatico restituisce i termini di query candidati, che un utente può scegliere, come stringa di query per una ricerca successiva. Suggerimenti restituisce documenti effettivi in risposta a input parziali: i risultati della ricerca sono immediati e cambiano in modo dinamico man mano che l'input del termine di ricerca aumenta di lunghezza e specificità.
 
 [**Ricerca cognitiva**](cognitive-search-concept-intro.md): una nuova funzionalità di arricchimento di Ricerca di Azure che consente di trovare informazioni latenti in origini non di testo e testo indifferenziato, trasformandole in contenuto full-text disponibile per la ricerca in Ricerca di Azure. Le risorse seguenti vengono introdotte o modificate nell'API REST di anteprima. Tutte le altre API REST sono uguali se si richiama la versione disponibile a livello generale o la versione di anteprima.
 

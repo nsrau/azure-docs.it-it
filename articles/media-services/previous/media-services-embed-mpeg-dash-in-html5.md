@@ -2,7 +2,7 @@
 title: Integrazione di uno streaming video adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js | Microsoft Docs
 description: Questo argomento illustra come integrare un video in streaming adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 2b0e6bf643f55e1809b29def7766c58b59f4bb50
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2c8e71a058b2c770741c38f07c6c440fea90f2b2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783380"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998434"
 ---
-# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Incorporamento di un flusso video adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js
+# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs-legacy"></a>Incorporamento di un flusso video adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js (legacy)
+
 ## <a name="overview"></a>Panoramica
 MPEG-DASH è uno standard ISO per lo streaming adattivo di contenuti video che offre vantaggi significativi agli sviluppatori che intendono distribuire output di streaming video adattivo di alta qualità. Con MPEG-DASH il flusso video viene automaticamente adeguato a una definizione inferiore quando si verificano situazioni di congestione sulla rete. Questo riduce il rischio che il video si interrompa mentre il lettore scarica i secondi successivi da riprodurre (noto anche come buffering). Man mano che la congestione sulla rete si riduce, il lettore video torna a un flusso di qualità elevata. La possibilità di adattare la larghezza di banda richiesta riduce anche i tempi di avvio del video. I primi secondi, ad esempio, possono essere riprodotti con una qualità inferiore, rapida da scaricare, per poi passare a una qualità superiore nel momento in cui nel buffer è stato memorizzato contenuto sufficiente.
 

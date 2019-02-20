@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 2b6d982f514f347dc2a59f9ca8f3c33b8c24849b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 594ebb6a3c82c9b9dd3ee03a8083abf052d20f49
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827449"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991328"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Esplora metriche di Monitoraggio di Azure
 
@@ -21,7 +21,7 @@ Esplora metriche di Monitoraggio di Azure è un componente del portale di Micros
 
 ## <a name="metrics-in-azure"></a>Metriche in Azure
 
-In Microsoft Azure le metriche sono la serie di valori e conteggi misurati che vengono raccolti e archiviati nel corso del tempo. Sono disponibili metriche standard (o di "piattaforma") e metriche personalizzate. Le metriche standard appartengono alla piattaforma stessa di Azure. Esse riflettono le statistiche sull'integrità e l'utilizzo delle risorse di Azure. Le metriche personalizzate vengono invece inviate ad Azure dalle applicazioni che usano l'[API di Application Insights per gli eventi personalizzati](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Le metriche personalizzate vengono archiviate nelle risorse di Application Insights insieme alle altre metriche specifiche delle applicazioni.
+[In Monitoraggio di Azure le metriche](data-collection.md#metrics) sono la serie di valori e conteggi misurati che vengono raccolti e archiviati nel corso del tempo. Sono disponibili metriche standard (o di "piattaforma") e metriche personalizzate. Le metriche standard appartengono alla piattaforma stessa di Azure. Esse riflettono le statistiche sull'integrità e l'utilizzo delle risorse di Azure. Le metriche personalizzate vengono invece inviate ad Azure dalle applicazioni che usano l'[API di Application Insights per gli eventi personalizzati](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Le metriche personalizzate vengono archiviate nelle risorse di Application Insights insieme alle altre metriche specifiche delle applicazioni.
 
 ## <a name="create-a-new-chart"></a>Creare un nuovo grafico
 

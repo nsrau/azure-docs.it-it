@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 64276047410280f8e818cf695f1fbb0c80fdd693
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e2add42e56f939dbfeb33ac2774d404411b1fefb
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497673"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997252"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Servizi Web di Azure Machine Learning Studio: Distribuzione e utilizzo
 È possibile usare Azure Machine Learning per distribuire i flussi di lavoro e i modelli di Machine Learning come servizi Web. Questi servizi Web possono quindi essere usati per chiamare i modelli di Machine Learning dalle applicazioni tramite Internet allo scopo di eseguire stime in tempo reale o in modalità batch. Essendo RESTFul, i servizi Web possono essere chiamati da diversi linguaggi di programmazione e piattaforme, come .NET e Java, nonché applicazioni, come Excel.
@@ -31,10 +31,10 @@ I collegamenti seguenti offrono informazioni generali su come distribuire un nuo
 
 * Per una panoramica di come distribuire un nuovo servizio Web basato su Azure Resource Manager, vedere [Distribuire un nuovo servizio Web](publish-a-machine-learning-web-service.md).
 * Per una procedura dettagliata su come distribuire un servizio Web, vedere [Distribuire un servizio Web di Azure Machine Learning](publish-a-machine-learning-web-service.md).
-* Per una procedura dettagliata su come creare e distribuire un servizio Web, vedere [Passaggio 1 della procedura dettagliata: Creare un'area di lavoro di Machine Learning](walkthrough-1-create-ml-workspace.md).
+* Per una procedura dettagliata su come creare e distribuire un servizio Web, vedere [Esercitazione 1: Prevedere il rischio di credito](tutorial-part1-credit-risk.md).
 * Per esempi specifici di distribuzione di un servizio Web, vedere:
 
-  * [Passaggio 5 della procedura dettagliata: Distribuire il servizio Web di Azure Machine Learning](walkthrough-5-publish-web-service.md)
+  * [Esercitazione 3: Distribuire il modello di rischio di credito](tutorial-part3-credit-risk-deploy.md)
   * [Come distribuire un servizio Web in più aree](how-to-deploy-to-multiple-regions.md)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Con le API del provider di risorse di servizi Web (API di Azure Resource Manager)
@@ -84,7 +84,7 @@ Per altre informazioni, vedere gli articoli e il codice di esempio seguenti:
 
 * [Distribuire un nuovo servizio Web](publish-a-machine-learning-web-service.md)
 * [Distribuire un servizio Web di Azure Machine Learning](publish-a-machine-learning-web-service.md)
-* [Passaggio 5 della procedura dettagliata: Distribuire il servizio Web di Azure Machine Learning](walkthrough-5-publish-web-service.md)
+* [Esercitazione 3: Distribuire il modello di rischio di credito](tutorial-part3-credit-risk-deploy.md)
 
 ### <a name="from-excel"></a>Da Excel
 È possibile scaricare un modello di Excel che usa il servizio Web:

@@ -1,6 +1,6 @@
 ---
-title: Informazioni di riepilogo per il linguaggio di query da SQL a Azure Log Analytics | Microsoft Docs
-description: Funzioni comuni da usare per diversi scenari nelle query di Log Analytics.
+title: 'Confronto tra query SQL e query di log in Monitoraggio di Azure: scheda di riferimento rapido | Microsoft Docs'
+description: Informazioni destinate agli utenti che hanno familiarità con SQL per facilitarli nella scrittura di query di log in Monitoraggio di Azure.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: 35438644842d5280bd789efa135805ba9943cb8b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 121f9ff602907e64bba0c98342e38477109e9294
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183048"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993665"
 ---
-# <a name="sql-to-log-analytics-query-language-cheat-sheet"></a>Informazioni di riepilogo per il linguaggio di query di Log Analytics 
+# <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>Confronto tra query SQL e query di log in Monitoraggio di Azure: scheda di riferimento rapido 
 
-La tabella seguente aiuta gli utenti che hanno familiarità con SQL ad apprendere il linguaggio di query di Log Analytics. Diamo uno sguardo al comando T-SQL per la risoluzione di scenari comuni e l'equivalente usando Log Analytics.
+La tabella seguente consente agli utenti che hanno familiarità con SQL di apprendere il linguaggio di query di Esplora dati per scrivere query di log in Monitoraggio di Azure. Accanto ai comandi T-SQL per la risoluzione di scenari comuni sono riportati i comandi equivalenti usati nelle query di log di Monitoraggio di Azure.
 
-## <a name="sql-to-log-analytics"></a>Da SQL a Log Analytics
+## <a name="sql-to-azure-monitor"></a>Confronto tra SQL e Monitoraggio di Azure
 
-DESCRIZIONE                             |Query SQL                                                                                          |Query di Azure Log Analytics
+Descrizione                             |Query SQL                                                                                          |Query di log in Monitoraggio di Azure
 ----------------------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------
 Selezionare tutti i dati da una tabella            |`SELECT * FROM dependencies`                                                                       |<code>dependencies</code>
 Selezionare colonne specifiche da una tabella    |`SELECT name, resultCode FROM dependencies`                                                        |<code>dependencies <br>&#124; project name, resultCode</code>
@@ -50,4 +50,4 @@ Join                                    |`SELECT * FROM dependencies JOIN except
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Esaminare la lezione sulla [scrittura di query in Log Analytics](get-started-queries.md).
+- Seguire una lezione sulla [scrittura di query di log in Monitoraggio di Azure](get-started-queries.md).

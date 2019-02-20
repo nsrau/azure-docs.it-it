@@ -4,16 +4,16 @@ description: Informazioni su come risolvere i problemi relativi ai runbook di Au
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/17/2019
+ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 1500fc5826b50e97e7fd51d18e672933275a9533
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: cdcf7f466e65cffd36bdcc816a9808ecac2ae242
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468200"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991294"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Risoluzione dei problemi relativi ai runbook
 
@@ -172,6 +172,32 @@ while((IsJobTerminalState $job.Status) -eq $false -and $waitTime -lt $maxTimeout
 
 $jobResults | Get-AzureRmAutomationJobOutput | Get-AzureRmAutomationJobOutputRecord | Select-Object -ExpandProperty Value
 ```
+
+### <a name="get-serializationsettings"></a>Scenario: Errore nei flussi del processo sul metodo get_SerializationSettings
+
+#### <a name="issue"></a>Problema
+
+Nell'errore nei flussi del processo viene visualizzato un runbook con il messaggio seguente:
+
+```
+Connect-AzureRMAccount : Method 'get_SerializationSettings' in type 
+'Microsoft.Azure.Management.Internal.Resources.ResourceManagementClient' from assembly 
+'Microsoft.Azure.Commands.ResourceManager.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' 
+does not have an implementation.
+At line:16 char:1
++ Connect-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Connect-AzureRmAccount], TypeLoadException
+    + FullyQualifiedErrorId : System.TypeLoadException,Microsoft.Azure.Commands.Profile.ConnectAzureRmAccountCommand
+```
+
+#### <a name="cause"></a>Causa
+
+Questo errore è dovuto all'uso dei cmdlet AzureRM e Az in un solo runbook. Si verifica quando si importa `Az` prima di `AzureRM`.
+
+#### <a name="resolution"></a>Risoluzione
+
+I cmdlet AzureRM e Az non possono essere importati e usati nello stesso runbook. Per altre informazioni sul supporto di Az in Automazione di Azure, vedere [Supporto per i moduli Az in Automazione di Azure](../az-modules.md).
 
 ### <a name="task-was-cancelled"></a>Scenario: il runbook ha esito negativo e restituisce l'errore seguente: Un'attività è stata annullata
 

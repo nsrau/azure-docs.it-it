@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2019
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: c0875861a90080c649596880804fe6538c04bc51
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f3ca140fd8606f60a07b71db32cf2d3987ed7860
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497615"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233600"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modelli di distribuzione Azure Resource Manager
 
 Quando si distribuiscono le risorse, specificare se la distribuzione è un aggiornamento incrementale o completo.  La differenza principale tra le due modalità è il modo in cui Resource Manager gestisce le risorse esistenti nel gruppo di risorse che non sono presenti nel modello. La modalità predefinita è incrementale.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Solo i modelli a livello di radice supportano la modalità di distribuzione completa. Per modelli [collegati o annidati](resource-group-linked-templates.md), è necessario usare la modalità di distribuzione incrementale. 
 
 ## <a name="incremental-and-complete-deployments"></a>Distribuzioni incrementali e complete
 
@@ -84,7 +84,7 @@ az group deployment create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-Quando si usa un [modello collegato o nidificato](resource-group-linked-templates.md), è necessario impostare la proprietà `mode` su `Incremental`. Solo i modelli a livello di radice supportano la modalità di distribuzione completa.
+L'esempio seguente illustra un modello collegato impostato sulla modalità di distribuzione incrementale:
 
 ```json
 "resources": [

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 75aecd166d03b751f778221632fad68d279f63a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 11eb849567079bfb1293c3c1e8ce97c43b66d493
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468870"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116845"
 ---
 # <a name="choose-the-right-consistency-level"></a>Scegliere il livello di coerenza appropriato 
 
@@ -33,6 +33,8 @@ Tenere presente quanto segue se l'applicazione è stata compilata usando l'API S
 - Se vengono richieste garanzie di coerenza meno rigorose rispetto a quelle offerte dalla coerenza di sessione, si consiglia di usare il livello di coerenza con prefisso coerente.
 
 - Se viene richiesta una disponibilità più elevata e una latenza più bassa, usare il livello di coerenza finale.
+
+- Se occorre una durabilità dei dati ancora più elevata che non riduca le prestazioni, è possibile creare un livello di coerenza personalizzato a livello di applicazione. Per altre informazioni, vedere [Come implementare la sincronizzazione personalizzata nelle applicazioni](how-to-custom-synchronization.md).
 
 ## <a name="cassandra-mongodb-and-gremlin-api"></a>API Cassandra, MongoDB e Gremlin
 

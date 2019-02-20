@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 269ea0162f85c7bd632e0528680fc8b0e2885aa9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4536048db4abc25decf1dbf02c75833c570e41af
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818125"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118208"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Associazioni di Azure Cosmos DB per Funzioni di Azure 2.x
 
@@ -992,7 +992,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 
 Questa sezione contiene gli esempi seguenti per leggere un singolo documento specificando un valore di ID da varie origini:
 
-* [Trigger della coda e ricerca dell'ID da JSON](#queue-trigger-look-up-id-from-string-javascript)
+* [Trigger della coda e ricerca dell'ID da JSON](#queue-trigger-look-up-id-from-json-javascript)
 * [Trigger HTTP e ricerca dell'ID da una stringa di query](#http-trigger-look-up-id-from-query-string-javascript)
 * [Trigger HTTP e ricerca dell'ID dai dati della route](#http-trigger-look-up-id-from-route-data-javascript)
 * [Trigger della coda e recupero di più documenti con SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
@@ -1200,7 +1200,7 @@ Ecco il codice JavaScript:
 
 Questa sezione contiene gli esempi seguenti per leggere un singolo documento specificando un valore di ID da varie origini:
 
-* [Trigger della coda e ricerca dell'ID da JSON](#queue-trigger-look-up-id-from-string-python)
+* [Trigger della coda e ricerca dell'ID da JSON](#queue-trigger-look-up-id-from-json-python)
 * [Trigger HTTP e ricerca dell'ID da una stringa di query](#http-trigger-look-up-id-from-query-string-python)
 * [Trigger HTTP e ricerca dell'ID dai dati della route](#http-trigger-look-up-id-from-route-data-python)
 * [Trigger della coda e recupero di più documenti con SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-python)
@@ -2288,7 +2288,7 @@ Il costruttore dell'attributo accetta il nome del database e il nome della racco
     }
 ```
 
-Per un esempio completo, vedere [Output - esempio in C#](#output---c-example).
+Per un esempio completo, vedere Output - esempio in C#.
 
 ## <a name="output---configuration"></a>Output - configurazione
 

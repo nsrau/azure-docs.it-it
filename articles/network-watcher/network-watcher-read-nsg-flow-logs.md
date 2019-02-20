@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: jdial
-ms.openlocfilehash: 7c35961894cbc8fb33f15b36910021f8ad38fac8
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: dd4622e0359476f47a0ac939d59a2571e34a0a46
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976393"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112700"
 ---
 # <a name="read-nsg-flow-logs"></a>Leggere i log dei flussi del gruppo di sicurezza di rete
 
@@ -185,6 +185,6 @@ Questo scenario è un esempio di come leggere le voci nei log dei flussi del gru
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Consultare [Visualizzare i log dei flussi dei gruppi di sicurezza di rete di Azure Network Watcher con strumenti open source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) per ulteriori informazioni su altri modi per visualizzare i log dei flussi del gruppo di sicurezza di rete.
+Visitare [Usare Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Usare Grafana](network-watcher-nsg-grafana.md) e [Usare Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) per altre informazioni sui vari modi per visualizzare i log del flusso del gruppo di sicurezza di rete. Un approccio open source di Funzione di Azure per usare direttamente i BLOB ed emetterli a vari consumer di Log Analytics è disponibile qui: [Connettore di log del flusso del gruppo di sicurezza di rete di Azure Network Watcher](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
 Per altre informazioni sui blob di archiviazione, vedere: [Binding dell'archiviazione BLOB di Funzioni di Azure](../azure-functions/functions-bindings-storage-blob.md)

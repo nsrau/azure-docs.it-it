@@ -4,7 +4,7 @@ description: Questo articolo offre una descrizione generale dell'architettura e 
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: b2e8ef232e1b25c7d000f4683830ff2e188047fb
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b390dc9bd2b690837a85a5bab361a534b9c9d5a5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186477"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118140"
 ---
 # <a name="azure-information-system-components-and-boundaries"></a>Componenti e limiti del sistema informativo di Azure
 Questo articolo offre una descrizione generale dell'architettura e della gestione di Azure. L'ambiente di sistema di Azure è costituito dalle reti seguenti:
@@ -81,7 +81,7 @@ I team dei servizi sono:
 - Calcolo di Azure
 - Azure Net
 - Servizi di progettazione cloud
-- ISSD: Sicurezza
+- ISSD: Security
 - Autenticazione a più fattori
 - Database SQL
 - Archiviazione

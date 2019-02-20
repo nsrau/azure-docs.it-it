@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Documentazione di riferimento per l'API Traduzione testuale v2.0.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: 9491550aae8f88621d947572741f492adcf9cdd0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f8d57723f6e51fb392e4fdbfb2b2a445d48635e3
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463226"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861715"
 ---
 # <a name="translator-text-api-v20"></a>API Traduzione testuale v2.0
 
@@ -76,7 +76,7 @@ Tipo di contenuto della risposta: application/xml
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|Descrizione    |Tipo di parametro|Tipo di dati|
+|Parametro|Valore|DESCRIZIONE    |Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid  |(vuoto)    |Richiesto. Se si usa l'intestazione Authorization o Ocp-Apim-Subscription-Key, lasciare vuoto il campo appid, altrimenti includere una stringa contenente "Bearer" + " " + "access_token".|query|stringa|
 |text|(vuoto)   |Richiesto. Stringa che rappresenta il testo da tradurre. Le dimensioni del testo non devono superare 10.000 caratteri.|query|stringa|
@@ -181,7 +181,7 @@ Tipo di contenuto della risposta: application/xml
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
+|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |Authorization|(vuoto) |Obbligatorio se non è specificato il campo appid o l'intestazione Ocp-Apim-Subscription-Key. Token di autorizzazione:  "Bearer" + " " + "access_token".|intestazione|stringa|
 |Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se non è specificato il campo appid o l'intestazione Authorization.|intestazione|stringa|
@@ -222,7 +222,7 @@ Tipo di contenuto della risposta: application/xml
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
+|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|stringa|
 |locale|(vuoto) |Richiesto. Stringa che rappresenta una combinazione di un codice ISO 639 di impostazioni cultura a due lettere minuscole associato a una lingua e un codice ISO 3166 di impostazioni cultura secondarie a due lettere maiuscole per localizzare i nomi delle lingue o semplicemente un codice ISO 639 di impostazioni cultura a lettere minuscole.|query|stringa|
@@ -256,7 +256,7 @@ Tipo di contenuto della risposta: application/xml
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
+|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|stringa|
 |Authorization|(vuoto)  |Obbligatorio se non è specificato il campo `appid` o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|intestazione|stringa|
@@ -289,7 +289,7 @@ Tipo di contenuto della risposta: application/xml
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
+|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|stringa|
 |Authorization|(vuoto)|Obbligatorio se non è specificato il campo `appid` o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|intestazione|stringa|
@@ -321,13 +321,13 @@ Tipo di contenuto della risposta: application/xml
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
+|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|stringa|
 |text|(vuoto)   |Richiesto. Stringa contenente una o più frase della lingua specificata da pronunciare per il flusso audio. Le dimensioni del testo da pronunciare non devono superare 2000 caratteri.|query|stringa|
 |Linguaggio|(vuoto)   |Richiesto. Stringa che rappresenta il codice della lingua supportata in cui pronunciare il testo. Il codice deve essere presente nell'elenco dei codici restituiti dal metodo `GetLanguagesForSpeak`.|query|stringa|
 |format|(vuoto)|facoltativo. Stringa che specifica l'ID del tipo di contenuto. Attualmente, sono disponibili `audio/wav` e `audio/mp3`. Il valore predefinito è `audio/wav`.|query|stringa|
-|options|(vuoto)    |<ul><li>facoltativo. Stringa che specifica le proprietà della sintesi vocale:<li>`MaxQuality` e `MinSize` sono disponibili per specificare la qualità dei segnali audio. Con `MaxQuality`, è possibile ottenere voci con la massima qualità, mentre con `MinSize` è possibile ottenere voci con dimensioni minime. Il valore predefinito è `MinSize`.</li><li>`female` e `male` sono disponibili per specificare il genere della voce desiderato. Il valore predefinito è `female`. Usare la barra verticale `|` to include multiple options. For example  `MaxQuality|Male`.</li></li></ul> |query|stringa|
+|options|(vuoto)    |<ul><li>facoltativo. Stringa che specifica le proprietà della sintesi vocale:<li>`MaxQuality` e `MinSize` sono disponibili per specificare la qualità dei segnali audio. Con `MaxQuality`, è possibile ottenere voci con la massima qualità, mentre con `MinSize` è possibile ottenere voci con dimensioni minime. Il valore predefinito è `MinSize`.</li><li>`female` e `male` sono disponibili per specificare il genere della voce desiderato. Il valore predefinito è `female`. Usare la barra verticale `|` per includere più opzioni. Ad esempio: `MaxQuality|Male`.</li></li></ul> |query|stringa|
 |Authorization|(vuoto)|Obbligatorio se non è specificato il campo `appid` o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|intestazione|stringa|
 |Ocp-Apim-Subscription-Key|(vuoto)  |Obbligatorio se non è specificato il campo `appid` o l'intestazione `Authorization`.|intestazione|stringa|
 
@@ -357,7 +357,7 @@ Tipo di contenuto della risposta: application/xml
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
+|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)  |Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|stringa|
 |text|(vuoto)|Richiesto. Stringa contenente il testo di cui identificare la lingua. Le dimensioni del testo non devono superare 10.000 caratteri.|query| stringa|
@@ -412,7 +412,7 @@ Tipo di contenuto della risposta: application/xml
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
+|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|stringa|
 |Authorization|(vuoto)|Obbligatorio se non è specificato il campo `appid` o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|intestazione|stringa|
@@ -446,7 +446,7 @@ Tipo di contenuto della risposta: application: xml
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati   |
+|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati   |
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|stringa|
 |originalText|(vuoto)|Richiesto. Stringa contenente il testo da cui tradurre. La stringa può avere una lunghezza massima di 1000 caratteri.|query|stringa|
@@ -523,7 +523,7 @@ Tipo di contenuto della risposta: application/xml
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
+|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |Authorization|(vuoto)|Obbligatorio se non è specificato il campo appid o l'intestazione Ocp-Apim-Subscription-Key. Token di autorizzazione:  "Bearer" + " " + "access_token".|intestazione|stringa|
 |Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se non è specificato il campo appid o l'intestazione Authorization.|intestazione|stringa|
@@ -556,7 +556,7 @@ Tipo di contenuto della risposta: application/xml
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
+|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)  |Richiesto. Se si usa l'intestazione Authorization o Ocp-Apim-Subscription-Key, lasciare vuoto il campo appid, altrimenti includere una stringa contenente "Bearer" + " " + "access_token".|query| stringa|
 |text|(vuoto)   |Richiesto. Stringa che rappresenta il testo da dividere in frasi. Le dimensioni del testo non devono superare 10.000 caratteri.|query|stringa|
@@ -650,7 +650,7 @@ Tipo di contenuto della risposta: application/xml
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
+|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |appid|(vuoto)|Richiesto. Se si usa l'intestazione `Authorization` o `Ocp-Apim-Subscription-Key`, lasciare vuoto il campo appid, altrimenti includere una stringa contenente `"Bearer" + " " + "access_token"`.|query|stringa|
 |text|(vuoto)|Richiesto. Stringa che rappresenta il testo da tradurre. Le dimensioni del testo non devono superare 10.000 caratteri.|query|stringa|
@@ -704,7 +704,7 @@ Il formato del corpo della richiesta è quello indicato di seguito.
 * `From`: Richiesto. Stringa che rappresenta il codice lingua del testo della traduzione,
 * `MaxTranslations`: Richiesto. Intero che rappresenta il numero massimo di traduzioni da restituire.
 * `Options`: facoltativo. Oggetto Options contenente i valori elencati di seguito. Sono tutti facoltativi e con le impostazioni più comuni per impostazione predefinita. Gli elementi specificati devono essere elencati in ordine alfabetico.
-    - Category: stringa contenente la categoria (dominio) della traduzione. L'impostazione predefinita è general.
+    - Category: Stringa contenente la categoria (dominio) della traduzione. L'impostazione predefinita è general.
     - `ContentType`: l'unica opzione supportata e predefinita è text/plain.
     - `IncludeMultipleMTAlternatives`: flag booleano per determinare se devono essere restituite più alternative dal motore MT. I valori validi sono true e false (con distinzione tra maiuscole/minuscole). Il valore predefinito è false e include una sola alternativa. L'impostazione del flag su true consente di generare alternative artificiali nella traduzione, completamente integrate con Collaborative Translation Framework (CTF). La funzionalità consente la restituzione di alternative per le frasi che non hanno alternative in CTF, aggiungendo alternative artificiali dall'elenco delle N migliori del decodificatore.
         - Classificazioni Le classificazioni vengono applicate come segue: 1) La traduzione automatica migliore ha una classificazione pari a 5. 2) Le alternative di CTF riflettono l'autorità del revisore, da -10 a + 10. 3) Le alternative di traduzione (N migliori) generate automaticamente hanno una classificazione pari a 0 e un livello di corrispondenza di 100.
@@ -770,7 +770,7 @@ Tipo di contenuto della risposta: application/xml
  
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
+|Parametro|Valore|DESCRIZIONE|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
 |Authorization  |(vuoto)    |Obbligatorio se non è specificato il campo `appid` o l'intestazione `Ocp-Apim-Subscription-Key`. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|intestazione|stringa|
 |Ocp-Apim-Subscription-Key|(vuoto)  |Obbligatorio se non è specificato il campo `appid` o l'intestazione `Authorization`.|intestazione|stringa|

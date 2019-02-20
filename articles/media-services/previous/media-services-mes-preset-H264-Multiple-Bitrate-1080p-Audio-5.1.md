@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 3b49ac0a38c18ab19d991e4f07350c56db6a172f
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3a21fe180dca4cc0b678624e775b67c3868f57ab
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250387"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992356"
 ---
-# <a name="h264-multiple-bitrate-1080p-audio-51"></a>Codec video H.264 a bitrate multipli con risoluzione 1080p e audio 5.1
+# <a name="h264-multiple-bitrate-1080p-audio-51-legacy"></a>Codec video H.264 a bitrate multiplo con risoluzione 1080p e audio 5.1 (legacy)
+
 `Media Encoder Standard` definisce un set di impostazioni di codifica che è possibile usare per la creazione di processi di codifica. È possibile usare un `preset name` per specificare il formato in cui codificare il file multimediale oppure creare set di impostazioni basati su JSON o XML personalizzati, con codifica UTF-8 o UTF-16. Dopodiché, occorre trasmettere il set di impostazioni personalizzato al codificatore. Per un elenco di tutti i nomi dei set di impostazioni supportati dal codificatore `Media Encoder Standard`, vedere [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md) (Set di impostazioni di attività per Media Encoder Standard).  
   
  Questo argomento illustra il set di impostazioni `H264 Multiple Bitrate 1080p Audio 5.1` nei formati XML e JSON.  
@@ -29,7 +30,7 @@ ms.locfileid: "50250387"
  Il set di impostazioni genera un set di 8 file MP4 con audio AAC 5.1 e allineamento GOP, con velocità compresa tra 6000 e 400 kbps. Per informazioni dettagliate su profilo, velocità in bit, frequenza di campionamento e così via di questo set di impostazioni, esaminare il codice XML o JSON definito di seguito. Per informazioni sul significato di ogni elemento e sui valori possibili per ciascuno, vedere lo [schema di Media Encoder Standard](media-services-mes-schema.md).  
   
 > [!NOTE]
->  Quando si modificano i valori `Width` e `Height` nei livelli, assicurarsi che le proporzioni rimangano coerenti. Ad esempio: 1920x1080, 1280x720, 1080x576, 640x360. Non è consigliabile usare una combinazione di proporzioni, ad esempio: 1280x720, 720x480, 640x360.  
+>  Quando si modificano i valori `Width` e `Height` nei livelli, assicurarsi che le proporzioni rimangano coerenti. Ad esempio:  1920x1080, 1280x720, 1080x576, 640x360. Non è consigliabile usare una combinazione di proporzioni, ad esempio: 1280x720, 720x480, 640x360.  
   
  XML  
   

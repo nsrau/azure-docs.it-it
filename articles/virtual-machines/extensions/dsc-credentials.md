@@ -3,7 +3,7 @@ title: Passare le credenziali in Azure tramite Desired State Configuration
 description: Informazioni su come passare in modo sicuro le credenziali alle macchine virtuali di Azure tramite PowerShell Desired State Configuration (DSC).
 services: virtual-machines-windows
 documentationcenter: ''
-author: DCtheGeek
+author: bobbytreed
 manager: carmonm
 editor: ''
 tags: azure-resource-manager
@@ -15,19 +15,19 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
-ms.author: dacoulte
-ms.openlocfilehash: 666253d16ac51dcc21174211f71794f8b0ede07d
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: robreed
+ms.openlocfilehash: 6618906f7b1b063de18a4f8a418c1c2744ca1533
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012547"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55975785"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Passare credenziali al gestore estensione DSC di Azure
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
-
 Questo articolo illustra l'estensione DSC (Desired State Configuration) per Azure. Per una panoramica del gestore estensione DSC, vedere [Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure](dsc-overview.md).
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="pass-in-credentials"></a>Passare le credenziali
 
@@ -65,7 +65,7 @@ configuration Main
 
 Pubblicare questo script nell'archivio BLOB di Azure:
 
-`Publish-AzureRmVMDscConfiguration -ConfigurationPath .\user_configuration.ps1`
+`Publish-AzVMDscConfiguration -ConfigurationPath .\user_configuration.ps1`
 
 Impostare l'estensione DSC di Azure e specificare la credenziale:
 
@@ -73,16 +73,16 @@ Impostare l'estensione DSC di Azure e specificare la credenziale:
 $configurationName = 'Main'
 $configurationArguments = @{ Credential = Get-Credential }
 $configurationArchive = 'user_configuration.ps1.zip'
-$vm = Get-AzureRmVM -Name 'example-1'
+$vm = Get-AzVM -Name 'example-1'
 
-$vm = Set-AzureRmVMDscExtension -VMName $vm -ConfigurationArchive $configurationArchive -ConfigurationName $configurationName -ConfigurationArgument @configurationArguments
+$vm = Set-AzVMDscExtension -VMName $vm -ConfigurationArchive $configurationArchive -ConfigurationName $configurationName -ConfigurationArgument @configurationArguments
 
-$vm | Update-AzureRmVM
+$vm | Update-AzVM
 ```
 
 ## <a name="how-a-credential-is-secured"></a>Modalità di protezione della credenziale
 
-Durante l'esecuzione del codice viene chiesta una credenziale. Dopo che la credenziale viene fornita, viene archiviata per un breve periodo di tempo in memoria. Quando la credenziale viene pubblicata tramite il cmdlet **Set-AzureRmVMDscExtension**, la credenziale viene trasmessa tramite HTTPS alla macchina virtuale. Nella macchina virtuale, Azure archivia le credenziali crittografate su disco usando il certificato della macchina virtuale locale. La credenziale viene brevemente decrittografata nella memoria e quindi nuovamente crittografata per essere passata a DSC.
+Durante l'esecuzione del codice viene chiesta una credenziale. Dopo che la credenziale viene fornita, viene archiviata per un breve periodo di tempo in memoria. Quando la credenziale viene pubblicata tramite il cmdlet **Set-AzVMDscExtension**, viene trasmessa tramite HTTPS alla macchina virtuale. Nella macchina virtuale, Azure archivia le credenziali crittografate su disco usando il certificato della macchina virtuale locale. La credenziale viene brevemente decrittografata nella memoria e quindi nuovamente crittografata per essere passata a DSC.
 
 Questo processo è diverso dall' [uso di configurazioni sicure senza il gestore dell'estensione](/powershell/dsc/securemof). L'ambiente di Azure offre un modo per trasmettere i dati di configurazione in maniera sicura tramite certificati. Quando si usa il gestore dell'estensione DSC, non è necessario fornire **$CertificatePath** o una voce **$CertificateID**/ **$Thumbprint** in **ConfigurationData**.
 

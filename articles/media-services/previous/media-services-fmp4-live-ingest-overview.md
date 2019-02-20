@@ -4,7 +4,7 @@ description: Questa specifica descrive il protocollo e il formato per l'inserime
 services: media-services
 documentationcenter: ''
 author: cenkdin
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 43fac263-a5ea-44af-8dd5-cc88e423b4de
 ms.service: media-services
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 02/08/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: c6ff386913ed66cf4f74cb577bb8ca58e6932ada
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 16b8b5a012c5d2073a3472a70cf2064b8b0e59cd
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228879"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984835"
 ---
-# <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure
+# <a name="azure-media-services-fragmented-mp4-live-ingest-specification-legacy"></a>Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure (legacy)
+
 Questa specifica descrive il protocollo e il formato per l'inserimento di streaming live basato sul formato MP4 frammentato per Servizi multimediali di Azure. Servizi multimediali fornisce un servizio di streaming live che può essere usato dai clienti per lo streaming di eventi live e la trasmissione di contenuti in tempo reale usando Azure come piattaforma cloud. Questo documento contiene anche le procedure consigliate per creare meccanismi di inserimento live solidi e altamente ridondanti.
 
 ## <a name="1-conformance-notation"></a>1. Nota di conformità
@@ -82,7 +83,7 @@ Video: 3000 kbps, 1500 kbps, 750 kbps
 
 Audio: 128 kbps
 
-### <a name="option-1-all-tracks-in-one-stream"></a>Opzione 1: tutte le tracce in un flusso
+### <a name="option-1-all-tracks-in-one-stream"></a>Opzione 1: Tutte le tracce in un flusso
 In questo caso, un unico codificatore genera tutte le tracce audio/video e le aggrega in un flusso di bit MP4 frammentato. Il flusso di bit MP4 frammentato viene quindi inviato tramite una singola connessione HTTP POST. In questo esempio è presente un solo flusso per la presentazione live.
 
 ![Flussi - Una traccia][image2]

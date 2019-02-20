@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Dossier | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Dossier | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Dossier.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: jeedes
-ms.openlocfilehash: 932a832d4717a788f2d9adfd98ce1ba0c4ca07a1
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dd69616fa544c1d13e14eb8eebb92adb6350d9e8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39507512"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217531"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-dossier"></a>Esercitazione: Integrazione di Azure Active Directory con Dossier
+# <a name="tutorial-azure-active-directory-integration-with-dossier"></a>Esercitazione: integrazione di Azure Active Directory con Dossier
 
 Questa esercitazione descrive come integrare Dossier con Azure Active Directory (Azure AD).
 
@@ -176,7 +177,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ### <a name="create-a-dossier-test-user"></a>Creare un utente test per Dossier
 
-In questa sezione viene creato un utente di nome Britta Simon in Dossier. Collaborare con il [team di supporto di Dossier](mailto:support@intellimedia.ca) per aggiungere gli utenti alla piattaforma Dossier. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in Dossier. Collaborare con il  [team di supporto di Dossier](mailto:support@intellimedia.ca)  per aggiungere gli utenti alla piattaforma Dossier. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 

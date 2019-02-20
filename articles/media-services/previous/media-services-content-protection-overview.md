@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 89e28a9b70d078c3fe385225af305252ececefce
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3ac07b06e1cf7b5b24956c10e202f9baeab60b2b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249923"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992247"
 ---
-# <a name="content-protection-overview"></a>Panoramica della protezione del contenuto
+# <a name="content-protection-overview"></a>Panoramica della protezione del contenuto 
+
  È possibile usare Servizi multimediali di Azure per proteggere i file multimediali dal momento in cui escono dal computer fino alle fasi di archiviazione, elaborazione e recapito. Con Servizi multimediali è possibile distribuire contenuti live e on demand crittografati dinamicamente con AES-128 (Advanced Encryption Standard) o con uno dei principali sistemi DRM (Digital Rights Management): Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali offre anche un servizio per la distribuzione di chiavi AES e licenze DRM (PlayReady, Widevine e FairPlay) ai client autorizzati. 
 
 L'immagine seguente illustra il flusso di lavoro di protezione dei contenuti di Servizi multimediali: 
@@ -81,8 +82,8 @@ Si applicano le considerazioni seguenti:
 * Il tipo di crittografia non fa distinzione tra maiuscole e minuscole.
 * Possono essere specificati i seguenti tipi di crittografia:
   * **cenc**: per PlayReady o Widevine (crittografia comune)
-  * **cbcs-aapl**: per FairPlay (crittografia CBC AES)
-  * **cbc**: per la crittografia della busta AES
+  * **cbcs-aapl**: per FairPlay (crittografia AES CBC)
+  * **cbc**: per crittografia busta AES
 
 ## <a name="next-steps"></a>Passaggi successivi
 Gli articoli seguenti descrivono i passaggi successivi da eseguire per iniziare a usare la protezione dei contenuti:

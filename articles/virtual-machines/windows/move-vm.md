@@ -13,22 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 168ba57399b2649af29820f7321dd0151618346e
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: ede2092be4e4eaf201e15307a7d9934ea267ae37
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436481"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980704"
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Spostare una VM di Windows in un'altra sottoscrizione o in un altro gruppo di risorse di Azure
-Questo articolo illustra come spostare una VM di Windows tra gruppi di risorse o sottoscrizioni. Lo spostamento tra sottoscrizioni può essere comodo se in origine è stata creata una VM in una sottoscrizione personale e ora si vuole spostarla alla sottoscrizione dell'azienda per continuare il lavoro.
+Questo articolo illustra come spostare una macchina virtuale di Windows tra gruppi di risorse o sottoscrizioni. Lo spostamento tra sottoscrizioni può essere comodo se in origine è stata creata una VM in una sottoscrizione personale e ora si vuole spostarla alla sottoscrizione dell'azienda per continuare il lavoro.
 
 > [!IMPORTANT]
->Non è possibile spostare Managed Disks in questa fase. 
->
->Nell'ambito dello spostamento vengono creati nuovi ID risorsa. Una volta spostata la VM, è necessario aggiornare strumenti e script in modo che usino i nuovi ID risorsa. 
+>Nell'ambito dello spostamento vengono creati nuovi ID risorsa. Dopo aver spostato la macchina virtuale, sarà necessario aggiornare strumenti e script in modo che usino i nuovi ID risorsa. 
 > 
 > 
 
@@ -36,30 +34,29 @@ Questo articolo illustra come spostare una VM di Windows tra gruppi di risorse o
 
 ## <a name="use-powershell-to-move-a-vm"></a>Usare PowerShell per spostare una VM
 
-Per spostare una macchina virtuale in un altro gruppo di risorse, è necessario assicurarsi di spostare anche tutte le risorse dipendenti. Per usare il cmdlet Move-AzureRMResource, è necessario conoscere il ResourceID per ciascuna risorsa. È possibile ottenere un elenco di ResourceID tramite il cmdlet [Get-AzureRMResource](/powershell/module/azurerm.resources/get-azurermresource).
+Per spostare una macchina virtuale in un altro gruppo di risorse, è necessario assicurarsi di spostare anche tutte le risorse dipendenti. Per ottenere un elenco con l'ID risorsa di ognuna di queste risorse, usare il cmdlet [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource).
 
 ```azurepowershell-interactive
- Get-AzureRMResource -ResourceGroupName <sourceResourceGroupName> | Format-table -Property ResourceId 
+ Get-AzResource -ResourceGroupName <sourceResourceGroupName> | Format-table -Property ResourceId 
 ```
 
-Per spostare una VM, occorre spostare più risorse. È possibile usare l'output di Get-AzureRMResource per creare un elenco separato da virgole di ResourceID e passarlo a [Move-AzureRMResource](/powershell/module/azurerm.resources/move-azurermresource) per spostare i ResourceID nella destinazione. 
+È possibile usare l'output del comando precedente come elenco separato da virgole degli ID di risorsa a [Move-AzResource](https://docs.microsoft.com/powershell/module/az.resources/move-azresource) per spostare ogni risorsa nella destinazione. 
 
 ```azurepowershell-interactive
-
-Move-AzureRmResource -DestinationResourceGroupName "<myDestinationResourceGroup>" `
+Move-AzResource -DestinationResourceGroupName "<myDestinationResourceGroup>" `
     -ResourceId <myResourceId,myResourceId,myResourceId>
 ```
     
 Per spostare le risorse in una diversa sottoscrizione, includere il parametro **DestinationSubscriptionId** . 
 
 ```azurepowershell-interactive
-Move-AzureRmResource -DestinationSubscriptionId "<myDestinationSubscriptionID>" `
+Move-AzResource -DestinationSubscriptionId "<myDestinationSubscriptionID>" `
     -DestinationResourceGroupName "<myDestinationResourceGroup>" `
     -ResourceId <myResourceId,myResourceId,myResourceId>
 ```
 
 
-Verrà richiesto di confermare che si vuole spostare le risorse specificate. 
+Quando viene richiesto di confermare che si vogliono spostare le risorse specificate, immettere **Y** per confermare.
 
 ## <a name="next-steps"></a>Passaggi successivi
 È possibile spostare molti tipi diversi di risorse tra gruppi di risorse e sottoscrizioni. Per altre informazioni, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../../resource-group-move-resources.md).    

@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 320afdb1e4f71150680e9bed6a4c1c9955c99936
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: b846e1fe4552c6cec356a7e7828135b0e1fdf315
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230625"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994102"
 ---
-# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD
+# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD  
  
 L'API di Servizi multimediali di Azure è di tipo RESTful. È possibile usarla per eseguire operazioni sulle risorse multimediali tramite un'API REST o tramite gli SDK client disponibili. Servizi multimediali di Azure offre un SDK client di Servizi multimediali per Microsoft .NET. Per essere autorizzati ad accedere alle risorse e all'API di Servizi multimediali, è innanzitutto necessario essere autenticati. 
 
@@ -138,7 +138,7 @@ Se non si usa l'SDK del client .NET di Servizi multimediali , è necessario crea
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
-Eccezione: "Il server remoto ha restituito un errore: (401) Non autorizzato."
+Eccezione: "Il server remoto ha restituito un errore: (401) Non autorizzato".
 
 Soluzione: perché la richiesta REST di Servizi multimediali abbia esito positivo, l'utente chiamante deve avere il ruolo di Collaboratore o Proprietario per l'account di Servizi multimediali al quale sta tentando di accedere. Per altre informazioni, vedere la sezione [Controllo dell'accesso](media-services-use-aad-auth-to-access-ams-api.md#access-control).
 

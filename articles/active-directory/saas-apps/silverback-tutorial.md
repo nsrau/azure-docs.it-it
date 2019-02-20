@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Silverback | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Silverback | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Silverback.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeedes
-ms.openlocfilehash: e7cb3049f680f81026e09388066001413922600a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b5614c061586c39e44f04f3542285e55e07f14d9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123853"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172711"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Esercitazione: Integrazione di Azure Active Directory con Silverback
+# <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Esercitazione: integrazione di Azure Active Directory con Silverback
 
 Questa esercitazione descrive come integrare Silverback con Azure Active Directory (Azure AD).
 
@@ -130,7 +131,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     b. Nella pagina **Authentication Provider Settings** (Impostazioni del provider di autenticazione) seguire questa procedura:
 
-    ![Amministratore ](./media/silverback-tutorial/tutorial_silverback_admin.png)
+    ![L'amministratore ](./media/silverback-tutorial/tutorial_silverback_admin.png)
 
     c.  Fare clic su **Import from URL** (Importa dall'URL).
     
@@ -208,7 +209,7 @@ Per consentire agli utenti di Azure AD di accedere a Silverback, è necessario e
     
     f. Nella casella di testo **Confirm Password** (Conferma password) immettere nuovamente la password e confermare.
 
-    g. Fare clic su **Save** (Salva).
+    g. Fare clic su **Save**.
 
 >[!NOTE]
 >Se non si vuole creare ogni utente manualmente, abilitare la casella di controllo **Dynamic User Creation** (Creazione utenti dinamica) in **Admin** (Amministratore)  > **Authentication Provider** (Provider di autenticazione).
@@ -223,7 +224,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
 
-    ![Assegnare l'utente][201] 
+    ![Assegna utente][201] 
 
 2. Nell'elenco delle applicazioni selezionare **Silverback**.
 
@@ -248,7 +249,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro di Silverback nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Silverback.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

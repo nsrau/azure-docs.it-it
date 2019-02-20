@@ -1,5 +1,5 @@
 ---
-title: Raccogliere le prestazioni per applicazioni Linux in Log Analytics | Microsoft Docs
+title: Raccogliere le prestazioni per applicazioni Linux in Monitoraggio di Azure | Microsoft Docs
 description: Questo articolo offre informazioni dettagliate per configurare l'agente di Log Analytics per Linux in modo che raccolga i contatori delle prestazioni per il server HTTP Apache e MySQL.
 services: log-analytics
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: bf14e06f52f1b5a32ea3922083cc1f9bdbfb2aae
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 453e66934b93ab4368c4d3816d3db1a4588ae660
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104846"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001330"
 ---
-# <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Raccogliere i contatori delle prestazioni per applicazioni Linux in Log Analytics 
+# <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Raccogliere i contatori delle prestazioni per applicazioni Linux in Monitoraggio di Azure 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-Questo articolo offre informazioni dettagliate per configurare l'[agente di Log Analytics per Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) in modo che raccolga i contatori delle prestazioni per applicazioni specifiche in Log Analytics.  Le applicazioni incluse in questo articolo sono:  
+Questo articolo offre informazioni dettagliate per configurare l'[agente di Log Analytics per Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) in modo che raccolga i contatori delle prestazioni per applicazioni specifiche in Monitoraggio di Azure.  Le applicazioni incluse in questo articolo sono:  
 
 - [MySQL](#MySQL)
 - [Server HTTP Apache](#apache-http-server)
@@ -114,7 +114,7 @@ Questi privilegi possono essere concessi mediante l'esecuzione dei comandi grant
 
 ### <a name="define-performance-counters"></a>Definire i contatori delle prestazioni
 
-Dopo aver configurato l'agente di Log Analytics per Linux per l'invio di dati a Log Analytics, è necessario configurare i contatori delle prestazioni da raccogliere.  Usare la procedura descritta in [Origini dati per le prestazioni di Windows e Linux in Log Analytics](data-sources-performance-counters.md) con i contatori presenti nella tabella seguente.
+Dopo aver configurato l'agente di Log Analytics per Linux per l'invio di dati a Monitoraggio di Azure, è necessario configurare i contatori delle prestazioni da raccogliere.  Usare la procedura descritta in [Origini dati per le prestazioni di Windows e Linux in Log Analytics](data-sources-performance-counters.md) con i contatori presenti nella tabella seguente.
 
 | Nome oggetto | Nome contatore |
 |:--|:--|
@@ -150,7 +150,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### <a name="define-performance-counters"></a>Definire i contatori delle prestazioni
 
-Dopo aver configurato l'agente di Log Analytics per Linux per l'invio di dati a Log Analytics, è necessario configurare i contatori delle prestazioni da raccogliere.  Usare la procedura descritta in [Origini dati per le prestazioni di Windows e Linux in Log Analytics](data-sources-performance-counters.md) con i contatori presenti nella tabella seguente.
+Dopo aver configurato l'agente di Log Analytics per Linux per l'invio di dati a Monitoraggio di Azure, è necessario configurare i contatori delle prestazioni da raccogliere.  Usare la procedura descritta in [Origini dati per le prestazioni di Windows e Linux in Log Analytics](data-sources-performance-counters.md) con i contatori presenti nella tabella seguente.
 
 | Nome oggetto | Nome contatore |
 |:--|:--|
@@ -168,4 +168,4 @@ Dopo aver configurato l'agente di Log Analytics per Linux per l'invio di dati a 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Raccogliere i contatori delle prestazioni](data-sources-performance-counters.md) da agenti Linux.
-* Altre informazioni sulle [query di log](../../log-analytics/log-analytics-queries.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni. 
+* Altre informazioni sulle [query di log](../log-query/log-query-overview.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni. 

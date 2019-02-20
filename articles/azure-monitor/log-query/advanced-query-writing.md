@@ -1,6 +1,6 @@
 ---
-title: Query avanzate in Azure Log Analytics | Microsoft Docs
-description: Questo articolo fornisce un'esercitazione per l'uso del portale di analisi per la scrittura di query in Log Analytics.
+title: Query avanzate in Monitoraggio di Azure | Microsoft Docs
+description: Questa esercitazione illustra l'uso del portale di analisi per la scrittura di query in Monitoraggio di Azure.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: b8441d72f85c2160cf756df37722fa6037441236
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 4e5574fa5a615e43d94069a03716fa290b957342
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191547"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993215"
 ---
-# <a name="writing-advanced-queries-in-log-analytics"></a>Scrittura di query avanzate in Log Analytics
+# <a name="writing-advanced-queries-in-azure-monitor"></a>Scrittura di query avanzate in Monitoraggio di Azure
 
 > [!NOTE]
-> Prima di seguire questa lezione, è consigliabile completare [Introduzione al portale di Analytics](get-started-portal.md) e [Introduzione alle query](get-started-queries.md).
+> Prima di seguire questa lezione, è consigliabile completare [Introduzione a Log Analytics in Monitoraggio di Azure](get-started-portal.md) e [Introduzione alle query](get-started-queries.md).
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -130,7 +130,7 @@ SecurityEvent
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere altre lezioni relative all'uso del linguaggio di query di Log Analytics:
+Vedere altre lezioni per l'uso del [linguaggio di query di Esplora dati](/azure/kusto/query/) con i dati di log di Monitoraggio di Azure:
 
 - [Operazioni con stringhe](string-operations.md)
 - [Operazioni con data e ora](datetime-operations.md)

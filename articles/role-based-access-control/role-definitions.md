@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2019
+ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: ecfcfd5026f310a617f81af42483c29d89385288
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 8966eb337af07b90e7d9c697a4bfd14c543540aa
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700724"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991362"
 ---
 # <a name="understand-role-definitions"></a>Informazioni sulle definizioni del ruolo
 
@@ -147,7 +147,7 @@ Collaboratore ai dati del BLOB di archiviazione (anteprima)
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Poiché Alice ha un'azione con carattere jolly (`*`) nell'ambito della sottoscrizione, eredita tutte le autorizzazioni della gerarchia e può quindi eseguire tutte le azioni di gestione, anche se non può eseguire operazioni sui dati. Ad esempio, per impostazione predefinita, non può leggere i BLOB all'interno di un contenitore, ma può eseguire operazioni di lettura, scrittura ed eliminazione relative ai contenitori.
+Poiché Alice ha un'azione con carattere jolly (`*`) nell'ambito della sottoscrizione, eredita tutte le autorizzazioni della gerarchia e può quindi eseguire tutte le azioni di gestione, Alice può leggere, scrivere ed eliminare i contenitori. Tuttavia non può eseguire operazioni sui dati senza eseguire passaggi aggiuntivi. Ad esempio, per impostazione predefinita, non può leggere i BLOB all'interno di un contenitore. Per leggere i BLOB, Alice deve prima recuperare le chiavi di accesso alle risorse di archiviazione e usarle per accedere ai BLOB.
 
 Le autorizzazioni di Bob sono limitate alle sezioni `Actions` e `DataActions` specificate nel ruolo [Collaboratore ai dati del BLOB di archiviazione (anteprima)](built-in-roles.md#storage-blob-data-contributor-preview). In base al ruolo, Bob può eseguire sia operazioni di gestione sia operazioni sui dati. Ad esempio, può scrivere sui contenitori, leggerli ed eliminarli nell'account di archiviazione specificato e anche scrivere sui BLOB, leggerli ed eliminarli.
 

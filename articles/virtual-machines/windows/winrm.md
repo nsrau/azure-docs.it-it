@@ -15,22 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: 5fa82dd4a85ff2e62848df0fdc6006922005a84b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 22a522fcde2b79d89e6084cdcfcbf64e4e5bd5ce
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30914546"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977967"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Configurare l'accesso WinRM per le macchine virtuali in Azure Resource Manager
-## <a name="winrm-in-azure-service-management-vs-azure-resource-manager"></a>WinRM nella gestione del servizio Azure e Azure Resource Manager
-
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
-
-* Per una panoramica di Azure Resource Manager, vedere questo [articolo](../../azure-resource-manager/resource-group-overview.md)
-* Per conoscere le differenze tra la gestione del servizio Azure e Azure Resource Manager, consultare questo [articolo](../../resource-manager-deployment-model.md)
-
-La differenza principale nell'impostazione della configurazione di WinRM tra i due stack consiste nelle modalità di installazione del certificato nella VM. Nello stack di Azure Resource Manager, i certificati vengono modellati come risorse gestite dal provider di risorse dell'insieme di credenziali delle chiavi. Pertanto, l'utente deve fornire il proprio certificato e caricarlo in un insieme di credenziali delle chiavi per poterlo utilizzare in una VM.
 
 Di seguito è descritta la procedura per configurare una VM con connettività WinRM
 
@@ -40,11 +32,13 @@ Di seguito è descritta la procedura per configurare una VM con connettività Wi
 4. Ottenere l'URL del certificato autofirmato nell'insieme di credenziali delle chiavi
 5. Fare riferimento all'URL del certificato autofirmato durante la creazione di una VM
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ## <a name="step-1-create-a-key-vault"></a>Passaggio 1: Creare un insieme di credenziali delle chiavi
 Il seguente comando consente di creare l'insieme di credenziali delle chiavi
 
 ```
-New-AzureRmKeyVault -VaultName "<vault-name>" -ResourceGroupName "<rg-name>" -Location "<vault-location>" -EnabledForDeployment -EnabledForTemplateDeployment
+New-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<rg-name>" -Location "<vault-location>" -EnabledForDeployment -EnabledForTemplateDeployment
 ```
 
 ## <a name="step-2-create-a-self-signed-certificate"></a>Passaggio 2: Creare un certificato autofirmato
@@ -103,7 +97,7 @@ Questo URL può essere ottenuto utilizzando il seguente comando PowerShell
 
     $secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
 
-## <a name="step-5-reference-your-self-signed-certificates-url-while-creating-a-vm"></a>Passaggio 5: Durante la creazione di una VM, fare riferimento all'URL dei certificati autofirmati
+## <a name="step-5-reference-your-self-signed-certificates-url-while-creating-a-vm"></a>Passaggio 5: Fare riferimento all'URL del certificato autofirmato durante la creazione di una VM
 #### <a name="azure-resource-manager-templates"></a>Modelli di Azure Resource Manager
 Quando si crea una VM tramite modelli, viene fatto riferimento al certificato nelle sezioni delle chiavi private e di WinRM, come indicato di seguito:
 
@@ -144,15 +138,15 @@ Un modello di esempio per quanto detto sopra è disponibile qui: [201-vm-winrm-k
 Il codice sorgente di questo modello è reperibile in [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)
 
 #### <a name="powershell"></a>PowerShell
-    $vm = New-AzureRmVMConfig -VMName "<VM name>" -VMSize "<VM Size>"
+    $vm = New-AzVMConfig -VMName "<VM name>" -VMSize "<VM Size>"
     $credential = Get-Credential
     $secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
-    $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName "<Computer Name>" -Credential $credential -WinRMHttp -WinRMHttps -WinRMCertificateUrl $secretURL
-    $sourceVaultId = (Get-AzureRmKeyVault -ResourceGroupName "<Resource Group name>" -VaultName "<Vault Name>").ResourceId
+    $vm = Set-AzVMOperatingSystem -VM $vm -Windows -ComputerName "<Computer Name>" -Credential $credential -WinRMHttp -WinRMHttps -WinRMCertificateUrl $secretURL
+    $sourceVaultId = (Get-AzKeyVault -ResourceGroupName "<Resource Group name>" -VaultName "<Vault Name>").ResourceId
     $CertificateStore = "My"
-    $vm = Add-AzureRmVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore $CertificateStore -CertificateUrl $secretURL
+    $vm = Add-AzVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore $CertificateStore -CertificateUrl $secretURL
 
-## <a name="step-6-connecting-to-the-vm"></a>Passaggio 6: Connettersi alla VM
+## <a name="step-6-connecting-to-the-vm"></a>Passaggio 6: Connessione alla macchina virtuale
 Per potersi connettere alla VM è necessario controllare di aver configurato il computer per la gestione remota di WinRM. Avviare PowerShell come amministratore ed eseguire il comando seguente per verificare la configurazione.
 
     Enable-PSRemoting -Force

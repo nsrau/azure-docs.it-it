@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 02/07/2019
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: 7e4756fb241500a2f153b452c6dc5a4e332bdd6b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 3ab50c92543615488d9ced599df433bf7e1e4061
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881597"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962231"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gestire le regole di rilevamento intelligente di Application Insights usando modelli di Azure Resource Manager
 
@@ -31,6 +31,7 @@ Per una regola di rilevamento intelligente è possibile configurare le impostazi
 - Se la regola è abilitata (il valore predefinito è **true**.)
 - Se devono essere inviati messaggi di posta elettronica ai proprietari della sottoscrizione, collaboratori e lettori quando si ha un rilevamento (il valore predefinito è **true**.)
 - Eventuali destinatari di posta elettronica aggiuntivi che devono ricevere una notifica quando si ha un rilevamento.
+- * La configurazione della posta elettronica non è disponibile per le regole di Rilevamento intelligente contrassegnate come _Anteprima_.
 
 Per consentire la configurazione delle impostazioni delle regole tramite Azure Resource Manager, la configurazione delle regole di rilevamento intelligente è ora disponibile come risorsa interna alla risorsa di Application Insights denominata **ProactiveDetectionConfigs**.
 Per la massima flessibilità, ogni regola di rilevamento intelligente può essere configurata con impostazioni di notifica univoche.

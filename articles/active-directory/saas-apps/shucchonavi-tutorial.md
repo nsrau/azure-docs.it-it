@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Shuccho Navi | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Shuccho Navi | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Shuccho Navi.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: jeedes
-ms.openlocfilehash: f90af5b57fcb9ed7f02bba0a184dacb17570136b
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1709abdf1d5e90cb253e67b29c0e48f6aa29a712
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311939"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209677"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-shuccho-navi"></a>Esercitazione: Integrazione di Azure Active Directory con Shuccho Navi
+# <a name="tutorial-azure-active-directory-integration-with-shuccho-navi"></a>Esercitazione: integrazione di Azure Active Directory con Shuccho Navi
 
 Questa esercitazione descrive come integrare Shuccho Navi con Azure Active Directory (Azure AD).
 
@@ -99,7 +100,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![image](./media/shucchonavi-tutorial/b1_b2_select_sso.png)
 
-2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** fare clic su **Seleziona** per la modalità **SAML** per abilitare il Single Sign-On.
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** fare clic su **Seleziona** per la modalità **SAML** per abilitare l'accesso Single Sign-On.
 
     ![image](./media/shucchonavi-tutorial/b1_b2_saml_sso.png)
 
@@ -116,7 +117,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE]
     > Poiché il valore dell'URL di accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto di Shuccho Navi](mailto:sys_ntabtm@nta.co.jp).
  
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML dei metadati federazione** e salvarlo nel computer in uso.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML** fare clic su **Scarica** per scaricare il file **XML dei metadati federazione** e salvarlo nel computer in uso.
 
     ![image](./media/shucchonavi-tutorial/tutorial_shucchonavi_certificate.png) 
 
@@ -126,7 +127,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel portale di Azure, nel riquadro sinistro, selezionare **Azure Active Directory**, selezionare **Utenti** e quindi selezionare **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![image](./media/shucchonavi-tutorial/d_users_and_groups.png)
 
@@ -149,7 +150,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="create-a-shuccho-navi-test-user"></a>Creare un utente test Shuccho Navi
 
-In questa sezione viene creato un utente chiamato Britta Simon in Shuccho Navi. Contattare il [team di supporto di Shuccho Navi](mailto:sys_ntabtm@nta.co.jp) per aggiungere gli utenti alla piattaforma di Shuccho Navi. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente chiamato Britta Simon in Shuccho Navi. Contattare il  [team di supporto di Shuccho Navi](mailto:sys_ntabtm@nta.co.jp) per aggiungere gli utenti alla piattaforma di Shuccho Navi. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -180,7 +181,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Shuccho Navi nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Shuccho Navi.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

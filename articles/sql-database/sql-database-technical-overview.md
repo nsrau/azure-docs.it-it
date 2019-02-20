@@ -12,15 +12,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: f4b72a95c64467ce287d2cb762222d17334aad57
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: 711e51a075ce25ef3aa3c9c7e8784c914c8d0581
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755426"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982268"
 ---
-# <a name="the-azure-sql-database-service"></a>Servizio database SQL di Azure
+# <a name="what-is-azure-sql-database-service"></a>Informazioni sul servizio database SQL di Azure
 
 Il database SQL è un servizio gestito di database relazionale per utilizzo generico in Microsoft Azure che supporta strutture come dati relazionali, JSON, dati spaziali e XML. Il database SQL offre prestazioni scalabili in modo dinamico all'interno di due diversi modelli di acquisto: un modello di acquisto basato su vCore e un modello di acquisto basato su DTU. Il database SQL offre anche opzioni come gli [indici columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) per funzionalità di analisi e report avanzatissime e [OLTP in memoria](sql-database-in-memory.md) per l'elaborazione XTP (Extreme Transaction Processing). Microsoft gestisce agevolmente tutte le operazioni di applicazione di patch e aggiornamento della base di codice SQL, rimuovendo tutte le attività di gestione dell'infrastruttura sottostante.
 
@@ -54,7 +54,7 @@ Il database SQL offre prestazioni prevedibili con più tipi di risorse, livelli 
 
 ## <a name="scalable-performance-and-pools"></a>Prestazioni e pool scalabili
 
-- I database singoli sono database isolati dagli altri e portatili, ognuno con una quantità garantita di risorse di calcolo, memoria e archiviazione. Il database SQL offre risorse di calcolo, memoria e archiviazione diverse a seconda delle esigenze e la possibilità di [ridimensionare le risorse dei database singoli](sql-database-single-database-scale.md) aumentando e riducendo le prestazioni in modo dinamico. Il [livello di servizio con iperscalabilità](sql-database-service-tier-hyperscale.md) (anteprima) per il database singolo consente di ridimensionare fino a 100 TB, con funzionalità di backup e ripristino rapidi.
+- I database singoli sono database isolati dagli altri e portatili, ognuno con una quantità garantita di risorse di calcolo, memoria e archiviazione. Il database SQL offre risorse di calcolo, memoria e archiviazione diverse a seconda delle esigenze e la possibilità di [ridimensionare le risorse dei database singoli](sql-database-single-database-scale.md) aumentando e riducendo le prestazioni in modo dinamico. Il [livello di servizio Hyperscale](sql-database-service-tier-hyperscale.md) (anteprima) per il database singolo consente di ridimensionare fino a 100 TB, con funzionalità di backup e ripristino rapidi.
 - Con i pool elastici, è possibile creare nuovi database o spostare i database singoli in un pool di risorse per ottimizzare l'uso delle risorse, risparmiare denaro e avere la possibilità di [ridimensionare le risorse dei pool elastici](sql-database-elastic-pool-scale.md) aumentando e riducendo le prestazioni in modo dinamico.
 - Con le istanze gestite, ogni istanza è isolata dalle altre con risorse garantite. In un'istanza gestita i database dell'istanza condividono un set di risorse e la possibilità di [ridimensionare le risorse dell'istanza gestita](sql-database-managed-instance-resource-limits.md) aumentando e riducendo le prestazioni in modo dinamico.
 
@@ -67,10 +67,10 @@ La scalabilità dinamica è diversa dalla scalabilità automatica. Con la scalab
 Il database SQL offre due modelli di acquisto:
 
 - Il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) offre un insieme di risorse di calcolo, memoria e risorse di I/O in tre livelli di servizio per supportare carichi di lavoro di database da leggeri a pesanti. Le dimensioni di calcolo di ogni livello forniscono una diversa combinazione di queste risorse, a cui è possibile aggiungere altre risorse di archiviazione.
-- Il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) consente di scegliere il numero di vCore, la quantità di memoria e la quantità e la velocità della risorsa di archiviazione.
+- Il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) consente di scegliere il numero di vCore, la quantità di memoria e la quantità e la velocità della risorsa di archiviazione. Il modello di acquisto basato su vCore offre inoltre la possibilità di usare [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) per un risparmio in termini di costi. Per altre informazioni su Vantaggio Azure Hybrid, vedere le [domande frequenti](#sql-database-frequently-asked-questions-faq).
 
   > [!IMPORTANT]
-  > Il [livello di servizio con iperscalabilità](sql-database-service-tier-hyperscale.md) è attualmente disponibile in anteprima pubblica. Non è ancora consigliabile eseguire carichi di lavoro in database con iperscalabilità. Non è possibile aggiornare un database con iperscalabilità ad altri livelli di servizio. A scopo di test, è consigliabile creare una copia del database corrente e aggiornare la copia al livello di servizio con iperscalabilità.
+  > Il [livello di servizio Hyperscale](sql-database-service-tier-hyperscale.md) per database singoli è attualmente disponibile in anteprima pubblica. Non è ancora consigliabile eseguire carichi di lavoro in database Hyperscale. Non è possibile aggiornare un database Hyperscale ad altri livelli di servizio. A scopo di test, è consigliabile creare una copia del database corrente e aggiornare la copia al livello di servizio Hyperscale.
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>I pool elastici ottimizzano l'utilizzo delle risorse
 
@@ -195,6 +195,41 @@ Il database SQL consente di creare e gestire le applicazioni in modo più facile
   Editor di codice open source, gratuito e scaricabile per Windows, macOS e Linux che supporta le estensioni, tra cui l'[estensione mssql](https://aka.ms/mssql-marketplace), per eseguire query in Microsoft SQL Server, database SQL di Azure e SQL Data Warehouse.
 
 Il database SQL supporta lo sviluppo di applicazioni con Python, Java, Node.js, PHP, Ruby e .NET per le piattaforme MacOS, Linux e Windows. Il database SQL supporta le stesse [librerie di connessione](sql-database-libraries.md) di SQL Server.
+
+## <a name="sql-database-frequently-asked-questions-faq"></a>Domande frequenti sul database SQL
+
+### <a name="what-is-the-current-version-of-sql-database"></a>Qual è la versione corrente del database SQL?
+
+La versione corrente del database SQL è V12. La versione V11 è stata ritirata.
+
+### <a name="can-i-control-when-patching-downtime-occurs"></a>È possibile controllare quando si verificano i tempi di inattività per l'applicazione di patch
+
+ No. L'impatto dell'applicazione di patch non è in genere rilevante se si [impiega la logica di ripetizione dei tentativi](sql-database-develop-overview.md#resiliency) nell'app. Per altre informazioni sulle attività preliminari per gli eventi di manutenzione pianificata nel database SQL di Azure, vedere [Pianificazione di eventi di manutenzione di Azure nel database SQL di Azure](sql-database-planned-maintenance.md).
+
+### <a name="azure-hybrid-benefit-questions"></a>Domande relative a Vantaggio Azure Hybrid
+
+#### <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>Il Vantaggio Azure Hybrid per SQL Server include diritti di doppio uso della licenza?
+
+Si può disporre dei diritti di doppio uso della licenza per 180 giorni, per garantire che le migrazioni vengano eseguite senza problemi. Al termine di questo periodo, la licenza di SQL Server può essere usata solo nel database SQL sul cloud e non prevede diritti di doppio uso in locale e nel cloud.
+
+#### <a name="how-does-azure-hybrid-benefit-for-sql-server-differ-from-license-mobility"></a>Qual è la differenza tra il Vantaggio Azure Hybrid per SQL Server e la mobilità delle licenze?
+
+Microsoft offre oggi ai clienti di SQL Server con Software Assurance vantaggi relativi alla mobilità delle licenze che consentono di riassegnare le licenze a server condivisi di terze parti. Questi vantaggi possono essere usati in IaaS di Azure e EC2 di AWS.
+Il Vantaggio Azure Hybrid per SQL Server differisce dalla mobilità delle licenze per due aspetti principali:
+
+- Offre vantaggi economici per lo spostamento di carichi di lavoro altamente virtualizzati in Azure. I clienti di SQL EE possono ottenere 4 core in Azure nello SKU del livello Utilizzo generico per ogni core posseduto in locale per le applicazioni altamente virtualizzate. La mobilità delle licenze non offre particolari vantaggi economici per lo spostamento di carichi di lavoro virtualizzati nel cloud.
+- Offre una destinazione PaaS in Azure (Istanza gestita di database SQL) altamente compatibile con SQL Server in locale
+
+#### <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>Quali sono i diritti specifici inclusi nel Vantaggio Azure Hybrid per SQL Server?
+
+I clienti di database SQL possono beneficiare dei diritti seguenti associati al Vantaggio Azure Hybrid per SQL Server:
+
+|Footprint di licenza|Che cosa si ottiene con il Vantaggio Azure Hybrid per SQL Server?|
+|---|---|
+|Clienti di SQL Server Enterprise Edition con Software Assurance|<li>Possono pagare la tariffa di base per lo SKU del livello Utilizzo generico o del livello Business Critical</li><br><li>1 core in locale = 4 core nello SKU del livello Utilizzo generico</li><br><li>1 core in locale = 1 core nello SKU del livello Business Critical</li>|
+|Clienti di SQL Server Standard Edition con Software Assurance|<li>Possono pagare la tariffa di base solo per lo SKU del livello Utilizzo generico</li><br><li>1 core in locale = 1 core nello SKU del livello Utilizzo generico</li>|
+|||
+
 
 ## <a name="engage-with-the-sql-server-engineering-team"></a>Comunicare con il team di progettazione di SQL Server
 

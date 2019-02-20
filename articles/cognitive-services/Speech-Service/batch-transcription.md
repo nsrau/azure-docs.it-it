@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: La trascrizione batch è ideale se si desidera trascrivere una grande quantità di audio in un archivio, ad esempio BLOB di Azure. Usando l'API REST dedicata è possibile puntare ai file audio con un URI di firma di accesso condiviso (SAS) e ricevere trascrizioni in modo asincrono.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: bf89180ea98473d2da3495286396a12c6f25288f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0e03c388dac4a70fc45150287154406551ac2672
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228662"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867121"
 ---
 # <a name="why-use-batch-transcription"></a>Perché usare la trascrizione batch?
 
@@ -49,7 +49,7 @@ L'API di trascrizione batch supporta i formati seguenti:
 > [!NOTE]
 > L'API di trascrizione batch richiede una chiave S0 (livello di pagamento). Non funziona con una chiave (f0) gratuita.
 
-Per i flussi audio stereo, l'API di trascrizione batch divide i canali sinistro e destro durante la trascrizione. I due file JSON con il risultato vengono creati ognuno da un singolo canale. I timestamp per espressione consentono allo sviluppatore di creare una trascrizione finale ordinata. L'esempio JSON seguente illustra l'output di un canale, incluse le proprietà per impostare il filtro per le espressioni volgari e il modello di punteggiatura.
+Per i flussi audio stereo, l'API di trascrizione batch divide i canali sinistro e destro durante la trascrizione. I due file JSON con il risultato vengono creati ognuno da un singolo canale. I timestamp per espressione consentono allo sviluppatore di creare una trascrizione finale ordinata. L'esempio JSON seguente illustra una richiesta campione, incluse le proprietà per impostare il filtro per le espressioni volgari, il modello di punteggiatura e i timestamp a livello di parola
 
 ```json
 {
@@ -60,7 +60,8 @@ Per i flussi audio stereo, l'API di trascrizione batch divide i canali sinistro 
   "description": "An optional description of the transcription.",
   "properties": {
     "ProfanityFilterMode": "Masked",
-    "PunctuationMode": "DictatedAndAutomatic"
+    "PunctuationMode": "DictatedAndAutomatic",
+    "AddWordLevelTimestamps" : "True"
   },
 ```
 
@@ -208,7 +209,7 @@ Attualmente è supportata solo l'archiviazione BLOB di Azure.
 È possibile trovare l'esempio in questo articolo su [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
 > [!NOTE]
-> Una trascrizione audio richiede in genere un intervallo di tempo uguale alla durata del file audio, più due o tre minuti.
+> Non è previsto un contratto di servizio per le tempistiche delle trascrizioni audio tramite batch. Tuttavia, al termine della messa in atto del processo di trascrizione (in stato In esecuzione), l'elaborazione è più veloce rispetto al tempo reale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

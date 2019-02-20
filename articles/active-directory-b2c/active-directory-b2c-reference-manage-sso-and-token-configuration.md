@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 2ef37e9661139b0b1d24ddc005df7bf338397803
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c0f5be7fd77ae195b66f8a8fb052ab8573d48171
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163807"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55856360"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gestire la personalizzazione di token e SSO con criteri personalizzati in Azure Active Directory B2C
 
@@ -52,7 +52,18 @@ Nell'esempio precedente vengono impostati i valori seguenti.
 - **Durata del token di aggiornamento**: il valore di durata del token di aggiornamento viene impostato con l'elemento dei metadati **refresh_token_lifetime_secs**. Il valore predefinito è 1209600 secondi (14 giorni).
 - **Durata della finestra temporale scorrevole del token di aggiornamento**: per impostare una durata della finestra temporale scorrevole per il token di aggiornamento, impostare il valore dell'elemento dei metadati **rolling_refresh_token_lifetime_secs**. Il valore predefinito è 7776000 giorni (90 giorni). Se non si vuole applicare una durata della finestra temporale scorrevole, sostituire l'elemento con `<Item Key="allow_infinite_rolling_refresh_token">True</Item>`.
 - **Attestazione autorità di certificazione (iss)**: l'attestazione dell'autorità di certificazione (iss) viene impostata con l'elemento dei metadati **IssuanceClaimPattern**. I valori applicabili sono `AuthorityAndTenantGuid` e `AuthorityWithTfp`.
-- **Impostazione dell'attestazione che rappresenta l'ID criteri**: per impostare questo valore sono disponibili le opzioni `TFP` (criteri del framework attendibilità) e `ACR` (riferimento al contesto di autenticazione). Il valore consigliato è `TFP`. Impostare **AuthenticationContextReferenceClaimPattern** con il valore `None`. In **OutputClaims** aggiungere questo elemento:
+- **Impostazione dell'attestazione che rappresenta l'ID criteri**: per impostare questo valore sono disponibili le opzioni `TFP` (criteri del framework attendibilità) e `ACR` (riferimento al contesto di autenticazione). Il valore consigliato è `TFP`. Impostare **AuthenticationContextReferenceClaimPattern** con il valore `None`. 
+
+    Nell'elemento **ClaimsSchema**, aggiungere l'elemento seguente: 
+    
+    ```XML
+    <ClaimType Id="trustFrameworkPolicy">
+      <DisplayName>Trust framework policy name</DisplayName>
+      <DataType>string</DataType>
+    </ClaimType>
+    ```
+    
+    Nell'elemento **OutputClaims** aggiungere questo elemento:
     
     ```XML
     <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />

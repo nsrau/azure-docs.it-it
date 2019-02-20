@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Nuclino | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Nuclino | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Nuclino.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 1a5346b98de48b1a2f8928c3c2bf30730588e9c1
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 655ac490e528680f779eeca54899a022ddf3b89a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43145707"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189557"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-nuclino"></a>Esercitazione: Integrazione di Azure Active Directory con Nuclino
+# <a name="tutorial-azure-active-directory-integration-with-nuclino"></a>Esercitazione: integrazione di Azure Active Directory con Nuclino
 
 Questa esercitazione descrive come integrare Nuclino con Azure Active Directory (Azure AD).
 
@@ -229,7 +230,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 Questa sezione descrive come creare un utente chiamato Britta Simon in Nuclino. Nuclino supporta il provisioning JIT, abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Nuclino viene creato un nuovo utente, se questo non esiste già.
 
 > [!Note]
-> Se è necessario creare un utente manualmente, contattare il [team di supporto di Nuclino](mailto:contact@nuclino.com).
+> Per creare un utente manualmente, contattare il  [team di supporto di Nuclino](mailto:contact@nuclino.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -266,7 +267,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Nuclino nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Nuclino.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

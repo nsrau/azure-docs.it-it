@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 366637274a8006455f05702f47c02f505a615820
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: ac88bc95ac9ffe4c2f32307b0bee427829242add
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063234"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234680"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Scegliere il piano tariffario corretto in Mappe di Azure
 
@@ -30,19 +30,22 @@ I piani tariffari S0 e S1 possono gestire diverse quantità di velocità effetti
 | Funzionalità                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
 | Ricerca                                  |        ✓           |     ✓    |
+| Geocodifica batch (anteprima)              |                   |     ✓    |
+| Poligoni dalla ricerca          |                   |     ✓    |
 | Routing.                                 |        ✓           |     ✓    |
+| Intervallo di route                    |                   |     ✓    |
+| Routing batch (anteprima)                |                   |     ✓    |
+| Routing di matrici (anteprima)               |                   |     ✓    |
 | Rendering                                  |        ✓           |     ✓    |
+| Immagini più immagini ibride    |            |     ✓    |
 | Traffico                                 |        ✓           |     ✓    |
 | Fusi orari                              |        ✓           |     ✓    |
-| *Immagini più immagini ibride (anteprima)  |        ✓           |     ✓    |
-| *Intervallo di percorso (anteprima)                  |        ✓           |     ✓    |
-| *Posizione IP 2 (anteprima)                |        ✓           |     ✓    |
-| *Poligoni dalla ricerca (anteprima)         |        ✓           |     ✓    |
-| *Geocodifica batch (anteprima)              |        ✓           |     ✓    |
-| *Routing batch (anteprima)                |        ✓           |     ✓    |
-| *Routing di matrici (anteprima)               |        ✓           |     ✓    |
+| Georilevazione (anteprima)                |        ✓           |     ✓    |
+| Dati (anteprima)               |                   |     ✓    |
+| Spaziale (anteprima)               |                   |     ✓    |
+| Geofencing (anteprima)               |                   |     ✓    |
 
-\* L'accesso a queste funzionalità dal piano tariffario S0 verrà deprecato dopo il 4 febbraio 2019.
+
 
 Risulta opportuno prendere in considerazione i seguenti punti dati aggiuntivi:
 * Qual è il tipo di azienda?

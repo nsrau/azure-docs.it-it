@@ -11,19 +11,19 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ea7f32a08a6a183bac21436e7d58afe10c4d7b20
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: db82c109e6ae807addafd4d188a24609c4066cd9
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756649"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100675"
 ---
 # <a name="azure-sql-database-servers-and-their-management"></a>Server di database SQL di Azure e relativa gestione
 
 ## <a name="what-is-an-azure-sql-database-server"></a>Informazioni sul server di database SQL di Azure
 
-Un server di database SQL è un costrutto logico che funge da punto amministrativo centrale per più database autonomi o [in pool](sql-database-elastic-pool.md), [account di accesso](sql-database-manage-logins.md), [regole del firewall](sql-database-firewall-configure.md), [regole di controllo](sql-database-auditing.md), [criteri di rilevamento delle minacce](sql-database-threat-detection.md) e [gruppi di failover](sql-database-auto-failover-group.md). Un server di database SQL può essere situato in un'area diversa rispetto a quella del relativo gruppo di risorse. Il server di database SQL deve esistere prima di poter creare il database SQL di Azure. Tutti i database gestiti da un server di database SQL vengono creati nella stessa area del server di database SQL.
+Un server di database SQL è un costrutto logico che funge da punto amministrativo centrale per singoli database multipli o [in pool](sql-database-elastic-pool.md), [account di accesso](sql-database-manage-logins.md), [regole del firewall](sql-database-firewall-configure.md), [regole di controllo](sql-database-auditing.md), [criteri di rilevamento delle minacce](sql-database-threat-detection.md) e [gruppi di failover](sql-database-auto-failover-group.md). Un server di database SQL può essere situato in un'area diversa rispetto a quella del relativo gruppo di risorse. Il server di database SQL deve esistere prima di poter creare il database SQL di Azure. Tutti i database gestiti da un server di database SQL vengono creati nella stessa area del server di database SQL.
 
 Un server di database SQL è diverso da un'istanza di SQL Server a cui si può essere abituati nell'ambiente locale. In particolare, il servizio del database SQL non fornisce alcuna garanzia sulla posizione dei database in relazione al server di database SQL che li gestisce e non espone funzionalità o accessi a livello di istanza. Al contrario, i database dell'istanza in un'istanza gestita condividono la stessa posizione, nello stesso modo in cui si è abituati con SQL Server nell'ambiente locale.
 
@@ -189,5 +189,5 @@ Per creare e gestire server, database e firewall SQL di Azure, usare queste rich
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sulla migrazione di un database SQL Server in Azure, vedere [Migrazione al database SQL di Azure](sql-database-cloud-migrate.md).
+- Per altre informazioni sulla migrazione di un database SQL Server in Azure, vedere [Migrazione al database SQL di Azure](sql-database-single-database-migrate.md).
 - Per informazioni sulle funzionalità supportate, vedere [Azure SQL Database features](sql-database-features.md) (Funzioni del database SQL di Azure).

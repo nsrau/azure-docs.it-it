@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: iainfou
-ms.openlocfilehash: a7a7c8a6f16183d677aeb09ca62ac601cbd01289
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 2366bd5543a7c3ee4a45eff74f71232a9c60989f
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694041"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098537"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -60,7 +60,7 @@ Se si creano risorse che verranno usate con il cluster servizio Azure Kubernetes
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>È possibile modificare i tag e le altre proprietà delle risorse del servizio Azure Kubernetes nel gruppo di risorse MC_*?
 
-La modifica e l'eliminazione di tag creati da Azure e altre proprietà delle risorse nel gruppo di risorse *MC_** può causare risultati imprevisti, ad esempio un ridimensionamento o errori di aggiornamento. È supportata la creazione e la modifica di tag personalizzati aggiuntivi, ad esempio per assegnare una Business Unit o un centro di costo. La modifica delle risorse nel gruppo *MC_** del cluster del servizio Azure Kubernetes è una violazione dell'obiettivo del livello di servizio (SLO).
+La modifica e l'eliminazione di tag creati da Azure e altre proprietà delle risorse nel gruppo di risorse *MC_** può causare risultati imprevisti, ad esempio un ridimensionamento o errori di aggiornamento. È supportata la creazione e la modifica di tag personalizzati aggiuntivi, ad esempio per assegnare una Business Unit o un centro di costo. La modifica delle risorse nel gruppo *MC_** del cluster del servizio Azure Kubernetes è una violazione dell'obiettivo del livello di servizio (SLO). Per altre informazioni, vedere [Servizio Azure Kubernetes offre un contratto di servizio?](#does-aks-offer-a-service-level-agreement)
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Quali controller di ammissione Kubernetes supporta servizio Azure Kubernetes? È possibile aggiungere o rimuovere i controller di ammissione?
 

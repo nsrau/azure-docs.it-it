@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: f8cac174844d7f87687d08975b6fbf17ed47b03e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 7c391e84f335e013ce1914063ccec75ba20f8685
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543292"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980092"
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Gestire gli avvisi relativi alla manutenzione pianificata per le macchine virtuali Windows
 
@@ -77,12 +77,14 @@ La manutenzione self-service non è consigliata per distribuzioni che usano **se
 
 ## <a name="check-maintenance-status-using-powershell"></a>Controllare lo stato della manutenzione con PowerShell
 
-È anche possibile usare Azure Powershell per vedere quando è pianificata la manutenzione delle diverse macchine virtuali. Le informazioni sulla manutenzione pianificata sono disponibili con il cmdlet [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm), usando il parametro `-status`.
+È anche possibile usare Azure Powershell per vedere quando è pianificata la manutenzione delle diverse macchine virtuali. Le informazioni sulla manutenzione pianificata sono disponibili con il cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm), usando il parametro `-status`.
  
 Le informazioni vengono restituite solo se è presente una manutenzione pianificata. Se non è presente alcuna manutenzione pianificata per la macchina virtuale, il cmdlet non restituisce informazioni. 
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ```powershell
-Get-AzureRmVM -ResourceGroupName rgName -Name vmName -Status
+Get-AzVM -ResourceGroupName rgName -Name vmName -Status
 ```
 
 MaintenanceRedeployStatus restituisce le proprietà seguenti: 
@@ -97,10 +99,10 @@ MaintenanceRedeployStatus restituisce le proprietà seguenti:
 
 
 
-È anche possibile ottenere lo stato di manutenzione per tutte le macchine virtuali in un gruppo di risorse tramite [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm), senza specificare una macchina virtuale.
+È anche possibile ottenere lo stato di manutenzione per tutte le macchine virtuali in un gruppo di risorse tramite [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm), senza specificare una macchina virtuale.
  
 ```powershell
-Get-AzureRmVM -ResourceGroupName rgName -Status
+Get-AzVM -ResourceGroupName rgName -Status
 ```
 
 La funzione seguente di PowerShell accetta l'ID sottoscrizione e visualizza un elenco di macchine virtuali per le quali è stata pianificata la manutenzione.
@@ -109,18 +111,18 @@ La funzione seguente di PowerShell accetta l'ID sottoscrizione e visualizza un e
 
 function MaintenanceIterator
 {
-    Select-AzureRmSubscription -SubscriptionId $args[0]
+    Select-AzSubscription -SubscriptionId $args[0]
 
-    $rgList= Get-AzureRmResourceGroup 
+    $rgList= Get-AzResourceGroup 
 
     for ($rgIdx=0; $rgIdx -lt $rgList.Length ; $rgIdx++)
     {
         $rg = $rgList[$rgIdx]        
-    $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
+    $vmList = Get-AzVM -ResourceGroupName $rg.ResourceGroupName 
         for ($vmIdx=0; $vmIdx -lt $vmList.Length ; $vmIdx++)
         {
             $vm = $vmList[$vmIdx]
-            $vmDetails = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName -Name $vm.Name -Status
+            $vmDetails = Get-AzVM -ResourceGroupName $rg.ResourceGroupName -Name $vm.Name -Status
               if ($vmDetails.MaintenanceRedeployStatus )
             {
                 Write-Output "VM: $($vmDetails.Name)  IsCustomerInitiatedMaintenanceAllowed: $($vmDetails.MaintenanceRedeployStatus.IsCustomerInitiatedMaintenanceAllowed) $($vmDetails.MaintenanceRedeployStatus.LastOperationMessage)"               
@@ -136,7 +138,7 @@ function MaintenanceIterator
 Usando le informazioni derivate dalla funzione nella sezione precedente, il codice seguente avvia la manutenzione in una macchina virtuale se **IsCustomerInitiatedMaintenanceAllowed** è impostato su true.
 
 ```powershell
-Restart-AzureRmVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.ResourceGroupName 
+Restart-AzVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.ResourceGroupName 
 ```
 
 ## <a name="classic-deployments"></a>Distribuzioni classiche

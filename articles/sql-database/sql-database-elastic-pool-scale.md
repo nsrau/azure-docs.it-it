@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 310d662782ff7d9713007b59f0d9b75620a03f5f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 426c090a79931f252a5daeacbdd83d0238ecf672
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455100"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868116"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Ridimensionare le risorse dei pool elastici nel database SQL di Azure
 
@@ -27,8 +27,8 @@ Questo articolo illustra come ridimensionare le risorse di calcolo e di archivia
 
 - Il provisioning dell'archiviazione può essere effettuato fino al limite massimo di dimensioni:
 
-  - Per l'archiviazione Standard, aumentare o diminuire la dimensione in base a incrementi di 10 GB
-  - Per l'archiviazione Premium, aumentare o diminuire la dimensione in base a incrementi di 250 GB
+  - Per l'archiviazione nei livelli di servizio per utilizzo generico o standard, aumentare o ridurre le dimensioni in incrementi di 10 GB
+  - Per l'archiviazione nei livelli di servizio premium o business critical, aumentare o ridurre le dimensioni in incrementi di 250 GB
 - Il provisioning dell'archiviazione per un pool elastico può essere effettuato aumentandone o diminuendone le dimensioni massime.
 - Il prezzo dell'archiviazione per un pool elastico corrisponde alle dimensioni di archiviazione moltiplicate per il prezzo unitario dell'archiviazione del livello di servizio. Per informazioni dettagliate sul prezzo delle risorse di archiviazione extra, vedere [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 

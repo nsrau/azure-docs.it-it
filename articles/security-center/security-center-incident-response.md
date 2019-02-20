@@ -4,7 +4,7 @@ description: Questo documento illustra come usare il Centro sicurezza di Azure p
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 8af12f1c-4dce-4212-8ac4-170d4313492d
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 684098dd2780e827ccc74b7fbbb16a2be75fa3e1
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 99bfab5a5f80fc0a49c7cc6405154394391f43e0
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619878"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114298"
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Uso del Centro sicurezza di Azure per rispondere a un evento imprevisto
 Molte organizzazioni imparano a rispondere agli eventi imprevisti della sicurezza solo dopo aver subito un attacco. Per ridurre i costi e i danni è importante implementare un piano di risposta agli eventi imprevisti prima di un attacco. Centro sicurezza di Azure può essere usato nelle diverse fasi della risposta agli eventi imprevisti.
@@ -84,7 +84,7 @@ Alice ha effettuato l'accesso al portale di Azure e si trova nella console del C
    > Ai fini di questo scenario, Alice eseguirà la valutazione dell'avviso riguardante attività SQL dannose, come illustrato nella figura precedente.
    >
    >
-2. Fare clic sull'avviso **Malicious SQL Activity** (Attività SQL dannosa) ed esaminare le risorse che hanno subito l'attacco nel pannello **Malicious SQL Activity** (Attività SQL dannosa): ![Dettagli dell'evento imprevisto](./media/security-center-incident-response/security-center-incident-response-fig5.png)
+2. Fare clic sull'avviso **Malicious SQL Activity** (Attività SQL dannosa) ed esaminare le risorse che hanno subito l'attacco nel pannello **Malicious SQL Activity** (Attività SQL dannosa):  ![Dettagli dell'evento imprevisto](./media/security-center-incident-response/security-center-incident-response-fig5.png)
 
     In questo pannello Alice può vedere le risorse che hanno subito l'attacco, quante volte si è verificato l'attacco e quando è stato rilevato.
 3. Fare clic sulla **risorsa che ha subito l'attacco** per ottenere altre informazioni sull'attacco.

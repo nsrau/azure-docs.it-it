@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 032b39846d19e34f2eb87c1311feeb4bb890cb24
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5a0d02768b0fbd23e33d13c5e5c3fe84a41cdc52
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467459"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243655"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorare Sincronizzazione file di Azure
 
@@ -29,7 +29,7 @@ Nel portale di Azure, è possibile visualizzare lo stato di integrità dei serve
 
 ### <a name="storage-sync-service"></a>Servizio di sincronizzazione archiviazione
 
-Per visualizzare il server registrato e lo stato di integrità dell'endpoint server, passare al servizio di sincronizzazione archiviazione nel portale di Azure. L'integrità del server registrato è visualizzabile nel pannello del server registrato. Lo stato di integrità dell'endpoint server è visualizzabile nel pannello dei gruppi di sincronizzazione.
+Per visualizzare lo stato di integrità del server registrato, lo stato di integrità dell'endpoint server e le metriche, passare a Servizi di sincronizzazione archiviazione nel portale di Azure. L'integrità del server registrato è visualizzabile nel pannello del server registrato. Lo stato di integrità dell'endpoint server è visualizzabile nel pannello dei gruppi di sincronizzazione.
 
 Integrità del server registrato
 - Se lo stato del server registrato è online, il server comunica correttamente con il servizio.
@@ -38,6 +38,23 @@ Integrità del server registrato
 Integrità dell'endpoint server
 - L'integrità dell'endpoint server nel portale si basa sugli eventi di sincronizzazione che vengono registrati nel registro eventi di telemetria nel server (ID 9102 e 9302). Se una sessione di sincronizzazione non riesce a causa di un errore temporaneo (ad esempio, errore annullato), la sincronizzazione potrebbe risultare ancora integra nel portale, purché la sessione di sincronizzazione corrente sia in stato di avanzamento (l'evento ID 9302 viene usato per determinare se vengono applicati file). Per altre informazioni, vedere la documentazione seguente: [Integrità di sincronizzazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) & [Stato sincronizzazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 - Se il portale mostra un errore di sincronizzazione a causa del mancato stato di avanzamento della sincronizzazione, consultare la [Documentazione sulla risoluzione dei problemi](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) per informazioni.
+
+Metriche
+- Nel portale di Servizi di sincronizzazione archiviazione possono essere visualizzate le metriche seguenti:
+
+  | Nome metrica | DESCRIZIONE | Pannello/i portale | 
+  |-|-|-|
+  | Byte sincronizzati | Dimensioni dei dati trasferiti (caricamento e scaricamento) | Gruppo di sincronizzazione, Endpoint server |
+  | Richiamo cloud a livelli | Dimensione dei dati richiamati | Server registrati |
+  | File non sincronizzati | Numero di file che non è possibile sincronizzare | Endpoint server |
+  | File sincronizzati | Numero di file trasferiti (caricamento e scaricamento) | Gruppo di sincronizzazione, Endpoint server |
+  | Stato online del server | Numero di heartbeat ricevuti dal server | Server registrati |
+
+- Per altre informazioni, vedere la sezione [Monitoraggio di Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#azure-monitor). 
+
+  > [!Note]  
+  > I grafici nel portale di Servizi di sincronizzazione archiviazione sono basati su un intervallo di tempo di 24 ore. Per visualizzare dimensioni o intervalli di tempo diversi, usare Monitoraggio di Azure.
+
 
 ### <a name="azure-monitor"></a>Monitoraggio di Azure
 
@@ -52,8 +69,8 @@ Le metriche seguenti per la Sincronizzazione file di Azure sono disponibili in M
 | Byte sincronizzati | Dimensioni dei dati trasferiti (caricamento e scaricamento).<br><br>Unità: Byte<br>Tipo di aggregazione: Somma<br>Dimensioni applicabili: Nome dell'endopoint server, direzione sincronizzazione, nome gruppo di sincronizzazione |
 | Richiamo cloud a livelli | Dimensioni dei dati richiamati.<br><br>Unità: Byte<br>Tipo di aggregazione: Somma<br>Dimensioni applicabili: Server Name |
 | File non sincronizzati | Numero di file che non è possibile sincronizzare.<br><br>Unità: Conteggio<br>Tipo di aggregazione: Somma<br>Dimensioni applicabili: Nome dell'endopoint server, direzione sincronizzazione, nome gruppo di sincronizzazione |
-| File sincronizzati | Numero di file caricati e scaricati.<br><br>Unità: Conteggio<br>Tipo di aggregazione: Somma<br>Dimensioni applicabili: Nome dell'endopoint server, direzione sincronizzazione, nome gruppo di sincronizzazione |
-| Heartbeat server | Numero di heartbeat ricevuti dal server.<br><br>Unità: Conteggio<br>Tipo di aggregazione: Massima<br>Dimensioni applicabili: Server Name |
+| File sincronizzati | Numero di file trasferiti (caricamento e scaricamento)<br><br>Unità: Conteggio<br>Tipo di aggregazione: Somma<br>Dimensioni applicabili: Nome dell'endopoint server, direzione sincronizzazione, nome gruppo di sincronizzazione |
+| Stato online del server | Numero di heartbeat ricevuti dal server.<br><br>Unità: Conteggio<br>Tipo di aggregazione: Massima<br>Dimensioni applicabili: Server Name |
 | Risultato della sessione di sincronizzazione | Risultato della sessione di sincronizzazione (1 = sessione di sincronizzazione con esito positivo; 0 = sessione di sincronizzazione con esito negativo)<br><br>Unità: Conteggio<br>Tipi di aggregazione: Massima<br>Dimensioni applicabili: Nome dell'endopoint server, direzione sincronizzazione, nome gruppo di sincronizzazione |
 
 ## <a name="windows-server"></a>Windows Server
@@ -86,7 +103,7 @@ Integrità del cloud a livelli
 
   - L'ID evento 9005 offre affidabilità di richiamo per un endpoint server. Ad esempio, numero totale di file univoci a cui si ha avuto accesso, numero totale di file univoci con accessi non riusciti e così via.
   - L'ID evento 9006 fornisce inoltre la distribuzione di un errore di richiamo per un endpoint server. Ad esempio, Totale richieste non riuscite, ErrorCode e così via. Si noti che per ogni codice di errore viene registrato un evento.
-  - L'ID evento 9009 fornisce informazioni sulla sessione di ghosting per un endpoint server. Ad esempio, DurationSeconds, CountFilesRecallSucceeded, CountFilesRecallFailed, e così via.
+  - L'ID evento 9009 fornisce informazioni sulla sessione di richiamo per un endpoint server. Ad esempio, DurationSeconds, CountFilesRecallSucceeded, CountFilesRecallFailed e così via.
   - L'ID evento 9059 fornisce la distribuzione di richiamo delle applicazioni per un endpoint server. Ad esempio, ShareId, nome dell'applicazione e TotalEgressNetworkBytes.
 
 ### <a name="performance-counters"></a>Contatori delle prestazioni

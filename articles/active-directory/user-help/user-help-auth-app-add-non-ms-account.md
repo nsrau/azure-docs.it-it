@@ -11,12 +11,13 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: afcac73af84010f37eccd018f39852712e495b84
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 714a78c436b7071717e2df12c2a65999920f8c63
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55772231"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56192133"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>Aggiungere gli account non Microsoft
 Aggiungere gli account non Microsoft, ad esempio per Google, Facebook o GitHub, all'app Microsoft Authenticator per la verifica a due fattori. L'app Microsoft Authenticator funziona con qualsiasi app che usa la verifica a due fattori e qualsiasi account che supporta gli standard di password monouso basate sul tempo (Time-Based One-Time Passwords, TOTP).
@@ -55,7 +56,7 @@ Per aggiungere l'account Google attivare la verifica a due fattori e quindi aggi
 4. Usare la fotocamera del dispositivo per eseguire la scansione del codice a matrice dalla pagina **Configura Authenticator** nel PC.
 
     >[!Note]
-    >Se la fotocamera non funziona correttamente, è possibile [immettere manualmente il codice a matrice e l'URL](#add-an-account-to-the-app-manually).
+    >Se la fotocamera non funziona correttamente, è possibile immettere manualmente il codice a matrice e l'URL.
 
 5. Rivedere la pagina **Account** dell'app Microsoft Authenticator nel dispositivo per assicurarsi che le informazioni dell'account siano corrette e che quest'ultimo sia associato a un codice di verifica a sei cifre.
 
@@ -94,7 +95,7 @@ Per aggiungere l'account Facebook attivare la verifica a due fattori e quindi ag
 3. Usare la fotocamera del dispositivo per eseguire la scansione del codice a matrice dalla pagina **Autenticazione a due fattori** nel PC.
 
     >[!Note]
-    >Se la fotocamera non funziona correttamente, è possibile [immettere manualmente il codice a matrice e l'URL](#add-an-account-to-the-app-manually).
+    >Se la fotocamera non funziona correttamente, è possibile immettere manualmente il codice a matrice e l'URL.
 
 4. Rivedere la pagina **Account** dell'app Microsoft Authenticator nel dispositivo per assicurarsi che le informazioni dell'account siano corrette e che quest'ultimo sia associato a un codice di verifica a sei cifre.
 
@@ -165,7 +166,7 @@ Aggiungere l'account Amazon attivando la verifica a due fattori e quindi aggiung
 6. Usare la fotocamera del dispositivo per eseguire la scansione del codice a matrice dalla pagina **Scegli come ricevere i codici** sul PC.
 
     >[!Note]
-    >Se la fotocamera non funziona correttamente, è possibile [immettere manualmente il codice a matrice e l'URL](#add-an-account-to-the-app-manually).
+    >Se la fotocamera non funziona correttamente, è possibile immettere manualmente il codice a matrice e l'URL.
 
 5. Rivedere la pagina **Account** dell'app Microsoft Authenticator nel dispositivo per assicurarsi che le informazioni dell'account siano corrette e che quest'ultimo sia associato a un codice di verifica a sei cifre.
 

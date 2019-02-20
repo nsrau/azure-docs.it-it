@@ -12,12 +12,13 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes
-ms.openlocfilehash: 18cd96c87f294f1dd8e62f41dd759558c2013aa0
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: aad699df2de8b745058784790e672f5b8c6e98e9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241669"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209745"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedura: Personalizzare le attestazioni generate nei token per un'app specifica in un tenant (anteprima)
 
@@ -243,7 +244,7 @@ Per controllare quali attestazioni vengono generate e da quali origini provengon
 
 **Stringa:** IncludeBasicClaimSet
 
-**Tipo di dati:** booleano (True o False)
+**Tipo di dati:** Booleano (true o false)
 
 **Riepilogo:** questa proprietà specifica se il set di attestazioni di base sia incluso nei token interessati da questo criterio. 
 
@@ -274,7 +275,7 @@ Impostare l'elemento Source su uno dei valori seguenti:
 - "application": i dati nell'attestazione sono una proprietà dell'entità servizio application (client). 
 - "resource": i dati nell'attestazione sono una proprietà dell'entità servizio resource.
 - "audience": i dati nell'attestazione sono una proprietà dell'entità servizio che corrisponde al destinatario del token (entità servizio resource o client).
-- "company": i dati nell'attestazione sono una proprietà dell'oggetto company del tenant delle risorse.
+- “company”: i dati nell'attestazione sono una proprietà dell'oggetto company del tenant delle risorse.
 - "transformation": i dati nell'attestazione derivano dalla trasformazione delle attestazioni. Vedere la sezione "Trasformazione delle attestazioni" più avanti in questo articolo.
 
 Se l'origine è transformation, anche l'elemento **TransformationID** deve essere incluso in questa definizione di attestazione.
@@ -283,7 +284,7 @@ L'elemento ID identifica la proprietà dell'origine che indica il valore per l'a
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabella 3: Valori di ID validi per ogni Source
 
-|Sorgente|ID|DESCRIZIONE|
+|Source (Sorgente)|ID|DESCRIZIONE|
 |-----|-----|-----|
 |Utente|surname|Cognome|
 |Utente|givenname|Nome|
@@ -383,7 +384,7 @@ In base al metodo scelto è previsto un set di input e output. Definire gli inpu
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabella 5: Attributi consentiti come origine dati per NameID di SAML
 
-|Sorgente|ID|DESCRIZIONE|
+|Source (Sorgente)|ID|DESCRIZIONE|
 |-----|-----|-----|
 |Utente|mail|Indirizzo di posta elettronica|
 |Utente|userprincipalname|Nome dell'entità utente|
@@ -447,7 +448,7 @@ Per iniziare, seguire questa procedura:
         Get-AzureADPolicy
     
     ```
-#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Esempio: creare e assegnare un criterio per omettere le attestazioni di base dai token emessi per un'entità servizio.
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Esempio: Creare e assegnare un criterio per omettere le attestazioni di base dai token emessi per un'entità servizio.
 In questo esempio si creano criteri che rimuovono il set di attestazioni di base dai token emessi per le entità servizio collegate.
 
 1. Creare i criteri di mapping delle attestazioni. Questi criteri, che vengono collegati a specifiche entità servizio, rimuovono il set di attestazioni di base dai token.
@@ -469,7 +470,7 @@ In questo esempio si creano criteri che rimuovono il set di attestazioni di base
     Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
     ```
 
-#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Esempio: creare e assegnare un criterio per includere EmployeeID e TenantCountry come attestazioni nei token emessi per un'entità servizio
+#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Esempio: Creare e assegnare un criterio per includere EmployeeID e TenantCountry come attestazioni nei token emessi per un'entità servizio
 
 In questo esempio si creano criteri che aggiungono EmployeeID e TenantCountry ai token emessi per le entità servizio collegate. EmployeeID viene emesso come tipo di attestazione nome sia nei token SAML sia nei token JWT. TenantCountry viene emesso come tipo di attestazione paese sia nei token SAML sia nei token JWT. In questo esempio si continua a includere il set di attestazioni di base nei token.
 
@@ -493,7 +494,7 @@ In questo esempio si creano criteri che aggiungono EmployeeID e TenantCountry ai
     Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
     ```
 
-#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Esempio: creare e assegnare i criteri con una trasformazione di attestazioni in token emessi per un'entità servizio
+#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Esempio: Creare e assegnare i criteri con una trasformazione di attestazioni in token emessi per un'entità servizio
 
 In questo esempio si creano i criteri che generano un'attestazione personalizzata "JoinedData" nei token JWT emessi per le entità servizio collegate. Questa attestazione contiene un valore creato aggiungendo i dati archiviati nell'attributo extensionattribute1 all'oggetto utente con ".sandbox". In questo esempio si esclude il set di attestazioni di base nei token.
 

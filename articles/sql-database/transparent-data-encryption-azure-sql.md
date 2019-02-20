@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/22/2019
-ms.openlocfilehash: 7b1d58b82f2ccc99ecacb6099f6063fba5899421
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/11/2019
+ms.openlocfilehash: 8fb7ea1841d788c1d8e7809a0641140228fd2ea5
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478458"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233157"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent Data Encryption per il database SQL e Data Warehouse
 
@@ -40,15 +40,14 @@ Microsoft inoltre sposta e gestisce le chiavi senza problemi in base alle esigen
 > [!IMPORTANT]
 > Tutti i nuovi database SQL vengono crittografati per impostazione predefinita tramite TDE gestita del servizio. I database di Istanza gestita di database SQL di Azure, i database SQL esistenti prima di maggio 2017 e i database SQL creati tramite il ripristino, la replica geografica e la copia di database non sono crittografati per impostazione predefinita.
 
-## <a name="bring-your-own-key"></a>BYOK (Bring Your Own Key)
+## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>Transparent Data Encryption gestita dal cliente: Bring Your Own Key
 
-Con il supporto Bring Your Own Key, è possibile controllare le proprie chiavi di TDE, chi può accedervi e quando. Key Vault, il sistema di Azure di gestione chiavi esterne basato sul cloud, è il primo servizio di gestione delle chiavi che TDE ha integrato con il supporto per Bring Your Own Key. Con il supporto Bring Your Own Key, la chiave di crittografia del database è protetta da una chiave asimmetrica archiviata in Key Vault. La chiave asimmetrica non si discosta mai da Key Vault. Una volta che il server ha le autorizzazioni per un insieme di credenziali delle chiavi, il server gli invia tramite Key Vault le richieste di operazione di base della chiave. Se la chiave asimmetrica è impostata a livello di server tutti i database *crittografati* in tale server la ereditano.
+La [crittografia TDE con chiavi gestite dal cliente in Azure Key Vault](transparent-data-encryption-byok-azure-sql.md) consente di crittografare la chiave DEK (Database Encryption Key) con una chiave asimmetrica gestita dal cliente chiamata protezione TDE.  La protezione TDE è archiviata in un'istanza di [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), il sistema di gestione delle chiavi esterne basato sul cloud di Azure, che viene gestita dal cliente ed è di sua proprietà. La chiave DEK della crittografia TDE, archiviata nella pagina di avvio di un database, viene crittografata e decrittografata dalla protezione TDE, che rimane archiviata in modo permanente nell'insieme di credenziali delle chiavi in Azure Key Vault.  Per decrittografare e crittografare la chiave DEK, il database SQL deve possedere le autorizzazioni di accesso all'insieme di credenziali delle chiavi del cliente. Se le autorizzazioni del server SQL per l'insieme di credenziali delle chiavi vengono revocate, un database non è accessibile e tutti i dati rimangono crittografati. Per il database SQL di Azure, la protezione TDE è impostata a livello di server logico SQL e viene ereditata da tutti i database associati al server. Per l'[istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance), la protezione TDE è impostata a livello di istanza e viene ereditata da tutti i database *crittografati* nell'istanza. Salvo diversa indicazione, in questo documento il termine *server* fa riferimento sia al server che all'istanza.
 
-Con il supporto Bring Your Own Key, è possibile controllare le attività di gestione delle chiavi, ad esempio le rotazioni delle chiavi e le autorizzazioni dell'insieme di credenziali delle chiavi. È anche possibile eliminare le chiavi e abilitare il controllo o il reporting di tutte le chiavi di crittografia. Key Vault offre una gestione centrale delle chiavi e usa moduli di protezione hardware accuratamente monitorati. Key Vault porta a un nuovo livello la separazione della gestione delle chiavi e dei dati per consentire il rispetto della conformità alle normative. Per altre informazioni sugli insiemi di credenziali delle chiavi, vedere [Pagina di documentazione di Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault).
+Grazie all'integrazione di TDE con Azure Key Vault, gli utenti possono controllare le attività di gestione delle chiavi, tra cui le rotazioni, i backup e le autorizzazioni dell'insieme di credenziali, nonché abilitare il controllo o il reporting per tutte le protezioni TDE usando Azure Key Vault. Questa funzionalità offre la gestione centralizzata delle chiavi, sfrutta il vantaggio dei moduli di protezione hardware (HSM) accuratamente monitorati e consente di separare i compiti di gestione delle chiavi e dei dati per contribuire a rispettare la conformità ai criteri di sicurezza.
+Per altre informazioni sulla crittografia TDE con integrazione di Azure Key Vault (supporto Bring Your Own Key) per il database SQL di Azure, l'istanza gestita SQL e Data Warehouse, vedere [Transparent Data Encryption con integrazione di Azure Key Vault](transparent-data-encryption-byok-azure-sql.md).
 
-Per altre informazioni su TDE con supporto Bring Your Own Key per database SQL di Azure, Istanza gestita di database SQL di Azure e Data Warehouse, vedere [TDE con supporto Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md).
-
-Per iniziare a usare TDE con supporto Bring Your Own Key, vedere la guida [Abilitare Transparent Data Encryption usando la propria chiave di Key Vault con PowerShell](transparent-data-encryption-byok-azure-sql-configure.md).
+Per iniziare a usare la crittografia TDE con integrazione di Azure Key Vault (supporto Bring Your Own Key), vedere la procedura dettagliata [Abilitare Transparent Data Encryption usando la propria chiave di Key Vault con PowerShell](transparent-data-encryption-byok-azure-sql-configure.md).
 
 ## <a name="move-a-transparent-data-encryption-protected-database"></a>Spostare un database protetto con TDE
 

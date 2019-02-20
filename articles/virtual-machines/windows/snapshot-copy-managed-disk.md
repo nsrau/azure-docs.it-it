@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 059c90df16a46c2575635d7c729ec563ef1130c6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1015e6774dac1258820e3ca4b3d06786046a8554
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459724"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980857"
 ---
 # <a name="create-a-snapshot"></a>Creare uno snapshot
 
@@ -42,9 +42,9 @@ Se si prevede di usare lo snapshot per creare una nuova macchina virtuale, è co
 
 ## <a name="use-powershell"></a>Usare PowerShell
 
-La procedura seguente mostra come copiare il disco rigido virtuale, creare la configurazione di snapshot e fare uno snapshot del disco tramite il cmdlet [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot). 
+La procedura seguente mostra come copiare il disco rigido virtuale, creare la configurazione di snapshot e fare uno snapshot del disco tramite il cmdlet [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot). 
 
-Prima di iniziare, verificare di avere la versione più recente del modulo AzureRM.Compute di PowerShell, che deve essere la versione 5.7.0 o successiva. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se si esegue PowerShell in locale, eseguire [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) per creare una connessione con Azure.
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 1. Impostare alcuni parametri: 
 
@@ -58,7 +58,7 @@ $snapshotName = 'mySnapshot'
 2. Ottenere la macchina virtuale:
 
  ```azurepowershell-interactive
-$vm = get-azurermvm `
+$vm = get-azvm `
    -ResourceGroupName $resourceGroupName 
    -Name $vmName
 ```
@@ -66,7 +66,7 @@ $vm = get-azurermvm `
 3. Creare la configurazione dello snapshot. Per questo esempio, lo snapshot è del disco del sistema operativo:
 
  ```azurepowershell-interactive
-$snapshot =  New-AzureRmSnapshotConfig 
+$snapshot =  New-AzSnapshotConfig 
    -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id 
    -Location $location 
    -CreateOption copy
@@ -78,7 +78,7 @@ $snapshot =  New-AzureRmSnapshotConfig
 4. Fare lo snapshot:
 
  ```azurepowershell-interactive
-New-AzureRmSnapshot 
+New-AzSnapshot 
    -Snapshot $snapshot 
    -SnapshotName $snapshotName 
    -ResourceGroupName $resourceGroupName 

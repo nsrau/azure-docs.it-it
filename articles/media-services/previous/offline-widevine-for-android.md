@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/08/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 158b58c13aee4d6241900db4a5e2b3fe8a45cc3c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 13042a25a0bf106dd579e7d5e8cf8553a79c8f00
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786050"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002090"
 ---
-# <a name="offline-widevine-streaming-for-android"></a>Modalità offline dello streaming Widevine per Android
+# <a name="offline-widevine-streaming-for-android"></a>Modalità offline dello streaming Widevine per Android  
 
 Oltre a proteggere il contenuto per lo streaming online, i servizi di sottoscrizione e noleggio di contenuti multimediali offrono la possibilità di scaricare contenuto utilizzabile anche quando non si è connessi a Internet. Può ad esempio essere necessario scaricare contenuto sullo smartphone o sul tablet per la riproduzione in modalità aereo quando si è disconnessi dalla rete durante il volo. Il download di contenuto può essere utile anche in altri scenari, come nei casi seguenti:
 
@@ -45,7 +45,7 @@ Prima di implementare la tecnologia DRM offline per Widevine su dispositivi Andr
 
 - Acquisire familiarità con i concetti relativi alla protezione di contenuto online con Widevine DRM. Questi concetti sono illustrati in dettaglio nei documenti ed esempi seguenti:
     - [Usare Servizi multimediali di Azure per distribuire licenze DRM o chiavi AES](media-services-deliver-keys-and-licenses.md)
-    - [CENC con DRM multiplo e controllo di accesso: progettazione di riferimento e implementazione in Azure e in Servizi multimediali di Azure](media-services-cenc-with-multidrm-access-control.md)
+    - [CENC con Multi-DRM e controllo di accesso: Progettazione e implementazione di riferimento su Azure e Servizi multimediali di Azure](media-services-cenc-with-multidrm-access-control.md)
     - [Using PlayReady and/or Widevine Dynamic Common Encryption with .NET](https://azure.microsoft.com/resources/samples/media-services-dotnet-dynamic-encryption-with-drm/) (Uso della crittografia comune dinamica PlayReady e/o Widevine con .NET)
     - [Use Azure Media Services to deliver PlayReady and/or Widevine licenses with .NET](https://azure.microsoft.com/resources/samples/media-services-dotnet-deliver-playready-widevine-licenses/) (Usare Servizi multimediali di Azure per distribuire licenze PlayReady e/o Widevine con .NET)
 - Acquisire familiarità con Google ExoPlayer SDK per Android, un SDK per lettori video open source in grado di supportare la riproduzione offline con tecnologia Widevine DRM. 
@@ -134,7 +134,7 @@ Questo problema non si verifica in Android 5.0 Lollipop o versioni successive pe
 - [Libreria di binding Xamarin per la libreria di Google ExoPlayer](https://github.com/martijn00/ExoPlayerXamarin)
 - [Binding Xamarin per il pacchetto NuGet ExoPlayer](https://www.nuget.org/packages/Xam.Plugins.Android.ExoPlayer/)
 
-Vedere anche il thread seguente relativo al [binding Xamarin](https://github.com/martijn00/ExoPlayerXamarin/pull/57). 
+Vedere anche questa conversazione: [Xamarin binding](https://github.com/martijn00/ExoPlayerXamarin/pull/57) (Binding Xamarin). 
 
 ## <a name="chrome-player-apps-for-android"></a>App lettore su browser Chrome per Android
 
@@ -149,8 +149,8 @@ Se si aggiorna il browser Chrome per dispositivi mobili alla versione 62 o succe
 
 Questa app PWA open source è stata creata in Node.js. Se si vuole ospitare una versione personalizzata su un server Ubuntu, tenere presenti i seguenti problemi comunemente riscontrati che possono impedire la riproduzione:
 
-1. Problema CORS: il video di esempio nell'app di esempio è ospitato in https://storage.googleapis.com/biograf-video-files/videos/. Google ha configurato CORS per tutti gli esempi di test ospitati nel bucket di Google Cloud Storage. Questi sono resi disponibili con intestazioni CORS, che specificano in modo esplicito la voce CORS https://biograf-155113.appspot.com (il dominio in cui Google ospita l'esempio), impedendo l'accesso da altri siti. Se si prova, verrà visualizzato l'errore HTTP seguente: "Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https://13.85.80.81:8080' is therefore not allowed access". Se si ritiene soddisfacente una risposta opaca, impostare la modalità della richiesta 'no-cors' per recuperare la risorsa con CORS disabilitato.
-2. Problema di certificato: a partire da Chrome versione 58, EME per Widevine richiede HTTPS. È pertanto necessario ospitare l'app di esempio su HTTPS con un certificato X509. Un normale certificato di test non è in grado di soddisfare i requisiti. È necessario ottenere un certificato che soddisfi i requisiti minimi seguenti:
+1. Problema di CORS (Cross Origin Resource Sharing): il video di esempio nell'app di esempio è ospitato in https://storage.googleapis.com/biograf-video-files/videos/. Google ha configurato CORS per tutti gli esempi di test ospitati nel bucket di Google Cloud Storage. Questi sono resi disponibili con intestazioni CORS, che specificano in modo esplicito la voce CORS https://biograf-155113.appspot.com (il dominio in cui Google ospita l'esempio), impedendo l'accesso da altri siti. Se si prova a eseguire l'accesso, viene visualizzato l'errore HTTP seguente: Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. (Non è stato possibile eseguire il caricamento di ... non è presente alcuna intestazione 'Access-Control-Allow-Origin' nella risorsa richiesta). Origin 'https://13.85.80.81:8080' is therefore not allowed access". Se si ritiene soddisfacente una risposta opaca, impostare la modalità della richiesta 'no-cors' per recuperare la risorsa con CORS disabilitato.
+2. Problema di certificato: a partire da Chrome versione 58, EME per Widevine richiede HTTPS. È pertanto necessario ospitare l'app di esempio su HTTPS con un certificato X509. Non è possibile usare un normale certificato di test a causa dei requisiti seguenti: È necessario ottenere un certificato che soddisfi i requisiti minimi seguenti:
     - Per Chrome e Firefox, nel certificato deve essere definita l'impostazione relativa al nome alternativo del soggetto (SAN).
     - Il certificato deve avere una CA attendibile. Non è possibile usare un certificato di sviluppo autofirmato.
     - Il certificato deve inoltre avere un nome comune (CN) corrispondente al nome DNS del server Web o del gateway.
@@ -180,7 +180,7 @@ Per Widevine, nella [documentazione di Google introduttiva all'architettura di W
 Nella [documentazione di Google introduttiva all'architettura di Widevine DRM](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) sono definiti i tre livelli di sicurezza seguenti:
 
 1.  Livello di sicurezza 1: tutte le operazioni di elaborazione, crittografia e controllo del contenuto vengono eseguite all'interno dell'ambiente di esecuzione affidabile. In alcuni modelli di implementazione è possibile che l'elaborazione delle informazioni di sicurezza venga eseguita in chip diversi.
-2.  Livello di sicurezza 2: la crittografia (ma non l'elaborazione dei dati video) viene eseguita all'interno dell'ambiente di esecuzione affidabile. I buffer decrittografati vengono restituiti al dominio applicazione ed elaborati tramite software o hardware video separato. Al livello 2, le informazioni di crittografia vengono comunque elaborate solo all'interno dell'ambiente di esecuzione affidabile.
+2.  Livello di sicurezza 2: la crittografia, ma non l'elaborazione dei dati video, viene eseguita all'interno dell'ambiente di esecuzione affidabile. I buffer decrittografati vengono restituiti al dominio dell'applicazione ed elaborati tramite software o hardware video separato. Al livello 2, le informazioni di crittografia vengono comunque elaborate solo all'interno dell'ambiente di esecuzione affidabile.
 3.  Livello di sicurezza 3: non è presente un ambiente di esecuzione affidabile sul dispositivo. È possibile adottare misure appropriate per proteggere le informazioni di crittografia e il contenuto decrittografato nel sistema operativo host. Un'implementazione di livello 3 può includere anche un motore di crittografia hardware, ma solo per migliorare le prestazioni, non la sicurezza.
 
 Parallelamente, nella [documentazione di Servizi multimediali di Azure relativa al modello di licenza Widevine](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview) la proprietà security_level di content_key_specs può avere i cinque valori seguenti, che definiscono i diversi requisiti di affidabilità client per la riproduzione di contenuto:
@@ -195,9 +195,9 @@ Entrambi i set di livelli di sicurezza sono definiti da Google Widevine. La diff
 
 | **Livelli di sicurezza definiti nell'architettura Widevine** |**Livelli di sicurezza usati nell'API Widevine**|
 |---|---| 
-| **Livello di sicurezza 1**: tutte le operazioni di elaborazione, crittografia e controllo del contenuto vengono eseguite all'interno dell'ambiente di esecuzione affidabile. In alcuni modelli di implementazione è possibile che l'elaborazione delle informazioni di sicurezza venga eseguita in chip diversi.|**security_level=5**: le operazioni di crittografia e decodifica e l'intera gestione dei file multimediali (con e senza compressione) devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware.<br/><br/>**security_level=4**: le operazioni di crittografia e decodifica del contenuto devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware.|
-**Livello di sicurezza 2**: esegue la crittografia (ma non l'elaborazione dei dati video) all'interno dell'ambiente di esecuzione affidabile. I buffer decrittografati vengono restituiti al dominio applicazione ed elaborati tramite software o hardware video separato. Al livello 2, le informazioni di crittografia vengono comunque elaborate solo all'interno dell'ambiente di esecuzione affidabile.| **security_level=3**: il materiale delle chiavi e le operazioni di crittografia devono essere gestiti all'interno di un ambiente di esecuzione affidabile basato su hardware. |
-| **Livello di sicurezza 3**: non è presente un ambiente di esecuzione affidabile sul dispositivo. È possibile adottare misure appropriate per proteggere le informazioni di crittografia e il contenuto decrittografato nel sistema operativo host. Un'implementazione di livello 3 può includere anche un motore di crittografia hardware, ma solo per migliorare le prestazioni, non la sicurezza. | **security_level=2**: sono necessari una soluzione di crittografia software e un decodificatore offuscato.<br/><br/>**security_level=1**: è necessaria una soluzione di crittografia white box basata su software.|
+| **Livello di sicurezza 1**: tutte le operazioni di elaborazione, crittografia e controllo del contenuto vengono eseguite all'interno dell'ambiente di esecuzione affidabile. In alcuni modelli di implementazione è possibile che l'elaborazione delle informazioni di sicurezza venga eseguita in chip diversi.|**security_level=5**: Le operazioni di crittografia e decodifica e l'intera gestione dei file multimediali (con e senza compressione) devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware.<br/><br/>**security_level=4**: Le operazioni di crittografia e decodifica del contenuto devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware.|
+**Livello di sicurezza 2**: la crittografia, ma non l'elaborazione dei dati video, viene eseguita all'interno dell'ambiente di esecuzione affidabile. I buffer decrittografati vengono restituiti al dominio dell'applicazione ed elaborati tramite software o hardware video separato. Al livello 2, le informazioni di crittografia vengono comunque elaborate solo all'interno dell'ambiente di esecuzione affidabile.| **security_level=3**: Il materiale delle chiavi e le operazioni di crittografia devono essere gestiti all'interno di un ambiente di esecuzione affidabile basato su hardware. |
+| **Livello di sicurezza 3**: nel dispositivo non è presente un ambiente di esecuzione affidabile. È possibile adottare misure appropriate per proteggere le informazioni di crittografia e il contenuto decrittografato nel sistema operativo host. Un'implementazione di livello 3 può includere anche un motore di crittografia hardware, ma solo per migliorare le prestazioni, non la sicurezza. | **security_level=2**: Sono necessari una soluzione di crittografia software e un decodificatore offuscato.<br/><br/>**security_level=1**: È necessaria una soluzione di crittografia white box basata su software.|
 
 ### <a name="question"></a>Domanda
 

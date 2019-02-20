@@ -2,17 +2,17 @@
 title: Azure Key Vault - Come usare la funzionalità di eliminazione temporanea con l'interfaccia della riga di comando
 description: Esempi di casi d'uso della funzionalità di eliminazione temporanea con frammenti di codice dell'interfaccia della riga di comando
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: bryanla
-ms.openlocfilehash: 242398eb0bb4d4ddd2764bd66c99a7f9603ea1b9
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f0c1db2274eea6281bd4a350909b79d048ad21c4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663945"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116724"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Come usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando
 
@@ -226,5 +226,5 @@ Quando si elencano gli oggetti di un insieme di credenziali eliminato, viene ind
 ## <a name="other-resources"></a>Altre risorse:
 
 - Per una panoramica della funzionalità di eliminazione temporanea di Key Vault, vedere [Panoramica della funzionalità di eliminazione temporanea di Azure Key Vault](key-vault-ovw-soft-delete.md).
-- Per una panoramica generale dell'utilizzo di Azure Key Vault, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md).
+- Per una panoramica generale dell'utilizzo di Azure Key Vault, vedere [Cos'è l'Insieme di credenziali delle chiavi di Azure?](key-vault-overview.md).
 

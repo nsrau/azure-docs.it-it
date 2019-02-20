@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Informazioni ed esempi di codice basati su REST per Node.js per iniziare rapidamente a usare l'API Traduzione testuale Microsoft in Servizi cognitivi Microsoft in Azure.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 7e7e362a2536f7adf2a7d68b096ab76d73f15a61
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: ba4af5d3b6612614dee54db7fdb1287ff7136321
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496228"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245763"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-nodejs"></a>Come usare l'API REST QnA Maker con Node.js 
 <a name="HOLTop"></a>
@@ -35,8 +35,8 @@ Questo articolo illustra come usare l'[API QnA Maker Microsoft](../Overview/over
 - [Eliminare una knowledge base.](#Delete)
 - [Ottenere le chiavi dell'endpoint correnti.](#GetKeys)
 - [Rigenerare le chiavi dell'endpoint correnti.](#PutKeys)
-- [Ottenere il set corrente di variazioni delle parole.](#GetAlterations)
-- [Sostituire il set corrente di variazioni delle parole.](#PutAlterations)
+- [Ottenere il set corrente di variazioni delle parole senza distinzione maiuscole/minuscole.](#GetAlterations)
+- [Sostituire il set corrente di variazioni delle parole senza distinzione maiuscole/minuscole.](#PutAlterations)
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 658cee95d695a310291d5b7180815c89bc2f0401
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a8aa00a3bc74c811d7c57db878df0758aa054bb9
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818108"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978647"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Caricare un disco rigido virtuale generalizzato in Azure e creare una nuova macchina virtuale
 
@@ -31,7 +31,7 @@ Se si vuole creare una VM da un disco rigido virtuale specializzato in un accoun
 
 In questo argomento viene illustrato l'uso degli account di archiviazione, ma si consiglia di passare all'uso di dischi gestiti. Per una procedura dettagliata completa su come preparare, caricare e creare una nuova macchina virtuale mediante dischi gestiti, vedere [Creare una nuova macchina virtuale da un disco rigido virtuale generalizzato e caricato in Azure usando Managed Disks](upload-generalized-managed.md).
 
-
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="prepare-the-vm"></a>Preparare la macchina virtuale
 
@@ -75,17 +75,17 @@ Se PowerShell versione 1.4 o successiva non è già stato installato, vedere [Co
 1. Aprire Azure PowerShell e accedere al proprio account di Azure. Verrà visualizzata una finestra popup in cui immettere le credenziali dell'account Azure.
    
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 2. Ottenere l'ID di sottoscrizione per le sottoscrizioni disponibili.
    
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 3. Impostare la sottoscrizione corretta utilizzandone l'ID. Sostituire `<subscriptionID>` con l'ID della sottoscrizione corretta.
    
     ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
+    Select-AzSubscription -SubscriptionId "<subscriptionID>"
     ```
 
 ### <a name="get-the-storage-account"></a>Ottenere l'account di archiviazione
@@ -94,7 +94,7 @@ Per archiviare l'immagine della VM caricata, è necessario un account di archivi
 Per mostrare gli account di archiviazione disponibili, digitare:
 
 ```powershell
-Get-AzureRmStorageAccount
+Get-AzStorageAccount
 ```
 
 Se si vuole usare un account di archiviazione esistente, passare alla sezione Caricare l'immagine della VM.
@@ -104,30 +104,30 @@ Per creare un account di archiviazione, seguire questa procedura:
 1. È necessario il nome del gruppo di risorse in cui deve essere creato l'account di archiviazione. Per trovare tutti i gruppi di risorse inclusi nella sottoscrizione digitare:
    
     ```powershell
-    Get-AzureRmResourceGroup
+    Get-AzResourceGroup
     ```
 
     Per creare un gruppo di risorse denominato **MyResourceGroup** nell'area **Stati Uniti occidentali**, digitare:
 
     ```powershell
-    New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
+    New-AzResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. Creare un account di archiviazione denominato **mystorageaccount** in questo gruppo di risorse con il cmdlet [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount).
+2. Creare un account di archiviazione denominato **mystorageaccount** in questo gruppo di risorse con il cmdlet [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount):
    
     ```powershell
-    New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
+    New-AzStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
         -SkuName "Standard_LRS" -Kind "Storage"
     ```
  
 ### <a name="start-the-upload"></a>Avviare il caricamento 
 
-Usare il cmdlet [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) per caricare l'immagine in un contenitore nell'account di archiviazione. In questo esempio, il file **myVHD.vhd** viene caricato da `"C:\Users\Public\Documents\Virtual hard disks\"` a un account di archiviazione denominato **mystorageaccount** nel gruppo di risorse **myResourceGroup**. Il file viene inserito nel contenitore denominato **mycontainer** e il nuovo nome del file sarà **myUploadedVHD.vhd**.
+Usare il cmdlet [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) per caricare l'immagine in un contenitore nell'account di archiviazione. In questo esempio, il file **myVHD.vhd** viene caricato da `"C:\Users\Public\Documents\Virtual hard disks\"` a un account di archiviazione denominato **mystorageaccount** nel gruppo di risorse **myResourceGroup**. Il file viene inserito nel contenitore denominato **mycontainer** e il nuovo nome del file sarà **myUploadedVHD.vhd**.
 
 ```powershell
 $rgName = "myResourceGroup"
 $urlOfUploadedImageVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
+Add-AzVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
     -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
 ```
 
@@ -170,14 +170,14 @@ Creare la rete virtuale e la subnet della [rete virtuale](../../virtual-network/
     ```powershell
     $rgName = "myResourceGroup"
     $subnetName = "mySubnet"
-    $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
+    $singleSubnet = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
 2. Creare la rete virtuale. Nell'esempio seguente viene creata una rete virtuale denominata **myVnet** nell'ubicazione **West US** con il prefisso di indirizzo **10.0.0.0/16**.  
    
     ```powershell
     $location = "West US"
     $vnetName = "myVnet"
-    $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
+    $vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
 
@@ -188,14 +188,14 @@ Per abilitare la comunicazione con la macchina virtuale nella rete virtuale, son
    
     ```powershell
     $ipName = "myPip"
-    $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
+    $pip = New-AzPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
         -AllocationMethod Dynamic
     ```       
 2. Creare la scheda NIC. In questo esempio viene creata una scheda NIC denominata **myNic**. 
    
     ```powershell
     $nicName = "myNic"
-    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location `
+    $nic = New-AzNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location `
         -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
     ```
 
@@ -207,12 +207,12 @@ In questo esempio viene creato un gruppo di sicurezza di rete denominato **myNsg
 ```powershell
 $nsgName = "myNsg"
 
-$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
+$rdpRule = New-AzNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
     -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
 
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
+$nsg = New-AzNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
     -Name $nsgName -SecurityRules $rdpRule
 ```
 
@@ -221,7 +221,7 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $loc
 Creare una variabile per la rete virtuale realizzata. 
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
+$vnet = Get-AzVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 ```
 
 ### <a name="create-the-vm"></a>Creare la VM
@@ -260,33 +260,33 @@ Lo script di PowerShell seguente illustra come impostare le configurazioni della
     $skuName = "Standard_LRS"
 
     # Get the storage account where the uploaded image is stored
-    $storageAcc = Get-AzureRmStorageAccount -ResourceGroupName $rgName -AccountName $storageAccName
+    $storageAcc = Get-AzStorageAccount -ResourceGroupName $rgName -AccountName $storageAccName
 
     # Set the VM name and size
-    $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
+    $vmConfig = New-AzVMConfig -VMName $vmName -VMSize $vmSize
 
     #Set the Windows operating system configuration and add the NIC
-    $vm = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName `
+    $vm = Set-AzVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName `
         -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-    $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
+    $vm = Add-AzVMNetworkInterface -VM $vm -Id $nic.Id
 
     # Create the OS disk URI
     $osDiskUri = '{0}vhds/{1}-{2}.vhd' `
         -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
 
     # Configure the OS disk to be created from the existing VHD image (-CreateOption fromImage).
-    $vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri `
+    $vm = Set-AzVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri `
         -CreateOption fromImage -SourceImageUri $imageURI -Windows
 
     # Create the new VM
-    New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
+    New-AzVM -ResourceGroupName $rgName -Location $location -VM $vm
 ```
 
 ## <a name="verify-that-the-vm-was-created"></a>Verificare che la VM sia stata creata
 Al termine, la VM appena creata dovrebbe essere visualizzata nel [portale di Azure](https://portal.azure.com) in **Browse** (Sfoglia)  > **Macchine virtuali**. In alternativa, è possibile usare i comandi PowerShell seguenti:
 
 ```powershell
-    $vmList = Get-AzureRmVM -ResourceGroupName $rgName
+    $vmList = Get-AzVM -ResourceGroupName $rgName
     $vmList.Name
 ```
 

@@ -8,22 +8,24 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 59b190065c678ef61b3e0dec8df13db4215a8229
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 6fb49baf8ab58ae6cfe7639cedcc4466810c8b96
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486301"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003313"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Panoramica degli avvisi in Microsoft Azure 
 
 Questo articolo descrive cosa sono gli avvisi, quali vantaggi offrono e come iniziare a farne uso.  
 
 
+
+
 ## <a name="what-are-alerts-in-microsoft-azure"></a>Cosa sono gli avvisi in Microsoft Azure?
 Gli avvisi notificano in modo proattivo quando vengono riscontrate importanti condizioni nei dati di monitoraggio. Consentono di identificare e risolvere i problemi prima che si palesino agli utenti. 
 
-Questo articolo illustra l'esperienza degli avvisi unificata in Monitoraggio di Azure, che ora include Log Analytics e Application Insights. L'[esperienza degli avvisi precedente](alerts-classic.overview.md) e i tipi di avviso sono definiti **avvisi classici**. È possibile visualizzare questa esperienza precedente e il tipo di avviso precedente facendo clic su **Visualizza avvisi classici** nella parte superiore della pagina degli avvisi. 
+Questo articolo illustra l'esperienza degli avvisi unificata in Monitoraggio di Azure, che ora include avvisi gestiti da Log Analytics e Application Insights. L'[esperienza degli avvisi precedente](alerts-classic.overview.md) e i tipi di avviso sono definiti **avvisi classici**. È possibile visualizzare questa esperienza precedente e il tipo di avviso precedente facendo clic su **Visualizza avvisi classici** nella parte superiore della pagina degli avvisi. 
 
 ## <a name="overview"></a>Panoramica
 

@@ -4,7 +4,7 @@ description: Questo articolo spiega come usare Servizi multimediali di Azure per
 services: media-services
 documentationcenter: ''
 author: willzhan
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 18213fc1-74f5-4074-a32b-02846fe90601
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 02/08/2019
 ms.author: willzhan;juliako
-ms.openlocfilehash: 9026cab0651cd5f8433f9a8a7db0366a6ab13464
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 349bc45305539578aeebe851cf42df123bbd863e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190256"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998230"
 ---
-# <a name="hybrid-design-of-drm-subsystems"></a>Progettazione ibrida di sottosistemi DRM
+# <a name="hybrid-design-of-drm-subsystems-legacy"></a>Progettazione ibrida di sottosistemi DRM (legacy)
 
 Questo articolo spiega come usare Servizi multimediali di Azure per la progettazione ibrida di sottosistemi DRM.
 
@@ -96,11 +96,11 @@ In base alle spiegazioni fornite nella sezione precedente, sono cinque gli scena
 
 |**Hosting e origine del contenuto**|**Crittografia DRM**|**Distribuzione di licenze DRM**|**Configurare la chiave simmetrica**|**Configurare i criteri di distribuzione dell'asset**|**Esempio**|
 |---|---|---|---|---|---|
-|AMS|AMS|AMS|Yes|Yes|Esempio 1|
-|AMS|AMS|Terze parti|Yes|Yes|Esempio 2|
-|AMS|Terze parti|AMS|Yes|No |Esempio 3|
+|AMS|AMS|AMS|Sì|Sì|Esempio 1|
+|AMS|AMS|Terze parti|Sì|Sì|Esempio 2|
+|AMS|Terze parti|AMS|Sì|No |Esempio 3|
 |AMS|Terze parti|Esterno|No |No |Esempio 4|
-|Terze parti|Terze parti|AMS|Yes|No |    
+|Terze parti|Terze parti|AMS|Sì|No |    
 
 Negli esempi, la protezione PlayReady funziona sia per DASH che per Smooth Streaming. Gli URL del video mostrati di seguito sono URL Smooth Streaming. Per ottenere gli URL DASH corrispondenti, aggiungere semplicemente "(format=mpd-time-csf)". È possibile usare il [lettore multimediale di test di Azure](https://aka.ms/amtest) per effettuare il test nel browser. Consente di configurare il protocollo di streaming e specificare in quale tecnologia usarlo. Internet Explorer 11 e Microsoft Edge in Windows 10 supportano PlayReady tramite EME. Per altre informazioni, vedere i [dettagli sullo strumento di test](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
 

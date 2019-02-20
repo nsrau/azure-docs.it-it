@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Sauce Labs - Mobile and Web Testing | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Sauce Labs - Mobile and Web Testing | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Sauce Labs - Mobile and Web Testing.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 55d84256f408e80600308ede22dbaa903b070d90
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9c4e3d074ad241ec6add6fe43b77413ce283e389
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39267242"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207008"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>Esercitazione: Integrazione di Azure Active Directory con Sauce Labs - Mobile and Web Testing
+# <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>Esercitazione: integrazione di Azure Active Directory con Sauce Labs - Mobile and Web Testing
 
 Questa esercitazione descrive come integrare Sauce Labs - Mobile and Web Testing con Azure Active Directory (Azure AD).
 
@@ -175,7 +176,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 Questa sezione descrive come creare un utente chiamato Britta Simon in Sauce Labs - Mobile and Web Testing. Sauce Labs - Mobile and Web Testing supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Sauce Labs - Mobile and Web Testing viene creato un nuovo utente, se questo non esiste già.
 >[!Note]
->Se è necessario creare un utente manualmente, contattare il [team di supporto di Sauce Labs - Mobile and Web Testing](mailto:support@saucelabs.com).
+>Se è necessario creare un utente manualmente, contattare il  [team di supporto di Sauce Labs - Mobile and Web Testing](mailto:support@saucelabs.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -212,7 +213,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Sauce Labs - Mobile and Web Testing nel Pannello di accesso, si dovrebbe ottenere automaticamente l'accesso all'applicazione Sauce Labs - Mobile and Web Testing.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md).
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

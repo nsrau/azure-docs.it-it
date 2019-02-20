@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: fdccb4e94d9b9fd8b698575c890efad56a115a3e
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 1b86bc015b187fe75e79ba04df60a6bc5257a9b8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452820"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994016"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitoraggio continuo con Monitoraggio di Azure
 
@@ -64,7 +64,7 @@ Integrazione continua/distribuzione continua consente di integrare automaticamen
 
 - Usare [Azure Pipelines](/azure/devops/pipelines) per implementare la distribuzione continua e automatizzare l'intero processo dal commit del codice all'ambiente di produzione in base ai test di integrazione continua/distribuzione continua.
 - Usare [Gate di qualità](/azure/devops/pipelines/release/approvals/gates) per integrare il monitoraggio al momento della pre-distribuzione o della post-distribuzione. Ciò garantisce che si stiano soddisfacendo le metriche chiave di integrità/prestazioni (KPI) non appena le applicazioni si spostano dallo sviluppo alla produzione e le eventuali differenze nell'ambiente di infrastruttura o che la scalabilità non influisca negativamente sugli indicatori KPI.
-- [Mantenere le istanze di monitoraggio separate](../azure-monitor/app/separate-resources.md) tra gli ambienti di distribuzione diversi, ad esempio sviluppo, Test, Canary e produzione. Ciò garantisce che i dati raccolti siano rilevanti per le applicazioni associate e per l'infrastruttura. Se è necessario correlare i dati negli ambienti, è possibile usare [i grafici a più risorse in Esplora metriche](../azure-monitor/platform/metrics-charts.md) oppure creare [query tra risorse in Log Analytics](log-query/cross-workspace-query.md).
+- [Mantenere le istanze di monitoraggio separate](../azure-monitor/app/separate-resources.md) tra gli ambienti di distribuzione diversi, ad esempio sviluppo, Test, Canary e produzione. Ciò garantisce che i dati raccolti siano rilevanti per le applicazioni associate e per l'infrastruttura. Se è necessario correlare i dati tra ambienti, è possibile usare [i grafici a più risorse in Esplora metriche](../azure-monitor/platform/metrics-charts.md) oppure creare [query tra risorse in Monitoraggio di Azure](log-query/cross-workspace-query.md).
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>Creare avvisi azionabili con azioni

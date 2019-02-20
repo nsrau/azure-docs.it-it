@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Informazioni ed esempi di codice Java basati su REST per iniziare rapidamente a usare l'API Traduzione testuale Microsoft in Servizi cognitivi Microsoft in Azure.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 9e9f9b718928614bcd018677a2ddd094fe68f2c4
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0e91aefb800eba42b715cb70d42ce09ad134fabb
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218207"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243797"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-java"></a>Come usare l'API REST QnA Maker con Java 
 <a name="HOLTop"></a>
@@ -35,8 +35,8 @@ Questo articolo illustra come usare l'[API QnA Maker Microsoft](../Overview/over
 - [Eliminare una knowledge base.](#Delete)
 - [Ottenere le chiavi dell'endpoint correnti.](#GetKeys)
 - [Rigenerare le chiavi dell'endpoint correnti.](#PutKeys)
-- [Ottenere il set corrente di variazioni delle parole.](#GetAlterations)
-- [Sostituire il set corrente di variazioni delle parole.](#PutAlterations)
+- [Ottenere il set corrente di variazioni delle parole senza distinzione maiuscole/minuscole.](#GetAlterations)
+- [Sostituire il set corrente di variazioni delle parole senza distinzione maiuscole/minuscole.](#PutAlterations)
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 

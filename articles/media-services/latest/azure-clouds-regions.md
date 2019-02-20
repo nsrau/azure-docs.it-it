@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/07/2019
 ms.author: juliako
-ms.openlocfilehash: d176152429ecac1ed4e570533f1bc0426cc7655f
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: a5a4205c97e4db25d5d0a92472610364d912b278
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767453"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963438"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Cloud e aree in cui sono presenti i Aervizi multimediali v3 di Azure
 
@@ -40,7 +40,7 @@ I Servizi multimediali v3 di Azure sono disponibili tramite il manifesto di Azur
 * [Aree geografiche di Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
 * [Località di Azure](https://azure.microsoft.com/global-infrastructure/locations/)
 
-## <a name="region-code-name"></a>Nome del codice dell'area 
+### <a name="region-code-name"></a>Nome del codice dell'area 
 
 Quando è necessario fornire il parametro dell'**ubicazione**, è necessario fornire il codice dell'area come il valore della **posizione**. Per ottenere il nome del codice dell'area in cui si trova l'account e a cui deve essere indirizzata la chiamata, è possibile eseguire la riga seguente nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
@@ -62,6 +62,42 @@ Ad esempio, per l'area di Azure Stati Uniti occidentali 2 (indicata di seguito),
       "subscriptionId": null
     }
 ```
+
+## <a name="endpoints"></a>Endpoint  
+
+Gli endpoint seguenti sono importanti per la connessione agli account di Servizi multimediali da diversi cloud nazionali di Azure.
+
+### <a name="global-azure"></a>Azure globale
+
+|Endpoint ||
+| --- | --- | 
+| Azure Resource Manager |  `https://management.azure.com/` |
+| Authentication | `https://login.microsoftonline.com/` | 
+| Destinatari dei token | `https://management.core.windows.net/` |
+
+### <a name="azure-government"></a>Azure Government
+
+|Endpoint||
+| --- | --- | 
+| Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
+| Authentication | `https://login.microsoftonline.us/` | 
+| Destinatari dei token | `https://management.core.usgovcloudapi.net/` |
+
+### <a name="azure-germany"></a>Azure Germania
+
+| Endpoint ||
+| --- | --- |  
+| Azure Resource Manager | `https://management.cloudapi.de/` |
+| Authentication | `https://login.microsoftonline.de/` |
+| Destinatari dei token | `https://management.core.cloudapi.de/`|
+
+### <a name="azure-china-21vianet"></a>21Vianet per Azure Cina
+
+|Endpoint||
+| --- | --- | 
+| Azure Resource Manager | `https://management.chinacloudapi.cn/` |
+| Authentication | `https://login.chinacloudapi.cn/` |
+| Destinatari dei token |  `https://management.core.chinacloudapi.cn/` |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

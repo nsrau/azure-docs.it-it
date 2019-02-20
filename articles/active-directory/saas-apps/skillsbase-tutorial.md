@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Skills Base | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Skills Base | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Skills Base.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2018
 ms.author: jeedes
-ms.openlocfilehash: e11ba8ca9c4ad17b2ade909bb474ad2d1fcf4410
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8bc0353453cf5fe689eec398f6a7d73fb356b178
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205375"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190841"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Esercitazione: Integrazione di Azure Active Directory con Skills Base
+# <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Esercitazione: integrazione di Azure Active Directory con Skills Base
 
 Questa esercitazione descrive come integrare Skills Base con Azure Active Directory (Azure AD).
 
@@ -215,7 +216,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Skills Base nel pannello di accesso, verrà eseguito automaticamente l'accesso all'applicazione Skills Base.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

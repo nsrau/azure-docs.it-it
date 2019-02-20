@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6c4cd4e698630c06ab8e7ba144791800f091abfa
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 7ce752fcee99b3f85099d83ab11451c427dea91e
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458942"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964016"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Limiti di risorse per i pool elastici usando il modello di acquisto basato su DTU 
 
@@ -126,12 +126,11 @@ La tabella seguente descrive le proprietà per i database in pool.
 | Quantità massima di risorse di archiviazione per database |Dimensioni massime del database impostate dall'utente per un database in un pool. Tuttavia, i database in pool condividono lo spazio di archiviazione del pool allocato. Anche se lo spazio di archiviazione massimo totale *per ogni database* è impostato per essere maggiore dello spazio di archiviazione totale *del pool*, lo spazio totale effettivamente usato da tutti i database non potrà superare il limite del pool disponibile. Le dimensioni massime del database indicano le dimensioni massime dei file di dati e non includono lo spazio usato dai file di log. |
 |||
  
-
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per le risposte alle domande più frequenti, vedere [Domande frequenti sul database SQL](sql-database-faq.md).
-- Per informazioni sui limiti a livello di server e sottoscrizione, vedere [Panoramica dei limiti delle risorse in un server di database SQL](sql-database-resource-limits-database-server.md).
+- Per i limiti delle risorse vCore per un database singolo, vedere [Limiti delle risorse per database singoli usando il modello di acquisto basato su vCore](sql-database-vcore-resource-limits-single-databases.md)
+- Per i limiti delle risorse DTU per un database singolo, vedere [Limiti delle risorse per database singoli usando il modello di acquisto basato su DTU](sql-database-dtu-resource-limits-single-databases.md)
+- Per i limiti delle risorse vCore per i pool elastici, vedere [Limiti delle risorse per pool elastici usando il modello di acquisto basato su vCore](sql-database-vcore-resource-limits-elastic-pools.md)
+- Per i limiti delle risorse delle istanze gestite, vedere [Limiti delle risorse dell'istanza gestita](sql-database-managed-instance-resource-limits.md).
 - Per informazioni sui limiti generici di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
-- Per informazioni su DTU ed eDTU, vedere [DTU ed eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model).
-- Per informazioni sui limiti di dimensioni di tempdb, vedere https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.
+- Per informazioni sui limiti delle risorse in un server di database, vedere [Panoramica dei limiti delle risorse in un server di database SQL](sql-database-resource-limits-database-server.md).

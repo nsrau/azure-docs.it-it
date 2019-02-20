@@ -1,6 +1,6 @@
 ---
-title: Livelli di servizio del database SQL di Azure - DTU | Microsoft Docs
-description: Informazioni sui livelli di servizio per database singoli e in pool per offrire dimensioni di calcolo e di archiviazione.
+title: Livelli di servizio del database SQL di Azure - Modello di acquisto basato su DTU | Microsoft Docs
+description: Informazioni sui livelli di servizio nel modello di acquisto basato su DTU per database singoli e in pool per offrire dimensioni di calcolo e di archiviazione.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -11,22 +11,22 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6319deb36088317cb289134b7068720e97cb10b7
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/08/2019
+ms.openlocfilehash: b960e0f670b66ea1759da441e7b1cf53151de7f6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507655"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993605"
 ---
-# <a name="dtu-based-service-tiers"></a>Livelli di servizio basati su DTU
+# <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Livelli di servizio nel modello di acquisto basato su DTU
 
-I livelli di servizio basati su DTU si differenziano in base a diverse dimensioni di calcolo con una quantità fissa di risorse di archiviazione, un periodo di conservazione fisso per i backup e un prezzo fisso. Tutti i livelli di servizio assicurano la flessibilità necessaria per modificare le dimensioni di calcolo senza tempi di inattività. La fatturazione per i database singoli e i pool elastici viene effettuata con frequenza oraria in base al livello di servizio e alla dimensione di calcolo.
+I livelli di servizio nel modello di acquisto basato su DTU si differenziano in base a diverse dimensioni di calcolo con una quantità fissa di risorse di archiviazione, un periodo di conservazione fisso per i backup e un prezzo fisso. Tutti i livelli di servizio nel modello di acquisto basato su DTU assicurano la flessibilità necessaria per modificare le dimensioni di calcolo senza tempi di inattività. La fatturazione per i database singoli e i pool elastici viene effettuata con frequenza oraria in base al livello di servizio e alla dimensione di calcolo.
 
 > [!IMPORTANT]
-> Istanza gestita di database SQL, attualmente in anteprima pubblica, non supporta un modello di acquisto basato su DTU. Per altre informazioni, vedere l'articolo relativo a [Istanza gestita di database SQL di Azure](sql-database-managed-instance.md).
+> L'istanza gestita del database SQL non supporta un modello di acquisto basato su DTU. Per altre informazioni, vedere l'articolo relativo a [Istanza gestita di database SQL di Azure](sql-database-managed-instance.md).
 > [!NOTE]
-> Per informazioni sui livelli di servizio basati su vCore, vedere [Livelli di servizio basati su vCore](sql-database-service-tiers-vcore.md). Per informazioni sulle differenze tra i livelli di servizio basati su DTU e quelli basati su vCore, vedere [Modelli di acquisto del database SQL di Azure](sql-database-service-tiers.md).
+> Per informazioni sui livelli di servizio basati su vCore, vedere [Livelli di servizio basati su vCore](sql-database-service-tiers-vcore.md). Per informazioni sulle differenze tra i livelli di servizio basati su DTU e quelli basati su vCore, vedere [Modelli di acquisto del database SQL di Azure](sql-database-purchase-models.md).
 
 ## <a name="compare-the-dtu-based-service-tiers"></a>Confronto tra i livelli di servizio basati su DTU
 
@@ -34,8 +34,8 @@ La scelta di un livello di servizio dipende soprattutto dai requisiti in termini
 
 ||Basic|Standard|Premium|
 | :-- | --: |--:| --:| --:|
-|Carico di lavoro di destinazione|Sviluppo e produzione|Sviluppo e produzione|Sviluppo e produzione||
-|Contratto di servizio relativo al tempo di attività|99,99%|99,99%|99,99%|N/d in anteprima|
+|Carico di lavoro di destinazione|Sviluppo e produzione|Sviluppo e produzione|Sviluppo e produzione|
+|Contratto di servizio relativo al tempo di attività|99,99%|99,99%|99,99%|
 |Conservazione backup|7 giorni|35 giorni|35 giorni|
 |CPU|Basso|Basso, medio, elevato|Medio, elevato|
 |Velocità effettiva di I/O (approssimativa) |2,5 IOPS per DTU| 2,5 IOPS per DTU | 48 IOPS per DTU|
@@ -49,12 +49,12 @@ La scelta di un livello di servizio dipende soprattutto dai requisiti in termini
 
 ## <a name="single-database-dtu-and-storage-limits"></a>DTU database singolo e limiti di archiviazione
 
-Le dimensioni di calcolo per i database singoli sono espresse in unità di transazione di database (DTU), quelle per i pool elastici sono espresse in unità di transazione di database elastico (eDTU). Per altre informazioni su DTU ed EDTU, vedere [Modelli di acquisto basati su DTU](sql-database-service-tiers.md#dtu-based-purchasing-model).
+Le dimensioni di calcolo per i database singoli sono espresse in unità di transazione di database (DTU), quelle per i pool elastici sono espresse in unità di transazione di database elastico (eDTU). Per altre informazioni su DTU ed EDTU, vedere [Modelli di acquisto basati su DTU](sql-database-purchase-models.md#dtu-based-purchasing-model).
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: | --: |
 | Dimensioni massime di archiviazione | 2 GB | 1 TB | 4 TB  |
-| DTU massime | 5 | 3000 | 4000 | |
+| DTU massime | 5 | 3000 | 4000 | 
 ||||||
 
 > [!IMPORTANT]
@@ -88,7 +88,7 @@ Il benchmark e la relativa metodologia sono descritti con maggiori dettagli più
 
 ### <a name="benchmark-summary"></a>Riepilogo del benchmark
 
-Il benchmark ASDB misura le prestazioni di una combinazione di operazioni di database di base che si verificano con maggiore frequenza in carichi di lavoro di elaborazione di transazioni online (OLTP). Benché il benchmark sia stato progettato tenendo conto del cloud computing, lo schema del database, il popolamento di dati e le transazioni sono stati progettati in modo da rappresentare a grandi linee gli elementi di base usati con maggiore frequenza con carichi di lavoro OLTP.
+Il benchmark misura le prestazioni di una combinazione di operazioni di database di base che si verificano con maggiore frequenza in carichi di lavoro di elaborazione di transazioni online (OLTP). Benché il benchmark sia stato progettato tenendo conto del cloud computing, lo schema del database, il popolamento di dati e le transazioni sono stati progettati in modo da rappresentare a grandi linee gli elementi di base usati con maggiore frequenza con carichi di lavoro OLTP.
 
 ### <a name="schema"></a>SCHEMA
 
@@ -104,7 +104,7 @@ Le dimensioni del database si basano su un "fattore di scala" (SF), che determin
 
 Il carico di lavoro è costituito da nove tipi di transazioni, come illustrato nella tabella riportata di seguito. Ogni transazione è progettata per evidenziare un insieme specifico di caratteristiche di sistema nel motore di database e nell'hardware del sistema, con un contrasto elevato rispetto alle altre transazioni. Questo approccio consente di valutare l'impatto dei diversi componenti sulle prestazioni globali. La transazione "Operazioni lettura intense" ad esempio produce un numero significativo di operazioni di lettura dal disco.
 
-| Tipo di transazione | DESCRIZIONE |
+| Tipo di transazione | Descrizione |
 | --- | --- |
 | Operazioni lettura leggere |SELECT, in memoria, sola lettura |
 | Operazioni lettura medie |SELECT, principalmente in memoria, sola lettura |

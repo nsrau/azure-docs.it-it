@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 31220002f8529fd31407470e7650a4c97b62f2b4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ee4bd5d2acf1a029486f83ee721b9e1f72347958
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53535275"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238148"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Ottenere una stringa di connessione ad Hub eventi
 
@@ -51,13 +51,16 @@ Quando si fa clic sul collegamento della stringa di connessione nella sezione Pa
 ![Ottenere la stringa di connessione ad Hub eventi](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
 
 ## <a name="getting-the-connection-string-with-azure-powershell"></a>Ottenere la stringa di connessione con Azure PowerShell
-È possibile usare Get-AzureRmEventHubNamespaceKey per ottenere la stringa di connessione per il nome specifico dei criteri o della regola come mostrato di seguito:
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+È possibile usare Get-AzEventHubNamespaceKey per ottenere la stringa di connessione per il nome specifico dei criteri o della regola, come mostrato di seguito:
 
 ```azurepowershell-interactive
-Get-AzureRmEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
+Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
 ```
 
-Per altre informazioni, fare riferimento ad [Azure Event Hubs PowerShell module](https://docs.microsoft.com/powershell/module/azurerm.eventhub/get-azurermeventhubkey) (Modulo PowerShell per Hub eventi di Azure).
+Per altre informazioni, fare riferimento ad [Azure Event Hubs PowerShell module](https://docs.microsoft.com/powershell/module/az.eventhub/get-azeventhubkey) (Modulo PowerShell per Hub eventi di Azure).
 
 ## <a name="getting-the-connection-string-with-azure-cli"></a>Ottenere la stringa di connessione con l'interfaccia della riga di comando di Azure
 Per ottenere la stringa di connessione per lo spazio dei nomi, è possibile usare il comando seguente:

@@ -11,19 +11,19 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/30/2019
-ms.openlocfilehash: 18e786ba45e476df2ab223a47f1b77ef6b778d7f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.date: 02/13/2019
+ms.openlocfilehash: 4ddeef417490b5b928f46dce428acc3e5febe159
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657774"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245984"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurare la replica geografica attiva per il database SQL di Azure nel portale di Azure e avviare il failover
 
 Questo articolo mostra come configurare la [replica geografica attiva per database singoli e in pool](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) nel database SQL di Azure usando il [portale di Azure](http://portal.azure.com) e avviare il failover.
 
-Per informazioni sui gruppi di failover automatico con database singoli e in pool, vedere [Procedure consigliate per l'uso di gruppi di failover con database singoli e in pool](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Per informazioni sui gruppi di failover automatico con Istanze gestite (anteprima), vedere [Procedure consigliate per l'uso di gruppi di failover con database singoli e in pool](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
+Per informazioni sui gruppi di failover automatico con database singoli e in pool, vedere [Procedure consigliate per l'uso di gruppi di failover con database singoli e in pool](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Per informazioni sui gruppi di failover automatico con Istanze gestite (anteprima), vedere [Procedure consigliate per l'uso di gruppi di failover con Istanze gestite](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

@@ -10,12 +10,13 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 412e114fde8f9b9017d476083f1237c922c67bc8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e9493f7ee3278bb42dc21574cd008fbe2f4376a1
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463056"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185146"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Autenticazione con passcode monouso tramite indirizzo di posta elettronica (anteprima)
 
@@ -29,7 +30,7 @@ La funzionalità passcode monouso tramite indirizzo di posta elettronica permett
 Questa funzionalità è attualmente disponibile in anteprima (consultare la sezione [Acconsentire esplicitamente all'anteprima](#opting-in-to-the-preview) di seguito). Dopo la versione di anteprima, questa funzionalità diverrà un'impostazione predefinita per tutti i tenant.
 
 > [!NOTE]
-> Gli utenti con passcode monouso devono accedere tramite un collegamento che include il contesto tenant (ad esempio `https://myapps.microsoft.com/?tenantid=<tenant id>` o `https://portal.azure.com/<tenant id>` oppure, nel caso di un dominio predefinito verificato, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). È possibile usare anche collegamenti diretti alle applicazioni e alle risorse, purché includano tale contesto. Gli utenti guest attualmente non possono accedere tramite endpoint privi di un contesto tenant. Se si usa ad esempio `https://myapps.microsoft.com`, `https://portal.azure.com` o l'endpoint comune di Teams, verrà generato un errore. 
+> Gli utenti con passcode monouso devono accedere tramite un collegamento che include il contesto tenant (ad esempio `https://myapps.microsoft.com/?tenantid=<tenant id>` o `https://portal.azure.com/<tenant id>` oppure, nel caso di un dominio verificato, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). È possibile usare anche collegamenti diretti alle applicazioni e alle risorse, purché includano tale contesto. Gli utenti guest attualmente non possono accedere tramite endpoint privi di un contesto tenant. Se si usa ad esempio `https://myapps.microsoft.com`, `https://portal.azure.com` o l'endpoint comune di Teams, verrà generato un errore. 
 
 ## <a name="user-experience-for-one-time-passcode-guest-users"></a>Esperienza utente per gli utenti guest con passcode monouso
 Grazie all'autenticazione con passcode monouso, l'utente guest può riscattare l'invito facendo clic su un collegamento diretto o tramite l'indirizzo di posta elettronica di invito. In entrambi i casi, un messaggio nel browser indica che verrà inviato un codice all'indirizzo di posta elettronica dell'utente guest. L'utente guest seleziona **Send code** (Invia codice):

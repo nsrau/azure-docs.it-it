@@ -10,14 +10,14 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.date: 09/08/2016
-ms.openlocfilehash: d37d5cb2b89b82bd9741dee0946b3a77d456b22a
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c9733346d091a6829bd5b42c80201df3a1357fe3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405753"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243111"
 ---
-# <a name="overview-b2b-enterprise-integration-scenarios-in-azure-logic-apps-with-enterprise-integration-pack"></a>Panoramica: scenari per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
+# <a name="overview-b2b-enterprise-integration-scenarios-in-azure-logic-apps-with-enterprise-integration-pack"></a>Panoramica scenari per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
 
 Per i flussi di lavoro Business to Business (B2B) e una fluida comunicazione con le app per la logica di Azure, è possibile abilitare gli scenari di integrazione aziendale grazie alla soluzione basata sul cloud di Microsoft, Enterprise Integration Pack. Le organizzazioni saranno in grado di scambiarsi messaggi elettronicamente anche se usano formati e protocolli diversi. Il pacchetto trasforma i diversi formati in un formato che i sistemi delle organizzazioni possano interpretare ed elaborare. Le organizzazioni possono scambiarsi messaggi grazie ai protocolli standard del settore tra cui [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) ed [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md). È inoltre possibile proteggere i messaggi con firme digitali e crittografia.
 
@@ -33,7 +33,7 @@ Dal punto di vista dell'architettura, Enterprise Integration Pack si basa sugli 
 
 ## <a name="how-to-get-started-with-enterprise-integration"></a>Introduzione all'uso di Enterprise Integration
 
-È possibile compilare e gestire le app B2B in Enterprise Integration Pack tramite la finestra di progettazione dell'app per la logica del **portale di Azure**. Le app per la logica possono essere gestite anche usando [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp "App per la logica in PowerShell").
+È possibile compilare e gestire le app B2B in Enterprise Integration Pack tramite la finestra di progettazione dell'app per la logica del **portale di Azure**. Le app per la logica possono essere gestite anche usando [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp).
 
 Di seguito vengono illustrati i passaggi più importanti della procedura da eseguire prima di creare le app nel Portale di Azure:
 

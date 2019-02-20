@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: 78812f7bcce82090802672e3e232e713f0d047d1
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: a6607fa91d9c8556881a5532527a63b6f21ad4d1
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214114"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977457"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Distribuire un cluster di Service Fabric che usa il nome comune dei certificati anziché l'identificazione personale
-Nessun certificato può avere la stessa identificazione digitale di un altro, il che rende difficile eseguire il rollover o gestire il certificato del cluster. Più certificati, tuttavia, possono avere lo stesso nome comune o lo stesso oggetto.  Un cluster che usa il nome comune del certificato rende molto più semplice la gestione certificati. In questo articolo viene descritto come distribuire un cluster di Service Fabric per usare il nome comune del certificato anziché l'identificazione personale del certificato.
+Nessun certificato può avere la stessa identificazione personale di un altro, il che rende difficile eseguire il rollover o gestire il certificato del cluster. Più certificati, tuttavia, possono avere lo stesso nome comune o lo stesso oggetto.  Un cluster che usa il nome comune del certificato rende molto più semplice la gestione certificati. In questo articolo viene descritto come distribuire un cluster di Service Fabric per usare il nome comune del certificato anziché l'identificazione personale del certificato.
  
 ## <a name="get-a-certificate"></a>Ottenere un certificato
 Ottenere innanzitutto un certificato da un'[autorità di certificazione](https://wikipedia.org/wiki/Certificate_authority).  Il nome comune del certificato deve essere usato per il dominio personalizzato di cui si è proprietari e deve essere acquistato da un registrar di dominio. Ad esempio "azureservicefabricbestpractices.com"; gli utenti che non sono dipendenti Microsoft non possono effettuare il provisioning di certificati per i domini MS, pertanto non è possibile usare i nomi DNS del bilanciamento del carico o di Gestione traffico come nomi comuni per il certificato e quindi sarà necessario eseguire il provisioning di una [zona DNS di Azure](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) affinché il dominio personalizzato sia risolvibile in Azure. È anche possibile dichiarare il dominio personalizzato di cui si è proprietari come "managementEndpoint" del cluster se si desidera che il portale rifletta l'alias di dominio personalizzato per il cluster.
@@ -177,13 +177,17 @@ Aprire quindi il file *azuredeploy.json* in un editor di testo e apportare tre a
             "commonNames": [
             {
                 "certificateCommonName": "[parameters('certificateCommonName')]",
-                "certificateIssuerThumbprint": ""
+                "certificateIssuerThumbprint": "[parameters('certificateIssuerThumbprint')]"
             }
             ],
             "x509StoreName": "[parameters('certificateStoreValue')]"
         },
         ...
     ```
+> [!NOTE]
+> Il campo 'certificateIssuerThumbprint' consente di specificare le autorità di certificazione previste dei certificati con un nome comune di soggetto. Questo campo accetta un'enumerazione delimitata da virgole di identificazioni personali SHA1. Si noti che in questo modo viene rafforzata la convalida del certificato. Se l'autorità di certificazione non è specificata o è vuota, il certificato viene accettato per l'autenticazione se è possibile crearne la catena e se termina in una radice considerata attendibile dal validator. Se invece l'autorità di certificazione è specificata, il certificato viene accettato nel caso in cui l'identificazione personale dell'autorità di certificazione diretta corrisponda a uno qualsiasi dei valori indicati in questo campo (indipendentemente dall'attendibilità della radice). Si noti che un'infrastruttura a chiave pubblica può usare autorità di certificazione diverse per emettere certificati per lo stesso soggetto. È quindi importante specificare tutte le identificazioni personali delle autorità di certificazione previste per un determinato soggetto.
+>
+> La procedura consigliata è quella di specificare l'autorità di certificazione. Anche se è ancora possibile ometterla senza compromettere il funzionamento (per certificati concatenati a una radice attendibile), questo comportamento è soggetto a limitazioni e, nell'immediato futuro, potrebbe essere eliminato. Si noti inoltre che i cluster distribuiti in Azure e protetti con certificati X509, emessi da un'infrastruttura a chiave pubblica privata e dichiarati dal soggetto, potrebbero non essere convalidati dal servizio Azure Service Fabric (per le comunicazioni dal cluster al servizio), se i criteri dei certificati dell'infrastruttura a chiave pubblica non sono rilevabili, disponibili e accessibili. 
 
 ## <a name="deploy-the-updated-template"></a>Distribuire il modello aggiornato
 Distribuire nuovamente il modello aggiornato dopo aver apportato le modifiche.
@@ -204,8 +208,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParame
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni sulla [sicurezza del cluster](service-fabric-cluster-security.md).
-* Informazioni su come [eseguire il rollover di un certificato di cluster](service-fabric-cluster-rollover-cert-cn.md)
+* Vedere le informazioni sulla [sicurezza del cluster](service-fabric-cluster-security.md).
+* Vedere le informazioni su come [eseguire il rollover di un certificato di cluster](service-fabric-cluster-rollover-cert-cn.md)
 * [Aggiornare e gestire i certificati dei cluster](service-fabric-cluster-security-update-certs-azure.md)
 * Semplificare la gestione dei certificati con la [modifica del cluster dall'identificazione personale del certificato al nome comune](service-fabric-cluster-change-cert-thumbprint-to-cn.md)
 

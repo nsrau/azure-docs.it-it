@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 804044dbfc5428c3a80aab13227730ed13c43ce2
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 4f92860ac128bdb6e4e2e059592745285779688d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098031"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001982"
 ---
 # <a name="azure-monitor-overview"></a>Panoramica di Monitoraggio di Azure
 
@@ -28,6 +28,7 @@ Monitoraggio di Azure ottimizza la disponibilità e le prestazioni delle applica
 ## <a name="overview"></a>Panoramica
 Il diagramma seguente offre una panoramica di Monitoraggio di Azure. Al centro del diagramma si trovano gli archivi dati per le metriche e i log, i due tipi fondamentali di dati usati da Monitoraggio di Azure. A sinistra si trovano le [origini dei dati di monitoraggio](platform/data-sources.md) che popolano tali [archivi dati](platform/data-collection.md). A destra ci sono le diverse funzioni svolte da Monitoraggio di Azure con i dati raccolti, come analisi, avviso e streaming a sistemi esterni.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ![Panoramica di Monitoraggio di Azure](media/overview/overview.png)
 
@@ -39,7 +40,7 @@ Per molte risorse di Azure, i dati raccolti da Monitoraggio di Azure sono visual
 
 ![Metriche](media/overview/metrics.png)
 
-I dati di log raccolti da Monitoraggio di Azure sono archiviati in Log Analytics che include un [linguaggio di query avanzato](log-query/log-query-overview.md) per recuperare, consolidare e analizzare rapidamente i dati raccolti.  È possibile creare e testare query usando la pagina [Log Analytics](log-query/portals.md) nel portale di Azure e quindi analizzare direttamente i dati usando questi strumenti o salvare le query per l'uso con [visualizzazioni](visualizations.md) o [regole degli avvisi](platform/alerts-overview.md).
+I dati di log raccolti da Monitoraggio di Azure possono essere analizzati con [query](log-query/log-query-overview.md) per recuperare, consolidare e analizzare rapidamente i dati raccolti.  È possibile creare e testare query usando [Log Analytics](log-query/portals.md) nel portale di Azure e quindi analizzare direttamente i dati usando questi strumenti o salvare le query per l'uso con [visualizzazioni](visualizations.md) o [regole degli avvisi](platform/alerts-overview.md).
 
 Monitoraggio di Azure usa una versione del [linguaggio di query di Esplora dati](/azure/kusto/query/) adatto a query semplici nei log, ma include anche funzionalità avanzate come le aggregazioni, i join e le analisi intelligenti. È possibile apprendere rapidamente il linguaggio di query usando le [numerose lezioni](log-query/get-started-queries.md) disponibili.  Indicazioni specifiche sono disponibili per gli utenti che hanno già familiarità con [SQL](log-query/sql-cheatsheet.md) e [Splunk](log-query/splunk-cheatsheet.md).
 
@@ -54,7 +55,7 @@ Monitoraggio di Azure può raccogliere dati da diverse origini. Il monitoraggio 
 - **Dati di monitoraggio della sottoscrizione di Azure**: dati relativi al funzionamento e alla gestione di una sottoscrizione di Azure e dati relativi all'integrità e al funzionamento di Azure stesso. 
 - **Dati di monitoraggio del tenant di Azure**: dati relativi al funzionamento dei servizi di Azure a livello di tenant, ad esempio Azure Active Directory.
 
-Non appena si crea una sottoscrizione di Azure e si inizia ad aggiungere risorse quali macchine virtuali e app Web, Monitoraggio di Azure avvia la raccolta dei dati.  I [log attività](platform/activity-logs-overview.md) registrano quando vengono create o modificate le risorse. Le [metriche](../monitoring-and-diagnostics/monitoring-overview-metrics.md) indicano le prestazioni della risorsa e quali risorse utilizza. 
+Non appena si crea una sottoscrizione di Azure e si inizia ad aggiungere risorse quali macchine virtuali e app Web, Monitoraggio di Azure avvia la raccolta dei dati.  I [log attività](platform/activity-logs-overview.md) registrano quando vengono create o modificate le risorse. Le [metriche](platform/data-collection.md) indicano le prestazioni della risorsa e quali risorse utilizza. 
 
 Per estendere i dati raccolti all'impiego effettivo delle risorse [abilitare la diagnostica](platform/diagnostic-logs-overview.md) e [aggiungere un agente](platform/agent-windows.md) per calcolare le risorse. In questo modo vengono raccolti i dati di telemetria per il funzionamento interno della risorsa ed è possibile configurare diverse [origini dati](platform/agent-data-sources.md) per raccogliere log e metriche dal sistema operativo guest Windows o Linux. 
 

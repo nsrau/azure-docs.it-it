@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: a9f956e66be03a4811868cbc2e7d6fc7dc672310
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 9b3261679b64e054bb8f750ad99983661a5b6035
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52886322"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56213084"
 ---
 ## <a name="specifying-formats"></a>Specifica dei formati
 Azure Data Factory supporta i tipi di formato seguenti:
@@ -73,7 +73,7 @@ Per **importare/esportare i file JSON senza modifiche in/da Azure Cosmos DB**, v
 
 Per analizzare i file JSON o scrivere i dati in formato JSON, impostare la proprietà `format` `type` su **JsonFormat**. È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | filePattern |Indicare il modello dei dati archiviati in ogni file JSON. I valori consentiti sono: **setOfObjects** e **arrayOfObjects**. Il valore **predefinito** è **setOfObjects**. Vedere la sezione [Modelli di file JSON](#json-file-patterns) per i dettagli su questi modelli. |No  |
 | jsonNodeReference | Per eseguire l'iterazione dei dati ed estrarli dagli oggetti presenti nel campo di una matrice con lo stesso modello, specificare il percorso JSON di tale matrice. Questa proprietà è supportata solo quando si copiano i dati dai file JSON. | No  |
@@ -213,7 +213,7 @@ e lo si vuole copiare in una tabella SQL di Azure nel formato seguente, estraend
 
 Il set di dati di input con il tipo **JsonFormat** è definito come segue (definizione parziale che include solo le parti pertinenti). Più in particolare:
 
-- La sezione `structure` definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Vedere la sezione [Definizione della struttura per i set di dati rettangolari](#specifying-structure-definition-for-rectangular-datasets) per altri dettagli.
+- La sezione `structure` definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Vedere la sezione Definizione della struttura per i set di dati rettangolari per altri dettagli.
 - `jsonPathDefinition` specifica il percorso JSON per ogni colonna indicante da dove estrarre i dati. Per copiare dati dalla matrice, è possibile usare **matrice[x].proprietà** per estrarre il valore della proprietà specificata dall'oggetto x oppure è possibile usare **matrice[*].proprietà** per trovare il valore in qualsiasi oggetto contenente tale proprietà.
 
 ```json
@@ -286,7 +286,7 @@ e lo si vuole copiare in una tabella SQL di Azure nel formato seguente, rendendo
 
 Il set di dati di input con il tipo **JsonFormat** è definito come segue (definizione parziale che include solo le parti pertinenti). Più in particolare:
 
-- La sezione `structure` definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Vedere la sezione [Definizione della struttura per i set di dati rettangolari](#specifying-structure-definition-for-rectangular-datasets) per altri dettagli.
+- La sezione `structure` definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Vedere la sezione Definizione della struttura per i set di dati rettangolari per altri dettagli.
 - `jsonNodeReference` indica di seguire l'iterazione dei dati e di estrarli dagli oggetti con lo stesso modello sotto le righe ordine della **matrice**.
 - `jsonPathDefinition` specifica il percorso JSON per ogni colonna indicante da dove estrarre i dati. In questo esempio "ordernumber", "orderdate" e "city" sono sotto l'oggetto radice con il percorso JSON che inizia con "$.", mentre "order_pd" e "order_price" sono definiti con il percorso derivato dall'elemento matrice senza "$.".
 

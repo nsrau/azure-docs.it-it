@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 1e1316ef568cbc6409a8653022d9acff9837b59d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 9cd5a63b5b1d7000605f90752be755356d40bb4a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279717"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56213089"
 ---
 >[!NOTE]
 >Per le risorse non fisse è possibile richiedere l'aumento delle quote aprendo un ticket di supporto. **Non** creare altri account di Servizi multimediali di Azure per provare a ottenere limiti superiori.
@@ -27,7 +27,7 @@ ms.locfileid: "52279717"
 | Canali live per ogni account AMS  |5|
 | Programmi con stato arrestato per canale  |50|
 | Programmi con stato in esecuzione per canale  |3|
-| Endpoint di streaming con stato in esecuzione per ogni account AMS |2|
+| Endpoint di streaming (interrotti o in esecuzione) per account di Servizi multimediali|2|
 | Unità di streaming per endpoint di streaming  |10 |
 | Account di archiviazione | 1.000<sup>(5)</sup> (fisso) |
 | Criteri | 1.000.000<sup>(6)</sup> |

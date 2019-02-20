@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 642c59e9349585ea2287f7bf439250dbfef9ba7a
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: d25fcbce99017ff19adebd61275b395c980a3cf5
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766249"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891692"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>.NET Core SDK di Azure Cosmos DB per l'API SQL: note sulla versione e risorse
 > [!div class="op_single_selector"]
@@ -49,6 +49,12 @@ Azure Cosmos DB .NET Core SDK ha le stesse funzionalità della versione più rec
 * Nuovo modello a oggetti con il modulo CosmosClient di livello superiore e metodi suddivisi tra le relative classi CosmosDatabases, CosmosContainers e CosmosItems.
 * Supporto dei flussi.
 * Classe CosmosResponseMessage aggiornata a partire dal server per restituire il codice di stato e generare un'eccezione solo se non viene restituita alcuna risposta.
+
+### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
+
+* Aggiunta dell'impostazione di variabile di ambiente "POCOSerializationOnly".
+
+* Rimozione di DocumentDB.Spatial.Sql.dll ora incluso in Microsoft.Azure.Documents.ServiceInterop.dll
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 
@@ -227,6 +233,7 @@ Per domande su questo SDK, pubblicare un post su [StackOverflow](https://stackov
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [2.2.2](#2.2.2) |06 febbraio 2019 |--- |
 | [2.2.1](#2.2.1) |24 dicembre 2018 |--- |
 | [2.2.0](#2.2.0) |7 dicembre 2018 |--- |
 | [2.1.3](#2.1.3) |15 ottobre 2018 |--- |

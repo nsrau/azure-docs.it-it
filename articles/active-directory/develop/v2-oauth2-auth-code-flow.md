@@ -17,12 +17,13 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 25b2e90c6293b93a15aeae2fbf08b70cb191cef0
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6e2115ad1a88c819e0ee1da34d9d332a0b013b96
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098715"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56174351"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protocolli della versione 2.0: flusso del codice di autorizzazione OAuth 2.0
 
@@ -53,13 +54,15 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=code
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &response_mode=query
-&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &state=12345
 ```
 
 > [!TIP]
 > Fare clic sul collegamento seguente per eseguire questa richiesta. Dopo l'accesso, il browser deve essere reindirizzato a `https://localhost/myapp/` con un `code` nella barra degli indirizzi.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
+> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
+> 
+> 
 
 | Parametro    | Obbligatorio/Facoltativo | DESCRIZIONE |
 |--------------|-------------|--------------|
@@ -138,7 +141,7 @@ Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &code=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq3n8b2JRLk4OxVXr...
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &grant_type=authorization_code
@@ -168,7 +171,7 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
     "token_type": "Bearer",
     "expires_in": 3599,
-    "scope": "https%3A%2F%2Fgraph.microsoft.com%2Fmail.read",
+    "scope": "https%3A%2F%2Fgraph.microsoft.com%2Fuser.read",
     "refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4...",
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
 }
@@ -239,7 +242,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 I token di accesso hanno breve durata ed è quindi necessario aggiornarli dopo la scadenza per continuare ad accedere alle risorse. A tale scopo, inviare un'altra richiesta `POST` all'endpoint `/token`, specificando il `refresh_token` anziché il valore `code`.  I token di aggiornamento sono validi per tutte le autorizzazioni per cui il client ha già ottenuto il consenso; in questo modo, un token di aggiornamento emesso su richiesta per `scope=mail.read` può essere usato per richiedere un nuovo token di accesso per `scope=api://contoso.com/api/UseResource`.  
 
-I token di aggiornamento non hanno una durata specificata. La durata dei token di aggiornamento è in genere relativamente lunga. In alcuni casi, tuttavia, i token di aggiornamento scadono, vengono revocati o non hanno privilegi sufficienti per l'azione desiderata. L'applicazione deve prevedere e gestire correttamente gli [errori restituiti dall'endpoint di rilascio del token](#error-codes-for-token-endpoint-errors). 
+I token di aggiornamento non hanno una durata specificata. La durata dei token di aggiornamento è in genere relativamente lunga. In alcuni casi, tuttavia, i token di aggiornamento scadono, vengono revocati o non hanno privilegi sufficienti per l'azione desiderata. L'applicazione deve prevedere e gestire correttamente gli [errori restituiti dall'endpoint di rilascio del token](#error-codes-for-token-endpoint-errors).  Si noti che i token di aggiornamento non vengono revocati quando sono usati per acquisire nuovi token di accesso. 
 
 ```
 // Line breaks for legibility only
@@ -249,7 +252,7 @@ Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &refresh_token=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq...
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &grant_type=refresh_token
@@ -280,7 +283,7 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
     "token_type": "Bearer",
     "expires_in": 3599,
-    "scope": "https%3A%2F%2Fgraph.microsoft.com%2Fmail.read",
+    "scope": "https%3A%2F%2Fgraph.microsoft.com%2Fuser.read",
     "refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4...",
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
 }

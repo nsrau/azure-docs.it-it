@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: f9bd0288d4009af536bdc8f45cbaed4b3f1eee18
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 884775fc2783256d9fff43e8bc6b26cc4f638648
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018711"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998621"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Panoramica del monitoraggio dell'integrità del gateway applicazione
 
@@ -27,7 +27,7 @@ Oltre al monitoraggio del probe di integrità predefinito, è anche possibile pe
 
 Un gateway applicazione configura automaticamente un probe di integrità predefinito quando non si configura nessuna configurazione di probe personalizzato. Il comportamento del monitoraggio prevede l'invio di una richiesta HTTP agli indirizzi IP configurati per il pool back-end. Per i probe predefiniti, se le impostazioni HTTP del back-end vengono configurate per HTTPS, il probe usa HTTPS anche per testare l'integrità dei back-end.
 
-Ad esempio, si configura il gateway applicazione per usare i server back-end A, B e C per ricevere il traffico di rete HTTP sulla porta 80. Il monitoraggio dell'integrità predefinito testa i tre server ogni 30 secondi per ottenere una risposta HTTP integra. Una risposta HTTP integra ha un [codice di stato](https://msdn.microsoft.com/library/aa287675.aspx) compreso tra 200 e 399.
+Ad esempio:  si configura il gateway applicazione per usare i server back-end A, B e C per ricevere il traffico di rete HTTP sulla porta 80. Il monitoraggio dell'integrità predefinito testa i tre server ogni 30 secondi per ottenere una risposta HTTP integra. Una risposta HTTP integra ha un [codice di stato](https://msdn.microsoft.com/library/aa287675.aspx) compreso tra 200 e 399.
 
 Se il controllo probe predefinito non riesce per il server A, il gateway applicazione lo rimuove dal pool back-end e il flusso del traffico di rete a questo server viene arrestato. Il probe predefinito continua tuttavia a controllare il server A ogni 30 secondi. Quando il server A risponde correttamente a una richiesta di un probe di integrità predefinito, viene aggiunto di nuovo come integro al pool back-end e il flusso del traffico verso il server riprenderà.
 
@@ -44,7 +44,7 @@ I criteri di corrispondenza possono essere specificati tramite il cmdlet `New-Az
 
 Ad esempio: 
 
-```
+```powershell
 $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
 $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```

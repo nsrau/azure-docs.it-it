@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 7d5cd8aab0f368ffec636e6dfcacf127c910dafc
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 45e5c43cf5eb8df1df5b26ffae50d2881bb086e4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190171"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115199"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Creare una tabella di route dell'hub virtuale per indirizzare il traffico a un'appliance virtuale di rete
 
@@ -36,7 +36,7 @@ Verificare di aver soddisfatto i criteri seguenti:
 
 1. Disporre di un'appliance virtuale di rete (NVA), un software di terze parti di propria scelta, in genere con provisioning da Azure Marketplace (collegamento) in una rete virtuale.
 2. Un indirizzo IP privato assegnato all'interfaccia di rete dell'appliance virtuale di rete. 
-3. L'appliance virtuale di rete non può essere distribuita nell'hub virtuale. Deve essere distribuita in una rete virtuale separata. In questo articolo viene fatto riferimento alla rete virtuale come "rete virtuale della rete perimetrale".
+3. L'appliance virtuale di rete non può essere distribuita nell'hub virtuale. Deve essere distribuita in una rete virtuale separata. Per questo articolo, la rete virtuale dell'appliance virtuale di rete viene definita "rete virtuale della rete perimetrale".
 4. La "rete virtuale della rete perimetrale" può avere una o più reti virtuali connesse ad essa. In questo articolo viene fatto riferimento alla rete virtuale come "rete virtuale spoke indiretta". Queste reti virtuali possono essere connesse alla rete virtuale della rete perimetrale usando il peering reti virtuali.
 5. Verificare di avere 2 reti virtuali già create. Queste verranno usate come reti virtuali spoke. Per questo articolo, gli spazi di indirizzi della rete virtuale spoke sono 10.0.2.0/24 e 10.0.3.0/24. Se sono necessarie informazioni su come creare una rete virtuale, vedere [Creare una rete virtuale usando PowerShell](../virtual-network/quick-create-powershell.md).
 6. Assicurarsi che non ci siano gateway di rete virtuale in nessuna rete virtuale.

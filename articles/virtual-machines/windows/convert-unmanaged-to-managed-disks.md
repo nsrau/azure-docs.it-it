@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.openlocfilehash: fecf17d95231cc37a141cfb72397f44ce2e980b5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: bcfb227b8ced6b17fe23c1a60468de24f1835ba0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435601"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979956"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Convertire i dischi non gestiti di una VM Windows in dischi gestiti
 
 Se si hanno macchine virtuali (VM) Windows che usano dischi non gestiti, è possibile convertire le VM all'uso di dischi gestiti mediante il servizio [Azure Managed Disks](managed-disks-overview.md). Questo processo consente di convertire sia il disco del sistema operativo che eventuali dischi dati collegati.
 
-Questo articolo illustra come convertire le VM con Azure PowerShell. Se è necessario eseguirne l'installazione o l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -41,20 +41,20 @@ Questo articolo illustra come convertire le VM con Azure PowerShell. Se è neces
 
 
 ## <a name="convert-single-instance-vms"></a>Convertire VM a istanza singola
-Questa sezione descrive come convertire i dischi delle macchine virtuali di Azure a istanza singola da non gestiti a gestiti. Se le VM sono in un set di disponibilità, vedere la sezione successiva. 
+Questa sezione descrive come convertire i dischi delle macchine virtuali di Azure a istanza singola da non gestiti a gestiti. Se le macchine virtuali si trovano in un set di disponibilità, vedere la sezione successiva. 
 
-1. Deallocare la VM mediante il cmdlet [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm). L'esempio seguente dealloca la macchina virtuale denominata `myVM` nel gruppo di risorse `myResourceGroup`: 
+1. Deallocare la macchina virtuale mediante il cmdlet [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm). L'esempio seguente dealloca la macchina virtuale denominata `myVM` nel gruppo di risorse `myResourceGroup`: 
 
   ```azurepowershell-interactive
   $rgName = "myResourceGroup"
   $vmName = "myVM"
-  Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
+  Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
   ```
 
-2. Convertire i dischi della VM in dischi gestiti mediante il cmdlet [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk). Il processo seguente converte la macchina virtuale precedente, incluso il disco del sistema operativo e i dischi dati, e quindi avvia la macchina virtuale:
+2. Convertire la macchina virtuale in dischi gestiti mediante il cmdlet [ConvertTo-AzVMManagedDisk](https://docs.microsoft.com/powershell/module/az.compute/convertto-azvmmanageddisk). Il processo seguente converte la macchina virtuale precedente, incluso il disco del sistema operativo e i dischi dati, e quindi avvia la macchina virtuale:
 
   ```azurepowershell-interactive
-  ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
+  ConvertTo-AzVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
   ```
 
 
@@ -63,40 +63,40 @@ Questa sezione descrive come convertire i dischi delle macchine virtuali di Azur
 
 Se le macchine virtuali che si desidera convertire in dischi gestiti si trovano in un set di disponibilità, è innanzitutto necessario convertire il set di disponibilità in un set di disponibilità gestito.
 
-1. Convertire il set di disponibilità mediante il cmdlet [Update-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/update-azurermavailabilityset). L'esempio seguente aggiorna il set di disponibilità denominato `myAvailabilitySet` nel gruppo di risorse `myResourceGroup`:
+1. Convertire il set di disponibilità mediante il cmdlet [Update-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/update-azavailabilityset). L'esempio seguente aggiorna il set di disponibilità denominato `myAvailabilitySet` nel gruppo di risorse `myResourceGroup`:
 
   ```azurepowershell-interactive
   $rgName = 'myResourceGroup'
   $avSetName = 'myAvailabilitySet'
 
-  $avSet = Get-AzureRmAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
-  Update-AzureRmAvailabilitySet -AvailabilitySet $avSet -Sku Aligned 
+  $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
+  Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned 
   ```
 
   Se l'area in cui si trova il set di disponibilità ha solo 2 domini di errore gestiti, ma il numero di domini di errore non gestiti è 3, questo comando visualizza un errore di questo tipo: "Il conteggio del dominio di errore specificato 3 deve essere compreso nell'intervallo 1-2". Per correggere l'errore, impostare il dominio di errore su 2 e impostare `Sku` su `Aligned` come segue:
 
   ```azurepowershell-interactive
   $avSet.PlatformFaultDomainCount = 2
-  Update-AzureRmAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
+  Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
   ```
 
-2. Deallocare e convertire le VM nel set di disponibilità. Lo script seguente dealloca ogni macchina virtuale tramite il cmdlet [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm), la converte con [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk) e la riavvia automaticamente con un processo separato da quello di conversione:
+2. Deallocare e convertire le VM nel set di disponibilità. Lo script seguente dealloca ogni macchina virtuale mediante il cmdlet [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm), la converte usando [ConvertTo-AzVMManagedDisk](https://docs.microsoft.com/powershell/module/az.compute/convertto-azvmmanageddisk) e la riavvia automaticamente con un processo separato da quello di conversione:
 
   ```azurepowershell-interactive
-  $avSet = Get-AzureRmAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
+  $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
 
   foreach($vmInfo in $avSet.VirtualMachinesReferences)
   {
-     $vm = Get-AzureRmVM -ResourceGroupName $rgName | Where-Object {$_.Id -eq $vmInfo.id}
-     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vm.Name -Force
-     ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vm.Name
+     $vm = Get-AzVM -ResourceGroupName $rgName | Where-Object {$_.Id -eq $vmInfo.id}
+     Stop-AzVM -ResourceGroupName $rgName -Name $vm.Name -Force
+     ConvertTo-AzVMManagedDisk -ResourceGroupName $rgName -VMName $vm.Name
   }
   ```
 
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
-Se si verifica un errore durante la conversione o se una VM si trova in uno stato di errore a causa di problemi in una conversione precedente, eseguire di nuovo il cmdlet `ConvertTo-AzureRmVMManagedDisk`. In genere è sufficiente riprovare per sbloccare la situazione.
+Se si verifica un errore durante la conversione o se una VM si trova in uno stato di errore a causa di problemi in una conversione precedente, eseguire di nuovo il cmdlet `ConvertTo-AzVMManagedDisk`. In genere è sufficiente riprovare per sbloccare la situazione.
 Prima di eseguire la conversione, assicurarsi che lo stato di tutte le estensioni di macchina virtuale corrisponda a 'Provisioning completato'. In caso contrario, la conversione avrà esito negativo con codice di errore 409.
 
 

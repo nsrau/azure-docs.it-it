@@ -11,12 +11,12 @@ services: data-factory
 documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.openlocfilehash: e296606d219623c29bedca4fb0906a955a394b30
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ee35c7ae1b75c6fb4d656927d7e6e4384cd76836
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013418"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003942"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Ruoli e autorizzazioni per Azure Data Factory
 
@@ -78,7 +78,7 @@ Ecco alcuni esempi che illustrano cosa si può ottenere con i ruoli personalizza
   Questo scenario richiede due assegnazioni di ruolo.
 
   1. Assegnare il ruolo **collaboratore** predefinito a livello di data factory.
-  2. Creare un ruolo personalizzato con l'autorizzazione  *Microsoft.Resources/deployments/**. Assegnare questo ruolo personalizzato all'utente a livello di gruppo di risorse.
+  2. Creare un ruolo personalizzato con l'autorizzazione **Microsoft.Resources/deployments/**. Assegnare questo ruolo personalizzato all'utente a livello di gruppo di risorse.
 
 - Consentire a un utente di aggiornare una data factory da PowerShell o da SDK, ma non nel portale di Azure.
 

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: e9e00dd9d05ff7339a6b5fd93e86bae61fbbf5ee
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 3ab70febbb41b26fd824f9ae6ef0d00358c7530f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188431"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864418"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Come eseguire query sui log da Monitoraggio di Azure per le macchine virtuali (anteprima)
 Monitoraggio di Azure per le macchine virtuali raccoglie le metriche relative a prestazioni e connessione, i dati di inventario di computer e processi e le informazioni sullo stato di integrità e inoltra quanto raccolto all'archivio dati di Log Analytics in Monitoraggio di Azure.  Questi dati sono disponibili per la [ricerca](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics. Questi dati possono essere applicati a diversi scenari, tra cui la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione dei problemi di prestazioni on demand.
@@ -117,7 +117,7 @@ I record di tipo *ServiceMapComputer_CL* includono dati di inventario per i serv
 
 | Proprietà | DESCRIZIONE |
 |:--|:--|
-| type | *ServiceMapComputer_CL* |
+| Type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | Identificatore univoco per il computer nell'area di lavoro |
 | ResourceName_s | Identificatore univoco per il computer nell'area di lavoro |
@@ -142,7 +142,7 @@ I record di tipo *ServiceMapProcess_CL* includono dati di inventario per i proce
 
 | Proprietà | DESCRIZIONE |
 |:--|:--|
-| type | *ServiceMapProcess_CL* |
+| Type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | Identificatore univoco per il processo nell'area di lavoro |
 | ResourceName_s | Identificatore univoco per il processo nel computer in cui è in esecuzione|
@@ -167,6 +167,12 @@ I record di tipo *ServiceMapProcess_CL* includono dati di inventario per i proce
 ### <a name="list-all-known-machines"></a>Visualizzare tutti i computer noti
 `ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId`
 
+### <a name="when-was-the-vm-last-rebooted"></a>Data dell'ultimo riavvio della macchina virtuale
+`let Today = now(); ServiceMapComputer_CL | extend DaysSinceBoot = Today - BootTime_t | summarize by Computer, DaysSinceBoot, BootTime_t | sort by BootTime_t asc`
+
+### <a name="summary-of-azure-vms-by-image-location-and-sku"></a>Riepilogo delle macchine virtuali di Azure per immagine, posizione e SKU
+`ServiceMapComputer_CL | where AzureLocation_s != "" | summarize by ComputerName_s, AzureImageOffering_s, AzureLocation_s, AzureImageSku_s`
+
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Visualizzare la capacità di memoria fisica di tutti i computer gestiti.
 `ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s`
 
@@ -185,7 +191,7 @@ I record di tipo *ServiceMapProcess_CL* includono dati di inventario per i proce
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Elencare tutti i processi noti su un computer specifico
 `ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
-### <a name="list-all-computers-running-sql"></a>Visualizzare tutti i computer che eseguono SQL
+### <a name="list-all-computers-running-sql-server"></a>Elencare tutti i computer che eseguono SQL Server
 `ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s`
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Elencare tutte le versioni di prodotto univoche di curl nel data center
@@ -193,6 +199,18 @@ I record di tipo *ServiceMapProcess_CL* includono dati di inventario per i proce
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Creare un gruppo di tutti i computer che eseguono CentOS
 `ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s`
+
+### <a name="bytes-sent-and-received-trends"></a>Tendenze di byte inviati e ricevuti
+`VMConnection | summarize sum(BytesSent), sum(BytesReceived) by bin(TimeGenerated,1hr), Computer | order by Computer desc | render timechart`
+
+### <a name="which-azure-vms-are-transmitting-the-most-bytes"></a>Macchine virtuali di Azure che trasmettono il maggior numero di byte
+`VMConnection | join kind=fullouter(ServiceMapComputer_CL) on $left.Computer == $right.ComputerName_s | summarize count(BytesSent) by Computer, AzureVMSize_s | sort by count_BytesSent desc`
+
+### <a name="link-status-trends"></a>Tendenze dello stato del collegamento
+`VMConnection | where TimeGenerated >= ago(24hr) | where Computer == "acme-demo" | summarize  dcount(LinksEstablished), dcount(LinksLive), dcount(LinksFailed), dcount(LinksTerminated) by bin(TimeGenerated, 1h) | render timechart`
+
+### <a name="connection-failures-trend"></a>Tendenza degli errori di connessione
+`VMConnection | where Computer == "acme-demo" | extend bythehour = datetime_part("hour", TimeGenerated) | project bythehour, LinksFailed | summarize failCount = count() by bythehour | sort by bythehour asc | render timechart`
 
 ### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Riepilogare le connessioni in uscita da un gruppo di computer
 ```

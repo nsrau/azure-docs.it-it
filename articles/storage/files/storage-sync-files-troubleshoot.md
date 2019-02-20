@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 376ebcbc17cc9f5c797c2985fe3c0784f5036600
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 52e0521217fb99bc5fac3fdde8f43f9c80f86ac7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752093"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194237"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -145,12 +145,12 @@ Se lo stato di integrità dell'endpoint server è impostato su "Nessuna attivit�
 
 È possibile che in un endpoint server non vengano registrate attività di sincronizzazione per i motivi seguenti:
 
-- Il server ha una sessione di sincronizzazione VSS (SnapshotSync) attiva. Se in un endpoint server è attiva una sessione di sincronizzazione VSS, gli altri endpoint presenti nel volume del server non possono avviare una sessione di sincronizzazione fino al completamento della sessione di sincronizzazione VSS.
+- L'agente versione 4.3.0.0 o precedente è installato e il server dispone di una sessione di sincronizzazione VSS (SnapshotSync) attiva. Se in un endpoint server è attiva una sessione di sincronizzazione VSS, gli altri endpoint presenti nel volume del server non possono avviare una sessione di sincronizzazione fino al completamento della sessione di sincronizzazione VSS. Per risolvere questo problema, installare la versione 5.0.2.0 o successiva dell'agente, che supporta la sincronizzazione di più endpoint server su un volume quando è attiva una sessione di sincronizzazione VSS.
 
     Per verificare le attività di sincronizzazione attualmente in esecuzione su un server, vedere [Come monitorare lo stato di avanzamento di una sessione di sincronizzazione corrente?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
 - Il server ha raggiunto il numero massimo di sessioni di sincronizzazione simultanee. 
-    - Versione dell'agente 4.x e versioni successive: il limite dipende dalle risorse di sistema disponibili.
+    - Versione dell'agente 4.x e successive: il limite dipende dalle risorse di sistema disponibili.
     - Agente versione 3 x: 2 sessioni di sincronizzazione attive per ogni processore o fino a 8 sessioni di sincronizzazione attive per ogni server.
 
 > [!Note]  
@@ -538,7 +538,7 @@ Questo errore si verifica perché sono state apportate modifiche nella condivisi
 | **Stringa di errore** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
 | **Rimedio necessario** | Sì |
 
-Nei casi in cui sono presenti numerosi errori di sincronizzazione file, le sessioni di sincronizzazione potrebbero presentare errori. Per risolvere questo stato, vedere [Risoluzione dei problemi per gli errori di sincronizzazione di file e directory]().
+Nei casi in cui sono presenti numerosi errori di sincronizzazione file, le sessioni di sincronizzazione potrebbero presentare errori. <!-- To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().-->
 
 > [!NOTE]
 > Sincronizzazione file di Azure crea uno snapshot VSS temporaneo una volta al giorno nel server per sincronizzare i file con handle aperti.

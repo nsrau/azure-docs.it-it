@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 2e2bf4f0f7ba4546c2f8609ee3ec7efc072024ae
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: d8959e25280a9d1dd62549c698f7b2b6b98d6154
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751549"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964152"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Usare la sicurezza dei dati avanzata di database SQL con le reti virtuali e una compatibilità quasi del 100%
 
@@ -93,8 +93,8 @@ Entrambi i livelli di servizio garantiscono una disponibilità del 99,99% e cons
 L'elenco seguente descrive le caratteristiche principali del livello di servizio Utilizzo generico:
 
 - Progettazione della maggior parte delle applicazioni aziendali con requisiti di prestazioni tipici
-- Archiviazione Premium di Azure ad alte prestazioni (8 TB)
-- [Disponibilità elevata](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) basata sull'affidabilità di Archiviazione Premium di Azure e su [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
+- Archiviazione BLOB di Azure ad alte prestazioni (8 TB)
+- [Disponibilità elevata](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) basata sull'affidabilità di Archiviazione BLOB di Azure e su [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
 
 Per altre informazioni, vedere [storage layer in general purpose tier](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) (Livello Archiviazione nel livello di servizio Utilizzo generico) e [storage performance best practices and considerations for managed instances (general purpose)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/) (Procedure consigliate e considerazioni sulle prestazioni di archiviazione per le istanze gestite (Utilizzo generico)).
 
@@ -107,8 +107,8 @@ Il livello di servizio business critical è progettato per applicazioni con requ
 L'elenco seguente descrive le caratteristiche principali del livello di servizio per business critical:
 
 - Progettato per applicazioni aziendali con le prestazioni e i requisiti di disponibilità più elevati
-- Viene fornito con l'archiviazione SSD estremamente rapida (fino a 1 TB nella quarta generazione e fino a 4 TB nella quinta generazione)
-- [Disponibilità elevata](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) integrata in base ai [gruppi di disponibilità AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) e [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
+- Viene fornito con l'archiviazione SSD locale estremamente rapida (fino a 1 TB nella quarta generazione e fino a 4 TB nella quinta generazione)
+- [Disponibilità elevata](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) integrata in base ai [gruppi di disponibilità AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) e [Azure Service Fabric](../service-fabric/service-fabric-overview.md).
 - [Replica di database di sola lettura](sql-database-read-scale-out.md) integrata aggiuntiva che può essere usata per la creazione di report e altri carichi di lavoro di sola lettura
 - [OLTP in memoria](sql-database-in-memory.md) che può essere usato per il carico di lavoro con requisiti di prestazioni elevate  
 
@@ -179,7 +179,7 @@ L'opzione di distribuzione dell'istanza gestita è destinata a scenari utente co
 
 ### <a name="back-up-and-restore"></a>Eseguire il backup e il ripristino  
 
-L'approccio di migrazione sfrutta i backup di SQL per l'archiviazione di BLOB di Azure. I backup archiviati in BLOB del servizio di archiviazione di Azure possono essere ripristinati direttamente in un'istanza gestita usando il [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
+L'approccio di migrazione sfrutta i backup di SQL per l'archiviazione BLOB di Azure. I backup archiviati in BLOB del servizio di archiviazione di Azure possono essere ripristinati direttamente in un'istanza gestita usando il [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 
 - Per una guida di avvio rapido su come ripristinare il file di backup di database Wide World Importers - Standard, vedere [Restore a backup file to a managed instance](sql-database-managed-instance-get-started-restore.md) (Ripristinare un file di backup in un'istanza gestita). Questa guida introduttiva illustra come caricare un file di backup in una risorsa di archiviazione BLOB di Azure e proteggerlo usando una chiave di firma di accesso condiviso.
 - Per informazioni sul ripristino dall'URL, vedere [Ripristino nativo da URL](sql-database-managed-instance-migrate.md#native-restore-from-url).

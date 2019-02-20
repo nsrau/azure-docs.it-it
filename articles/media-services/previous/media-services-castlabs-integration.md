@@ -4,7 +4,7 @@ description: Questo articolo illustra come usare Servizi multimediali di Azure p
 services: media-services
 documentationcenter: ''
 author: Mingfeiy
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 2a9a408a-a995-49e1-8d8f-ac5b51e17d40
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 02/08/2019
 ms.author: Mingfeiy;willzhan;Juliako
-ms.openlocfilehash: aff5b94840e63176358d64a535c9cc0dd9ec617a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0b3d8759f13f48e5fa95ff709fa283ed41e0ea25
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783190"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003211"
 ---
-# <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso di castLabs per distribuire licenze Widevine a Servizi multimediali di Azure
+# <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso di castLabs per distribuire licenze Widevine a Servizi multimediali di Azure 
 > [!div class="op_single_selector"]
 > * [Axinom](media-services-axinom-integration.md)
 > * [castLabs](media-services-castlabs-integration.md)
@@ -29,6 +29,7 @@ ms.locfileid: "33783190"
 > 
 
 ## <a name="overview"></a>Panoramica
+
 Questo articolo illustra come usare Servizi multimediali di Azure per distribuire un flusso crittografato in modo dinamico da Servizi multimediali di Azure mediante DRM di PlayReady e Widevine. La licenza per PlayReady viene distribuita dal server licenze PlayReady di Servizi multimediali, mentre la licenza per Widevine viene distribuita dal server licenze **castLabs** .
 
 Per la riproduzione di contenuti in streaming protetti da CENC (PlayReady e/o Widevine), è possibile usare [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Per informazioni dettagliate vedere la [documentazione dell’AMP](http://amp.azure.net/libs/amp/latest/docs/)
@@ -38,6 +39,7 @@ Il diagramma seguente illustra un'architettura di integrazione di alto livello t
 ![integrazione](./media/media-services-castlabs-integration/media-services-castlabs-integration.png)
 
 ## <a name="typical-system-set-up"></a>Configurazione di sistema tipica
+
 * I contenuti multimediali vengono archiviati in Servizi multimediali di Azure.
 * Gli ID delle chiavi simmetriche vengono archiviati sia in castLabs sia in Servizi multimediali di Azure.
 * castLabs e Servizi multimediali di Azure dispongono entrambi di un sistema di autenticazione dei token integrato. I token di autenticazione vengono illustrati nelle sezioni seguenti. 
@@ -46,9 +48,11 @@ Il diagramma seguente illustra un'architettura di integrazione di alto livello t
 * Media Player decide automaticamente le licenze da recuperare in base alle caratteristiche della piattaforma client. 
 
 ## <a name="authentication-token-generation-for-getting-a-license"></a>Generazione di token di autenticazione per ottenere una licenza
+
 castLabs e Servizi multimediali di Azure supportano entrambi il formato di token JWT (JSON Web Token), necessario per autorizzare una licenza. 
 
 ### <a name="jwt-token-in-ams"></a>Token JWT in Servizi multimediali di Azure
+
 La tabella seguente descrive il token JWT usato in Servizi multimediali di Azure. 
 
 | Issuer | Stringa dell'autorità di certificazione rilasciata dal servizio token di sicurezza scelto |
@@ -60,6 +64,7 @@ La tabella seguente descrive il token JWT usato in Servizi multimediali di Azure
 | SigningCredentials |Chiave condivisa tra il server licenze PlayReady, il server licenze castLabs e il servizio token di sicurezza (STS); può essere una chiave simmetrica o asimmetrica. |
 
 ### <a name="jwt-token-in-castlabs"></a>Token JWT in castLabs
+
 La tabella seguente descrive il token JWT usato in castLabs. 
 
 | NOME | DESCRIZIONE |
@@ -69,7 +74,8 @@ La tabella seguente descrive il token JWT usato in castLabs.
 | iat |Data e ora corrente nel periodo. |
 | jti |Identificatore univoco per il token (ogni token può essere usato una sola volta nel sistema castLabs). |
 
-## <a name="sample-solution-set-up"></a>Configurazione della soluzione di esempio
+## <a name="sample-solution-setup"></a>Configurazione della soluzione di esempio
+
 La [soluzione di esempio](https://github.com/AzureMediaServicesSamples/CastlabsIntegration) è costituita da due progetti:
 
 * Un'app console che consente di impostare le restrizioni DRM su un asset già acquisito, sia per PlayReady sia per Widevine.
@@ -94,6 +100,7 @@ Per usare l'applicazione Web (STS):
 3. Passare al sito Web.
 
 ## <a name="playing-back-a-video"></a>Riproduzione di un video
+
 Per riprodurre un video crittografato con la crittografia comune (PlayReady e/o Widevine), è possibile usare [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Quando si esegue l'app console, vengono restituiti l'ID della chiave simmetrica e l'URL del manifesto.
 
 1. Aprire una nuova scheda e avviare il servizio token di sicurezza: http://[yourStsName].azurewebsites.net/api/token/assetid/[yourCastLabsAssetId]/contentkeyid/[thecontentkeyid].

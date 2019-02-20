@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 794c2cf6c52ead465d35d3d551cfe76e87c06787
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d27b508362193b79d7464ae49683479b2f8fc7ba
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237605"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991244"
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introduzione alla distribuzione di contenuti su richiesta usando REST
+# <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introduzione alla distribuzione di contenuti su richiesta usando REST  
+
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 Questa guida introduttiva illustra il processo di implementazione di un'applicazione di distribuzione di contenuti Video on Demand (VoD) usando le API REST di Servizi multimediali di Azure.
@@ -268,7 +269,7 @@ Un URL di firma di accesso condiviso ha il seguente formato:
 Considerazioni applicabili:
 
 * Non è possibile avere più di cinque localizzatori univoci associati contemporaneamente a un determinato asset. 
-* Se è necessario caricare i file immediatamente, impostare il valore StartTime su cinque minuti prima dell'ora corrente. Potrebbe infatti essere presente una leggera differenza di orario tra il computer client e Servizi multimediali. Inoltre, il formato DateTime del valore StartTime deve essere il seguente: AAAA-MM-GGTHH:mm:ssZ (ad esempio, "2014-05-23T17:53:50Z").    
+* Se è necessario caricare i file immediatamente, impostare il valore StartTime su cinque minuti prima dell'ora corrente. Potrebbe infatti essere presente una leggera differenza di orario tra il computer client e Servizi multimediali. Inoltre, il valore StartTime deve essere nel formato data/ora seguente: AAAA-MM-GGTHH:mm:ss (ad esempio, "2014-05-23T17:53:50Z").    
 * Può verificarsi un ritardo di 30-40 secondi tra la creazione di un localizzatore e la relativa disponibilità per l'uso. Questo problema si verifica sia per i localizzatori [URL di firma di accesso condiviso](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) sia per i localizzatori di origine.
 
 Il seguente esempio mostra come creare un localizzatore URL di firma di accesso condiviso, come definito dalla proprietà Type nel corpo della richiesta ("1" per un localizzatore di firma di accesso condiviso e "2" per un localizzatore di origine su richiesta). La proprietà **Path** restituita contiene l'URL da usare per caricare il file.
@@ -458,7 +459,7 @@ Il seguente codice include la richiesta dell'ID del codificatore.
     }
 
 ### <a name="create-a-job"></a>Creare un processo
-Ogni processo può includere una o più attività in base al tipo di elaborazione che si desidera eseguire. Tramite l'API REST è possibile creare processi e le attività correlate in due modi: le attività possono essere definite inline mediante la proprietà di navigazione Tasks in entità Job o mediante l'elaborazione batch OData. Media Services SDK usa l'elaborazione batch. Tuttavia, per semplificare la leggibilità degli esempi di codice inclusi in questo articolo le attività sono state definite inline. Per informazioni sull'elaborazione batch, vedere l'articolo relativo all' [elaborazione batch OData (Open Data Protocol)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Ogni processo può includere una o più attività in base al tipo di elaborazione che si desidera eseguire. Usando l'API REST è possibile creare i processi e le attività correlate procedendo in due modi diversi. Le attività possono essere definite inline mediante la proprietà di navigazione Tasks in entità Job o mediante l'elaborazione batch OData. Media Services SDK usa l'elaborazione batch. Tuttavia, per semplificare la leggibilità degli esempi di codice inclusi in questo articolo le attività sono state definite inline. Per informazioni sull'elaborazione batch, vedere l'articolo relativo all' [elaborazione batch OData (Open Data Protocol)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
 Il seguente esempio mostra come creare e pubblicare un processo con un'attività impostata per codificare un video con determinati valori di risoluzione e qualità. La sezione di documentazione seguente contiene l'elenco di tutti i [set di impostazioni di attività](https://msdn.microsoft.com/library/mt269960) supportati dal processore di Media Encoder Standard.  
 
@@ -742,7 +743,7 @@ Il seguente esempio mostra come specificare l'entità AccessPolicy per le autori
 Se l'esito è positivo, viene restituito un codice di riuscita 201 in cui viene descritta l'entità AccessPolicy creata. Si userà quindi l'ID AccessPolicy insieme all'ID asset in cui è contenuto il file che si vuole distribuire (ad esempio un asset di output) per creare l'entità Locator.
 
 > [!NOTE]
-> Questo flusso di lavoro di base è lo stesso previsto per il caricamento di un file durante l'inserimento di un asset, come illustrato in precedenza in questo argomento. Come per il caricamento dei file, se l'utente o i relativi client desiderano accedere immediatamente ai file, impostare il valore StartTime su cinque minuti prima dell'ora corrente. Questa operazione è necessaria perché potrebbe essere presente una leggera differenza di orario tra il computer client e Servizi multimediali. Il formato DateTime del valore StartTime deve essere il seguente: AAAA-MM-GGTHH:mm:ssZ (ad esempio, "2014-05-23T17:53:50Z").
+> Questo flusso di lavoro di base è lo stesso previsto per il caricamento di un file durante l'inserimento di un asset, come illustrato in precedenza in questo argomento. Come per il caricamento dei file, se l'utente o i relativi client desiderano accedere immediatamente ai file, impostare il valore StartTime su cinque minuti prima dell'ora corrente. Questa operazione è necessaria perché potrebbe essere presente una leggera differenza di orario tra il computer client e Servizi multimediali. Il valore StartTime deve essere nel formato data/ora seguente: AAAA-MM-GGTHH:mm:ss (ad esempio, "2014-05-23T17:53:50Z").
 >
 >
 

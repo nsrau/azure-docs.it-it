@@ -4,7 +4,7 @@ description: Questo articolo offre una panoramica delle funzionalità di sicurez
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 984c74c44cb5149e0c4af83ea8ca4d88e67877ae
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f9297946b7e09bc8c516470515d0eee9885d5d38
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584775"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116321"
 ---
 # <a name="azure-database-security-overview"></a>Panoramica della sicurezza del database di Azure
 
@@ -114,8 +114,8 @@ Il servizio database SQL di Azure è disponibile solo tramite la porta TCP 1433.
 
 Per autenticazione si intende il modo in cui viene dimostrata la propria identità durante la connessione al database. Il database SQL supporta due tipi di autenticazione:
 
--   **Autenticazione di SQL Server**: quando viene creata un'istanza logica di SQL, viene creato un singolo account di accesso, denominato account sottoscrittore del database SQL. Questo account, che si connette usando l'[autenticazione di SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview) (nome utente e password), è un amministratore nell'istanza logica del server e in tutti i database utente collegati a tale istanza. Le autorizzazioni dell'account sottoscrittore non possono essere soggette a restrizioni. Può esistere un solo account di questo tipo.
--   **Autenticazione di Azure Active Directory**: l'[autenticazione di Azure AD](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) è un meccanismo di connessione al database SQL di Azure e ad Azure SQL Data Warehouse tramite le identità presenti in Azure AD. È possibile usarla per gestire in modo centralizzato le identità degli utenti del database.
+-   **Autenticazione di SQL Server**: Quando viene creata un'istanza logica di SQL, viene creato un singolo account di accesso, denominato account sottoscrittore del database SQL. Questo account, che si connette usando l'[autenticazione di SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview) (nome utente e password), è un amministratore nell'istanza logica del server e in tutti i database utente collegati a tale istanza. Le autorizzazioni dell'account sottoscrittore non possono essere soggette a restrizioni. Può esistere un solo account di questo tipo.
+-   **Autenticazione di Azure Active Directory**: L'[autenticazione di Azure Active Directory](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) è un meccanismo di connessione al database SQL di Azure e a SQL Data Warehouse tramite l'uso di identità in Azure Active Directory. È possibile usarla per gestire in modo centralizzato le identità degli utenti del database.
 
 ![Autenticazione di Azure AD con il database SQL](./media/azure-databse-security-overview/azure-database-fig2.png)
 
@@ -176,8 +176,8 @@ Il servizio di controllo del database SQL tiene traccia degli eventi che si veri
 
 Esistono due metodi di controllo:
 
--   **Controllo BLOB**: i log vengono scritti in Archiviazione BLOB di Azure. È un metodo di controllo più recente. Offre prestazioni più elevate, supporta una maggiore granularità del controllo a livello di oggetto ed è più conveniente.
--   **Controllo tabelle**: i log vengono scritti in Archiviazione tabelle di Azure.
+-   **Controllo BLOB**: I log vengono scritti in Archiviazione BLOB di Azure. È un metodo di controllo più recente. Offre prestazioni più elevate, supporta una maggiore granularità del controllo a livello di oggetto ed è più conveniente.
+-   **Controllo tabelle**: I log vengono scritti in Archiviazione Tabelle di Azure.
 
 ### <a name="threat-detection"></a>Introduzione al rilevamento delle minacce
 

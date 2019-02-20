@@ -3,17 +3,17 @@ title: Stili delle mappe supportati in Mappe di Azure | Microsoft Docs
 description: Stili delle mappe supportati da Mappe di Azure
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/02/2018
+ms.date: 02/12/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2f426ab85d9ab15dd080a487337b8d48358ed040
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 923b9fef75fa610ee817a86ce0b4d6b322153f01
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888461"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113432"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Stili delle mappe supportati da Mappe di Azure
 Mappe di Azure supporta vari stili di mappa predefiniti, come descritto di seguito.
@@ -56,7 +56,16 @@ Questo stile di mappa è un ibrido tra le strade e le indicazioni sovrapposte al
 ## <a name="night"></a>notte
 **notte** è una versione scura dello stile della mappa stradale con strade colorate e simboli.
 
-![notte](./media/supported-map-styles/night.PNG)
+![notte](./media/supported-map-styles/night.png)
 
 **API idonee:**
-* Controllo mappa JS 
+* Controllo mappa JS
+
+## <a name="roadshadedrelief"></a>road_shaded_relief
+**road shaded relief** è uno dei principali stili di Mappe di Azure, completato con contorni della Terra.
+
+![rilievo ombreggiato](./media/supported-map-styles/shaded-relief.png)
+
+**API idonee:**
+* Controllo mappa JS
+* [Riquadro della mappa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)

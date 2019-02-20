@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 84f8d8ecbeacc5acb6b19462096e6fbd1aa45816
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1902d00bc69fd12e7d424a2c2ab3bea562ff4e79
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810287"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108773"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -28,7 +28,7 @@ Durante l'operazione di spostamento il gruppo di origine e quello di destinazion
 Lo spostamento di una risorsa comporta solo il suo spostamento in un nuovo gruppo di risorse. L'operazione di spostamento non consente di modificare la località della risorsa. Il nuovo gruppo di risorse può avere un percorso diverso, ma ciò non modifica la posizione della risorsa.
 
 > [!NOTE]
-> In questo articolo viene descritto come spostare le risorse nell'offerta di un account di Azure esistente. Se si desidera effettivamente modificare l'offerta dell'account Azure (ad esempio effettuando l'aggiornamento da gratuito a pagamento a consumo) è necessario convertire la sottoscrizione.
+> In questo articolo viene descritto come spostare le risorse tra sottoscrizioni di Azure esistenti. Se si desidera effettivamente aggiornare l'offerta della sottoscrizione di Azure (ad esempio passando da gratuito a pagamento a consumo) è necessario convertire la sottoscrizione.
 > * Per aggiornare una versione di valutazione gratuita, vedere [Aggiornare la versione di valutazione gratuita o la sottoscrizione di Azure per Microsoft Imagine alla sottoscrizione con pagamento in base al consumo](..//billing/billing-upgrade-azure-subscription.md).
 > * Per modificare un account con pagamento in base al consumo, vedere [Modificare la sottoscrizione Azure con pagamento in base al consumo in un'offerta diversa](../billing/billing-how-to-switch-azure-offer.md).
 > * Se non è possibile convertire la sottoscrizione, [creare una richiesta di supporto tecnico di Azure](../azure-supportability/how-to-create-azure-support-request.md). Selezionare **Gestione delle sottoscrizioni** per il tipo di problema.
@@ -102,7 +102,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * Dashboard del portale
 * Power BI - sia Power BI Embedded che Raccolta di aree di lavoro di Power BI
 * IP pubblico: è possibile spostare l'IP pubblico con SKU Basic. L'indirizzo IP pubblico dello SKU Standard non può essere spostato.
-* Insieme di credenziali di Servizi di ripristino: registrarsi in un'[anteprima privata](#recovery-services-limitations).
+* Insieme di credenziali di Servizi di ripristino: registrarsi in un'[anteprima](#recovery-services-limitations).
 * Cache Redis di Azure: se l'istanza di Cache Redis di Azure è configurata con una rete virtuale, l'istanza non può essere spostata in una sottoscrizione diversa. Vedere [Limitazioni delle reti virtuali](#virtual-networks-limitations).
 * Utilità di pianificazione
 * Ricerca: non è possibile spostare più risorse di Ricerca in aree diverse in un'unica operazione. Al contrario, è possibile spostarle con operazioni separate.
@@ -310,7 +310,7 @@ Questa operazione potrebbe richiedere alcuni minuti.
 
 ### <a name="recovery-services-limitations"></a>Limitazioni dei servizi di ripristino
 
- Per spostare un insieme di credenziali di Servizi di ripristino, è necessario registrarsi in un'anteprima privata. Per provare, scrivere a AskAzureBackupTeam@microsoft.com.
+ Per spostare un insieme di credenziali di Servizi di ripristino, è necessario essere registrati in un'[anteprima pubblica limitata](../backup/backup-azure-move-recovery-services-vault.md).
 
 Attualmente, è possibile spostare un solo insieme di credenziali di Servizi di ripristino per ogni area contemporaneamente. Non è possibile spostare insiemi di credenziali di cui eseguire il backup di file di Azure, Sincronizzazione file di Azure o SQL in macchine virtuali IaaS.
 

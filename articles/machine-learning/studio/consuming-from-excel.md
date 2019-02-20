@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 95206d0e3cb7bdb619524237ca1e466414c5acf5
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2ac140e40ec1c70bf04c35512c28e84f59522bb8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492879"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989424"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>Utilizzo di un servizio Web di Azure Machine Learning Studio da Excel
 
@@ -26,7 +26,7 @@ Se si usa Excel 2013 (o versione successiva) o Excel Online, è consigliabile us
 
 
 ## <a name="steps"></a>Passaggi
-Pubblicazione di un servizio Web. [Questa pagina](walkthrough-5-publish-web-service.md) spiega come eseguire tale operazione. Attualmente la funzionalità della cartella di lavoro di Excel è supportata solo per i servizi di richiesta/risposta con un unico output cioè, una singola etichetta di valutazione. 
+Pubblicazione di un servizio Web. [Esercitazione 3: Distribuire il modello di rischio di credito](tutorial-part3-credit-risk-deploy.md) spiega come eseguire questa operazione. Attualmente la funzionalità della cartella di lavoro di Excel è supportata solo per i servizi di richiesta/risposta con un unico output cioè, una singola etichetta di valutazione. 
 
 Dopo aver creato un servizio Web, fare clic sulla sezione **WEB SERVICES** sulla sinistra di Studio e quindi selezionare il servizio Web da utilizzare tramite Excel.
 

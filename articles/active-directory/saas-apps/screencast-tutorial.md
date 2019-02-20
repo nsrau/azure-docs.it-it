@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Screencast-O-Matic | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Screencast-O-Matic | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Screencast-O-Matic.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 20c0acebde232bd50e6e5befed0facc96ee11b4d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 51daf3b9553babb5fc627c02d79914c68c318145
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040950"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190824"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-screencast-o-matic"></a>Esercitazione: Integrazione di Azure Active Directory con Screencast-O-Matic
+# <a name="tutorial-azure-active-directory-integration-with-screencast-o-matic"></a>Esercitazione: integrazione di Azure Active Directory con Screencast-O-Matic
 
 Questa esercitazione descrive come integrare Screencast-O-Matic con Azure Active Directory (Azure AD).
 
@@ -174,14 +175,14 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="create-a-screencast-o-matic-test-user"></a>Creare un utente test di Screencast-O-Matic
 
 Questa sezione descrive come creare un utente chiamato Britta Simon in Screencast-O-Matic. Screencast-O-Matic supporta il provisioning just-in-time, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già, viene creato un nuovo utente durante un tentativo di accesso a Screencast-O-Matic.
 
 >[!Note]
->Per creare un utente manualmente, contattare il [team del supporto clienti di Screencast-O-Matic](mailto:support@screencast-o-matic.com).
+>Per creare un utente manualmente, contattare il  [team del supporto clienti di Screencast-O-Matic](mailto:support@screencast-o-matic.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -218,7 +219,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Screencast-O-Matic nel pannello di accesso, verrà eseguito automaticamente l'accesso all'applicazione Screencast-O-Matic.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

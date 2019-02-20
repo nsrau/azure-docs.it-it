@@ -4,7 +4,7 @@ description: In questo argomento viene illustrato come configurare il codificato
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 3113f333-517a-47a1-a1b3-57e200c6b2a2
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/08/2019
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 1a7cbd19b89663ab874fc5a7a86587e292b86f81
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 32bed77146284799faebdb8a44e2e610f49913cf
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665886"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003738"
 ---
-# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>Usare il codificatore FMLE per inviare un flusso live a velocità in bit singola.
+# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream-legacy"></a>Usare il codificatore FMLE per inviare un flusso live a bitrate singolo (legacy)
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
@@ -47,7 +47,7 @@ Questa esercitazione descrive l'utilizzo di AAC. Tuttavia, per impostazione pred
 * Se si usano codificatori basati su software, chiudere tutti i programmi non necessari.
 
 ## <a name="create-a-channel"></a>Creare un canale
-1. Nello strumento AMSE passare alla scheda **Live** e fare clic con il pulsante destro del mouse all'interno dell'area del canale. Scegliere **Create channel** dal menu.
+1. Nello strumento AMSE passare alla scheda **Live** e fare clic con il pulsante destro del mouse all'interno dell'area del canale. Scegliere **Create channel**  dal menu.
 
     ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle1.png)
 
@@ -78,14 +78,14 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 
 * Codec: H.264
 * Profilo: alto (livello 4.0)
-* Velocità in bit: 5000 kbps
+* Velocità in bit: 5000 Kbps
 * Fotogramma chiave: 2 secondi (60 secondi)
 * Frequenza dei fotogrammi: 30
 
 **Audio**:
 
 * Codec: AAC (LC)
-* Velocità in bit: 192 kbps
+* Velocità in bit: 192 Kbps
 * Frequenza di campionamento: 44,1 kHz
 
 ### <a name="configuration-steps"></a>Procedura di configurazione
@@ -93,16 +93,16 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 
     L'interfaccia è una pagina principale di impostazioni. Annotare le seguenti impostazioni consigliate per iniziare a usare lo streaming tramite FMLE.
 
-   * Formato: Frequenza dei fotogrammi h. 264: 30,00
-   * Dimensione di input: 1280 x 720
-   * Velocità in bit: Kbps 5000 (può essere regolato in base alle limitazioni di rete)  
+   * Formato: Frequenza dei fotogrammi H.264: 30,00
+   * Dimensioni di input: 1280 x 720
+   * Velocità in bit: 5000 Kbps (può essere regolata in base alle limitazioni di rete)  
 
-     ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle3.png)
+     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle3.png)
 
      Quando si utilizzano le origini interlacciate, selezionare l'opzione "Deinterlaccia"
 2. Selezionare l'icona di chiave accanto a formato, queste impostazioni aggiuntive devono essere:
 
-   * Profilo: principale
+   * Profilo: Principale
    * Livello: 4.0
    * Frequenza dei fotogrammi chiave: 2 secondi
 
@@ -110,8 +110,8 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 3. Impostare la seguente impostazione importante dell’audio:
 
    * Formato: AAC
-   * Frequenza di campionamento: 44100 kHz
-   * Velocità in bit: 192 kbps
+   * Frequenza di campionamento: 44100 Hz
+   * Velocità in bit: 192 Kbps
 
      ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle5.png)
 4. Ottenere l’input URL del canale per assegnargli il FMLE **RTMP Endpoint**.

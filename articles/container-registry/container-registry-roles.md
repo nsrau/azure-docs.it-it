@@ -7,18 +7,18 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: danlep
-ms.openlocfilehash: e2ec1b7ad6d1489836937d30b89d0f0f681a9bfa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a4b9b382755e73b6218432624c471346e9698752
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819587"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193391"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Ruoli e autorizzazioni di Registro Azure Container
 
 Il servizio Registro Azure Container supporta un set di ruoli di Azure che offrono livelli diversi di autorizzazioni a un registro contenitori di Azure. Usare il [controllo degli accessi in base al ruolo](../role-based-access-control/index.yml) (RBAC) di Azure per assegnare autorizzazioni specifiche agli utenti o a entità che devono interagire con un registro di sistema.
 
-| Ruolo/autorizzazione       | Accedere ad Azure Resource Manager| Creare/eliminaliminare registro di sistema | [Eseguire il push dell'immagine](#push-image) | [Eseguire il pull dell'immagine](#pull-image) | Modificare i criteri |   [Firma delle immagini](#sign-images)  |
+| Ruolo/autorizzazione       | [Accedere ad Azure Resource Manager](#access-resource-manager)| [Creare/eliminare registro di sistema](#create-and-delete-registry) | [Eseguire il push dell'immagine](#push-image) | [Eseguire il pull dell'immagine](#pull-image) | [Modificare i criteri](#change-policies) |   [Firma delle immagini](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- |
 | Proprietario | X | X | X | X | X |  |  
 | Collaboratore | X | X | X | X | X |  |  
@@ -45,19 +45,19 @@ Per gli strumenti come [estensione Docker](https://code.visualstudio.com/docs/az
 
 ## <a name="access-resource-manager"></a>Accedere ad Azure Resource Manager
 
-L'accesso ad Azure Resource Manager è necessario per il portale di Azure e per l'[interfaccia della riga di comando di Azure](/cli/azure/). Ad esempio, per ottenere un elenco dei registri usando il comando `az acr list`, è necessario questo set di autorizzazioni. 
+L'accesso ad Azure Resource Manager è necessario per il portale di Azure e per la gestione del registro di sistema con l'[interfaccia della riga di comando di Azure](/cli/azure/). Ad esempio, per ottenere un elenco dei registri usando il comando `az acr list`, è necessario questo set di autorizzazioni. 
 
-## <a name="createdelete-registry"></a>Creare/eliminaliminare registro di sistema
+## <a name="create-and-delete-registry"></a>Creare ed eliminare un registro di sistema
 
 La possibilità di creare ed eliminare i registri contenitori di Azure.
 
 ## <a name="push-image"></a>Immagine di push
 
-La possibilità di `docker push` un'immagine o di eseguire il push su un altro artifatto supportato, in un registro di sistema. Richiede l'[autenticazione](container-registry-authentication.md) con il registro di sistema usando l'identità autorizzata. 
+La possibilità di `docker push` un'immagine o di eseguire il push su un altro [artefatto supportato](container-registry-image-formats.md), ad esempio un grafico Helm, in un registro di sistema. Richiede l'[autenticazione](container-registry-authentication.md) con il registro di sistema usando l'identità autorizzata. 
 
 ## <a name="pull-image"></a>Eseguire il pull dell'immagine
 
-La possibilità di `docker pull` un'immagine non in quarantena, o eseguire il pull di un altro elemento supportato, da un registro di sistema. Richiede l'[autenticazione](container-registry-authentication.md) con il registro di sistema usando l'identità autorizzata.
+La possibilità di `docker pull` un'immagine non in quarantena o di eseguire il pull su un altro [artefatto supportato](container-registry-image-formats.md), ad esempio un grafico Helm, in un registro di sistema. Richiede l'[autenticazione](container-registry-authentication.md) con il registro di sistema usando l'identità autorizzata.
 
 ## <a name="change-policies"></a>Modificare i criteri
 

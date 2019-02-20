@@ -13,14 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 02/10/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 7d4094abacb46c5e2b525766d61cb0ede7fc20ba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 710ec72e9867ad180afcae8273a093f48933112a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251833"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991498"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Modalità offline di FairPlay Streaming per iOS 
  Servizi multimediali di Azure include un set di [servizi di protezione del contenuto](https://azure.microsoft.com/services/media-services/content-protection/) ben progettati che riguardano le tecnologie seguenti:
@@ -122,7 +122,7 @@ Il supporto della modalità offline di FPS è disponibile solo in iOS 10 e versi
 
         - Come gestire il download dei flussi HLS, ad esempio le API usate per avviare e annullare i download e per eliminare asset esistenti dai dispositivi.
         - Come monitorare lo stato di avanzamento del download.
-    - File di codice AssetListTableViewController.swift e AssetListTableViewCell.swift: AssetListTableViewController è l'interfaccia principale di questo esempio. Fornisce un elenco degli asset che l'esempio può usare per eseguire operazioni di riproduzione, download o eliminazione o per annullare un download. 
+    - File di codice AssetListTableViewController.swift e AssetListTableViewCell.swift: AssetListTableViewController è la principale interfaccia di questo esempio. Fornisce un elenco degli asset che l'esempio può usare per eseguire operazioni di riproduzione, download o eliminazione o per annullare un download. 
 
 Questi passaggi illustrano come configurare un lettore iOS in esecuzione. Se si inizia dall'esempio HLSCatalog in FPS Server SDK versione 4.0.1, apportare le modifiche seguenti al codice:
 

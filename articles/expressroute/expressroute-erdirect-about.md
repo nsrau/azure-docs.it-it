@@ -5,15 +5,15 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/25/2019
-ms.author: mialdrid
+ms.date: 02/11/2019
+ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 0415c329364f8df312667e725f3c5376ea13a6f4
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 3124e98dd035080c2989849232b978c5d4a563ea
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098099"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100738"
 ---
 # <a name="about-expressroute-direct-preview"></a>Informazioni su ExpressRoute Direct (anteprima)
 
@@ -58,7 +58,7 @@ Nella maggior parte degli scenari la funzionalità è uguale ai circuiti che uti
 
 ## <a name="circuit-skus"></a>SKU di circuiti
 
-ExpressRoute Direct supporta scenari di inserimento dati massiccio in Archiviazione di Azure e altri servizi Big Data. I circuiti ExpressRoute in ExpressRoute Direct ora supportano anche SKU di circuiti da **40 Gbps** e **100 Gbps**.
+ExpressRoute Direct supporta scenari di inserimento dati massiccio in Archiviazione di Azure e altri servizi Big Data. I circuiti ExpressRoute in ExpressRoute Direct ora supportano anche SKU di circuiti da **40 Gbps** e **100 Gbps**. Le coppie di porte fisiche supportano solo **100 Gbps** e possono avere più circuiti virtuali con larghezze di banda di 5 Gbps, 10 Gbps, 40 Gbps, 100 Gbps, fino a 200 Gbps in qualsiasi combinazione. 
 
 ## <a name="vlan-tagging"></a>Codifica VLAN
 

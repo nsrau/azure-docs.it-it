@@ -1,6 +1,6 @@
 ---
-title: Uso di stringhe nelle query di Azure Log Analytics | Microsoft Docs
-description: Questo articolo fornisce un'esercitazione per l'uso del portale di analisi per la scrittura di query in Log Analytics.
+title: Uso di stringhe nelle query di log di Monitoraggio di Azure | Microsoft Docs
+description: Questo articolo include un'esercitazione che illustra l'uso di Log Analytics in Monitoraggio di Azure nel portale di Azure per eseguire query e analizzare i dati di log in Monitoraggio di Azure.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 24f22d659ccfb6923ad2a038e12454716b2c5445
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: dda7ef2e4e974ea053f030a3ebe71a16872612b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263884"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993725"
 ---
-# <a name="working-with-json-and-data-structures-in-log-analytics-queries"></a>Uso di JSON e strutture dei dati nelle query di Log Analytics
+# <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Uso di JSON e strutture dei dati nelle query di log di Monitoraggio di Azure
 
 > [!NOTE]
-> Prima di seguire questa lezione, è consigliabile completare [Introduzione al portale di analisi](get-started-portal.md) e [Introduzione alle query](get-started-queries.md).
+> Prima di seguire questa lezione, è consigliabile completare [Introduzione a Log Analytics in Monitoraggio di Azure](get-started-portal.md) e [Introduzione alle query di log in Monitoraggio di Azure](get-started-queries.md).
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -131,7 +131,7 @@ print hosts_object
 ![Schema di compilazione](media/json-data-structures/buildschema.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere altre lezioni relative all'uso del linguaggio di query di Log Analytics:
+Vedere altre lezioni per l'uso di query di log in Monitoraggio di Azure:
 
 - [Operazioni con stringhe](string-operations.md)
 - [Operazioni con data e ora](datetime-operations.md)

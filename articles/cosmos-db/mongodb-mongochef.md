@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: c679d2e6b7dc8998016e79d265f368504d6def3d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: f2ba1a6fef944911c0706ca4e71be6a55bc4b16a
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038414"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961840"
 ---
 # <a name="connect-to-cosmos-account-using-studio-3t"></a>Connettersi a un account Cosmos usando Studio 3T
 

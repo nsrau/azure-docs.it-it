@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 5eecd750642610737d346c5c270349e285106e95
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a73dab8a0df642e439e8519c404423c6689418f5
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820437"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236975"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere l'errore di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -253,3 +253,6 @@ Per cancellare manualmente la raccolta di punti di ripristino che non viene canc
 
 5. Fare clic su **Elimina** per pulire la raccolta di punti di ripristino.
 6. Ripetere l'operazione di backup.
+
+> [!NOTE]
+ >Se la risorsa (raccolta di punti di ripristino) ha un numero elevato di punti di ripristino, l'eliminazione dal portale può restituire un errore di timeout e non riuscire. Questo è un problema noto di CRP, dovuto al fatto che non tutti i punti di ripristino vengono eliminati nel tempo stabilito e si verifica il timeout dell'operazione. L'operazione di eliminazione, tuttavia, viene in genere completata dopo due o tre tentativi.

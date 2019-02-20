@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Informazioni su come usare le API REST per il riconoscimento vocale e la sintesi vocale. In questo articolo vengono illustrate le opzioni di autorizzazione, le opzioni di query, come strutturare una richiesta e ricevere una risposta.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: f369ab0ec8c460137f7e2b16a7f2696357d84c50
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0ce33f20d44ac284655569ff66825533650b9d9c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247443"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998944"
 ---
 # <a name="speech-service-rest-apis"></a>API REST del servizio Voce
 
@@ -33,8 +33,8 @@ Ogni richiesta all'API REST del riconoscimento vocale o della sintesi vocale ric
 
 | Intestazione dell'autorizzazione supportata | Riconoscimento vocale | Sintesi vocale |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | Yes | No  |
-| Authorization: Bearer | Yes | Yes |
+| Ocp-Apim-Subscription-Key | Sì | No  |
+| Authorization: Bearer | Sì | Sì |
 
 Quando viene usata l'intestazione `Ocp-Apim-Subscription-Key`, è sufficiente fornire la chiave di sottoscrizione. Ad esempio: 
 
@@ -66,7 +66,7 @@ Content-type: application/x-www-form-urlencoded
 Content-Length: 0
 ```
 
-Il corpo della risposta contiene il token di accesso in formato JWT (Java Web Token).
+Il corpo della risposta contiene il token di accesso in formato JWT (JSON Web Token).
 
 #### <a name="powershell-sample"></a>Esempio PowerShell
 

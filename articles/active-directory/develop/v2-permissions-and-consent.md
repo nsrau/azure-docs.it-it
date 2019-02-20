@@ -13,16 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 02/07/2019
 ms.author: celested
-ms.reviewer: hirsin, jesakowi, justhu
+ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 94a8cb5f0764ac1ed7330fb75131d3084d804f1e
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 94d0e469614204a7507ba666ac04e59774eebde7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55091936"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56204416"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Autorizzazioni e consenso nell'endpoint v2.0 di Azure Active Directory
 
@@ -52,19 +53,19 @@ Lo stesso vale per le risorse di terze parti integrate con Microsoft Identity Pl
 
 Con la definizione di questi tipi di autorizzazioni, la risorsa può avere un controllo accurato dei dati e dell'esposizione delle funzionalità API. Un'app di terze parti può richiedere queste autorizzazioni da utenti e amministratori, che devono approvare la richiesta prima che l'app possa accedere ai dati o agire per conto di un utente. Suddividendo le funzionalità della risorsa in set di autorizzazioni più piccoli, è possibile creare le app di terze parti affinché richiedano solo le autorizzazioni specifiche necessarie per il relativo funzionamento. Utenti e amministratori possono sapere esattamente a quali dati ha accesso l'app e possono essere più sicuri che l'app non agisca per fini dannosi. Gli sviluppatori devono sempre rispettare il concetto di privilegio minimo, richiedendo solo le autorizzazioni necessarie per il funzionamento delle loro applicazioni.
 
-In OAuth questi tipi di autorizzazioni vengono definiti *ambiti* o spesso semplicemente *autorizzazioni*. In Microsoft Identity Platform un'autorizzazione è rappresentata come valore stringa. Nell'esempio relativo a Microsoft Graph il valore stringa per ogni autorizzazione è:
+In OAuth 2.0 questi tipi di autorizzazioni vengono definiti *ambiti* o spesso semplicemente *autorizzazioni*. In Microsoft Identity Platform un'autorizzazione è rappresentata come valore stringa. Nell'esempio relativo a Microsoft Graph il valore stringa per ogni autorizzazione è:
 
 * Lettura del calendario dell'utente tramite `Calendars.Read`
 * Scrittura del calendario dell'utente tramite `Calendars.ReadWrite`
 * Invio di messaggi di posta elettronica come utente tramite `Mail.Send`
 
-Un'app più comunemente richiede queste autorizzazioni specificando gli ambiti nelle richieste all'endpoint di autorizzazione v2.0. Tuttavia, alcune autorizzazioni con privilegi elevati possono essere concesse solo con il consenso dell'amministratore e in genere vengono richieste e concesse tramite l'[endpoint di consenso dell'amministratore](v2-permissions-and-consent.md#admin-restricted-scopes). Per altre informazioni, continuare la lettura.
+Un'app più comunemente richiede queste autorizzazioni specificando gli ambiti nelle richieste all'endpoint di autorizzazione v2.0. Tuttavia, alcune autorizzazioni con privilegi elevati possono essere concesse solo con il consenso dell'amministratore e in genere vengono richieste e concesse tramite l'[endpoint di consenso dell'amministratore](v2-permissions-and-consent.md#admin-restricted-permissions). Per altre informazioni, continuare la lettura.
 
 ## <a name="permission-types"></a>Tipi di autorizzazioni
 
 Microsoft Identity Platform supporta due tipi di autorizzazioni: **autorizzazioni delegate** e **autorizzazioni dell'applicazione**.
 
-* Le **autorizzazioni delegate** sono usate dalle app con un utente connesso. Per queste app, l'utente o un amministratore fornisce il consenso per le autorizzazioni richieste dall'app e all'app viene delegata l'autorizzazione per agire per conto dell'utente connesso quando vengono effettuate chiamate alla risorsa di destinazione. Alcune autorizzazioni delegate possono essere concesse da utenti senza privilegi di amministratore, mentre altre con privilegi più elevati richiedono il [consenso dell'amministratore](v2-permissions-and-consent.md#admin-restricted-scopes). Per informazioni su quali ruoli di amministratore possono fornire il consenso per le autorizzazioni delegate, vedere [Autorizzazioni del ruolo di amministratore in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+* Le **autorizzazioni delegate** sono usate dalle app con un utente connesso. Per queste app, l'utente o un amministratore fornisce il consenso per le autorizzazioni richieste dall'app e all'app viene delegata l'autorizzazione per agire per conto dell'utente connesso quando vengono effettuate chiamate alla risorsa di destinazione. Alcune autorizzazioni delegate possono essere concesse da utenti senza privilegi di amministratore, mentre altre con privilegi più elevati richiedono il [consenso dell'amministratore](v2-permissions-and-consent.md#admin-restricted-permissions). Per informazioni su quali ruoli di amministratore possono fornire il consenso per le autorizzazioni delegate, vedere [Autorizzazioni del ruolo di amministratore in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
 * Le **autorizzazioni dell'applicazione** sono usate dalle app che vengono eseguite senza un utente connesso, ad esempio le app eseguite come servizi in background o daemon.  Le autorizzazioni dell'applicazione possono essere [concesse esclusivamente da un amministratore](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
@@ -77,7 +78,7 @@ Le _autorizzazioni valide_ sono le autorizzazioni che l'app avrà quando effettu
 
 ## <a name="openid-connect-scopes"></a>Ambiti di OpenID Connect
 
-L'implementazione della versione 2.0 di OpenID Connect presenta alcuni ambiti ben definiti che non si applicano a una risorsa specifica: `openid`, `email`, `profile` e `offline_access`.
+L'implementazione della versione 2.0 di OpenID Connect presenta alcuni ambiti ben definiti che non si applicano a una risorsa specifica: `openid`, `email`, `profile` e `offline_access`. Gli ambiti `address` e `phone` di OpenID Connect non sono supportati.
 
 ### <a name="openid"></a>openid
 
@@ -93,9 +94,9 @@ L'ambito `profile` può essere usato con l'ambito `openid` e con tutti gli altri
 
 ### <a name="offlineaccess"></a>offline_access
 
-L'ambito [`offline_access`](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) consente all'app di accedere alle risorse per conto dell'utente per un periodo di tempo prolungato. Nella pagina di consenso dell'account aziendale l'ambito viene visualizzato come autorizzazione per l'accesso ai dati in qualsiasi momento. Nella pagina di consenso dell'account personale Microsoft viene visualizzato come autorizzazione per l'accesso alle informazioni in qualsiasi momento. Quando un utente approva l'ambito `offline_access`, l'app è in grado di ricevere token di aggiornamento dall'endpoint del token 2.0. I token di aggiornamento sono di lunga durata. L'applicazione può ottenere nuovi token di accesso quando i vecchi scadono.
+L'ambito [`offline_access`](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) consente all'app di accedere alle risorse per conto dell'utente per un periodo di tempo prolungato. Nella pagina di consenso l'ambito viene visualizzato come autorizzazione "Mantieni l'accesso ai dati per cui hai concesso l'accesso a". Quando un utente approva l'ambito `offline_access`, l'app è in grado di ricevere token di aggiornamento dall'endpoint del token 2.0. I token di aggiornamento sono di lunga durata. L'applicazione può ottenere nuovi token di accesso quando i vecchi scadono.
 
-Se l'app non richiede l'ambito `offline_access`, non riceverà i token di aggiornamento. Pertanto, se si riscatta un codice di autorizzazione nel [flusso del codice di autorizzazione di OAuth 2.0](active-directory-v2-protocols.md), si riceve solo un token di accesso dall'endpoint `/token`. Il token di accesso è valido per un breve periodo. Il token di accesso ha in genere una durata di un'ora. A questo punto, l'app reindirizza l'utente all'endpoint `/authorize` per recuperare un nuovo codice di autorizzazione. Durante il reindirizzamento, a seconda del tipo di app, l'utente potrebbe dover immettere nuovamente le proprie credenziali o fornire il consenso per le autorizzazioni.
+Se l'app non richiede in modo esplicito l'ambito `offline_access`, non riceverà i token di aggiornamento. Pertanto, se si riscatta un codice di autorizzazione nel [flusso del codice di autorizzazione di OAuth 2.0](active-directory-v2-protocols.md), si riceve solo un token di accesso dall'endpoint `/token`. Il token di accesso è valido per un breve periodo. Il token di accesso ha in genere una durata di un'ora. A questo punto, l'app reindirizza l'utente all'endpoint `/authorize` per recuperare un nuovo codice di autorizzazione. Durante il reindirizzamento, a seconda del tipo di app, l'utente potrebbe dover immettere nuovamente le proprie credenziali o fornire il consenso per le autorizzazioni.  Si noti che, benché l'ambito `offline_access` sia richiesto automaticamente dal server, il client deve comunque richiederlo per ricevere i token di aggiornamento. 
 
 Per altre informazioni su come ottenere e usare i token di aggiornamento, vedere il [riferimento al protocollo della versione 2.0](active-directory-v2-protocols.md).
 
@@ -118,6 +119,9 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 Il parametro `scope` è un elenco di autorizzazioni delegate separate da spazi richieste dall'app. Ogni autorizzazione è indicata dall'aggiunta del valore dell'autorizzazione all'identificatore della risorsa (URI dell'ID applicazione). Nella richiesta di esempio precedente, l'app richiede l'autorizzazione per la lettura del calendario dell'utente e l'invio di messaggi di posta elettronica come utente.
 
 Dopo che l'utente immette le proprie credenziali, l'endpoint 2.0 verifica la disponibilità di un record corrispondente di *consenso dell'utente*. Se l'utente non ha acconsentito a nessuna delle autorizzazioni richieste in passato o se un amministratore non ha dato il proprio consenso a queste autorizzazioni per conto dell'intera organizzazione, l'endpoint v2.0 chiede all'utente di concedere le autorizzazioni richieste.
+
+> [!NOTE]
+> Attualmente, le autorizzazioni `offline_access` ("Mantieni l'accesso ai dati per cui hai concesso l'accesso a") e `user.read` ("Accedi e visualizza il profilo personale") vengono automaticamente incluse nel consenso iniziale per un'applicazione.  Queste autorizzazioni sono in genere necessarie per il corretto funzionamento dell'app: `offline_access` consente all'app di accedere a token di aggiornamento, essenziali per le app Web e native, mentre `user.read` consente di accedere all'attestazione `sub`, permettendo al client o all'app di identificare correttamente l'utente nel tempo e accedere a informazioni utente elementari.  
 
 ![Consenso dell'account aziendale](./media/v2-permissions-and-consent/work_account_consent.png)
 
@@ -164,7 +168,7 @@ Per configurare l'elenco delle autorizzazioni richieste in modo statico per un'a
 2. Individuare la sezione **Autorizzazioni di Microsoft Graph**  e aggiungere le autorizzazioni richieste dall'applicazione.
 3. **Salvare** la registrazione dell'app.
 
-### <a name="recommended-sign-the-user-in-to-your-app"></a>Consigliato: Connettere l'utente all'applicazione
+### <a name="recommended-sign-the-user-into-your-app"></a>Consigliato: connettere l'utente all'applicazione
 
 In genere, durante la compilazione di un'applicazione che usa l'endpoint di consenso dell'amministratore, l'app necessita di una pagina o vista che consenta all'amministratore di approvare le autorizzazioni dell'applicazione. Questa pagina può essere parte del flusso di iscrizione all'app, delle impostazioni dell'applicazione o di un flusso di "connessione" dedicato. In molti casi, è utile per l'applicazione visualizzare la pagina di "connessione" solo dopo che un utente ha eseguito l'accesso con un account di lavoro o dell'istituto di istruzione Microsoft.
 
@@ -193,8 +197,8 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parametro | Condizione | DESCRIZIONE |
 | --- | --- | --- |
-| `tenant` | Obbligatoria | Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere specificato in formato di GUID o nome descrittivo OPPURE con il riferimento generico "common" come illustrato nell'esempio. |
-| `client_id` | Obbligatoria | ID applicazione che il [portale di registrazione delle applicazioni](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ha assegnato all'app. |
+| `tenant` | Obbligatoria | Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere specificato in formato di GUID o nome descrittivo OPPURE con il riferimento generico `common` come illustrato nell'esempio. |
+| `client_id` | Obbligatoria | L'ID applicazione (client) che il [portale di registrazione dell'applicazione](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) o il [nuovo portale di Registrazioni app (anteprima)](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) ha assegnato all'app. |
 | `redirect_uri` | Obbligatoria |URI di reindirizzamento in cui si desidera che venga inviata la risposta per la gestione da parte dell'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale di registrazione delle applicazioni. |
 | `state` | Consigliato | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Usare questo stato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
 
@@ -212,7 +216,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 | --- | --- | --- |
 | `tenant` | Tenant della directory che ha concesso all'applicazione le autorizzazioni richieste, in formato GUID. |
 | `state` | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Lo stato viene usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
-| `admin_consent` | Verrà impostato su **true**. |
+| `admin_consent` | Sarà impostato su `True`. |
 
 #### <a name="error-response"></a>Risposta di errore
 
@@ -224,8 +228,8 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 | Parametro | DESCRIZIONE |
 | --- | --- | --- |
-| `error` |Stringa di codice di errore che può essere usata per classificare i tipi di errori che si verificano e correggerli. |
-| `error_description` |Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore. |
+| `error` | Stringa di codice di errore che può essere usata per classificare i tipi di errori che si verificano e correggerli. |
+| `error_description` | Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore. |
 
 Dopo aver ricevuto una risposta con esito positivo dall'endpoint di consenso dell'amministratore, l'applicazione ha ottenuto le autorizzazioni richieste. Successivamente, è possibile richiedere un token per la risorsa desiderata.
 
@@ -252,6 +256,52 @@ Content-Type: application/json
 
 Per altre informazioni sul protocollo OAuth 2.0 e su come ottenere i token di accesso, vedere il [riferimento al protocollo dell'endpoint v2.0](active-directory-v2-protocols.md).
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="the-default-scope"></a>Ambito /.default
 
-Se gli utenti dell'applicazione visualizzano messaggi di errore imprevisti durante il processo di consenso, per la risoluzione dei problemi fare riferimento al seguente articolo: [Errore imprevisto durante la richiesta di consenso a un'applicazione](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
+È possibile usare l'ambito `/.default` per consentire la migrazione delle app dall'endpoint v1.0 all'endpoint v2.0. Si tratta di un ambito predefinito per ogni applicazione che fa riferimento all'elenco statico di autorizzazioni configurate nella registrazione dell'applicazione. Un valore `scope` di `https://graph.microsoft.com/.default` è funzionalmente identico a `resource=https://graph.microsoft.com` degli endpoint v1.0, vale a dire che richiede un token con gli ambiti in Microsoft Graph per cui l'applicazione è registrata nel portale di Azure.
+
+L'ambito /.default può essere usato in qualsiasi flusso di OAuth 2.0, ma è particolarmente richiesto nel [flusso On-Behalf-Of](v2-oauth2-on-behalf-of-flow .md) e nel [flusso di credenziali client](v2-oauth2-client-creds-grant-flow.md).  
+
+> [!NOTE]
+> I client non possono combinare consenso statico (`/.default`) e consenso dinamico in una singola richiesta. Di conseguenza, `scope=https://graph.microsoft.com/.default+mail.read` comporterà un errore dovuto alla combinazione dei tipi di ambito.
+
+### <a name="default-and-consent"></a>/.default e consenso
+
+L'ambito `/.default` attiva il comportamento dell'endpoint v1.0 anche per `prompt=consent`. Richiede il consenso per tutte le autorizzazioni registrate dall'applicazione, indipendentemente dalla risorsa. Se incluso come parte della richiesta, l'ambito `/.default` restituisce un token contenente gli ambiti per la risorsa specificamente richiesta.
+
+### <a name="default-when-the-user-has-already-given-consent"></a>/.default quando l'utente ha già dato il consenso
+
+Dal momento che `/.default` è funzionalmente identico al comportamento dell'endpoint v1.0 incentrato su `resource`, rispecchia anche il comportamento di consenso dell'endpoint v1.0. Nello specifico, `/.default` attiva una richiesta di consenso solo se non è stata concessa alcuna autorizzazione tra il client e la risorsa da parte dell'utente. Se tale consenso esiste, verrà restituito un token che contiene tutti gli ambiti concessi dall'utente per tale risorsa. Tuttavia, se non è stata concessa alcuna autorizzazione o se è stato specificato il parametro `prompt=consent`, verrà visualizzata una richiesta di consenso per tutti gli ambiti registrati dall'applicazione client. 
+
+#### <a name="example-1-the-user-or-tenant-admin-has-granted-permissions"></a>Esempio 1: l'utente o l'amministratore del tenant ha concesso le autorizzazioni
+
+L'utente (o un amministratore del tenant) ha concesso al client le autorizzazioni di Microsoft Graph `mail.read` e `user.read`. Se il client effettua una richiesta per `scope=https://graph.microsoft.com/.default`, non verrà visualizzata alcuna richiesta di consenso indipendentemente dal contenuto delle autorizzazioni registrate delle applicazioni client per Microsoft Graph. Verrà restituito un token contenente gli ambiti `mail.read` e `user.read`.
+
+#### <a name="example-2-the-user-hasnt-granted-permissions-between-the-client-and-the-resource"></a>Esempio 2 l'utente non ha concesso autorizzazioni tra il client e la risorsa
+
+Non esiste alcuna autorizzazione per l'utente tra il client e Microsoft Graph. Il client è stato registrato per le autorizzazioni `user.read` e `contacts.read`, oltre che per l'ambito di Azure Key Vault `https://vault.azure.net/user_impersonation`. Quando il client richiede un token per `scope=https://graph.microsoft.com/.default`, l'utente visualizzerà una schermata di consenso per gli ambiti `user.read`, `contacts.read` e `user_impersonation` di Key Vault. Il token restituito avrà solo gli ambiti `user.read` e `contacts.read`.
+
+#### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>Esempio 3: l'utente ha dato il consenso e il client richiede altri ambiti
+
+L'utente ha già dato il consenso per `mail.read` per il client. Il client è stato registrato per l'ambito `contacts.read` nella relativa registrazione. Quando il client effettua una richiesta per un token usando `scope=https://graph.microsoft.com/.default` e richiede il consenso tramite `prompt=consent`, l'utente visualizzerà una schermata di consenso solo per le autorizzazioni registrate dall'applicazione. `contacts.read` sarà presente nella schermata di consenso, a differenza di `mail.read`. Il token restituito sarà per Microsoft Graph e conterrà `mail.read` e `contacts.read`.
+
+### <a name="using-the-default-scope-with-the-client"></a>Uso dell'ambito /.default con il client
+
+Un caso speciale dell'ambito `/.default` sussiste quando un client richiede il proprio ambito `/.default`. L'esempio seguente illustra questo scenario.
+
+```
+// Line breaks are for legibility only.
+
+GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
+response_type=token            //code or a hybrid flow is also possible here
+&client_id=9ada6f8a-6d83-41bc-b169-a306c21527a5
+&scope=9ada6f8a-6d83-41bc-b169-a306c21527a5/.default
+&redirect_uri=https%3A%2F%2Flocalhost
+&state=1234
+```
+
+Questa operazione produce una schermata di consenso per tutte le autorizzazioni registrate (se applicabili in base alle suddette descrizioni del consenso e `/.default`), quindi restituisce un id_token, anziché un token di accesso.  Questo comportamento si verifica per alcuni client legacy che passano da ADAL a MSAL e non deve essere usato da nuovi client che hanno come destinazione l'endpoint v2.0.  
+
+## <a name="troubleshooting-permissions-and-consent"></a>Risoluzione dei problemi di autorizzazioni e consenso
+
+Se gli utenti dell'applicazione visualizzano messaggi di errore imprevisti durante il processo di consenso, vedere questo articolo per la risoluzione dei problemi: [Errore imprevisto durante la richiesta di consenso a un'applicazione](../manage-apps/application-sign-in-unexpected-user-consent-error.md).

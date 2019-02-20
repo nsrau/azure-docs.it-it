@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: f9138ec06900f4a7f856cc90362d16496b7b4fed
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 1dba84c686fbb873f044b4980990baa396a94c79
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766013"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237672"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unificare più risorse di Application Insights in Monitoraggio di Azure 
 Questo articolo descrive come eseguire query su tutti i dati dei log applicazioni di Application Insights e visualizzarli in un'unica posizione, anche quando si trovano in sottoscrizioni di Azure diverse, in sostituzione del Connettore di Application Insights, ora deprecato. Il numero di risorse di Application Insights che è possibile includere in una singola query è limitato a 100.  
@@ -32,7 +32,7 @@ ApplicationInsights
 | summarize by ApplicationName
 ```
 
-Creare una funzione usando l'operatore di unione con l'elenco delle applicazioni e quindi salvare la query come funzione con l'alias *applicationsScoping*.  
+Creare una funzione usando l'operatore di unione con l'elenco delle applicazioni e quindi salvare la query nell'area di lavoro come funzione con l'alias *applicationsScoping*.  
 
 ```
 union withsource=SourceApp 
@@ -45,7 +45,7 @@ app('Contoso-app5').requests
 ```
 
 >[!NOTE]
->È possibile modificare in qualsiasi momento le applicazioni elencate passando a Esplora query nel portale dei log e modificando la funzione oppure usando il cmdlet `SavedSearch` di PowerShell. Il comando `withsource= SourceApp` aggiunge ai risultati una colonna che indica l'applicazione da cui è stato inviato il log. 
+>È possibile modificare in qualsiasi momento le applicazioni elencate nel portale passando a Esplora query nell'area di lavoro e selezionando la funzione di modifica e salvando oppure usando il cmdlet `SavedSearch` di PowerShell. Il comando `withsource= SourceApp` aggiunge ai risultati una colonna che indica l'applicazione da cui è stato inviato il log. 
 >
 >La query usa lo schema di Application Insights, anche se viene eseguita nell'area di lavoro, perché la funzione applicationsScoping restituisce la struttura dei dati di Application Insights. 
 >

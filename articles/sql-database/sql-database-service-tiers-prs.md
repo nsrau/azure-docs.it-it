@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: c223b55e8854c9d304354d917e07f4dd7720e72c
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/07/2019
+ms.openlocfilehash: aa9f3b42bbbe8255be328240d26ed4b8740cc5f7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507812"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55958491"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Ritiro del livello di servizio Premium RS (anteprima) del database SQL di Azure - Opzioni per la migrazione
 
@@ -50,8 +50,8 @@ Per i carichi di lavoro Premium RS a elevato utilizzo di calcolo, è consigliabi
 
 |**Se attualmente si usa…**|**Eseguire la migrazione a livelli basati su vCore comparabili…**|**Eseguire la migrazione a livelli basati su DTU comparabili…**|
 |---|---|---|
-|Premium RS 1|Utilizzo generico 1 vCore (Gen 4)|Standard 3|
-|Premium RS 2|Utilizzo generico 2 vCore (Gen 4)|Standard 4|
+|Premium RS 1|Uso generico 1 vCore (Gen4)|Standard 3|
+|Premium RS 2|Uso generico 2 vCore (Gen 4)|Standard 4|
 |Premium RS 4|Utilizzo generico 4 vCore (Gen4)|Standard 6|
 |Premium RS 6|Utilizzo generico 6 vCore (Gen4)|Standard 7|
 
@@ -59,8 +59,8 @@ Per i carichi di lavoro Premium RS a elevato utilizzo di calcolo, è consigliabi
 
 |**Se attualmente si usa…**|**Eseguire la migrazione a livelli basati su vCore comparabili…**|**Eseguire la migrazione a livelli basati su DTU comparabili…**|
 |---|---|---|
-|Pool Premium RS 125 DTU|Utilizzo generico 1 vCore (Gen 4)|Pool Standard 100 eDTU|
-|Pool Premium RS 250 DTU|Utilizzo generico 2 vCore (Gen 4)|Pool Standard 250 eDTU|
+|Pool Premium RS 125 DTU|Uso generico 1 vCore (Gen4)|Pool Standard 100 eDTU|
+|Pool Premium RS 250 DTU|Uso generico 2 vCore (Gen 4)|Pool Standard 250 eDTU|
 |Pool Premium RS 500 DTU|Utilizzo generico 4 vCore (Gen4)|Pool Standard 500 eDTU|
 |Pool Premium RS 1000 DTU|Utilizzo generico 8 vCore (Gen4)|Pool Standard 1000 eDTU|
 
@@ -72,8 +72,8 @@ Per ottenere una combinazione ideale di prestazioni e costi, è consigliabile es
 |---|---|---|
 |Premium RS 1|(Anteprima) Con iperscalabilità 1 vCore (Gen 4) o Business critical 1 vCore (Gen 4)|Premium 1|
 |Premium RS 2|(Anteprima) Con iperscalabilità 2 vCore (Gen 4) o Business critical 2 vCore (Gen 4)|Premium 2|
-|Premium RS 4|(Anteprima) Con iperscalabilità 4 vCore (Gen 4) o Business critical 4 vCore (Gen4)|Premium 4
-|Premium RS 6|(Anteprima) Con iperscalabilità 6 vCore (Gen 4) o Business critical 6 vCore (Gen4)|Premium 6|
+|Premium RS 4|(Anteprima) Con iperscalabilità 4 vCore (Gen 4) o Business critical 4 vCore (Gen 4)|Premium 4
+|Premium RS 6|(Anteprima) Con iperscalabilità 6 vCore (Gen 4) o Business critical 6 vCore (Gen 4)|Premium 6|
 
 |**Se attualmente si usa…**|**Eseguire la migrazione a livelli basati su vCore comparabili…**|**Eseguire la migrazione a livelli basati su DTU comparabili…**|
 |---|---|---|

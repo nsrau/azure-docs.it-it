@@ -4,7 +4,7 @@ description: Usare questa procedura per configurare la rotazione delle chiavi e 
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: ''
 ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 4dbfd993a8464c569d30f11e305d4bae000a778f
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: deb50a71b179c3cb03d5da22e336c42b26fe0bfa
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077709"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106121"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configurare l'insieme di credenziali delle chiavi di Azure con rotazione e controllo delle chiavi
 
 ## <a name="introduction"></a>Introduzione
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Dopo aver creato un insieme di credenziali delle chiavi, è possibile iniziare a usarle per archiviare le chiavi e i segreti. Le applicazioni non devono più rendere persistenti le chiavi o i segreti, ma li richiederanno all'insieme di credenziali delle chiavi in base alle esigenze. In questo modo è possibile aggiornare le chiavi e i segreti senza influenzare il comportamento dell'applicazione. Si apre così un ampio ventaglio di possibilità per la gestione di chiavi e segreti.
 
@@ -36,7 +38,7 @@ Questo articolo illustra:
 - Viene illustrato come monitorare i log di controllo dell'insieme di credenziali delle chiavi e come generare avvisi quando vengono effettuate richieste impreviste.
 
 > [!NOTE]
-> Questa esercitazione non illustra nei dettagli la configurazione iniziale dell'insieme di credenziali delle chiavi. Per altre informazioni, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md). Per le istruzioni relative all'interfaccia della riga di comando multipiattaforma, vedere [Gestire l'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando](key-vault-manage-with-cli2.md).
+> Questa esercitazione non illustra nei dettagli la configurazione iniziale dell'insieme di credenziali delle chiavi. Per queste informazioni, vedere [Cos'è l'insieme di credenziali chiave di Azure?](key-vault-overview.md). Per le istruzioni relative all'interfaccia della riga di comando multipiattaforma, vedere [Gestire l'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando](key-vault-manage-with-cli2.md).
 >
 >
 
@@ -45,7 +47,7 @@ Questo articolo illustra:
 Per consentire a un'applicazione di recuperare un segreto dall'insieme di credenziali delle chiavi, è prima necessario creare il segreto e caricarlo nell'insieme di credenziali. Per eseguire queste operazioni, avviare una sessione di Azure PowerShell e accedere all'account Azure con il comando seguente:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Nella finestra del browser a comparsa, immettere il nome utente e la password dell'account Azure. PowerShell recupera tutte le sottoscrizioni associate a questo account e usa la prima per impostazione predefinita.
@@ -53,19 +55,19 @@ Nella finestra del browser a comparsa, immettere il nome utente e la password de
 Se sono disponibili più sottoscrizioni, potrebbe essere necessario specificare quella usata per creare l'insieme di credenziali delle chiavi. Immettere il comando seguente per visualizzare le sottoscrizioni relative all'account:
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Per specificare la sottoscrizione associata all'insieme di credenziali delle chiavi da registrare, immettere:
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscriptionID>
+Set-AzContext -SubscriptionId <subscriptionID>
 ```
 
 Dato che questo articolo illustra l'archiviazione di una chiave dell'account di archiviazione come segreto, è necessario ottenere la chiave dell'account di archiviazione.
 
 ```powershell
-Get-AzureRmStorageAccountKey -ResourceGroupName <resourceGroupName> -Name <storageAccountName>
+Get-AzStorageAccountKey -ResourceGroupName <resourceGroupName> -Name <storageAccountName>
 ```
 
 Dopo aver recuperato il segreto, in questo caso la chiave dell'account di archiviazione, è necessario convertirlo in una stringa sicura e quindi creare un segreto con quel valore nell'insieme di credenziali delle chiavi.
@@ -73,13 +75,13 @@ Dopo aver recuperato il segreto, in questo caso la chiave dell'account di archiv
 ```powershell
 $secretvalue = ConvertTo-SecureString <storageAccountKey> -AsPlainText -Force
 
-Set-AzureKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
+Set-AzKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
 ```
 
 Ottenere quindi l'URI per il segreto creato. L'URI viene usato in un secondo momento, quando si chiama l'insieme di credenziali delle chiavi per recuperare il segreto. Eseguire questo comando PowerShell e prendere nota del valore ID, che rappresenta l'URI del segreto:
 
 ```powershell
-Get-AzureKeyVaultSecret –VaultName <vaultName>
+Get-AzKeyVaultSecret –VaultName <vaultName>
 ```
 
 ## <a name="set-up-the-application"></a>Configurare l'applicazione
@@ -110,7 +112,7 @@ Generare quindi una chiave per l'applicazione in modo che possa interagire con A
 Prima di stabilire chiamate dall'applicazione nell'insieme di credenziali delle chiavi è necessario fornire informazioni sull'applicazione e le relative autorizzazioni all'insieme di credenziali delle chiavi. Il comando seguente prende il nome dell'insieme di credenziali e l'ID dell'applicazione dall'app di Azure Active Directory e consente di **ottenere** accesso all'insieme di credenziali delle chiavi per l'applicazione.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
+Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
 ```
 
 A questo punto è possibile iniziare a creare le chiamate dell'applicazione. Nell'applicazione è necessario installare i pacchetti NuGet necessari per interagire con l'insieme di credenziali delle chiavi di Azure e Azure Active Directory. Immettere i comandi seguenti nella console di Gestione pacchetti di Visual Studio. Al momento della stesura di questo articolo la versione corrente del pacchetto di Azure Active Directory è 3.10.305231913, quindi si consiglia di verificare la versione più recente e aggiornare di conseguenza.
@@ -188,7 +190,7 @@ In **Asset** scegliere **Moduli**. In **Moduli** selezionare **Raccolta** e quin
 Dopo aver recuperato l'ID applicazione per la connessione di Automazione di Azure è necessario indicare all'insieme di credenziali delle chiavi che l'applicazione è autorizzata ad aggiornare i segreti dell'insieme di credenziali. A tale scopo è possibile usare il comando PowerShell seguente:
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <applicationIDfromAzureAutomation> -PermissionsToSecrets Set
+Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <applicationIDfromAzureAutomation> -PermissionsToSecrets Set
 ```
 
 Selezionare quindi **Runbook** nell'istanza di Automazione di Azure e quindi selezionare **Aggiungi runbook**. Selezionare **Creazione rapida**. Assegnare un nome al runbook e selezionare **PowerShell** come tipo di runbook. È possibile aggiungere una descrizione. Fare infine clic su **Crea**.
@@ -205,7 +207,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Connect-AzureRmAccount `
+    Connect-AzAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -230,12 +232,12 @@ $VaultName = <keyVaultName>
 $SecretName = <keyVaultSecretName>
 
 #Key name. For example key1 or key2 for the storage account
-New-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
-$SAKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
+New-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
+$SAKeys = Get-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
 
 $secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
 
-$secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
+$secret = Set-AzKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
 ```
 
 Nel riquadro dell'editor scegliere **Riquadro di test** per testare lo script. Dopo aver eseguito lo script senza errori è possibile selezionare **Pubblica** e quindi applicare una pianificazione per il runbook nel riquadro di configurazione del runbook.
@@ -246,9 +248,9 @@ Quando si configura un insieme di credenziali delle chiavi è possibile attivare
 È prima di tutto necessario abilitare la registrazione per l'insieme di credenziali delle chiavi. Questa operazione può essere eseguita tramite i comandi di PowerShell seguenti (per i dettagli completi, vedere [key-vault-logging](key-vault-logging.md)):
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Type Standard\_LRS -Location 'East US'
-$kv = Get-AzureRmKeyVault -VaultName '<vaultName>'
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
+$sa = New-AzStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Type Standard\_LRS -Location 'East US'
+$kv = Get-AzKeyVault -VaultName '<vaultName>'
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
 Dopo aver abilitato la registrazione, i log di controllo iniziano la raccolta di informazioni nell'account di archiviazione designato. Questi log contengono eventi relativi alla modalità di accesso all'insieme di credenziali delle chiavi, a quando avviene l'accesso e a chi lo esegue.

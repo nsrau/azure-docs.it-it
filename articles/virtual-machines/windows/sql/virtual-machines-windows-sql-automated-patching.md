@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 0f6677cce369117886a8b4534423414c2fd56d0c
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: d9cedd05e949d9684473d620629314a34802c1fc
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331062"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977304"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Applicazione automatica delle patch per SQL Server nelle macchine virtuali di Azure (Resource Manager)
 > [!div class="op_single_selector"]
@@ -53,6 +53,8 @@ Per usare l'applicazione automatica delle patch, tenere in considerazione i segu
 **Azure PowerShell**:
 
 * [Installare i comandi di Azure PowerShell più recenti](/powershell/azure/overview) se si prevede di configurare l'applicazione automatica delle patch con PowerShell.
+
+[!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
 > [!NOTE]
 > L'applicazione automatica delle patch si basa sull'estensione dell'agente IaaS di SQL Server. Per impostazione predefinita, le attuali immagini della raccolta di macchine virtuali di SQL aggiungono questa estensione. Per altre informazioni, vedere [Estensione Agente IaaS di SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
@@ -103,13 +105,13 @@ Se si intende abilitare l'applicazione automatica delle patch per la prima volta
 ## <a name="configuration-with-powershell"></a>Configurazione con PowerShell
 Dopo il provisioning della VM di SQL, usare PowerShell per configurare l'applicazione automatica delle patch.
 
-Nell'esempio seguente, PowerShell viene utilizzato per configurare l'applicazione automatizzata di patch in una macchina virtuale di SQL Server esistente. Il comando **AzureRM.Compute\New-AzureRmVMSqlServerAutoPatchingConfig** configura una nuova finestra di manutenzione per gli aggiornamenti automatici.
+Nell'esempio seguente, PowerShell viene utilizzato per configurare l'applicazione automatizzata di patch in una macchina virtuale di SQL Server esistente. Il comando **AzureRM.Compute\New-AzVMSqlServerAutoPatchingConfig** configura un nuovo periodo di manutenzione per gli aggiornamenti automatici.
 
     $vmname = "vmname"
     $resourcegroupname = "resourcegroupname"
-    $aps = AzureRM.Compute\New-AzureRmVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
+    $aps = AzureRM.Compute\New-AzVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
 
-    Set-AzureRmVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
+    Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
 
 > [!IMPORTANT]
 > Se non è già stata eseguita, l'installazione dell'estensione riavvia il servizio SQL Server.
@@ -125,7 +127,7 @@ In base a questo esempio, nella tabella seguente vengono descritti gli effetti p
 
 Potrebbero essere necessari diversi minuti per installare e configurare l'agente IaaS di SQL Server.
 
-Per disabilitare l'applicazione automatica delle patch, eseguire lo stesso script senza il parametro **-Enable** per **AzureRM.Compute\New-AzureRmVMSqlServerAutoPatchingConfig**. L'assenza del parametro **-Enable** segnala il comando per disabilitare la funzionalità.
+Per disabilitare l'applicazione automatica delle patch, eseguire lo stesso script senza il parametro **-Enable** per **AzureRM.Compute\New-AzVMSqlServerAutoPatchingConfig**. L'assenza del parametro **-Enable** segnala il comando per disabilitare la funzionalità.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni sulle altre attività di automazione disponibili, vedere [Estensione Agente IaaS di SQL Server](virtual-machines-windows-sql-server-agent-extension.md).

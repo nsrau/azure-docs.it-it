@@ -5,15 +5,15 @@ services: batch
 author: davefellows
 manager: jeconnoc
 ms.author: lahugh
-ms.date: 08/13/2018
+ms.date: 02/07/2019
 ms.topic: conceptual
 ms.custom: seodec18
-ms.openlocfilehash: d5102ba94e2b7808a457df00a87b35ef7022c454
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: b8813466b9c0f74a608c0150c037dfec3db08dbc
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543496"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893817"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Architetture di riferimento per il rendering di Azure
 
@@ -27,9 +27,9 @@ Il diagramma seguente illustra uno scenario ibrido che include i servizi di Azur
 
 * **Rete** - Locale: Azure ExpressRoute o VPN. Azure: rete virtuale di Azure.
 
-* **Archiviazione** - File di input e output: NFS o CFS con macchine virtuali di Azure, sincronizzati con l'archiviazione locale tramite Sincronizzazione file di Azure o RSync.
+* **Archiviazione** - File di input e output: NFS o CFS con macchine virtuali di Azure, sincronizzati con l'archiviazione locale tramite Sincronizzazione file di Azure o RSync. In alternativa: Avere vFXT per inserire o trasferire i file da dispositivi NAS locali con NFS.
 
-  ![Bursting del cloud: configurazione ibrida con NFS o CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs.png)
+  ![Bursting del cloud: configurazione ibrida con NFS o CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
 
 ## <a name="hybrid-with-blobfuse"></a>Configurazione ibrida con Blobfuse
 
@@ -51,9 +51,9 @@ Il diagramma seguente illustra uno scenario ibrido completamente connesso per l'
 
 * **Rete** - Locale: Azure ExpressRoute o VPN. Azure: rete virtuale di Azure.
 
-* **Archiviazione** - Cross-premise: Avere vFXT. L'archiviazione facoltativa di file locali tramite Azure Data Box nell'archivio BLOB.
+* **Archiviazione** - Cross-premise: Avere vFXT. Archiviazione facoltativa di file locali tramite Azure Data Box nell'archiviazione BLOB oppure Avere FXT locale per l'accelerazione NAS.
 
-  ![Bursting del cloud: configurazione e archiviazione ibride](./media/batch-rendering-architectures/hybrid-compute-storage.png)
+  ![Bursting del cloud: configurazione e archiviazione ibride](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

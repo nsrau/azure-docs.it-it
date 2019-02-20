@@ -12,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 01/10/2019
+ms.date: 02/09/2019
 ms.author: rolyon
-ms.openlocfilehash: 2b8836525e085b41cc8d011087c4fc71afe453cb
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 987b2b1ca028b816ed6909781f56c0b5174541bd
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822511"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163768"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funzionalità Condizioni per l'utilizzo di Azure Active Directory
 Condizioni per l'utilizzo di Azure Active Directory offre un sistema semplice che le organizzazioni possono usare per presentare le informazioni agli utenti finali. In questo modo si garantisce che gli utenti vedano le dichiarazioni rilevanti di non responsabilità che si riferiscono ai requisiti legali o di conformità. Questo articolo descrive come iniziare con Condizioni per l'utilizzo.
@@ -333,6 +334,9 @@ Le Condizioni per l'utilizzo possono essere usate per diverse app cloud, ad esem
 È possibile configurare un criterio di accesso condizionale per l'app di registrazione di Microsoft Intune e richiedere le Condizioni per l'utilizzo prima della registrazione di un dispositivo in Intune. Per altre informazioni, vedere il Leggi il [post di blog sulla scelta della soluzione di Condizioni di utilizzo più adatta per l'organizzazione](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 ![App cloud di Microsoft Intune](./media/active-directory-tou/cloud-app-intune.png)
+
+> [!NOTE]
+> L'app di registrazione di Intune non è supportata per le [condizioni per l'uso](#per-device-terms-of-use).
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 

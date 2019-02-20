@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 7d311a3fa1b00a6324c9bb81a14c1a575319472f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4f6d94c7090c2bbb0335d46b60be320b2fc19375
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819995"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962826"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gestire i lab per le classi in Azure Lab Services 
 Questo articolo descrive come creare ed eliminare un lab per le classi, nonché come visualizzare tutti i lab per le classi in un account lab. 
@@ -107,7 +107,12 @@ Per configurare un lab per le classi in un account del lab, è necessario essere
 3. Nella finestra di dialogo **Delete lab**(Elimina lab), selezionare **Elimina**. 
 
     ![Finestra di dialogo Elimina](../media/how-to-manage-classroom-labs/delete-lab-dialog-box.png)
- 
+
+## <a name="switch-to-another-classroom-lab"></a>Passare a un altro lab per le classi
+Per passare a un altro lab per le classi, in quello corrente selezionare l'elenco a discesa di lab nell'account del lab nella parte superiore.
+
+![Selezionare il lab dall'elenco a discesa nella parte superiore](../media/how-to-manage-classroom-labs/switch-lab.png)
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti:

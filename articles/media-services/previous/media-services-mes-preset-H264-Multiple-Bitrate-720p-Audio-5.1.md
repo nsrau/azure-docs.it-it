@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 2e8b81535d3fc6bc773d1e87b25e0d99e26a5638
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c632df0eccff989abb13a7f9fac93e82027779a3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247963"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992189"
 ---
 # <a name="h264-multiple-bitrate-720p-audio-51"></a>Codec video H.264 a bitrate multipli con risoluzione 720p e audio 5.1
 `Media Encoder Standard` definisce un set di impostazioni di codifica che è possibile usare per la creazione di processi di codifica. È possibile usare un `preset name` per specificare il formato in cui codificare il file multimediale oppure creare set di impostazioni basati su JSON o XML personalizzati, con codifica UTF-8 o UTF-16. Dopodiché, occorre trasmettere il set di impostazioni personalizzato al codificatore. Per un elenco di tutti i nomi dei set di impostazioni supportati dal codificatore `Media Encoder Standard`, vedere [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md) (Set di impostazioni di attività per Media Encoder Standard).  
@@ -29,7 +29,7 @@ ms.locfileid: "50247963"
  Il set di impostazioni genera un set di 6 file MP4 con audio AAC 5.1 e allineamento GOP, con velocità compresa tra 3400 e 400 kbps. Per informazioni dettagliate su profilo, velocità in bit, frequenza di campionamento e così via di questo set di impostazioni, esaminare il codice XML o JSON definito di seguito. Per informazioni sul significato di ogni elemento e sui valori possibili per ciascuno, vedere lo [schema di Media Encoder Standard](media-services-mes-schema.md).  
   
 > [!NOTE]
->  Quando si modificano i valori `Width` e `Height` nei livelli, assicurarsi che le proporzioni rimangano coerenti. Ad esempio: 1920x1080, 1280x720, 1080x576, 640x360. Non è consigliabile usare una combinazione di proporzioni, ad esempio: 1280x720, 720x480, 640x360.  
+>  Quando si modificano i valori `Width` e `Height` nei livelli, assicurarsi che le proporzioni rimangano coerenti. Ad esempio:  1920x1080, 1280x720, 1080x576, 640x360. Non è consigliabile usare una combinazione di proporzioni, ad esempio: 1280x720, 720x480, 640x360.  
   
  XML  
   

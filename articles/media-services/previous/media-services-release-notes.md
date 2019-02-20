@@ -11,22 +11,23 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: aa2a059dd470e671aa3483f2259bcf91796c070d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 81139734d0eb7d15e78c465c06fc429de48480c3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631669"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182987"
 ---
 # <a name="azure-media-services-release-notes"></a>Note sulla versione di Servizi multimediali di Azure
+
 Nelle presenti note sulla versione per Servizi multimediali di Azure vengono riepilogate le modifiche rispetto alle versioni precedenti e i problemi noti.
 
 > [!NOTE]
-> Microsoft invita i clienti a segnalare eventuali problemi e si impegna a risolverli. Per segnalare un problema o rivolgere domande, pubblicare un post nel [forum MSDN su Servizi multimediali di Microsoft Azure].
-> 
-> 
+> Non saranno aggiunte nuove funzionalità a Servizi multimediali v2. 
+
+Microsoft invita i clienti a segnalare eventuali problemi e si impegna a risolverli. Per segnalare un problema o rivolgere domande, pubblicare un post nel [forum MSDN su Servizi multimediali di Microsoft Azure]. 
 
 ## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>Problemi noti attualmente
 ### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>Problemi generali di Servizi multimediali

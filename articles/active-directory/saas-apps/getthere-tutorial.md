@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con GetThere | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con GetThere | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e GetThere.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: jeedes
-ms.openlocfilehash: bcefa3966a6c854f02ce7b3a75306b3d1c888ecd
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b132da4a763490fa6c7a73c80f8e2e3a11b42e9b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432593"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173131"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getthere"></a>Esercitazione: integrazione di Azure Active Directory con GetThere
 
@@ -197,7 +198,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="create-a-getthere-test-user"></a>Creare un utente di test di GetThere
 
-In questa sezione viene creato un utente di nome Britta Simon in GetThere. Collaborare con il [team di supporto di GetThere](mailto:dataintegration@sabre.com) per aggiungere gli utenti alla piattaforma GetThere. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in GetThere. Collaborare con il  [team di supporto di GetThere](mailto:dataintegration@sabre.com) per aggiungere gli utenti alla piattaforma GetThere. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -228,7 +229,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro GetThere nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione GetThere.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

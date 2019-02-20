@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con ON24 Virtual Environment SAML Connection | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con ON24 Virtual Environment SAML Connection | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e ON24 Virtual Environment SAML Connection.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 1ec18f0013a7fa640395a8b8bedd9df8b0924c3a
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0827895d58b0b7633ee4543495014c62b5394312
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49071062"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209490"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Esercitazione: Integrazione di Azure Active Directory con ON24 Virtual Environment SAML Connection
+# <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Esercitazione: integrazione di Azure Active Directory con ON24 Virtual Environment SAML Connection
 
 Questa esercitazione descrive come integrare ON24 Virtual Environment SAML Connection con Azure Active Directory (Azure AD).
 
@@ -103,7 +104,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
       ![image](./media/on24-tutorial/b1_b2_saml_ssso.png)
 
-3. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML** per abilitare il Single Sign-On.
+3. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML** per abilitare l'accesso Single Sign-On.
 
     ![image](./media/on24-tutorial/b1_b2_saml_sso.png)
 
@@ -171,7 +172,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel portale di Azure, nel riquadro sinistro, selezionare **Azure Active Directory**, selezionare **Utenti** e quindi selezionare **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![image](./media/on24-tutorial/d_users_and_groups.png)
 
@@ -194,7 +195,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="create-an-on24-virtual-environment-saml-connection-test-user"></a>Creare un utente di test di ON24 Virtual Environment SAML Connection
 
-In questa sezione viene creato un utente chiamato Britta Simon in ON24 Virtual Environment SAML Connection. Collaborare con il [team di supporto clienti di ON24 Virtual Environment SAML Connection](https://www.on24.com/about-us/support/) per aggiungere gli utenti alla piattaforma ON24 Virtual Environment SAML Connection. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente chiamato Britta Simon in ON24 Virtual Environment SAML Connection. Collaborare con il  [team di supporto clienti di withON24 Virtual Environment SAML Connection](https://www.on24.com/about-us/support/) per aggiungere gli utenti alla piattaforma ON24 Virtual Environment SAML Connection. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -212,7 +213,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![image](./media/on24-tutorial/d_leftpaneusers.png)
 
-4. Fare clic sul pulsante **Aggiungi** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+4. Selezionare il pulsante **Aggiungi** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![image](./media/on24-tutorial/d_assign_user.png)
 
@@ -225,7 +226,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro ON24 Virtual Environment SAML Connection nel Pannello di accesso, si dovrebbe accedere automaticamente all'applicazione ON24 Virtual Environment SAML Connection.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

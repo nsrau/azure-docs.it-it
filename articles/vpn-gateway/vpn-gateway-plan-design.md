@@ -1,26 +1,18 @@
 ---
-title: Pianificazione e progettazione per connessioni cross-premise - Gateway VPN di Azure | Documentazione Microsoft
+title: 'Pianificazione e progettazione per connessioni cross-premise: Gateway VPN di Azure | Microsoft Docs'
 description: Informazioni sulla pianificazione e progettazione del gateway VPN per le connessioni Da rete virtuale a rete virtuale cross-premise e ibride
 services: vpn-gateway
-documentationcenter: na
-author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-service-management,azure-resource-manager
-ms.assetid: d5aaab83-4e74-4484-8bf0-cc465811e757
+author: yushwang
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 07/27/2017
-ms.author: cherylmc
-ms.openlocfilehash: 0ebc3ef4a64432e993dd6ed69766bb64544fe433
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: yushwang
+ms.openlocfilehash: 7802061ba09a30ca34ed3804ace846118c5edb9b
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23125479"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235365"
 ---
 # <a name="planning-and-design-for-vpn-gateway"></a>Pianificazione e progettazione per il gateway VPN
 
@@ -30,7 +22,7 @@ Le operazioni di pianificazione e progettazione di connessioni cross-premise e d
 
 ### <a name="compare"></a>Opzioni di connettività di più sedi locali
 
-Se si desidera connettere i siti locali in modo sicuro a una rete virtuale, sono disponibili tre modi diversi: Da sito a sito, Da punto a sito ed ExpressRoute. Confrontare le diverse connessioni cross-premise disponibili. La scelta dell'opzione può dipendere da diversi fattori, ad esempio:
+Se si desidera connettere i siti locali in modo sicuro a una rete virtuale, sono disponibili tre modi diversi: da sito a sito, da punto a sito ed ExpressRoute. Confrontare le diverse connessioni cross-premise disponibili. La scelta dell'opzione può dipendere da diversi fattori, ad esempio:
 
 * Che tipo di velocità effettiva richiede la soluzione?
 * Si desidera comunicare sulla rete Internet pubblica tramite VPN sicura o tramite una connessione privata?

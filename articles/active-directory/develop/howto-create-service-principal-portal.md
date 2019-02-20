@@ -1,5 +1,5 @@
 ---
-title: Creare un'identità per un'app Azure nel portale | Documentazione Microsoft
+title: Creare un'identità per un'app Azure nel portale | Microsoft Docs
 description: Descrive come creare una nuova applicazione ed entità servizio di Azure Active Directory da usare con il controllo degli accessi in base al ruolo in Gestione risorse di Azure per gestire l'accesso alle risorse.
 services: active-directory
 documentationcenter: na
@@ -14,12 +14,13 @@ ms.workload: na
 ms.date: 10/24/2018
 ms.author: celested
 ms.reviewer: tomfitz
-ms.openlocfilehash: 708ec047a1c9883e34f2e255cd7a0f1237ded2bf
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4a8311e359b5afa84020227de309e8b153a7ccda
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096875"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238063"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedura: usare il portale per creare un'applicazione Azure AD e un'entità servizio che possano accedere alle risorse
 
@@ -136,7 +137,7 @@ Sono necessari anche l'ID dell'applicazione e una chiave di autenticazione. Per 
 
    ![Visualizzare le registrazioni dell'app](./media/howto-create-service-principal-portal/view-app-registrations.png)
 
-Se Registrazioni per l'app è impostata su **No**, solo gli [amministratori globali](../users-groups-roles/directory-assign-admin-roles.md) possono registrare app. Se l'account è assegnato al ruolo Utente, ma l'impostazione Registrazioni per l'app è limitata agli utenti amministratori, chiedere all'amministratore di essere assegnati a un ruolo di amministratore globale o di consentire agli utenti di registrare le app.
+Se l'impostazione relativa alle registrazioni dell'app è impostata su **No**, solo gli utenti con un ruolo di amministratore possono registrare questi tipi di applicazioni. Vedere [Ruoli disponibili](../users-groups-roles/directory-assign-admin-roles.md#available-roles) e [Autorizzazioni dei ruoli](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) per informazioni sui ruoli di amministratore disponibili e le specifiche autorizzazioni di Azure AD assegnate a ogni ruolo. Se l'account è assegnato al ruolo Utente, ma l'impostazione relativa alle registrazioni dell'app è limitata agli utenti amministratori, chiedere al proprio amministratore di essere assegnati a uno dei ruoli di amministratore in grado di gestire tutti gli aspetti delle registrazioni dell'app oppure di consentire agli utenti di registrare le app.
 
 ### <a name="check-azure-subscription-permissions"></a>Controllare le autorizzazioni di sottoscrizione di Azure
 

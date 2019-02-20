@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: fe22a465c21e9522b70ba307e2ec9772674000f2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 67843efd87e0d1cdd1a392fdd24d29decae093e8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488544"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997006"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Interpretare i risultati dei modelli in Azure Machine Learning Studio
 Questo argomento illustra come visualizzare e interpretare risultati di stima in Azure Machine Learning Studio. Dopo aver eseguito il training di un modello e averlo sottoposto a una stima, ossia dopo aver assegnato un punteggio a un modello, è necessario comprendere e interpretare il risultato di stima.
@@ -74,7 +74,7 @@ Nella tabella dei risultati sono presenti sei colonne: le quattro colonne di sin
 
 **Pubblicazione come servizio Web**
 
-Dopo aver compreso e approvato i risultati della stima, è possibile pubblicare l'esperimento come servizio Web, in modo che possa essere distribuito in varie applicazioni e chiamato per ottenere stime di classe su un nuovo fiore Iris. Per informazioni su come trasformare un esperimento di training in un esperimento di assegnazione dei punteggi e pubblicarlo come servizio Web, vedere [Pubblicare il servizio Web di Azure Machine Learning](walkthrough-5-publish-web-service.md). Questa procedura consente di ottenere un esperimento di assegnazione dei punteggi, come illustrato nella figura 3.
+Dopo aver compreso e approvato i risultati della stima, è possibile pubblicare l'esperimento come servizio Web, in modo che possa essere distribuito in varie applicazioni e chiamato per ottenere stime di classe su un nuovo fiore Iris. Per informazioni su come trasformare un esperimento di training in un esperimento di assegnazione dei punteggi e pubblicarlo come servizio Web, vedere [Esercitazione 3: Distribuire il modello di rischio di credito](tutorial-part3-credit-risk-deploy.md). Questa procedura consente di ottenere un esperimento di assegnazione dei punteggi, come illustrato nella figura 3.
 
 ![Schermata dell'esperimento di assegnazione dei punteggi](./media/interpret-model-results/3.png)
 

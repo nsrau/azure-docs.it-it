@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 1/30/2019
+ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0473bccbd249f70139d815b8353f1ac271df754f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d6e083c4a7595bb70e77bca860c756abc2eaa18e
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658387"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979650"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività in Automazione di Azure
 
@@ -185,7 +185,7 @@ La tabella seguente elenca i runbook distribuiti nell'account di Automazione da 
 
 Tutti i runbook padre includono il parametro _WhatIf_. Se impostato su **True**, _WhatIf_ supporta i dettagli relativi al comportamento esatto del runbook quando viene eseguito senza il parametro _WhatIf_ e verifica che vengano specificate come destinazione le macchine virtuali corrette. Quando il parametro _WhatIf_ è impostato su **False**, un runbook esegue solo le azioni definite.
 
-|Runbook | Parametri | DESCRIZIONE|
+|Runbook | Parametri | Descrizione|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Chiamato dal runbook padre. Questo runbook crea gli avvisi in base alle risorse per lo scenario AutoStop.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: true o false  | Crea o aggiorna le regole di avviso di Azure nelle macchine virtuali nella sottoscrizione o nei gruppi di risorse selezionati. <br> VMList: elenco delimitato da virgole delle macchine virtuali. Ad esempio, _vm1, vm2, vm3_.<br> *WhatIf* convalida la logica del runbook senza eseguirlo.|
@@ -200,7 +200,7 @@ Tutti i runbook padre includono il parametro _WhatIf_. Se impostato su **True**,
 
 La tabella seguente elenca le variabili create nell'account di Automazione. Modificare solo le variabili con il prefisso **External**. La modifica delle variabili con il prefisso **Internal** provoca effetti indesiderati.
 
-|Variabile | DESCRIZIONE|
+|Variabile | Descrizione|
 |---------|------------|
 |External_AutoStop_Condition | Operatore condizionale necessario per configurare la condizione prima che venga attivato un avviso. I valori possibili sono: **GreaterThan**, **GreaterThanOrEqual**, **LessThan** e **LessThanOrEqual**.|
 |External_AutoStop_Description | Avviso per l'arresto della macchina virtuale se la percentuale della CPU supera la soglia di avviso.|
@@ -209,7 +209,7 @@ La tabella seguente elenca le variabili create nell'account di Automazione. Modi
 |External_AutoStop_TimeAggregationOperator | Operatore dell'aggregazione temporale che viene applicato alle dimensioni della finestra selezionata per valutare la condizione. I valori possibili sono: **Average**, **Minimum**, **Maximum**, **Total** e **Last**.|
 |External_AutoStop_TimeWindow | Dimensioni della finestra durante le quali Azure analizza le metriche selezionate per l'attivazione di un avviso. Questo parametro accetta l'input nel formato timespan. I valori possibili sono compresi tra 5 minuti e 6 ore.|
 |External_EnableClassicVMs| Specifica se le macchine virtuali classiche sono considerate come destinazione della soluzione. Il valore predefinito è True. Il valore deve essere impostato su False per le sottoscrizioni CSP.|
-|External_ExcludeVMNames | Immettere i nomi delle macchine virtuali da escludere, separandoli usando una virgola senza spazi.|
+|External_ExcludeVMNames | Immettere i nomi delle macchine virtuali da escludere, separandoli usando una virgola senza spazi. Il limite dell'elenco è 140 macchine virtuali. Se si aggiungono più di 140 macchine virtuali, le macchine virtuali configurate per l'esclusione potrebbero essere inavvertitamente avviate o arrestate.|
 |External_Start_ResourceGroupNames | Specifica uno o più gruppi di risorse, separando i valori con una virgola, destinati alle azioni di avvio.|
 |External_Stop_ResourceGroupNames | Specifica uno o più gruppi di risorse, separando i valori con una virgola, destinati alle azioni di arresto.|
 |Internal_AutomationAccountName | Specifica il nome dell'account di Automazione.|
@@ -225,7 +225,7 @@ Nella tabella seguente sono elencate le pianificazioni create nell'account di Au
 
 Non è consigliabile abilitare tutte le pianificazioni, perché potrebbe verificarsi una sovrapposizione delle azioni di pianificazione. È meglio determinare quali ottimizzazioni si vogliono eseguire e apportare le modifiche di conseguenza. Per altre informazioni, vedere gli scenari di esempio nella sezione Panoramica.
 
-|Nome pianificazione | Frequenza | DESCRIZIONE|
+|Nome pianificazione | Frequenza | Descrizione|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | Ogni 8 ore | Esegue il runbook AutoStop_CreateAlert_Parent ogni 8 ore, che a sua volta arresta i valori basati sulla macchina virtuale in External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames ed External_ExcludeVMNames nelle variabili di Automazione di Azure. In alternativa, è possibile specificare un elenco separato da virgole delle macchine virtuali usando il parametro VMList.|
 |Scheduled_StopVM | Definita dall'utente, giornalmente | Esegue il runbook Scheduled_Parent con un parametro _Stop_ ogni giorno all'ora specificata. Arresta automaticamente tutte le macchine virtuali che soddisfano le regole definite dalle variabili di asset. Abilitare la pianificazione correlata, **Scheduled-StartVM**.|
@@ -239,7 +239,7 @@ Automazione crea due tipi di record nell'area di lavoro di Log Analytics: log di
 
 ### <a name="job-logs"></a>Log di processo
 
-|Proprietà | DESCRIZIONE|
+|Proprietà | Descrizione|
 |----------|----------|
 |Chiamante |  Chi ha avviato l'operazione. I valori possibili sono un indirizzo di posta elettronica o il sistema per i processi pianificati.|
 |Categoria | La classificazione del tipo di dati. Per Automazione, il valore è JobLogs.|
@@ -260,7 +260,7 @@ Automazione crea due tipi di record nell'area di lavoro di Log Analytics: log di
 
 ### <a name="job-streams"></a>Flussi di processo
 
-|Proprietà | DESCRIZIONE|
+|Proprietà | Descrizione|
 |----------|----------|
 |Chiamante |  Chi ha avviato l'operazione. I valori possibili sono un indirizzo di posta elettronica o il sistema per i processi pianificati.|
 |Categoria | La classificazione del tipo di dati. Per Automazione, il valore è JobStreams.|
@@ -283,7 +283,7 @@ Quando si esegue una ricerca log che restituisce record di categoria di **JobLog
 
 La tabella seguente contiene esempi di ricerche nei log per i record dei processi raccolti da questa soluzione.
 
-|Query | DESCRIZIONE|
+|Query | Descrizione|
 |----------|----------|
 |Trova i processi completati per il runbook ScheduledStartStop_Parent | ```search Category == "JobLogs" | where ( RunbookName_s == "ScheduledStartStop_Parent" ) | where ( ResultType == "Completed" )  | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
 |Trova i processi completati per il runbook SequencedStartStop_Parent | ```search Category == "JobLogs" | where ( RunbookName_s == "SequencedStartStop_Parent" ) | where ( ResultType == "Completed" ) | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
@@ -333,7 +333,7 @@ Per assicurarsi che una macchina virtuale sia inclusa nella soluzione di avvio/a
 
 ### <a name="exclude-a-vm"></a>Escludere una macchina virtuale
 
-Per escludere una macchina virtuale dalla soluzione, è possibile aggiungerla alla variabile **External_ExcludeVMNames**. Questa variabile è un elenco delimitato da virgole delle specifiche macchine virtuali da escludere dalla soluzione di avvio/arresto.
+Per escludere una macchina virtuale dalla soluzione, è possibile aggiungerla alla variabile **External_ExcludeVMNames**. Questa variabile è un elenco delimitato da virgole delle specifiche macchine virtuali da escludere dalla soluzione di avvio/arresto. Il limite dell'elenco è 140 macchine virtuali. Se si aggiungono più di 140 macchine virtuali a questo elenco delimitato da virgole, le macchine virtuali configurate per l'esclusione potrebbero essere inavvertitamente avviate o arrestate.
 
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>Modificare le pianificazioni di avvio e arresto
 

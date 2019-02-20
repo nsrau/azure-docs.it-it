@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: d0942d3465811687937ce113e664fbf3f91277d0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b287a67c470cc1697065838e52916c285a2233a7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815245"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960191"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Creare e gestire un modello per le classi in Azure Lab Services
 Un modello in un lab è un'immagine della macchina virtuale di base da cui vengono create tutte le macchine virtuali di tutti gli utenti. Configurare la macchina virtuale modello con tutte le caratteristiche che si vuole fornire agli utenti del lab. È possibile specificare un nome e una descrizione del modello che verranno visualizzati dagli utenti del lab. Quindi, pubblicare il modello per rendere disponibili agli utenti del lab le istanze della macchina virtuale modello. Quando si pubblica un modello, Azure Lab Services crea le macchine virtuali nel lab usando il modello. Il numero di macchine virtuali create in questo processo corrisponde al numero massimo di utenti consentiti nel lab, che è possibile impostare nei criteri di utilizzo del lab. Tutte le macchine virtuali hanno la stessa configurazione del modello.
@@ -103,7 +103,12 @@ Seguire questa procedura per impostare il titolo e la descrizione per la prima v
 1. Esaminare l'avviso e selezionare **Avvia**. 
 
     ![Avvio modello - Avviso](../media/how-to-create-manage-template/start-template-warning.png)
+2. Visualizzare lo stato nel riquadro del lab della sezione **Modello**.
+
+    ![Avvio modello - Stato](../media/how-to-create-manage-template/template-start-status.png)
 1. Dopo l'avvio, per connettersi alla macchina virtuale, selezionare **Connetti** e seguire le istruzioni. 
+
+    ![Connettersi alla macchina virtuale modello o arrestarla](../media/how-to-create-manage-template/connect-stop-vm.png)
 1. Installare tutto il software necessario agli studenti per eseguire il lab, ad esempio, Visual Studio, Azure Storage Explorer e così via. 
 2. Disconnettersi dalla macchina virtuale modello, ovvero chiudere la sessione di accesso remota. 
 3. **Arrestare** la macchina virtuale modello selezionando **Arresta**. 

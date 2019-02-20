@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 2b9aee39942562ec7f17c08c0fcf46143a7a25d3
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: d5c07e0d4aca8bda42ea9f78a1475ea7bb5861f0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53587409"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997023"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorare i gruppi di risorse con Monitoraggio di Azure (anteprima)
 
@@ -93,9 +93,9 @@ Vengono visualizzate numerose caselle **Modifica** accanto ai vari elementi dell
 
 ![Screenshot delle caselle di modifica](./media/resource-group-insights/0009-failure-edit-graph.png)
 
-Viene mostrata la query sottostante di Log Analytics alla base della visualizzazione della tabella.
+Viene mostrata la query di log sottostante alla base della visualizzazione della tabella.
 
- ![Screenshot della finestra della query di Log Analytics](./media/resource-group-insights/0010-failure-edit-query.png)
+ ![Screenshot della finestra della query di log](./media/resource-group-insights/0010-failure-edit-query.png)
 
 È possibile modificare direttamente la query. In alternativa è possibile usarla come riferimento e prenderla in prestito da qui quando si progetta una cartella di lavoro con parametri personalizzati.
 

@@ -5,15 +5,15 @@ services: virtual-machines-linux
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 11/27/2018
+ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: a1200494eac2d60083a6608d1af91379d8298070
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: b8aba410cd447f14fcce89fee93c5f6a253a34ce
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201500"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56102165"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Driver e distribuzioni supportati
 
@@ -34,7 +34,7 @@ Microsoft ridistribuisce i programmi di installazione dei driver NVIDIA-GRID per
 
 | Distribuzione | Driver |
 | --- | -- |
-| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/>Basato su CentOS 7.3, 7.4, 7.5, 7.6 | NVIDIA GRID 7, ramo driver R410|
+| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/>Basato su CentOS 7.3, 7.4, 7.5, 7.6 | NVIDIA GRID 7.1, ramo driver R410|
 
 > [!WARNING] 
 > L'installazione di software di terze parti in prodotti Red Hat può influenzare i termini di supporto di Red Hat. Vedere l'[articolo della Knowledge base di Red Hat](https://access.redhat.com/articles/1067).

@@ -4,21 +4,21 @@ description: Questo argomento offre una panoramica su come usare Servizi multime
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 65188dacbb29fea5562ca5b83283861986719ce1
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 49b763cba505a3423b47e5a2601db53b8e47a5fe
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866679"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993972"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Proteggere il contenuto HLS con Apple FairPlay o Microsoft PlayReady
 Servizi multimediali di Azure consente di crittografare dinamicamente il contenuto di HTTP Live Streaming (HLS) usando i formati seguenti:  
@@ -69,9 +69,9 @@ Se si usa Servizi multimediali per distribuire contenuto HLS crittografato con F
     3. Eseguire il comando seguente dalla riga di comando. Questo comando converte il file con estensione pem in un file con estensione pfx con la chiave privata. La password per il file con estensione pfx viene quindi richiesta da OpenSSL.
 
         "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
-  * **App Cert password**: password del cliente per creare il file con estensione pfx.
-  * **App Cert password ID**: è necessario caricare la password con una procedura simile a quella usata per caricare le altre chiavi di Servizi multimediali. Usare il valore di enumerazione **ContentKeyType.FairPlayPfxPassword** per ottenere l'ID di Servizi multimediali. Questo valore è necessario nell'opzione dei criteri di distribuzione delle chiavi.
-  * **iv**: valore casuale di 16 byte che deve corrispondere al valore iv nei criteri di distribuzione dell'asset. Si genera l'iv e lo inserisce sia nei criteri di distribuzione dell'asset che nell'opzione dei criteri di distribuzione delle chiavi.
+  * **Password di App Cert**: password per creare il file con estensione pfx.
+  * **ID password di App Cert**: è necessario caricare la password con una procedura simile a quella usata per caricare le altre chiavi di Servizi multimediali. Usare il valore di enumerazione **ContentKeyType.FairPlayPfxPassword** per ottenere l'ID di Servizi multimediali. Questo valore è necessario nell'opzione dei criteri di distribuzione delle chiavi.
+  * **iv**: valore casuale di 16 byte. che deve corrispondere al valore iv nei criteri di distribuzione dell'asset. Si genera l'iv e lo inserisce sia nei criteri di distribuzione dell'asset che nell'opzione dei criteri di distribuzione delle chiavi.
   * **ASK**: chiave ricevuta quando si genera la certificazione usando il portale Apple Developer. Ogni team di sviluppo riceve una chiave ASK univoca. Salvare una copia della chiave ASK e archiviarla in un luogo sicuro. Successivamente è necessario configurare la chiave ASK come FairPlayAsk in Servizi multimediali.
   * **ID ASK**: ID ottenuto quando si carica la chiave privata dell'applicazione in Servizi multimediali. È necessario caricare la chiave privata dell'applicazione usando il valore di enumerazione **ContentKeyType.FairPlayASk**. Verrà restituito l'ID di Servizi multimediali che dovrà essere usato per impostare l'opzione dei criteri di distribuzione delle chiavi.
 
@@ -138,7 +138,7 @@ Si applicano le considerazioni seguenti:
 * Il tipo di crittografia non deve essere specificato nell'URL se all'asset è stata applicata una sola crittografia.
 * Il tipo di crittografia non fa distinzione tra maiuscole e minuscole.
 * Possono essere specificati i seguenti tipi di crittografia:  
-  * **cenc**: crittografia comune (PlayReady o Widevine)
+  * **cenc**:  crittografia comune (PlayReady o Widevine)
   * **cbcs-aapl**: FairPlay
   * **cbc**: crittografia busta AES
 
@@ -148,8 +148,8 @@ Si applicano le considerazioni seguenti:
 2. Aggiungere gli elementi seguenti alla sezione **appSettings** definita nel file app.config:
 
     ```xml
-            <add key="Issuer" value="http://testacs.com"/>
-            <add key="Audience" value="urn:test"/>
+    <add key="Issuer" value="http://testissuer.com"/>
+    <add key="Audience" value="urn:test"/>
     ```
 
 ## <a name="example"></a>Esempio

@@ -15,17 +15,20 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
 ms.custom: seodec18
-ms.openlocfilehash: d21d588660b67da024491151fe4f4376cebba46f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 43ec22836cb32c21953b9eb6871b9efe300cbf9e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730273"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001171"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Eseguire attività in background con Processi Web in Servizio app di Azure
 
 ## <a name="overview"></a>Panoramica
 Processi Web è una funzionalità di [Servizio app di Azure](https://docs.microsoft.com/azure/app-service/) che consente di eseguire un programma o uno script nello stesso contesto di un'app Web, un'app per le API o un'app per dispositivi mobili. Non sono previsti costi aggiuntivi per l'uso di Processi Web.
+
+> [!IMPORTANT]
+> Processi Web non è ancora supportato per il servizio App in Linux.
 
 L'articolo descrive come distribuire Processi Web usando il [portale di Azure](https://portal.azure.com) per caricare un eseguibile o uno script. Per informazioni su come sviluppare e distribuire processi Web usando Visual Studio, vedere [Deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md) (Distribuire processi Web usando Visual Studio).
 

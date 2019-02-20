@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: integrazione di Azure Active Directory con Kanbanize | Microsoft Docs'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Kanbanize | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Kanbanize.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 746eaadcdb9a588087367c4c70237922cf0f14bf
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 22c136225e5a8526afd482e5ef8400198947422f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057833"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199681"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kanbanize"></a>Esercitazione: integrazione di Azure Active Directory con Kanbanize
+# <a name="tutorial-azure-active-directory-integration-with-kanbanize"></a>Esercitazione: Integrazione di Azure Active Directory con Kanbanize
 
 Questa esercitazione descrive come integrare Kanbanize con Azure Active Directory (Azure AD).
 
@@ -168,7 +169,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!Note]
     > È possibile ottenere questi valori combinando i valori dello spazio dei nomi e del nome dell'attributo corrispondente nella sezione Attributi utente nel portale di Azure.
 
-    g. Nel Blocco note aprire il certificato con codifica Base 64 scaricato dal portale di Azure copiarne il contenuto senza i contrassegni di inizio e fine e quindi incollarlo nella casella **Idp X.509 Certificate** (Certificato X.509 IdP).
+    g. Nel Blocco note aprire il certificato con codifica Base 64 scaricato dal portale di Azure copiarne il contenuto senza i contrassegni di inizio e fine e quindi incollarlo nella casella  **Idp X.509 Certificate**  (Certificato X.509 IdP).
 
     h. Selezionare **Enable login with both SSO and Kanbanize** (Abilita l'accesso sia con SSO che con Kanbanize).
     
@@ -204,14 +205,14 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="create-a-kanbanize-test-user"></a>Creare un utente test di Kanbanize
 
 L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in Kanbanize. Kanbanize supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Kanbanize viene creato un nuovo utente, se questo non esiste già.
 
 >[!Note]
->Per creare un utente manualmente, contattare il [team del supporto clienti di Kanbanize](mailto:support@ms.kanbanize.com).
+>Per creare un utente manualmente, contattare il  [team del supporto clienti di Kanbanize](mailto:support@ms.kanbanize.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -248,7 +249,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Kanbanize nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Kanbanize.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

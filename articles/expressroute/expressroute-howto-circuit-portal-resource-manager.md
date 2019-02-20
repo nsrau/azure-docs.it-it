@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 974421662a33cd9167d3c39b31d8da20db9f505f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3abdeff3c3f1a4069130ed7c8d49d485feea4093
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091528"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894718"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Creare e modificare un circuito ExpressRoute
 > [!div class="op_single_selector"]
@@ -51,7 +51,8 @@ In un browser passare al [portale di Azure](http://portal.azure.com) e accedere 
   ![Configurazione del livello SKU e misurazione dei dati](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
 
   * **livello** determina se è abilitato un componente aggiuntivo ExpressRoute Standard o ExpressRoute Premium. È possibile specificare **Standard** per ottenere lo SKU Standard o **Premium** per il componente aggiuntivo Premium.
-  * **misurazione dei dati** determina il tipo di fatturazione. È possibile specificare **A consumo** per un piano dati a consumo e **Senza limiti** per un piano dati illimitato. Si noti che è possibile modificare il tipo di fatturazione da **A consumo** a **Senza limiti**, ma non è possibile passare da **Senza limiti** ad **A consumo**.
+  * **misurazione dei dati** determina il tipo di fatturazione. È possibile specificare **A consumo** per un piano dati a consumo e **Senza limiti** per un piano dati illimitato. Si noti che è possibile modificare il tipo di fatturazione da **A consumo** in **Illimitato**.
+    > [!IMPORTANT] Non è possibile modificare il tipo da **Illimitato** in **A consumo**.
   * **Località peer** è la posizione fisica di peering con Microsoft.
 
     > [!IMPORTANT]
@@ -117,10 +118,11 @@ Collegare quindi una rete virtuale al circuito ExpressRoute. Fare riferimento al
 È possibile eseguire le attività seguenti evitando tempi di inattività:
 
 * Abilitare o disabilitare un componente aggiuntivo ExpressRoute Premium per il circuito ExpressRoute.
-* Aumentare la larghezza di banda del circuito ExpressRoute, a condizione che nella porta sia disponibile capacità. Il downgrade della larghezza di banda di un circuito non è supportato. 
-* Modificare il piano di misurazione da *Dati a consumo* a *Dati senza limiti*. La modifica del piano di misurazione da Dati senza limiti a Dati a consumo non è supportata.
+* Aumentare la larghezza di banda del circuito ExpressRoute, a condizione che nella porta sia disponibile capacità.
+  > [!IMPORTANT] Il downgrade della larghezza di banda di un circuito non è supportato. 
+* Modificare il piano di misurazione da *Dati a consumo* a *Dati senza limiti*.
+  > [!IMPORTANT] La modifica del piano di misurazione da Dati senza limiti in Dati a consumo non è supportata.
 * È possibile abilitare e disabilitare l'opzione *Consenti operazioni classiche*.
-
 > [!IMPORTANT]
 > Se la capacità sulla porta esistente non è sufficiente, potrebbe essere necessario ricreare il circuito ExpressRoute. Il circuito non può essere aggiornato se in tale posizione non è disponibile capacità aggiuntiva.
 >

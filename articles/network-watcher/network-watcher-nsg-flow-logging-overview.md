@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 06130a5ade63e23fdcd139902a19694a510393a3
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ff3c1e51bcf0b7d730019fad66ed8b0c3fe17a20
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332303"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097649"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete
 
@@ -287,5 +287,6 @@ Di seguito è riportato un testo di esempio di log dei flussi. Come si può osse
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni su come abilitare i log dei flussi, vedere l'argomento relativo all'[abilitazione della registrazione dei flussi dei gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-portal.md).
+- Per informazioni su come leggere i log di flusso, vedere [Leggere i log dei flussi del gruppo di sicurezza di rete](network-watcher-read-nsg-flow-logs.md).
 - Per altre informazioni sulla registrazione dei gruppi di sicurezza di rete, vedere [Analisi dei log per i gruppi di sicurezza di rete](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - Per determinare se il traffico è consentito o negato da o verso una macchina virtuale, vedere l'argomento relativo a [come diagnosticare un problema di filtro del traffico di rete di una macchina virtuale](diagnose-vm-network-traffic-filtering-problem.md)

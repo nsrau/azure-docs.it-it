@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 2ac8bd29b617e305d19f30590b8ec9720e9acdd3
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 7e67e7836b1d80e623a11e552c81750bc6133205
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192756"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981639"
 ---
 # <a name="preview-create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Anteprima: Creare e usare un'immagine condivisa per i set di scalabilità di macchine virtuali con Azure PowerShell
 
@@ -42,7 +42,7 @@ La funzionalità di raccolta di immagini condivise presenta più tipi di risorse
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-
+[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -55,10 +55,10 @@ Per completare l'esempio in questo articolo, è necessario disporre di un'immagi
 
 ## <a name="create-a-scale-set-from-the-shared-image-version"></a>Creare un set di scalabilità dalla versione di immagine condivisa
 
-Creare un set di scalabilità di macchine virtuali con il comando [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). L'esempio seguente permette di creare un set di scalabilità dalla nuova versione dell'immagine nel Data Center Stati Uniti occidentali. Vengono create automaticamente le risorse di rete di Azure per la rete virtuale, l'indirizzo IP pubblico e il bilanciamento del carico. Quando richiesto, impostare le credenziali amministrative per le istanze di macchina virtuale nel set di scalabilità:
+Creare un set di scalabilità di macchine virtuali con [New-AzVmss](/powershell/module/az.compute/new-azvmss). L'esempio seguente permette di creare un set di scalabilità dalla nuova versione dell'immagine nel Data Center Stati Uniti occidentali. Vengono create automaticamente le risorse di rete di Azure per la rete virtuale, l'indirizzo IP pubblico e il bilanciamento del carico. Quando richiesto, impostare le credenziali amministrative per le istanze di macchina virtuale nel set di scalabilità:
 
 ```azurepowershell-interactive
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName myVMSSRG `
   -Location 'South Central US' `
   -VMScaleSetName 'myScaleSet' `
@@ -77,11 +77,11 @@ La creazione e la configurazione di tutte le macchine virtuali e risorse del set
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non servono più, è possibile usare il cmdlet [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate:
+Quando non sono più necessari, è possibile rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate con il cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup):
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myGalleryRG
-Remove-AzureRmResourceGroup -Name myVMSSRG
+Remove-AzResourceGroup -Name myGalleryRG
+Remove-AzResourceGroup -Name myVMSSRG
 ```
 
 

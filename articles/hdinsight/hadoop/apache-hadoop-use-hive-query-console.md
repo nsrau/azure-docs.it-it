@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1e638bd348b7a5272dd8bfbe25aa841f38a51b9a
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: e568a8b7cfb21483f447b8244056de292e21093f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409701"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56169402"
 ---
 # <a name="run-apache-hive-queries-using-the-query-console"></a>Eseguire query Apache Hive usando Console query
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -80,10 +80,7 @@ Per informazioni su altre modalità d'uso di Hadoop in HDInsight:
 * [Usare Apache Pig con Apache Hadoop su HDInsight](hdinsight-use-pig.md)
 * [Usare MapReduce con Apache Hadoop su HDInsight](hdinsight-use-mapreduce.md)
 
-Se si usa Tez con Hive, vedere i documenti seguenti per le informazioni di debug:
-
-* [Usare l'interfaccia utente di Apache Tez in HDInsight basato su Windows](../hdinsight-debug-tez-ui.md)
-* [Usare la vista Apache Ambari Tez in HDInsight basato su Linux](../hdinsight-debug-ambari-tez-view.md)
+Se si usa Tez con Hive, vedere il documento seguente per trovare informazioni di debug: [Usare la vista Apache Ambari Tez in HDInsight basato su Linux](../hdinsight-debug-ambari-tez-view.md).
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 

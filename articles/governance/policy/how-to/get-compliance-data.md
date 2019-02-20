@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9fc22e35b2e435b6452f0f36c34687a15bee39c2
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 40d0250101e4653cd5ab2a3610473d9c577d8998
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766413"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114111"
 ---
 # <a name="getting-compliance-data"></a>Ottenere dati sulla conformità
 
@@ -428,11 +428,11 @@ PS> (Get-AzADUser -ObjectId {principalOid}).DisplayName
 Trent Baker
 ```
 
-## <a name="log-analytics"></a>Log Analytics
+## <a name="azure-monitor-logs"></a>Log di Monitoraggio di Azure
 
-Se si dispone di un'area di lavoro di [Log Analytics](../../../log-analytics/log-analytics-overview.md) con la soluzione `AzureActivity` collegata alla sottoscrizione in uso, è anche possibile visualizzare i risultati di non conformità dal ciclo di valutazione usando semplici query Esplora dati di Azure e la tabella `AzureActivity`. Con i dettagli di Log Analytics è possibile configurare gli avvisi in modo da individuare le risorse non conformi.
+Se si dispone di un'[area di lavoro di Log Analytics](../../../log-analytics/log-analytics-overview.md) con la soluzione `AzureActivity` collegata alla sottoscrizione in uso, è anche possibile visualizzare i risultati di non conformità dal ciclo di valutazione usando semplici query di Esplora dati di Azure e la tabella `AzureActivity`. Con i dettagli dei log di Monitoraggio di Azure è possibile configurare gli avvisi in modo da individuare le risorse non conformi.
 
-![Conformità ai criteri con Log Analytics](../media/getting-compliance-data/compliance-loganalytics.png)
+![Conformità dei criteri con i log di Monitoraggio di Azure](../media/getting-compliance-data/compliance-loganalytics.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

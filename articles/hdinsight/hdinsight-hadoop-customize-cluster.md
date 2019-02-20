@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: e11ef458fad11f04ce159d5e79c4152d2bd7e4c6
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 6f67ad04fed2018ba71dd39ed03c24e6aebecf90
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746785"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984733"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Personalizzare cluster HDInsight basati su Windows tramite Azione script
 **Azione script** può essere utilizzato per richiamare [gli script personalizzati](hdinsight-hadoop-script-actions.md) durante il processo di creazione di cluster per l'installazione del software aggiuntivo in un cluster.
@@ -62,17 +62,12 @@ HDInsight fornisce diversi script di esempio per installare i componenti seguent
 
     ![Usare l'azione script per personalizzare un cluster](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "Usare l'azione script per personalizzare un cluster")
 
-    <table border='1'>
-        <tr><th>Proprietà</th><th>Valore</th></tr>
-        <tr><td>NOME</td>
-            <td>Specificare un nome per l'azione script.</td></tr>
-        <tr><td>URI script</td>
-            <td>Specificare l'URI dello script da richiamare per personalizzare il cluster. s</td></tr>
-        <tr><td>Head/Lavoro</td>
-            <td>Specificare i nodi **head** o **ruolo di lavoro** in cui viene eseguito lo script di personalizzazione</b>.
-        <tr><td>Parametri</td>
-            <td>Specificare i parametri, se richiesti dallo script.</td></tr>
-    </table>
+      |Proprietà|Valore|  
+      |---|---|
+      |NOME|Specificare un nome per l'azione script.|
+      |URI script|Specificare l'URI dello script da richiamare per personalizzare il cluster.|
+      |Head/Lavoro|Specificare i nodi **head** o **ruolo di lavoro** in cui viene eseguito lo script di personalizzazione.|
+      |Parametri|Specificare i parametri, se richiesti dallo script.|
 
     È possibile aggiungere altre azioni di script per installare più componenti nel cluster.
 3. Fare clic su **Seleziona** per salvare la configurazione dell'azione di script e continuare con la creazione del cluster.
@@ -80,7 +75,7 @@ HDInsight fornisce diversi script di esempio per installare i componenti seguent
 ## <a name="call-scripts-using-azure-powershell"></a>Chiamare script con Azure PowerShell
 Lo script di PowerShell seguente dimostra come installare Spark nel cluster HDInsight basato su Windows.  
 
-    ```powershell
+```powershell  
     # Provide values for these variables
     $subscriptionID = "<Azure Subscription ID>" # After "Connect-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
 
@@ -159,7 +154,7 @@ Lo script di PowerShell seguente dimostra come installare Spark nel cluster HDIn
             -OSType Windows `
             -DefaultStorageContainer $defaultBlobContainerName `
             -Config $config
-    ```
+```
 
 Per installare altri software, è necessario sostituire il file script nello script:
 
@@ -172,12 +167,14 @@ L'esempio seguente illustra come installare Apache Spark nel cluster HDInsight b
 
 1. Creare un'applicazione console C# in Visual Studio.
 2. Eseguire il comando seguente dalla console di Gestione pacchetti NuGet.
-    ```powershell
+
+    ```powershell  
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package Microsoft.Azure.Management.ResourceManager -Pre
         Install-Package Microsoft.Azure.Management.HDInsight
     ```
-3. Nel file Program.cs usare le istruzioni using seguenti:
+
+1. Nel file Program.cs usare le istruzioni using seguenti:
 
     ```csharp
         using System;

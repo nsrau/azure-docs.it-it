@@ -10,14 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 02/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 7835674536c43fcb694ad8eaeb18aebb89de5fad
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.reviewer: christianreddington,anthdela,juselph
+ms.openlocfilehash: aff57e58ffd247bcc697908f2f25cbf17ff9b91a
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262075"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244131"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Governance dell'infrastruttura di Azure DevTest Labs - Risorse
 Questo articolo descrive l'allineamento e la gestione delle risorse di DevTest Labs all'interno dell'organizzazione. 

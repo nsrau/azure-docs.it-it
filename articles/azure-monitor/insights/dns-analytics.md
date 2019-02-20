@@ -1,6 +1,6 @@
 ---
-title: Soluzione DNS Analytics in Azure Log Analytics | Microsoft Docs
-description: Configurare e usare la soluzione DNS Analytics in Log Analytics per raccogliere informazioni dettagliate nell'infrastruttura DNS relative a sicurezza, prestazioni e operazioni.
+title: Soluzione Analisi DNS in Monitoraggio di Azure | Microsoft Docs
+description: Configurare e usare la soluzione Analisi DNS in Monitoraggio di Azure per raccogliere informazioni dettagliate nell'infrastruttura DNS relative a sicurezza, prestazioni e operazioni.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 21b44b1c739818206fdba9d10250a2976f1d90db
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 0eeab5a2489bacde74b98e7d404789a00b64d02a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746864"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992722"
 ---
-# <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Raccogliere informazioni dettagliate sull'infrastruttura DNS con la soluzione DNS Analytics (anteprima)
+# <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Raccogliere informazioni dettagliate sull'infrastruttura DNS con la soluzione Analisi DNS (anteprima)
 
 ![Simbolo di Analisi DNS](./media/dns-analytics/dns-analytics-symbol.png)
 
-Questo articolo descrive come configurare e usare la soluzione Azure DNS Analytics in Azure Log Analytics per raccogliere informazioni dettagliate in DNS relative a sicurezza, prestazioni e operazioni.
+Questo articolo descrive come configurare e usare la soluzione Analisi DNS di Azure in Monitoraggio di Azure per raccogliere informazioni dettagliate in DNS relative a sicurezza, prestazioni e operazioni.
 
-DNS Analytics consente di:
+Analisi DNS consente di:
 
 - Identificare i client che tentano di risolvere nomi di dominio dannosi.
 - Identificare i record di risorse non aggiornati.
@@ -42,29 +42,29 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 
 | **Origine connessa** | **Supporto** | **Descrizione** |
 | --- | --- | --- |
-| [Agenti di Windows](../../azure-monitor/platform/agent-windows.md) | Sì | La soluzione raccoglie le informazioni DNS dagli agenti Windows. |
-| [Agenti Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No  | La soluzione non raccoglie le informazioni DNS dagli agenti Linux diretti. |
-| [Gruppo di gestione di System Center Operations Manager](../../azure-monitor/platform/om-agents.md) | Sì | La soluzione raccoglie le informazioni DNS dagli agenti di un gruppo di gestione di Operations Manager connesso. Non è necessaria una connessione diretta dall'agente Operations Manager a Log Analytics. I dati vengono inoltrati dal gruppo di gestione all'area di lavoro di Log Analytics. |
-| [Account di archiviazione di Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md) | No  | La soluzione non usa le risorse di archiviazione di Azure. |
+| [Agenti di Windows](../platform/agent-windows.md) | Sì | La soluzione raccoglie le informazioni DNS dagli agenti Windows. |
+| [Agenti Linux](../learn/quick-collect-linux-computer.md) | No | La soluzione non raccoglie le informazioni DNS dagli agenti Linux diretti. |
+| [Gruppo di gestione di System Center Operations Manager](../platform/om-agents.md) | Sì | La soluzione raccoglie le informazioni DNS dagli agenti di un gruppo di gestione di Operations Manager connesso. Non è necessaria una connessione diretta dall'agente Operations Manager a Monitoraggio di Azure. I dati vengono inoltrati dal gruppo di gestione all'area di lavoro di Log Analytics. |
+| [Account di archiviazione di Azure](../platform/collect-azure-metrics-logs.md) | No | La soluzione non usa le risorse di archiviazione di Azure. |
 
 ### <a name="data-collection-details"></a>Informazioni dettagliate sulla raccolta di dati
 
-La soluzione raccoglie i dati relativi all'inventario e agli eventi DNS dai server DNS in cui è installato un agente Log Analytics. Tali dati vengono quindi caricati in Log Analytics e visualizzati nel dashboard della soluzione. I dati relativi all'inventario, come il numero di server, zone e record di risorse DNS, vengono raccolti eseguendo i cmdlet di PowerShell per DNS. I dati vengono aggiornati ogni due giorni. I dati relativi agli eventi vengono raccolti quasi in tempo reale dai [log di analisi e di controllo](https://technet.microsoft.com/library/dn800669.aspx#enhanc) offerti dalle funzionalità avanzate di registrazione e diagnostica DNS di Windows Server 2012 R2.
+La soluzione raccoglie i dati relativi all'inventario e agli eventi DNS dai server DNS in cui è installato un agente Log Analytics. Questi dati vengono quindi caricati in Monitoraggio di Azure e visualizzati nel dashboard della soluzione. I dati relativi all'inventario, come il numero di server, zone e record di risorse DNS, vengono raccolti eseguendo i cmdlet di PowerShell per DNS. I dati vengono aggiornati ogni due giorni. I dati relativi agli eventi vengono raccolti quasi in tempo reale dai [log di analisi e di controllo](https://technet.microsoft.com/library/dn800669.aspx#enhanc) offerti dalle funzionalità avanzate di registrazione e diagnostica DNS di Windows Server 2012 R2.
 
 ## <a name="configuration"></a>Configurazione
 
 Per configurare la soluzione, usare le informazioni seguenti:
 
-- È necessario un agente [Windows](../../azure-monitor/platform/agent-windows.md) o [Operations Manager](../../azure-monitor/platform/om-agents.md) in ogni server DNS che si vuole monitorare.
-- È possibile aggiungere la soluzione Analisi DNS nell'area di lavoro di Log Analytics da [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). È anche possibile seguire la procedura descritta nell'articolo relativo all'[aggiunta di soluzioni di Log Analytics dalla raccolta soluzioni](../../azure-monitor/insights/solutions.md).
+- È necessario un agente [Windows](../platform/agent-windows.md) o [Operations Manager](../platform/om-agents.md) in ogni server DNS che si vuole monitorare.
+- È possibile aggiungere la soluzione Analisi DNS nell'area di lavoro di Log Analytics da [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). È anche possibile seguire la procedura descritta in [Aggiungere soluzioni di Monitoraggio di Azure dalla raccolta di soluzioni](solutions.md).
 
 La soluzione avvia la raccolta dati senza che siano necessarie operazioni di configurazione aggiuntive. È tuttavia possibile usare la configurazione seguente per personalizzare la raccolta.
 
 ### <a name="configure-the-solution"></a>Configurare la soluzione
 
-Nel dashboard della soluzione fare clic su **Configurazione** per aprire la pagina Configurazione di DNS Analytics. È possibile apportare due tipi di modifiche di configurazione.
+Nel dashboard della soluzione fare clic su **Configurazione** per aprire la pagina Configurazione di Analisi DNS. È possibile apportare due tipi di modifiche di configurazione.
 
-- **Nomi di dominio consentiti**. La soluzione non elabora tutte le query di ricerca, ma gestisce un elenco elementi consentiti per i suffissi dei nomi di dominio. Le query di ricerca che si risolvono nei nomi di dominio corrispondenti ai suffissi di questo elenco non vengono elaborate dalla soluzione. L'esclusione dall'elaborazione dei nomi di dominio consentiti consente di ottimizzare i dati inviati a Log Analytics. L'elenco elementi consentiti predefinito include i nomi di dominio pubblici più diffusi, come www.google.com e www.facebook.com. L'intero elenco predefinito può essere visualizzato tramite lo scorrimento.
+- **Nomi di dominio consentiti**. La soluzione non elabora tutte le query di ricerca, ma gestisce un elenco elementi consentiti per i suffissi dei nomi di dominio. Le query di ricerca che si risolvono nei nomi di dominio corrispondenti ai suffissi di questo elenco non vengono elaborate dalla soluzione. L'esclusione dall'elaborazione dei nomi di dominio consentiti permette di ottimizzare i dati inviati a Monitoraggio di Azure. L'elenco elementi consentiti predefinito include i nomi di dominio pubblici più diffusi, come www.google.com e www.facebook.com. L'intero elenco predefinito può essere visualizzato tramite lo scorrimento.
 
  È possibile modificare l'elenco per aggiungere qualsiasi suffisso di nome di dominio per cui non si vogliono visualizzare informazioni dettagliate relative alla ricerca. È anche possibile rimuovere qualsiasi suffisso di nome di dominio per cui non si vogliono visualizzare informazioni dettagliate relative alla ricerca.
 
@@ -83,15 +83,16 @@ Se il gruppo di gestione di Operations Manager è connesso all'area di lavoro di
 - Microsoft DNS Data Collector Intelligence Pack (Microsft.IntelligencePacks.Dns)
 - Microsoft System Center Advisor DNS Analytics Configuration (Microsoft.IntelligencePack.Dns.Configuration)
 
-Per maggiori informazioni sulla modalità di aggiornamento dei Management Pack, vedere [Connettere Operations Manager a Log Analytics](../../azure-monitor/platform/om-agents.md).
+Per maggiori informazioni sulla modalità di aggiornamento dei Management Pack, vedere [Connettere Operations Manager a Log Analytics](../platform/om-agents.md).
 
-## <a name="use-the-dns-analytics-solution"></a>Usare la soluzione DNS Analytics
+## <a name="use-the-dns-analytics-solution"></a>Usare la soluzione Analisi DNS
 
-In questa sezione vengono illustrate tutte le funzioni del dashboard e si spiega come usarle.
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-Dopo l'aggiunta della soluzione all'area di lavoro, la pagina di panoramica di Log Analytics nel portale di Azure contiene un collegamento **Visualizza soluzioni** a un breve riepilogo dell'infrastruttura DNS, che include il numero di server DNS in cui vengono raccolti i dati e il numero di richieste effettuato dai client per risolvere domini dannosi nelle ultime 24 ore. Quando si fa clic sul riquadro, viene aperto il dashboard della soluzione.
 
-![Riquadro DNS Analytics](./media/dns-analytics/dns-tile.png)
+Il riquadro DNS include il numero di server DNS in cui vengono raccolti i dati. e il numero di richieste effettuato dai client per risolvere domini dannosi nelle ultime 24 ore. Quando si fa clic sul riquadro, viene aperto il dashboard della soluzione.
+
+![Riquadro Analisi DNS](./media/dns-analytics/dns-tile.png)
 
 ### <a name="solution-dashboard"></a>Dashboard della soluzione
 
@@ -101,11 +102,11 @@ Il dashboard della soluzione visualizza informazioni di riepilogo relative alle 
 
 Il dashboard visualizza i pannelli descritti di seguito.
 
-**Sicurezza DNS**. Segnala i client DNS che tentano di comunicare con domini dannosi. Usando i feed di intelligence per le minacce di Microsoft, DNS Analytics può rilevare gli indirizzi IP client che tentano di accedere ai domini dannosi. In molti casi, i dispositivi infetti da malware "stabiliscono la connessione" con il "centro di comando e controllo" del dominio dannoso risolvendo il nome di dominio del malware.
+**Sicurezza DNS**. Segnala i client DNS che tentano di comunicare con domini dannosi. Usando i feed di intelligence per le minacce di Microsoft, Analisi DNS può rilevare gli indirizzi IP client che tentano di accedere ai domini dannosi. In molti casi, i dispositivi infetti da malware "stabiliscono la connessione" con il "centro di comando e controllo" del dominio dannoso risolvendo il nome di dominio del malware.
 
 ![Pannello Sicurezza DNS](./media/dns-analytics/dns-security-blade.png)
 
-Facendo clic su un indirizzo IP client nell'elenco si apre Ricerca log con i dettagli della ricerca della rispettiva query. Nell'esempio seguente, DNS Analytics ha rilevato una comunicazione con [IRCbot](https://www.microsoft.com/wdsi/threats/threat-search?query=Win32/IRCbot):
+Facendo clic su un indirizzo IP client nell'elenco si apre Ricerca log con i dettagli della ricerca della rispettiva query. Nell'esempio seguente Analisi DNS ha rilevato una comunicazione con [IRCbot](https://www.microsoft.com/wdsi/threats/threat-search?query=Win32/IRCbot):
 
 ![Ricerca log: risultati con IRCbot](./media/dns-analytics/ircbot.png)
 
@@ -148,7 +149,7 @@ Le informazioni consentono di identificare quanto segue:
 
 ![Query di esempio](./media/dns-analytics/queries.png)
 
-È possibile usare queste query come punto di partenza per creare le proprie query per l'elaborazione di report personalizzati. Le query si collegano alla pagina di Ricerca log di DNS Analytics in cui vengono visualizzati i risultati:
+È possibile usare queste query come punto di partenza per creare le proprie query per l'elaborazione di report personalizzati. Le query si collegano alla pagina di Ricerca log di Analisi DNS in cui vengono visualizzati i risultati:
 
 - **Elenco di server DNS**. Visualizza un elenco di tutti i server DNS con i nomi di dominio completo, i nomi di dominio, i nomi foresta e gli IP server associati.
 - **Elenco di zone DNS**. Visualizza un elenco di tutte le zone DNS con il nome della zona, lo stato di aggiornamento dinamico, i server dei nomi e lo stato della firma DNSSEC associati.
@@ -161,7 +162,7 @@ Le informazioni consentono di identificare quanto segue:
 - **Eventi di configurazione**. Visualizza tutti gli eventi di modifica configurazione DNS e i messaggi associati. È quindi possibile filtrare questi eventi in base a data e ora dell'evento, ID evento, server DNS o categoria di attività. I dati consentono di controllare le modifiche apportate a specifici server DNS in date e ore specifiche.
 - **Log analitico DNS**. Visualizza tutti gli eventi analitici in tutti i server DNS gestiti dalla soluzione. È quindi possibile filtrare questi eventi in base a data e ora dell'evento, ID evento, server DNS, IP client che ha eseguito la query di ricerca e categoria di attività del tipo di query. Gli eventi di analisi dei server DNS consentono il rilevamento delle attività nel server DNS. Viene registrato un evento di analisi ogni volta che il server invia o riceve informazioni DNS.
 
-### <a name="search-by-using-dns-analytics-log-search"></a>Eseguire una ricerca usando la Ricerca log di DNS Analytics
+### <a name="search-by-using-dns-analytics-log-search"></a>Eseguire una ricerca usando la Ricerca log di Analisi DNS
 
 Nella pagina Ricerca log è possibile creare una query. È possibile filtrare i risultati usando i controlli facet. È anche possibile creare query avanzate per trasformare, filtrare e creare report sui risultati. Per iniziare, usare le query seguenti:
 
@@ -183,9 +184,9 @@ Nella pagina Ricerca log è possibile creare una query. È possibile filtrare i 
 
 È possibile indicare commenti e suggerimenti in diversi modi:
 
-- **UserVoice**. È possibile pubblicare idee sulle funzionalità di DNS Analytics che possono essere migliorate. Visitare la [pagina UserVoice di Log Analytics](https://aka.ms/dnsanalyticsuservoice).
-- **Partecipare alla coorte**. Microsoft è sempre interessata a includere nelle coorti nuovi clienti, che otterranno un accesso in anteprima alle nuove funzionalità e contribuiranno al miglioramento di DNS Analytics. Per partecipare, compilare questo [rapido sondaggio](https://aka.ms/dnsanalyticssurvey).
+- **UserVoice**. È possibile pubblicare idee sulle funzionalità di Analisi DNS che possono essere migliorate. Visitare la [pagina UserVoice di Log Analytics](https://aka.ms/dnsanalyticsuservoice).
+- **Partecipare alla coorte**. Microsoft è sempre interessata a includere nelle coorti nuovi clienti, che otterranno un accesso in anteprima alle nuove funzionalità e contribuiranno al miglioramento di Analisi DNS. Per partecipare, compilare questo [rapido sondaggio](https://aka.ms/dnsanalyticssurvey).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Eseguire ricerche nei log](../../azure-monitor/log-query/log-query-overview.md) per visualizzare record di log dettagliati per DNS.
+[Eseguire query di log](../log-query/log-query-overview.md) per visualizzare record di log dettagliati per DNS.

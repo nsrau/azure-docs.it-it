@@ -1,6 +1,6 @@
 ---
-title: Gestire l'account e le chiavi di Mappe di Azure | Microsoft Docs
-description: È possibile usare il portale di Azure per gestire l'account Mappe di Azure e le chiavi di accesso.
+title: Gestire l'account Mappe di Azure | Microsoft Docs
+description: È possibile usare il portale di Azure per gestire l'account Mappe di Azure.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 12/12/2018
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 81746279e935f9fa5b6ef00bc8d31e75f4d3bd20
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 488167b4893c314af99b354a2422204ebbf34c5e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103045"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113691"
 ---
-# <a name="manage-your-azure-maps-account-and-keys"></a>Gestire l'account e le chiavi di Mappe di Azure
+# <a name="manage-your-azure-maps-account"></a>Gestire l'account Mappe di Azure
 
-È possibile gestire l'account e le chiavi di Mappe di Azure tramite il portale di Azure. Dopo avere creato un account e una chiave, è possibile implementare le API nel proprio sito Web o nella propria applicazione per dispositivi mobili.
+È possibile gestire l'account Mappe di Azure tramite il portale di Azure. Dopo avere creato un account, è possibile implementare le API nel proprio sito Web o nella propria applicazione per dispositivi mobili.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -32,16 +32,6 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 4. Immettere le informazioni del nuovo account.
 
 ![Immettere le informazioni dell'account nel portale](./media/how-to-manage-account-keys/new-account-portal.png)
-
-## <a name="manage-keys-on-the-account-page"></a>Gestire le chiavi nella pagina dell'account
-
-Dopo la creazione di un account, si ottengono due chiavi generate in modo casuale. Per recuperare i dati delle mappe o creare una nuova istanza di mappa JavaScript, usare le chiavi per l'autenticazione per le API di Mappe di Azure.
-
-È possibile trovare le chiavi nel portale di Azure. Passare all'account personale. Scegliere quindi **Chiavi** dal menu.
-
-![Gestire le chiavi dell'account nel portale](./media/how-to-manage-account-keys/account-keys-portal.png)
-
-Da questa pagina è possibile copiare le chiavi o generarne di nuove.
 
 ## <a name="delete-an-account"></a>Eliminare un account
 

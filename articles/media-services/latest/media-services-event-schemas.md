@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 12/24/2018
+ms.date: 02/11/2019
 ms.author: juliako
-ms.openlocfilehash: c5332cd2613bc64e3dda143381f37d27b54aa922
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: f9748d61b1aa336c5300dd414d53388f48a41368
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789230"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243986"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Schemi di Griglia di eventi di Azure per gli eventi di Servizi multimediali
 
@@ -24,15 +24,13 @@ Questo articolo illustra gli schemi e le proprietà degli eventi di Servizi mult
 
 Per un elenco di esercitazioni e script di esempio, vedere [Origine evento di Servizi multimediali](../../event-grid/event-sources.md#azure-subscriptions).
 
-## <a name="available-event-types"></a>Tipi di evento disponibili
-
-### <a name="job-related-event-types"></a>Tipi di evento correlati al processo
+## <a name="job-related-event-types"></a>Tipi di evento correlati al processo
 
 Servizi multimediali genera i tipi di evento correlati al **processo** descritti di seguito. Gli eventi correlati al **processo** possono essere suddivisi in due categorie: "Monitoraggio delle modifiche dello stato del processo" e "Monitoraggio delle modifiche dello stato di output del processo". 
 
 È possibile registrarsi per tutti gli eventi eseguendo la sottoscrizione all'evento JobStateChange oppure eseguire la sottoscrizione solo a eventi specifici (ad esempio, agli stati finali come JobErrored, JobFinished e JobCanceled). 
 
-#### <a name="monitoring-job-state-changes"></a>Monitoraggio delle modifiche dello stato del processo
+### <a name="monitoring-job-state-changes"></a>Monitoraggio delle modifiche dello stato del processo
 
 | Tipo evento | DESCRIZIONE |
 | ---------- | ----------- |
@@ -44,7 +42,9 @@ Servizi multimediali genera i tipi di evento correlati al **processo** descritti
 | Microsoft.Media.JobCanceled| Ottiene un evento quando il processo passa allo stato annullato. Si tratta di uno stato finale che include l'output del processo.|
 | Microsoft.Media.JobErrored| Ottiene un evento quando il processo passa allo stato di errore. Si tratta di uno stato finale che include l'output del processo.|
 
-#### <a name="monitoring-job-output-state-changes"></a>Monitoraggio delle modifiche dello stato di output del processo
+Seguono alcuni [esempi di schema](#event-schema-examples).
+
+### <a name="monitoring-job-output-state-changes"></a>Monitoraggio delle modifiche dello stato di output del processo
 
 | Tipo evento | DESCRIZIONE |
 | ---------- | ----------- |
@@ -56,11 +56,13 @@ Servizi multimediali genera i tipi di evento correlati al **processo** descritti
 | Microsoft.Media.JobOutputCanceled| Ottiene un evento quando l'output del processo passa allo stato annullato.|
 | Microsoft.Media.JobOutputErrored| Ottiene un evento quando l'output del processo passa allo stato di errore.|
 
-### <a name="live-event-types"></a>Tipi di evento live
+Seguono alcuni [esempi di schema](#event-schema-examples).
+
+## <a name="live-event-types"></a>Tipi di evento live
 
 Servizi multimediali genera anche i tipi di evento **live** descritti di seguito. Esistono due categorie per gli eventi **live**: eventi a livello di flusso e a livello di traccia. 
 
-#### <a name="stream-level-events"></a>Eventi a livello di flusso
+### <a name="stream-level-events"></a>Eventi a livello di flusso
 
 Gli eventi a livello di flusso vengono generati per singolo flusso o connessione. Ogni evento ha un parametro `StreamId` che identifica la connessione o il flusso. Ogni flusso o connessione dispone di una o più tracce di tipi diversi. Ad esempio, una connessione da un codificatore può avere una traccia audio e quattro tracce video. I tipi di evento di flusso sono i seguenti:
 
@@ -70,7 +72,9 @@ Gli eventi a livello di flusso vengono generati per singolo flusso o connessione
 | Microsoft.Media.LiveEventEncoderConnected | Il codificatore stabilisce una connessione con l'evento live. |
 | Microsoft.Media.LiveEventEncoderDisconnected | Il codificatore si disconnette. |
 
-#### <a name="track-level-events"></a>Eventi a livello di traccia
+Seguono alcuni [esempi di schema](#event-schema-examples).
+
+### <a name="track-level-events"></a>Eventi a livello di traccia
 
 Gli eventi a livello di traccia vengono generati per singola traccia. I tipi di evento di traccia sono i seguenti:
 
@@ -83,7 +87,9 @@ Gli eventi a livello di traccia vengono generati per singola traccia. I tipi di 
 | Microsoft.Media.LiveEventIngestHeartbeat | Pubblicato ogni 20 secondi per ogni traccia quando l'evento live è in esecuzione. Presenta un riepilogo dell'integrità dell'inserimento. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | Il server dei contenuti multimediali rileva discontinuità nella traccia in ingresso. |
 
-## <a name="event-schemas-and-properties"></a>Proprietà e schemi degli eventi
+Seguono alcuni [esempi di schema](#event-schema-examples).
+
+## <a name="event-schema-examples"></a>Esempi di schema di eventi
 
 ### <a name="jobstatechange"></a>JobStateChange
 
@@ -109,7 +115,7 @@ L'esempio seguente illustra lo schema dell'evento **JobStateChange**:
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | previousState | stringa | Stato del processo prima dell'evento. |
 | state | stringa | Nuovo stato del processo notificato in questo evento. Ad esempio: "Scheduled: il processo sta per iniziare" o "Finished: il processo è terminato".|
@@ -179,7 +185,7 @@ Per ogni cambiamento finale dello stato del processo (ad esempio, JobFinished, J
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | Output | Array | Ottiene gli output del processo.|
 
@@ -272,7 +278,7 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventConnectionRejected*
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | streamId | stringa | Identificatore del flusso o della connessione. Il codificatore o il cliente è responsabile dell'aggiunta di questo ID nell'URL di inserimento. |  
 | ingestUrl | stringa | URL di inserimento fornito dall'evento live. |  
@@ -319,7 +325,7 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventEncoderConnected**:
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | streamId | stringa | Identificatore del flusso o della connessione. Il codificatore o il cliente è responsabile della specifica di questo ID nell'URL di inserimento. |
 | ingestUrl | stringa | URL di inserimento fornito dall'evento live. |
@@ -353,7 +359,7 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventEncoderDisconnected
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | streamId | stringa | Identificatore del flusso o della connessione. Il codificatore o il cliente è responsabile dell'aggiunta di questo ID nell'URL di inserimento. |  
 | ingestUrl | stringa | URL di inserimento fornito dall'evento live. |  
@@ -410,7 +416,7 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventIncomingDataChunkDr
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | trackType | stringa | Tipo di traccia (audio/video). |
 | trackName | stringa | Nome della traccia. |
@@ -450,7 +456,7 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventIncomingStreamRecei
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | trackType | stringa | Tipo di traccia (audio/video). |
 | trackName | stringa | Nome della traccia (fornito dal codificatore o, in caso di RTMP, generato dal server nel formato *TrackType_Bitrate*). |
@@ -489,7 +495,7 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventIncomingStreamsOutO
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | minLastTimestamp | stringa | Numero minimo dei timestamp più recenti tra le tracce (audio o video). |
 | typeOfTrackWithMinLastTimestamp | stringa | Tipo di traccia (audio o video) con numero minimo di timestamp più recenti. |
@@ -525,7 +531,7 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventIncomingVideoStream
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | firstTimestamp | stringa | Timestamp ricevuto per uno dei livelli di traccia/qualità del tipo di video. |
 | firstDuration | stringa | Durata del blocco di dati con il primo timestamp. |
@@ -567,7 +573,7 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventIngestHeartbeat**:
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | trackType | stringa | Tipo di traccia (audio/video). |
 | trackName | stringa | Nome della traccia (fornito dal codificatore o, in caso di RTMP, generato dal server nel formato *TrackType_Bitrate*). |
@@ -611,7 +617,7 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventTrackDiscontinuityD
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | trackType | stringa | Tipo di traccia (audio/video). |
 | trackName | stringa | Nome della traccia (fornito dal codificatore o, in caso di RTMP, generato dal server nel formato *TrackType_Bitrate*). |
@@ -625,7 +631,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | argomento | stringa | Argomento EventGrid. Questa proprietà include l'ID risorsa per l'account di Servizi multimediali. |
 | subject | stringa | Il percorso della risorsa per il canale di Servizi multimediali nell'account di Servizi multimediali. La concatenazione dell'argomento e del soggetto fornisce l'ID risorsa per il processo. |
