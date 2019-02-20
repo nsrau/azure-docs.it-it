@@ -1,6 +1,6 @@
 ---
-title: API di raccolta dati HTTP di Log Analytics | Microsoft Docs
-description: È possibile usare l'API di raccolta dati HTTP di Log Analytics per aggiungere dati POST JSON nel repository di Log Analytics da qualunque client possa chiamare l'API REST. Questo articolo illustra come usare l'API e descrive esempi di come pubblicare i dati con diversi linguaggi di programmazione.
+title: API di raccolta dati HTTP di Monitoraggio di Azure | Microsoft Docs
+description: È possibile usare l'API di raccolta dati HTTP di Monitoraggio di Azure per aggiungere dati JSON POST a un'area di lavoro di Log Analytics da qualsiasi client in grado di chiamare l'API REST. Questo articolo illustra come usare l'API e descrive esempi di come pubblicare i dati con diversi linguaggi di programmazione.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,25 +11,27 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 02/12/2019
 ms.author: bwren
-ms.openlocfilehash: 9fe25821d5a234326570b1681807c6f9dfd6ffc8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d2bf55129465a607fdc3bce3bd1735642c64e428
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211101"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237927"
 ---
-# <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Inviare dati a Log Analytics con l'API dell'agente di raccolta dati HTTP (anteprima pubblica)
-Questo articolo illustra come usare l'API dell'agente di raccolta dati HTTP per inviare dati a Log Analytics da un client dell'API REST.  L'articolo descrive come formattare i dati raccolti dall'applicazione o dallo script, come includerli in una richiesta e come autorizzare tale richiesta in Log Analytics.  Vengono indicati esempi per PowerShell, C# e Python.
+# <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Inviare dati di log a Monitoraggio di Azure con l'API di raccolta dati HTTP (anteprima pubblica)
+Questo articolo illustra come usare l'API di raccolta dati HTTP per inviare dati di log a Monitoraggio di Azure da un client dell'API REST.  L'articolo descrive come formattare i dati raccolti dall'applicazione o dallo script, come includerli in una richiesta e come autorizzare tale richiesta in Monitoraggio di Azure.  Vengono indicati esempi per PowerShell, C# e Python.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 > [!NOTE]
-> L'API di raccolta dati HTTP di Log Analytics è in anteprima pubblica.
+> L'API di raccolta dati HTTP di Monitoraggio di Azure è in anteprima pubblica.
 
 ## <a name="concepts"></a>Concetti
-È possibile usare l'API dell'agente di raccolta dati HTTP per inviare dati a Log Analytics da qualsiasi client in grado di chiamare un'API REST.  Potrebbe trattarsi di un runbook in Automazione di Azure che raccoglie dati di gestione da Azure o da un altro sistema cloud o di un sistema di gestione alternativo che usa Log Analytics per consolidare e analizzare i dati.
+È possibile usare l'API di raccolta dati HTTP per inviare dati di log a un'area di lavoro di Log Analytics in Monitoraggio di Azure da qualsiasi client in grado di chiamare un'API REST.  Può trattarsi di un runbook in Automazione di Azure che raccoglie dati di gestione da Azure o da un altro cloud oppure di un sistema di gestione alternativo che usa Monitoraggio di Azure per consolidare e analizzare i dati di log.
 
-Tutti i dati nel repository di Log Analytics vengono archiviati come un record con un tipo specifico.  I dati da inviare all'API dell'agente di raccolta dati HTTP devono essere formattati come più record in JSON.  Quando si inviano i dati, nel repository viene creato un record singolo per ogni record presente nel payload della richiesta.
+Tutti i dati nell'area di lavoro di Log Analytics vengono archiviati come record con un tipo specifico.  I dati da inviare all'API dell'agente di raccolta dati HTTP devono essere formattati come più record in JSON.  Quando si inviano i dati, nel repository viene creato un record singolo per ogni record presente nel payload della richiesta.
 
 
 ![Panoramica dell'agente di raccolta dati HTTP](media/data-collector-api/overview.png)
@@ -62,7 +64,7 @@ Per usare l'API dell'agente di raccolta dati HTTP, creare una richiesta POST che
 | time-generated-field |Nome di un campo nei dati che contiene il timestamp dell'elemento di dati. Se si specifica un campo, il relativo contenuto verrà usato per **TimeGenerated**. Se questo campo non è specificato, il valore predefinito di **TimeGenerated** sarà la data/ora di inserimento del messaggio. Il contenuto del campo del messaggio deve seguire il formato ISO 8601 AAAA-MM-GGThh:mm:ssZ. |
 
 ## <a name="authorization"></a>Authorization
-Qualsiasi richiesta inviata all'API di raccolta dati HTTP di Log Analytics deve includere l'intestazione dell'autorizzazione. Per autenticare una richiesta è necessario firmarla con la chiave primaria o secondaria dell'area di lavoro che effettua la richiesta. Passare quindi la firma come parte della richiesta.   
+Qualsiasi richiesta inviata all'API di raccolta dati HTTP di Monitoraggio di Azure deve includere l'intestazione dell'autorizzazione. Per autenticare una richiesta è necessario firmarla con la chiave primaria o secondaria dell'area di lavoro che effettua la richiesta. Passare quindi la firma come parte della richiesta.   
 
 Il formato dell'intestazione dell'autorizzazione è il seguente:
 
@@ -130,11 +132,11 @@ Il corpo del messaggio deve essere in formato JSON. Deve includere uno o più re
 ```
 
 ## <a name="record-type-and-properties"></a>Proprietà e tipo di record
-Quando si inviano dati con l'API di raccolta dati HTTP di Log Analytics si definisce un tipo di record personalizzato. È attualmente possibile scrivere dati nei tipi di record esistenti creati da altri tipi di dati e soluzioni. Log Analytics legge i dati in ingresso e quindi crea le proprietà che corrispondono ai tipi di dati dei valori immessi.
+Quando si inviano dati con l'API di raccolta dati HTTP di Monitoraggio di Azure si definisce un tipo di record personalizzato. È attualmente possibile scrivere dati nei tipi di record esistenti creati da altri tipi di dati e soluzioni. Monitoraggio di Azure legge i dati in ingresso e quindi crea le proprietà che corrispondono ai tipi di dati dei valori immessi.
 
-Ogni richiesta all'API di Log Analytics deve includere un'intestazione **Log-Type** con il nome del tipo di record. Il suffisso **_CL** viene aggiunto automaticamente al nome immesso per distinguerlo da altri tipi di log come log personalizzato. Se ad esempio si immette il nome **MyNewRecordType**, Log Analytics crea un record di tipo **MyNewRecordType_CL**. È così possibile evitare conflitti tra i nomi dei tipi creati dall'utente e i nomi forniti nelle soluzioni Microsoft correnti o future.
+Ogni richiesta all'API di raccolta dati deve includere un'intestazione **Log-Type** con il nome del tipo di record. Il suffisso **_CL** viene aggiunto automaticamente al nome immesso per distinguerlo da altri tipi di log come log personalizzato. Se ad esempio si immette il nome **MyNewRecordType**, Monitoraggio di Azure crea un record di tipo **MyNewRecordType_CL**. È così possibile evitare conflitti tra i nomi dei tipi creati dall'utente e i nomi forniti nelle soluzioni Microsoft correnti o future.
 
-Per identificare il tipo di dati di una proprietà, Log Analytics aggiunge un suffisso al nome della proprietà. Una proprietà con un valore null non viene inclusa in tale record. Questa tabella elenca il tipo di dati proprietà e il suffisso corrispondente:
+Per identificare il tipo di dati di una proprietà, Monitoraggio di Azure aggiunge un suffisso al nome della proprietà. Una proprietà con un valore null non viene inclusa in tale record. Questa tabella elenca il tipo di dati proprietà e il suffisso corrispondente:
 
 | Tipo di dati proprietà | Suffisso |
 |:--- |:--- |
@@ -144,10 +146,10 @@ Per identificare il tipo di dati di una proprietà, Log Analytics aggiunge un su
 | Data/ora |_t |
 | GUID |_g |
 
-Il tipo di dati usato da Log Analytics per ogni proprietà dipende dall'eventuale esistenza di un tipo di record per il nuovo record.
+Il tipo di dati usato da Monitoraggio di Azure per ogni proprietà dipende dall'eventuale esistenza di un tipo di record per il nuovo record.
 
-* Se il tipo di record non esiste, Log Analytics ne creerà uno nuovo. Log Analytics usa l'inferenza del tipo JSON per determinare il tipo di dati per ogni proprietà del nuovo record.
-* Se il tipo di record esiste, Log Analytics prova a creare un nuovo record in base alle proprietà esistenti. Se il tipo di dati di una proprietà nel nuovo record non corrisponde e non può essere convertito nel tipo esistente, oppure se il record include una proprietà che non esiste, Log Analytics crea una nuova proprietà con il suffisso pertinente.
+* Se il tipo di record non esiste, Monitoraggio di Azure ne crea uno nuovo usando l'inferenza del tipo JSON per determinare il tipo di dati per ogni proprietà del nuovo record.
+* Se il tipo di record esiste, Monitoraggio di Azure prova a creare un nuovo record in base alle proprietà esistenti. Se il tipo di dati di una proprietà nel nuovo record non corrisponde e non può essere convertito nel tipo esistente, oppure se il record include una proprietà che non esiste, Monitoraggio di Azure crea una nuova proprietà con il suffisso pertinente.
 
 Questa voce di invio creerà ad esempio un record con tre proprietà, **number_d**, **boolean_b** e **string_s**:
 
@@ -157,20 +159,22 @@ Inviando la voce seguente, con tutti i valori formattati come stringhe, le propr
 
 ![Esempio di record 2](media/data-collector-api/record-02.png)
 
-Con l'invio seguente, tuttavia, Log Analytics creerebbe le nuove proprietà **boolean_d** e **string_d**. Questi valori non possono essere convertiti:
+Con l'invio seguente, tuttavia, Monitoraggio di Azure creerebbe le nuove proprietà **boolean_d** e **string_d**. Questi valori non possono essere convertiti:
 
 ![Esempio di record 3](media/data-collector-api/record-03.png)
 
-Inviando la voce seguente, prima della creazione del tipo di record Log Analytics creerebbe un record con tre proprietà, **number_s**, **boolean_s** e **string_s**. In questa voce, ognuno dei valori iniziali viene formattato come stringa:
+Inviando la voce seguente, prima della creazione del tipo di record Monitoraggio di Azure creerebbe un record con tre proprietà, **number_s**, **boolean_s** e **string_s**. In questa voce, ognuno dei valori iniziali viene formattato come stringa:
 
 ![Esempio di record 4](media/data-collector-api/record-04.png)
 
 ## <a name="data-limits"></a>Limiti dei dati
-Esistono alcune limitazioni riguardo ai dati pubblicati nell'API per la raccolta dei dati di Log Analytics.
+Esistono alcune limitazioni riguardo ai dati pubblicati nell'API per la raccolta dei dati di Monitoraggio di Azure.
 
-* Limite di 30 MB per post nell'API per la raccolta dei dati di Log Analytics. Questo limite riguarda le dimensioni di ogni messaggio. Se i dati di un singolo post superano i 30 MB, è necessario suddividerli in blocchi di dimensioni inferiori, che andranno inviati contemporaneamente.
+* Limite di 30 MB per post nell'API per la raccolta dei dati di Monitoraggio di Azure. Questo limite riguarda le dimensioni di ogni messaggio. Se i dati di un singolo post superano i 30 MB, è necessario suddividerli in blocchi di dimensioni inferiori, che andranno inviati contemporaneamente.
 * Limite di 32 KB per i valori dei campi. Se il valore di un campo è superiore a 32 KB, i dati verranno troncati.
 * Il numero massimo di campi consigliato per un determinato tipo è 50. Si tratta di un limite pratico dal punto di vista dell'usabilità e dell'esperienza di ricerca.  
+* Una tabella in un'area di lavoro di Log Analytics supporta solo un massimo di 500 colonne, indicate in questo articolo come campi. 
+* Il numero massimo di caratteri per il nome della colonna è 500.
 
 ## <a name="return-codes"></a>Codici restituiti
 Il codice di stato HTTP 200 indica che è stata ricevuta la richiesta per l'elaborazione. L'operazione è stata completata correttamente.
@@ -196,15 +200,10 @@ Questa tabella elenca il set completo di codici di stato che il servizio può re
 | 503 |Servizio non disponibile |ServiceUnavailable |Il servizio non è attualmente disponibile per la ricezione delle richieste. Si prega di ripetere la richiesta. |
 
 ## <a name="query-data"></a>Eseguire query sui dati
-Per eseguire query sui dati inviati dall'API di raccolta dati HTTP di Log Analytics, cercare i record con valore di **Type** uguale al valore **LogType** specificato, con l'aggiunta di **_CL**. Usando ad esempio **MyCustomLog** verranno restituiti tutti i record con **Type=MyCustomLog_CL**.
-
->[!NOTE]
-> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](../../azure-monitor/log-query/log-query-overview.md), la query precedente verrà sostituita dalla seguente.
-
-> `MyCustomLog_CL`
+Per eseguire query sui dati inviati dall'API di raccolta dati HTTP di Monitoraggio di Azure, cercare i record con valore di **Type** uguale al valore **LogType** specificato, con l'aggiunta di **_CL**. Usando ad esempio **MyCustomLog** verranno restituiti tutti i record con `MyCustomLog_CL`.
 
 ## <a name="sample-requests"></a>Richieste di esempio
-Nelle sezioni successive sono disponibili esempi di come inviare dati all'API di raccolta dati HTTP di Log Analytics usando diversi linguaggi di programmazione.
+Nelle sezioni successive sono disponibili esempi di come inviare dati all'API di raccolta dati HTTP di Monitoraggio di Azure usando diversi linguaggi di programmazione.
 
 Per ogni esempio, seguire questa procedura per impostare le variabili per l'intestazione dell'autorizzazione:
 
@@ -226,7 +225,7 @@ $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 # Specify the name of the record type that you'll be creating
 $LogType = "MyRecordType"
 
-# You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
+# You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
 $TimeStampField = ""
 
 
@@ -321,10 +320,10 @@ namespace OIAPIExample
         // For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
         static string sharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
-        // LogName is name of the event type that is being submitted to Log Analytics
+        // LogName is name of the event type that is being submitted to Azure Monitor
         static string LogName = "DemoExample";
 
-        // You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
+        // You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
         static string TimeStampField = "";
 
         static void Main()
@@ -468,6 +467,6 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Usare l'[API di ricerca nei log](../../azure-monitor/log-query/log-query-overview.md) per recuperare dati dal repository di Log Analytics.
+- Usare l'[API di ricerca log](../log-query/log-query-overview.md) per recuperare dati dall'area di lavoro di Log Analytics.
 
-- Vedere altre informazioni su come [creare una pipeline di dati con l'API dell'Agente di raccolta dati](../../azure-monitor/platform/create-pipeline-datacollector-api.md) usando il flusso di lavoro di App per la logica in Log Analytics.
+- Vedere altre informazioni su come [creare una pipeline di dati con l'API dell'Agente di raccolta dati](create-pipeline-datacollector-api.md) usando il flusso di lavoro di App per la logica in Monitoraggio di Azure.

@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Informazioni sulle risposte e sui tipi di risposta usati dall'API Ricerca Web Bing.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 8/13/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f76c9bfa5dc6a3542ace7025e0889ee64cd2e783
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 07fb655af25fe590effcb885e7b366346724b50a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188627"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232893"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Tipi e struttura delle risposte dell'API Ricerca Web Bing  
 
@@ -42,7 +42,7 @@ Ricerca Web Bing restituisce in genere un subset delle risposte. Se ad esempio i
 
 ## <a name="webpages-answer"></a>Risposta Webpages
 
-La risposta [Webpages](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) contiene un elenco di collegamenti a pagine Web considerate da Ricerca Web Bing pertinenti alla query. Ogni [pagina Web](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webpage) nell'elenco include il nome della pagina, l'URL, l'URL visualizzato,una breve descrizione del contenuto e la data in cui Bing ha trovato il contenuto.
+La risposta [Webpages](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) contiene un elenco di collegamenti a pagine Web considerate da Ricerca Web Bing pertinenti alla query. Ogni [pagina Web](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webpage) nell'elenco includerà il nome della pagina, l'URL, l'URL visualizzato, una breve descrizione del contenuto e la data in cui Bing ha trovato il contenuto.
 
 ```json
 {
@@ -91,7 +91,7 @@ La risposta [images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-
 }, ...
 ```
 
-A seconda del dispositivo usato dall'utente, viene in genere visualizzato un subset delle anteprime con un'opzione per la visualizzazione delle immagini rimanenti.
+A seconda del dispositivo usato dall'utente, viene in genere visualizzato un subset delle anteprime con un'opzione che consente di [spostarsi tra le pagine](paging-webpages.md) delle immagini rimanenti.
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![List of thumbnail images](./media/cognitive-services-bing-web-api/bing-web-image-thumbnails.PNG)
@@ -314,7 +314,7 @@ Un'espressione matematica può contenere le funzioni seguenti:
 
 |Simbolo|DESCRIZIONE|
 |------------|-----------------|
-|Sqrt|Radice quadrata|
+|Ordina|Radice quadrata|
 |Sin[x], Cos[x], Tan[x]<br />Csc[x], Sec[x], Cot[x]|Funzioni trigonometriche con argomenti in radianti|
 |ArcSin[x], ArcCos[x], ArcTan[x]<br />ArcCsc[x], ArcSec[x], ArcCot[x]|Funzioni trigonometriche inverse con risultati in radianti|
 |Exp[x], E^x|Funzione esponenziale|
@@ -428,6 +428,48 @@ Se Bing stabilisce che l'utente potrebbe aver voluto cercare qualcosa di diverso
     }]
 }, ...
 ```
+
+Di seguito è riportato un esempio di suggerimento ortografico da parte di Bing.
+
+![Esempio di suggerimento ortografico di Bing](./media/cognitive-services-bing-web-api/bing-web-spellingsuggestion.GIF)  
+
+## <a name="response-headers"></a>Intestazioni della risposta
+
+Le risposte dell'API Ricerca Web Bing possono contenere le intestazioni seguenti:
+
+|||
+|-|-|
+|`X-MSEdge-ClientID`|ID univoco assegnato da Bing all'utente|
+|`BingAPIs-Market`|Mercato usato per soddisfare la richiesta|
+|`BingAPIs-TraceId`|Voce di registro nel server API Bing per questa richiesta (ai fini del supporto)|
+
+È particolarmente importante rendere permanente l'ID client e restituirlo con le richieste successive. In questo modo la ricerca userà il contesto passato per classificare i risultati della ricerca e fornirà anche un'esperienza utente coerente.
+
+Tuttavia, quando si chiama l'API Ricerca Web Bing da JavaScript, le funzionalità di sicurezza predefinite del browser potrebbero impedire l'accesso ai valori di queste intestazioni.
+
+Per poter accedere alle intestazioni, è possibile effettuare la richiesta dell'API Ricerca Web Bing tramite un proxy CORS. La risposta da un proxy di questo tipo ha un'intestazione `Access-Control-Expose-Headers` che inserisce le intestazioni di risposta in un elenco elementi consentiti e le rende disponibili a JavaScript.
+
+Si può installare facilmente un proxy CORS per consentire all'[app dell'esercitazione](tutorial-bing-web-search-single-page-app.md) di accedere alle intestazioni client facoltative. Per prima cosa [installare Node.js](https://nodejs.org/en/download/), se non è già disponibile. Immettere quindi il comando seguente al prompt dei comandi.
+
+    npm install -g cors-proxy-server
+
+Modificare quindi l'endpoint dell'API Ricerca Web Bing nel file HTML in:
+
+    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+
+Infine avviare il proxy CORS con il comando seguente:
+
+    cors-proxy-server
+
+Lasciare aperta la finestra di comando mentre si usa l'app dell'esercitazione. La chiusura della finestra determina l'arresto del proxy. Nella sezione espandibile delle intestazioni HTTP sotto i risultati della ricerca viene ora visualizzata, tra le altre, l'intestazione `X-MSEdge-ClientID`. Verificare che sia la stessa per ogni richiesta.
+
+## <a name="response-headers-in-production"></a>Intestazioni di risposta in produzione
+
+L'approccio del proxy CORS descritto nella risposta precedente è appropriato per i contesti di sviluppo, testing e apprendimento.
+
+In un ambiente di produzione, è necessario ospitare uno script lato server nello stesso dominio della pagina Web che usa l'API Ricerca Web Bing. Questo script dovrebbe eseguire le chiamate API su richiesta dal codice JavaScript della pagina Web e restituire al client tutti i risultati, incluse le intestazioni. Poiché le due risorse (pagina e script) condividono un'origine, CORS non viene usato e le intestazioni speciali sono accessibili al codice JavaScript nella pagina Web.
+
+Questo approccio protegge inoltre la chiave API dall'esposizione al pubblico, in quanto è necessaria solo allo script lato server. Lo script può usare un altro metodo per verificare che la richiesta sia autorizzata.
 
 Di seguito è riportato un esempio di suggerimento ortografico da parte di Bing.
 

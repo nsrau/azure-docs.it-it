@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 2b90457ed939999b5163078750650c92a3516cca
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c88fe7051519440056fe85e7ff9172ae0239bd41
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816578"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234238"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log attività in Monitoraggio di Azure  
 
@@ -203,20 +203,28 @@ Per usare il JSON di esempio in questa procedura dettagliata, è possibile salva
 L'[API degli avvisi dei log attività di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) è un'API REST completamente compatibile con l'API REST di Azure Resource Manager. Può pertanto essere usata con il cmdlet di Resource Manager tramite Powershell e l'interfaccia della riga di comando di Azure.
 
 ## <a name="powershell"></a>PowerShell
-Di seguito viene illustrato l'utilizzo tramite il cmdlet di Azure Resource Manager in PowerShell per il modello di risorsa di esempio riportato in precedenza (sampleActivityLogAlert.json) nella sezione Modello di risorsa:
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
-```
-Quando in sampleActivityLogAlert.parameters.json sono presenti i valori dei parametri necessari per la creazione della regola di avviso.
+
+Per gli avvisi del log attività sono disponibili cmdlet di PowerShell dedicati:
+
+- [Set-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/set-azurermactivitylogalert): per creare una nuova risorsa di regola di avviso del log attività o aggiornarne una esistente
+- [Get-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermactivitylogalert): per recuperare una o più risorse di regola di avviso del log attività
+- [Remove-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/remove-azurermactivitylogalert): per eliminare una risorsa di regola di avviso del log attività con conferma dell'utente
+- [Enable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/enable-azurermactivitylogalert): per abilitare una risorsa di regola di avviso del log attività esistente
+- [Disable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/disable-azurermactivitylogalert): per disabilitare una risorsa di regola di avviso del log attività esistente
 
 ## <a name="cli"></a>CLI
-Di seguito viene illustrato l'utilizzo tramite il comando di Azure Resource Manager nell'interfaccia della riga di comando di Azure per il modello di risorsa di esempio riportato in precedenza (sampleActivityLogAlert.json) nella sezione Modello di risorsa:
 
-```azurecli
-az group deployment create --resource-group myRG --template-file sampleActivityLogAlert.json --parameters @sampleActivityLogAlert.parameters.json
-```
-Il file *sampleActivityLogAlert.parameters.json* include i valori dei parametri necessari per la creazione della regola di avviso.
+Per la gestione delle regole di avviso del log attività sono disponibili comandi dedicati dell'interfaccia della riga di comando di Azure nel set [az monitor activity-log alert](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert).
 
+Per creare una nuova regola di avviso del log attività, usare i comandi seguenti nell'ordine indicato:
+
+1. [az monitor activity-log alert create](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): creare una nuova risorsa di regola di avviso del log attività
+1. [az monitor activity-log alert scope](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope): aggiungere l'ambito per la regola di avviso del log attività creata
+1. [az monitor activity-log alert action-group](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/action-group): aggiungere un gruppo di azioni alla regola di avviso del log attività
+
+Per recuperare una risorsa di regola di avviso del log attività, è possibile usare il comando [az monitor activity-log alert show](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
+) dell'interfaccia della riga di comando di Azure. Per visualizzare tutte le risorse di regola di avviso del log attività in un gruppo di risorse, usare [az monitor activity-log alert list](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
+Le risorse di regola di avviso del log attività possono essere rimosse usando il comando [az monitor activity-log alert delete](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete) dell'interfaccia della riga di comando di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

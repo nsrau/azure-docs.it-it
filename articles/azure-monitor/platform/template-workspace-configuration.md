@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
-ms.openlocfilehash: e402cc214f25447407754bc6269300f4f052af4f
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: e948842a49e87df156eb59a7e25634772550d933
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232737"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235496"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gestire Log Analytics usando i modelli di Azure Resource Manager
 È possibile usare i [modelli di Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) per creare e configurare aree di lavoro di Log Analytics. Ecco alcuni esempi di attività eseguibili con i modelli:
@@ -54,9 +54,9 @@ I parametri seguenti impostano un valore predefinito:
 * Location: il valore predefinito è Stati Uniti orientali.
 * SKU: il valore predefinito è il nuovo piano tariffario per GB rilasciato nel modello di prezzi di aprile 2018.
 
->[!WARNING]
->Se si crea o si configura un'area di lavoro di Log Analytics in una sottoscrizione basata sul nuovo modello di prezzi di aprile 2018, l'unico piano tariffario di Log Analytics valido è **PerGB2018**. 
->
+> [!NOTE]
+>Se si crea o si configura un'area di lavoro di Log Analytics in una sottoscrizione basata sul nuovo modello di prezzi di aprile 2018, l'unico piano tariffario di Log Analytics valido è **PerGB2018**.  
+>Se si hanno sottoscrizioni nel (modello di prezzi applicato prima di aprile 2018)[https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model], è possibile specificare il piano tariffario **Standalone** che sarà valido sia per la sottoscrizione nel modello di prezzi anteriore ad aprile 2018 sia per le sottoscrizioni nel nuovo modello di prezzi. Per le aree di lavoro nelle sottoscrizioni che hanno adottato il nuovo modello di prezzi, il piano tariffario verrà impostato su **PerGB2018**. 
 
 ### <a name="create-and-deploy-template"></a>Creare e distribuire il modello
 

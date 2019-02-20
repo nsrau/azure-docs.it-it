@@ -4,7 +4,7 @@ description: Informazioni sulle varie opzioni di crittografia in Azure
 services: security
 documentationcenter: na
 author: Barclayn
-manager: MBaldwin
+manager: barbkess
 editor: TomShinder
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: dc1ca62ce184ac290f289975ff609b8240351099
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 272cc843ab90eade06525f665d3cf2decf74a26f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035097"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114655"
 ---
 # <a name="azure-encryption-overview"></a>Panoramica della crittografia di Azure
 
@@ -39,7 +39,7 @@ Azure supporta vari modelli di crittografia, tra cui la crittografia lato server
 
 ### <a name="client-side-encryption"></a>crittografia lato client
 
-La crittografia lato client viene eseguita all'esterno di Azure. Sono inclusi:
+La crittografia lato client viene eseguita all'esterno di Azure.  Sono inclusi:
 
 - I dati crittografati da un'applicazione in esecuzione nel data center del cliente o da un'applicazione di servizio.
 - I dati sono già crittografati quando vengono ricevuti da Azure.
@@ -78,7 +78,7 @@ Per altre informazioni sul pacchetto della Libreria client di archiviazione di A
 
 Quando si usa la crittografia lato client con Key Vault, i dati vengono crittografati usando una chiave di crittografia del contenuto (CEK) simmetrica unica generata dall'SDK client di Archiviazione di Azure. La chiave di crittografia del contenuto viene crittografata usando una chiave di crittografia della chiave, che può essere una chiave simmetrica o una coppia di chiavi asimmetriche. È possibile gestirla in locale o archiviarla in Key Vault. I dati crittografati vengono quindi caricati nel servizio Archiviazione di Microsoft Azure.
 
-Per altre informazioni sulla crittografia lato client con Key Vault e per iniziare con le istruzioni procedurali, vedere [Esercitazione: Crittografare e decrittografare i BLOB in Archiviazione di Microsoft Azure tramite Key Vault](../storage/storage-encrypt-decrypt-blobs-key-vault.md).
+Per altre informazioni sulla crittografia lato client con Key Vault e per iniziare con le istruzioni procedurali, vedere [Esercitazione: Crittografare e decrittografare i BLOB in Archiviazione di Azure tramite Key Vault](../storage/storage-encrypt-decrypt-blobs-key-vault.md).
 
 È infine possibile usare anche la Libreria client di archiviazione di Azure per Java per eseguire la crittografia lato client prima di caricare i dati in Archiviazione di Azure e decrittografare i dati durante il download nel client. Questa libreria supporta anche l'integrazione con [Key Vault](https://azure.microsoft.com/services/key-vault/) per la gestione delle chiavi dell'account di archiviazione.
 

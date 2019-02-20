@@ -11,13 +11,13 @@ author: vainolo
 ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 0c79554d2db4c1dc17cfbdeed052c1ae16cd68c2
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.date: 02/07/2019
+ms.openlocfilehash: d092b4e8096b311ba9ca9d3fbceea8fb57bf4aa9
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297685"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234663"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 
@@ -41,9 +41,9 @@ Il controllo del [database SQL di Azure](sql-database-technical-overview.md) e d
 - **Analizzare** i report. È possibile individuare eventi sospetti, attività insolite e tendenze.
 
 > [!IMPORTANT]
-> I log di controllo vengono scritti in **Accodare BLOB**nell'archivio BLOB di Azure della sottoscrizione di Azure.
+> I log di controllo vengono scritti in **BLOB di accodamento** nella risorsa di archiviazione BLOB di Azure della sottoscrizione di Azure.
 >
-> - **Archiviazione Premium** attualmente **non è supportata** da Accodare BLOB.
+> - **Archiviazione Premium** attualmente **non è supportata** da BLOB di accodamento.
 > - **Storage in VNet** attualmente **non è supportato**.
 
 ## <a id="subheading-8"></a>Definire criteri di controllo a livello di server o a livello di database
@@ -125,6 +125,7 @@ Se si sceglie di scrivere i log di controllo su Log Analytics:
 Se si sceglie di scrivere i log di controllo su Hub eventi:
 
 - Per utilizzare i dati dei log di controllo da Hub eventi, è necessario configurare un flusso per utilizzare gli eventi e scriverli in una destinazione. Per altre informazioni, vedere la [documentazione di Hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs/).
+- I log di controllo in Hub eventi vengono acquisiti nel corpo degli eventi di [Apache Avro](http://avro.apache.org/) e archiviati usando la formattazione JSON con codifica UTF-8. Per leggere i log di controllo, è possibile usare [Avro Tools](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) o strumenti simili in grado di elaborare tale formato.
 
 Se si sceglie di scrivere i log di controllo in un account di archiviazione di Azure, esistono diversi metodi che è possibile usare per visualizzare i log:
 

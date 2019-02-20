@@ -1,6 +1,6 @@
 ---
-title: Uso dei valori di data e ora nelle query di Azure Log Analytics | Microsoft Docs
-description: Descrive come usare i valori di data e ora nelle query di Log Analytics.
+title: Uso dei valori di data e ora nelle query di log di Monitoraggio di Azure | Microsoft Docs
+description: Descrive come usare i valori di data e ora nelle query di log di Monitoraggio di Azure.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,25 +13,25 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 15767107a5c535cfda98da2a5177e15ca221f35d
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 2465fdcc3bf7128d4813fa5f682ffda8f504f2b6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214695"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999250"
 ---
-# <a name="working-with-date-time-values-in-log-analytics-queries"></a>Uso dei valori di data e ora nelle query di Azure Log Analytics
+# <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Uso dei valori di data e ora nelle query di log di Monitoraggio di Azure
 
 > [!NOTE]
 > Prima di seguire questa lezione, è consigliabile completare [Introduzione al portale di Analytics](get-started-portal.md) e [Introduzione alle query](get-started-queries.md).
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Questo articolo descrive come usare i valori di data e ora nelle query di Log Analytics.
+Questo articolo descrive come usare i valori di data e ora nelle query di log di Monitoraggio di Azure.
 
 
 ## <a name="date-time-basics"></a>Informazioni di base su data e ora
-Nel linguaggio di query di Log Analytics sono presenti due tipi di dati principali associati ai valori di data e ora: datetime e timespan. Tutte le date sono espresse in UTC. Benché siano supportati più formati di valori datetime, è preferibile il formato ISO8601. 
+Nel linguaggio di query di Esplora dati sono presenti due tipi di dati principali associati ai valori di data e ora: datetime e timespan. Tutte le date sono espresse in UTC. Benché siano supportati più formati di valori datetime, è preferibile il formato ISO8601. 
 
 I valori timespan sono espressi come numero decimale seguito da un'unità di tempo:
 
@@ -161,7 +161,7 @@ Event
 | Ottenere una data relativa a un valore  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere altre lezioni relative all'uso del linguaggio di query di Log Analytics:
+Vedere altre lezioni per l'uso del [linguaggio di query di Esplora dati](/azure/kusto/query/) con i dati di log di Monitoraggio di Azure:
 
 - [Operazioni con stringhe](string-operations.md)
 - [Funzioni di aggregazione](aggregations.md)

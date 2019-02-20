@@ -23,8 +23,12 @@ items:
     href: azure-netapp-files-configure-export-policy.md
 - name: Concetti
   items:
+  - name: Livelli di servizio per Azure NetApp Files
+    href: azure-netapp-files-service-levels.md
   - name: Limiti delle risorse per Azure NetApp Files
     href: azure-netapp-files-resource-limits.md
+  - name: Metriche per Azure NetApp Files
+    href: azure-netapp-files-metrics.md
 - name: Guide alle procedure
   items:
   - name: Gestire i volumi
@@ -39,15 +43,15 @@ items:
     items:
     - name: REST
       href: azure-netapp-files-develop-with-rest-api.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: REST
     href: https://docs.microsoft.com/rest/api/netapp/
   - name: Modello di Resource Manager
     href: /azure/templates/microsoft.netapp/allversions
-ms.openlocfilehash: ec453db38182dd256a154f85fafc7c08f5bdfa6a
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 3da297718a3369604feda971cd8c2499a2454b72
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55959647"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430149"

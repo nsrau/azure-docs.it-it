@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 02/05/2019
-ms.openlocfilehash: 799f47b291b3943dcb4d6b31bc8df732c28990cd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/07/2019
+ms.openlocfilehash: a9e5be3c1dcbf4461bd00b2b1ce530aa16e441ef
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816595"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962129"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse del database SQL di Azure per le istanze gestite
 
@@ -34,7 +34,7 @@ Istanza gestita ha caratteristiche e limiti delle risorse che dipendono dall'inf
 
 Istanza gestita di database SQL può essere distribuita in due generazioni hardware (Quarta generazione e Quinta generazione). Le generazioni hardware hanno caratteristiche diverse descritte nella tabella seguente:
 
-|   | **Generazione 4** | **Generazione 5** |
+|   | **Quarta generazione** | **Quinta generazione** |
 | --- | --- | --- |
 | Hardware | Processori Intel E5-2673 v3 (Haswell) a 2,4 GHz, con unità vCore SSD = 1 PP (core fisico) | Processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz, unità SSD NVMe veloce, vCore = 1 LP (hyperthread) |
 | Calcolo | 8, 16, 24 vCore | 8, 16, 24, 32, 40, 64, 80 vCore |
@@ -51,7 +51,7 @@ Istanza gestita ha due livelli di servizio: per utilizzo generico e business cri
 | --- | --- | --- |
 | Numero di vCore\* | Quarta generazione: 8, 16, 24<br/>Quinta generazione: 8, 16, 24, 32, 40, 64, 80 | Quarta generazione: 8, 16, 24, 32 <br/> Quinta generazione: 8, 16, 24, 32, 40, 64, 80 |
 | Memoria | Quarta generazione: 56 GB - 168 GB<br/>Quinta generazione: 40,8 GB - 408 GB<br/>\*Proporzionale al numero di vCore | Quarta generazione: 56 GB - 168 GB <br/> Quinta generazione: 40,8 GB - 408 GB<br/>\*Proporzionale al numero di vCore |
-| Dimensione massima archiviazione | 8 TB | Quarta generazione: 1 TB <br/> 5° generazione: <br/>- 1 TB per 8, 16 vCore<br/>- 2 TB per 24 vCore<br/>- 4 TB per 32, 40, 64, 80 vCore |
+| Dimensione massima archiviazione | 8 TB | Quarta generazione: 1 TB <br/> Quinta generazione: <br/>- 1 TB per 8, 16 vCore<br/>- 2 TB per 24 vCore<br/>- 4 TB per 32, 40, 64, 80 vCore |
 | Quantità massima di risorse di archiviazione per database | Determinata dalla dimensione massima di archiviazione per ogni istanza | Determinata dalla dimensione massima di archiviazione per ogni istanza |
 | Numero massimo di database per istanza | 100 | 100 |
 | Numero massimo di file di database per istanza | Fino a 280 | 32.767 file per ogni database |

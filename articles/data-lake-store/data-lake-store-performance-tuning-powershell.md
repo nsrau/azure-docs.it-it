@@ -1,6 +1,6 @@
 ---
-title: Linee guida per l'ottimizzazione delle prestazioni per l'uso di PowerShell con Data Lake Store | Microsoft Docs
-description: Suggerimenti su come migliorare le prestazioni quando si usa Azure PowerShell con Data Lake Store
+title: Linee guida per l'ottimizzazione delle prestazioni per l'uso di PowerShell con Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Suggerimenti su come migliorare le prestazioni quando si usa Azure PowerShell con Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: stewu
-ms.openlocfilehash: 7b19972ed4a75ac899a4b78b28ab36ba305a5a64
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 318f2b550e19f4b7f56a7b8cc592d34644dca644
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198651"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235603"
 ---
-# <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-store"></a>Linee guida per l'ottimizzazione delle prestazioni per l'uso di PowerShell con Azure Data Lake Store
+# <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Linee guida per l'ottimizzazione delle prestazioni per l'uso di PowerShell con Azure Data Lake Storage Gen1
 
-Questo articolo elenca le proprietà che possono essere ottimizzate per ottenere prestazioni migliori durante l'uso di PowerShell con Data Lake Store:
+Questo articolo elenca le proprietà che è possibile ottimizzare per ottenere prestazioni migliori durante l'uso di PowerShell con Azure Data Lake Storage Gen1:
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="performance-related-properties"></a>Proprietà correlate alle prestazioni
 
@@ -31,9 +33,9 @@ Questo articolo elenca le proprietà che possono essere ottimizzate per ottenere
 
 **Esempio**
 
-Questo comando scarica i file da Azure Data Lake Store al disco locale dell'utente usando 20 thread per file e 100 file contemporaneamente.
+Questo comando scarica i file da Data Lake Storage Gen1 al disco locale dell'utente usando 20 thread per file e 100 file contemporaneamente.
 
-    Export-AzureRmDataLakeStoreItem -AccountName <Data Lake Store account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
+    Export-AzDataLakeStoreItem -AccountName <Data Lake Storage Gen1 account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
 
 ## <a name="how-do-i-determine-the-value-for-these-properties"></a>Come è possibile determinare il valore per queste proprietà?
 
@@ -86,15 +88,15 @@ Pertanto, **ConcurrentFileCount** diventa 96/20, ovvero 4,8, arrotondato a **4**
 
 * **Numero di file minore di ConcurrentFileCount**: se il numero di file che si sta caricando è minore del valore di **ConcurrentFileCount** calcolato, è necessario ridurre **ConcurrentFileCount** in modo che risulti uguale al numero di file. È possibile usare i thread rimanenti per aumentare **PerFileThreadCount**.
 
-* **Troppi thread**: se si aumenta il numero dei thread in maniera eccessiva senza aumentare le dimensioni del cluster, si corre il rischio di ridurre le prestazioni. È possibile che si verifichino problemi di conflitto dovuti al cambio di contesto nella CPU.
+* **Troppi thread**: se si aumenta il numero dei thread in maniera eccessiva senza aumentare le dimensioni del cluster, si rischia un calo delle prestazioni. È possibile che si verifichino problemi di conflitto dovuti al cambio di contesto nella CPU.
 
 * **Concorrenza insufficiente**: se la concorrenza non è sufficiente, è possibile che il cluster sia troppo piccolo. È possibile aumentare il numero di nodi del cluster in modo da avere maggiore concorrenza.
 
 * **Errori di limitazione**: se la concorrenza è troppo elevata, è possibile che vengano visualizzati errori di limitazione. Se si riscontrano errori di limitazione, è necessario ridurre la concorrenza o contattare Microsoft.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Usare Azure Data Lake Store per i requisiti di Big Data](data-lake-store-data-scenarios.md) 
-* [Proteggere i dati in Data Lake Store](data-lake-store-secure-data.md)
-* [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Usare Azure Data Lake Storage Gen1 per i requisiti di Big Data](data-lake-store-data-scenarios.md) 
+* [Proteggere i dati in Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Usare Azure Data Lake Analytics con Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Usare Azure HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 

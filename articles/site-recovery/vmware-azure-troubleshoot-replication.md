@@ -1,22 +1,61 @@
 ---
 title: Risolvere i problemi di replica per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery | Microsoft Docs
 description: Questo articolo offre informazioni sulla risoluzione dei problemi di replica comunemente riscontrati durante il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure usando Azure Site Recovery.
-author: Rajeswari-Mamilla
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/18/2019
-ms.author: ramamill
-ms.openlocfilehash: 5c2d33b39614ded95ac38e07c844b0a8cafa7cd2
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.date: 02/7/2019
+ms.author: mayg
+ms.openlocfilehash: 71c07d93d75ee372a50ec4ff5fc81e92926d329b
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411476"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964774"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Risolvere i problemi di replica per macchine virtuali VMware e server fisici
 
 Potrebbe essere visualizzato un messaggio di errore specifico durante la protezione delle macchine virtuali VMware o dei server fisici con Azure Site Recovery. Questo articolo descrive alcuni problemi comuni che possono verificarsi durante l'esecuzione della replica di macchine virtuali VMware e server fisici locali in Azure usando [Site Recovery](site-recovery-overview.md).
+
+## <a name="monitor-process-server-health-to-avoid-replication-issues"></a>Monitorare l'integrità del server di elaborazione per evitare problemi di replica
+
+È consigliabile monitorare l'integrità del server di elaborazione (PS) nel portale per assicurarsi che la replica proceda normalmente per i computer di origine associati. Nell'insieme di credenziali passare a Gestisci > Infrastruttura di Site Recovery > Server di configurazione. Nel pannello Server di configurazione fare clic sul server di elaborazione in Server associati. Il pannello del server di elaborazione si apre con le statistiche di integrità. È possibile monitorare utilizzo della CPU, utilizzo della memoria, stato dei servizi del server di elaborazione richiesti per la replica, data di scadenza del certificato e spazio libero disponibile. Lo stato di tutte le statistiche dovrebbe essere verde. 
+
+**È consigliabile avere un utilizzo di memoria e CPU inferiore al 70% e spazio libero superiore al 25%**. Per spazio libero si intende lo spazio nel disco della cache nel server di elaborazione, che viene usato per archiviare i dati di replica dai computer di origine prima di caricarli in Azure. Se riduce a meno del 20%, la replica verrà limitata per tutti i computer di origine associati. Seguire le [indicazioni sulla capacità](./site-recovery-plan-capacity-vmware.md#capacity-considerations) per informazioni sulla configurazione necessaria per la replica dei computer di origine.
+
+Assicurarsi che i servizi seguenti siano in esecuzione nel computer del server di elaborazione. Avviare o riavviare qualsiasi servizio che non sia in esecuzione.
+
+**Server di elaborazione predefinito**
+
+* cxprocessserver
+* InMage PushInstall
+* Servizio di caricamento log (LogUpload)
+* Servizio dell'applicazione InMage Scout
+* Agente di Servizi di ripristino di Microsoft Azure (obengine)
+* InMage Scout VX Agent - Sentinel/Outpost (svagents)
+* tmansvc
+* Servizio Pubblicazione sul Web (W3SVC)
+* MySQL
+* Servizio Microsoft Azure Site Recovery (dra)
+
+**Server di elaborazione con scalabilità orizzontale**
+
+* cxprocessserver
+* InMage PushInstall
+* Servizio di caricamento log (LogUpload)
+* Servizio dell'applicazione InMage Scout
+* Agente di Servizi di ripristino di Microsoft Azure (obengine)
+* InMage Scout VX Agent - Sentinel/Outpost (svagents)
+* tmansvc
+
+**Server di elaborazione in Azure per il failback**
+
+* cxprocessserver
+* InMage PushInstall
+* Servizio di caricamento log (LogUpload)
+
+Verificare che il tipo di avvio di tutti i servizi sia impostato su **Automatico o Automatico (avvio ritardato)**. Il servizio Servizi di ripristino di Microsoft Azure (obengine) non deve avere il tipo di avvio impostato come indicato in precedenza.
 
 ## <a name="initial-replication-issues"></a>Problemi di replica iniziale
 
@@ -26,7 +65,7 @@ Spesso gli errori di replica iniziale sono causati da problemi di connettività 
 
 L'elenco seguente mostra i modi in cui è possibile controllare il computer di origine:
 
-*  Nella riga di comando del server di origine usare Telnet per effettuare il ping del server di elaborazione tramite la porta HTTPS (la porta HTTPS predefinita è 9443) eseguendo il comando seguente. Il comando verifica la presenza di problemi di connettività di rete così come di problemi che blocchino la porta del firewall.
+*  Nella riga di comando del server di origine usare Telnet per effettuare il ping del server di elaborazione tramite la porta HTTPS eseguendo il comando seguente. La porta HTTPS 9443 è quella predefinita usata dal server di elaborazione per inviare e ricevere il traffico di replica. È possibile modificare questa porta al momento della registrazione. Il comando seguente verifica la presenza di problemi di connettività di rete così come di problemi che blocchino la porta del firewall.
 
 
    `telnet <process server IP address> <port>`
@@ -35,13 +74,42 @@ L'elenco seguente mostra i modi in cui è possibile controllare il computer di o
    > [!NOTE]
    > Usare Telnet per testare la connettività. Non usare `ping`. Se Telnet non è installato, completare i passaggi elencati in [Install Telnet Client](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx) (Installare il client Telnet).
 
+   Se Telnet è in grado di connettersi correttamente alla porta del server di elaborazione, viene visualizzata una schermata vuota.
+
    Se non è possibile connettersi al server di elaborazione, consentire la porta in ingresso 9443 nel server di elaborazione. Ad esempio potrebbe essere necessario consentire la porta in ingresso 9443 nel server di elaborazione se la rete dispone di una rete perimetrale (o screened subnet). Quindi verificare se il problema persiste.
 
-*  Controllare lo stato del servizio **InMage Scout VX Agent – Sentinel/OutpostStart**. Se il servizio non è in esecuzione, avviarlo e quindi verificare se il problema persiste.   
+*  Se Telnet ha esito positivo e il computer di origine continua a segnalare che il server di elaborazione non è raggiungibile, aprire il Web browser nel computer di origine e verificare se l'indirizzo https://<IP_PS>:<Porta_Dati_PS>/ è raggiungibile.
+
+    Inserendo questo indirizzo è previsto un errore del certificato HTTPS. Ignorando l'errore del certificato e continuando si dovrebbe ricevere un errore 400 - Richiesta non valida, che indica il server non può gestire la richiesta del browser e che la connessione HTTPS standard al server funziona correttamente.
+
+    Se il tentativo non riesce, i dettagli sul messaggio di errore nel browser forniranno indicazioni. Per ad esempio, se l'autenticazione proxy non è corretto, il server proxy restituisce l'errore 407 - Autenticazione proxy obbligatoria e le azioni necessarie nel messaggio di errore. 
+
+*  Controllare i log seguenti nella macchina virtuale di origine per verificare la presenza di errori correlati al caricamento di rete:
+
+       C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\svagents*.log 
 
 ### <a name="check-the-process-server"></a>Controllare il server di elaborazione
 
 L'elenco seguente mostra i modi in cui è possibile controllare il server di elaborazione:
+
+> [!NOTE]
+> Server di elaborazione deve avere un indirizzo IPv4 statico e su di esso non deve essere configurato l'IP NAT.
+
+* **Controllare la connettività tra i computer di origine e il server di elaborazione**
+1. Se è possibile connettersi tramite Telnet dal computer di origine e il server di elaborazione continua a non essere raggiungibile dall'origine, controllare la connessione end-to-end con cxprocessserver dalla macchina virtuale di origine eseguendo lo strumento cxpsclient nella macchina virtuale di origine:
+
+       <install folder>\cxpsclient.exe -i <PS_IP> -l <PS_Data_Port> -y <timeout_in_secs:recommended 300>
+
+    Controllare i log generati sul server di elaborazione nelle directory seguenti per informazioni dettagliate sugli errori corrispondenti:
+
+       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.err
+       and
+       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.xfer
+2. Controllare i log seguenti nel server di elaborazione nel caso in cui non vengano registrati heartbeat dal server di elaborazione:
+
+       C:\ProgramData\ASR\home\svsystems\eventmanager*.log
+       and
+       C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
 
 *  **Controllare se il server di elaborazione esegue attivamente il push dei dati in Azure**.
 

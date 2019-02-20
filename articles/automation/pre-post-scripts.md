@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/18/2018
+ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4c34c6c6e0a3f618cbd9337993aa6d176962fe6b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 90616544b1fddb8b6def04c30202035bec04d599
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428240"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236006"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Gestire i pre-script e i post-script (anteprima)
 
@@ -26,7 +26,7 @@ Per poter usare un runbook come pre-script o post-script, il runbook deve essere
 
 ## <a name="using-a-prepost-script"></a>Uso di un pre/post-script
 
-Per usare un pre-script e un post-script in una distribuzione di aggiornamento, iniziare creando una distribuzione di aggiornamento. Selezionare **Pre-script e post-script (anteprima)**. Si aprirà la pagina **Selezionare i pre-script e i post-script**.  
+Per usare un pre-script e un post-script in una distribuzione di aggiornamento, iniziare creando una distribuzione di aggiornamento. Selezionare **Pre-script e post-script (anteprima)**. Verrà visualizzata la pagina **Selezionare i pre-script e i post-script**.  
 
 ![Selezionare gli script](./media/pre-post-scripts/select-scripts.png)
 
@@ -46,13 +46,15 @@ Una volta terminata la distribuzione di aggiornamento, è possibile passare a **
 
 ![Risultati aggiornamento](./media/pre-post-scripts/update-results.png)
 
-Facendo clic sull'esecuzione di distribuzione aggiornamenti vengono forniti dettagli aggiuntivi per gli script pre e post. Viene fornito un collegamento all'origine dello script al momento dell'esecuzione.
+Facendo clic sull'esecuzione della distribuzione di aggiornamento vengono visualizzati altri dettagli relativi ai pre-script e ai post-script. Viene fornito un collegamento all'origine dello script al momento dell'esecuzione.
 
 ![Risultati dell'esecuzione della distribuzione](./media/pre-post-scripts/deployment-run.png)
 
 ## <a name="passing-parameters"></a>Passaggio dei parametri
 
-Quando si configurano i pre-script e i post-script è possibile passare i parametri come se si stesse pianificando un runbook. I parametri vengono definiti al momento della creazione della distribuzione di aggiornamento. Oltre ai parametri standard del runbook viene fornito un parametro aggiuntivo, **SoftwareUpdateConfigurationRunContext**. Questo parametro è una stringa JSON e, se viene definito nello script pre o post, viene automaticamente passato alla distribuzione di aggiornamento. Il parametro contiene informazioni sulla distribuzione di aggiornamento che rappresenta un subset delle informazioni restituite dall'API [SoftwareUpdateconfigurations](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). La tabella seguente illustra le proprietà fornite nella variabile:
+Quando si configurano i pre-script e i post-script è possibile passare i parametri come quando si pianifica un runbook. I parametri vengono definiti al momento della creazione della distribuzione di aggiornamento. I pre-script e i post-script richiedono parametri di tipo `String`. Se è necessario un altro tipo di oggetto, è possibile eseguirne il cast in un altro tipo usando `[System.Convert]` o gestirlo con la propria logica.
+
+Oltre ai parametri standard dei runbook viene passato un parametro aggiuntivo. **SoftwareUpdateConfigurationRunContext**. Questo parametro è una stringa JSON e, se viene definito nello script pre o post, viene automaticamente passato alla distribuzione di aggiornamento. Il parametro contiene informazioni sulla distribuzione di aggiornamento costituite da un subset delle informazioni restituite dall'API [SoftwareUpdateconfigurations](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). La tabella seguente illustra le proprietà specificate nella variabile:
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>Proprietà SoftwareUpdateConfigurationRunContext
 
@@ -119,7 +121,7 @@ In alternativa, è possibile eseguire una ricerca in base al nome dello script, 
 > [!IMPORTANT]
 > Dopo aver importato i runbook, è necessario **pubblicarli** prima di poterli usare. A questo scopo trovare il runbook nell'account di automazione, selezionare **Modifica** e fare clic su **Pubblica**.
 
-Gli esempi sono tutti basati sul modello di base definito nell'esempio seguente. Questo modello può essere usato per creare un proprio runbook da usare con pre-script e post-script. Sono inclusi la logica necessaria per l'autenticazione con Azure e la gestione del parametro `SoftwareUpdateConfigurationRunContext`.
+Gli esempi sono tutti basati sul modello di base definito nell'esempio seguente. Questo modello può essere usato per creare un proprio runbook da usare con pre-script e post-script. Sono incluse la logica necessaria per l'autenticazione ad Azure e la gestione del parametro `SoftwareUpdateConfigurationRunContext`.
 
 ```powershell
 <# 
