@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 5bff36f17b407c95858924a2a88b133500c350b6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 7b6a5a46e311fa54d6957c45d35ef20d94cf7632
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751413"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56200497"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -167,10 +167,14 @@ Il clustering di failover di Windows Server è supportato da Sincronizzazione fi
 > Perché la sincronizzazione funzioni correttamente, l'agente Sincronizzazione file di Azure deve essere installato in tutti i nodi di un cluster di failover.
 
 ### <a name="data-deduplication"></a>Deduplicazione dei dati
-Per i volumi per cui non è abilitata la suddivisione in livelli nel cloud, Sincronizzazione file di Azure supporta l'abilitazione della deduplicazione dei dati di Windows Server per il volume. Non è attualmente supportata l'interoperabilità tra Sincronizzazione file di Azure con abilitazione della suddivisione in livelli nel cloud e la deduplicazione dei dati.
+**Agente versione 5.0.2.0**   
+La deduplicazione dei dati è supportata nei volumi con cloud a livelli abilitato in Windows Server 2016 e Windows Server 2019. Abilitando la deduplicazione dei dati in un volume con cloud a livelli abilitato, è possibile memorizzare nella cache un numero maggiore di file in locale senza effettuare il provisioning di altro spazio di archiviazione.
+
+**Agente di Windows Server 2012 R2 o di versioni precedenti**  
+Per i volumi per cui non è abilitata la suddivisione in livelli nel cloud, Sincronizzazione file di Azure supporta l'abilitazione della deduplicazione dei dati di Windows Server per il volume.
 
 ### <a name="distributed-file-system-dfs"></a>File system distribuito (DFS)
-Sincronizzazione file di Azure supporta l'interoperabilità con Spazi dei nomi DFS (DFS-N) e Replica DFS (DFS-R) a partire dall'[agente Sincronizzazione file di Azure 1.2](https://go.microsoft.com/fwlink/?linkid=864522).
+Sincronizzazione file di Azure supporta l'interoperabilità con Spazi dei nomi DFS (DFS-N) e Replica DFS (DFS-R).
 
 **Spazi dei nomi DFS (DFS-N)**: Sincronizzazione file di Azure è completamente supportato nei server DFS-N. È possibile installare l'agente Sincronizzazione file di Azure in uno o più membri DFS-N per sincronizzare i dati tra gli endpoint server e l'endpoint cloud. Per altre informazioni, vedere [Informazioni generali su Spazi dei nomi DFS](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
  

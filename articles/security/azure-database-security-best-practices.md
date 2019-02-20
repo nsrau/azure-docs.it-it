@@ -4,7 +4,7 @@ description: Questo articolo fornisce un set di procedure consigliate per la sic
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: tomsh
-ms.openlocfilehash: cceea9fa613d2a2428427bfe73eb50550db6c69a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 3e244f89904ce9aca161ed1ea435f4137e42bc5d
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281626"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117970"
 ---
 # <a name="azure-database-security-best-practices"></a>Procedure consigliate per la sicurezza del database di Azure
 La sicurezza è un tema della massima importanza per la gestione dei database ed è sempre stata una priorità per il [database SQL di Azure](https://docs.microsoft.com/azure/sql-database/). I database possono essere protetti in modo sicuro per soddisfare la maggior parte dei requisiti di legge e di sicurezza, tra i quali HIPAA, ISO 27001/27002 e PCI DSS livello 1. Un elenco aggiornato delle certificazioni di conformità di sicurezza è disponibile nel [sito Centro protezione di Microsoft](https://azure.microsoft.com/support/trust-center/services/). È anche possibile posizionare i database in specifici data center di Azure in base ai requisiti normativi.
@@ -100,7 +100,7 @@ Ecco alcuni vantaggi:
 I passaggi di configurazione includono le procedure seguenti per configurare e usare l'autenticazione di Azure AD.
 
 - Creare e popolare un'istanza di Azure AD.
-- Facoltativo: associare o modificare l'istanza di Active Directory attualmente associata alla sottoscrizione di Azure.
+- Facoltativo: associare o cambiare l'istanza di Active Directory attualmente associata alla sottoscrizione di Azure.
 - Creare un amministratore di Azure Active Directory per il database SQL di Azure o per [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 - Configurare i computer client.
 - Creare gli utenti di database indipendente nel database di cui è stato eseguito il mapping alle identità di Azure AD.
@@ -150,18 +150,18 @@ La protezione dalle minacce va oltre il rilevamento. La protezione del database 
 - Implementazione nel database di configurazioni protette che ne consentano la protezione.
 - Rilevamento e risposta alle minacce potenziali appena si verificano in modo da poter implementare rapidamente una risposta e una correzione.
 
-**Procedura consigliata**: individuare, classificare ed etichettare i dati sensibili presenti nel database.   
-**Dettaglio**: classificare i dati nel database SQL abilitando l'[individuazione e la classificazione dei dati](../sql-database/sql-database-data-discovery-and-classification.md) nel database SQL di Azure. È possibile monitorare l'accesso ai dati sensibili nei report dei dashboard di Azure o nei report di download.
+**Procedura consigliata**: individuare e classificare i dati sensibili presenti nei database e assegnare etichette a tali dati.   
+**Dettagli**: classificare i dati nel database SQL abilitando la funzionalità [Individuazione dati e classificazione](../sql-database/sql-database-data-discovery-and-classification.md) nel database SQL di Azure. È possibile monitorare l'accesso ai dati sensibili nei report dei dashboard di Azure o nei report di download.
 
-**Procedura consigliata**: registrare le vulnerabilità del database in modo da poter migliorare la sicurezza del database in modo proattivo.   
-**Dettaglio**: usare il servizio [Valutazione della vulnerabilità](../sql-database/sql-vulnerability-assessment.md) del database SQL di Azure che esegue la scansione delle potenziali vulnerabilità del database. Il servizio usa una knowledge base di regole che contrassegnano le vulnerabilità della sicurezza ed evidenziano le deviazioni dalle procedure consigliate, ad esempio errori di configurazione, autorizzazioni eccessive e dati sensibili non protetti.
+**Procedura consigliata**: tenere traccia delle vulnerabilità del database in modo da poter migliorare proattivamente la sicurezza del database.   
+**Dettagli**: usare il servizio [Valutazione della vulnerabilità](../sql-database/sql-vulnerability-assessment.md) del database SQL di Azure che esegue la scansione delle potenziali vulnerabilità del database. Il servizio usa una knowledge base di regole che contrassegnano le vulnerabilità della sicurezza ed evidenziano le deviazioni dalle procedure consigliate, ad esempio errori di configurazione, autorizzazioni eccessive e dati sensibili non protetti.
 
 Le regole si basano su procedure consigliate di Microsoft e si concentrano sui problemi di sicurezza che presentano maggiori rischi per il database e i preziosi dati in esso contenuti. Queste regole coprono sia i problemi a livello di database che quelli di sicurezza a livello di server, ad esempio le impostazioni del firewall del server e le autorizzazioni a livello di server. Tali regole rappresentano anche molti dei requisiti richiesti da organismi normativi per soddisfare i relativi standard di conformità.
 
 **Procedura consigliata**: abilitare il rilevamento delle minacce.  
-**Dettaglio**: abilitare il [Rilevamento delle minacce](../sql-database/sql-database-threat-detection.md) del database SQL di Azure per ottenere avvisi e consigli su come indagare sulle minacce e attenuarle. Vengono visualizzati avvisi su attività di database sospette, potenziali vulnerabilità e attacchi SQL injection, nonché anomalie negli accessi al database e nei modelli di query.
+**Dettagli**:  abilitare la funzionalità [Rilevamento delle minacce](../sql-database/sql-database-threat-detection.md) del database SQL di Azure per ottenere avvisi di sicurezza e consigli su come indagare sulle minacce e attenuarle. Vengono visualizzati avvisi su attività di database sospette, potenziali vulnerabilità e attacchi SQL injection, nonché anomalie negli accessi al database e nei modelli di query.
 
-[Advanced Threat Protection](../sql-database/sql-advanced-threat-protection.md) è un pacchetto unificato di funzionalità di sicurezza SQL avanzate. Include i servizi citati in precedenza, vale a dire individuazione e classificazione dei dati, valutazione della vulnerabilità e rilevamento delle minacce. Consente di abilitare e gestire queste funzionalità da un'unica posizione.
+[Advanced Threat Protection](../sql-database/sql-advanced-threat-protection.md) è un pacchetto unificato di funzionalità di sicurezza SQL avanzate. Include i servizi citati in precedenza: Individuazione dati e classificazione, Valutazione della vulnerabilità e Rilevamento delle minacce. Consente di abilitare e gestire queste funzionalità da un'unica posizione.
 
 L'abilitazione di queste funzionalità consente di:
 

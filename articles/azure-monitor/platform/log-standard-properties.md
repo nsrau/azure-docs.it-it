@@ -1,6 +1,6 @@
 ---
-title: Proprietà standard nei record di Log Analytics di Monitoraggio di Azure | Microsoft Docs
-description: Descrive le proprietà comuni a più tipi di dati in Log Analytics di Monitoraggio di Azure.
+title: Proprietà standard nei record di log di Monitoraggio di Azure | Microsoft Docs
+description: Descrive le proprietà comuni a più tipi di dati nei log di Monitoraggio di Azure.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: bwren
-ms.openlocfilehash: 27c732a2ddd21401ffbefa727cbb8001ec288293
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 2309e7762ad36f59e0833e675e7012ee3c459e3e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381945"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997040"
 ---
-# <a name="standard-properties-in-log-analytics-records"></a>Proprietà standard nei record di Log Analytics
-I dati in [Log Analytics](../log-query/log-query-overview.md) sono archiviati come set di record, ognuno con un particolare tipo di dati che ha un set di proprietà univoco. Molti tipi di dati hanno proprietà standard comuni a più tipi. Questo articolo descrive queste proprietà e contiene esempi di come usarle nelle query.
+# <a name="standard-properties-in-azure-monitor-log-records"></a>Proprietà standard nei record di log di Monitoraggio di Azure
+I dati di log in Monitoraggio di Azure sono [archiviati come set di record](../log-query/log-query-overview.md), ognuno con un particolare tipo di dati che ha un set di proprietà univoco. Molti tipi di dati hanno proprietà standard comuni a più tipi. Questo articolo descrive queste proprietà e contiene esempi di come usarle nelle query.
 
 Alcune di queste proprietà sono ancora in corso di implementazione, pertanto possono essere presenti in alcuni tipi di dati ma non in altri.
 
@@ -39,7 +39,7 @@ Event
 | sort by TimeGenerated asc 
 ```
 
-## <a name="type"></a>type
+## <a name="type"></a>Type
 La proprietà **Type** contiene il nome della tabella da cui è stato recuperato il record, che può essere considerato anche il tipo di record. Questa proprietà è utile nelle query che consentono di combinare record da più tabelle, ad esempio quelle che usano l'operatore `search`, per distinguere tra record di diverso tipo. **$table** può essere usato al posto di **Type** in alcune posizioni.
 
 ### <a name="examples"></a>Esempi
@@ -151,6 +151,6 @@ union withsource = tt *
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sulla modalità di [archiviazione dei dati di Log Analytics](../log-query/log-query-overview.md).
-- Accedere a una lezione sulla [scrittura di query in Log Analytics](../../azure-monitor/log-query/get-started-queries.md).
-- Accedere a una lezione sul [join di tabelle nelle query di Log Analytics](../../azure-monitor/log-query/joins.md).
+- Leggere altre informazioni su come [vengono archiviati i dati di log di Monitoraggio di Azure](../log-query/log-query-overview.md).
+- Seguire una lezione sulla [scrittura di query di log](../../azure-monitor/log-query/get-started-queries.md).
+- Seguire una lezione sul [join di tabelle nelle query di log](../../azure-monitor/log-query/joins.md).

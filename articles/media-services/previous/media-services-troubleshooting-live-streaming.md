@@ -11,49 +11,50 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: e6b135e14f06ecf4edfbb97913c411f55711854a
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 8bb48044fc827cd0d1dbc11ef3ec72ca1bdcb11a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351453"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997534"
 ---
-# <a name="troubleshooting-guide-for-live-streaming"></a>Guida per la risoluzione dei problemi relativi allo streaming live
+# <a name="troubleshooting-guide-for-live-streaming"></a>Guida per la risoluzione dei problemi relativi allo streaming live  
+
 Questo articolo offre suggerimenti per la risoluzione di alcuni problemi relativi allo streaming live.
 
 ## <a name="issues-related-to-on-premises-encoders"></a>Problemi relativi ai codificatori locali
 In questa sezione sono disponibili suggerimenti su come risolvere i problemi relativi ai codificatori locali configurati per l'invio di un flusso a velocità in bit singola ai canali AMS abilitati per la codifica live.
 
 ### <a name="problem-would-like-to-see-logs"></a>Problema: i log non sono reperibili
-* **Problema potenziale**: non è possibile trovare i log del codificatore che potrebbero essere utili per risolvere problemi di debug.
+* **Potenziale problema**: non è possibile trovare i log del codificatore che potrebbero essere utili per il debug dei problemi.
   
-  * **Telestream Wirecast**: in genere è possibile trovare i log di in C:\Utenti\{nome utente}\AppData\Roaming\Wirecast\ 
+  * **Telestream Wirecast**: in genere è possibile trovare i log in C:\Utenti\{nome utente}\AppData\Roaming\Wirecast\ 
   * **Elemental Live**: è possibile trovare i collegamenti ai log nel portale di gestione. Fare clic su **Stats**, quindi su **Logs**. Nella pagina **Log Files** verrà visualizzato un elenco di log per tutti gli elementi LiveEvent. Selezionare quello corrispondente alla sessione corrente. 
-  * **Flash Media Live Encoder**: per trovare **Log Directory...**, passare alla scheda **Encoding Log**.
+  * **Flash Media Live Encoder**: per trovare **Log Directory** (Directory log), passare alla scheda **Encoding Log** (Log codifica).
 
-### <a name="problem-there-is-no-option-for-outputting-a-progressive-stream"></a>Problema: non esiste alcuna opzione per l'output di un flusso progressivo
+### <a name="problem-there-is-no-option-for-outputting-a-progressive-stream"></a>Problema: non esiste alcuna opzione per l'output di uno streaming progressivo
 * **Potenziale problema**: il codificatore usato non esegue automaticamente il deinterlacciamento. 
   
-    **Passaggi per la risoluzione dei problemi**: cercare un'opzione di deinterlacciamento all'interno dell'interfaccia del codificatore. Dopo aver abilitato il deinterlacciamento, verificare di nuovo se sono disponibili impostazioni per l'output progressivo. 
+    **Passaggi per la risoluzione dei problemi**: cercare un'opzione di deinterlacciamento nell'interfaccia del codificatore. Dopo aver abilitato il deinterlacciamento, verificare di nuovo se sono disponibili impostazioni per l'output progressivo. 
 
-### <a name="problem-tried-several-encoder-output-settings-and-still-unable-to-connect"></a>Problema: dopo aver provato varie impostazioni di output per il codificatore è ancora impossibile connettersi.
+### <a name="problem-tried-several-encoder-output-settings-and-still-unable-to-connect"></a>Problema: dopo aver provato varie impostazioni di output per il codificatore, è ancora impossibile connettersi.
 * **Potenziale problema**: il canale di codifica di Azure non è stato reimpostato correttamente. 
   
-    **Passaggi per la risoluzione dei problemi**: verificare che il codificatore non effettui più il push ad AMS, arrestare e reimpostare il canale. Quando è di nuovo in esecuzione, provare a connettere il codificatore con le nuove impostazioni. Se il problema persiste, provare a creare un canale del tutto nuovo. A volte i canali possono risultare danneggiati dopo diversi tentativi non riusciti.  
+    **Passaggi per la risoluzione dei problemi**: verificare che il codificatore non esegua più il push ad AMS e quindi arrestare e reimpostare il canale. Quando è di nuovo in esecuzione, provare a connettere il codificatore con le nuove impostazioni. Se il problema persiste, provare a creare un canale del tutto nuovo. A volte i canali possono risultare danneggiati dopo diversi tentativi non riusciti.  
 * **Potenziale problema**: le dimensioni GOP o le impostazioni del fotogramma chiave non sono ottimali. 
   
-    **Passaggi per la risoluzione dei problemi**: l'intervallo consigliato per le dimensioni GOP o il fotogramma chiave è di due secondi. Alcuni codificatori calcolano questa impostazione come numero di fotogrammi, mentre altri usano i secondi. Ad esempio, per l'output di 30 fps, le dimensioni GOP sarebbero di 60 fotogrammi, equivalenti a 2 secondi.  
-* **Potenziale problema**: le porte chiuse bloccano il flusso. 
+    **Passaggi per la risoluzione dei problemi**: l'intervallo consigliato per le dimensioni GOP o il fotogramma chiave è di due secondi. Alcuni codificatori calcolano questa impostazione come numero di fotogrammi, mentre altri usano i secondi. Ad esempio:  per l'output di 30 fps, le dimensioni GOP sarebbero di 60 fotogrammi, equivalenti a 2 secondi.  
+* **Potenziale problema**: le porte chiuse bloccano lo streaming. 
   
-    **Passaggi per la risoluzione dei problemi**: durante lo streaming tramite RTP, controllare le impostazioni del firewall e/o del proxy per assicurarsi che le porte in uscita 1935 e 1936 siano aperte. 
+    **Passaggi per la risoluzione dei problemi**: durante lo streaming tramite RTMP, controllare le impostazioni del firewall e/o del proxy per assicurarsi che le porte in uscita 1935 e 1936 siano aperte. 
 
 > [!NOTE]
 > Se dopo aver seguito le procedure di risoluzione dei problemi non è ancora possibile eseguire correttamente il flusso, inviare un ticket di supporto tramite il portale di Azure.
 > 
 > 
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

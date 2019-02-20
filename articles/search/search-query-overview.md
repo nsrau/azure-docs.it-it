@@ -9,16 +9,29 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.custom: seodec2018
-ms.openlocfilehash: 9b682b9cd17c174363dcd04707a11075e30cc8e1
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 62f9d24204e734b7b5e2ed97f361ccf228ba89dc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214828"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005047"
 ---
-# <a name="query-types-and-composition-in-azure-search"></a>Tipi di query e composizione in Ricerca di Azure
+# <a name="how-to-compose-a-query-in-azure-search"></a>Come comporre una query in Ricerca di Azure
 
-In Ricerca di Azure, una query è una specifica completa di un'operazione di andata e ritorno. I parametri forniscono i criteri di corrispondenza per la ricerca di documenti in un indice, le istruzioni di esecuzione per il motore e direttive per il data shaping nella risposta. Più precisamente, è possibile specificare quali campi vengono inclusi nell'ambito, come eseguire una ricerca, i campi da restituire, come ordinare o filtrare e così via. Se non viene specificata, una query viene eseguita rispetto a tutti i campi disponibili per la ricerca come un'operazione di ricerca full-text che restituisce un set di risultati senza punteggio in un ordine arbitrario.
+In Ricerca di Azure, una query è una specifica completa di un'operazione di andata e ritorno. I parametri nella richiesta forniscono i criteri di corrispondenza per la ricerca di documenti in un indice, le istruzioni di esecuzione per il motore e le direttive per la forma della risposta. 
+
+Una richiesta di query è un costrutto avanzato che specifica quali campi sono inclusi nell'ambito, come eseguire una ricerca, quali campi restituire, se ordinare o filtrare e così via. Se non viene specificata, una query viene eseguita rispetto a tutti i campi disponibili per la ricerca come un'operazione di ricerca full-text che restituisce un set di risultati senza punteggio in un ordine arbitrario.
+
+### <a name="apis-and-tools-for-testing"></a>API e strumenti di test
+
+La tabella seguente elenca le API e i metodi basati su strumenti per inviare query.
+
+| Metodologia | DESCRIZIONE |
+|-------------|-------------|
+| [Esplora ricerche (portale)](search-explorer.md) | Fornisce opzioni e una barra di ricerca per selezioni indice e versione API. I risultati vengono restituiti come documenti JSON. <br/>[Altre informazioni.](search-get-started-portal.md#query-index) | 
+| [Postman o altro strumento di test HTTP](search-fiddler.md) | Spiega come configurare l'intestazione e il corpo di una richiesta HTTP per l'invio di query a Ricerca di Azure.  |
+| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Client che può essere usato per eseguire una query in un indice di Ricerca di Azure.  <br/>[Altre informazioni.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [Cerca documenti (API REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | Metodi GET o POST su un indice, usando i parametri di query per un input aggiuntivo.  |
 
 ## <a name="a-first-look-at-query-requests"></a>Una prima occhiata alle richieste di query
 
@@ -52,7 +65,7 @@ Per eseguire questa query, utilizzare [Cerca explorer e l'indice di demo immobil
 
 È possibile incollare questa stringa di query nella barra di ricerca della finestra di esplorazione: `search=seattle townhouse +lake&searchFields=description, city&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket`
 
-### <a name="how-query-operations-are-enabled-by-the-index"></a>Modo in cui le operazioni di query sono abilitate dall'indice
+## <a name="how-query-operations-are-enabled-by-the-index"></a>Modo in cui le operazioni di query sono abilitate dall'indice
 
 La progettazione di indici e query di progettazione sono strettamente collegati in Ricerca di Azure. Un aspetto essenziale da conoscere fin dall'inizio è che lo *schema dell'indice*, con gli attributi in ogni campo, determina il tipo di query che è possibile compilare. 
 
@@ -148,17 +161,6 @@ Se si vuole che Ricerca di Azure restituisca i risultati ordinati in base a un v
 
 ### <a name="hit-highlighting"></a>Evidenziazione dei risultati
 In Ricerca di Azure è semplice mettere in evidenza la parte esatta dei risultati della ricerca che corrispondono alla query di ricerca usando i parametri **`highlight`**, **`highlightPreTag`**, e **`highlightPostTag`**. È possibile specificare quali campi *ricercabili* devono avere il testo corrispondente evidenziato e specificare anche i tag della stringa esatta da aggiungere all'inizio e alla fine del testo corrispondente restituito da Ricerca di Azure.
-
-## <a name="apis-and-tools-for-testing"></a>API e strumenti di test
-
-La tabella seguente elenca le API e i metodi basati su strumenti per inviare query.
-
-| Metodologia | DESCRIZIONE |
-|-------------|-------------|
-| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Client che può essere usato per eseguire una query in un indice di Ricerca di Azure.  <br/>[Altre informazioni.](search-howto-dotnet-sdk.md#core-scenarios)  |
-| [Cerca documenti (API REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | Metodi GET o POST su un indice, usando i parametri di query per un input aggiuntivo.  |
-| [Fiddler, Postman o altro strumento di test HTTP](search-fiddler.md) | Spiega come configurare l'intestazione e il corpo della richiesta per l'invio di query a Ricerca di Azure.  |
-| [Esplora ricerche nel portale di Azure](search-explorer.md) | Fornisce opzioni e una barra di ricerca per selezioni indice e versione API. I risultati vengono restituiti come documenti JSON. <br/>[Altre informazioni.](search-get-started-portal.md#query-index) | 
 
 ## <a name="see-also"></a>Vedere anche 
 

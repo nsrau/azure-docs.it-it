@@ -1,6 +1,6 @@
 ---
-title: Query di ricerca in Log Analytics | Microsoft Docs
-description: Questo articolo fornisce un'esercitazione per iniziare a scrivere query di ricerca in Log Analytics.
+title: Query di ricerca nei log di Monitoraggio di Azure | Microsoft Docs
+description: Questo articolo fornisce un'esercitazione per iniziare a usare il comando search nelle query di log di Monitoraggio di Azure.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 1f3131585a8f6581690eda777b8ffc96768b3cc6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: cda66b91a0e829ec3bc84a82c190b9d856827ad3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884771"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004452"
 ---
-# <a name="search-queries-in-log-analytics"></a>Query di ricerca in Log Analytics
+# <a name="search-queries-in-azure-monitor-logs"></a>Query di ricerca nei log di Monitoraggio di Azure
 
 > [!NOTE]
-> Prima di seguire questa lezione, è consigliabile completare l'esercitazione [Introduzione alle query in Log Analytics](get-started-queries.md).
+> Prima di completare questa lezione, è consigliabile leggere [Introduzione alle query di log di Monitoraggio di Azure](get-started-queries.md).
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Le query di Azure Log Analytics possono iniziare con un nome di tabella o un comando search. Questa esercitazione illustra le query basate sul comando search. Ogni metodo offre vantaggi specifici.
+Le query di log di Monitoraggio di Azure possono iniziare con un nome di tabella o un comando search. Questa esercitazione illustra le query basate sul comando search. Ogni metodo offre vantaggi specifici.
 
 Le query basate su tabella iniziano definendo l'ambito della query e quindi tendono a essere più efficienti rispetto alle query di ricerca. Le query di ricerca sono meno strutturate, quindi più appropriate per la ricerca di un valore specifico in tabelle o colonne. Il comando **search** consente di analizzare tutte le colonne in una determinata tabella o in tutte le tabelle, per cercare il valore specificato. La quantità di dati elaborati può essere estremamente elevata, quindi queste query possono richiedere più tempo per il completamento e possono restituire set di risultati molto grandi.
 
@@ -144,4 +144,4 @@ search in (Event) "win"
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere altre esercitazioni nel [sito sul linguaggio di query di Log Analytics](https://aka.ms/LogAnalyticsLanguage).
+- Vedere altre esercitazioni nel [sito sul linguaggio di query di Esplora dati](/azure/kusto/query/).

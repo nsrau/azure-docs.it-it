@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: celested
 ms.reviewer: paulgarn
-ms.openlocfilehash: 0e2b6e29e159970784ab8c321bbc8c16e96b60e3
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d3a2c79fd46b9c14f1bbb2794581746f6ff45cd6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757393"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179621"
 ---
 # <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>Procedura: Configurare la crittografia dei token SAML di Azure AD (anteprima)
 
@@ -33,19 +34,19 @@ La crittografia delle asserzioni SAML tra Azure AD e l'applicazione fornisce un'
 
 Anche senza crittografia dei token, i token SAML di Azure AD non vengono mai passati in rete in chiaro. Azure AD richiede che gli scambi di richiesta-risposta dei token avvengano su canali HTTPS/TLS crittografati in modo che le comunicazioni tra l'IDP, il browser e l'applicazione abbiano luogo attraverso collegamenti crittografati. Considerare il valore della crittografia dei token per la propria situazione specifica rispetto al sovraccarico di gestione di certificati aggiuntivi.   
 
-Per configurare la crittografia dei token, è necessario caricare un file di certificato X509 contenente la chiave pubblica nell'oggetto applicazione di Azure AD che rappresenta l'applicazione. È possibile scaricare il certificato X509 dall'applicazione stessa oppure ottenerlo dal fornitore dell'applicazione, qualora quest'ultimo fornisca le chiavi di crittografia. Se l'applicazione si aspetta che l'utente fornisca una chiave privata, è possibile crearla usando strumenti di crittografia, quindi caricare la parte relativa alla chiave privata nell'archivio chiavi dell'applicazione e il certificato di chiave pubblica corrispondente in Azure AD.
+Per configurare la crittografia dei token, è necessario caricare un file di certificato X.509 contenente la chiave pubblica nell'oggetto applicazione di Azure AD che rappresenta l'applicazione. È possibile scaricare il certificato X.509 dall'applicazione stessa oppure ottenerlo dal fornitore dell'applicazione, qualora quest'ultimo fornisca le chiavi di crittografia. Se l'applicazione si aspetta che l'utente fornisca una chiave privata, è possibile crearla usando strumenti di crittografia, quindi caricare la parte relativa alla chiave privata nell'archivio chiavi dell'applicazione e il certificato di chiave pubblica corrispondente in Azure AD.
 
 Azure AD usa AES-256 per crittografare i dati delle asserzioni SAML.
 
 ## <a name="configure-saml-token-encryption"></a>Configurare la crittografia dei token SAML
 
-Per configurare la crittografia dei token SAML, seguire questa procedura.
+Per configurare la crittografia dei token SAML, seguire questa procedura:
 
 1. Ottenere un certificato di chiave pubblica corrispondente a una chiave privata configurata nell'applicazione.
 
-    Creare una coppia di chiavi asimmetriche da usare per la crittografia. Oppure, se l'applicazione fornisce una chiave pubblica da usare per la crittografia, seguire le istruzioni dell'applicazione per scaricare il certificato X509.
+    Creare una coppia di chiavi asimmetriche da usare per la crittografia. Oppure, se l'applicazione fornisce una chiave pubblica da usare per la crittografia, seguire le istruzioni dell'applicazione per scaricare il certificato X.509.
 
-    La chiave pubblica deve essere archiviata in un file di certificato X509 nel formato con estensione cer.
+    La chiave pubblica deve essere archiviata in un file di certificato X.509 nel formato con estensione cer.
 
     Se l'applicazione usa una chiave creata dall'utente per la propria istanza, seguire le istruzioni fornite dall'applicazione per installare la chiave privata che verrà usata dall'applicazione per decrittografare i token dal tenant di Azure AD.
 
@@ -66,9 +67,9 @@ Per configurare la crittografia dei token SAML, seguire questa procedura.
     > [!NOTE]
     > L'opzione **Crittografia di token** è disponibile solo per le applicazioni SAML che sono state configurate dal pannello **Applicazioni aziendali** nel portale di Azure e vale sia per le app della raccolta di applicazioni che per le app che non fanno parte della raccolta. Per altre applicazioni questa opzione di menu è disabilitata. Per le applicazioni registrate tramite l'esperienza **Registrazioni app** nel portale di Azure è possibile configurare la crittografia per i token SAML usando il manifesto dell'applicazione, con Microsoft Graph o PowerShell.
 
-1. Nella pagina **Crittografia di token** selezionare **Importa certificato** per importare il file con estensione cer che contiene il certificato X509 pubblico.
+1. Nella pagina **Crittografia di token** selezionare **Importa certificato** per importare il file con estensione cer che contiene il certificato X.509 pubblico.
 
-    ![Importare il file con estensione cer che contiene il certificato X509](./media/howto-saml-token-encryption/import-certificate-small.png)
+    ![Importare il file con estensione cer che contiene il certificato X.509](./media/howto-saml-token-encryption/import-certificate-small.png)
 
 1. Dopo aver importato il certificato e aver configurato la chiave privata per l'uso sul lato applicazione, attivare la crittografia selezionando **...** accanto allo stato dell'identificazione personale, quindi selezionare **Attiva certificato per la crittografia di token** dal menu a discesa.
 
@@ -94,7 +95,7 @@ Quando si configura un oggetto keyCredential tramite Graph, PowerShell o il mani
 
 ### <a name="to-configure-token-encryption-using-microsoft-graph"></a>Per configurare la crittografia dei token tramite Microsoft Graph
 
-1. Aggiornare l'oggetto `keyCredentials` dell'applicazione con un certificato X509 per la crittografia. L'esempio seguente illustra come farlo.
+1. Aggiornare l'oggetto `keyCredentials` dell'applicazione con un certificato X.509 per la crittografia. L'esempio seguente illustra come farlo.
 
     ```
     Patch https://graph.microsoft.com/beta/applications/<application objectid>

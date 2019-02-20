@@ -5,17 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/23/2017
+ms.date: 02/06/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 57ba4b35cf470eff040d4a2dca42c60820fa9d9e
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6eaab50360269ac1231db2696ba095b6d8841f74
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079971"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163003"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementi del messaggio di posta elettronica di invito di Collaborazione B2B - Azure Active Directory
 
@@ -66,6 +67,14 @@ Il piè di pagina contiene il marchio aziendale di Microsoft e indica al destina
 
   ![caso in cui il destinatario non deve riscattare l'invito](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
 
+## <a name="how-the-language-is-determined"></a>Come viene determinata la lingua
+La lingua presentata all'utente guest nel messaggio di posta elettronica di invito è determinata dalle impostazioni seguenti. Queste impostazioni sono elencate in base all'ordine di precedenza. Se un'impostazione non è configurata, viene usata l'impostazione successiva per determinare la lingua. 
+- Proprietà **messageLanguage** dell'oggetto [invitedUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) se viene usata l'API di creazione dell'invito
+-   Proprietà **preferredLanguage** specificata nell'[oggetto utente](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0) del guest
+-   **Lingua delle notifiche** impostata nelle proprietà del tenant principale dell'utente guest (solo per i tenant di Azure AD)
+-   **Lingua delle notifiche** impostata nelle proprietà del tenant della risorsa
+
+Se non è configurata alcuna di queste impostazioni, come lingua verrà usato l'inglese (Stati Uniti) per impostazione predefinita.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

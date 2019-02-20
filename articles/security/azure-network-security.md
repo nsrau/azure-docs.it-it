@@ -4,7 +4,7 @@ description: Informazioni sui servizi di calcolo basati sul cloud che includono 
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 1d94ac5f799fc4bad13ab6a5e97a225a7499380d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a405583503b75a64dda2bf277a4a50be4e926d28
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405974"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111289"
 ---
 # <a name="azure-network-security"></a>Sicurezza di rete di Azure
 
@@ -88,11 +88,11 @@ Le reti virtuali di Azure sono simili alle reti virtuali usate in locale con sol
 
 È possibile connettere tra loro le reti virtuali in modo che le risorse connesse a una di esse possano comunicare tra loro attraverso le reti virtuali. Per connettere tra loro le reti virtuali è possibile usare una o entrambe le opzioni seguenti.
 
-- **Peering:** consente alle risorse connesse a diverse reti virtuali di Azure nella stessa località di Azure di comunicare tra loro. La larghezza di banda e la latenza della rete virtuale sono uguali a quelle che si riscontrerebbero se le risorse fossero connesse alla stessa rete virtuale. Per altre informazioni sul peering, vedere [Peering di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+- **Peering:** consente alle risorse connesse a diverse reti virtuali di Azure nella stessa posizione di Azure di comunicare tra loro. La larghezza di banda e la latenza della rete virtuale sono uguali a quelle che si riscontrerebbero se le risorse fossero connesse alla stessa rete virtuale. Per altre informazioni sul peering, vedere [Peering di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
  ![Peering](media/azure-network-security/azure-network-security-fig-3.png)
 
-- **Connessione da rete virtuale a rete virtuale:** abilita le risorse connesse a diverse reti virtuali di Azure nella stessa località o in località diverse. A differenza del peering, la larghezza di banda tra le reti virtuali è limitata perché il traffico deve passare attraverso un gateway VPN di Azure.
+- **Connessione da rete virtuale a rete virtuale:** abilita le risorse connesse a diverse reti virtuali di Azure nella stessa posizione di Azure o in posizioni diverse. A differenza del peering, la larghezza di banda tra le reti virtuali è limitata perché il traffico deve passare attraverso un gateway VPN di Azure.
 
 ![Connessione da rete virtuale a rete virtuale](media/azure-network-security/azure-network-security-fig-4.png)
 
@@ -151,9 +151,9 @@ Le [reti virtuali](https://docs.microsoft.com/azure/virtual-network/virtual-netw
 
 È possibile connettere tra loro le reti virtuali in modo che le risorse connesse a una di esse possano comunicare tra loro attraverso le reti virtuali. Per connettere tra loro le reti virtuali è possibile usare una o entrambe le opzioni seguenti.
 
-- **Peering:** consente alle risorse connesse a diverse reti virtuali di Azure nella stessa località di Azure di comunicare tra loro. La larghezza di banda e la latenza tra le reti virtuali sono uguali a quelle che si riscontrerebbero se le risorse fossero connesse alla stessa rete virtuale. Per altre informazioni sul peering, vedere [Peering di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+- **Peering:** consente alle risorse connesse a diverse reti virtuali di Azure nella stessa posizione di Azure di comunicare tra loro. La larghezza di banda e la latenza tra le reti virtuali sono uguali a quelle che si riscontrerebbero se le risorse fossero connesse alla stessa rete virtuale. Per altre informazioni sul peering, vedere [Peering di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
-- **Connessione da rete virtuale a rete virtuale:** abilita le risorse connesse a diverse reti virtuali di Azure nella stessa località o in località diverse. A differenza del peering, la larghezza di banda tra le reti virtuali è limitata perché il traffico deve passare attraverso un gateway VPN di Azure. Per altre informazioni sulla connessione di reti virtuali con una connessione di rete virtuale, vedere [Configurare una connessione da rete virtuale a rete virtuale](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Connessione da rete virtuale a rete virtuale:** abilita le risorse connesse a diverse reti virtuali di Azure nella stessa posizione di Azure o in posizioni diverse. A differenza del peering, la larghezza di banda tra le reti virtuali è limitata perché il traffico deve passare attraverso un gateway VPN di Azure. Per altre informazioni sulla connessione di reti virtuali con una connessione di rete virtuale, vedere [Configurare una connessione da rete virtuale a rete virtuale](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 **Connettività locale**
 
@@ -183,7 +183,7 @@ Facoltativamente, è possibile sostituire il routing predefinito di Azure config
 
 Per impostazione predefinita, Azure crea tabelle di route che consentono alle risorse connesse a qualsiasi subnet di qualsiasi rete virtuale di comunicare tra loro. Per sostituire le route predefinite create da Azure, è possibile implementare una o entrambe le opzioni seguenti.
 
-- **Route definite dall'utente:** è possibile creare tabelle di route personalizzate con route che controllano l'instradamento del traffico per ogni subnet. Per altre informazioni sulle route definite dall'utente, vedere [Route definite dall'utente](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
+- **Route definite dall'utente:** è possibile creare tabelle di route personalizzate con route che controllano dove viene instradato il traffico per ogni subnet. Per altre informazioni sulle route definite dall'utente, vedere [Route definite dall'utente](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 
 - **Route BGP:** se si connette la rete virtuale alla rete locale con un gateway VPN di Azure o una connessione ExpressRoute, è possibile propagare le route BGP alle reti virtuali.
 
@@ -320,9 +320,9 @@ Nella sezione seguente viene elencata la limitazione attuale della tabella di ro
 
 -   Ciascuna subnet della rete virtuale dispone di una tabella di routing di sistema integrata. La tabella di routing di sistema include i tre gruppi di route seguenti:
 
- -  **Route della rete virtuale locale:** direttamente alla destinazione di macchine virtuali nella stessa rete virtuale
+ -  **Route della rete virtuale locale:** direttamente alle macchine virtuali di destinazione nella stessa rete virtuale
 
- - **Route locale:** al gateway VPN di Azure
+ - **Route locali:** al gateway VPN di Azure
 
  -  **Route predefinita:** direttamente a Internet. I pacchetti destinati agli indirizzi IP privati che non rientrano nelle due route precedenti vengono eliminati.
 
@@ -645,9 +645,9 @@ Le metriche seguenti sono supportate per i gateway applicazione:
 
 I log seguenti sono supportati per i [gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log):
 
-- **NetworkSecurityGroupEvent:** contiene voci relative alle regole dei gruppi di sicurezza di rete applicate alle VM e ai ruoli delle istanze in base all'indirizzo MAC. Lo stato di queste regole viene raccolto ogni 60 secondi.
+- **NetworkSecurityGroupEvent:** contiene voci per cui le regole dei gruppi di sicurezza di rete sono applicate alle macchine virtuali e ai ruoli delle istanze in base all'indirizzo MAC. Lo stato di queste regole viene raccolto ogni 60 secondi.
 
-- **NetworkSecurityGroupRuleCounter:** contiene voci che indicano quante volte ogni regola dei gruppi di sicurezza di rete viene applicata per rifiutare o consentire il traffico.
+- **NetworkSecurityGroupRuleCounter:** contiene voci per sapere quante volte ogni regola dei gruppi di sicurezza di rete è stata applicata per rifiutare o consentire il traffico.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla sicurezza, vedere alcuni degli approfondimenti sull'argomento:

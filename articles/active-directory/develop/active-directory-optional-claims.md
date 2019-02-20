@@ -16,12 +16,13 @@ ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7efac4138f21a3f8e9dae087991f97dabad61822
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2424dbf595743eacef16b7d11f208edc9cd09a41
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077245"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185452"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Procedura: Fornire attestazioni facoltative per l'applicazione Azure AD (anteprima pubblica)
 
@@ -76,7 +77,7 @@ Il set di attestazioni facoltative disponibili per impostazione predefinita per 
 | `ztdid`                    | ID distribuzione completamente automatico | Token JSON Web | | L'identità del dispositivo usata per [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
 |`email`                     | Indirizzo di posta elettronica di riferimento, se l'utente ne ha uno.  | JWT, SAML | | Questo valore è incluso per impostazione predefinita se l'utente è un ospite nel tenant.  Per gli utenti gestiti (quelli all'interno del tenant) deve essere richiesto tramite questa attestazione facoltativa oppure, solo per la versione 2.0, con l'ambito OpenID.  Per gli utenti gestiti, l'indirizzo di posta elettronica deve essere impostato nel [portale di amministrazione di Office](https://portal.office.com/adminportal/home#/users).|  
 | `acct`             | Stato dell'account degli utenti nel tenant. | JWT, SAML | | Se l'utente è membro del tenant, il valore è `0`. Se si tratta di un utente guest, il valore è `1`. |
-| `upn`                      | Attestazione UserPrincipalName. | JWT, SAML  |           | Benché questa attestazione sia inclusa automaticamente, è possibile specificarla come attestazione facoltativa per collegare proprietà aggiuntive in modo da modificarne il comportamento nel caso dell'utente guest. <br> Proprietà aggiuntive: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
+| `upn`                      | Attestazione UserPrincipalName. | JWT, SAML  |           | Benché questa attestazione sia inclusa automaticamente, è possibile specificarla come attestazione facoltativa per collegare proprietà aggiuntive in modo da modificarne il comportamento nel caso dell'utente guest.  |
 
 ### <a name="v20-optional-claims"></a>Attestazioni facoltative v2.0
 
@@ -85,30 +86,28 @@ Queste attestazioni sono sempre incluse nei token v1.0, ma non sono incluse nei 
 **Tabella 3: attestazioni facoltative specifiche di V2.0**
 
 | Attestazione JWT     | NOME                            | DESCRIZIONE                                | Note |
-|---------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|
+|---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | Indirizzo IP                      | Indirizzo IP da cui il client ha effettuato l'accesso.   |       |
 | `onprem_sid`  | ID di sicurezza locale |                                             |       |
 | `pwd_exp`     | Ora di scadenza della password        | Data e ora in cui scade la password. |       |
-| `pwd_url`     | URL per la modifica della password             | URL che l'utente può visitare per cambiare la password.   |       |
-| `in_corp`     | All'interno della rete aziendale        | Segnala se il client sta effettuando l'accesso dalla rete aziendale. In caso contrario, l'attestazione non è inclusa.   |       |
-| `nickname`    | Nome alternativo                        | Nome aggiuntivo per l'utente, distinto dal nome o dal cognome. |       |                                                                                                                |       |
+| `pwd_url`     | URL per la modifica della password             | URL che l'utente può visitare per cambiare la password.   |   |
+| `in_corp`     | All'interno della rete aziendale        | Segnala se il client sta effettuando l'accesso dalla rete aziendale. In caso contrario, l'attestazione non è inclusa.   |  In base alle impostazioni degli [indirizzi IP attendibili](../authentication/howto-mfa-mfasettings.md#trusted-ips) nell'autenticazione a più fattori.    |
+| `nickname`    | Nome alternativo                        | Nome aggiuntivo per l'utente, distinto dal nome o dal cognome. | 
 | `family_name` | Cognome                       | Fornisce il cognome dell'utente, come definito nell'oggetto utente di Azure AD. <br>"family_name":"Miller" |       |
 | `given_name`  | Nome                      | Fornisce il nome o il nome "specificato" dell'utente, come impostato nell'oggetto utente di Azure AD.<br>"given_name": "Frank"                   |       |
+| `upn`       | Nome dell'entità utente | Identificatore dell'utente che può essere usato con il parametro username_hint.  Non si tratta di un identificatore permanente per l'utente, pertanto non deve essere usato per inserire dati. | Per la configurazione dell'attestazione, vedere le [proprietà aggiuntive](#additional-properties-of-optional-claims) seguenti. |
 
 ### <a name="additional-properties-of-optional-claims"></a>Proprietà aggiuntive delle attestazioni facoltative
 
-Alcuni attestazioni facoltative possono essere configurate per modificare il modo in cui che viene restituita l'attestazione. Queste proprietà aggiuntive vengono usate principalmente per facilitare la migrazione di applicazioni in locale con previsioni di dati diverse (ad esempio `include_externally_authenticated_upn_without_hash` consente l'uso di client che non possono gestire hashmark (`#`) nell'UPN)
+Alcuni attestazioni facoltative possono essere configurate per modificare il modo in cui che viene restituita l'attestazione. Queste proprietà aggiuntive vengono usate principalmente per facilitare la migrazione di applicazioni locali con previsioni di dati diverse, ad esempio `include_externally_authenticated_upn_without_hash` consente l'uso di client che non possono gestire cancelletti (`#`) nell'UPN.
 
-**Tabella 4: valori per la configurazione di attestazioni facoltative standard**
+**Tabella 4: valori per la configurazione di attestazioni facoltative**
 
-| Nome proprietà                                     | Nome proprietà aggiuntiva                                                                                                             | DESCRIZIONE |
-|---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `upn`                                                 |                                                                                                                                      |  Può essere usato per le risposte SAML e JWT.        |
-| | `include_externally_authenticated_upn`              | Include l'UPN guest così come è archiviato nel tenant della risorsa. Ad esempio: `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
-| | `include_externally_authenticated_upn_without_hash` | Come sopra, tranne che i cancelletti (`#`) vengono sostituiti con caratteri di sottolineatura (`_`), ad esempio `foo_hometenant.com_EXT_@resourcetenant.com` |             
-
-> [!Note]
->Specificando l'attestazione facoltativa upn senza una proprietà aggiuntiva non viene modificato alcun comportamento: per visualizzare una nuova attestazione rilasciata nel token, deve essere aggiunta almeno una delle proprietà aggiuntive. 
+| Nome proprietà  | Nome proprietà aggiuntiva | Descrizione |
+|----------------|--------------------------|-------------|
+| `upn`          |                          | Utilizzabile per le risposte SAML e JWT e per i token v1.0 e v2.0. |
+|                | `include_externally_authenticated_upn`  | Include l'UPN guest così come è archiviato nel tenant della risorsa. Ad esempio: `foo_hometenant.com#EXT#@resourcetenant.com` |             
+|                | `include_externally_authenticated_upn_without_hash` | Come sopra, tranne che i cancelletti (`#`) vengono sostituiti da caratteri di sottolineatura (`_`), ad esempio `foo_hometenant.com_EXT_@resourcetenant.com` |
 
 #### <a name="additional-properties-example"></a>Esempio di proprietà aggiuntive
 
@@ -151,12 +150,12 @@ Questo oggetto OptionalClaims fa in modo che il token ID restituito al client in
 "saml2Token": [ 
               { 
                     "name": "upn", 
-                    "essential": true
+                    "essential": false
                },
                { 
                     "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
                     "source": "user", 
-                    "essential": true
+                    "essential": false
                }
        ]
    }

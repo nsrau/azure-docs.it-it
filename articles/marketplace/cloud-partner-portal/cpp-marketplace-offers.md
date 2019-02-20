@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 02/07/2019
 ms.author: pbutlerm
-ms.openlocfilehash: ca4979188830fcb53732750a3eaadfc2009c4f9a
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f13d49fde7f0e40f6dcb026fcb20cb11c028c64b
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658709"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100884"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Offerte di Azure Marketplace e del marketplace di AppSource
 
@@ -32,6 +32,18 @@ Il video seguente presenta le varie funzionalità e i diversi tipi di offerta di
 **Creazione di app e servizi per Azure Marketplace e AppSource - Build 2018**
 
 Per altre informazioni su questi marketplace, vedere la [Guida alla pubblicazione per Azure Marketplace e AppSource](../marketplace-publishers-guide.md).
+
+
+## <a name="common-offer-operations"></a>Operazioni comuni per le offerte
+
+Il processo di creazione di una nuova offerta varia in modo significativo a seconda dei tipi di offerta, ad esempio per un'[offerta di applicazione Azure](./azure-applications/cpp-azure-app-offer.md) o per un'[offerta di servizio di consulenza](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md).  Molte delle altre operazioni eseguite su un'offerta nel [portale Cloud Partner](https://cloudpartner.azure.com) invece sono piuttosto standardizzate per tutti i tipi di offerta.  Queste operazioni comuni, tra cui la pubblicazione, la visualizzazione, l'aggiornamento e l'eliminazione, sono illustrate nella sezione [Gestire le offerte](./manage-offers/cpp-manage-offers.md)
+
+
+## <a name="test-drive"></a>Test drive
+
+Il *test drive* è una funzionalità del marketplace che offre ai clienti un'opzione di dimostrazione di "prova prima dell'acquisto" per ogni offerta abilitata.  La funzionalità test drive è limitata al sottoinsieme di tipi di offerte seguente: [applicazioni Azure](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 per Finanza e operazioni](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [applicazioni SaaS](./saas-app/cpp-saas-offer.md) e [macchine virtuali](./virtual-machine/cpp-virtual-machine-offer.md).  Questa funzionalità richiede che l'editore crei un modello di test drive personalizzato per l'offerta.  Per altre informazioni, vedere la sezione [Test drive](../cloud-partner-portal-orig/what-is-test-drive.md).
+
+È possibile esplorare le offerte del marketplace esistenti con dimostrazioni di test drive applicando il [filtro Test Drive](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=test-drive). 
 
 
 ## <a name="azure-marketplace-and-appsource-offer-types"></a>Tipi di offerta di Azure Marketplace e AppSource

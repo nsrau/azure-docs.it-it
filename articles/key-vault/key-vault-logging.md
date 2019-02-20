@@ -1,10 +1,10 @@
 ---
 title: Registrazione di Azure Key Vault - Azure Key Vault | Microsoft Docs
-description: Usare questa esercitazione per un'introduzione alla registrazione dell'insieme di credenziali delle chiavi di Azure.
+description: Usare questa esercitazione per un'introduzione alla registrazione di Azure Key Vault.
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 43f96a2b-3af8-4adc-9344-bc6041fface8
 ms.service: key-vault
@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
-ms.openlocfilehash: 7229cedf2ad5e211847054b53c34e54f633f57e0
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 95c7e5b58bcd79cbe4893561ec8f2a0ed1f9bf77
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434768"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110235"
 ---
-# <a name="azure-key-vault-logging"></a>Registrazione dell'insieme di credenziali delle chiavi di Azure
+# <a name="azure-key-vault-logging"></a>Registrazione di Azure Key Vault
 
-L'insieme di credenziali delle chiavi di Azure è disponibile nella maggior parte delle aree. Per altre informazioni, vedere la [pagina Insieme di credenziali delle chiavi - Prezzi](https://azure.microsoft.com/pricing/details/key-vault/).
+Azure Key Vault è disponibile nella maggior parte delle aree. Per altre informazioni, vedere la [pagina Insieme di credenziali delle chiavi - Prezzi](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## <a name="introduction"></a>Introduzione
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Dopo aver creato una o più credenziali delle chiavi, può essere utile monitorare come, quando e da chi vengono usate. A questo scopo è possibile abilitare la registrazione per l'insieme di credenziali delle chiavi, che salva le informazioni in un account di archiviazione di Azure specificato. Per tale account di archiviazione viene creato automaticamente un contenitore denominato **insights-log-auditevent** , che può essere usato per raccogliere i log relativi a più insiemi di credenziali delle chiavi.
 
@@ -33,23 +35,23 @@ Dopo aver creato una o più credenziali delle chiavi, può essere utile monitora
 * Usare i metodi di controllo di accesso standard di Azure per proteggere i log limitando l'accesso agli utenti specificati.
 * Eliminare i log che non è più necessario mantenere nell'account di archiviazione.
 
-Usare questa esercitazione per un'introduzione all'uso della registrazione dell'insieme di credenziali delle chiavi di Azure, per creare l'account di archiviazione, abilitare la registrazione e interpretare le informazioni di registrazione raccolte.  
+Usare questa esercitazione per un'introduzione all'uso della registrazione di Azure Key Vault, per creare l'account di archiviazione, abilitare la registrazione e interpretare le informazioni di registrazione raccolte.  
 
 > [!NOTE]
-> Questa esercitazione non include istruzioni per la creazione di insiemi di credenziali delle chiavi, chiavi o segreti. Per altre informazioni, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md). In alternativa, per le istruzioni relative all'interfaccia della riga di comando multipiattaforma, vedere [questa esercitazione equivalente](key-vault-manage-with-cli2.md).
+> Questa esercitazione non include istruzioni per la creazione di insiemi di credenziali delle chiavi, chiavi o segreti. Per queste informazioni, vedere [Cos'è Azure Key Vault?](key-vault-overview.md). In alternativa, per le istruzioni relative all'interfaccia della riga di comando multipiattaforma, vedere [questa esercitazione equivalente](key-vault-manage-with-cli2.md).
 >
 > Questo articolo fornisce istruzioni per l'aggiornamento della registrazione diagnostica per Azure PowerShell. Tuttavia, lo stesso può essere abilitato tramite Monitoraggio di Azure nel portale di Azure, all'interno della sezione **Log di diagnostica**. 
 >
 >
 
-Per informazioni generali sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali delle chiavi di Azure?](key-vault-whatis.md)
+Per informazioni generali su Azure Key Vault, vedere [Cos'è Azure Key Vault?](key-vault-whatis.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Insieme di credenziali delle chiavi esistente e già in uso.  
-* Azure PowerShell **versione minima 1.0.1**. Per installare Azure PowerShell e associarlo alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview). Se Azure PowerShell è già stato installato ma non si conosce la versione, dalla console di Azure PowerShell digitare `(Get-Module azure -ListAvailable).Version`.  
+* Azure PowerShell, **versione minima 1.0.0**. Per installare Azure PowerShell e associarlo alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview). Se Azure PowerShell è già stato installato ma non si conosce la versione, dalla console di Azure PowerShell digitare `$PSVersionTable.PSVersion`.  
 * Spazio di archiviazione sufficiente in Azure per i log dell'insieme di credenziali delle chiavi.
 
 ## <a id="connect"></a>Connettersi alle sottoscrizioni
@@ -57,21 +59,21 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 Avviare una sessione di Azure PowerShell e accedere all'account Azure con il comando seguente:  
 
 ```PowerShell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Nella finestra del browser a comparsa, immettere il nome utente e la password dell'account Azure. Azure PowerShell recupera tutte le sottoscrizioni associate a questo account e, per impostazione predefinita, usa la prima.
 
-Se sono disponibili più sottoscrizioni, potrebbe essere necessario indicarne una specifica usata per creare l'insieme di credenziali delle chiavi di Azure. Digitare il comando seguente per visualizzare le sottoscrizioni relative all'account:
+Se sono disponibili più sottoscrizioni, potrebbe essere necessario indicarne una specifica usata per creare l'istanza di Azure Key Vault. Digitare il comando seguente per visualizzare le sottoscrizioni relative all'account:
 
 ```PowerShell
-    Get-AzureRmSubscription
+    Get-AzSubscription
 ```
 
 Per specificare quindi la sottoscrizione associata all'insieme di credenziali delle chiavi da registrare, digitare:
 
 ```PowerShell
-Set-AzureRmContext -SubscriptionId <subscription ID>
+Set-AzContext -SubscriptionId <subscription ID>
 ```
 
 > [!NOTE]
@@ -85,10 +87,10 @@ Per altre informazioni sulla configurazione di Azure PowerShell, vedere [Come in
 
 Anche se è possibile usare un account di archiviazione esistente per i log, si creerà un nuovo account di archiviazione dedicato ai log dell'insieme di credenziali delle chiavi. Per praticità, si archivieranno i dettagli in una variabile denominata **sa**, in modo che siano disponibili quando sarà necessario specificarli in seguito.
 
-Per rendere la gestione ancora più facile, si userà anche lo stesso gruppo di risorse che contiene l'insieme di credenziali delle chiavi. Dall' [esercitazione introduttiva](key-vault-get-started.md)questo gruppo di risorse è denominato **ContosoResourceGroup** e si continuerà a usare l'area geografica East Asia. Sostituire questi valori con i propri, a seconda dei casi:
+Per rendere la gestione ancora più facile, si userà anche lo stesso gruppo di risorse che contiene l'insieme di credenziali delle chiavi. Dall' [esercitazione introduttiva](key-vault-overview.md)questo gruppo di risorse è denominato **ContosoResourceGroup** e si continuerà a usare l'area geografica East Asia. Sostituire questi valori con i propri, a seconda dei casi:
 
 ```PowerShell
- $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
+ $sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
 ```
 
 > [!NOTE]
@@ -101,15 +103,15 @@ Per rendere la gestione ancora più facile, si userà anche lo stesso gruppo di 
 Nell'esercitazione introduttiva, il nome dell'insieme di credenziali delle chiavi è **ContosoKeyVault**, quindi si continuerà a usarlo e si archivieranno i dettagli in una variabile denominata **kv**:
 
 ```PowerShell
-$kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
+$kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 ```
 
 ## <a id="enable"></a>Abilitare la registrazione
 
-Per abilitare la registrazione dell'insieme di credenziali delle chiavi, si userà il cmdlet Set-AzureRmDiagnosticSetting e le variabili create per il nuovo account di archiviazione e l'insieme di credenziali delle chiavi. Il flag **-Enabled** verrà impostato su **$true** e la categoria su AuditEvent, la sola disponibile per la registrazione di Key Vault:
+Per abilitare la registrazione per Key Vault, si userà il cmdlet Set-AzDiagnosticSetting con le variabili create per il nuovo account di archiviazione e Key Vault. Il flag **-Enabled** verrà impostato su **$true** e la categoria su AuditEvent, la sola disponibile per la registrazione di Key Vault:
 
 ```PowerShell
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
 L'output dettagliato sarà simile al seguente:
@@ -129,7 +131,7 @@ Conferma che la registrazione è abilitata per l'insieme di credenziali delle ch
 Facoltativamente è possibile impostare criteri di conservazione per i log, in modo che i log meno recenti vengano eliminati automaticamente. Ad esempio, specificare i criteri di conservazione impostando il flag **-RetentionEnabled** su **$true** e il parametro **-RetentionInDays** su **90** per fare in modo che i log che risalgono a più di 90 giorni prima vengano eliminati automaticamente.
 
 ```PowerShell
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent -RetentionEnabled $true -RetentionInDays 90
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent -RetentionEnabled $true -RetentionInDays 90
 ```
 
 Informazioni registrate:
@@ -152,7 +154,7 @@ $container = 'insights-logs-auditevent'
 Per elencare tutti i BLOB in questo contenitore, digitare:
 
 ```PowerShell
-Get-AzureStorageBlob -Container $container -Context $sa.Context
+Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
 L'output sarà simile al seguente:
@@ -183,13 +185,13 @@ New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Forc
 Ottenere quindi un elenco di tutti i BLOB:  
 
 ```PowerShell
-$blobs = Get-AzureStorageBlob -Container $container -Context $sa.Context
+$blobs = Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
-Inviare l'elenco tramite pipe con 'Get-AzureStorageBlobContent' per scaricare i BLOB nella cartella di destinazione:
+Inviare l'elenco tramite pipe con 'Get-AzStorageBlobContent' per scaricare i BLOB nella cartella di destinazione:
 
 ```PowerShell
-$blobs | Get-AzureStorageBlobContent -Destination C:\Users\username\ContosoKeyVaultLogs'
+$blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVaultLogs'
 ```
 
 Quando si esegue questo secondo comando, il delimitatore **/** nei nomi dei BLOB crea una struttura di cartelle completa nella cartella di destinazione. Questa struttura verrà usata per scaricare e archiviare i BLOB come file.
@@ -199,32 +201,32 @@ Per scaricare BLOB in modo selettivo, usare caratteri jolly. Ad esempio:
 * Se sono disponibili più insiemi di credenziali delle chiavi e si vogliono scaricare i log per un solo insieme di credenziali delle chiavi denominato CONTOSOKEYVAULT3, usare:
 
 ```PowerShell
-Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
+Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
 ```
 
 * Se sono disponibili più gruppi di risorse e si vogliono scaricare i log per un solo gruppo di risorse, usare `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
 ```PowerShell
-Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
+Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
 ```
 
 * Per scaricare tutti i log per il mese di gennaio 2016, usare `-Blob '*/year=2016/m=01/*'`:
 
 ```PowerShell
-Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
+Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
 ```
 
-A questo punto si può iniziare a osservare il contenuto dei log. Prima di continuare, ci sono altri due parametri di Get-AzureRmDiagnosticSetting che può essere necessario conoscere:
+A questo punto si può iniziare a osservare il contenuto dei log. Prima di continuare, ci sono altri due parametri di Get-AzDiagnosticSetting che può essere necessario conoscere:
 
-* Per eseguire una query sullo stato delle impostazioni di diagnostica per la risorsa insieme di credenziali delle chiavi, usare:`Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
-* Per disabilitare la registrazione per la risorsa insieme di credenziali delle chiavi, usare: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
+* Per eseguire una query sullo stato delle impostazioni di diagnostica per la risorsa insieme di credenziali delle chiavi, usare:`Get-AzDiagnosticSetting -ResourceId $kv.ResourceId`
+* Per disabilitare la registrazione per la risorsa insieme di credenziali delle chiavi, usare: `Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Category AuditEvent`
 
 ## <a id="interpret"></a>Interpretare i log dell'insieme di credenziali delle chiavi
 
 I singoli BLOB vengono archiviati come testo, formattati come BLOB JSON. In esecuzione
 
 ```PowerShell
-Get-AzureRmKeyVault -VaultName 'contosokeyvault'`
+Get-AzKeyVault -VaultName 'contosokeyvault'`
 ```
 
 verrà restituita una voce di log simile a quella riportata di seguito:
@@ -310,14 +312,14 @@ La tabella seguente include un elenco di operationName con il comando API REST c
 
 ## <a id="loganalytics"></a>Usare Log Analytics
 
-È possibile usare la soluzione Insieme di credenziali delle chiavi di Azure in Log Analytics per esaminare i log AuditEvent dell'Insieme di credenziali delle chiavi di Azure. Per altre informazioni e per approfondire l'impostazione di questa funzionalità vedere [Soluzione Insieme di credenziali delle chiavi di Azure in Log Analytics](../azure-monitor/insights/azure-key-vault.md). Questo articolo contiene inoltre istruzioni su come eseguire la migrazione, nel caso fosse necessario, dalla soluzione Key Vault offerta nell'anteprima di Log Analytics, dove sono stati indirizzati la prima volta i log a un account di Archiviazione di Azure e da dove è stato configurato Log Analytics per la lettura.
+È possibile usare la soluzione Azure Key Vault in Log Analytics per esaminare i log AuditEvent di Azure Key Vault. Per altre informazioni e per approfondire l'impostazione di questa funzionalità vedere [Soluzione Insieme di credenziali delle chiavi di Azure in Log Analytics](../azure-monitor/insights/azure-key-vault.md). Questo articolo contiene inoltre istruzioni su come eseguire la migrazione, nel caso fosse necessario, dalla soluzione Key Vault offerta nell'anteprima di Log Analytics, dove sono stati indirizzati la prima volta i log a un account di Archiviazione di Azure e da dove è stato configurato Log Analytics per la lettura.
 
 ## <a id="next"></a>Passaggi successivi
 
-Per un'esercitazione sull'uso dell'insieme di credenziali delle chiavi di Azure in un'applicazione Web, vedere [Usare l'insieme di credenziali delle chiavi di Azure da un'applicazione Web](key-vault-use-from-web-application.md).
+Per un'esercitazione sull'uso di Azure Key Vault in un'applicazione Web .NET, vedere [Usare Azure Key Vault da un'app Web](tutorial-net-create-vault-azure-web-app.md).
 
-Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell’insieme di credenziali chiave Azure](key-vault-developers-guide.md).
+Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell'insieme di credenziali chiave Azure](key-vault-developers-guide.md).
 
-Per un elenco di cmdlet di Azure PowerShell 1.0 per l'insieme di credenziali delle chiavi di Azure, vedere [Cmdlet per l'insieme di credenziali delle chiavi di Azure](/powershell/module/azurerm.keyvault/#key_vault).
+Per un elenco di cmdlet di Azure PowerShell 1.0 per Azure Key Vault, vedere [Cmdlet per Azure Key Vault](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault).
 
-Per un'esercitazione sulla rotazione delle chiavi e il controllo dei log con l'insieme di credenziali delle chiavi di Azure, vedere [Come configurare l'insieme di credenziali delle chiavi con rotazione e controllo delle chiavi end-to-end](key-vault-key-rotation-log-monitoring.md).
+Per un'esercitazione sulla rotazione delle chiavi e il controllo dei log con Azure Key Vault, vedere [Come configurare l'insieme di credenziali delle chiavi con rotazione e controllo delle chiavi end-to-end](key-vault-key-rotation-log-monitoring.md).

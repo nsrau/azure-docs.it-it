@@ -17,12 +17,13 @@ ms.workload: identity
 ms.date: 01/21/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 26721aa0eac69875f6a3704025e6ab71a54a1e31
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: aeb991de113b13666eeaab3f283b9eccd75fbd39
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078101"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166030"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Qual è la condizione della posizione nell'accesso condizionale di Azure Active Directory? 
 
@@ -34,9 +35,9 @@ Questo articolo fornisce le informazioni necessarie per configurare la condizion
 
 Azure AD consente l'accesso Single Sign-On ai dispositivi, alle app e ai servizi da qualsiasi posizione della rete pubblica Internet. Con la condizione della posizione, è possibile controllare l'accesso alle app cloud in base al percorso di rete dell'utente. Casi d'uso comuni per la condizione della posizione:
 
-- Necessità dell'autenticazione a più fattori per gli utenti che accedono a un servizio quando non sono connessi alla rete aziendale  
+- Necessità dell'autenticazione a più fattori per gli utenti che accedono a un servizio quando non sono connessi alla rete aziendale.
 
-- Blocco dell'accesso per gli utenti che accedono a un servizio da specifici paesi o aree geografiche. 
+- Blocco dell'accesso per gli utenti che accedono a un servizio da specifici paesi o aree geografiche.
 
 Una posizione è un'etichetta per un percorso di rete che rappresenta una posizione specifica o gli indirizzi IP attendibili per l'autenticazione a più fattori.
 
@@ -64,7 +65,7 @@ Una posizione specifica ha le caratteristiche seguenti:
 
 - **Paesi/aree geografiche**: questa opzione consente di selezionare uno o più paesi o aree geografiche per definire una posizione specifica. 
 
-- **Includi aree sconosciute**: alcuni indirizzi IP non sono associati a un paese specifico. Questa opzione consente di scegliere se questi indirizzi IP devono essere inclusi nella posizione specifica. È possibile controllare quando applicare i criteri che usano la posizione specifica alle posizioni sconosciute.
+- **Includi aree sconosciute**: alcuni indirizzi IP non sono associati a un paese specifico. Questa opzione consente di scegliere se questi indirizzi IP devono essere inclusi nella posizione specifica. Usare questa impostazione quando i criteri che usano la posizione specifica devono essere applicati a posizioni sconosciute.
 
 Il numero di località denominate che è possibile configurare è limitato dalle dimensioni dell'oggetto correlato in Azure AD. È possibile configurare:
 
@@ -87,7 +88,7 @@ Nella pagina delle impostazioni del servizio di autenticazione a più fattori, �
 
 Dopo aver selezionato questa opzione, inclusa la posizione specifica, gli **Indirizzi IP attendibili MFA** verranno applicati a tutti i criteri con l'opzione selezionata.
 
-Per le applicazioni desktop e per dispositivi mobili, con cicli di vita di sessione prolungati, l'accesso condizionale viene rivalutato periodicamente. Il valore predefinito è una volta ogni ora. Quando l'attestazione della rete aziendale interna è emessa solo al momento dell'autenticazione iniziale, Azure AD potrebbe non disporre di un elenco di intervalli IP attendibili. In questo caso, è più difficile determinare se l'utente sia ancora presente nella rete aziendale:
+Per le applicazioni desktop e per dispositivi mobili, con cicli di vita di sessione prolungati, l'accesso condizionale viene rivalutato periodicamente. Il valore predefinito è una volta ogni ora. Quando l'attestazione della rete aziendale interna viene emessa solo al momento dell'autenticazione iniziale, Azure AD potrebbe non disporre di un elenco di intervalli IP attendibili. In questo caso, è più difficile determinare se l'utente sia ancora presente nella rete aziendale:
 
 1. Verificare se l'indirizzo IP dell'utente è in uno degli intervalli di indirizzi IP attendibili.
 
@@ -150,7 +151,7 @@ Quando si creano o si aggiornano le posizioni specifiche, per gli aggiornamenti 
 
 ### <a name="cloud-proxies-and-vpns"></a>Proxy cloud e VPN 
 
-Quando si usa un proxy ospitato nel cloud o una soluzione VPN, l'indirizzo IP usato da Azure AD durante la valutazione dei criteri è l'indirizzo IP del proxy. L'intestazione X-Forwarded-For (XFF) che contiene l'indirizzo IP pubblico degli utenti non viene usato perché non è certo che provenga da una fonte attendibile, pertanto potrebbe essere un metodo per falsificare un indirizzo IP. 
+Quando si usa un proxy ospitato nel cloud o una soluzione VPN, l'indirizzo IP usato da Azure AD durante la valutazione dei criteri è l'indirizzo IP del proxy. L'intestazione X-Forwarded-For (XFF) che contiene l'indirizzo IP pubblico dell'utente non viene usata perché non è certo che provenga da un'origine attendibile, pertanto potrebbe essere un metodo per falsificare un indirizzo IP. 
 
 Quando è presente un proxy cloud, è possibile usare criteri che richiedono un dispositivo aggiunto al dominio o l'attestazione della rete aziendale intera di AD FS.
 

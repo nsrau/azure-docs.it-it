@@ -12,33 +12,61 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/26/2018
+ms.date: 09/17/2018
 ms.author: ryanwi
-ms.openlocfilehash: e3da081f9b327031d6d1e0afd2f2fb52383bf933
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 787a25a822e4ee7e13a2f1429bacd8d5cd2139ca
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212069"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56196825"
 ---
 # <a name="service-fabric-terminology-overview"></a>Panoramica della terminologia di Service Fabric
-Azure Service Fabric è una piattaforma di sistemi distribuiti che semplifica la creazione di pacchetti, la distribuzione e la gestione di microservizi scalabili e affidabili. Questo articolo illustra in modo dettagliato la terminologia usata da Service Fabric, per agevolare la comprensione dei termini usati nella documentazione.
-
-I concetti elencati in questa sezione vengono illustrati anche nei video di Microsoft Virtual Academy relativi a: <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">Concetti fondamentali</a>, <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965">Concetti di progettazione</a> e <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=x7CVH56yC_1406218965">Concetti di esecuzione</a>.
+Azure Service Fabric è una piattaforma di sistemi distribuiti che semplifica la creazione di pacchetti, la distribuzione e la gestione di microservizi scalabili e affidabili.  I [cluster di Service Fabric possono essere ospitati in qualsiasi ambiente](service-fabric-deploy-anywhere.md): Azure, in un data center locale o in qualsiasi altro provider di servizi cloud.  Service Fabric è l'agente di orchestrazione che consente il funzionamento di [Azure Service Fabric Mesh](/azure/service-fabric-mesh). È possibile usare qualsiasi framework per scrivere i servizi e scegliere l'ambiente in cui eseguire l'applicazione tra varie opzioni disponibili. Questo articolo illustra in modo dettagliato la terminologia usata da Service Fabric, per agevolare la comprensione dei termini usati nella documentazione.
 
 ## <a name="infrastructure-concepts"></a>Concetti relativi all'infrastruttura
-**Cluster**: un set di computer fisici o macchine virtuali connesse tramite rete in cui vengono distribuiti e gestiti i microservizi.  I cluster possono supportare migliaia di macchine.
+**Cluster**: un set di computer fisici o macchine virtuali connessi tramite rete in cui vengono distribuiti e gestiti i microservizi.  I cluster possono supportare migliaia di macchine.
 
-**Nodo**: un computer o una macchina virtuale che fa parte di un cluster viene detto *nodo*. A ogni nodo viene assegnato un nome (stringa). I nodi hanno alcune caratteristiche, ad esempio le proprietà di selezione host. Ogni computer o macchina virtuale ha un servizio Windows di avvio automatico, `FabricHost.exe`, che viene eseguito all'avvio e che a sua volta avvia due eseguibili: `Fabric.exe` e `FabricGateway.exe`. Questi due eseguibili costituiscono il nodo. Negli scenari di test è possibile ospitare più nodi in un singolo PC o una singola macchina virtuale eseguendo più istanze di `Fabric.exe` e `FabricGateway.exe`.
+**Nodo**: un computer o una macchina virtuale che fa parte di un cluster viene definito *nodo*. A ogni nodo viene assegnato un nome (stringa). I nodi hanno alcune caratteristiche, ad esempio le proprietà di selezione host. Ogni computer o macchina virtuale ha un servizio Windows di avvio automatico, `FabricHost.exe`, che viene eseguito all'avvio e che a sua volta avvia due eseguibili: `Fabric.exe` e `FabricGateway.exe`. Questi due eseguibili costituiscono il nodo. Negli scenari di test è possibile ospitare più nodi in un singolo PC o una singola macchina virtuale eseguendo più istanze di `Fabric.exe` e `FabricGateway.exe`.
 
-## <a name="application-concepts"></a>Concetti relativi alle applicazioni
+## <a name="application-and-service-concepts"></a>Concetti di applicazione e servizio
+
+**Applicazione Service Fabric Mesh**: le applicazioni Service Fabric Mesh sono descritte dal modello di risorse (file di risorse YAML e JSON) e possono essere distribuite in qualsiasi ambiente in cui viene eseguito Service Fabric.
+
+**Applicazione nativa di Service Fabric**: le applicazioni native Service Fabric sono descritte dal modello applicativo nativo (manifesti delle applicazioni e dei servizi basati su XML).  Non è possibile eseguire applicazioni native Service Fabric in Service Fabric Mesh.
+
+### <a name="service-fabric-mesh-application-concepts"></a>Concetti di applicazione Service Fabric Mesh
+
+**Applicazione**: un'applicazione è l'unità di distribuzione, controllo delle versioni e durata di un'applicazione Mesh. Il ciclo di vita di ogni istanza dell'applicazione può essere gestito in modo indipendente.  Le applicazioni sono composte da uno o più pacchetti di codice del servizio e dalle impostazioni. Un'applicazione viene definita in base allo schema del modello di risorse (RM) di Azure.  I servizi sono descritti come proprietà della risorsa applicazione in un modello RM.  L'applicazione fa riferimento alle reti e ai volumi che usa.  Quando si crea un'applicazione, l'applicazione, i servizi, la rete e i volumi vengono modellati in base al modello di risorsa Service Fabric.
+
+**Servizio**: un servizio in un'applicazione rappresenta un microservizio ed esegue una funzione completa e autonoma. Ogni servizio è composto da uno o più pacchetti di codice che descrivono tutti gli elementi necessari per eseguire l'immagine del contenitore associata al pacchetto di codice.  Il numero di servizi in un'applicazione può essere aumentato o ridotto.
+
+**Network** (Rete): una risorsa di rete crea una rete privata per le applicazioni ed è indipendente dalle applicazioni o dai servizi che possono fare riferimento a essa. Più servizi di applicazioni diverse possono far parte della stessa rete. Le reti sono risorse distribuibili a cui fanno riferimento le applicazioni.
+
+**Pacchetto di codice**: i pacchetti di codice descrivono tutti gli elementi necessari per eseguire l'immagine del contenitore associata al pacchetto di codice, tra cui i seguenti:
+
+* Nome, versione e registro del contenitore
+* Risorse di CPU e memoria necessarie per ogni contenitore
+* Endpoint di rete
+* Volumi da montare nel contenitore che fanno riferimento a una risorsa di volume separata.
+
+Tutti i pacchetti di codice definiti come parte di una risorsa applicazione sono distribuiti e attivati insieme come gruppo.
+
+**Volume**: I volumi sono le directory che vengono montate all'interno di istanze del contenitore che è possibile usare per mantenere la persistenza dello stato. Il driver di volume di File di Azure consente di montare una condivisione File di Azure in un contenitore e offre un'archiviazione affidabile dei dati tramite qualsiasi API che supporti l'archiviazione di file. I volumi sono risorse distribuibili a cui fanno riferimento le applicazioni.
+
+### <a name="service-fabric-native-application-concepts"></a>Concetti di applicazione nativa Service Fabric
+
+**Applicazione**: Un'applicazione è una raccolta di servizi costituenti che eseguono determinate funzioni. Il ciclo di vita di ogni istanza dell'applicazione può essere gestito in modo indipendente.
+
+**Servizio**: Un servizio esegue una funzione completa e autonoma e può essere avviato ed eseguito in modo indipendente da altri servizi. Un servizio è costituito da codice, configurazione e dati. Per ogni servizio, il codice è costituito dai file binari eseguibili, la configurazione è costituita dalle impostazioni del servizio che possono essere caricate in fase di esecuzione e i dati sono costituiti da dati statici arbitrari che devono essere usati dal servizio.
+
 **Tipo di applicazione**: il nome e la versione assegnati a una raccolta di tipi di servizio. Viene definito in un file `ApplicationManifest.xml` e incorporato in una directory del pacchetto dell'applicazione. La directory viene quindi copiata nell'archivio immagini del cluster di Service Fabric. È quindi possibile creare un'applicazione denominata da questo tipo di applicazione all'interno del cluster.
 
 Per altre informazioni, leggere l'articolo [Modellare un'applicazione](service-fabric-application-model.md).
 
 **Pacchetto dell'applicazione**: directory del disco contenente il file `ApplicationManifest.xml` del tipo di applicazione. Fa riferimento ai pacchetti del servizio per ogni servizio che costituisce il tipo di applicazione. I file nella directory del pacchetto dell'applicazione vengono copiati nell'archivio immagini del cluster di Service Fabric. Un pacchetto dell'applicazione per il tipo di applicazione posta elettronica può ad esempio contenere riferimenti a un pacchetto del servizio di accodamento, un pacchetto del servizio front-end e un pacchetto del servizio di database.
 
-**Applicazione denominata**: dopo aver copiato un pacchetto dell'applicazione nell'archivio immagini, è possibile creare un'istanza dell'applicazione all'interno del cluster. Si crea un'istanza quando si specifica il tipo di applicazione del pacchetto dell'applicazione, usando il relativo nome o versione. A ogni istanza del tipo di applicazione viene assegnato un URI (Uniform Resource Identifier) simile al seguente: `"fabric:/MyNamedApp"`. All'interno di un cluster è possibile creare più applicazioni denominate da un singolo tipo di applicazione. È anche possibile creare applicazioni denominate da tipi di applicazione diversi. L'amministrazione e il controllo delle versioni sono gestiti in modo indipendente per ogni applicazione.      
+**Applicazione denominata**: dopo aver copiato un pacchetto dell'applicazione nell'archivio immagini, è possibile creare un'istanza dell'applicazione all'interno del cluster. Si crea un'istanza quando si specifica il tipo di applicazione del pacchetto dell'applicazione, usando il relativo nome o versione. A ogni istanza del tipo di applicazione viene assegnato un URI (Uniform Resource Identifier) simile al seguente: `"fabric:/MyNamedApp"`. All'interno di un cluster è possibile creare più applicazioni denominate da un singolo tipo di applicazione. È anche possibile creare applicazioni denominate da tipi di applicazione diversi. L'amministrazione e il controllo delle versioni sono gestiti in modo indipendente per ogni applicazione.
 
 **Tipo di servizio**: il nome e la versione assegnati ai pacchetti di codice, ai pacchetti di dati e ai pacchetti di configurazione di un servizio. Il tipo di servizio è definito nel file `ServiceManifest.xml` e incorporato in una directory del pacchetto del servizio. Il file `ApplicationManifest.xml` del pacchetto dell'applicazione fa quindi riferimento alla directory del pacchetto del servizio. All'interno del cluster, dopo aver creato un'applicazione denominata, è possibile creare un servizio denominato da uno dei tipi di servizio del tipo di applicazione. Il file `ServiceManifest.xml` del tipo di servizio descrive il servizio.
 
@@ -60,13 +88,13 @@ Le **repliche o istanze** fanno riferimento al codice (e allo stato per i serviz
 **Pacchetto di codice**: directory del disco contenente i file eseguibili del tipo di servizio, in genere file EXE/DLL. Il file `ServiceManifest.xml` del tipo di servizio fa riferimento ai file nella directory del pacchetto di codice. Quando si crea un servizio denominato, il pacchetto di codice viene copiato nel nodo o nei nodi selezionati per l'esecuzione del servizio denominato. Viene quindi avviata l'esecuzione del codice. Esistono due tipi di eseguibili di pacchetto di codice:
 
 * **Eseguibili guest**: eseguibili che vengono eseguiti così come sono nel sistema operativo (Windows o Linux) host. Questi eseguibili non rimandano né fanno riferimento ad alcun file del runtime di Service Fabric e quindi non usano i modelli di programmazione di Service Fabric. Questi file eseguibili non sono in grado di usare alcune funzionalità di Service Fabric, ad esempio il servizio Naming per l'individuazione di endpoint. I file guest eseguibili non possono segnalare le metriche di caricamento specifiche per ogni istanza del servizio.
-* **Eseguibili host del servizio**: eseguibili che usano i modelli di programmazione di Service Fabric tramite il collegamento ai file di runtime di Service Fabric, per abilitare le funzionalità di Service Fabric. Un'istanza di servizio denominato può ad esempio registrare gli endpoint con il servizio Naming di Service Fabric e anche segnalare le metriche di carico.      
+* **Eseguibili host del servizio**: eseguibili che usano i modelli di programmazione di Service Fabric tramite il collegamento ai file di runtime di Service Fabric, per abilitare le funzionalità di Service Fabric. Un'istanza di servizio denominato può ad esempio registrare gli endpoint con il servizio Naming di Service Fabric e anche segnalare le metriche di carico.
 
 **Pacchetto dati**: directory del disco contenente file di dati di sola lettura statici, in genere file di foto, audio e video, del tipo di servizio. Il file `ServiceManifest.xml` del tipo di servizio fa riferimento ai file nella directory del pacchetto dati. Quando si crea un servizio denominato, il pacchetto di dati viene copiato nel nodo o nei nodi selezionati per l'esecuzione del servizio denominato. Il codice avvia l'esecuzione e può quindi accedere ai file di dati.
 
 **Pacchetto di configurazione**: directory del disco contenente file di configurazione di sola lettura statici, in genere file di testo, del tipo di servizio. Il file `ServiceManifest.xml` del tipo di servizio fa riferimento ai file nella directory del pacchetto di configurazione. Quando si crea un servizio denominato, i file nel pacchetto di configurazione vengono copiati in uno o più nodi selezionati per l'esecuzione del servizio denominato. Viene quindi avviata l'esecuzione del codice, che può accedere ai file di configurazione.
 
-**Contenitori**: per impostazione predefinita, Service Fabric distribuisce e attiva i servizi come processi. Service Fabric può anche distribuire servizi in immagini contenitore. I contenitori sono una tecnologia di virtualizzazione che virtualizza il sistema operativo sottostante rispetto alle applicazioni. Un'applicazione e i relativi runtime, dipendenze e librerie di sistema vengono eseguiti in un contenitore. Il contenitore ha accesso privato completo alla vista isolata dei costrutti del sistema operativo specifica del contenitore stesso. Service Fabric supporta contenitori Docker in Linux e contenitori Windows Server. Per altre informazioni, vedere [Service Fabric e contenitori](service-fabric-containers-overview.md).
+**Contenitori**: Per impostazione predefinita, Service Fabric distribuisce e attiva i servizi come processi. Service Fabric può anche distribuire servizi in immagini contenitore. I contenitori sono una tecnologia di virtualizzazione che virtualizza il sistema operativo sottostante rispetto alle applicazioni. Un'applicazione e i relativi runtime, dipendenze e librerie di sistema vengono eseguiti in un contenitore. Il contenitore ha accesso privato completo alla vista isolata dei costrutti del sistema operativo specifica del contenitore stesso. Service Fabric supporta contenitori Docker in Linux e contenitori Windows Server. Per altre informazioni, vedere [Service Fabric e contenitori](service-fabric-containers-overview.md).
 
 **Schema di partizione**: quando si crea un servizio denominato, si specifica uno schema di partizione. I servizi con una notevole quantità di stato suddividono i dati tra partizioni, distribuendo così lo stato tra i nodi del cluster. Suddividendo i dati tra partizioni, è possibile ridimensionare lo stato del servizio denominato. All'interno di una partizione, i servizi denominati senza stato hanno istanze, mentre i servizi denominati con stato hanno repliche. In genere, i servizi denominati senza stato hanno una sola partizione, perché non hanno uno stato interno. Le istanze della partizione garantiscono la disponibilità. In caso di errore di un'istanza, le altre istanze continuano a funzionare normalmente e Service Fabric crea una nuova istanza. I servizi denominati con stato gestiscono il proprio stato all'interno delle repliche e ogni partizione ha il proprio set di repliche, in modo che lo stato venga mantenuto sincronizzato. Se una replica presenta un errore, Service Fabric ne crea una nuova da quelle esistenti.
 
@@ -75,7 +103,7 @@ Per altre informazioni, vedere [Partizionare i servizi Reliable Services di Serv
 ## <a name="system-services"></a>Servizi di sistema
 In ogni cluster vengono creati alcuni servizi di sistema che forniscono le funzionalità della piattaforma di Service Fabric.
 
-**Servizio Naming**: ogni cluster di Service Fabric ha un servizio Naming che risolve i nomi dei servizi in una posizione nel cluster. L'utente gestisce i nomi e le proprietà dei servizi in modo analogo al servizio DNS (Domain Name Service) Internet per il cluster. I client comunicano in modo sicuro con qualsiasi nodo del cluster usando il servizio Naming per risolvere il nome di un servizio e il suo percorso. Le applicazioni si spostano nel cluster. Ciò può ad esempio essere dovuto a errori, bilanciamento delle risorse o ridimensionamento del cluster. È possibile sviluppare servizi e client in grado di risolvere il percorso di rete corrente. I client ottengono l'indirizzo IP del computer effettivo e la porta su cui è in esecuzione.
+**Naming Service**: ogni cluster di Service Fabric ha un Naming Service che risolve i nomi dei servizi in una posizione nel cluster. L'utente gestisce i nomi e le proprietà dei servizi in modo analogo al servizio DNS (Domain Name Service) Internet per il cluster. I client comunicano in modo sicuro con qualsiasi nodo del cluster usando il servizio Naming per risolvere il nome di un servizio e il suo percorso. Le applicazioni si spostano nel cluster. Ciò può ad esempio essere dovuto a errori, bilanciamento delle risorse o ridimensionamento del cluster. È possibile sviluppare servizi e client in grado di risolvere il percorso di rete corrente. I client ottengono l'indirizzo IP del computer effettivo e la porta su cui è in esecuzione.
 
 Per altre informazioni sulle API di comunicazione di client e servizi che funzionano con il servizio Naming, vedere l'articolo [Comunicare con i servizi](service-fabric-connect-and-communicate-with-services.md).
 
@@ -90,12 +118,21 @@ Per altre informazioni sulla distribuzione di applicazioni nel servizio archivio
    - Orchestrare gli aggiornamenti di applicazioni e cluster.
    - Interagire con altri componenti del sistema.
 
-**Servizio di gestione della riparazione**: si tratta di un servizio facoltativo del sistema che consente di eseguire le azioni di correzione da eseguire in un cluster in modo sicuro, automatizzabile e trasparente. Repair Manager è utilizzato per:
+**Servizio Gestione ripristini**: si tratta di un servizio facoltativo del sistema che consente di eseguire le azioni di correzione da eseguire in un cluster in modo sicuro, automatizzabile e trasparente. Repair Manager è utilizzato per:
    - L'esecuzione delle riparazioni di manutenzione Azure su cluster di Service Fabric Azure con [durabilità Silver e Gold](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster).
    - L’esecuzione di azioni di correttive per l’[applicazione di orchestrazione di patch](service-fabric-patch-orchestration-application.md)
 
-## <a name="built-in-programming-models"></a>Modelli di programmazione predefiniti
-Sono disponibili modelli di programmazione di .NET Framework e Java per creare servizi di Service Fabric:
+## <a name="deployment-and-application-models"></a>Modelli di distribuzione e modelli applicativi 
+
+Per distribuire i servizi, è necessario descrivere come devono essere eseguiti. Service Fabric supporta tre diversi modelli di distribuzione:
+
+### <a name="resource-model-preview"></a>Modello di risorse (anteprima)
+Le risorse Service Fabric includono tutto ciò che può essere distribuito singolarmente in Service Fabric, ad esempio applicazioni, servizi, reti e volumi. Le risorse vengono definite tramite un file JSON che può essere distribuito a un endpoint del cluster.  Per Service Fabric Mesh, viene usato lo schema del modello di risorse di Azure. Per creare più facilmente i file di definizione è anche possibile usare uno schema di file YAML. Le risorse possono essere distribuite ovunque venga eseguito Service Fabric. Il modello di risorse offre il modo più semplice per descrivere le applicazioni di Service Fabric. Questo modello si basa principalmente sulla distribuzione e la gestione semplificate dei servizi in contenitori. Per altre informazioni, vedere [Introduzione al modello di risorsa di Service Fabric](/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources).
+
+### <a name="native-model"></a>Modello nativo
+Il modello applicativo nativo offre alle applicazioni l'accesso completo a basso livello a Service Fabric. Le applicazioni e i servizi vengono definiti come tipi registrati nei file manifesto XML.
+
+Il modello nativo supporta i framework Reliable Services e Reliable Actors che consentono l'accesso alle API di runtime di Service Fabric e alle API di gestione dei cluster in C# e Java. Il modello nativo supporta anche file eseguibili e contenitori arbitrari. Il modello nativo non è supportato nell'[ambiente di Service Fabric Mesh](/azure/service-fabric-mesh/service-fabric-mesh-overview).
 
 **Reliable Services**: API che consente di creare servizi con e senza stato. I servizi con stato archiviano il proprio stato in Reliable Collections, ad esempio un dizionario o una coda. È anche possibile collegare vari stack di comunicazione, ad esempio API Web e Windows Communication Foundation (WCF).
 
@@ -103,11 +140,38 @@ Sono disponibili modelli di programmazione di .NET Framework e Java per creare s
 
 È inoltre possibile eseguire le applicazioni esistenti in Service Fabric:
 
-**Contenitori**: Service Fabric supporta la distribuzione di contenitori Docker in Linux e di contenitori Windows Server in Windows Server 2016, nonché la modalità di isolamento di Hyper-V. Nel [modello applicativo](service-fabric-application-model.md)di Service Fabric, un contenitore rappresenta un host applicazione in cui sono inserite più repliche dei servizi. Service Fabric può eseguire qualsiasi contenitore e lo scenario è simile allo scenario degli eseguibili guest, in cui il pacchetto di un'applicazione esistente viene creato all'interno di un contenitore. È anche possibile eseguire i [servizi Service Fabric all'interno dei contenitori](service-fabric-services-inside-containers.md).
+**Contenitori**:  Service Fabric supporta la distribuzione di contenitori Docker in Linux e di contenitori Windows Server in Windows Server 2016, nonché la modalità di isolamento di Hyper-V. Nel [modello applicativo](service-fabric-application-model.md)di Service Fabric, un contenitore rappresenta un host applicazione in cui sono inserite più repliche dei servizi. Service Fabric può eseguire qualsiasi contenitore e lo scenario è simile allo scenario degli eseguibili guest, in cui il pacchetto di un'applicazione esistente viene creato all'interno di un contenitore. È anche possibile eseguire i [servizi Service Fabric all'interno dei contenitori](service-fabric-services-inside-containers.md).
 
-**Eseguibili guest**: in Azure Service Fabric distribuito come servizio è possibile eseguire qualsiasi tipo di codice, ad esempio Node.js, Java, e C++. Service Fabric fa riferimento a questi tipi di servizi come eseguibili guest, considerati come servizi senza stato. I vantaggi dell'esecuzione di un eseguibile guest in un cluster di Service Fabric includono la disponibilità elevata, il monitoraggio dello stato, la gestione del ciclo di vita delle applicazioni, l’alta densità e l’individuabilità.
+**Eseguibili guest**: In Azure Service Fabric distribuito come servizio è possibile eseguire qualsiasi tipo di codice, ad esempio Node.js, Java, e C++. Service Fabric fa riferimento a questi tipi di servizi come eseguibili guest, considerati come servizi senza stato. I vantaggi dell'esecuzione di un eseguibile guest in un cluster di Service Fabric includono la disponibilità elevata, il monitoraggio dello stato, la gestione del ciclo di vita delle applicazioni, l’alta densità e l’individuabilità.
 
 Per altre informazioni, vedere [Scegliere un modello di programmazione per un servizio](service-fabric-choose-framework.md).
+
+### <a name="docker-compose"></a>Modello di Docker Compose 
+[Docker Compose](https://docs.docker.com/compose/) fa parte del progetto Docker. Service Fabric offre supporto limitato per la [distribuzione di applicazioni tramite il modello di Docker Compose](service-fabric-docker-compose.md).
+
+## <a name="environments"></a>Ambienti
+
+Service Fabric è una tecnologia di piattaforma open source su cui sono basati diversi prodotti e servizi. Microsoft offre le opzioni seguenti:
+
+ - **Azure Service Fabric Mesh**: un servizio completamente gestito per l'esecuzione di applicazioni di Service Fabric in Microsoft Azure.
+ - **Azure Service Fabric**: la piattaforma per cluster di Service Fabric ospitati in Azure. Consente l'integrazione tra Service Fabric e l'infrastruttura di Azure e offre funzionalità per la gestione degli aggiornamenti e della configurazione dei cluster di Service Fabric.
+ - **Pacchetto autonomo di Service Fabric**: un set di strumenti di installazione e configurazione per [distribuire ovunque i cluster di Service Fabric](/azure/service-fabric/service-fabric-deploy-anywhere) (in locale o in qualsiasi provider di servizi cloud). Non è gestito da Azure.
+ - **Cluster di sviluppo di Service Fabric**: offre un'esperienza di sviluppo locale in Windows, Linux o Mac per lo sviluppo di applicazioni di Service Fabric.
+
+## <a name="environment-framework-and-deployment-model-support-matrix"></a>Matrice di supporto per ambienti, framework e modelli di distribuzione
+I diversi ambienti offrono vari livello di supporto per framework e modelli di distribuzione. La tabella seguente descrive le combinazioni supportate di framework e modelli di distribuzione.
+
+| Tipo di applicazione | Descritto da | Azure Service Fabric Mesh | Cluster di Azure Service Fabric (qualsiasi sistema operativo)| Cluster locale | Cluster autonomo |
+|---|---|---|---|---|---|---|---|---|---|
+| Applicazioni Service Fabric Mesh | Modello di risorse (YAML e JSON) | Supportato |Non supportate | Windows: supportato; Linux e Mac: non supportati | Windows: non supportato |
+|Applicazioni native di Service Fabric | Modello applicativo nativo (XML) | Non supportato| Supportato|Supportato|Windows: supportato|
+
+La tabella seguente descrive i diversi modelli applicativi e gli strumenti disponibili per tali modelli rispetto a Service Fabric.
+
+| Tipo di applicazione | Descritto da | Visual Studio | Eclipse | SFCTL | AZ CLI | PowerShell|
+|---|---|---|---|---|---|---|---|---|---|
+| Applicazioni Service Fabric Mesh | Modello di risorse (YAML e JSON) | VS 2017 |Non supportate |Non supportate | Supportato, solo ambiente Mesh | Non supportato|
+|Applicazioni native di Service Fabric | Modello applicativo nativo (XML) | VS 2017 e VS 2015| Supportato|Supportato|Supportato|Supportato|
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passaggi successivi
@@ -117,4 +181,6 @@ Per altre informazioni su Service Fabric, vedere:
 * [Perché usare un approccio ai microservizi per la compilazione di applicazioni](service-fabric-overview-microservices.md)
 * [Scenari applicativi](service-fabric-application-scenarios.md)
 
+Per altre informazioni su Service Fabric Mesh, vedere:
 
+* [Panoramica di Service Fabric Mesh](/azure/service-fabric-mesh/service-fabric-mesh-overview)

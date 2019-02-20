@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: eca20b775b97296510545c4d2f2f005fd91d6758
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fc818d2d7db60a8def99c2ad635580253dc795e0
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471318"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109759"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Disponibilità elevata con Azure Cosmos DB
 
@@ -58,11 +58,25 @@ Le interruzioni a livello di area sono abbastanza comuni e Azure Cosmos DB garan
 
 ## <a name="building-highly-available-applications"></a>Compilazione di applicazioni a disponibilità elevata
 
-- Per garantire una disponibilità elevata di scrittura e lettura, configurare il proprio account Cosmos fino a occupare almeno due aree con aree a scrittura multipla. Questa configurazione garantisce disponibilità, latenza minima e scalabilità sia per le operazioni di lettura che per le operazioni di scrittura supportate dai contratti di servizio. Per altre informazioni, vedere come [configurare l'account Cosmos con più aree di scrittura](tutorial-global-distribution-sql-api.md).
+- Per garantire una disponibilità elevata di scrittura e lettura, configurare il proprio account Cosmos fino a occupare almeno due aree con aree a scrittura multipla. Questa configurazione garantisce disponibilità, latenza minima e scalabilità sia per le operazioni di lettura che per le operazioni di scrittura supportate dai contratti di servizio. Per altre informazioni, vedere come [configurare l'account Cosmos con più aree di scrittura](tutorial-global-distribution-sql-api.md). Per configurare funzionalità multimaster nelle applicazioni, vedere il [relativo articolo](how-to-multi-master.md).
 
 - Per gli account Cosmos in più aree che sono configurati con un'area di scrittura singola, abilitare il [failover automatico usando l'interfaccia della riga di comando di Azure o il portale di Azure](how-to-manage-database-account.md#automatic-failover). Dopo aver abilitato il failover automatico, quando si verifica un'emergenza a livello di aera Cosmos DB esegue automaticamente il failover dell'account.  
 
 - Anche se l'account Cosmos è a disponibilità elevata, l'applicazione potrebbe non essere correttamente progettata per garantire disponibilità elevata. Per testare la disponibilità elevata end-to-end dell'applicazione, richiamare periodicamente il [failover manuale usando l'interfaccia della riga di comando di Azure o il portale di Azure](how-to-manage-database-account.md#manual-failover) come parte dei test dell'applicazione o i drill di ripristino di emergenza (DR).
+
+
+Quando si sviluppa il piano di continuità aziendale, è necessario conoscere il tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo un evento di arresto improvviso. Il tempo necessario per il ripristino completo di un'applicazione è noto come obiettivo del tempo di ripristino (RTO). È anche necessario conoscere la perdita massima di aggiornamenti di dati recenti che l'applicazione è in grado di tollerare durante il ripristino dopo un evento di arresto improvviso. Il periodo di tempo degli aggiornamenti che è possibile perdere è noto come obiettivo del punto di ripristino (RPO).
+
+La tabella seguente indica l'RPO e l'RTO per gli scenari più comuni.
+
+|Numero area/e |Configurazione |Livello di coerenza|RPO |RTO |
+|---------|---------|---------|-------|-------|
+|1    | *    |*   | < 240 minuti | < 1 settimana |
+|>1     | Replica con master singolo | Sessione, Prefisso coerente, Finale | < 15 minuti | < 15 minuti |
+|>1     | Replica con master singolo | Decadimento ristretto | K e T | < 15 minuti |
+|>1     | Replica multimaster | Sessione, Prefisso coerente, Finale | < 15 minuti | 0 |
+|>1     | Replica multimaster | Decadimento ristretto | K e T | 0 |
+|>1     | * | Assoluta | 0 | < 15 minuti |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -72,3 +86,4 @@ Di seguito è possibile apprendere come eseguire il ridimensionamento della velo
 * [Ridimensionamento a livello globale della velocità effettiva sottoposta a provisioning](scaling-throughput.md)
 * [Distribuzione globale - Informazioni sul funzionamento](global-dist-under-the-hood.md)
 * [Livelli di coerenza in Azure Cosmos DB](consistency-levels.md)
+* [Come configurare funzionalità multimaster nelle applicazioni](how-to-multi-master.md)

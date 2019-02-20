@@ -1,5 +1,5 @@
 ---
-title: Eseguire ricerche su più risorse con Azure Log Analytics | Microsoft Docs
+title: Eseguire query su più risorse con Monitoraggio di Azure | Microsoft Docs
 description: Questo articolo illustra come eseguire query sulle risorse di più aree di lavoro e sull'app di Application Insights nella sottoscrizione.
 services: log-analytics
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 42191b21faec7bb1929a12e6bc1a724d269acb1d
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: ccc9a74c4e238ebfcab0fc05a3bf825000917843
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298875"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998945"
 ---
-# <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Eseguire ricerche nei log di più risorse con Log Analytics  
+# <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Eseguire query di log su più risorse in Monitoraggio di Azure  
 
-Azure Log Analytics consentiva in precedenza di analizzare i dati solo all'interno dell'area di lavoro corrente, limitando la possibilità di eseguire query tra più aree di lavoro definite nella sottoscrizione.  Inoltre, era possibile solo cercare gli elementi di telemetria raccolti dall'applicazione basata sul Web con Application Insights direttamente in Application Insights o in Visual Studio.  Per questi motivi, risultava difficile anche analizzare insieme in modo nativo i dati operativi e quelli dell'applicazione.   
+Monitoraggio di Azure consentiva in precedenza di analizzare i dati solo all'interno dell'area di lavoro corrente, limitando la possibilità di eseguire query su più aree di lavoro definite nella sottoscrizione.  Inoltre, era possibile solo cercare gli elementi di telemetria raccolti dall'applicazione basata sul Web con Application Insights direttamente in Application Insights o in Visual Studio.  Per questi motivi, risultava difficile anche analizzare insieme in modo nativo i dati operativi e quelli dell'applicazione.   
 
-Ora è possibile eseguire query non solo tra più aree di lavoro di Log Analytics, ma anche su dati di un'app specifica di Application Insights nello stesso gruppo di risorse, in un altro gruppo di risorse o in un'altra sottoscrizione. Si ottiene così una vista dei dati dell'intero sistema.  È possibile eseguire questi tipi di query solo in [Log Analytics](portals.md#log-analytics-page). Il numero di risorse (aree di lavoro di Log Analytics e app Application Insights) che è possibile includere in una singola query è limitato a 100. 
+Ora è possibile eseguire query non solo tra più aree di lavoro di Log Analytics, ma anche su dati di un'app specifica di Application Insights nello stesso gruppo di risorse, in un altro gruppo di risorse o in un'altra sottoscrizione. Si ottiene così una vista dei dati dell'intero sistema.  È possibile eseguire questi tipi di query solo in [Log Analytics](portals.md). Il numero di risorse (aree di lavoro di Log Analytics e app Application Insights) che è possibile includere in una singola query è limitato a 100. 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Esecuzione di query tra aree di lavoro di Log Analytics e da Application Insights
 Per fare riferimento a un'altra area di lavoro nella query, usare l'identificatore [*workspace*](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression), mentre per un'app di Application Insights usare l'identificatore [*app*](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression).  
@@ -101,9 +101,9 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 ```
 
 ## <a name="using-cross-resource-query-for-multiple-resources"></a>Uso di una query tra risorse per più risorse
-Quando si usano query tra risorse per correlare i dati di più risorse di Log Analytics e Application Insights, la query può diventare complessa e difficile da gestire. È consigliabile sfruttare le [funzioni di Log Analytics](../../azure-monitor/log-query/functions.md) per separare la logica della query dall'ambito delle risorse della query, semplificando così la struttura della query stessa. L'esempio seguente mostra come è possibile monitorare più risorse di Application Insights e visualizzare il numero di richieste non riuscite per nome applicazione. 
+Quando si usano query tra risorse per correlare i dati di più aree di lavoro di Log Analytics e di risorse di Application Insights, la query può diventare complessa e difficile da gestire. È consigliabile sfruttare le [funzioni delle query di log di Monitoraggio di Azure](functions.md) per separare la logica della query dall'ambito delle risorse della query, semplificando così la struttura della query stessa. L'esempio seguente mostra come è possibile monitorare più risorse di Application Insights e visualizzare il numero di richieste non riuscite per nome applicazione. 
 
-Creare una query come la seguente, che fa riferimento all'ambito delle risorse di Application Insights. Il comando `withsource= SourceApp` aggiunge una colonna che indica il nome dell'applicazione che ha inviato il log. [Salvare la query come funzione](../../azure-monitor/log-query/functions.md#create-a-function) con l'alias _applicationsScoping_.
+Creare una query come la seguente, che fa riferimento all'ambito delle risorse di Application Insights. Il comando `withsource= SourceApp` aggiunge una colonna che indica il nome dell'applicazione che ha inviato il log. [Salvare la query come funzione](functions.md#create-a-function) con l'alias _applicationsScoping_.
 
 ```Kusto
 // crossResource function that scopes my Application Insights resources
@@ -131,4 +131,5 @@ applicationsScoping
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [riferimento alla ricerca nei log di Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/kusto) per visualizzare tutte le opzioni della sintassi di query disponibili in Log Analytics.    
+- Vedere [Analizzare i dati di log in Monitoraggio di Azure](log-query-overview.md) per una panoramica delle query di log e di come sono strutturati i dati di log di Monitoraggio di Azure.
+- Vedere [Query di log di Monitoraggio di Azure](query-language.md) per visualizzare tutte le risorse per le query di log di Monitoraggio di Azure.

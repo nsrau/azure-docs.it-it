@@ -4,23 +4,23 @@ titleSuffix: Azure Cognitive Services
 description: Informazioni su come filtrare e visualizzare i risultati della ricerca dall'API Ricerca Web Bing.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.assetid: 8B837DC2-70F1-41C7-9496-11EDFD1A888D
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 01/12/2017
+ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: c59cb173480fbeefa890317fb4804f07b9f58f76
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 26c38c34543683a3fc450d3a0ae932d8bd30dc98
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158180"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199494"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrare i riscontri inclusi nella risposta della ricerca  
 
-Quando si esegue una ricerca nel Web, Bing restituisce tutto il contenuto che ritiene rilevante per la ricerca. Ad esempio, se la query di ricerca è "sailing+dinghies" (derive), la risposta potrebbe contenere i riscontri seguenti:
+Quando si eseguono query nel Web, Bing restituisce tutto il contenuto rilevante che trova per la ricerca. Ad esempio, se la query di ricerca è "sailing+dinghies" (derive), la risposta potrebbe contenere i riscontri seguenti:
 
 ```json
 {
@@ -44,8 +44,16 @@ Quando si esegue una ricerca nel Web, Bing restituisce tutto il contenuto che ri
     }
 }    
 ```
+È possibile filtrare i tipi di contenuto ricevuti (ad esempio immagini, video e notizie) usando il parametro di query [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter). Se Bing trova contenuto rilevante per i riscontri specificati, lo restituisce. Il filtro di risposta è un elenco delimitato da virgole di riscontri. 
 
-Se si è interessati a specifici tipi di contenuto, ad esempio immagini, video e notizie, è possibile richiedere solo questo tipo di riscontri usando il parametro di query [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter). Se Bing trova contenuto rilevante per i riscontri specificati, lo restituisce. Il filtro di risposta è un elenco delimitato da virgole di riscontri. L'esempio seguente mostra come usare `responseFilter` per richiedere immagini, video e notizie relative alle derive. Per la codifica di questa stringa di query, le virgole diventano %2C.  
+Per escludere dalla risposta tipi di contenuto specifici, ad esempio le immagini, è possibile aggiungere un carattere `-` all'inizio del valore `responseFilter`. È possibile separare i tipi esclusi con una virgola (`,`). Ad esempio: 
+
+```
+&responseFilter=-images,-videos
+```
+
+
+L'esempio seguente mostra come usare `responseFilter` per richiedere immagini, video e notizie relative alle derive. Per la codifica di questa stringa di query, le virgole diventano %2C.  
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&responseFilter=images%2Cvideos%2Cnews&mkt=en-us HTTP/1.1  
@@ -57,7 +65,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Di seguito è riportata la risposta alla query precedente. Come si può notare, Bing non ha trovato risultanti rilevanti per video e notizie, quindi la risposta non li include.
+Di seguito è riportata la risposta alla query precedente. Poiché Bing non ha trovato video e notizie rilevanti come risultati, la risposta non li include.
 
 ```json
 {
@@ -80,12 +88,6 @@ Di seguito è riportata la risposta alla query precedente. Come si può notare, 
         }
     }
 }
-```
-
-Se si vogliono escludere dalla risposta tipi di contenuto specifici, ad esempio le immagini, è possibile far precedere il valore responseFilter da un trattino (segno meno). Separare i tipi esclusi con una virgola:
-
-```
-&responseFilter=-images,-videos
 ```
 
 Anche se Bing non ha restituito risultati per video e notizie nella risposta precedente, non significa che non esiste contenuto video e di notizie. Indica semplicemente che la pagina non ha incluso questo contenuto. Tuttavia, se si scorrono altre [pagine](./paging-webpages.md) per visualizzare più risultati, è probabile che le pagine successive includano questo tipo di contenuto. Inoltre, se si chiamano direttamente gli endpoint [API Ricerca video](../bing-video-search/search-the-web.md) e [API Ricerca notizie](../bing-news-search/search-the-web.md), la risposta conterrà probabilmente risultati.

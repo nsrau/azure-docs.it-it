@@ -9,22 +9,24 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 02/08/19
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 6fc85bd96294650eb2bbf9495642851ade7c7868
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 199c0e53fb9462a121072dbea8c90928c0d75abf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731513"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56178948"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
 Azure Active Directory (Azure AD) consente di designare amministratori diversi per le diverse funzioni. Per eseguire attività come l'aggiunta o la modifica di utenti, l’assegnazione di ruoli amministrativi, la reimpostazione delle password utente, la gestione delle licenze utente e dei nomi di dominio, è possibile designare gli amministratori nel portale di Azure AD.
 
-L'amministratore globale ha accesso a tutte le funzionalità amministrative. Per impostazione predefinita, la persona che effettua l'iscrizione per una sottoscrizione di Azure riceve il ruolo Amministratore globale per la directory. Solo gli amministratori globali e gli amministratori dei ruoli con privilegi possono delegare i ruoli di amministratore.
+L'amministratore globale ha accesso a tutte le funzionalità amministrative. Per impostazione predefinita, la persona che effettua l'iscrizione per una sottoscrizione di Azure riceve il ruolo Amministratore globale per la directory. Solo gli amministratori globali e gli amministratori dei ruoli con privilegi possono delegare i ruoli di amministratore. Per ridurre il rischio per l'azienda, è consigliabile assegnare questo ruolo solo ad alcune persone della società.
+
 
 ## <a name="assign-or-remove-administrator-roles"></a>Assegnare o rimuovere ruoli di amministratore
 
@@ -86,6 +88,9 @@ Sono disponibili i ruoli di amministratore seguenti:
   > [!NOTE]
   > Per distribuire il criterio di accesso condizionale di Exchange ActiveSync in Azure, l'utente deve essere anche amministratore globale.
   
+* **[Responsabile approvazione per l'accesso a Customer Lockbox](#customer-lockbox-access-approver)**: gestisce le [richieste Customer Lockbox](https://docs.microsoft.com/office365/admin/manage/customer-lockbox-requests) nell'organizzazione. Gli utenti con questo ruolo ricevono notifiche di posta elettronica per le richieste Customer Lockbox e possono approvare e rifiutare le richieste dall'interfaccia di amministrazione di Microsoft 365. Possono anche attivare o disattivare la funzionalità Customer Lockbox. Solo gli amministratori globali possono reimpostare le password degli utenti assegnati a questo ruolo.
+<!--  This was announced in August of 2018. https://techcommunity.microsoft.com/t5/Security-Privacy-and-Compliance/Customer-Lockbox-Approver-Role-Now-Available/ba-p/223393-->
+
 * **[Amministratori di dispositivi](#device-administrators)**: questo ruolo è disponibile per l'assegnazione solo come amministratore locale aggiuntivo in [Impostazioni dispositivo](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Gli utenti con questo ruolo diventano amministratori del computer locale in tutti i dispositivi Windows 10 aggiunti ad Azure Active Directory. Non possono gestire gli oggetti di dispositivi in Azure Active Directory. 
 
 * **[Ruoli con autorizzazioni di lettura nella directory](#directory-readers)**: si tratta di un ruolo legacy che deve essere assegnato alle applicazioni che non supportano il [framework di consenso](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Non deve essere assegnato agli utenti.
@@ -96,11 +101,12 @@ Sono disponibili i ruoli di amministratore seguenti:
 
 * **[Amministratore di Dynamics 365/Amministratore di CRM](#crm-service-administrator)**: gli utenti con questo ruolo hanno autorizzazioni globali in Microsoft Dynamics 365 Online, quando il servizio è presente, nonché la possibilità di gestire i ticket di supporto e monitorare l'integrità dei servizi. Altre informazioni sono disponibili in [Utilizzare il ruolo di amministratore del servizio per gestire il tenant](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
   > [!NOTE] 
-  > Nell'API Microsoft Graph, nell'API Graph di Azure AD e in Azure AD PowerShell questo ruolo è identificato come "Amministratore del servizio Dynamics 365". È l'"Amministratore di Dynamics 365" nel [portale di Azure](https://portal.azure.com).
+  > Nell'API Microsoft Graph, nell'API Graph di Azure AD e in Azure AD PowerShell questo ruolo è identificato come "amministratore del servizio Dynamics 365". È l'"Amministratore di Dynamics 365" nel [portale di Azure](https://portal.azure.com).
 
 * **[Amministratore di Exchange](#exchange-service-administrator)**: gli utenti con questo ruolo hanno autorizzazioni globali in Microsoft Exchange Online, quando il servizio è presente. Possono inoltre creare e gestire tutti i gruppi di Office 365, gestire i ticket di supporto e monitorare l'integrità del servizio. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
   > [!NOTE]
-  > Nell'API Microsoft Graph, nell'API Graph di Azure AD e in Azure AD PowerShell questo ruolo è identificato come "Amministratore del servizio Exchange". È l'"Amministratore di Exchange" nel [portale di Azure](https://portal.azure.com).
+  > Nell'API Microsoft Graph, nell'API Graph di Azure AD e in Azure AD PowerShell questo ruolo è identificato come "Amministratore del servizio Exchange". È l'"Amministratore di Exchange" nel [portale di Azure](https://portal.azure.com). È l'"amministratore di Exchange Online" nell'[interfaccia di amministrazione di Exchange](https://go.microsoft.com/fwlink/p/?LinkID=529144). 
+
 
 * **[Amministratore globale/Amministratore società](#company-administrator)**: gli utenti con questo ruolo hanno accesso a tutte le funzionalità amministrative in Azure Active Directory, nonché ai servizi che usano identità di Azure Active Directory come Centro sicurezza Microsoft 365, Centro conformità Microsoft 365, Exchange Online, SharePoint Online e Skype for Business Online. La persona che effettua l'iscrizione per il tenant di Azure Active Directory diventa amministratore globale. Solo gli amministratori globali possono assegnare altri ruoli di amministratore. In una società possono essere presenti più amministratori globali. Gli amministratori globali possono reimpostare la password per qualsiasi utente e per tutti gli altri amministratori.
 

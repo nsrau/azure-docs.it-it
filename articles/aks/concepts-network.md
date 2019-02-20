@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: b2fc4b518ee0857014c59b84b89a0102b86f687a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6affa19c61ff4a824e390c42b7fd97554a30c9bb
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820131"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56176238"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concetti relativi alla rete per le applicazioni nel servizio Azure Kubernetes
 
@@ -102,9 +102,17 @@ Un'altra funzionalità comune per il traffico in ingresso è la terminazione SSL
 
 ## <a name="network-security-groups"></a>Gruppi di sicurezza di rete
 
-Un gruppo di sicurezza di rete filtra il traffico per le macchine virtuali, ad esempio i nodi del servizio Kubernetes di Azure. Quando si creano servizi, ad esempio LoadBalancer, la piattaforma Azure configura automaticamente le eventuali regole dei gruppi di sicurezza di rete necessarie. Non configurare manualmente le regole dei gruppi di sicurezza di rete per filtrare il traffico per i pod in un cluster servizio Azure Kubernetes. Definire le eventuali porte necessarie e l'inoltro come parte dei manifesti del servizio Kubernetes e delegare alla piattaforma Azure la creazione o l'aggiornamento delle regole appropriate.
+Un gruppo di sicurezza di rete filtra il traffico per le macchine virtuali, ad esempio i nodi del servizio Azure Kubernetes. Quando si creano servizi, ad esempio LoadBalancer, la piattaforma Azure configura automaticamente le eventuali regole dei gruppi di sicurezza di rete necessarie. Non configurare manualmente le regole dei gruppi di sicurezza di rete per filtrare il traffico per i pod in un cluster servizio Azure Kubernetes. Definire le eventuali porte necessarie e l'inoltro come parte dei manifesti del servizio Kubernetes e delegare alla piattaforma Azure la creazione o l'aggiornamento delle regole appropriate. È anche possibile usare criteri di rete, come descritto nella sezione seguente, e quindi applicare automaticamente regole di filtro del traffico ai pod.
 
-Esistono regole dei gruppi di sicurezza di rete predefinite per il traffico, ad esempio SSH. Queste regole predefinite sono progettate per la gestione del cluster e la risoluzione dei problemi di accesso. L'eliminazione di queste regole predefinite può causare problemi con la gestione di AKS e non consente di raggiungere l'obiettivo del livello di servizio (SLO).
+Esistono regole dei gruppi di sicurezza di rete predefinite per il traffico, ad esempio SSH. Queste regole predefinite sono progettate per la gestione del cluster e la risoluzione dei problemi di accesso. L'eliminazione di queste regole predefinite può causare problemi con la gestione di servizio Azure Kubernetes e non consente di raggiungere l'obiettivo del livello di servizio (SLO).
+
+## <a name="network-policies"></a>Criteri di rete
+
+Per impostazione predefinita, tutti i pod in un cluster del servizio Azure Kubernetes possono inviare e ricevere traffico senza limitazioni. Per garantire maggiore sicurezza, è possibile definire regole per il controllo del flusso del traffico. Le applicazioni back-end vengono spesso esposte solo ai servizi front-end richiesti oppure i componenti di database sono accessibili solo ai livelli applicazione che si connettono a essi.
+
+I criteri di rete sono una funzionalità Kubernetes che consente di controllare il flusso del traffico tra pod. È possibile scegliere di consentire o non consentire il traffico in base a impostazioni come la porta del traffico, lo spazio dei nomi o le etichette assegnate. I gruppi di sicurezza di rete sono più adatti per i nodi del servizio Azure Kubernetes piuttosto che per i pod. L'uso di criteri di rete è un metodo nativo del cloud più appropriato per controllare il flusso del traffico. Poiché i pod vengono creati dinamicamente in un cluster del servizio Azure Kubernetes, i criteri di rete necessari possono essere applicati automaticamente.
+
+Per altre informazioni, vedere [Proteggere il traffico tra i pod usando criteri di rete nel servizio Azure Kubernetes][use-network-policies].
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -139,3 +147,4 @@ Per altre informazioni sui concetti fondamentali relativi a Kubernetes e al serv
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-identity]: concepts-identity.md
+[use-network-policies]: use-network-policies.md

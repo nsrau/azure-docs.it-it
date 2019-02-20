@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 11/16/2018
+ms.date: 02/11/2019
 ms.author: stbaron
-ms.openlocfilehash: 7121087d9d9699a73b88e07599f70e0c7c40c1eb
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 6054b33e4068d36c5bfbb80120086a92a03525c8
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308281"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097509"
 ---
 # <a name="azure-status"></a>Stato di Azure
-Lo [stato di Azure](https://azure.microsoft.com/status/) offre una visualizzazione globale dell'integrità dei servizi di Azure. Con lo stato di Azure è possibile ottenere informazioni aggiornate sulla disponibilità del servizio. Chiunque disponga dell'accesso allo stato di Azure e possa visualizzare tutti i servizi che segnalano lo stato di integrità del servizio. 
+[Stato di Azure](https://azure.microsoft.com/status/) offre una visualizzazione globale dell'integrità dei servizi e delle aree di Azure. Con lo stato di Azure è possibile ottenere informazioni aggiornate sulla disponibilità del servizio. Stato di Azure è disponibile per tutti gli utenti e permette di visualizzare tutti i servizi che segnalano la propria integrità, nonché gli eventi imprevisti con un ampio impatto. Per gli utenti correnti di Azure, è consigliabile tuttavia usare l'esperienza personalizzata in [Integrità dei servizi di Azure](https://aka.ms/azureservicehealth). Integrità dei servizi di Azure include tutte le interruzioni, le attività di manutenzione pianificate imminenti e gli avvisi di servizio.
 
 ![Pagina relativa allo stato di Azure](./media/azure-status-overview/azure-status.PNG)
 

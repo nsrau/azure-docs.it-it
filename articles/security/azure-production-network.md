@@ -4,7 +4,7 @@ description: Questo articolo offre una descrizione generale della rete di produz
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 710792c890c3e48fc54507f93eeaee529ca839f8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: afae7cc6390ea4cd8c18c687e9d99400c8da9da4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114029"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116933"
 ---
 # <a name="the-azure-production-network"></a>La rete di produzione di Azure
 Gli utenti della rete di produzione di Azure includono i clienti esterni che accedono alle proprie applicazioni di Microsoft Azure, nonché il personale di supporto interno di Azure che gestisce la rete di produzione. In questo articolo vengono descritti i metodi di accesso di sicurezza e i meccanismi di protezione per stabilire connessioni alla rete di produzione di Azure.
@@ -54,16 +54,16 @@ Azure implementa avanzate funzionalità di sicurezza e firewall software a vari 
 ### <a name="azure-security-features"></a>Funzionalità di sicurezza di Azure
 Azure implementa firewall software basati su host all'interno della rete di produzione. Alcune funzionalità di sicurezza e firewall di base si trovano all'interno dell'ambiente Azure. Queste funzionalità di sicurezza riflettono una strategia di difesa approfondita nell'ambiente Azure. I dati dei clienti in Azure sono protetti dai firewall seguenti:
 
-**Firewall hypervisor (filtro di pacchetti)**: implementato nell'hypervisor e configurato da un agente controller di infrastruttura (FC). Questo firewall protegge il tenant in esecuzione all'interno della VM da accessi non autorizzati. Per impostazione predefinita, quando viene creata una VM, tutto il traffico viene bloccato e l'agente controller di infrastruttura aggiunge regole ed eccezioni nel filtro per consentire il traffico autorizzato.
+**Firewall hypervisor (filtro di pacchetti)**: implementato nell'hypervisor e configurato dall'agente controller di infrastruttura. Questo firewall protegge il tenant in esecuzione all'interno della VM da accessi non autorizzati. Per impostazione predefinita, quando viene creata una VM, tutto il traffico viene bloccato e l'agente controller di infrastruttura aggiunge regole ed eccezioni nel filtro per consentire il traffico autorizzato.
 
 In questo caso sono previste due categorie di regole:
 
-- **Regole di configurazione computer o di infrastruttura**: per impostazione predefinita, vengono bloccate tutte le comunicazioni. Sono presenti eccezioni che consentono a una VM di inviare e ricevere comunicazioni Dynamic Host Configuration Protocol (DHCP), informazioni DNS e inviare traffico a Internet "pubblico" in uscita verso altre VM all'interno del cluster controller di infrastruttura e del server di attivazione del sistema operativo. Poiché l'elenco di destinazioni in uscita consentite delle VM non include subnet di router di Azure e altre proprietà Microsoft, le regole fungono da livello di difesa.
-- **File di configurazione dei ruoli**: definisce gli ACL in ingresso in base al modello di servizio dei tenant. Ad esempio, se un tenant ha un frontend Web sulla porta 80 in una determinata VM, la porta 80 viene aperta a tutti gli indirizzi IP. Se la VM ha un ruolo di lavoro end in esecuzione, il ruolo di lavoro viene aperto solo per la VM nello stesso tenant.
+- **Regole di configurazione macchina virtuale o di infrastruttura**: per impostazione predefinita, vengono bloccate tutte le comunicazioni. Sono presenti eccezioni che consentono a una VM di inviare e ricevere comunicazioni Dynamic Host Configuration Protocol (DHCP), informazioni DNS e inviare traffico a Internet "pubblico" in uscita verso altre VM all'interno del cluster controller di infrastruttura e del server di attivazione del sistema operativo. Poiché l'elenco di destinazioni in uscita consentite delle VM non include subnet di router di Azure e altre proprietà Microsoft, le regole fungono da livello di difesa.
+- **Regole del file di configurazione dei ruoli**: definiscono gli ACL in ingresso in base al modello di servizio dei tenant. Ad esempio, se un tenant ha un frontend Web sulla porta 80 in una determinata VM, la porta 80 viene aperta a tutti gli indirizzi IP. Se la VM ha un ruolo di lavoro end in esecuzione, il ruolo di lavoro viene aperto solo per la VM nello stesso tenant.
 
-**Firewall host nativo**: Azure Service Fabric e Archiviazione di Azure vengono eseguiti su un sistema operativo nativo senza hypervisor e quindi Windows Firewall viene configurato con i due precedenti set di regole.
+**Firewall host nativo**: Azure Service Fabric e Archiviazione di Azure vengono eseguiti in un sistema operativo nativo senza hypervisor e quindi Windows Firewall è configurato con i due precedenti set di regole.
 
-**Firewall host**: il firewall host protegge la partizione host che esegue l'hypervisor. Le regole vengono programmate per consentire solo al controller di infrastruttura e ai jumpbox di comunicare con la partizione host su una porta specifica. Le altre eccezioni consentono la risposta DHCP e le risposte DNS. Azure usa un file di configurazione computer che include il modello delle regole del firewall per la partizione host. È anche disponibile un'eccezione del firewall host che consente alle VM di comunicare con i componenti host, il server cablato e il server di metadati tramite un protocollo o porte specifiche.
+**Firewall host**: protegge la partizione host che esegue l'hypervisor. Le regole vengono programmate per consentire solo al controller di infrastruttura e ai jumpbox di comunicare con la partizione host su una porta specifica. Le altre eccezioni consentono la risposta DHCP e le risposte DNS. Azure usa un file di configurazione computer che include il modello delle regole del firewall per la partizione host. È anche disponibile un'eccezione del firewall host che consente alle VM di comunicare con i componenti host, il server cablato e il server di metadati tramite un protocollo o porte specifiche.
 
 **Firewall guest**: il componente Windows Firewall del sistema operativo guest, configurabile dai clienti nelle macchine virtuali e nelle risorse di archiviazione del cliente.
 

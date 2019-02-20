@@ -1,129 +1,85 @@
 ---
 title: Aggiornare un cluster del servizio Azure Kubernetes
-description: Aggiornare un cluster del servizio Azure Kubernetes
+description: Informazioni su come aggiornare un cluster del servizio Azure Kubernetes
 services: container-service
-author: gabrtv
-manager: jeconnoc
+author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 07/18/2018
-ms.author: gamonroy
-ms.custom: mvc
-ms.openlocfilehash: 4ff2b56afc4496b6344735b4e3c813b06cee17e3
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.date: 02/12/2019
+ms.author: iainfou
+ms.openlocfilehash: 59d52db8c3f5f8968eae1a544abe1e5c6bbaacca
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42141996"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185985"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Aggiornare un cluster del servizio Azure Kubernetes
 
-Il servizio Azure Kubernetes semplifica l'esecuzione di attività di gestione comuni, ad esempio l'aggiornamento dei cluster Kubernetes.
+Nel corso del ciclo di vita di un cluster del servizio Azure Kubernetes, è spesso necessario eseguire l'aggiornamento alla versione più recente di Kubernetes. È infatti importante applicare gli ultimi aggiornamenti della sicurezza di Kubernetes o eseguire l'aggiornamento per ottenere le funzionalità più nuove. Questo articolo illustra come aggiornare un cluster esistente del servizio Azure Kubernetes.
 
-## <a name="upgrade-an-aks-cluster"></a>Aggiornare un cluster del servizio Azure Container
+## <a name="before-you-begin"></a>Prima di iniziare
 
-Prima di aggiornare un cluster, usare il comando `az aks get-upgrades` per verificare quali versioni di Kubernetes sono disponibili per l'aggiornamento.
+Questo articolo richiede che sia in esecuzione l'interfaccia della riga di comando di Azure 2.0.56 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
+
+## <a name="check-for-available-aks-cluster-upgrades"></a>Verificare la presenza di aggiornamenti disponibili per il cluster del servizio Azure Kubernetes
+
+Per verificare quali versioni di Kubernetes sono disponibili per il cluster, usare il comando [az aks get-upgrades][az-aks-get-upgrades]. L'esempio seguente verifica se sono disponibili aggiornamenti per il cluster denominato *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*:
 
 ```azurecli-interactive
-az aks get-upgrades --name myAKSCluster --resource-group myResourceGroup --output table
+az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-Output:
+> [!NOTE]
+> Quando si aggiorna un cluster del servizio Azure Kubernetes, le versioni secondarie di Kubernetes non possono essere ignorate. Sono consentiti, ad esempio, gli aggiornamenti *1.10.x* -> *1.11.x* o *1.11.x* -> *1.12.x*, ma non *1.10.x* -> *1.12.x*.
+>
+> Per eseguire l'aggiornamento *1.10.x* -> *1.12.x*, eseguire prima l'aggiornamento *1.10.x* -> *1.11.x* e quindi l'aggiornamento *1.11.x* -> *1.12.x*.
+
+L'output di esempio seguente mostra che il cluster può essere aggiornato alla versione *1.11.5* o *1.11.6*:
 
 ```console
 Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
--------  ---------------  ---------------  -----------------  -------------------
-default  mytestaks007     1.8.10           1.8.10             1.9.1, 1.9.2, 1.9.6
+-------  ---------------  ---------------  -----------------  --------------
+default  myResourceGroup  1.10.12          1.10.12            1.11.5, 1.11.6
 ```
 
-Sono disponibili tre versioni per l'aggiornamento: 1.9.1, 1.9.2 e 1.9.6. È possibile usare il comando `az aks upgrade` per eseguire l'aggiornamento all'ultima versione disponibile.  Durante il processo di aggiornamento, il servizio Azure Container aggiungerà un nuovo nodo al cluster, quindi [bloccherà e svuoterà][kubernetes-drain] attentamente un nodo alla volta per ridurre al minimo le interruzioni delle applicazioni in esecuzione.
+## <a name="upgrade-an-aks-cluster"></a>Aggiornare un cluster del servizio Azure Container
 
-> [!NOTE]
-> Quando si aggiorna un cluster servizio Azure Kubernetes, le versioni secondarie di Kubernetes non possono essere ignorate. Sono consentiti, ad esempio, aggiornamenti da 1.8.x a 1.9.x o da 1.9.x a 1.10.x, ma non da 1.8 a 1.10. Per eseguire l'aggiornamento da 1.8 a 1.10, eseguirlo prima da 1.8 a 1.9, quindi eseguire un altro aggiornamento da 1.9 a 1.10
+Con un elenco di versioni disponibili per il cluster del servizio Azure Kubernetes, usare il comando [az aks upgrade][az-aks-upgrade] per eseguire l'aggiornamento. Durante il processo di aggiornamento, il servizio Azure Kubernetes aggiunge un nuovo nodo al cluster e quindi [blocca e svuota][kubernetes-drain] attentamente un nodo alla volta per ridurre al minimo le interruzioni delle applicazioni in esecuzione. Nell'esempio seguente un cluster viene aggiornato alla versione *1.11.6*:
 
 ```azurecli-interactive
-az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.9.6
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.11.6
 ```
 
-Output:
+Per aggiornare il cluster sono necessari alcuni minuti, a seconda del numero di nodi di cui si dispone.
 
-```json
-{
-  "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
-  "location": "eastus",
-  "name": "myAKSCluster",
-  "properties": {
-    "accessProfiles": {
-      "clusterAdmin": {
-        "kubeConfig": "..."
-      },
-      "clusterUser": {
-        "kubeConfig": "..."
-      }
-    },
-    "agentPoolProfiles": [
-      {
-        "count": 1,
-        "dnsPrefix": null,
-        "fqdn": null,
-        "name": "myAKSCluster",
-        "osDiskSizeGb": null,
-        "osType": "Linux",
-        "ports": null,
-        "storageProfile": "ManagedDisks",
-        "vmSize": "Standard_D2_v2",
-        "vnetSubnetId": null
-      }
-    ],
-    "dnsPrefix": "myK8sClust-myResourceGroup-4f48ee",
-    "fqdn": "myk8sclust-myresourcegroup-4f48ee-406cc140.hcp.eastus.azmk8s.io",
-    "kubernetesVersion": "1.9.6",
-    "linuxProfile": {
-      "adminUsername": "azureuser",
-      "ssh": {
-        "publicKeys": [
-          {
-            "keyData": "..."
-          }
-        ]
-      }
-    },
-    "provisioningState": "Succeeded",
-    "servicePrincipalProfile": {
-      "clientId": "e70c1c1c-0ca4-4e0a-be5e-aea5225af017",
-      "keyVaultSecretRef": null,
-      "secret": null
-    }
-  },
-  "resourceGroup": "myResourceGroup",
-  "tags": null,
-  "type": "Microsoft.ContainerService/ManagedClusters"
-}
-```
-
-Verificare che l'aggiornamento sia stato completato correttamente con il comando `az aks show`.
+Per verificare che l'aggiornamento sia stato completato correttamente, usare il comando [az aks show][az-aks-show]:
 
 ```azurecli-interactive
-az aks show --name myAKSCluster --resource-group myResourceGroup --output table
+az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-Output:
+L'output di esempio seguente mostra che ora nel cluster viene eseguita la versione *1.11.6*:
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
-------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myAKSCluster  eastus     myResourceGroup  1.9.6                 Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.eastus.azmk8s.io
+------------  ----------  ---------------  -------------------  -------------------  ---------------------------------------------------------------
+myAKSCluster  eastus      myResourceGroup  1.11.6               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esercitazioni sul servizio Azure Container che ne illustrano la distribuzione e la gestione.
+Questo articolo ha illustrato come aggiornare un cluster esistente del servizio Azure Kubernetes. Per altre informazioni sulla distribuzione e sulla gestione dei cluster del servizio Azure Kubernetes, vedere le relative esercitazioni.
 
 > [!div class="nextstepaction"]
-> [Esercitazione sul servizio contenitore di Azure][aks-tutorial-prepare-app]
+> [Esercitazioni sul servizio Azure Kubernetes][aks-tutorial-prepare-app]
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[azure-cli-install]: /cli/azure/install-azure-cli
+[az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
+[az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
+[az-aks-show]: /cli/azure/aks#az-aks-show

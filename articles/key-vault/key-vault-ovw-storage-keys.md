@@ -7,14 +7,14 @@ services: key-vault
 ms.service: key-vault
 author: prashanthyv
 ms.author: pryerram
-manager: mbaldwin
+manager: barbkess
 ms.date: 10/03/2018
-ms.openlocfilehash: 152e1e5892e3a72286205c2f5bf4e18b2a2bcbf7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9b1a4e23ed0da0637b44ac52dd4d1baeb22cd6ce
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814844"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118055"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Account di archiviazione gestita di Azure Key Vault - Interfaccia della riga di comando
 
@@ -44,6 +44,12 @@ ms.locfileid: "55814844"
       
 <a name="step-by-step-instructions-on-how-to-use-key-vault-to-manage-storage-account-keys"></a>Istruzioni dettagliate su come usare Key Vault per gestire le chiavi dell'account di archiviazione
 --------------------------------------------------------------------------------
+A livello concettuale i passaggi seguiti sono
+- Si ottiene prima un account di archiviazione (pre-esistente)
+- Quindi si recupera un insieme di credenziali delle chiavi (pre-esistente)
+- Quindi si aggiunge un account di archiviazione gestito da KeyVault per l'insieme di credenziali, impostando Key1 come chiave attiva, e con un periodo di rigenerazione di 180 giorni
+- Infine si imposta un contesto di archiviazione per l'account di archiviazione specificato, con Key1
+
 Nelle istruzioni seguenti si assegna Key Vault come servizio per avere autorizzazioni di operatore per l'account di archiviazione
 
 > [!NOTE]
@@ -62,7 +68,7 @@ Nelle istruzioni seguenti si assegna Key Vault come servizio per avere autorizza
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
     
-    Al termine di questo comando trovare l'ID oggetto nel risultato
+    Al termine di questo comando trovare l'ID oggetto nel risultato:
     ```console
         {
             ...
@@ -71,7 +77,7 @@ Nelle istruzioni seguenti si assegna Key Vault come servizio per avere autorizza
         }
     ```
     
-3. Assegnare il ruolo "Operatore chiave di archiviazione" all'identità di Azure Key Vault
+3. Assegnare il ruolo Operatore chiave di archiviazione all'identità di Azure Key Vault.
 
     ```
     az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope <IdOfStorageAccount>
@@ -85,9 +91,41 @@ Nelle istruzioni seguenti si assegna Key Vault come servizio per avere autorizza
     ```
     Nel caso in cui l'utente non abbia creato l'account di archiviazione e non abbia le autorizzazioni per tale account, la procedura seguente consente di impostare le autorizzazioni per l'account, in modo da garantire la possibilità di gestire tutte le autorizzazioni di archiviazione in Key Vault.
     
+
+<a name="step-by-step-instructions-on-how-to-use-key-vault-to-create-and-generate-sas-tokens"></a>Istruzioni dettagliate su come usare Key Vault per creare e gestire i token di firma di accesso condiviso
+--------------------------------------------------------------------------------
+È anche possibile chiedere a Key Vault di generare i token di firma di accesso condiviso (SAS). Una firma di accesso condiviso fornisce accesso delegato controllato alle risorse dell'account di archiviazione. Con una firma di accesso condiviso è possibile concedere ai client l'accesso alle risorse nell'account di archiviazione, senza condividere le chiavi dell'account. Questo è il punto chiave associato all'uso delle firme di accesso condiviso nelle applicazioni: una firma di accesso condiviso rappresenta un metodo sicuro per condividere le risorse di archiviazione senza compromettere le chiavi dell'account.
+
+Dopo aver completato i passaggi elencati sopra, è possibile eseguire i comandi seguenti per chiedere a Key Vault di generare i token di firma di accesso condiviso per l'utente. 
+
+L'elenco di cose che verranno eseguite nei passaggi seguenti sono
+- Imposta una definizione di firma di accesso condiviso dell'account denominato "<YourSASDefinitionName>" in un account di archiviazione gestito da KeyVault "<YourStorageAccountName>" nell'insieme di credenziali "<VaultName>". 
+- Crea un token di firma di accesso condiviso dell'account per i servizi BLOB, File, Tabella e Coda, per i tipi di risorsa Servizio, Contenitore e Oggetto, con tutte le autorizzazioni, tramite https e con le date di inizio e fine specificate
+- Imposta una definizione di firma di accesso condiviso di archiviazione gestita da KeyVault nell'insieme di credenziali, con l'uri del modello come token di firma di accesso condiviso creato in precedenza, del tipo di firma di accesso condiviso "account" e valido per N giorni
+- Recupera il token di accesso effettivo dal segreto di Key Vault corrispondente alla definizione di firma di accesso condiviso
+
+1. In questo passaggio si creerà una definizione di firma di accesso condiviso. Dopo aver creato la definizione di firma di accesso condiviso, è possibile chiedere a Key Vault di generare più token di firma di accesso condiviso per l'utente. Questa operazione richiede l'autorizzazione di archiviazione/setsas.
+
+```
+$sastoken = az storage account generate-sas --expiry 2020-01-01 --permissions rw --resource-types sco --services bfqt --https-only --account-name storageacct --account-key 00000000
+```
+È possibile visualizzare altre informazioni sull'operazione precedente [qui](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas)
+
+Quando questa operazione viene eseguita correttamente, si dovrebbe visualizzare un output simile a quello illustrato di seguito. Copiarlo
+
+```console
+   "se=2020-01-01&sp=***"
+```
+
+2. In questo passaggio si userà l'output ($sasToken) generato in precedenza per creare una definizione di firma di accesso condiviso. Per altre informazioni, leggere [qui](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
+
+```
+az keyvault storage sas-definition create --vault-name <YourVaultName> --account-name <YourStorageAccountName> -n <NameOfSasDefinitionYouWantToGive> --validity-period P2D --sas-type account --template-uri $sastoken
+```
+                        
+
  > [!NOTE] 
  > Nel caso in cui l'utente non abbia le autorizzazioni per l'account di archiviazione, prima si ottiene l'ID oggetto dell'utente
-
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
@@ -96,11 +134,11 @@ Nelle istruzioni seguenti si assegna Key Vault come servizio per avere autorizza
     
     ```
     
-## <a name="how-to-access-your-storage-account-with-sas-tokens"></a>Come accedere all'account di archiviazione con i token di firma di accesso condiviso
+## <a name="fetch-sas-tokens-in-code"></a>Recuperare i token di firma di accesso condiviso nel codice
 
 In questa sezione verrà illustrato come poter eseguire operazioni sull'account di archiviazione recuperando [token di firma di accesso condiviso](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) da Key Vault
 
-Nella sezione seguente viene illustrato come recuperare la chiave dell'account di archiviazione memorizzata in Key Vault e usarla per creare una definizione di firma di accesso condiviso per l'account di archiviazione.
+Nella sezione seguente si illustra come recuperare i token di firma di accesso condiviso dopo aver creato una definizione di firma di accesso condiviso, come illustrato in precedenza.
 
 > [!NOTE] 
   Come descritto nell'articolo [Concetti di base](key-vault-whatis.md#basic-concepts), esistono tre modi per eseguire l'autenticazione in Key Vault:
@@ -132,19 +170,9 @@ sasToken = await kv.GetSecretAsync("SecretUri");
 accountSasCredential.UpdateSASToken(sasToken);
 ```
 
+### <a name="relevant-azure-cli-commands"></a>Comandi rilevanti dell'interfaccia della riga di comando di Azure
 
-### <a name="relavant-azure-cli-cmdlets"></a>Cmdlet dell'interfaccia della riga di comando di Azure pertinenti
-[Cmdlet di archiviazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
-
-### <a name="relevant-powershell-cmdlets"></a>Cmdlet PowerShell pertinenti
-
-- [Get-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultmanagedstorageaccount)
-- [Add-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureKeyVaultManagedStorageAccount)
-- [Get-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Get-AzureKeyVaultManagedStorageSasDefinition)
-- [Update-AzureKeyVaultManagedStorageAccountKey](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureKeyVaultManagedStorageAccountKey)
-- [Remove-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/remove-azurekeyvaultmanagedstorageaccount)
-- [Remove-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureKeyVaultManagedStorageSasDefinition)
-- [Set-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition)
+[Comandi di archiviazione per l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
 
 ## <a name="see-also"></a>Vedere anche 
 

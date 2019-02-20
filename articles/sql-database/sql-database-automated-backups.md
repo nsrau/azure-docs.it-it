@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 37b88b254b350d5c9e006e882a2dc5a39b880b2c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: af3a654010fa676096bfad895d5814b2cefa8e71
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477812"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997129"
 ---
 # <a name="automated-backups"></a>Backup automatizzati
 
@@ -63,7 +63,7 @@ Il periodo di conservazione predefinito per un database creato tramite il modell
 
 #### <a name="vcore-based-purchasing-model"></a>Modello di acquisto in base ai vCore
 
-Se si usa il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md), il periodo di conservazione dei backup predefinito è di 7 giorni (per i database autonomi, in pool e in istanza). Per tutti i database SQL di Azure (database autonomi, in pool e in istanza) è possibile [modificare il periodo di conservazione dei backup fino a un massimo di 35 giorni](#how-to-change-the-pitr-backup-retention-period).
+Se si usa il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md), il periodo di conservazione dei backup predefinito è di 7 giorni (per i database singoli, in pool e di istanza). Per tutti i database SQL di Azure (database singoli, in pool e di istanza), è possibile [modificare il periodo di conservazione dei backup fino a un massimo di 35 giorni](#how-to-change-the-pitr-backup-retention-period).
 
 > [!WARNING]
 > Se si riduce il periodo di conservazione corrente, tutti i backup esistenti anteriori al nuovo periodo di conservazione non saranno disponibili. Se si aumenta il periodo di conservazione corrente, Database SQL manterrà i backup esistenti fino al raggiungimento del periodo di conservazione più lungo.
@@ -80,7 +80,7 @@ Per altre informazioni vedere l'articolo relativo al [Ripristino temporizzato](s
 
 ### <a name="backups-for-long-term-retention"></a>Backup per la conservazione a lungo termine
 
-I database autonomi e in pool offrono la possibilità di configurare la conservazione a lungo termine (LTR) dei backup completi fino a 10 anni in Archiviazione BLOB di Azure. Se il criterio LTR è abilitato, i backup completi settimanali vengono copiati automaticamente in un contenitore di Archiviazione con ridondanza geografica e accesso in lettura diverso. A secondo dei vari requisiti di conformità, è possibile selezionare periodi di conservazione diversi per i backup settimanali, mensili e/o annuali. L'utilizzo delle risorse di archiviazione dipende dalla frequenza selezionata con cui vengono eseguiti backup e dal periodo di conservazione. È possibile usare lo strumento di [calcolo dei prezzi per la conservazione a lungo termine](https://azure.microsoft.com/pricing/calculator/?service=sql-database) per stimare il costo di questo tipo di archiviazione.
+I database autonomi e in pool offrono la possibilità di configurare la conservazione a lungo termine dei backup completi fino a 10 anni in Archiviazione BLOB di Azure. Se il criterio LTR è abilitato, i backup completi settimanali vengono copiati automaticamente in un contenitore di Archiviazione con ridondanza geografica e accesso in lettura diverso. A secondo dei vari requisiti di conformità, è possibile selezionare periodi di conservazione diversi per i backup settimanali, mensili e/o annuali. L'utilizzo delle risorse di archiviazione dipende dalla frequenza selezionata con cui vengono eseguiti backup e dal periodo di conservazione. È possibile usare lo strumento di [calcolo dei prezzi per la conservazione a lungo termine](https://azure.microsoft.com/pricing/calculator/?service=sql-database) per stimare il costo di questo tipo di archiviazione.
 
 Come i backup di ripristino temporizzato, i backup di conservazione a lungo termine sono a ridondanza geografica e protetti dalla [riproduzione su più aree di Azure Storage](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
 
@@ -168,5 +168,5 @@ Per altre informazioni, vedere [Backup Retention REST API](https://docs.microsof
 - I backup dei database sono una parte essenziale di qualsiasi strategia di continuità aziendale e ripristino di emergenza, perché proteggono i dati dal danneggiamento o dall'eliminazione accidentale. Per informazioni sulle altre soluzioni di continuità aziendale del database SQL Azure, vedere [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).
 - Per eseguire il ripristino temporizzato nel portale di Azure, vedere l'articolo sul [ripristino temporizzato nel portale di Azure](sql-database-recovery-using-backups.md).
 - Per eseguire il ripristino temporizzato usando PowerShell, vedere l'articolo sul [ripristino temporizzato con PowerShell](scripts/sql-database-restore-database-powershell.md).
-- Per configurare, gestire e ripristinare dalla conservazione a lungo termine di backup automatici in Archiviazione BLOB di Azure tramite il portale di Azure, vedere [Gestire la conservazione del backup a lungo termine usando il portale di Azure](sql-database-long-term-backup-retention-configure.md).
+- Per configurare, gestire e ripristinare dalla conservazione a lungo termine di backup automatici in Archiviazione BLOB di Azure tramite il portale di Azure, vedere [Gestire la conservazione a lungo termine dei backup usando il portale di Azure](sql-database-long-term-backup-retention-configure.md).
 - Per configurare, gestire e ripristinare dalla conservazione a lungo termine di backup automatici in Archiviazione BLOB di Azure tramite PowerShell, vedere [Gestire la conservazione del backup a lungo termine usando PowerShell](sql-database-long-term-backup-retention-configure.md).

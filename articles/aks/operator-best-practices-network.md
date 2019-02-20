@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 15b389e2158cb3a2070cc09b20f79f4274fde5d9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 680e3990afa3ed08c69402e9e5403cb9a6f3266a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699126"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175456"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la sicurezza e la connettività di rete nel servizio Azure Kubernetes
 
@@ -120,6 +120,34 @@ Un web application firewall (WAF) garantisce un ulteriore livello di sicurezza g
 
 Le risorse in ingresso e il servizio di bilanciamento del carico continuano a essere eseguiti nel cluster del servizio Azure Kubernetes per perfezionare ulteriormente la distribuzione del traffico. Il gateway applicazione può essere gestito centralmente come controller in ingresso con una definizione delle risorse. Per iniziare, [creare un controller in ingresso del gateway applicazione][app-gateway-ingress].
 
+## <a name="control-traffic-flow-with-network-policies"></a>Controllare il flusso del traffico con criteri di rete
+
+**Suggerimento per la procedura consigliata**: usare criteri di rete per consentire o meno il traffico verso i pod. Per impostazione predefinita, è consentito tutto il traffico tra i pod in un cluster. Per garantire maggiore sicurezza, definire regole che limitino la comunicazione dei pod.
+
+I criteri di rete sono una funzionalità Kubernetes che consente di controllare il flusso del traffico tra pod. È possibile scegliere di consentire o non consentire il traffico in base a impostazioni come la porta del traffico, lo spazio dei nomi o le etichette assegnate. L'uso di criteri di rete rappresenta un metodo nativo del cloud per controllare il flusso del traffico. Poiché i pod vengono creati dinamicamente in un cluster del servizio Azure Kubernetes, i criteri di rete necessari possono essere applicati automaticamente. Usare tali criteri, anziché gruppi di sicurezza di rete di Azure, per controllare il traffico da pod a pod.
+
+Per usare criteri di rete, è necessario che la funzionalità sia abilitata quando si crea un cluster del servizio Azure Kubernetes. Non è possibile abilitare criteri di rete in un cluster esistente di tale servizio. Pianificare in anticipo per essere certi di abilitare i criteri di rete nei cluster e poterli quindi usare in base alle esigenze.
+
+I criteri di rete vengono creati come una risorsa Kubernetes con un manifesto YAML. I criteri vengono applicati ai pod definiti, quindi le regole di ingresso o uscita definiscono la modalità di flusso del traffico. L'esempio seguente applica i criteri di rete ai pod a cui è stata applicata l'etichetta *app: backend*. La regola di ingresso quindi consente solo il traffico proveniente da pod con l'etichetta *app: frontend*:
+
+```yaml
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: backend-policy
+spec:
+  podSelector:
+    matchLabels:
+      app: backend
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: frontend
+```
+
+Per iniziare a usare i criteri, vedere [Proteggere il traffico tra i pod usando criteri di rete nel servizio Azure Kubernetes][use-network-policies].
+
 ## <a name="securely-connect-to-nodes-through-a-bastion-host"></a>Connettersi in modo sicuro ai nodi tramite un bastion host
 
 **Suggerimento per la procedura consigliata**: non esporre la connettività remota ai nodi del servizio Azure Kubernetes. Creare un bastion host, o una jump box, in una rete virtuale di gestione. Usare il bastion host per instradare in modo sicuro il traffico nel cluster del servizio Azure Kubernetes alle attività di gestione remota.
@@ -155,5 +183,6 @@ Questo articolo è stato incentrato sulla sicurezza e la connettività di rete. 
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-own-tls]: ingress-own-tls.md
 [app-gateway]: ../application-gateway/overview.md
+[use-network-policies]: use-network-policies.md
 [advanced-networking]: configure-azure-cni.md
 [aks-configure-kubenet-networking]: configure-kubenet.md

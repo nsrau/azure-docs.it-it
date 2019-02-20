@@ -4,17 +4,17 @@ description: Descrizione di come la definizione dei criteri delle risorse viene 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/04/2019
+ms.date: 02/11/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fc0d5c4abc3b8584212798d5ea5b6ab65404e93d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: aa334f88d04bb30ce01fe12fecb3aac3c9cd572d
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698293"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237418"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -90,8 +90,20 @@ I parametri funzionano nello stesso modo durante la creazione di criteri. L'incl
 > [!NOTE]
 > I parametri possono essere aggiunti a una definizione esistente e assegnata. Il nuovo parametro deve includere la proprietà **defaultValue**. In questo modo le assegnazioni esistenti dei criteri o dell'iniziativa non possono essere rese indirettamente non valide.
 
-Ad esempio, è possibile definire un criterio per limitare le posizioni in cui le risorse possono essere distribuite.
-Durante la creazione del criterio dichiarare i parametri seguenti:
+### <a name="parameter-properties"></a>Proprietà parametro
+
+Un parametro presenta le proprietà seguenti, usate nella definizione di criteri:
+
+- **name**: nome del parametro. Usato dalla funzione di distribuzione `parameters` all'interno della regola dei criteri. Per altre informazioni, vedere [Usare un valore di parametro](#using-a-parameter-value).
+- `type`: determina se il parametro è una **stringa** o una **matrice**.
+- `metadata`: definisce le sottoproprietà usate principalmente dal portale di Azure per visualizzare informazioni di tipo descrittivo:
+  - `description`: la spiegazione di ciò per cui viene usato il parametro. Può essere usata per fornire esempi di valori accettabili.
+  - `displayName`: il nome descrittivo visualizzato per il parametro nel portale.
+  - `strongType`: (facoltativa) usata quando si assegna la definizione di criteri tramite portale. Fornisce un elenco con riconoscimento del contesto. Per altre informazioni, vedere [strongType](#strongtype).
+- `defaultValue`: (facoltativa) imposta il valore del parametro in un'assegnazione se non viene specificato alcun valore. Obbligatoria quando si aggiorna una definizione di criteri esistente già assegnata.
+- `allowedValues`: (facoltativa) fornisce l'elenco di valori accettati dal parametro durante l'assegnazione.
+
+Ad esempio, è possibile definire una definizione di criteri per limitare i percorsi in cui le risorse possono essere distribuite. Un parametro per questa definizione di criteri potrebbe essere **allowedLocations**. Questo parametro è stato usato da ogni assegnazione della definizione di criteri per limitare i valori accettati. L'uso di **strongType** offre un'esperienza migliorata nel completamento dell'assegnazione tramite portale:
 
 ```json
 "parameters": {
@@ -102,21 +114,17 @@ Durante la creazione del criterio dichiarare i parametri seguenti:
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "westus2"
+        "defaultValue": "westus2",
+        "allowedValues": [
+            "eastus2",
+            "westus2",
+            "westus"
+        ]
     }
 }
 ```
 
-Il tipo di un parametro può essere stringa o matrice. La proprietà dei metadati viene usata per gli strumenti come il portale di Azure per visualizzare informazioni di tipo descrittivo.
-
-Nella proprietà dei metadati è possibile usare **strongType** per fornire un elenco di opzioni di selezione multipla nel portale di Azure. I valori consentiti per **strongType** attualmente includono:
-
-- `"location"`
-- `"resourceTypes"`
-- `"storageSkus"`
-- `"vmSKUs"`
-- `"existingResourceGroups"`
-- `"omsWorkspace"`
+### <a name="using-a-parameter-value"></a>Usare un valore di parametro
 
 Nella regola dei criteri fare riferimento ai parametri con la sintassi della funzione del valore di distribuzione `parameters` seguente:
 
@@ -126,6 +134,19 @@ Nella regola dei criteri fare riferimento ai parametri con la sintassi della fun
     "in": "[parameters('allowedLocations')]"
 }
 ```
+
+Questo esempio fa riferimento al parametro **allowedLocations** illustrato nella sezione relativa alle [proprietà dei parametri](#parameter-properties).
+
+### <a name="strongtype"></a>strongType
+
+Nella proprietà `metadata` è possibile usare **strongType** per fornire un elenco di opzioni di selezione multipla nel portale di Azure. I valori consentiti per **strongType** attualmente includono:
+
+- `"location"`
+- `"resourceTypes"`
+- `"storageSkus"`
+- `"vmSKUs"`
+- `"existingResourceGroups"`
+- `"omsWorkspace"`
 
 ## <a name="definition-location"></a>Posizione della definizione
 
@@ -187,7 +208,7 @@ La sintassi **not** inverte il risultato della condizione. La sintassi **allOf**
 
 ### <a name="conditions"></a>Condizioni
 
-Una condizione valuta se un **campo** soddisfa determinati criteri. Le condizioni supportate sono:
+Una condizione valuta se una funzione di accesso **field** o **value** soddisfa determinati criteri. Le condizioni supportate sono:
 
 - `"equals": "value"`
 - `"notEquals": "value"`
@@ -231,7 +252,53 @@ Sono supportati i seguenti campi:
   - Questa sintassi tra parentesi quadre supporta nomi di tag che contengono punti.
   - Dove **\<tagName\>** è il nome del tag per il quale convalidare la condizione.
   - Esempio: `tags[Acct.CostCenter]` dove **Acct.CostCenter** è il nome del tag.
+
 - alias delle proprietà; per un elenco, vedere [alias](#aliases).
+
+### <a name="value"></a>Valore
+
+Le condizioni possono essere formate anche usando **value**. **value** controlla le condizioni rispetto a [parametri](#parameters), [funzioni di modello supportate](#policy-functions) o valori letterali.
+**value** è associato a qualsiasi [condizione](#conditions) supportata.
+
+#### <a name="value-examples"></a>Esempi d'uso di value
+
+Questa regola dei criteri usa **value** per confrontare il risultato della funzione `resourceGroup()` e la proprietà restituita **name** rispetto a una condizione **like** di `*netrg`. La regola respinge qualsiasi risorsa che non faccia parte di **type** `Microsoft.Network/*` in qualsiasi gruppo di risorse il cui nome termina con `*netrg`.
+
+```json
+{
+    "if": {
+        "allOf": [{
+                "value": "[resourceGroup().name]",
+                "like": "*netrg"
+            },
+            {
+                "field": "type",
+                "notLike": "Microsoft.Network/*"
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+Questa regola dei criteri usa **value** per verificare se il risultato di più funzioni annidate corrisponde a **equals** `true`. La regola respinge qualsiasi risorsa che non dispone di almeno tre tag.
+
+```json
+{
+    "mode": "indexed",
+    "policyRule": {
+        "if": {
+            "value": "[less(length(field('tags')), 3)]",
+            "equals": true
+        },
+        "then": {
+            "effect": "deny"
+        }
+    }
+}
+```
 
 ### <a name="effect"></a>Effetto
 
@@ -274,12 +341,15 @@ Per informazioni dettagliate su ogni effetto, ordine di valutazione, proprietà 
 
 ### <a name="policy-functions"></a>Funzioni dei criteri
 
-Sono disponibili diverse [funzioni del modello di Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) per l'utilizzo all'interno di una regola dei criteri. Le funzioni attualmente supportate sono:
+Fatta eccezione per la distribuzione seguente e le funzioni della risorsa, tutte le [funzioni del modello Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) possono essere usate all'interno di una regola dei criteri:
 
-- [parameters](../../../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
-- [concat](../../../azure-resource-manager/resource-group-template-functions-array.md#concat)
-- [resourceGroup](../../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
-- [sottoscrizione](../../../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
+- copyIndex()
+- deployment()
+- list*
+- providers()
+- reference()
+- resourceId()
+- variables()
 
 Inoltre, la funzione `field` è disponibile per le regole dei criteri. `field` viene principalmente usata con **AuditIfNotExists** e **DeployIfNotExists** per fare riferimento ai campi sulla risorsa che viene valutata. Altre informazioni sono disponibili nell'esempio [DeployIfNotExists](effects.md#deployifnotexists-example).
 

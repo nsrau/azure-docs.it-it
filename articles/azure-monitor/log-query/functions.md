@@ -1,6 +1,6 @@
 ---
-title: Funzioni in Azure Log Analytics | Microsoft Docs
-description: Questo articolo descrive come usare le funzioni per chiamare una query da un'altra query in Log Analytics.
+title: Funzioni nelle query di log di Monitoraggio di Azure | Microsoft Docs
+description: Questo articolo descrive come usare le funzioni per chiamare una query da un'altra query di log in Monitoraggio di Azure.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 8f2855ed56d298ec4c6abee02dd59ce9471f0d2e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6c6bd31961022957ec1a09fef6058ad32476e1c7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884789"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005098"
 ---
-# <a name="using-functions-in-azure-monitor-log-analytics"></a>Utilizzo delle funzioni in Log Analytics di Monitoraggio di Azure
+# <a name="using-functions-in-azure-monitor-log-queries"></a>Uso delle funzioni nelle query di log di Monitoraggio di Azure
 
 > [!NOTE]
 > Prima di seguire questa lezione, è consigliabile completare [Introduzione al portale di Analytics](get-started-portal.md) e [Introduzione alle query](get-started-queries.md).
@@ -28,11 +28,11 @@ ms.locfileid: "52884789"
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 
-Per usare una query di Log Analytics con un'altra query è possibile salvarla come una funzione. Questa possibililità consente di semplificare query complesse suddividendole in più parti e di riusare codice comune con più query.
+Per usare una query di log con un'altra query è possibile salvarla come funzione. Questa possibililità consente di semplificare query complesse suddividendole in più parti e di riusare codice comune con più query.
 
 ## <a name="create-a-function"></a>Creare una funzione
 
-Creare una funzione nel portale di Azure facendo clic su **Salva** e quindi specificando le informazioni richieste nella tabella seguente.
+Creare una funzione in Log Analytics nel portale di Azure facendo clic su **Salva** e quindi specificando le informazioni richieste nella tabella seguente.
 
 | Impostazione | DESCRIZIONE |
 |:---|:---|
@@ -42,10 +42,10 @@ Creare una funzione nel portale di Azure facendo clic su **Salva** e quindi spec
 | Categoria       | Una categoria per organizzare le funzioni e le query salvate in **Esplora Query**. |
 
 > [!NOTE]
-> Una funzione Log Analytics non può contenere un'altra funzione.
+> Una funzione in Monitoraggio di Azure non può contenere un'altra funzione.
 
 > [!NOTE]
-> Il salvataggio di una funzione è possibile per le query di Log Analytics, ma attualmente non lo è per le query di Application Insights.
+> Il salvataggio di una funzione è possibile per le query di log di Monitoraggio di Azure, ma attualmente non per le query di Application Insights.
 
 
 
@@ -69,7 +69,7 @@ security_updates_last_day | where Title contains "SQL"
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere altre lezioni relative all'uso del linguaggio di query di Log Analytics:
+Vedere altre lezioni per la scrittura di query di log di Monitoraggio di Azure:
 
 - [Operazioni con stringhe](string-operations.md)
 - [Operazioni con data e ora](datetime-operations.md)

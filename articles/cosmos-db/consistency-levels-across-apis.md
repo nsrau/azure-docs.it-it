@@ -7,24 +7,24 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 4d2994ea6ab6d6472ec56f0f2e378062590c8920
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: b620ca76cfea296e504afffd91852308a01575db
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54806998"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001988"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Livelli di coerenza e API di Azure Cosmos DB
 
-I cinque modelli di coerenza offerti da Azure Cosmos DB sono supportati in modo nativo dall'API SQL di Cosmos DB. Quando si usa Azure Cosmos DB, l'API SQL è quella predefinita. 
+I cinque modelli di coerenza offerti da Azure Cosmos DB sono supportati in modo nativo dall'API SQL. Quando si usa Azure Cosmos DB, l'API SQL è quella predefinita. 
 
-Azure Cosmos DB fornisce anche il supporto nativo per le API compatibili con protocollo di rete per i database più diffusi. I database includono l'archiviazione MongoDB, Apache Cassandra, Gremlin e Azure Table. Questi database non offrono né modelli di coerenza definiti in modo preciso né le garanzie supportate da contratti di servizio per i livelli di coerenza. In genere forniscono solo un subset dei cinque modelli di coerenza offerti da Cosmos DB. Per l'API SQL, l'API Gremlin e l'API Tabella, viene utilizzato il livello di coerenza predefinito configurato per l'account Azure Cosmos DB. 
+Azure Cosmos DB fornisce anche il supporto nativo per le API compatibili con protocollo di rete per i database più diffusi. I database includono l'archiviazione MongoDB, Apache Cassandra, Gremlin e Azure Table. Questi database non offrono né modelli di coerenza definiti in modo preciso né le garanzie supportate da contratti di servizio per i livelli di coerenza. In genere forniscono solo un subset dei cinque modelli di coerenza offerti da Cosmos DB. Per l'API SQL, l'API Gremlin e l'API Tabella, viene usato il livello di coerenza predefinito configurato per l'account Azure Cosmos. 
 
-Le sezioni seguenti illustrano il mapping tra la coerenza dei dati richiesta da un driver del client OSS per Apache Cassandra 4.x e MongoDB 3.4. Questo documento illustra anche i livelli di coerenza di Azure Cosmos DB corrispondenti per Apache Cassandra e MongoDB.
+Le sezioni seguenti illustrano il mapping tra la coerenza dei dati richiesta da un driver del client OSS per Apache Cassandra e MongoDB e i livelli di coerenza di Azure Cosmos DB corrispondenti.
 
 ## <a id="cassandra-mapping"></a>Eseguire il mapping tra i livelli di coerenza di Azure Cosmos DB e Apache Cassandra
 
-La tabella seguente illustra il mapping per la coerenza tra Apache Cassandra e i livelli di coerenza in Azure Cosmos DB. Per ognuno dei livelli di coerenza in lettura e scrittura di Cassandra, il livello di coerenza di Cosmos DB corrispondente offre garanzie più solide, ossia più rigorose.
+La tabella seguente illustra la combinazione delle diverse coerenze che è possibile usare con l'API Cassandra e il mapping del livello di coerenza nativo equivalente di Cosmos DB. Qualsiasi combinazione di modalità di lettura e scrittura di Apache Cassandra è supportata in modo nativo da Cosmos DB. In tutte le combinazioni del modello di coerenza di lettura e scrittura di Apache Cassandra, Cosmos DB fornirà garanzie di coerenza uguale o superiore rispetto ad Apache Cassandra. Cosmos DB inoltre offre garanzie di durabilità maggiore rispetto ad Apache Cassandra anche nella più debole modalità di scrittura.
 
 La tabella seguente illustra il **mapping per la coerenza in scrittura** tra Azure Cosmos DB e Cassandra:
 

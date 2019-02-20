@@ -1,6 +1,6 @@
 ---
-title: Gestione dello spazio file del database SQL di Azure| Microsoft Docs
-description: Questa pagina descrive come gestire lo spazio file con il database SQL di Azure e fornisce esempi di codice per determinare se è necessario compattare un database e come eseguire un'operazione di compattazione del database.
+title: Gestione dello spazio file con database singoli o in pool nel database SQL di Azure | Microsoft Docs
+description: Questa pagina descrive come gestire lo spazio file con database singoli e in pool nel database SQL di Azure e fornisce esempi di codice per determinare se sia necessario compattare un database singolo o in pool e come eseguire un'operazione di compattazione del database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -11,20 +11,24 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 94b793d4ab68ae4d2b8a28961d76eed1ea875ff7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/11/2019
+ms.openlocfilehash: 32cfb108964d67f865b1d03ffa745eb468feeea7
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468632"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110150"
 ---
-# <a name="manage-file-space-in-azure-sql-database"></a>Gestire lo spazio file nel database SQL di Azure
-Questo articolo descrive i diversi tipi di spazio di archiviazione nel database SQL di Azure e le operazioni che è possibile eseguire quando lo spazio file allocato per i database e i pool elastici deve essere gestito esplicitamente.
+# <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Gestire lo spazio file per database singoli e in pool nel database SQL di Azure
+
+Questo articolo descrive i diversi tipi di spazio di archiviazione per database singoli e in pool nel database SQL di Azure e le operazioni che è possibile eseguire quando lo spazio file allocato per i database e i pool elastici deve essere gestito esplicitamente.
+
+> [!NOTE]
+> Le informazioni di questo articolo non sono valide per l'opzione di distribuzione dell'istanza gestita nel database SQL di Azure.
 
 ## <a name="overview"></a>Panoramica
 
-Nel database SQL di Azure sono disponibili modelli di carico di lavoro in cui l'allocazione dei file di dati sottostanti per i database può superare la quantità di pagine di dati usate. Questa condizione si può verificare quando lo spazio usato aumenta e i dati vengono successivamente eliminati. Ciò è dovuto al fatto che lo spazio file allocato non viene recuperato automaticamente quando i dati vengono eliminati.
+Con i database singoli e in pool nel database SQL di Azure sono disponibili modelli di carico di lavoro in cui l'allocazione dei file di dati sottostanti per i database può superare la quantità di pagine di dati usate. Questa condizione si può verificare quando lo spazio usato aumenta e i dati vengono successivamente eliminati. Ciò è dovuto al fatto che lo spazio file allocato non viene recuperato automaticamente quando i dati vengono eliminati.
 
 Può essere necessario monitorare l'utilizzo dello spazio file e compattare i file di dati per:
 
@@ -33,17 +37,20 @@ Può essere necessario monitorare l'utilizzo dello spazio file e compattare i fi
 - Consentire il passaggio di un database singolo o di un pool elastico a un livello di servizio o a un livello di prestazioni diverso con dimensioni massime inferiori.
 
 ### <a name="monitoring-file-space-usage"></a>Monitoraggio dell'utilizzo dello spazio file
+
 La maggior parte delle metriche per lo spazio di archiviazione visualizzate nel portale di Azure e delle API seguenti misura solo le dimensioni delle pagine di dati usate:
+
 - API per le metriche basate su Azure Resource Manager tra cui [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric) di PowerShell
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 Le API seguenti misurano invece anche le dimensioni dello spazio allocato per i database e i pool elastici:
+
 - T-SQL: [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
 ### <a name="shrinking-data-files"></a>Compattazione dei file di dati
 
-Il servizio database SQL non compatta automaticamente i file di dati per recuperare spazio allocato non usato a causa del potenziale impatto sulle prestazioni dei database.  I clienti possono tuttavia compattare i file di dati in modalità self-service quando preferiscono, seguendo la procedura illustrata in [Recuperare lo spazio allocato non usato](#reclaim-unused-allocated-space). 
+Il servizio database SQL non compatta automaticamente i file di dati per recuperare spazio allocato non usato a causa del potenziale impatto sulle prestazioni dei database.  I clienti possono tuttavia compattare i file di dati in modalità self-service quando preferiscono seguendo la procedura illustrata in [Recuperare lo spazio allocato non usato](#reclaim-unused-allocated-space).
 
 > [!NOTE]
 > A differenza dei file di dati, il servizio di database SQL compatta automaticamente i file di log, in quanto tale operazione non influisce sulle prestazioni del database. 
@@ -62,13 +69,14 @@ La comprensione delle quantità di spazio di archiviazione seguenti è important
 
 Il diagramma seguente illustra la relazione tra i diversi tipi di spazio di archiviazione per un database.
 
-![Tipi di spazio di archiviazione e relazioni](./media/sql-database-file-space-management/storage-types.png) 
+![Tipi di spazio di archiviazione e relazioni](./media/sql-database-file-space-management/storage-types.png)
 
-## <a name="query-a-database-for-storage-space-information"></a>Eseguire una query su un database per ottenere informazioni sullo spazio di archiviazione
+## <a name="query-a-single-database-for-storage-space-information"></a>Eseguire una query su un database singolo per ottenere informazioni sullo spazio di archiviazione
 
-Le query seguenti possono essere usate per determinare le quantità di spazio di archiviazione per un database.  
+Per determinare le quantità di spazio di archiviazione per un database singolo, è possibile usare le query seguenti.  
 
 ### <a name="database-data-space-used"></a>Spazio dati del database usato
+
 Modificare la query seguente per restituire la quantità di spazio dati del database usato.  L'unità di misura dei risultati di query è costituita da MB.
 
 ```sql
@@ -81,6 +89,7 @@ ORDER BY end_time DESC
 ```
 
 ### <a name="database-data-space-allocated-and-unused-allocated-space"></a>Spazio di dati del database allocato e spazio allocato non usato
+
 Usare la query seguente per restituire la quantità di spazio dati di database allocato e la quantità di spazio non usato allocato.  L'unità di misura dei risultati di query è costituita da MB.
 
 ```sql
@@ -94,6 +103,7 @@ HAVING type_desc = 'ROWS'
 ```
  
 ### <a name="database-data-max-size"></a>Dimensioni massime dei dati del database
+
 Modificare la query seguente per restituire le dimensioni massime dei dati del database.  L'unità di misura dei risultati di query è costituita da byte.
 
 ```sql
@@ -137,7 +147,7 @@ Modificare lo script di PowerShell seguente per restituire una tabella che elenc
 
 I risultati delle query per determinare lo spazio allocato per ogni database nel pool possono essere sommati per determinare lo spazio totale allocato per il pool elastico. Lo spazio allocato del pool elastico non deve superare le dimensioni massime del pool elastico.  
 
-Lo script di PowerShell richiede il modulo SQL Server PowerShell. Vedere [Scaricare il modulo PowerShell](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module?view=sql-server-2017) per l'installazione.
+Lo script di PowerShell richiede il modulo SQL Server PowerShell. Vedere [Scaricare il modulo PowerShell](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module) per l'installazione.
 
 ```powershell
 # Resource group name
@@ -218,7 +228,7 @@ Per altre informazioni su questo comando, vedere [SHRINKDATABASE](https://docs.m
 
 ### <a name="auto-shrink"></a>Compattazione automatica
 
-In alternativa, è possibile abilitare la compattazione automatica per un database.  La compattazione automatica riduce la complessità della gestione dei file e il suo impatto sulle prestazioni del database è inferiore rispetto a SHRINKDATABASE o SHRINKFILE.  Può essere particolarmente utile per la gestione dei pool elastici con molti database.  Può essere però meno efficace nel recupero dello spazio file rispetto a SHRINKDATABASE e SHRINKFILE.
+In alternativa, è possibile abilitare la compattazione automatica per un database.  La compattazione automatica riduce la complessità della gestione dei file e il suo impatto sulle prestazioni del database è inferiore rispetto a `SHRINKDATABASE` o `SHRINKFILE`.  Può essere particolarmente utile per la gestione dei pool elastici con molti database.  Può essere però meno efficace nel recupero dello spazio file rispetto a `SHRINKDATABASE` e `SHRINKFILE`.
 Per abilitare la compattazione automatica, modificare il nome del database nel comando seguente.
 
 

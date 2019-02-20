@@ -1,5 +1,5 @@
 ---
-title: Endpoint e regole del servizio Rete virtuale per il database SQL di Azure e SQL Data Warehouse | Microsoft Docs
+title: Endpoint e regole di rete virtuale per database singoli e in pool in Azure SQL | Microsoft Docs
 description: Contrassegnare una subnet come endpoint del servizio Rete virtuale. Contrassegnare quindi l'endpoint come regola della rete virtuale per ACL nel database SQL di Azure. Il database SQL accetta quindi la comunicazione da tutte le macchine virtuali e altri nodi nella subnet.
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ccc97adadef43390d2b82e206adb60962d6e1fb2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/11/2019
+ms.openlocfilehash: 6fdcf0b5baf28aee931307b28e1f161fddaa4d8e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453928"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118378"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Usare gli endpoint e le regole del servizio Rete virtuale per SQL Azure
+# <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Usare endpoint di servizio e regole di rete virtuale per server di database
 
-Le *regole della rete virtuale* rappresentano una funzionalità di sicurezza firewall che consente di definire se il server del [database SQL](sql-database-technical-overview.md) di Azure o di [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accetta comunicazioni inviate da subnet specifiche nelle reti virtuali. Questo articolo spiega i motivi per cui la funzionalità relativa alle regole di rete virtuale rappresenti a volte la scelta ideale per consentire le comunicazioni con il database SQL di Azure e SQL Data Warehouse in modo sicuro.
+Le *regole di rete virtuale* rappresentano una funzionalità di sicurezza firewall che consente di definire se il server di database per i database singoli e il pool elastico nel [database SQL](sql-database-technical-overview.md) di Azure o per i database in [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accetta le comunicazioni inviate da subnet specifiche nelle reti virtuali. Questo articolo spiega i motivi per cui la funzionalità relativa alle regole di rete virtuale rappresenti a volte la scelta ideale per consentire le comunicazioni con il database SQL di Azure e SQL Data Warehouse in modo sicuro.
 
 > [!IMPORTANT]
-> Questo argomento è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse. Le informazioni di questo articolo *non* sono valide per **Istanza gestita di database SQL di Azure**.
+> Questo articolo è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse. Le informazioni di questo articolo *non* sono valide per la distribuzione di un'**istanza gestita** nel database SQL di Azure perché non ha un endpoint di servizio associato.
 
 Per creare una regola della rete virtuale, deve essere disponibile un [endpoint del servizio Rete virtuale][vm-virtual-network-service-endpoints-overview-649d] al quale la regola possa fare riferimento.
 

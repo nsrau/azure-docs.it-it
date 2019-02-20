@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 4601628fd0fbdbd80c2b159a4578e25cb4e3c4c5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: f2be733fc0f127288a86372adf54a547983285db
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250768"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998706"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Eseguire attività di codifica avanzata personalizzando i set di impostazioni di Media Encoder Standard 
 
@@ -235,17 +235,17 @@ Assicurarsi di esaminare la sezione [Considerazioni](#considerations) .
 
 Si applicano le considerazioni seguenti:
 
-* L'utilizzo di timestamp espliciti per Inizio/Passaggio/Intervallo presuppone che l'origine dell'input duri almeno 1 minuto.
-* Gli elementi Jpg/Png/BmpImage hanno gli attributi inizio, passaggio e intervallo della stringa, che possono essere interpretati come:
+* L'utilizzo di timestamp espliciti per Start/Step/Range presuppone che l'origine dell'input duri almeno 1 minuto.
+* Gli elementi Jpg/Png/BmpImage hanno gli attributi stringa Start, Step e Range, che possono essere interpretati come:
 
-  * Se sono numeri interi non negativi, numero di frame, ad esempio "Start": "120",
+  * Numero di frame se sono numeri interi non negativi, ad esempio "Start": "120",
   * Relativi alla durata di origine se espressi con il suffisso %, ad esempio "Start": "15%", OR
   * Timestamp se espresso come HH:MM:SS come formato, ad esempio "Start": "00:01:00"
 
     È possibile combinare e associare le notazioni a piacimento.
 
-    Inoltre, Inizio supporta anche una Macro speciale: {Best}, che tenta di determinare il primo fotogramma "interessante" della NOTA contenuto: (Passaggio e Intervallo vengono ignorati quando Inizio è impostato su {Best})
-  * Impostazioni predefinite: Start: {Best}
+    Start inoltre supporta anche una macro speciale, ovvero {Best}, che tenta di determinare il primo frame "interessante" del contenuto. NOTA: Step e Range vengono ignorati quando Start è impostato su {Best}
+  * Valori predefiniti: Start:{Best}
 * Il formato di output deve essere specificato in modo esplicito per ogni formato immagine: Jpg/Png/BmpFormat. Quando è presente, MES collega JpgVideo a JpgFormat e così via. OutputFormat presenta una nuova Macro specifica di codec di immagine : {Index}, che deve essere presente (una volta e una sola volta) per i formati immagine.
 
 ## <a id="trim_video"></a>Tagliare un video (ritaglio)
@@ -752,7 +752,7 @@ I clienti non devono eseguire alcuna operazione se desiderano che il contenuto i
 
 
 ## <a id="audio_only"></a>Impostazioni predefinite solo audio
-In questa sezione vengono illustrate due impostazioni predefinite MES solo audio: Audio AAC e Audio AAC di buona qualità.
+Questa sezione illustra due impostazioni predefinite Media Encoder Standard solo audio: Audio AAC e Audio AAC di buona qualità.
 
 ### <a name="aac-audio"></a>Audio ACC
     {
@@ -1038,7 +1038,7 @@ Per altre informazioni sul modo in cui il codificatore interpreta le impostazion
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Vedere anche

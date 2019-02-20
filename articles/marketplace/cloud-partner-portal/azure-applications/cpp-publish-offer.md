@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 2adf07cf2337611b9136af47ce6a35b617e2e9ff
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cafda8a48f9160c80edb02c3452035f912958bc7
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177033"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098222"
 ---
 # <a name="publish-azure-application-offer"></a>Pubblicare un'offerta di applicazione Azure
 
@@ -46,7 +46,6 @@ La tabella seguente elenca e illustra ogni passaggio della pubblicazione e indic
 | Live                           | < 1 giorno | L'offerta viene rilasciata, replicata nelle aree specificate e resa disponibile al pubblico. |
 |   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|   |
 
- 
 È possibile monitorare il processo di pubblicazione nella scheda **Stato** per l'offerta nel portale Cloud Partner.
 
 ![Scheda Stato per l'offerta di un'app Azure](./media/offer-status-tab.png)
@@ -54,38 +53,13 @@ La tabella seguente elenca e illustra ogni passaggio della pubblicazione e indic
 Al termine del processo di pubblicazione, l'offerta sarà disponibile nell'elenco della [categoria dell'applicazione di Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/).
 
 
+## <a name="errors-and-review-feedback"></a>Errori e feedback della revisione
 
-## <a name="errors-and-review-feedback"></a>Errori e commenti e suggerimenti della revisione
-
-Oltre a visualizzare lo stato della pubblicazione dell'offerta, la scheda **Stato** visualizza i messaggi di errore e i commenti e suggerimenti dal passaggio **Revisione Microsoft**.  I problemi di revisione vengono in genere chiamati richieste pull.  Ogni richiesta pull è collegata a un elemento di Visual Studio Team Services (VSTS, rinominato [Azure DevOps](https://azure.microsoft.com/services/devops/)) online, che contiene i dettagli del problema.  L'immagine seguente visualizza un esempio di riferimento a una richiesta pull di revisione.  In caso di situazioni più complesse, i team di revisione e supporto possono inviare un messaggio di posta elettronica. 
-
-![Scheda Stato con i commenti e suggerimenti della revisione](./media/status-tab-ms-review.png)
-
-È necessario risolvere ogni problema segnalato prima di proseguire con il processo di pubblicazione.  Il diagramma seguente illustra come questo processo di commenti e suggerimenti è correlato a quello di pubblicazione.
-
-![Procedura di pubblicazione con i commenti e suggerimenti di VSTS](./media/pub-flow-vsts-access.png)
-
-
-### <a name="vsts-access"></a>Accesso VSTS
-
-Per visualizzare gli elementi VSTS a cui si fa riferimento nei commenti e suggerimenti della revisione, gli autori devono avere l'autorizzazione appropriata.  In caso contrario, i nuovi autori ricevono una pagina di risposta `401 - Not Authorized`.  Per richiedere l'accesso al sistema VSTS di revisione delle offerte, seguire questa procedura:
-
-1. Raccogliere le informazioni seguenti:
-    - Il nome dell'autore e l'ID
-    - Tipo di offerta (app Azure), nome dell'offerta e ID SKU
-    - Collegamento della richiesta pull, ad esempio: `https://solutiontemplates.visualstudio.com/marketplacesolutions/_git/contoso/pullrequest/<number>` Questo URL può essere recuperato dal messaggio di notifica o dall'indirizzo della pagina di risposta 401.
-    - Gli indirizzi di posta elettronica delle persone dell'organizzazione di pubblicazione a cui si vuole concedere l'accesso.  È necessario includere gli indirizzi dei proprietari specificati durante la registrazione come autore nel portale Cloud Partner.
-2. Creare una richiesta di assistenza.  Nella barra del titolo del portale Cloud Partner selezionare il pulsante **?**, quindi scegliere **Supporto** dal menu.  Il Web browser predefinito verrà avviato e passerà alla pagina Microsoft della nuova richiesta di assistenza.  Potrebbe essere necessario eseguire prima l'accesso.
-3. In **Tipo di problema** specificare **Onboarding del Marketplace** e in **Categoria** specificare **Problema di accesso**, quindi selezionare **Avvio richiesta**.
-
-    ![Categoria del ticket di supporto](./media/support-incident1.png)
-
-4. Nella pagina **Passaggio 1 di 2** specificare le informazioni sul contatto e selezionare **Continua**.
-5. Nella pagina **Passaggio 2 di 2** specificare un titolo dell'evento imprevisto (ad esempio, `Request VSTS access`) e fornire le informazioni raccolte nel primo passaggio (sopra).  Leggere e accettare il contratto, quindi selezionare **Invia**.
-
-Se la creazione dell'evento imprevisto ha esito positivo, viene visualizzata una pagina di conferma.  Salvare le informazioni di conferma per riferimento.  Il supporto tecnico Microsoft risponderà alla richiesta di accesso entro alcuni giorni lavorativi.
+Oltre a visualizzare lo stato della pubblicazione dell'offerta, la scheda **Stato** visualizza i messaggi di errore e il feedback da eventuali passaggi della pubblicazione in cui viene riscontrato un problema.  Se il problema è critico, la pubblicazione viene annullata.  È necessario risolvere i problemi segnalati e ripubblicare l'offerta.  Poiché il passaggio **Revisione Microsoft** rappresenta una revisione estesa dell'offerta e dei relativi asset tecnici associati (soprattutto il modello di Azure Resource Manager), i problemi vengono in genere visualizzati come collegamenti richiesta pull.  Per una spiegazione su come visualizzare e rispondere a queste richieste pull, vedere [Gestione del feedback di revisione](./cpp-handling-review-feedback.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo la pubblicazione di un'app Azure, è possibile [aggiornare l'offerta esistente](./cpp-update-existing-offer.md) per riflettere le modifiche ai requisiti tecnici o aziendali. 
+Se si verificano errori in uno o più passaggi di pubblicazione, è necessario correggerli e ripubblicare l'offerta.  Se vengono rilevati problemi critici nel passaggio **Revisione Microsoft**, è necessario [gestire il feedback della revisione](./cpp-handling-review-feedback.md) accedendo al repository Azure DevOps del team di revisione Microsoft.
+
+Dopo la pubblicazione di un'app Azure, è possibile [aggiornare l'offerta esistente](./cpp-update-existing-offer.md) in modo da riflettere le modifiche di requisiti tecnici o aziendali. 

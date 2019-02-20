@@ -10,17 +10,18 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/08/2018
+ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: 24a911978d6c9f9a33c81254a5e2f5951029ff3a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: c9392d910098e8a2dfadc4842dfcfe185f01fafc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120887"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004520"
 ---
 # <a name="analytics-in-application-insights"></a>Analytics in Application Insights
-Analytics è l'efficace strumento di ricerca e query incluso in [Application Insights](../../azure-monitor/app/app-insights-overview.md). Analytics è uno strumento Web, pertanto non occorre installarlo. Se Application Insights è già stato configurato per una delle app, è possibile analizzare i dati dell'app aprendo Analytics dal [pannello Panoramica](../../azure-monitor/app/app-insights-dashboards.md) dell'app.
+Analytics è l'efficace strumento di ricerca e query incluso in [Application Insights](app-insights-overview.md). Analytics è uno strumento Web, pertanto non occorre installarlo.
+Se Application Insights è già stato configurato per una delle app, è possibile analizzare i dati dell'app aprendo Analytics dal [pannello Panoramica](app-insights-dashboards.md) dell'app.
 
 ![In portal.azure.com, aprire la risorsa di Application Insights e selezionare Analytics.](./media/analytics/001.png)
 
@@ -28,6 +29,12 @@ Analytics è l'efficace strumento di ricerca e query incluso in [Application Ins
 <br>
 <br>
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
+
+## <a name="relation-to-azure-monitor-logs"></a>Relazione con i log di Monitoraggio di Azure
+Analytics di Application Insights si basa su [Esplora dati di Azure](/azure/data-explorer) come i log di Monitoraggio di Azure e usa anche il [linguaggio di query di Esplora dati](/azure/kusto/query). Usa lo stesso [portale di analisi dei log](../log-query/get-started-portal.md) usato dai log di Monitoraggio di Azure, sebbene i dati vengano archiviati in una partizione separata.
+
+Non è possibile accedere direttamente ai dati in un'area di lavoro di Log Analytics da Analytics di Application Insights né ai dati dell'applicazione da Log Analytics. Per eseguire query contemporaneamente su entrambi i set di dati, scrivere una [query in Log Analytics](../log-query/log-query-overview.md) e quindi usare l'[espressione app()](../log-query/app-expression.md) per accedere ai dati dell'applicazione.
+
 
 ## <a name="query-data-in-analytics"></a>Eseguire query sui dati in Analytics
 Una query tipica inizia con un nome di tabella seguito da una serie di *operatori* separati da `|`.

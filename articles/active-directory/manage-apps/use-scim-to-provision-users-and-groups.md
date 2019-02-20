@@ -3,9 +3,8 @@ title: Automatizzare il provisioning delle app usando SCIM in Azure Active Direc
 description: Azure Active Directory può effettuare automaticamente il provisioning di utenti e gruppi in qualsiasi applicazione o archivio identità gestito da un servizio Web con interfaccia definita nella specifica del protocollo SCIM
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/12/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: e16598a10cbbe4cfa65e6b5394e749bfee99dbdc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 946a70a1b3fe2ddcaf8ec58b9ebc297f1d8894fd
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732584"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56178856"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Uso di System for Cross-Domain Identity Management (SCIM) per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory ad applicazioni
 
@@ -40,7 +40,7 @@ Esistono due casi in cui SCIM viene usato in Azure Active Directory:
 
 * **Provisioning di utenti e gruppi in applicazioni che supportano SCIM**: le applicazioni che supportano SCIM 2.0 e usano token di connessione OAuth per l'autenticazione possono essere usate con Azure AD senza interventi di configurazione.
   
-* **Compilazione di una soluzione di provisioning per le applicazioni che supportano il provisioning basato su altre API**: in caso di applicazioni non SCIM, è possibile creare un endpoint SCIM da convertire tra l'endpoint SCIM di Azure AD e qualsiasi API supportata dall'applicazione per il provisioning utente. Per facilitare lo sviluppo di un endpoint SCIM, sono disponibili librerie CLI (Common Language Infrastructure) ed esempi di codice che illustrano come creare un endpoint SCIM e convertire messaggi SCIM.  
+* **Compilazione di una soluzione di provisioning per le applicazioni che supportano il provisioning basato su altre API**: in caso di applicazioni non SCIM, è possibile creare un endpoint SCIM da convertire tra l'endpoint SCIM di Azure AD e qualsiasi API supportata dall'applicazione per il provisioning utente. Per facilitare lo sviluppo di un endpoint SCIM, sono disponibili librerie CLI (Common Language Infrastructure) ed esempi di codice che illustrano come fornire un endpoint SCIM e convertire messaggi SCIM.  
 
 ## <a name="provisioning-users-and-groups-to-applications-that-support-scim"></a>Provisioning di utenti e gruppi in applicazioni che supportano SCIM
 Azure AD può essere configurato in modo da effettuare automaticamente il provisioning di determinati utenti e gruppi in applicazioni che implementano un servizio Web [System for Cross-domain Identity Management 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) e accettano token di connessione OAuth per l'autenticazione. Nell'ambito della specifica SCIM 2.0, le applicazioni devono soddisfare i requisiti seguenti:
@@ -86,7 +86,7 @@ Le applicazioni che supportano il profilo SCIM descritto in questo articolo poss
     >[!NOTE]
     >Facoltativamente, è possibile disattivare la sincronizzazione degli oggetti gruppo disabilitando il mapping relativo ai gruppi. 
 
-11. In **Impostazioni**, il campo **Ambito** definisce gli utenti e/o i gruppi che devono essere sincronizzati. Se si seleziona "Sync only assigned users and groups" ("Sincronizza solo utenti e gruppi assegnati") (scelta consigliata), verranno sincronizzati solo gli utenti e i gruppi assegnati nella scheda **Utenti e gruppi**.
+11. In **Impostazioni** il campo **Ambito** definisce gli utenti e i gruppi che devono essere sincronizzati. Se si seleziona "Sync only assigned users and groups" ("Sincronizza solo utenti e gruppi assegnati") (scelta consigliata), verranno sincronizzati solo gli utenti e i gruppi assegnati nella scheda **Utenti e gruppi**.
 12. Al termine della configurazione, impostare lo **Stato del provisioning** su **Sì**.
 13. Fare clic su **Salva** per avviare il servizio di provisioning di Azure AD. 
 14. Se si sceglie di sincronizzare solo gli utenti e i gruppi assegnati (scelta consigliata), assicurarsi di selezionare la scheda **Utenti e gruppi** e di assegnare gli utenti e/o i gruppi che si vuole sincronizzare.
@@ -153,7 +153,7 @@ Il modo più semplice per implementare un endpoint SCIM in grado di accettare ri
    ![][2]
    *Figura 4: Configurazione del provisioning nel portale di Azure*
     
-6. Nel campo **URL tenant** immettere l'URL esposto a Internet e la porta dell'endpoint SCIM. Questa voce sarà simile a http://testmachine.contoso.com:9000 o a http://<indirizzo-IP>:9000/, dove <indirizzo-IP> è l'indirizzo IP esposto a Internet.  
+6. Nel campo **URL tenant** immettere l'URL esposto a Internet e la porta dell'endpoint SCIM. Questa voce sarà simile a http://testmachine.contoso.com:9000 o a http://\<indirizzo-IP>:9000/, dove \<indirizzo-IP> è l'indirizzo IP esposto a Internet.  
 7. Se l'endpoint SCIM richiede un token di connessione OAuth da un'autorità di certificazione diversa da Azure AD, copiare il token di connessione OAuth nel campo **Token segreto** facoltativo. Se questo campo viene lasciato vuoto, AD Azure includerà in ogni richiesta un token di connessione OAuth emesso da Azure AD. Le app che usano Azure AD come provider di identità possono convalidare il token rilasciato da Azure AD.
 8. Fare clic sul pulsante **Test connessione** per fare in modo che Azure Active Directory provi a connettersi all'endpoint SCIM. Se i tentativi hanno esito negativo, verranno visualizzate informazioni sul tipo di errore.  
 
