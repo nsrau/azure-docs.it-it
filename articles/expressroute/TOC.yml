@@ -46,8 +46,6 @@ items:
     href: expressroute-erdirect-about.md
   - name: Informazioni su Copertura globale di ExpressRoute
     href: expressroute-global-reach.md
-  - name: Scenario di applicazione di Copertura globale di ExpressRoute
-    href: expressroute-global-reach-app-scenario.md
   - name: Interoperabilità della connettività di back-end
     items:
     - name: Introduzione e installazione test
@@ -174,7 +172,7 @@ items:
       href: expressroute-troubleshooting-arp-resource-manager.md
     - name: Recupero di tabelle ARP (versione classica)
       href: expressroute-troubleshooting-arp-classic.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Azure PowerShell
     href: /powershell/module/azurerm.network#expressroute
@@ -227,9 +225,9 @@ items:
       href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/
     - name: Configurare il peering pubblico per un circuito
       href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/
-ms.openlocfilehash: 54100c59be82666914ea35684fbae5130a763ada
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 9980b405670b3fee0d1aa47c746e8f33001ba335
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329117"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56448067"

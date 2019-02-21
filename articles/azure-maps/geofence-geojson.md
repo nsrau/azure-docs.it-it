@@ -3,21 +3,21 @@ title: Formato di dati GeoJSON del recinto virtuale nelle Mappe di Azure | Micro
 description: Informazioni sul formato di dati GeoJSON del recinto virtuale nelle Mappe di Azure
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/08/2018
+ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: aa39661c8ecc4b594478def7d0cc9be3006294c4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 5a654b7fdae341da62d94499830a5e1202dff921
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007489"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339635"
 ---
 # <a name="geofencing-geojson-data"></a>Geofencing dei dati GeoJSON
 
-Le API delle Mappe di Azure [Recinto virtuale GET](https://docs.microsoft.com/rest/api/map/spatial/getgeofencepreview) e [Recinto virtuale POST](https://docs.microsoft.com/rest/api/map/spatial/postgeofencepreview) consentono di recuperare la prossimità di una coordinata relativa a un recinto virtuale specificato o un set di recinti. Questo articolo illustra come preparare i dati del recinto virtuale che possono essere usati nelle API delle Mappe di Azure GET e POST.
+Le API delle Mappe di Azure [Recinto virtuale GET](https://docs.microsoft.com/rest/api/maps/spatial/getgeofencepreview) e [Recinto virtuale POST](https://docs.microsoft.com/rest/api/maps/spatial/postgeofencepreview) consentono di recuperare la prossimità di una coordinata relativa a un recinto virtuale specificato o un set di recinti. Questo articolo illustra come preparare i dati del recinto virtuale che possono essere usati nelle API delle Mappe di Azure GET e POST.
 
 I dati per recinto virtuale o set di recinti virtuali sono rappresentati dall'oggetto `Feature` e oggetto `FeatureCollection` nel formato`GeoJSON`, che viene definito in [rfc7946](https://tools.ietf.org/html/rfc7946). Inoltre:
 

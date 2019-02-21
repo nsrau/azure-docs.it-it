@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9eebd695cbbc1e29ea7d2647b5955bcc2e3cfe4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6a86ce8c061450fd66b31a81ec00e51f98a39646
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175915"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415647"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Risolvere i problemi relativi all'accesso Single Sign-On facile di Azure Active Directory
 
@@ -82,8 +82,8 @@ Per la risoluzione dei problemi dell'accesso SSO facile, usare il seguente elenc
 - Verificare che l'account dell'utente sia presente in una foresta di Active Directory in cui è stato configurato l'accesso SSO facile.
 - Verificare che il dispositivo sia connesso alla rete aziendale.
 - Verificare che l'ora del dispositivo sia sincronizzata con quella di Active Directory e dei controller di dominio e che si discosti al massimo di 5 minuti dalle stesse.
-- Assicurarsi che l'account di computer `AZUREADSSOACCT` sia presente e attivato in ogni foresta di AD per la quale si desidera che sia attivato il Single Sign-On facile. Se l'account del computer è stato eliminato o non è presente, è possibile usare i [cmdlet di PowerShell](#manual-reset-of-the-feature) per ricrearlo.
-- Indicare i ticket Kerberos presenti nel dispositivo usando il comando `klist` da un prompt dei comandi. Verificare se sono presenti i ticket emessi per l'account del computer `AZUREADSSOACCT`. I ticket Kerberos degli utenti sono in genere validi per 10 ore. È possibile che siano in uso impostazioni diverse in Active Directory.
+- Assicurarsi che l'account di computer `AZUREADSSOACC` sia presente e attivato in ogni foresta di AD per la quale si desidera che sia attivato il Single Sign-On facile. Se l'account del computer è stato eliminato o non è presente, è possibile usare i [cmdlet di PowerShell](#manual-reset-of-the-feature) per ricrearlo.
+- Indicare i ticket Kerberos presenti nel dispositivo usando il comando `klist` da un prompt dei comandi. Verificare se sono presenti i ticket emessi per l'account del computer `AZUREADSSOACC`. I ticket Kerberos degli utenti sono in genere validi per 10 ore. È possibile che siano in uso impostazioni diverse in Active Directory.
 - Se si è disabilitato e abilitato di nuovo l'accesso Single Sign-On facile nel tenant, gli utenti non potranno usare l'accesso Single Sign-On fino alla scadenza dei ticket Kerberos memorizzati nella cache.
 - Eliminare i ticket Kerberos dal dispositivo usando il comando `klist purge` e riprovare.
 - Esaminare i log della console del browser (in **Strumenti di sviluppo**) per determinare se esistono problemi relativi a JavaScript.
@@ -123,7 +123,7 @@ Se il problema persiste, è possibile reimpostare manualmente la funzionalità n
     >[!NOTE]
     >Per trovare la foresta di Active Directory desiderata, usare il nome utente dell'amministratore di dominio fornito nel formato di nome dell'identità utente (UPN) (johndoe@contoso.com) o il nome dominio completo dell'account SAM (contoso\johndoe o contoso.com\johndoe). Se si usa il formato di nome dominio completo dell'account SAM, usare la parte del dominio del nome utente per [individuare il controller di dominio dell'amministratore di dominio usando DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se invece si usa il formato UPN, [convertirlo in un nome dominio completo dell'account SAM](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) prima di individuare il controller di dominio appropriato.
 
-2. Eseguire la chiamata a `Disable-AzureADSSOForest -OnPremCredentials $creds`. Questo comando rimuove l'account computer `AZUREADSSOACCT` dal controller di dominio locale per questa foresta di Active Directory specifica.
+2. Eseguire la chiamata a `Disable-AzureADSSOForest -OnPremCredentials $creds`. Questo comando rimuove l'account computer `AZUREADSSOACC` dal controller di dominio locale per questa foresta di Active Directory specifica.
 3. Ripetere la procedura precedente per ogni foresta di Active Directory in cui la funzionalità è configurata.
 
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>Passaggio 4: Abilitare l'accesso SSO facile per ogni foresta di Active Directory

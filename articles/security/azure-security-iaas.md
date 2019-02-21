@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 45fb1cbf57f54f040f9dfbc522c22a2e0884d6db
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6bf73bcc691e2ab27f3ec379530a59d3b616a070
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116500"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341217"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedure consigliate per la sicurezza dei carichi di lavoro IaaS in Azure
 
@@ -39,7 +39,7 @@ Le procedure consigliate si basano su opinioni concordanti e funzionino con le c
 Il primo passo per proteggere le VM consiste nel garantire che solo gli utenti autorizzati possano configurare nuove VM e accedervi.
 
 **Procedura consigliata**: controllare l'accesso alla macchina virtuale.   
-**Dettagli**: usare i [criteri di Azure](../azure-policy/azure-policy-introduction.md) per stabilire convenzioni per le risorse all'interno dell'organizzazione e creare criteri personalizzati. Applicare questi criteri alle risorse, ad esempio ai [gruppi di risorse](../azure-resource-manager/resource-group-overview.md). Le VM che appartengono a un gruppo di risorse ereditano i suoi criteri.
+**Dettagli**: usare i [criteri di Azure](../governance/policy/overview.md) per stabilire convenzioni per le risorse all'interno dell'organizzazione e creare criteri personalizzati. Applicare questi criteri alle risorse, ad esempio ai [gruppi di risorse](../azure-resource-manager/resource-group-overview.md). Le VM che appartengono a un gruppo di risorse ereditano i suoi criteri.
 
 Se l'organizzazione dispone di molte sottoscrizioni, potrebbe essere necessario gestire in modo efficace l'accesso, i criteri e la conformità per tali sottoscrizioni. I [gruppi di gestione di Azure](../azure-resource-manager/management-groups-overview.md) forniscono un livello di ambito al di sopra delle sottoscrizioni. Le sottoscrizioni sono organizzate in gruppi di gestione, o contenitori, a cui vengono applicate le condizioni di governance. Tutte le sottoscrizioni all'interno di un gruppo di gestione ereditano automaticamente le condizioni applicate al gruppo. I gruppi di gestione offrono gestione di livello aziendale su larga scala, indipendentemente dal tipo di sottoscrizioni che si posseggono.
 

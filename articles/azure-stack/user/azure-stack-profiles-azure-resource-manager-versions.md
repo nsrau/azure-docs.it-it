@@ -14,12 +14,12 @@ ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 6866c6d208468e53b04ede1b5e596f0ea625c49d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f7d82b8cb609b390275617509946d640720f2dda
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248471"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456946"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versioni di API del provider di risorse supportate da profili in Azure Stack
 
@@ -57,28 +57,6 @@ Per una spiegazione dei profili di API e ritmo di rilascio versione per Azure St
 | Sottoscrizioni | 2016-10-01 |
 
 Per più un elenco delle versioni per ogni tipo di risorsa per i provider nel profilo di API, vedere [dettagli per il 2018-03-01-hybrid](#details-for-the-2018-03-01-hybrid) profilo.
-
-## <a name="overview-of-2018-03-01-hybrid"></a>Panoramica del 2018-03-01-hybrid
-
-| Provider di risorse | Versione API-version |
-|------------------------------------------------|------------------------------|
-| Microsoft.Compute | 2016-03-30 |
-| Microsoft.Network | 2015-06-15 |
-| Microsoft. Storage (piano dati) | 2015-04-05  |
-| Microsoft. Storage (piano di controllo) | 2016-01-01   |
-| Microsoft.Websites | 2016-01-01 |
-| Microsoft.KeyVault | 2016-10-01<br>(Non modificare) |
-| Microsoft.Resources<br>(Azure Resource Manager se stesso) | 2016-02-01 |
-| Microsoft.Authorization<Br>(operazioni di criteri) | 2015-11-01 |
-| Microsoft.Insights | 2015-11-01 |
-| Microsoft.Keyvault | 2016-10-01 |
-| Policy | 2015-10-01-preview |
-| Risorse | 2016-02-01 |
-| Resources_Links | 2016-09-01 |
-| Resources_Locks | 2016-09-01 |
-| Sottoscrizioni | 2016-06-1 |
-
-Per un elenco delle versioni di ogni tipo di risorsa per i provider nel profilo di API, vedere la sezione successiva.
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>Dettagli per il 2018-03-01-hybrid
 

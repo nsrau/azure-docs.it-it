@@ -13,18 +13,16 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 8eea14703a7a4ed6fad56dc0bed981b84266e2db
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d05ec1835bc04be0ca0fc12f41322c14b5420213
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112615"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337817"
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Errore RequestDisallowedByPolicy con i criteri delle risorse di Azure
 
 Questo articolo descrive la causa dell'errore RequestDisallowedByPolicy e indica la relativa soluzione.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="symptom"></a>Sintomo
 
@@ -68,5 +66,5 @@ Per risolvere questo problema, esaminare i criteri delle risorse e determinare c
 
 Per altre informazioni, vedere gli articoli seguenti:
 
-- [Informazioni su Criteri di Azure](../azure-policy/azure-policy-introduction.md)
-- [Creare e gestire i criteri per applicare la conformità](../azure-policy/create-manage-policy.md)
+- [Informazioni su Criteri di Azure](../governance/policy/overview.md)
+- [Creare e gestire i criteri per applicare la conformità](../governance/policy/tutorials/create-and-manage.md)

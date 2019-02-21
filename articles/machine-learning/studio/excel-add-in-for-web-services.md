@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: c9c5ad0af39b698175c4bc7cb7f720452546ec10
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 14e631edb21c43ccde04a536760c2793ead40e90
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997068"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454693"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Componente aggiuntivo Excel per i servizi Web di Azure Machine Learning Studio
 Excel consente di chiamare servizi Web direttamente senza dover scrivere alcun codice.
@@ -29,13 +29,13 @@ Excel consente di chiamare servizi Web direttamente senza dover scrivere alcun c
 
 2. Scegliere un servizio Web facendo clic su di esso: in questo esempio "Stime sopravvissuti Titanic (esempio componente aggiuntivo Excel) [Score]".
    
-    ![Selezionare il servizio Web][01]
+    ![Selezionare il servizio Web](./media/excel-add-in-for-web-services/image1.png)
 3. Viene visualizzata la sezione **Stima**.  Questa cartella di lavoro contiene già dati di esempio, ma per una cartella di lavoro vuota è anche possibile selezionare una cella in Excel e fare clic su **Use sample data**(Usa dati di esempio).
 4. Selezionare i dati con intestazioni e fare clic sull'icona dell'intervallo dei dati di input.  Assicurarsi che sia selezionata la casella "Dati con intestazioni".
 5. In **Output** immettere il numero di cella in cui si vuole inserire l'output, in questo caso ad esempio "H1".
 6. Fare clic su **Stima**. Se si seleziona la casella di controllo "Auto-predict" (Stima automatica) qualsiasi modifica nelle aree selezionate (quelle specificate come input) attiverà una richiesta e un aggiornamento delle celle di output senza la necessità di premere il pulsante per la stima.
    
-    ![Sezione Stima][02]
+    ![Sezione Stima](./media/excel-add-in-for-web-services/image1.png)
 
 Distribuire un servizio Web o usarne uno esistente. Per altre informazioni sulla distribuzione di un servizio Web, vedere [Esercitazione 3: Distribuire il modello di rischio di credito](tutorial-part3-credit-risk-deploy.md).
 
@@ -45,10 +45,10 @@ Ottenere la chiave API per il servizio Web. La posizione in cui viene eseguita l
 
 1. In Machine Learning Studio fare clic sulla sezione **SERVIZI WEB** sulla sinistra e quindi selezionare il servizio Web da usare.
    
-    ![Selezione di un servizio Web in Studio][04]
+    ![Selezione di un servizio Web in Studio](./media/excel-add-in-for-web-services/image4.png)
 2. Copiare la chiave dell'API per il servizio Web.
    
-    ![Chiave API in Studio][05]
+    ![Chiave API in Studio](./media/excel-add-in-for-web-services/image5.png)
 3. Nella scheda **DASHBOARD** per il servizio Web fare clic sul collegamento **RICHIESTA/RISPOSTA**.
 4. Cercare la sezione **Request URI** (Richiedi URI).  Copiare e salvare l'URL.
 
@@ -70,23 +70,16 @@ Ottenere la chiave API per il servizio Web. La posizione in cui viene eseguita l
 3. Cercare la sezione **Basic consumption info** (Informazioni di base sull'uso). Copiare e salvare il valore di **Primary Key** (Chiave primaria) e l'URL **Request-Response** (Richiesta-risposta).
 4. In Excel passare alla sezione **Servizi Web** (se si è nella sezione **Stima**, fare clic sulla freccia indietro per tornare all'elenco dei servizi Web).
    
-    ![Passare alla selezione del servizio Web][03]
+    ![Passare alla selezione del servizio Web](./media/excel-add-in-for-web-services/image3.png)
 5. Fare clic su **Aggiungi servizio Web**.
 6. Incollare l'URL nella casella di testo **URL**del componente aggiuntivo Excel.
 7. Incollare la chiave API/primaria nella casella di testo **Chiave API**.
 8. Fare clic su **Aggiungi**.
    
-    ![URL e chiave API per un servizio Web classico.][06]
+    ![URL e chiave API per un servizio Web classico.](./media/excel-add-in-for-web-services/image6.png)
 9. Per usare il servizio Web, seguire le indicazioni illustrate in precedenza nella sezione "Procedura per usare un servizio Web esistente".
 
 ## <a name="sharing-your-workbook"></a>Condivisione della cartella di lavoro
 Se si salva la cartella di lavoro, verrà salvata anche la chiave API/primaria per i servizi Web che sono stati aggiunti. Pertanto, è necessario condividere la cartella di lavoro solo con persone attendibili.
 
 In caso di domande, inserirle nella sezione seguente dedicata ai commenti o nel [forum](https://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
-
-[01]: ./media/excel-add-in-for-web-services/image1.png
-[02]: ./media/excel-add-in-for-web-services/image2.png
-[03]: ./media/excel-add-in-for-web-services/image3.png
-[04]: ./media/excel-add-in-for-web-services/image4.png
-[05]: ./media/excel-add-in-for-web-services/image5.png
-[06]: ./media/excel-add-in-for-web-services/image6.png

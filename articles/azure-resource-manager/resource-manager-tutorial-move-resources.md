@@ -13,16 +13,14 @@ ms.devlang: na
 ms.date: 12/19/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 99d4f3b6cf42ee21c34809b5604c4603da784e7b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cf1894a218af35459e0d0dc432c5813169856cca
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107821"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267701"
 ---
 # <a name="tutorial-move-azure-resources-to-another-resource-group-or-subscription"></a>Esercitazione: Spostare le risorse di Azure in un altro gruppo di risorse o sottoscrizione
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Verrà illustrato come spostare le risorse di Azure da un gruppo di risorse a un altro. È anche possibile spostare le risorse di Azure da una sottoscrizione di Azure a un'altra. In questa esercitazione si usa un modello di Resource Manager per distribuire due gruppi di risorse e un account di archiviazione. Si sposta quindi l'account di archiviazione da un gruppo di risorse all'altro.
 
@@ -37,8 +35,6 @@ Questa esercitazione illustra le attività seguenti:
 > * Pulire le risorse.
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prepare-the-resources"></a>Preparare le risorse
 
@@ -98,6 +94,8 @@ L'operazione di convalida dello spostamento consente di testare lo scenario di s
 ## <a name="move-the-resource"></a>Spostare la risorsa
 
 L'account di archiviazione è all'interno del gruppo di risorse di origine (rg1). Eseguire lo script di PowerShell seguente per spostare la risorsa nel gruppo di risorse di destinazione (rg2). Assicurarsi di usare lo stesso nome di progetto usato quando si distribuiscono le risorse.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ```azurepowershell-interactive
 $projectName = Read-Host -prompt "Enter a project name"

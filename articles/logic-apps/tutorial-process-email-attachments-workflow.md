@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.openlocfilehash: f0d368097c72efccf5dc15fe15ec0b7d920279e5
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 1d047e3dfe37929a02c141af675062abb9718786
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245883"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56448144"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Esercitazione: automatizzare la gestione di messaggi di posta elettronica e allegati con App per la logica di Azure
 
@@ -178,24 +178,29 @@ Usare ora il frammento di codice fornito in questi passaggi per creare una funzi
 5. Dopo l'apertura dell'editor, sostituire il codice del modello con questo codice di esempio, che rimuove il codice HTML e restituisce i risultati al chiamante:
 
    ``` CSharp
-   using System.Net;
-   using System.Text.RegularExpressions;
+    #r "Newtonsoft.Json"
 
-   public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
-   {
-      log.Info($"HttpWebhook triggered");
+    using System.Net;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Primitives;
+    using Newtonsoft.Json;
+    using System.Text.RegularExpressions;
 
-      // Parse query parameter
-      string emailBodyContent = await req.Content.ReadAsStringAsync();
+    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
+    {
+        log.LogInformation("HttpWebhook triggered");
 
-      // Replace HTML with other characters
-      string updatedBody = Regex.Replace(emailBodyContent, "<.*?>", string.Empty);
-      updatedBody = updatedBody.Replace("\\r\\n", " ");
-      updatedBody = updatedBody.Replace(@"&nbsp;", " ");
+        // Parse query parameter
+        string emailBodyContent = await new StreamReader(req.Body).ReadToEndAsync();
 
-      // Return cleaned text
-      return req.CreateResponse(HttpStatusCode.OK, new { updatedBody });
-   }
+         // Replace HTML with other characters
+        string updatedBody = Regex.Replace(emailBodyContent, "<.*?>", string.Empty);
+        updatedBody = updatedBody.Replace("\\r\\n", " ");
+        updatedBody = updatedBody.Replace(@"&nbsp;", " ");
+
+        // Return cleaned text
+        return (ActionResult) new OkObjectResult(new { updatedBody });
+    }
    ```
 
 6. Al termine dell'operazione, scegliere **Salva**. Per testare la funzione, sul bordo destro dell'editor scegliere **Test** sotto l'icona a forma di freccia (**<**). 

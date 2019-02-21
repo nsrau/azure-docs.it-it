@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: cf30d5dd8648a2b1da3f4a40399376182bf342c4
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8a784bb4e37caa28c89939bdcec5139648164b1a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562301"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340852"
 ---
-# <a name="understand-policy-effects"></a>Informazioni sugli effetti di Criteri
+# <a name="understand-azure-policy-effects"></a>Informazioni sugli effetti di Criteri di Azure
 
 Ogni definizione di criteri in Criteri di Azure ha un effetto. Questo effetto determina cosa accade quando viene valutata la corrispondenza della regola dei criteri. Il comportamento degli effetti varia a seconda che riguardino una nuova risorsa, una risorsa aggiornata o una risorsa esistente.
 
@@ -25,7 +25,7 @@ Attualmente sono disponibili sei effetti supportati in una definizione dei crite
 - Append
 - Audit
 - AuditIfNotExists
-- Deny
+- Nega
 - DeployIfNotExists
 - Disabled
 
@@ -120,7 +120,7 @@ Esempio 4: coppia **campo/valore** singola che usa un [alias](definition-structu
 }
 ```
 
-## <a name="deny"></a>Deny
+## <a name="deny"></a>Nega
 
 Deny viene usato per impedire una richiesta di risorse che non corrisponde agli standard definiti tramite una definizione dei criteri e che genera un errore della richiesta.
 

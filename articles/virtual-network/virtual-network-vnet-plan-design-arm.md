@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: ef293b39d0e82cdd26e0c41af5d63d0459064017
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: acd7a88acb31b9d3bd3ba714387561e91b3524a6
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820794"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339517"
 ---
 # <a name="plan-virtual-networks"></a>Pianificare le reti virtuali
 
@@ -113,7 +113,7 @@ Azure usa il [Controllo degli accessi basato sui ruoli](../role-based-access-con
 
 Criteri di Azure consente di creare, assegnare e gestire le definizioni dei criteri. Le definizioni dei criteri applicano regole diverse alle risorse, in modo che le risorse rimangano conformi ai contratti di servizio e agli standard dell'organizzazione. Criteri di Azure esegue una valutazione delle risorse, alla ricerca delle risorse che non sono conformi alle definizioni di criteri specificate. Ad esempio, è possibile definire e applicare un criterio che consente la creazione di reti virtuali solo in un gruppo di risorse o in un'area specifici. Un altro criterio potrebbe richiedere che a tutte le subnet sia associato un gruppo di sicurezza di rete. I criteri vengono quindi valutati durante la creazione e l'aggiornamento delle risorse.
 
-I criteri vengono applicati alla gerarchia seguente: Sottoscrizione, gruppo di gestione e gruppo di risorse. Per altre informazioni su [Criterio di Azure](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o distribuire alcuni esempi di reti virtuali [modello di criteri](policy-samples.md).
+I criteri vengono applicati alla gerarchia seguente: Sottoscrizione, gruppo di gestione e gruppo di risorse. Per altre informazioni su [Criterio di Azure](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o distribuire alcuni esempi di reti virtuali [modello di criteri](policy-samples.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

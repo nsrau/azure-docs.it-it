@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 2ac140e40ec1c70bf04c35512c28e84f59522bb8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1e8bb6deeb66b506e1342fceb725b1563b822dff
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989424"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453121"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>Utilizzo di un servizio Web di Azure Machine Learning Studio da Excel
 
@@ -34,7 +34,7 @@ Dopo aver creato un servizio Web, fare clic sulla sezione **WEB SERVICES** sulla
 
 1. Nella scheda **DASHBOARD** per il servizio Web è presente una riga per il servizio **REQUEST/RESPONSE**. Se il servizio ha un singolo output, è necessario vedere il collegamento **Download Excel Workbook** in quella riga.
    
-    ![][1]
+    ![](./media/consuming-from-excel/excellink.png)
 2. Fare clic su **Download Excel Workbook**(Scarica cartella di lavoro Excel).
 
 **Nuovo servizio Web**
@@ -47,13 +47,13 @@ Dopo aver creato un servizio Web, fare clic sulla sezione **WEB SERVICES** sulla
 1. Aprire la cartella di lavoro.
 2. Viene visualizzato un avviso di sicurezza. Fare clic sul pulsante **Abilita modifica**.
    
-    ![][2]
+    ![](./media/consuming-from-excel/enableeditting.png)
 3. Viene visualizzato un avviso di sicurezza. Fare clic sul pulsante **Abilita contenuto** per eseguire le macro nel foglio di calcolo.
    
-    ![][3]
+    ![](./media/consuming-from-excel/enablecontent.png)
 4. Una volta attivate le macro, viene generata una tabella. Le colonne in blu sono necessarie come input nel servizio Web di richiesta-risposta (RRS) o **PARAMETRI**. Si noti che l'output del servizio RRS, **PREDICTED VALUES** è verde. Quando vengono riempite tutte le colonne per una determinata riga, la cartella di lavoro può automaticamente chiamare l'API di valutazione e visualizzare i risultati corrispondenti.
    
-    ![][4]
+    ![](./media/consuming-from-excel/sampletable.png)
 5. Per valutare più di una riga, compilare la seconda riga con i dati, così verranno elaborati i valori stimati. È anche possibile incollare più righe contemporaneamente.
 
 È possibile usare tutte le funzionalità di Excel (grafici, Power Map, formattazione condizionale e così via) con i valori stimati per visualizzare i dati.    
@@ -66,8 +66,3 @@ Una chiamata RRS viene effettuata nei due casi seguenti:
 
 1. La prima volta che una riga include contenuto in tutti i propri **PARAMETRI**
 2. Ogni volta che uno dei **PARAMETRI** viene modificato in una riga che aveva tutti i **PARAMETRI** immessi.
-
-[1]: ./media/consuming-from-excel/excellink.png
-[2]: ./media/consuming-from-excel/enableeditting.png
-[3]: ./media/consuming-from-excel/enablecontent.png
-[4]: ./media/consuming-from-excel/sampletable.png

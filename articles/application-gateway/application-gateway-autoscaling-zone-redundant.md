@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: victorh
-ms.openlocfilehash: 880a6fc9d5636ff0ac67d24d0ef66c8f48ae22fb
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: bc1176ea97d1c2d4fc17487c0589fb4235163b46
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743651"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446512"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Gateway applicazione con scalabilità automatica e ridondanza della zona (anteprima pubblica)
 
@@ -45,7 +45,7 @@ Durante l'anteprima, non è previsto alcun addebito. Viene fatturato l'uso di ri
 |Problema|Dettagli|
 |--|--|
 |Autenticazione del certificato|Non supportati.<br>Per altre informazioni, vedere [Panoramica di SSL end-to-end con il gateway applicazione](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
-|Combinazione di versione 2 Standard e gateway applicazione standard nella stessa subnet|Non supportati.<br>Inoltre, se è abilitata la scalabilità automatica, una subnet può avere solo un gateway applicazione.|
+|Combinazione di versione 2 Standard e gateway applicazione standard nella stessa subnet|Non supportate|
 |Applicazione di una route definita dall'utente alla subnet del gateway applicazione|Non supportate|
 |Gruppo di sicurezza di rete per intervallo di porte in ingresso| - Da 65200 a 65535 per SKU versione 2 Standard<br>- Da 65503 a 65534 per SKU Standard.<br>Per altre informazioni, vedere la sezione [Domande frequenti](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Contatori delle prestazioni in Diagnostica di Azure|Non supportati.<br>Usare le metriche di Azure.|

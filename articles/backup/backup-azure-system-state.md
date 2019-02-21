@@ -9,17 +9,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: saurse
-ms.openlocfilehash: a28e3fb18f2c0b65557034e388d08918c622b8f4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 14de0f632584ff5fb1a6b4395298e9cecfe455e6
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255865"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268724"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Eseguire il backup dello stato del sistema Windows in una distribuzione Resource Manager
 Questo articolo illustra come eseguire il backup dello stato del sistema Windows Server in Azure. Si tratta di un'esercitazione che illustra le informazioni di base,
 
-Per altre informazioni su Backup di Azure, vedere questa [panoramica](backup-introduction-to-azure-backup.md).
+Per altre informazioni su Backup di Azure, vedere questa [panoramica](backup-overview.md).
 
 Se non è disponibile una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) che consente di accedere a qualsiasi servizio di Azure.
 
@@ -131,7 +131,7 @@ Dopo aver creato un insieme di credenziali, configurarlo per il backup dello sta
 
     ![Il download delle credenziali dell'insieme di credenziali è terminato](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
 > [!NOTE]
-> Le credenziali dell'insieme devono essere salvate solo nel percorso locale per Windows Server in cui si prevede di usare l'agente. 
+> Le credenziali dell'insieme devono essere salvate solo nel percorso locale per Windows Server in cui si prevede di usare l'agente.
 >
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
@@ -163,7 +163,7 @@ Dopo aver creato un insieme di credenziali, configurarlo per il backup dello sta
 
 L'agente ora è installato e il computer è registrato nell'insieme di credenziali. Ora è possibile configurare e pianificare il backup.
 
-## <a name="back-up-windows-server-system-state"></a>Eseguire un backup dello stato del sistema Windows Server 
+## <a name="back-up-windows-server-system-state"></a>Eseguire un backup dello stato del sistema Windows Server
 Il backup iniziale comprende due attività:
 
 * Pianificare il backup
@@ -194,7 +194,7 @@ Per completare il backup iniziale, usare l'agente di Servizi di ripristino di Mi
 
 6. Fare clic su **Avanti**.
 
-7. Nelle pagine successive, selezionare la frequenza e i criteri di conservazione del backup per i backup dello stato del sistema. 
+7. Nelle pagine successive, selezionare la frequenza e i criteri di conservazione del backup per i backup dello stato del sistema.
 
 8. Nella pagina Conferma esaminare le informazioni e fare clic su **Fine**.
 

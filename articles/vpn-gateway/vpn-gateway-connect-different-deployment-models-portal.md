@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4d2edeaf7423d3a46becf386294d2dd8c46e9ab7
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 9779885869666ffd1198afcda944823b99d52e5b
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508335"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417974"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Connettere reti virtuali da modelli di distribuzione diversi usando il portale
 
@@ -30,6 +30,8 @@ La connessione di una rete virtuale classica a una rete virtuale di Resource Man
 Se non si dispone di un gateway di rete virtuale e non si vuole crearne uno, prendere in considerazione l'idea di connettere le reti virtuali tramite Peering reti virtuali. Peering reti virtuali non usa un gateway VPN. Per altre informazioni, vedere [Peering reti virtuali](../virtual-network/virtual-network-peering-overview.md).
 
 ### <a name="before"></a>Prima di iniziare
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * Questa procedura presuppone che entrambe le reti virtuali siano già state create. Se si usa questo articolo come esercizio e non si dispone di reti virtuali, nei passaggi sono presenti dei collegamenti che consentono di crearli.
 * Verificare che gli intervalli di indirizzi per le reti virtuali non si sovrappongano tra loro o con gli intervalli di altre connessioni a cui i gateway potrebbero essere connessi.
@@ -226,19 +228,19 @@ In questa procedura si configura la connessione dalla rete virtuale classica all
 Aprire la console di PowerShell con diritti elevati e accedere all'account Azure. Dopo l'accesso, vengono scaricate le impostazioni dell'account in modo che siano disponibili per Azure PowerShell. Il cmdlet seguente richiede le credenziali di accesso per l'account Azure per il modello di distribuzione Resource Manager:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Ottenere un elenco delle sottoscrizioni di Azure.
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Se sono disponibili più sottoscrizioni, specificare la sottoscrizione da usare.
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "Name of subscription"
+Select-AzSubscription -SubscriptionName "Name of subscription"
 ```
 
 Eseguire quindi l'accesso per usare i cmdlet di PowerShell classici (Gestione dei servizi). Usare il comando seguente per aggiungere l'account Azure per il modello di distribuzione classica:

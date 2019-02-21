@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/20/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: 29244c20bb4bbad8077788abbc29e6267f701d2e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/20/2019
+ms.openlocfilehash: 32e6e8ff4c37554a0c3fa50e243b241eed2953cf
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176351"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446002"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Pianificazione della capacità archiviazione di Azure Stack
 Le sezioni seguenti riportano Azure Stack capacità di archiviazione informazioni sulla pianificazione per facilitare la pianificazione per esigenze di archiviazione di soluzioni.
@@ -38,7 +38,9 @@ Gli operatori possono scegliere tra un flash tutte o una configurazione di archi
 
 ![Pianificazione della capacità di archiviazione di Azure](media/azure-stack-capacity-planning/storage.png)
 
-Nella configurazione di flash tutti, la cache è NVMe con un'opzione di SSD SATA o NVMe per la capacità. Nella configurazione ibrida, la cache è una scelta tra SSD SATA e NVMe mentre la capacità è l'unità disco rigido.
+Nella configurazione tutti flash, la configurazione può essere una configurazione a due livelli o a un solo livello.  Se la configurazione è a livello singolo, tutti i dispositivi di capacità sarà dello stesso tipo (ad esempio, NVMe o SSD SATA o SAS SSD) e i dispositivi di cache non vengono usati. In un tutti a due livelli flash configurazione, la configurazione tipica è NVMe come i dispositivi di cache e quindi entrambi SATA o unità SSD di firma di accesso condiviso come i dispositivi di capacità.
+
+Nell'ambiente ibrido, la configurazione a due livelli, la cache è che una scelta tra NVMe, SATA o SAS SSD e la capacità è l'unità disco rigido. 
 
 Un breve riepilogo della configurazione di archiviazione di Azure Stack e spazi di archiviazione diretta è il seguente:
 - Un Pool di spazi di archiviazione per ogni unità di scala (tutti i dispositivi di archiviazione vengono configurati all'interno di un singolo pool)

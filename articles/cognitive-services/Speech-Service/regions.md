@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mahilleb
 ms.custom: seodec18
-ms.openlocfilehash: 1a291a54389b678647f4a08ea03ec8c2f85a5917
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c9e72ea2762af0d9a4c47ca5b23fe4bdbe53b968
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872834"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447549"
 ---
 # <a name="speech-service-supported-regions"></a>Aree supportate dal servizio Voce
 
@@ -26,7 +26,7 @@ Verificare di usare l'endpoint corrispondente all'area relativa alla propria sot
 
 ## <a name="speech-sdk"></a>Speech SDK
 
-In [Speech Service SDK](speech-sdk.md) le aree vengono specificate sotto forma di stringa, ad esempio come parametro `SpeechConfig.FromSubscription` in Speech SDK per C#.
+In [Speech SDK](speech-sdk.md) le aree vengono specificate sotto forma di stringa (ad esempio, come parametro `SpeechConfig.FromSubscription` in Speech SDK per C#).
 
 ### <a name="speech-recognition-and-translation"></a>Riconoscimento vocale e traduzione vocale
 

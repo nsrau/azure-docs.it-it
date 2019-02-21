@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Analizzare il contenuto di testo in C# - Content Moderator'
+title: 'Guida introduttiva: Analizzare il contenuto di testo in C# - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Come analizzare il contenuto del testo di vario materiale discutibile usando Content Moderator SDK per .NET
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 01/10/2019
+ms.date: 02/07/2019
 ms.author: sajagtap
-ms.openlocfilehash: 6383a495ed3e3876e96b1249cb7b2286b240a481
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cc8cbc19f416e6e80d2d0fdfb4862536da7f0ce2
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884597"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312243"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Guida introduttiva: Analizzare il contenuto del testo per individuare materiale inappropriato in C# 
 
@@ -35,9 +35,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 1. In Visual Studio creare un nuovo progetto **App console (.NET Framework)** e assegnargli il nome **TextModeration**. 
 1. Se la soluzione contiene anche altri progetti, selezionare questo come solo progetto di avvio.
 1. Ottenere i pacchetti NuGet necessari. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Gestisci pacchetti NuGet**, quindi trovare e installare i pacchetti seguenti:
-    - Microsoft.Azure.CognitiveServices.ContentModerator
-    - Microsoft.Rest.ClientRuntime
-    - Newtonsoft.Json
+    - `Microsoft.Azure.CognitiveServices.ContentModerator`
+    - `Microsoft.Rest.ClientRuntime`
+    - `Newtonsoft.Json`
 
 ## <a name="add-text-moderation-code"></a>Aggiungere il codice di moderazione testo
 

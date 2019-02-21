@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: ee7ebb151653b611c652c072b8cb4c07754d9b68
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 5e5a6f32eeac674a6527d333b981bbdac20a9958
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269703"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309762"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Eseguire il backup di macchine virtuali VMware con il server di Backup di Azure
 
@@ -39,7 +39,7 @@ Per impostazione predefinita, il server di Backup di Azure comunica con i server
 
 ### <a name="before-you-start"></a>Prima di iniziare
 
-- Se non si vuole usare il protocollo HTTPS è possibile [disabilitare l'impostazione predefinita](backup-azure-backup-server-vmware.md#disable-secure-communication-protocol).
+- Se non si vuole usare il protocollo HTTPS è possibile [disabilitare l'impostazione predefinita](backup-azure-backup-server-vmware.md).
 - Di solito, per connettersi al server vCenter/ESXi tramite il client Web vSphere si usa un browser nel computer server di Backup di Azure. La prima volta che si esegue questa operazione la connessione non è sicura e mostrerà quanto segue.
 - È importante comprendere il modo in cui il server di Backup di Azure gestisce i backup.
     - Come primo passaggio il server di Backup di Azure esegue il backup dei dati nell'archiviazione su disco locale. Il server di Backup di Azure usa un pool di archiviazione, un set di dischi e volumi in cui archivia i punti di ripristino del disco per i dati protetti. Il pool di archiviazione può essere un sistema di archiviazione diretta (DAS), una SAN Fibre Channel oppure una SAN o dispositivo di archiviazione iSCSI. È importante assicurarsi di avere spazio di archiviazione sufficiente per il backup locale dei dati della macchina virtuale VMware.

@@ -2,25 +2,17 @@
 title: 'Creare e installare i file di configurazione del client VPN per le connessioni RADIUS da punto a sito: PowerShell: Azure | Microsoft Docs'
 description: Creare file di configurazione di client VPN Windows, Mac OS X e Linux per connessioni che usano l'autenticazione RADIUS.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/07/2018
+ms.date: 02/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8fc2c487a374a34cd9a7642a45fd59c04061b398
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 8881582eac47e31b20e9eb96effea254b821ba34
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817819"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417296"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Creare e installare i file di configurazione del client VPN per l'autenticazione RADIUS da punto a sito
 
@@ -46,6 +38,8 @@ Di seguito è riportato il flusso di lavoro di configurazione per l'autenticazio
 
 Per seguire le istruzioni contenute nelle sezioni di questo articolo è necessario prima decidere il tipo di autenticazione da usare: nome utente/password, certificato o altri tipi di autenticazione. Per ogni sezione sono disponibili procedure per Windows, Mac OS X e Linux (sono attualmente disponibili procedure limitate).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="adeap"></a>Autenticazione con nome utente/password
 
 È possibile configurare l'autenticazione con nome utente/password per l'uso di Active Directory oppure senza usare Active Directory. In ogni scenario, verificare che tutti gli utenti che effettuano la connessione abbiano credenziali nome utente/password autenticabili tramite RADIUS.
@@ -57,7 +51,7 @@ Quando si configura l'autenticazione con nome utente/password, è possibile crea
 Generare i file di configurazione del client VPN per l'uso con l'autenticazione con nome utente/password. È possibile generare i file di configurazione del client VPN con il comando seguente:
 
 ```powershell 
-New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapMSChapv2"
+New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapMSChapv2"
 ```
  
 L'esecuzione del comando restituisce un collegamento. Copiare e incollare il collegamento in un Web browser per scaricare **VpnClientConfiguration.zip**. Decomprimendo il file verranno visualizzate le cartelle seguenti: 
@@ -66,12 +60,12 @@ L'esecuzione del comando restituisce un collegamento. Copiare e incollare il col
 * **Generic**: questa cartella contiene le informazioni generali da usare per creare una configurazione del client VPN personalizzata. Non è necessario disporre di questa cartella per le configurazioni di autenticazione con nome utente/password.
 * **Mac**: se durante la creazione del gateway di rete virtuale è stato configurato IKEv2, è presente una cartella denominata **Mac** contenente un file denominato **mobileconfig**. Questo file viene usato per configurare i client Mac.
 
-Se sono già stati creati file di configurazione del client, è possibile recuperarli tramite il cmdlet `Get-AzureRmVpnClientConfiguration`. Ma se si apportano modifiche alla configurazione VPN da punto a sito, ad esempio al tipo di autenticazione o al tipo di protocollo VPN, la configurazione non viene aggiornata automaticamente. Per creare un nuovo download della configurazione, è necessario eseguire il cmdlet  `New-AzureRmVpnClientConfiguration`.
+Se sono già stati creati file di configurazione del client, è possibile recuperarli tramite il cmdlet `Get-AzVpnClientConfiguration`. Ma se si apportano modifiche alla configurazione VPN da punto a sito, ad esempio al tipo di autenticazione o al tipo di protocollo VPN, la configurazione non viene aggiornata automaticamente. Per creare un nuovo download della configurazione, è necessario eseguire il cmdlet  `New-AzVpnClientConfiguration`.
 
 Per recuperare i file di configurazione client generati in precedenza, usare il comando seguente:
 
 ```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
+Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
 
 ### <a name="setupusername"></a> 2. Configurare client VPN
@@ -101,7 +95,8 @@ Per configurare il client VPN Windows nativo per l'autenticazione del certificat
    ![Percorso del file mobileconfig](./media/point-to-site-vpn-client-configuration-radius/admobileconfigfile.png)
 
 3. Passaggio facoltativo - Se si vuole specificare un DNS personalizzato, aggiungere le righe seguenti al file **mobileconfig**:
-```xml
+
+  ```xml
     <key>DNS</key>
     <dict>
       <key>ServerAddresses</key>
@@ -113,7 +108,7 @@ Per configurare il client VPN Windows nativo per l'autenticazione del certificat
             <string>TestDomain.com</string>
         </array>
     </dict> 
-```
+  ```
 4. Fare doppio clic sul profilo per installarlo e selezionare **Continua**. Il nome del profilo corrisponde al nome della rete virtuale.
 
    ![Messaggio di installazione](./media/point-to-site-vpn-client-configuration-radius/adinstall.png)
@@ -137,7 +132,7 @@ Per configurare il client VPN Windows nativo per l'autenticazione del certificat
    ![Dettagli per la connessione VPN](./media/point-to-site-vpn-client-configuration-radius/adconnection.png)
 11. Selezionare **Impostazioni autenticazione**. Selezionare **Nome utente** nell'elenco e immettere le proprie credenziali. Se sono state immesse in precedenza, l'opzione **Nome utente** è selezionata automaticamente nell'elenco e il nome utente e la password sono già inseriti. Scegliere **OK** per salvare le impostazioni.
 
-    ![Authentication settings](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
+   ![Authentication settings](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
 12. Nella finestra di dialogo **Network** selezionare **Applica** per salvare le modifiche. Per avviare la connessione, selezionare **Connetti**.
 
 #### <a name="adlinuxcli"></a>Configurazione di un client VPN Linux tramite strongSwan
@@ -188,7 +183,7 @@ Ogni dispositivo client VPN richiede un certificato client installato. Un dispos
 Generare i file di configurazione del client VPN per l'uso con l'autenticazione con certificato. È possibile generare i file di configurazione del client VPN con il comando seguente:
  
 ```powershell
-New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root> | fl
+New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root> | fl
 ```
 
 L'esecuzione del comando restituisce un collegamento. Copiare e incollare il collegamento in un Web browser per scaricare VpnClientConfiguration.zip. Decomprimendo il file verranno visualizzate le cartelle seguenti:
@@ -196,12 +191,12 @@ L'esecuzione del comando restituisce un collegamento. Copiare e incollare il col
 * **WindowsAmd64** e **WindowsX86**: contenenti rispettivamente i pacchetti di installazione a 64 e a 32 bit per Windows. 
 * **GenericDevice**: questa cartella contiene le informazioni generali usate per creare una configurazione del client VPN personalizzata.
 
-Se sono già stati creati file di configurazione del client, è possibile recuperarli tramite il cmdlet `Get-AzureRmVpnClientConfiguration`. Ma se si apportano modifiche alla configurazione VPN da punto a sito, ad esempio al tipo di autenticazione o al tipo di protocollo VPN, la configurazione non viene aggiornata automaticamente. Per creare un nuovo download della configurazione, è necessario eseguire il cmdlet  `New-AzureRmVpnClientConfiguration`.
+Se sono già stati creati file di configurazione del client, è possibile recuperarli tramite il cmdlet `Get-AzVpnClientConfiguration`. Ma se si apportano modifiche alla configurazione VPN da punto a sito, ad esempio al tipo di autenticazione o al tipo di protocollo VPN, la configurazione non viene aggiornata automaticamente. Per creare un nuovo download della configurazione, è necessario eseguire il cmdlet  `New-AzVpnClientConfiguration`.
 
 Per recuperare i file di configurazione client generati in precedenza, usare il comando seguente:
 
 ```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
+Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 ```
  
 ### <a name="setupusername"></a> 2. Configurare client VPN
@@ -260,7 +255,7 @@ Usare questa procedura per configurare il client VPN nativo in un Mac per l'aute
 
 Per usare un diverso tipo di autenticazione, ad esempio OTP, oppure un diverso protocollo di autenticazione, ad esempio PEAP-MSCHAPv2 invece di EAP-MSCHAPv2, è necessario creare un profilo di configurazione del client VPN personalizzato. Per creare il profilo sono necessarie informazioni come l'indirizzo IP del gateway di rete virtuale, il tipo di tunnel e le route per lo split tunneling. Per ottenere tali informazioni, seguire questa procedura:
 
-1. Usare il cmdlet `Get-AzureRmVpnClientConfiguration` per generare la configurazione del client VPN per EapMSChapv2. Per istruzioni, vedere questa sezione dell'articolo.
+1. Usare il cmdlet `Get-AzVpnClientConfiguration` per generare la configurazione del client VPN per EapMSChapv2.
 
 2. Decomprimere il file VpnClientConfiguration.zip e cercare la cartella **GenericDevice**. Ignorare le cartelle contenenti i programmi di installazione Windows per le architetture a 64 e a 32 bit.
  

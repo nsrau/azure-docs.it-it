@@ -10,12 +10,12 @@ ms.date: 01/23/19
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 01/23/19
-ms.openlocfilehash: a7753280c0b84b21f44e52c303b96f11cd4cd8af
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: a71362f4d6a69f2eaed36dd549437bb5857d555f
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765791"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456997"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrazione di Data Center Azure Stack - identità
 È possibile distribuire Azure Stack tramite Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS) come provider di identità. È necessario effettuare la scelta prima di distribuire Azure Stack. Distribuzione tramite AD FS è detta anche la distribuzione di Azure Stack in modalità disconnessa.
@@ -73,7 +73,7 @@ Le informazioni seguenti sono necessari come input per i parametri di automazion
 
 Per le distribuzioni di Active Directory con più siti, configurare il sito Active Directory più vicino alla distribuzione di Azure Stack. La configurazione consente di evitare che il servizio Graph di Azure Stack di risolvere le query che utilizzano un Server di catalogo globale da un sito remoto.
 
-Aggiungere Azure Stack [rete VIP pubblici](azure-stack-network.md#public-vip-network) subnet per il sito di Active Directory di Azure più vicina per Azure Stack. Ad esempio, se il servizio Active Directory dispone di due siti Seattle e Redmond con Azure Stack distribuito nel sito di Seattle, aggiungere la subnet di rete di indirizzo VIP pubblico di Azure Stack per il sito di Azure AD per Seattle.
+Aggiungere Azure Stack [rete VIP pubblici](azure-stack-network.md#public-vip-network) subnet per il sito di Active Directory più vicino per Azure Stack. Ad esempio, se il servizio Active Directory dispone di due siti Seattle e Redmond con Azure Stack distribuito nel sito di Seattle, aggiungere la subnet di rete di indirizzo VIP pubblico di Azure Stack per il sito di Active Directory per Seattle.
 
 Per altre informazioni sui siti di Active Directory, vedere [la progettazione della topologia dei siti](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
 

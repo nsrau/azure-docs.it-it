@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/12/2019
-ms.openlocfilehash: 8d7fc6d8f581c3ad0e0f3266ea615acadcb7bc25
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.date: 02/15/2019
+ms.openlocfilehash: d67bc99a63242dd56d65d6bdac0448c7742a6b9d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176204"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311903"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connettere le reti virtuali di Azure da App per la logica di Azure usando un ambiente del servizio di integrazione (ISE)
 
@@ -67,9 +67,10 @@ Per controllare il traffico in ingresso e in uscita tra le subnet della rete vir
 | Comunicazione alle App per la logica di Azure <br>Comunicazione dalle App per la logica di Azure | In ingresso <br>In uscita | * <br>80 e 443 | INTERNET <br>VIRTUAL_NETWORK |
 | Azure Active Directory | In uscita | * <br>80 e 443 | VIRTUAL_NETWORK <br>AzureActiveDirectory |
 | Dipendenza da Archiviazione di Azure | In uscita | * <br>80 e 443 | VIRTUAL_NETWORK <br>Archiviazione |
+| Cronologia di esecuzione dell'app per la logica | In ingresso | * <br>443 | INTERNET <br>VIRTUAL_NETWORK |
 | Gestione delle connessioni | In uscita | * <br>443 | VIRTUAL_NETWORK <br>INTERNET |
 | Pubblicare i log di diagnostica e metriche | In uscita | * <br>443 | VIRTUAL_NETWORK <br>AzureMonitor |
-| Progettazione di App per la logica - proprietà dinamiche <br>Cronologia di esecuzione dell'app per la logica <br>Distribuzione dei connettori <br>Endpoint per il trigger di richiesta | In ingresso | * <br>454 | INTERNET <br>VIRTUAL_NETWORK |
+| Progettazione di App per la logica - proprietà dinamiche <br>Distribuzione dei connettori <br>Endpoint per il trigger di richiesta | In ingresso | * <br>454 | INTERNET <br>VIRTUAL_NETWORK |
 | Dipendenza da Gestione del servizio app | In ingresso | * <br>454 e 455 | AppServiceManagement <br>VIRTUAL_NETWORK |
 | Gestione API - endpoint di gestione | In ingresso | * <br>3443 | APIManagement <br>VIRTUAL_NETWORK |
 | Dipendenza dal criterio Registra a Hub eventi e dall'agente di monitoraggio | In uscita | * <br>5672 | VIRTUAL_NETWORK <br>Hub eventi |

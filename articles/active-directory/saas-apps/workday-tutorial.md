@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e3f60c3b0578647e68109a21ba7d57b083bea11
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ae93cce7a26666383b609ac898a25fb84caee517
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184534"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301639"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Esercitazione: Integrazione di Azure Active Directory con Workday
 
@@ -113,7 +113,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Workday](./media/workday-tutorial/tutorial_workday_url.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://impl.workday.com/<tenant>/login-saml2.htmld`
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://impl.workday.com/<tenant>/login-saml2.flex`
 
     b. Nella casella di testo **Identificatore** digitare un URL: `https://www.workday.com`
 
@@ -166,7 +166,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     >[!NOTE]
     > Il valore dell'attributo Environment è collegato al valore dell'URL del tenant:  
-    >-Se il nome di dominio dell'URL del tenant di Workday inizia con impl (ad esempio *https://impl.workday.com/\<tenant\>/login-saml2.htmld*), l'attributo **Environment** deve essere impostato su Implementation.  
+    >-Se il nome di dominio dell'URL del tenant di Workday inizia con impl (ad esempio *https://impl.workday.com/\<tenant\>/login-saml2.flex*), l'attributo **Environment** deve essere impostato su Implementation.  
     >-Se il nome di dominio inizia con altro, è necessario contattare il [team di supporto clienti di Workday](https://www.workday.com/en-us/partners-services/services/support.html) per ottenere il valore **Environment** corrispondente.
 
 12. Nella sezione **SAML Setup** seguire questa procedura:

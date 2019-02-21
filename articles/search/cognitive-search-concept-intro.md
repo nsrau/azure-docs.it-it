@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: eb344d6da15a8faf8f05720ae9b1fd49bd42db2f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d2086f02cc981ad944c030ad40083d153c520359
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54808202"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447328"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Che cos'è la ricerca cognitiva in Ricerca di Azure?
 
@@ -32,7 +32,7 @@ Le competenze cognitive in Ricerca di Azure si basano sui modelli di Machine Lea
 Il linguaggio naturale e l'elaborazione delle immagini vengono applicati durante la fase di inserimento dei dati e i risultati diventano parte della composizione di un documento in un indice di ricerca consultabile in Ricerca di Azure. I dati vengono originati come set di dati di Azure e quindi attraverso una pipeline di indicizzazione che usa le [competenze predefinite](cognitive-search-predefined-skills.md) necessarie. L'architettura è estendibile per permettere di creare e associare [competenze personalizzate](cognitive-search-create-custom-skill-example.md) per integrare l'elaborazione personalizzata nel caso in cui le competenze predefinite non siano sufficienti. Esempi possono essere un modulo di entità personalizzato o un classificatore di documenti destinato a un dominio specifico, ad esempio pubblicazioni finanziarie, scientifiche o mediche.
 
 > [!NOTE]
-> Dal 21 dicembre 2018 è possibile [collegare una risorsa di Servizi cognitivi](cognitive-search-attach-cognitive-services.md) a un set di competenze di Ricerca di Azure. Ciò consente di iniziare l'addebito per l'esecuzione del set di competenze. In questa data è iniziato anche l'addebito dell'estrazione delle immagini come parte della fase di individuazione dei documenti. L'estrazione di testo dai documenti continua a essere offerta gratuitamente.
+> Dal 21 dicembre 2018 è possibile [collegare una risorsa di Servizi cognitivi](cognitive-search-attach-cognitive-services.md) a un set di competenze di Ricerca di Azure. Ciò consente anche di addebitare l'esecuzione del set di competenze. In questa data è iniziato anche l'addebito dell'estrazione delle immagini come parte della fase di individuazione dei documenti. L'estrazione di testo dai documenti continua a essere offerta gratuitamente.
 >
 > L'esecuzione delle competenze predefinite è un addebito di Servizi cognitivi basato sui [prezzi con pagamento in base al consumo](https://azure.microsoft.com/pricing/details/cognitive-services/) esistenti. L'estrazione delle immagini è un addebito di Ricerca di Azure per il quale vengono attualmente applicati i prezzi di anteprima, come illustrato nella [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
@@ -96,18 +96,24 @@ Gli indici vengono generati da uno schema dell'indice che definisce i campi, gli
 
 + Stati Uniti centro-occidentali
 + Stati Uniti centro-meridionali
++ Stati Uniti centro-settentrionali
 + Stati Uniti orientali
 + Stati Uniti orientali 2
 + Stati Uniti occidentali
 + Stati Uniti occidentali 2
++ Stati Uniti centrali
 + Canada centrale
 + Europa occidentale
-+ Regno Unito meridionale
 + Europa settentrionale
++ Regno Unito meridionale
++ Francia centrale
 + Brasile meridionale
 + Asia orientale
 + Asia sud-orientale
 + India centrale
++ Giappone occidentale
++ Giappone orientale
++ Corea del Sud centrale
 + Australia orientale
 
 **Passaggio 2: Esperienza pratica per gestire il flusso di lavoro**

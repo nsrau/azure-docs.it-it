@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 07b29b05bc15f57d6fd3ec64ceaee812b912b0f6
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 2d528d26fa2597c35c16e50cecffcd10971bdcd5
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977899"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447118"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Tenere traccia di esperimenti e metriche di training in Azure Machine Learning
 
@@ -265,7 +265,7 @@ Quando si usa il metodo **ScriptRunConfig** per inviare le esecuzioni, è possib
 2. **[Per le esecuzioni di Machine Learning automatizzato]** Per accedere ai grafici di un'esecuzione precedente, sostituire `<<experiment_name>>` con il nome dell'esperimento appropriato:
 
    ``` 
-   from azureml.train.widgets import RunDetails
+   from azureml.widgets import RunDetails
    from azureml.core.run import Run
 
    experiment = Experiment (workspace, <<experiment_name>>)

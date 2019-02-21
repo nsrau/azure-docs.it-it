@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
-ms.openlocfilehash: 42b62c819fd3d26c6ea944f968e0d5956a7f055e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 654c23474ebc96a6873f82f51f969da5c7d2d20c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987459"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343256"
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Applicare criteri alle macchine virtuali Windows con Azure Resource Manager
 Tramite i criteri è possibile imporre diverse convenzioni e regole in tutta l'organizzazione. L'imposizione del comportamento desiderato consente di attenuare i rischi, contribuendo nello stesso tempo al successo dell'organizzazione. Questo articolo illustra come usare i criteri di Azure Resource Manager per definire il comportamento desiderato per le macchine virtuali dell'organizzazione.
 
-Per un'introduzione ai criteri, vedere [Informazioni su Criteri di Azure](../../azure-policy/azure-policy-introduction.md).
+Per un'introduzione ai criteri, vedere [Informazioni su Criteri di Azure](../../governance/policy/overview.md).
 
 ## <a name="permitted-virtual-machines"></a>Macchine virtuali permesse
 Per assicurarsi che le macchine virtuali dell'organizzazione siano compatibili con un'applicazione, è possibile limitare i sistemi operativi consentiti. Nell'esempio di criterio che segue si consente solo la creazione di macchine virtuali Windows Server 2012 R2 Datacenter:
@@ -251,6 +251,6 @@ Quando si dispone di una licenza locale, è possibile risparmiare il costo della
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Dopo aver definito una regola di criterio, come mostrato negli esempi precedenti, è necessario creare la definizione di criterio e assegnarla a un ambito. L'ambito può essere una sottoscrizione, un gruppo di risorse o una risorsa. Per assegnare i criteri, vedere [Usare il portale di Azure per assegnare e gestire i criteri delle risorse](../../azure-policy/assign-policy-definition.md), [Creare un'assegnazione di criteri per identificare le risorse non conformi nell'ambiente Azure usando PowerShell](../../azure-policy/assign-policy-definition-ps.md) o [Creare un'assegnazione di criteri per identificare le risorse non conformi nell'ambiente Azure usando l'interfaccia della riga di comando di Azure](../../azure-policy/assign-policy-definition-cli.md).
-* Per un'introduzione ai criteri delle risorse, vedere [Informazioni su Criteri di Azure](../../azure-policy/azure-policy-introduction.md).
+* Dopo aver definito una regola di criterio, come mostrato negli esempi precedenti, è necessario creare la definizione di criterio e assegnarla a un ambito. L'ambito può essere una sottoscrizione, un gruppo di risorse o una risorsa. Per assegnare i criteri, vedere [Usare il portale di Azure per assegnare e gestire i criteri delle risorse](../../governance/policy/assign-policy-portal.md), [Creare un'assegnazione di criteri per identificare le risorse non conformi nell'ambiente Azure usando PowerShell](../../governance/policy/assign-policy-powershell.md) o [Creare un'assegnazione di criteri per identificare le risorse non conformi nell'ambiente Azure usando l'interfaccia della riga di comando di Azure](../../governance/policy/assign-policy-azurecli.md).
+* Per un'introduzione ai criteri delle risorse, vedere [Informazioni su Criteri di Azure](../../governance/policy/overview.md).
 * Per indicazioni su come le aziende possono usare Resource Manager per gestire efficacemente le sottoscrizioni, vedere [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance) (Scaffolding aziendale Azure - Governance prescrittiva per le sottoscrizioni).

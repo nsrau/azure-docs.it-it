@@ -17,12 +17,12 @@ ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 09/18/2018
 ms.custom: mvc
-ms.openlocfilehash: ca0a6569dda89586c629cc46909862de4f27cf04
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4ab04fc69d29d9bb5386261f6453b2f47bfd66bc
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56160912"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446325"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Pianificazione della capacità di calcolo di Azure Stack
 Il [le dimensioni di macchina virtuale supportate in Azure Stack](./user/azure-stack-vm-sizes.md) sono un subset di quelli supportati in Azure. Azure impone limiti delle risorse lungo molti vettori per evitare l'uso eccessivo delle risorse (server locali e a livello di servizio). Senza imporre alcune limitazioni all'uso di tenant, l'esperienza utente tenant ne risentiranno quando altri tenant overconsume le risorse. Rete in uscita dalla macchina virtuale, esistono limiti di larghezza di banda posto in Azure Stack che corrispondono a limitazioni di Azure. Per le risorse di archiviazione, i limiti di IOPs di archiviazione sono stati implementati in Azure Stack per evitare di base uso eccessivo delle risorse dai tenant per l'accesso di archiviazione.  
@@ -43,7 +43,7 @@ Se un server non riesce, le macchine virtuali ospitate nel server non riuscito v
 
 Il calcolo seguente comporta la memoria totale e disponibile che può essere utilizzata per la selezione host VM tenant. Questa capacità di memoria è per l'intero di unità di scala di Azure Stack.
 
-  Memoria disponibile per selezione host VM = sovraccarico di memoria del Server totale – riserva resilienza: Azure Stack dell'infrastruttura <sup>1</sup>
+  Memoria disponibile per selezione host VM = memoria del Server totale – riserva resilienza: memoria usata dalle macchine virtuali - sovraccarico dell'infrastruttura di Azure Stack in esecuzione <sup>1</sup>
 
   Riserva di resilienza = H + R * (n-1) + V * (n-2)
 

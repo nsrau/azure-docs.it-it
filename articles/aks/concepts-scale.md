@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: f464b6411e1375fa005980454a9b61d2d6c05b0b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 7cd6af1dc6b947abd91c9d25a4b102e52da9d24d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819111"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456725"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opzioni di ridimensionamento per le applicazioni nel servizio Azure Kubernetes
 
@@ -23,7 +23,7 @@ Questo articolo introduce i principali concetti utili per gestire il ridimension
 - [Ridimensionamento manuale](#manually-scale-pods-or-nodes)
 - [Ridimensionamento automatico orizzontale dei pod](#horizontal-pod-autoscaler)
 - [Ridimensionamento automatico del cluster](#cluster-autoscaler)
-- Integrazione di Istanza di Azure Container con il servizio Azure Kubernetes
+- [Integrazione di Istanza di contenitore di Azure con il servizio Azure Kubernetes](#burst-to-azure-container-instances)
 
 ## <a name="manually-scale-pods-or-nodes"></a>Ridimensionare manualmente i pod o i nodi
 

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: yushwang
-ms.openlocfilehash: 0b0a7ce63fa2d0154300dd2e8f9cf88d985a8a0a
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: d13e0ea365b25bc17ff2d23dfaf86bc057774744
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507691"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415494"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Scaricare gli script di configurazione del dispositivo VPN per le connessioni VPN S2S
 
@@ -77,6 +77,8 @@ Dopo aver creato la risorsa di connessione, seguire le istruzioni riportate di s
 
 ## <a name="download-the-configuration-script-using-azure-powershell"></a>Scaricare lo script di configurazione mediante Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 È possibile scaricare lo script di configurazione anche tramite Azure PowerShell, come illustrato nell'esempio seguente:
 
 ```azurepowershell-interactive
@@ -85,10 +87,10 @@ $GWName      = "VNet1GW"
 $Connection  = "VNet1toSite1"
 
 # List the available VPN device models and versions
-Get-AzureRmVirtualNetworkGatewaySupportedVpnDevice -Name $GWName -ResourceGroupName $RG
+Get-AzVirtualNetworkGatewaySupportedVpnDevice -Name $GWName -ResourceGroupName $RG
 
 # Download the configuration script for the connection
-Get-AzureRmVirtualNetworkGatewayConnectionVpnDeviceConfigScript -Name $Connection -ResourceGroupName $RG -DeviceVendor Juniper -DeviceFamily Juniper_SRX_GA -FirmwareVersion Juniper_SRX_12.x_GA
+Get-AzVirtualNetworkGatewayConnectionVpnDeviceConfigScript -Name $Connection -ResourceGroupName $RG -DeviceVendor Juniper -DeviceFamily Juniper_SRX_GA -FirmwareVersion Juniper_SRX_12.x_GA
 ```
 
 ## <a name="apply-the-configuration-script-to-your-vpn-device"></a>Applicare lo script di configurazione al dispositivo VPN

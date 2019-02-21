@@ -8,12 +8,12 @@ ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 78e78bc019ab5f8be1cfd3448220b97b89cde6a5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ac11b1a2b625d1fc7b62130580d1f188ead21051
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228781"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342729"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Risoluzione di problemi di onboarding delle soluzioni
 
@@ -73,7 +73,7 @@ Per poter distribuire la soluzione, è necessario provare a modificare i criteri
   * Ridefinendo la destinazione dei criteri per una risorsa specifica (ad esempio un account di Automazione di Azure specifico).
   * Modificando il set di risorse per il quale il criterio specifico è stato configurato per negare l'autorizzazione.
 
-Controllare le notifiche nell'angolo inferiore destro del portale di Azure o passare al gruppo di risorse che contiene l'account di automazione e selezionare **Distribuzioni** in **Impostazioni** per visualizzare la distribuzione non riuscita. Per altre informazioni su Criteri di Azure, vedere: [Panoramica dei criteri di Azure](../../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
+Controllare le notifiche nell'angolo inferiore destro del portale di Azure o passare al gruppo di risorse che contiene l'account di automazione e selezionare **Distribuzioni** in **Impostazioni** per visualizzare la distribuzione non riuscita. Per altre informazioni su Criteri di Azure, vedere: [Panoramica dei criteri di Azure](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ## <a name="mma-extension-failures"></a>Errori delle estensioni di MMA
 

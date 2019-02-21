@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
-ms.openlocfilehash: 0b880d77004013d3b3eb1999b7e9344577b9fb4f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: ab307548853a545c4aa8ee5a573ca5b1ca67c91d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266485"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310258"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Ripristinare lo stato del sistema per Windows Server
 
@@ -65,7 +65,7 @@ La procedura seguente illustra come eseguire il rollback della configurazione di
 
 9. Copiare la directory *WindowsImageBackup* nella destinazione di ripristino in un volume non critico del server. Il volume del sistema operativo Windows è in genere il volume critico.
 
-10. Al termine del ripristino, seguire la procedura illustrata nella sezione [Applicare i file ripristinati dello stato del sistema a Windows Server](backup-azure-restore-system-state.md#apply-restored-system-state-files-to-the-windows-server) per completare il processo di ripristino dello stato del sistema.
+10. Al termine del ripristino, seguire la procedura illustrata nella sezione [Applicare i file ripristinati dello stato del sistema a Windows Server](backup-azure-restore-system-state.md) per completare il processo di ripristino dello stato del sistema.
 
 ## <a name="recover-system-state-files-to-an-alternate-server"></a>Ripristinare il file dello stato del sistema in un server alternativo
 

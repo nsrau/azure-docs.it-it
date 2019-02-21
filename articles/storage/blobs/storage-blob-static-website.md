@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 81e0e89a8ad17c92a707bae001d2861404cd0d10
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: cff8b8af4ca40d428edf7c6e35976bcb154a28f1
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238840"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328691"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hosting di siti Web statici in Archiviazione di Azure
 Gli account per utilizzo generico v2 di Archiviazione di Azure consentono di usare contenuti statici (file HTML, CSS, JavaScript e di immagine) direttamente da un contenitore di archiviazione denominato *$web*. Sfruttando i vantaggi dell'hosting in Archiviazione di Azure è possibile di usare le architetture serverless tra cui [Funzioni di Azure](/azure/azure-functions/functions-overview) e altri servizi PaaS.
@@ -109,7 +109,7 @@ Di seguito sono riportati i metodi disponibili per la distribuzione del contenut
 
 - [AzCopy](../common/storage-use-azcopy.md)
 - [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
-- [Azure Pipelines](https://code.visualstudio.com/tutorials/static-website/deploy-VSTS)
+- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
 - [Estensione di Visual Studio Code](https://code.visualstudio.com/tutorials/static-website/getting-started)
 
 In tutti i casi assicurarsi di copiare i file nel contenitore *$web*.

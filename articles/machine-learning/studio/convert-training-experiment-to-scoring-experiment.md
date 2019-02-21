@@ -9,12 +9,12 @@ ms.topic: article
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: 22cfdd22a8d2adacb5a5a5c817a628fe2c072755
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1d07ad7e60e1ee9ff3216767fcfc77405d557f44
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001698"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455110"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Come preparare il modello per la distribuzione in Azure Machine Learning Studio
 
@@ -50,11 +50,11 @@ Dopo aver eseguito l'esperimento (fare clic su **RUN** (ESEGUI) nella parte infe
 
 Ad esempio, il seguente esperimento esegue il training di un modello di albero delle decisioni incrementato a due classi utilizzando dati di classificazione di esempio:
 
-![esperimento di training][figure1]
+![esperimento di training](./media/convert-training-experiment-to-scoring-experiment/figure1.png)
 
 I moduli nell'esperimento eseguono fondamentalmente quattro diverse funzioni:
 
-![Funzioni del modulo][figure2]
+![Funzioni del modulo](./media/convert-training-experiment-to-scoring-experiment/figure2.png)
 
 Quando si converte l'esperimento di training in un esperimento predittivo, alcuni di questi moduli non sono più necessari o hanno a questo punto uno scopo diverso:
 
@@ -70,7 +70,7 @@ Quando si converte l'esperimento di training in un esperimento predittivo, alcun
 
 Ecco come appare l'esempio dopo aver fatto clic su **Set Up Web Service**:
 
-![Esperimento predittivo convertito][figure3]
+![Esperimento predittivo convertito](./media/convert-training-experiment-to-scoring-experiment/figure3.png)
 
 Le operazioni eseguite da **Set Up Web Service** (Configura sevizio Web) potrebbero essere sufficienti per preparare l'esperimento per la distribuzione come servizio Web. Tuttavia, potrebbe essere necessario eseguire ulteriori operazioni specifiche per l'esperimento.
 
@@ -79,7 +79,7 @@ Nell'esperimento di training è stato utilizzato un set di dati di training e qu
 
 Per impostazione predefinita, ad esempio, **Set Up Web Service** (Configura servizio Web) inserisce il modulo **Web service input** (Input del servizio Web) all'inizio del flusso di dati, come illustrato nella figura precedente. È tuttavia possibile posizionare manualmente **Web service input** (Input servizio Web) dopo i moduli di elaborazione dei dati:
 
-![Spostamento del modulo web service input][figure4]
+![Spostamento del modulo web service input](./media/convert-training-experiment-to-scoring-experiment/figure4.png)
 
 I dati di input forniti tramite il servizio Web ora passano direttamente al modulo Score Model senza pre-elaborazione.
 
@@ -88,14 +88,14 @@ Se però si preferisce restituire un valore diverso, è possibile aggiungere mod
 
 Per restituire, ad esempio, solo i risultati dell'assegnazione del punteggio e non l'intero vettore dei dati di input, aggiungere un modulo [Select Columns in Dataset][select-columns] (Seleziona colonne nel set di dati) per escludere tutte le colonne ad eccezione dei risultati dell'assegnazione del punteggio. Spostare quindi il modulo **Web service output** (Output servizio Web) nell'output del modulo [Select Columns in Dataset][select-columns] (Seleziona colonne nel set di dati). L'esperimento è simile al seguente:
 
-![Spostamento del modulo web service output][figure5]
+![Spostamento del modulo web service output](./media/convert-training-experiment-to-scoring-experiment/figure5.png)
 
 ### <a name="add-or-remove-additional-data-processing-modules"></a>Aggiungere o rimuovere i moduli di elaborazione dati aggiuntivi
 Se presenti nell'esperimento, è possibile rimuove i moduli di cui si è certi che non saranno utili per la classificazione. Ad esempio, poiché il modulo **Web service input** (Input servizio Web) è stato spostato in un punto successivo ai moduli di elaborazione dei dati, è possibile rimuovere il modulo [Clean Missing Data][clean-missing-data] (Pulisci dati mancanti) dall'esperimento predittivo.
 
 L'esperimento predittivo ora appare come illustrato di seguito:
 
-![Rimozione del modulo aggiuntivo][figure6]
+![Rimozione del modulo aggiuntivo](./media/convert-training-experiment-to-scoring-experiment/figure6.png)
 
 
 ### <a name="add-optional-web-service-parameters"></a>Aggiungere parametri facoltativi al servizio Web
@@ -116,16 +116,6 @@ Ora che l'esperimento predittivo è stato sufficientemente preparato, è possibi
 Per altre informazioni sul processo di distribuzione completo, vedere [Distribuire un servizio Web di Azure Machine Learning][deploy].
 
 [deploy]: publish-a-machine-learning-web-service.md
-
-
-<!-- Images -->
-[figure1]:./media/convert-training-experiment-to-scoring-experiment/figure1.png
-[figure2]:./media/convert-training-experiment-to-scoring-experiment/figure2.png
-[figure3]:./media/convert-training-experiment-to-scoring-experiment/figure3.png
-[figure4]:./media/convert-training-experiment-to-scoring-experiment/figure4.png
-[figure5]:./media/convert-training-experiment-to-scoring-experiment/figure5.png
-[figure6]:./media/convert-training-experiment-to-scoring-experiment/figure6.png
-
 
 <!-- Module References -->
 [clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/

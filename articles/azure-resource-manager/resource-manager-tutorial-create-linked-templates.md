@@ -13,16 +13,14 @@ ms.devlang: na
 ms.date: 01/16/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c674c11f26d236e27852eb52bfc304aab12adcb5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 446c5393b654c7743371e4097517d16ba71da630
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112136"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270301"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Esercitazione: Creare modelli collegati di Azure Resource Manager
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Informazioni su come creare modelli collegati di Azure Resource Manager. Utilizzando modelli collegati, è possibile avere un modello che chiama un altro modello. È utile per la modularizzazione del modelli. In questa esercitazione si usa lo stesso modello di [Esercitazione: Creare modelli di Azure Resource Manager con risorse dipendenti](./resource-manager-tutorial-create-templates-with-dependent-resources.md), operazione che crea una macchina virtuale, una rete virtuale e altre risorse dipendenti, tra cui un account di archiviazione. Separare la creazione della risorsa account dell'account di archiviazione da un modello collegato.
 

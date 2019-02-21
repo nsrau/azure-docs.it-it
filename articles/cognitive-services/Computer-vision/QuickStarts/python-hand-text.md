@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Estrarre testo scritto a mano - REST, Python'
+title: 'Guida introduttiva: Estrarre testo scritto a mano - REST, Python'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si estrarrà testo scritto a mano da un'immagine usando l'API Visione artificiale con Python.
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 3e7284932199a97fa5256e1deea09fadeb01f29b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7b3fe280ced4bfe397bcf168e529600417c62e57
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869501"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311419"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-python-in-computer-vision"></a>Guida introduttiva: Estrarre testo scritto a mano usando l'API REST e Python in Visione artificiale
+# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-python-in-computer-vision"></a>Avvio rapido: Estrarre testo scritto a mano usando l'API REST e Python in Visione artificiale
 
 In questa guida introduttiva si estrarrà testo scritto a mano da un'immagine usando l'API REST di Visione artificiale. Con i metodi [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) e [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201), è possibile rilevare il testo scritto a mano in un'immagine ed estrarre i caratteri riconosciuti in un flusso utilizzabile da computer.
 
@@ -405,10 +405,6 @@ Una risposta con esito positivo viene restituita in JSON. La pagina Web di esemp
   }
 }
 ```
-
-## <a name="clean-up-resources"></a>Pulire le risorse
-
-Quando non è più necessario, eliminare il file.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

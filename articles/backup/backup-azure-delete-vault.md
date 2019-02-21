@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: d514074e56ff37cc7af6a97ea86aa9e02e3763e0
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: d15e3773a9b6e3dceb0799d206070730675c211d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492284"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310967"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminare un insieme di credenziali dei servizi di ripristino
 
@@ -31,7 +31,7 @@ Se l'insieme di credenziali dei servizi di ripristino è già aperto, procedere 
 
    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-azure-delete-vault/open-recovery-services-vault.png) <br/>
 
-   Viene visualizzato l'elenco degli insiemi di credenziali dei servizi di ripristino. 
+   Viene visualizzato l'elenco degli insiemi di credenziali dei servizi di ripristino.
 
    ![scegliere un insieme di credenziali dall'elenco](./media/backup-azure-delete-vault/choose-vault-to-delete-.png)
 
@@ -50,7 +50,7 @@ Se l'insieme di credenziali dei servizi di ripristino è già aperto, procedere 
 
 ## <a name="delete-the-recovery-services-vault-by-force"></a>Eliminare l'insieme di credenziali dei servizi di ripristino
 
-È possibile usare PowerShell per eliminare forzatamente un insieme di credenziali dei servizi di ripristino. Per forzatamente si intende che l'insieme di credenziali dei servizi di ripristino e tutti i dati di backup associati vengono eliminati in modo definitivo. 
+È possibile usare PowerShell per eliminare forzatamente un insieme di credenziali dei servizi di ripristino. Per forzatamente si intende che l'insieme di credenziali dei servizi di ripristino e tutti i dati di backup associati vengono eliminati in modo definitivo.
 
 > [!Warning]
 > Quando si usa PowerShell per eliminare un insieme di credenziali dei servizi di ripristino, è necessario essere certi di voler eliminare definitivamente tutti i dati di backup presenti nell'insieme di credenziali.
@@ -95,7 +95,7 @@ Per eliminare un insieme di credenziali dei servizi di ripristino:
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
-   
+
 1. Accedere alla propria sottoscrizione nel portale di Azure e verificare che l'insieme di credenziali sia eliminato.
 
 
@@ -106,7 +106,6 @@ Per rimuovere manualmente le dipendenze dell'insieme di credenziali, eliminare l
 * Backup di Archiviazione di Azure (File di Azure)
 * Backup di SQL Server in macchine virtuali di Azure
 * Backup di macchine virtuali di Azure
-* Backup dell'agente di Servizi di ripristino di Microsoft Azure
 
 Usare il menu **Infrastruttura di backup** (vedere l'immagine) per:
 
@@ -125,7 +124,7 @@ Usare il menu **Infrastruttura di backup** (vedere l'immagine) per:
 
 1. Per tutti gli elementi nell'elenco, fare clic con il pulsante destro del mouse su un elemento e nel menu contestuale selezionare **Interrompi backup**.
 
-    ![Selezionare il tipo di backup](./media/backup-azure-delete-vault/stop-backup-item.png) 
+    ![Selezionare il tipo di backup](./media/backup-azure-delete-vault/stop-backup-item.png)
 
     Verrà visualizzato il menu Arresta backup.
 
@@ -154,9 +153,9 @@ Usare il menu **Infrastruttura di backup** (vedere l'immagine) per:
 
 ## <a name="removing-azure-backup-server-or-dpm"></a>Rimozione del server di Backup di Azure o del server DPM
 
-1. Nel menu del dashboard dell'insieme di credenziali, scorrere fino alla sezione Gestione e fare clic su **Infrastruttura di backup**. 
+1. Nel menu del dashboard dell'insieme di credenziali, scorrere fino alla sezione Gestione e fare clic su **Infrastruttura di backup**.
 
-1. Nel sottomenu fare clic su **Server di gestione di backup** per visualizzare i server di Backup di Azure e il server System Center DPM. È possibile arrestare ed eliminare i file server di Azure, i server SQL nella macchina virtuale di Azure e le macchine virtuali di Azure. 
+1. Nel sottomenu fare clic su **Server di gestione di backup** per visualizzare i server di Backup di Azure e il server System Center DPM. È possibile arrestare ed eliminare i file server di Azure, i server SQL nella macchina virtuale di Azure e le macchine virtuali di Azure.
 
     ![Selezionare l'insieme di credenziali per aprire il relativo dashboard](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 

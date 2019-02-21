@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Estrarre testo stampato - REST, Java'
+title: 'Guida introduttiva: Estrarre testo stampato - REST, Java'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si estrarrà testo stampato da un'immagine usando l'API Visione artificiale con Java.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 57beb5e5dd3a77e4d8de9b631c4dc5556b2f18f5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0c2b53eb35754f1d402a63c14e5381d4903acdb5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878994"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313246"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-java-in-computer-vision"></a>Avvio rapido: Estrarre testo stampato (OCR) usando l'API REST e Java in Visione artificiale
 

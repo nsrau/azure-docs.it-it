@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 62d6dce4ccb5d4badbcf9b02cbbcda576ee63212
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: add526d8c09d2aa557ddd645e9016cb9c3b225a3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869246"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328198"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Esportare ed eliminare i dati dei clienti in Language Understanding (LUIS) in Servizi cognitivi
 
@@ -30,7 +30,7 @@ I contenuti dei clienti vengono archiviati e crittografati in archivi Azure a li
 - Contenuti degli account utente raccolti al momento della registrazione
 - Dati di training necessari per compilare i modelli (ovvero finalità ed entità)
 - Query degli utenti registrate in fase di esecuzione per consentire di migliorare i modelli utente
-  - Gli utenti possono disattivare la registrazione delle query aggiungendo `&log=false` alla richiesta. Informazioni dettagliate sono disponibili [qui](luis-resources-faq.md#how-can-i-disable-the-logging-of-utterances)
+  - Gli utenti possono disattivare la registrazione delle query aggiungendo `&log=false` alla richiesta. Informazioni dettagliate sono disponibili [qui](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
 
 ## <a name="deleting-customer-data"></a>Eliminazione dei dati dei clienti
 Gli utenti LUIS hanno il controllo completo per l'eliminazione di qualsiasi contenuto utente, tramite il portale Web LUIS o le API programmatiche LUIS. Nella tabella seguente sono disponibili i collegamenti per entrambe le opzioni:

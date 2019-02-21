@@ -11,18 +11,18 @@ author: hning86
 ms.author: haining
 ms.date: 01/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: e0c235a9fd3898fa4525651d514c77432627603c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1962cef85c5e663de640f296a6e8e9efd5a1f4d6
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238959"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310356"
 ---
-# <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Guida introduttiva: Usare l'SDK per Python per iniziare a usare Azure Machine Learning
+# <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Avvio rapido: Usare l'SDK per Python per iniziare a usare Azure Machine Learning
 
 In questo articolo si usa Azure Machine Learning SDK per Python 3 per creare e quindi usare un'[area di lavoro](concept-azure-machine-learning-architecture.md) del servizio Azure Machine Learning. L'area di lavoro rappresenta l'elemento fondamentale nel cloud per eseguire esperimenti, training e distribuzione di modelli di Machine Learning con il servizio Machine Learning.
 
-Si inizia configurando l'ambiente Python e il server di Jupyter Notebook. Per l'esecuzione senza installazione, vedere [Guida introduttiva: Iniziare a usare Azure Machine Learning con il portale di Azure](quickstart-get-started.md). 
+Si inizia configurando l'ambiente Python e il server di Jupyter Notebook. Per l'esecuzione senza installazione, vedere [Avvio rapido: Iniziare a usare Azure Machine Learning con il portale di Azure](quickstart-get-started.md). 
 
 Ecco una versione video di questa guida introduttiva:
 
@@ -89,7 +89,7 @@ Prima di installare l'SDK, è consigliabile creare un ambiente Python isolato. A
 1. Installare un server Jupyter Notebook nell'ambiente conda.
 
   ```shell
-    conda install nb_conda
+    conda install -y nb_conda
     ```
 
 1. Per usare questo ambiente per le esercitazioni di Azure Machine Learning, installare questi pacchetti.

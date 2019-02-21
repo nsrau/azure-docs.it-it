@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: f5efeabf3cf6d52f74aa2d064dc4c67c877d34e5
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: bb186ab2700b147bee3a7dd81474409ccafb76fc
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751923"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341718"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Indicazioni su Trusted Internet Connections
 
@@ -198,7 +198,7 @@ Azure offre strumenti nativi sul cloud per garantire la consapevolezza situazion
 
 ### <a name="azure-policy"></a>Criteri di Azure
 
-[Criteri di Azure](https://azure.microsoft.com/services/azure-policy/) è un servizio di Azure che offre alle organizzazioni migliori possibilità di controllare e applicare le iniziative di conformità. È attualmente disponibile in anteprima pubblica nei servizi di Azure disponibili in commercio, ma non è ancora disponibile in Azure per enti pubblici. I clienti possono iniziare a pianificare e testare le regole di Criteri di Azure per una garanzia di conformità futura al TIC. 
+[Criteri di Azure](../../governance/policy/overview.md) è un servizio di Azure che offre alle organizzazioni migliori possibilità di controllare e applicare le iniziative di conformità. I clienti possono iniziare a pianificare e testare le regole di Criteri di Azure per una garanzia di conformità futura al TIC.
 
 Criteri di Azure è configurato a livello di sottoscrizione. Il servizio offre un'interfaccia centralizzata in cui è possibile eseguire attività di conformità, tra cui:
 - Gestire iniziative
@@ -213,13 +213,13 @@ I criteri di esempio seguenti possono essere utili per gli scenari di conformit�
 
 |Policy  |Scenario di esempio  |Modello  |
 |---------|---------|---------|
-|Applicare la tabella di route definita dall'utente. | Assicurarsi che la route predefinita in tutte le reti virtuali sia indirizzata verso un gateway di rete virtuale approvato per il routing verso l'ambiente locale.    | Iniziare con questo [modello](https://docs.microsoft.com/azure/azure-policy/scripts/no-user-def-route-table). |
-|Controllare se Network Watcher non è abilitato per un'area.  | Assicurarsi che Network Watcher sia abilitato per tutte le aree usate.  | Iniziare con questo [modello](https://docs.microsoft.com/azure/azure-policy/scripts/net-watch-not-enabled). |
-|Un gruppo di sicurezza di rete per ogni subnet.  | Assicurarsi che un gruppo di sicurezza di rete (o un set di gruppi di sicurezza di rete approvati) con traffico Internet bloccato sia applicato a tutte le subnet in ogni rete virtuale. | Iniziare con questo [modello](https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-subnet). |
-|Un gruppo di sicurezza di rete per ogni NIC. | Assicurarsi che un gruppo di sicurezza di rete con traffico Internet bloccato sia applicato a tutti i NIC in tutte le macchine virtuali. | Iniziare con questo [modello](https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-nic). |
-|Usare una rete virtuale approvata per le interfacce di rete delle macchine virtuali.  | Assicurarsi che tutti i NIC si trovino in una rete virtuale approvata. | Iniziare con questo [modello](https://docs.microsoft.com/azure/azure-policy/scripts/use-approved-vnet-vm-nics). |
-|Aree consentite. | Assicurarsi che tutte le risorse siano distribuite in aree con configurazione di Network Watcher e reti virtuali conformi.  | Iniziare con questo [modello](https://docs.microsoft.com/azure/azure-policy/scripts/allowed-locs). |
-|Tipi di risorse non consentiti, ad esempio **PublicIPs**. | Non consentire la distribuzione di tipi di risorse per cui non è definito un piano di conformità. Usare questo criterio per impedire la distribuzione di risorse con indirizzo IP pubblico. Se le regole relative ai gruppi di sicurezza di rete possono essere usate per bloccare in modo efficace il traffico Internet in ingresso, è possibile ridurre ulteriormente la superficie di attacco impedendo l'uso di indirizzi IP pubblici.   | Iniziare con questo [modello](https://docs.microsoft.com/azure/azure-policy/scripts/not-allowed-res-type).  |
+|Applicare la tabella di route definita dall'utente. | Assicurarsi che la route predefinita in tutte le reti virtuali sia indirizzata verso un gateway di rete virtuale approvato per il routing verso l'ambiente locale.    | Iniziare con questo [modello](../../governance/policy/samples/no-user-defined-route-table.md). |
+|Controllare se Network Watcher non è abilitato per un'area.  | Assicurarsi che Network Watcher sia abilitato per tutte le aree usate.  | Iniziare con questo [modello](../../governance/policy/samples/network-watcher-not-enabled.md). |
+|Un gruppo di sicurezza di rete per ogni subnet.  | Assicurarsi che un gruppo di sicurezza di rete (o un set di gruppi di sicurezza di rete approvati) con traffico Internet bloccato sia applicato a tutte le subnet in ogni rete virtuale. | Iniziare con questo [modello](../../governance/policy/samples/nsg-on-subnet.md). |
+|Un gruppo di sicurezza di rete per ogni NIC. | Assicurarsi che un gruppo di sicurezza di rete con traffico Internet bloccato sia applicato a tutti i NIC in tutte le macchine virtuali. | Iniziare con questo [modello](../../governance/policy/samples/nsg-on-nic.md). |
+|Usare una rete virtuale approvata per le interfacce di rete delle macchine virtuali.  | Assicurarsi che tutti i NIC si trovino in una rete virtuale approvata. | Iniziare con questo [modello](../../governance/policy/samples/use-approved-vnet-vm-nics.md). |
+|Aree consentite. | Assicurarsi che tutte le risorse siano distribuite in aree con configurazione di Network Watcher e reti virtuali conformi.  | Iniziare con questo [modello](../../governance/policy/samples/allowed-locations.md). |
+|Tipi di risorse non consentiti, ad esempio **PublicIPs**. | Non consentire la distribuzione di tipi di risorse per cui non è definito un piano di conformità. Usare questo criterio per impedire la distribuzione di risorse con indirizzo IP pubblico. Se le regole relative ai gruppi di sicurezza di rete possono essere usate per bloccare in modo efficace il traffico Internet in ingresso, è possibile ridurre ulteriormente la superficie di attacco impedendo l'uso di indirizzi IP pubblici.   | Iniziare con questo [modello](../../governance/policy/samples/not-allowed-resource-types.md).  |
 
 ### <a name="network-watcher-traffic-analytics"></a>Analisi del traffico di Network Watcher
 

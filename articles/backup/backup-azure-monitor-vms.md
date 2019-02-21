@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: 886c41f669d0b0363f4484b24ba3b9975904d9f7
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: c5c3f498f62d6399534333f8166a514a10f044c5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492216"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310161"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Monitorare gli avvisi per i backup della macchina virtuale di Azure
 
@@ -42,7 +42,7 @@ Per aprire il pannello Avvisi di backup dalla sezione Avvisi ed eventi:
 
     ![Dettagli dell'evento](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
 
-    Per personalizzare gli attributi visualizzati nell'elenco, vedere [Visualizzare altri attributi degli eventi](backup-azure-monitor-vms.md#view-additional-event-attributes)
+    Per personalizzare gli attributi visualizzati nell'elenco, vedere [Visualizzare altri attributi degli eventi](backup-azure-monitor-vms.md)
 
 ## <a name="configure-notifications"></a>Configurare le notifiche
 

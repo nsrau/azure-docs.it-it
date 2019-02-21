@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/1/2018
 ms.author: raynew
-ms.openlocfilehash: 32a489ee6266018ef1160a0870fe236cc6a72d36
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 17ec8eb779dec560cfc5350fecc0fb819e89195a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726985"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340128"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - Distribuire un'infrastruttura di migrazione
 
@@ -646,7 +646,7 @@ Nel momento in cui configura il controllo delle identità e degli accessi, Conto
 
 Il servizio Criteri di Azure esegue una valutazione delle risorse, alla ricerca di quelle che non sono conformi alle definizioni di criteri specificate. Ad esempio, potrebbero essere presenti criteri che consentono solo un determinato tipo di VM o che richiedono un tag specifico nelle risorse. 
 
-I criteri di Azure specificano la definizione dei criteri e l'assegnazione specifica l'ambito in cui devono essere applicati. L'ambito può spaziare da un gruppo di gestione a un gruppo di risorse. [Informazioni](https://docs.microsoft.com/azure/azure-policy/create-manage-policy) sulla creazione e sulla gestione dei criteri.
+I criteri di Azure specificano la definizione dei criteri e l'assegnazione specifica l'ambito in cui devono essere applicati. L'ambito può spaziare da un gruppo di gestione a un gruppo di risorse. [Informazioni](../governance/policy/tutorials/create-and-manage.md) sulla creazione e sulla gestione dei criteri.
 
 Contoso intende iniziare con un paio di criteri:
 
@@ -776,7 +776,7 @@ Contoso implementerà una combinazione di gruppi di sicurezza di rete e delle ap
 
 Contoso ha creato un modello che riflette l'aspetto di questa condizione per le sue applicazioni.
 
-![Sicurezza](./media/contoso-migration-infrastructure/asg.png)
+![Security](./media/contoso-migration-infrastructure/asg.png)
 
 
 I gruppi di sicurezza di rete associati ai gruppi di sicurezza delle applicazioni verranno configurati con privilegi minimi per garantire che solo i pacchetti consentiti possano essere trasmessi da una parte della rete alla destinazione.

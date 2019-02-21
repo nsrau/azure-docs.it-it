@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: fba109e04369c05f98e863b7dd0fa3d51f40d0ad
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a82984ce4c2a2e44306abaa63265e0c25cc6ace4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810240"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310292"
 ---
 # <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql-server"></a>Ottimizzare gli inserimenti bulk e usare i dati temporanei in un server di Database di Azure per PostgreSQL 
 Questo articolo descrive come ottimizzare le operazioni di inserimento bulk e usare dati temporanei in un server di Database di Azure per PostgreSQL.
@@ -25,9 +25,9 @@ L'inserimento in una tabella non registrata comporta l'inserimento di PostgreSQL
 
 Per creare una tabella non registrata, usare le opzioni seguenti:
 - Creare una nuova tabella non registrata con la sintassi `CREATE UNLOGGED TABLE <tableName>`.
-- Convertire una tabella registrata esistente in una tabella non registrata con la sintassi `ALTER <tableName> SET UNLOGGED`.  
+- Convertire una tabella registrata esistente in una tabella non registrata con la sintassi `ALTER TABLE <tableName> SET UNLOGGED`.  
 
-Per invertire il processo, usare la sintassi `ALTER <tableName> SET LOGGED`.
+Per invertire il processo, usare la sintassi `ALTER TABLE <tableName> SET LOGGED`.
 
 ## <a name="unlogged-table-tradeoff"></a>Compromessi per le tabelle non registrate
 Le tabelle non registrate non sono protette dagli arresti anomali del sistema. Una tabella non registrata viene troncata automaticamente dopo un arresto anomalo o in seguito a un arresto non corretto. Il contenuto di una tabella non registrata non viene inoltre replicato nei server di standby. Gli indici creati in una tabella non registrata sono automaticamente non registrati. Al termine dell'operazione di inserimento, convertire la tabella in registrata in modo che l'inserimento sia durevole.

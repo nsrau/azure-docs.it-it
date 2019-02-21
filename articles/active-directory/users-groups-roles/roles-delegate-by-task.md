@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2fdede1308ac2c4c036d835a7be28b0e5ee180d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6ea25510596903e4020e8237bc5bd389c584ead9
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207077"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268432"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Ruoli di amministratore dall'attività di amministratore in Azure Active Directory
 
@@ -202,8 +202,8 @@ Eliminare tutte le password dell'app esistenti generate dagli utenti selezionati
 Disabilitare autenticazione a più fattori | Amministratore globale | 
 Abilitare MFA | Amministratore globale | 
 Gestire le impostazioni del servizio di autenticazione a più fattori | Amministratore globale | 
-Richiedere agli utenti selezionati di fornire di nuovo i metodi di contatto | Amministratore globale | 
-Ripristinare l'autenticazione a più fattori in tutti i dispositivi memorizzati  | Amministratore globale | 
+Richiedere agli utenti selezionati di fornire di nuovo i metodi di contatto | Amministratore dell'autenticazione | 
+Ripristinare l'autenticazione a più fattori in tutti i dispositivi memorizzati  | Amministratore dell'autenticazione | 
 
 ## <a name="mfa-server"></a>Server MFA
 

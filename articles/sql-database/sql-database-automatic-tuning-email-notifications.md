@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 1b58401a6697cdc80acc9badaf018923c5a9a980
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: cdd709fa446ffe769c8c57aeb44fe592b12e92d4
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660290"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416109"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notifiche tramite posta elettronica per l'ottimizzazione automatica
 
@@ -73,7 +73,7 @@ Il passaggio successivo consiste nella creazione di un runbook in Automazione di
 Per creare un nuovo runbook di Automazione di Azure, seguire questa procedura:
 
 - Accedere all'account di Automazione di Azure creato nel passaggio precedente
-- Nel riquadro dell'account di automazione fare clic sulla voce di menu "**Runbook**" sul lato sinistro per creare un nuovo runbook di Automazione di Azure con lo script di PowerShell. Per altre informazioni sulla creazione di runbook di automazione, vedere [Creazione di un nuovo runbook](../automation/automation-creating-importing-runbook.md).
+- Nel riquadro dell'account di automazione fare clic sulla voce di menu "**Runbook**" sul lato sinistro per creare un nuovo runbook di Automazione di Azure con lo script di PowerShell. Per altre informazioni sulla creazione di runbook di automazione, vedere [Creazione di un nuovo runbook](../automation/manage-runbooks.md#create-a-runbook).
 - Per aggiungere un nuovo runbook, fare clic sull'opzione di menu "**+Aggiungi un runbook**" e quindi fare clic su "**Creazione rapida: Crea un nuovo runbook**".
 - Nel riquadro del runbook digitare il nome del runbook (ai fini di questo esempio si userà "**AutomaticTuningEmailAutomation**"), selezionare il tipo di runbook **PowerShell** e scrivere una descrizione di questo runbook per illustrarne lo scopo.
 - Fare clic sul pulsante **Crea** per completare la creazione del nuovo runbook

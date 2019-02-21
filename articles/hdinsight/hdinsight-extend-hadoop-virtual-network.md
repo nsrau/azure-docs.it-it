@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: dfcbbacc5df394e0d2a515d557d655af0ea44d11
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5862c6ef3c420c1722ddfbc1238be4e2bf43a507
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169973"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447421"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Estendere Azure HDInsight usando Rete virtuale di Azure
 
@@ -221,8 +221,6 @@ Il traffico di rete nelle reti virtuali di Azure può essere controllato usando 
 
 Come servizio gestito, HDInsight richiede l'accesso senza restrizioni ai servizi di gestione e integrità di HDinsight sia per il traffico in ingresso che per quello in uscita dalla rete virtuale. Quando si usano i gruppi di sicurezza di rete e le route definite dall'utente, è necessario assicurarsi che questi servizi possano ancora comunicare con il cluster HDInsight.
 
-HDInsight espone i servizi su porte diverse. Quando si usa un firewall di appliance virtuale, è necessario consentire il traffico sulle porte usate per questi servizi. Per altre informazioni, vedere la sezione [Porte richieste].
-
 ### <a id="hdinsight-ip"></a>HDInsight con gruppi di sicurezza di rete e route definite dall'utente
 
 Se si intende usare **gruppi di sicurezza di rete** o **route definite dall'utente** per controllare il traffico di rete, eseguire le azioni seguenti prima di installare HDInsight:
@@ -305,8 +303,6 @@ Se si usano gruppi di sicurezza di rete, è necessario consentire al traffico da
 3. È necessario consentire l'accesso da __168.63.129.16__. Questo è l'indirizzo del sistema di risoluzione ricorsiva di Azure. Per altre informazioni, vedere il documento [Risoluzione dei nomi per macchine virtuali e istanze del ruolo](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 Per altre informazioni, vedere la sezione [Controllo del traffico di rete](#networktraffic).
-
-Per le regole in uscita relative ai gruppi di sicurezza di rete, consentire al traffico da qualsiasi origine all'interno della rete virtuale di raggiungere gli indirizzi sopra indicati come "indirizzi IP di destinazione".
 
 Se si usano route definite dall'utente, è necessario specificare una route e consentire il traffico in uscita dalla rete virtuale diretto verso gli indirizzi IP precedenti con l'hop successivo impostato su "Internet".
     

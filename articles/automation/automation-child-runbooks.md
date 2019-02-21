@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 37cf44e2c9d28b1aac8f2ab80ba29d126fb8651f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f52c9731b0289563037cbf065f3e22d652b40e74
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422969"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417432"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbook figlio in Automazione di Azure
 
@@ -28,7 +28,7 @@ Quando si richiama un runbook inline, esso viene eseguito nello stesso processo 
 
 Quando viene pubblicato un runbook, tutti i runbook figlio chiamati devono già essere pubblicati. Questo avviene perché l'automazione di Azure crea un'associazione con i runbook figlio quando viene compilato un runbook. In caso contrario, il runbook padre sembrerà pubblicato correttamente ma al suo avvio verrà generata un'eccezione. In questo caso, è possibile ripubblicare il runbook padre in modo che faccia riferimento in modo corretto ai runbook figlio. Non è necessario ripubblicare il runbook padre se uno o più runbook figlio sono stati modificati, in quanto l'associazione è già stata creata.
 
-I parametri di un runbook figlio chiamati inline possono essere di qualsiasi tipo di dati, inclusi gli oggetti complessi. Non c'è alcuna [serializzazione JSON](automation-starting-a-runbook.md#runbook-parameters), come invece avviene quando si avvia il runbook usando il portale di Azure o il cmdlet Start-AzureRmAutomationRunbook.
+I parametri di un runbook figlio chiamati inline possono essere di qualsiasi tipo di dati, inclusi gli oggetti complessi. Non c'è alcuna [serializzazione JSON](start-runbooks.md#runbook-parameters), come invece avviene quando si avvia il runbook usando il portale di Azure o il cmdlet Start-AzureRmAutomationRunbook.
 
 ### <a name="runbook-types"></a>Tipi di runbook
 
@@ -65,7 +65,7 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 > [!IMPORTANT]
 > Se si richiama un runbook figlio con il cmdlet `Start-AzureRmAutomationRunbook` e il parametro `-Wait` e il risultato del runbook figlio è un oggetto, potrebbero verificarsi errori. Per correggere l'errore, vedere [Il runbook figlio restituisce un errore quando il flusso di output contiene oggetti diversi da semplici tipi di dati](troubleshoot/runbooks.md#child-runbook-object) per informazioni su come implementare la logica di polling dei risultati e usare [Get-AzureRmAutomationJobOutputRecord](/powershell/module/azurerm.automation/get-azurermautomationjoboutputrecord)
 
-È possibile usare il cmdlet [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) per avviare un runbook come descritto nella sezione relativa all'[avvio di un runbook con Windows PowerShell](automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). Sono disponibili due modalità di utilizzo di questo cmdlet.  In una modalità, il cmdlet restituisce l'ID del processo quando viene creato il processo figlio per il runbook figlio.  Nell'altra modalità, abilitata specificando il parametro **-wait**, il cmdlet attende il termine del processo figlio e restituisce l'output dal runbook figlio.
+È possibile usare il cmdlet [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) per avviare un runbook come descritto nella sezione relativa all'[avvio di un runbook con Windows PowerShell](start-runbooks.md#start-a-runbook-with-powershell). Sono disponibili due modalità di utilizzo di questo cmdlet.  In una modalità, il cmdlet restituisce l'ID del processo quando viene creato il processo figlio per il runbook figlio.  Nell'altra modalità, abilitata specificando il parametro **-wait**, il cmdlet attende il termine del processo figlio e restituisce l'output dal runbook figlio.
 
 Il processo di un runbook figlio avviato con un cmdlet viene eseguito in un processo separato dal runbook padre. Questo comportamento produce più processi rispetto all'avvio del runbook inline e li rende più difficili da monitorare. Il runbook padre può avviare più runbook figlio in modo asincrono senza attendere il completamento di ognuno. Per questa stessa tipologia di esecuzione parallela che chiama l’inline del runbook figlio, il runbook padre dovrà usare la [parola chiave parallela](automation-powershell-workflow.md#parallel-processing).
 
@@ -73,7 +73,7 @@ L'output dei runbook figlio non viene restituito al runbook padre in modo affida
 
 Se non si vuole che il runbook padre rimanga bloccato in attesa, è possibile avviare il runbook figlio usando il cmdlet `Start-AzureRmAutomationRunbook` senza l'opzione `-Wait`. Sarà quindi necessario usare `Get-AzureRmAutomationJob` per attendere il completamento del processo e `Get-AzureRmAutomationJobOutput` e `Get-AzureRmAutomationJobOutputRecord` per recuperare i risultati.
 
-I parametri per un runbook figlio avviato con un cmdlet vengono forniti come una tabella hash, come descritto in [Parametri di Runbook](automation-starting-a-runbook.md#runbook-parameters). Possono essere utilizzati solo tipi di dati semplici. Se il runbook dispone di un parametro con un tipo di dati complessi, deve essere chiamato inline.
+I parametri per un runbook figlio avviato con un cmdlet vengono forniti come una tabella hash, come descritto in [Parametri di Runbook](start-runbooks.md#runbook-parameters). Possono essere utilizzati solo tipi di dati semplici. Se il runbook dispone di un parametro con un tipo di dati complessi, deve essere chiamato inline.
 
 Il contesto della sottoscrizione potrebbe andare perso quando si avviano i runbook figlio come processi separati. Affinché il runbook figlio possa eseguire i cmdlet di Azure Resource Manager a livello di una sottoscrizione di Azure specifica, il runbook figlio deve autenticarsi in tale sottoscrizione indipendentemente dal runbook padre.
 
@@ -120,6 +120,6 @@ Nella tabella seguente vengono riepilogate le differenze tra i due metodi per ch
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md)
+* [Avvio di un runbook in Automazione di Azure](start-runbooks.md)
 * [Output di runbook e messaggi in automazione di Azure](automation-runbook-output-and-messages.md)
 

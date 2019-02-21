@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: e7d08ec0d25e7666acb510c4bae5533975b21039
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 154e0dcefab6d5bcdfc9532ba4258d09593f0970
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296546"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311133"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Attività di copia in Azure Data Factory
 
@@ -129,12 +129,12 @@ Nel modello seguente di un'attività di copia è incluso l'elenco completo delle
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type di un'attività di copia deve essere impostata su: **Copia** | Yes |
-| inputs | Specificare il set di dati creato che fa riferimento ai dati di origine. L'attività di copia supporta un singolo input. | Yes |
-| outputs | Specificare il set di dati creato che fa riferimento ai dati sink. L'attività di copia supporta un singolo output. | Yes |
-| typeProperties | Un gruppo di proprietà per configurare l'attività di copia. | Yes |
-| una sezione source | Specificare il tipo di origine della copia e le proprietà corrispondenti per recuperare i dati.<br/><br/>Vedere la sezione "Proprietà dell'attività di copia" nell'articolo sul connettore elencato in [Archivi dati e formati supportati](#supported-data-stores-and-formats). | Yes |
-| sink | Specificare il tipo di sink della copia e le proprietà corrispondenti per scrivere i dati.<br/><br/>Vedere la sezione "Proprietà dell'attività di copia" nell'articolo sul connettore elencato in [Archivi dati e formati supportati](#supported-data-stores-and-formats). | Yes |
+| type | La proprietà type di un'attività di copia deve essere impostata su: **Copia** | Sì |
+| inputs | Specificare il set di dati creato che fa riferimento ai dati di origine. L'attività di copia supporta un singolo input. | Sì |
+| outputs | Specificare il set di dati creato che fa riferimento ai dati sink. L'attività di copia supporta un singolo output. | Sì |
+| typeProperties | Un gruppo di proprietà per configurare l'attività di copia. | Sì |
+| una sezione source | Specificare il tipo di origine della copia e le proprietà corrispondenti per recuperare i dati.<br/><br/>Vedere la sezione "Proprietà dell'attività di copia" nell'articolo sul connettore elencato in [Archivi dati e formati supportati](#supported-data-stores-and-formats). | Sì |
+| sink | Specificare il tipo di sink della copia e le proprietà corrispondenti per scrivere i dati.<br/><br/>Vedere la sezione "Proprietà dell'attività di copia" nell'articolo sul connettore elencato in [Archivi dati e formati supportati](#supported-data-stores-and-formats). | Sì |
 | translator | Specificare il mapping esplicito di colonne da origine a sink. Si applica quando il comportamento di copia predefinito non soddisfa le esigenze.<br/><br/>Vedere [Mapping dello schema e dei tipi di dati](copy-activity-schema-and-type-mapping.md). | No  |
 | dataIntegrationUnits | Specificare l'efficacia del [runtime di integrazione di Azure](concepts-integration-runtime.md) per migliorare la copia dei dati. Precedentemente noto come Unità di spostamento dati cloud. <br/><br/>Altre informazioni disponibili in [Data Integration Units](copy-activity-performance.md#data-integration-units) (Unità di integrazione dei dati). | No  |
 | parallelCopies | Specificare il parallelismo che l'attività di copia deve usare durante la lettura dei dati dall'origine e la scrittura dei dati nel sink.<br/><br/>Vedere [Copia parallela](copy-activity-performance.md#parallel-copy). | No  |

@@ -1,7 +1,7 @@
 ---
 title: Risolvere i problemi di Speech SDK - Servizi di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: Le informazioni di questo articolo consentono di risolvere i problemi riscontrati quando si usa Speech Service SDK.
+description: Questo articolo fornisce informazioni che consentono di risolvere i problemi riscontrati quando si usa Speech SDK.
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: dbcdfd117a39939491914ebddb717f404e07f09c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a3741cb351b11b8cfd7c5d38713bb71232cf010e
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859318"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446529"
 ---
-# <a name="troubleshoot-the-speech-service-sdk"></a>Risolvere i problemi di Speech Service SDK
+# <a name="troubleshoot-the-speech-sdk"></a>Risolvere i problemi di Speech SDK
 
-Le informazioni di questo articolo consentono di risolvere i problemi riscontrati quando si usa Speech Service SDK.
+Questo articolo fornisce informazioni che consentono di risolvere i problemi riscontrati quando si usa Speech SDK.
 
 ## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Errore: l'aggiornamento di WebSocket non è riuscito a causa di un errore di autenticazione (403)
 

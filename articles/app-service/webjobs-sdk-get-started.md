@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: glenga
-ms.openlocfilehash: 9e85dbe21b98ce936ede09e741e83f59a865b73e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b39c8c19b494422d34bae7145d69e8e95cb16846
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999386"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416821"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introduzione ad Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
 
@@ -431,7 +431,7 @@ In questa sezione si configura la registrazione in Application Insights prima de
 
 1. Se non si ha già una risorsa di Application Insights utilizzabile, [crearne una](../azure-monitor/app/create-new-resource.md ). Impostare **Tipo di applicazione** su **Generale** e ignorare le sezioni successive a **Eseguire una copia della chiave di strumentazione**.
 
-1. Se si ha già una risorsa di Application Insights da usare, [copiare la chiave di strumentazione](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key).
+1. Se si ha già una risorsa di Application Insights da usare, [copiare la chiave di strumentazione](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key).
 
 ### <a name="configure-app-settings"></a>Configurare le impostazioni applicazione 
 
