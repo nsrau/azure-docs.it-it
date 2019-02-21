@@ -102,7 +102,7 @@ items:
     href: quickstarts-sdk/python-sdk.md
 - name: Esercitazioni
   items:
-  - name: Ottenere i metadati per immagini di Azure
+  - name: Generare metadati per le immagini
     href: Tutorials/storage-lab-tutorial.md
 - name: Concetti
   items:
@@ -156,7 +156,7 @@ items:
     href: vs-computer-vision-connected-service.md
   - name: Analizzare video in tempo reale
     href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Interfaccia della riga di comando di Azure
     href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
@@ -202,9 +202,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Disponibilità internazionale
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-ms.openlocfilehash: 30b8a6937bafc469c4135a899af56277b4f3a9eb
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: e3653590989020e4a9186cf9e083bf3b061f2f49
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310713"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452322"

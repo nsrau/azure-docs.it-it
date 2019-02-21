@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: cbc9fa5586b848de79c52142f75b22b744fdae38
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: e83ff9f3bf02a134919d497662744028e1b9acda
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105951"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343018"
 ---
 # <a name="azure-security-policies-monitored-by-azure-security-center"></a>Criteri di sicurezza di Azure monitorati dal Centro sicurezza di Azure
 Questo articolo offre un elenco di definizioni di criteri di Azure che possono essere monitorate nel Centro sicurezza. Per altre informazioni sui criteri di sicurezza, vedere [Utilizzo dei criteri di sicurezza](tutorial-security-policy.md).
@@ -96,4 +96,4 @@ In questo articolo si è appreso come configurare i criteri di sicurezza nel Cen
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): Risposte alle domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): Post di blog sulla sicurezza e sulla conformità di Azure.
 
-Per altre informazioni su Criteri di Azure, vedere [Informazioni su Criteri di Azure](../azure-policy/azure-policy-introduction.md).
+Per altre informazioni su Criteri di Azure, vedere [Informazioni su Criteri di Azure](../governance/policy/overview.md).
