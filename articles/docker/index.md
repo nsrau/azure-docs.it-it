@@ -11,12 +11,6 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: carolz
-ms.openlocfilehash: fa2cce2314b3df0d9d32d9d8d6ede5a70520a7d4
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647245"
 ---
 <div class="content">
    <h1>Docker in Azure</h1>   
@@ -28,7 +22,7 @@ Docker è una nota piattaforma di creazione dell'immagine e gestione di contenit
     </div>
 <h2>Guide introduttive di 5 minuti</h2>
 <p>Informazioni su come distribuire Docker in Azure:</p>
-<a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS">Modello di avvio rapido per distribuire Docker in Ubuntu</a><br/>
+<a href="https://azure.microsoft.com/resources/templates/docker-simple-on-ubuntu/">Modello di avvio rapido per distribuire Docker in Ubuntu</a><br/>
 <h2>Esercitazioni dettagliate</h2>
 <p>Informazioni su come usare Docker nell'applicazione e come parte della pipeline CI/CD:</p>
 <ol>

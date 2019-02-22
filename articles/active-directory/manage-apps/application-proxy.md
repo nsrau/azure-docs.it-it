@@ -29,7 +29,7 @@ Il proxy di applicazione di Azure AD:
 
 - **Sicuro**. Le applicazioni locali possono usare i controlli di autorizzazione e le funzionalità di analisi della sicurezza di Azure. Ad esempio, le applicazioni locali possono usare l'accesso condizionale e la verifica in due passaggi. Application Proxy non richiede l'apertura delle connessioni in ingresso attraverso il firewall.
  
-- **Convenienza**. Le soluzioni locali richiedono generalmente di configurare e gestire zone demilitarizzate (DMZ), server perimetrali o altre infrastrutture complesse. Application Proxy viene eseguito nel cloud ed è quindi facile da usare. Per usare Application Proxy non è necessario modificare l'infrastruttura di rete o installare altre appliance nell'ambiente locale.
+- **Convenienza**. Le soluzioni locali richiedono generalmente di configurare e gestire reti perimetrali, server perimetrali o altre infrastrutture complesse. Application Proxy viene eseguito nel cloud ed è quindi facile da usare. Per usare Application Proxy non è necessario modificare l'infrastruttura di rete o installare altre appliance nell'ambiente locale.
 
 ## <a name="what-is-application-proxy"></a>Che cos'è Application Proxy?
 Application Proxy è una funzionalità di Azure AD che consente agli utenti di accedere alle applicazioni Web locali da un client remoto. Application Proxy include sia il servizio Application Proxy eseguito nel cloud, che il connettore Application Proxy eseguito in un server locale. Azure AD, il servizio Application Proxy e il connettore Application Proxy interagiscono per passare in modo sicuro il token di accesso dell'utente da Azure AD all'applicazione Web.

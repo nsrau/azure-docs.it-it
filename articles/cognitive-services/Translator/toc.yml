@@ -136,13 +136,13 @@ items:
     - name: Informazioni di riferimento sull'API Traduzione testuale v3
       href: reference/v3-0-reference.md
       items:
-      - name: Lingue
+      - name: Languages
         href: reference/v3-0-languages.md
       - name: Translate
         href: reference/v3-0-translate.md
       - name: Transliterate
         href: reference/v3-0-transliterate.md
-      - name: Rilevamento
+      - name: Detect
         href: reference/v3-0-detect.md
       - name: BreakSentence
         href: reference/v3-0-break-sentence.md
@@ -230,7 +230,7 @@ items:
   - name: Risorse
     items:
     - name: Supporto per le lingue
-      href: https://docs.microsoft.com/azure/cognitive-services/translator/language-support
+      href: https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization
     - name: Glossario
       href: custom-translator/glossary.md
     - name: Domande frequenti
@@ -241,9 +241,9 @@ items:
       href: https://stackoverflow.com/questions/tagged/microsoft-translator
     - name: UserVoice
       href: https://cognitive.uservoice.com/knowledgebase/articles/1855897-custom-translator-preview-resource-guide
-ms.openlocfilehash: d1e1ed12b863f37a2a0d8e5ebefd456131509737
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 72fc95b92d8e93e3cf56d614de8a1967d2752f96
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159979"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585271"

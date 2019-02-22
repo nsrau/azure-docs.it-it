@@ -72,6 +72,14 @@ items:
       items:
       - name: Sistema con più tecnologie DRM e controllo di accesso
         href: design-multi-drm-system-with-access-control.md
+      - name: Licenze DRM
+        items:
+        - name: Modello di licenza PlayReady
+          href: playready-license-template-overview.md
+        - name: Modello di licenza Widevine
+          href: widevine-license-template-overview.md
+        - name: Requisiti relativi alle licenze FairPlay
+          href: fairplay-license-overview.md
     - name: Endpoint di streaming
       displayName: Origins
       href: streaming-endpoint-concept.md
@@ -101,6 +109,8 @@ items:
     items:
     - name: Eventi con Griglia di eventi
       href: reacting-to-media-services-events.md
+    - name: Schemi di Griglia di eventi
+      href: media-services-event-schemas.md
   - name: Clienti più importanti
     items:
     - name: Azure Media Player
@@ -197,16 +207,6 @@ items:
       href: https://aka.ms/ams-v3-go-ref
   - name: Modello di Resource Manager
     href: /azure/templates/microsoft.media/allversions
-  - name: Schemi di Griglia di eventi
-    href: media-services-event-schemas.md
-  - name: Licenze DRM
-    items:
-    - name: Modello di licenza PlayReady
-      href: playready-license-template-overview.md
-    - name: Modello di licenza Widevine
-      href: widevine-license-template-overview.md
-    - name: Requisiti relativi alle licenze FairPlay
-      href: fairplay-license-overview.md
 - name: Risorse
   items:
   - name: Roadmap per Azure
@@ -241,9 +241,9 @@ items:
     href: frequently-asked-questions.md
   - name: Aree e cloud di Azure
     href: azure-clouds-regions.md
-ms.openlocfilehash: ca4ad36aab79f82c558c3d653a77ad5ec10b254c
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: b73b6018a2627918ebf31a046422c09f80d900e2
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416953"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652816"
