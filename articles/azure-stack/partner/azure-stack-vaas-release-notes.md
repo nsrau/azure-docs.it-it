@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 02/19/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: 5252eed66018cd2028545567dfe62ca7ba17be7e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/19/2019
+ms.openlocfilehash: 884c87501a54a582177cba99596fe6f0b4cccf36
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247817"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593336"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Note sulla versione per la convalida come servizio
 
@@ -28,14 +28,13 @@ ms.locfileid: "55247817"
 Questo articolo contiene le note sulla versione per la convalida di Azure Stack come servizio.
 
 ## <a name="version-405"></a>Versione 4.0.5
+
 17 gennaio 2019
 
--  Test di identificazione del disco aggiornati alle incoerenze di pool di archiviazione indirizzo. Versione: 5.1.14.0  -> 5.1.15.0
--  Azure Stack mensile verificare l'aggiornamento aggiornata all'indirizzo approvate le incoerenze di convalida del software e contenuti. Versione: 5.1.14.0  -> 5.1.15.0
--  Verifica del pacchetto estensione OEM aggiornata per eseguire i controlli necessari *prima di* il passaggio di aggiornamento di Azure Stack. Versione: 5.1.14.0  -> 5.1.15.0
--  Correzioni di bug interne
-
-
+- Test di identificazione del disco aggiornati alle incoerenze di pool di archiviazione indirizzo. Versione: 5.1.14.0 -> 5.1.15.0
+- Azure Stack mensile verificare l'aggiornamento aggiornata all'indirizzo approvate le incoerenze di convalida del software e contenuti. Versione: 5.1.14.0 -> 5.1.17.0
+- Verifica del pacchetto estensione OEM aggiornata per eseguire i controlli necessari prima della fase di aggiornamento di Azure Stack. Versione: 5.1.14.0 -> 5.1.16.0
+- Correzioni di bug interne
 
 ## <a name="version-402"></a>Nella versione 4.0.2
 
@@ -77,7 +76,7 @@ Il 30 novembre 2018
 
 - Gli aggiornamenti prerequisiti VaaS e disco rigido virtuale
 
-    `Install-VaaSPrerequisites` è ora necessario cloud le credenziali di amministratore per risolvere un problema durante la convalida della soluzione. La documentazione all'indirizzo [scaricare e installare l'agente](azure-stack-vaas-local-agent.md#download-and-install-the-agent) è stato aggiornato con il codice seguente:
+    `Install-VaaSPrerequisites` è ora necessario cloud le credenziali di amministratore per risolvere un problema durante la convalida del pacchetto. La documentazione all'indirizzo [scaricare e installare l'agente](azure-stack-vaas-local-agent.md#download-and-install-the-agent) è stato aggiornato con il codice seguente:
 
     ```PowerShell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -104,7 +103,7 @@ Il 30 novembre 2018
 
   - Le notifiche di firma del pacchetto
 
-    Quando viene inviato un pacchetto di personalizzazione OEM come parte del flusso di lavoro di convalida di soluzioni, il formato del pacchetto verrà convalidato per assicurarsi che segue la specifica pubblicata. Se il pacchetto non è conforme, l'esecuzione avrà esito negativo. Notifiche tramite posta elettronica verranno inviate all'indirizzo di posta elettronica del contatto per il tenant Azure Active Directory registrato.
+    Quando viene inviato un pacchetto di personalizzazione OEM come parte del flusso di lavoro di convalida del pacchetto, il formato del pacchetto verrà convalidato per assicurarsi che segue la specifica pubblicata. Se il pacchetto non è conforme, l'esecuzione avrà esito negativo. Notifiche tramite posta elettronica verranno inviate all'indirizzo di posta elettronica del contatto per il tenant Azure Active Directory registrato.
 
   - Categoria di test interattiva
 

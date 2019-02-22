@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 01/07/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 880f28a6f6e0029812e50dd97ff96d149c956b33
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 20a48e67a24763af7bcce9e8831e2a1d1846d094
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252252"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594305"
 ---
 # <a name="interactive-feature-verification-testing"></a>Test di verifica di caratteristiche interattive  
 
@@ -30,116 +30,87 @@ ms.locfileid: "55252252"
 
 Questo articolo descrive uno scenario semplice manuale. Il test verifica sostituzione di un disco in Azure Stack. Il framework raccoglie i log di diagnostica a ogni passaggio. È possibile eseguire il debug di problemi come si trovarli. Il framework inoltre consente la condivisione dei log generati da altri strumenti o processi e consente di fornire commenti e suggerimenti sullo scenario.
 
-## <a name="overview-of-a-test-pass"></a>Panoramica dei passi del test
+> [!Important]  
+> Questo articolo fa riferimento la procedura per utilizzare l'identificazione del disco. Si tratta semplicemente una dimostrazione, come i risultati raccolti dal flusso di lavoro superamento Test non possono essere utilizzati per la verifica della nuova soluzione.
+
+## <a name="overview-of-interactive-testing"></a>Panoramica di test interattiva
 
 Un test per la sostituzione del disco è uno scenario comune. In questo esempio, il test ha sette passaggi:
 
-1.  Creare una nuova **superamento Test** flusso di lavoro.
-2.  Selezionare il **Test di identificazione del disco**.
-3.  Avviare il test.
-4.  Scegliere le azioni nello scenario verifica interattiva.
-5.  Controllare il risultato dello scenario.
-6.  Invia il risultato del test per Microsoft.
-7.  Controllare lo stato nel portale di VaaS.
+1. Creare una nuova **superamento Test** flusso di lavoro
+1. Selezionare il **Test di identificazione del disco**
+1. Completare il passaggio manuale quando richiesto
+1. Controllare il risultato dello scenario
+1. Il risultato del test di inviare a Microsoft
 
 ## <a name="create-a-new-test-pass"></a>Creare un nuovo test
 
-1.  Passare il [portale di Azure Stack convalida](https://www.azurestackvalidation.com) ed eseguire l'accesso.
+Se non è un test esistente passare disponibili, seguire le istruzioni per il [pianificazione di un test](azure-stack-vaas-schedule-test-pass.md).
 
-2.  Creare una nuova soluzione o sceglierne uno esistente.
+## <a name="schedule-the-test"></a>Pianificare il test
 
-3.  Selezionare **avviare** nel **superamento Test** riquadro.
-
-    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image1.png)
-
-4.  Immettere un nome per il **superamento Test** flusso di lavoro.
-
-5.  Immettere l'ambiente e i parametri comuni di test, seguire le istruzioni riportate nel [parametri comuni del flusso di lavoro per la convalida dello Stack di Azure come servizio](azure-stack-vaas-parameters.md) articolo.
-
-6.  La stringa di connessione di diagnostica deve seguire il formato specificato nella [parametri di Test](azure-stack-vaas-parameters.md#test-parameters) sezione il [parametri comuni del flusso di lavoro](azure-stack-vaas-parameters.md) articolo.
-
-7.  Immettere i parametri necessari per il test.
-
-8.  Selezionare l'agente per eseguire l'esecuzione dei test interattiva.
-
-> [!Note]  
-> Per test di verifica caratteristiche interattive di identificazione del disco è necessario specificare la password e utente amministratore di dominio.
-
-![Alt text](media/azure-stack-vaas-interactive-feature-verification/image2.png)
-
-## <a name="select-the-test"></a>Selezionare il test
-
-1.  Selezionare **Test di identificazione del disco\<versione >**.
+1. Selezionare **Test di identificazione del disco**.
 
     > [!Note]  
     > La versione del test verrà incrementa man mano che vengono apportati miglioramenti per il materiale di test. A meno che non Microsoft indica in caso contrario, utilizzare sempre la versione più recente.
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image4.png)
 
-2.  Specificare l'utente amministratore di dominio e una password selezionando **modifica**.
+1. Fornire il nome utente amministratore di dominio e la password selezionando **modifica**.
 
-3.  Selezionare il test appropriati esecuzione agente/DVM per avviare il test su.
+1. Selezionare il test appropriati esecuzione agente/DVM per avviare il test su.
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image5.png)
 
-4.  Selezionare **Submit** per avviare il test.
+1. Selezionare **Submit** per avviare il test.
 
-![Alt text](media/azure-stack-vaas-interactive-feature-verification/image6.png)
+    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image6.png)
 
-## <a name="start-the-test"></a>Avviare il test
+1. Accedere all'interfaccia utente per il test interattivo dall'agente selezionato nel passaggio precedente.
 
-Le istruzioni di prova di identificazione del disco Visualizza nel computer che esegue l'agente VaaS. In genere si tratta di DVM o Jumpbox per l'istanza di Azure Stack.
+    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image8.png)
 
-![Alt text](media/azure-stack-vaas-interactive-feature-verification/image8.png)
-
-## <a name="choose-the-actions"></a>Scegliere le azioni
-
-1.  Seguire le **documentazione** e **convalida** collegamenti per esaminare le istruzioni disponibili nel Microsoft su come eseguire questo scenario.
+1. Seguire le **documentazione** e **convalida** collegamenti per esaminare le istruzioni disponibili nel Microsoft su come eseguire questo scenario.
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image9.png)
 
-2.  Selezionare **Avanti**.
+1. Selezionare **Avanti**.
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image10.png)
 
-3.  Seguire le istruzioni per eseguire lo script relativi alle verifiche preliminari.
+1. Seguire le istruzioni per eseguire lo script relativi alle verifiche preliminari.
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image11.png)
 
-4.  Al termine dello script relativi alle verifiche preliminari, è possibile eseguire lo scenario manuale (sostituzione del disco) come per il **documentazione** e **convalida** collegamenti dal **informazioni**scheda.
+1. Al termine dello script relativi alle verifiche preliminari, è possibile eseguire lo scenario manuale (sostituzione del disco) come per il **documentazione** e **convalida** collegamenti dal **informazioni**scheda.
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image12.png)
 
-5.  Non chiudere la finestra di dialogo mentre si esegue lo scenario manuale.
+    > [!Important]  
+    > Non chiudere la finestra di dialogo mentre si esegue lo scenario manuale.
 
-6.  Quando si è finito eseguendo lo scenario manuale, seguire le istruzioni per eseguire lo script di controllo post.
+1. Quando si è finito eseguendo lo scenario manuale, seguire le istruzioni per eseguire lo script di controllo post.
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image13.png)
 
-7.  Al completamento dello scenario manuale (sostituzione del disco), selezionare **successivo**.
+1. Al completamento dello scenario manuale (sostituzione del disco), selezionare **successivo**.
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image14.png)
 
-> [!Important]  
-> Se si chiude la finestra, il test verrà interrotta prima che sia completato.
+    > [!Important]  
+    > Se si chiude la finestra, il test verrà interrotta prima che sia completato.
 
-## <a name="check-the-status"></a>Controllare lo stato
-
-1.  Una volta completato il test, verrà richiesto di fornire commenti e suggerimenti.
+1. Fornire commenti e suggerimenti per l'esperienza di test. Queste domande consentirà a Microsoft di valutare la qualità di frequenza e rilascio di esito positivo dello scenario.
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image15.png)
 
-2.  Queste domande consentirà a Microsoft di valutare la qualità di frequenza e rilascio di esito positivo dello scenario.
-
-## <a name="send-the-test-result"></a>Invia il risultato del test
-
-1.  Collegare i file di log che si desidera inviare a Microsoft.
+1. Collegare i file di log che si desidera inviare a Microsoft.
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image16.png)
 
-2.  Accettare l'EULA di invio di commenti e suggerimenti.
+1. Accettare l'EULA di invio di commenti e suggerimenti.
 
-3.  Selezionare **Submit** per inviare i risultati a Microsoft.
+1. Selezionare **Submit** per inviare i risultati a Microsoft.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

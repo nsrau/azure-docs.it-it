@@ -15,12 +15,12 @@ ms.date: 01/08/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 44cf5b2cc7547a4e85c65215fdc1e4fe2cb585a9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: ac4366a2e90ea239c650e611b7c4e8dddf5d5106
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243641"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649663"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Creare e pubblicare un elemento del Marketplace
 
@@ -192,8 +192,8 @@ Di seguito sono riportati le icone e testo per gli elementi del Marketplace come
 
 ### <a name="create-blade"></a>Pannello Crea
 
-![Pannello Crea](media/azure-stack-marketplace-item-ui-reference/image1.png)
+![Pannello Crea](media/azure-stack-create-and-publish-marketplace-item/image1.png)
 
 ### <a name="marketplace-item-details-blade"></a>Pannello con i dettagli dell'elemento del Marketplace
 
-![Pannello con i dettagli dell'elemento del Marketplace](media/azure-stack-marketplace-item-ui-reference/image3.png)
+![Pannello con i dettagli dell'elemento del Marketplace](media/azure-stack-create-and-publish-marketplace-item/image3.png)

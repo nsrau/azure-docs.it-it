@@ -25,8 +25,8 @@ items:
   items:
   - name: Metodi di autenticazione
     href: concept-authentication-methods.md
-  - name: Registrazione convergente
-    href: concept-registration-mfa-sspr-converged.md
+  - name: Registrazione combinata
+    href: concept-registration-mfa-sspr-combined.md
   - name: Reimpostazione delle password
     items:
     - name: Funzionamento della reimpostazione della password
@@ -104,6 +104,12 @@ items:
         href: howto-mfa-nps-extension-rdg.md
       - name: VPN
         href: howto-mfa-nps-extension-vpn.md
+  - name: Registrazione combinata
+    items:
+    - name: Abilitare la registrazione combinata
+      href: howto-registration-mfa-sspr-combined.md
+    - name: Risoluzione dei problemi della registrazione combinata
+      href: howto-registration-mfa-sspr-combined-troubleshoot.md
   - name: Protezione delle password di Azure AD
     items:
     - name: Configurare l'elenco di password escluse
@@ -191,8 +197,6 @@ items:
         href: howto-mfa-nps-extension-errors.md
   - name: Risolvere problemi
     items:
-    - name: Disabilitare la registrazione convergente
-      href: howto-registration-mfa-sspr-converged-troubleshoot.md
     - name: Risolvere i problemi della reimpostazione della password self-service
       href: active-directory-passwords-troubleshoot.md
     - name: Domande frequenti sulla reimpostazione della password self-service
@@ -201,7 +205,7 @@ items:
       href: multi-factor-authentication-faq.md
     - name: Estensione del server dei criteri di rete
       href: howto-mfa-nps-extension-errors.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Manuale dell'utente di Multi-Factor Authentication
     href: ./end-user/current/multi-factor-authentication-end-user.md
@@ -225,9 +229,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-active-directory
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: d834bcd12f4f8af44c467233230744571dd9b23c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 99d21cd59b7281dbb6a34c2e3cdc9026c9955622
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660052"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585985"

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 03a6f649f15f6a4905433d6e2ec292a901340929
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b498283ee117935438c55e5162e92acdb0f5ebfe
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249681"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649901"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Windows Server nelle domande frequenti sul Marketplace di Azure Stack
 
@@ -38,7 +38,7 @@ Successivamente, se qualsiasi set di scalabilità di macchine virtuali fanno rif
 
 Microsoft offre due versioni di immagini di Windows Server tramite il Marketplace di Azure Stack:
 
-- **Pagare quando si utilizza**: Queste immagini di esecuzione dei contatori Windows prezzo pieno. 
+- **Pagare quando si utilizza**: Queste immagini di esecuzione dei contatori Windows prezzo pieno.
    Chi dovrebbe utilizzare: I clienti Enterprise Agreement (EA) che usano il *modello di fatturazione del consumo*; CSP che non si desidera utilizzare Servizio licenze SPLA.
 - **Bring Your Own License (BYOL)**: Queste immagini eseguire i contatori di base.
    Chi dovrebbe utilizzare: Clienti con contratto Enterprise con una licenza di Windows Server; CSP che usano la licenza SPLA.
@@ -74,23 +74,23 @@ Per attivare una macchina virtuale di Windows Server in Azure Stack, le condizio
 
 ### <a name="how-can-i-verify-that-my-virtual-machine-is-activated"></a>Come è possibile verificare che la macchina virtuale viene attivata?
 
-Eseguire il comando seguente al prompt dei comandi con privilegi elevati: 
+Eseguire il comando seguente al prompt dei comandi con privilegi elevati:
 
 ```shell
 slmgr /dlv
-``` 
+```
 
 Se è correttamente attivato, verrà visualizzato quanto segue in modo chiaro e il nome host visualizzato nei `slmgr` output. Non dipendono le filigrane sullo schermo man mano che potrebbe non essere aggiornate o vengano visualizzati da una macchina virtuale diversa dietro quelle in uso.
 
 ### <a name="my-vm-is-not-set-up-to-use-avma-how-can-i-fix-it"></a>La macchina virtuale non è configurata per usare questa funzionalità, come è possibile correggerlo?
 
-Eseguire il comando seguente al prompt dei comandi con privilegi elevati: 
+Eseguire il comando seguente al prompt dei comandi con privilegi elevati:
 
 ```shell
-slmgr /ipk <AVMA key> 
+slmgr /ipk <AVMA key>
 ```
 
-Vedere l'articolo [Automatic Virtual Machine Activation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) per le chiavi da usare per l'immagine.
+Vedere le [Automatic Virtual Machine Activation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) articolo per le chiavi da usare per l'immagine.
 
 ### <a name="i-create-my-own-windows-server-images-how-can-i-make-sure-they-use-avma"></a>Creare immagini personalizzate Windows Server, come assicurarsi che usano questa funzionalità?
 

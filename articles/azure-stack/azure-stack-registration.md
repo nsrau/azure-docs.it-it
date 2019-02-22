@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/14/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 62fde78cce05e62489931868da3d21c8b2e16928
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.lastreviewed: 02/14/2019
+ms.openlocfilehash: ebf8066139df93aefe1cfa21f2dc80ab57ca84bb
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430338"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652451"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrare Azure Stack con Azure
 
@@ -53,11 +53,13 @@ Prima di registrare Azure Stack con Azure, è necessario disporre di:
 
 - Il nome utente e password per un account che è un proprietario per la sottoscrizione.
 
-- L'account utente deve avere accesso alla sottoscrizione di Azure e disporre delle autorizzazioni per creare applicazioni a identità ed entità servizio nella directory associata alla sottoscrizione. È consigliabile registrare Azure Stack con Azure tramite Amministrazione privilegi minimi da [creazione di un account di servizio da usare per la registrazione](azure-stack-registration-role.md) invece di usare le credenziali di amministratore globale.
+- L'account utente deve avere accesso alla sottoscrizione di Azure e disporre delle autorizzazioni per creare applicazioni a identità ed entità servizio nella directory associata alla sottoscrizione. È consigliabile registrare Azure Stack con Azure tramite Amministrazione privilegi minimi. Per altre informazioni su come creare una definizione di ruolo personalizzato che limita l'accesso alla sottoscrizione per la registrazione, vedere [creare un ruolo di registrazione per Azure Stack](azure-stack-registration-role.md).
 
 - Registrato il provider di risorse di Azure Stack (vedere la sezione seguente registra Azure Stack Resource Provider per informazioni dettagliate).
 
 Dopo la registrazione, l'autorizzazione di amministratore globale di Azure Active Directory non è necessaria. Tuttavia, alcune operazioni potrebbero richiedere le credenziali di amministratore globale. Ad esempio, uno script di programma di installazione di provider di risorse o una nuova funzionalità che richiedono un'autorizzazione da concedere. È possibile temporaneamente reinstate autorizzazioni di amministratore globale dell'account o utilizzare un account di amministratore globale separata che è un proprietario del *predefinita sottoscrizione provider*.
+
+L'utente che registra Azure Stack è il proprietario del servizio dell'entità in Azure Active Directory. Solo gli utenti che hanno registrato di Azure Stack possono modificare la registrazione di Azure Stack. Se un utente senza privilegi di amministratore che non è un proprietario del servizio di registrazione dell'entità tenta di registrare o riregistrare Azure Stack, che si potrebbe verificare una risposta 403. Una risposta 403 indica che l'utente ha autorizzazioni sufficienti per completare l'operazione.
 
 Se non hai una sottoscrizione di Azure che soddisfa questi requisiti, è possibile [crea qui un account Azure gratuito](https://azure.microsoft.com/free/?b=17.06). La registrazione di Azure Stack viene addebitata alcuna tariffa nella sottoscrizione di Azure.
 
@@ -479,6 +481,13 @@ Get-AzsRegistrationToken genera un token di registrazione dai parametri di input
 | UsageReportingEnabled | True/False | Azure Stack riporta le metriche di utilizzo per impostazione predefinita. Gli operatori con utilizza la capacità o che supportano un ambiente disconnesso è necessario disattivare la segnalazione di utilizzo. I valori consentiti per questo parametro sono: True, False. |
 | AgreementNumber | string |  |
 
+## <a name="registration-failures"></a>Errori di registrazione
+
+Si può vedere uno degli errori riportati di seguito durante il tentativo di registrazione di Azure Stack:
+1. Impossibile recuperare le informazioni hardware obbligatorie per $hostName. Verificare la connettività e host fisico, quindi provare a eseguire nuovamente la registrazione.
+2. Impossibile connettersi al $hostName per ottenere informazioni sull'hardware: verificare la connettività e host fisico quindi provare a eseguire nuovamente la registrazione.
+
+Causa: In genere si tratta in quanto si tenta di ottenere i dettagli sull'hardware, ad esempio UUID, Bios e CPU dagli host tentare l'attivazione e non sono riusciti a causa dell'impossibilità di connettersi all'host fisico.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

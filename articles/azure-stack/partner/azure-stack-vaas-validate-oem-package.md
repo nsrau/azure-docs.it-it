@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/19/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 01/07/2019
+ms.lastreviewed: 02/19/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b3a9ee66907b51a40e9f4b0871d9f6ba6e29763a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f9ed10c84be86304722020606873b0c7866df1e8
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242400"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594050"
 ---
 # <a name="validate-oem-packages"></a>Convalidare i pacchetti dell'OEM
 
@@ -35,7 +35,7 @@ ms.locfileid: "55242400"
 
 ## <a name="managing-packages-for-validation"></a>La gestione dei pacchetti per la convalida
 
-Quando si usa la **la convalida del pacchetto** flusso di lavoro per convalidare un pacchetto, si dovrà fornire un URL a un **archiviazione blob di Azure**. Questo blob è il pacchetto OEM che è stato installato sulla soluzione in fase di distribuzione. Crea il blob usando l'Account di archiviazione di Azure creato durante l'installazione (vedere [configurare la convalida come le risorse di un servizio](azure-stack-vaas-set-up-resources.md)).
+Quando si usa la **la convalida del pacchetto** flusso di lavoro per convalidare un pacchetto, si dovrà fornire un URL a un **archiviazione blob di Azure**. Questo blob è che il test firmato pacchetto OEM che verrà installato come parte del processo di aggiornamento. Crea il blob usando l'Account di archiviazione di Azure creato durante l'installazione (vedere [configurare la convalida come le risorse di un servizio](azure-stack-vaas-set-up-resources.md)).
 
 ### <a name="prerequisite-provision-a-storage-container"></a>Prerequisiti: Effettuare il provisioning di un contenitore di archiviazione
 
@@ -58,7 +58,9 @@ Creare un contenitore nell'account di archiviazione per i BLOB di pacchetto. Que
 
 Quando si crea una **convalida dei pacchetti** flusso di lavoro nel portale di VaaS, si dovrà fornire un URL del blob di archiviazione di Azure contenente il pacchetto.
 
-#### <a name="option-1-generating-an-account-sas-url"></a>Opzione 1: Generazione di un URL di firma di accesso condiviso dell'account
+#### <a name="option-1-generating-a-blob-sas-url"></a>Opzione 1: Generazione di un URL di firma di accesso condiviso di blob
+
+Usare questa opzione se non si desidera abilitare l'accesso in lettura pubblico al contenitore di archiviazione o BLOB.
 
 1. Nel [portale di Azure](https://portal.azure.com/), passare all'account di archiviazione e individuare il file zip contenente il pacchetto
 
@@ -68,20 +70,23 @@ Quando si crea una **convalida dei pacchetti** flusso di lavoro nel portale di V
 
 4. Impostare **ora di inizio** sull'ora corrente, e **ora di fine** almeno 48 ore dal **ora di inizio**. Se si prevede di eseguire altri test con lo stesso pacchetto, provare ad aumentare **ora di fine** per la lunghezza delle attività di test. I test pianificati tramite VaaS dopo **ora di fine** avranno esito negativo e una nuova firma di accesso condiviso verrà dovranno essere generati.
 
-5. Selezionare **generare token di firma di accesso condiviso di blob e l'URL**
+5. Selezionare **Genera token di firma di accesso condiviso e URL**.
 
-Uso **URL di firma di accesso condiviso di Blob** quando si avvia un nuovo **convalida dei pacchetti** flusso di lavoro nel portale di VaaS.
+Usare la **URL di firma di accesso condiviso di Blob** quando fornendo pacchetto blob gli URL per il portale.
 
-#### <a name="option-2-using-public-read-container"></a>Opzione 2: Utilizzo di contenitore di lettura pubblico
+#### <a name="option-2-grant-public-read-access"></a>Opzione 2: Concedere l'accesso in lettura pubblico
 
 > [!CAUTION]
-> Questa opzione apre il contenitore per l'accesso anonimo di sola lettura.
+> Questa opzione apre il BLOB per l'accesso anonimo di sola lettura.
 
 1. Concessione **accesso solo per i BLOB in lettura pubblico** al contenitore del pacchetto, seguendo le istruzioni nella sezione [concedere le autorizzazioni agli utenti anonimi per contenitori e blob](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs).
 
-2. Nel contenitore del pacchetto, selezionare questa opzione sul blob nel contenitore del pacchetto per aprire il riquadro proprietà.
+> [!NOTE]
+> Se si specifica un URL del pacchetto a un *test interattiva* (ad esempio, verifica di aggiornamento mensile AzureStack o la verifica del pacchetto di estensione OEM), è necessario concedere **accesso in lettura pubblico completo** a continuare il test.
 
-3. Copia il **URL**. Utilizzare questo valore quando si avvia una nuova **convalida dei pacchetti** flusso di lavoro nel portale di VaaS.
+2. Nel contenitore del pacchetto, selezionare il blob di pacchetto per aprire il riquadro proprietà.
+
+3. Copia il **URL**. Utilizzare questo valore quando fornendo pacchetto blob gli URL per il portale.
 
 ## <a name="apply-monthly-update"></a>Applicare l'aggiornamento mensile
 
@@ -99,7 +104,7 @@ Uso **URL di firma di accesso condiviso di Blob** quando si avvia un nuovo **con
 
 4. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 
-5. Immettere l'URL del blob di archiviazione di Azure per il pacchetto OEM che è stato installato sulla soluzione in fase di distribuzione. Per istruzioni, vedere [generare l'URL blob pacchetto per VaaS](#generate-package-blob-url-for-vaas).
+5. Immettere Azure Storage blob URL per il test firmato pacchetto OEM che richiedono una firma di Microsoft. Per istruzioni, vedere [generare l'URL blob pacchetto per VaaS](#generate-package-blob-url-for-vaas).
 
 6. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
 
@@ -113,9 +118,16 @@ Uso **URL di firma di accesso condiviso di Blob** quando si avvia un nuovo **con
 9. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
     Si verrà reindirizzati alla pagina di riepilogo di test.
 
+## <a name="required-tests"></a>Test necessari
+
+I test seguenti sono necessari per la convalida del pacchetto OEM:
+
+- Verifica del pacchetto estensione di OEM
+- Motore di simulazione di cloud
+
 ## <a name="run-package-validation-tests"></a>Eseguire i test di convalida del pacchetto
 
-1. Nel **riepilogo test di convalida del pacchetto** pagina, verrà visualizzato un elenco dei test necessari per completare la convalida. Test in questo flusso di lavoro eseguito circa 24 ore.
+1. Nel **riepilogo test di convalida del pacchetto** pagina, si esegue un subset dei test elencati appropriate al proprio scenario.
 
     Nei flussi di lavoro di convalida **pianificazione** un test Usa i parametri comuni del flusso di lavoro a livello specificato durante la creazione del flusso di lavoro (vedere [parametri comuni del flusso di lavoro per la convalida dello Stack di Azure come servizio](azure-stack-vaas-parameters.md)). Se uno qualsiasi dei valori dei parametri di test diventano non valido, è necessario resupply li come indicato nelle [modificare i parametri del flusso di lavoro](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
 
@@ -125,13 +137,11 @@ Uso **URL di firma di accesso condiviso di Blob** quando si avvia un nuovo **con
 
 2. Selezionare l'agente che verrà eseguito il test. Per informazioni sull'aggiunta di locale l'esecuzione agenti di test, vedere [distribuire l'agente locale](azure-stack-vaas-local-agent.md).
 
-3. Per ognuno dei test seguente, eseguire l'istruzione quattro e cinque:
-    - Verifica del pacchetto estensione di OEM
-    - Motore di simulazione di cloud
+3. Per selezionare la verifica del pacchetto di estensione OEM completato **pianificazione** dal menu di scelta rapida per aprire un prompt dei comandi per la pianificazione dell'istanza di test.
 
-4. Selezionare **pianificazione** dal menu di scelta rapida per aprire un prompt dei comandi per la pianificazione dell'istanza di test.
+4. Esaminare i parametri di test e quindi selezionare **Submit** per pianificare la verifica del pacchetto di estensione OEM per l'esecuzione.
 
-5. Esaminare i parametri di test e quindi selezionare **Submit** per il test per l'esecuzione.
+5. Esaminare il risultato per la verifica del pacchetto di estensione OEM. Il test è stato completato correttamente, pianificare il motore di simulazione del Cloud per l'esecuzione.
 
 Quando tutti i test è sono completata, invia il nome della soluzione VaaS e convalida del pacchetto per [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) per richiedere la firma del pacchetto.
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: 882724c5f45cc2c5b3debb8fa80538239a98b749
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: aa467910cfa2dad84af3905db3592657cae85be9
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240693"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594356"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Connettere Azure Stack ad Azure tramite VPN
 
@@ -56,7 +56,7 @@ Tabella di esempi di configurazione di rete mostra i valori utilizzati per gli e
 
 ## <a name="create-the-network-resources-in-azure"></a>Creare le risorse di rete in Azure
 
-È in primo luogo, creare le risorse di rete per Azure. Le istruzioni seguenti illustrano come creare le risorse usando il [portale di Azure](https://portal.azure.com/).
+Innanzitutto, creare le risorse di rete per Azure. Le istruzioni seguenti illustrano come creare le risorse usando il [portale di Azure](https://portal.azure.com/).
 
 ### <a name="create-the-virtual-network-and-virtual-machine-vm-subnet"></a>Creare la rete virtuale e subnet per macchina virtuale (VM)
 
@@ -70,7 +70,7 @@ Tabella di esempi di configurazione di rete mostra i valori utilizzati per gli e
 8. Selezionare **Aggiungi al dashboard**.
 9. Selezionare **Create**.
 
-### <a name="create-the-gateway-subnet"></a>Creare la subnet del gateway
+### <a name="create-the-gateway-subnet"></a>Creare la subnet del Gateway
 
 1. Aprire la risorsa rete virtuale creata (**AzureVNet**) dal dashboard.
 2. Nel **le impostazioni** sezione, selezionare **subnet**.
@@ -305,4 +305,4 @@ Se si desidera sapere quanti dati vengono passati attraverso la connessione site
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Distribuire le App in Azure e Azure Stack](azure-stack-solution-pipeline.md)
+* [Distribuire le App in Azure e Azure Stack](azure-stack-solution-pipeline.md)

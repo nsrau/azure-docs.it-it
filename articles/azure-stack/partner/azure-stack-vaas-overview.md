@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 12/20/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: c0694a3839ae6b843abd1ddc8b67d1f3e3322e0e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6126bacf50d47029c29772b35f6dc1d552d47029
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246042"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592639"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack"></a>Che cos'è la convalida come servizio per Azure Stack?
 
@@ -43,19 +43,19 @@ Per altre informazioni, vedere [convalidare una nuova soluzione di Azure Stack](
 
 ## <a name="validate-changes-to-the-azure-stack-software"></a>Convalidare le modifiche al software Azure Stack
 
-Partner di usare la **soluzione convalida** flusso di lavoro per verificare che la soluzione funziona con gli aggiornamenti di software più recente di Azure Stack. Il flusso di lavoro di convalida di soluzioni deve essere eseguito in un ambiente hardware consigliato da Microsoft in cui patch e aggiornamento (P & U) viene usata per applicare l'aggiornamento. È consigliabile eseguire anche il flusso di lavoro in fase di compilazione la linea di base.
+Partner di usare la **convalida dei pacchetti** flusso di lavoro per verificare che la soluzione funziona con gli aggiornamenti di software più recente di Azure Stack. Il flusso di lavoro di convalida del pacchetto deve essere eseguito in un ambiente hardware consigliato da Microsoft in cui patch e aggiornamento (P & U) viene usata per applicare l'aggiornamento. È consigliabile eseguire anche il flusso di lavoro in fase di compilazione la linea di base.
 
 Per altre informazioni, vedere [convalidare gli aggiornamenti software da Microsoft](azure-stack-vaas-validate-microsoft-updates.md).
 
 ## <a name="get-digitally-signed-solution-partner-packages"></a>Ottenere i pacchetti di partner di soluzioni con firma digitale
 
-Oltre alla convalida degli aggiornamenti di Azure Stack, partner di usare la **soluzione convalida** flusso di lavoro per convalidare gli aggiornamenti per i pacchetti di personalizzazione OEM, che includono altri software, firmware e driver di specifiche del partner di Azure Stack usato durante la distribuzione del software Azure Stack. Distribuire il pacchetto che si esegue la convalida nella versione corrente del software Azure Stack con almeno la soluzione minimo che sarà supportata. Il pacchetto viene inviato a VaaS prima dell'esecuzione di test. Se il test ha esito positivo, notificare [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) che il pacchetto ha completato i test e deve essere firmato con la firma digitale di Azure Stack. Microsoft consente di firmare il pacchetto e notifica il partner di Azure Stack che il pacchetto è disponibile per il download nel portale di VaaS.
+Oltre alla convalida degli aggiornamenti di Azure Stack, partner di usare la **convalida dei pacchetti** flusso di lavoro per convalidare gli aggiornamenti per i pacchetti di personalizzazione OEM, che includono altri software, firmware e driver di specifiche del partner di Azure Stack usato durante la distribuzione del software Azure Stack. Distribuire il pacchetto che si esegue la convalida nella versione corrente del software Azure Stack con almeno la soluzione minimo che sarà supportata. Il pacchetto viene inviato a VaaS prima dell'esecuzione di test. Se il test ha esito positivo, notificare [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) che il pacchetto ha completato i test e deve essere firmato con la firma digitale di Azure Stack. Microsoft consente di firmare il pacchetto e notifica il partner di Azure Stack che il pacchetto è disponibile per il download nel portale di VaaS.
 
 Per altre informazioni, vedere [pacchetti di convalidare OEM](azure-stack-vaas-validate-oem-package.md).
 
 ## <a name="preview-vaas-test-collateral"></a>Anteprima VaaS testare materiale aggiuntivo relativo a
 
-Microsoft rende regolarmente nuove funzionalità disponibili in Azure Stack. Come parte del processo di sviluppo per la distribuzione di queste funzionalità-to-market, diventa disponibile nel nuovo materiale aggiuntivo relativo a test il **superamento Test** flusso di lavoro. Il flusso di lavoro di superamento Test include materiale aggiuntivo relativo a test da altri flussi di lavoro per consentire l'esecuzione di test non ufficiali. Non usare il flusso di lavoro di superamento Test per inviare i risultati per l'approvazione. Usare la convalida di soluzioni e flussi di lavoro di convalida di soluzioni per ottenere l'approvazione ufficiale per la soluzione.
+Microsoft rende regolarmente nuove funzionalità disponibili in Azure Stack. Come parte del processo di sviluppo per la distribuzione di queste funzionalità-to-market, diventa disponibile nel nuovo materiale aggiuntivo relativo a test il **superamento Test** flusso di lavoro. Il flusso di lavoro di superamento Test include materiale aggiuntivo relativo a test da altri flussi di lavoro per consentire l'esecuzione di test non ufficiali. Non usare il flusso di lavoro di superamento Test per inviare i risultati per l'approvazione. Usare i flussi di lavoro di convalida di soluzioni e la convalida del pacchetto per ottenere l'approvazione ufficiale per la soluzione.
 
 Per altre informazioni, vedere [Avvio rapido: Usare la convalida come portale del servizio per pianificare il primo test](azure-stack-vaas-schedule-test-pass.md).
 

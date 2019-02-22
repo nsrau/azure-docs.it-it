@@ -173,6 +173,8 @@ items:
         href: devtest-lab-mandatory-artifacts.md
       - name: Creare elementi personalizzati
         href: devtest-lab-artifact-author.md
+      - name: Aggiungere un repository di artefatti a un lab
+        href: add-artifact-repository.md
       - name: Diagnosticare errori degli elementi
         href: devtest-lab-troubleshoot-artifact-failure.md
     - name: Gestire le reti virtuali
@@ -193,7 +195,7 @@ items:
         href: devtest-lab-integrate-ci-cd-vsts.md
     - name: Creare o modificare lab tramite il modello di Resource Manager
       href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: CLI
     href: /cli/azure/lab
@@ -223,9 +225,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab
   - name: Prezzi
     href: https://azure.microsoft.com/pricing/details/devtest-lab/
-ms.openlocfilehash: 783aec352d79c56525751142e4e5e95697149dbc
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: d27b3f85b947a9ce10118d515665889133bab336
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747283"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594101"

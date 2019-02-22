@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 2/15/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 415cdecc33b7360d482d37a3cb9d4f1bce528ab1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: cc2d19bec91998116143058d2bc4313fd192db38
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251793"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592974"
 ---
 # <a name="create-an-oem-package"></a>Creare un pacchetto dell'OEM
 
@@ -30,11 +30,10 @@ Il pacchetto di estensione OEM di Azure Stack è il meccanismo dal quale OEM con
 
 ## <a name="creating-the-package"></a>Creazione del pacchetto
 
-Dopo aver creato e convalidato, il pacchetto di estensione OEM può essere usato in VaaS.  Prima di continuare, assicurarsi di aver completato i passaggi per la [creazione di un pacchetto di OEM](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true). Il pacchetto viene quindi inviato a Microsoft insieme ai risultati del test VaaS per la firma del flusso di lavoro di convalida di soluzioni. La procedura seguente illustra come aggregare i file generati in un unico file zip che VaaS possono utilizzare.
+Dopo aver creato e convalidato, il pacchetto di estensione OEM può essere usato in VaaS.  Prima di continuare, assicurarsi di aver completato i passaggi per la [creazione di un pacchetto di OEM](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true). Il pacchetto viene quindi inviato a Microsoft insieme ai risultati del test VaaS per la firma del flusso di lavoro di convalida del pacchetto. La procedura seguente illustra come aggregare i file generati in un unico file zip che VaaS possono utilizzare.
 
 1. Identificare il contenuto seguente per il pacchetto:
-    - Un eseguibile denominato `<Publisher>-<Model>-<Version>.exe`
-    - Uno o più file binario denominato `<Publisher><Model>-<Version>-#.bin`, dove # è un numero sequenziale a partire da 1. Il numero di file binari dipende la dimensione totale del contenuto del pacchetto.
+    - Un file zip contenente i contenuti del pacchetto
     - Un file manifesto denominato `oemMetadata.xml`, che deve essere identica nel contenuto del file Metadata. XML nella radice del contenuto del pacchetto.
 
 2. Selezionare i file di contenuto e creare un file zip dal contenuto:
@@ -51,7 +50,7 @@ Per convalidare la struttura del file zip, esaminarlo e non verificare che sia p
 
 ![Contenuto del pacchetto compresso in modo corretto](media/vaas-create-oem-package-3.png)
 
-Il file zip può essere caricato in VaaS e firmato da Microsoft nel flusso di lavoro di convalida di soluzioni.
+Il file zip può essere caricato in VaaS e firmato da Microsoft nel flusso di lavoro di convalida del pacchetto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

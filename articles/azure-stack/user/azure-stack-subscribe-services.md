@@ -13,23 +13,23 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 66c462dee3a2940a7a090101ffb9cec7e4ff1e7c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 431c31b39103e5ef21cb83b388167cab57e0c129
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981284"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649085"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>Esercitazione: creare e testare una sottoscrizione
 
 Questa esercitazione illustra come creare una sottoscrizione che contiene un'offerta e quindi testarla. Per il test, accedi al portale utenti Azure Stack come amministratore di cloud, sottoscrive l'offerta e quindi creare una macchina virtuale.
 
 > [!TIP]
-> Per più una più avanzata esperienza di valutazione, puoi [creare una sottoscrizione per un determinato utente](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) e quindi accedere come utente nel portale per gli utenti. 
+> Per più una più avanzata esperienza di valutazione, puoi [creare una sottoscrizione per un determinato utente](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) e quindi accedere come utente nel portale per gli utenti.
 
 Questa esercitazione illustra come sottoscrivere un'offerta di Azure Stack.
 
@@ -60,10 +60,10 @@ Per sottoscrivere un'offerta con un account utente, accedi al portale utenti di 
 
 ## <a name="test-the-offer"></a>Testare l'offerta
 
-Eseguito l'accesso al portale utenti, è possibile testare l'offerta effettuando il provisioning di una macchina virtuale usando le nuove funzionalità di sottoscrizione. 
+Eseguito l'accesso al portale utenti, è possibile testare l'offerta effettuando il provisioning di una macchina virtuale usando le nuove funzionalità di sottoscrizione.
 
 > [!NOTE]
-> Questo test richiede che una macchina virtuale di Windows Server 2016 Datacenter prima di tutto è stato aggiunto nel Marketplace di Azure Stack. 
+> Questo test richiede che una macchina virtuale di Windows Server 2016 Datacenter prima di tutto è stato aggiunto nel Marketplace di Azure Stack.
 
 1. Accedere al portale per gli utenti.
 
@@ -84,7 +84,6 @@ Eseguito l'accesso al portale utenti, è possibile testare l'offerta effettuando
 > [!NOTE]
 > La distribuzione di macchina virtuale richiede alcuni minuti.
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 Quanto appreso in questa esercitazione:
@@ -92,7 +91,6 @@ Quanto appreso in questa esercitazione:
 > [!div class="checklist"]
 > * Sottoscrivere un'offerta 
 > * Testare l'offerta
-
 
 > [!div class="nextstepaction"]
 > [Creare una macchina virtuale da un modello della community](azure-stack-create-vm-template.md)

@@ -14,12 +14,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 602517f13b762f5dd7a13e652a5e8bf5de56e403
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9d358c021f795172e7ced0ba2a2f309a0a0dab6e
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245634"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649728"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Firma richiedere la generazione di certificati di Azure Stack
 
@@ -27,48 +27,49 @@ ms.locfileid: "55245634"
 
 È possibile usare lo strumento di controllo di conformità di Azure Stack (AzsReadinessChecker) per richiedere i certificati seguenti:
 
- - **Le richieste di certificato standard** in base ai [generare i certificati PKI per la distribuzione di Azure Stack](azure-stack-get-pki-certs.md).
- - **Platform-as-a-Service**  
-    È possibile richiedere i nomi di platform-as-a-service (PaaS) per i certificati come specificato nella [requisiti dei certificati di infrastruttura a chiave pubblica Azure Stack - certificati PaaS facoltativo](azure-stack-pki-certs.md#optional-paas-certificates).
+- **Le richieste di certificato standard** in base ai [generare i certificati PKI per la distribuzione di Azure Stack](azure-stack-get-pki-certs.md).
+- **Platform-as-a-Service**: È possibile richiedere i nomi di platform-as-a-service (PaaS) per i certificati come specificato nella [requisiti dei certificati di infrastruttura a chiave pubblica Azure Stack - certificati PaaS facoltativo](azure-stack-pki-certs.md#optional-paas-certificates).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Il sistema deve soddisfare i prerequisiti seguenti prima di generare il CSR(s) per i certificati PKI per la distribuzione di Azure Stack:
 
- - Controllo di conformità di Microsoft Azure Stack
- - Attributi del certificato:
-    - Nome area
-    - Nome di dominio completo esterno (FQDN)
-    - Oggetto
- - Windows 10 o Windows Server 2016
- 
+- Controllo di conformità di Microsoft Azure Stack
+- Attributi del certificato:
+  - Nome area
+  - Nome di dominio completo esterno (FQDN)
+  - Oggetto
+- Windows 10 o Windows Server 2016
+
   > [!NOTE]  
   > Quando si riceve i certificati il failback da un'autorità di certificazione i passaggi descritti in [preparare Azure Stack PKI certificates](azure-stack-prepare-pki-certs.md) dovrà essere completato nello stesso sistema.
 
 ## <a name="generate-certificate-signing-requests"></a>Generare richieste di firma del certificato
 
-Usare questi passaggi per preparare e convalidare i certificati di infrastruttura a chiave pubblica di Azure Stack: 
+Usare questi passaggi per preparare e convalidare i certificati di infrastruttura a chiave pubblica di Azure Stack:
 
-1.  Installare AzsReadinessChecker da un prompt di PowerShell (5.1 o versione successiva) eseguendo il cmdlet seguente:
+1. Installare AzsReadinessChecker da un prompt di PowerShell (5.1 o versione successiva) eseguendo il cmdlet seguente:
 
     ```PowerShell  
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
-2.  Dichiarare la **soggetto** come un dizionario ordinato. Ad esempio:  
+2. Dichiarare la **soggetto** come un dizionario ordinato. Ad esempio: 
 
     ```PowerShell  
-    $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"} 
+    $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"}
     ```
+
     > [!note]  
     > Se viene fornito un nome comune (CN) questo verrà sovrascritto dal nome DNS prima della richiesta di certificato.
 
-3.  Dichiarare una directory di output esiste già. Ad esempio: 
+3. Dichiarare una directory di output esiste già. Ad esempio: 
 
     ```PowerShell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
     ```
-4.  Dichiarare il sistema di identità
+
+4. Dichiarare il sistema di identità
 
     Azure Active Directory
 
@@ -107,12 +108,12 @@ Usare questi passaggi per preparare e convalidare i certificati di infrastruttur
     ```
 
     Per includere i servizi PaaS, specificare il commutatore ```-IncludePaaS```
-    
+
 8. Esaminare l'output:
 
     ```PowerShell  
     New-AzsCertificateSigningRequest v1.1809.1005.1 started.
-    
+
     CSR generating for following SAN(s): dns=*.east.azurestack.contoso.com&dns=*.blob.east.azurestack.contoso.com&dns=*.queue.east.azurestack.contoso.com&dns=*.table.east.azurestack.cont
     oso.com&dns=*.vault.east.azurestack.contoso.com&dns=*.adminvault.east.azurestack.contoso.com&dns=portal.east.azurestack.contoso.com&dns=adminportal.east.azurestack.contoso.com&dns=ma
     nagement.east.azurestack.contoso.com&dns=adminmanagement.east.azurestack.contoso.com*dn2=*.adminhosting.east.azurestack.contoso.com@dns=*.hosting.east.azurestack.contoso.com
@@ -123,7 +124,7 @@ Usare questi passaggi per preparare e convalidare i certificati di infrastruttur
     New-AzsCertificateSigningRequest Completed
     ```
 
-9.  Inviare il **. REQ** file generato da un'autorità di certificazione (interno o pubblico).  La directory di output **New-AzsCertificateSigningRequest** contiene il CSR(s) necessari per l'invio a un'autorità di certificazione.  La directory contiene inoltre, per riferimento, una directory figlio che contiene i file INF usati durante la generazione della richiesta di certificato. Assicurarsi che l'autorità di certificazione genera certificati usando la richiesta generata che soddisfano le [requisiti di infrastruttura a chiave pubblica di Azure Stack](azure-stack-pki-certs.md).
+9. Inviare il **. REQ** file generato da un'autorità di certificazione (interno o pubblico).  La directory di output **New-AzsCertificateSigningRequest** contiene il CSR(s) necessari per l'invio a un'autorità di certificazione.  La directory contiene inoltre, per riferimento, una directory figlio che contiene i file INF usati durante la generazione della richiesta di certificato. Assicurarsi che l'autorità di certificazione genera certificati usando la richiesta generata che soddisfano le [requisiti di infrastruttura a chiave pubblica di Azure Stack](azure-stack-pki-certs.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
