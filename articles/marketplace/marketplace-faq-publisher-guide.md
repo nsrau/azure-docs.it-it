@@ -95,7 +95,7 @@ Attualmente, solo le offerte gratuite e BYOL (Bring Your Own License) in Marketp
 
 Azure Marketplace è disponibile per i clienti di Microsoft Azure nei paesi seguenti:
 
-Algeria, Arabia Saudita, Argentina, Australia, Austria, Bahrein, Belgio, Bielorussia, Brasile, Bulgaria, Canada, Cile, Cipro, Colombia, Corea del Sud, Costa Rica, Croazia, Danimarca, Ecuador, Egitto, El Salvador, Emirati Arabi Uniti, Estonia, Filippine, Finlandia, Francia, Germania, Giappone, Giordania, Grecia, Guatemala, Hong Kong, India, Indonesia, Irlanda, Islanda, Israele, Italia, Kazakhstan, Kenya, Kuwait, Lettonia, Liechtenstein, Lituania, Lussemburgo, Macedonia, Malaysia, Malta, Marocco, Messico, Montenegro, Nigeria, Norvegia, Nuova Zelanda, Oman, Paesi Bassi, Pakistan, Panama, Paraguay, Perù, Polonia, Portogallo, Portorico, Qatar, Regno Unito, Repubblica Ceca, Repubblica dominicana, Romania, Russia, Serbia, Singapore, Slovacchia, Slovenia, Spagna, Sri Lanka, Stati Uniti, Sudafrica, Svezia, Svizzera, Thailandia, Taiwan, Trinidad e Tobago, Tunisia, Turchia, Ucraina, Ungheria, Uruguay e Venezuela.
+Algeria, Arabia Saudita, Argentina, Australia, Austria, Bahrein, Belgio, Bielorussia, Brasile, Bulgaria, Canada, Cile, Cipro, Colombia, Corea del Sud, Costa Rica, Croazia, Danimarca, Ecuador, Egitto, El Salvador, Emirati Arabi Uniti, Estonia, Filippine, Finlandia, Francia, Germania, Giappone, Giordania, Grecia, Guatemala, Hong Kong, India, Indonesia, Irlanda, Islanda, Israele, Italia, Kazakhstan, Kenya, Kuwait, Lettonia, Liechtenstein, Lituania, Lussemburgo, Repubblica di Macedonia, Malta, Marocco, Messico, Montenegro, Nigeria, Norvegia, Nuova Zelanda, Oman, Paesi Bassi, Pakistan, Panama, Paraguay, Perù, Polonia, Portogallo, Portorico, Qatar, Regno Unito, Repubblica Ceca, Repubblica dominicana, Romania, Russia, Serbia, Singapore, Slovacchia, Slovenia, Spagna, Sri Lanka, Stati Uniti, Sudafrica, Svezia, Svizzera, Thailandia, Taiwan, Trinidad e Tobago, Tunisia, Turchia, Ucraina, Ungheria, Uruguay e Venezuela.
 
 ### <a name="deploying-a-solution-from-azure-marketplace"></a>Distribuzione di una soluzione da Azure Marketplace
 
@@ -160,7 +160,7 @@ Un'offerta di sottoscrizione con "versione di valutazione gratuita" rimane sempr
 
 **È necessario avere registrato uno strumento di pagamento (ad esempio una carta di credito) per distribuire offerte del livello gratuito o Bring Your Own License (BYOL)?**
 
- No. Non è necessario alcuno strumento di pagamento per distribuire offerte del livello gratuito o Bring Your Own License (BYOL). Al contrario, le offerte in versione di valutazione gratuita richiedono uno strumento di pagamento. Le inserzioni che includono i pulsanti **Scarica adesso** o **Versione di valutazione gratuita del software** vengono distribuite nella sottoscrizione di Azure selezionata.  Queste inserzioni vengono fatturate usando il metodo di pagamento registrato dell'account selezionato. Gli addebiti per l'utilizzo di Azure vengono fatturati separatamente dalle tariffe di licenza software.
+No. Non è necessario alcuno strumento di pagamento per distribuire offerte del livello gratuito o Bring Your Own License (BYOL). Al contrario, le offerte in versione di valutazione gratuita richiedono uno strumento di pagamento. Le inserzioni che includono i pulsanti **Scarica adesso** o **Versione di valutazione gratuita del software** vengono distribuite nella sottoscrizione di Azure selezionata.  Queste inserzioni vengono fatturate usando il metodo di pagamento registrato dell'account selezionato. Gli addebiti per l'utilizzo di Azure vengono fatturati separatamente dalle tariffe di licenza software.
 
 **A chi deve rivolgersi un cliente indiretto con contratto Enterprise Agreement per domande sui prezzi per le offerte vendute in Azure Marketplace?**
 
@@ -176,7 +176,7 @@ Alcune offerte specifiche di Azure Marketplace possono usare i crediti delle sot
 
 **Gli sconti per i contratti multilicenza si applicano agli acquisti in Azure Marketplace?**
 
- No. I prezzi vengono stabiliti dall'editore proprietario delle soluzioni in Azure Marketplace.  Gli sconti standard per contratti multilicenza Microsoft non sono applicabili agli acquisti in Azure Marketplace.
+No. I prezzi vengono stabiliti dall'editore proprietario delle soluzioni in Azure Marketplace.  Gli sconti standard per contratti multilicenza Microsoft non sono applicabili agli acquisti in Azure Marketplace.
 
 **Quali sono le modalità di pagamento di queste sottoscrizioni? Gli acquisti di Azure Marketplace vengono indicati nella fattura di Azure o in una fattura separata?**
 
@@ -489,7 +489,7 @@ Attualmente, solo le offerte gratuite e BYOL (Bring Your Own License) in Marketp
 
 Azure Marketplace è disponibile per i clienti di Microsoft Azure nei paesi seguenti:
 
-Algeria, Arabia Saudita, Argentina, Australia, Austria, Bahrein, Belgio, Bielorussia, Brasile, Bulgaria, Canada, Cile, Cipro, Colombia, Corea del Sud, Costa Rica, Croazia, Danimarca, Ecuador, Egitto, El Salvador, Emirati Arabi Uniti, Estonia, Filippine, Finlandia, Francia, Germania, Giappone, Giordania, Grecia, Guatemala, Hong Kong, India, Indonesia, Irlanda, Islanda, Israele, Italia, Kazakhstan, Kenya, Kuwait, Lettonia, Liechtenstein, Lituania, Lussemburgo, Macedonia, Malaysia, Malta, Marocco, Messico, Montenegro, Nigeria, Norvegia, Nuova Zelanda, Oman, Paesi Bassi, Pakistan, Panama, Paraguay, Perù, Polonia, Portogallo, Portorico, Qatar, Regno Unito, Repubblica Ceca, Repubblica dominicana, Romania, Russia, Serbia, Singapore, Slovacchia, Slovenia, Spagna, Sri Lanka, Stati Uniti, Sudafrica, Svezia, Svizzera, Thailandia, Taiwan, Trinidad e Tobago, Tunisia, Turchia, Ucraina, Ungheria, Uruguay e Venezuela.
+Algeria, Arabia Saudita, Argentina, Australia, Austria, Bahrein, Belgio, Bielorussia, Brasile, Bulgaria, Canada, Cile, Cipro, Colombia, Corea del Sud, Costa Rica, Croazia, Danimarca, Ecuador, Egitto, El Salvador, Emirati Arabi Uniti, Estonia, Filippine, Finlandia, Francia, Germania, Giappone, Giordania, Grecia, Guatemala, Hong Kong, India, Indonesia, Irlanda, Islanda, Israele, Italia, Kazakhstan, Kenya, Kuwait, Lettonia, Liechtenstein, Lituania, Lussemburgo, Repubblica di Macedonia, Malta, Marocco, Messico, Montenegro, Nigeria, Norvegia, Nuova Zelanda, Oman, Paesi Bassi, Pakistan, Panama, Paraguay, Perù, Polonia, Portogallo, Portorico, Qatar, Regno Unito, Repubblica Ceca, Repubblica dominicana, Romania, Russia, Serbia, Singapore, Slovacchia, Slovenia, Spagna, Sri Lanka, Stati Uniti, Sudafrica, Svezia, Svizzera, Thailandia, Taiwan, Trinidad e Tobago, Tunisia, Turchia, Ucraina, Ungheria, Uruguay e Venezuela.
 
 ### <a name="deploying-a-solution-from-azure-marketplace"></a>Distribuzione di una soluzione da Azure Marketplace
 
@@ -528,7 +528,7 @@ Un'offerta di sottoscrizione con livello gratuito rimane sempre gratuita.  Un'of
 
 **È necessario avere registrato uno strumento di pagamento (ad esempio una carta di credito) per distribuire offerte del livello gratuito o Bring Your Own License (BYOL)?**
 
- No. Non è necessario alcuno strumento di pagamento per distribuire offerte del livello gratuito o Bring Your Own License (BYOL). Al contrario, le offerte in versione di valutazione gratuita richiedono uno strumento di pagamento.
+No. Non è necessario alcuno strumento di pagamento per distribuire offerte del livello gratuito o Bring Your Own License (BYOL). Al contrario, le offerte in versione di valutazione gratuita richiedono uno strumento di pagamento.
 
 Le inserzioni che includono i pulsanti "SCARICA ADESSO" o "VERSIONE DI VALUTAZIONE GRATUITA DEL SOFTWARE" vengono distribuite nella sottoscrizione di Azure e fatturate usando il metodo di pagamento registrato dell'account. Gli addebiti per l'utilizzo di Azure vengono fatturati separatamente dalle tariffe di licenza software.
 
@@ -550,7 +550,7 @@ Alcune offerte specifiche di Azure Marketplace possono usare i crediti delle sot
 
 **Gli sconti per i contratti multilicenza si applicano agli acquisti in Azure Marketplace?**
 
- No. Gli ISV proprietari delle soluzioni in Azure Marketplace possono definire i prezzi. Gli sconti standard per contratti multilicenza Microsoft non sono applicabili agli acquisti in Azure Marketplace.
+No. Gli ISV proprietari delle soluzioni in Azure Marketplace possono definire i prezzi. Gli sconti standard per contratti multilicenza Microsoft non sono applicabili agli acquisti in Azure Marketplace.
 
 **Quali sono le modalità di pagamento di queste sottoscrizioni? Gli acquisti di Azure Marketplace vengono indicati nella fattura di Azure o in una fattura separata?**
 
