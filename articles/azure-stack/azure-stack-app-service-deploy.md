@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/22/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 60767c3c61b0d386e4ac9b0a93d16ad161c59949
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 0467f131ab4300ba3217ed01f37ebb7f4b8dbe5e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445935"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732773"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Aggiungere un provider di risorse del servizio App in Azure Stack
 
@@ -132,22 +132,7 @@ Per distribuire il provider di risorse del servizio App, seguire questa procedur
 
     ![Programma di installazione del servizio App][10]
 
-11. Immettere i dettagli di SQL Server per l'istanza del server utilizzato per ospitare i database del provider risorse servizio App e quindi selezionare **successivo**. Il programma di installazione convalida le proprietà di connessione SQL.
-
-    > [!NOTE]
-    > Il programma di installazione prova a verificare la connettività a SQL Server prima di procedere. Tuttavia, se si distribuisce in una rete virtuale esistente, questo test di connettività potrebbe non riuscire. Si riceve un avviso e un prompt dei comandi per continuare. Se le informazioni di SQL Server siano corrette, continuare la distribuzione.
-    >
-    > Servizio App di Azure in Azure Stack 1.3 e versioni successive, il programma di installazione verificherà che SQL Server disponga di indipendenza del database abilitata a livello di SQL Server.  In caso contrario, verrà richiesto con l'eccezione seguente:
-    > ```sql
-    >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
-    >    ***********************************************************
-    >    sp_configure 'contained database authentication', 1;  
-    >    GO  
-    >    RECONFIGURE;  
-    >    GO
-    >    ***********************************************************
-    > ```
-    > Vedere le [note sulla versione per il servizio App di Azure in Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) per altri dettagli.
+11. Immettere i dettagli di SQL Server per l'istanza del server utilizzato per ospitare i database del provider risorse servizio App e quindi selezionare **successivo**. Il programma di installazione convalida le proprietà di connessione SQL.<br><br>Il programma di installazione del servizio App prova a verificare la connettività a SQL Server prima di procedere. Se si distribuisce in una rete virtuale esistente, questo test di connettività potrebbe non riuscire. Si riceve un avviso e un prompt dei comandi per continuare. Se le informazioni di SQL Server siano corrette, continuare la distribuzione.
 
     ![Programma di installazione del servizio App][11]
 

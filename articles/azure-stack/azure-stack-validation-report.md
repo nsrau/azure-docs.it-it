@@ -16,17 +16,17 @@ ms.date: 10/23/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 1545fa3c1c94edc98e53b3579e5617a6bf16461c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0f6230dd3fe59e2aa34e358bfa9133f736d17f36
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238858"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732450"
 ---
 # <a name="azure-stack-validation-report"></a>Report di convalida Azure Stack
 Usare lo strumento di controllo di conformità di Azure Stack per eseguire le convalide che supportano la distribuzione e manutenzione di un ambiente Azure Stack. Lo strumento scrive i risultati in un file di rapporto con estensione JSON. Il report visualizza i dati di riepilogati e dettagliati sullo stato dei prerequisiti per la distribuzione di Azure Stack. Il report visualizza anche informazioni sulla rotazione dei segreti per le distribuzioni esistenti dello Stack di Azure.  
 
- ## <a name="where-to-find-the-report"></a>Dove trovare il report
+## <a name="where-to-find-the-report"></a>Dove trovare il report
 Quando si esegue lo strumento, registra i risultati per **AzsReadinessCheckerReport.json**. Lo strumento crea anche un registro denominato **AzsReadinessChecker.log**. Consente di visualizzare la posizione di questi file con i risultati della convalida in PowerShell.
 
 ![eseguire la convalida](./media/azure-stack-validation-report/validation.png)

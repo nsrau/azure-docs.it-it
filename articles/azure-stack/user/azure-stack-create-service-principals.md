@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 00468ca62e55823b4706fc52d9793f676aebd368
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 9f0ccb85fa4b42ef3ca90c6d4ca2d80113b93a0c
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312855"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733700"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Concedere alle applicazioni di accedere alle risorse di Azure Stack tramite la creazione di entità servizio
 
@@ -75,7 +75,7 @@ Durante l'accesso a livello di codice, usare l'ID per l'applicazione e una chiav
 
 2. Copiare l'**ID applicazione** e archiviarlo nel codice dell'applicazione. Le applicazioni nelle applicazioni di esempio usano **id client** quando si fa riferimento per il **ID applicazione**.
 
-     ![ID dell'applicazione per l'applicazione](./media/azure-stack-create-service-principal/image12.png)
+     ![ID dell'applicazione per l'applicazione](./media/azure-stack-create-service-principals/image12.png)
 3. Per generare una chiave di autenticazione selezionare **Chiavi**.
 
 4. Specificare una descrizione e una durata per la chiave. Al termine scegliere **Salva**.
@@ -83,7 +83,7 @@ Durante l'accesso a livello di codice, usare l'ID per l'applicazione e una chiav
 >[!IMPORTANT]
 Dopo aver salvato la chiave, il tasto **valore** viene visualizzato. Annotare questo valore perché non è possibile recuperare la chiave in un secondo momento. Salvare il valore della chiave in una posizione in cui l'applicazione possa recuperarlo.
 
-![Avviso di valore della chiave per la chiave salvata.](./media/azure-stack-create-service-principal/image15.png)
+![Avviso di valore della chiave per la chiave salvata.](./media/azure-stack-create-service-principals/image15.png)
 
 Il passaggio finale consiste [assegnazione di un ruolo applicazione](azure-stack-create-service-principals.md).
 
@@ -110,7 +110,7 @@ Usare la procedura seguente come guida per l'assegnazione di un ruolo a un'entit
 
 2. Selezionare la sottoscrizione a cui assegnare l'applicazione. In questo esempio, la sottoscrizione è Visual Studio Enterprise.
 
-     ![Selezionare la sottoscrizione di Visual Studio Enterprise per l'assegnazione](./media/azure-stack-create-service-principal/image16.png)
+     ![Selezionare la sottoscrizione di Visual Studio Enterprise per l'assegnazione](./media/azure-stack-create-service-principals/image16.png)
 
 3. Selezionare **controllo di accesso (IAM)** per la sottoscrizione.
 

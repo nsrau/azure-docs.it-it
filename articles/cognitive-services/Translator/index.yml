@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: dd13a8178fd74f54ffa6fa5d9d8c23d214965dca
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 1d6daf9805737294fb5bf0e9f4e48a3c7cfbb98e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866969"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731838"
 documentType: LandingData
 title: Documentazione di Traduzione testuale
 metadata:
@@ -17,7 +17,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/06/18
+  ms.date: 02/21/2019
   ms.author: v-jansko
 abstract:
   description: Traduzione testuale è un servizio di traduzione automatica basato su cloud che può essere usato per tradurre il testo quasi in tempo reale tramite una semplice chiamata API REST. L'API usa la moderna tecnologia di traduzione automatica neurale, oltre a offrire tecnologia per la traduzione automatica basata su statistiche. Custom Translator è un'estensione dell'API Traduzione testuale che consente di creare sistemi di traduzione neurali. Il sistema di traduzione personalizzato può essere usato per tradurre il testo con l'API Traduzione testuale o con i <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/">servizi Voce Microsoft</a>. Per l'elenco di lingue supportate per la traduzione automatica neurale e statistica, vedere <a href="languages.md">Lingue supportate</a>.

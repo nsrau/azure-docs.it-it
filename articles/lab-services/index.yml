@@ -1,6 +1,12 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 6b15db6bc4e5d868080cb2949e34b62fd8033854
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56726177"
 documentType: LandingData
-title: Documentazione dell'anteprima di Azure Lab Services (precedentemente DevTest Labs)
+title: Documentazione dell'anteprima di Azure Lab Services e di Azure DevTest Labs
 metadata:
   title: Documentazione di Azure Lab Services - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
   description: Informazioni su come usare Azure Lab Services per configurare rapidamente un lab per la classe o di sviluppo, test o hackathon per il team o gli studenti nel cloud. Esercitazioni, esempi e altri contenuti di Azure illustrano come creare, gestire e proteggere i lab.
@@ -13,12 +19,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/06/2018
   ms.author: spelluru
-  ms.openlocfilehash: 1b37824b113fd9b1aaf225c5cb24b2dd27f1b47f
-  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-  ms.translationtype: HT
-  ms.contentlocale: it-IT
-  ms.lasthandoff: 06/01/2018
-  ms.locfileid: "34636699"
 abstract:
   description: Informazioni su come usare Azure Lab Services per configurare rapidamente un lab per la classe o di sviluppo, test o hackathon per il team o gli studenti nel cloud. Esercitazioni, esempi e altri contenuti di Azure illustrano come creare, gestire e proteggere i lab.
 sections:
@@ -50,13 +50,13 @@ sections:
     - html: <a href="https://github.com/Azure/azure-devtestlab/tree/master/Samples">Modelli di Resource Manager</a>
     - html: <a href="/azure/lab-services/samples-cli">Interfaccia della riga di comando di Azure</a>
     - html: <a href="/azure/lab-services/samples-powershell">Azure PowerShell</a>
-- title: Riferimenti
+- title: riferimento
   items:
   - type: list
     style: cards
     className: cardsD
     items:
     - title: Riga di comando
-      html: <p><a href="/cli/azure/lab">Interfaccia della riga di comando di Azure</a></p><p><a href="/powershell/module/azurerm.devtestlabs/#devtest_labs">Azure PowerShell</a></p>
+      html: <p><a href="/cli/azure/lab">Interfaccia della riga di comando di Azure</a></p><p><a href="/powershell/module/az.devtestlabs/#devtest_labs">Azure PowerShell</a></p>
     - title: REST
       html: <p><a href="/rest/api/dtl">API REST</a></p>

@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: scottnap
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: ed2205455c4d3c82554f3d552bacc059fffa68e7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cbfe4fcf30e9529f191f2a80de8ab83e7e0811f7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174657"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735895"
 ---
 # <a name="add-public-ip-addresses"></a>Aggiungere gli indirizzi IP pubblici
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*  
@@ -53,11 +53,6 @@ Innanzitutto, occorre eseguire consiste nell'ottenere il blocco di indirizzi da 
 8.   Immettere il blocco di indirizzi da aggiungere nella notazione CIDR.  Ad esempio:  192.168.203.0/24
 9.  Quando si specifica un intervallo CIDR valido nel campo indirizzo di intervallo (blocco CIDR) l'indirizzo IP iniziale, indirizzo IP finale e i campi di indirizzi IP disponibili verranno popolati automaticamente.  Sono di sola lettura e generati automaticamente in modo che non è possibile modificare queste senza modificare il valore nel campo intervallo dell'indirizzo.
 10. Dopo aver esaminato le informazioni sul pannello e confermare tutti i dati sono correggere, fare clic su Ok per eseguire il commit della modifica e aggiungere l'intervallo di indirizzi per Azure Stack.
-
-## <a name="update-the-acls-on-your-top-of-rack-switches"></a>Aggiorna gli elenchi ACL sui commutatori Top-of-Rack
-L'ultima operazione da eseguire per abilitare l'intervallo di IP appena aggiunto lavorare consiste nell'aggiornare il controllo elenchi accesso (ACL) sui commutatori Top-of-Rack (ToR).  Gli ACL per il commutatore ToR commutatori sono bloccati in modo tale che connettività dall'esterno di Azure Stack per l'intervallo di IP appena aggiunto non funzioneranno finché il nuovo intervallo viene aggiunto agli ACL del commutatore.  
-
-È necessario contattare l'OEM e collaborare con lui per aggiornare gli ACL affidano ai commutatori ToR.  Loro hanno gli strumenti necessari per eseguire questa operazione in modo supportato.
 
 
 ## <a name="next-steps"></a>Passaggi successivi 

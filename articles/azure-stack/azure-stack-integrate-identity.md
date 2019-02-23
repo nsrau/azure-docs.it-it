@@ -6,16 +6,16 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/23/19
+ms.date: 01/23/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 01/23/19
-ms.openlocfilehash: a71362f4d6a69f2eaed36dd549437bb5857d555f
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 86a7f98f8232d4fb3e915efee6d9b53f1fae6e7e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456997"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737706"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrazione di Data Center Azure Stack - identità
 È possibile distribuire Azure Stack tramite Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS) come provider di identità. È necessario effettuare la scelta prima di distribuire Azure Stack. Distribuzione tramite AD FS è detta anche la distribuzione di Azure Stack in modalità disconnessa.

@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 02/22/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
-ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 0be1814fd501824056bc80d4aeb561ff58735125
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.lastreviewed: 02/22/2019
+ms.openlocfilehash: 3b057e9c4a0fccb3f85ec237433e4020fd4a84da
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447447"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737485"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Prima di iniziare con il servizio App in Azure Stack
 
@@ -307,6 +307,16 @@ L'istanza di SQL Server per il servizio App di Azure in Azure Stack deve essere 
 > Un numero di immagini di macchine virtuali IaaS di SQL è disponibile tramite la funzionalità di gestione di Marketplace. Assicurarsi sempre di scaricare la versione più recente dell'estensione SQL IaaS prima di distribuire una macchina virtuale usando un elemento del Marketplace. Le immagini SQL sono le stesse macchine virtuali di SQL disponibili in Azure. Per le macchine virtuali SQL creati da queste immagini, l'estensione IaaS e miglioramenti del portale corrispondenti offrono funzionalità quali l'applicazione automatica delle patch e funzionalità di backup.
 >
 Per uno dei ruoli di SQL Server, è possibile usare un'istanza predefinita o un'istanza denominata. Se si usa un'istanza denominata, assicurarsi di avviare il servizio SQL Server Browser e aprire la porta 1434 manualmente.
+
+Il programma di installazione del servizio App verrà verificare che SQL Server disponga di indipendenza del database abilitata. Per abilitare l'indipendenza del database in SQL Server che ospiterà i database di servizio App, eseguire questi comandi SQL:
+
+```sql
+sp_configure 'contained database authentication', 1;  
+GO  
+RECONFIGURE;  
+GO
+```
+
 
 >[!IMPORTANT]
 > Se si sceglie di distribuire il servizio App in una rete virtuale esistente di SQL Server deve essere distribuito in una Subnet separata dal servizio App e il File Server.
