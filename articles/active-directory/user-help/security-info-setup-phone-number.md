@@ -1,6 +1,6 @@
 ---
-title: Configurare le informazioni di sicurezza per l'uso di chiamate telefoniche - Azure Active Directory | Microsoft Docs
-description: Configurare le informazioni di sicurezza per verificare la propria identità usando un dispositivo mobile o il numero di telefono aziendale.
+title: Configurare le informazioni di sicurezza per l'uso di chiamate telefoniche (anteprima) - Azure Active Directory Domain Services | Microsoft Docs
+description: Configurare le informazioni di sicurezza per verificare l'identità tramite le chiamate telefoniche.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,50 +9,90 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c8daa50886c583f26a2d931854d7132eb2ece4b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cf07541c23ba2295a367ac8ba6a514b7dee6ee9a
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177207"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453835"
 ---
-# <a name="set-up-security-info-to-use-phone-calls-preview"></a>Configurare le informazioni di sicurezza per l'uso di chiamate telefoniche (anteprima)
+# <a name="set-up-security-info-preview-to-use-phone-calls"></a>Configurare le informazioni di sicurezza per l'uso di chiamate telefoniche (anteprima)
+È possibile seguire questi passaggi per aggiungere i metodi di verifica a due fattori e di reimpostazione della password. Dopo averle configurate per la prima volta, è possibile tornare alla pagina **Informazioni di sicurezza** per aggiungere, aggiornare o eliminare le informazioni di sicurezza.
+
+Se viene chiesto di configurarle subito dopo aver effettuato l'accesso all'account aziendale o dell'istituto di istruzione, vedere i passaggi dettagliati nell'articolo [Set up your security info from the sign-in page prompt](security-info-setup-signin.md) (Configurare le informazioni di sicurezza dal prompt della pagina di accesso).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-La configurazione delle informazioni di sicurezza richiede l'accesso all'account aziendale o dell'istituto di istruzione e il completamento del processo di registrazione. Se le informazioni di sicurezza non sono mai state configurate, verrà chiesto di farlo.
+>[!Note]
+>Le informazioni di sicurezza non supportano l'uso dei numeri di interno. Anche se si aggiunge il formato corretto, + 1 4255551234X12345, i numeri di interno vengono rimossi prima della chiamata.
 
-## <a name="set-up-phone-calls"></a>Configurare chiamate telefoniche
+>Se non viene visualizzata un'opzione relativa al telefono, è possibile che l'organizzazione non consenta l'uso di un numero di telefono per la verifica. In questo caso è necessario scegliere un altro metodo oppure contattare l'amministratore per ricevere assistenza.
 
-A seconda delle impostazioni dell'organizzazione, al momento dell'accesso può essere chiesto di aggiungere un numero telefonico alle informazioni di sicurezza. In caso contrario, per iniziare a configurare le chiamate telefoniche nelle informazioni di sicurezza, seguire la procedura descritta in [Gestire le informazioni di sicurezza](security-info-manage-settings.md).
+## <a name="set-up-phone-calls-from-the-security-info-page"></a>Configurare le chiamate telefoniche dalla pagina Informazioni di sicurezza
+A seconda delle impostazioni dell'organizzazione, potrebbe essere possibile usare le chiamate telefoniche come metodo per le informazioni di sicurezza.
 
 >[!Note]
->Le informazioni di sicurezza non supportano l'uso dei numeri di interno. Anche se si aggiunge il formato corretto, + 1 4255551234X12345, i numeri di interno vengono rimossi prima della chiamata.<br>Se l'opzione relativa al telefono non viene visualizzata, è possibile che l'organizzazione non consenta l'uso di chiamate telefoniche per la verifica. In questo caso, è necessario scegliere un altro metodo oppure contattare l'amministratore per ottenere assistenza.
+>Se si vuole ricevere un SMS invece di una telefonata, seguire i passaggi descritti nell'articolo [Configurare le informazioni di sicurezza per l'uso di SMS](security-info-setup-text-msg.md).
 
-### <a name="to-use-your-phone-number"></a>Per usare il numero di telefono
+### <a name="to-set-up-phone-calls"></a>Per configurare chiamate telefoniche
 
-1. Selezionare l'opzione **Telefono**.
+1. Accedere all'account aziendale o dell'istituto di istruzione, quindi andare alla pagina https://myprofile.microsoft.com/.
 
-    Verrà visualizzata la procedura guidata **Configura il telefono**.
+    ![Pagina Profilo personale con i collegamenti evidenziati delle Informazioni di sicurezza](media/security-info/securityinfo-myprofile.png)
 
-    ![Configurare il codice del paese o dell'area geografica e il numero di telefono](media/security-info/security-info-keep-secure-setup-phone.png)
+2. Selezionare **Informazioni di sicurezza** dal riquadro di spostamento a sinistra o dal collegamento nel blocco **Informazioni di sicurezza**, quindi selezionare **Aggiungi metodo** dalla pagina **Informazioni di sicurezza**.
 
-2. Selezionare **il paese o l'area geografica** dalla casella di riepilogo a discesa, digitare il numero di telefono (incluso il prefisso, se applicabile) nella casella **Numero di telefono**, selezionare l'opzione **Chiamami** e quindi selezionare **Avanti**.
+    ![Pagina Informazioni di sicurezza con l'opzione Aggiungi metodo evidenziata](media/security-info/securityinfo-myprofile-addmethod.png)
 
-    Si riceve una chiamata telefonica per verificare che sia che stato digitato il numero di telefono corretto. A quel punto viene chiesto di premere il tasto cancelletto (#) per confermare e completare la configurazione.
+3. Nella pagina **Aggiungi un metodo** selezionare **Telefono** dall'elenco a discesa e selezionare **Aggiungi**.
 
-    ![Verificare la schermata del telefono, mostra che si è risposto alla chiamata](media/security-info/security-info-keep-secure-verify-phone-call.png)
+    ![Casella Aggiungi un metodo, con Telefono selezionato](media/security-info/securityinfo-myprofile-addphonetext.png)
 
-    Le informazioni di sicurezza vengono aggiornate per usare il numero di telefono al fine di controllare l'identità quando si usa la verifica in due passaggi o la reimpostazione della password in modalità self-service.
+4. Nella pagina **Telefono** digitare il numero di telefono del proprio dispositivo mobile, scegliere **Chiamami**, quindi selezionare **Avanti**.
 
-    >[!Note]
-    >Se si vuole ricevere un SMS invece di una telefonata sul proprio dispositivo mobile, seguire la procedura descritta nell'articolo [Configurare le informazioni di sicurezza per l'invio di SMS](security-info-setup-text-msg.md).
+    ![Aggiungere il numero di telefono e scegliere chiamate telefoniche](media/security-info/securityinfo-myprofile-phonecall-addnumber.png)
 
-## <a name="additional-security-info-options"></a>Opzioni aggiuntive per le informazioni di sicurezza
+5. Rispondere alla chiamata telefonica di verifica, effettuata sul numero di telefono immesso e seguire le istruzioni.
 
+    La pagina cambia per visualizzare l'esito positivo dell'operazione.
+
+    ![Notifica di operazione riuscita, connessione del numero di telefono, scelta per ricevere chiamate telefoniche e account](media/security-info/securityinfo-myprofile-phonetext-success.png)
+
+    Le informazioni di sicurezza vengono aggiornate ed è possibile usare le chiamate telefoniche per verificare l'identità, quando si usa la verifica in due passaggi o la reimpostazione della password. Per impostare le chiamate telefoniche come metodo predefinito, vedere la sezione [Cambiare il metodo di gestione delle informazioni di sicurezza predefinito](#change-your-default-security-info-method) di questo articolo.
+
+## <a name="delete-phone-calls-from-your-security-info-methods"></a>Eliminare le chiamate telefoniche dai metodi di gestione delle informazioni di sicurezza
+Per non usare più le chiamate telefoniche come metodo di gestione delle informazioni di sicurezza, è possibile rimuoverle dalla pagina **Informazioni di sicurezza**.
+
+>[!Important]
+>Se si elimina per errore l'uso di chiamate telefoniche, non è possibile annullare l'azione. Sarà necessario aggiungere nuovamente il metodo, seguendo i passaggi illustrati nella sezione [Configurare le chiamate telefoniche](#set-up-phone-calls-from-the-security-info-page) di questo articolo.
+
+### <a name="to-delete-phone-calls"></a>Per eliminare le chiamate telefoniche
+
+1. Nella pagina **Informazioni di sicurezza** selezionare il collegamento **Elimina** accanto all'opzione **Telefono**.
+
+    ![Collegamento per eliminare il metodo basato sul telefono dalle informazioni di sicurezza](media/security-info/securityinfo-myprofile-phonetext-delete.png)
+
+2. Selezionare **Sì** nella casella di conferma per eliminare il numero di **telefono**. Il numero di telefono, dopo essere stato eliminato, viene rimosso dalle informazioni di sicurezza e non viene più visualizzato nella pagina **Informazioni di sicurezza**. Se **Telefono** è il metodo predefinito, verrà sostituito con un altro metodo disponibile.
+    
+## <a name="change-your-default-security-info-method"></a>Cambiare il metodo di gestione delle informazioni di sicurezza predefinito
+Per impostare le chiamate telefoniche come metodo predefinito da usare quando si accede all'account aziendale o dell'istituto di istruzione con la verifica a due fattori o per le richieste di reimpostazione della password, è possibile impostarle dalla pagina **Informazioni di sicurezza**.
+
+### <a name="to-change-your-default-security-info-method"></a>Per cambiare il metodo di gestione delle informazioni di sicurezza predefinito
+
+1. Nella pagina **Informazioni di sicurezza** selezionare il collegamento **Cambia** accanto alle informazioni **Metodo di accesso predefinito**.
+
+    ![Cambiare collegamento per il metodo di accesso predefinito](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
+
+2. Selezionare **Telefono - chiamata (*_numero_telefono_utente_*)** dall'elenco a discesa di metodi disponibili, quindi selezionare **Conferma**.
+
+    ![Scegliere il metodo di accesso predefinito](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
+
+    Il metodo predefinito usato per l'accesso passa a **Telefono - chiamata (*_numero_telefono_utente_*)**.
+
+## <a name="additional-security-info-methods"></a>Altri metodi per le informazioni di sicurezza
 In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative alle modalità di contatto da parte dell'organizzazione per verificare l'identità dell'utente, tra cui:
 
 - **App di autenticazione.** Scaricare e usare un'app di autenticazione per ottenere una notifica di approvazione o un codice di approvazione generato in modo casuale per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come configurare e usare l'app Microsoft Authenticator, vedere [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md).
@@ -67,8 +107,6 @@ In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative
     >Se alcune opzioni non sono disponibili, è probabile che l'organizzazione non consenta di usare questi metodi. In questo caso, è necessario scegliere un metodo disponibile oppure contattare l'amministratore per ottenere assistenza.
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-- Se è necessario aggiornare le informazioni di sicurezza, seguire le istruzioni descritte nell'articolo [Gestire le informazioni di sicurezza](security-info-manage-settings.md).
 
 - Se la password viene persa o dimenticata, reimpostarla dal [portale per la reimpostazione della password](https://passwordreset.microsoftonline.com/) oppure seguire i passaggi nell'articolo [Reimpostare la password aziendale o dell'istituto di istruzione](user-help-reset-password.md).
 
