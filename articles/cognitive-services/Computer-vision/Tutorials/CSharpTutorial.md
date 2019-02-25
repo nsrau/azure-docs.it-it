@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Creare un'app di elaborazione delle immagini - C#"
+title: "Esempio: Esplorare un'app di elaborazione delle immagini in C#"
 titleSuffix: Computer Vision - Cognitive Services - Azure
 description: In questa esercitazione si esplora un'applicazione di base per Windows che usa l'API Visione artificiale in Servizi cognitivi Microsoft. Si effettua il riconoscimento ottico dei caratteri (OCR), si creano anteprime e si usano le caratteristiche visive in un'immagine.
 services: cognitive-services
@@ -7,18 +7,18 @@ author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: article
-ms.date: 08/28/2018
+ms.topic: sample
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: b944325287593a028d28545731370dc9ea6a5ac2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a23e45cb1e75305f41c81077c90282352327b72d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224922"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310944"
 ---
-# <a name="tutorial-build-an-image-processing-app---c35"></a>Esercitazione: Creare un'app di elaborazione delle immagini - C&#35;
+# <a name="sample-explore-an-image-processing-app-with-c"></a>Esempio: Esplorare un'app di elaborazione delle immagini con C#
 
 Esaminare un'applicazione Windows di base che usa Visione artificiale per eseguire il riconoscimento ottico dei caratteri (OCR), creare anteprime ritagliate in modo intelligente, nonché rilevare, classificare, contrassegnare con tag e descrivere le caratteristiche visive, inclusi i visi, di un'immagine. L'esempio seguente consente di inviare un URL di immagine o un file archiviato localmente. È possibile usare questo esempio open source come modello per creare un'app per Windows che usa l'API Visione artificiale e WPF (Windows Presentation Foundation), nell'ambito di .NET Framework.
 

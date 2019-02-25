@@ -1,34 +1,33 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con CA PPM | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e CA PPM.
+title: 'Esercitazione: Integrazione di Azure Active Directory con OU Campus | Microsoft Docs'
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e OU Campus.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: ca9d5e71-e429-4891-8d10-3498e7210e89
+ms.assetid: 09315212-3731-4ae1-bcc2-b8b5f2ac6087
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/12/2019
+ms.date: 02/15/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d492db8e50a9ff34da1940b01465fe0ca7f7c4b
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 51ce72e16aff23341bca9b593e5551d6ad5c8544
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302013"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56344242"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ca-ppm"></a>Esercitazione: Integrazione di Azure Active Directory con CA PPM
+# <a name="tutorial-azure-active-directory-integration-with-ou-campus"></a>Esercitazione: Integrazione di Azure Active Directory con OU Campus
 
-Questa esercitazione descrive come integrare CA PPM con Azure Active Directory (Azure AD).
-L'integrazione di CA PPM con Azure AD offre i vantaggi seguenti:
+Questa esercitazione descrive come integrare OU Campus con Azure Active Directory (Azure AD).
+L'integrazione di OU Campus con Azure AD offre i vantaggi seguenti:
 
-* È possibile controllare in Azure AD chi può accedere a CA PPM.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a CA PPM con gli account Azure AD personali.
+* È possibile controllare in Azure AD chi può accedere a OU Campus.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a OU Campus con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,22 +35,22 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per configurare l'integrazione di Azure AD con CA PPM, sono necessari gli elementi seguenti:
+Per configurare l'integrazione di Azure AD con OU Campus, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
-* Sottoscrizione di CA PPM abilitata per l'accesso Single Sign-On
+* Sottoscrizione di OU Campus abilitata per l'accesso Single Sign-On
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* CA PPM supporta l'accesso SSO avviato da **IDP**
+* OU Campus supporta l'accesso SSO avviato da **SP**
 
-## <a name="adding-ca-ppm-from-the-gallery"></a>Aggiunta di CA PPM dalla raccolta
+## <a name="adding-ou-campus-from-the-gallery"></a>Aggiunta di OU Campus dalla raccolta
 
-Per configurare l'integrazione di CA PPM in Azure AD, è necessario aggiungere CA PPM dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di OU Campus in Azure AD, è necessario aggiungere OU Campus dalla raccolta all'elenco di app SaaS gestite.
 
-**Per aggiungere CA PPM dalla raccolta, seguire questa procedura:**
+**Per aggiungere OU Campus dalla raccolta, seguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
@@ -65,31 +64,31 @@ Per configurare l'integrazione di CA PPM in Azure AD, è necessario aggiungere C
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **CA PPM**, selezionare **CA PPM** nel pannello dei risultati, quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **OU Campus**, selezionare **OU Campus** nel pannello dei risultati e fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![CA PPM nell'elenco risultati](common/search-new-app.png)
+     ![OU Campus nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con CA PPM usando un utente di test di nome **Britta Simon**.
-Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in CA PPM.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con OU Campus usando un utente di test di nome **Britta Simon**.
+Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in OU Campus.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con CA PPM, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con OU Campus, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per CA PPM](#configure-ca-ppm-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On per OU Campus](#configure-ou-campus-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di CA PPM](#create-ca-ppm-test-user)**: per avere una controparte di Britta Simon in CA PPM collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Creare l'utente di test di OU Campus](#create-ou-campus-test-user)**: per avere una controparte di Britta Simon in OU Campus collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-Per configurare l'accesso Single Sign-On di Azure AD con CA PPM, seguire questa procedura:
+Per configurare l'accesso Single Sign-On di Azure AD con OU Campus, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **CA PPM** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **OU Campus** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -101,22 +100,20 @@ Per configurare l'accesso Single Sign-On di Azure AD con CA PPM, seguire questa 
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella pagina **Configura l'accesso Single Sign-On con SAML** eseguire questa procedura:
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di CA PPM](common/idp-intiated.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di OU Campus](common/sp-intiated.png)
 
-    a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://ca.ondemand.saml.20.post.<companyname>`
+    Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://a.cms.omniupdate.com/<Instance Name>`
 
-    b. Nella casella di testo **URL di risposta** digitare: `https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer`
+    > [!Note]
+    > Poiché il valore non è reale, è necessario aggiornarlo con l'URL di accesso effettivo. Per ottenere tale valore, contattare il [team di supporto clienti di OU Campus](mailto:support@omniupdate.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-    > [!NOTE]
-    > Poiché questo valore non è reale, è necessario aggiornarlo con l'identificatore effettivo. Per ottenere tale valore, contattare il [team di supporto clienti di CA PPM](mailto:catechnicalsupport@ca.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+    ![Collegamento di download del certificato](common/metadataxml.png)
 
-    ![Collegamento di download del certificato](common/certificatebase64.png)
-
-6. Nella sezione **Configura CA PPM** copiare gli URL appropriati in base alle esigenze.
+6. Nella sezione **Configura OU Campus** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -126,11 +123,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con CA PPM, seguire questa 
 
     c. URL di chiusura sessione
 
-### <a name="configure-ca-ppm-single-sign-on"></a>Configurare l'accesso Single Sign-On per CA PPM
+### <a name="configure-ou-campus-single-sign-on"></a>Configurare l'accesso Single Sign-On per OU Campus
 
-Per configurare l'accesso Single Sign-On sul lato **CA PPM** è necessario inviare il file **Certificato (Base64)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di CA PPM](mailto:catechnicalsupport@ca.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **OU Campus**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di OU Campus](mailto:support@omniupdate.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
@@ -157,15 +154,15 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a CA PPM.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a OU Campus.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **CA PPM**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **OU Campus**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **CA PPM**.
+2. Nell'elenco delle applicazioni selezionare **OU Campus**.
 
-    ![Collegamento di CA PPM nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento di OU Campus nell'elenco delle applicazioni](common/all-applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -181,15 +178,15 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-ca-ppm-test-user"></a>Creare l'utente di test di CA PPM
+### <a name="create-ou-campus-test-user"></a>Creare l'utente di test di OU Campus
 
-In questa sezione viene creato un utente di nome Britta Simon in CA PPM. Collaborare con il  [team di supporto di CA PPM](mailto:catechnicalsupport@ca.com) per aggiungere gli utenti alla piattaforma CA PPM. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente chiamato Britta Simon in OU Campus. Collaborare con il  [team di supporto di OU Campus](mailto:support@omniupdate.com) per aggiungere gli utenti alla piattaforma OU Campus. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
-### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di CA PPM nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione CA PPM per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di OU Campus nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione OU Campus per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
@@ -198,3 +195,4 @@ Quando si fa clic sul riquadro di CA PPM nel pannello di accesso, si dovrebbe ac
 - [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

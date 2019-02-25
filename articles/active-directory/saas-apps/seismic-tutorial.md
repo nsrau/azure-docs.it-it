@@ -1,34 +1,33 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Certain Admin SSO | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Certain Admin SSO.
+title: 'Esercitazione: Integrazione di Azure Active Directory con Seismic | Microsoft Docs'
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Seismic.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: 98ba0174-be02-408a-8634-c8113b12dedb
+ms.assetid: 56014c05-e37f-4f85-bcfa-5115dda2d678
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/12/2019
+ms.date: 02/13/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe717a37b576b6cd49a26ef4d7fca1a74aa76962
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: f2fbca8a87044efc9e9b625247fd0f1271892e96
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300677"
+ms.locfileid: "56318979"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-certain-admin-sso"></a>Esercitazione: Integrazione di Azure Active Directory con Certain Admin SSO
+# <a name="tutorial-azure-active-directory-integration-with-seismic"></a>Esercitazione: Integrazione di Azure Active Directory con Seismic
 
-Questa esercitazione descrive come integrare Certain Admin SSO con Azure Active Directory (Azure AD).
-L'integrazione di Certain Admin SSO con Azure AD offre i vantaggi seguenti:
+Questa esercitazione descrive come integrare Seismic con Azure Active Directory (Azure AD).
+L'integrazione di Seismic con Azure AD offre i vantaggi seguenti:
 
-* È possibile controllare in Azure AD chi può accedere a Certain Admin SSO.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Certain Admin SSO con gli account Azure AD personali.
+* È possibile controllare in Azure AD chi può accedere a Seismic.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Seismic con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,22 +35,22 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per configurare l'integrazione di Azure AD con Certain Admin SSO, sono necessari gli elementi seguenti:
+Per configurare l'integrazione di Azure AD con Seismic, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
-* Sottoscrizione di Certain Admin SSO abilitata per l'accesso Single Sign-On
+* Sottoscrizione di Seismic abilitata per l'accesso Single Sign-On
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* Certain Admin SSO supporta l'accesso SSO avviato da **SP**
+* Seismic supporta l'accesso SSO avviato da **SP**
 
-## <a name="adding-certain-admin-sso-from-the-gallery"></a>Aggiunta di Certain Admin SSO dalla raccolta
+## <a name="adding-seismic-from-the-gallery"></a>Aggiunta di Seismic dalla raccolta
 
-Per configurare l'integrazione di Certain Admin SSO in Azure AD, è necessario aggiungere questa app dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Seismic in Azure AD, è necessario aggiungere Seismic dalla raccolta all'elenco di app SaaS gestite.
 
-**Per aggiungere Certain Admin SSO dalla raccolta, seguire questa procedura:**
+**Per aggiungere Seismic dalla raccolta, seguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
@@ -65,31 +64,31 @@ Per configurare l'integrazione di Certain Admin SSO in Azure AD, è necessario a
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **Certain Admin SSO**, selezionare **Certain Admin SSO** nel riquadro dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Seismic**, selezionare **Seismic** nel pannello dei risultati e fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![Certain Admin SSO nell'elenco risultati](common/search-new-app.png)
+     ![Seismic nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Certain Admin SSO usando un utente di test di nome **Britta Simon**.
-Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Certain Admin SSO.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Seismic usando un utente di test di nome **Britta Simon**.
+Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Seismic.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Certain Admin SSO, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Seismic, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per Certain Admin SSO](#configure-certain-admin-sso-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On per Seismic](#configure-seismic-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Certain Admin SSO](#create-certain-admin-sso-test-user)**: per avere una controparte di Britta Simon in Certain Admin SSO collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Creare l'utente di test di Seismic](#create-seismic-test-user)**: per avere una controparte di Britta Simon in Seismic collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-Per configurare l'accesso Single Sign-On di Azure AD con Certain Admin SSO, seguire questa procedura:
+Per configurare l'accesso Single Sign-On di Azure AD con Seismic, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Certain Admin SSO** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **Seismic** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -103,20 +102,20 @@ Per configurare l'accesso Single Sign-On di Azure AD con Certain Admin SSO, segu
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Certain Admin SSO](common/sp-identifier.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Seismic](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<YOUR DOMAIN URL>/svcs/sso_admin_login/handleRequest/<ID>`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.seismic.com`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.certain.com`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.seismic.com`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team del supporto clienti di Certain Admin SSO](mailto:integrations@certain.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Seismic](mailto:support@seismic.com). È anche possibile caricare i **metadati del provider di servizi** per popolare automaticamente il valore dell'identificatore. Per altre informazioni sui **metadati del provider di servizi**, contattare il [team di supporto clienti di Seismic](mailto:support@seismic.com).
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **Certificato (base)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
 
-    ![Collegamento di download del certificato](common/certificateraw.png)
+    ![Collegamento di download del certificato](common/certificatebase64.png)
 
-6. Nella sezione **Configura Certain Admin SSO** copiare gli URL appropriati in base alle esigenze.
+6. Nella sezione **Configura Seismic** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -126,9 +125,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Certain Admin SSO, segu
 
     c. URL di chiusura sessione
 
-### <a name="configure-certain-admin-sso-single-sign-on"></a>Configurare l'accesso Single Sign-On per Certain Admin SSO
+### <a name="configure-seismic-single-sign-on"></a>Configurare l'accesso Single Sign-On per Seismic
 
-Per configurare l'accesso Single Sign-On sul lato **Certain Admin SSO** è necessario inviare il file **Certificato (Base64)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Certain Admin SSO](mailto:integrations@certain.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Seismic** è necessario inviare il file **Certificato (Base64)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Seismic](mailto:support@seismic.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
@@ -157,15 +156,15 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Certain Admin SSO.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Seismic.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Certain Admin SSO**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Seismic**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Certain Admin SSO**.
+2. Nell'elenco delle applicazioni selezionare **Seismic**.
 
-    ![Collegamento a Certain Admin SSO nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento di Seismic nell'elenco delle applicazioni](common/all-applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -181,15 +180,15 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-certain-admin-sso-test-user"></a>Creare l'utente di test di Certain Admin SSO
+### <a name="create-seismic-test-user"></a>Creare l'utente di test di Seismic
 
-In questa sezione viene creato un utente chiamato Britta Simon in Certain Admin SSO. Con l'aiuto del  [team di supporto di Certain Admin SSO](mailto:integrations@certain.com), aggiungere gli utenti nella piattaforma di Certain Admin SSO. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente chiamato Britta Simon in Seismic. Collaborare con il  [team di supporto di Seismic](mailto:support@seismic.com) per aggiungere gli utenti alla piattaforma Seismic. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Certain Admin SSO nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Certain Admin SSO per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Seismic nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Seismic per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

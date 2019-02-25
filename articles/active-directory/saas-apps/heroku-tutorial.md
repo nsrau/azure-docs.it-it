@@ -4,248 +4,218 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: d7d72ec6-4a60-4524-8634-26d8fbbcc833
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/30/2017
+ms.topic: tutorial
+ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f42ff2fe8c3ff03019203eac7e6c02c495e5493
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bf5ff64575373fd0c022a2ad05805e418ad1622c
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191776"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456572"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-heroku"></a>Esercitazione: Integrazione di Azure Active Directory con Heroku
 
 Questa esercitazione descrive come integrare Heroku con Azure Active Directory (Azure AD).
-
 L'integrazione di Heroku con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD chi può accedere a Heroku
-- È possibile abilitare gli utenti per l'accesso automatico a Heroku (Single Sign-On) con l'account Azure AD
-- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
+* È possibile controllare in Azure AD chi può accedere a Heroku.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Heroku con gli account Azure AD personali.
+* È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Heroku, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD
-- Sottoscrizione di Heroku abilitata per l'accesso Single Sign-On
-
-> [!NOTE]
-> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
-
-A questo scopo, è consigliabile seguire le indicazioni seguenti:
-
-- Non usare l'ambiente di produzione a meno che non sia necessario.
-- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
+* Sottoscrizione di Heroku abilitata per l'accesso Single Sign-On
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
-1. Aggiunta di Heroku dalla raccolta
-1. Configurazione e test dell'accesso Single Sign-On di Azure AD
+In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
+
+* Heroku supporta l'accesso SSO avviato da **SP**
+* Heroku supporta il provisioning utenti **JIT**
 
 ## <a name="adding-heroku-from-the-gallery"></a>Aggiunta di Heroku dalla raccolta
-Per configurare l'integrazione di Heroku in Azure AD, è necessario aggiungere Heroku dalla raccolta al proprio elenco di app SaaS gestite.
+
+Per configurare l'integrazione di Heroku in Azure AD, è necessario aggiungere Heroku dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Heroku dalla raccolta, seguire questa procedura:**
 
-1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
-    ![Active Directory][1]
+    ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
 
-    ![APPLICAZIONI][2]
-    
-1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
-    ![APPLICAZIONI][3]
+3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-1. Nella casella di ricerca digitare **Heroku**.
+    ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-    ![Creazione di un utente test di Azure AD](./media/heroku-tutorial/tutorial_heroku_search.png)
+4. Nella casella di ricerca digitare **Heroku**, selezionare **Heroku** nel pannello dei risultati e fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-1. Nel pannello dei risultati selezionare **Heroku** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+     ![Heroku nell'elenco risultati](common/search-new-app.png)
 
-    ![Creazione di un utente test di Azure AD](./media/heroku-tutorial/tutorial_heroku_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Heroku usando un utente di test di nome **Britta Simon**.
+Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Heroku.
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Heroku con un utente test di nome "Britta Simon".
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Heroku, è necessario completare le procedure di base seguenti:
 
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Heroku che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Heroku.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On per Heroku](#configure-heroku-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di Heroku](#create-heroku-test-user)**: per avere una controparte di Britta Simon in Heroku collegata alla rappresentazione dell'utente in Azure AD.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
-Per stabilire la relazione di collegamento, in Heroku assegnare il valore di **nome utente** in Azure AD come valore di **Username** (Nome utente).
+### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Heroku, è necessario completare i blocchi predefiniti seguenti:
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
-1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-1. **[Creazione di un utente test di Heroku](#creating-a-heroku-test-user)** : per avere una controparte di Britta Simon in Heroku collegata alla relativa rappresentazione in Azure AD.
-1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+Per configurare l'accesso Single Sign-On di Azure AD con Heroku, seguire questa procedura:
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
+1. Nella pagina di integrazione dell'applicazione **Heroku** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
-In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Heroku.
+    ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
-**Per configurare l'accesso Single Sign-On di Azure AD con Heroku, seguire questa procedura:**
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
 
-1. Nella pagina di integrazione dell'applicazione **Heroku** del portale di Azure fare clic su **Single Sign-On**.
+    ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-    ![Configure Single Sign-On][4]
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
 
-1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
- 
-    ![Configure Single Sign-On](./media/heroku-tutorial/tutorial_heroku_samlbase.png)
+    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **URL e dominio Heroku** eseguire i passaggi descritti di seguito:
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-    ![Configure Single Sign-On](./media/heroku-tutorial/tutorial_heroku_url.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Heroku](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il criterio seguente:    
-    `https://sso.heroku.com/saml/<company-name>/init`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://sso.heroku.com/saml/<company-name>/init`
 
-    b. Nella casella di testo **Identificatore** digitare un URL usando il criterio seguente:            
-    `https://sso.heroku.com/saml/<company-name>`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://sso.heroku.com/saml/<company-name>`
 
     > [!NOTE]
-    >Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Questi valori vengono comunicati dal team di Heroku, come descritto nelle sezioni successive di questo articolo. 
-        
-1. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
+    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Questi valori vengono comunicati dal team di Heroku, come descritto nelle sezioni successive di questo articolo.
 
-    ![Configure Single Sign-On](./media/heroku-tutorial/tutorial_heroku_certificate.png) 
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
-1. Fare clic sul pulsante **Salva** .
+    ![Collegamento di download del certificato](common/metadataxml.png)
 
-    ![Configure Single Sign-On](./media/heroku-tutorial/tutorial_general_400.png)
+6. Nella sezione **Configura Heroku** copiare gli URL appropriati in base alle esigenze.
 
-1. Per abilitare l'accesso Single Sign-On in Heroku, eseguire la procedura seguente:
-   
-    a. Accedere all'account Heroku come amministratore.
+    ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
-    b. Fare clic sulla scheda **Impostazioni** .
+    a. URL di accesso
 
-    c. Nella pagina **Single Sign On** fare clic su **Upload Metadata** (Carica metadati).
+    b. Identificatore Azure AD
 
-    d. Caricare il file di metadati scaricato dal portale di Azure.
+    c. URL di chiusura sessione
 
-    e. Al termine dell'installazione agli amministratori viene visualizzata una finestra di dialogo di conferma e l'URL di accesso Single Sign-On per gli utenti finali. 
+### <a name="configure-heroku-single-sign-on"></a>Configurare l'accesso Single Sign-On per Heroku
 
-    f. Copiare i valori di **URL di accesso Heroku** e **ID entità Heroku**, tornare alla sezione **URL e dominio Heroku** nel portale di Azure e incollare questi valori rispettivamente nelle caselle di testo **URL di accesso Sign-On** e **Identificatore**.
+1. In un'altra finestra del browser Web accedere al tenant Heroku come amministratore.
 
-    ![Configure Single Sign-On](./media/heroku-tutorial/tutorial_heroku_52.png) 
-    
-1. Fare clic su **Avanti**.
+2. Fare clic sulla scheda **Impostazioni**.
 
-> [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Applicazioni aziendali Active Directory** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+3. Nella pagina **Single Sign On** fare clic su **Upload Metadata** (Carica metadati).
 
-### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+4. Caricare il file di metadati scaricato dal portale di Azure.
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+5. Al termine dell'installazione agli amministratori viene visualizzata una finestra di dialogo di conferma e l'URL di accesso Single Sign-On per gli utenti finali.
 
-![Creare un utente di Azure AD][100]
+6. Copiare i valori di **Heroku Login URL** (URL di accesso Heroku) e **Heroku Entity ID** (ID entità Heroku), quindi tornare alla sezione **Configurazione SAML di base** del portale di Azure e incollare tali valori rispettivamente nelle caselle di testo **URL di accesso** e **Identificatore (ID entità)**.
 
-**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
+    ![Configurare l'accesso Single Sign-On](./media/heroku-tutorial/tutorial_heroku_52.png)
 
-1. Nel **portale di Azure** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
+7. Fare clic su **Avanti**.
 
-    ![Creazione di un utente test di Azure AD](./media/heroku-tutorial/create_aaduser_01.png) 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-1. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
-    
-    ![Creazione di un utente test di Azure AD](./media/heroku-tutorial/create_aaduser_02.png) 
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
-1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
- 
-    ![Creazione di un utente test di Azure AD](./media/heroku-tutorial/create_aaduser_03.png) 
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
-1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
- 
-    ![Creazione di un utente test di Azure AD](./media/heroku-tutorial/create_aaduser_04.png) 
+    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
-    a. Nella casella di testo **Nome** digitare **BrittaSimon**.
+2. Selezionare **Nuovo utente** in alto nella schermata.
 
-    b. Nella casella di testo **Nome utente** digitare l'**indirizzo di posta elettronica** di BrittaSimon.
+    ![Pulsante Nuovo utente](common/new-user.png)
 
-    c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
+3. In Proprietà utente seguire questa procedura.
+
+    ![Finestra di dialogo Utente](common/user-properties.png)
+
+    a. Nel campo **Nome** immettere **BrittaSimon**.
+  
+    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    Ad esempio: BrittaSimon@contoso.com
+
+    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Create**(Crea).
- 
-### <a name="creating-a-heroku-test-user"></a>Creazione di un utente test di Heroku
+
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Heroku.
+
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Heroku**.
+
+    ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
+
+2. Nell'elenco delle applicazioni selezionare **Heroku**.
+
+    ![Collegamento di Heroku nell'elenco delle applicazioni](common/all-applications.png)
+
+3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+
+    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
+
+4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+
+    ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
+
+5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
+
+6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
+
+7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+
+### <a name="create-heroku-test-user"></a>Creare l'utente di test di Heroku
 
 In questa sezione viene creato un utente chiamato Britta Simon in Heroku. Heroku supporta il provisioning JIT (Just-In-Time) che è abilitato per impostazione predefinita.
 
 Non è necessario alcun intervento dell'utente in questa sezione. Quando si accede a Heroku se l'utente non esiste ancora, viene creato un nuovo utente. Dopo il provisioning dell'account, l'utente finale riceve un messaggio di verifica e deve fare clic sul collegamento di conferma.
 
->[!NOTE]
->Per creare un utente manualmente, è necessario contattare il [team di supporto di client Heroku](https://www.heroku.com/support).
->  
+> [!NOTE]
+> Per creare un utente manualmente, è necessario contattare il [team di supporto di client Heroku](https://www.heroku.com/support).
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
-
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Heroku.
-
-![Assegna utente][200] 
-
-**Per assegnare Britta Simon a Heroku, seguire questa procedura:**
-
-1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
-
-    ![Assegna utente][201] 
-
-1. Nell'elenco di applicazioni selezionare **Heroku**.
-
-    ![Configure Single Sign-On](./media/heroku-tutorial/tutorial_heroku_app.png) 
-
-1. Scegliere **Utenti e gruppi** dal menu a sinistra.
-
-    ![Assegna utente][202] 
-
-1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
-
-    ![Assegna utente][203]
-
-1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
-
-1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
-
-1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
-    
-### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro Heroku nel pannello di accesso, verrà eseguito automaticamente l'accesso all'applicazione Heroku.
+Quando si fa clic sul riquadro di Heroku nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Heroku per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/heroku-tutorial/tutorial_general_01.png
-[2]: ./media/heroku-tutorial/tutorial_general_02.png
-[3]: ./media/heroku-tutorial/tutorial_general_03.png
-[4]: ./media/heroku-tutorial/tutorial_general_04.png
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/heroku-tutorial/tutorial_general_100.png
-
-[200]: ./media/heroku-tutorial/tutorial_general_200.png
-[201]: ./media/heroku-tutorial/tutorial_general_201.png
-[202]: ./media/heroku-tutorial/tutorial_general_202.png
-[203]: ./media/heroku-tutorial/tutorial_general_203.png

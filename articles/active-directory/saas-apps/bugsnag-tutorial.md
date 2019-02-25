@@ -1,34 +1,33 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con CA PPM | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e CA PPM.
+title: 'Esercitazione: Integrazione di Azure Active Directory con Bugsnag | Microsoft Docs'
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Bugsnag.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: ca9d5e71-e429-4891-8d10-3498e7210e89
+ms.assetid: f08b8a14-ef69-42a7-ac9d-da95f2e36287
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/12/2019
+ms.date: 02/13/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d492db8e50a9ff34da1940b01465fe0ca7f7c4b
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 1e27bdd9bfcf732add45355f014e4af8a67d0c59
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302013"
+ms.locfileid: "56318987"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ca-ppm"></a>Esercitazione: Integrazione di Azure Active Directory con CA PPM
+# <a name="tutorial-azure-active-directory-integration-with-bugsnag"></a>Esercitazione: Integrazione di Azure Active Directory con Bugsnag
 
-Questa esercitazione descrive come integrare CA PPM con Azure Active Directory (Azure AD).
-L'integrazione di CA PPM con Azure AD offre i vantaggi seguenti:
+Questa esercitazione descrive come integrare Bugsnag con Azure Active Directory (Azure AD).
+L'integrazione di Bugsnag con Azure AD offre i vantaggi seguenti:
 
-* È possibile controllare in Azure AD chi può accedere a CA PPM.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a CA PPM con gli account Azure AD personali.
+* È possibile controllare in Azure AD chi può accedere a Bugsnag.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Bugsnag con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,22 +35,23 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per configurare l'integrazione di Azure AD con CA PPM, sono necessari gli elementi seguenti:
+Per configurare l'integrazione di Azure AD con Bugsnag, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
-* Sottoscrizione di CA PPM abilitata per l'accesso Single Sign-On
+* Sottoscrizione di Bugsnag abilitata per l'accesso Single Sign-On
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* CA PPM supporta l'accesso SSO avviato da **IDP**
+* Bugsnag supporta l'accesso SSO avviato da **SP e IDP**
+* Bugsnag supporta il provisioning utenti **JIT**
 
-## <a name="adding-ca-ppm-from-the-gallery"></a>Aggiunta di CA PPM dalla raccolta
+## <a name="adding-bugsnag-from-the-gallery"></a>Aggiunta di Bugsnag dalla raccolta
 
-Per configurare l'integrazione di CA PPM in Azure AD, è necessario aggiungere CA PPM dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Bugsnag in Azure AD, è necessario aggiungere Bugsnag dalla raccolta all'elenco di app SaaS gestite.
 
-**Per aggiungere CA PPM dalla raccolta, seguire questa procedura:**
+**Per aggiungere Bugsnag dalla raccolta, seguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
@@ -65,31 +65,31 @@ Per configurare l'integrazione di CA PPM in Azure AD, è necessario aggiungere C
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **CA PPM**, selezionare **CA PPM** nel pannello dei risultati, quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Bugsnag**, selezionare **Bugsnag** nel pannello dei risultati e fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![CA PPM nell'elenco risultati](common/search-new-app.png)
+     ![Bugsnag nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con CA PPM usando un utente di test di nome **Britta Simon**.
-Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in CA PPM.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Bugsnag usando un utente di test di nome **Britta Simon**.
+Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Bugsnag.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con CA PPM, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Bugsnag, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per CA PPM](#configure-ca-ppm-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On per Bugsnag](#configure-bugsnag-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di CA PPM](#create-ca-ppm-test-user)**: per avere una controparte di Britta Simon in CA PPM collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Creare l'utente di test di Bugsnag](#create-bugsnag-test-user)**: per avere una controparte di Britta Simon in Bugsnag collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-Per configurare l'accesso Single Sign-On di Azure AD con CA PPM, seguire questa procedura:
+Per configurare l'accesso Single Sign-On di Azure AD con Bugsnag, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **CA PPM** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **Bugsnag** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -101,34 +101,28 @@ Per configurare l'accesso Single Sign-On di Azure AD con CA PPM, seguire questa 
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella pagina **Configura l'accesso Single Sign-On con SAML** eseguire questa procedura:
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione nella modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di CA PPM](common/idp-intiated.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Bugsnag](common/both-replyurl.png)
 
-    a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://ca.ondemand.saml.20.post.<companyname>`
-
-    b. Nella casella di testo **URL di risposta** digitare: `https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer`
+    Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://app.bugsnag.com/user/sign_in/saml/<org_slug>/acs`
 
     > [!NOTE]
-    > Poiché questo valore non è reale, è necessario aggiornarlo con l'identificatore effettivo. Per ottenere tale valore, contattare il [team di supporto clienti di CA PPM](mailto:catechnicalsupport@ca.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Il valore di URL di risposta non è reale. è necessario aggiornare questo valore con l'URL di risposta effettivo. Per ottenere tale valore, contattare il [team di supporto clienti di Bugsnag](mailto:support@bugsnag.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Collegamento di download del certificato](common/certificatebase64.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Bugsnag](common/both-signonurl.png)
 
-6. Nella sezione **Configura CA PPM** copiare gli URL appropriati in base alle esigenze.
+    Nella casella di testo **URL di accesso** digitare `https://app.bugsnag.com/user/identity_provider`
 
-    ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
+6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer in uso.
 
-    a. URL di accesso
+    ![Collegamento di download del certificato](common/copy-metadataurl.png)
 
-    b. Identificatore Azure AD
+### <a name="configure-bugsnag-single-sign-on"></a>Configurare l'accesso Single Sign-On per Bugsnag
 
-    c. URL di chiusura sessione
-
-### <a name="configure-ca-ppm-single-sign-on"></a>Configurare l'accesso Single Sign-On per CA PPM
-
-Per configurare l'accesso Single Sign-On sul lato **CA PPM** è necessario inviare il file **Certificato (Base64)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di CA PPM](mailto:catechnicalsupport@ca.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On in **Bugsnag**, è necessario inviare l'**URL dei metadati di federazione dell'app** al [team di supporto di Bugsnag](mailto:support@bugsnag.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
@@ -157,15 +151,15 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a CA PPM.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Bugsnag.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **CA PPM**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Bugsnag**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **CA PPM**.
+2. Nell'elenco delle applicazioni selezionare **Bugsnag**.
 
-    ![Collegamento di CA PPM nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento di Bugsnag nell'elenco delle applicazioni](common/all-applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -181,15 +175,15 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-ca-ppm-test-user"></a>Creare l'utente di test di CA PPM
+### <a name="create-bugsnag-test-user"></a>Creare l'utente di test di Bugsnag
 
-In questa sezione viene creato un utente di nome Britta Simon in CA PPM. Collaborare con il  [team di supporto di CA PPM](mailto:catechnicalsupport@ca.com) per aggiungere gli utenti alla piattaforma CA PPM. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in Bugsnag. Bugsnag supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Bugsnag, ne viene creato uno nuovo dopo l'autenticazione.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di CA PPM nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione CA PPM per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Bugsnag nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Bugsnag per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
