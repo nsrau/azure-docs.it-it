@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/25/2018
+ms.date: 02/25/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 9341eefdbe1eaa8e27394fd4b10f50b1a48bd4c6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/25/2019
+ms.openlocfilehash: 65894ccd9514bce1d429b336f8bd5e6674048e65
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247324"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820264"
 ---
 # <a name="what-is-azure-stack"></a>Cos'è Azure Stack?
 
@@ -33,15 +33,15 @@ Azure Stack è disponibile in due opzioni di distribuzione per le diverse esigen
 
 ## <a name="azure-stack-development-kit"></a>Azure Stack Development Kit
 
-Microsoft [Azure Stack Development Kit (ASDK)](./asdk/asdk-what-is.md) è una distribuzione a nodo singolo di Azure Stack che può essere usata per valutare e apprendere Azure Stack.  È anche possibile usare ASDK come un ambiente di sviluppo per compilare le app usando le API e strumenti che è coerente con Azure.
+Microsoft [Azure Stack Development Kit (ASDK)](./asdk/asdk-what-is.md) è una distribuzione a nodo singolo di Azure Stack che può essere usata per valutare e apprendere Azure Stack.  È anche possibile usare il ASDK come un ambiente di sviluppo per compilare le app usando le API e strumenti che è coerente con Azure.
 
 >[!Note]
 >Il ASDK non dovrà essere utilizzato come ambiente di produzione.
 
 Il ASDK presenta le limitazioni seguenti:
 
-* ASDK è associato a un singolo Azure Active Directory (Azure AD) o provider di identità di Active Directory Federation Services (ADFS). È possibile creare più utenti in questa directory e assegnare sottoscrizioni a ogni utente.
-* Poiché i componenti di Azure Stack vengono distribuiti in un computer host, sono disponibili risorse fisiche limitate per le risorse tenant. Questa configurazione non è la valutazione di scalabilità o prestazioni.
+* Il ASDK è associato a un singolo Azure Active Directory (Azure AD) o provider di identità di Active Directory Federation Services (ADFS). È possibile creare più utenti in questa directory e assegnare sottoscrizioni a ogni utente.
+* Poiché i componenti dello Stack di Azure vengono distribuiti in un singolo computer host, sono disponibili risorse fisiche limitate per le risorse del tenant. Questa configurazione non è destinata alla scala o per la valutazione delle prestazioni.
 * Scenari di rete sono limitati a causa il singolo host e i requisiti di distribuzione di interfaccia di rete.
 
 ## <a name="azure-stack-integrated-systems"></a>Sistemi integrati di Azure Stack

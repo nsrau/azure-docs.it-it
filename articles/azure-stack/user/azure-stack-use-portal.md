@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 02/25/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 026e37534169fda8dbbf5a568f72046bc6ff55f7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 28b8971b61ff09346b2a2f89cd5ea8ae04e44079
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252048"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819361"
 ---
 # <a name="use-the-azure-stack-portal"></a>Usa il portale di Azure Stack
 
@@ -40,6 +40,10 @@ L'operatore di Azure Stack (un provider del servizio o un amministratore dell'or
 Il dashboard contiene un set predefinito di riquadri. È possibile selezionare **modifica dashboard** per modificare il dashboard predefinito o selezionare **nuovo dashboard** per creare un dashboard personalizzato. È possibile personalizzare con facilità un dashboard aggiungendo o rimuovendo i riquadri. Per aggiungere un riquadro del calcolo, ad esempio, selezionare **+ crea una risorsa**. Fare doppio clic su **Compute**, quindi selezionare **Aggiungi al dashboard**.
 
 ![Cattura di schermata del portale utenti Azure Stack](media/azure-stack-use-portal/userportal.png)
+
+Per le impostazioni originali, ripristinare il dashboard:
+1.  Selezionare **modificare il Dashboard**. 
+2.  Fare doppio clic e selezionare **reimpostati allo stato predefinito**.
 
 ## <a name="create-subscription-and-browse-available-resources"></a>Creare sottoscrizioni ed esplorare le risorse disponibili
 

@@ -11,7 +11,7 @@
 ### [Ripristino di emergenza con DNS di Azure e Gestione traffico](disaster-recovery-dns-traffic-manager.md)
 ## Pianificare e progettare
 ### [Reti virtuali](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Connettività cross-premise: VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Connettività cross-premise: VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connettività cross-premise: privata dedicata](../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### Interoperabilità della connettività di back-end
 #### [Introduzione e installazione test](connectivty-interoperability-preface.md?toc=%2fazure%2fnetworking%2ftoc.json)

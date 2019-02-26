@@ -16,19 +16,19 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: rtiberiu
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 28f8300b83f55f4b083aa1e740dcbf1db0f1dc31
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4683b6f63af9fe0081911db9914f04b1c90f9d23
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168143"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819446"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Aggiornamento dello Stack della macchina virtuale e gestione di Azure
 È possibile usare le seguenti funzionalità di soluzione di automazione di Azure per gestire le macchine virtuali Linux distribuite con Azure Stack e Windows:
 
 - **[Gestione aggiornamenti](https://docs.microsoft.com/azure/automation/automation-update-management)**. Con la soluzione gestione aggiornamenti, è possibile valutare lo stato degli aggiornamenti disponibili in tutti i computer agente e gestire rapidamente il processo di installazione degli aggiornamenti necessari per queste macchine virtuali di Linux e Windows.
 
-- **[Il rilevamento delle modifiche](https://docs.microsoft.com/azure/automation/automation-change-tracking)**. Le modifiche al software installato, ai servizi di Windows, ai file e al Registro di sistema di Windows e ai daemon Linux nei server monitorati vengono inviate al servizio Log Analytics nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud. Usando le informazioni nel dashboard Change Tracking, è possibile visualizzare facilmente le modifiche apportate all'infrastruttura del server.
+- **[Il rilevamento delle modifiche](https://docs.microsoft.com/azure/automation/automation-change-tracking)**. Le modifiche al software installato, i servizi Windows, del Registro di sistema di Windows e i file e ai daemon Linux nei server monitorati vengono inviate al servizio di monitoraggio di Azure nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud. Usando le informazioni nel dashboard Change Tracking, è possibile visualizzare facilmente le modifiche apportate all'infrastruttura del server.
 
 - **[Inventory](https://docs.microsoft.com/azure/automation/automation-vm-inventory)**. Il monitoraggio dell'inventario per una macchina virtuale di Azure Stack offre un'interfaccia utente basata sul browser per l'installazione e configurazione di raccolta dell'inventario. 
 
@@ -44,7 +44,7 @@ Per usare l'inventario, rilevamento modifiche e le funzionalità di automazione 
 > [!TIP]
 > Se hai già queste funzionalità abilitate per le macchine virtuali di Azure, è possibile usare le credenziali dell'area di lavoro di log Analytics già esistente. Se hai già un LogAnalytics WorkspaceID e chiave primaria a cui si desidera utilizzare, passare a [nella sezione successiva](./vm-update-management.md#in-the-azure-stack-administration-portal). In caso contrario, continuare in questa sezione per creare un nuovo account di automazione e l'area di lavoro di log Analytics.
 
-Il primo passaggio dell'abilitazione di queste soluzioni consiste [creare un'area di lavoro di log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace) nella sottoscrizione di Azure. Un'area di lavoro di Log Analitica è un ambiente di Log Analitica univoco con il proprio repository dei dati, origini dati e soluzioni. Dopo aver creato un'area di lavoro, tenere presente la chiave e l'ID area di lavoro. Per visualizzare queste informazioni, passare al pannello dell'area di lavoro, fare clic su **impostazioni avanzate**ed esaminare le **ID area di lavoro** e **Primary Key** valori. 
+Il primo passaggio dell'abilitazione di queste soluzioni consiste [creare un'area di lavoro di log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace) nella sottoscrizione di Azure. Un'area di lavoro di Log Analitica è un ambiente di log univoco di monitoraggio di Azure con il proprio repository dei dati, origini dati e soluzioni. Dopo aver creato un'area di lavoro, tenere presente la chiave e l'ID area di lavoro. Per visualizzare queste informazioni, passare al pannello dell'area di lavoro, fare clic su **impostazioni avanzate**ed esaminare le **ID area di lavoro** e **Primary Key** valori. 
 
 Successivamente, è necessario [creare un Account di automazione](https://docs.microsoft.com/azure/automation/automation-create-standalone-account). Un Account di automazione è un contenitore per le risorse di automazione di Azure. Fornisce un modo per separare gli ambienti o organizzare ulteriormente i flussi di lavoro di automazione e le risorse. Dopo aver creato l'account di automazione, è necessario abilitare l'inventario, rilevamento modifiche e aggiornare le funzionalità di gestione. A tale scopo, seguire questi passaggi per abilitare ogni funzionalità:
 
