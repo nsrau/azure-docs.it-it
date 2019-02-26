@@ -172,14 +172,14 @@ items:
     - name: Distribuzione continua tramite Chocolatey
       displayName: dsc, state configuration
       href: automation-dsc-cd-chocolatey.md
-    - name: Inoltrare i dati di report della configurazione dello stato a Log Analytics
+    - name: Inoltrare i dati di report sulla configurazione dello stato ai log di Monitoraggio di Azure
       displayName: DSC
       href: automation-dsc-diagnostics.md
   - name: Gestire le risorse condivise
     items:
     - name: Certificati
       href: automation-certificates.md
-    - name: Connessioni
+    - name: connessioni
       href: automation-connections.md
     - name: Credenziali
       href: automation-credentials.md
@@ -187,7 +187,7 @@ items:
       href: automation-integration-modules.md
     - name: Pianificazioni
       href: automation-schedules.md
-    - name: Variabili
+    - name: variables
       href: automation-variables.md
     - name: Aggiornare i moduli di Azure PowerShell
       href: automation-update-azure-modules.md
@@ -195,7 +195,7 @@ items:
       href: az-modules.md
   - name: Scenari
     items:
-    - name: Raccolta di runbook
+    - name: raccolta di runbook
       href: automation-runbook-gallery.md
     - name: Monitorare i runbook con avvisi delle metriche
       href: automation-alert-metric.md
@@ -210,7 +210,7 @@ items:
       href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md?toc=%2fazure%2fautomation%2ftoc.json
   - name: Monitorare
     items:
-    - name: Inoltrare dati dei processi di Automazione di Azure a Log Analytics
+    - name: Inoltrare i dati dei processi di Automazione di Azure ai log di Monitoraggio di Azure
       href: automation-manage-send-joblogs-log-analytics.md
   - name: Migrazione
     items:
@@ -228,7 +228,7 @@ items:
   - name: Configurazione dello stato (DSC)
     displayName: Desired State Configuration, troubleshoot
     href: troubleshoot/desired-state-configuration.md
-  - name: Ruolo di lavoro ibrido per runbook
+  - name: ruolo di lavoro ibrido per runbook
     displayName: troubleshoot, HRW, hybrid worker
     href: troubleshoot/hybrid-runbook-worker.md
   - name: Rilevamento modifiche e inventario
@@ -251,7 +251,7 @@ items:
     - name: Linux
       displayName: update agent, issue, hybrid runbook worker, hybrid worker, troubleshoot, linux
       href: troubleshoot/update-agent-issues-linux.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Azure PowerShell
     href: /powershell/module/azurerm.automation
@@ -285,9 +285,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-automation
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=automation
-ms.openlocfilehash: e35c51bb1d82f2c5eda708ab8bce71c2bf5b69b7
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 01c80ffb961cf868d02b067402b7a168801ce88f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417024"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819191"
