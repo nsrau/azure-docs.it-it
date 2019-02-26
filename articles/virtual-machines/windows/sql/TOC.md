@@ -35,18 +35,21 @@
 ## Configurare la disponibilità elevata
 ### [Usare Archiviazione di Azure per il backup e il ripristino](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 ### Gruppo di disponibilità AlwaysOn
-#### [Uso del modello del portale di Azure](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-#### [Uso dei modelli di Avvio rapido](virtual-machines-windows-sql-availability-group-quickstart-template.md)
-#### [Manualmente: prerequisiti](virtual-machines-windows-portal-sql-availability-group-prereq.md)
-#### [Manualmente: esercitazione](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-#### [Bilanciamento del carico - Portale di Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
-#### [Bilanciamento del carico - Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+#### [Interfaccia della riga di comando delle VM di Azure SQL](virtual-machines-windows-sql-availability-group-cli.md)
+#### [Modello del portale di Azure](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+#### [Modelli di avvio rapido di Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md)
 #### [Più aree geografiche](virtual-machines-windows-portal-sql-availability-group-dr.md)
+#### Configurare manualmente    
+##### [Prerequisiti](virtual-machines-windows-portal-sql-availability-group-prereq.md)
+##### [Esercitazione](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
+##### [Bilanciamento del carico - Portale di Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+##### [Bilanciamento del carico - Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+
 ### Istanza del cluster di failover
 #### [Configurare](virtual-machines-windows-portal-sql-create-failover-cluster.md)
 
 
-# Informazioni di riferimento
+# riferimento
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/)
 ## [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
