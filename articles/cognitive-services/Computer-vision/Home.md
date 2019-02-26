@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 08/22/2018
+ms.date: 02/20/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4322b118268ee88235190f5672585d17ea365495
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 84287191af60a5e9306f03ca2ebd10f9e347c9ac
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872645"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453053"
 ---
 # <a name="what-is-computer-vision"></a>Informazioni sulla Visione artificiale
 
-Il servizio Visione artificiale di Azure consente agli sviluppatori di accedere ad algoritmi avanzati che elaborano immagini e restituiscono informazioni. Per analizzare un'immagine, è possibile caricare un'immagine o specificare un URL di immagine. Gli algoritmi di elaborazione immagini consentono di analizzare il contenuto in modi diversi, in base alle funzionalità visive rilevanti. Visione artificiale può ad esempio determinare se un'immagine include contenuto per adulti o audace o può individuare tutti i visi umani in un'immagine.
+Il servizio Visione artificiale di Azure consente agli sviluppatori di accedere ad algoritmi avanzati che elaborano le immagini e restituiscono informazioni. Per analizzare un'immagine, è possibile caricare un'immagine o specificare un URL di immagine. Gli algoritmi di elaborazione immagini consentono di analizzare il contenuto in modi diversi, in base alle funzionalità visive rilevanti. Visione artificiale può ad esempio determinare se un'immagine include contenuto per adulti o audace o può individuare tutti i visi umani in un'immagine.
 
 È possibile usare Visione artificiale nell'applicazione usando un SDK nativo oppure chiamando direttamente l'API REST. Questa pagina illustra su vasta scala le operazioni eseguibili con Visione artificiale.
 
@@ -45,17 +45,17 @@ Il servizio Visione artificiale di Azure consente agli sviluppatori di accedere 
 
 ## <a name="extract-text-from-images"></a>Estrarre testo dalle immagini
 
-È possibile usare Visione artificiale per [estrarre testo mediante OCR](concept-extracting-text-ocr.md) da un'immagine in un flusso di caratteri leggibile dal computer. Se necessario, la funzione OCR corregge la rotazione del testo riconosciuto, espresso in gradi, intorno all'asse orizzontale dell'immagine e fornisce le coordinate del frame per ogni parola. OCR supporta 25 lingue e rileva automaticamente la lingua del testo estratto.
+È possibile usare Visione artificiale per [estrarre testo con il riconoscimento ottico dei caratteri (OCR)](concept-extracting-text-ocr.md) da un'immagine a un flusso di caratteri leggibili dal computer. Se necessario, la funzione OCR corregge la rotazione del testo riconosciuto e fornisce le coordinate del frame per ogni parola. La funzione OCR supporta 25 lingue e rileva automaticamente la lingua del testo riconosciuto.
 
-È anche possibile [riconoscere testo stampato e scritto a mano](concept-recognizing-text.md) in un'immagine. Visione artificiale può rilevare ed estrarre testo stampato e scritto a mano da immagini di diversi oggetti con superfici e sfondi diversi, ad esempio ricette, poster, biglietti da visita, lettere e lavagne. La funzionalità di riconoscimento di testo stampato e scritto a mano è attualmente disponibile in anteprima e l'inglese è l'unica lingua supportata.  
+È anche possibile [riconoscere testo stampato e scritto a mano](concept-recognizing-text.md) in un'immagine. Visione artificiale può rilevare ed estrarre testo stampato e scritto a mano da immagini di diversi oggetti con superfici e sfondi diversi, ad esempio ricette, poster, biglietti da visita, lettere e lavagne. La funzionalità di riconoscimento di testo stampato e scritto a mano è attualmente in anteprima e l'inglese è l'unica lingua supportata. 
 
 ## <a name="moderate-content-in-images"></a>Moderare i contenuti nelle immagini
 
-È possibile usare Visione artificiale per [rilevare contenuti per adulti e audaci](concept-detecting-adult-content.md) in un'immagine, determinando la probabilità che l'immagine contenga contenuti per adulti o audaci e generando un punteggio di attendibilità per entrambi. Il filtro per il rilevamento del contenuto audace e per adulti può essere impostato tramite un indicatore di scorrimento in base alle preferenze dell'utente.
+È possibile usare Visione artificiale per [rilevare i contenuti per adulti e spinti](concept-detecting-adult-content.md) in un'immagine e restituire un punteggio di attendibilità per entrambi i tipi di contenuto. Il filtro per il rilevamento del contenuto audace e per adulti può essere impostato tramite un indicatore di scorrimento in base alle preferenze dell'utente.
 
 ## <a name="use-containers"></a>Usare i contenitori
 
-[Usare i contenitori di Visione artificiale](computer-vision-how-to-install-containers.md) per riconoscere testo stampato e scritto a mano in locale installando un contenitore Docker standardizzato più vicino ai dati.
+[Usare i contenitori di Visione artificiale](computer-vision-how-to-install-containers.md) per riconoscere il testo stampato e scritto a mano in locale installando un contenitore Docker standardizzato più vicino ai dati.
 
 ## <a name="image-requirements"></a>Requisiti dell'immagine
 

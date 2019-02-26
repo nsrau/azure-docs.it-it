@@ -1,7 +1,7 @@
 ---
-title: 'Avvio rapido: Riconoscimento vocale, C# (.NET Core Windows) - Servizi Voce'
+title: 'Guida introduttiva: Riconoscimento vocale, C# (.NET Core Windows) - Servizi Voce'
 titleSuffix: Azure Cognitive Services
-description: Informazioni sul riconoscimento vocale in C# per .NET Core su Windows con l'SDK del servizio Voce
+description: Informazioni sul riconoscimento vocale in C# per .NET Core in Windows con Speech SDK
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: cf6ffdad9fbbf1705c0160e16de0e5ee3e5929a1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1f6cbb511546784b316da1e978abf84c41ac753c
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869943"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446053"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Avvio rapido: Riconoscimento vocale con Speech SDK per .NET Core
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Guida introduttiva: Riconoscimento vocale con Speech SDK per .NET Core
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 

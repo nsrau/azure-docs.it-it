@@ -1,23 +1,23 @@
 ---
-title: 'Avvio rapido: Riconoscere i contenuti vocali, Objective-C - Servizi di riconoscimento vocale'
+title: 'Guida introduttiva: Riconoscere i contenuti vocali, Objective-C - Servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
-description: Informazioni sul riconoscimento vocale in Objective-C su iOS con l'SDK del servizio Voce
+description: Informazioni sul riconoscimento vocale in Objective-C in iOS con Speech SDK
 services: cognitive-services
 author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/13/2018
+ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: f92a5c5ea064d91eae065c96e656416b21714e98
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5f6a66b4005a0fa7106830d7e53950a9902cd078
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878103"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447243"
 ---
-# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Avvio rapido: Riconoscere i contenuti vocali in Objective-C su iOS con l'SDK dei servizi di riconoscimento vocale
+# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Guida introduttiva: Riconoscimento vocale in Objective-C in iOS con Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -35,7 +35,7 @@ Prima di iniziare, ecco un elenco di prerequisiti:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-La versione corrente di Speech SDK di Servizi cognitivi è `1.2.0`.
+La versione corrente di Speech SDK di Servizi cognitivi è `1.3.0`.
 
 Speech SDK di Servizi cognitivi per Mac e iOS viene attualmente distribuito come un Framework di Cocoa.
 È possibile scaricarlo da https://aka.ms/csspeech/iosbinary. Scaricare il file nella home directory.

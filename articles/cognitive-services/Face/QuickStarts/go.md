@@ -8,42 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 06/25/2018
+ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: d1384e22d5a036002d59c30755a8a0e5de648102
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 752f15fd730f1244f44ba3749bff3c5bb85ca02b
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882965"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312600"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e Go
 
-In questa guida introduttiva si rileveranno i visi in un'immagine usando l'API Viso.
+In questa guida introduttiva si userà l'API REST Viso di Azure con Go per rilevare i visi umani in un'immagine.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire l'esempio è necessaria una sottoscrizione. È possibile ottenere le chiavi di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- Una chiave di sottoscrizione API Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per effettuare la sottoscrizione al servizio API Viso e ottenere la chiave.
+- Un editor di codice, ad esempio [Visual Studio Code](https://code.visualstudio.com/download)
 
-## <a name="face---detect-request"></a>Richiesta di rilevamento del viso
+## <a name="write-the-script"></a>Scrivere lo script
 
-Usare il metodo [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) per rilevare i visi in un'immagine e restituirne gli attributi, tra cui:
-
-* ID viso: ID univoco usato in diversi scenari di API Viso.
-* Rettangolo del viso: riquadro i cui lati indicano la posizione del viso nell'immagine.
-* Punti di riferimento: matrice con 27 punti di riferimento che indicano le posizioni importanti dei componenti del viso.
-* Altri attributi del viso quali età, sesso, intensità del sorriso, orientamento della testa e peli del viso.
-
-Per eseguire l'esempio, seguire questa procedura:
-
-1. Copiare il codice seguente in un editor.
-1. Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione valida.
-1. Modificare il valore di `uriBase` impostando l'indirizzo in cui si sono ottenute le chiavi di sottoscrizione, se necessario.
-1. Facoltativamente, modificare il valore di `imageUrl` impostandolo sull'immagine che si vuole analizzare.
-1. Salvare il file con estensione `.go`.
-1. Aprire un prompt dei comandi in un computer in cui è installato Go.
-1. Compilare il file, ad esempio: `go build detect-face.go`.
-1. Eseguire il file, ad esempio: `detect-face`.
+Creare un nuovo file denominato _faceDetection.go_ e aggiungere il codice seguente. Viene così chiamata l'API Viso per un determinato URL di immagine.
 
 ```go
 package main
@@ -115,9 +100,25 @@ func main() {
 }
 ```
 
-## <a name="face---detect-response"></a>Risposta alla richiesta di rilevamento del viso
+Si dovrà aggiornare il valore di `subscriptionKey` con la propria chiave di sottoscrizione e potrebbe essere necessario modificare la stringa di `uriBase` in modo che contenga l'identificatore di area corretto. Per un elenco degli endpoint di tutte le aree, vedere la [documentazione dell'API Viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236). 
 
-Viene restituita una risposta con esito positivo in formato JSON, ad esempio:
+Potrebbe anche essere opportuno modificare il campo `imageUrl` per puntare alla propria immagine di input, nonché modificare il campo `returnFaceAttributes` che specifica gli attributi del viso da recuperare.
+
+## <a name="run-the-script"></a>Esecuzione dello script
+
+Aprire un prompt dei comandi e compilare il programma con il comando seguente:
+
+```shell
+go build faceDetection.go
+```
+
+Eseguire quindi il programma:
+
+```shell
+detect-face
+```
+
+Nella console verrà visualizzata una stringa JSON dei dati relativi ai visi rilevati. Di seguito è riportato un esempio di risposta JSON con esito positivo.
 
 ```json
 [
@@ -300,7 +301,7 @@ Viene restituita una risposta con esito positivo in formato JSON, ad esempio:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare le API Viso usate per rilevare i visi umani in un'immagine, delimitare i visi con rettangoli e restituire gli attributi, ad esempio l'età e il sesso.
+In questa guida introduttiva si è scritto uno script Ruby che chiama l'API Viso di Azure per rilevare i visi in un'immagine e restituirne gli attributi. Successivamente, esplorare la documentazione di riferimento dell'API Viso per altre informazioni.
 
 > [!div class="nextstepaction"]
 > [API Viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

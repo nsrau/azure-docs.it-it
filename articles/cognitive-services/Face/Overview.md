@@ -2,33 +2,36 @@
 title: Informazioni sull'API Viso
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come usare il servizio Viso per rilevare e analizzare i visi nelle immagini.
-author: SteveMSFT
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 10/29/2018
-ms.author: sbowles
-ms.openlocfilehash: 655234bfec650ef027e325ff8df23fe91eecfd43
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/20/2019
+ms.author: pafarley
+ms.openlocfilehash: 2f5f57f0978adbdf33ed4ce25ba9b32247ea0484
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861053"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455977"
 ---
 # <a name="what-is-the-azure-face-api"></a>Informazioni sull'API Viso di Azure
 
 L'API Viso di Azure è un servizio cognitivo che include algoritmi per il rilevamento, il riconoscimento e l'analisi dei visi umani nelle immagini. La possibilità di elaborare informazioni sui visi umani è importante in molti scenari software diversi, tra cui sicurezza, interfaccia utente naturale, analisi e gestione del contenuto di immagini, app per dispositivi mobili e robotica.
 
-L'API Viso offre varie funzioni, descritte nelle sezioni seguenti. Continuare a leggere per altre informazioni su ognuna di esse e determinare se è adatta alle proprie esigenze.
+L'API Viso offre varie funzioni, descritte nelle sezioni seguenti. Proseguire la lettura per altre informazioni su ognuna di esse.
 
 ## <a name="face-detection"></a>Rilevamento del viso
 
-L'API Viso può rilevare i visi umani in un'immagine e restituire le coordinate del rettangolo delle posizioni corrispondenti. Facoltativamente, il rilevamento viso può estrarre una serie di attributi relativi al viso, ad esempio posa, sesso, età, posizione della testa, barba/baffi e occhiali.
+L'API Viso può rilevare i visi umani in un'immagine e restituire le coordinate del rettangolo delle posizioni corrispondenti. Facoltativamente, la funzionalità di rilevamento viso può estrarre una serie di attributi relativi al viso, come posa, posizione della testa, sesso, età, emozione, barba/baffi e occhiali.
 
 ![Immagine di una donna e un uomo, con rettangoli disegnati intorno ai visi e informazioni su età e sesso](./Images/Face.detection.jpg)
 
-La funzionalità di rilevamento viso è disponibile anche tramite l'[API Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), ma se si vogliono eseguono ulteriori operazioni con i dati sui volti è preferibile usare l'API Viso (questo servizio). Per altre informazioni sul rilevamento del viso, vedere l'[API di rilevamento](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+> [!NOTE] 
+> La funzionalità di rilevamento viso è disponibile anche tramite l'[API Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), ma se si vogliono eseguono ulteriori operazioni con i dati sui volti è preferibile usare l'API Viso (questo servizio). 
+
+Per altre informazioni sul rilevamento del viso, vedere l'[API di rilevamento](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 ## <a name="face-verification"></a>Verifica del viso
 

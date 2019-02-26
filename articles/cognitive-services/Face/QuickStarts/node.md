@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 11/09/2018
+ms.date: 02/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 9b30e9da523e564f531ec8e9cebe5b16653e579f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bbb5cf9a043f8f4ab4202b6113d1c1b915f3b8a0
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858876"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312770"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST Viso e Node.js
 
@@ -26,12 +26,21 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Una chiave di sottoscrizione API Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per effettuare la sottoscrizione al servizio API Viso e ottenere la chiave.
+- Un editor di codice, ad esempio [Visual Studio Code](https://code.visualstudio.com/download)
 
-## <a name="create-the-nodejs-script"></a>Creare lo script Node.js
+## <a name="set-up-the-node-environment"></a>Configurare l'ambiente Node
 
-Il codice seguente chiamerà l'API Viso e otterrà i dati dell'attributo viso da un'immagine. In primo luogo, copiare il codice in un editor di testo. È necessario apportare alcune modifiche prima di poterlo eseguire.
+Passare alla cartella in cui si vuole creare il progetto e creare un nuovo file denominato *facedetection.js*. Installare quindi il modulo `requests` nel progetto. Questo consente agli script di effettuare richieste HTTP.
 
-```nodejs
+```shell
+npm install request --save
+```
+
+## <a name="write-the-nodejs-script"></a>Scrivere lo script Node.js
+
+Incollare il codice seguente in *facedetection.js*. Questi campi specificano come connettersi al servizio Viso e dove ottenere i dati di input. Sarà necessario aggiornare il campo `subscriptionKey` con il valore della chiave di sottoscrizione e potrebbe essere necessario modificare la stringa `uriBase` in modo che contenga l'identificatore di area corretta (vedere la [documentazione dell'API Viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) per un elenco degli endpoint di tutte le aree). Potrebbe essere opportuno modificare il campo `imageUrl` per puntare alla propria immagine di input.
+
+```javascript
 'use strict';
 
 const request = require('request');
@@ -46,7 +55,12 @@ const uriBase = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/det
 
 const imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
+```
 
+Aggiungere quindi il codice seguente per chiamare l'API Viso e ottenere i dati degli attributi del viso dall'immagine di input. Il campo `returnFaceAttributes` specifica gli attributi del viso da recuperare. È possibile modificare questa stringa in base all'uso previsto.
+
+
+```javascript
 // Request parameters.
 const params = {
     'returnFaceId': 'true',
@@ -76,26 +90,12 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-### <a name="subscription-key"></a>Chiave della sottoscrizione
-Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione Viso valida.
-
-### <a name="face-endpoint-url"></a>URL endpoint Viso
-
-L'URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indica l'endpoint Viso di Azure su cui eseguire la query. Può essere necessario modificare la prima parte dell'URL con l'area che corrisponde alla chiave di sottoscrizione (vedere la [documentazione dell'API Viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) per un elenco degli endpoint di tutte le aree).
-
-### <a name="url-query-string"></a>Stringa di query URL
-
-Il campo `returnFaceAttributes` specifica gli attributi del viso da recuperare. È possibile modificare questa stringa in base all'uso previsto.
-
-### <a name="image-source-url"></a>URL origine immagine
-Il campo `imageUrl` indica l'immagine da usare come input. È possibile modificarlo in modo che punti a un'immagine che si vuole analizzare.
-
 ## <a name="save-and-run-the-script"></a>Salvare ed eseguire lo script
 
-Dopo aver apportato le modifiche, salvare il file come script JavaScript (.js). Quindi, aprire un prompt dei comandi ed eseguirlo con il comando `node`.
+Dopo aver apportato le modifiche, aprire un prompt dei comandi ed eseguire il file con il comando `node`.
 
 ```
-node myfile.js
+node facedetection.js
 ```
 
 Le informazioni sul viso dovrebbero essere visualizzate come dati JSON nella finestra della console. Ad esempio: 
@@ -281,7 +281,7 @@ Le informazioni sul viso dovrebbero essere visualizzate come dati JSON nella fin
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stato scritto un comando cURL che chiama l'API Viso di Azure per rilevare i visi in un'immagine e restituire i relativi attributi. Successivamente, esplorare la documentazione di riferimento dell'API Viso per altre informazioni.
+In questa guida introduttiva si è scritto uno script Node.js che chiama l'API Viso di Azure per rilevare i visi in un'immagine e restituirne gli attributi. Successivamente, esplorare la documentazione di riferimento dell'API Viso per altre informazioni.
 
 > [!div class="nextstepaction"]
 > [API Viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

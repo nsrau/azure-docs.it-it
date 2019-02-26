@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Riconoscimento vocale, Python: servizi Voce'
+title: 'Guida introduttiva: Riconoscimento vocale, Python: servizi Voce'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida per creare un'applicazione console di riconoscimento vocale che usa Speech SDK per Python. Al termine, sarà possibile usare il microfono nel computer per trascrivere contenuti vocali in tempo reale.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 1/16/2019
+ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 43ae1339b2b6880656c68957a3d4ed2d2f13b559
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d3a6b8389d44d3ad92f9305124884d97fa293429
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859542"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447109"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Avvio rapido: Riconoscimento vocale con Speech SDK per Python
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Guida introduttiva: Riconoscimento vocale con Speech SDK per Python
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -26,16 +26,16 @@ Questo articolo illustra come usare il servizio Voce tramite Speech SDK per Pyth
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Una chiave di sottoscrizione di Azure per il servizio Voce. [È possibile ottenerne una gratuitamente](get-started.md).
-* [Python 3.5 o versione successiva](https://www.python.org/downloads/), a 64 bit.
+* [Python 3.5 o versione successiva](https://www.python.org/downloads/).
 * Il pacchetto Speech SDK per Python è disponibile per i sistemi operativi seguenti: 
-    * Windows: x64.
+    * Windows: x64 e x86.
     * Mac: macOS X versione 10.12 o successiva.
     * Linux: Ubuntu 16.04 o 18.04 su x64.
 * In Ubuntu, eseguire i comandi seguenti per installare i pacchetti richiesti:
 
   ```sh
   sudo apt-get update
-  sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
+  sudo apt-get install build-essential libssl1.0.0 libasound2 wget
   ```
 
 * In Windows è anche necessario la versione di [Microsoft Visual C++ Redistributable per Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) per la piattaforma in uso.

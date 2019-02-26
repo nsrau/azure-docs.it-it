@@ -8,47 +8,42 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 05/30/2018
+ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: c75745452ee819dbda75f7420c93a5629cef4e08
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 93e3d9fa67cfb941abf97476e03f44a4b16e94e7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860391"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313161"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e PHP
 
-In questa guida introduttiva si rileveranno i visi in un'immagine usando l'API Viso.
+In questa guida introduttiva si userà l'API REST Viso di Azure con PHP per rilevare i visi umani in un'immagine.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire l'esempio è necessaria una sottoscrizione. È possibile ottenere le chiavi di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- Una chiave di sottoscrizione API Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per effettuare la sottoscrizione al servizio API Viso e ottenere la chiave.
+- Un editor di codice, ad esempio [Visual Studio Code](https://code.visualstudio.com/download)
 
-## <a name="face---detect-request"></a>Richiesta di rilevamento del viso
+## <a name="initialize-the-html-file"></a>Inizializzare il file HTML
 
-Usare il metodo [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) per rilevare i visi in un'immagine e restituirne gli attributi, tra cui:
+Creare un nuovo file HTML denominato *detectFaces.html* e aggiungere il codice seguente.
 
-* ID viso: ID univoco usato in diversi scenari di API Viso.
-* Rettangolo del viso: riquadro i cui lati indicano la posizione del viso nell'immagine.
-* Punti di riferimento: matrice con 27 punti di riferimento che indicano le posizioni importanti dei componenti del viso.
-* Altri attributi del viso quali età, sesso, intensità del sorriso, orientamento della testa e peli del viso.
+```html
+<html>
+    <head>
+        <title>Face Detect Sample</title>
+    </head>
+    <body></body>
+</html>
+```
 
-Per eseguire l'esempio, seguire questa procedura:
+## <a name="write-the-php-script"></a>Scrivere lo script PHP
 
-1. Copiare il codice seguente in un editor.
-1. Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione valida.
-1. Modificare il valore di `uriBase` impostando l'indirizzo in cui si sono ottenute le chiavi di sottoscrizione, se necessario.
-1. Facoltativamente, impostare `imageUrl` sull'immagine che si vuole analizzare.
-1. Salvare il file con estensione `.php`.
-1. Aprire il file in una finestra del browser con supporto per PHP.
+Aggiungere il codice seguente all'interno dell'elemento `body` del documento. Viene così configurata un'interfaccia utente di base con un campo per l'URL, un pulsante **Analyze face**, un riquadro per la risposta e un riquadro per la visualizzazione dell'immagine.
 
 ```php
-<html>
-<head>
-    <title>Face Detect Sample</title>
-</head>
-<body>
 <?php
 // Replace <Subscription Key> with a valid subscription key.
 $ocpApimSubscriptionKey = '<Subscription Key>';
@@ -102,13 +97,13 @@ catch (HttpException $ex)
     echo "<pre>" . $ex . "</pre>";
 }
 ?>
-</body>
-</html>
 ```
 
-## <a name="face---detect-response"></a>Risposta alla richiesta di rilevamento del viso
+Sarà necessario aggiornare il campo `subscriptionKey` con il valore della chiave di sottoscrizione e potrebbe essere necessario modificare la stringa `uriBase` in modo che contenga l'identificatore di area corretta (vedere la [documentazione dell'API Viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) per un elenco degli endpoint di tutte le aree). Il campo `returnFaceAttributes` specifica gli attributi del viso da recuperare. Può essere opportuno modificare questa stringa in base all'uso previsto.
 
-Viene restituita una risposta con esito positivo in formato JSON, ad esempio:
+## <a name="run-the-script"></a>Esecuzione dello script
+
+Aprire il file in un Web browser che supporta PHP. Verrà visualizzata una stringa JSON di dati relativi ai visi, come riportato di seguito.
 
 ```json
 [
