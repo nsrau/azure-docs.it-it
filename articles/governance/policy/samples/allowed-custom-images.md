@@ -1,6 +1,6 @@
 ---
 title: Esempio - Immagini di macchine virtuali approvate
-description: Questo criterio di esempio richiede di distribuire nell'ambiente in uso solo le immagini personalizzate approvate.
+description: Questa definizione di criteri di esempio richiede di distribuire nell'ambiente in uso solo le immagini personalizzate approvate.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: e5b6b3e34f3c85d7fdc90f4f54acbbfac0d75061
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8134ca98fe190a161d940387926e6b3dfea2989c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243910"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337969"
 ---
-# <a name="approved-vm-images"></a>Immagini di macchine virtuali approvate
+# <a name="sample---approved-vm-images"></a>Esempio - Immagini di macchine virtuali approvate
 
 Questo criterio richiede che solo le immagini personalizzate approvate vengano distribuite nell'ambiente in uso. Si specifica una matrice di ID di immagini approvate.
 

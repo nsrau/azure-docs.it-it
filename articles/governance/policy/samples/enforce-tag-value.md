@@ -1,6 +1,6 @@
 ---
 title: Esempio - Imporre un tag e il relativo valore
-description: Questo criterio di esempio richiede il nome e il valore specifici di un tag.
+description: Questa definizione di criteri di esempio richiede un nome e un valore di tag, ognuno impostato come parametro.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 952f932d850806553b6e7e2f9efad2643a2ecdf3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 0524c0e9e67cd477b8aa8ba8005cf8ebcce3f1da
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242635"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337847"
 ---
-# <a name="enforce-tag-and-its-value"></a>Imporre un tag e il relativo valore
+# <a name="sample---enforce-tag-and-its-value"></a>Esempio - Imporre un tag e il relativo valore
 
 Questo criterio richiede il nome e il valore specifici di un tag. Si specificano il nome del tag e il valore da applicare.
 

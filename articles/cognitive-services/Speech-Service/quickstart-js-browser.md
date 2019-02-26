@@ -1,28 +1,28 @@
 ---
-title: 'Avvio rapido: Riconoscimento vocale, JavaScript (Browser) - servizi Voce'
+title: 'Guida introduttiva: Riconoscimento vocale, JavaScript (Browser) - servizi Voce'
 titleSuffix: Azure Cognitive Services
-description: Informazioni sul riconoscimento vocale in JavaScript in un browser con l'SDK del servizio Voce
+description: Informazioni sul riconoscimento vocale in JavaScript in un browser con Speech SDK
 services: cognitive-services
 author: fmegen
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: d51624e5ae4d0e1052b562cd9142238828614597
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8e1f880c57b0db0a2f68fbe26e99679769fdee6c
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872180"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56448042"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Guida introduttiva: Riconoscimento vocale in JavaScript in un browser con l'SDK del servizio Voce
+# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Guida introduttiva: Riconoscimento vocale in JavaScript in un browser con Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Questo articolo spiega come creare un sito Web usando il binding JavaScript di Speech SDK di Servizi cognitivi per la trascrizione del riconoscimento vocale.
-L'applicazione si basa su Speech SDK di Servizi cognitivi Microsoft ([download della versione 1.2.0](https://aka.ms/csspeech/jsbrowserpackage)).
+L'applicazione è basata su Speech SDK di Servizi cognitivi Microsoft ([scaricare la versione 1.3.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 12/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8be7a3d862e7b496a4e3b3077e4c53018bf97bb8
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: cd692442791f57e1560a97f09253ccd1a8264fb3
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233320"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269094"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Esercitazione: Proteggere gli elementi nelle distribuzioni di modelli di Azure Resource Manager
 
@@ -36,8 +36,6 @@ Questa esercitazione illustra le attività seguenti:
 > * Verificare la distribuzione
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -218,6 +216,9 @@ New-AzResourceGroupDeployment `
     -bacpacFileName $bacpacFileName `
     -TemplateFile azuredeploy.json
 ```
+
+> [!NOTE]
+> Esiste un problema di IO dei file con l'uso di Azure PowerShell in Cloud Shell.  Il messaggio di errore è *Impossibile recuperare i parametri dinamici del cmdlet. Impossibile trovare il percorso 'Azure:/azuredeploy.json' perché non esiste.*  Una soluzione temporanea è di non includere l'opzione **-TemplateFile** nel comando `New-AzResourceGroupDeploy`. Il comando chiederà di immettere il nome del file.
 
 Usare una password generata. Vedere [Prerequisiti](#prerequisites).
 Per i valori di _artifactsLocation, _artifactsLocationSasToken and bacpacFileName, vedere [Generare un token di firma di accesso condiviso](#generate-a-sas-token).

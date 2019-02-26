@@ -10,25 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/11/2019
+ms.date: 02/14/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: c2684c7373d9ee4536b248650c7012c261166b81
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 37d84206246e60ed16244d6172a5e22ca18524c9
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235394"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270250"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Avvio rapido: Creare modelli di Azure Resource Manager con Visual Studio Code
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Questa guida introduttiva illustra come usare Visual Studio Code e l'estensione Strumenti di Azure Resource Manager per creare e modificare i modelli di Azure Resource Manager. È possibile creare modelli di Resource Manager in Visual Studio Code senza l'estensione, ma questa offre opzioni di completamento automatico che semplificano lo sviluppo di modelli. Per comprendere i concetti associati alla distribuzione e alla gestione delle soluzioni di Azure, vedere [Panoramica di Azure Resource Manager](resource-group-overview.md).
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -54,6 +50,7 @@ Il modello usato in questa guida introduttiva è denominato [Create a standard s
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
+
 3. Selezionare **Apri** per aprire il file.
 4. Selezionare **File**>**Salva con nome** per salvare il file con il nome **azuredeploy.json** nel computer locale.
 
@@ -94,6 +91,9 @@ Per sperimentare la modifica di un modello con Visual Studio Code, aggiungere un
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
 Per distribuire i modelli sono disponibili molti metodi.  In questa guida introduttiva si usa Azure Cloud Shell. Cloud Shell è un'applicazione Web che non richiede alcuna configurazione. Supporta sia l'interfaccia della riga di comando di Azure che Azure PowerShell.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 1. Accedere ad [Azure Cloud Shell](https://shell.azure.com)
 
@@ -148,7 +148,10 @@ Per distribuire i modelli sono disponibili molti metodi.  In questa guida introd
     
     ---
 
-    Aggiornare il nome file del modello se si salva il file con un nome diverso da **azuredeploy.json**.
+    > [!NOTE]
+    > Esiste un problema di IO dei file con l'uso di Azure PowerShell in Cloud Shell.  Il messaggio di errore è *Impossibile recuperare i parametri dinamici del cmdlet. Impossibile trovare il percorso 'Azure:/azuredeploy.json' perché non esiste.*  Una soluzione temporanea è di non includere l'opzione **-TemplateFile** nel comando `New-AzResourceGroupDeploy`. Il comando chiederà di immettere il nome del file.
+
+    Aggiornare il nome file del modello se si salva il file con un nome diverso da **azuredeploy.json**. 
 
     La schermata seguente mostra una distribuzione di esempio:
 

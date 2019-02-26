@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 8b95c311cd91ab6db84fb6640be5b6c1a6c0a9a5
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 3501284be2430941863bbae90f044df8ba5e7a2a
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443118"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454805"
 ---
 # <a name="monitor-published-apis"></a>Monitorare le API pubblicate
 
@@ -40,8 +40,8 @@ Il video seguente illustra come monitorare Gestione API usando Monitoraggio di A
 ## <a name="prerequisites"></a>Prerequisiti
 
 + Acquisire familiarità con la [terminologia di Gestione API di Azure](api-management-terminology.md).
-+ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
-+ Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md).
++ Completare l'argomento di avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
++ Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -124,7 +124,7 @@ Per configurare i log di diagnostica:
 
     ![Log di diagnostica](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 
-3. Fare clic su **Attiva diagnostica**. I log di diagnostica possono essere archiviati con le metriche in un account di archiviazione, trasmessi a un Hub eventi o inviati a Log Analytics. 
+3. Fare clic su **Attiva diagnostica**. I log di diagnostica possono essere archiviati con le metriche in un account di archiviazione, trasmessi a un hub eventi o inviati ai log di Monitoraggio di Azure. 
 
 Attualmente Gestione API offre log di diagnostica (in batch orari) sulle singole richieste API, dove ogni voce ha la struttura seguente:
 
@@ -173,7 +173,7 @@ Attualmente Gestione API offre log di diagnostica (in batch orari) sulle singole
 }  
 ```
 
-| Proprietà  | type | DESCRIZIONE |
+| Proprietà  | Type | DESCRIZIONE |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | boolean | True se la richiesta HTTP è stata completata con codice di stato risposta compreso nell'intervallo 2xx o 3xx |
 | time | datetime | Timestamp di ricezione della richiesta HTTP dal gateway |
@@ -183,8 +183,8 @@ Attualmente Gestione API offre log di diagnostica (in batch orari) sulle singole
 | callerIpAddress | stringa | Indirizzo IP del chiamante gateway immediato (può essere un intermediario) |
 | correlationId | stringa | Identificatore richiesta http univoco assegnato da Gestione API |
 | location | stringa | Nome dell'area di Azure in cui si trovava il gateway che ha elaborato la richiesta |
-| httpStatusCodeCategory | stringa | Categoria del codice di stato della risposta HTTP: richiesta riuscita (minore o uguale a 301 oppure 304 o 307), richiesta non autorizzata (401, 403, 429), errore (400, valore compreso tra 500 e 600), altro |
-| ResourceId | stringa | "Id della risorsa di Gestione API /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
+| httpStatusCodeCategory | stringa | Categoria di codice di stato della risposta HTTP: richiesta riuscita (minore o uguale a 301 oppure 304 o 307), richiesta non autorizzata (401, 403, 429), errore (400, valore compreso tra 500 e 600), altro |
+| resourceId | stringa | "Id della risorsa di Gestione API /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
 | properties | object | Proprietà della richiesta corrente |
 | statico | stringa | Metodo HTTP della richiesta in ingresso |
 | URL | stringa | URL della richiesta in ingresso |

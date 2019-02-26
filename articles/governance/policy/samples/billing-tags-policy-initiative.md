@@ -1,6 +1,6 @@
 ---
 title: Esempio - Iniziativa relativa ai criteri dei tag di fatturazione
-description: Questo set di criteri di esempio richiede valori di tag specifici per il centro di costo e il nome del prodotto.
+description: Questo set di definizioni di criteri di esempio richiede valori di tag specifici per il centro di costo e il nome del prodotto.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 4592ac63561a59bfc0e4351cc5ad83f138955370
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: b659d6f681b980b956992f0d488995fd1a55de93
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242856"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337601"
 ---
-# <a name="billing-tags-policy-initiative"></a>Iniziativa relativa ai criteri dei tag di fatturazione
+# <a name="sample---billing-tags-policy-initiative"></a>Esempio - Iniziativa relativa ai criteri dei tag di fatturazione
 
 Questo set di criteri richiede valori di tag specifici per il centro di costo e il nome del prodotto. Usa i criteri predefiniti per applicare e imporre i tag obbligatori. Si specificano i valori obbligatori per i tag.
 

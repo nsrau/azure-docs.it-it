@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 33be58ae3ac5fcc8d0b35b240f9f378ccce134cc
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 70a109b9aee46e6b6b65a9a5c139abdf1aa9bab9
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387685"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330597"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Distribuire e gestire un'appliance cloud StorSimple in Azure (aggiornamento 3 e versioni successive)
 
@@ -45,7 +45,7 @@ L'appliance cloud StorSimple è disponibile in due modelli, Standard 8010 (in pr
 | **Capacità massima** |30 TB |64 TB |
 | **Macchina virtuale di Azure** |Standard_A3 (4 core, 7 GB di memoria)| Standard_DS3 (4 core, 14 GB di memoria)|
 | **Disponibilità in base all'area geografica** |Tutte le aree di Azure |Le aree di Azure che supportano Archiviazione Premium e VM DS3 di Azure<br></br>Usare [questo elenco](https://azure.microsoft.com/regions/services/) per verificare se nella propria area sono disponibili sia le **macchine virtuali serie DS** che l'**archiviazione su disco**. |
-| **Tipo di archiviazione** |Usa l'Archiviazione Standard di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Standard](../storage/common/storage-create-storage-account.md) |Usa l'Archiviazione Standard di Azure<sup>2</sup> <br></br>Informazioni su come [creare un account di archiviazione Premium](../virtual-machines/windows/premium-storage.md) |
+| **Tipo di archiviazione** |Usa l'Archiviazione Standard di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Standard](../storage/common/storage-create-storage-account.md) |Usa l'Archiviazione Standard di Azure<sup>2</sup> <br></br> |
 | **Indicazioni relative al carico di lavoro** |Recupero a livello di elemento per i file dai backup |Scenari di sviluppo e test basati su cloud <br></br>Bassa latenza e carichi di lavoro a prestazioni superiori<br></br>Dispositivo secondario per il ripristino di emergenza |
 
 <sup>1</sup> *precedentemente noto come 1100*.
@@ -94,7 +94,7 @@ Prima di effettuare il provisioning dell'appliance cloud, è necessario eseguire
 Prima di creare un'appliance cloud, effettuare gli aggiornamenti seguenti nel servizio Gestione dispositivi StorSimple:
 
 * Aggiungere [record controllo di accesso](storsimple-8000-manage-acrs.md) per le VM che svolgeranno il ruolo di server host per l'appliance cloud.
-* Usare un [account di archiviazione](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) nella stessa area dell'appliance cloud. Gli account di archiviazione posti in aree diverse possono causare una riduzione delle prestazioni. Con l'appliance cloud è possibile usare un account di archiviazione Standard o Premium. Altre informazioni su come creare un [account di archiviazione Standard](../storage/common/storage-create-storage-account.md) o un [account di archiviazione Premium](../virtual-machines/windows/premium-storage.md)
+* Usare un [account di archiviazione](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) nella stessa area dell'appliance cloud. Gli account di archiviazione posti in aree diverse possono causare una riduzione delle prestazioni. Con l'appliance cloud è possibile usare un account di archiviazione Standard o Premium. Altre informazioni su come creare un [account di archiviazione Standard](../storage/common/storage-create-storage-account.md).
 * Per la creazione dell'appliance cloud usare un account di archiviazione diverso rispetto a quello usato per i dati. Se si utilizza lo stesso account di archiviazione, si potrebbe verificare una riduzione delle prestazioni.
 
 Prima di iniziare, verificare quanto segue:
@@ -166,7 +166,7 @@ Seguire questa procedura per configurare la gestione remota per l'appliance clou
 
 [!INCLUDE [Configure remote management via HTTP for cloud appliance](../../includes/storsimple-8000-configure-remote-management-http-device.md)]
 
-### <a name="step-2-remotely-access-the-cloud-appliance"></a>Passaggio 2: Accedere in remoto all'appliance cloud
+### <a name="step-2-remotely-access-the-cloud-appliance"></a>Passaggio 2: Accedere all'appliance cloud in remoto
 
 Dopo aver abilitato la gestione remota nell'appliance cloud, usare la comunicazione remota di Windows PowerShell per connettersi all'appliance da un'altra macchina virtuale all'interno della stessa rete virtuale. Ad esempio, è possibile connettersi dalla VM host che è stata configurata e usata per connettere iSCSI. Nella maggior parte delle distribuzioni, per accedere alla VM host verrà aperto un endpoint pubblico che potrà essere usato per accedere all'appliance cloud.
 

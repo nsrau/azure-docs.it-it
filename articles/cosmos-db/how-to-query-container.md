@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: f7536b5d0815351d2e6cb67705060d2e1046c970
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 445ddb3c580218e21410c961c614a8a9e29d21a0
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857873"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328334"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Eseguire una query su un contenitore in Azure Cosmos
 
@@ -31,6 +31,8 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
 ## <a name="cross-partition-query"></a>Query tra partizioni
 
 La query seguente non ha un filtro per la chiave di partizione (`DeviceId`) e ne viene effettuato il fan-out a tutte le partizioni in cui viene eseguita a fronte dell'indice della partizione. Per eseguire una query tra partizioni, impostare `EnableCrossPartitionQuery` su true (o `x-ms-documentdb-query-enablecrosspartition` nell'API REST).
+
+La proprietà EnablecrossPartitionQuery accetta un valore booleano. Se impostata su true e se la query non ha una chiave di partizione, Azure Cosmos DB esegue il fan-out della query tra le partizioni. Il fan-out viene eseguito tramite l'esecuzione di singole query per tutte le partizioni. Per leggere i risultati della query, le applicazioni client devono utilizzare i risultati di FeedResponse e controllare la proprietà ContinuationToken. Per leggere tutti i risultati, proseguire l'iterazione sui dati fino a quando ContinuationToken non diventa null. 
 
 ```csharp
 // Query across partition keys into a class called, DeviceReading

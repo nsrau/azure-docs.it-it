@@ -10,12 +10,12 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 67797f3bc5eadc126bad1051e793a8d3bc4590e5
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 27db3327e296dafea3af2180eeaadd0ff4680b8d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48800945"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341951"
 ---
 # <a name="azure-managed-applications-overview"></a>Panoramica delle applicazioni gestite di Azure
 
@@ -73,7 +73,7 @@ Quando il consumer elimina l'applicazione gestita, viene eliminato anche il grup
 
 ## <a name="azure-policy"></a>Criteri di Azure
 
-È possibile applicare [criteri di Azure](../azure-policy/azure-policy-introduction.md) all'applicazione gestita. L'applicazione di criteri consente di garantire che le istanze distribuite dell'applicazione gestita siano conformi ai requisiti per i dati e la sicurezza. Se l'applicazione interagisce con dati sensibili, assicurarsi di avere valutato come devono essere protetti. Ad esempio, se l'applicazione interagisce con dati di Office 365, applicare criteri per verificare che sia abilitata la crittografia dei dati.
+È possibile applicare [criteri di Azure](../governance/policy/overview.md) all'applicazione gestita. L'applicazione di criteri consente di garantire che le istanze distribuite dell'applicazione gestita siano conformi ai requisiti per i dati e la sicurezza. Se l'applicazione interagisce con dati sensibili, assicurarsi di avere valutato come devono essere protetti. Ad esempio, se l'applicazione interagisce con dati di Office 365, applicare criteri per verificare che sia abilitata la crittografia dei dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

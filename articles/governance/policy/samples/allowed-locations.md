@@ -1,6 +1,6 @@
 ---
 title: Esempio - Posizioni consentite
-description: Questo criterio di esempio richiede che tutte le risorse vengano distribuite nelle località approvate.
+description: Questa definizione di criteri di esempio richiede che tutte le risorse vengano distribuite nelle località approvate.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: a13f181e90f0435f23e22a7c4db42976bd0afb44
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 70e1b2b20c4846626121dec190dff220a154b81b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243547"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341352"
 ---
-# <a name="allowed-locations"></a>Percorsi consentiti
+# <a name="sample---allowed-region-locations"></a>Esempio - Località consentite
 
 Questi criteri consentono di limitare le posizioni che l'organizzazione può specificare durante la distribuzione delle risorse. Usare per imporre requisiti di conformità geografica. Esclude i gruppi di risorse, Microsoft.AzureActiveDirectory/b2cDirectories e le risorse che usano l'area "global". Si specifica una matrice di posizioni consentite.
 

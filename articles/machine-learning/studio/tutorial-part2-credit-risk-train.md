@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 8ffcfc86823d46e65e116eed86ef35fcba2a99bf
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 45407e183c70fe67e6bd59e3fd86a50a31844c47
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56006943"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453481"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio"></a>Esercitazione 2: Eseguire il training di modelli di rischio di credito - Azure Machine Learning Studio
 
@@ -191,9 +191,9 @@ A destra del grafico fare clic su **Scored dataset** (Set di dati con punteggio)
 Esaminando questi valori, è possibile decidere quale sia il modello che più si avvicina ai risultati previsti. È possibile tornare indietro ed eseguire l'iterazione dell'esperimento modificando i valori di parametro dei vari modelli. 
 
 La scienza e l'arte di interpretare questi risultati e di ottimizzare le prestazioni del modello non rientrano nell'ambito di questa esercitazione. Per ulteriori informazioni, è possibile leggere gli articoli seguenti:
-- [Come valutare le prestazioni del modello in Azure Machine Learning](evaluate-model-performance.md)
-- [Scegliere i parametri per ottimizzare gli algoritmi in Azure Machine Learning](algorithm-parameters-optimize.md)
-- [Interpretare i risultati dei modelli in Azure Machine Learning](interpret-model-results.md)
+- [Come valutare le prestazioni del modello in Azure Machine Learning Studio](evaluate-model-performance.md)
+- [Scegliere i parametri per ottimizzare gli algoritmi in Azure Machine Learning Studio](algorithm-parameters-optimize.md)
+- [Interpretare i risultati dei modelli in Azure Machine Learning Studio](interpret-model-results.md)
 
 > [!TIP]
 > Ogni volta che si esegue l'esperimento, viene conservato un record dell'iterazione nella cronologia di esecuzione. È possibile visualizzare le iterazioni e tornare a una qualsiasi di esse facendo clic su **VISUALIZZA CRONOLOGIA ESECUZIONI** sotto l'area di disegno. È anche possibile fare clic su **Prior Run** (Esecuzione precedente) nel riquadro **Properties** (Proprietà) per tornare all'iterazione immediatamente precedente a quella aperta.

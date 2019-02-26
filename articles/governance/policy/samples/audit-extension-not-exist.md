@@ -1,6 +1,6 @@
 ---
 title: Esempio - Controllare se l'estensione non esiste
-description: Questo criterio di esempio controlla se un'estensione non viene distribuita con una macchina virtuale.
+description: Questa definizione di criteri di esempio controlla se un'estensione non viene distribuita con una macchina virtuale.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 7e5f396bb4acfdef0d49d38019b6c4d19661d9ae
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 0c0f41c01d33add81508d828259ddcdd48d0cbc8
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244182"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340876"
 ---
-# <a name="audit-if-extension-does-not-exist"></a>Controllare se l'estensione non esiste
+# <a name="sample---audit-if-extension-does-not-exist"></a>Esempio - Controllare se l'estensione non esiste
 
 Questo criterio controlla se un'estensione non viene distribuita con una macchina virtuale. Si specifica il server di pubblicazione e il tipo dell'estensione per controllare se è stata distribuita.
 

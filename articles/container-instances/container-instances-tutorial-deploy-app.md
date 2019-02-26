@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 54fcbe9adc8fbf4a8fba6eabbd7c2f8802fd933a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 210254a4404a5280e326bf40057331a784ff6148
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191101"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326740"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Esercitazione: Distribuire un'applicazione contenitore in Istanze di Azure Container
 
@@ -36,26 +36,20 @@ In questa sezione si userà l'interfaccia della riga di comando di Azure per dis
 
 ### <a name="get-registry-credentials"></a>Ottenere le credenziali del registro
 
-Quando si distribuire un'immagine ospitata in un registro contenitori privato come quello creato nella [seconda esercitazione](container-instances-tutorial-prepare-acr.md), è necessario specificare le credenziali del registro.
+Quando si distribuisce un'immagine ospitata in un registro contenitori privato come quello creato nella [seconda esercitazione](container-instances-tutorial-prepare-acr.md), è necessario specificare le credenziali per accedere al registro. Come mostrato in [Eseguire l'autenticazione con Registro Azure Container da Istanze di Azure Container](../container-registry/container-registry-auth-aci.md), una procedura consigliata per molti scenari consiste nel creare e configurare un'entità servizio di Azure Active Directory con autorizzazioni *pull* per il registro. Vedere questo articolo per script di esempio per creare un'entità servizio con le autorizzazioni necessarie. Prendere nota dell'ID e della password dell'entità servizio. Usare queste credenziali quando si distribuisce il contenitore.
 
-Per prima cosa, ottenere il nome completo del server di accesso del registro contenitori (sostituire `<acrName>` con il nome del registro):
+È anche necessario ottenere il nome completo del server di accesso del registro contenitori (sostituire `<acrName>` con il nome del registro):
 
 ```azurecli
 az acr show --name <acrName> --query loginServer
 ```
 
-Successivamente, ottenere la password del registro contenitori:
-
-```azurecli
-az acr credential show --name <acrName> --query "passwords[0].value"
-```
-
 ### <a name="deploy-container"></a>Distribuire il contenitore
 
-Usare quindi il comando [az container create][az-container-create] per distribuire il contenitore. Sostituire `<acrLoginServer>` e `<acrPassword>` con i valori ottenuti dai due comandi precedenti. Sostituire `<acrName>` con il nome del registro contenitori e `<aciDnsLabel>` con il nome DNS desiderato.
+Usare quindi il comando [az container create][az-container-create] per distribuire il contenitore. Sostituire `<acrLoginServer>` con il valore ottenuto dal comando precedente. Sostituire `<service-principal-ID>` e `<service-principal-password>` con l'ID entità servizio e la password creati per accedere al registro. Sostituire `<aciDnsLabel>` con il nome DNS desiderato.
 
 ```azurecli
-az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --dns-name-label <aciDnsLabel> --ports 80
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <service-principal-ID> --registry-password <service-principal-password> --dns-name-label <aciDnsLabel> --ports 80
 ```
 
 Entro pochi secondi si dovrebbe ricevere una risposta iniziale da Azure. Il valore `--dns-name-label` deve essere univoco all'interno dell'area di Azure in cui si crea l'istanza di contenitore. Se quando si esegue il comando viene visualizzato un messaggio di errore relativo all'**etichetta del nome DNS**, modificare il valore nel comando precedente.
@@ -123,7 +117,7 @@ In questa esercitazione è stato completato il processo di distribuzione del con
 Dopo aver acquisito queste nozioni di base, approfondire la conoscenza di Istanze di Azure Container, ad esempio in relazione al funzionamento dei gruppi di contenitori:
 
 > [!div class="nextstepaction"]
-> [Gruppi di contenitori in Istanze di contenitore di Azure](container-instances-container-groups.md)
+> [Gruppi di contenitori in Istanze di Azure Container](container-instances-container-groups.md)
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png

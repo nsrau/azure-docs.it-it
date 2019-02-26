@@ -1,5 +1,5 @@
 ---
-title: Usare Criteri di Azure per creare e gestire i criteri per applicare la conformità
+title: Creare e gestire i criteri per applicare la conformità
 description: Usare Criteri di Azure per applicare gli standard, soddisfare i requisiti di conformità e controllo normativi, controllare i costi, mantenere la coerenza di sicurezza e prestazioni e imporre principi di progettazione all'azienda nel suo complesso.
 services: azure-policy
 author: DCtheGeek
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: cb6f033c784832efab23c747057b1c0ef1b317fa
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: e49cffc5ba08d400c733ef7c211132c4909f9ef4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730272"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343562"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Creare e gestire i criteri per applicare la conformità
 
@@ -354,7 +354,7 @@ Una definizione di iniziativa consente di raggruppare più definizioni di criter
 
    ![Definizioni di iniziativa](../media/create-and-manage/initiative-definition-2.png)
 
-1. Se una definizione di criteri aggiunta all'iniziativa contiene parametri, questi compaiono sotto il nome dei criteri nell'area **Criteri e parametri**. Il _valore_ può essere impostato su 'Imposta valore' (hardcoded per tutte le assegnazioni di questa iniziativa) o 'Usa parametro dell'iniziativa' (impostato durante ogni assegnazione dell'iniziativa). Se si seleziona 'Imposta valore', l'elenco a discesa a destra di _Valori_ consente di immettere o selezionare il/i valore/i. Se si seleziona 'Usa parametro dell'iniziativa', viene visualizzata una nuova sezione **Parametri dell'iniziativa** che consente di definire il parametro impostato durante l'assegnazione dell'iniziativa. I valori consentiti per questo parametro dell'iniziativa possono limitare ulteriormente ciò che può essere impostato durante l'assegnazione dell'iniziativa.
+1. Se una definizione di criteri aggiunta all'iniziativa contiene parametri, questi compaiono sotto il nome dei criteri nell'area **Criteri e parametri**. Il _valore_ può essere impostato su 'Imposta valore' (hardcoded per tutte le assegnazioni di questa iniziativa) o 'Usa parametro dell'iniziativa' (impostato durante ogni assegnazione dell'iniziativa). Se si seleziona 'Imposta valore', l'elenco a discesa a destra di _Valori_ consente di immettere o selezionare i valori. Se si seleziona 'Usa parametro dell'iniziativa', viene visualizzata una nuova sezione **Parametri dell'iniziativa** che consente di definire il parametro impostato durante l'assegnazione dell'iniziativa. I valori consentiti per questo parametro dell'iniziativa possono limitare ulteriormente ciò che può essere impostato durante l'assegnazione dell'iniziativa.
 
    ![Parametri della definizione dell'iniziativa](../media/create-and-manage/initiative-definition-3.png)
 

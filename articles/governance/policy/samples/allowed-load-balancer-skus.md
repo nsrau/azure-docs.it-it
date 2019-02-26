@@ -1,6 +1,6 @@
 ---
 title: 'Esempio: codici di riferimento del prodotto di bilanciamento del carico consentiti'
-description: Questo criterio di esempio richiede che i servizi di bilanciamento del carico usino uno SKU approvato.
+description: Questa definizione di criteri di esempio richiede che i bilanciamenti del carico usino uno SKU approvato.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 6adebea6a6cce1844e413e460a06fd1a7eeb3a2a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: b65761d0c325f46a54fc64d39c20f9d1e10ec412
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241955"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341880"
 ---
-# <a name="allowed-load-balancer-skus"></a>SKU di bilanciamento del carico consentiti
+# <a name="sample---allowed-load-balancer-skus"></a>Esempio: codici di riferimento del prodotto di bilanciamento del carico consentiti
 
 Questo criterio richiede che i servizi di bilanciamento del carico usino uno SKU approvato. Si specifica una matrice di SKU consentiti.
 

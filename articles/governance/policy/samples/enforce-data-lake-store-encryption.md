@@ -1,6 +1,6 @@
 ---
 title: Esempio - Richiedere la crittografia di Data Lake Store
-description: Questo criterio di esempio richiede la crittografia di Data Lake Store.
+description: Questa definizione di criteri di esempio richiede che la crittografia di Data Lake Store sia abilitata.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 557198fcdc2c191986cedf4b384e0bf117dfa86d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: e4de4c78bec9f4ffa6c4e2711a2d4260279ca559
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241683"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340604"
 ---
-# <a name="require-data-lake-store-encryption"></a>Richiedere la crittografia di Data Lake Store
+# <a name="sample---require-data-lake-store-encryption"></a>Esempio - Richiedere la crittografia di Data Lake Store
 
 Questo criterio incorporato nega qualsiasi account Data Lake Store per cui non sia abilitata la crittografia.
 

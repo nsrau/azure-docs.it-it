@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2dc9d72afd14547a091acf64cea2c8f0bad75914
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: c5bf56482534a55d24d8ca043e36c39cec99b1f0
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234408"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267530"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Esercitazione: Creare modelli di Azure Resource Manager con risorse dipendenti
 
@@ -34,8 +34,6 @@ Questa esercitazione illustra le attività seguenti:
 > * Distribuire il modello
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -156,6 +154,9 @@ Per distribuire i modelli sono disponibili molti metodi.  In questa esercitazion
         -dnsLabelPrefix $dnsLabelPrefix `
         -TemplateFile azuredeploy.json
     ```
+
+    > [!NOTE]
+    > Esiste un problema di IO dei file con l'uso di Azure PowerShell in Cloud Shell.  Il messaggio di errore è *Impossibile recuperare i parametri dinamici del cmdlet. Impossibile trovare il percorso 'Azure:/azuredeploy.json' perché non esiste.*  Una soluzione temporanea è di non includere l'opzione **-TemplateFile** nel comando `New-AzResourceGroupDeploy`. Il comando chiederà di immettere il nome del file.
 
 8. Eseguire questo comando di PowerShell per visualizzare la macchina virtuale appena creata:
 

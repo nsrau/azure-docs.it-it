@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 0c865b8bc129f4f2809f2dbb09a836efe4cee3d9
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 1d8a9cf10bf9b4aab02dd5033ecdd4fdc1f9423e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093041"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429248"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Esercitazione: Monitorare la comunicazione di rete tra due macchine virtuali tramite il portale di Azure
 
@@ -51,7 +51,7 @@ Creare due macchine virtuali.
 
     |Impostazione|Valore|
     |---|---|
-    |Nome|myVm1|
+    |NOME|myVm1|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Sottoscrizione| Selezionare la propria sottoscrizione.|
@@ -73,11 +73,11 @@ Completare nuovamente i passaggi descritti in [Creare la prima VM](#create-the-f
 
 |Passaggio|Impostazione|Valore|
 |---|---|---|
-| 1 | Selezionare **Ubuntu Server 17.10 VM** |                                                                         |
-| 3 | Nome                              | myVM2                                                                   |
-| 3 | Tipo di autenticazione               | Incollare la chiave pubblica SSH o selezionare **Password** e immettere una password. |
-| 3 | Gruppo di risorse                    | Selezionare **Usa esistente** e selezionare **myResourceGroup**.                 |
-| 6 | Estensioni                        | **Agente di rete per Linux**                                             |
+| 1 | Selezionare una versione di **Ubuntu Server** |                                                                         |
+| 3 | NOME                                  | myVM2                                                                   |
+| 3 | Tipo di autenticazione                   | Incollare la chiave pubblica SSH o selezionare **Password** e immettere una password. |
+| 3 | Gruppo di risorse                        | Selezionare **Usa esistente** e selezionare **myResourceGroup**.                 |
+| 6 | Estensioni                            | **Agente di rete per Linux**                                             |
 
 La distribuzione della VM richiede alcuni minuti. Attendere che la macchina virtuale completi la distribuzione prima di continuare con i passaggi rimanenti.
 
@@ -93,8 +93,8 @@ Creare un monitoraggio della connessione per monitorare la comunicazione della c
 
     | Impostazione                  | Valore               |
     | ---------                | ---------           |
-    | Nome                     | myVm1-myVm2(22)     |
-    | Sorgente                   |                     |
+    | NOME                     | myVm1-myVm2(22)     |
+    | Source (Sorgente)                   |                     |
     | Macchina virtuale          | myVm1               |
     | Destination              |                     |
     | Selezionare una macchina virtuale |                     |
@@ -117,7 +117,7 @@ Creare un monitoraggio della connessione per monitorare la comunicazione della c
 
     | Elemento                     | Valore                      | Dettagli                                                     |
     | ---------                | ---------                  |--------                                                     |
-    | Status                   | Raggiungibile                  | Consente di conoscere se l'endpoint è raggiungibile o meno.|
+    | Stato                   | Raggiungibile                  | Consente di conoscere se l'endpoint è raggiungibile o meno.|
     | AVG. ROUND TRIP          | Consente di conoscere il tempo di round trip per stabilire la connessione, in millisecondi. Il monitoraggio della connessione esegue il probe della connessione ogni 60 secondi per consentire di monitorare la latenza nel corso del tempo.                                         |
     | Hops                     | Il monitoraggio della connessione consente di conoscere gli hop tra i due endpoint. In questo esempio la connessione è compresa tra due VM nella stessa rete virtuale, pertanto c'è solo un hop, all'indirizzo IP 10.0.0.5. Se qualsiasi sistema esistente o route personalizzata, instrada il traffico tra le VM tramite un gateway VPN o appliance virtuale di rete, ad esempio, vengono elencati altri hop.                                                                                                                         |
     | STATO                   | I segni di spunta verde per ogni endpoint consentono di verificare che ogni endpoint sia integro.    ||
@@ -152,7 +152,7 @@ Per impostazione predefinita, Azure consente la comunicazione su tutte le porte 
     | Intervalli di porte di destinazione | 22             |
     | Azione                  | Nega           |
     | Priorità                | 100            |
-    | Nome                    | DenySshInbound |
+    | NOME                    | DenySshInbound |
 
 5. Poiché il monitoraggio della connessione esegue il probe a intervalli di 60 secondi, attendere qualche minuto e quindi sul lato sinistro del portale selezionare **Network Watcher**, **Monitoraggio della connessione** e quindi selezionare nuovamente il monitoraggio  **myVm1-myVm2(22)**. I risultati sono diversi a questo punto, come illustrato nell'immagine seguente:
 
@@ -160,7 +160,7 @@ Per impostazione predefinita, Azure consente la comunicazione su tutte le porte 
 
     È possibile notare che esiste un'icona punto esclamativo di colore rosso nella colonna stato per l'interfaccia di rete **myvm2529**.
 
-6. Per informazioni sui motivi per cui lo stato è stato modificato, selezionare 10.0.0.5, nell'immagine precedente. Il monitoraggio della connessione indica che la causa dell'errore di comunicazione è: *Traffico bloccato a causa la regola del gruppo di sicurezza di rete seguente: UserRule_DenySshInbound*.
+6. Per informazioni sui motivi per cui lo stato è stato modificato, selezionare 10.0.0.5, nell'immagine precedente. Il monitoraggio della connessione indica che il motivo della mancata comunicazione è: *Traffico bloccato a causa della regola del gruppo di sicurezza di rete seguente: UserRule_DenySshInbound*.
 
     Se si era a conoscenza che un utente ha implementato la regola di protezione creata nel passaggio 4, si è appreso dal monitoraggio della connessione che la regola provoca il problema di comunicazione. È quindi stato possibile modificare, eseguire l'override o rimuovere la regola, per ripristinare la comunicazione tra le VM.
 

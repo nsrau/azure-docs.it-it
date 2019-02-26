@@ -1,6 +1,6 @@
 ---
 title: Esempio - Controllare l'impostazione di controllo a livello di SQL Server
-description: Questo criterio di esempio controlla le impostazioni di controllo di SQL Server se tali impostazioni non corrispondono a un'impostazione specificata.
+description: Questa definizione di criteri di esempio verifica le impostazioni di controllo del server SQL se tali impostazioni non corrispondono a un'impostazione specifica.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: f23fd349a5e7c1016cc18f79cff408aefaa3fd35
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 90f91e46db9d25571bc34256ab1db737445ce3e6
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244165"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337476"
 ---
-# <a name="audit-sql-server-level-audit-setting"></a>Controllare l'impostazione di controllo a livello di SQL Server
+# <a name="sample---audit-sql-server-level-audit-setting"></a>Esempio - Controllare l'impostazione di controllo a livello di SQL Server
 
 Questo criterio controlla le impostazioni di controllo di SQL Server se tali impostazioni non corrispondono a un'impostazione specificata. Si specifica un valore che indica se le impostazioni di controllo devono essere abilitate o disabilitate.
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0d0009c833c313b5416998502601285e5b710a8d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 1560dad31e00b00a2d27cf1675e05901e6611825
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112547"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309863"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Spostare macchine virtuali di Azure in un'altra area
 
@@ -51,7 +51,7 @@ Per spostare le macchine virtuali, seguire questa procedura:
 > Attualmente Azure Site Recovery supporta lo spostamento delle VM da un'area a un'altra, ma non all'interno della stessa area. 
 
 > [!NOTE]
-> Le istruzioni dettagliate per questi passaggi sono disponibili nella documentazione relativa a ogni scenario menzionato qui
+> Le istruzioni dettagliate per questi passaggi sono disponibili nella documentazione relativa a ogni scenario come indicato [qui](#next-steps)
 
 ## <a name="typical-architectures-for-a-multi-tier-deployment"></a>Architetture tipiche per una distribuzione multilivello
 La sezione seguente illustra le architetture di distribuzione più comuni adottate dai clienti per un'applicazione multilivello di Azure. L'esempio mostrato è relativo a un'applicazione a tre livelli con un IP pubblico. Ogni livello, ossia Web, applicazione e database, include 2 VM ciascuno ed è connesso agli altri livelli tramite un servizio di bilanciamento del carico. Per il livello del database è impostata la replica Always On di SQL tra le VM per la disponibilità elevata.

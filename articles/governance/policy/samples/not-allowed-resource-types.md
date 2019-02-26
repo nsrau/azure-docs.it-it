@@ -1,6 +1,6 @@
 ---
 title: Esempi - Tipi di risorse non consentiti
-description: Questo criterio di esempio impedisce la distribuzione dei tipi di risorse specificati.
+description: Questa definizione di criteri di esempio impedisce la distribuzione di tipi di risorse specifici.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: e310cba1db2816b9d87b211d455c03aafc6bb110
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 159cc4e33df6ed86d21a6ed362087163200720f8
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244590"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338156"
 ---
-# <a name="not-allowed-resource-types"></a>Tipi di risorse non consentiti
+# <a name="sample---not-allowed-resource-types"></a>Esempi - Tipi di risorse non consentiti
 
 Questo criterio impedisce la distribuzione dei tipi di risorse specificati. Si specifica una matrice dei tipi di risorse da bloccare.
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8f35bda8c6925bdc10097ac6d180f5998bd5cf1d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: d208d989fb9b84ae7bc94c6a1882754ed2bacb5d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989787"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343962"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Applicazioni gestite di Azure nel marketplace
 
@@ -66,7 +66,7 @@ I campi del modulo **Impostazioni dell'offerta** sono:
 
 * **Offer ID** (ID offerta): questo campo è un identificatore univoco dell'offerta in un profilo di pubblicazione. Questo ID è visibile negli URL dei prodotti, nei modelli di Resource Manager e nei report di fatturazione. Può essere composto solo da caratteri alfanumerici minuscoli o trattini (-). L'ID non può terminare con un trattino e può contenere massimo 50 caratteri. Questo campo è bloccato dopo la pubblicazione dell'offerta.
 * **Publisher ID** (ID editore): usare questo elenco a discesa per scegliere il profilo di pubblicazione in cui si vuole pubblicare l'offerta. Questo campo è bloccato dopo la pubblicazione dell'offerta.
-* **Name** (Nome): nome visualizzato dell'offerta nel Marketplace e nel portale. Può contenere massimo 50 caratteri. Includere un nome di marchio riconoscibile per il prodotto. Non includere il nome della società, a meno che non corrisponda al nome con cui viene commercializzato. Se si sta proponendo questa offerta sul proprio sito Web, assicurarsi che il nome corrisponda esattamente a quello con cui viene visualizzato nel sito Web.
+* **Nome**: nome visualizzato dell'offerta nel Marketplace e nel portale. Può contenere massimo 50 caratteri. Includere un nome di marchio riconoscibile per il prodotto. Non includere il nome della società, a meno che non corrisponda al nome con cui viene commercializzato. Se si sta proponendo questa offerta sul proprio sito Web, assicurarsi che il nome corrisponda esattamente a quello con cui viene visualizzato nel sito Web.
 
 Al termine, selezionare **Salva** per salvare le voci immesse.
 
@@ -90,22 +90,22 @@ Uno SKU viene visualizzato sotto l'offerta padre nel marketplace e come entità 
 
    Compilare i seguenti campi:
 
-   * **Title** (Titolo): immettere un titolo per lo SKU, che viene visualizzato nella raccolta di questo elemento.
-   * **Summary (Riepilogo)**: immettere un breve riepilogo per questo SKU, che viene visualizzato sotto il titolo.
-   * **Description (Descrizione)**: immettere una descrizione dettagliata sullo SKU.
-   * **SKU Type** (Tipo di SKU): i valori consentiti sono *Managed Application* (Applicazione gestita) e *Solution Templates* (Modelli di soluzioni). In questo caso, selezionare *Managed Application* (Applicazione gestita).
-   * **Country/Region availability** (Disponibilità paese/area geografica): selezionare i paesi in cui l'applicazione gestita è disponibile.
+   * **Titolo**: immettere un titolo per lo SKU, che viene visualizzato nella raccolta di questo elemento.
+   * **Riepilogo**: immettere un breve riepilogo per questo SKU, che viene visualizzato sotto il titolo.
+   * **Descrizione**: immettere una descrizione dettagliata sullo SKU.
+   * **Sku Type** (Tipo di SKU): i valori consentiti sono *Managed Application* (Applicazione gestita) e *Solution Templates* (Modelli di soluzioni). In questo caso, selezionare *Managed Application* (Applicazione gestita).
+   * **Country/Region availability (Disponibilità paese/area geografica)**: selezionare i paesi in cui l'applicazione gestita è disponibile.
    * **Pricing** (Prezzi): indica il prezzo della gestione dell'applicazione. Prima di impostare il prezzo, selezionare i paesi disponibili.
 
 1. Aggiungere un nuovo pacchetto. Compilare la sezione dei **dettagli del pacchetto** nel formato seguente:
 
    Compilare i seguenti campi:
 
-   * **Version** (Version): immettere la versione per il pacchetto caricato. Deve essere nel formato `{number}.{number}.{number}{number}`.
-   * **Package file (.zip)** (File pacchetto -.zip): questo pacchetto contiene due file necessari compressi in un pacchetto con estensione zip. Un file è un modello di Resource Manager che definisce le risorse da distribuire per l'applicazione gestita. L'altro file definisce l'[interfaccia utente](create-uidefinition-overview.md) per i consumer che distribuiscono l'applicazione gestita tramite il portale. Nell'interfaccia utente specificare gli elementi che consentono ai consumer di fornire i valori dei parametri.
+   * **Versione**: immettere la versione per il pacchetto caricato. Deve essere nel formato `{number}.{number}.{number}{number}`.
+   * **Package file (.zip)** (File pacchetto -.zip): questo pacchetto contiene due file necessari compressi in un pacchetto ZIP. Un file è un modello di Resource Manager che definisce le risorse da distribuire per l'applicazione gestita. L'altro file definisce l'[interfaccia utente](create-uidefinition-overview.md) per i consumer che distribuiscono l'applicazione gestita tramite il portale. Nell'interfaccia utente specificare gli elementi che consentono ai consumer di fornire i valori dei parametri.
    * **PrincipalId**: questa proprietà è l'identificatore Azure Active Directory (Azure AD) di un utente, di un gruppo di utenti o di un'applicazione a cui è stato concesso l'accesso alle risorse nella sottoscrizione del cliente. La definizione del ruolo descrive le autorizzazioni.
    * **Role Definition** (Definizione ruolo): questa proprietà è un elenco di tutti i ruoli di controllo degli accessi in base al ruolo forniti da Azure AD. È possibile selezionare il ruolo più appropriato da usare per gestire le risorse per conto del cliente.
-   * **Impostazioni dei criteri**: applicare [criteri di Azure](../azure-policy/azure-policy-introduction.md) all'applicazione gestita per specificare i requisiti di conformità per le soluzioni distribuite. Selezionare i criteri da applicare tra le opzioni disponibili. In **Policy Parameters** (Parametri dei criteri) specificare una stringa JSON con i valori dei parametri. Per le definizioni dei criteri e il formato dei valori dei parametri, vedere [Esempi di criteri di Azure](../azure-policy/json-samples.md).
+   * **Policy Settings** (Impostazioni dei criteri): applicare un [criterio di Azure](../governance/policy/overview.md) all'applicazione gestita per specificare i requisiti di conformità per le soluzioni distribuite. Selezionare i criteri da applicare tra le opzioni disponibili. In **Policy Parameters** (Parametri dei criteri) specificare una stringa JSON con i valori dei parametri. Per le definizioni dei criteri e il formato dei valori dei parametri, vedere [Esempi di criteri di Azure](../governance/policy/samples/index.md).
 
 È possibile aggiungere varie autorizzazioni. È consigliabile creare un gruppo di utenti di AD e specificare il relativo ID in **PrincipalId**. In questo modo è possibile aggiungere più utenti al gruppo di utenti senza che sia necessario aggiornare lo SKU.
 

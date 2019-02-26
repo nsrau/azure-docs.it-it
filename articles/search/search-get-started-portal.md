@@ -1,21 +1,21 @@
 ---
 title: Esercitazione di avvio rapido per l'indicizzazione e le query con il portale di Azure - Ricerca di Azure
-description: In questa esercitazione di avvio rapido si useranno il portale di Azure e i dati di esempio predefiniti per generare un indice in Ricerca di Azure. È possibile esplorare la ricerca full-text, i filtri, i facet, la ricerca fuzzy, la ricerca geografica e altro ancora.
+description: Informazioni su come creare e interrogare il primo indice in Ricerca di Azure usando i dati di esempio integrati e l'importazione guidata nel portale di Azure.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 53be1180f074c075ed2ca2d544b9b164a3a1bdd6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 260dfc829d0869b1fc4f58ae399351c5f68dd926
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991311"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270335"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Avvio rapido: Usare gli strumenti predefiniti del portale per importazione, indicizzazione e query in Ricerca di Azure
 
@@ -94,15 +94,17 @@ I campi hanno tipi di dati e attributi. Le caselle di controllo nella parte supe
 
 I requisiti di archiviazione non cambiano a seconda della selezione. Se ad esempio si imposta l'attributo **Recuperabile** per più campi, i requisiti di archiviazione non aumentano.
 
-Per impostazione predefinita, la procedura guidata analizza l'origine dati alla ricerca di identificatori univoci come base per il campo chiave. Le stringhe vengono attribuite come recuperabili e ricercabili. Gli Integer vengono attribuiti come recuperabili, filtrabili, ordinabili e con facet.
+Per impostazione predefinita, la procedura guidata analizza l'origine dati alla ricerca di identificatori univoci come base per il campo chiave. Le *stringhe* possono essere **recuperabili** e **ricercabili**. I *numeri interi* possono essere **recuperabili**, **filtrabili**, **ordinabili** e **con facet**.
 
-1. Accettare tutte le impostazioni predefinite.
+1. Accettare i valori predefiniti. 
 
-  ![Indice realestate generato](media/search-get-started-portal/realestateindex2.png)
+   Se si esegue la procedura guidata una seconda volta usando un'origine dati realestate esistente, l'indice non verrà configurato con attributi predefiniti. Sarà necessario selezionare manualmente gli attributi sulle importazioni future.
+
+   ![Indice realestate generato](media/search-get-started-portal/realestateindex2.png)
 
 2. Passare alla pagina successiva.
 
-  ![Pagina successiva: creazione indicizzatore](media/search-get-started-portal/next-button-create-indexer.png)
+   ![Pagina successiva: creazione indicizzatore](media/search-get-started-portal/next-button-create-indexer.png)
 
 ### <a name="step-4---configure-indexer"></a>Passaggio 4: Configurare l'indicizzatore
 

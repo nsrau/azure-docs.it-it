@@ -1,6 +1,6 @@
 ---
 title: 'Esempio: applicare il modello like'
-description: Questo criterio di esempio richiede che tutte le risorse soddisfino il modello like per le convenzioni di denominazione.
+description: Questa definizione di criteri di esempio richiede che le risorse soddisfino il modello like per le convenzioni di denominazione.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,16 +8,16 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 7bc7624cdcc6676d3f622f30e9549a2e444c1d6f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6ff890773a045220b7e2f343d86434fe9109ef1a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243034"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338479"
 ---
-# <a name="enforce-like-pattern-for-naming-conventions"></a>Applicare il modello like per le convenzioni di denominazione
+# <a name="sample---enforce-like-pattern-for-naming-conventions"></a>Esempio - Applicare il modello like per le convenzioni di denominazione
 
-È necessario che i nomi delle risorse soddisfino il modello like per le convenzioni di denominazione. Specificare il modello like consentito come parametro.
+È necessario che i nomi delle risorse soddisfino il modello di corrispondenza per le convenzioni di denominazione. Specificare il modello like consentito come parametro.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 

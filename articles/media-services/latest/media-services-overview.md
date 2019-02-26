@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 02/07/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 1911b851e4e219ec4c6d2d4872b75e9c18706feb
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 0f4fd963ce3649c901a76f6677be059ba5be25af
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893324"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337562"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Che cos'è Servizi multimediali di Azure v3?
 
@@ -62,7 +62,7 @@ I nomi delle risorse di Servizi multimediali non possono includere "<", ">", "%"
 
 Per altre informazioni sulla denominazione di Azure Resource Manager, vedere: [Requisiti di denominazione](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) e [Convenzioni di denominazione](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
-## <a name="media-services-v3-api-design-principles"></a>Principi di progettazione delle API Servizi multimediali v3
+## <a name="v3-api-design-principles"></a>Principi di progettazione dell'API v3
 
 Uno dei principi chiave nella progettazione della versione 3 delle API è renderle più sicure. Le API della versione 3 non restituiscono segreti o credenziali per un'operazione **Get** o **List**. Le chiavi sono sempre Null, vuote o purificate dalla risposta. È necessario chiamare un metodo di azione separato per ottenere i segreti o le credenziali. Azioni distinte consentono di impostare autorizzazioni di sicurezza di controllo degli accessi in base al ruolo diverse, nel caso alcune API recuperino o visualizzino i segreti, mentre altre non lo fanno. Per informazioni su come gestire l'accesso con il controllo degli accessi in base al ruolo, vedere [Gestire l'accesso tramite il controllo degli accessi in base al ruolo e l'API REST](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
 
@@ -76,25 +76,20 @@ Vedere l'esempio incluso in [Ottenere i criteri di chiave simmetrica - .NET](get
 
 ## <a name="how-can-i-get-started-with-v3"></a>Come si procede per iniziare a usare v3?
 
-Gli sviluppatori possono usare l'[API REST](https://go.microsoft.com/fwlink/p/?linkid=873030) Servizi multimediali o le librerie client che consentono di interagire con l'API REST per creare, gestire e mantenere facilmente flussi di lavoro multimediali personalizzati. L'API Servizi multimediali v3 è basata sulla [specifica OpenAPI](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) (in precedenza nota come Swagger).
+Per informazioni su come iniziare a sviluppare con l'API Servizi multimediali v3 usando diversi strumenti e SDK, vedere [Iniziare a sviluppare](developers-guide.md).
 
-[Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE) è uno strumento disponibile per i clienti di Windows che vogliono informazioni su Servizi multimediali. AMSE è un'applicazione Winforms/C# che esegue operazioni di caricamento, download, codifica, streaming di VOD e contenuti live con Servizi multimediali. Lo strumento AMSE è stato pensato per i clienti che vogliono testare Servizi multimediali senza scrivere codice. Il codice AMSE viene fornito come risorsa per i clienti che vogliono sviluppare con Servizi multimediali.
+## <a name="v3-content-map"></a>Mappa del contenuto v3
 
-AMSE è un progetto open source il cui supporto viene fornito dalla community (i problemi possono essere segnalati a https://github.com/Azure/Azure-Media-Services-Explorer/issues). Questo progetto ha adottato il [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Codice di comportamento Open Source di Microsoft). Per altre informazioni, vedere [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) (Domande frequenti sul Codice di comportamento Open Source di Microsoft) oppure contattare opencode@microsoft.com per eventuali altre domande o commenti.
- 
-Servizi multimediali di Azure supporta le librerie client seguenti: 
+Il contenuto di Servizi multimediali v3 è organizzato in base alla struttura seguente (riportata anche nell'indice):
 
-|Informazioni di riferimento sulle API|SDK/Strumenti|Esempi|
-|---|---|---|---|
-|[Informazioni di riferimento su REST](https://aka.ms/ams-v3-rest-ref)|[REST SDK](https://aka.ms/ams-v3-rest-sdk)|[Esempi di REST Postman](https://github.com/Azure-Samples/media-services-v3-rest-postman)<br/>[API REST basate su Azure Resource Manager](https://github.com/Azure-Samples/media-services-v3-arm-templates)|
-|[Informazioni di riferimento sull'interfaccia della riga di comando di Azure](https://aka.ms/ams-v3-cli-ref)|[Interfaccia della riga di comando di Azure](https://aka.ms/ams-v3-cli)|[Esempi di interfaccia della riga di comando di Azure](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)||
-|[Informazioni di riferimento su .NET](https://aka.ms/ams-v3-dotnet-ref)|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[Esempi di .NET](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)||
-||[.NET Core SDK](https://aka.ms/ams-v3-dotnet-sdk) (scegliere la scheda **.NET CLI**)|[Esempi di .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)||
-|[Informazioni di riferimento su Java](https://aka.ms/ams-v3-java-ref)|[SDK per Java](https://aka.ms/ams-v3-java-sdk)||
-|[Informazioni di riferimento su Node.js](https://aka.ms/ams-v3-nodejs-ref)|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk)|[Esempi per Node.js](https://github.com/Azure-Samples/media-services-v3-node-tutorials)||
-|[Informazioni di riferimento su Python](https://aka.ms/ams-v3-python-ref)|[Python SDK](https://aka.ms/ams-v3-python-sdk)||
-|[Informazioni di riferimento su Go](https://aka.ms/ams-v3-go-ref)|[Go SDK](https://aka.ms/ams-v3-go-sdk)||
-|Ruby|[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
+|Sezioni| DESCRIZIONE|
+|---|---|
+| Panoramica | Illustra le funzionalità di Servizi multimediali e le operazioni che è possibile eseguire con il servizio.|
+| Guide introduttive | Illustrano le istruzioni fondamentali di base per i nuovi clienti che vogliono provare rapidamente Servizi multimediali.|
+| Esercitazioni | Illustrano le procedure basate su scenari per alcune delle principali attività di Servizi multimediali.|
+| Esempi | Collegamenti a esempi di codice. |
+| Concetti | Contengono una spiegazione dettagliata delle funzionalità e dei diagrammi di Servizi multimediali v3. Prima di iniziare lo sviluppo, è consigliabile esaminare i concetti fondamentali descritti in questi argomenti.<br/><br/>* Caricamento e archiviazione nel cloud<br/>* Codifica<br/>* Analisi di contenuti multimediali<br/>* Creazione di pacchetti, distribuzione, protezione<br/>* Streaming live<br/>* Monitoraggio continuo<br/>* Clienti più importanti<br/><br/>e altro ancora. |
+| Guide alle procedure | Illustrano come completare un'attività.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

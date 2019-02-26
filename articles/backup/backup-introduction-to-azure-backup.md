@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2601f81b4abecd98d645af9bc0d368e52534a04e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e2b9d380b5e164bb8b730ec7037a6b2836c2af85
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487881"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447362"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Panoramica delle funzionalità di Backup di Azure
 Backup di Azure è il servizio basato su Azure che consente di eseguire il backup, la protezione e il ripristino dei dati in Microsoft Cloud. Backup di Azure sostituisce la soluzione di backup locale o esterna esistente con una soluzione basata sul cloud affidabile, sicura e conveniente. Backup di Azure offre più componenti che vengono scaricati e distribuiti nel computer o server appropriato o nel cloud. Il componente o l'agente distribuito dipende da ciò che si intende proteggere. Tutti i componenti di Backup di Azure consentono di eseguire il backup dei dati in un insieme di credenziali di Servizi di ripristino, a prescindere che i dati da proteggere si trovino in locale o nel cloud. Vedere la [tabella dei componenti di Backup di Azure](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) più avanti in questo articolo per informazioni sul componente da usare per proteggere dati, applicazioni o carichi di lavoro specifici.
@@ -33,7 +33,7 @@ Le soluzioni di backup tradizionali si sono evolute e considerano ora il cloud c
 
 * L'archiviazione con ridondanza locale replica i dati tre volte (crea tre copie dei dati) in un'unità di scala di archiviazione in un data center. Tutte le copie dei dati si trovano nella stessa area geografica. L'archiviazione con ridondanza locale è un'opzione a costo contenuto per la protezione dei dati da errori hardware locali.
 
-* L'archiviazione con ridondanza geografica è l'opzione di replica predefinita e consigliata. L'archiviazione con ridondanza geografica replica i dati in un'area secondaria a centinaia di chilometri di distanza dalla posizione primaria dei dati di origine. L'archiviazione con ridondanza geografica è più costosa dell'archiviazione con ridondanza locale, ma offre un livello più elevato di durabilità per i dati, anche in presenza di un'interruzione di area.
+* L'archiviazione con ridondanza geografica è l'opzione di replica predefinita e consigliata. L'archiviazione con ridondanza geografica replica i dati in un'area secondaria, ovvero un'[area associata di Azure](../best-practices-availability-paired-regions.md), a centinaia di chilometri di distanza dalla posizione primaria dei dati di origine. L'archiviazione con ridondanza geografica è più costosa dell'archiviazione con ridondanza locale, ma offre un livello più elevato di durabilità per i dati, anche in presenza di un'interruzione di area.
 
 **Trasferimento dati illimitato**. Backup di Azure non limita la quantità di dati trasferiti in ingresso o in uscita. Backup di Azure non addebita costi per i dati trasferiti. Se tuttavia si usa il servizio Importazione/esportazione di Azure per importare grandi quantità di dati, viene applicato un costo per i dati in ingresso. Per altre informazioni su questi costi, vedere [Flusso di lavoro del backup offline in Backup di Azure](backup-azure-backup-import-export.md). I dati in uscita sono i dati trasferiti da un insieme di credenziali di Servizi di ripristino durante un'operazione di ripristino.
 
@@ -44,7 +44,7 @@ Le soluzioni di backup tradizionali si sono evolute e considerano ora il cloud c
 **Conservazione a lungo termine**: è possibile usare gli insiemi di credenziali dei Servizi di ripristino per la conservazione dei dati a breve termine e a lungo termine. Azure non limita la durata della conservazione dei dati in un insieme di credenziali di dei Servizi di ripristino. È possibile conservare i dati in un insieme di credenziali per il tempo desiderato. Backup di Azure ha un limite di 9999 punti di ripristino per ogni istanza protetta. Vedere la sezione [Backup e conservazione](backup-introduction-to-azure-backup.md#backup-and-retention) in questo articolo per una spiegazione sull'effetto di questo limite sulle esigenze di backup.
 
 ## <a name="which-azure-backup-components-should-i-use"></a>Quali componenti di Backup di Azure è opportuno usare?
-Usare la tabella seguente per informazioni su ciò che è possibile proteggere con ogni componente di Backup di Azure. 
+Usare la tabella seguente per informazioni su ciò che è possibile proteggere con ogni componente di Backup di Azure.
 
 | Componente | Vantaggi | Limiti | Quali elementi vengono protetti? | Dove vengono archiviati i backup? |
 | --- | --- | --- | --- | --- |
@@ -62,7 +62,7 @@ Usare la tabella seguente per informazioni su ciò che è possibile proteggere c
 | Backup di VM IaaS di Azure |<p>**Sì**</p><p>Parte dell'infrastruttura di Azure</p><p>Specializzato per il [backup di macchine virtuali di infrastruttura distribuita come servizio (IaaS) di Azure](backup-azure-vms-introduction.md).</p> |<p>**No**</p> <p>Usare System Center DPM per il backup delle macchine virtuali nel data center.</p> |<p>Insieme di credenziali dei servizi di ripristino</p> |
 
 ## <a name="which-applications-and-workloads-can-be-backed-up"></a>Applicazioni e carichi di lavoro di cui è possibile eseguire il backup
-La tabella seguente descrive una matrice dei dati e dei carichi di lavoro che possono essere protetti con Backup di Azure. La colonna della soluzione di Backup di Azure include collegamenti alla documentazione della distribuzione per tale soluzione. 
+La tabella seguente descrive una matrice dei dati e dei carichi di lavoro che possono essere protetti con Backup di Azure. La colonna della soluzione di Backup di Azure include collegamenti alla documentazione della distribuzione per tale soluzione.
 
 | Dati o carico di lavoro | Ambiente di origine | Soluzione di Backup di Azure |
 | --- | --- | --- |
@@ -81,17 +81,17 @@ La tabella seguente descrive una matrice dei dati e dei carichi di lavoro che po
 La tabella seguente illustra i componenti di Backup di Azure supportati per Linux.  
 
 **Componente** | **Linux (approvato per Azure)**
---- | --- 
-Agente di Backup di Azure (MARS) | No (solo agente basato su Windows) 
+--- | ---
+Agente di Backup di Azure (MARS) | No (solo agente basato su Windows)
 System Center DPM | Backup coerenti con i file di macchine virtuali guest Linux in Hyper-V e VMWare<br/><br/> Ripristino di macchine virtuali guest Linux in Hyper-V e VMWare</br></br> Backup coerente con i file non disponibile per le macchine virtuali di Azure
-Server di backup di Azure | Backup coerenti con i file di macchine virtuali guest Linux in Hyper-V e VMWare<br/><br/> Ripristino di macchine virtuali guest Linux Hyper-V e VMWare</br></br> Backup coerente con i file non disponibile per le macchine virtuali di Azure 
+Server di backup di Azure | Backup coerenti con i file di macchine virtuali guest Linux in Hyper-V e VMWare<br/><br/> Ripristino di macchine virtuali guest Linux Hyper-V e VMWare</br></br> Backup coerente con i file non disponibile per le macchine virtuali di Azure
 Backup di VM IaaS di Azure | Backup coerente con le app tramite il [framework di script di pre-backup e post-backup](backup-azure-linux-app-consistent.md)<br/><br/> [Ripristino a livello di file](backup-azure-restore-files-from-vm.md)<br/><br/> [Creare una macchina virtuale da un disco ripristinato](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [Creare una macchina virtuale da un punto di recupero](backup-azure-arm-restore-vms.md#create-new-create-a-vm).
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Uso di macchine virtuali di Archiviazione Premium con Backup di Azure
-Backup di Azure protegge le macchine virtuali di Archiviazione Premium. Archiviazione Premium di Azure è una soluzione di archiviazione basata su unità SSD progettata per supportare carichi di lavoro con attività di I/O intensive. Archiviazione Premium è una soluzione interessante per i carichi di lavoro delle macchine virtuali. Per altre informazioni su Archiviazione Premium, vedere l'articolo [Archiviazione Premium: Archiviazione ad alte prestazioni per i carichi di lavoro delle macchine virtuali di Azure](../virtual-machines/windows/premium-storage.md).
+Backup di Azure protegge le macchine virtuali di Archiviazione Premium. Archiviazione Premium di Azure è una soluzione di archiviazione basata su unità SSD progettata per supportare carichi di lavoro con attività di I/O intensive. Archiviazione Premium è una soluzione interessante per i carichi di lavoro delle macchine virtuali. Per altre informazioni su Archiviazione Premium e su altri tipi di dischi, vedere l'articolo [Selezionare un tipo di disco](../virtual-machines/windows/disks-types.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Backup di macchine virtuali di Archiviazione Premium
-Durante il backup di macchine virtuali di Archiviazione Premium, il servizio Backup crea un percorso di gestione temporanea, denominato "AzureBackup-", nell'account di archiviazione Premium. Il percorso di staging ha le stesse dimensioni dello snapshot del punto di ripristino. Assicurarsi che sia presente spazio libero sufficiente nell'account di archiviazione Premium per il percorso di staging. Per altre informazioni, vedere l'articolo [premium storage limitations](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets) (Limiti di Archiviazione Premium). Al termine del processo di backup, il percorso di gestione temporanea viene eliminato. Il prezzo della risorsa di archiviazione usata per il percorso di gestione temporanea è in linea con gli altri [prezzi di Archiviazione Premium](../virtual-machines/windows/premium-storage.md#pricing-and-billing).
+Durante il backup di macchine virtuali di Archiviazione Premium, il servizio Backup crea un percorso di staging temporaneo, denominato "AzureBackup-", nell'account di archiviazione Premium. Il percorso di staging ha le stesse dimensioni dello snapshot del punto di ripristino. Assicurarsi che sia presente spazio libero sufficiente nell'account di archiviazione Premium per il percorso di staging temporaneo. Per altre informazioni, vedere l'articolo [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../storage/common/storage-scalability-targets.md). Al termine del processo di backup, il percorso di gestione temporanea viene eliminato. Il prezzo della risorsa di archiviazione usata per il percorso di gestione temporanea è in linea con gli altri [prezzi di Archiviazione Premium](../virtual-machines/windows/disks-types.md).
 
 > [!NOTE]
 > Non modificare in alcun modo il percorso di gestione temporanea.

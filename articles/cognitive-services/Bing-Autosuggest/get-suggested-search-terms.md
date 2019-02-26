@@ -10,54 +10,38 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 09/12/2017
 ms.author: scottwhi
-ms.openlocfilehash: b5959e014b7e531b8f52fcbe6f6492576eedd61a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c7ac631ded5d781b2d2949d65f6197e194521055
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875672"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268924"
 ---
 # <a name="what-is-bing-autosuggest"></a>Informazioni sui Suggerimenti automatici Bing
 
-Se si inviano query a una delle API di ricerca Bing, è possibile usare l'API Suggerimenti automatici Bing per migliorare l'esperienza con la casella di ricerca. L'API Suggerimenti automatici Bing restituisce un elenco di query suggerite basate sulla stringa di query parziale che l'utente immette nella casella di ricerca. Visualizzare i suggerimenti riportati nell'elenco a discesa della casella di ricerca. Termini suggeriti basati su query suggerite che altri utenti hanno ricercato e su finalità dell'utente.
+Se l'applicazione invia query a una delle API Ricerca Bing, è possibile usare l'API Suggerimenti automatici Bing per migliorare l'esperienza di ricerca degli utenti. L'API Suggerimenti automatici Bing restituisce un elenco di query suggerite basate sulla stringa di query parziale immessa nella casella di ricerca. Quando i caratteri vengono inseriti nella casella di ricerca, è possibile visualizzare i suggerimenti in un elenco a discesa.
 
-Tipicamente, si chiamerà questa API ogni volta che l'utente digita un nuovo carattere nella casella di ricerca. La completezza della stringa di query influisce sulla pertinenza dei termini di query suggeriti che vengono restituiti dall'API. Più completa è la stringa di query, più rilevante è l'elenco dei termini di query suggeriti. Ad esempio, i suggerimenti che l'API può restituire per *s* sono probabilmente meno pertinenti di quelli restituiti dalla query per *sailing dinghies*.
+## <a name="bing-autosuggest-api-features"></a>Funzionalità dell'API Suggerimenti automatici Bing
 
-## <a name="getting-suggested-search-terms"></a>Recuperare i termini di ricerca suggeriti
+| Funzionalità                                                                                                                                                                                 | DESCRIZIONE                                                                                                                                                            |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Suggerimento dei termini di ricerca in tempo reale](concepts/get-suggestions.md) | È possibile migliorare l'esperienza dell'app con l'API Suggerimenti automatici per visualizzare suggerimenti sui termini di ricerca durante la digitazione. |
 
-L'esempio seguente illustra una richiesta che restituisce le stringhe di query suggerite per *sail*. Ricordarsi di codificare nell'URL il termine della query parziale dell'utente quando si imposta il parametro della query [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#query). Se ad esempio l'utente ha immesso *sailing les*, impostare `q` su `sailing+les` o `sailing%20les`.
+## <a name="workflow"></a>Flusso di lavoro
 
-```http
-GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1
-Ocp-Apim-Subscription-Key: 123456789ABCDE
-X-MSEdge-ClientIP: 999.999.999.999
-X-Search-Location: lat:47.60357;long:-122.3295;re:100
-X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
-Host: api.cognitive.microsoft.com
-```
+L'API Suggerimenti automatici Bing è un servizio Web RESTful, facile da chiamare da qualsiasi linguaggio di programmazione in grado di effettuare richieste HTTP e analizzare codice JSON. 
 
-La risposta seguente contiene un elenco di oggetti [SearchAction](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#searchaction) contenenti i termini della query suggerita.
+1. Creare un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con accesso alle API di ricerca Bing. Se non si ha una sottoscrizione di Azure, è possibile [creare un account](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratuito.
+2. Inviare una richiesta a questa API ogni volta che un utente digita un nuovo carattere nella casella di ricerca dell'applicazione.
+3. Elaborare la risposta dell'API tramite l'analisi del messaggio JSON restituito.
 
-```json
-{
-    "url" : "https:\/\/www.bing.com\/search?q=sailing+lessons+seattle&FORM=USBAPI",
-    "displayText" : "sailing lessons seattle",
-    "query" : "sailing lessons seattle",
-    "searchKind" : "WebSearch"
-}, ...
-```
+Questa API viene generalmente chiamata ogni volta che l'utente digita un nuovo carattere nella casella di ricerca dell'applicazione. Man mano che vengono inseriti più caratteri, l'API restituirà più query di ricerca suggerite pertinenti. Ad esempio, i suggerimenti che l'API può restituire per una singola `s` sono probabilmente meno pertinenti di quelli restituiti dalla query per `sail`.
 
-Ogni suggerimento include i campi `displayText`, `query` e `url`. Il campo `displayText` contiene la query suggerita che si usa per popolare l'elenco a discesa della casella di ricerca. È necessario visualizzare tutti i suggerimenti inclusi nella risposta, nell'ordine indicato.
-
-Di seguito viene illustrato un esempio di casella di ricerca con elenco a discesa contenente i termini di query suggeriti.
+L'esempio seguente mostra una casella di ricerca a discesa con i termini di query suggeriti dall'API Suggerimenti automatici Bing.
 
 ![Elenco di casella di ricerca con elenco a discesa di suggerimenti automatici](./media/cognitive-services-bing-autosuggest-api/bing-autosuggest-drop-down-list.PNG)
 
-Se l'utente seleziona una query suggerita dall'elenco a discesa, è possibile usare il termine di query nel campo `query` per chiamare l'[API Ricerca Web Bing](../bing-web-search/search-the-web.md) e visualizzare i risultati. Oppure è possibile usare l'URL nel campo `url` per inviare l'utente alla pagina dei risultati della ricerca di Bing.
-
-## <a name="throttling-requests"></a>Limitazione delle richieste
-
-[!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
+Quando un utente seleziona un suggerimento dall'elenco a discesa, è possibile usare il suggerimento per iniziare la ricerca con una delle API Ricerca Bing o passare direttamente alla pagina dei risultati di ricerca di Bing.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

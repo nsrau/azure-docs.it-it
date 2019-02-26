@@ -10,20 +10,20 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2019
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: fbfbb4e452032073d92e7c2b93f78669da0ceaf5
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 1d576b24e96d6c4c88d6fbef86cb1c6cf7f7c61a
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691558"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268131"
 ---
 # <a name="azure-resource-manager-overview"></a>Panoramica di Gestione risorse di Microsoft Azure
 
 Azure Resource Manager è il servizio di distribuzione e gestione di Azure. Fornisce un livello di gestione coerente che consente di creare, aggiornate ed eliminare risorse nella sottoscrizione di Azure. Offre funzionalità di controllo di accesso, controllo e assegnazione di tag che è possibile usare per proteggere e organizzare le risorse dopo la distribuzione.
 
-Quando si eseguono operazioni nel portale, in PowerShell, nell'interfaccia della riga di comando di Azure, nelle API REST o negli SDK client, l'API di Azure Resource Manager gestisce la richiesta. Poiché tutte le richieste vengono gestite tramite la stessa API, i risultati e le funzionalità risultano coerenti in tutti i vari strumenti.
+Quando si eseguono operazioni nel portale, in PowerShell, nell'interfaccia della riga di comando di Azure, nelle API REST o negli SDK client, l'API di Azure Resource Manager gestisce la richiesta. Poiché tutte le richieste vengono gestite tramite la stessa API, i risultati e le funzionalità risultano coerenti in tutti i vari strumenti. Tutte le funzionalità disponibili nel portale sono disponibili anche tramite PowerShell, l'interfaccia della riga di comando di Azure, le API REST e gli SDK client. Le funzionalità inizialmente rilasciate tramite API vengono rappresentate nel portale entro 180 giorni dal rilascio iniziale.
 
 La figura seguente mostra tutti gli strumenti che interagiscono con la stessa API di Azure Resource Manager. L'API passa le richieste al servizio Resource Manager, che autentica e autorizza le richieste. Resource Manager le indirizza quindi al servizio appropriato.
 

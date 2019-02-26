@@ -1,6 +1,6 @@
 ---
 title: Esempio - Usare una subnet approvata per le interfacce di rete delle macchine virtuali
-description: Questo criterio di esempio richiede che le interfacce di rete usino una subnet approvata.
+description: Questa definizione di criteri di esempio richiede che le interfacce di rete usino una subnet approvata.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: d4f27b98581f7ea2adbbb69d6041e6ad190cc0e7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 854dbb6d3743c0e8af8a267a425286624453b688
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242737"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341114"
 ---
-# <a name="use-approved-subnet-for-vm-network-interfaces"></a>Usare una subnet approvata per le interfacce di rete delle macchine virtuali
+# <a name="sample---use-approved-subnet-for-vm-network-interfaces"></a>Esempio - Usare una subnet approvata per le interfacce di rete delle macchine virtuali
 
 Questo criterio richiede che le interfacce di rete usino una subnet approvata. Si specifica l'ID della subnet approvata.
 

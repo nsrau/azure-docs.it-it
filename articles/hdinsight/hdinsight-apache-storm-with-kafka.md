@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: 44ad80732d1e874ccec4ecc376b9ce9b513a3aa9
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 341278237bc18bfbb8f4bb1e5d600e2cab894926
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652372"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343358"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Esercitazione: usare Apache Storm con Apache Kafka in HDInsight
 
@@ -37,7 +37,7 @@ In questa esercitazione si apprenderà come:
 
 * Familiarità con la creazione di argomenti Kafka. Per altre informazioni, vedere il documento [Creare un cluster Kafka in HDInsight](./kafka/apache-kafka-get-started.md).
 
-* Familiarità con la compilazione e la distribuzione di soluzioni Storm (topologie), in particolare, le topologie che usano il framework [Apache Storm Flux](https://storm.apache.org/releases/current/flux.html). Per altre informazioni, vedere il documento [Creare una topologia Apache Storm in Java](./storm/apache-storm-develop-java-topology.md).
+* Familiarità con la compilazione e la distribuzione di soluzioni Storm (topologie). in particolare, le topologie che usano il framework [Apache Storm Flux](https://storm.apache.org/releases/current/flux.html). Per altre informazioni, vedere il documento [Creare una topologia Apache Storm in Java](./storm/apache-storm-develop-java-topology.md).
 
 * [Java JDK 1.8](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) o versione successiva. Per HDInsight 3.5 o una versione successiva è necessario Java 8.
 
@@ -367,13 +367,13 @@ streams:
 
 Il progetto contiene un file denominato `dev.properties` che viene usato per passare i parametri usati dalle topologie. Questo file definisce le proprietà seguenti:
 
-| File dev.properties | Descrizione |
+| File dev.properties | DESCRIZIONE |
 | --- | --- |
 | `kafka.zookeeper.hosts` | Host [Apache ZooKeeper](https://zookeeper.apache.org/) per il cluster Kafka. |
 | `kafka.broker.hosts` | Host broker Kafka (nodi ruolo di lavoro). |
 | `kafka.topic` | Argomento Kafka usato dalle topologie. |
 | `hdfs.write.dir` | Directory in cui scrive la topologia Kafka-reader. |
-| `hdfs.url` | File system usato dal cluster Storm. Per gli account di Archiviazione di Azure usare il valore `wasb:///`. Per Azure Data Lake Storage usare il valore `adl:///`. |
+| `hdfs.url` | File system usato dal cluster Storm. Per gli account di Archiviazione di Azure, usare un valore di `wasb:///`. Per Azure Data Lake Storage Gen2, usare un valore di `abfs:///`. Per Azure Data Lake Storage Gen1, usare un valore di `adl:///`. |
 
 ## <a name="create-the-clusters"></a>Creare i cluster
 

@@ -1,6 +1,6 @@
 ---
 title: 'Esempio: applicare un modello di corrispondenza'
-description: Questo criterio di esempio richiede che tutte le risorse soddisfino il modello di corrispondenza per le convenzioni di denominazione.
+description: Questa definizione di criteri di esempio richiede che le risorse soddisfino il modello di corrispondenza per le convenzioni di denominazione.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 4a001316afb489c7147153b5a2de076a5a425c93
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8fdbd6bc319a85c240eddcc5513c8e900329870b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241810"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341386"
 ---
-# <a name="enforce-match-pattern-for-naming-conventions"></a>Applicare il modello di corrispondenza per le convenzioni di denominazione
+# <a name="sample---enforce-match-pattern-for-naming-conventions"></a>Esempio - Applicare il modello di corrispondenza per le convenzioni di denominazione
 
 È necessario che i nomi delle risorse soddisfino il modello di corrispondenza per le convenzioni di denominazione. Specificare il modello di corrispondenza consentito come parametro.
 

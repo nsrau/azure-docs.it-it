@@ -1,6 +1,6 @@
 ---
 title: Esempio - Assicurare solo traffico HTTPS per un account di archiviazione
-description: Questo criterio di esempio richiede che gli account di archiviazione usino traffico HTTPS.
+description: Questa definizione di criteri di esempio richiede che gli account di archiviazione usino traffico HTTPS.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: fb708b016bb2372af71b564c502185623b1717eb
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 9900b56c6e0bfe928bd01cffb2a0b785d582a5d4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241643"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337646"
 ---
-# <a name="ensure-https-traffic-only-for-storage-account"></a>Assicurare solo traffico HTTPS per un account di archiviazione
+# <a name="sample---ensure-https-traffic-only-for-storage-account"></a>Esempio - Assicurare solo traffico HTTPS per un account di archiviazione
 
 Questo criterio richiede che gli account di archiviazione usino traffico HTTPS.
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 6a731750da4edfb4a71c00156c5ff527dee30941
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 5597f3c017ccf2dbb58b7b6b046720c8f49803c5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824554"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312288"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Spostare macchine virtuali di Azure nelle zone di disponibilità
 Le zone di disponibilità di Azure proteggono le applicazioni e i dati dai guasti del data center. Ogni zona di disponibilità è costituita da uno o più data center dotati di impianti indipendenti per l'energia, il raffreddamento e la rete. Per garantire la resilienza, sono presenti almeno tre zone separate in tutte le aree abilitate. La separazione fisica delle zone di disponibilità all'interno di un'area consente di proteggere le applicazioni e i dati da eventuali guasti del data center. Con le zone di disponibilità, Azure offre un contratto di servizio con tempo di attività delle VM del 99,99% tra i migliori del settore. La zona di disponibilità è supportata in aree selezionate, come indicato [qui](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones). 
@@ -95,7 +95,7 @@ La procedura seguente illustra come usare Azure Site Recovery per abilitare la r
 2. Selezionare i valori appropriati per sottoscrizione di destinazione, gruppo di risorse della macchina virtuale di destinazione e rete virtuale.
 3. Nella sezione **Disponibilità** scegliere la zona di disponibilità in cui si vuole spostare la VM. 
 > [!NOTE]
-> Se non è presente un'opzione per set o zona di disponibilità, verificare che i [prerequisiti](#prepare-the-source-vms) vengano soddisfatti e che la [preparazione](#prepare-the-source-vms) delle VM di origine sia stata completata.
+> Se non è presente un'opzione per set o zona di disponibilità, verificare che i [prerequisiti](#prepare-the-source-vms) siano soddisfatti e che la [preparazione](#prepare-the-source-vms) delle VM di origine sia stata completata.
 
    ![enable-rep-2.PNG](media/azure-vms-to-zones/enable-rep-2.PNG)
 
@@ -135,7 +135,7 @@ Al termine del processo di replica, è possibile controllare lo stato di replica
 2. Fare clic sull'icona **Failover**.
 3. In **Failover** selezionare **Più recente**. 
 4. Selezionare **Arrestare la macchina prima di iniziare il failover**. Site Recovery proverà ad arrestare la macchina virtuale di origine prima di attivare il failover. Il failover continua anche se l'arresto ha esito negativo. Nella pagina **Processi** è possibile seguire lo stato del failover. 
-5. Al termine del processo, controllare che la macchina virtuale si trovi nell'area di Azure di destinazione come previsto.
+5. Al termine del processo, controllare che la VM si trovi nell'area di Azure di destinazione come previsto.
 6. In **Elementi replicati** fare clic con il pulsante destro del mouse su Macchina virtuale > **Esegui commit**. Questa operazione completa il processo di spostamento nell'area di destinazione. Attendere la fine del processo di commit.
 
 ## <a name="discard-the-resource-in-the-source-region"></a>Rimuovere la risorsa nell'area di origine 

@@ -1,6 +1,6 @@
 ---
 title: Esempio - Richiedere la crittografia dell'account di archiviazione
-description: Questo esempio di criteri richiede l'utilizzo della crittografia dei BLOB per l'account di archiviazione.
+description: Questa definizione di criteri di esempio richiede che l'account di archiviazione usi la crittografia BLOB.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 067fab9baa2890aa2630c513fd4e6319bd40f709
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: b1afa4ce154153d97a9d7401765cd9c129009ceb
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244658"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342695"
 ---
-# <a name="require-storage-account-encryption"></a>Richiedere la crittografia dell'account di archiviazione
+# <a name="sample---require-storage-account-encryption"></a>Esempio - Richiedere la crittografia dell'account di archiviazione
 
 Questo criterio richiede l'uso della crittografia dei BLOB da parte dell'account di archiviazione.
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: dineshm
-ms.openlocfilehash: e448ef0de9ef5560c1b4ea0df5c02e8efd8c0ea9
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: b5d7be25ba18e256352d8793689bcb63a013e20b
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891658"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452607"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Esercitazione: Accedere ai dati di Data Lake Storage Gen2 con Azure Databricks usando Spark
 
@@ -38,6 +38,17 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 * Installare AzCopy v10. Vedere [Trasferire dati con AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
+*  Creare un'entità servizio. Vedere [Procedura: Usare il portale per creare un'entità servizio e applicazione di Azure AD che possano accedere alle risorse](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+   Mentre si completano le procedure descritte in tale articolo è necessario eseguire alcune operazioni specifiche.
+
+   :heavy_check_mark: Quando si esegue la procedura descritta nella sezione [Assegnare l'applicazione a un ruolo](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) dell'articolo, assicurarsi di assegnare il ruolo **Collaboratore ai dati del BLOB di archiviazione** all'entità servizio.
+
+   > [!IMPORTANT]
+   > Assicurarsi di assegnare il ruolo nell'ambito dell'account di archiviazione Data Lake Storage Gen2. È possibile assegnare un ruolo al gruppo di risorse padre o alla sottoscrizione, ma si riceveranno errori relativi alle autorizzazioni fino a quando tali assegnazioni di ruolo non si propagheranno all'account di archiviazione.
+
+   :heavy_check_mark: Quando si esegue la procedura descritta nella sezione [Ottenere i valori per l'accesso](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) dell'articolo, incollare l'ID tenant, l'ID applicazione e i valori della chiave di autenticazione in un file di testo. Saranno necessari a breve.
+
 ### <a name="download-the-flight-data"></a>Scaricare i dati relativi ai voli
 
 In questa esercitazione vengono usati dati sui voli del Bureau of Transportation Statistics per dimostrare come eseguire un'operazione ETL. Per completare l'esercitazione, è necessario scaricare questi dati.
@@ -49,24 +60,6 @@ In questa esercitazione vengono usati dati sui voli del Bureau of Transportation
 3. Selezionare il pulsante **Download** (Scarica) e salvare i risultati sul computer in uso. 
 
 4. Decomprimere il contenuto del file compresso e prendere nota del nome e del percorso del file. Queste informazioni saranno necessarie in un passaggio successivo.
-
-## <a name="get-your-storage-account-name"></a>Recuperare il nome dell'account di archiviazione
-
-Il nome dell'account di archiviazione sarà necessario. Per recuperarlo, accedere al [portale di Azure](https://portal.azure.com/), scegliere **Tutti i servizi** e filtrare in base al termine *archiviazione*. Quindi, selezionare **Account di archiviazione** e individuare il proprio account di archiviazione.
-
-Incollare il nome in un file di testo. Sarà presto necessario.
-
-<a id="service-principal"/>
-
-## <a name="create-a-service-principal"></a>Creare un'entità servizio
-
-Creare un'entità servizio seguendo le indicazioni fornite in questo argomento: [Procedura: Usare il portale per creare un'entità servizio e applicazione di Azure AD che possano accedere alle risorse](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-
-Mentre si completano le procedure descritte in tale articolo è necessario eseguire alcune operazioni.
-
-:heavy_check_mark: Quando si esegue la procedura descritta nella sezione [Assegnare l'applicazione a un ruolo](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) dell'articolo, assicurarsi di assegnare l'applicazione al **Ruolo di collaboratore di archiviazione Blob**.
-
-:heavy_check_mark: Quando si esegue la procedura descritta nella sezione [Ottenere i valori per l'accesso](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) dell'articolo, incollare l'ID tenant, l'ID applicazione e i valori della chiave di autenticazione in un file di testo. Saranno necessari a breve.
 
 ## <a name="create-an-azure-databricks-service"></a>Creare un servizio Azure Databricks
 
@@ -145,9 +138,16 @@ In questa sezione si creeranno un file system e una cartella nell'account di arc
     mount_point = "/mnt/flightdata",
     extra_configs = configs)
     ```
-18. In questo blocco di codice, sostituire i valori segnaposto `storage-account-name`, `application-id`, `authentication-id` e `tenant-id` con i valori raccolti completando i passaggi descritti nelle sezioni "Recuperare il nome dell'account di archiviazione" e [Creare un'entità servizio](#service-principal) di questo articolo. Sostituire il segnaposto `file-system-name` con il nome che si vuole assegnare al file system.
 
-19. Premere **MAIUSC + INVIO** per eseguire il codice in questo blocco. 
+18. In questo blocco di codice sostituire i valori segnaposto `application-id`, `authentication-id`, `tenant-id` e `storage-account-name` con i valori raccolti completando i prerequisiti di questa esercitazione. Sostituire il valore segnaposto `file-system-name` con il nome che si vuole assegnare al file system.
+
+   * `application-id` e `authentication-id` provengono dall'app che è stata registrata con Active Directory durante la creazione di un'entità servizio.
+
+   * `tenant-id` proviene dalla sottoscrizione.
+
+   * `storage-account-name` è il nome dell'account di archiviazione Azure Data Lake Storage Gen2.
+
+19. Premere **MAIUSC + INVIO** per eseguire il codice in questo blocco.
 
     Tenere aperto il notebook, perché in seguito vi si aggiungeranno comandi.
 

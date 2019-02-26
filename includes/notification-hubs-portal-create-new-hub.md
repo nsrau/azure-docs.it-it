@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/17/2019
 ms.author: jowargo
 ms.custom: include file
-ms.openlocfilehash: 00b7ffcba876b6abea59cff170331c7413a61d39
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a5d29e77f6ba10ed3069cb3f5a3c8089f49c237d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55823207"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313773"
 ---
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Scegliere **Tutti i servizi** dal menu a sinistra e selezionare **Hub di notifica** nella sezione **Dispositivi mobili**. Selezionare l'asterisco (`*`) accanto al nome del servizio per aggiungerlo alla sezione **PREFERITI** nel menu a sinistra. Dopo aver aggiunto l'opzione **Hub di notifica** a **PREFERITI**, selezionarla nel menu a sinistra. 
@@ -24,13 +24,13 @@ ms.locfileid: "55823207"
       ![Hub di notifica - Pulsante Aggiungi della barra degli strumenti](./media/notification-hubs-portal-create-new-hub/add-toolbar-button.png)
 4. Nella pagina **Hub di notifica** procedere come segue: 
     1. Specificare un **nome** per l'**hub** di notifica.  
-    2. Specificare un **nome** per lo **spazio dei nomi**.
+    2. Specificare un **nome** per lo **spazio dei nomi**. Uno spazio dei nomi contiene uno o più hub. 
     3. Selezionare la **posizione** in cui creare l'hub di notifica. 
     4. Selezionare un gruppo di risorse esistente oppure immettere un nome per il nuovo **gruppo di risorse**.
     5. Selezionare **Create**. 
 
         ![Portale di Azure: impostare le proprietà dell'hub di notifica](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
-4. Selezionare **Notifiche** (icona del campanello) e quindi **Vai alla risorsa** oppure aggiornare l'elenco nella pagina **Hub di notifica** e selezionare il proprio hub di notifica. 
+4. Selezionare **Notifiche** (icona a forma di campanello) e selezionare **Vai alla risorsa**. È anche possibile aggiornare l'elenco nella pagina **Hub di notifica** e selezionare l'hub di notifica. 
 
       ![Portale di Azure - Notifiche -> Vai alla risorsa](./media/notification-hubs-portal-create-new-hub/go-to-notification-hub.png)
 5. Selezionare **Criteri di accesso** dall'elenco. Prendere nota delle due stringhe di connessione disponibili. Sono necessarie in un secondo momento per gestire le notifiche push.

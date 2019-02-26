@@ -1,6 +1,6 @@
 ---
 title: 'Esempio: SKU del gateway di rete virtuale consentiti'
-description: Questo esempio di criteri richiede che i gateway di rete virtuale usino uno SKU e un tipo di gateway approvati.
+description: Questa definizione di criteri di esempio richiede che i gateway di rete virtuale usino uno SKU e un tipo di gateway approvati.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 1a9f536f57db0de205a4782c21af2ec4892bbceb
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: b8df07d2ebb58cbdd290452a3a1297f49da95f1c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241938"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342644"
 ---
-# <a name="allowed-virtual-network-gateway-skus"></a>SKU del gateway di rete virtuale consentiti
+# <a name="sample---allowed-virtual-network-gateway-skus"></a>Esempio: SKU del gateway di rete virtuale consentiti
 
 Questo criterio richiede che i gateway di rete virtuale usino uno SKU e un tipo di gateway approvati. Si specifica una matrice di SKU approvati e una matrice di tipi di gateway approvati.
 
