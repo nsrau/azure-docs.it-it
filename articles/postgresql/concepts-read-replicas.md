@@ -1,139 +1,132 @@
 ---
 title: Repliche in lettura in Database di Azure per PostgreSQL
-description: Questo articolo descrive le repliche in lettura in Database di Azure per PostgreSQL.
+description: Questo articolo descrive la funzionalità di replica in lettura nel Database di Azure per PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: 270231b2ad7d94789595cfa4e681cf6c2b0f0541
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.date: 02/19/2019
+ms.openlocfilehash: 40b31f166ea97cfce67d3cc386062e32338ffd45
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657876"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455518"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql"></a>Repliche in lettura in Database di Azure per PostgreSQL
+
+La funzionalità relativa alle repliche in lettura consente di replicare i dati dal server del Database di Azure per PostgreSQL ad un server di sola lettura. È possibile creare fino a un massimo di cinque repliche da un server master nella stessa area di Azure. Le repliche in lettura vengono aggiornate in modo asincrono tramite la tecnologia di replica nativa del motore PostgreSQL.
 
 > [!IMPORTANT]
 > La funzionalità di replica in lettura è in anteprima pubblica.
 
-La funzionalità relativa alle repliche in lettura consente di replicare i dati da Database di Azure per PostgreSQL (master) in un massimo di cinque server di sola lettura (repliche in lettura) nella stessa area di Azure. Le repliche in lettura vengono aggiornate in modo asincrono tramite la tecnologia di replica nativa del motore PostgreSQL.
+Le repliche sono nuovi server da gestire in modo simile ai normali server del Database di Azure per PostgreSQL. Per ogni replica in lettura, viene addebitato il costo delle risorse di calcolo e di archiviazione sottoposte a provisioning, espresse rispettivamente in vCore e GB/mese.
 
-Le repliche sono nuovi server che possono essere gestiti in modo analogo ai server di Database di Azure per PostgreSQL. Per ogni replica di lettura, viene addebitato il costo delle risorse di calcolo e di archiviazione sottoposte a provisioning, espresse rispettivamente in vCore e GB/mese.
+Informazioni su come [creare e gestire le repliche](howto-read-replicas-portal.md).
 
-Visitare la pagina [Informazioni su come creare e gestire le repliche](howto-read-replicas-portal.md).
-
-## <a name="when-to-use-read-replicas"></a>Quando usare le repliche in lettura
-La funzionalità di replica in lettura è progettata per migliorare prestazioni e scalabilità dei carichi di lavoro con utilizzo elevato della lettura. Ad esempio, i carichi di lavoro di lettura possono essere confinati alle repliche, mentre i carichi di lavoro di scrittura possono essere indirizzati al master.
+## <a name="when-to-use-a-read-replica"></a>Quando usare una replica in lettura
+La funzionalità di replica in lettura aiuta a migliorare prestazioni e scalabilità dei carichi di lavoro con utilizzo elevato della lettura. I carichi di lavoro di lettura possono essere isolati alle repliche, mentre i carichi di lavoro di scrittura possono essere indirizzati al master.
 
 Uno scenario comune consiste nel fare in modo che i carichi di lavoro BI e analitici usino le repliche in lettura come origine dati per la creazione di report.
 
-Poiché le repliche sono di sola lettura, non contribuiscono direttamente ad alleviare il carico sulle capacità di scrittura nel master, pertanto questa funzionalità non è destinata a carichi di lavoro con utilizzo elevato della scrittura.
+Poiché le repliche sono di sola lettura, non riducono direttamente gli oneri per la capacità di scrittura sul master. Questa funzionalità non è destinata a carichi di lavoro con utilizzo elevato di scrittura.
 
-La funzionalità di replica in lettura usa la replica asincrona di PostgreSQL e quindi non è concepita per scenari di replica sincrona. Esisterà un ritardo misurabile significativo tra il master e la replica. I dati nella replica diventano alla fine coerenti con i dati nel master. Usare questa funzionalità per i carichi di lavoro in grado di sostenere questo ritardo.
+Questa funzionalità di replica in lettura si avvale della replica asincrona di PostgreSQL. La funzionalità non è concepita per scenari di replica sincrona. Esisterà un ritardo misurabile significativo tra il master e la replica. I dati nella replica diventano alla fine coerenti con i dati nel master. Usare questa funzionalità per i carichi di lavoro in grado di sostenere questo ritardo.
 
-## <a name="creating-a-replica"></a>Creazione di una replica
-Il parametro **azure.replication_support** deve essere impostato su REPLICA nel server master. Per rendere effettive eventuali modifiche di questo parametro è necessario riavviare il server. (Il parametro **azure.replication_support** si applica solo ai livelli Utilizzo generico e Con ottimizzazione per la memoria.)
+## <a name="create-a-replica"></a>Creare una replica
+Il server master deve avere il`azure.replication_support`parametro impostato su **REPLICA**. Per rendere effettive eventuali modifiche di questo parametro è necessario riavviare il server. (Il parametro `azure.replication_support` si applica solo ai livelli Utilizzo generico e Con ottimizzazione per la memoria).
 
-Quando si avvia il flusso di lavoro per la creazione della replica, viene creato un server di Database di Azure per PostgreSQL vuoto. Il nuovo server viene riempito con i dati presenti nel server master. Il tempo necessario per creare la nuova replica dipende dalla quantità di dati nel master e dal tempo trascorso dall'ultimo backup completo settimanale e può variare da pochi minuti ad alcune ore.
+Quando si avvia il flusso di lavoro per la creazione della replica, viene creato un server di Database di Azure per PostgreSQL vuoto. Il nuovo server viene riempito con i dati presenti nel server master. Il tempo necessario per la creazione dipende dalla quantità di dati nel master e dal tempo trascorso dall'ultimo backup completo settimanale. Il tempo può variare da pochi minuti a diverse ore.
 
 La funzionalità di replica in lettura usa la replica fisica di PostgreSQL e non la replica logica. Lo streaming della replica usando gli slot di replica è la modalità operativa predefinita. Se necessario, viene usato il log shipping per mettersi in pari.
 
 > [!NOTE]
-> Se non è già stato configurato un avviso di archiviazione nei server, è consigliabile farlo in modo da essere informati quando un server sta per raggiungere il limite di archiviazione, perché ciò influirà sulla replica.
+> Se non si ha un avviso di archiviazione impostato nei server, si consiglia di impostarlo. L'avviso informa l'utente quando un server sta per raggiungere il limite di archiviazione, che influisce sulla replica.
 
-[Informazioni su come creare una replica di lettura nel portale di Azure](howto-read-replicas-portal.md).
+Informazioni su come [creare una replica di lettura nel portale di Azure](howto-read-replicas-portal.md).
 
-## <a name="connecting-to-a-replica"></a>Connessione a una replica
+## <a name="connect-to-a-replica"></a>Connessione a una replica
 Quando si crea una replica, questa non eredita le regole del firewall o l'endpoint del servizio rete virtuale del server master. Queste regole devono essere configurate in modo indipendente per la replica.
 
-La replica eredita l'account amministratore dal server master. Tutti gli account utente nel server master vengono replicati nelle repliche in lettura. È possibile connettersi a una replica in lettura solo tramite gli account utente disponibili nel server master.
+La replica eredita l'account amministratore dal server master. Tutti gli account utente nel server master vengono replicati nelle repliche in lettura. È possibile connettersi a una replica in lettura solo tramite gli account utente che sono disponibili nel server master.
 
-È possibile connettersi alla replica usando il relativo nome host e un account utente valido, come si farebbe per un normale server di Database di Azure per PostgreSQL. Ad esempio, se il nome del server è myreplica e il nome utente dell'amministratore è myadmin è possibile connettersi a esso da psql come indicato di seguito:
+È possibile connettersi alla replica usando il relativo nome host e un account utente valido, come si farebbe per un normale server di Database di Azure per PostgreSQL. Per un server denominato **myreplica** con il nome utente amministratore **myadmin**, è possibile connettersi alla replica usando psql:
 
 ```
 psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 ```
+
 Quando richiesto, immettere la password per l'account dell'utente.
 
-## <a name="monitoring-replication"></a>Monitoraggio della replica
-In Monitoraggio di Azure è disponibile la metrica **Max Lag Across Replicas** (Ritardo massimo tra repliche). Questa metrica è disponibile solo nel server master. La metrica indica il tempo in byte che intercorre tra il master e la replica più in ritardo. 
+## <a name="monitor-replication"></a>Monitorare la replica
+Il Database di Azure per PostgreSQL offre la metrica **Max Lag Across Replicas (Ritardo massimo tra repliche)** in Monitoraggio di Azure. Questa metrica è disponibile solo nel server master. La metrica indica l'intervallo in byte che intercorre tra il master e la replica più in ritardo. 
 
-In Monitoraggio di Azure è disponibile anche la metrica **Replica Lag** (Ritardo replica). Questa metrica è disponibile per solo le repliche. 
+Il Database di Azure per PostgreSQL offre anche la metrica **Replica Lag (Ritardo della replica)** in Monitoraggio di Azure. Questa metrica è disponibile per solo le repliche. 
 
-La metrica viene calcolata dalla vista pg_stat_wal_receiver:
+La metrica viene calcolata dalla vista `pg_stat_wal_receiver`:
 
 ```SQL
 EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp())
 ```
-Ricordarsi che la metrica Replica Lag (Ritardo metrica) mostra il tempo trascorso dall'ultima transazione riprodotta. Se non sono presenti transazioni sul master, la metrica riflette questo intervallo di tempo.
 
-È consigliabile impostare un avviso per essere informati quando il ritardo di replica raggiunge un valore che non è accettabile per il carico di lavoro. 
+La metrica Replica Lag (Ritardo della replica) indica il tempo trascorso dall'ultima transazione riprodotta. Se non sono presenti transazioni sul server master, la metrica riflette questo intervallo di tempo.
+
+Impostare un avviso per essere informati quando il ritardo di replica raggiunge un valore che non è accettabile per il carico di lavoro. 
 
 Per altre informazioni dettagliate, eseguire una query direttamente sul server master per ottenere il ritardo di replica in byte per tutte le repliche.
-In PG 10:
+
+In PostgreSQL versione 10:
+
 ```SQL
 select pg_wal_lsn_diff(pg_current_wal_lsn(), stat.replay_lsn) 
 AS total_log_delay_in_bytes from pg_stat_replication;
 ```
 
-In PG 9.6 e versioni precedenti:
+In PostgreSQL versione 9.6 e precedenti:
+
 ```SQL
 select pg_xlog_location_diff(pg_current_xlog_location(), stat.replay_location) 
 AS total_log_delay_in_bytes from pg_stat_replication;
 ```
 
 > [!NOTE]
-> In caso di riavvio di un server master o di replica, il tempo necessario per il riavvio e per mettersi in pari sarà rispecchiato nella metrica Replica Lag (Ritardo di replica).
+> In caso di riavvio di un server master o di una replica in lettura, il tempo necessario per il riavvio e per mettersi in pari sarà indicato nella metrica Replica Lag (Ritardo della replica).
 
-## <a name="stopping-replication-to-a-replica"></a>Arresto della replica in una replica
-È possibile scegliere di arrestare la replica tra un master e una replica. Con questa operazione la replica verrà riavviata per rimuovere le impostazioni di replica. Dopo l'arresto della replica tra un server master e un server di replica, il server di replica diventa un server autonomo. I dati nel server autonomo sono i dati che erano disponibili nella replica al momento dell'esecuzione del comando di arresto della replica. Questo server autonomo non viene aggiornato con il server master.
+## <a name="stop-replication"></a>Arrestare la replica
+È possibile scegliere di arrestare la replica tra un master e una replica. L'interruzione dell'operazione causa il riavvio della replica e la rimozione delle impostazioni di replica. Dopo l'arresto della replica tra un server master e una replica in lettura, la replica diventa un server autonomo. I dati nel server autonomo sono i dati che erano disponibili nella replica al momento dell'esecuzione del comando di arresto della replica. Il server autonomo non è aggiornato con il server master.
 
-Questo server non può essere di nuovo impostato come replica.
+> [!IMPORTANT]
+> Il server autonomo non può essere di nuovo impostato come replica.
+> Prima di arrestare la replica in una replica in lettura, assicurarsi che la replica abbia tutti i dati necessari.
 
-Assicurarsi che la replica abbia tutti i dati necessari prima di arrestare la replica.
-
-È possibile trovare [informazioni su come arrestare una replica nella documentazione relativa alle procedure](howto-read-replicas-portal.md).
+Informazioni su come [arrestare la replica in una replica](howto-read-replicas-portal.md).
 
 
 ## <a name="considerations"></a>Considerazioni
 
-### <a name="preparing-for-replica"></a>Preparazione per la replica
-Il parametro **azure.replication_support** deve essere impostato su REPLICA nel server master prima di poter creare una replica. Per rendere effettive eventuali modifiche di questo parametro è necessario riavviare il server. Questo parametro si applica solo ai livelli Utilizzo generico e Con ottimizzazione per la memoria.
+Questa sezione riepiloga le considerazioni sulla funzionalità di replica in lettura.
 
-### <a name="stopped-replicas"></a>Repliche arrestate
-Se si sceglie di arrestare la replica tra un master e una replica, la replica verrà riavviata per applicare tale modifica. La replica quindi diventerà un server di lettura/scrittura. In seguito, questo server non può essere di nuovo impostato come replica.
+### <a name="prerequisites"></a>Prerequisiti
+Prima di creare una replica in lettura, il `azure.replication_support`parametro deve essere impostato su **REPLICA** nel server master. Per rendere effettive eventuali modifiche di questo parametro è necessario riavviare il server. Il parametro `azure.replication_support` si applica solo ai livelli Utilizzo generico e Con ottimizzazione per la memoria.
 
-### <a name="replicas-are-new-servers"></a>Le repliche sono nuovi server
-Le repliche vengono create come nuovi server di Database di Azure per PostgreSQL. I server esistenti non possono essere trasformati in repliche.
+### <a name="new-replicas"></a>Nuove repliche
+Una replica in lettura viene creata come nuovo server di Database di Azure per PostgreSQL. Un server esistente non può essere impostato come replica. Una replica in lettura può essere creata solo nella stessa area di Azure del master. Non è possibile creare una replica di un'altra replica in lettura.
 
-### <a name="replica-server-configuration"></a>Configurazione del server di replica
-I server di replica vengono creati usando le stesse configurazioni server del master, incluse le seguenti:
-- Piano tariffario
-- Generazione di calcolo
-- vCore
-- Archiviazione
-- Periodo di conservazione dei backup
-- Opzione di ridondanza per il backup
-- Versione del motore PostgreSQL
-
-Dopo aver creato una replica, è possibile modificare il piano tariffario (tranne da e verso Basic), la generazione di calcolo, i vCore, l'archiviazione e il periodo di conservazione dei backup in modo indipendente dal server master.
+### <a name="replica-configuration"></a>Configurazione della replica
+Una replica viene creata usando la stessa configurazione server del master. Dopo aver creato una replica, è possibile modificare diverse impostazioni in modo indipendente dal server master: la generazione di calcolo, i vCore, l'archiviazione e il periodo di conservazione dei backup. È anche possibile modificare in modo indipendente il piano tariffario, tranne da o verso il livello Basic.
 
 > [!IMPORTANT]
-> Prima che la configurazione del server master venga aggiornata con nuovi valori, la configurazione delle repliche deve essere aggiornata impostandola su valori uguali o superiori. Ciò garantisce che le repliche siano sempre aggiornate con le modifiche apportate al master.
+> Prima che la configurazione del server master venga aggiornata con nuovi valori, la configurazione delle repliche deve essere aggiornata impostandola su valori uguali o superiori. Questa azione garantisce che le repliche siano sempre aggiornate con le modifiche apportate al master.
 
-In particolare, Postgres richiede che il valore del server di replica per il parametro max_connections sia maggiore o uguale al valore del master. In caso contrario, la replica non verrà avviata. In Database di Azure per PostgreSQL, il valore max_connections è impostato a seconda dello SKU. Per altre informazioni, leggere il [documento sui limiti](concepts-limits.md). 
+PostgreSQL richiede che il valore del parametro`max_connections` sulla replica in lettura sia maggiore o uguale a quello del master; in caso contrario, la replica non si avvia. Nel Database di Azure per PostgreSQL, il valore del parametro `max_connections` è basato sullo SKU. Per altre informazioni, vedere [Limiti in Database di Azure per PostgreSQL](concepts-limits.md). 
 
-Il tentativo di eseguire un aggiornamento che viola tale regola causerà un errore.
+Se si tenta di aggiornare i valori del server, ma non si rispettano i limiti, viene visualizzato un errore.
 
+### <a name="stopped-replicas"></a>Repliche arrestate
+Se si arresta la replica tra un server master e una replica in lettura, la replica verrà riavviata per poter applicare tale modifica. La replica arrestata diventa un server autonomo che supporta sia la lettura che la scrittura. Il server autonomo non può essere di nuovo impostato come replica.
 
-### <a name="deleting-the-master"></a>Eliminazione del master
-Quando viene eliminato un server master, tutte le relative repliche in lettura diventano server autonomi. Le repliche verranno riavviate in modo da riflettere questa modifica.
-
-### <a name="other"></a>Altri
-- Le repliche in lettura possono essere create solo nella stessa area di Azure del master.
-- La creazione di una replica di replica non è supportata.
+### <a name="deleted-master-and-standalone-servers"></a>Master eliminato e server autonomi
+Quando viene eliminato un server master, tutte le relative repliche in lettura diventano server autonomi. Le repliche vengono riavviate in modo da riflettere questa modifica.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Informazioni su come creare e gestire le repliche in lettura nel portale di Azure](howto-read-replicas-portal.md).
+Informazioni su come [creare e gestire le repliche in lettura nel portale di Azure](howto-read-replicas-portal.md).

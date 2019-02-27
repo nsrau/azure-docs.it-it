@@ -16,12 +16,12 @@ ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 88cbfc895d188162d0f242a5aceaab721a6c877f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: def9026fb0422d8868af098f12180617aefe7eff
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239099"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877946"
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipi di quote in Azure Stack
 
@@ -74,7 +74,7 @@ Esistono due modi diversi per visualizzare una quota esistente:
 3.  Nel pannello aperto, selezionare **servizi e le quote**.
 4.  Selezionare la quota si desidera vedere facendovi clic sopra nel **nome** colonna.
 
-    [ ![Le quote](media/azure-stack-quota-types/quotas1sm.png "consente di visualizzare le quote") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Le quote](media/azure-stack-quota-types/quotas1sm.png "consente di visualizzare le quote")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 ### <a name="resource-providers"></a>Provider di risorse
 
@@ -92,7 +92,7 @@ Esistono due diversi modi per modificare un obiettivo di vendita:
 2.  Selezionare il piano per il quale si desidera modificare una quota, facendo clic sul relativo nome.
 3.  Nel pannello aperto, selezionare **servizi e le quote**.
 4.  Selezionare la quota si desidera modificare facendo clic su esso nel **nome** colonna.
-    [ ![Le quote](media/azure-stack-quota-types/quotas1sm.png "consente di visualizzare le quote") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Le quote](media/azure-stack-quota-types/quotas1sm.png "consente di visualizzare le quote")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 5.  Nel pannello aperto, selezionare **modifica nel componente Compute**, **modificare nella rete**, o **modifica nell'archiviazione**.
     ![Le quote](media/azure-stack-quota-types/quotas3.png "consente di visualizzare le quote")    

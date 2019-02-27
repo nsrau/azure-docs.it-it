@@ -206,7 +206,7 @@
 #### [Aggiornamento 0.1](storsimple-october-2014-release-notes.md)
 #### [Versione - Disponibilità generale](storsimple-july-2014-release-notes.md)
 
-## Informazioni di riferimento
+## riferimento
 ### [API REST](https://docs.microsoft.com/rest/api/storsimple)
 ### [Windows PowerShell per i cmdlet StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
 ### [Modello di Resource Manager](/azure/templates/microsoft.storsimple/allversions)

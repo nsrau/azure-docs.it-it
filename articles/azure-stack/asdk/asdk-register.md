@@ -15,12 +15,12 @@ ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 23adf2903a50727d920e4a20b8a325313fa39e2a
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: d5463b495620e441ad5371b5859c9ab543e0e7c6
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428008"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874665"
 ---
 # <a name="azure-stack-registration"></a>Registrazione con Azure Stack
 È possibile registrare l'installazione di Azure Stack Development Kit (ASDK) con Azure per scaricare elementi di marketplace di Azure e per impostare i dati di e-commerce segnalazioni a Microsoft. È necessario eseguire la registrazione per supportare la funzionalità di Azure Stack completa, tra cui diffusione di marketplace. È necessario eseguire la registrazione per poter testare le funzionalità di Azure Stack importanti come la diffusione di marketplace e report sull'utilizzo. Dopo la registrazione di Azure Stack, sull'utilizzo viene segnalato ad Azure commerce. È possibile visualizzarlo nella sottoscrizione che è usata per la registrazione. Tuttavia, gli utenti ASDK non vengono addebitate spese per qualsiasi utilizzo che generano report.
@@ -214,7 +214,7 @@ Una volta completata l'attivazione, si dovrebbe vedere un messaggio simile al **
 
 2. Dal Dashboard, selezionare **gestione delle aree**.
 
-    [ ![Nel riquadro Gestione regione](media/asdk-register/admin1sm.png "nel riquadro Gestione area") ](media/asdk-register/admin1.png#lightbox)
+    [![Nel riquadro Gestione regione](media/asdk-register/admin1sm.png "nel riquadro Gestione area")](media/asdk-register/admin1.png#lightbox)
 
 3. Selezionare **Proprietà**. Questo pannello mostra lo stato e i dettagli dell'ambiente. Lo stato può essere **Registered** oppure **non è registrato**. Se la registrazione, nonché l'ID sottoscrizione di Azure che è utilizzato per registrare Azure Stack, con il gruppo di risorse di registrazione e il nome.
 

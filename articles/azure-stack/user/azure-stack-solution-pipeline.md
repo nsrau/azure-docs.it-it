@@ -15,12 +15,12 @@ ms.date: 02/19/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: bfbafea13f49ada59dae88e0336f926a8ad89d36
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: deaf7defe5aca4f53df073b19e471a52bd7b8a5d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430251"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878745"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Esercitazione: Distribuire app in Azure Stack e Azure
 
@@ -335,7 +335,7 @@ In questa parte dell'esercitazione sarà:
 > [!Note]
  > L'ambiente Azure Stack richiede le immagini corrette diffuso per l'esecuzione di Windows Server e SQL Server. È necessario che abbia distribuite del servizio App. Esaminare la documentazione del servizio App sezione "Prerequisiti" per i requisiti di operatore di Azure Stack.
 
-Integrazione continua/distribuzione ibrida è possibile applicare al codice dell'applicazione e al codice dell'infrastruttura. Uso [modelli di Azure Resource Manager, ad esempio web ](https://azure.microsoft.com/resources/templates/) codice dell'app da servizi di DevOps di Azure per distribuire in entrambi i cloud.
+Integrazione continua/distribuzione ibrida è possibile applicare al codice dell'applicazione e al codice dell'infrastruttura. Uso [modelli di Azure Resource Manager, ad esempio web](https://azure.microsoft.com/resources/templates/) codice dell'app da servizi di DevOps di Azure per distribuire in entrambi i cloud.
 
 ### <a name="add-code-to-an-azure-devops-services-project"></a>Aggiungere codice a un progetto di servizi di Azure DevOps
 

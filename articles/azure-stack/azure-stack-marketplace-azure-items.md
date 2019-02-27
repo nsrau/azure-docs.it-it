@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/27/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: 924befd2ec1949973123acc9b7c7d1b89e707e3e
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6dad4fc98dccc5c8db22019fdc548efdf7165d9e
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245627"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888747"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Elementi del Marketplace Azure disponibili per Azure Stack
 
@@ -252,4 +252,5 @@ Microsoft Azure Stack supporta le seguenti macchine virtuali di Azure Marketplac
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise ti permette di automatizzare l'intero ciclo di vita dell'infrastruttura di Azure Stack. **Scaricare entrambi gli elementi di Marketplace Puppet.** | Puppet |
 | ![Ripristino rapido quest](media/azure-stack-marketplace-azure-items/quest.png) | [Core di un ripristino rapido quest](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Un ripristino rapido avanzati di protezione dei dati unisce backup, replica e il ripristino in un'unica soluzione di facile utilizzo software. | Quest Software |
 | ![SUSE Manager 3.1 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.1 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.suse-manager-proxy-byos?tab=Overview) | Gestione dell'infrastruttura open source di alta qualità in. | SUSE |
+| ![Gestione di chiavi CipherTrust Cloud](media/azure-stack-marketplace-azure-items/cckm.png) | [Gestione di chiavi CipherTrust Cloud](https://azuremarketplace.microsoft.com/marketplace/apps/thales-vormetric.ciphertrust-ckm) | Sfruttando Microsoft Azure e altri provider di cloud API Bring Your Own Key (BYOK), la gestione di chiavi Cloud CipherTrust riduce la complessità della gestione delle chiavi e i costi operativi dovuti fornendo un controllo multi-cloud del ciclo di vita delle chiavi di crittografia con centralizzata gestione e la visibilità. | ESecurity Thales |
 | ![ZeroDown Software BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [Continuità aziendale ZeroDown Software come servizio](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | Tecnologia ZeroDown® Software offre alle aziende con accesso continuo ai dati aziendali tramite la continuità aziendale come servizio (BCaaS)™ architettura, la protezione delle applicazioni e transazioni, se si verificano le interruzioni della rete che in genere viene usato bloccare l'azienda. | ZeroDown Software |

@@ -15,12 +15,12 @@ ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 280a811e943c2e81a96875e3c8ba8efdb86fbf2a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 38ab7b80e2f03176c3bedfd98a2d0e20fc02592b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004826"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865893"
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Abilitare il Backup per Azure Stack con PowerShell
 
@@ -38,7 +38,7 @@ Abilitare il servizio di infrastruttura di Backup con Windows PowerShell quindi 
 
 ## <a name="prepare-powershell-environment"></a>Preparare l'ambiente di PowerShell
 
-Per istruzioni sulla configurazione dell'ambiente di PowerShell, vedere [installazione di PowerShell per Azure Stack ](azure-stack-powershell-install.md). Per accedere ad Azure Stack, vedere [configurare l'ambiente di operatore e accedere ad Azure Stack](azure-stack-powershell-configure-admin.md).
+Per istruzioni sulla configurazione dell'ambiente di PowerShell, vedere [installazione di PowerShell per Azure Stack](azure-stack-powershell-install.md). Per accedere ad Azure Stack, vedere [configurare l'ambiente di operatore e accedere ad Azure Stack](azure-stack-powershell-configure-admin.md).
 
 ## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>Fornire la chiave di crittografia, credenziali e condivisione di backup per abilitare il backup
 
@@ -46,7 +46,7 @@ Nella stessa sessione di PowerShell, modificare lo script di PowerShell seguente
 
 | Variabile        | DESCRIZIONE   |
 |---              |---                                        |
-| $username       | Tipo di **Username** usando il nome utente e dominio per il percorso dell'unità condivisa con diritti di accesso sufficienti per leggere e scrivere file. Ad esempio `Contoso\backupshareuser`. |
+| $username       | Tipo di **Username** usando il nome utente e dominio per il percorso dell'unità condivisa con diritti di accesso sufficienti per leggere e scrivere file. Ad esempio: `Contoso\backupshareuser`. |
 | $password       | Tipo di **Password** per l'utente. |
 | $sharepath      | Digitare il percorso per il **percorso di archiviazione di Backup**. È necessario usare una stringa di Universal Naming Convention (UNC) per il percorso a una condivisione file ospitata su un dispositivo separato. Una stringa UNC specifica il percorso delle risorse, ad esempio i file condivisi o i dispositivi. Per garantire la disponibilità dei dati di backup, il dispositivo deve trovarsi in una posizione separata. |
 | $frequencyInHours | La frequenza in ore determina ogni quanto vengono creati i backup. Il valore predefinito è 12. Utilità di pianificazione supporta un massimo di 12 e almeno 4.|

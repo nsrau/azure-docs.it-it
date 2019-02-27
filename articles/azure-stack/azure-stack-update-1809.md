@@ -16,12 +16,12 @@ ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: a9cf502f169f4a9c4650545b1b37e11cc16a0a95
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: a4298a8bd78f178c56776e703e72ff99aac54207
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694381"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887907"
 ---
 # <a name="azure-stack-1809-update"></a>Aggiornamento di Azure Stack 1809
 
@@ -77,7 +77,7 @@ Questo aggiornamento include i miglioramenti seguenti per Azure Stack:
 ### <a name="changes"></a>Modifiche
 
 <!-- 2635202 - IS, ASDK -->
-- Servizio di backup dell'infrastruttura viene spostato dal [rete infrastruttura pubblico](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-infrastructure-network) per il [rete indirizzi VIP pubblici](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). I clienti dovranno assicurarsi che il servizio ha accesso il percorso di archiviazione di backup dalla rete VIP pubblica.  
+- Servizio di backup dell'infrastruttura viene spostato dal [rete infrastruttura pubblico](https://docs.microsoft.com/azure/azure-stack/azure-stack-network) per il [rete indirizzi VIP pubblici](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). I clienti dovranno assicurarsi che il servizio ha accesso il percorso di archiviazione di backup dalla rete VIP pubblica.  
 
 > [!IMPORTANT]  
 > Se è presente un firewall che non consente le connessioni dalla rete VIP pubblica al file server, questa modifica causa backup infrastructure con "Errore 53 il percorso di rete non trovato". Si tratta di una modifica sostanziale che non dispone di alcuna soluzione ragionevole. In base ai suggerimenti dei clienti, Microsoft sarà annullare questa modifica in un aggiornamento rapido. Vedere le [post sezione passaggi di aggiornamento](#post-update-steps) per altre informazioni sulle correzioni disponibili per 1809. Dopo l'aggiornamento rapido è disponibile, assicurarsi di applicarlo dopo l'aggiornamento a 1809 solo se i criteri di rete non consentono la rete VIP pubblica per accedere alle risorse di infrastruttura. in 1811, questa modifica verrà applicata a tutti i sistemi. Se è applicato l'aggiornamento rapido in 1809, non è richiesta alcuna azione ulteriore.  

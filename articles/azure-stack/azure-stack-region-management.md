@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2018
-ms.openlocfilehash: c28fce9c6c9d7b0ddeba54e1ba643817436adb4e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2845bb09fa44c3bd9cee914e2446403b4182b0d5
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244964"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871044"
 ---
 # <a name="region-management-in-azure-stack"></a>Gestione delle aree in Azure Stack
 
@@ -39,7 +39,7 @@ Azure Stack offre un set di funzionalità di gestione di area disponibili nel **
 
 Se si fa clic su un'area della **gestione delle aree** riquadro, è possibile accedere alle informazioni seguenti:
 
-[ ![Descrizione dei riquadri nel Pannello di gestione della regione](media/azure-stack-region-management/regionssm.png "pannello Gestione di area") ](media/azure-stack-region-management/regions.png#lightbox)
+[![Descrizione dei riquadri nel Pannello di gestione della regione](media/azure-stack-region-management/regionssm.png "pannello Gestione di area")](media/azure-stack-region-management/regions.png#lightbox)
 
 1. **Menu delle risorse**. Accedere ad aree di gestione specifiche dell'infrastruttura, visualizzare e gestire le risorse utente, ad esempio gli account di archiviazione e reti virtuali.
 

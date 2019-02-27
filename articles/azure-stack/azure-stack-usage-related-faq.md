@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 02/26/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.lastreviewed: 11/08/2018
-ms.openlocfilehash: 92774592f86a71a8482fd3d44eca404fcf2d4e6e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.lastreviewed: 02/26/2019
+ms.openlocfilehash: 00fb888f201f4bb8d211050b288516021d837dc5
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429554"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888772"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Domande frequenti in API di utilizzo di Azure Stack
 
@@ -407,6 +407,10 @@ Attualmente, è possibile eseguire query solo dai *segnalati ora*.
 | 400 /-richiesta non valida |*SubscriptionIdMissingInRequest* |Manca l'ID sottoscrizione del chiamante. |
 | 400 /-richiesta non valida |*InvalidAggregationGranularity* |È stata richiesta una granularità di aggregazione non è valido. I valori validi sono giornaliera e oraria. |
 | 503 |*ServiceUnavailable* |Si è verificato un errore non irreversibile perché il servizio è occupato o la chiamata è limitata. |
+
+## <a name="what-is-the-policy-for-charging-for-vms"></a>Quali sono i criteri per l'addebito per le macchine virtuali?
+
+Le macchine virtuali in esecuzione e arrestate generano dati sull'utilizzo. Coerente con Azure, è necessaria la deallocazione per interrompere l'emissione dei dati di utilizzo. Nel caso in cui il portale non è disponibile, ma è ancora in esecuzione il provider di risorse di calcolo, verrà generato utilizzo.
 
 ## <a name="next-steps"></a>Fasi successive
 [Fatturazione per i clienti e il chargeback in Azure Stack](azure-stack-billing-and-chargeback.md)

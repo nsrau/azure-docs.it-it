@@ -25,6 +25,8 @@ items:
   - name: Analizzare i video - .NET
     displayName: job, transform
     href: analyze-videos-tutorial-with-api.md
+  - name: Crittografia dinamica AES-128 - .NET
+    href: protect-with-aes128.md
   expanded: true
 - name: Esempi
   items:
@@ -166,12 +168,10 @@ items:
       href: job-state-events-cli-how-to.md
   - name: Proteggere il contenuto
     items:
-    - name: Crittografia dinamica AES-128 - .NET
-      href: protect-with-aes128.md
-    - name: Crittografia dinamica Digital Rights Management - .NET
-      href: protect-with-drm.md
     - name: Ottenere i criteri di chiave simmetrica - .NET
       href: get-content-key-policy-dotnet-howto.md
+    - name: Crittografia dinamica Digital Rights Management - .NET
+      href: protect-with-drm.md
     - name: Fairplay offline per iOS
       href: offline-fairplay-for-ios.md
     - name: Widevine offline per Android
@@ -242,9 +242,9 @@ items:
     href: frequently-asked-questions.md
   - name: Aree e cloud di Azure
     href: azure-clouds-regions.md
-ms.openlocfilehash: d8078f88c436b54e2f0b3a2edd1916684168af37
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 05743bbc6bc448fbea5b084fd945d1e056bf16e9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807048"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867780"
