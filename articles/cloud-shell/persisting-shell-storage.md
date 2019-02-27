@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 4671287d78dafce9b662a167ba99a680d2fa70d2
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 7bf31c11c705dbdfe8a326aad99ee8d373db8f3e
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734076"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301095"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
@@ -101,6 +101,8 @@ Il cmdlet `Dismount-CloudDrive` smonta una condivisione file di Azure dall'accou
 ![Esecuzione di Dismount-CloudDrive](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
 
 [!INCLUDE [PersistingStorage-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
+
+Note: se è necessario definire una funzione in un file e chiamarla dai cmdlet di PowerShell, l'operatore punto deve essere incluso. Ad esempio: . .\MyFunctions.ps1
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Avvio rapido di Bash in Cloud Shell](quickstart.md) <br>

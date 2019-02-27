@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 594ebb6a3c82c9b9dd3ee03a8083abf052d20f49
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c71822f50879404ba943ef6e703364a09a80fbf3
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991328"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310936"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Esplora metriche di Monitoraggio di Azure
 
@@ -100,20 +100,6 @@ Esplora metriche di Monitoraggio di Azure è un componente del portale di Micros
    > [!NOTE]
    > Usare sia il filtro che la separazione nella stessa dimensione per nascondere i segmenti che sono irrilevanti per lo scenario e semplificare così la lettura dei grafici.
 
-### <a name="new-alert-rule"></a>Nuova regola di avviso
-
-È anche possibile usare i criteri impostati per visualizzare le metriche come base per la logica sottostante di una regola di avviso basata su metriche. 
-
-Se si fa clic su **Nuova regola di avviso**
-
-![Pulsante Nuova regola di avviso evidenziato in rosso](./media/metrics-charts/015.png)
-
-Si verrà reindirizzati al riquadro di creazione della regola di avviso con le dimensioni di metriche sottostanti del grafico prepopolato per semplificare la generazione di regole di avviso personalizzate.
-
-![Creare la regola di avviso](./media/metrics-charts/016.png)
-
-Per altre informazioni sulla configurazione di avvisi delle metriche, vedere questo [articolo](alerts-metric.md).
-
 ## <a name="lock-boundaries-of-chart-y-axis"></a>Bloccare i limiti dell'asse y del grafico
 
 Bloccare l'intervallo dell'asse y diventa importante quando il grafico mostra fluttuazioni minori di valori più grandi. 
@@ -138,6 +124,20 @@ Per aggiungere un grafico configurato a un dashboard:
 Dopo avere configurato il grafico, fare clic sul menu delle **azioni del grafico** nell'angolo in alto a destra del grafico e fare clic su **Aggiungi al dashboard**.
 
 ![Immagine di metrica](./media/metrics-charts/00013.png)
+
+## <a name="create-alert-rules"></a>Creazione di regole di avviso
+
+È possibile usare i criteri impostati per visualizzare le metriche come base di una regola di avviso basata su metriche. La nuova regola di avviso includerà la risorsa di destinazione, la metrica, la suddivisione e le dimensioni di filtro del grafico. Sarà possibile modificare queste impostazioni in seguito nel riquadro di creazione della regola di avviso.
+
+### <a name="to-create-a-new-alert-rule-click-new-alert-rule"></a>Per creare una nuova regola di avviso, fare clic su **Nuova regola di avviso**.
+
+![Pulsante Nuova regola di avviso evidenziato in rosso](./media/metrics-charts/015.png)
+
+Si verrà reindirizzati al riquadro di creazione della regola di avviso con le dimensioni di metriche sottostanti del grafico prepopolato per semplificare la generazione di regole di avviso personalizzate.
+
+![Creare la regola di avviso](./media/metrics-charts/016.png)
+
+Per altre informazioni sulla configurazione di avvisi delle metriche, vedere questo [articolo](alerts-metric.md).
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e3726037e16acdf1d6d624dbf8c2088a57b0bde6
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 703f27dab6ca6252647ecb37d17d0f4faf045097
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234542"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268687"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Risolvere i problemi di ruoli di lavoro ibridi per runbook
 
@@ -204,7 +204,7 @@ Ciò può verificarsi se il computer è già registrato con un account di Automa
 
 #### <a name="resolution"></a>Risoluzione
 
-Per risolvere questo problema, rimuovere la chiave del Registro di sistema seguente e provare di nuovo a eseguire il cmdlet `Add-HybridRunbookWorker`:
+Per risolvere questo problema, rimuovere la chiave del Registro di sistema seguente, riavviare `HealthService` e provare di nuovo a eseguire il cmdlet `Add-HybridRunbookWorker`:
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 

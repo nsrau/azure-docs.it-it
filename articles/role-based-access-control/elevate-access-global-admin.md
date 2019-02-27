@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d6778e1749493a04a73d0ac210c1557b89343d00
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 2a030daa8d9c30add1beb3a2628aa16b2da22dde
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695581"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338853"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevare i privilegi di accesso per gestire tutte le sottoscrizioni e i gruppi di gestione di Azure
 
@@ -263,5 +263,5 @@ Quando si chiama `elevateAccess`, si crea un'assegnazione di ruolo per se stessi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Informazioni sui diversi ruoli](rbac-and-directory-admin-roles.md)
-- [Controllo degli accessi in base al ruolo con REST](role-assignments-rest.md)
+- [Comprendere i diversi ruoli in Azure](rbac-and-directory-admin-roles.md)
+- [Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e l'API REST](role-assignments-rest.md)

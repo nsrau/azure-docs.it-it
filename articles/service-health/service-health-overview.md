@@ -9,12 +9,12 @@ ms.service: service-health
 ms.topic: article
 ms.workload: Supportability
 ms.date: 03/27/2018
-ms.openlocfilehash: b771e36344ff26c9a817a0314e0f223b6e809a17
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 465e8751d02692648234a7a90b84b68f41522cb2
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871701"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328266"
 ---
 # <a name="service-health"></a>Integrità del servizio
 L’Integrità del servizio offre un dashboard personalizzabile che registra l'integrità dei servizi di Azure nelle regioni in cui si usano. In questo dashboard è possibile rilevare gli eventi attivi, come i problemi del servizio in corso, le manutenzioni pianificate o gli avvisi di integrità pertinenti. Quando gli eventi diventano inattivi, vengono posizionati nella cronologia di integrità fino a 90 giorni. Infine, è possibile utilizzare il dashboard di integrità dei servizi per creare e gestire gli avvisi di integrità che notificano in modo proattivo quando i problemi del servizio ne compromettono le prestazioni.
@@ -24,6 +24,9 @@ Integrità dei servizi registra tre tipi di eventi di integrità che possono inf
 1. **Problemi dei servizi**: problemi dei servizi di Azure che influiscono in questo momento. 
 2. **Manutenzione pianificata**: manutenzione imminente che può influire sulla disponibilità dei servizi in futuro.  
 3. **Avvisi sull'integrità**: modifiche apportate ai servizi di Azure che richiedono attenzione, ad esempio quando le funzionalità di Azure sono deprecate o si supera una quota di utilizzo.
+
+> [!NOTE]
+> Per visualizzare gli eventi di integrità dei servizi, gli utenti devono avere il ruolo con autorizzazioni di lettura per una sottoscrizione.
 
 ## <a name="get-started-with-service-health"></a>Introduzione a Integrità dei servizi
 Per avviare il dashboard di Integrità dei servizi, selezionare il riquadro Integrità dei servizi nel dashboard del portale. Se in precedenza il riquadro è stato rimosso o si una un dashboard personalizzato, cercare il servizio Integrità dei servizi in "Altri servizi" in basso a sinistra nel dashboard.

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 90616544b1fddb8b6def04c30202035bec04d599
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 7278eba1c9039c180f75cdd2dfd1e18a77baf423
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236006"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416786"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Gestire i pre-script e i post-script (anteprima)
 
@@ -22,7 +22,7 @@ I pre-script e i post-script consentono di eseguire runbook di PowerShell nell'a
 
 ## <a name="runbook-requirements"></a>Requisiti dei runbook
 
-Per poter usare un runbook come pre-script o post-script, il runbook deve essere importato nell'account di automazione e pubblicato. Per altre informazioni su questo processo, vedere [Pubblicazione di un runbook](automation-creating-importing-runbook.md#publishing-a-runbook).
+Per poter usare un runbook come pre-script o post-script, il runbook deve essere importato nell'account di automazione e pubblicato. Per altre informazioni su questo processo, vedere [Pubblicazione di un runbook](manage-runbooks.md#publish-a-runbook).
 
 ## <a name="using-a-prepost-script"></a>Uso di un pre/post-script
 
@@ -52,7 +52,19 @@ Facendo clic sull'esecuzione della distribuzione di aggiornamento vengono visual
 
 ## <a name="passing-parameters"></a>Passaggio dei parametri
 
-Quando si configurano i pre-script e i post-script è possibile passare i parametri come quando si pianifica un runbook. I parametri vengono definiti al momento della creazione della distribuzione di aggiornamento. I pre-script e i post-script richiedono parametri di tipo `String`. Se è necessario un altro tipo di oggetto, è possibile eseguirne il cast in un altro tipo usando `[System.Convert]` o gestirlo con la propria logica.
+Quando si configurano i pre-script e i post-script è possibile passare i parametri come quando si pianifica un runbook. I parametri vengono definiti al momento della creazione della distribuzione di aggiornamento. I pre-script e i post-script supportano i tipi seguenti:
+
+* [char]
+* [byte]
+* [int]
+* [long]
+* [decimal]
+* [single]
+* [double]
+* [DateTime]
+* [string]
+
+Se è necessario un altro tipo di oggetto, è possibile eseguirne il cast in un altro tipo con la propria logica nel runbook.
 
 Oltre ai parametri standard dei runbook viene passato un parametro aggiuntivo. **SoftwareUpdateConfigurationRunContext**. Questo parametro è una stringa JSON e, se viene definito nello script pre o post, viene automaticamente passato alla distribuzione di aggiornamento. Il parametro contiene informazioni sulla distribuzione di aggiornamento costituite da un subset delle informazioni restituite dall'API [SoftwareUpdateconfigurations](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). La tabella seguente illustra le proprietà specificate nella variabile:
 

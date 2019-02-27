@@ -1,6 +1,6 @@
 ---
-title: Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure | Microsoft Docs
-description: Informazioni su come gestire l'accesso per utenti, gruppi, entità servizio e identità gestite tramite il controllo degli accessi in base al ruolo e al portale di Azure. Vengono presentate anche la visualizzazione, la concessione e la rimozione dell'accesso.
+title: Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e il portale di Azure | Microsoft Docs
+description: Informazioni su come gestire l'accesso alle risorse di Azure per utenti, gruppi, entità servizio e identità gestite tramite il controllo degli accessi in base al ruolo e il portale di Azure. Vengono presentate anche la visualizzazione, la concessione e la rimozione dell'accesso.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c339556353967db26f022384f2cf877962dc6d83
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 1e3057108ef179af2f4692c061091fbdf59f0af2
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412309"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342338"
 ---
-# <a name="manage-access-using-rbac-and-the-azure-portal"></a>Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure
+# <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e il portale di Azure
 
-[Il controllo degli accessi in base al ruolo](overview.md) è la modalità di gestione dell'accesso alle risorse in Azure. Questo articolo descrive come gestire l'accesso per utenti, gruppi, entità servizio e identità gestite tramite il controllo degli accessi in base al ruolo e il portale di Azure.
+Il [controllo degli accessi in base al ruolo](overview.md) è la modalità di gestione dell'accesso alle risorse di Azure. Questo articolo descrive come gestire l'accesso per utenti, gruppi, entità servizio e identità gestite tramite il controllo degli accessi in base al ruolo e il portale di Azure.
 
 ## <a name="open-access-control-iam"></a>Controllo di accesso (IAM)
 
@@ -41,7 +41,7 @@ Il pannello del **Controllo di accesso (IAM)**, anche noto come gestione delle i
 
 ## <a name="view-roles-and-permissions"></a>Visualizzare ruoli e autorizzazioni
 
-Una definizione di ruolo è una raccolta di autorizzazioni usata per l'assegnazione dei ruoli. Azure ha oltre 70 [ruoli predefiniti](built-in-roles.md). Seguire questa procedura per visualizzare i ruoli e le autorizzazioni che possono essere eseguite sul piano di gestione e dati.
+Una definizione di ruolo è una raccolta di autorizzazioni usata per l'assegnazione dei ruoli. Azure dispone di più di 70 [ruoli predefiniti per le risorse di Azure](built-in-roles.md). Seguire questa procedura per visualizzare i ruoli e le autorizzazioni che possono essere eseguite sul piano di gestione e dati.
 
 1. Aprire **Controllo di accesso (IAM)** sull'ambito, come gruppo di gestione, sottoscrizione, gruppo di risorse o risorsa, in cui si intende visualizzare i ruoli e autorizzazioni.
 
@@ -165,7 +165,7 @@ Per rimuovere un accesso mediante il controllo degli accessi in base al ruolo, s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esercitazione: Concedere l'accesso a un utente usando il controllo degli accessi in base al ruolo e il portale di Azure](quickstart-assign-role-user-portal.md)
-* [Esercitazione: Concedere l'accesso a un utente tramite il controllo degli accessi in base al ruolo e Azure PowerShell](tutorial-role-assignments-user-powershell.md)
-* [Risolvere i problemi relativi al controllo degli accessi in base al ruolo in Azure](troubleshooting.md)
-* [Organizzare le risorse con i gruppi di gestione di Azure ](../azure-resource-manager/management-groups-overview.md)
+* [Esercitazione: Concedere a un utente l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e il portale di Azure](quickstart-assign-role-user-portal.md)
+* [Esercitazione: Concedere a un utente l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+* [Risolvere i problemi del controllo degli accessi in base al ruolo per le risorse di Azure](troubleshooting.md)
+* [Organizzare le risorse con i gruppi di gestione di Azure ](../governance/management-groups/index.md)

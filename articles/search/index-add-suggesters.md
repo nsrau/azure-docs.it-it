@@ -1,7 +1,7 @@
 ---
 title: Aggiungere strumenti suggerimenti a un indice di Ricerca di Azure
 description: Abilita i campi per le azioni di completamento automatico delle query, in cui le query suggerite sono costituite da testo proveniente da campi di un indice di Ricerca di Azure.
-ms.date: 01/31/2019
+ms.date: 02/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 35025d69865aa6890e1cd921e31ac6c26c015789
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7128e4d3b0675775dc713451ef672b28a4991499
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007699"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269927"
 ---
 # <a name="add-suggesters-to-an-azure-search-index"></a>Aggiungere strumenti suggerimenti a un indice di Ricerca di Azure
 
@@ -34,9 +34,12 @@ Anche se uno **strumento suggerimenti** ha diverse proprietà, è principalmente
 
 Si può avere un solo **strumento suggerimenti** per ogni indice, in particolare uno **strumento suggerimenti** nella raccolta **strumento suggerimenti**.
 
-È possibile creare uno **strumento suggerimenti** in qualsiasi momento, ma l'impatto sull'indice varia in base ai campi. I nuovi campi aggiunti a uno strumento suggerimenti come parte dello stesso aggiornamento sono i meno impattanti, in quanto non è richiesta la ricompilazione di un indice. L'aggiunta di campi esistenti, tuttavia, cambia la definizione di un campo, per cui è necessario eseguire una ricompilazione completa dell'indice.
+## <a name="creating-a-suggester"></a>Creazione di uno strumento suggerimenti 
 
-## <a name="usage"></a>Uso  
+È possibile creare uno **strumento suggerimenti** in qualsiasi momento, ma l'impatto sull'indice varia in base ai campi. 
+
++ I nuovi campi aggiunti a uno strumento suggerimenti come parte dello stesso aggiornamento sono i meno impattanti, in quanto non è richiesta la ricompilazione di un indice.
++ L'aggiunta di campi esistenti a uno strumento suggerimenti, tuttavia, cambia la definizione di un campo e richiede quindi la ricompilazione completa dell'indice.
 
  Gli **strumenti suggerimenti** funzionano in modo ottimale quando vengono usati per suggerire documenti specifici anziché espressioni o termini separati. I campi che rappresentano i candidati migliori sono i titoli, i nomi e le altre frasi relativamente brevi che possono identificare un elemento. I campi meno efficaci sono quelli ripetitivi, come le categorie e i tag, o quelli molto lunghi, come le descrizioni o i commenti.  
 

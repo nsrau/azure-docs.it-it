@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 841c65fd8420fdfe681cb99ee7054cb4edd5fcd3
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 2cf9a98a2f27c9088266a976118acdb56f8a65d7
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53968990"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300823"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Creare dinamicamente e usare un volume persistente con File di Azure nel servizio Azure Kubernetes
 
@@ -22,36 +22,24 @@ Per altre informazioni sui volumi Kubernetes permanenti, vedere [Kubernetes pers
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster servizio Azure Kubernetes esistente. Se è necessario un cluster servizio Azure Kubernetes, vedere la Guida introduttiva su servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
+Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster servizio Azure Kubernetes, vedere la Guida introduttiva su servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
 È anche necessario che sia installata e configurata l'interfaccia della riga di comando di Azure versione 2.0.46 o successiva. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
-## <a name="create-a-storage-account"></a>Creare un account di archiviazione
+## <a name="create-a-storage-class"></a>Creare una classe di archiviazione
 
-Quando si crea in modo dinamico una condivisione di file di Azure come volume Kubernetes, è possibile usare qualsiasi account di archiviazione purché si trovi nel gruppo di risorse del **nodo** servizio Azure Kubernetes. Questo gruppo corrisponde a quello con il prefisso *MC_*, creato con il provisioning delle risorse per il cluster servizio Azure Kubernetes. Ottenere il nome del gruppo di risorse con il comando [az servizio Azure Kubernetes show][az-aks-show].
+Una classe di archiviazione permette di definire come creare una condivisione file di Azure. Nel gruppo di risorse *_MC* viene automaticamente creato un account di archiviazione da usare insieme alla classe di archiviazione per contenere le condivisioni file di Azure. Scegliere la [ridondanza di archiviazione di Azure][storage-skus] seguente per *skuName*:
 
-```azurecli
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
-
-MC_myResourceGroup_myAKSCluster_eastus
-```
-
-Usare il comando [az storage account create][az-storage-account-create] per creare l'account di archiviazione.
-
-Aggiornare `--resource-group` con il nome del gruppo di risorse ottenuto nell'ultimo passaggio e `--name` con il nome desiderato. Specificare un nome personalizzato univoco per l'account di archiviazione:
-
-```azurecli
-az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name mystorageaccount --sku Standard_LRS
-```
+* *Standard_LRS*: archiviazione con ridondanza locale standard
+* *Standard_GRS*: archiviazione con ridondanza geografica standard
+* *Standard_RAGRS*: archiviazione con ridondanza geografica e accesso in lettura standard
 
 > [!NOTE]
 > File di Azure attualmente funziona solo con l'archiviazione Standard. Se si usa l'archiviazione Premium, il provisioning del volume non riesce.
 
-## <a name="create-a-storage-class"></a>Creare una classe di archiviazione
+Per altre informazioni sulle classi di archiviazione Kubernetes per File di Azure, vedere [Kubernetes Storage Classes][kubernetes-storage-classes] (Classi di archiviazione Kubernetes).
 
-Una classe di archiviazione permette di definire come creare una condivisione file di Azure. Nella classe è possibile indicare un account di archiviazione. Se non si specifica alcun account di archiviazione, è necessario specificare un valore per *skuName* e *location*. Vengono quindi valutati tutti gli account di archiviazione nel gruppo di risorse associato per trovare una corrispondenza. Per altre informazioni sulle classi di archiviazione Kubernetes per File di Azure, vedere [Kubernetes Storage Classes][kubernetes-storage-classes] (Classi di archiviazione Kubernetes).
-
-Creare un file denominato `azure-file-sc.yaml` e copiarlo nell'esempio di manifesto seguente. Aggiornare il valore *storageAccount* con il nome dell'account di archiviazione creato nel passaggio precedente. Per altre informazioni su *mountOptions*, vedere la sezione [Opzioni di montaggio][mount-options].
+Creare un file denominato `azure-file-sc.yaml` e copiarlo nell'esempio di manifesto seguente. Per altre informazioni su *mountOptions*, vedere la sezione [Opzioni di montaggio][mount-options].
 
 ```yaml
 kind: StorageClass
@@ -66,7 +54,6 @@ mountOptions:
   - gid=1000
 parameters:
   skuName: Standard_LRS
-  storageAccount: mystorageaccount
 ```
 
 Creare la classe di archiviazione con il comando [kubectl apply][kubectl-apply]:
@@ -295,3 +282,4 @@ Altre informazioni sui volumi Kubernetes che usano File di Azure.
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-aks-show]: /cli/azure/aks#az-aks-show
+[storage-skus]: ../storage/common/storage-redundancy.md

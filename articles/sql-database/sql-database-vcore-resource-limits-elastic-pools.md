@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/072019
-ms.openlocfilehash: 4f025680c1c637f8b8475be2d5784d08e9e2343b
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.date: 02/15/2019
+ms.openlocfilehash: b0bd5c0ba8641bd287951168485be715a0b46224
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962010"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328674"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Limiti delle risorse per i pool elastici secondo il modello di acquisto basato su vCore
 
@@ -59,11 +59,11 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|N/D|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-\* Per il numero massimo di ruoli di lavoro (richieste) correnti per i singoli database, consultare [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md)
+\* Per il numero massimo di ruoli di lavoro simultanei (richieste) per i singoli database, vedere [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md). Se ad esempio il pool elastico usa la quinta generazione e il numero massimo di vCore per database è 2, il numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è 0,5, il numero massimo di ruoli di lavoro simultanei è 50 perché nella quinta generazione il numero massimo di ruoli di lavoro simultanei per vCore è 100.  Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>Livello di servizio Utilizzo generico: Piattaforma di calcolo Generazione 4 (parte 2)
 
-|Dimensione di calcolo|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
+|Dimensione di calcolo|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Generazione hardware|4|4|4|4|4|4|
 |vCore|7|8|9|10|16|24|
@@ -85,7 +85,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|N/D|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-\* Per il numero massimo di ruoli di lavoro (richieste) correnti per i singoli database, consultare [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md)
+\* Per il numero massimo di ruoli di lavoro simultanei (richieste) per i singoli database, vedere [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md). Se ad esempio il pool elastico usa la quinta generazione e il numero massimo di vCore per database è 2, il numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è 0,5, il numero massimo di ruoli di lavoro simultanei è 50 perché nella quinta generazione il numero massimo di ruoli di lavoro simultanei per vCore è 100.  Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>Livello di servizio Utilizzo generico: Piattaforma di calcolo Generazione 5 (parte 1)
 
@@ -111,7 +111,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-\* Per il numero massimo di ruoli di lavoro (richieste) correnti per i singoli database, consultare [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md)
+\* Per il numero massimo di ruoli di lavoro simultanei (richieste) per i singoli database, vedere [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md). Se ad esempio il pool elastico usa la quinta generazione e il numero massimo di vCore per database è 2, il numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è 0,5, il numero massimo di ruoli di lavoro simultanei è 50 perché nella quinta generazione il numero massimo di ruoli di lavoro simultanei per vCore è 100.  Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>Livello di servizio Utilizzo generico: Piattaforma di calcolo Generazione 5 (parte 2)
 
@@ -136,7 +136,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-\* Per il numero massimo di ruoli di lavoro (richieste) correnti per i singoli database, consultare [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md)
+\* Per il numero massimo di ruoli di lavoro simultanei (richieste) per i singoli database, vedere [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md). Se ad esempio il pool elastico usa la quinta generazione e il numero massimo di vCore per database è 2, il numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è 0,5, il numero massimo di ruoli di lavoro simultanei è 50 perché nella quinta generazione il numero massimo di ruoli di lavoro simultanei per vCore è 100.  Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
 ## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Livello di servizio business critical: dimensioni di archiviazione e di calcolo
 
@@ -164,7 +164,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-\* Per il numero massimo di ruoli di lavoro (richieste) correnti per i singoli database, consultare [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md)
+\* Per il numero massimo di ruoli di lavoro simultanei (richieste) per i singoli database, vedere [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md). Se ad esempio il pool elastico usa la quinta generazione e il numero massimo di vCore per database è 2, il numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è 0,5, il numero massimo di ruoli di lavoro simultanei è 50 perché nella quinta generazione il numero massimo di ruoli di lavoro simultanei per vCore è 100.  Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>Livello di servizio business critical: Piattaforma di calcolo Generazione 4 (parte 2)
 
@@ -190,7 +190,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-\* Per il numero massimo di ruoli di lavoro (richieste) correnti per i singoli database, consultare [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md)
+\* Per il numero massimo di ruoli di lavoro simultanei (richieste) per i singoli database, vedere [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md). Se ad esempio il pool elastico usa la quinta generazione e il numero massimo di vCore per database è 2, il numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è 0,5, il numero massimo di ruoli di lavoro simultanei è 50 perché nella quinta generazione il numero massimo di ruoli di lavoro simultanei per vCore è 100.  Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>Livello di servizio business critical: Piattaforma di calcolo Generazione 5 (parte 1)
 
@@ -216,7 +216,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-\* Per il numero massimo di ruoli di lavoro (richieste) correnti per i singoli database, consultare [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md)
+\* Per il numero massimo di ruoli di lavoro simultanei (richieste) per i singoli database, vedere [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md). Se ad esempio il pool elastico usa la quinta generazione e il numero massimo di vCore per database è 2, il numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è 0,5, il numero massimo di ruoli di lavoro simultanei è 50 perché nella quinta generazione il numero massimo di ruoli di lavoro simultanei per vCore è 100.  Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>Livello di servizio business critical: Piattaforma di calcolo Generazione 5 (parte 2)
 
@@ -242,7 +242,7 @@ Per informazioni sui limiti del modello di acquisto basato su DTU, vedere [Limit
 |Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
-\* Per il numero massimo di ruoli di lavoro (richieste) correnti per i singoli database, consultare [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md)
+\* Per il numero massimo di ruoli di lavoro simultanei (richieste) per i singoli database, vedere [Limiti delle risorse di database singoli](sql-database-vcore-resource-limits-single-databases.md). Se ad esempio il pool elastico usa la quinta generazione e il numero massimo di vCore per database è 2, il numero massimo di ruoli di lavoro simultanei è 200.  Se il numero massimo di vCore per database è 0,5, il numero massimo di ruoli di lavoro simultanei è 50 perché nella quinta generazione il numero massimo di ruoli di lavoro simultanei per vCore è 100.  Per le altre impostazioni in cui il numero massimo di vCore per database è pari a 1 vCore o meno, il numero massimo di ruoli di lavoro simultanei viene ridimensionato in modo analogo.
 
 Se tutti i vCore in un pool elastico sono occupati, ogni database nel pool riceve una quantità identica di risorse di calcolo per elaborare le query. Il servizio di database SQL suddivide equamente le risorse fra i database con intervalli equivalenti per i tempi di calcolo. L'equa condivisione delle risorse del pool elastico avviene in aggiunta a qualsiasi quantità di risorse altrimenti garantita per ogni database quando il numero minimo di vCore per database è impostato su un valore diverso da zero.
 
@@ -264,4 +264,4 @@ La tabella seguente descrive le proprietà per i database in pool.
 - Per i limiti delle risorse DTU per i pool elastici, vedere [Limiti delle risorse per i pool elastici secondo il modello di acquisto basato su DTU](sql-database-dtu-resource-limits-elastic-pools.md)
 - Per i limiti delle risorse delle istanze gestite, vedere [Limiti delle risorse dell'istanza gestita](sql-database-managed-instance-resource-limits.md).
 - Per informazioni sui limiti generici di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
-- Per informazioni sui limiti delle risorse in un server di database, vedere [Panoramica dei limiti delle risorse in un server di database SQL](sql-database-resource-limits-database-server.md).
+- Per informazioni sui limiti delle risorse in un server di database a livello di server e sottoscrizione, vedere [Panoramica dei limiti delle risorse in un server di database SQL](sql-database-resource-limits-database-server.md).

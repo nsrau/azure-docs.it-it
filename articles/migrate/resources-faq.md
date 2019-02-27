@@ -4,14 +4,14 @@ description: Risposte alle domande frequenti su Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 02/19/2019
 ms.author: snehaa
-ms.openlocfilehash: 1e60ee5060f5f292ed6d03cf0680d9801a0c04f4
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 9d1820215dd2b81edb694d71a1b9496237876d05
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746313"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416191"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Domande frequenti su Azure Migrate
 
@@ -118,6 +118,10 @@ I dati raccolti dall'appliance dell'agente di raccolta vengono archiviati nel pe
 
 Per la visualizzazione delle dipendenze, se si installano gli agenti nelle macchine virtuali, i dati raccolti dagli agenti di dipendenza vengono archiviati negli Stati Uniti in un'area di lavoro di Log Analytics creata nella sottoscrizione dell'utente. Tali dati vengono eliminati quando si elimina l'area di lavoro di Log Analytics nella sottoscrizione. [Altre informazioni](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization)
 
+### <a name="what-is-the-volume-of-data-which-is-uploaded-by-azure-migrate-in-the-case-of-continuous-profiling"></a>Qual è il volume di dati che viene caricato da Azure Migrate in caso di profilatura continua?
+
+Il volume di dati che viene inviato ad Azure Migrate potrebbe variare in base a diversi parametri. Per fornire un numero indicativo, un progetto con dieci computer (ognuno con un disco e una scheda di rete) invierebbe circa 50 MB al giorno. Si tratta di un valore approssimativo che potrebbe cambiare in base al numero di punti dati per le schede di rete e i dischi (i dati inviati sarebbero non lineari se aumentasse il numero di computer, schede di rete o dischi). 
+
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>I dati inattivi e in transito vengono crittografati?
 
 Sì, i dati inattivi e in transito raccolti vengono crittografati. I metadati raccolti dall'appliance vengono inviati in modo sicuro al servizio Azure Migrate su Internet tramite https. I metadati raccolti vengono archiviati [Cosmos DB ](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) e in [Archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) in una sottoscrizione Microsoft e vengono crittografati a riposo.
@@ -130,7 +134,7 @@ L'appliance dell'agente di raccolta si connette al server vCenter (porta 443) us
 
 ### <a name="can-i-connect-the-same-collector-appliance-to-multiple-vcenter-servers"></a>L'appliance dello stesso agente di raccolta può connettersi a più server vCenter?
 
-Sì, l'appliance d un singolo agente di raccolta può essere usata per individuare più server vCenter, ma non contemporaneamente. È necessario eseguire le individuazioni una di seguito all'altra.
+Sì, l'appliance d un singolo agente di raccolta può essere usata per individuare più server vCenter, ma non contemporaneamente. È necessario eseguire l'individuazione una di seguito all'altra.
 
 ### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>Il modello OVA usato da Site Recovery è integrato con il modello OVA usato da Azure Migrate?
 

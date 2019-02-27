@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 68f640f6962802c45ca369786c4e5d0d4f785fa6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 3f064769728d5d081c4a110e6c981c4b36aad384
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105078"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300585"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Come usare le identità gestite nel servizio app e in Funzioni di Azure
 
@@ -280,8 +280,8 @@ Per altre informazioni su Microsoft.Azure.Services.AppAuthentication e sulle rel
 
 Un'app con un'identità gestita ha due variabili di ambiente definite:
 
-- MSI_ENDPOINT
-- MSI_SECRET
+- MSI_ENDPOINT: URL del servizio token locale.
+- MSI_SECRET: intestazione usata per mitigare gli attacchi SSRF (Server Side Request Forgery). Il valore viene ruotato dalla piattaforma.
 
 **MSI_ENDPOINT** è un URL locale da cui l'app può richiedere token. Per ottenere un token per una risorsa, eseguire una richiesta HTTP GET a questo endpoint, includendo i parametri seguenti:
 
@@ -289,7 +289,7 @@ Un'app con un'identità gestita ha due variabili di ambiente definite:
 > |-----|-----|-----|
 > |resource|Query|URI della risorsa AAD per cui è necessario ottenere un token. Può trattarsi di uno dei [servizi di Azure che supportano l'autenticazione di Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) o di qualsiasi altro URI di risorsa.|
 > |api-version|Query|Versione dell'API del token da usare. Al momento, l'unica versione supportata è: "2017-09-01".|
-> |secret|Intestazione|Valore della variabile di ambiente MSI_SECRET.|
+> |secret|Intestazione|Valore della variabile di ambiente MSI_SECRET. Questa intestazione viene usata per mitigare gli attacchi SSRF (Server Side Request Forgery).|
 > |clientid|Query|(Facoltativo) L'ID dell'identità assegnata dall'utente da usare. Se omesso, viene usata l'identità assegnata dal sistema.|
 
 Una risposta 200 OK con esito positivo include un corpo JSON con le proprietà seguenti:

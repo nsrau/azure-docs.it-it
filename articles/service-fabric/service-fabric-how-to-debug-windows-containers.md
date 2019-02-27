@@ -11,16 +11,16 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/14/2018
+ms.date: 02/14/2019
 ms.author: twhitney, mikhegn
-ms.openlocfilehash: b38946f813185a4821520b8591b7fd72a5f0cce0
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 9801db8a38a8c21aea26b42f4fe01bd4a43988c5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300065"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311223"
 ---
-# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Procedura: eseguire il debug dei contenitori Windows in Azure Service Fabric con Visual Studio 2017
+# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Procedura: Eseguire il debug dei contenitori Windows in Azure Service Fabric con Visual Studio 2017
 
 Con Visual Studio 2017 Update 7 (15.7) è possibile eseguire il debug delle applicazioni .NET nei contenitori come servizi di Service Fabric. Questo articolo illustra come configurare l'ambiente ed eseguire il debug di un'applicazione .NET in un contenitore in esecuzione in un cluster di Service Fabric locale.
 
@@ -37,10 +37,10 @@ Con Visual Studio 2017 Update 7 (15.7) è possibile eseguire il debug delle appl
 1. Per supportare la risoluzione DNS tra i contenitori, sarà necessario configurare il cluster di sviluppo locale usando il nome del computer. Questa procedura è necessaria anche per indirizzare i servizi tramite il proxy inverso.
     1. Aprire PowerShell come amministratore
     2. Passare alla cartella di installazione del cluster SDK, in genere `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
-    3. Eseguire lo script `DevClusterSetup.ps1` con il parametro `-UseMachineName`
+    3. Esecuzione dello script `DevClusterSetup.ps1`
 
        ``` PowerShell
-         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
+         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1
        ```
 
     > [!NOTE]
@@ -54,18 +54,18 @@ Con Visual Studio 2017 Update 7 (15.7) è possibile eseguire il debug delle appl
 Di seguito sono elencate le limitazioni note per il debug dei contenitori in Service Fabric e le possibili risoluzioni:
 
 * L'uso di localhost per ClusterFQDNorIP non supporta la risoluzione DNS nei contenitori.
-    * Soluzione: configurare il cluster locale usando il nome del computer (vedere sopra)
+    * Risoluzione: configurare il cluster locale usando il nome del computer (vedere sopra)
 * Windows 10 in esecuzione in una macchina virtuale non reinvia la risposta DNS al contenitore.
-    * Soluzione: disabilitare l'offload del checksum UDP per IPv4 sulla scheda di interfaccia di rete delle macchine virtuali
+    * Risoluzione: disabilitare l'offload del checksum UDP per IPv4 sulla scheda di interfaccia di rete delle macchine virtuali
     * Tenere presente che questo influirà negativamente sulle prestazioni di rete del computer.
     * https://github.com/Azure/service-fabric-issues/issues/1061
 * La risoluzione dei servizi nella stessa applicazione tramite il nome del servizio DNS non funziona in Windows 10, se l'applicazione è stata distribuita tramite Docker Compose.
-    * Soluzione: usare servicename.applicationname per la risoluzione degli endpoint del servizio
+    * Risoluzione: usare servicename.applicationname per la risoluzione degli endpoint del servizio
     * https://github.com/Azure/service-fabric-issues/issues/1062
 * Se si usa l'indirizzo IP per ClusterFQDNorIP, la modifica dell'indirizzo IP primario nell'host interromperà la funzionalità DNS.
-    * Soluzione: ricreare il cluster usando il nuovo indirizzo IP primario nell'host o usare il nome del computer. Si tratta di un comportamento previsto da progettazione.
+    * Risoluzione: ricreare il cluster usando il nuovo indirizzo IP primario nell'host o usare il nome del computer. Si tratta di un comportamento previsto da progettazione.
 * Se il nome FQDN con cui è stato creato il cluster non è risolvibile nella rete, il DNS avrà esito negativo.
-    * Soluzione: ricreare il cluster locale usando l'indirizzo IP primario dell'host. Si tratta di un comportamento previsto da progettazione.
+    * Risoluzione: ricreare il cluster locale usando l'indirizzo IP primario dell'host. Si tratta di un comportamento previsto da progettazione.
 * Durante il debug di un contenitore, i log di Docker saranno disponibili solo nella finestra di output di Visual Studio, non tramite le API di Service Fabric, incluso Service Fabric Explorer
 
 ## <a name="debug-a-net-application-running-in-docker-containers-on-service-fabric"></a>Eseguire il debug di un'applicazione .NET in esecuzione in contenitori Docker in Service Fabric
@@ -81,4 +81,4 @@ Di seguito sono elencate le limitazioni note per il debug dei contenitori in Ser
     Visual Studio supporta i tipi di progetto console e ASP.NET per .NET e .NET Core.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle funzionalità di Service Fabric e dei contenitori, vedere la [panoramica dei contenitori di Service Fabric](service-fabric-containers-overview.md).
+Per altre informazioni sulle funzionalità di Service Fabric e dei contenitori, vedere: [Panoramica dei contenitori di Service Fabric](service-fabric-containers-overview.md).

@@ -17,16 +17,16 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b7515a5c22b98fb14499e07057ff52311fc6e67
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: acdd2f5cb345ca5c5462394ae5c6135ad43b2143
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744824"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415707"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Utilizzo di Azure per l'hosting e l'esecuzione di scenari con carichi di lavoro SAP
 
-Scegliendo Microsoft Azure, sarà possibile eseguire in modo affidabile gli scenari e i carichi di lavoro SAP mission critical in una piattaforma scalabile, conforme e comprovata per le aziende,  nonché ottenere la scalabilità, la flessibilità e la convenienza di Azure. Grazie alla partnership estesa tra Microsoft e SAP, è possibile eseguire applicazioni SAP in scenari di sviluppo/test e di produzione in Azure con il supporto completo. Da SAP NetWeaver a SAP S4/HANA, SAP BI, da Linux a Windows, da SAP HANA a SQL, viene offerto supporto per tutte le soluzioni.
+Scegliendo Microsoft Azure, sarà possibile eseguire in modo affidabile gli scenari e i carichi di lavoro SAP mission critical in una piattaforma scalabile, conforme e comprovata per le aziende,  nonché ottenere la scalabilità, la flessibilità e la convenienza di Azure. Grazie alla partnership estesa tra Microsoft e SAP, è possibile eseguire applicazioni SAP in scenari di sviluppo/test e di produzione in Azure con il supporto completo. Da SAP NetWeaver a SAP S/4HANA, SAP BI, da Linux a Windows, da SAP HANA a SQL, viene offerto supporto per tutte le soluzioni.
 
 Oltre all'hosting di scenari SAP NetWeaver con diversi DBMS in Azure, è possibile eseguire l'hosting di diversi altri scenari di carico di lavoro SAP, come SAP BI in Azure. 
 

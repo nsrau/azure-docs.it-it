@@ -8,23 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 81e846c6ffc0361b7154c962dbc047b9e5ae55e7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1056b8be113d56342aea8f83d5325737f7ecb93b
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872986"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308452"
 ---
 # <a name="face-detection-with-computer-vision"></a>Rilevamento volto con Visione artificiale
 
-Visione artificiale rileva i visi umani in un'immagine e genera le informazioni relative all'età, al sesso e al rettangolo per ogni viso rilevato. Visione artificiale fornisce un sottoinsieme delle funzionalità disponibili in [Viso](/azure/cognitive-services/face/) ed è possibile usare il servizio Viso per ottenere analisi più dettagliate, ad esempio l'identificazione dei visi e il rilevamento della posa.  
+Visione artificiale può rilevare i visi umani all'interno di un'immagine e generare l'età, il sesso e il rettangolo per ogni viso rilevato. 
+
+> [!NOTE]
+> Questa funzionalità è disponibile anche nel servizio [Viso](/azure/cognitive-services/face/). Vedere questa alternativa per analisi più dettagliate dei visi, tra cui l'identificazione dei visi e il rilevamento delle pose. 
 
 ## <a name="face-detection-examples"></a>Esempi di rilevamento di visi
 
-Il primo esempio illustra la risposta JSON restituita da Visione artificiale per un'immagine che contiene un solo viso umano.
+L'esempio seguente mostra la risposta JSON restituita da Visione artificiale per un'immagine che contiene un solo viso umano.
 
 ![Viso di donna su tetto - Analisi visione](./Images/woman_roof_face.png)
 
@@ -51,7 +54,7 @@ Il primo esempio illustra la risposta JSON restituita da Visione artificiale per
 }
 ```
 
-Il secondo esempio illustra la risposta JSON restituita per un'immagine che contiene più visi umani.
+L'esempio successivo mostra la risposta JSON restituita per un'immagine che contiene più visi umani.
 
 ![Viso foto di famiglia - Analisi visione](./Images/family_photo_face.png)
 
@@ -110,4 +113,4 @@ Il secondo esempio illustra la risposta JSON restituita per un'immagine che cont
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Concetti relativi al [rilevamento di contenuti specifici di dominio](concept-detecting-domain-content.md).
+Per altre informazioni su come usare la funzionalità di rilevamento volto, vedere la documentazione di riferimento di [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3cb868da60d56728e5d0c450ab362d6f381b90ea
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 6ef8498ae1aa9be0322f508b3723778311e2cdd5
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756564"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327783"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP
 
@@ -249,7 +249,7 @@ ms.locfileid: "55756564"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../windows/premium-storage.md
+[storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -357,7 +357,7 @@ Per determinare la giusta quantità di spazio per i file temporanei, è possibil
 ### <a name="storage-configuration"></a>Configurazione dell'archiviazione
 È supportato solo Oracle a istanza singola, con dischi formattati NTFS. Tutti i file di database devono essere archiviati nel file system NTFS in Managed Disks (consigliato) o in dischi rigidi virtuali. Questi dischi vengono montati nella macchina virtuale di Azure e si basano sull'[archiviazione BLOB di pagine di Azure](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) o su [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
 
-È consigliabile usare [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). È anche caldamente consigliato l'uso di [Archiviazione Premium di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) per le distribuzioni di Oracle Database.
+È consigliabile usare [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). È anche caldamente consigliato l'uso di [dischi SSD Premium](../../windows/disks-types.md) per le distribuzioni di Oracle Database.
 
 Le unità di rete o le condivisioni remote, come i servizi file di Azure, non sono supportate per i file di Oracle Database. Per altre informazioni, vedere:
 
@@ -444,11 +444,11 @@ In questo caso, è consigliabile installare/posizionare la directory principale 
 
 ### <a name="storage-configuration"></a>Configurazione dell'archiviazione
 
-I file system ext4, xfs o Oracle ASM sono supportati per i file di Oracle Database in Azure. Tutti i file di database devono essere archiviati in questi file system basati su dischi rigidi virtuali o Managed Disks. Questi dischi vengono montati nella macchina virtuale di Azure e si basano sull'[archiviazione BLOB di pagine di Azure](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) o su [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
+I file system ext4, xfs o Oracle ASM sono supportati per i file di Oracle Database in Azure. Tutti i file di database devono essere archiviati in questi file system basati su dischi rigidi virtuali o Managed Disks. Questi dischi vengono montati nella macchina virtuale di Azure e si basano sull'[archiviazione BLOB di pagine di Azure](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) o su [Azure Managed Disks](../../windows/managed-disks-overview.md).
 
-Per i kernel Oracle Linux UEK, è necessario almeno il kernel UEK versione 4 per supportare [Archiviazione Premium di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#premium-storage-for-linux-vms).
+Per i kernel Oracle Linux UEK, è necessario almeno il kernel UEK versione 4 per supportare [dischi SSD Premium di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-caching).
 
-È consigliabile usare [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). È anche caldamente consigliato l'uso di [Archiviazione Premium di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) per le distribuzioni di Oracle Database.
+Si consiglia altamente di usare [Azure Managed Disks](../../windows/managed-disks-overview.md). Inoltre è altamente consigliabile usare [dischi SSD Premium di Azure](../../windows/disks-types.md) per le distribuzioni di Oracle Database.
 
 Le unità di rete o le condivisioni remote, come i servizi file di Azure, non sono supportate per i file di Oracle Database. Per altre informazioni, vedere gli argomenti seguenti:  
 

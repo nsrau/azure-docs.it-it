@@ -7,13 +7,13 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 1/14/2019
-ms.openlocfilehash: 8d5fc1c579fd09f1a71d63dce4d1673ef5a8652b
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.date: 2/18/2019
+ms.openlocfilehash: 4fd0f0990163963fc0cc3c7caf221609da487909
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354621"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340179"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Inserimento dati in Esplora dati di Azure
 
@@ -39,15 +39,21 @@ Il servizio di gestione dei dati Esplora dati di Azure, responsabile dell'inseri
 
 Esplora dati di Azure supporta diversi metodi di inserimento, ognuno dei quali presenta scenari di destinazione, vantaggi e svantaggi. Esplora dati di Azure offre pipeline e connettori ai servizi comuni, funzioni di inserimento a livello di codice tramite SDK e accesso diretto al motore per scopi di esplorazione.
 
-### <a name="ingestion-using-pipelines"></a>Inserimento tramite pipeline
+### <a name="ingestion-using-pipelines-connectors-and-plugins"></a>Inserimento tramite pipeline, connettori e plug-in
 
-Esplora dati di Azure supporta attualmente la pipeline di Hub eventi, che può essere gestita usando la gestione guidata nel portale di Azure. Per altre informazioni, vedere [Avvio rapido: Inserire dati dall'hub eventi in Esplora dati di Azure](ingest-data-event-hub.md).
+Esplora dati di Azure attualmente supporta:
 
-### <a name="ingestion-using-connectors-and-plugins"></a>Inserimento tramite connettori e plug-in
+* Pipeline di Griglia di eventi, che può essere gestita usando la procedura guidata di gestione nel portale di Azure. Per altre informazioni, vedere [Inserire BLOB di Azure in Esplora dati di Azure](ingest-data-event-grid.md).
 
-* Esplora dati di Azure supporta il plug-in Logstash. Per altre informazioni, vedere [Logstash Output Plugin for Azure Data Explorer](https://github.com/Azure/logstash-output-kusto/blob/master/README.md) (Plug-in per output Logtash per Esplora dati di Azure).
+* Pipeline di Hub eventi, che può essere gestita usando la procedura guidata di gestione nel portale di Azure. Per altre informazioni, vedere [Inserire dati dall'hub eventi in Esplora dati di Azure](ingest-data-event-hub.md).
 
-* Esplora dati di Azure supporta il connettore Kafka. Per altre informazioni, vedere [Avvio rapido: Inserire dati da Kafka in Esplora dati di Azure](ingest-data-kafka.md)
+* Plug-in Logstash, vedere [Inserire dati da Logstash in Esplora dati di Azure](ingest-data-logstash.md).
+
+* Connettore Kafka, vedere [Inserire dati da Kafka in Esplora dati di Azure](ingest-data-kafka.md).
+
+### <a name="ingestion-using-integration-services"></a>Inserimento tramite servizi di integrazione
+
+* Azure Data Factory (ADF), un servizio di integrazione dei dati completamente gestito per carichi di lavoro di analisi in Azure, per copiare i dati in e da Esplora dati di Azure. Per altre informazioni, vedere [Copiare dati in o da Esplora dati di Azure usando Azure Data Factory](/azure/data-factory/connector-azure-data-explorer).
 
 ### <a name="programmatic-ingestion"></a>Inserimento a livello di codice
 
@@ -131,21 +137,27 @@ Per tutti i metodi di inserimento diversi dall'inserimento da query, formattare 
 Il mapping dello schema consente di associare i campi dati di origine alle colonne della tabella di destinazione.
 
 * Il [mapping CSV](/azure/kusto/management/mappings?branch=master#csv-mapping) (facoltativo) funziona con tutti i formati basati su numeri ordinali. Può essere eseguito tramite il parametro del comando di inserimento o [creato anticipatamente nella tabella](/azure/kusto/management/tables?branch=master#create-ingestion-mapping) e definito come riferimento nel parametro del comando di inserimento.
-* Il [mapping JSON](/azure/kusto/management/mappings?branch=master#json-mapping) (obbligatorio) e il [mapping Avro](/azure/kusto/management/mappings?branch=master#avro-mapping) (obbligatorio) possono essere eseguiti tramite il parametro del comando di inserimento o [creati anticipatamente nella tabella](/azure/kusto/management/tables#create-ingestion-mapping) e definiti come riferimento nel parametro del comando di inserimento.
+* Il [mapping JSON](/azure/kusto/management/mappings?branch=master#json-mapping) (obbligatorio) e il [mapping Avro](/azure/kusto/management/mappings?branch=master#avro-mapping) (obbligatorio) possono essere eseguiti tramite il parametro del comando di inserimento. In alternativa, è possibile [crearli anticipatamente nella tabella](/azure/kusto/management/tables#create-ingestion-mapping) e farvi riferimento nel parametro del comando di inserimento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Avvio rapido: Inserire dati dall'hub eventi in Esplora dati di Azure](ingest-data-event-hub.md)
+> [Inserire dati dall'hub eventi in Esplora dati di Azure](ingest-data-event-hub.md)
 
 > [!div class="nextstepaction"]
-> [Avvio rapido: Inserire dati da Kafka in Esplora dati di Azure](ingest-data-kafka.md)
+> [Inserire dati in Esplora dati di Azure tramite una sottoscrizione di Griglia di eventi](ingest-data-event-grid.md)
 
 > [!div class="nextstepaction"]
-> [Avvio rapido: Inserire dati usando la libreria di Esplora dati di Azure per Python](python-ingest-data.md)
+> [Inserire dati da Kafka in Esplora dati di Azure](ingest-data-kafka.md)
 
 > [!div class="nextstepaction"]
-> [Avvio rapido: Inserire dati usando la libreria Node di Esplora dati di Azure](node-ingest-data.md)
+> [Inserire dati usando la libreria di Esplora dati di Azure per Python](python-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [Avvio rapido: Inserire dati usando .NET Standard SDK di Esplora dati di Azure (anteprima)](net-standard-ingest-data.md)
+> [Inserire dati usando la libreria Node di Esplora dati di Azure](node-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [Inserire dati usando .NET Standard SDK di Esplora dati di Azure (anteprima)](net-standard-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [Inserire dati da Logstash in Esplora dati di Azure](ingest-data-logstash.md)

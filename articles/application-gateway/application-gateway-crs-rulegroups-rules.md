@@ -12,12 +12,12 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 4/16/2018
 ms.author: victorh
-ms.openlocfilehash: 15a86410e8ca853c2ca2431cb9a62de628972703
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: b45e782984f637f1b084ec757000dde9dd3a5777
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320102"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302037"
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Elenco delle regole e dei gruppi di regole CRS del Web application firewall disponibili
 
@@ -27,6 +27,11 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 
 ## <a name="owasp30"></a> OWASP_3.0
 
+### <a name="General"></a> <p x-ms-format-detection="none">Generale</p>
+
+|ID regola|DESCRIZIONE|
+|---|---|
+|200004|Possibile limite multiparte senza corrispondenza.|
 
 ### <a name="crs911"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 
@@ -239,6 +244,8 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 |941290|Filtri XSS IE: rilevato attacco|
 |941300|Filtri XSS IE: rilevato attacco|
 |941310|Filtro XSS per codifica US-ASCII in formato non valido: rilevato attacco|
+|941330|Filtri XSS IE: rilevato attacco|
+|941340|Filtri XSS IE: rilevato attacco|
 |941350|XSS IE con codifica UTF-7: rilevato attacco|
 |941013|Regola 941013|
 |941014|Regola 941014|
@@ -255,18 +262,29 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 |942011|Regola 942011|
 |942012|Regola 942012|
 |942100|Rilevato attacco SQL injection tramite libinjection|
+|942110|Attacco SQL injection: rilevato test injection comune|
+|942130|Attacco SQL injection: rilevata tautologia SQL.|
 |942140|Attacco SQL injection: rilevati nomi DB comuni|
 |942160|Rilevamento test di blind SQL injection con sleep() o benchmark()|
 |942170|Rilevamento tentativi di SQL injection con benchmark e sleep e query condizionali|
+|942190|Rileva l'esecuzione di codice MSSQL e tentativi di raccolta di informazioni|
+|942200|Rileva injection offuscati nello spazio/con commento MySQL e terminazioni con apice inverso|
 |942230|Rilevamento tentativi di SQL injection condizionale|
+|942260|Rileva tentativi di ignorare l'autenticazione SQL di base (2/3)|
 |942270|Ricerca di SQL injection di base. Stringa di attacco comune per MySQL, Oracle e altri|
 |942290|Ricerca tentativi di SQL injection di base in MongoDB|
+|942300|Rileva ch(a)r injection, condizioni e commenti MySQL|
 |942320|Rilevamento inserimenti di stored procedure/funzioni MySQL e PostgreSQL|
+|942330|Rileva sondaggi di SQL injection classici (1/2)|
+|942340|Rileva tentativi di ignorare l'autenticazione SQL di base (3/3)|
 |942350|Rilevamento di inserimento di funzioni definite dall'utente MySQL e altri tentativi di manipolazione dati/struttura|
+|942360|Rileva tentativi SQL/LFI e di SQL injection di base concatenati|
+|942370|Rileva sondaggi di SQL injection classici (2/2)|
 |942013|Regola 942013|
 |942014|Regola 942014|
 |942150|Attacco SQL injection|
 |942410|Attacco SQL injection|
+|942430|Rilevamento anomalie caratteri SQL con restrizioni (args): n. di caratteri speciali in eccesso (12)|
 |942440|Rilevata sequenza commenti SQL|
 |942450|Identificata codifica esadecimale SQL|
 |942015|Regola 942015|
@@ -550,6 +568,6 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come disabilitare le regole WAF, vedere l'articolo su come [personalizzare le regole del Web application firewall](application-gateway-customize-waf-rules-portal.md)
+Per informazioni su come disabilitare le regole WAF, vedere l'articolo: [Personalizzare le regole del web application firewall](application-gateway-customize-waf-rules-portal.md)
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png

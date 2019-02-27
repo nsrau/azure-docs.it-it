@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: faeba611dfc55307f8f855ee45a1a8d37603f2f5
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 0c7f248023a97bdad09c2c51e9e9a28073def086
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117385"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300126"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnostica completa per servizi e app Web con Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Funzione di Application Insights
-Application Insights consente di monitorare l'app Web in esecuzione, segnalando errori e problemi di prestazioni e aiutando ad analizzare l'utilizzo dell'app da parte dei clienti. Può essere utilizzato per le app in esecuzione su molte piattaforme (ASP.NET, J2EE, Node.js, ...) e può essere ospitato nel cloud oppure in locale. 
+Application Insights consente di monitorare l'app Web in esecuzione, segnalando errori e problemi di prestazioni e aiutando ad analizzare l'utilizzo dell'app da parte dei clienti. Può essere utilizzato per le app in esecuzione su molte piattaforme (ASP.NET, Java EE, Node.js, ...) e può essere ospitato nel cloud oppure in locale. 
 
 ![Aspetti della complessità della distribuzione di app Web](./media/devops/010.png)
 

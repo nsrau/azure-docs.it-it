@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: hascipio; v-divte; v-miclar
-ms.openlocfilehash: 535a947f7a4b9c750d585ce854a14be80c4a135c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 381f88c4641417bceca0f988d4b1a187aedaa642
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639156"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327307"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Domande frequenti sui problemi comuni che si verificano durante la creazione di dischi rigidi virtuali
 
@@ -27,7 +27,7 @@ Le domande frequenti seguenti sono relative a problemi comuni che si sono verifi
 
 ## <a name="how-do-you-create-a-vm-from-the-azure-portal-using-the-vhd-that-is-uploaded-to-premium-storage"></a>Come viene creata una macchina virtuale nel portale di Azure usando il disco rigido virtuale caricato in Archiviazione Premium?
 
-Azure Marketplace non supporta attualmente la creazione di offerte di macchine virtuali da immagini che risiedono nell'archiviazione gestita o da Archiviazione Premium di Azure.  Per altre informazioni su tali opzioni di archiviazione, vedere [Panoramica di Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) e [Archiviazione Premium a prestazioni elevate e dischi gestiti per le macchine virtuali](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).
+Azure Marketplace non supporta attualmente la creazione di offerte di macchine virtuali da immagini che risiedono nell'archiviazione gestita o da Archiviazione Premium di Azure.  Per altre informazioni sulle opzioni di archiviazione, vedere [Panoramica di Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
 
 
 ## <a name="can-you-use-generation-2-vms-for-offers"></a>È possibile usare macchine virtuali di generazione 2 per le offerte?
@@ -73,7 +73,7 @@ Sì, se ospitate in Azure.  Azure assegna un identificatore univoco denominato I
 
 ## <a name="in-a-vm-how-do-you-manage-the-custom-script-extension-in-the-startup-task"></a>In una macchina virtuale com'è possibile gestire l'estensione di script personalizzato nell'attività di avvio?
 
-L'articolo seguente descrive in dettaglio come usare l'estensione di script personalizzato usando il modulo Azure PowerShell e i modelli di Azure Resource Manager, nonché le operazioni di risoluzione dei problemi in Windows: [Estensione di script personalizzati per Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
+L'articolo seguente descrive come usare l'estensione di script personalizzata con il modulo Azure PowerShell e i modelli di Azure Resource Manager e inoltre illustra i passaggi per la risoluzione dei problemi nei sistemi Windows: [Estensione script personalizzata per Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
 
 
 ## <a name="are-32-bit-applications-or-services-supported-in-the-azure-marketplace"></a>Le applicazioni o i servizi a 32 bit sono supportati in Azure Marketplace?
@@ -86,7 +86,7 @@ Per altre informazioni, vedere gli articoli seguenti:
 - [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) (Supporto software di server Microsoft per macchine virtuali di Microsoft Azure)
 
 
-## <a name="every-time-i-try-to-create-an-image-from-my-vhds-i-get-the-error-vhd-is-already-registered-with-image-repository-as-the-resource-in-powershell-i-did-not-create-any-image-before-nor-did-i-find-any-image-with-this-name-in-azure-how-do-i-resolve-this-issue"></a>Ogni volta che si tenta di creare un'immagine dai dischi rigidi virtuali, in PowerShell viene visualizzato l'errore `.VHD is already registered with image repository as the resource`, anche se non è stato creato alcun tipo di risorsa in precedenza, né è stata trovata un'immagine con questo nome in Azure. Come si risolve questo problema?
+## <a name="every-time-i-try-to-create-an-image-from-my-vhds-i-get-the-error-vhd-is-already-registered-with-image-repository-as-the-resource-in-powershell-i-did-not-create-any-image-before-nor-did-i-find-any-image-with-this-name-in-azure-how-do-i-resolve-this-issue"></a>Ogni volta che si tenta di creare un'immagine dai dischi rigidi virtuali, in PowerShell viene visualizzato l'errore `.VHD is already registered with image repository as the resource`, Ma non ho creato alcun tipo di risorsa in precedenza, né ho trovato un'immagine con questo nome in Azure. Come si risolve questo problema?
 
 Questo problema si verifica in genere se l'utente esegue il provisioning di una macchina virtuale da un disco rigido virtuale con un blocco.  Verificare che da questo disco rigido virtuale non sia presente alcuna macchina virtuale, quindi ripetere l'operazione.  Se il problema persiste, aprire un ticket di supporto, come illustrato in [Supporto per il portale Cloud Partner](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal). 
 

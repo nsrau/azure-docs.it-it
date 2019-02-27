@@ -4,15 +4,15 @@ description: Compromessi nella disponibilità e nelle prestazioni per vari livel
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/20/2018
+ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ee0dc1bec39bf95cbf4f3bf7ecea92b877a78b88
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 99b981e6b5c9bc56c10b0491474c0c8773291b7e
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113754"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309200"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compromessi tra coerenza, disponibilità e prestazioni 
 
@@ -44,22 +44,23 @@ La latenza RTT esatta è una funzione della velocità della luce e la topologia 
 
 - Per un determinato tipo di operazione di scrittura (come inserimento, sostituzione, upsert ed eliminazione), la velocità effettiva di scrittura per le unità di richieste è identica per tutti i livelli di coerenza.
 
-## <a name="consistency-levels-and-data-durability"></a>Livelli di coerenza e durabilità dei dati
+## <a id="rto"></a>Livelli di coerenza e durabilità dei dati
 
-All'interno di un ambiente di database distribuito a livello globale sussiste una relazione diretta tra il livello di coerenza e la durabilità dei dati in presenza di un'interruzione a livello di area. La tabella definisce la relazione tra il modello di coerenza e la durabilità dei dati in presenza di un'interruzione a livello di area. È importante notare che in un sistema distribuito, anche con coerenza assoluta, non è possibile disporre di un database distribuito con RPO e RTO pari a zero per il teorema CAP. Per altre informazioni sul motivo di questa affermazione, vedere  [Livelli di coerenza in Azure Cosmos DB](consistency-levels.md).
+All'interno di un ambiente di database distribuito a livello globale sussiste una relazione diretta tra il livello di coerenza e la durabilità dei dati in presenza di un'interruzione a livello di area. Quando si sviluppa il piano di continuità aziendale, è necessario conoscere il tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo un evento di arresto improvviso. Il tempo necessario per il ripristino completo di un'applicazione è noto come obiettivo del tempo di ripristino (RTO). È anche necessario conoscere la perdita massima di aggiornamenti di dati recenti che l'applicazione è in grado di tollerare durante il ripristino dopo un evento di arresto improvviso. Il periodo di tempo degli aggiornamenti che è possibile perdere è noto come obiettivo del punto di ripristino (RPO).
+
+La tabella definisce la relazione tra il modello di coerenza e la durabilità dei dati in presenza di un'interruzione a livello di area. È importante notare che in un sistema distribuito, anche con coerenza assoluta, non è possibile avere un database distribuito con RPO e RTO pari a zero per il teorema CAP. Per altre informazioni sul motivo di questa affermazione, vedere  [Livelli di coerenza in Azure Cosmos DB](consistency-levels.md).
 
 |**Area/e**|**Modalità di replica**|**Livello di coerenza**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
 |1|Master singolo o multimaster|Qualsiasi livello di coerenza|< 240 minuti|<1 settimana|
 |>1|Master singolo|Sessione, Prefisso coerente, Finale|< 15 minuti|< 15 minuti|
-|>1|Master singolo|Decadimento ristretto|K e T*|< 15 minuti|
+|>1|Master singolo|Decadimento ristretto|K e T|< 15 minuti|
 |>1|Multimaster|Sessione, Prefisso coerente, Finale|< 15 minuti|0|
-|>1|Multimaster|Decadimento ristretto|K e T*|0|
+|>1|Multimaster|Decadimento ristretto|K e T|0|
 |>1|Master singolo o multimaster|Assoluta|0|< 15 minuti|
 
-* K e T = numero di versioni "K" (aggiornamenti) di un elemento. O intervallo di tempo "T".
-
-
+K = numero di versioni "K" (aggiornamenti) di un elemento.
+T = intervallo di tempo "T" dall'ultimo aggiornamento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

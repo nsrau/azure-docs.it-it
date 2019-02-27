@@ -1,6 +1,6 @@
 ---
-title: Gestire l'accesso di utenti esterni con il controllo degli accessi in base al ruolo in Azure | Microsoft Docs
-description: Informazioni su come gestire l'accesso di utenti esterni a un'organizzazione tramite il controllo degli accessi in base al ruolo in Azure.
+title: Gestire l'accesso alle risorse di Azure per utenti esterni usando il controllo degli accessi in base al ruolo | Microsoft Docs
+description: Informazioni su come gestire l'accesso alle risorse di Azure per utenti esterni a un'organizzazione tramite il controllo degli accessi in base al ruolo.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: aec12e6dc7d331b2610546d0b0c92fa6ce0789ee
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 770a5e61f549a10c8b313ed4d137f56dda45769e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284524"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343861"
 ---
-# <a name="manage-access-for-external-users-using-rbac"></a>Gestire l'accesso di utenti esterni tramite il controllo degli accessi in base al ruolo
+# <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>Gestire l'accesso alle risorse di Azure per utenti esterni usando il controllo degli accessi in base al ruolo
 
 Il controllo degli accessi in base al ruolo (RBAC) consente una migliore gestione della sicurezza nelle organizzazioni di grandi dimensioni e nelle piccole e medie imprese che si avvalgono di collaboratori esterni, fornitori o freelance che hanno necessità di accedere a risorse specifiche nell'ambiente, ma non necessariamente all'intera infrastruttura o agli ambiti correlati alla fatturazione. Il controllo degli accessi in base al ruolo consente la flessibilità di possedere una sottoscrizione di Azure gestita dall'account di amministratore (ruolo di amministratore del servizio a livello di sottoscrizione) e di invitare più utenti a usare la stessa sottoscrizione ma senza i diritti amministrativi.
 
@@ -55,7 +55,7 @@ Dopo avere selezionato la sottoscrizione, l'utente amministratore deve fare clic
 
 ![aggiungere un nuovo utente nella funzione IAM di controllo di accesso nel portale di Azure](./media/role-assignments-external-users/2.png)
 
-Il passaggio successivo consiste nel selezionare il ruolo da assegnare e l'utente a cui verrà assegnato il ruolo di controllo degli accessi in base al ruolo. Nel menu a discesa **Ruolo** l'utente amministratore vede solo i ruoli predefiniti di controllo degli accessi in base al ruolo disponibili in Azure. Per una descrizione più dettagliata di ogni ruolo e dei relativi ambiti assegnabili, vedere [Ruoli predefiniti](built-in-roles.md).
+Il passaggio successivo consiste nel selezionare il ruolo da assegnare e l'utente a cui verrà assegnato il ruolo di controllo degli accessi in base al ruolo. Nel menu a discesa **Ruolo** l'utente amministratore vede solo i ruoli predefiniti di controllo degli accessi in base al ruolo disponibili in Azure. Per una descrizione più dettagliata di ogni ruolo e dei relativi ambiti assegnabili, vedere [Ruoli predefiniti per le risorse di Azure](built-in-roles.md).
 
 L'utente amministratore deve quindi aggiungere l'indirizzo e-mail dell'utente esterno. Per l'utente esterno il comportamento previsto è quello di non essere visibile nel tenant esistente. Dopo che è stato invitato, l'utente esterno sarà visibile in **Sottoscrizioni > Controllo di accesso (IAM)** con tutti gli utenti correnti assegnati attualmente a un ruolo di controllo degli accessi in base al ruolo nell'ambito della sottoscrizione.
 

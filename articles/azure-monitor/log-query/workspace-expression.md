@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
-ms.openlocfilehash: 1d1bb3c99c82683dde9247da86e80d800fe06631
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 933d37f576d0b8507d2311a3e31e34182a0a2e69
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992985"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269836"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Espressione workspace() nelle query di log di Monitoraggio di Azure
 
@@ -33,7 +33,7 @@ L'espressione `workspace` viene usata in una query di Monitoraggio di Azure per 
 
 - *Identificatore*: identifica l'area di lavoro usando uno dei formati indicati nella tabella seguente.
 
-| Identificatore | Descrizione | Esempio
+| Identificatore | DESCRIZIONE | Esempio
 |:---|:---|:---|
 | Nome risorsa | Nome leggibile dell'area di lavoro (noto anche come "nome componente") | workspace("contosoretail") |
 | Nome completo | Nome completo dell'area di lavoro nel formato: "subscriptionName/resourceGroup/componentName" | workspace('Contoso/ContosoResource/ContosoWorkspace') |
@@ -73,4 +73,4 @@ union
 
 - Vedere l'articolo sull'[espressione app](app-expression.md) per fare riferimento a un'app Application Insights.
 - Vedere altre informazioni su come vengono archiviati i [dati di Monitoraggio di Azure](log-query-overview.md).
-- Accedere alla documentazione completa relativa al [linguaggio di query di Esplora dati](/azure/kusto/query/).
+- Accedere alla documentazione completa relativa al [linguaggio di query Kusto](/azure/kusto/query/).

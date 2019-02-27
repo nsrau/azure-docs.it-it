@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 1/29/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 85c5947fa32751bd8381d6a1d59e91ba2026f5f0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: be6823486490ca6bc414e89c62a22f996aa27089
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822783"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329949"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Abilitare la replica per le macchine virtuali VMware in Azure
 
@@ -88,7 +88,7 @@ Successivamente, verificare le proprietà del computer di origine. Tenere presen
 2. In **Proprietà** sono disponibili le informazioni su replica e failover per la VM.
 3. In **Calcolo e rete** > **Proprietà di calcolo** è possibile modificare diverse proprietà della macchina virtuale:
 * Nome della macchina virtuale di Azure: se necessario, modificare il nome in modo che sia conforme ai requisiti di Azure.
-* Dimensione o tipo della macchina virtuale di destinazione: il valore predefinito della dimensione della macchina virtuale viene scelto in base alla dimensione della macchina virtuale di origine. È possibile selezionare una dimensione diversa per la macchina virtuale in base alle necessità in qualsiasi momento prima del failover. Si noti che la dimensione del disco della macchina virtuale si basa anche sulla dimensione del disco di origine e può essere modificata solo dopo il failover. Altre informazioni sulle dimensioni dei dischi [Standard](../virtual-machines/windows/disks-standard-ssd.md#scalability-and-performance-targets) e [Premium](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets) e sulle operazioni di I/O al secondo.
+* Dimensione o tipo della macchina virtuale di destinazione: il valore predefinito della dimensione della macchina virtuale viene scelto in base alla dimensione della macchina virtuale di origine. È possibile selezionare una dimensione diversa per la macchina virtuale in base alle necessità in qualsiasi momento prima del failover. Si noti che la dimensione del disco della macchina virtuale si basa anche sulla dimensione del disco di origine e può essere modificata solo dopo il failover. Altre informazioni su dimensioni dei dischi e IOPS sono disponibili nell'articolo [Obiettivi di scalabilità per i dischi](../virtual-machines/windows/disk-scalability-targets.md).
 
     ![Proprietà di Calcolo e rete](./media/vmware-azure-enable-replication/vmproperties.png)
 

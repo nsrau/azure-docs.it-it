@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4f8929182995445ff0b327bc22a9cdf75ec5641b
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 17c493568953265ac12ebccc680652ed5da6ae4d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262585"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312992"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed di Power BI da Application Insights
 [Power BI](https://www.powerbi.com/) è un insieme di strumenti aziendali che consente di analizzare i dati e condividere informazioni dettagliate e significative. Dashboard completi sono disponibili in tutti i dispositivi. È possibile combinare dati provenienti da diverse origini, incluse le query di Analytics di [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -26,7 +26,7 @@ Esistono tre metodi per esportare i dati di Application Insights in Power BI:
 
 * [**Esportare query di Analisi**](#export-analytics-queries). Questo è il metodo preferito. Scrivere le query desiderate ed esportarle in Power BI. La query può essere inserita in un dashboard, insieme a tutti gli altri dati.
 * [**Esportazione continua e Analisi di flusso di Azure**](../../azure-monitor/app/export-stream-analytics.md). Questo metodo è utile se i dati devono essere archiviati per lunghi periodi. Se non si dispone di un requisito di conservazione dati esteso, usare il metodo di esportazione query di analisi. Esportazione continua e analisi di flusso comportano una configurazione più impegnativa e un overhead di archiviazione aggiuntivo.
-* [**Adattatore Power BI**](#power-pi-adapter). Il set di tabelle è predefinito, ma è possibile aggiungere query da qualsiasi altra origine.
+* **Adattatore Power BI**. Il set di tabelle è predefinito, ma è possibile aggiungere query da qualsiasi altra origine.
 
 > [!NOTE]
 > L'adattatore Power BI è ora **deprecato**. I grafici predefiniti per questa soluzione vengono popolati da query statiche non modificabili. Non è possibile modificare queste query e, a seconda di alcune proprietà dei dati, è possibile che la connessione a Power BI abbia esito positivo, ma nessun dato viene popolato. Ciò è dovuto ai criteri di esclusione impostati all'interno della query hardcoded. Anche se questa soluzione può comunque funzionare per alcuni clienti, a causa della mancanza di flessibilità dell'adattatore la soluzione consigliata consiste nell'usare la funzionalità di [**esportazione query di Analisi**](#export-analytics-queries).

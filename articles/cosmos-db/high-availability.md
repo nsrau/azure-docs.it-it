@@ -4,15 +4,15 @@ description: In questo articolo viene descritto come Azure Cosmos DB garantisce 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: fc818d2d7db60a8def99c2ad635580253dc795e0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: b5e99b421e66f087a1793f5301736e192ef75c08
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109759"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311240"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Disponibilità elevata con Azure Cosmos DB
 
@@ -64,19 +64,7 @@ Le interruzioni a livello di area sono abbastanza comuni e Azure Cosmos DB garan
 
 - Anche se l'account Cosmos è a disponibilità elevata, l'applicazione potrebbe non essere correttamente progettata per garantire disponibilità elevata. Per testare la disponibilità elevata end-to-end dell'applicazione, richiamare periodicamente il [failover manuale usando l'interfaccia della riga di comando di Azure o il portale di Azure](how-to-manage-database-account.md#manual-failover) come parte dei test dell'applicazione o i drill di ripristino di emergenza (DR).
 
-
-Quando si sviluppa il piano di continuità aziendale, è necessario conoscere il tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo un evento di arresto improvviso. Il tempo necessario per il ripristino completo di un'applicazione è noto come obiettivo del tempo di ripristino (RTO). È anche necessario conoscere la perdita massima di aggiornamenti di dati recenti che l'applicazione è in grado di tollerare durante il ripristino dopo un evento di arresto improvviso. Il periodo di tempo degli aggiornamenti che è possibile perdere è noto come obiettivo del punto di ripristino (RPO).
-
-La tabella seguente indica l'RPO e l'RTO per gli scenari più comuni.
-
-|Numero area/e |Configurazione |Livello di coerenza|RPO |RTO |
-|---------|---------|---------|-------|-------|
-|1    | *    |*   | < 240 minuti | < 1 settimana |
-|>1     | Replica con master singolo | Sessione, Prefisso coerente, Finale | < 15 minuti | < 15 minuti |
-|>1     | Replica con master singolo | Decadimento ristretto | K e T | < 15 minuti |
-|>1     | Replica multimaster | Sessione, Prefisso coerente, Finale | < 15 minuti | 0 |
-|>1     | Replica multimaster | Decadimento ristretto | K e T | 0 |
-|>1     | * | Assoluta | 0 | < 15 minuti |
+- All'interno di un ambiente di database distribuito a livello globale sussiste una relazione diretta tra il livello di coerenza e la durabilità dei dati in presenza di un'interruzione a livello di area. Quando si sviluppa il piano di continuità aziendale, è necessario conoscere il tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo un evento di arresto improvviso. Il tempo necessario per il ripristino completo di un'applicazione è noto come obiettivo del tempo di ripristino (RTO). È anche necessario conoscere la perdita massima di aggiornamenti di dati recenti che l'applicazione è in grado di tollerare durante il ripristino dopo un evento di arresto improvviso. Il periodo di tempo degli aggiornamenti che è possibile perdere è noto come obiettivo del punto di ripristino (RPO). Per l'obiettivo del punto di ripristino (RPO) e l'obiettivo del tempo di ripristino (RTO) per Azure Cosmos DB, vedere [Livelli di coerenza e durabilità dei dati](consistency-levels-tradeoffs.md#rto)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

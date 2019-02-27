@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: b69b16cec08c5d29d4812258f694f2d078a9ff35
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 222957bb79a88ec7b4c6e9afd6d86fe2776dbfd3
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700979"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301793"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Progetto di sicurezza e conformità di Azure: Hosting di applicazioni Web PaaS per i carichi di lavoro UK OFFICIAL
 
@@ -182,7 +182,7 @@ Informazioni dettagliate sulla protezione di Archiviazione di Azure sono disponi
 
 #### <a name="application-insights"></a>Application Insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) è un servizio estendibile di gestione delle prestazioni delle applicazioni per sviluppatori Web su più piattaforme, Viene usato per monitorare le applicazioni Web in tempo reale per rilevare automaticamente le anomalie delle prestazioni, analizzare le prestazioni, diagnosticare problemi e raccogliere informazioni sulle interazioni degli utenti con l'app. Application Insights può essere distribuito su varie piattaforme, tra cui .NET, Node.js e J2EE, ospitate in locale o nel cloud. Si integra con il processo DevOps e offre punti di connessione per diversi altri strumenti di sviluppo.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) è un servizio estendibile di gestione delle prestazioni delle applicazioni per sviluppatori Web su più piattaforme, Viene usato per monitorare le applicazioni Web in tempo reale per rilevare automaticamente le anomalie delle prestazioni, analizzare le prestazioni, diagnosticare problemi e raccogliere informazioni sulle interazioni degli utenti con l'app. Application Insights può essere distribuito su varie piattaforme, tra cui .NET, Node.js e Java EE, ospitate in locale o nel cloud. Si integra con il processo DevOps e offre punti di connessione per diversi altri strumenti di sviluppo.
 
 #### <a name="application-insights-in-this-blueprint"></a>Application Insights in questo progetto
 

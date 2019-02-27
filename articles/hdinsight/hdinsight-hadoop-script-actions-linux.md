@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: b0eae86a4927f716c974086411e1098f2e9a190d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 6702bfabd27b56ce473fe8eb14aadc9dc6e8e7c9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498030"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338870"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Sviluppo di azioni script con HDInsight
 
@@ -142,7 +142,7 @@ Per la maggior parte delle operazioni, tuttavia, non è necessario specificare i
 hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 ```
 
-In questo esempio, il comando `hdfs` usa in modo trasparente la risorsa di archiviazione del cluster predefinita. Per alcune operazioni, è necessario specificare l'URI, ad esempio `adl:///example/jars` per Data Lake Storage o `wasb:///example/jars` per Archiviazione di Azure.
+In questo esempio, il comando `hdfs` usa in modo trasparente la risorsa di archiviazione del cluster predefinita. Per alcune operazioni, è necessario specificare l'URI, Ad esempio, `adl:///example/jars` per Azure Data Lake Storage Gen1, `abfs:///example/jars` per Data Lake Storage Gen2 o `wasb:///example/jars` per Archiviazione di Azure.
 
 ### <a name="bPS7"></a>Scrivere informazioni in STDOUT e STDERR
 

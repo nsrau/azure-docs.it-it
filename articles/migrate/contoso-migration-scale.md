@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-ms.openlocfilehash: c36572230387ffc33a46913dbcc1259ea65f84f5
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: bd1761ecf16bbfb0d3fdc354ab1b9fa1f42f9c17
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104234"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328579"
 ---
 # <a name="contoso---scale-a-migration-to-azure"></a>Contoso - Passare a una migrazione completa in Azure
 
@@ -292,11 +292,10 @@ Contoso deve determinare come distribuire questi componenti, in base a considera
 **Server di configurazione** | In base alla stima di Contoso di una replica di 100-200 macchine virtuali contemporaneamente e ai [requisiti di dimensione del server di configurazione](../site-recovery/site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server), Contoso prevede che sarà necessario un server di configurazione con le caratteristiche seguenti:<br/><br/> CPU: 16 vCPU (2 socket * 8 core a 2,5 GHz)<br/><br/> Memoria: 32 GB<br/><br/> Disco della cache: 1 TB<br/><br/> Frequenza di modifica dei dati: da 1 TB a 2 TB.<br/><br/> Oltre ai requisiti di dimensione, Contoso dovrà assicurarsi che il server di configurazione sia posizionato in modo ottimale, nella stessa rete e nello stesso segmento LAN delle macchine virtuali di cui verrà eseguita la migrazione.
 **Server di elaborazione** | Contoso distribuirà un server di elaborazione dedicato autonomo in grado di replicare 100-200 macchine virtuali:<br/><br/> CPU: 16 vCPU (2 socket * 8 core a 2,5 GHz)<br/><br/> Memoria: 32 GB<br/><br/> Disco della cache: 1 TB<br/><br/> Frequenza di modifica dei dati: da 1 TB a 2 TB.<br/><br/> Il server di elaborazione sarà sottoposto a un carico elevato, di conseguenza deve essere posizionato su un host ESXi capace di gestire l'I/O del disco, il traffico di rete e la CPU necessari per la replica. Contoso valuterà l'uso di un host dedicato per questo scopo. 
 **Rete** | Contoso ha esaminato l'infrastruttura VPN da sito a sito corrente e ha deciso di implementare Azure ExpressRoute. L'implementazione è fondamentale perché comporterà una minore latenza e migliorerà la larghezza di banda per l'area di Azure primaria di Contoso, Stati Uniti orientali 2.<br/><br/> **Monitoraggio**: Contoso dovrà monitorare attentamente i dati trasmessi dal server di elaborazione. Se i dati dovessero sovraccaricare la larghezza di banda della rete, Contoso prenderà in considerazione la [limitazione della larghezza di banda del server di elaborazione](../site-recovery/site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
-**Archiviazione di Azure** | Per la migrazione, Contoso deve identificare il tipo e il numero corretti di account di archiviazione di Azure di destinazione.  Site Recovery replica i dati delle macchine virtuali nell'archiviazione di Azure.<br/><br/> Site Recovery può eseguire la replica in account di archiviazione Standard o Premium (SSD).<br/><br/> Per prendere una decisione in merito all'archiviazione, Contoso deve esaminare i [limiti di archiviazione](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) e tenere conto della crescita prevista e dell'aumento dell'uso nel corso del tempo. Data la velocità e la priorità delle migrazioni, Contoso ha deciso di usare account di archiviazione Premium.<br/><br/> Verranno creati e riutilizzati più account di archiviazione durante il processo di migrazione.
-Contoso ha deciso di usare Managed Disks per tutte le macchine virtuali distribuite in Azure.  Il numero di operazioni di I/O al secondo richieste determinerà se i dischi saranno Standard (HDD) o Premium (SSD).<br/>.<br/>
+**Archiviazione di Azure** | Per la migrazione, Contoso deve identificare il tipo e il numero corretti di account di archiviazione di Azure di destinazione.  Site Recovery replica i dati delle macchine virtuali nell'archiviazione di Azure.<br/><br/> Site Recovery può eseguire la replica in account di archiviazione Standard o Premium (SSD).<br/><br/> Per prendere una decisione in merito all'archiviazione, Contoso deve esaminare i [limiti di archiviazione](../virtual-machines/windows/disks-types.md) e tenere conto della crescita prevista e dell'aumento dell'uso nel corso del tempo. Data la velocità e la priorità delle migrazioni, Contoso ha deciso di usare SSD Premium<br/><br/>
+Contoso ha deciso di usare Managed Disks per tutte le macchine virtuali distribuite in Azure.  Il numero di operazioni di I/O al secondo richieste determina se i dischi devono essere HHD Standard, SSD Standard o Premium (SSD).<br/><br/>
 
-
-#### <a name="data-migration-service"></a>Servizio di migrazione dei dati 
+#### <a name="data-migration-service"></a>Servizio di migrazione dei dati
 
 Servizio Migrazione del database di Azure è un servizio completamente gestito che consente migrazioni senza problemi da più origini di database alle piattaforme dati di Azure con tempi di inattività minimi.
 
@@ -369,7 +368,7 @@ Contoso farà anche uso di script per individuare le risorse inutilizzate.
 In questa fase, Contoso usa le risorse di gestione e di sicurezza di Azure per gestire, proteggere e monitorare le app cloud in Azure. Queste risorse contribuiscono all'esecuzione di un ambiente sicuro e ben gestito, in combinazione con l'uso dei prodotti disponibili nel portale di Azure. Contoso inizia a usare questi servizi durante la migrazione e, con il supporto degli ambienti ibridi di Azure, continua a usare molti di tali servizi per ottenere un'esperienza coerente nel cloud ibrido.
 
 
-### <a name="security"></a>Sicurezza
+### <a name="security"></a>Security
 Contoso si affiderà al Centro sicurezza di Azure per una gestione unificata della sicurezza e la protezione avanzata dalle minacce per i carichi di lavoro cloud ibridi.
 
 - Il Centro sicurezza offre la visibilità completa e il controllo della sicurezza delle app cloud in Azure.

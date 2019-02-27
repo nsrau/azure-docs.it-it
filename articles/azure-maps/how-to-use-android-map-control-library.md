@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e3f7579324e1218cc2e2c3594889db776da6e529
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 57cc585d621c71872a4b7658c74f581c8998b245
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56119142"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341080"
 ---
 # <a name="how-to-use-azure-maps-android-sdk"></a>Come usare Android SDK per Mappe di Azure
 
@@ -45,7 +45,7 @@ Vedere la [documentazione di Android Studio](https://developer.android.com/studi
 
 ## <a name="set-up-a-virtual-device"></a>Configurare un dispositivo virtuale
 
-Android Studio consente di configurare un dispositivo Android virtuale nel computer. Questo è utile per testare l'applicazione durante lo sviluppo. Per configurare un dispositivo virtuale fare clic sull'icona del gestore di dispositivi virtuali Android, AVD Manager, in alto a destra nello schermo del progetto. Quindi, fare clic sul pulsante **Create Virtual Device** (Crea dispositivo virtuale). È possibile accedere al gestore anche tramite Tools (Strumenti) > Android > AVD Manager sulla barra degli strumenti. Nella categoria **Phones** (Telefoni) selezionare **Nexus 5X** e fare clic su **Next** (Avanti).
+Android Studio consente di configurare un dispositivo Android virtuale nel computer. Questo è utile per testare l'applicazione durante lo sviluppo. Per configurare un dispositivo virtuale fare clic sull'icona del gestore di dispositivi virtuali Android, AVD Manager, in alto a destra nello schermo del progetto. Quindi, fare clic sul pulsante **Create Virtual Device** (Crea dispositivo virtuale). È possibile accedere al gestore anche tramite **Tools (Strumenti) > Android > AVD Manager** sulla barra degli strumenti. Nella categoria **Phones** (Telefoni) selezionare **Nexus 5X** e fare clic su **Next** (Avanti).
 
 Per altre informazioni sulla configurazione di un dispositivo virtuale Android, vedere la [documentazione di Android Studio](https://developer.android.com/studio/run/managing-avds).
 
@@ -55,7 +55,7 @@ Per altre informazioni sulla configurazione di un dispositivo virtuale Android, 
 
 Prima di procedere con la compilazione dell'applicazione, seguire questa procedura per installare Android SDK per Mappe di Azure. 
 
-1. Aggiungere quanto segue al blocco di repository **allprojects** nel file **build.gradle**.
+1. Aggiungere quanto segue al blocco di repository **all projects** (tutti i progetti) nel file **build.gradle**.
 
     ```
     maven {
@@ -79,7 +79,7 @@ Prima di procedere con la compilazione dell'applicazione, seguire questa procedu
         implementation "com.microsoft.azure.maps:mapcontrol:0.1"
         ```
 
-3. Impostare le autorizzazioni aggiungendo quanto segue al file AndroidManifest.xml
+3. Impostare le autorizzazioni aggiungendo quanto segue al file **AndroidManifest.xml**
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -90,7 +90,7 @@ Prima di procedere con la compilazione dell'applicazione, seguire questa procedu
     </manifest>
     ```
 
-4. Modificare **res > layout > activity_main** in modo che abbia un aspetto simile al codice XML seguente:
+4. Modificare **res > layout > activity_main.xml** in modo che abbia un aspetto simile al codice XML seguente:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -128,7 +128,7 @@ Prima di procedere con la compilazione dell'applicazione, seguire questa procedu
 
     public class MainActivity extends AppCompatActivity {
         
-        static{
+        static {
             AzureMaps.setSubscriptionKey("{subscription-key}");
         }
 
@@ -187,7 +187,7 @@ Prima di procedere con la compilazione dell'applicazione, seguire questa procedu
 
 ## <a name="import-classes"></a>Importare le classi
 
-Dopo aver completato i passaggi precedenti, probabilmente si riceveranno avvisi da Android Studio relativi a parti del testo nel codice. Per risolvere il problema è necessario importare alcune delle classi a cui viene fatto riferimento in `MainActivity.java`.
+Dopo aver completato i passaggi precedenti, probabilmente si riceveranno avvisi da Android Studio relativi a parti del testo nel codice. Per risolvere questi avvisi, importare le classi a cui viene fatto riferimento in `MainActivity.java`.
 
 È possibile importare automaticamente queste classi premendo `Alt`+`Enter`(`Option`+`Return` su Mac). 
 
