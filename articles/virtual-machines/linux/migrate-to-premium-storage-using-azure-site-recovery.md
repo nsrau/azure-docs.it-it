@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 6b5605a8e3a80d597a4a4a78d015fa556c282357
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 3a4304301b99369426aa985508d6cabd26ba2c9f
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465725"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326960"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrazione ad Archiviazione Premium con Azure Site Recovery
 
-[Archiviazione Premium di Azure](premium-storage.md) offre prestazioni elevate e supporto per dischi a bassa latenza per le macchine virtuali (VM) che eseguono carichi di lavoro con I/O intensivo. Questa guida consente agli utenti di eseguire la migrazione dei dischi delle macchine virtuali da un account di archiviazione Standard a un account di archiviazione Premium usando [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
+Il livello [SSD Premium di Azure](disks-types.md) offre prestazioni elevate e supporto per dischi a bassa latenza per le macchine virtuali (VM) che eseguono carichi di lavoro con elevato numero di operazioni di I/O. Questa guida consente agli utenti di eseguire la migrazione dei dischi delle macchine virtuali da un account di archiviazione Standard a un account di archiviazione Premium usando [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
 
 Il servizio Azure Site Recovery contribuisce alla strategia di continuità aziendale e ripristino di emergenza orchestrando la replica dei server fisici locali e delle macchine virtuali sul cloud (Azure) o in un data center secondario. In caso di interruzioni nella località primaria, verrà eseguito il failover alla località secondaria per mantenere disponibili applicazioni e carichi di lavoro. Quando la località primaria sarà di nuovo operativa, si tornerà a tale località. 
 
@@ -83,7 +83,7 @@ Questi sono i requisiti di Azure per questo scenario di migrazione:
 ### <a name="step-2-choose-your-protection-goals"></a>Passaggio 2: Scegliere gli obiettivi della protezione 
 
 1. Nella VM in cui si vuole installare il server di configurazione aprire il [portale di Azure](https://portal.azure.com).
-2. Andare su **Insieme di credenziali di Servizi di ripristino** > **Impostazioni** > **Site Recovery** > **Passaggio 1: Preparare l'infrastruttura** > **Obiettivo di protezione**.
+2. Andare su **Insieme di credenziali di Servizi di ripristino** > **Impostazioni** > **Site Recovery** > **Passaggio 1: Preparare l'infrastruttura**** > Obiettivo di protezione**.
 
    ![Passare al riquadro Obiettivo di protezione][2]
 
@@ -220,7 +220,7 @@ Inoltre, controllare le seguenti risorse per altre informazioni su Archiviazione
 
 * [Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Macchine virtuali di Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Premium Storage: archiviazione ad alte prestazioni per i carichi di lavoro delle macchine virtuali di Azure](premium-storage.md)
+* [Selezionare un tipo di disco per macchine virtuali IaaS](disks-types.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png
