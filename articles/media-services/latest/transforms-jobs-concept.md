@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 02/19/2019
 ms.author: juliako
-ms.openlocfilehash: e84f74fe4678a65a33c9cc728f290e7c905b2261
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: d621afd682e6040179777f4cd6d991ff31acb5a3
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743736"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445492"
 ---
 # <a name="transforms-and-jobs"></a>Trasformazioni e processi
  
@@ -27,6 +27,10 @@ L'operazione di aggiornamento (Update) per l'entità [Transform](https://docs.mi
 Un [processo](https://docs.microsoft.com/rest/api/media/jobs) è la richiesta effettiva inviata a Servizi multimediali per applicare la **trasformazione** a determinati contenuti audio o video di input. Dopo aver creato la trasformazione, è possibile inviare i processi usando le API di Servizi multimediali o uno degli SDK pubblicati. Il **processo** specifica informazioni come la posizione del video di input e quella dell'output. È possibile specificare il percorso del video di input mediante: URL HTTPS, URL di firma di accesso condiviso o [asset](https://docs.microsoft.com/rest/api/media/assets). È possibile ottenere l'avanzamento e lo stato dei processi monitorando gli eventi con Griglia di eventi. Per altre informazioni, vedere [Creare e monitorare eventi di Servizi multimediali con Griglia di eventi e l'interfaccia della riga di comando di Azure](job-state-events-cli-how-to.md).
 
 L'operazione di aggiornamento (Update) per l'entità [Job](https://docs.microsoft.com/rest/api/media/jobs) può essere usata per modificare la *descrizione* e le proprietà relative alla *priorità* dopo l'invio del processo. Una modifica alla proprietà relativa alla *priorità* ha effetto solo se il processo è ancora accodato. Se il processo ha iniziato l'elaborazione o è terminato, la modifica della priorità non ha alcun effetto.
+
+Il diagramma seguente mostra il flusso di lavoro di trasformazioni e processi.
+
+![Trasformazioni](./media/encoding/transforms-jobs.png)
 
 > [!NOTE]
 > Le proprietà della **trasformazione** e del **processo** di tipo Datetime sono sempre in formato UTC.
@@ -49,10 +53,21 @@ Si supponga di voler estrarre il primo frame di tutti i video come immagine di a
 
 Una **trasformazione** consente di creare il file recipe una sola volta (passaggio 1) e inviare i processi che usano quel recipe (passaggio 2).
 
+## <a name="job-error-codes"></a>Codici di errore dei processi
+
+Vedere i [codici di errore](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+
 ## <a name="paging"></a>Paging
 
 Vedere [Applicazione di filtri, ordinamento e restituzione di più pagine delle entità di Servizi multimediali](entities-overview.md).
 
+## <a name="configure-media-reserved-units"></a>Configurare Media Reserved Units
+
+Per i processi di analisi audio e video generati da Servizi multimediali v3 o Video Indexer, è fortemente consigliato effettuare il provisioning dell'account con 10 Media Reserved Units (MRU) S3. Se sono necessarie più di 10 MRU S3, aprire un ticket di supporto dal [portale di Azure](https://portal.azure.com/).
+
+Per informazioni dettagliate, vedere [Ridimensionamento dell'elaborazione di contenuti multimediali con l'interfaccia della riga di comando](media-reserved-units-cli-how-to.md).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Caricare, codificare ed eseguire lo streaming dei file video](stream-files-tutorial-with-api.md)
+- [Esercitazione: Eseguire il caricamento, la codifica e lo streaming di video con .NET](stream-files-tutorial-with-api.md)
+- [Esercitazione: Analizzare i video con Servizi multimediali v3 usando .NET](analyze-videos-tutorial-with-api.md)

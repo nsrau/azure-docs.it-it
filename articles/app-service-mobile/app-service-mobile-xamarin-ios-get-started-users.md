@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: crdun
-ms.openlocfilehash: 31e02cd931b3c9ab2cc55a540841969488c0c5f7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 132909931291daf3aefddd5e1a44273050d98e06
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997511"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326171"
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>Aggiungere l'autenticazione all'app per Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -35,7 +35,7 @@ Questo argomento descrive come autenticare gli utenti di un'app mobile del servi
 
 L'autenticazione sicura richiede la definizione di un nuovo schema URL per l'app. In questo modo il sistema di autenticazione reindirizza all'app al termine del processo di autenticazione. In questa esercitazione si usa lo schema URL _appname_. È tuttavia possibile usare QUALSIASI schema URL. Lo schema deve essere univoco per l'applicazione per dispositivi mobili. Per abilitare il reindirizzamento sul lato server:
 
-1. Nel [portale di Azure] selezionare il servizio app.
+1. Nel [portale di Azure](https://portal.azure.com/) selezionare il servizio app.
 
 2. Fare clic sull'opzione di menu **Autenticazione/Autorizzazione**.
 
@@ -48,9 +48,9 @@ L'autenticazione sicura richiede la definizione di un nuovo schema URL per l'app
 ## <a name="restrict-permissions-to-authenticated-users"></a>Limitare le autorizzazioni agli utenti autenticati
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-&nbsp;&nbsp;4. In Visual Studio o Xamarin Studio, eseguire il progetto client su un dispositivo o un emulatore. Verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (Non autorizzato). L'errore viene registrato nella console del debugger. In Visual Studio l'errore dovrebbe quindi essere visualizzato nella finestra di output.
+* In Visual Studio o Xamarin Studio, eseguire il progetto client su un dispositivo o un emulatore. Verificare che dopo l'avvio dell'app venga generata un'eccezione non gestita con codice di stato 401 (Non autorizzato). L'errore viene registrato nella console del debugger. In Visual Studio l'errore dovrebbe quindi essere visualizzato nella finestra di output.
 
-&nbsp;&nbsp;Questo errore non autorizzato viene generato perché l'app prova ad accedere al back-end dell'app per dispositivi mobili come utente non autenticato. La tabella *TodoItem* richiede ora l'autenticazione.
+    Questo errore non autorizzato viene generato perché l'app prova ad accedere al back-end dell'app per dispositivi mobili come utente non autenticato. La tabella *TodoItem* richiede ora l'autenticazione.
 
 Si aggiornerà quindi l'app client per richiedere le risorse dal back-end dell'app per dispositivi mobili con un utente autenticato.
 
@@ -58,67 +58,82 @@ Si aggiornerà quindi l'app client per richiedere le risorse dal back-end dell'a
 In questa sezione si procederà alla modifica dell'app in modo da visualizzare una schermata di accesso prima dei dati. All'avvio, l'app non si connetterà al servizio app e non sarà visualizzato alcun dato. Dopo la prima volta che l'utente esegue il movimento di aggiornamento verrà visualizzata la schermata di accesso. Dopo aver eseguito correttamente l'accesso, verrà visualizzato un elenco di elementi ToDo.
 
 1. Nel progetto client aprire il file **QSTodoService.cs** e aggiungere quanto segue tramite l'istruzione `MobileServiceUser` con la funzione di accesso alla classe QSTodoService:
- 
-        using UIKit;
-       
-        // Logged in user
-        private MobileServiceUser user;
-        public MobileServiceUser User { get { return user; } }
+
+    ```csharp
+    using UIKit;
+
+    // Logged in user
+    private MobileServiceUser user;
+    public MobileServiceUser User { get { return user; } }
+    ```
+
 2. Aggiungere un nuovo metodo denominato **Authenticate** a **QSTodoService** con la definizione seguente:
 
-        public async Task Authenticate(UIViewController view)
+    ```csharp
+    public async Task Authenticate(UIViewController view)
+    {
+        try
         {
-            try
-            {
-                AppDelegate.ResumeWithURL = url => url.Scheme == "zumoe2etestapp" && client.ResumeWithURL(url);
-                user = await client.LoginAsync(view, MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
-            }
-            catch (Exception ex)
-            {
-                Console.Error.WriteLine (@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
-            }
+            AppDelegate.ResumeWithURL = url => url.Scheme == "{url_scheme_of_your_app}" && client.ResumeWithURL(url);
+            user = await client.LoginAsync(view, MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
         }
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine (@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
+        }
+    }
+    ```
 
-    >[AZURE.NOTE] Se si usa un provider di identità diverso da Facebook, sostituire il valore passato a **LoginAsync** nel codice precedente con uno dei seguenti: _MicrosoftAccount_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
+    > [!NOTE]
+    > Se si usa un provider di identità diverso da Facebook, sostituire il valore passato a **LoginAsync** nel codice precedente con uno dei seguenti: _MicrosoftAccount_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
 
 3. Aprire **QSTodoListViewController.cs**. Modificare la definizione del metodo di **ViewDidLoad** rimuovendo la chiamata a **RefreshAsync()** verso la fine:
-   
-        public override async void ViewDidLoad ()
-        {
-            base.ViewDidLoad ();
-   
-            todoService = QSTodoService.DefaultService;
-            await todoService.InitializeStoreAsync();
-   
-            RefreshControl.ValueChanged += async (sender, e) => {
-                await RefreshAsync();
-            }
-   
-            // Comment out the call to RefreshAsync
-            // await RefreshAsync();
+
+    ```csharp
+    public override async void ViewDidLoad ()
+    {
+        base.ViewDidLoad ();
+
+        todoService = QSTodoService.DefaultService;
+        await todoService.InitializeStoreAsync();
+
+        RefreshControl.ValueChanged += async (sender, e) => {
+            await RefreshAsync();
         }
+
+        // Comment out the call to RefreshAsync
+        // await RefreshAsync();
+    }
+    ```
+
 4. Modificare il metodo **RefreshAsync** per autenticare e visualizzare una schermata di accesso se la proprietà **User** è Null. Aggiungere il codice seguente nella parte superiore della definizione del metodo:
-   
-        // start of RefreshAsync method
+
+    ```csharp
+    // start of RefreshAsync method
+    if (todoService.User == null) {
+        await QSTodoService.DefaultService.Authenticate(this);
         if (todoService.User == null) {
-            await QSTodoService.DefaultService.Authenticate(this);
-            if (todoService.User == null) {
-                Console.WriteLine("couldn't login!!");
-                return;
-            }
+            Console.WriteLine("couldn't login!!");
+            return;
         }
-        // rest of RefreshAsync method
+    }
+    // rest of RefreshAsync method
+    ```
+
 5. Aprire **AppDelegate.cs** e aggiungere il seguente metodo:
 
-        public static Func<NSUrl, bool> ResumeWithURL;
+    ```csharp
+    public static Func<NSUrl, bool> ResumeWithURL;
 
-        public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
-        {
-            return ResumeWithURL != null && ResumeWithURL(url);
-        }
+    public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+    {
+        return ResumeWithURL != null && ResumeWithURL(url);
+    }
+    ```
+
 6. Aprire il file **Info.plist** e passare a **Tipi di URL** nella sezione **Avanzate**. Configurare ora l'**identificatore** e gli **schemi URL** del tipo di URL e fare clic su **Aggiungi tipo di URL**. Gli **schemi URL** devono essere gli stessi del valore {url_scheme_of_your_app}.
 7. In Visual Studio, connettersi all'host Mac o a Visual Studio per Mac e quindi eseguire il progetto client scegliendo come destinazione un dispositivo o un emulatore. Verificare che nell'app non siano visualizzati dati.
-   
+
     Eseguire il movimento di aggiornamento spostando verso il basso l'elenco di elementi, in modo da visualizzare la schermata di accesso. Dopo aver correttamente immesso le credenziali valide, verrà visualizzato l'elenco di elementi ToDo e sarà possibile aggiornare i dati nell'app.
 
 <!-- URLs. -->

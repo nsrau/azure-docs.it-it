@@ -13,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 02/14/2018
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4026f710def26b50da87ebb8fdafcafc74d84758
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dca184e5b94d69845bfa6e2d83753f53554cadeb
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185826"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56266748"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Azure Active Directory Identity Protection - Panoramica della sicurezza
 
-"Panoramica della sicurezza" offre informazioni dettagliate sul comportamento di sicurezza dell'organizzazione. Consente di identificare gli attacchi potenziali e comprendere l'efficacia dei criteri.
+[Panoramica della sicurezza](https://aka.ms/IdentityProtectionRefresh) offre informazioni dettagliate sul comportamento di sicurezza dell'organizzazione. Consente di identificare gli attacchi potenziali e comprendere l'efficacia dei criteri.
 
 "Panoramica della sicurezza" è diviso in linea di massima in due sezioni:
 

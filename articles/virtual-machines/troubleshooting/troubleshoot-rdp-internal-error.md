@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: dd75d5a3186bbb6ba82e2deb83a7e8429e32a3f2
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 4476e4732dfcf8d79c9678a7ff4719eba10e48f3
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134523"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445782"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Si verifica un errore interno quando si prova a connettersi a una macchina virtuale di Azure tramite Desktop remoto
 
@@ -65,23 +65,25 @@ Connettersi alla [console seriale e aprire un'istanza di PowerShell](./serial-co
 
     1. Arrestare il servizio per l'applicazione che usa il servizio 3389:
 
-        Stop-Service -Name <ServiceName>
+            Stop-Service -Name <ServiceName> -Force
 
     2. Avviare il servizio terminal:
 
-        Start-Service -Name Termservice
+            Start-Service -Name Termservice
 
 2. Se l'applicazione non può essere arrestata o se questo metodo non è applicabile all'utente, modificare la porta per RDP:
 
     1. Modificare la porta:
 
-        Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name PortNumber -value <Hexportnumber>
+            Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name PortNumber -value <Hexportnumber>
 
-        Stop-Service - nome Termservice. Start-Service-nome Termservice
+            Stop-Service -Name Termservice -Force
+            
+            Start-Service -Name Termservice 
 
     2. Impostare il firewall per la nuova porta:
 
-        Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT (decimal)>
+            Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT (decimal)>
 
     3. [Aggiornare il gruppo di sicurezza di rete per la nuova porta](../../virtual-network/security-overview.md) nella porta per RDP del portale di Azure.
 
@@ -89,7 +91,13 @@ Connettersi alla [console seriale e aprire un'istanza di PowerShell](./serial-co
 
 1.  In un'istanza di PowerShell, eseguire i comandi seguenti uno alla volta per rinnovare il certificato autofirmato RDP:
 
-        Import-Module PKI Set-Location Cert:\LocalMachine $RdpCertThumbprint = 'Cert:\LocalMachine\Remote Desktop\'+((Get-ChildItem -Path 'Cert:\LocalMachine\Remote Desktop\').thumbprint) Remove-Item -Path $RdpCertThumbprint
+        Import-Module PKI 
+    
+        Set-Location Cert:\LocalMachine 
+        
+        $RdpCertThumbprint = 'Cert:\LocalMachine\Remote Desktop\'+((Get-ChildItem -Path 'Cert:\LocalMachine\Remote Desktop\').thumbprint) 
+        
+        Remove-Item -Path $RdpCertThumbprint
 
         Stop-Service -Name "SessionEnv"
 
@@ -112,7 +120,9 @@ Connettersi alla [console seriale e aprire un'istanza di PowerShell](./serial-co
 
         md c:\temp
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt 
+        
+        takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
 
         icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)"
 
@@ -120,7 +130,9 @@ Connettersi alla [console seriale e aprire un'istanza di PowerShell](./serial-co
 
         icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "BUILTIN\Administrators:(F)"
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt Restart-Service TermService -Force
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt 
+        
+        Restart-Service TermService -Force
 
 4. Riavviare la macchina virtuale e quindi tentare di avviare una connessione Desktop remoto alla macchina virtuale. Se l'errore persiste ancora, passare al passaggio successivo.
 
@@ -161,7 +173,7 @@ Per abilitare il log Dump e la console seriale, eseguire lo script seguente.
 
     In questo script si presuppone che la lettera di unità assegnata al disco del sistema operativo collegato sia F. Sostituirla con il valore appropriato per la specifica macchina virtuale.
 
-    ```powershell
+    ```
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
 
     REM Enable Serial Console
@@ -191,6 +203,7 @@ Per abilitare il log Dump e la console seriale, eseguire lo script seguente.
         Md F:\temp
 
         icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt
+        
         takeown /f "F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
 
         icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)"

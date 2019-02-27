@@ -10,14 +10,14 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 1dba84c686fbb873f044b4980990baa396a94c79
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 3f3de81197b05d4f025a3fd8638cffe4b07cecad
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237672"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429517"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unificare più risorse di Application Insights in Monitoraggio di Azure 
 Questo articolo descrive come eseguire query su tutti i dati dei log applicazioni di Application Insights e visualizzarli in un'unica posizione, anche quando si trovano in sottoscrizioni di Azure diverse, in sostituzione del Connettore di Application Insights, ora deprecato. Il numero di risorse di Application Insights che è possibile includere in una singola query è limitato a 100.  
@@ -68,6 +68,9 @@ L'alias della funzione restituisce l'unione delle richieste da tutte le applicaz
 
 ## <a name="query-across-application-insights-resources-and-workspace-data"></a>Query sulle risorse di Application Insights e sui dati dell'area di lavoro 
 Quando si arresta il Connettore e si devono eseguire query nel corso di un intervallo di tempo definito in base alla conservazione dei dati di Application Insights (90 giorni), per un periodo intermedio è necessario eseguire [query su più risorse](../../azure-monitor/log-query/cross-workspace-query.md), ovvero nell'area di lavoro e nelle risorse di Application Insights. Ciò è necessario finché i dati delle applicazioni non si accumulano in base al nuovo periodo di conservazione dei dati di Application Insights sopra indicato. La query richiede alcune modifiche poiché gli schemi in Application Insights e nell'area di lavoro sono diversi. Vedere più avanti in questa sezione la tabella che mostra le differenze tra gli schemi. 
+
+>[!NOTE]
+>Le [query su più risorse](../log-query/cross-workspace-query.md) negli avvisi dei log sono supportate nella nuova [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Per impostazione predefinita, Monitoraggio di Azure usa l'[API legacy degli avvisi di Log Analytics](../platform/api-alerts.md) per la creazione di nuove regole di avviso relative ai log dal portale di Azure, a meno che non si esegua la commutazione dall'[API legacy degli avvisi relativi ai log](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Dopo la commutazione, la nuova API diventa quella predefinita per le nuove regole di avviso nel portale di Azure e consente di creare regole di avviso dei log basate su query su più risorse. È possibile creare regole di avviso dei log basate su [query su più risorse](../log-query/cross-workspace-query.md) senza effettuare la commutazione usando il [modello ARM per l'API scheduledQueryRules](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template), ma questa regola di avviso è gestibile tramite l'[API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e non dal portale di Azure.
 
 Se ad esempio il Connettore ha smesso di funzionare il giorno 01/11/2018, quando si esegue una query sui log delle risorse di Application Insights e sui dati delle applicazioni nell'area di lavoro, la query avrà un aspetto simile all'esempio seguente:
 

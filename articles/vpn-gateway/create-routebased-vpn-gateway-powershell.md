@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 02/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: 9460f184e3da6769048b30ca743169c5a6044bd0
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 8622de88b1edc7b0f5eb2571a55415837ad28dc7
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55505530"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416905"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>Creare un gateway VPN basato su route usando PowerShell
 
@@ -20,44 +20,44 @@ Questo articolo illustra come creare rapidamente un gateway VPN di Azure basato 
 
 Seguendo i passaggi in questo articolo si creeranno una rete virtuale, una subnet, una subnet del gateway e un gateway VPN basato su route, ovvero un gateway di rete virtuale. Al termine della creazione del gateway, sarà possibile creare le connessioni. Questi passaggi richiedono una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 5.3.0 o successiva. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure.
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse di Azure con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. 
+Creare un gruppo di risorse di Azure con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. 
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name TestRG1 -Location EastUS
+New-AzResourceGroup -Name TestRG1 -Location EastUS
 ```
 
 ## <a name="vnet"></a>Creare una rete virtuale
 
-Creare una rete virtuale con [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). L'esempio seguente crea una rete virtuale denominata **VNet1** nella posizione **EastUS**:
+Creare una rete virtuale con [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). L'esempio seguente crea una rete virtuale denominata **VNet1** nella posizione **EastUS**:
 
 ```azurepowershell-interactive
-$virtualNetwork = New-AzureRmVirtualNetwork `
+$virtualNetwork = New-AzVirtualNetwork `
   -ResourceGroupName TestRG1 `
   -Location EastUS `
   -Name VNet1 `
   -AddressPrefix 10.1.0.0/16
 ```
 
-Creare una configurazione della subnet usando il cmdlet [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig).
+Creare una configurazione della subnet usando il cmdlet [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig).
 
 ```azurepowershell-interactive
-$subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
+$subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -Name Frontend `
   -AddressPrefix 10.1.0.0/24 `
   -VirtualNetwork $virtualNetwork
 ```
 
-Impostare la configurazione della subnet per la rete virtuale usando il cmdlet [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork).
+Impostare la configurazione della subnet per la rete virtuale usando il cmdlet [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork).
 
 
 ```azurepowershell-interactive
-$virtualNetwork | Set-AzureRmVirtualNetwork
+$virtualNetwork | Set-AzVirtualNetwork
 ```
 
 ## <a name="gwsubnet"></a>Aggiungere una subnet del gateway
@@ -67,19 +67,19 @@ La subnet del gateway contiene gli indirizzi IP riservati usati dai servizi del 
 Impostare una variabile per la rete virtuale.
 
 ```azurepowershell-interactive
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG1 -Name VNet1
+$vnet = Get-AzVirtualNetwork -ResourceGroupName TestRG1 -Name VNet1
 ```
 
-Creare la subnet del gateway usando il cmdlet [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/Add-AzureRmVirtualNetworkSubnetConfig).
+Creare la subnet del gateway usando il cmdlet [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Add-azVirtualNetworkSubnetConfig).
 
 ```azurepowershell-interactive
-Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
+Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
 ```
 
-Impostare la configurazione della subnet per la rete virtuale usando il cmdlet [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork).
+Impostare la configurazione della subnet per la rete virtuale usando il cmdlet [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork).
 
 ```azurepowershell-interactive
-$virtualNetwork | Set-AzureRmVirtualNetwork
+$virtualNetwork | Set-AzVirtualNetwork
 ```
 
 ## <a name="PublicIP"></a>Richiedere un indirizzo IP pubblico
@@ -87,7 +87,7 @@ $virtualNetwork | Set-AzureRmVirtualNetwork
 Un gateway VPN deve avere un indirizzo IP pubblico allocato in modo dinamico. Si tratta dell'indirizzo IP specificato durante la creazione di una connessione in un gateway VPN. Usare l'esempio seguente per richiedere un indirizzo IP pubblico:
 
 ```azurepowershell-interactive
-$gwpip= New-AzureRmPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
+$gwpip= New-AzPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
 ```
 
 ## <a name="GatewayIPConfig"></a>Creare la configurazione dell'indirizzo IP del gateway
@@ -95,26 +95,26 @@ $gwpip= New-AzureRmPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -L
 La configurazione del gateway definisce la subnet e l'indirizzo IP pubblico da utilizzare. Per creare la configurazione del gateway, usare l'esempio seguente:
 
 ```azurepowershell-interactive
-$vnet = Get-AzureRmVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
-$gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
+$vnet = Get-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1
+$subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
+$gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 ```
 ## <a name="CreateGateway"></a>Creare il gateway VPN
 
-La creazione di un gateway VPN può richiedere almeno 45 minuti. Al termine della creazione del gateway, è possibile creare una connessione tra la propria rete virtuale e un'altra rete virtuale oppure creare una connessione tra la propria rete virtuale e una posizione locale. Creare un gateway VPN usando il cmdlet [New-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/New-AzureRmVirtualNetworkGateway).
+La creazione di un gateway VPN può richiedere almeno 45 minuti. Al termine della creazione del gateway, è possibile creare una connessione tra la propria rete virtuale e un'altra rete virtuale oppure tra la propria rete virtuale e una posizione locale. Creare un gateway VPN usando il cmdlet [New-AzVirtualNetworkGateway](/powershell/module/az.network/New-azVirtualNetworkGateway).
 
 ```azurepowershell-interactive
-New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
+New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -Location 'East US' -IpConfigurations $gwipconfig -GatewayType Vpn `
 -VpnType RouteBased -GatewaySku VpnGw1
 ```
 
 ## <a name="viewgw"></a>Visualizzare il gateway VPN
 
-È possibile visualizzare il gateway VPN usando il cmdlet [Get-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/Get-AzureRmVirtualNetworkGateway).
+È possibile visualizzare il gateway VPN usando il cmdlet [Get-AzVirtualNetworkGateway](/powershell/module/az.network/Get-azVirtualNetworkGateway).
 
 ```azurepowershell-interactive
-Get-AzureRmVirtualNetworkGateway -Name Vnet1GW -ResourceGroup TestRG1
+Get-AzVirtualNetworkGateway -Name Vnet1GW -ResourceGroup TestRG1
 ```
 
 L'output sarà simile a questo esempio:
@@ -164,10 +164,10 @@ BgpSettings            : {
 
 ## <a name="viewgwpip"></a>Visualizzare l'indirizzo IP pubblico
 
-Per visualizzare l'indirizzo IP pubblico del gateway VPN, usare il cmdlet [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/Get-AzureRmPublicIpAddress).
+Per visualizzare l'indirizzo IP pubblico del gateway VPN, usare il cmdlet [Get-AzPublicIpAddress](/powershell/module/az.network/Get-azPublicIpAddress).
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1
+Get-AzPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1
 ```
 
 Nella risposta di esempio il valore IpAddress è l'indirizzo IP pubblico.
@@ -201,10 +201,10 @@ IpTags                   : {}
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando le risorse create non sono più necessarie, usare il comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) per eliminare il gruppo di risorse. Questa operazione eliminerà il gruppo di risorse e tutte le risorse in esso contenute.
+Quando le risorse create non sono più necessarie, usare il comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per eliminare il gruppo di risorse. Questa operazione eliminerà il gruppo di risorse e tutte le risorse in esso contenute.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name TestRG1
+Remove-AzResourceGroup -Name TestRG1
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

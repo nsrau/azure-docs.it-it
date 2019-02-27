@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2018
 ms.author: sogup
-ms.openlocfilehash: 41a826304af338814666e80dfaf584021809dbb0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: efd069b90e2f085b7bacf4dfa72478e1232554bc
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880047"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313361"
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Aggiornare un insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino
 
@@ -98,13 +98,13 @@ La seconda schermata mostra i collegamenti della guida disponibili che consenton
 ![collegamenti alla guida del pannello Avvio rapido](./media/backup-azure-upgrade-backup-to-recovery-services/quick-start-w-help-links.png)
 
 ## <a name="post-upgrade-steps"></a>Passaggi successivi all'aggiornamento
-L'insieme di credenziali di Servizi di ripristino supporta l'indicazione delle informazioni sul fuso orario nei criteri di backup. Al termine dell'aggiornamento corretto dell'insieme di credenziali, passare al menu delle impostazioni dell'insieme di credenziali dai criteri di Backup e aggiornare le informazioni sul fuso orario per ogni criterio configurato nell'insieme di credenziali. Questa schermata mostra già l'ora di pianificazione del backup specificata in base al fuso orario locale usato durante la creazione del criterio. 
+L'insieme di credenziali di Servizi di ripristino supporta l'indicazione delle informazioni sul fuso orario nei criteri di backup. Al termine dell'aggiornamento corretto dell'insieme di credenziali, passare al menu delle impostazioni dell'insieme di credenziali dai criteri di Backup e aggiornare le informazioni sul fuso orario per ogni criterio configurato nell'insieme di credenziali. Questa schermata mostra già l'ora di pianificazione del backup specificata in base al fuso orario locale usato durante la creazione del criterio.
 
 ## <a name="enhanced-security"></a>Sicurezza avanzata
 
-Quando un insieme di credenziali di Backup viene aggiornato a un insieme di credenziali di Servizi di ripristino, le impostazioni di sicurezza per tale insieme di credenziali vengono attivate automaticamente. Quando le impostazioni di sicurezza sono attivate, determinate operazioni, ad esempio l'eliminazione di backup o la modifica di una passphrase, richiedono un PIN di [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md). Per altre informazioni sulla sicurezza avanzata, vedere l'articolo [Funzionalità di sicurezza per la protezione dei backup ibridi](backup-azure-security-feature.md). 
+Quando un insieme di credenziali di Backup viene aggiornato a un insieme di credenziali di Servizi di ripristino, le impostazioni di sicurezza per tale insieme di credenziali vengono attivate automaticamente. Quando le impostazioni di sicurezza sono attivate, determinate operazioni, ad esempio l'eliminazione di backup o la modifica di una passphrase, richiedono un PIN di [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md). Per altre informazioni sulla sicurezza avanzata, vedere l'articolo [Funzionalità di sicurezza per la protezione dei backup ibridi](backup-azure-security-feature.md).
 
-Quando la sicurezza avanzata è attivata, i dati vengono conservati fino a 14 giorni dopo l'eliminazione delle informazioni sul punto di recupero dall'insieme di credenziali. Ai clienti viene fatturato lo spazio di archiviazione usato per questi dati sulla sicurezza. La conservazione dei dati sulla sicurezza è applicabile ai punti di recupero acquisiti dall'agente di Backup di Azure, dal server di Backup di Azure e da System Center Data Protection Manager. 
+Quando la sicurezza avanzata è attivata, i dati vengono conservati fino a 14 giorni dopo l'eliminazione delle informazioni sul punto di recupero dall'insieme di credenziali. Ai clienti viene fatturato lo spazio di archiviazione usato per questi dati sulla sicurezza. La conservazione dei dati sulla sicurezza è applicabile ai punti di recupero acquisiti dall'agente di Backup di Azure, dal server di Backup di Azure e da System Center Data Protection Manager.
 
 ## <a name="gather-data-on-your-vault"></a>Raccogliere i dati nell'insieme di credenziali
 
@@ -112,38 +112,38 @@ Dopo avere eseguito l'aggiornamento a un insieme di credenziali di Servizi di ri
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
-**Il piano di aggiornamento influenza il backup in corso?**</br>
+### <a name="does-the-upgrade-plan-affect-my-ongoing-backups"></a>Il piano di aggiornamento influenza i backup in corso?
  No. I backup in corso proseguono senza interruzioni durante e dopo l'aggiornamento.
 
-**Se non si prevede un aggiornamento a breve, cosa succede agli insiemi di credenziali?**</br>
+### <a name="if-i-dont-plan-on-upgrading-soon-what-happens-to-my-vaults"></a>Se non si prevede un aggiornamento a breve, cosa succede agli insiemi di credenziali?
 Poiché tutte le nuove funzionalità sono applicabili solo agli insiemi di credenziali di Servizi di ripristino, è consigliabile eseguire l'aggiornamento degli insiemi di credenziali. A partire dall'1 settembre 2017, Microsoft inizierà a eseguire l'aggiornamento automatico degli insiemi di credenziali di Backup agli insiemi di credenziali di Servizi di ripristino. Dopo il 30 novembre 2017 non sarà più possibile creare insiemi di credenziali di backup usando PowerShell. L'insieme di credenziali può essere aggiornato automaticamente in qualsiasi momento prima di tale data. Microsoft consiglia di aggiornare l'insieme di credenziali il prima possibile.
 
-**Qual è l'impatto di questo aggiornamento per gli strumenti esistenti?**</br>
-Aggiornare gli strumenti al modello di distribuzione Resource Manager. Gli insiemi di credenziali di Servizi di ripristino sono stati creati per l'uso nel modello di distribuzione Resource Manager. È importante definire una pianificazione appropriata per il modello di distribuzione Resource Manager e tenere in considerazione le differenze negli insiemi di credenziali. 
+### <a name="what-does-this-upgrade-mean-for-my-existing-tooling"></a>Qual è l'impatto di questo aggiornamento per gli strumenti esistenti?
+Aggiornare gli strumenti al modello di distribuzione Resource Manager. Gli insiemi di credenziali di Servizi di ripristino sono stati creati per l'uso nel modello di distribuzione Resource Manager. È importante definire una pianificazione appropriata per il modello di distribuzione Resource Manager e tenere in considerazione le differenze negli insiemi di credenziali.
 
-**Durante l'aggiornamento sono previsti tempi lunghi di inattività?**</br>
+### <a name="during-the-upgrade-is-there-much-downtime"></a>Durante l'aggiornamento sono previsti tempi lunghi di inattività?
 Dipende dal numero di risorse sottoposte ad aggiornamento. Per distribuzioni di piccole dimensioni, ovvero poche decine di istanze protette, l'intero aggiornamento dovrebbe richiedere meno di 20 minuti. Per distribuzioni di grandi dimensioni, dovrebbe richiedere al massimo un'ora.
 
-**È possibile eseguire il ripristino dello stato precedente dopo l'aggiornamento?**</br>
+### <a name="can-i-roll-back-after-upgrading"></a>È possibile eseguire il ripristino dello stato precedente dopo l'aggiornamento?
  No. Il ripristino dello stato precedente non è supportato dopo il completamento dell'aggiornamento delle risorse.
 
-**È possibile convalidare la sottoscrizione o le risorse per verificare che siano in grado di eseguire l'aggiornamento?**</br>
+### <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-upgrade"></a>È possibile convalidare la sottoscrizione o le risorse per verificare che siano idonee all'aggiornamento?
 Sì. Il primo passaggio del processo di aggiornamento verifica che le risorse siano in grado di eseguire l'aggiornamento. In caso di esito negativo della convalida dei prerequisiti, si ricevono messaggi per tutti i motivi che impediscono il completamento dell'aggiornamento.
 
-**È possibile aggiornare l'insieme di credenziali di Backup basato su CSP?**</br>
+### <a name="can-i-upgrade-my-csp-based-backup-vault"></a>È possibile aggiornare l'insieme di credenziali di Backup basato su CSP?
  No. Non è attualmente possibile aggiornare gli insiemi di credenziali di Backup basati su CSP. Il supporto per l'aggiornamento degli insiemi di credenziali di Backup basati su CSP verrà aggiunto nelle prossime versioni.
 
-**È possibile visualizzare l'insieme di credenziali classico in seguito all'aggiornamento?**</br>
+### <a name="can-i-view-my-classic-vault-post-upgrade"></a>È possibile visualizzare l'insieme di credenziali classico in seguito all'aggiornamento?
  No. Non è possibile visualizzare o gestire l'insieme di credenziali classico in seguito all'aggiornamento. L'utente potrà usare il nuovo portale di Azure solo per tutte le operazioni di gestione nell'insieme di credenziali.
 
-**L'aggiornamento non è riuscito, ma il computer che include l'agente che necessita dell'aggiornamento non esiste più. Quali sono le operazioni da eseguire in questo caso?**</br>
+### <a name="my-upgrade-failed-but-the-machine-that-held-the-agent-requiring-updating-doesnt-exist-anymore-what-do-i-do-in-such-a-case"></a>L'aggiornamento non è riuscito, ma il computer che conteneva l'agente che doveva essere aggiornato non esiste più. Cosa occorre fare in questo caso?
 Se è necessario usare l'archivio di backup del computer per la conservazione a lungo termine, l'utente non sarà in grado di aggiornare l'insieme di credenziali. Il supporto per l'aggiornamento di questo tipo di insieme di credenziali verrà aggiunto nelle versioni future.
 Se non è più necessario archiviare i backup di questo computer, annullare la registrazione del computer dall'insieme di credenziali e provare a eseguire di nuovo l'aggiornamento.
 
-**Perché non è possibile visualizzare le informazioni sui processi per le risorse in seguito all'aggiornamento?**</br>
+### <a name="why-cant-i-see-the-jobs-information-for-my-resources-after-upgrade"></a>Perché non è possibile visualizzare le informazioni sui processi per le risorse in seguito all'aggiornamento?
 Il monitoraggio dei backup (agente MARS e IaaS) è una nuova funzionalità che si ottiene quando si aggiorna l'insieme di credenziali di Backup all'insieme di credenziali di Servizi di ripristino. La sincronizzazione delle informazioni sul monitoraggio con il servizio richiede fino a 12 ore.
 
-**Come si segnala un problema?**</br>
+### <a name="how-do-i-report-an-issue"></a>Come si segnala un problema?
 In caso di errore di una parte dell'aggiornamento dell'insieme di credenziali, annotare il valore OperationId elencato nell'errore. Il supporto tecnico Microsoft si impegnerà in modo proattivo per risolvere il problema. È possibile contattare il supporto tecnico o inviare un messaggio di posta elettronica all'indirizzo rsvaultupgrade@service.microsoft.com indicando l'ID della sottoscrizione, il nome dell'insieme di credenziali e l'ID dell'operazione. Microsoft si impegnerà per cercare di risolvere il problema il prima possibile. Non ripetere l'operazione a meno che non venga esplicitamente richiesto da Microsoft.
 
 

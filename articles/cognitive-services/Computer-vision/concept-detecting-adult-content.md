@@ -8,27 +8,34 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 64db05e5e40b76d219ea0e3214c20297f32da4b5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 69a4c136e9c210dd40e004b8d5e1c1a2a8fceaa7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861273"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312537"
 ---
-# <a name="detecting-adult-and-racy-content"></a>Rilevamento di contenuti audaci e per adulti
+# <a name="detect-adult-and-racy-content"></a>Rilevare contenuti audaci e per adulti
 
-Le diverse categorie visive includono anche il gruppo di contenuto spinti e per adulti, che consente d rilevare materiali per adulti e di limitare la visualizzazione delle immagini con contenuto sessuale. Il filtro per il rilevamento del contenuto spinto e per adulti può essere impostato tramite un indicatore di scorrimento in base alle preferenze dell'utente.
+Visione artificiale può rilevare materiale per soli adulti nelle immagini per consentire agli sviluppatori di limitare la visualizzazione di tali immagini nel software. Vengono applicati flag di contenuto con un punteggio compreso tra 0 e 1, in modo che gli sviluppatori possano interpretare i risultati in base alle proprie preferenze. 
 
-## <a name="defining-adult-and-racy-content"></a>Definizione di contenuti audaci e per adulti
+> [!NOTE]
+> Questa funzionalità è disponibile anche nel servizio [Azure Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview). Vedere questa alternativa per soluzioni per scenari più rigorosi di moderazione del contenuto, ad esempio per flussi di lavoro di moderazione del testo e di revisione umana.
 
-Tra le varie caratteristiche visive gestite dal [metodo Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), Adult consente di rilevare immagini con contenuti audaci o per adulti. Le immagini per adulti sono immagini di carattere pornografico in cui sono in genere rappresentati atti sessuali o scene di nudo. Le immagini audaci sono immagini sessualmente allusive in cui sono presenti contenuti a sfondo sessuale meno espliciti rispetto alle immagini per adulti. Il tipo di caratteristica visiva Adult viene usato in genere per limitare la visualizzazione di immagini con contenuti sessualmente allusivi ed esplicitamente pornografici.
+## <a name="content-flag-definitions"></a>Definizioni dei flag di contenuto
 
-## <a name="identifying-adult-and-racy-content"></a>Identificazione di contenuti audaci e per adulti
+Le immagini per **adulti** sono immagini di natura pornografica in cui sono in genere rappresentati atti sessuali o scene di nudo. 
 
-Nella risposta JSON del metodo Analyze Image vengono restituite due proprietà, `isAdultContent` e `isRacyContent`, per indicare rispettivamente contenuti per adulti e audaci. Entrambe le proprietà restituiscono un valore booleano, true o false. Il metodo restituisce inoltre due proprietà, `adultScore` e `racyScore`, che rappresentano rispettivamente il grado di attendibilità dei risultati dell'identificazione di contenuti per adulti e audaci. È possibile impostare un filtro di attendibilità per il rilevamento di contenuti audaci e per adulti basato su una scala progressiva, in modo da soddisfare i requisiti dello specifico scenario.
+Le immagini **audaci** sono immagini di natura sessualmente allusiva in cui sono presenti contenuti a sfondo sessuale meno espliciti rispetto alle immagini contrassegnate come per **adulti**. 
+
+## <a name="identify-adult-and-racy-content"></a>Identificare contenuti audaci e per adulti
+
+API [Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).
+
+Il metodo Analyze Image restituisce nella risposta JSON del metodo due proprietà booleane, `isAdultContent` e `isRacyContent`, per indicare rispettivamente i contenuti per adulti e quelli audaci. Il metodo restituisce anche due proprietà, `adultScore` e `racyScore`, che rappresentano i punteggi di attendibilità per identificare rispettivamente i contenuti per adulti e quelli audaci.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

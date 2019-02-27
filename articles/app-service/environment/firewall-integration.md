@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/20/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 87331ed0d9e5a4ff51e3669390d1b40dea58574a
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: af6a32d7e32f23561b207c729402eaea7925f520
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389244"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453852"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Blocco di un ambiente del servizio app
 
@@ -75,18 +75,18 @@ Questo uso del gateway applicazione è solo un esempio di come configurare il si
 
 ## <a name="logging"></a>Registrazione 
 
-Firewall di Azure può inviare log ad Archiviazione di Azure, Hub eventi o Log Analytics. Per integrare un'app con una destinazione supportata, passare al portale di Firewall di Azure > Log di diagnostica e abilitare i log per la destinazione desiderata. Se si esegue l'integrazione con Log Analytics, è possibile visualizzare la registrazione per tutto il traffico inviato a Firewall di Azure. Per visualizzare il traffico che viene rifiutato, aprire il portale di Log Analytics > Logs e immettere una query simile alla seguente 
+Firewall di Azure può inviare log ai log di Archiviazione di Azure, Hub eventi o Monitoraggio di Azure. Per integrare un'app con una destinazione supportata, passare al portale di Firewall di Azure > Log di diagnostica e abilitare i log per la destinazione desiderata. Se si esegue l'integrazione con i log di Monitoraggio di Azure, è possibile visualizzare la registrazione per tutto il traffico inviato a Firewall di Azure. Per visualizzare il traffico che viene rifiutato, aprire il portale dell'area di lavoro di Log Analytics > Logs e immettere una query simile alla seguente 
 
     AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
  
-L'integrazione di Firewall di Azure con Log Analytics è molto utile all'inizio dell'utilizzo di un'applicazione quando non si è consapevoli di tutte le dipendenze dell'applicazione. Per altre informazioni su Log Analytics, vedere [Analizzare i dati di Log Analytics in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+L'integrazione di Firewall di Azure con i log di Monitoraggio di Azure è molto utile all'inizio dell'utilizzo di un'applicazione quando non si è consapevoli di tutte le dipendenze dell'applicazione. Per altre informazioni sui log di Monitoraggio di Azure, vedere [Analizzare i dati di log in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
  
 ## <a name="dependencies"></a>Dependencies
 
 Le informazioni seguenti sono necessarie solo se si vuole configurare un'appliance firewall diversa da Firewall di Azure. 
 
 - Con gli endpoint di servizio devono essere configurati servizi che supportano endpoint di servizio.
-- Le dipendenze degli indirizzi IP sono per il traffico non HTTP/S.
+- Le dipendenze degli indirizzi IP sono per il traffico non HTTP/S (traffico sia TCP che UDP)
 - Gli endpoint HTTP/HTTPS con nome di dominio completo possono essere posizionati nel dispositivo firewall.
 - Gli endpoint HTTP/HTTPS con caratteri jolly sono dipendenze che possono variare con l'ambiente del servizio app in base a svariati qualificatori. 
 - Le dipendenze di Linux sono un problema solo se si distribuiscono app Linux nell'ambiente del servizio app. Se non è prevista la distribuzione di app Linux nell'ambiente del servizio app, non è necessario aggiungere questi indirizzi al firewall. 

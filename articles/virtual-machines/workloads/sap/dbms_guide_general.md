@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87d3a44b01dff81242f935c7737bd170fe744536
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 54511ac4dfdc05ec1880695b1ae2360f0b5e8162
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246875"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328368"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -106,12 +106,12 @@ Per quanto riguarda la tecnologia IaaS, in generale l'installazione e la configu
 
 
 ## <a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Struttura delle risorse di archiviazione di una VM per le distribuzioni RDBMS
-Per seguire questo capitolo, è necessario conoscere il contenuto di [questo][deployment-guide-3] capitolo della [guida alla distribuzione][deployment-guide]. Prima di leggere questo capitolo è necessario conoscere le diverse serie di macchine virtuali e le relative differenze, nonché le differenze tra [Archiviazione Premium](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) e Standard di Azure.
+Per seguire questo capitolo, è necessario conoscere il contenuto di [questo][deployment-guide-3] capitolo della [guida alla distribuzione][deployment-guide]. Prima di leggere questo capitolo è necessario conoscere le diverse serie di macchine virtuali e le relative differenze, nonché le differenze tra archiviazione Premium e Standard. Ad
 
 Per quanto riguarda Archiviazione di Azure per macchine virtuali di Azure, è necessario avere familiarità con gli articoli seguenti:
 
-- [Informazioni sull'archiviazione su dischi per le VM Windows di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds)
-- [Informazioni sull'archiviazione su disco per le VM Linux di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/about-disks-and-vhds)
+- [Panoramica di Azure Managed Disks per Windows](../../windows/managed-disks-overview.md)
+- [Panoramica di Azure Managed Disks per Linux](../../linux/managed-disks-overview.md)
 
 In una configurazione di base, si consiglia di solito di usare una struttura di distribuzione in cui il sistema operativo, il sistema DBMS ed eventuali file binari SAP siano separati dai file di database. Nei sistemi SAP in esecuzione in macchine virtuali di Azure, il disco rigido virtuale di base deve preferibilmente essere installato con il sistema operativo, i file eseguibili del sistema di gestione di database e i file eseguibili SAP. I file di dati e di log di DBMS vengono archiviati in Archiviazione di Azure (Standard o Premium) in dischi separati e collegati come dischi logici alla VM di Azure dell'immagine del sistema operativo originale. Specialmente nelle distribuzioni Linux possono essere disponibili raccomandazioni diverse documentate, in particolare per quanto riguarda SAP HANA.
 
@@ -134,10 +134,8 @@ Azure applica una quota di operazioni di I/O al secondo per disco dati. I dischi
 > [!NOTE]
 > Per trarre vantaggio dall'unico [contratto di servizio per macchine virtuali](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) tutti i dischi collegati devono essere di tipo Archiviazione Premium di Azure, incluso il disco rigido virtuale di base.
 
-
 > [!NOTE]
 > Non può ospitare i file principali di database (file di log e dati) dei database SAP su hardware di archiviazione situati in data center di terze parti con risorse condivise adiacenti ai data center di Azure. Per il carico di lavoro SAP solo l'archiviazione che è rappresentata come servizio nativo di Azure è supportata per i file di log delle transazioni e dei dati dei database SAP.
-> 
 
 La posizione dei file di database, dei file registro e di rollforward e il tipo di Archiviazione di Azure usati devono essere definiti in base ai requisiti di operazioni di I/O al secondo, latenza e velocità effettiva. Per avere un numero di operazioni di I/O al secondo sufficiente, potrebbe essere necessario sfruttare più dischi oppure usare un disco di Archiviazione Premium di dimensioni maggiori. In caso di uso di più dischi, si creerebbe una striscia software tra i dischi che contengono i file di dati o i file registro/di rollforward. In questi casi, i contratti di servizio per le operazioni di I/O al secondo e la velocità effettiva dei dischi di Archiviazione Premium sottostanti o il numero massimo raggiungibile di operazioni di I/O al secondo di Archiviazione Standard di Azure sono cumulativi per il set di striping risultante.
 

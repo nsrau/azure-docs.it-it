@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: bf807a4d24b72c948707ade28f06c4eb2a54c0a0
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 321dfaa1a58cc806394f4807c38cbdc599cfd7a0
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657026"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311564"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Come usare identità gestite con Istanze di Azure Container
 
@@ -27,6 +27,9 @@ In questo articolo sono fornite altre informazioni sulle identità gestite in Is
 > * Usare l'identità gestita per accedere a un insieme di credenziali delle chiavi da un contenitore in esecuzione
 
 Adattare gli esempi per abilitare e usare le identità in Istanze di Azure Container per accedere ad altri servizi di Azure. Questi esempi sono interattivi. Tuttavia, in pratica le immagini del contenitore dovrebbero eseguire codice per accedere ai servizi di Azure.
+
+> [!NOTE]
+> Non è attualmente possibile usare un'identità gestita in un gruppo di contenitori distribuito in una rete virtuale.
 
 ## <a name="why-use-a-managed-identity"></a>Perché usare un'identità gestita?
 

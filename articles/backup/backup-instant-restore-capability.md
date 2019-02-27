@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/20/2019
 ms.author: sogup
-ms.openlocfilehash: cc4f559efecec3f024ce995dcf8f8757eb9cb4fb
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 1a25a9c3e0d099349286476f0ae3791efee1642f
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489691"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452815"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ottenere prestazioni migliori per backup e ripristino con la funzionalità Ripristino istantaneo di Backup di Azure
 
@@ -23,10 +23,11 @@ ms.locfileid: "55489691"
 Il nuovo modello per Ripristino istantaneo offre i miglioramenti delle funzionalità seguenti:
 
 * Possibilità di usare snapshot acquisiti durante il processo di backup disponibili per il ripristino senza attendere il completamento del trasferimento dei dati all'insieme di credenziali. Riduce il tempo di attesa per la copia degli snapshot nell'insieme di credenziali prima di attivare il ripristino.
-* Riduzione dei tempi di backup e ripristino conservando gli snapshot insieme ai dischi per sette giorni.
+* Riduce i tempi di backup e ripristino conservando gli snapshot in locale per due giorni per impostazione predefinita. Questo valore predefinito può essere configurato su qualsiasi valore compreso tra 1 e 5 giorni.
 * Supporto di dischi con dimensioni fino a 4 TB.
 * Supporto di dischi SSD Standard.
-* Possibilità di usare gli account di archiviazione originali (per ogni disco) di una macchina virtuale non gestita quando si esegue il ripristino. Questa possibilità vale anche quando i dischi della macchina virtuale sono distribuiti negli account di archiviazione. Le operazioni di ripristino per un'ampia gamma di configurazioni di macchine virtuali vengono velocizzate.
+*   Possibilità di usare gli account di archiviazione originali (per ogni disco) di una macchina virtuale non gestita quando si esegue il ripristino. Questa possibilità vale anche quando i dischi della macchina virtuale sono distribuiti negli account di archiviazione. Le operazioni di ripristino per un'ampia gamma di configurazioni di macchine virtuali sono più veloci.
+
 
 
 ## <a name="whats-new-in-this-feature"></a>Novità di questa funzionalità
@@ -47,6 +48,12 @@ Gli snapshot vengono conservati per sette giorni. Questa funzionalità consente 
 * Gli snapshot vengono archiviati insieme ai dischi per ottimizzare la creazione del punto di ripristino e velocizzare le operazioni di ripristino. Verranno pertanto addebitati costi di archiviazione corrispondenti agli snapshot creati durante questo periodo.
 * Gli snapshot incrementali vengono archiviati come BLOB di pagine. A tutti i clienti che usano dischi non gestiti vengono addebitati i costi per gli snapshot archiviati nell'account di archiviazione locale. Poiché le raccolte di punti di ripristino usate dai backup delle macchine virtuali gestite usano snapshot BLOB a livello di archiviazione sottostante, per i dischi gestiti verranno addebitati i costi corrispondenti ai prezzi degli snapshot BLOB, che sono incrementali.
 * Per gli account di archiviazione Premium, gli snapshot creati per i punti di ripristino istantaneo vengono inclusi nel conteggio relativo al limite di 10 TB di spazio allocato.
+* Si ottiene la possibilità di configurare la conservazione degli snapshot in base alle esigenze di ripristino. A seconda delle esigenze, è possibile impostare il periodo di conservazione degli snapshot su un minimo di un giorno nel pannello dei criteri di backup, come spiegato di seguito. Questa impostazione consente di risparmiare sul costo della conservazione degli snapshot, se non vengono eseguite operazioni di ripristino con frequenza.
+
+
+>[!NOTE]
+>Con questo aggiornamento immediato del ripristino la durata della conservazione degli snapshot di tutti i clienti (**sia nuovi che esistenti**) verrà impostata su un valore predefinito di due giorni. È tuttavia possibile impostare la durata su un qualsiasi valore compreso tra 1 e 5 giorni, in base alle esigenze.
+
 
 ## <a name="cost-impact"></a>Impatto sui costi
 
@@ -56,10 +63,11 @@ Gli snapshot incrementali vengono archiviati nell'account di archiviazione della
 ## <a name="upgrading-to-instant-restore"></a>Aggiornamento a Ripristino istantaneo
 
 Se si usa il portale di Azure, verrà visualizzata una notifica nel dashboard dell'insieme di credenziali. Questa notifica si riferisce al supporto di dischi di grandi dimensioni e ai miglioramenti della velocità di backup e ripristino.
+Per aprire una schermata per l'aggiornamento a Ripristino istantaneo, selezionare il banner.
 
 ![Processo di backup in uno stack di backup di macchine virtuali, modello di distribuzione Resource Manager: notifica relativa al supporto](./media/backup-azure-vms/instant-rp-banner.png)
 
-Per aprire una schermata per l'aggiornamento a Ripristino istantaneo, selezionare il banner.
+Fare clic su **Aggiorna** come mostrato nello screenshot seguente:
 
 ![Processo di backup in uno stack di backup di macchine virtuali, modello di distribuzione Resource Manager: aggiornamento](./media/backup-azure-vms/instant-rp.png)
 
@@ -67,6 +75,13 @@ In alternativa, è possibile passare alla pagina **Proprietà** dell'insieme di 
 
 ![Processo di backup nello stack di backup di macchine virtuali - Pagina Proprietà](./media/backup-azure-vms/instant-restore-capability-properties.png)
 
+
+## <a name="configure-snapshot-retention-using-azure-portal"></a>Configurare la conservazione degli snapshot usando il portale di Azure
+Questa opzione è attualmente disponibile nelle aree Stati Uniti centro-occidentali, India meridionale e Australia orientale.
+
+Per gli utenti aggiornati, nel portale di Azure viene aggiunto un campo nel pannello **Criteri di backup di macchine virtuali**, nella sezione **Ripristino istantaneo**. È possibile cambiare la durata della conservazione degli snapshot nel pannello **Criteri di backup di macchine virtuali** per tutte le macchine virtuali associate al criterio di backup specifico.
+
+![Funzionalità Ripristino istantaneo](./media/backup-azure-vms/instant-restore-capability.png)
 
 ## <a name="upgrade-to-instant-restore-using-powershell"></a>Eseguire l'aggiornamento a Ripristino istantaneo con PowerShell
 
@@ -151,7 +166,7 @@ Dipende dalla varianza della macchina virtuale. In uno stato stabile, si può pr
 Se il tipo di ripristino è "Snapshot e insieme di credenziali", il ripristino verrà eseguito automaticamente dallo snapshot locale e l'operazione sarà molto più veloce rispetto al ripristino eseguito dall'insieme di credenziali.
 
 ### <a name="what-happens-if-i-select-retention-period-of-restore-point-tier-2-less-than-the-snapshot-tier1-retention-period"></a>Che cosa accade se si seleziona un periodo di conservazione del punto di ripristino (livello 2) inferiore a quello dello snapshot (livello 1)?
-Il nuovo modello non consente di eliminare il punto di ripristino (livello 2) senza eliminare lo snapshot (livello 1). È attualmente supportato un periodo di conservazione di sette giorni per l'eliminazione dello snapshot (livello 1), quindi un periodo di conservazione del punto di ripristino (livello 2) inferiore a sette giorni non viene rispettato. È consigliabile pianificare un periodo di conservazione del punto di ripristino (livello 2) superiore a sette giorni.
+Il nuovo modello non consente di eliminare il punto di ripristino (livello 2) senza eliminare lo snapshot (livello 1). È consigliabile pianificare un periodo di conservazione del punto di ripristino (livello 2) superiore al periodo di conservazione degli snapshot.
 
 ### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>Perché lo snapshot è disponibile anche dopo il periodo di conservazione impostato nei criteri di backup?
-Se il punto di ripristino contiene snapshot e si tratta dell'ultimo punto di ripristino disponibile, viene conservato fino al corretto completamento di un backup successivo. Questo comportamento è conforme ai criteri di GC progettati attuali, che prevedono che sia sempre presente almeno un punto di ripristino aggiornato nel caso tutti i backup successivi abbiano esito negativo a causa di un problema nella macchina virtuale. Negli scenari normali, i punti di ripristino vengono puliti entro massimo 48 ore dalla relativa scadenza.
+Se il punto di ripristino contiene snapshot e si tratta dell'ultimo punto di ripristino disponibile, viene conservato fino al corretto completamento di un backup successivo. Questo comportamento è conforme ai criteri di GC progettati attuali, che prevedono che sia sempre presente almeno un punto di ripristino aggiornato nel caso tutti i backup successivi abbiano esito negativo a causa di un problema nella macchina virtuale. Negli scenari normali, i punti di ripristino vengono puliti entro 24 ore dalla relativa scadenza.

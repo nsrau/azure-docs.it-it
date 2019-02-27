@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eba77f79ad4625319a9b6e3eae46bf8470f43607
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 67cb3d049cc2d2f26be6d62270e677a5cbcd39cc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203778"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455042"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>Aggiungere l'account Microsoft personale
 Aggiungere gli account Microsoft personali, ad esempio per Outlook.com e Xbox LIVE all'app Microsoft Authenticator per il processo di verifica a due fattori standard e il metodo di accesso telefono senza password.
@@ -37,7 +37,7 @@ Aggiungere gli account Microsoft personali, ad esempio per Outlook.com e Xbox LI
 
 ### <a name="turn-on-two-factor-verification"></a>Attivare la verifica a due fattori
 
-1. Nel PC in uso, andare alla pagina [nozioni fondamentali sulla sicurezza](https://account.microsoft.com/security) e accedere usando l'account Microsoft personale. Ad esempio: alain@outlook.com.
+1. Nel computer in uso andare alla pagina [Informazioni di base sulla sicurezza](https://account.microsoft.com/security) e accedere usando l'account Microsoft personale. Ad esempio: alain@outlook.com.
 
 2. In fondo alla pagina **nozioni fondamentali sulla sicurezza**, scegliere il collegamento **Altre opzioni di sicurezza**.
 

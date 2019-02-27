@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2018
 ms.author: victorh
-ms.openlocfilehash: b9bdc3f4a0f7eb20b1c0cbc33fb257577da08c26
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 92d0e079f9fafbb6c000c6b1746f37a16add4cf7
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598488"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417348"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Creare un gateway applicazione con un servizio di bilanciamento del carico interno
 
@@ -35,11 +35,11 @@ In questo articolo verrà illustrata la procedura per configurare un gateway app
 
 ## <a name="what-is-required-to-create-an-application-gateway"></a>Elementi necessari per creare un gateway applicazione
 
-* **Pool di server back-end:** elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla rete virtuale, ma devono trovarsi in una subnet diversa per il gateway applicazione, o devono essere un indirizzo IP/VIP pubblico.
-* **Impostazioni del pool di server back-end:** ogni pool ha impostazioni quali porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
+* **Pool di server back-end:** L’elenco di indirizzi IP dei server di back-end. Gli indirizzi IP elencati devono appartenere alla rete virtuale, ma devono trovarsi in una subnet diversa per il gateway applicazione, o devono essere un indirizzo IP/VIP pubblico.
+* **Impostazioni del pool di server back-end:** Ogni pool ha impostazioni quali porta, protocollo e affinità basate sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
 * **Porta front-end:** porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
-* **Listener** : ha una porta front-end, un protocollo (Http o Https, con distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL).
-* **Regola** : associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola *basic* . La regola *basic* è una distribuzione del carico di tipo round robin.
+* **Listener:** ha una porta front-end, un protocollo (Http o Https, con distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL).
+* **Regola:** associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola *basic* . La regola *basic* è una distribuzione del carico di tipo round robin.
 
 ## <a name="create-an-application-gateway"></a>Creare un gateway applicazione
 
@@ -188,7 +188,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 Questo passaggio configura le dimensioni dell'istanza del gateway applicazione.
 
 > [!NOTE]
-> Il valore predefinito per *InstanceCount* è 2, con un valore massimo pari a 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Standard_Small, Standard_Medium e Standard_Large.
+> Il valore predefinito per Capacità è 2. Per il nome dello SKU, è possibile scegliere tra Standard_Small, Standard_Medium e Standard_Large.
 
 ## <a name="create-an-application-gateway-by-using-new-azureapplicationgateway"></a>Creare un gateway applicazione usando New-AzureApplicationGateway
 

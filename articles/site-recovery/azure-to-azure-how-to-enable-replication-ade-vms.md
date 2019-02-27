@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 5d992d13a67c7b01f82b615e7131a20b84dec9e8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f9abc6d79bd821ef612e9e7648b1b5af98bb5cf6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851019"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456232"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Eseguire la replica di macchine virtuali abilitate per Crittografia dischi di Azure (ADE) in un'altra area di Azure
 
@@ -24,6 +24,7 @@ Questo articolo illustra come abilitare la replica di VM abilitate per Crittogra
 >
 
 ## <a name="required-user-permissions"></a>Autorizzazioni utente necessarie
+Azure Site Recovery richiede che l'utente sia autorizzato a creare l'insieme di credenziali delle chiavi nell'area di destinazione e a copiare le chiavi nell'area.
 
 Per abilitare la replica di VM ADE dal portale, è necessario avere le autorizzazioni seguenti.
 - Autorizzazioni dell'insieme di credenziali delle chiavi
@@ -43,12 +44,22 @@ Per abilitare la replica di VM ADE dal portale, è necessario avere le autorizza
     - Crittografare il contenuto
     - Decrypt
 
-Per gestire le autorizzazioni, passare alla risorsa relativa all'insieme di credenziali delle chiavi nel portale e aggiungere all'utente le autorizzazioni necessarie.
+Per gestire le autorizzazioni, passare alla risorsa relativa all'insieme di credenziali delle chiavi nel portale e aggiungere all'utente le autorizzazioni necessarie. Di seguito è illustrato come abilitarla per l'insieme di credenziali delle chiavi "ContosoWeb2Keyvault", che è l'area di origine.
 
-![keyvaultpermissions](./media/azure-to-azure-how-to-enable-replication-ade-vms/keyvaultpermissions.png)
+
+-  Passare a "Home > Insiemi di credenziali delle chiavi > ContosoWeb2KeyVault > Criteri di accesso"
+
+![Autorizzazioni per l'insieme di credenziali delle chiavi](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-1.png)
+
+
+
+- Come si può vedere, non è impostata alcuna autorizzazione, pertanto occorre aggiungere l'autorizzazione menzionata sopra facendo clic su "Aggiungi nuovo" e specificando l'utente e l'autorizzazione.
+
+![Autorizzazioni per l'insieme di credenziali delle chiavi](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-2.png)
 
 Se l'utente che abilita il ripristino di emergenza non ha le autorizzazioni necessarie per copiare le chiavi, è possibile fornire all'amministratore della sicurezza lo script indicato di seguito con le autorizzazioni appropriate per copiare le chiavi e i segreti di crittografia nell'area di destinazione.
 
+Vedere [questo articolo](#trusted-root-certificates-error-code-151066) per informazioni sulla risoluzione dei problemi relativi alle autorizzazioni.
 >[!NOTE]
 >Per abilitare la replica di VM ADE dal portale, è necessario avere almeno le autorizzazioni "List" per gli insiemi di credenziali delle chiavi, i segreti e le chiavi.
 >
@@ -124,12 +135,26 @@ Questa procedura presuppone che l'area di Azure primaria sia Asia orientale e l'
 
 ## <a name="update-target-vm-encryption-settings"></a>Aggiornare le impostazioni di crittografia della VM di destinazione
 Nello scenari seguenti sarà necessario aggiornare le impostazioni di crittografia della VM di destinazione.
-  - È stata abilitata la replica di Site Recovery nella VM e in un secondo momento è stato abilitato il servizio Crittografia dischi di Azure nella VM di origine.
-  - È stata abilitata la replica di Site Recovery nella VM e in un secondo momento sono state modificate la chiave di crittografia dei dischi e/o la chiave di crittografia delle chiavi nella VM di origine.
+  - È stata abilitata la replica di Site Recovery nella macchina virtuale e in un secondo momento è stato abilitato il servizio Crittografia dischi di Azure nella VM di origine.
+  - È stata abilitata la replica di Site Recovery nella macchina virtuale e in un secondo momento sono state modificate la chiave di crittografia dei dischi e/o la chiave di crittografia delle chiavi nella VM di origine.
 
 È possibile usare [lo script](#copy-ade-keys-to-dr-region-using-powershell-script) per copiare le chiavi di crittografia nell'area di destinazione e quindi aggiornare le impostazioni di crittografia di destinazione in **Insieme di credenziali di Servizi di ripristino -> Elemento replicato -> Proprietà -> Calcolo e rete**.
 
 ![update-ade-settings](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
+
+## <a name="trusted-root-certificates-error-code-151066"></a>Risolvere i problemi relativi alle autorizzazioni degli insiemi di credenziali delle chiavi durante la replica di macchine virtuali da Azure ad Azure
+
+**Causa 1:** è possibile che sia stato selezionato dall'area di destinazione un insieme di credenziali delle chiavi già creato che non ha le autorizzazioni necessarie.
+Se si seleziona un insieme di credenziali delle chiavi già creato nell'area di destinazione invece di crearlo automaticamente con Azure Site Recovery, assicurarsi che abbia le autorizzazioni necessarie come menzionato in precedenza.</br>
+*Ad esempio*: un utente cerca di replicare una macchina virtuale che ha un insieme di credenziali delle chiavi nell'area di origine denominato "ContososourceKeyvault".
+L'utente ha tutte le autorizzazioni sull'insieme di credenziali delle chiavi dell'area di origine, ma durante la protezione seleziona un insieme di credenziali delle chiavi già creato denominato "ContosotargetKeyvault", che non ha l'autorizzazione necessaria, quindi la protezione genera un errore.</br>
+**Come correggere:** Passare a "Home > Insiemi di credenziali delle chiavi > ContososourceKeyvault > Criteri di accesso" e aggiungere le autorizzazioni come illustrato sopra. 
+
+**Causa 2:** è possibile che sia stato selezionato dall'area di destinazione un insieme di credenziali delle chiavi già creato che non ha le autorizzazioni di decrittografia-crittografia.
+Se si seleziona un insieme di credenziali delle chiavi già creato nell'area di destinazione invece di crearlo automaticamente con Azure Site Recovery, assicurarsi che l'utente abbia le autorizzazioni di decrittografia-crittografia in caso si debbano crittografare le chiavi anche nell'area di origine.</br>
+*Ad esempio*: un utente cerca di replicare una macchina virtuale che ha un insieme di credenziali delle chiavi nell'area di origine denominato "ContososourceKeyvault".
+L'utente ha tutte le autorizzazioni sull'insieme di credenziali delle chiavi dell'area di origine, ma durante la protezione seleziona un insieme di credenziali delle chiavi già creato denominato "ContosotargetKeyvault", che non ha l'autorizzazione necessaria per decrittografare e crittografare.</br>
+**Come correggere:** Passare a "Home > Insiemi di credenziali delle chiavi > ContososourceKeyvault > Criteri di accesso" e aggiungere le autorizzazioni in Autorizzazioni chiave > Operazioni crittografiche.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

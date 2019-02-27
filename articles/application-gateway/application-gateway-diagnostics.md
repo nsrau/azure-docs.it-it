@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 1/11/2019
 ms.author: amitsriva
-ms.openlocfilehash: 6cd21448742778b0a2a27aea41f7940b1a216cdc
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: c93434f060525f2f53f24c511bfa748a31d1fd61
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231105"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453300"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Integrità back-end, log di diagnostica e metriche per il gateway applicazione
 
@@ -90,7 +90,7 @@ Il frammento seguente illustra un esempio della risposta:
 
 ## <a name="diagnostic-logging"></a>Registri di diagnostica
 
-In Azure è possibile usare diversi tipi di log per gestire e risolvere i problemi dei gateway applicazione. Alcuni di questi log sono accessibili tramite il portale. Tutti i log possono essere estratti dall'archiviazione BLOB di Azure e visualizzati in strumenti differenti, ad esempio [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Excel e Power BI. L'elenco seguente contiene altre informazioni sui diversi tipi di log:
+In Azure è possibile usare diversi tipi di log per gestire e risolvere i problemi dei gateway applicazione. Alcuni di questi log sono accessibili tramite il portale. Tutti i log possono essere estratti dall'archiviazione BLOB di Azure e visualizzati in strumenti diversi, ad esempio i [log di Monitoraggio di Azure](../azure-monitor/insights/azure-networking-analytics.md), Excel e Power BI. L'elenco seguente contiene altre informazioni sui diversi tipi di log:
 
 * **Log attività**: è possibile usare i [log attività di Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md), chiamati in precedenza log operativi e log di controllo, per visualizzare tutte le operazioni inviate alla sottoscrizione di Azure e il relativo stato. Le voci dei log attività vengono raccolte per impostazione predefinita e possono essere visualizzate nel portale di Azure.
 * **Log di accesso**: È possibile usare questo log per visualizzare i modelli di accesso al gateway applicazione e analizzare informazioni importanti. I dati includono indirizzo IP del chiamante, URL richiesto, latenza della risposta, codice restituito, byte in ingresso e in uscita. Il log di accesso viene raccolto ogni 300 secondi. Il log contiene un record per ogni istanza del gateway applicazione. L'istanza del gateway applicazione può essere identificata dalla proprietà instanceId.
@@ -104,7 +104,7 @@ Sono disponibili tre opzioni di archiviazione dei log:
 
 * **Account di archiviazione**: sono la soluzione ideale per i log quando questi vengono archiviati per un periodo più lungo ed esaminati quando necessario.
 * **Hub eventi**: ottima opzione per l'integrazione con altri strumenti di gestione degli eventi e delle informazioni di sicurezza (SEIM) per ricevere avvisi sulle risorse.
-* **Log Analytics**: soluzione adatta al monitoraggio generale in tempo reale dell'applicazione o all'analisi delle tendenze.
+* **Log di Monitoraggio di Azure**: i log di Monitoraggio di Azure sono ideali per il monitoraggio generale in tempo reale dell'applicazione o per l'analisi delle tendenze.
 
 ### <a name="enable-logging-through-powershell"></a>Abilitare la registrazione tramite PowerShell
 
@@ -298,7 +298,7 @@ Il log del firewall viene generato solo se è stato abilitato in ogni gateway ap
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Visualizzare e analizzare i log di accesso, delle prestazioni e del firewall
 
-Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) consente di raccogliere i file dei log contatori ed eventi dall'account di archiviazione BLOB. Include visualizzazioni e funzionalità di ricerca avanzate per analizzare i log.
+I [log di Monitoraggio di Azure](../azure-monitor/insights/azure-networking-analytics.md) consentono di raccogliere i file dei log contatori ed eventi dall'account di archiviazione BLOB. Include visualizzazioni e funzionalità di ricerca avanzate per analizzare i log.
 
 È anche possibile connettersi all'account di archiviazione e recuperare le voci del log JSON per i log di accesso e delle prestazioni. Dopo avere scaricato i file JSON, è possibile convertirli in CSV e visualizzarli in Excel, PowerBI o un altro strumento di visualizzazione dei dati.
 
@@ -374,7 +374,7 @@ Per altre informazioni sui webhook e su come usarli con gli avvisi, vedere [Conf
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Visualizzare i log contatori ed eventi usando [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md).
+* Visualizzare i log contatori ed eventi usando i [log di Monitoraggio di Azure](../azure-monitor/insights/azure-networking-analytics.md).
 * Post di blog [Visualize your Azure activity log with Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) (Visualizzare il log attività di Azure con Power BI).
 * Post di blog [View and analyze Azure activity logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) (Visualizzare e analizzare i log attività di Azure in Power BI e altre opzioni).
 

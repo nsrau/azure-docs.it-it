@@ -7,16 +7,16 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 3c7feda32bf162499888720ce56edac55197abe4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 59973d9530bf1c3ab3e77290b25e50860f9de0ca
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005523"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342984"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure
 
-Gli avvisi delle metriche in Monitoraggio di Azure si basano su metriche multidimensionali. Queste metriche possono essere metriche di piattaforma, [metriche personalizzate](../../azure-monitor/platform/metrics-custom-overview.md), [log comuni di Monitoraggio di Azure convertiti in metriche](../../azure-monitor/platform/alerts-metric-logs.md) e metriche standard di Application Insights. Gli avvisi delle metriche eseguono valutazioni a intervalli regolari per verificare se le condizioni in una o più serie temporale di metriche vengono soddisfatte e, in caso affermativo, inviano una notifica. Gli avvisi delle metriche sono avvisi con stato, ovvero inviano notifiche solo quando lo stato cambia.
+Gli avvisi delle metriche in Monitoraggio di Azure si basano su metriche multidimensionali. Queste metriche possono essere [metriche di piattaforma](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [metriche personalizzate](../../azure-monitor/platform/metrics-custom-overview.md), [log comuni di Monitoraggio di Azure convertiti in metriche](../../azure-monitor/platform/alerts-metric-logs.md) e metriche di Application Insights. Gli avvisi delle metriche eseguono valutazioni a intervalli regolari per verificare se le condizioni in una o più serie temporale di metriche vengono soddisfatte e, in caso affermativo, inviano una notifica. Gli avvisi delle metriche sono avvisi con stato, ovvero inviano notifiche solo quando lo stato cambia.
 
 ## <a name="how-do-metric-alerts-work"></a>Funzionamento degli avvisi delle metriche
 
@@ -65,8 +65,6 @@ Se l'utilizzo in "myVM" rimane al di sopra della soglia nei controlli successivi
 Dopo un po' di tempo, se l'utilizzo in "myVM" torna alla condizione normale, ovvero scende sotto la soglia, la regola di avviso monitora la condizione altre due volte, per inviare una notifica risolta. La regola di avviso invia una notifica risolta/disattivata se la condizione di avviso non viene soddisfatta per tre volte consecutive, per ridurre il rumore in caso di condizioni instabili.
 
 Quando la notifica risolta viene inviata tramite posta elettronica o webhook, anche lo stato dell'istanza di avviso (denominato stato di monitoraggio) nel portale di Azure viene impostato come risolto.
-
-## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Monitoraggio su larga scala mediante gli avvisi delle metriche in Monitoraggio di Azure
 
 ### <a name="using-dimensions"></a>Uso delle dimensioni
 
@@ -123,9 +121,9 @@ Questa regola monitora se l'utilizzo medio della CPU negli ultimi 5 minuti super
 
 È anche possibile aumentare i periodi da monitorare e il numero di violazioni per consentire il filtro degli avvisi in modo che vengano generati solo in base alla definizione di deviazione significativa specificata dall'utente. [Altre informazioni sulle opzioni avanzate delle soglie dinamiche](alerts-dynamic-thresholds.md#what-do-the-advanced-settings-in-dynamic-thresholds-mean).
 
-### <a name="monitoring-multiple-resources-using-metric-alerts"></a>Monitoraggio di più risorse con gli avvisi delle metriche
+## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Monitoraggio su larga scala mediante gli avvisi delle metriche in Monitoraggio di Azure
 
-Come si è visto nella sezione precedente, è possibile avere una singola regola di avviso per la metrica che monitora ogni singola combinazione di dimensioni (ovvero, una serie temporale di metriche). In precedenza monitoraggio era comunque limitato a una singola risorsa alla volta. Monitoraggio di Azure supporta anche il monitoraggio di più risorse con una regola di avviso per la metrica. Questa funzionalità è attualmente in anteprima e supportata solo nelle macchine virtuali. Un singolo avviso per la metrica, inoltre, può monitorare le risorse in una sola area di Azure.
+Fino a questo punto abbiamo visto che un solo avviso di metrica può essere usato per monitorare una o molte serie temporali di metriche correlate a una singola risorsa di Azure. Spesso si ha l'esigenza di applicare la stessa regola di avviso a molte risorse. Monitoraggio di Azure supporta anche il monitoraggio di più risorse con una regola di avviso per la metrica. Questa funzionalità è attualmente supportata solo nelle macchine virtuali. Un singolo avviso per la metrica, inoltre, può monitorare le risorse in una sola area di Azure.
 
 È possibile specificare l'ambito del monitoraggio con un singolo avviso per la metrica in uno dei tre modi seguenti:
 
@@ -133,7 +131,7 @@ Come si è visto nella sezione precedente, è possibile avere una singola regola
 - tutte le macchine virtuali (in un'area di Azure) in uno o più gruppi di risorse in una sottoscrizione
 - tutte le macchine virtuali (in un'area di Azure) in una sottoscrizione
 
-La creazione di regole di avviso per le metriche che monitorano più risorse non è attualmente supportata tramite il portale di Azure. È possibile creare queste regole tramite [modelli di Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources). Si riceveranno notifiche specifiche per ogni macchina virtuale.
+La creazione di regole di avviso per le metriche che monitorano più risorse equivale a [creare qualsiasi altro avviso per le metriche](alerts-metric.md) che monitora una sola risorsa. L'unica differenza è che occorre selezionare tutte le risorse da monitorare. È possibile creare queste regole anche tramite i [modelli di Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources). Si riceveranno notifiche specifiche per ogni macchina virtuale.
 
 ## <a name="typical-latency"></a>Latenza tipica
 
@@ -149,7 +147,7 @@ Se si usano avvisi delle metriche classici e si vuole verificare se gli avvisi d
 |-------------------------------------------------|----------------------------|
 | Microsoft.ApiManagement/service | Sì |
 | Microsoft.Batch/batchAccounts| Sì|
-|Microsoft.Cache/redis| Sì
+|Microsoft.Cache/redis| Sì |
 |Microsoft.ClassicCompute/virtualMachines | No  |
 |Microsoft.ClassicCompute/domainNames/slots/roles | No |
 |Microsoft.CognitiveServices/accounts | No  |
@@ -160,7 +158,7 @@ Se si usano avvisi delle metriche classici e si vuole verificare se gli avvisi d
 |Microsoft.DBforMySQL/servers| Sì|
 |Microsoft.DBforPostgreSQL/servers| Sì|
 |Microsoft.Devices/IotHubs | No |
-|Microsoft.DocumentDB/databaseAccounts| No |
+|Microsoft.DocumentDB/databaseAccounts| Sì|
 |Microsoft.EventHub/namespaces | Sì|
 |Microsoft.Logic/workflows | Sì|
 |Microsoft.Network/loadBalancers |Sì|
@@ -168,16 +166,16 @@ Se si usano avvisi delle metriche classici e si vuole verificare se gli avvisi d
 |Microsoft.Network/applicationGateways| Sì|
 |Microsoft.Network/expressRouteCircuits| Sì|
 |Microsoft.Network/trafficManagerProfiles | Sì|
-|Microsoft.Search/searchServices | No |
-|Microsoft.ServiceBus/namespaces| No |
+|Microsoft.Search/searchServices | Sì|
+|Microsoft.ServiceBus/namespaces| Sì |
 |Microsoft.Storage/storageAccounts | Sì|
 |Microsoft.StreamAnalytics/streamingjobs| Sì|
 |Microsoft.TimeSeriesInsights/environments | Sì|
 |Microsoft. Web/serverfarms | Sì |
 |Microsoft. Web/sites (escluse le funzioni) | Sì|
 |Microsoft. Web/hostingEnvironments/multiRolePools | No |
-|Microsoft. Web/hostingEnvironments/workerPools| No 
-|Microsoft.SQL/Servers | No |
+|Microsoft. Web/hostingEnvironments/workerPools| No  |
+|Microsoft.SQL/Servers | No  |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

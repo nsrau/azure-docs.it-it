@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4a1ea364180d389ffdbfc7cedd740a0e493070b3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6b849ad72554af163d8ac3d5ff1248023dc71052
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998995"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268527"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Installare Application Insights per un sito Web ASP.NET
 
@@ -104,7 +104,7 @@ Per visualizzare altri dettagli nel portale, fare clic su qualsiasi riquadro o g
 ## <a name="step-4-publish-your-app"></a>Passaggio 4: Pubblicare l'app
 Pubblicare l'app nel server IIS o in Azure. Verificare in [Flusso metriche attive](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) che tutto funzioni correttamente.
 
-La telemetria viene creata nel portale di Application Insights, in cui è possibile monitorare le metriche, eseguire ricerche sui dati di telemetria e configurare i [dashboard](../../azure-monitor/app/app-insights-dashboards.md), nonché usare l'avanzato [linguaggio di query di Esplora dati](https://aka.ms/LogAnalyticsLanguage) per analizzare l'uso e le prestazioni o trovare eventi specifici.
+La telemetria viene creata nel portale di Application Insights, in cui è possibile monitorare le metriche, eseguire ricerche sui dati di telemetria e configurare i [dashboard](../../azure-monitor/app/app-insights-dashboards.md), nonché usare l'avanzato [linguaggio di query Kusto](/azure/kusto/query/) per analizzare l'utilizzo e le prestazioni o trovare eventi specifici.
 
 È anche possibile continuare ad analizzare i dati di telemetria in [Visual Studio](../../azure-monitor/app/visual-studio.md) con strumenti come la ricerca diagnostica e le [tendenze](../../azure-monitor/app/visual-studio-trends.md).
 

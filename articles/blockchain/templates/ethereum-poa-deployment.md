@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 47f9dfea24dc3134e6a2f476affaaff7e60efe8c
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 3edd70d3012840bd66460219c32135666619a3bf
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260381"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313569"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum Proof-of-Authority Consortium
 
@@ -103,7 +103,7 @@ Ogni distribuzione di un membro di un consorzio include:
 
 ![Architettura di distribuzione](./media/ethereum-poa-deployment/deployment-architecture.png)
 
-Vengono sfruttati i contenitori Docker per l'affidabilità e la modularità. Viene usato il Registro contenitori di Azure per ospitare e gestire le immagini con versione durante ogni distribuzione. Le immagini del contenitore sono costituite da:
+Vengono sfruttati i contenitori Docker per l'affidabilità e la modularità. Viene usato il Registro Azure Container per ospitare e gestire le immagini con versione durante ogni distribuzione. Le immagini del contenitore sono costituite da:
 
 -   Orchestrator
 
@@ -359,7 +359,7 @@ Il primo passaggio è semplice se si usa la distribuzione basata sull'IP pubblic
 
     -  Scegliere lo stesso numero di nodi di convalida del resto dei membri nella rete per assicurare una rappresentazione equa
 
-    -  Usare lo stesso indirizzo Ethereum specificato nel [passaggio precedente](#step-1-add-the-new-admin)
+    -  Usare lo stesso indirizzo Ethereum specificato nel passaggio precedente
 
     -  Passare l'*URL di dati di consorzio* nella scheda *Ethereum Settings* (Impostazioni Ethereum)
 

@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 433f99d72feb7dc697050049817478a8c8b679e6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6495a4e4da9330cba562c7fd6530369c09d180da
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820964"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302064"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guida alla progettazione di tabelle di Archiviazione di Azure: progettazione di tabelle scalabili ed efficienti
 
@@ -721,6 +721,9 @@ Per l'implementazione di questo modello possono risultare utili i modelli e le i
 
 ### <a name="log-tail-pattern"></a>Modello della parte finale del log
 recupera le *e* ntità aggiunte più di recente a una partizione in base a un valore **RowKey** che usa un ordinamento inverso di data e ora.  
+
+> [!NOTE]
+> I risultati della query restituiti dall'API Tabella di Azure in Azure Cosmos DB non sono ordinati per chiave di riga o chiave di partizione. Di conseguenza, questo modello è adatto per l'archiviazione tabelle di Azure e non per Azure Cosmos DB. Per un elenco dettagliato delle differenze di funzionalità, consultare le [differenze tra l'API Tabella in Azure Cosmos DB e archiviazione tabelle di Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 #### <a name="context-and-problem"></a>Contesto e problema
 Un requisito comune è poter recuperare le entità create più di recente, ad esempio le ultime dieci note di rimborso spese inviate da un dipendente. Le query sulle tabelle supportano un'operazione di query **$top** per restituire le prime *n* entità di un set. Non esiste un'operazione di query equivalente per la restituzione delle ultime n entità di un set.  

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: include file
-ms.openlocfilehash: 231dcee1a9b330b2f8721283c39c71002a75fcac
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fb296236fb73823690175b12f4e07c05b60cdbcf
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49476260"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56333763"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Aree e disponibilità per le macchine virtuali in Azure
 Azure è compatibile con svariati datacenter in tutto il mondo. Questi datacenter sono raggruppati in aree geografiche, per lasciare l'utente libero di scegliere dove creare le applicazioni. È importante comprendere dove e come funzionano le macchine virtuali (VM) in Azure, così come le possibilità di ottimizzare le prestazioni, la disponibilità e la ridondanza. Questo articolo offre una panoramica delle funzionalità di disponibilità e ridondanza di Azure.
@@ -72,8 +72,8 @@ La tabella seguente fornisce una rapida panoramica delle differenze tra i tipi d
 
 | Strategia di replica | Archiviazione con ridondanza locale | ZRS | Archiviazione con ridondanza geografica | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| I dati vengono replicati in più strutture |No  |Yes |Yes |Yes |
-| I dati possono essere letti dalla località secondaria e da quella primaria. |No  |No  |No  |Yes |
+| I dati vengono replicati in più strutture |No  |Sì |Sì |Sì |
+| I dati possono essere letti dalla località secondaria e da quella primaria. |No  |No  |No  |Sì |
 | Numero di copie di dati mantenute in nodi distinti |3 |3 |6 |6 |
 
 Per ulteriori informazioni, consultare [qui le opzioni di replica di Archiviazione di Azure](../articles/storage/common/storage-redundancy.md). Per altre informazioni sui dischi gestiti, vedere [Azure Managed Disks overview](../articles/virtual-machines/windows/managed-disks-overview.md) (Panoramica di Azure Managed Disks).
@@ -92,7 +92,7 @@ I prezzi variano a seconda del tipo di archiviazione e della disponibilità sele
 Per informazioni sulle opzioni di disponibilità e sui prezzi dei vari tipi di archiviazione, vedere i [prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/) .
 
 ## <a name="availability-sets"></a>Set di disponibilità
-Un set di disponibilità è un raggruppamento logico di macchine virtuali in un data center che consente ad Azure di comprendere come è compilata l'applicazione per garantirne la ridondanza e la disponibilità. È consigliabile creare due o più macchine virtuali in un set di disponibilità, per garantire un'elevata disponibilità dell'applicazione e raggiungere il [99,95% di disponibilità previsto dal contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Non è previsto alcun costo per il set di disponibilità, si paga solo per ogni istanza di macchina virtuale creata. Quando una sola VM usa [Archiviazione Premium di Azure](../articles/virtual-machines/windows/premium-storage.md), per gli eventi di manutenzione non pianificati viene applicato il Contratto di servizio di Azure. 
+Un set di disponibilità è un raggruppamento logico di macchine virtuali in un data center che consente ad Azure di comprendere come è compilata l'applicazione per garantirne la ridondanza e la disponibilità. È consigliabile creare due o più macchine virtuali in un set di disponibilità, per garantire un'elevata disponibilità dell'applicazione e raggiungere il [99,95% di disponibilità previsto dal contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Non è previsto alcun costo per il set di disponibilità, si paga solo per ogni istanza di macchina virtuale creata. Quando una sola macchina virtuale usa le [unità SSD Premium di Azure](../articles/virtual-machines/windows/disks-types.md#premium-ssd), per gli eventi di manutenzione non pianificati viene applicato il Contratto di servizio di Azure.
 
 Un set di disponibilità comprende due raggruppamenti aggiuntivi che proteggono dagli errori hardware (domini di errore) e consentono di applicare gli aggiornamenti in modo sicuro (domini di aggiornamento). Sono disponibili altre informazioni su come gestire la disponibilità delle macchine virtuali [Linux](../articles/virtual-machines/linux/manage-availability.md) o [Windows](../articles/virtual-machines/windows/manage-availability.md).
 

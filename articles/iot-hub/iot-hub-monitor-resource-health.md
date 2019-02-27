@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: kgremban
-ms.openlocfilehash: 3b56097f8805b4c6d95256ae1753daf5ded266fb
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 86e690e5ff437d924b9c548c2d75afb1866b14aa
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888397"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446784"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorare l'integrità dell'hub IoT di Azure ed eseguire la diagnostica rapida dei problemi
 
@@ -302,12 +302,118 @@ La categoria relativa ai metodi diretti tiene traccia delle interazioni di richi
             "category": "DirectMethods",
             "level": "Information",
             "durationMs": "1",
-            "properties": "{\"deviceId\":\"<deviceId>\", \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}", 
+            "properties": "{\"deviceId\":<messageSize>, \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}", 
             "location": "Resource location"
         }
     ]
 }
 ```
+
+#### <a name="distributed-tracing-preview"></a>Traccia distribuita (anteprima)
+
+La categoria relativa alla traccia distribuita tiene traccia degli ID di correlazione per i messaggi che contengono l'intestazione del contesto di traccia. Per abilitare completamente questi log, è necessario aggiornare il codice lato client seguendo le indicazioni in [Analyze and diagnose IoT applications end-to-end with IoT Hub distributed tracing (preview)](iot-hub-distributed-tracing.md) (Analizzare e diagnosticare applicazioni IoT end-to-end con la traccia distribuita dell'hub IoT - Anteprima).
+
+Si noti che `correlationId` è conforme alla proposta di [contesto di traccia W3C](https://github.com/w3c/trace-context), in base a cui deve contenere un oggetto `trace-id` e un oggetto `span-id`. 
+
+##### <a name="iot-hub-d2c-device-to-cloud-logs"></a>Log dell'hub IoT D2C (da dispositivo a cloud)
+
+L'hub IoT registra questo log all'arrivo di un messaggio contenente proprietà di traccia valide nell'hub IoT. 
+
+```json
+{
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "DiagnosticIoTHubD2C",
+            "category": "DistributedTracing",
+            "correlationId": "00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01",
+            "level": "Information",
+            "resultType": "Success",
+            "resultDescription":"Receive message success",
+            "durationMs": "",
+            "properties": "{\"messageSize\": 1, \"deviceId\":\"<deviceId>\", \"callerLocalTimeUtc\": : \"2017-02-22T03:27:28.633Z\", \"calleeLocalTimeUtc\": \"2017-02-22T03:27:28.687Z\"}", 
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+In questo caso, il valore di `durationMs` non viene calcolato in quanto l'orologio dell'hub IoT potrebbe non essere sincronizzato con l'orologio del dispositivo e quindi il calcolo della durata potrebbe essere fuorviante. È consigliabile scrivere la logica usando i timestamp nella sezione `properties` per acquisire i picchi di latenza da dispositivo a cloud.
+
+| Proprietà | Type | DESCRIZIONE |
+|--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| **messageSize** | Integer | Dimensione del messaggio da dispositivo a cloud in byte |
+| **deviceId** | Stringa di caratteri alfanumerici ASCII a 7 bit | Identità del dispositivo |
+| **callerLocalTimeUtc** | Timestamp UTC | Ora di creazione del messaggio in base a quanto indicato dall'orologio locale del dispositivo |
+| **calleeLocalTimeUtc** | Timestamp UTC | Ora di arrivo del messaggio nel gateway dell'hub IoT in base a quanto indicato dall'orologio sul lato servizio dell'hub IoT |
+
+##### <a name="iot-hub-ingress-logs"></a>Log di ingresso dell'hub IoT
+
+L'hub IoT registra questo log quando un messaggio contenente proprietà di traccia valide scrive nell'hub eventi predefinito o interno.
+
+```json
+{
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "DiagnosticIoTHubIngress",
+            "category": "DistributedTracing",
+            "correlationId": "00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01",
+            "level": "Information",
+            "resultType": "Success",
+            "resultDescription":"Ingress message success",
+            "durationMs": "10",
+            "properties": "{\"isRoutingEnabled\": \"true\", \"parentSpanId\":\"0144d2590aacd909\"}", 
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+Nella sezione `properties` questo log contiene informazioni aggiuntive sull'ingresso del messaggio
+
+| Proprietà | Type | DESCRIZIONE |
+|--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| **isRoutingEnabled** | string | True o false, indica se il routing dei messaggi è abilitato o meno nell'hub IoT |
+| **parentSpanId** | string | Oggetto [span-id](https://w3c.github.io/trace-context/#parent-id) del messaggio padre, che in questo caso sarebbe la traccia del messaggio D2C |
+
+##### <a name="iot-hub-egress-logs"></a>Log di uscita dell'hub IoT
+
+L'hub IoT Hub registra questo log quando il [routing](iot-hub-devguide-messages-d2c.md) è abilitato e il messaggio viene scritto in un [endpoint](iot-hub-devguide-endpoints.md). Se il routing non è abilitato, l'hub IoT non registra questo log.
+
+```json
+{
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "DiagnosticIoTHubEgress",
+            "category": "DistributedTracing",
+            "correlationId": "00-8cd869a412459a25f5b4f31311223344-98ac3578922acd26-01",
+            "level": "Information",
+            "resultType": "Success",
+            "resultDescription":"Egress message success",
+            "durationMs": "10",
+            "properties": "{\"endpointType\": \"EventHub\", \"endpointName\": \"myEventHub\", \"parentSpanId\":\"349810a9bbd28730\"}", 
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+Nella sezione `properties` questo log contiene informazioni aggiuntive sull'ingresso del messaggio
+
+| Proprietà | Type | DESCRIZIONE |
+|--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| **endpointName** | string | Nome dell'endpoint di routing |
+| **endpointType** | string | Tipo dell'endpoint di routing |
+| **parentSpanId** | string | Oggetto [span-id](https://w3c.github.io/trace-context/#parent-id) del messaggio padre, che in questo caso sarebbe la traccia del messaggio di ingresso nell'hub IoT |
+
 
 ### <a name="read-logs-from-azure-event-hubs"></a>Leggere i log da Hub eventi di Azure
 

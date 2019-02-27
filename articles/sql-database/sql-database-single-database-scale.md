@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 7afdcc402840aede1fe9678bf5f4012213edf9fa
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 1eac1da2d8d9a289cb456fc08d7e7c2bc7784aa6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961347"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454022"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Ridimensionare le risorse di database singoli nel database SQL di Azure
 
@@ -42,7 +42,7 @@ Dopo avere inizialmente selezionato il numero di vCore, è possibile aumentare o
 
 La modifica del livello di servizio e/o della dimensione di calcolo crea una replica del database originale alla nuova dimensione di calcolo, quindi passa le connessioni alla replica. Durante il processo non si verificano perdite di dati, tuttavia durante il breve intervallo nel quale si passa alla replica, le connessioni sono disabilitate e può verificarsi il rollback di alcune transazioni in-flight. Il tempo impiegato per il passaggio è variabile, ma è in genere inferiore a 30 secondi nel 99% dei casi. Se quando le connessioni vengono disabilitate è in elaborazione un elevato numero di transazioni, il tempo impiegato potrebbe essere superiore.
 
-La durata dell'intero processo di scalabilità verticale dipende dalla dimensione e dal livello di servizio del database prima e dopo la modifica. Ad esempio, la modifica di un database di 250 GB al, dal o all'interno del livello di servizio per utilizzo generico deve essere completata in sei ore. Per un database delle stesse dimensioni che cambia dimensioni di calcolo all'interno del livello di servizio business critical, l'aumento delle dimensioni dovrebbe essere completato in tre ore.
+La durata dell'intero processo di scalabilità verticale dipende in genere dalla dimensione e dal livello di servizio del database prima e dopo la modifica. Ad esempio qualsiasi database delle dimensioni che modifica le dimensioni di calcolo all'interno del livello di servizio per utilizzo generico verrà completato in alcuni minuti, ma la latenza per modificare le dimensioni di calcolo all'interno del livello business critical è in genere di 90 minuti o meno per 100 GB.
 
 > [!TIP]
 > Per monitorare le operazioni in corso, vedere: [Gestire le operazioni tramite l'API REST SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [Gestire le operazioni tramite l'interfaccia della riga di comando](/cli/azure/sql/db/op), [Monitorare le operazioni tramite T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e i due comandi PowerShell seguenti: [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) e [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).

@@ -1,6 +1,6 @@
 ---
-title: Visualizzare assegnazioni di rifiuto tramite il portale di Azure | Microsoft Docs
-description: Informazioni su come visualizzare gli utenti, i gruppi, le entità servizio e le identità gestite a cui è stato negato l'accesso ad azioni specifiche in ambito specifico usando il portale di Azure.
+title: Visualizzare le assegnazioni di rifiuto per le risorse di Azure usando il portale di Azure | Microsoft Docs
+description: Informazioni su come visualizzare gli utenti, i gruppi, le entità servizio e le identità gestite a cui è stato negato l'accesso ad azioni specifiche sulle risorse di Azure in ambito specifico usando il portale di Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f5870ddbbb8be0ebbeae7656485521a327b86d5b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: ec5e3daf1d4d799aab043f241548a3b4177f567c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637726"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343239"
 ---
-# <a name="view-deny-assignments-using-the-azure-portal"></a>Visualizzare le assegnazioni di rifiuto tramite il portale di Azure
+# <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Visualizzare le assegnazioni di rifiuto per le risorse di Azure usando il portale di Azure
 
-[Le assegnazioni di rifiuto](deny-assignments.md) impediscono agli utenti di eseguire azioni specifiche, anche se un'assegnazione di ruolo concede loro l'accesso. Sebbene non sia possibile creare le proprie assegnazioni di rifiuto, è comunque necessario essere in grado di visualizzarle perché potrebbero influire sulle autorizzazioni complessive. Per ottenere informazioni su un'assegnazione di rifiuto è necessario avere l'autorizzazione `Microsoft.Authorization/denyAssignments/read`, inclusa nella maggior parte dei [ruoli predefiniti](built-in-roles.md).
+Le [assegnazioni di rifiuto](deny-assignments.md) impediscono agli utenti di eseguire azioni specifiche sulle risorse di Azure, anche se un'assegnazione di ruolo concede loro l'accesso. Sebbene non sia possibile creare le proprie assegnazioni di rifiuto, è comunque necessario essere in grado di visualizzarle perché potrebbero influire sulle autorizzazioni complessive. Per ottenere informazioni su un'assegnazione di rifiuto è necessario avere l'autorizzazione `Microsoft.Authorization/denyAssignments/read`, inclusa nella maggior parte dei [ruoli predefiniti per le risorse di Azure](built-in-roles.md).
 
 Questo articolo descrive come usare il portale di Azure per visualizzare le assegnazioni di rifiuto.
 
@@ -105,5 +105,5 @@ Seguire questi passaggi per visualizzare dettagli aggiuntivi su un'assegnazione 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni sulle assegnazioni di rifiuto](deny-assignments.md)
-* [Elencare le assegnazioni di rifiuto usando RBAC e l'API REST](deny-assignments-rest.md)
+* [Informazioni sulle assegnazioni di rifiuto per le risorse di Azure](deny-assignments.md)
+* [Elencare le assegnazioni di rifiuto per le risorse di Azure usando l'API REST](deny-assignments-rest.md)

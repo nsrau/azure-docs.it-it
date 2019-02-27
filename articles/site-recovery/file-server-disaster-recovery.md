@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 2f52b3d1a5aa5b934954da09d114dce1efb8ef32
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 64008a91033b1fdd9cb318e76db2b1958f2337e9
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508369"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309320"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Proteggere un file server usando Azure Site Recovery 
 
@@ -58,7 +58,7 @@ Il diagramma seguente consente di determinare la strategia da usare per l'ambien
 |---------|---------|---------|
 |Ambiente di file server con o senza replica DFS|   [Usare Site Recovery per la replica](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery non supporta cluster di dischi condivisi o NAS (Network Attached Storage). Se l'ambiente usa queste configurazioni, scegliere uno degli altri approcci in base alle esigenze. <br> Site Recovery non supporta SMB 3.0. La macchina virtuale replicata incorpora le modifiche solo quando le modifiche apportate ai file vengono aggiornate nella posizione originale dei file.
 |Ambiente di file server con replica DFS     |  [Estendere la replica DFS a una macchina virtuale IaaS di Azure](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      La replica DFS funziona correttamente in ambienti con larghezza di banda molto limitata. Questo approccio richiede una macchina virtuale di Azure sempre in esecuzione. È necessario tenere conto del costo della macchina virtuale nella pianificazione.         |
-|Macchina virtuale IaaS di Azure     |     [Sincronizzazione file](#use-azure-file-sync-service-to-replicate-your-files)   |     Se si usa Sincronizzazione file in uno scenario di ripristino di emergenza, durante il failover è necessario prevedere azioni manuali per assicurarsi che le condivisioni file siano accessibili per il computer client in modo trasparente. Sincronizzazione file richiede che la porta 445 sia aperta dal computer client.     |
+|Macchina virtuale IaaS di Azure     |     Sincronizzazione file    |     Se si usa Sincronizzazione file in uno scenario di ripristino di emergenza, durante il failover è necessario prevedere azioni manuali per assicurarsi che le condivisioni file siano accessibili per il computer client in modo trasparente. Sincronizzazione file richiede che la porta 445 sia aperta dal computer client.     |
 
 
 ### <a name="site-recovery-support"></a>Supporto di Site Recovery

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: d6065420b9081333fc257501ace868f64220ca63
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: dafafa8ff5d721034b3b10bdeb1a2fc09cd32835
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005251"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267581"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk in query di log di Monitoraggio di Azure
 
-Questo articolo è concepito per assistere gli utenti che hanno familiarità con Splunk ad apprendere il linguaggio di query di Esplora dati per scrivere le query di log in Monitoraggio di Azure. I confronti diretti vengono eseguiti tra le due versioni per comprendere le differenze principali e le analogie in cui è possibile sfruttare le proprie conoscenze esistenti.
+Questo articolo è concepito per aiutare gli utenti che hanno familiarità con Splunk ad apprendere il linguaggio di query Kusto per scrivere le query di log in Monitoraggio di Azure. I confronti diretti vengono eseguiti tra le due versioni per comprendere le differenze principali e le analogie in cui è possibile sfruttare le proprie conoscenze esistenti.
 
 ## <a name="structure-and-concepts"></a>Struttura e concetti
 

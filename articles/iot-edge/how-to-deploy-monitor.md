@@ -5,17 +5,17 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 07/25/2018
+ms.date: 02/19/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 20f50e286e30e32f066fe3d214bfc4c1a155776e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 69ba0a882c0e52e7c0d063b8f77e7a0fe22526a1
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083921"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428778"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Distribuire e monitorare i moduli di IoT Edge su larga scala tramite il portale di Azure
 
@@ -53,19 +53,20 @@ La creazione di una distribuzione prevede cinque passaggi, illustrati nelle sezi
 ### <a name="step-1-name-and-label"></a>Passaggio 1: Nome ed etichetta
 
 1. Assegnare alla distribuzione un nome univoco contenente al massimo 128 lettere minuscole. Evitare gli spazi e i seguenti caratteri non validi: `& ^ [ ] { } \ | " < > /`.
-1. Aggiungere etichette per tenere traccia delle distribuzioni. Le etichette sono coppie di **Nome** e **Valore** che descrivono la distribuzione. Ad esempio, `HostPlatform, Linux` o `Version, 3.0.1`.
+1. È possibile aggiungere etichette come coppie chiave-valore per tenere traccia delle distribuzioni. Ad esempio, **PiattaformaHost** e **Linux** oppure **Versione** e **3.0.1**.
 1. Selezionare **Avanti** per procedere al passaggio due. 
 
 ### <a name="step-2-add-modules-optional"></a>Passaggio 2: Aggiungere moduli (facoltativo)
 
-Esistono due tipi di moduli che è possibile aggiungere a una distribuzione. Il primo è un modulo basato su un servizio di Azure, ad esempio un account di archiviazione o Analisi di flusso. Il secondo è un modulo basato su codice personalizzato. È possibile aggiungere più moduli di entrambi i tipi a una distribuzione. 
+Esistono due tipi di moduli che è possibile aggiungere a una distribuzione. Il primo è un modulo basato su un servizio di Azure, ad esempio un account di archiviazione o Analisi di flusso. Il secondo è un modulo che usa codice personalizzato. È possibile aggiungere più moduli di entrambi i tipi a una distribuzione. 
 
 Se si crea una distribuzione senza moduli, tutti i moduli correnti vengono rimossi dai dispositivi. 
 
 >[!NOTE]
->Azure Machine Learning e Funzioni di Azure non supportano ancora la distribuzione automatica dei servizi di Azure. Usare la distribuzione di moduli personalizzati per aggiungere manualmente questi servizi alla distribuzione. 
+>Funzioni di Azure non supporta ancora la distribuzione automatica dei servizi di Azure. Usare la distribuzione dei moduli personalizzata per aggiungere manualmente il servizio alla distribuzione. 
 
 Per aggiungere un modulo da Analisi di flusso di Azure, seguire questa procedura:
+
 1. Nella sezione dei **moduli di distribuzione** della pagina fare clic su **Aggiungi**.
 1. Selezionare **Azure Stream Analytics module** (Modulo di Analisi di flusso di Azure).
 1. Scegliere una voce dall'elenco a discesa **Sottoscrizione**.
@@ -73,7 +74,8 @@ Per aggiungere un modulo da Analisi di flusso di Azure, seguire questa procedura
 1. Selezionare **Save** (Salva) per aggiungere il modulo alla distribuzione. 
 
 Per aggiungere codice personalizzato come modulo o aggiungere manualmente un modulo per un servizio di Azure, seguire questa procedura:
-1. Nella sezione **Impostazioni registro** della pagina specificare i nomi e le credenziali per i registri contenitori privati che contengono le immagini di modulo per questa distribuzione. L'agente di Edge restituisce l'errore 500 se non trova le credenziali del registro contenitori per un'immagine Docker.
+
+1. Nella sezione **Impostazioni del Registro Container** della pagina specificare i nomi e le credenziali per i registri contenitori privati che contengono le immagini dei moduli per la distribuzione. L'agente di Edge restituisce l'errore 500 se non trova le credenziali del registro contenitori per un'immagine Docker.
 1. Nella sezione dei **moduli di distribuzione** della pagina fare clic su **Aggiungi**.
 1. Selezionare **Modulo IoT Edge**.
 1. Assegnare un nome al modulo in **Name** (Nome).
@@ -87,8 +89,8 @@ Per aggiungere codice personalizzato come modulo o aggiungere manualmente un mod
 1. Usare il menu a discesa per selezionare lo **stato desiderato** per il modulo. È possibile scegliere tra le opzioni seguenti:
    * **Running** (In esecuzione): questa è l'opzione predefinita. Il modulo verrà avviato immediatamente dopo la distribuzione.
    * **Stopped** (Arrestato): dopo la distribuzione, il modulo resta inattivo fino a quando non viene chiamato per l'avvio dall'utente o da un altro modulo.
-1. Selezionare **Enable** (Abilita) per aggiungere tag o proprietà al modulo gemello. 
-1. Specificare **Variabili di ambiente** per questo modulo. Le variabili di ambiente consentono di inserire informazioni supplementari in un modulo facilitando il processo di configurazione.
+1. Selezionare **Impostare le proprietà desiderate del modulo gemello** per aggiungere tag o altre proprietà al modulo gemello.
+1. Immettere **Variabili di ambiente** per il modulo. Le variabili di ambiente consentono di inserire informazioni supplementari in un modulo facilitando il processo di configurazione.
 1. Selezionare **Save** (Salva) per aggiungere il modulo alla distribuzione. 
 
 Dopo aver configurato tutti i moduli per una distribuzione, selezionare **Avanti** per procedere al passaggio tre.
@@ -99,8 +101,22 @@ Le route definiscono le modalità di comunicazione tra i moduli in una distribuz
 
 Aggiungere o aggiornare le route con le informazioni riportate in [Dichiarare le route](module-composition.md#declare-routes) e quindi scegliere **Avanti** per proseguire con la sezione di verifica.
 
+### <a name="step-4-specify-metrics-optional"></a>Passaggio 4: Specificare le metriche (facoltativo)
 
-### <a name="step-4-target-devices"></a>Passaggio 4: Dispositivi di destinazione
+Le metriche forniscono i conteggi di riepilogo dei diversi stati che un dispositivo può segnalare dopo l'applicazione del contenuto della configurazione.
+
+1. Immettere un nome per **Nome della metrica**
+
+1. Immettere una query per **Metric Criteria** (Criteri metrica). La query è basata sulle [proprietà segnalate](module-edgeagent-edgehub.md#edgehub-reported-properties) del modulo gemello hub di IoT Edge. La metrica rappresenta il numero di righe restituite dalla query.
+
+Ad esempio: 
+
+```sql
+SELECT deviceId FROM devices
+  WHERE properties.reported.lastDesiredStatus.code = 200
+```
+
+### <a name="step-5-target-devices"></a>Passaggio 5: Dispositivi di destinazione
 
 Usare la proprietà tags dai dispositivi per selezionare i dispositivi specifici che devono ricevere la distribuzione. 
 
@@ -110,9 +126,32 @@ Dato che più distribuzioni potrebbero avere come destinazione lo stesso disposi
 1. Specificare una condizione in **Target condition** (Condizione di destinazione) per determinare i dispositivi di destinazione di questa distribuzione. La condizione è basata sui tag o sulle proprietà segnalate dei dispositivi gemelli e deve corrispondere al formato di espressione. Ad esempio, `tags.environment='test'` o `properties.reported.devicemodel='4000x'`. 
 1. Selezionare **Avanti** per procedere al passaggio finale.
 
-### <a name="step-5-review-template"></a>Passaggio 5: Rivedere il modello
+### <a name="step-6-review-deployment"></a>Passaggio 6: Esaminare la distribuzione
 
 Controllare le informazioni sulla distribuzione e quindi selezionare **Submit** (Invia).
+
+## <a name="deploy-modules-from-azure-marketplace"></a>Distribuire i moduli da Azure Marketplace
+
+Azure Marketplace è un marketplace online di servizi e applicazioni dove è possibile trovare un'ampia gamma di soluzioni e applicazioni aziendali certificate e ottimizzate per l'esecuzione in Azure, tra cui i [moduli IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). È anche possibile accedere ad Azure Marketplace tramite il portale di Azure scegliendo **Crea una risorsa**.
+
+È possibile installare un modulo IoT Edge da Azure Marketplace o dal portale di Azure:
+
+1. Trovare un modulo e iniziare il processo di distribuzione.
+
+   * Portale di Azure: Trovare un modulo e selezionare **Crea**.
+
+   * Azure Marketplace:
+
+     1. Trovare un modulo e selezionare **Scarica adesso**.
+     1. Accettare le condizioni per l'utilizzo e l'informativa sulla privacy del provider selezionando **Continua**.
+
+1. Scegliere la sottoscrizione e l'hub IoT a cui è collegato il dispositivo di destinazione.
+
+1. Scegliere **Distribuisci su vasta scala**.
+
+1. Scegliere se aggiungere il modulo a una nuova distribuzione o a un clone di una distribuzione esistente. In caso di uso di un clone, selezionare la distribuzione esistente nell'elenco.
+
+1. Selezionare **Crea** per continuare il processo di creazione di una distribuzione su vasta scala. È possibile specificare gli stessi dettagli che si indicano per qualsiasi distribuzione.
 
 ## <a name="monitor-a-deployment"></a>Monitorare una distribuzione
 
@@ -130,15 +169,17 @@ Per visualizzare i dettagli di una distribuzione e monitorare i dispositivi che 
    * **Priority** (Priorità): numero di priorità assegnato alla distribuzione.
    * **System metrics** -  (Metriche di sistema): **Targeted** (Assegnati) specifica il numero di dispositivi gemelli nell'hub IoT che corrispondono alla condizione di destinazione, mentre **Applied** (Applicati) specifica il numero di dispositivi il cui contenuto di distribuzione è stato applicato ai rispettivi dispositivi gemelli nell'hub IoT. 
    * **Metriche del dispositivo**: specifica il numero di dispositivi Edge presenti nella distribuzione che segnalano il completamento dell'operazione o gli errori generati dal runtime del client di IoT Edge.
+   * **Metriche personalizzate**: specifica il numero di dispositivi Edge presenti nella distribuzione che segnalano i dati per le metriche definite per la distribuzione.
    * **Creation time** (Data/ora di creazione): timestamp di creazione della distribuzione. Questo timestamp viene usato per stabilire la prevalenza quando due distribuzioni hanno la stessa priorità. 
-2. Selezionare la distribuzione che si vuole monitorare.  
-3. Esaminare i dettagli della distribuzione. Per esaminare i dettagli della distribuzione sono disponibili schede.
+1. Selezionare la distribuzione che si vuole monitorare.  
+1. Esaminare i dettagli della distribuzione. Per esaminare i dettagli della distribuzione sono disponibili schede.
 
 ## <a name="modify-a-deployment"></a>Modificare una distribuzione
 
 Quando si modifica una distribuzione, le modifiche vengono replicate immediatamente in tutti i dispositivi di destinazione. 
 
 Se si aggiorna la condizione di destinazione, vengono eseguiti gli aggiornamenti seguenti:
+
 * Se un dispositivo non soddisfa la condizione di destinazione precedente, ma soddisfa la nuova condizione di destinazione e questa distribuzione ha la priorità più alta per il dispositivo, la distribuzione viene applicata al dispositivo. 
 * Se un dispositivo che esegue la distribuzione non soddisfa più la condizione di destinazione, disinstalla questa distribuzione e riceve la distribuzione successiva nell'ordine di priorità. 
 * Se un dispositivo che esegue la distribuzione non soddisfa più la condizione di destinazione e non soddisfa la condizione di destinazione di tutte le altre distribuzioni, nel dispositivo non viene apportata alcuna modifica. Il dispositivo continua a eseguire i moduli corrente nello stato corrente, ma non è più gestito come parte di questa distribuzione. Quando soddisfa la condizione di destinazione di qualsiasi altra distribuzione, disinstalla questa distribuzione e riceve quella nuova. 
@@ -153,9 +194,10 @@ Per modificare una distribuzione, seguire questa procedura:
 
 1. Selezionare la distribuzione che si vuole modificare. 
 1. Apportare modifiche nei campi seguenti: 
-   * Condizione di destinazione 
-   * Etichette 
-   * Priorità 
+   * Condizione di destinazione
+   * Metriche: è possibile modificare o eliminare le metriche definite o aggiungerne di nuove.
+   * Etichette
+   * Priorità
 1. Selezionare **Salva**.
 1. Seguire i passaggi in [Monitorare una distribuzione](#monitor-a-deployment) per controllare la distribuzione delle modifiche. 
 

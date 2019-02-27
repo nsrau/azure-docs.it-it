@@ -8,17 +8,70 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 2/20/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: a5b8cd7da465bc2dc58c2b89852903669c18bf4b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0f5452e3abbde40c247ef7e000b84fc3eb00c943
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871796"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446835"
 ---
 # <a name="release-notes"></a>Note sulla versione
+
+## <a name="speech-sdk-130-2019-february-release"></a>Speech SDK 1.3.0: versione di febbraio 2019
+
+**Nuove funzionalità**
+
+* Speech SDK supporta la selezione del microfono per l'input attraverso la classe AudioConfig. Ciò consente di trasmettere dati audio al servizio di riconoscimento vocale da un microfono non predefinito. Per altre informazioni, vedere la documentazione relativa alla [selezione del dispositivo di input audio](how-to-select-audio-input-devices.md). Questa funzionalità non è ancora disponibile in JavaScript.
+* Speech SDK supporta ora Unity in versione beta. Inviare commenti e suggerimenti tramite la sezione relativa ai problemi nel [repository GitHub di esempio](https://aka.ms/csspeech/samples). Questa versione supporta Unity in Windows x86 e x64 (applicazioni desktop o per la piattaforma UWP) e Android (ARM32/64, x86). Altre informazioni sono disponibili nell'[Avvio rapido di Unity](quickstart-csharp-unity.md).
+
+**Esempi**
+
+I nuovi contenuti seguenti sono disponibili nel [repository di esempio](https://aka.ms/csspeech/samples):
+
+* Esempi aggiuntivi per AudioConfig.FromMicrophoneInput.
+* Altri esempi di Python per il riconoscimento finalità e la traduzione.
+* Altri esempi per l'uso dell'oggetto Connection in iOS.
+* Esempi aggiuntivi per Java per la traduzione con output audio.
+* Nuovo esempio per l'uso dell'[API REST di trascrizione batch](batch-transcription.md).
+
+**Miglioramenti/modifiche**
+
+* Python
+  * Messaggi di errore e verifica dei parametri migliorati in SpeechConfig.
+  * Aggiunta del supporto per l'oggetto Connection.
+  * Supporto per Python a 32 bit (x86) in Windows.
+  * Speech SDK per Python non è incluso nella beta.
+* iOS
+  * L'SDK è ora basato sull'SDK per iOS versione 12.1.
+  * L'SDK supporta ora iOS 9.2 e versioni successive.
+  * Miglioramento della documentazione di riferimento e correzione di diversi nomi di proprietà.
+* JavaScript
+  * Aggiunta del supporto per l'oggetto Connection.
+  * Aggiunta di file di definizione del tipo per JavaScript in bundle.
+  * Supporto iniziale e implementazione per gli hint della frase.
+  * Restituzione della raccolta di proprietà con il file JSON del servizio per il riconoscimento.
+* Le DLL di Windows contengono ora una risorsa di versione.
+
+**Correzioni di bug**
+
+* Il nome utente proxy e la password proxy vuoti non erano gestiti correttamente. Con questa versione, se si imposta il nome utente proxy e la password proxy su una stringa vuota, non verranno inviati quando ci si connette al proxy.
+* Gli ID sessione creati dall'SDK non erano sempre realmente casuali per alcune lingue&nbsp;/ ambienti. È stata aggiunta l'inizializzazione del generatore casuale per risolvere questo problema.
+* Gestione migliorata del token di autorizzazione. Se si vuole usare un token di autorizzazione, specificarlo in SpeechConfig e lasciare vuota la chiave di sottoscrizione. Creare quindi il sistema di riconoscimento come di consueto.
+* In alcuni casi l'oggetto Connection non veniva rilasciato correttamente. Questo problema è stato risolto.
+* L'esempio di JavaScript è stato corretto per supportare l'output audio per la sintesi della traduzione anche in Safari.
+
+## <a name="speech-sdk-121"></a>Speech SDK 1.2.1
+
+Questa è una versione solo per JavaScript. Non sono state aggiunte funzionalità. Sono state apportate le correzioni seguenti:
+
+* Attivazione della fine del flusso in corrispondenza di turn.end e non di speech.end.
+* Correzione di un bug nel data pump audio che non pianificava l'invio successivo in caso di errore dell'invio corrente.
+* Correzione del riconoscimento continuo con il token di autenticazione.
+* Correzione di bug per sistemi di riconoscimento/endpoint diversi.
+* Miglioramenti alla documentazione.
 
 ## <a name="speech-sdk-120-2018-december-release"></a>Speech SDK 1.2.0: versione di dicembre 2018
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: d6f2ca53829642009adbc50061966c5a7e924f7e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9de6cc224c82bb07fee4d62cd5de1d1964001bab
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240404"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446818"
 ---
 # <a name="capacity-planning-and-scaling"></a>Pianificazione della capacità e ridimensionamento
 
@@ -33,7 +33,7 @@ Le operazioni di ridimensionamento devono essere eseguite tramite la distribuzio
 * Si deve ridimensionare orizzontalmente un solo nodo di set di scalabilità di macchine virtuali alla volta.
   * Per aggiungere contemporaneamente tre o più nodi, è necessario [aggiungere un set di scalabilità di macchine virtuali al cluster di Service Fabric](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) ed è più sicuro aumentare o ridurre il numero di set di scalabilità di macchine virtuali per un nodo alla volta.
 * Si dispone di un livello di affidabilità Silver o superiore per il cluster di Service Fabric e di un livello di durabilità Silver o superiore su qualsiasi set di scalabilità per cui si configurano le regole di ridimensionamento automatico.
-  * La capacità minima delle regole di ridimensionamento automatico deve essere uguale o superiore a cinque istanze di macchina virtuale e al livello minimo di affidabilità per il tipo di nodo primario.
+  * La capacità [minima] delle regole di ridimensionamento automatico deve essere uguale o superiore a 5 istanze di macchina virtuale e al livello minimo di affidabilità per il tipo di nodo primario.
 
 > [!NOTE]
 > Il servizio con stato di Azure Service Fabric, fabric:/System/InfastructureService/<NOME_TIPO_DI_NODO>, viene eseguito su ogni tipo di nodo con livello di durabilità Silver o superiore, ed è quindi l'unico servizio di sistema che può essere eseguito in Azure su qualsiasi tipo di nodo di cluster. 
@@ -65,9 +65,9 @@ Con le proprietà dei nodi e i vincoli di posizionamento dichiarati, eseguire i 
 1. In PowerShell eseguire `Disable-ServiceFabricNode` con il parametro Intent impostato su RemoveNode per disabilitare il nodo che si intende rimuovere. Rimuovere il tipo di nodo con il numero più alto. Se ad esempio si ha un cluster a sei nodi, rimuovere l'istanza di macchina virtuale "MyNodeType_5".
 2. Eseguire `Get-ServiceFabricNode` per assicurarsi che il nodo sia disabilitato. In caso contrario, attendere la disabilitazione del nodo. L'operazione potrebbe richiedere un paio di ore per ogni nodo. Non continuare finché il nodo non risulta disabilitato.
 3. Ridurre di uno il numero di macchine virtuali in quel tipo di nodo. L'istanza di macchina virtuale con il numero più alto verrà rimossa.
-4. Ripetere i passaggi da 1 a 3 come necessario, ma non ridurre il numero di istanze nel nodo primario a un valore inferiore a quello garantito dal livello di affidabilità. Per un elenco di istanze consigliate, vedere [Pianificazione della capacità del cluster di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+4. Ripetere le fasi da 1 a 3 come necessario, ma non ridurre il numero di istanze nel nodo primario a un valore inferiore a quello garantito dal livello di affidabilità. Per un elenco di istanze consigliate, vedere [Pianificazione della capacità del cluster di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
 
-## <a name="horizontal-scaling"></a>Ridimensionamento orizzontale
+## <a name="horizontal-scaling"></a>Scalabilità orizzontale
 
 In Service Fabric il ridimensionamento orizzontale può essere eseguito [in modalità manuale](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down) o [a livello di codice](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
 
@@ -93,7 +93,7 @@ Per eseguire l'operazione manualmente, aggiornare il valore della capacità nell
 }
 ```
 
-### <a name="scaling-in"></a>Riduzione del numero di istanze
+### <a name="scaling-in"></a>Riduzione
 
 La riduzione del numero di istanze richiede qualche considerazione in più rispetto all'aumento. Ad esempio: 
 * I servizi di sistema di Service Fabric vengono eseguiti nel tipo di nodo primario del cluster. Non arrestare né ridurre mai il numero di istanze in questo tipo di nodo per evitare di avere un numero di istanze inferiore a quello garantito dal livello di affidabilità. 
@@ -104,7 +104,7 @@ Per ridurre il numero di istanze, seguire questi passaggi:
 1. In PowerShell eseguire `Disable-ServiceFabricNode` con il parametro Intent impostato su RemoveNode per disabilitare il nodo che si intende rimuovere. Rimuovere il tipo di nodo con il numero più alto. Se ad esempio si ha un cluster a sei nodi, rimuovere l'istanza di macchina virtuale "MyNodeType_5".
 2. Eseguire `Get-ServiceFabricNode` per assicurarsi che il nodo sia disabilitato. In caso contrario, attendere la disabilitazione del nodo. L'operazione potrebbe richiedere un paio di ore per ogni nodo. Non continuare finché il nodo non risulta disabilitato.
 3. Ridurre di uno il numero di macchine virtuali in quel tipo di nodo. L'istanza di macchina virtuale con il numero più alto verrà rimossa.
-4. Ripetere i passaggi da 1 a 3 come necessario, ma non ridurre il numero di istanze nel nodo primario a un valore inferiore a quello garantito dal livello di affidabilità. Per un elenco di istanze consigliate, vedere [Pianificazione della capacità del cluster di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+4. Ripetere le fasi da 1 a 3 come necessario, ma non ridurre il numero di istanze nel nodo primario a un valore inferiore a quello garantito dal livello di affidabilità. Per un elenco di istanze consigliate, vedere [Pianificazione della capacità del cluster di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
 
 Per eseguire questa operazione manualmente, aggiornare il valore della capacità nella proprietà SKU della risorsa [Set di scalabilità di macchine virtuali](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) desiderata.
 

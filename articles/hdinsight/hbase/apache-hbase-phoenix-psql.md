@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: 04a923a8bc022aefb667489702c0e74493df94a8
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 5faea45a55d69cece56137d70862d80dfe335971
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652762"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342457"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Caricamento bulk di dati in Apache Phoenix tramite psql
 
@@ -115,7 +115,7 @@ Per un caricamento con velocità effettiva più elevata distribuito nel cluster,
     org.apache.phoenix.mapreduce.CsvBulkLoadTool --table Customers --input /inputFolderBulkLoad/customers.csv –zookeeper ZookeeperQuorum:2181:/hbase-unsecure
     ```
 
-8. Per usare MapReduce con ADLS, individuare la directory radice ADLS, che corrisponde al valore `hbase.rootdir` in `hbase-site.xml`. Nel comando seguente la directory radice ADLS è `adl://hdinsightconf1.azuredatalakestore.net:443/hbase1`. In questo comando specificare le cartelle ADLS di input e di output come parametri:
+8. Per usare MapReduce con Azure Data Lake Storage, individuare la directory radice di Azure Data Lake Storage, ovvero il valore `hbase.rootdir` in `hbase-site.xml`. Nel comando seguente, la directory radice di Azure Data Lake Storage è `adl://hdinsightconf1.azuredatalakestore.net:443/hbase1`. In questo comando specificare le cartelle di input e di output di Azure Data Lake Storage come parametri:
 
     ```bash
     cd /usr/hdp/current/phoenix-client
@@ -127,7 +127,7 @@ Per un caricamento con velocità effettiva più elevata distribuito nel cluster,
 
 ## <a name="recommendations"></a>Consigli
 
-* Usare lo stesso supporto di archiviazione per le cartelle di input e di output WASB o ADLS. Per trasferire dati da WASB ad ADLS, usare il comando `distcp`:
+* Usare lo stesso supporto di archiviazione per le cartelle di input e di output: Archiviazione di Azure (WASB) o Azure Data Lake Storage (ADL). Per trasferire i dati da Archiviazione di Azure ad Azure Data Lake Storage, è possibile usare il comando `distcp`:
 
     ```bash
     hadoop distcp wasb://@.blob.core.windows.net/example/data/gutenberg adl://.azuredatalakestore.net:443/myfolder

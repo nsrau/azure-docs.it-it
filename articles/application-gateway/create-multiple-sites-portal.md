@@ -1,25 +1,22 @@
 ---
-title: Creare un gateway applicazione che ospita più siti Web - Portale di Azure | Microsoft Docs
+title: Creare un gateway applicazione che ospita più siti Web - Portale di Azure
 description: Informazioni su come creare un gateway applicazione che ospita più siti Web usando il portale di Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 12/28/2017
+ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: fc418f58b299dcba08fda65000c5356c51f471e6
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 09bb81b0382f18c9cb94e5e4d0932dc6597ae73c
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993321"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454298"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Creare e configurare un gateway applicazione per ospitare più siti Web usando il portale di Azure
 
-È possibile usare il portale di Azure per configurare l'[hosting di più siti Web](multiple-site-overview.md) quando si crea un [gateway applicazione](overview.md). In questa esercitazione si definiranno pool di indirizzi back-end usando macchine virtuali. e quindi si configurano i listener e le regole in base ai domini di cui si è proprietari per assicurarsi che il traffico Web raggiunga i server appropriati nei pool. Questa esercitazione presuppone che l'utente sia proprietario di più domini e che usi gli esempi di *www.contoso.com* e *www.fabrikam.com*.
+È possibile usare il portale di Azure per configurare l'[hosting di più siti Web](multiple-site-overview.md) quando si crea un [gateway applicazione](overview.md). In questo articolo vengono definiti pool di indirizzi back-end con macchine virtuali. e quindi si configurano i listener e le regole in base ai domini di cui si è proprietari per assicurarsi che il traffico Web raggiunga i server appropriati nei pool. Questo articolo presuppone che l'utente sia proprietario di più domini e che usi esempi di *www.contoso.com* e *www.fabrikam.com*.
 
 In questo articolo viene spiegato come:
 
@@ -35,7 +32,7 @@ In questo articolo viene spiegato come:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com)
 
@@ -141,6 +138,8 @@ In questo esempio vengono create due macchine virtuali da usare come server back
 3. Fare clic su **OK**.
 4. Creare un secondo listener usando il nome *fabrikamListener* e usare il secondo nome di dominio. In questo esempio viene usato *www.fabrikam.com*.
 
+![listener multisito](media/create-multiple-sites-portal/be-listeners.png)
+
 ## <a name="create-routing-rules"></a>Creare le regole di routing
 
 Le regole vengono elaborate nell'ordine in cui sono elencate e il traffico viene indirizzato usando la prima regola corrispondente indipendentemente dalla specificità. Se ad esempio si dispone di due regole, una che usa un listener di base e una che usa un listener multisito, entrambe sulla stessa porta, la regola con il listener multisito deve essere elencata prima della regola con il listener di base per funzionare come previsto. 
@@ -180,12 +179,4 @@ Dopo aver creato il gateway applicazione con l'indirizzo IP pubblico, è possibi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo si è appreso come:
-
-> [!div class="checklist"]
-> * Creare un gateway applicazione
-> * Creare macchine virtuali per i server back-end
-> * Creare pool back-end con i server back-end
-> * Creare i listener back-end
-> * Creare le regole di routing
-> * Creare un record CNAME nel dominio
+[Configurare il servizio app con il gateway applicazione](create-web-app.md)

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 2c6569d92913a3cff9ee51529dd381386ed2a792
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: df95329128c93f326b6f2c75fb7faef1a46029cc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818992"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456504"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Concetti relativi alla sicurezza per le applicazioni e i cluster nel servizio Azure Kubernetes
 
@@ -24,7 +24,7 @@ Questo articolo introduce i principali concetti per proteggere le applicazioni n
 - [Sicurezza dei nodi](#node-security)
 - [Aggiornare un cluster di Service Fabric](#cluster-upgrades)
 - [Sicurezza di rete](#network-security)
-- Segreti di Kubernetes
+- [Segreti di Kubernetes](#kubernetes-secrets)
 
 ## <a name="master-security"></a>Sicurezza master
 
@@ -36,9 +36,9 @@ Per impostazione predefinita, il server dell'API Kubernetes usa un indirizzo IP 
 
 I nodi del servizio Azure Kubernetes sono macchine virtuali di Azure gestite dall'utente. I nodi eseguono una distribuzione di Ubuntu Linux ottimizzata con il runtime del contenitore Docker. Quando un cluster del servizio Azure Kubernetes viene creato o fatto passare a un piano superiore, i nodi vengono distribuiti automaticamente con le configurazioni e gli aggiornamenti della sicurezza del sistema operativo più recenti.
 
-La piattaforma Azure applica automaticamente le patch di sicurezza del sistema operativo ai nodi durante la notte. Se un aggiornamento della sicurezza del sistema operativo richiede un riavvio dell'host, tale riavvio non viene eseguito automaticamente. È possibile riavviare manualmente i nodi oppure usare [Kured][kured], un daemon di riavvio open source per Kubernetes. Kured viene eseguito come [DaemonSet][aks-daemonset] e monitora ogni nodo per verificare se è presente un file che indichi che è necessario un riavvio. I riavvii sono gestiti all'interno del cluster usando lo stesso [processo di blocco e svuotamento](#cordon-and-drain) come aggiornamento del cluster.
+La piattaforma Azure applica automaticamente le patch di sicurezza del sistema operativo ai nodi durante la notte. Se un aggiornamento della sicurezza del sistema operativo richiede un riavvio dell'host, tale riavvio non viene eseguito automaticamente. È possibile riavviare manualmente i nodi oppure usare [Kured][kured], un daemon di riavvio open source per Kubernetes. Kured, eseguito come [DaemonSet][aks-daemonsets], esegue il monitoraggio di ogni nodo per verificare la presenza di un file che indica che è necessario un riavvio. I riavvii sono gestiti all'interno del cluster usando lo stesso [processo di blocco e svuotamento](#cordon-and-drain) come aggiornamento del cluster.
 
-I nodi vengono distribuiti in una subnet di rete privata virtuale, senza indirizzi IP pubblici assegnati. Per motivi di gestione e risoluzione dei problemi, SSH è abilitato per impostazione predefinita. Questo accesso SSH è disponibile solo tramite l'indirizzo IP interno. Si possono usare regole del gruppo di sicurezza di rete di Azure per limitare ulteriormente l'accesso dell'intervallo IP ai nodi del servizio Azure Kubernetes. L'eliminazione della regola SSH predefinita del gruppo di sicurezza di rete e la disabilitazione del servizio SSH nei nodi impedisce alla piattaforma Azure di eseguire attività di manutenzione.
+I nodi vengono distribuiti in una subnet di rete privata virtuale, senza indirizzi IP pubblici assegnati. Per motivi di gestione e risoluzione dei problemi, SSH è abilitato per impostazione predefinita. Questo accesso SSH è disponibile solo tramite l'indirizzo IP interno.
 
 Per fornire spazio di archiviazione, i nodi usano Azure Managed Disks. Per la maggior parte delle dimensioni dei nodi delle macchine virtuali, si tratta di dischi Premium supportati da unità SSD a prestazioni elevate. I dati inattivi archiviati nei dischi gestiti vengono automaticamente crittografati all'interno della piattaforma Azure. Per migliorare la ridondanza, questi dischi vengono anche replicati in modo sicuro nel data center di Azure.
 
@@ -46,7 +46,7 @@ Gli ambienti Kubernetes, nel servizio Azure Kubernetes o altrove, attualmente no
 
 ## <a name="cluster-upgrades"></a>Aggiornamenti dei cluster
 
-Per la sicurezza e la conformità o per usare le funzionalità più recenti, Azure offre strumenti per orchestrare l'aggiornamento di un cluster e dei componenti del servizio Kubernetes di Azure. Questa orchestrazione dell'aggiornamento include sia il master che i componenti agente di Kubernetes. È possibile visualizzare un elenco delle versioni di Kubernetes disponibili per il cluster del servizio Azure Kubernetes. Per avviare il processo di aggiornamento, si specifica una di queste versioni disponibili. Azure quindi blocca e svuota in modo sicuro ogni nodo del servizio Azure Kubernetes ed esegue l'aggiornamento.
+Per la sicurezza e la conformità o per usare le funzionalità più recenti, Azure offre strumenti per orchestrare l'aggiornamento di un cluster e dei componenti del servizio Kubernetes di Azure. Questa orchestrazione dell'aggiornamento include sia il master che i componenti agente di Kubernetes. È possibile visualizzare un [elenco delle versioni di Kubernetes disponibili](supported-kubernetes-versions.md) per il cluster del servizio Azure Kubernetes. Per avviare il processo di aggiornamento, si specifica una di queste versioni disponibili. Azure quindi blocca e svuota in modo sicuro ogni nodo del servizio Azure Kubernetes ed esegue l'aggiornamento.
 
 ### <a name="cordon-and-drain"></a>Blocco e svuotamento
 
@@ -57,7 +57,7 @@ Durante il processo di aggiornamento, i nodi del servizio Azure Kubernetes vengo
 - Viene di nuovo pianificata l'esecuzione dei pod nei nodi.
 - Il nodo successivo nel cluster viene bloccato e svuotato con lo stesso processo fino a quando non vengono aggiornati tutti i nodi.
 
-Per altre informazioni, vedere [Aggiornare un cluster del servizio Kubernetes di Azure][aks-upgrade-cluster].
+Per altre informazioni, vedere [Aggiornare un cluster del servizio Azure Kubernetes][aks-upgrade-cluster].
 
 ## <a name="network-security"></a>Sicurezza di rete
 

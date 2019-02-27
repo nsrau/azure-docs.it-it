@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: f8227495d7ca2e1d43b74066d359d0d59e456263
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2f00b01bb07aafca847897f0c31d24d4add7cdbf
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451207"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328878"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-standard-storage-accounts"></a>Obiettivi di scalabilità e prestazioni di Archiviazione di Azure per gli account di archiviazione standard
 
-Questo articolo illustra nel dettaglio gli obiettivi di scalabilità e prestazioni per gli account di archiviazione standard di Azure. Gli obiettivi di scalabilità e prestazioni elencati di seguito sono di fascia alta, ma possono essere conseguiti. In tutti i casi, la velocità e la larghezza di banda richieste e ottenute dall’account di archiviazione dipendono dalla dimensione degli oggetti archiviati, dai modelli di accesso utilizzati e dal tipo di carico di lavoro eseguito dall’applicazione. 
+Questo articolo illustra nel dettaglio gli obiettivi di scalabilità e prestazioni per gli account di archiviazione di Azure. Gli obiettivi di scalabilità e prestazioni elencati di seguito sono di fascia alta, ma possono essere conseguiti. In tutti i casi, la velocità e la larghezza di banda richieste e ottenute dall’account di archiviazione dipendono dalla dimensione degli oggetti archiviati, dai modelli di accesso utilizzati e dal tipo di carico di lavoro eseguito dall’applicazione. 
 
 Assicurarsi di eseguire il test del servizio per determinare se le prestazioni soddisfano i requisiti. Se possibile, evitare picchi improvvisi nella frequenza di traffico e assicurarsi che questo sia ben distribuito tra le partizioni.
 
@@ -26,7 +26,10 @@ Quando l'applicazione raggiunge il limite in termini di carico di lavoro che pu�
 ## <a name="standard-storage-account-scale-limits"></a>Limiti di scalabilità dell'account di archiviazione standard
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
-## <a name="storage-resource-provider-scale-limits"></a>Limiti di scalabilità del provider delle risorse di archiviazione 
+## <a name="premium-storage-account-scale-limits"></a>Limiti di scalabilità dell'account di archiviazione Premium
+[!INCLUDE [azure-premium-limits](../../../includes/azure-storage-limits-premium.md)]
+
+## <a name="storage-resource-provider-scale-limits"></a>Limiti di scalabilità del provider delle risorse di archiviazione
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 

@@ -15,20 +15,22 @@ ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: c49e521e9bf7e04eeda47c6b27c0b63cca653006
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: d730efe8b09f167aaba2a4aa8e33446d44171c53
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699263"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340848"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ruoli predefiniti per le risorse di Azure
-Il [controllo degli accessi in base al ruolo](overview.md) ha diverse definizioni di ruolo predefinite che è possibile assegnare a utenti, gruppi ed entità servizio. Le assegnazioni di ruolo sono il modo in cui si controlla l'accesso alle risorse in Azure. Se i ruoli predefiniti non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare [ruoli personalizzati](custom-roles.md).
 
-I ruoli predefiniti sono sempre in evoluzione. Per ottenere le definizioni di ruolo più recenti, usare [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) o [az role definition list](/cli/azure/role/definition#az-role-definition-list).
+Il [controllo degli accessi in base al ruolo](overview.md) ha diversi ruoli predefiniti per le risorse di Azure che è possibile assegnare a utenti, gruppi, entità servizio e identità gestite. Le assegnazioni di ruolo sono il modo in cui si controlla l'accesso alle risorse di Azure. Se i ruoli predefiniti non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare [ruoli personalizzati per le risorse di Azure](custom-roles.md).
+
+Questo articolo illustra i ruoli predefiniti per le risorse di Azure, che sono in continua evoluzione. Per ottenere i ruoli più recenti, usare [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) o [az role definition list](/cli/azure/role/definition#az-role-definition-list). Se si cercano ruoli di amministratore per Azure Active Directory, vedere [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ## <a name="built-in-role-descriptions"></a>Descrizione dei ruoli predefiniti
-La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic sul nome del ruolo per vedere l'elenco di `Actions`, `NotActions`, `DataActions` e `NotDataActions` per ogni ruolo.
+
+La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fare clic sul nome del ruolo per vedere l'elenco di `Actions`, `NotActions`, `DataActions` e `NotDataActions` per ogni ruolo. Per informazioni sul significato di queste azioni e su come si applicano ai piani di gestione e ai piani dati, vedere [Informazioni sulle definizioni del ruolo per le risorse di Azure](role-definitions.md).
 
 
 | Ruolo predefinito | DESCRIZIONE |
@@ -139,6 +141,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | **Id** | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
 > | **Actions** |  |
 > | * | È in grado di creare e gestire ogni tipo di risorsa |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="contributor"></a>Collaboratore
 > [!div class="mx-tableFixed"]
@@ -154,6 +162,10 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Authorization/elevateAccess/Action | Concede al chiamante l'accesso di tipo Amministratore Accesso utenti a livello dell'ambito del tenant |
 > | Microsoft.Blueprint/blueprintAssignments/write | Crea o aggiorna gli artefatti del progetto |
 > | Microsoft.Blueprint/blueprintAssignments/delete | Elimina gli artefatti del progetto |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="reader"></a>Reader
 > [!div class="mx-tableFixed"]
@@ -163,6 +175,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | **Id** | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 > | **Actions** |  |
 > | */lettura | Legge risorse di tutti i tipi, eccetto i segreti. |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="acrimagesigner"></a>AcrImageSigner
 > [!div class="mx-tableFixed"]
@@ -172,6 +190,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | **Id** | 6cef56e8-d556-48e5-a04f-b8e64114680f |
 > | **Actions** |  |
 > | Microsoft.ContainerRegistry/registries/sign/write | Eseguire il push/pull di metadati considerati attendibili per un registro contenitori. |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="acrpull"></a>AcrPull
 > [!div class="mx-tableFixed"]
@@ -181,6 +205,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | **Id** | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
 > | **Actions** |  |
 > | Microsoft.ContainerRegistry/registries/pull/read | Eseguire il pull o ottenere immagini da un registro contenitori. |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="acrpush"></a>AcrPush
 > [!div class="mx-tableFixed"]
@@ -191,6 +221,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | **Actions** |  |
 > | Microsoft.ContainerRegistry/registries/pull/read | Eseguire il pull o ottenere immagini da un registro contenitori. |
 > | Microsoft.ContainerRegistry/registries/push/write | Eseguire il push o scrivere immagini in un registro contenitori. |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="acrquarantinereader"></a>AcrQuarantineReader
 > [!div class="mx-tableFixed"]
@@ -200,6 +236,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | **Id** | cdda3590-29a3-44f6-95f2-9f980659eb04 |
 > | **Actions** |  |
 > | Microsoft.ContainerRegistry/registries/quarantineRead/read | Eseguire il pull o ottenere immagini in quarantena da un registro contenitori |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="acrquarantinewriter"></a>AcrQuarantineWriter
 > [!div class="mx-tableFixed"]
@@ -210,6 +252,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | **Actions** |  |
 > | Microsoft.ContainerRegistry/registries/quarantineRead/read | Eseguire il pull o ottenere immagini in quarantena da un registro contenitori |
 > | Microsoft.ContainerRegistry/registries/quarantineWrite/write | Scrivere/modificare lo stato di quarantena di immagini in quarantena |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="api-management-service-contributor"></a>Collaboratore servizio Gestione API
 > [!div class="mx-tableFixed"]
@@ -225,6 +273,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="api-management-service-operator-role"></a>Ruolo operatore del servizio Gestione API
 > [!div class="mx-tableFixed"]
@@ -250,6 +304,10 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Ottiene l'elenco di chiavi utente |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="api-management-service-reader-role"></a>Ruolo lettura del servizio Gestione API
 > [!div class="mx-tableFixed"]
@@ -268,6 +326,10 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Ottiene l'elenco di chiavi utente |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="application-insights-component-contributor"></a>Collaboratore componente di Application Insights
 > [!div class="mx-tableFixed"]
@@ -284,6 +346,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="application-insights-snapshot-debugger"></a>Debugger di snapshot di Application Insights
 > [!div class="mx-tableFixed"]
@@ -298,6 +366,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="automation-job-operator"></a>Operatore processo di automazione
 > [!div class="mx-tableFixed"]
@@ -319,6 +393,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="automation-operator"></a>Operatore di automazione
 > [!div class="mx-tableFixed"]
@@ -348,6 +428,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Automation/automationAccounts/jobs/output/read | Ottiene l'output di un processo |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="automation-runbook-operator"></a>Operatore runbook di automazione
 > [!div class="mx-tableFixed"]
@@ -362,6 +448,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="azure-kubernetes-service-cluster-admin-role"></a>Ruolo di amministratore del cluster del servizio Azure Kubernetes
 > [!div class="mx-tableFixed"]
@@ -371,6 +463,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | **Id** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | **Actions** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Elenca la credenziale clusterAdmin di un cluster gestito |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="azure-kubernetes-service-cluster-user-role"></a>Ruolo di utente del cluster del servizio Azure Kubernetes
 > [!div class="mx-tableFixed"]
@@ -380,6 +478,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | **Id** | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
 > | **Actions** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Elenca la credenziale clusterUser di un cluster gestito |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="azure-stack-registration-owner"></a>Proprietario della registrazione di Azure Stack
 > [!div class="mx-tableFixed"]
@@ -391,6 +495,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.AzureStack/registrations/products/listDetails/action | Recupera i dettagli completi per un prodotto Azure Stack Marketplace |
 > | Microsoft.AzureStack/registrations/products/read | Ottiene le proprietà di un prodotto Azure Stack Marketplace |
 > | Microsoft.AzureStack/registrations/read | Ottiene le proprietà di una registrazione di Azure Stack |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="backup-contributor"></a>Collaboratore di backup
 > [!div class="mx-tableFixed"]
@@ -442,6 +552,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Ottiene lo stato dell'operazione per una determinata operazione |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Elenca tutte le finalità di protezione del backup |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="backup-operator"></a>Operatore di backup
 > [!div class="mx-tableFixed"]
@@ -508,6 +624,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Ottiene lo stato dell'operazione per una determinata operazione |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Elenca tutte le finalità di protezione del backup |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="backup-reader"></a>Lettore di backup
 > [!div class="mx-tableFixed"]
@@ -555,6 +677,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Ottiene lo stato dell'operazione per una determinata operazione |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Elenca tutte le finalità di protezione del backup |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Restituisce i dettagli di utilizzo di un insieme di credenziali di Servizi di ripristino. |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="billing-reader"></a>Lettore per la fatturazione
 > [!div class="mx-tableFixed"]
@@ -570,6 +698,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Management/managementGroups/read | Elenca i gruppi di gestione per l'utente autenticato. |
 > | Microsoft.CostManagement/*/read |  |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="biztalk-contributor"></a>Collaboratore BizTalk
 > [!div class="mx-tableFixed"]
@@ -585,6 +719,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="cdn-endpoint-contributor"></a>Collaboratore endpoint rete CDN
 > [!div class="mx-tableFixed"]
@@ -601,6 +741,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="cdn-endpoint-reader"></a>Lettore endpoint rete CDN
 > [!div class="mx-tableFixed"]
@@ -617,6 +763,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="cdn-profile-contributor"></a>Collaboratore profilo rete CDN
 > [!div class="mx-tableFixed"]
@@ -633,6 +785,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="cdn-profile-reader"></a>Lettore profilo rete CDN
 > [!div class="mx-tableFixed"]
@@ -649,6 +807,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="classic-network-contributor"></a>Collaboratore reti virtuali classiche
 > [!div class="mx-tableFixed"]
@@ -664,6 +828,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="classic-storage-account-contributor"></a>Collaboratore account di archiviazione classico
 > [!div class="mx-tableFixed"]
@@ -679,6 +849,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="classic-storage-account-key-operator-service-role"></a>Ruolo del servizio dell'operatore della chiave dell'account di archiviazione classico
 > [!div class="mx-tableFixed"]
@@ -689,6 +865,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | **Actions** |  |
 > | Microsoft.ClassicStorage/storageAccounts/listkeys/action | Elenca le chiavi di accesso per gli account di archiviazione. |
 > | Microsoft.ClassicStorage/storageAccounts/regeneratekey/action | Rigenera le chiavi di accesso esistenti per l'account di archiviazione. |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="classic-virtual-machine-contributor"></a>Collaboratore macchine virtuali classiche
 > [!div class="mx-tableFixed"]
@@ -714,6 +896,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="cognitive-services-contributor"></a>Collaboratore Servizi cognitivi
 > [!div class="mx-tableFixed"]
@@ -739,6 +927,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="cognitive-services-user"></a>Utente Servizi cognitivi
 > [!div class="mx-tableFixed"]
@@ -760,6 +954,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/subscriptions/read | Ottiene l'elenco delle sottoscrizioni. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="cosmos-db-account-reader-role"></a>Ruolo Lettore dell'account Cosmos DB
 > [!div class="mx-tableFixed"]
@@ -775,6 +975,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Insights/Metrics/read | Esegue la lettura delle metriche |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="cosmosbackupoperator"></a>CosmosBackupOperator
 > [!div class="mx-tableFixed"]
@@ -785,6 +991,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | **Actions** |  |
 > | Microsoft.DocumentDB/databaseAccounts/backup/action | Invia una richiesta per configurare il backup |
 > | Microsoft.DocumentDB/databaseAccounts/restore/action | Invia una richiesta di ripristino |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="cost-management-contributor"></a>Collaboratore Gestione costi
 > [!div class="mx-tableFixed"]
@@ -799,6 +1011,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/subscriptions/read | Ottiene l'elenco delle sottoscrizioni. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="cost-management-reader"></a>Lettore Gestione costi
 > [!div class="mx-tableFixed"]
@@ -813,6 +1031,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/subscriptions/read | Ottiene l'elenco delle sottoscrizioni. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="data-box-contributor"></a>Collaboratore Data Box
 > [!div class="mx-tableFixed"]
@@ -827,6 +1051,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
 > | Microsoft.Databox/* |  |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="data-box-reader"></a>Lettore Data Box
 > [!div class="mx-tableFixed"]
@@ -842,6 +1072,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Databox/locations/availableSkus/action | Restituisce l'elenco degli SKU disponibili. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Ottiene gli stati di disponibilità per tutte le risorse nell'ambito specificato |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="data-factory-contributor"></a>Collaboratore Data Factory
 > [!div class="mx-tableFixed"]
@@ -858,6 +1094,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="data-lake-analytics-developer"></a>Sviluppatore di Data Lake Analytics
 > [!div class="mx-tableFixed"]
@@ -889,6 +1131,10 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.DataLakeAnalytics/accounts/firewallRules/Delete | Elimina una regola del firewall. |
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Write | Crea o aggiorna criteri di calcolo. |
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Delete | Elimina criteri di calcolo. |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="data-purger"></a>Pulizia dati
 > [!div class="mx-tableFixed"]
@@ -901,6 +1147,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Insights/components/purge/action | Ripulitura dei dati da Application Insights |
 > | Microsoft.OperationalInsights/workspaces/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/purge/action | Elimina i dati specificati dall'area di lavoro |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="devtest-labs-user"></a>Utente DevTest Labs
 > [!div class="mx-tableFixed"]
@@ -941,6 +1193,10 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Storage/storageAccounts/listKeys/action | Restituisce le chiavi di accesso per l'account di archiviazione specificato. |
 > | **NotActions** |  |
 > | Microsoft.Compute/virtualMachines/vmSizes/read | Elenca le dimensioni disponibili a cui è possibile aggiornare la macchina virtuale |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="dns-zone-contributor"></a>Collaboratore zona DNS
 > [!div class="mx-tableFixed"]
@@ -956,6 +1212,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="documentdb-account-contributor"></a>Collaboratore account DocumentDB
 > [!div class="mx-tableFixed"]
@@ -971,6 +1233,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="eventgrid-eventsubscription-contributor"></a>Collaboratore per sottoscrizioni di eventi di Griglia di eventi
 > [!div class="mx-tableFixed"]
@@ -988,6 +1256,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="eventgrid-eventsubscription-reader"></a>Ruolo con autorizzazioni di lettura per sottoscrizioni di eventi di Griglia di eventi
 > [!div class="mx-tableFixed"]
@@ -1002,6 +1276,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.EventGrid/locations/eventSubscriptions/read | Elencare sottoscrizioni di eventi per area |
 > | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | Elenca sottoscrizioni di eventi per area per tipo di argomento |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="hdinsight-domain-services-contributor"></a>Collaboratore Servizi di dominio HDInsight
 > [!div class="mx-tableFixed"]
@@ -1013,6 +1293,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.AAD/*/read |  |
 > | Microsoft.AAD/domainServices/*/read |  |
 > | Microsoft.AAD/domainServices/oucontainer/* |  |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="intelligent-systems-account-contributor"></a>Collaboratore account Intelligent Systems
 > [!div class="mx-tableFixed"]
@@ -1028,6 +1314,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="key-vault-contributor"></a>Collaboratore di Key Vault
 > [!div class="mx-tableFixed"]
@@ -1045,6 +1337,10 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | **NotActions** |  |
 > | Microsoft.KeyVault/locations/deletedVaults/purge/action | Ripulisce un Key Vault eliminato temporaneamente |
 > | Microsoft.KeyVault/hsmPools/* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="lab-creator"></a>Lab Creator (Creatore di lab)
 > [!div class="mx-tableFixed"]
@@ -1060,6 +1356,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.LabServices/labAccounts/getRegionalAvailability/action | Ottiene informazioni sulla disponibilità a livello di area per ogni categoria di dimensioni configurata in un account del lab |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="log-analytics-contributor"></a>Collaboratore di Log Analytics
 > [!div class="mx-tableFixed"]
@@ -1081,6 +1383,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Restituisce le chiavi di accesso per l'account di archiviazione specificato. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="log-analytics-reader"></a>Lettore di Log Analytics
 > [!div class="mx-tableFixed"]
@@ -1095,6 +1403,10 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
 > | **NotActions** |  |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Recupera le chiavi condivise per l'area di lavoro. Queste chiavi servono per collegare gli agenti di Microsoft Operational Insights all’area di lavoro. |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="logic-app-contributor"></a>Collaboratore alle app per la logica
 > [!div class="mx-tableFixed"]
@@ -1123,6 +1435,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Web/serverFarms/join/action |  |
 > | Microsoft.Web/serverFarms/read | Ottiene le proprietà per un piano di servizio app |
 > | Microsoft.Web/sites/functions/listSecrets/action | Elenca i segreti delle funzioni delle app Web. |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="logic-app-operator"></a>Operatore delle app per la logica
 > [!div class="mx-tableFixed"]
@@ -1147,6 +1465,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Web/connections/*/read | Legge le connessioni. |
 > | Microsoft.Web/customApis/*/read | Legge l'API personalizzata. |
 > | Microsoft.Web/serverFarms/read | Ottiene le proprietà per un piano di servizio app |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="managed-application-operator-role"></a>Ruolo di Operatore applicazione gestita
 > [!div class="mx-tableFixed"]
@@ -1157,6 +1481,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | **Actions** |  |
 > | */lettura | Legge risorse di tutti i tipi, eccetto i segreti. |
 > | Microsoft.Solutions/applications/read | Recupera un elenco di applicazioni. |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="managed-applications-reader"></a>Lettore applicazioni gestite
 > [!div class="mx-tableFixed"]
@@ -1168,6 +1498,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | */lettura | Legge risorse di tutti i tipi, eccetto i segreti. |
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Solutions/jitRequests/* |  |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="managed-identity-contributor"></a>Managed Identity Contributor (Collaboratore per identità gestita)
 > [!div class="mx-tableFixed"]
@@ -1184,6 +1520,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="managed-identity-operator"></a>Managed Identity Operator (Operatore per identità gestita)
 > [!div class="mx-tableFixed"]
@@ -1199,6 +1541,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="management-group-contributor"></a>Collaboratore gruppo di gestione
 > [!div class="mx-tableFixed"]
@@ -1212,6 +1560,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Management/managementGroups/subscriptions/delete | Annulla l'associazione della sottoscrizione dal gruppo di gestione. |
 > | Microsoft.Management/managementGroups/subscriptions/write | Associa una sottoscrizione esistente al gruppo di gestione. |
 > | Microsoft.Management/managementGroups/write | Crea o aggiorna un gruppo di gestione. |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="management-group-reader"></a>Lettore gruppo di gestione
 > [!div class="mx-tableFixed"]
@@ -1221,6 +1575,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | **Id** | ac63b705-f282-497d-ac71-919bf39d939d |
 > | **Actions** |  |
 > | Microsoft.Management/managementGroups/read | Elenca i gruppi di gestione per l'utente autenticato. |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="monitoring-contributor"></a>Collaboratore al monitoraggio
 > [!div class="mx-tableFixed"]
@@ -1253,6 +1613,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="monitoring-metrics-publisher"></a>Autore delle metriche di monitoraggio
 > [!div class="mx-tableFixed"]
@@ -1264,8 +1630,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Insights/Register/Action | Registra il provider Microsoft Insights |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
+> | **NotActions** |  |
+> | *nessuna* |  |
 > | **DataActions** |  |
 > | Microsoft.Insights/Metrics/Write | Scrive metrica |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="monitoring-reader"></a>Lettore di monitoraggio
 > [!div class="mx-tableFixed"]
@@ -1277,6 +1647,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | */lettura | Legge risorse di tutti i tipi, eccetto i segreti. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Esegue una query di ricerca |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="network-contributor"></a>Collaboratore di rete
 > [!div class="mx-tableFixed"]
@@ -1292,6 +1668,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="new-relic-apm-account-contributor"></a>Collaboratore account New Relic APM
 > [!div class="mx-tableFixed"]
@@ -1307,6 +1689,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
 > | NewRelic.APM/accounts/* |  |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="reader-and-data-access"></a>Lettore e accesso ai dati
 > [!div class="mx-tableFixed"]
@@ -1317,6 +1705,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Restituisce le chiavi di accesso per l'account di archiviazione specificato. |
 > | Microsoft.Storage/storageAccounts/read | Restituisce l'elenco di account di archiviazione o ottiene le proprietà per l’account di archiviazione specificato. |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="redis-cache-contributor"></a>Collaboratore cache Redis
 > [!div class="mx-tableFixed"]
@@ -1332,6 +1726,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="resource-policy-contributor-preview"></a>Collaboratore ai criteri delle risorse (anteprima)
 > [!div class="mx-tableFixed"]
@@ -1346,6 +1746,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Authorization/policysetdefinitions/* | Creare e gestire set di criteri |
 > | Microsoft.PolicyInsights/* |  |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="scheduler-job-collections-contributor"></a>Collaboratore raccolte di processi dell'unità di pianificazione
 > [!div class="mx-tableFixed"]
@@ -1361,6 +1767,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Scheduler/jobcollections/* | Creare e gestire raccolte di processi |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="search-service-contributor"></a>Collaboratore servizi di ricerca
 > [!div class="mx-tableFixed"]
@@ -1376,6 +1788,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Search/searchServices/* | È in grado di creare e gestire servizi di ricerca |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="security-admin"></a>Amministrazione della protezione
 > [!div class="mx-tableFixed"]
@@ -1405,6 +1823,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Security/securityContacts/write | Aggiorna il contatto di sicurezza |
 > | Microsoft.Security/InformationProtectionPolicies/write | Aggiorna le informazioni dei criteri di protezione per la risorsa |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="security-manager-legacy"></a>Gestore sicurezza (legacy)
 > [!div class="mx-tableFixed"]
@@ -1423,6 +1847,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Security/* | Creare e gestire criteri e componenti di protezione |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="security-reader"></a>Ruolo con autorizzazioni di lettura per la sicurezza
 > [!div class="mx-tableFixed"]
@@ -1439,6 +1869,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Security/*/read | Leggere criteri e componenti di sicurezza |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
 > | Microsoft.Management/managementGroups/read | Elenca i gruppi di gestione per l'utente autenticato. |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="site-recovery-contributor"></a>Collaboratore al ripristino sito
 > [!div class="mx-tableFixed"]
@@ -1474,6 +1910,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Storage/storageAccounts/read | Restituisce l'elenco di account di archiviazione o ottiene le proprietà per l’account di archiviazione specificato. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="site-recovery-operator"></a>Operatore del ripristino sito
 > [!div class="mx-tableFixed"]
@@ -1539,6 +1981,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Storage/storageAccounts/read | Restituisce l'elenco di account di archiviazione o ottiene le proprietà per l’account di archiviazione specificato. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="site-recovery-reader"></a>Reader di ripristino sito
 > [!div class="mx-tableFixed"]
@@ -1578,6 +2026,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.RecoveryServices/Vaults/usages/read | Restituisce i dettagli di utilizzo di un insieme di credenziali di Servizi di ripristino. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | L'operazione Token dell'insieme di credenziali può essere usata per ottenere il token dell'insieme di credenziali per le operazioni di back-end a livello di insieme di credenziali. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="sql-db-contributor"></a>Collaboratore database SQL
 > [!div class="mx-tableFixed"]
@@ -1614,6 +2068,10 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="sql-security-manager"></a>Gestione della sicurezza SQL
 > [!div class="mx-tableFixed"]
@@ -1655,6 +2113,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Sql/servers/securityAlertPolicies/* | Creare e gestire i criteri degli avvisi di sicurezza di SQL Server |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="sql-server-contributor"></a>Collaboratore SQL Server
 > [!div class="mx-tableFixed"]
@@ -1694,6 +2158,10 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Sql/servers/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/securityAlertPolicies/* | Modificare i criteri degli avvisi di sicurezza di SQL Server |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="storage-account-contributor"></a>Collaboratore account di archiviazione
 > [!div class="mx-tableFixed"]
@@ -1711,6 +2179,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Storage/storageAccounts/* | Creare e gestire account di archiviazione |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="storage-account-key-operator-service-role"></a>Ruolo del servizio dell'operatore della chiave dell'account di archiviazione
 > [!div class="mx-tableFixed"]
@@ -1721,6 +2195,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/listkeys/action | Restituisce le chiavi di accesso per l'account di archiviazione specificato. |
 > | Microsoft.Storage/storageAccounts/regeneratekey/action | Rigenera le chiavi di accesso per l'account di archiviazione specificato. |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="storage-blob-data-contributor-preview"></a>Collaboratore ai dati del BLOB di archiviazione (anteprima)
 > [!div class="mx-tableFixed"]
@@ -1732,10 +2212,14 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Restituisce il risultato dell'eliminazione di un contenitore |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Restituisce l'elenco dei contenitori |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/write | Restituisce il risultato dell'operazione PUT sul contenitore BLOB |
+> | **NotActions** |  |
+> | *nessuna* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Restituisce il risultato dell'eliminazione di un BLOB |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Restituisce un BLOB o un elenco di BLOB |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Restituisce il risultato della scrittura su un BLOB |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="storage-blob-data-owner-preview"></a>Proprietario dei dati del BLOB di archiviazione (anteprima)
 > [!div class="mx-tableFixed"]
@@ -1745,8 +2229,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/* |  |
+> | **NotActions** |  |
+> | *nessuna* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="storage-blob-data-reader-preview"></a>Lettore dei dati dei BLOB di archiviazione (anteprima)
 > [!div class="mx-tableFixed"]
@@ -1756,8 +2244,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Restituisce l'elenco dei contenitori |
+> | **NotActions** |  |
+> | *nessuna* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Restituisce un BLOB o un elenco di BLOB |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="storage-queue-data-contributor-preview"></a>Collaboratore ai dati della coda di archiviazione (anteprima)
 > [!div class="mx-tableFixed"]
@@ -1769,10 +2261,14 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Restituisce il risultato dell'eliminazione di una coda |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Restituisce una coda o un elenco di code. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/write | Restituisce il risultato della scrittura di una coda |
+> | **NotActions** |  |
+> | *nessuna* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Restituisce il risultato dell'eliminazione di un messaggio |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Restituisce un messaggio |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Restituisce il risultato della scrittura di un messaggio |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="storage-queue-data-reader-preview"></a>Lettore dei dati della coda di archiviazione (anteprima)
 > [!div class="mx-tableFixed"]
@@ -1782,8 +2278,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | **Id** | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Restituisce una coda o un elenco di code. |
+> | **NotActions** |  |
+> | *nessuna* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Restituisce un messaggio |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="support-request-contributor"></a>Collaboratore alla richiesta di supporto
 > [!div class="mx-tableFixed"]
@@ -1795,6 +2295,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Authorization/*/read | Autorizzazione Lettura |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="traffic-manager-contributor"></a>Collaboratore Gestione traffico
 > [!div class="mx-tableFixed"]
@@ -1810,6 +2316,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="user-access-administrator"></a>Amministratore accessi utente
 > [!div class="mx-tableFixed"]
@@ -1821,6 +2333,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | */lettura | Legge risorse di tutti i tipi, eccetto i segreti. |
 > | Microsoft.Authorization/* | Gestire l'autorizzazione |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="virtual-machine-administrator-login"></a>Virtual Machine Administrator Login (Accesso amministratore macchina virtuale)
 > [!div class="mx-tableFixed"]
@@ -1834,9 +2352,13 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Network/loadBalancers/read | Ottiene una definizione del servizio di bilanciamento del carico |
 > | Microsoft.Network/networkInterfaces/read | Ottiene una definizione dell’interfaccia di rete.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
+> | **NotActions** |  |
+> | *nessuna* |  |
 > | **DataActions** |  |
 > | Microsoft.Compute/virtualMachines/login/action | Consente di accedere a una macchina virtuale come utente normale |
 > | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Consente di accedere a una macchina virtuale con privilegi di amministratore di Windows o di utente root di Linux |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="virtual-machine-contributor"></a>Collaboratore macchine virtuali
 > [!div class="mx-tableFixed"]
@@ -1883,6 +2405,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Storage/storageAccounts/listKeys/action | Restituisce le chiavi di accesso per l'account di archiviazione specificato. |
 > | Microsoft.Storage/storageAccounts/read | Restituisce l'elenco di account di archiviazione o ottiene le proprietà per l’account di archiviazione specificato. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="virtual-machine-user-login"></a>Virtual Machine User Login (Accesso utente macchina virtuale)
 > [!div class="mx-tableFixed"]
@@ -1896,8 +2424,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Network/loadBalancers/read | Ottiene una definizione del servizio di bilanciamento del carico |
 > | Microsoft.Network/networkInterfaces/read | Ottiene una definizione dell’interfaccia di rete.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
+> | **NotActions** |  |
+> | *nessuna* |  |
 > | **DataActions** |  |
 > | Microsoft.Compute/virtualMachines/login/action | Consente di accedere a una macchina virtuale come utente normale |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="web-plan-contributor"></a>Collaboratore piani Web
 > [!div class="mx-tableFixed"]
@@ -1913,6 +2445,12 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
 > | Microsoft.Web/serverFarms/* | Creare e gestire server farm |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="website-contributor"></a>Collaboratore siti Web
 > [!div class="mx-tableFixed"]
@@ -1933,9 +2471,15 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Web/serverFarms/join/action |  |
 > | Microsoft.Web/serverFarms/read | Ottiene le proprietà per un piano di servizio app |
 > | Microsoft.Web/sites/* | Creare e gestire siti Web. Per creare un sito sono anche necessarie le autorizzazione di scrittura associate al piano di servizio app |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ruoli personalizzati](custom-roles.md)
-- [Gestire le assegnazioni dei ruoli tramite il portale di Azure](role-assignments-portal.md)
+- [Ruoli personalizzati per le risorse di Azure](custom-roles.md)
+- [Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e il portale di Azure](role-assignments-portal.md)
 - [Autorizzazioni nel Centro sicurezza di Azure](../security-center/security-center-permissions.md)

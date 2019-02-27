@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2018
+ms.date: 02/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: 058d6d398f6bb54e8569e727f118a325c338049d
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f49b8ed592422927288e24b164a04645e2e37744
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154743"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301384"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Distribuire le risorse con i modelli e l'API REST di Resource Manager
 
@@ -81,8 +81,21 @@ In questo articolo viene illustrato come utilizzare l'API REST di Resource Manag
     Per registrare il contenuto della risposta, il contenuto della richiesta o entrambi, includere **debugSetting** nella richiesta.
 
   ```json
-  "debugSetting": {
-    "detailLevel": "requestContent, responseContent"
+  {
+    "properties": {
+      "templateLink": {
+        "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
+        "contentVersion": "1.0.0.0"
+      },
+      "mode": "Incremental",
+      "parametersLink": {
+        "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
+        "contentVersion": "1.0.0.0"
+      },
+      "debugSetting": {
+        "detailLevel": "requestContent, responseContent"
+      }
+    }
   }
   ```
 
@@ -159,22 +172,50 @@ In questo articolo viene illustrato come utilizzare l'API REST di Resource Manag
 
 ## <a name="redeploy-when-deployment-fails"></a>Eseguire nuovamente la distribuzione se non è riuscita
 
-Per le distribuzioni che non vengono eseguite in modo corretto, è possibile specificare che una distribuzione precedente nella cronologia venga eseguita nuovamente in modo automatico. Per usare questa opzione, le distribuzioni devono avere nomi univoci in modo che sia possibile identificarle nella cronologia. Se non si dispone di nomi univoci, la distribuzione non riuscita corrente potrebbe sovrascrivere quella eseguita in modo corretto nella cronologia. È possibile usare questa opzione solo con le distribuzioni a livello di radice. Le distribuzioni di un modello annidato non sono disponibili per la ridistribuzione.
+Quando una distribuzione non riesce, è possibile ridistribuire automaticamente una distribuzione precedente con esito positivo dalla cronologia della distribuzione. Per specificare la ridistribuzione, usare la proprietà `onErrorDeployment` nel corpo della richiesta.
+
+Per usare questa opzione, le distribuzioni devono avere nomi univoci in modo che sia possibile identificarle nella cronologia. Se non si dispone di nomi univoci, la distribuzione non riuscita corrente potrebbe sovrascrivere quella eseguita in modo corretto nella cronologia. È possibile usare questa opzione solo con le distribuzioni a livello di radice. Le distribuzioni di un modello annidato non sono disponibili per la ridistribuzione.
 
 Per eseguire nuovamente l'ultima distribuzione con esito positivo se la distribuzione corrente non riesce, usare:
 
 ```json
-"onErrorDeployment": {
-  "type": "LastSuccessful",
-},
+{
+  "properties": {
+    "templateLink": {
+      "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
+      "contentVersion": "1.0.0.0"
+    },
+    "mode": "Incremental",
+    "parametersLink": {
+      "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
+      "contentVersion": "1.0.0.0"
+    },
+    "onErrorDeployment": {
+      "type": "LastSuccessful",
+    }
+  }
+}
 ```
 
 Per eseguire nuovamente una distribuzione specifica se la distribuzione corrente non riesce, usare:
 
 ```json
-"onErrorDeployment": {
-  "type": "SpecificDeployment",
-  "deploymentName": "<deploymentname>"
+{
+  "properties": {
+    "templateLink": {
+      "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
+      "contentVersion": "1.0.0.0"
+    },
+    "mode": "Incremental",
+    "parametersLink": {
+      "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
+      "contentVersion": "1.0.0.0"
+    },
+    "onErrorDeployment": {
+      "type": "SpecificDeployment",
+      "deploymentName": "<deploymentname>"
+    }
+  }
 }
 ```
 
@@ -215,7 +256,7 @@ Le dimensioni del file di parametro non possono essere superiori a 64 KB.
 Se è necessario fornire un valore sensibile per un parametro (ad esempio una password), aggiungere tale valore a un insieme di credenziali delle chiavi. Recuperare l'insieme di credenziali delle chiavi durante la distribuzione, come illustrato nell'esempio precedente. Per ulteriori informazioni, vedere [Passare valori protetti durante la distribuzione](resource-manager-keyvault-parameter.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per specificare la modalità di gestione delle risorse che sono presenti nel gruppo, ma non sono definite nel modello, vedere [Azure Resource Manager deployment modes](deployment-modes.md) (Modalità di distribuzione di Azure Resource Manager).
+* Per specificare la modalità di gestione delle risorse che sono presenti nel gruppo, ma non sono definite nel modello, vedere [Modalità di distribuzione di Azure Resource Manager](deployment-modes.md).
 * Per altre informazioni sulla gestione delle operazioni REST asincrone, vedere [Track asynchronous Azure operations](resource-manager-async-operations.md) (Tenere traccia delle operazioni asincrone di Azure).
 * Per un esempio di distribuzione delle risorse con la libreria client .NET, vedere [Distribuire le risorse usando le librerie .NET e un modello](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Per definire i parametri nel modello, vedere [Creazione di modelli](resource-group-authoring-templates.md#parameters).

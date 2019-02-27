@@ -1,6 +1,6 @@
 ---
-title: Configurare le informazioni di sicurezza per l'uso della posta elettronica - Azure Active Directory | Microsoft Docs
-description: Configurare le informazioni di sicurezza per verificare la propria identità usando l'indirizzo di posta elettronica aziendale o dell'istituto di istruzione.
+title: Configurare le informazioni di sicurezza (anteprima) per l'uso dell'indirizzo di posta elettronica - Azure Active Directory | Microsoft Docs
+description: Come configurare le informazioni di sicurezza per verificare la propria identità usando l'indirizzo di posta elettronica.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,49 +9,72 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c18124286d78520e8b89a61c5d12760c9ad784c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7c6bf2c8ea6a2526f8548a785706e5ed3a7460ff
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197216"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455212"
 ---
-# <a name="set-up-security-info-to-use-email-preview"></a>Configurare le informazioni di sicurezza per l'uso della posta elettronica (anteprima)
+# <a name="set-up-security-info-preview-to-use-your-email-address"></a>Configurare le informazioni di sicurezza (anteprima) per usare l'indirizzo di posta elettronica
+È possibile seguire questi passaggi per aggiungere il metodo di reimpostazione della password. Dopo averle configurate per la prima volta, è possibile tornare alla pagina **Info di sicurezza** per aggiungere, aggiornare o eliminare le informazioni di sicurezza.
+
+Dopo aver configurato il metodo di reimpostazione della password, è necessario configurare anche il metodo di verifica a due fattori, usando un [app di autenticazione](security-info-setup-auth-app.md), l'[invio di SMS](security-info-setup-text-msg.md) o una [chiamata telefonica](security-info-setup-phone-number.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-La configurazione delle informazioni di sicurezza richiede l'accesso all'account aziendale o dell'istituto di istruzione e il completamento del processo di registrazione. Se le informazioni di sicurezza non sono mai state configurate, verrà chiesto di farlo.
-
-## <a name="set-up-email"></a>Configurare la posta elettronica
-
-A seconda delle impostazioni dell'organizzazione, al momento dell'accesso può essere chiesto di aggiungere alle informazioni di sicurezza un indirizzo di posta elettronica. In caso contrario, per iniziare a configurare la posta elettronica nelle informazioni di sicurezza, seguire la procedura descritta in [Gestire le informazioni di sicurezza](security-info-manage-settings.md).
+## <a name="set-up-your-email-address-from-the-security-info-page"></a>Configurare l'indirizzo di posta elettronica dalla pagina Info di sicurezza
+A seconda delle impostazioni dell'organizzazione, potrebbe essere possibile usare l'indirizzo di posta elettronica come metodo per le informazioni di sicurezza.
 
 >[!Note]
->È consigliabile usare un account di posta elettronica che non richieda alcuna password di rete per accedere.<br>Se l'opzione relativa alla posta elettronica non viene visualizzata, è possibile che l'organizzazione non consenta l'uso della posta elettronica per la verifica. In questo caso è necessario scegliere un altro metodo oppure contattare l'amministratore per ottenere assistenza.
+>È consigliabile usare un indirizzo di posta elettronica che non richieda alcuna password di rete per accedere. Se l'opzione relativa alla posta elettronica non viene visualizzata, è possibile che l'organizzazione non consenta l'uso della posta elettronica per la verifica. In questo caso, è necessario scegliere un altro metodo oppure contattare l'amministratore per ottenere assistenza.
 
-### <a name="to-use-your-email-address"></a>Per usare il proprio indirizzo di posta elettronica
+### <a name="to-set-up-your-email-address"></a>Per configurare il proprio indirizzo di posta elettronica
 
-1. Selezionare l'opzione **Email**, quindi digitare l'indirizzo di posta elettronica nella casella. Questo non può essere l'indirizzo di posta elettronica aziendale o dell'istituto di istruzione.
+1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina https://myprofile.microsoft.com/.
 
-     ![Pagina delle informazioni di sicurezza, con casella di immissione dell'indirizzo di posta elettronica](media/security-info/security-info-keep-secure-setup-email.png)
+    ![Pagina Profilo personale, con i collegamenti Info di sicurezza evidenziati](media/security-info/securityinfo-myprofile.png)
 
-2. Controllare la presenza di un messaggio di posta elettronica da Microsoft per l'organizzazione, digitare il codice di verifica incluso nella casella **Verify your email** (Controlla la posta elettronica), quindi selezionare **Operazione completata**.
+2. Selezionare **Info di sicurezza** dal riquadro di spostamento a sinistra o dal collegamento nel blocco **Info di sicurezza** e quindi selezionare **Aggiungi metodo** dalla pagina **Info di sicurezza**.
 
-     ![Pagina delle informazioni di sicurezza, con casella di immissione del codice di verifica tramite posta elettronica](media/security-info/security-info-verify-email.png)
+    ![Pagina Info di sicurezza con l'opzione Aggiungi metodo evidenziata](media/security-info/securityinfo-myprofile-addmethod.png)
 
-    >[!Note]
-    >Se non viene visualizzato un messaggio di posta elettronica da Microsoft per conto dell'organizzazione, assicurarsi di aver digitato correttamente l'indirizzo di posta elettronica e quindi controllare le cartelle della posta indesiderata o dello spam.
+3. Nella pagina **Aggiungi un metodo** selezionare **Posta elettronica** dall'elenco a discesa e selezionare **Aggiungi**.
 
-3. Nella pagina **Proteggi l'account**, selezionare **Operazione completata**.
+    ![Finestra di dialogo Aggiungi un metodo, con l'opzione Posta elettronica selezionata](media/security-info/securityinfo-myprofile-addemail.png)
 
-    Le informazioni di sicurezza vengono aggiornate per usare l'indirizzo di posta elettronica al fine di controllare l'identità quando si usa la reimpostazione della password.
+4. Nella pagina **Posta elettronica** digitare l'indirizzo di posta elettronica (ad esempio, alain@gmail.com) e quindi selezionare **Avanti**.
 
-## <a name="additional-security-info-options"></a>Opzioni aggiuntive per le informazioni di sicurezza
+    ![Aggiungere il numero di telefono e scegliere le chiamate telefoniche](media/security-info/securityinfo-myprofile-emailaddress.png)
 
-Sono disponibili opzioni relative alle modalità di contatto da parte dell'organizzazione per verificare l'identità dell'utente, a seconda dell'operazione che si sta cercando di eseguire. Queste opzioni includono:
+    >[!Important]
+    >Questo non può essere l'indirizzo di posta elettronica aziendale o dell'istituto di istruzione.
+
+5. Digitare il codice inviato all'indirizzo di posta elettronica specificato e quindi selezionare **Avanti**.
+
+    ![Aggiungere il numero di telefono e scegliere gli SMS](media/security-info/securityinfo-myprofile-emailcode.png)
+
+    Le informazioni di sicurezza vengono aggiornate ed è possibile usare l'indirizzo di posta elettronica per verificare l'identità quando si usa la reimpostazione della password.
+
+## <a name="delete-your-email-address-from-your-security-info-methods"></a>Eliminare l'indirizzo di posta elettronica dai metodi di gestione delle informazioni di sicurezza
+Per non usare più l'indirizzo di posta elettronica come metodo di gestione delle informazioni di sicurezza, è possibile rimuoverlo dalla pagina **Info di sicurezza**.
+
+>[!Important]
+>Se si elimina per errore l'indirizzo di posta elettronica, non è possibile annullare l'azione. Sarà necessario aggiungere nuovamente il metodo, seguendo la procedura illustrata nella sezione [Configurare l'indirizzo di posta elettronica](#set-up-your-email-address-from-the-security-info-page) di questo articolo.
+
+### <a name="to-delete-your-email-address"></a>Per eliminare l'indirizzo di posta elettronica
+
+1. Nella pagina **Info di sicurezza** selezionare il collegamento **Elimina** accanto all'opzione **Posta elettronica**.
+
+    ![Collegamento per eliminare il metodo basato sul telefono dalle informazioni di sicurezza](media/security-info/securityinfo-myprofile-emaildelete.png)
+
+2. Selezionare **Sì** nella finestra di dialogo di conferma per eliminare l'account di **posta elettronica**. L'account di posta elettronica, dopo essere stato eliminato, viene rimosso dalle informazioni di sicurezza e non viene più visualizzato nella pagina **Info di sicurezza**.
+
+## <a name="additional-security-info-methods"></a>Metodi aggiuntivi per le informazioni di sicurezza
+In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative alle modalità di contatto da parte dell'organizzazione per verificare l'identità dell'utente, tra cui:
 
 - **App di autenticazione.** Scaricare e usare un'app di autenticazione per ottenere una notifica di approvazione o un codice di approvazione generato in modo casuale per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come configurare e usare l'app Microsoft Authenticator, vedere [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md).
 
@@ -65,8 +88,6 @@ Sono disponibili opzioni relative alle modalità di contatto da parte dell'organ
     >Se alcune opzioni non sono disponibili, è probabile che l'organizzazione non consenta di usare questi metodi. In questo caso, è necessario scegliere un metodo disponibile oppure contattare l'amministratore per ottenere assistenza.
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-- Se è necessario aggiornare le informazioni di sicurezza, seguire le istruzioni descritte nell'articolo [Gestire le informazioni di sicurezza](security-info-manage-settings.md).
 
 - Se la password viene persa o dimenticata, reimpostarla dal [portale per la reimpostazione della password](https://passwordreset.microsoftonline.com/) oppure seguire i passaggi nell'articolo [Reimpostare la password aziendale o dell'istituto di istruzione](user-help-reset-password.md).
 

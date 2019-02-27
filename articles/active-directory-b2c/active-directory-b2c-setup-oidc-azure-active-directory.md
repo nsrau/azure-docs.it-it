@@ -1,5 +1,5 @@
 ---
-title: Configurare l'accesso per un'organizzazione Azure Active Directory in Azure Active Directory B2C | Microsoft Docs
+title: Configurare l'accesso per un'organizzazione Azure Active Directory - Azure Active Directory B2C | Microsoft Docs
 description: Configurare l'accesso per un'organizzazione Azure Active Directory specifica in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9078cbfd14e61b2de0d513e513413ae3c79137e3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0da27c5ce872d1b4e1b4c63f6f4207bb5ca4d6ef
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166221"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428075"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurare l'accesso per un'organizzazione Azure Active Directory specifica in Azure Active Directory B2C
 
 >[!NOTE]
 > Questa funzionalità è disponibile in anteprima pubblica. Non utilizzare la funzionalità negli ambienti di produzione.
 
-Questo articolo illustra come consentire l'accesso agli utenti di una specifica organizzazione di Azure Active Directory (Azure AD) usando un flusso utente in Azure Active Directory (Azure AD) B2C.
+Per usare un account di Azure Active Directory (Azure AD) come [provider di identità](active-directory-b2c-reference-oauth-code.md) in Azure AD B2C, è necessario creare un'applicazione che lo rappresenti. Questo articolo illustra come consentire l'accesso agli utenti di una specifica organizzazione di Azure Active Directory (Azure AD) usando un flusso utente in Azure Active Directory (Azure AD) B2C.
 
 ## <a name="create-an-azure-ad-app"></a>Creare un'app di Azure AD
 

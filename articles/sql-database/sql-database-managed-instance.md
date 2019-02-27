@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: d8959e25280a9d1dd62549c698f7b2b6b98d6154
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.date: 02/20/2019
+ms.openlocfilehash: d19dabb4e74e7a108ae769f55cd65ef108019fdc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964152"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454742"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Usare la sicurezza dei dati avanzata di database SQL con le reti virtuali e una compatibilità quasi del 100%
 
@@ -47,7 +47,7 @@ L'istanza gestita combina le migliori funzionalità disponibili sia nel database
 | --- | --- |
 |Acquisto e gestione di hardware non necessari <br>Nessun sovraccarico per la gestione dell'infrastruttura sottostante <br>Provisioning rapido e scalabilità del servizio <br>Applicazione automatica di patch e aggiornamento della versione <br>Integrazione con altri servizi dati PaaS |Contratto di servizio relativo al tempo di attività 99,99%  <br>[Disponibilità elevata](sql-database-high-availability.md) integrata <br>Dati protetti con [backup automatici](sql-database-automated-backups.md) <br>Periodo di conservazione dei backup configurabile dal cliente <br>[Backup](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) avviati dall'utente <br>Funzionalità di [ripristino temporizzato di un database](sql-database-recovery-using-backups.md#point-in-time-restore) |
 |**Sicurezza e conformità** | **Gestione**|
-|Ambiente isolato ([integrazione della rete virtuale](sql-database-managed-instance-connectivity-architecture.md), servizio a tenant singolo, calcolo e archiviazione dedicati) <br>[Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticazione di Azure AD](sql-database-aad-authentication.md), supporto di Single Sign-On <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Accesso ad Azure AD</a> (**anteprima pubblica**) <br>Soddisfa gli standard di conformità del database SQL di Azure <br>[Controllo SQL](sql-database-managed-instance-auditing.md) <br>[Rilevamento delle minacce](sql-database-managed-instance-threat-detection.md) |API di Azure Resource Manager per l'automazione del provisioning e della scalabilità del servizio <br>Funzionalità del portale di Azure per provisioning e scalabilità del servizio manuali <br>Servizio di migrazione dei dati
+|Ambiente isolato ([integrazione della rete virtuale](sql-database-managed-instance-connectivity-architecture.md), servizio a tenant singolo, calcolo e archiviazione dedicati) <br>[Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticazione di Azure AD](sql-database-aad-authentication.md), supporto di Single Sign-On <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Entità server (account di accesso) di Azure AD</a> (**anteprima pubblica**) <br>Soddisfa gli standard di conformità del database SQL di Azure <br>[Controllo SQL](sql-database-managed-instance-auditing.md) <br>[Rilevamento delle minacce](sql-database-managed-instance-threat-detection.md) |API di Azure Resource Manager per l'automazione del provisioning e della scalabilità del servizio <br>Funzionalità del portale di Azure per provisioning e scalabilità del servizio manuali <br>Servizio di migrazione dei dati
 
 Nella tabella seguente sono elencate le principali funzionalità delle istanze gestite:
 
@@ -150,9 +150,9 @@ La migrazione di un database crittografato in un'istanza gestita è supportata t
 
 ## <a name="azure-active-directory-integration"></a>Integrazione di Azure Active Directory
 
-L'opzione di distribuzione dell'istanza gestita supporta i tradizionali account di accesso del motore di database di SQL Server e gli account di accesso integrati con Azure Active Directory (AAD). Gli account di accesso di AAD (**anteprima pubblica**) sono una versione cloud di Azure degli account di accesso ai database di Windows usati nell'ambiente locale. Gli account di accesso di AAD consentono di specificare utenti e gruppi dal tenant di Azure Active Directory come entità principali reali con ambito nell'istanza, in grado di eseguire qualsiasi operazione a livello di istanza, comprese le query tra database all'interno della stessa istanza gestita.
+L'opzione di distribuzione dell'istanza gestita supporta i tradizionali account di accesso del motore di database di SQL Server e gli account di accesso integrati con Azure Active Directory (AAD). Le entità server (account di accesso) di Azure AD (**anteprima pubblica**) sono una versione cloud di Azure degli account di accesso ai database di Windows usati nell'ambiente locale. Le entità server (account di accesso) di Azure AD consentono di specificare utenti e gruppi dal tenant di Azure Active Directory come entità principali reali con ambito nell'istanza, in grado di eseguire qualsiasi operazione a livello di istanza, comprese le query tra database all'interno della stessa istanza gestita.
 
-È stata introdotta una nuova sintassi per creare gli account di accesso di AAD (**anteprima pubblica**), **DAL PROVIDER ESTERNO**. Per altre informazioni sulla sintassi, vedere <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> e consultare l'articolo [Effettuare il provisioning di un amministratore di Azure Active Directory per l'istanza gestita](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
+È stata introdotta una nuova sintassi per creare le entità server (account di accesso) di Azure AD (**anteprima pubblica**), **FROM EXTERNAL PROVIDER**. Per altre informazioni sulla sintassi, vedere <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> e consultare l'articolo [Effettuare il provisioning di un amministratore di Azure Active Directory per l'istanza gestita](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integrazione in Azure Active Directory e autenticazione a più fattori
 

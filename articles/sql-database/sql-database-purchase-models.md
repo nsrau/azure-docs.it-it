@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 80e8f0a627ea33881e21d45c8be0e8d1600e4e48
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c0e7f941f9845ed7531f3adf03fbca9fbeb2787d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007729"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456691"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Modelli di acquisto del database SQL di Azure
 
@@ -50,9 +50,11 @@ Il costo delle risorse di calcolo riflette la capacità di calcolo totale di cui
 
 ## <a name="storage-costs"></a>Costi di archiviazione
 
-I vari tipi di archiviazione vengono fatturati in modo diverso. Per l'archiviazione dei dati, i costi vengono addebitati per le risorse di archiviazione totali di cui è stato eseguito il provisioning in base alle dimensioni massime del database o del pool selezionato. Il costo non cambia, a meno che il valore delle dimensioni massime non venga ridotto o aumentato. Le risorse di archiviazione dei backup sono associate ai backup automatizzati dell'istanza e vengono allocate in modo dinamico. L'incremento del periodo di conservazione dei backup comporta l'aumento delle risorse di archiviazione dei backup utilizzate dall'istanza. Non sono previsti addebiti aggiuntivi per le risorse di archiviazione dei backup fino al 100% delle risorse di archiviazione totali di cui è stato eseguito il provisioning per il server. Se si utilizza una quantità maggiore di risorse di archiviazione per i backup, viene applicato un addebito in base ai GB utilizzati in più ogni mese. Se ad esempio le risorse di archiviazione del database sono pari a 100 GB, si ottengono 100 GB per i backup senza costi aggiuntivi. Se tuttavia i dati di backup sono pari a 110 GB, è necessario pagare per i 10 GB aggiuntivi.
+I vari tipi di archiviazione vengono fatturati in modo diverso. Per l'archiviazione dei dati, i costi vengono addebitati per le risorse di archiviazione totali di cui è stato eseguito il provisioning in base alle dimensioni massime del database o del pool selezionato. Il costo non cambia, a meno che il valore delle dimensioni massime non venga ridotto o aumentato. Le risorse di archiviazione dei backup sono associate ai backup automatizzati dell'istanza e vengono allocate in modo dinamico. L'incremento del periodo di conservazione dei backup comporta l'aumento delle risorse di archiviazione dei backup utilizzate dall'istanza. 
 
-Per le risorse di archiviazione dei backup di un database singolo, l'addebito viene applicato in maniera proporzionale per le risorse di archiviazione allocate ai backup del database meno le dimensioni del database. Per le risorse di archiviazione dei backup di un pool elastico, l'addebito viene applicato in maniera proporzionale per le risorse di archiviazione allocate ai backup di tutti i database del pool meno le dimensioni massime dei dati del pool elastico. Un aumento delle dimensioni del database o del pool elastico, oppure della frequenza delle transazioni, richiederà più risorse di archiviazione e comporterà quindi un aumento dei costi di archiviazione per i backup.  Se si aumenta la dimensione massima dei dati, il nuovo valore viene sottratto dalle dimensioni delle risorse di archiviazione dei backup fatturate.
+7 giorni di backup automatizzati dei database vengono copiati nell'archivio BLOB Standard con archiviazione con ridondanza geografica e accesso in lettura per impostazione predefinita. Le risorse di archiviazione vengono usate da backup completi settimanali, backup differenziali giornalieri e backup del log delle transazioni copiati ogni 5 minuti. Le dimensioni del log delle transazioni dipendono dalla frequenza di modifica del database. Una quantità di risorse di archiviazione minima equivalente al 100% delle dimensioni del database viene fornita senza addebiti aggiuntivi. L'utilizzo aggiuntivo dell'archivio di backup verrà addebitato in base a GB/mese.
+
+Per altre informazioni sui prezzi delle risorse di archiviazione, vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/sql-database/single/). 
 
 ## <a name="vcore-based-purchasing-model"></a>Modello di acquisto in base ai vCore
 

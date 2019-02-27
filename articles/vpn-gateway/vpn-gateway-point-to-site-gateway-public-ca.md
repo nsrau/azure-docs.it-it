@@ -1,39 +1,49 @@
 ---
-title: Transizione dai certificati autofirmati ai certificati della CA pubblici per i gateway P2S | Gateway VPN di Azure | Microsoft Docs
+title: Transizione ai certificati della CA pubblici per i gateway P2S | Gateway VPN di Azure | Microsoft Docs
 description: Questo articolo illustra come eseguire correttamente la transizione ai nuovi certificati della CA pubblici per i gateway P2S.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 02/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: ac1ae4125418a9c0b3e9587cd03a44e752ac8f82
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 8d5dca65734640dc9e756f9130e6b362178781f2
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236958"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453516"
 ---
-# <a name="transition-from-self-signed-to-public-ca-certificates-for-p2s-gateways"></a>Transizione dai certificati autofirmati ai certificati della CA pubblici per i gateway P2S
+# <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Passaggio a un certificato del gateway CA pubblico per la connessione da punto a sito
 
-Gateway VPN di Azure non rilascia più certificati autofirmati ai gateway per le connessioni da punto a sito. I certificati rilasciati vengono ora firmati da un'Autorità di certificazione (CA) pubblica. Tuttavia, i gateway meno recenti potrebbero usare ancora certificati autofirmati. Questi certificati autofirmati sono prossimi alla scadenza, quindi è necessario eseguire la transizione ai certificati della CA pubblici.
+Gateway VPN di Azure non rilascia più certificati autofirmati a livello di Azure ai gateway per le connessioni da punto a sito. I certificati rilasciati vengono ora firmati da un'Autorità di certificazione (CA) pubblica. Tuttavia, alcuni dei gateway meno recenti potrebbero usare ancora certificati autofirmati. Questi certificati autofirmati sono prossimi alla scadenza, quindi è necessario eseguire la transizione ai certificati della CA pubblici.
 
-In passato il certificato autofirmato per il gateway doveva essere aggiornato ogni 18 mesi. I file di configurazione del client VPN dovevano quindi essere generati e ridistribuiti a tutti i client P2S. Il passaggio ai certificati della CA pubblici elimina questa limitazione. Oltre alla transizione per i certificati, questa modifica offre anche miglioramenti a livello di piattaforma, metriche e stabilità.
+>[!NOTE]
+> I certificati autofirmati usati per l'autenticazione client per le connessioni da punto a sito non sono interessati da questa modifica ai certificati a livello di Azure. È possibile continuare a emettere e usare certificati autofirmati come di consueto.
+>
+
+I certificati in questo contesto sono un certificato aggiuntivo a livello di Azure. Non si tratta delle catene di certificati che si usano quando si generano i propri certificati radice autofirmati e i certificati client per l'autenticazione. Tali certificati non subiscono modifiche e scadranno il giorno previsto quando sono stati generati.
+
+In passato un certificato autofirmato per il gateway emesso in background da Azure doveva essere aggiornato ogni 18 mesi. I file di configurazione del client VPN dovevano quindi essere generati e ridistribuiti a tutti i client P2S. Il passaggio ai certificati della CA pubblici elimina questa limitazione. Oltre alla transizione per i certificati, questa modifica offre anche miglioramenti a livello di piattaforma, metriche e stabilità.
 
 Questa modifica interessa solo i gateway meno recenti. Se è necessario eseguire la transizione del certificato del gateway in uso, si riceverà una comunicazione o un avviso popup nel portale di Azure. È possibile controllare se il gateway in uso è interessato dalla transizione seguendo la procedura descritta in questo articolo.
 
->[!IMPORTANT]
->La transizione è pianificata per il 12 marzo 2019 a partire dalle 18:00 UTC. Se si preferisce una finestra temporale diversa, è possibile creare un caso di supporto. Creare e finalizzare la richiesta con almeno 24 ore di anticipo.  È possibile richiedere una delle finestre seguenti:
+> [!IMPORTANT]
+> La transizione è pianificata per il 12 marzo 2019 a partire dalle 18:00 UTC. Se si preferisce una finestra temporale diversa, è possibile creare un caso di supporto. Creare e finalizzare la richiesta con almeno 24 ore di anticipo.  È possibile richiedere una delle finestre seguenti:
 >
->* 06:00 UTC il 25 febbraio
->* 18:00 UTC il 25 febbraio
->* 06:00 UTC l'1 marzo
->* 18:00 UTC l'1 marzo
+> * 06:00 UTC del 25 febbraio
+> * 18:00 UTC del 25 febbraio
+> * 06:00 UTC del 1° marzo
+> * 18:00 UTC del 1° marzo
 >
->**La transizione di tutti i gateway rimanenti verrà eseguita il 12 marzo 2019 a partire dalle 18:00 UTC**.
+> **La transizione di tutti i gateway rimanenti verrà eseguita il 12 marzo 2019 a partire dalle 18:00 UTC**.
 >
+> Il processo di transizione del gateway richiederà fino a 2 ore. Una volta completato il processo di transizione de gateway, i clienti riceveranno un messaggio di posta elettronica.
+> 
 
 ## <a name="1-verify-your-certificate"></a>1. Verificare il certificato
+
+### <a name="resource-manager"></a>Gestione risorse
 
 1. Verificare se si è interessati da questo aggiornamento. Scaricare la configurazione corrente del client VPN seguendo la procedura descritta in [questo articolo](point-to-site-vpn-client-configuration-azure-cert.md).
 
@@ -43,6 +53,11 @@ Questa modifica interessa solo i gateway meno recenti. Se è necessario eseguire
   * `<ServerCertRootCn>DigiCert Global Root CA</ServerCertRootCn>`
   * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
 4. Se il valore di *ServerCertRotCn* e *ServerCertIssuerCn* è "DigiCert Global Root CA", non si è interessati da questo aggiornamento e non è necessario eseguire la procedura illustrata in questo articolo. Se invece il valore è diverso, il certificato del gateway in uso è interessato dall'aggiornamento, quindi ne verrà eseguita la transizione.
+
+### <a name="classic"></a>Classico
+
+1. In un computer client passare al percorso %appdata%/Microsoft/Network/Connections/Cm/<gatewayID>. Nella cartella dell'ID del gateway è possibile visualizzare il certificato.
+2. Nella scheda Generale per il certificato, verificare che l'autorità emittente sia "DigiCert Global Root CA". Se il valore dell'autorità emittente è diverso, il certificato del gateway in uso è interessato dall'aggiornamento, quindi ne verrà eseguita la transizione.
 
 ## <a name="2-check-certificate-transition-schedule"></a>2. Verificare la pianificazione della transizione del certificato
 

@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c48bbffd6a6312588d071841000b9211266285e3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 907511b7f20311479e7b11a30f3d5719daea3f87
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163037"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301469"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Comprendere i connettori del proxy applicazione Azure AD
 
@@ -25,7 +25,7 @@ I connettori sono ciò che rende possibile il proxy di applicazione di Azure AD.
 
 ## <a name="what-is-an-application-proxy-connector"></a>Informazioni su un connettore proxy di applicazione
 
-I connettori sono agenti semplici che si trovano a livello locale e facilitano la connessione in uscita al servizio proxy di applicazione. I connettori devono essere installati su un server Windows dotato di accesso all'applicazione back-end. È possibile organizzare i connettori in gruppi di connettori, con ogni gruppo che gestisce il traffico per applicazioni specifiche. I connettori eseguono automaticamente il bilanciamento del carico e consentono di ottimizzare la struttura di rete. 
+I connettori sono agenti semplici che si trovano a livello locale e facilitano la connessione in uscita al servizio proxy di applicazione. I connettori devono essere installati su un server Windows dotato di accesso all'applicazione back-end. È possibile organizzare i connettori in gruppi di connettori, con ogni gruppo che gestisce il traffico per applicazioni specifiche.
 
 ## <a name="requirements-and-deployment"></a>Requisiti e distribuzione
 
@@ -72,7 +72,7 @@ Se non si vuole attendere l'aggiornamento automatico del connettore, è possibil
 In caso di tenant con più connettori, gli aggiornamenti automatici vengono applicati a un connettore per volta in ogni gruppo, al fine di evitare tempo di inattività nell'ambiente in uso. 
 
 Potrebbero verificarsi tempi di inattività quando viene aggiornato il connettore se:  
-- Si ha un solo connettore. Per evitare questo periodo di inattività e migliorare la disponibilità elevata, è consigliabile installare un altro connettore e [creare un gruppo di connettori](application-proxy-connector-groups.md).  
+- Si ha un solo connettore. È consigliabile installare un secondo connettore e [creare un gruppo di connettori](application-proxy-connector-groups.md): in questo modo è possibile evitare periodi di inattività e assicurare una disponibilità più elevata.  
 - Un connettore si trovava nel mezzo di una transazione quando è iniziato l'aggiornamento. Anche se la transazione iniziale viene persa, il browser dovrebbe ripetere automaticamente l'operazione. In caso contrario, è possibile aggiornare la pagina. Quando la richiesta viene inviata di nuovo, il traffico viene indirizzato a un connettore di backup.
 
 ## <a name="creating-connector-groups"></a>Creazione di gruppi di connettori
@@ -85,7 +85,7 @@ Per altre informazioni sui gruppi di connettori, vedere [Pubblicare applicazioni
 
 ## <a name="capacity-planning"></a>Capacity Planning 
 
-Sebbene i connettori bilanceranno automaticamente il carico all'interno di un gruppo di connettori, è anche importante assicurarsi di aver pianificato la capacità sufficiente tra i connettori per gestire il volume di traffico previsto. In generale, più utenti si hanno, più sarà grande il computer necessario. La tabella qui di seguito fornisce una descrizione dei volumi che possono gestire diversi computer. Si noti che tutto è basato sulle transazioni al secondo (TPS) previste e non sugli utenti poiché i modelli di utilizzo variano e non possono essere usati per stimare il carico.  Si noti inoltre che vi sono alcune differenze in base alla dimensione delle risposte e al tempo di risposta dell'applicazione back-end. Dimensioni di risposta più grandi e tempi di risposta più lenti comporteranno un numero massimo di TPS inferiore.
+È importante assicurarsi di aver pianificato la capacità sufficiente tra i connettori per gestire il volume di traffico previsto. In generale, più utenti si hanno, più sarà grande il computer necessario. La tabella qui di seguito fornisce una descrizione dei volumi che possono gestire diversi computer. Tutto è basato sulle transazioni al secondo (TPS) previste e non sugli utenti, poiché i modelli di utilizzo variano e non possono essere usati per stimare il carico. Esistono inoltre alcune differenze basate sulla dimensione delle risposte e sul tempo di risposta dell'applicazione back-end. Dimensioni di risposta più grandi e tempi di risposta più lenti comporteranno un numero massimo di TPS inferiore. È consigliabile aggiungere altri computer in modo che il carico distribuito tra i computer sia di circa il 50%. La capacità aggiuntiva che si ottiene garantisce elevati livelli di disponibilità e resilienza.
 
 |Core|RAM|Latenza prevista (MS)-P99|Numero massimo di TPS|
 | ----- | ----- | ----- | ----- |
@@ -102,28 +102,26 @@ Sebbene i connettori bilanceranno automaticamente il carico all'interno di un gr
 
 I connettori possono essere installati in qualsiasi punto della rete che consenta loro di inviare richieste al servizio proxy dell'applicazione. È importante che il computer che esegue il connettore abbia anche accesso alle app. È possibile installare i connettori all'interno della rete aziendale o in una macchina virtuale che viene eseguita nel cloud. I connettori possono essere eseguiti in una zona demilitarizzata (DMZ), ma non è necessario poiché tutto il traffico è in uscita, in modo che la rete è protetta.
 
-I connettori inviano le richieste soltanto in uscita. Il traffico in uscita viene inviato al servizio proxy applicazione e alle applicazioni pubblicate. Non è necessario aprire porte in ingresso perché il traffico scorre in entrambe le direzioni, dopo aver stabilito una sessione. Non è necessario configurare il bilanciamento del carico tra i connettori o configurare l'accesso in ingresso attraverso firewall. 
+I connettori inviano le richieste soltanto in uscita. Il traffico in uscita viene inviato al servizio proxy applicazione e alle applicazioni pubblicate. Non è necessario aprire porte in ingresso perché il traffico scorre in entrambe le direzioni, dopo aver stabilito una sessione. Non è inoltre necessario configurare l'accesso in ingresso attraverso firewall. 
 
 Per maggiori informazioni sulla configurazione delle regole del firewall in uscita, vedere [Usare server proxy locali esistenti](application-proxy-configure-connectors-with-proxy-servers.md).
 
 
 ## <a name="performance-and-scalability"></a>Prestazioni e scalabilità
 
-Anche se la scalabilità per il servizio proxy di applicazione è trasparente, è comunque un fattore per i connettori. È necessario disporre di connettori sufficienti per gestire il traffico di picco. Tuttavia, non è necessario configurare il bilanciamento del carico perché tutti i connettori all'interno di un gruppo di connettori eseguono automaticamente il bilanciamento del carico.
-
-Poiché i connettori sono senza stato, non vengono influenzati dal numero di utenti o sessioni. Dipendono invece dal numero di richieste e dalle dimensioni del payload. In un traffico Web standard, un computer medio può gestire circa duemila richieste al secondo. La capacità specifica dipende dalle esatte caratteristiche del computer. 
+Anche se la scalabilità per il servizio proxy di applicazione è trasparente, è comunque un fattore per i connettori. È necessario disporre di connettori sufficienti per gestire il traffico di picco. Poiché i connettori sono senza stato, non vengono influenzati dal numero di utenti o sessioni. Dipendono invece dal numero di richieste e dalle dimensioni del payload. In un traffico Web standard, un computer medio può gestire circa duemila richieste al secondo. La capacità specifica dipende dalle esatte caratteristiche del computer. 
 
 Le prestazioni del connettore sono legate alla CPU e alla rete. Le prestazioni della CPU sono necessarie per la crittografia SSL e la decrittografia, mentre la rete è fondamentale per una connettività veloce alle applicazioni e al servizio online in Azure.
 
 La memoria, al contrario, ha meno importanza per i connettori. Il servizio online si occupa di gran parte dell'elaborazione e di tutto il traffico non autenticato. Tutto ciò che può essere fatto nel cloud viene fatto nel cloud. 
 
-Il bilanciamento del carico si verifica tra i connettori di un determinato gruppo di connettori. Viene fatta una variazione round-robin per determinare il connettore del gruppo che serve una particolare richiesta. Se per qualsiasi motivo il connettore o il computer non sono più disponibili, il traffico inizierà ad andare su un altro connettore del gruppo. Questa resilienza esiste anche perché si consiglia di avere più connettori.
+Se per qualsiasi motivo il connettore o il computer non sono più disponibili, il traffico inizierà ad andare su un altro connettore del gruppo. Questa resilienza esiste anche perché si consiglia di avere più connettori.
 
 Un altro fattore che influenza le prestazioni è la qualità della connessione di rete tra i connettori, inclusi: 
 
 * **Il servizio online**: Connessioni lente o a elevata latenza al servizio proxy di applicazione in Azure influenzano le prestazioni del connettore. Per ottenere prestazioni ottimali, connettere l'organizzazione ad Azure con Express Route. In caso contrario, assicurarsi che il team di rete garantisca una gestione il più possibile efficiente delle connessioni ad Azure. 
 * **Applicazioni back-end**: In alcuni casi ci sono altri proxy tra il connettore e le applicazioni back-end che possono rallentare o impedire la connessione. Per risolvere questo scenario, aprire un browser dal server del connettore e tentare di accedere all'applicazione. Se si eseguono i connettori in Azure, ma le applicazioni sono locali, l'esperienza degli utenti potrebbe essere diversa da quella prevista.
-* **I controller di dominio**: Se i connettori eseguono l'accesso SSO mediante la delega vincolata Kerberos, essi contattano i controller di dominio prima di inviare la richiesta al back-end. I connettori hanno una cache dei ticket Kerberos, ma in ambienti affollati la velocità di risposta dei controller di dominio può influenzare le prestazioni. Questa situazione è più comune per i connettori eseguiti in Azure, ma che comunicano con i controller di dominio locali. 
+* **I controller di dominio**: Se i connettori eseguono l'accesso Single Sign-On (SSO) mediante la delega vincolata Kerberos, essi contattano i controller di dominio prima di inviare la richiesta al back-end. I connettori hanno una cache dei ticket Kerberos, ma in ambienti affollati la velocità di risposta dei controller di dominio può influenzare le prestazioni. Questa situazione è più comune per i connettori eseguiti in Azure, ma che comunicano con i controller di dominio locali. 
 
 Per maggiori informazioni sull'ottimizzazione della rete, vedere [Considerazioni relative alla topologia di rete quando si usa il proxy di applicazione di Azure Active Directory](application-proxy-network-topology.md).
 

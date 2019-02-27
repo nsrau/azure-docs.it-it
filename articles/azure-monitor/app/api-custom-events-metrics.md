@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/16/2018
+ms.date: 02/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2b26261fdbae07bf3eea793efe6ff0755ca3f577
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 1383c59ca88400868f83d30d04d9b0e5f5401282
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895993"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268958"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API di Application Insights per metriche ed eventi personalizzati
 
@@ -508,7 +508,7 @@ catch (ex)
 Gli SDK rilevano molte eccezioni automaticamente, quindi non è sempre necessario richiamare TrackException in modo esplicito.
 
 * ASP.NET: [Scrivere codice per intercettare le eccezioni](../../azure-monitor/app/asp-net-exceptions.md).
-* J2EE: [Le eccezioni vengono rilevate automaticamente](../../azure-monitor/app/java-get-started.md#exceptions-and-request-failures).
+* Java EE: [Le eccezioni vengono rilevate automaticamente](../../azure-monitor/app/java-get-started.md#exceptions-and-request-failures).
 * JavaScript: Le eccezioni vengono rilevate automaticamente. Se si vuole disabilitare la raccolta automatica, aggiungere una riga al frammento di codice che si inserisce nelle pagine Web:
 
 ```javascript
@@ -732,7 +732,7 @@ Thread.sleep(5000);
 telemetry.flush();
 ```
 
-Si noti che la funzione è asincrona per il [canale di telemetria del server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
+La funzione è asincrona per il [canale di telemetria del server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
 
 In teoria, il metodo Flush () deve essere utilizzato nell'attività di arresto dell'applicazione.
 
@@ -1141,10 +1141,10 @@ Se si imposta uno di questi valori manualmente, provare a rimuovere la riga pert
 
 * **Component**: l'app e la relativa versione.
 * **Device**: dati relativi al dispositivo in cui l'applicazione è in esecuzione. Nelle App Web questo è il server o dispositivo client da cui sono inviati i dati di telemetria.
-* **InstrumentationKey**: risorsa di Application Insights in Azure dove sono visualizzati i dati di telemetria. Viene in genere presa dal file ApplicationInsights.config.
+* **InstrumentationKey**: risorsa di Application Insights in Azure in cui sono visualizzati i dati di telemetria. Viene in genere presa dal file ApplicationInsights.config.
 * **Location**: località geografica del dispositivo.
 * **Operation**: nelle App Web la richiesta HTTP corrente. In altri tipi di app è possibile impostarla in modo da raggruppare gli eventi tra loro.
-  * **Id**: un valore generato che mette in correlazione eventi diversi, in modo che quando si analizza qualsiasi evento in Ricerca diagnostica, è possibile trovare elementi correlati.
+  * **ID**: un valore generato che mette in correlazione eventi diversi, in modo che quando si analizza qualsiasi evento in Ricerca diagnostica, è possibile trovare elementi correlati.
   * **Name**: un identificatore, in genere l'URL della richiesta HTTP.
   * **SyntheticSource**: se non è null o vuota, una stringa indicante che l'origine della richiesta è stata identificata come un test Web o un robot. Per impostazione predefinita viene esclusa dai calcoli in Esplora metriche.
 * **Properties**: proprietà che vengono inviate con tutti i dati di telemetria. È possibile eseguire l'override di questo valore in singole chiamate di Track*.

@@ -5,15 +5,15 @@ services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 6/8/2018
+ms.date: 02/20/2019
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 733d2896ef15d2e78073268e263a144ea25846ec
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 98231ab55ce66f06d591dc9c933e4790460625c8
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985447"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56458420"
 ---
 # <a name="enable-write-accelerator"></a>Abilitare l'acceleratore di scrittura
 
@@ -42,17 +42,17 @@ Quando si usa l'acceleratore di scrittura per dischi o dischi rigidi virtuali di
 
 - La memorizzazione nella cache del disco Premium deve essere impostata su 'Nessuna' o 'Sola lettura'. Tutte le altre modalità di memorizzazione nella cache non sono supportate.
 - Gli snapshot non sono attualmente supportati per i dischi abilitati per l'acceleratore di scrittura. Durante il backup, il servizio Backup di Azure esclude automaticamente i dischi abilitati per l'acceleratore di scrittura collegati alla macchina virtuale.
-- Solo dimensioni di I/O più piccole (<=32 KiB) usano il percorso dell'acceleratore. In scenari di carichi di lavoro dove i dati vengono caricati in blocco oppure dove i buffer dei log delle transazioni di diversi sistemi di gestione di database vengono popolati con quantità rilevanti di dati prima di venire salvati in modo permanente nella risorsa di archiviazione, è possibile che l'I/O scritto su disco non usi il percorso dell'acceleratore.
+- Solo dimensioni di I/O più piccole (<=512 KiB) usano il percorso dell'acceleratore. In scenari di carichi di lavoro dove i dati vengono caricati in blocco oppure dove i buffer dei log delle transazioni di diversi sistemi di gestione di database vengono popolati con quantità rilevanti di dati prima di venire salvati in modo permanente nella risorsa di archiviazione, è possibile che l'I/O scritto su disco non usi il percorso dell'acceleratore.
 
 Esistono limiti per il numero di dischi rigidi virtuali di Archiviazione Premium di Azure per ogni macchina virtuale supportati dall'acceleratore di scrittura. I limiti correnti sono:
 
 | SKU di VM | Numero di dischi con l'acceleratore di scrittura | Numero di operazioni di I/O al secondo dell'acceleratore di scrittura per ogni macchina virtuale |
 | --- | --- | --- |
-| M128ms, 128s | 16 | 8000 |
-| M64ms, M64ls, M64s | 8 | 4000 |
-| M32ms, M32ls, M32ts, M32s | 4 | 2000 |
-| M16ms, M16s | 2 | 1000 |
-| M8ms, M8s | 1 | 500 |
+| M128ms, 128s | 16 | 20000 |
+| M64ms, M64ls, M64s | 8 | 10000 |
+| M32ms, M32ls, M32ts, M32s | 4 | 5000 |
+| M16ms, M16s | 2 | 2500 |
+| M8ms, M8s | 1 | 1250 |
 
 I limiti di operazioni di I/O al secondo sono per ogni macchina virtuale e *non* per ogni disco. Tutti i dischi dell'acceleratore di scrittura condividono lo stesso limite di operazioni di I/O al secondo per ogni macchina virtuale.
 

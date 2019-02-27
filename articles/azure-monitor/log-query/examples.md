@@ -1,6 +1,6 @@
 ---
 title: Esempi di query di log in Monitoraggio di Azure | Microsoft Docs
-description: Esempi di query di log in Monitoraggio di Azure usando il linguaggio di query di Esplora dati.
+description: Esempi di query di log in Monitoraggio di Azure usando il linguaggio di query Kusto.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.openlocfilehash: 81852590ec714c458ebf2ba2b714d0b20f0b873c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2c35bc4026c81cbc8b95225e688a3922bc320554
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993198"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416650"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Esempi di query di log in Monitoraggio di Azure
-Questo articolo include vari esempi di [query](log-query-overview.md) che usano il [linguaggio di query di Esplora dati](https://docs.microsoft.com/azure/kusto/query/) per recuperare tipi diversi di dati da Monitoraggio di Azure. Poiché vengono usati metodi diversi per consolidare e analizzare i dati, è possibile usare questi esempi per identificare strategie diverse che si possono applicare in base alle necessità.  
+Questo articolo include vari esempi di [query](log-query-overview.md) che usano il [linguaggio di query Kusto](/azure/kusto/query/) per recuperare tipi diversi di dati da Monitoraggio di Azure. Poiché vengono usati metodi diversi per consolidare e analizzare i dati, è possibile usare questi esempi per identificare strategie diverse che si possono applicare in base alle necessità.  
 
 Per informazioni dettagliate sulle diverse parole chiave usate in questi esempi, vedere il [materiale di riferimento per il linguaggio Kusto](https://docs.microsoft.com/azure/kusto/query/). Se non si ha familiarità con Monitoraggio di Azure, seguire una [lezione sulla creazione di query](get-started-queries.md).
 
@@ -38,7 +38,7 @@ Event
 ```
 
 ### <a name="search-events-related-to-unmarshaling"></a>Cercare eventi correlati all'unmarshalling
-Cercare nelle tabelle **Event** (Evento) e **SecurityEvents** i record che indicano _unmashaling_.
+Cercare nelle tabelle **Event** (Evento) e **SecurityEvents** i record che indicano _unmarshalling_.
 
 ```Kusto
 search in (Event, SecurityEvent) "unmarshaling"

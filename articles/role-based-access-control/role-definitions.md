@@ -1,6 +1,6 @@
 ---
-title: Informazioni sulle definizioni di ruolo in Controllo degli accessi in base al ruolo di Azure | Microsoft Docs
-description: Informazioni sulle definizioni di ruolo nel controllo degli accessi in base al ruolo per la gestione granulare degli accessi delle risorse in Azure.
+title: Informazioni sulle definizioni del ruolo nel controllo degli accessi in base al ruolo per le risorse di Azure | Microsoft Docs
+description: Informazioni sulle definizioni del ruolo nel controllo degli accessi in base al ruolo per la gestione granulare degli accessi per le risorse di Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 8966eb337af07b90e7d9c697a4bfd14c543540aa
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b7f4ce9508928ccc6ab766e7164c674511bcaa37
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991362"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342780"
 ---
-# <a name="understand-role-definitions"></a>Informazioni sulle definizioni del ruolo
+# <a name="understand-role-definitions-for-azure-resources"></a>Informazioni sulle definizioni del ruolo per le risorse di Azure
 
-Per capire come funziona un ruolo o creare un [ruolo personalizzato](custom-roles.md), è utile comprendere il modo in cui vengono definiti i ruoli. Questo articolo illustra in dettaglio le definizioni di ruolo e presenta alcuni esempi.
+Per capire come funziona un ruolo o creare un [ruolo personalizzato per le risorse di Azure](custom-roles.md), è utile comprendere il modo in cui vengono definiti i ruoli. Questo articolo illustra in dettaglio le definizioni di ruolo e presenta alcuni esempi.
 
 ## <a name="role-definition-structure"></a>Struttura delle definizioni di ruolo
 
@@ -151,6 +151,8 @@ Poiché Alice ha un'azione con carattere jolly (`*`) nell'ambito della sottoscri
 
 Le autorizzazioni di Bob sono limitate alle sezioni `Actions` e `DataActions` specificate nel ruolo [Collaboratore ai dati del BLOB di archiviazione (anteprima)](built-in-roles.md#storage-blob-data-contributor-preview). In base al ruolo, Bob può eseguire sia operazioni di gestione sia operazioni sui dati. Ad esempio, può scrivere sui contenitori, leggerli ed eliminarli nell'account di archiviazione specificato e anche scrivere sui BLOB, leggerli ed eliminarli.
 
+Per altre informazioni sulla gestione e sulla sicurezza del piano dati per l'archiviazione, vedere [Guida alla sicurezza di Archiviazione di Azure](../storage/common/storage-security-guide.md).
+
 ### <a name="what-tools-support-using-rbac-for-data-operations"></a>Strumenti che supportano l'uso di controllo degli accessi in base al ruolo per le operazioni sui dati
 
 Per visualizzare ed eseguire le operazioni sui dati, è necessario disporre delle versioni corrette degli strumenti o degli SDK:
@@ -225,10 +227,10 @@ Per i ruoli predefiniti, `AssignableScopes` è impostato sull'ambito radice (`"/
 | Ruolo disponibile per l'assegnazione solo nel gruppo di risorse Network | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
 | Ruolo disponibile per l'assegnazione in tutti gli ambiti | `"/"` |
 
-Per informazioni su `AssignableScopes` per i ruoli personalizzati, vedere [Ruoli personalizzati](custom-roles.md).
+Per informazioni su `AssignableScopes` per i ruoli personalizzati, vedere [Ruoli personalizzati per le risorse di Azure](custom-roles.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ruoli predefiniti](built-in-roles.md)
-* [Ruoli personalizzati](custom-roles.md)
+* [Ruoli predefiniti per le risorse di Azure](built-in-roles.md)
+* [Ruoli personalizzati per le risorse di Azure](custom-roles.md)
 * [Operazioni di provider di risorse con Azure Resource Manager](resource-provider-operations.md)

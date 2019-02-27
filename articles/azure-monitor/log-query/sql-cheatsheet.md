@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: 121f9ff602907e64bba0c98342e38477109e9294
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 76c9e143a4127807bfffa879103fca42d2d27e71
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993665"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268329"
 ---
 # <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>Confronto tra query SQL e query di log in Monitoraggio di Azure: scheda di riferimento rapido 
 
-La tabella seguente consente agli utenti che hanno familiarità con SQL di apprendere il linguaggio di query di Esplora dati per scrivere query di log in Monitoraggio di Azure. Accanto ai comandi T-SQL per la risoluzione di scenari comuni sono riportati i comandi equivalenti usati nelle query di log di Monitoraggio di Azure.
+La tabella seguente consente agli utenti che hanno familiarità con SQL di apprendere il linguaggio di query Kusto per scrivere query di log in Monitoraggio di Azure. Accanto ai comandi T-SQL per la risoluzione di scenari comuni sono riportati i comandi equivalenti usati nelle query di log di Monitoraggio di Azure.
 
 ## <a name="sql-to-azure-monitor"></a>Confronto tra SQL e Monitoraggio di Azure
 
-Descrizione                             |Query SQL                                                                                          |Query di log in Monitoraggio di Azure
+DESCRIZIONE                             |Query SQL                                                                                          |Query di log in Monitoraggio di Azure
 ----------------------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------
 Selezionare tutti i dati da una tabella            |`SELECT * FROM dependencies`                                                                       |<code>dependencies</code>
 Selezionare colonne specifiche da una tabella    |`SELECT name, resultCode FROM dependencies`                                                        |<code>dependencies <br>&#124; project name, resultCode</code>

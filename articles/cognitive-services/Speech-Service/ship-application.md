@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 2e35afe996ec80411d2e0e339fd4d49adecd1239
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5c45918a2cdcdd0a848e392d125849953af976ea
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857941"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445118"
 ---
 # <a name="ship-an-application"></a>Spedire un'applicazione
 
@@ -47,19 +47,19 @@ I file Speech SDK richiesti possono essere distribuiti nella stessa directory de
 
 ## <a name="linux"></a>Linux
 
+Speech SDK attualmente supporta le distribuzioni di Ubuntu 16.04 e 18.04.
 Per un'applicazione nativa è necessario fornire la raccolta Speech SDK, `libMicrosoft.CognitiveServices.Speech.core.so`.
 Assicurarsi di selezionare la versione (x86/x64) corrispondente all'applicazione. A seconda della versione di Linux, potrebbe essere necessario anche includere le seguenti dipendenze:
 
 * Le raccolte condivise della Libreria GNU C (inclusa la libreria di programmazione thread POSIX, `libpthreads`)
 * La raccolta OpenSSL (`libssl.so.1.0.0`)
-* La raccolta cURL (`libcurl.so.4`)
 * La libreria condivisa per le applicazioni ALSA (`libasound.so.2`)
 
-Su Ubuntu 16.04 o 18.04, ad esempio, le librerie GNU C dovrebbero essere già installate per impostazione predefinita. È possibile installare gli ultimi tre utilizzando i comandi seguenti:
+In Ubuntu le librerie GNU C dovrebbero essere già installate per impostazione predefinita. È possibile installare gli ultimi tre utilizzando i comandi seguenti:
 
 ```sh
 sudo apt-get update
-sudo apt-get install libssl1.0.0 libcurl3 libasound2 wget
+sudo apt-get install libssl1.0.0 libasound2 wget
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

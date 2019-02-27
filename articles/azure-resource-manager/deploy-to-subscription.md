@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: ce95406cbcb6d9514159d84d653a9ff361713aec
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: bdba294e1ee776d90b93f715e930ec26765abb7f
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744399"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343035"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creare gruppi di risorse e risorse a livello di sottoscrizione
 
 In genere, le risorse di Azure vengono distribuite a un gruppo nell'ambito della sottoscrizione di Azure. Tuttavia, è anche possibile creare gruppi di risorse di Azure e risorse di Azure a livello di sottoscrizione. Per distribuire i modelli a livello di sottoscrizione, usare l'interfaccia della riga di comando di Azure e Azure PowerShell. Il portale di Azure non supporta la distribuzione nel livello di sottoscrizione.
 
-Per creare un gruppo di risorse in un modello di Azure Resource Manager, definire una risorsa [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions) con un nome e un percorso specifici. È possibile creare un gruppo di risorse e distribuire risorse a tale gruppo di risorse nello stesso modello. Le risorse che è possibile distribuire a livello di sottoscrizione includono: [criteri](../azure-policy/azure-policy-introduction.md) e [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md).
+Per creare un gruppo di risorse in un modello di Azure Resource Manager, definire una risorsa [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions) con un nome e un percorso specifici. È possibile creare un gruppo di risorse e distribuire risorse a tale gruppo di risorse nello stesso modello. Le risorse che è possibile distribuire a livello di sottoscrizione includono: [criteri](../governance/policy/overview.md) e [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -307,7 +307,7 @@ New-AzDeployment `
 
 ### <a name="define-and-assign-policy"></a>Definire e assegnare criteri
 
-È possibile [definire](../azure-policy/policy-definition.md) e assegnare criteri nello stesso modello.
+È possibile [definire](../governance/policy/concepts/definition-structure.md) e assegnare criteri nello stesso modello.
 
 ```json
 {

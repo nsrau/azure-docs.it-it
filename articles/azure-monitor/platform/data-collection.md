@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: bwren
-ms.openlocfilehash: 6fc568546721511f6289600148919d28773058f4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 9b3e35e8372e5488fd97da3f035c29940cb1f293
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002284"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269196"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Monitoraggio dei dati raccolti da Monitoraggio di Azure
 [Monitoraggio di Azure](../overview.md) è un servizio che permette di monitorare le applicazioni e le risorse su cui si basano. Al centro di questa funzione vi è l'archiviazione dei dati di telemetria e di altro tipo dalle risorse monitorate. Questo articolo presenta una descrizione completa di come questi dati vengono archiviati e usati da Monitoraggio di Azure.
@@ -149,7 +149,7 @@ Tra le attività che è possibile eseguire con i log sono incluse le seguenti:
 - Accesso ai valori delle metriche da una riga di comando o da un'applicazione personalizzata usando [cmdlet di PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) o l'[API REST](https://dev.loganalytics.io/).
 
 ### <a name="viewing-log-data"></a>Visualizzazione di dati di log
-Tutti i dati di log in Monitoraggio di Azure vengono recuperati tramite una [query di log](../log-query/log-query-overview.md) scritta con il [linguaggio di query di Esplora dati](../log-query/get-started-queries.md), che consente di recuperare, consolidare e analizzare velocemente i dati raccolti. Usare [Log Analytics](../log-query/portals.md) per scrivere e testare le query nel portale di Azure. È possibile elaborare i risultati in modo interattivo o aggiungerli a un dashboard per visualizzarli insieme ad altri dati. È anche possibile recuperare i log usando l'[API REST di monitoraggio di Azure](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+Tutti i dati di log in Monitoraggio di Azure vengono recuperati tramite una [query di log](../log-query/log-query-overview.md) scritta con il [linguaggio di query Kusto](../log-query/get-started-queries.md), che consente di recuperare, consolidare e analizzare velocemente i dati raccolti. Usare [Log Analytics](../log-query/portals.md) per scrivere e testare le query nel portale di Azure. È possibile elaborare i risultati in modo interattivo o aggiungerli a un dashboard per visualizzarli insieme ad altri dati. È anche possibile recuperare i log usando l'[API REST di monitoraggio di Azure](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 > [!IMPORTANT]
 > I dati da Application Insights vengono archiviati in una partizione separata rispetto ad altri dati di log in Monitoraggio di Azure. Questo approccio supporta le stesse funzionalità di altri dati di log, ma è necessario usare la [console di Application Insights](../app/analytics.md) o l'[API di Application Insights](https://dev.applicationinsights.io/) per accedere a questi dati. È possibile usare una [query tra risorse](../log-query/cross-workspace-query.md) per analizzare i dati dell'applicazione insieme ad altri dati di log.

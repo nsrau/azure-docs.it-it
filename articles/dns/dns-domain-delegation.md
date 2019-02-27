@@ -4,14 +4,14 @@ description: Informazioni su come modificare la delega di dominio e usare server
 services: dns
 author: vhorne
 ms.service: dns
-ms.date: 1/22/2019
+ms.date: 2/19/2019
 ms.author: victorh
-ms.openlocfilehash: d1de1212280c6767862233f990c9fc5e0cf97473
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 85f7318ac584e324f58d2ad470dc896e79e416d5
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461027"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417889"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Delega di zone DNS con DNS di Azure
 
@@ -27,7 +27,7 @@ Domain Name System è una gerarchia di domini. La gerarchia inizia dal dominio "
 
 **Registrar**: un registrar è una società che può fornire nomi di dominio Internet. e verificare se il dominio Internet richiesto è disponibile, consentendo all'utente di acquistarlo. Dopo che il nome di dominio è stato registrato, si diventa il legittimo proprietario del nome di dominio. Se si ha già un dominio Internet, si userà il registrar corrente per delegare al NS di Azure.
 
-Per altre informazioni sul proprietario di un determinato nome di dominio o su come acquistare un dominio, vedere [Gestione dei domini Internet in Azure AD](https://msdn.microsoft.com/library/azure/hh969248.aspx).
+Per altre informazioni sui registrar di dominio accreditati, vedere [ICANN-Accredited Registrars](https://www.icann.org/registrar-reports/accredited-list.html) (Registrar accreditati da ICANN).
 
 ### <a name="resolution-and-delegation"></a>Risoluzione e delega
 

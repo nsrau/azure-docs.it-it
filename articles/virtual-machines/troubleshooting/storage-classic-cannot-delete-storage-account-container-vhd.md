@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 72493c6bba556314c3652be5251463d1d1e005bd
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 5d4d74d4c3b5ec6779458e84da07c03033c37935
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383744"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330614"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Risolvere gli errori di eliminazione delle risorse di archiviazione della versione classica
 Questo articolo fornisce indicazioni sulla risoluzione dei problemi quando si verifica uno degli errori seguenti durante il tentativo di eliminare un account o un contenitore di archiviazione oppure un file BLOB di pagine *.vhd della versione classica di Azure. 
@@ -21,10 +21,10 @@ Questo articolo fornisce indicazioni sulla risoluzione dei problemi quando si ve
 
 Questo articolo illustra solo i problemi che si verificano con risorse di archiviazione della versione classica. Se un utente elimina una macchina virtuale della versione classica usando il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure, i dischi non verranno eliminati automaticamente. L'utente visualizza l'opzione per l'eliminazione della risorsa "disco". Se l'opzione non è selezionata, la risorsa "disco" impedirà l'eliminazione dell'account di archiviazione, del contenitore di archiviazione e del file BLOB di pagine *.vhd effettivo.
 
-Altre informazioni sui dischi di Azure sono disponibili [qui](../../virtual-machines/windows/about-disks-and-vhds.md): Azure impedisce l'eliminazione di un disco collegato a una macchina virtuale per evitare il danneggiamento. Impedisce anche l'eliminazione di contenitori e account di archiviazione che dispongono di un BLOB di pagine collegato a una macchina virtuale. 
+Altre informazioni sui dischi di Azure sono disponibili [qui](../../virtual-machines/windows/managed-disks-overview.md): Azure impedisce l'eliminazione di un disco collegato a una macchina virtuale per evitare il danneggiamento. Impedisce anche l'eliminazione di contenitori e account di archiviazione che dispongono di un BLOB di pagine collegato a una macchina virtuale. 
 
 ## <a name="what-is-a-disk"></a>Che cos'è un "disco"?
-Una risorsa "disco" viene usata per montare un file BLOB di pagine *.vhd in una macchina virtuale, come un disco del sistema operativo o un disco dati. Una risorsa disco del sistema operativo o disco dati continua a mantenere un lease sul file *.vhd finché non viene eliminata. Le risorse di archiviazione nel percorso mostrato nell'immagine non possono essere eliminate se una risorsa "disco" punta a esse.
+Una risorsa "disco" viene usata per montare un file BLOB di pagine *.vhd in una macchina virtuale, come un disco del sistema operativo o un disco dati. Una risorsa disco del sistema operativo o disco dati continua a mantenere un lease sul file *.vhd finché non viene eliminata. Le risorse di archiviazione nel percorso mostrato nell'immagine seguente non possono essere eliminate se una risorsa "disco" punta a esse.
 
 ![Screenshot del portale, con il riquadro "Proprietà" del disco (versione classica) aperto](./media/storage-classic-cannot-delete-storage-account-container-vhd/Disk_Lease_Illustration.jpg) 
 

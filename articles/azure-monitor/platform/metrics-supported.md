@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: be2274b5d7a0e39733440379ce9678ab012d7d27
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 8ee900554371644f374e4aeed51f1eeb0c18569e
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473827"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408868"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Metriche supportate con il monitoraggio di Azure
 Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra cui la creazione di grafici nel portale, l'accesso tramite l'API REST o l'esecuzione di query tramite PowerShell o l'interfaccia della riga di comando. Di seguito è riportato un elenco completo di tutte le metriche attualmente disponibili con la pipeline delle metriche di monitoraggio di Azure. Altre metriche potrebbero essere disponibili nel portale o tramite le API legacy. L'elenco riportato di seguito include solo le metriche disponibili tramite la pipeline delle metriche di Monitoraggio di Azure consolidata. Per cercare metriche e per accedervi, usare la [versione API 2018-01-01](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -652,14 +652,52 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
-|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
-|---|---|---|---|---|---|
-|MetadataRequests|Metadata Requests (Richieste di metadati)|Conteggio|Conteggio|Conteggio delle richieste di metadati. Cosmos DB gestisce la raccolta dei metadati di sistema per ogni account, consentendo di enumerare le raccolte, i database e così via e le relative configurazioni gratuitamente.|DatabaseName, CollectionName, Region, StatusCode|
-|MongoRequestCharge|Mongo Request Charge (Addebito richiesta Mongo)|Conteggio|Totale|Unità richiesta Mongo utilizzate|DatabaseName, CollectionName, Region, CommandName, ErrorCode|
-|MongoRequests|Richieste Mongo|Conteggio|Conteggio|Numero di richieste Mongo eseguite|DatabaseName, CollectionName, Region, CommandName, ErrorCode|
-|TotalRequestUnits|Total Request Units (Unità richiesta totali)|Conteggio|Totale|Unità richiesta utilizzate|DatabaseName, CollectionName, Region, StatusCode|
-|TotalRequests|Totale richieste|Conteggio|Conteggio|Numero di richieste eseguite|DatabaseName, CollectionName, Region, StatusCode|
+### <a name="request-metrics"></a>Metriche per le richieste
 
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni| Granularità temporali| Mapping metrica legacy | Uso |
+|---|---|---|---|---|---| ---| ---| ---|
+| TotalRequests |   Totale richieste| Conteggio   | Conteggio | Numero di richieste eseguite|  DatabaseName, CollectionName, Region, StatusCode|   Tutti |   Totale richieste, Http 2xx, Http 3xx, Http 400, Http 401, Errore server interno, Servizio non disponibile, Richieste limitate, Media richieste al secondo |    Usata per monitorare le richieste per codice di stato, raccolta con una granularità di un minuto. Per ottenere la media delle richieste al secondo, usare il tipo di aggregazione Conteggio al minuto e dividere per 60. |
+| MetadataRequests |    Metadata Requests (Richieste di metadati)   |Conteggio| Conteggio   | Conteggio delle richieste di metadati. Azure Cosmos DB gestisce la raccolta dei metadati di sistema per ogni account, consentendo di enumerare le raccolte, i database e altri elementi, insieme alle relative configurazioni, senza alcun costo.    | DatabaseName, CollectionName, Region, StatusCode| Tutti|  |Usata per monitorare le limitazioni dovute a richieste di metadati.|
+| MongoRequests |   Richieste Mongo| Conteggio | Conteggio|  Numero di richieste Mongo eseguite   | DatabaseName, CollectionName, Region, CommandName, ErrorCode| Tutti |Mongo Query Request Rate (Frequenza richieste di query Mongo), Mongo Update Request Rate (Frequenza richieste di aggiornamento Mongo), Mongo Delete Request Rate (Frequenza richieste di eliminazione Mongo), Mongo Insert Request Rate (Frequenza richieste di inserimento Mongo), Mongo Count Request Rate (Frequenza richieste di conteggio Mongo)|   Usata per monitore gli errori delle richieste Mongo, utilizzi per tipo di comando. |
+
+
+### <a name="request-unit-metrics"></a>Metriche delle unità richiesta
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni| Granularità temporali| Mapping metrica legacy | Uso |
+|---|---|---|---|---|---| ---| ---| ---|
+| MongoRequestCharge|   Mongo Request Charge (Addebito richiesta Mongo) |  Conteggio   |Totale  |Unità richiesta Mongo utilizzate|  DatabaseName, CollectionName, Region, CommandName, ErrorCode|   Tutti |Mongo Query Request Charge (Addebito richieste di query Mongo), Mongo Update Request Charge (Addebito richieste di aggiornamento Mongo), Mongo Delete Request Charge (Addebito richieste di eliminazione Mongo), Mongo Insert Request Charge (Addebito richieste di inserimento Mongo), Mongo Count Request Charge (Addebito richieste di conteggio Mongo)| Usata per monitorare le unità richiesta Mongo in un minuto.|
+| TotalRequestUnits |Total Request Units (Unità richiesta totali)|   Conteggio|  Totale|  Unità richiesta utilizzate| DatabaseName, CollectionName, Region, StatusCode    |Tutti|   TotalRequestUnits|  Usata per monitorare l'utilizzo delle unità richiesta totali con una granularità di un minuto. Per ottenere la media delle unità richiesta utilizzate al secondo, usare il tipo di aggregazione Totale al minuto e dividere per 60.|
+| ProvisionedThroughput |Velocità effettiva sottoposta a provisioning|    Conteggio|  Massima |Velocità effettiva sottoposta a provisioning con granularità per raccolta|  DatabaseName, CollectionName|   5M| |   Usata per monitorare la velocità effettiva sottoposta a provisioning per raccolta.|
+
+### <a name="storage-metrics"></a>Metriche di archiviazione
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni| Granularità temporali| Mapping metrica legacy | Uso |
+|---|---|---|---|---|---| ---| ---| ---|
+| AvailableStorage| Spazio di archiviazione disponibile   |Byte| Totale|  Spazio di archiviazione totale disponibile segnalato con una granularità di 5 minuti per area|   DatabaseName, CollectionName, Region|   5M| Spazio di archiviazione disponibile|   Usata per monitorare la capacità di archiviazione disponibile (applicabile solo per le raccolte di archiviazioni fisse). La granularità minima deve essere di 5 minuti.| 
+| DataUsage |Utilizzo dei dati |Byte| Totale   |Utilizzo dei dati totale segnalato con una granularità di 5 minuti per area|    DatabaseName, CollectionName, Region|   5M  |Dimensioni dei dati  | Usata per monitorare l'utilizzo dei dati totale per raccolta e area. La granularità minima deve essere di 5 minuti.|
+| IndexUsage|   Utilizzo indice|    Byte|  Totale   |Utilizzo totale dell'indice segnalato con una granularità di 5 minuti per area|    DatabaseName, CollectionName, Region|   5M| Dimensioni dell'indice| Usata per monitorare l'utilizzo dei dati totale per raccolta e area. La granularità minima deve essere di 5 minuti. |
+| DocumentQuota|    Quota documenti| Byte|  Totale|  Quota di archiviazione totale disponibile segnalata con una granularità di 5 minuti per area. Applicabile a| DatabaseName, CollectionName, Region|   5M  |Capacità di archiviazione|  Usata per monitorare la quota totale per raccolta e area. La granularità minima deve essere di 5 minuti.|
+| DocumentCount|    Conteggio documenti| Conteggio   |Totale  |Conteggio totale dei documenti segnalato con una granularità di 5 minuti per area|  DatabaseName, CollectionName, Region|   5M  |Conteggio documenti|Usata per monitorare il conteggio dei documenti per raccolta e area. La granularità minima deve essere di 5 minuti.|
+
+### <a name="latency-metrics"></a>Metriche di latenza
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni| Granularità temporali| Uso |
+|---|---|---|---|---|---| ---| ---| ---|
+| ReplicationLatency    | Latenza di replica|  Millisecondi|   Minima,Massima,Media | Latenza di replica P99 tra aree di origine e di destinazione per l'account abilitato per la replica geografica| SourceRegion, TargetRegion| Tutti | Usata per monitorare la latenza di replica P99 tra due aree per un account abilitato per la replica geografica. |
+
+### <a name="availability-metrics"></a>Metriche di disponibilità
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni| Granularità temporali| Mapping metrica legacy | Uso |
+|---|---|---|---|---|---| ---| ---| ---|
+| ServiceAvailability   | Disponibilità del servizio| Percentuale |Minima,Massima|   Disponibilità delle richieste di account con una granularità di un'ora|  |   1H  | Disponibilità del servizio  | Percentuale delle richieste totali passate. Una richiesta viene considerata non riuscita a causa di un errore di sistema se il codice di stato è 410, 500 o 503. Usata per monitorare la disponibilità dell'account con una granularità di un'ora. |
+
+### <a name="cassandra-api-metrics"></a>Metriche dell'API Cassandra
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni| Granularità temporali| Uso |
+|---|---|---|---|---|---| ---| ---| ---|
+| CassandraRequests | Richieste di Cassandra |  Conteggio|  Conteggio|  Numero di richieste dell'API Cassandra|  DatabaseName, CollectionName, ErrorCode, Region, OperationType, ResourceType|   Tutti| Usata per monitorare le richieste di Cassandra con una granularità di un minuto. Per ottenere la media delle richieste al secondo, usare il tipo di aggregazione Conteggio al minuto e dividere per 60.|
+| CassandraRequestCharges|  Addebiti richieste Cassandra| Conteggio|   Somma, Min, Max, Media| Unità richiesta utilizzate dalle richieste dell'API Cassandra|   DatabaseName, CollectionName, Region, OperationType, ResourceType|  Tutti| Usata per monitorare le UR usate al minuto da un account dell'API Cassandra.|
+| CassandraConnectionClosures   | Chiusure di connessione Cassandra |Conteggio| Conteggio   |Numero di connessioni a Cassandra chiuse|    ClosureReason, Region|  Tutti | Usata per monitorare la connettività tra i client e l'API Cassandra di Azure Cosmos DB.|
 
 ## <a name="microsofteventgridtopics"></a>Microsoft.EventGrid/topics
 

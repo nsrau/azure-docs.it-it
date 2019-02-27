@@ -1,19 +1,19 @@
 ---
-title: Uso di Importazione/Esportazione di Azure per trasferire i dati da e verso Archiviazione di Azure | Microsoft Docs
+title: Uso di Importazione/Esportazione di Azure per trasferire i dati da e verso Archiviazione di Azure | Documentazione Microsoft
 description: Informazioni su come creare processi di importazione ed esportazione nel portale di Azure per trasferire dati da e verso Archiviazione di Azure.
 author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 02/14/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ccfc91e85196cbc8295bce71e512d9cf856a23c8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e2c770625cf92e0db269d14d2f63dc0c896cbe9c
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453383"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267513"
 ---
 # <a name="what-is-azure-importexport-service"></a>Che cos'è il servizio Importazione/Esportazione di Azure?
 

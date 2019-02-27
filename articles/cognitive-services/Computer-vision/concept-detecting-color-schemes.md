@@ -8,23 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 0793f572e043248af409e65cca4fd854f1371900
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6b25da9b2569b0185d41684c45a22a3eb3377511
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55880880"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313076"
 ---
 # <a name="detect-color-schemes-in-images"></a>Rilevare le combinazioni di colori nelle immagini
 
-Visione artificiale estrae colori da un'immagine. I colori vengono quindi analizzati in tre contesti diversi: il colore dominante in primo piano, il colore dominante sullo sfondo e i colori dominanti per l'intera immagine. I colori vengono raggruppati in 12 colori principali dominanti, ovvero nero, blu, marrone, grigio, verde, arancione, rosa, viola, rosso, verde acqua, bianco e giallo. Visione artificiale analizza i colori estratti da un'immagine per restituire il colore principale che rappresenta il colore dell'immagine visibilmente più acceso, tramite una combinazione di colori dominanti e saturazione. A seconda dei colori in un'immagine, il semplice bianco e nero oppure i colori principali possono essere restituiti in codici esadecimali. Visione artificiale restituisce anche un valore booleano che indica se un'immagine è in bianco e nero.
+Visione artificiale analizza i colori in un'immagine per fornire tre diversi attributi: il colore di primo piano dominante, il colore di sfondo dominante e il set di colori dominanti per l'immagine nel suo complesso. I colori restituiti appartengono al set costituito da nero, blu, marrone, grigio, verde, arancione, rosa, viola, rosso, verde acqua, bianco e giallo. 
+
+Visione artificiale estrae anche un colore principale, che rappresenta il colore che risalta di più nell'immagine, in base a una combinazione di colori dominanti e saturazione. Il colore principale viene restituito come codice di colore HTML esadecimale. 
+
+Visione artificiale restituisce anche un valore booleano che indica se un'immagine è in bianco e nero.
 
 ## <a name="color-scheme-detection-examples"></a>Esempi di rilevamento di combinazioni di colori
 
-L'esempio seguente illustra la risposta JSON restituita da Visione artificiale quando rileva la combinazione di colori dell'immagine di esempio. In questo caso, l'immagine di esempio non è in bianco e nero, ma il colore dominante in primo piano e sullo sfondo è il nero e i colori dominanti per l'intera immagine sono il bianco e il nero.
+L'esempio seguente illustra la risposta JSON restituita da Visione artificiale quando rileva la combinazione di colori dell'immagine di esempio. In questo caso, l'immagine di esempio non è in bianco e nero, ma i colori di primo piano e di sfondo dominanti sono il nero e i colori dominanti per l'immagine nel suo complesso sono il nero e il bianco.
 
 ![Panorama montano](./Images/mountain_vista.png)
 
@@ -48,7 +52,7 @@ L'esempio seguente illustra la risposta JSON restituita da Visione artificiale q
 
 ### <a name="dominant-color-examples"></a>Esempi di colori dominanti
 
-La tabella seguente descrive, per ogni immagine di esempio, i colori dominanti in primo piano, sullo sfondo e nell'intera immagine, come restituiti da Visione artificiale.
+La tabella seguente mostra i colori di primo piano, di sfondo e dell'immagine restituiti per ogni immagine di esempio.
 
 | Image | Colori dominanti |
 |-------|-----------------|
@@ -57,7 +61,7 @@ La tabella seguente descrive, per ogni immagine di esempio, i colori dominanti i
 
 ### <a name="accent-color-examples"></a>Esempi di colori principali
 
- La tabella seguente descrive, per ogni immagine di esempio, il colore principale espresso in un valore di colore HTML esadecimale, come restituito da Visione artificiale.
+ La tabella seguente mostra il colore principale restituito come valore di colore HTML esadecimale per ogni immagine di esempio.
 
 | Image | Colore principale |
 |-------|--------------|
@@ -67,7 +71,7 @@ La tabella seguente descrive, per ogni immagine di esempio, i colori dominanti i
 
 ### <a name="black--white-detection-examples"></a>Esempi di rilevamento di immagini in bianco e nero
 
-La tabella seguente indica se ogni immagine di esempio è in bianco e nero, in base alle informazioni restituite da Visione artificiale.
+La tabella seguente mostra la valutazione in bianco e nero di Visione artificiale nelle immagini di esempio.
 
 | Image | Bianco e nero? |
 |-------|----------------|

@@ -1,26 +1,19 @@
 ---
-title: Guida alla risoluzione dei problemi di Backup di Azure per le macchine virtuali di SQL Server | Microsoft Docs
-description: Informazioni sulla risoluzione dei problemi per il backup di macchine virtuali di SQL Server in Azure.
+title: Risoluzione dei problemi di backup dei database di SQL Server con Backup di Azure | Microsoft Docs
+description: Informazioni sulla risoluzione dei problemi relativi al backup di database di SQL Server eseguiti su macchine virtuali di Azure con Backup di Azure.
 services: backup
-documentationcenter: ''
-author: rayne-wiselman
-manager: carmonm
-editor: ''
-keywords: ''
-ms.assetid: ''
+author: anuragm
+manager: shivamg
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 02/19/2019
 ms.author: anuragm
-ms.custom: ''
-ms.openlocfilehash: 0d910269a16223c610e4606cdd6660cc5d43947f
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0beb65d6ef7c036c8a294f53eeb3db327457ea84
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296122"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428620"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Risolvere i problemi relativi al backup di SQL Server in Azure
 
@@ -28,11 +21,11 @@ Questo articolo offre informazioni sulla risoluzione dei problemi relativi al ba
 
 ## <a name="public-preview-limitations"></a>Limiti dell'anteprima pubblica
 
-Per visualizzare i limiti dell'anteprima pubblica, vedere l'articolo [Eseguire il backup del database di SQL Server in Azure](backup-azure-sql-database.md#public-preview-limitations).
+Per visualizzare i limiti dell'anteprima pubblica, vedere l'articolo [Eseguire il backup del database di SQL Server in Azure](backup-azure-sql-database.md#preview-limitations).
 
 ## <a name="sql-server-permissions"></a>Autorizzazioni di SQL Server
 
-Per configurare la protezione per un database di SQL Server in una macchina virtuale, l'estensione **AzureBackupWindowsWorkload** deve essere installata nella macchina virtuale. Se viene visualizzato l'errore **UserErrorSQLNoSysadminMembership**, significa che l'istanza di SQL Server non ha le autorizzazioni necessarie per il backup. Per correggere l'errore, seguire la procedura in [Impostare le autorizzazioni per le macchine virtuali SQL non del marketplace](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms).
+Per configurare la protezione per un database di SQL Server in una macchina virtuale, l'estensione **AzureBackupWindowsWorkload** deve essere installata nella macchina virtuale. Se viene visualizzato l'errore **UserErrorSQLNoSysadminMembership**, significa che l'istanza di SQL Server non ha le autorizzazioni necessarie per il backup. Per correggere l'errore, seguire la procedura in [Impostare le autorizzazioni per le macchine virtuali SQL non del marketplace](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
 ## <a name="troubleshooting-errors"></a>Risoluzione dei problemi
 
@@ -56,13 +49,13 @@ Le tabelle seguenti sono organizzate in base al codice di errore.
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
 | Il database SQL non supporta il tipo di backup richiesto. | Si verifica quando il modello di recupero del database non consente il tipo di backup richiesto. L'errore può verificarsi nelle situazioni seguenti: <br/><ul><li>Un database che usa un modello di recupero con registrazione minima non consente backup del log.</li><li>I backup differenziali e del log non sono consentiti per un database master.</li></ul>Per altri dettagli, vedere la documentazione [Modelli di recupero (SQL Server)](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server). | Se il backup del log ha esito negativo per il database nel modello di recupero con registrazione minima, provare una delle opzioni seguenti:<ul><li>Se il database è in modalità di recupero con registrazione minima, disabilitare i backup del log.</li><li>Usare la [documentazione di SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) per informazioni su come modificare il modello di recupero da con registrazione completa a con registrazione minima delle operazioni bulk. </li><li> Se non si vuole modificare il modello di recupero ed esistono criteri standard per eseguire il backup più database che non possono essere modificati, ignorare l'errore. I backup completi e differenziali funzioneranno come da pianificazione. Verranno ignorati i backup del log, come previsto in questo caso.</li></ul>Nel caso di un database master e se è stato configurato il backup differenziale o del log, usare uno dei passaggi seguenti:<ul><li>Usare il portale per modificare la pianificazione dei criteri di backup per il database master, per impostare il backup completo.</li><li>Se esistono criteri standard per eseguire il backup di più database che non possono essere modificati, ignorare l'errore. Il backup completo funzionerà come da pianificazione. Non verranno eseguiti i backup differenziali e del log, come previsto in questo caso.</li></ul> |
-| L'operazione è stata annullata perché è già in esecuzione un'operazione in conflitto nello stesso database. | Vedere il [post di blog sulle limitazioni di backup e ripristino](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) eseguiti contemporaneamente.| [Usare SQL Server Management Studio (SSMS) per monitorare i processi di backup.](backup-azure-sql-database.md#manage-azure-backup-operations-for-sql-on-azure-vms) Quando l'operazione in conflitto non riesce, riavviare l'operazione.|
+| L'operazione è stata annullata perché è già in esecuzione un'operazione in conflitto nello stesso database. | Vedere il [post di blog sulle limitazioni di backup e ripristino](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) eseguiti contemporaneamente.| [Usare SQL Server Management Studio (SSMS) per monitorare i processi di backup.](manage-monitor-sql-database-backup.md) Quando l'operazione in conflitto non riesce, riavviare l'operazione.|
 
 ### <a name="usererrorsqlpodoesnotexist"></a>UserErrorSQLPODoesNotExist
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| Il database SQL non esiste. | Il database è stato eliminato o rinominato. | <ul><li>Controllare se il database è stato eliminato o rinominato accidentalmente.</li><li>Se il database è stato eliminato accidentalmente, per continuare con i backup, ripristinare il database nel percorso originale.</li><li>Se il database è stato eliminato e non sono necessari backup futuri, nell'insieme di credenziali di Servizi di ripristino, fare clic su [stop backup with "Delete/Retain data"](backup-azure-sql-database.md#manage-azure-backup-operations-for-sql-on-azure-vms) (Arresta backup con "Elimina/Mantieni dati").</li>|
+| Il database SQL non esiste. | Il database è stato eliminato o rinominato. | Controllare se il database è stato eliminato o rinominato accidentalmente.<br/><br/> Se il database è stato eliminato accidentalmente, per continuare con i backup, ripristinare il database nel percorso originale.<br/><br/> Se il database è stato eliminato e non sono necessari backup futuri, nell'insieme di credenziali di Servizi di ripristino, fare clic su [stop backup with "Delete/Retain data"](manage-monitor-sql-database-backup.md) (Arresta backup con "Elimina/Mantieni dati").
 
 ### <a name="usererrorsqllsnvalidationfailure"></a>UserErrorSQLLSNValidationFailure
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: rezas
-ms.openlocfilehash: 65de1279c47f5992dd82e9f4634b3de52925769c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 0cb3bc63f9c3d63c68edba0b4162970e18fca76d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568380"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312702"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguaggio di query dell'hub IoT per dispositivi e moduli gemelli, processi e routing di messaggi
 
@@ -361,7 +361,7 @@ SELECT [TOP <max number>] <projection list>
     | max(<projection_element>)
 ```
 
-**Attribute_name** si riferisce alle proprietà del documento JSON nella raccolta FROM. Alcuni esempi di clausola SELECT sono disponibili nella sezione [Introduzione alle query dei dispositivi gemelli](iot-hub-devguide-query-language.md#get-started-with-device-twin-queries).
+**Attribute_name** si riferisce alle proprietà del documento JSON nella raccolta FROM. Alcuni esempi di clausola SELECT sono disponibili nella sezione di introduzione alle query sui dispositivi gemelli.
 
 Attualmente le clausole di selezione diverse da **SELECT*** sono supportate solo nelle query aggregate in dispositivi gemelli.
 

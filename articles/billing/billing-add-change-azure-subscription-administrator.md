@@ -13,20 +13,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/10/2019
+ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: d3bdcc267c55434a71c915f7d4e575d47522986b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6cc965f8e775e02e9dec9f610516739a9a2c1936
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110575"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56448008"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure
 
 Per gestire l'accesso alle risorse di Azure, è necessario il ruolo di amministratore appropriato. In Azure è disponibile un sistema di autorizzazione, denominato controllo degli accessi in base al ruolo, con diversi ruoli predefiniti tra cui è possibile scegliere. È possibile assegnare questi ruoli in ambiti diversi, ad esempio gruppo di gestione, sottoscrizione o gruppo di risorse.
 
-Microsoft consiglia di gestire l'accesso alle risorse usando il controllo degli accessi in base al ruolo. Se tuttavia si sta ancora usando il modello di distribuzione classica, sarà necessario usare un amministratore della sottoscrizione classica. Per altre informazioni, vedere [Distribuzione Azure Resource Manager o distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md) e [Amministratori della sottoscrizione classica di Azure](../role-based-access-control/classic-administrators.md).
+Microsoft consiglia di gestire l'accesso alle risorse usando il controllo degli accessi in base al ruolo. Se però si sta ancora usando il modello di distribuzione classico e si stanno gestendo le risorse classiche tramite il [modulo PowerShell di gestione del servizio Azure](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure), sarà necessario usare un amministratore classico. 
+
+> [!TIP]
+> Se si usa il portale di Azure solo per gestire le risorse classiche, non è necessario usare l'amministratore classico.
+
+Per altre informazioni, vedere [Distribuzione Azure Resource Manager o distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md) e [Amministratori della sottoscrizione classica di Azure](../role-based-access-control/classic-administrators.md).
 
 Questo articolo descrive come aggiungere o modificare il ruolo di amministratore per un utente mediante il controllo degli accessi in base al ruolo nell'ambito della sottoscrizione.
 

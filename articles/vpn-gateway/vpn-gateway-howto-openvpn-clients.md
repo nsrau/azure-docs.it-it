@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 1/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: cd84948b5895a628fc94cc2946156d9fa2284369
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 73f8b1323f6cd22ef215fba4ec45714f099032f6
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508675"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415834"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>Configurare i client OpenVPN per il Gateway VPN di Azure (anteprima)
 
@@ -24,12 +24,14 @@ Questo articolo consente di configurare i client OpenVPN.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Verificare di aver completato i passaggi per configurare OpenVPN per il gateway VPN. Per informazioni dettagliate, vedere [configurare OpenVPN per il Gateway VPN di Azure](vpn-gateway-howto-openvpn.md).
 
 ## <a name="windows"></a>Client Windows
 
 1. Scaricare e installare il client OpenVPN dal [sito Web ufficiale di OpenVPN](https://openvpn.net/index.php/open-source/downloads.html).
-2. Scaricare il profilo VPN per il gateway. Questa operazione può essere eseguita dalla scheda Configurazione da punto a sito nel portale di Azure o tramite il comando "New-AzureRmVpnClientConfiguration" in PowerShell.
+2. Scaricare il profilo VPN per il gateway. Questa operazione può essere eseguita dalla scheda Configurazione da punto a sito nel portale di Azure o tramite il comando "New-AzVpnClientConfiguration" in PowerShell.
 3. Decomprimere il profilo. Aprire quindi il file di configurazione *vpnconfig.ovpn* dalla cartella OpenVPN usando il Blocco note.
 4. [Esportare](vpn-gateway-certificates-point-to-site.md#clientexport) il certificato client per connessioni da punto a sito creato e caricato nella configurazione della connessione da punto a sito sul gateway.
 5. Estrarre la chiave privata e l'identificazione personale base64 dal file con estensione *pfx*. Per eseguire questa operazione è possibile procedere diversi modi. Un modo consiste nell'usare OpenSSL nel computer. Il file *profileinfo.txt* contiene la chiave privata e l'identificazione personale per l'Autorità di certificazione e il certificato client. Assicurarsi di usare l'identificazione personale del certificato client.
@@ -64,7 +66,7 @@ Verificare di aver completato i passaggi per configurare OpenVPN per il gateway 
 ## <a name="mac"></a>Client Mac
 
 1. Scaricare e installare un client OpenVPN, ad esempio [TunnelBlik](https://tunnelblick.net/downloads.html). 
-2. Scaricare il profilo VPN per il gateway. Questa operazione può essere eseguita dalla scheda Point-to-site configuration (Configurazione da punto a sito) nel portale di Azure o tramite "New-AzureRmVpnClientConfiguration" in PowerShell.
+2. Scaricare il profilo VPN per il gateway. Questa operazione può essere eseguita dalla scheda Configurazione da punto a sito nel portale di Azure o tramite il comando "New-AzVpnClientConfiguration" in PowerShell.
 3. Decomprimere il profilo. Aprire il file di configurazione vpnconfig.ovpn dalla cartella OpenVPN nel Blocco note.
 4. Completare la sezione relativa al certificato client da punto a sito con la chiave pubblica del certificato client da punto a sito in formato Base 64. In un certificato in formato PEM è possibile aprire semplicemente il file con estensione cer e copiare la chiave in formato base64 tra le intestazioni del certificato. Visualizzare come [esportare la chiave pubblica](vpn-gateway-certificates-point-to-site.md#cer) per informazioni sull'esportazione di un certificato per ottenere la chiave pubblica codificata.
 5. Completare la sezione relativa alla chiave privata con la chiave privata del certificato client da punto a sito in formato Base 64. Per informazioni su come estrarre una chiave privata, vedere [Export your private key](https://openvpn.net/community-resources/how-to/#pki) (Esportare la chiave privata).

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 02/04/2019
 ms.author: juliako
-ms.openlocfilehash: b05c174bf96e78efd66f2c673e46ab43700c09f9
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 4f67158c0de8cdd161bce269059af6d421bb68b5
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744169"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340349"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3
 
@@ -45,11 +45,11 @@ In caso di sviluppo di un servizio video basato sulle [API legacy di Servizi mul
 
 * Per l'elaborazione di processi basata su file è possibile usare un URL HTTP(S) come input.<br/>Non è necessario avere contenuto già archiviato in Azure né creare asset.
 * Introduce il concetto di [trasformazioni](transforms-jobs-concept.md) per l'elaborazione di processi basata su file. Una trasformazione consente di creare configurazioni riutilizzabili, creare modelli di Azure Resource Manager e isolare le impostazioni di elaborazione tra più clienti o tenant.
-* Un asset può avere più [localizzatori di streaming](streaming-locators-concept.md), ognuno con impostazioni diverse di creazione dinamica dei pacchetti e crittografia dinamica.
+* Un asset può avere più [localizzatori di streaming](streaming-locators-concept.md), ognuno con impostazioni diverse di [creazione dinamica dei pacchetti](dynamic-packaging-overview.md) e crittografia dinamica.
 * La [protezione del contenuto](content-key-policy-concept.md) supporta le funzionalità con più chiavi.
 * È possibile trasmettere eventi live per una durata massima di 24 ore quando si usa Servizi multimediali per la transcodifica di un feed di contributi a bitrate singolo in un flusso di output a bitrate multipli.
 * Nuovo supporto per streaming live a bassa latenza per eventi live. Per altre informazioni, vedere [Latenza](live-event-latency.md).
-* L'anteprima degli eventi live supporta la creazione dinamica dei pacchetti e la crittografia dinamica. Questo consente la protezione del contenuto nell'anteprima, nonché la creazione di pacchetti DASH e HLS.
+* L'anteprima degli eventi live supporta la [creazione dinamica dei pacchetti](dynamic-packaging-overview.md) e la crittografia dinamica. Questo consente la protezione del contenuto nell'anteprima, nonché la creazione di pacchetti DASH e HLS.
 * L'output live è più semplice da usare rispetto all'entità Program nelle API v2. 
 * Supporto RTMP migliorato (maggiore stabilità e più supporto per i codificatori di origine).
 * Inserimento RTMPS sicuro.<br/>Quando si crea un evento live, si ottengono 4 URL di inserimento. pressoché identici: hanno lo stesso token di streaming (AppId) e solo la parte del numero di porta è diversa. Due URL sono primari e due sono di backup per RTMPS.   

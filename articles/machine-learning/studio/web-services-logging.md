@@ -1,6 +1,6 @@
 ---
 title: Registrazione per i servizi Web - Azure Machine Learning Studio | Microsoft Docs
-description: Informazioni su come abilitare la registrazione per i servizi Web di Machine Learning. La registrazione fornisce informazioni aggiuntive per risolvere i problemi relativi alle API.
+description: Informazioni su come abilitare la registrazione per i servizi Web di Machine Learning Studio. La registrazione fornisce informazioni aggiuntive per risolvere i problemi relativi alle API.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -15,21 +15,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 80a5ec64a2afd2367acaedd6e44ffe1a21e9c622
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 53eedd4d00b212879389d29541c4ca55ea1bfde6
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474387"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270095"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Abilitare la registrazione per i servizi Web di Azure Machine Learning Studio
-Questo documento include informazioni sulla capacità di registrazione dei servizi Web di Machine Learning. La registrazione offre informazioni aggiuntive per la risoluzione dei problemi delle API di Machine Learning, non soltanto un semplice codice di errore e un messaggio.  
+Questo documento include informazioni sulla capacità di registrazione dei servizi Web di Machine Learning Studio. La registrazione offre informazioni aggiuntive per la risoluzione dei problemi delle API di Machine Learning Studio, non soltanto un semplice codice di errore e un messaggio.  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>Come abilitare la registrazione per un servizio Web
 
-La registrazione viene abilitata nel portale dei [servizi Web di Azure Machine Learning](https://services.azureml.net). 
+La registrazione viene abilitata nel portale dei [servizi Web di Azure Machine Learning Studio](https://services.azureml.net). 
 
-1. Accedere al portale dei servizi Web di Azure Machine Learning all'indirizzo [https://services.azureml.net](https://services.azureml.net). Per un servizio Web classico, è possibile anche accedere al portale facendo clic su **New Web Services Experience** (Nuovi servizi Web) nella pagina dei servizi Web di Machine Learning in Machine Learning Studio.
+1. Accedere al portale dei servizi Web di Azure Machine Learning Studio all'indirizzo [https://services.azureml.net](https://services.azureml.net). Per un servizio Web classico, è possibile anche accedere al portale facendo clic su **New Web Services Experience** (Nuovi servizi Web) nella pagina dei servizi Web di Machine Learning Studio in Machine Learning Studio.
 
    ![Collegamento New Web Services Experience](./media/web-services-logging/new-web-services-experience-link.png)
 

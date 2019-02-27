@@ -10,19 +10,19 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: 67843efd87e0d1cdd1a392fdd24d29decae093e8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0940cb9e42588990e2109d02fda462f343443876
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997006"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456079"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Interpretare i risultati dei modelli in Azure Machine Learning Studio
 Questo argomento illustra come visualizzare e interpretare risultati di stima in Azure Machine Learning Studio. Dopo aver eseguito il training di un modello e averlo sottoposto a una stima, ossia dopo aver assegnato un punteggio a un modello, è necessario comprendere e interpretare il risultato di stima.
 
 
 
-In Azure Machine Learning esistono quattro tipi principali di modelli di apprendimento automatico:
+In Azure Machine Learning Studio ci sono quattro tipi principali di modelli di apprendimento automatico:
 
 * classificazione
 * Clustering
@@ -35,11 +35,11 @@ I moduli usati per eseguire stime sulla base di questi modelli sono:
 * Modulo [Assign to Clusters][assign-to-clusters] per il clustering
 * Modulo [Score Matchbox Recommender][score-matchbox-recommender] per i sistemi di raccomandazione
 
-Questo documento illustra come interpretare i risultati di stima per ognuno di questi moduli. Per una panoramica di questi moduli, vedere [Come scegliere i parametri per ottimizzare gli algoritmi in Azure Machine Learning](algorithm-parameters-optimize.md).
+Questo documento illustra come interpretare i risultati di stima per ognuno di questi moduli. Per una panoramica di questi moduli, vedere [Scegliere i parametri per ottimizzare gli algoritmi in Azure Machine Learning Studio](algorithm-parameters-optimize.md).
 
-Questo argomento illustra l'interpretazione delle stime, non la valutazione dei modelli. Per altre informazioni su come valutare un modello, vedere [Come valutare le prestazioni del modello in Azure Machine Learning](evaluate-model-performance.md).
+Questo argomento illustra l'interpretazione delle stime, non la valutazione dei modelli. Per altre informazioni su come valutare un modello, vedere [Come valutare le prestazioni del modello in Azure Machine Learning Studio](evaluate-model-performance.md).
 
-Se non si ha familiarità con Azure Machine Learning e si ha bisogno di assistenza per creare un esperimento semplice con cui iniziare, vedere [Creare un semplice esperimento in Azure Machine Learning Studio](create-experiment.md) in Azure Machine Learning Studio.
+Se non si ha familiarità con Azure Machine Learning Studio ed è necessaria assistenza per la creazione di un esperimento semplice con cui iniziare, vedere [Creare un semplice esperimento in Azure Machine Learning Studio](create-experiment.md).
 
 ## <a name="classification"></a>classificazione
 I problemi di classificazione possono essere suddivisi in:
@@ -47,12 +47,12 @@ I problemi di classificazione possono essere suddivisi in:
 * Problemi con solo due classi (classificazione a due classi o binaria)
 * Problemi con più di due classi (classificazione multiclasse)
 
-Azure Machine Learning include vari moduli per gestire ognuno di questi tipi di classificazione, ma le modalità di interpretazione dei risultati di stima sono simili.
+Azure Machine Learning Studio include vari moduli per gestire ognuno di questi tipi di classificazione, ma le modalità di interpretazione dei risultati di stima sono simili.
 
 ### <a name="two-class-classification"></a>Classificazione a due classi
 **Esperimento di esempio**
 
-Un esempio di un problema di classificazione a due classi è costituito dalla classificazione dei fiori Iris, ovvero dalla necessità di classificare i fiori Iris in base alle loro caratteristiche. Il set di dati Iris disponibile in Azure Machine Learning è un subset del celebre [Set di dati Iris](http://en.wikipedia.org/wiki/Iris_flower_data_set) e contiene istanze di due sole specie di fiori (classi 0 e 1). Ciascun fiore presenta quattro caratteristiche: lunghezza del sepalo, larghezza del sepalo, lunghezza del petalo e larghezza del petalo.
+Un esempio di un problema di classificazione a due classi è costituito dalla classificazione dei fiori Iris, ovvero dalla necessità di classificare i fiori Iris in base alle loro caratteristiche. Il set di dati Iris disponibile in Azure Machine Learning Studio è un subset del celebre [set di dati Iris](http://en.wikipedia.org/wiki/Iris_flower_data_set) e contiene istanze di due sole specie di fiori (classi 0 e 1). Ciascun fiore presenta quattro caratteristiche: lunghezza del sepalo, larghezza del sepalo, lunghezza del petalo e larghezza del petalo.
 
 ![Schermata dell'esperimento relativo ai fiori Iris](./media/interpret-model-results/1.png)
 
@@ -226,7 +226,7 @@ Per illustrare i sistemi di raccomandazione viene usato come esempio un problema
 * Dati sulle caratteristiche dei clienti
 * Restaurant feature data
 
-Il modulo [Train Matchbox Recommender][train-matchbox-recommender] di Azure Machine Learning consente di eseguire diverse operazioni:
+Il modulo [Train Matchbox Recommender][train-matchbox-recommender] di Azure Machine Learning Studio consente di eseguire diverse operazioni:
 
 * Stimare le valutazioni per un determinato utente ed elemento
 * Raccomandare elementi a un determinato utente
@@ -237,7 +237,7 @@ Il modulo [Train Matchbox Recommender][train-matchbox-recommender] di Azure Mach
 
 ![Matchbox Recommender](./media/interpret-model-results/19_1.png)
 
-Un tipico esperimento di Azure Machine Learning per un sistema di raccomandazione è illustrato nella figura 20. Per informazioni su come usare i moduli del sistema di raccomandazione, vedere [Train matchbox recommender][train-matchbox-recommender] e [Score matchbox recommender][score-matchbox-recommender].
+Un tipico esperimento di Azure Machine Learning Studio per un sistema di raccomandazione è illustrato nella figura 20. Per informazioni su come usare i moduli del sistema di raccomandazione, vedere [Train matchbox recommender][train-matchbox-recommender] e [Score matchbox recommender][score-matchbox-recommender].
 
 ![Esperimento per il sistema di raccomandazione](./media/interpret-model-results/20.png)
 

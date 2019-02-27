@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 83ee548befdc7ef0a4e7ed2d4b4e61b42a217f12
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 112fff011ebfedc1abf6981661da5fd4d97fc3d0
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247069"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267142"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Risoluzione dei problemi di distribuzione del servizio Azure Kubernetes e di Istanze di Azure Container con il servizio Azure Machine Learning
 
@@ -196,12 +196,15 @@ $ docker run -p 8000:5001 <image_id>
 Spesso nella funzione `init()` dello script di assegnazione dei punteggi viene chiamata la funzione `Model.get_model_path()` per individuare un file di modello o una cartella di file di modello nel contenitore. Se non si riesce a trovare il file o la cartella, in genere la funzione non riesce. Il modo più semplice per eseguire il debug di questo errore consiste nell'eseguire il codice Python seguente nella shell del contenitore:
 
 ```python
+import logging
+logging.basicConfig(level=logging.DEBUG)
 from azureml.core.model import Model
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
 Questo codice consente di individuare il percorso locale (relativo a `/var/azureml-app`) nel contenitore in cui lo script di assegnazione dei punteggi prevede di trovare il file di modello o la cartella. È quindi possibile verificare se il file o la cartella si trova effettivamente dove dovrebbe essere.
 
+L'impostazione del livello di registrazione su DEBUG potrebbe fornire la registrazione di informazioni aggiuntive sulla causa che potrebbero essere utili per identificare l'errore.
 
 ## <a name="function-fails-runinputdata"></a>Errore della funzione: run(input_data)
 Se il servizio viene distribuito correttamente, ma si arresta in modo anomalo quando si pubblicano dati nell'endpoint di assegnazione dei punteggi, è possibile aggiungere un'istruzione di rilevamento degli errori nella funzione `run(input_data)` in modo che restituisca il messaggio di errore dettagliato. Ad esempio: 

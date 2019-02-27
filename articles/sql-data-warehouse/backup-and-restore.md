@@ -10,15 +10,15 @@ ms.subservice: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: c9435ba10d69130a634e56992179f11399604fae
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 254d1faf0d846cc6a0e165b68db11ac0314eab33
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747493"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430574"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Backup e ripristino in Azure SQL Data Warehouse
-Informazioni su come eseguire il backup e il ripristino in Azure SQL Data Warehouse. Usare gli snapshot del data warehouse per ripristinare o copiare il data warehouse in un punto di ripristino precedente dell'area primaria. Usare i backup con ridondanza geografica del data warehouse per eseguire il ripristino in un'altra area geografica. 
+Informazioni su come eseguire il backup e il ripristino in Azure SQL Data Warehouse. Usare i punti di ripristino del data warehouse per ripristinare o copiare il data warehouse in uno stato precedente nell'area primaria. Usare i backup con ridondanza geografica del data warehouse per eseguire il ripristino in un'altra area geografica. 
 
 ## <a name="what-is-a-data-warehouse-snapshot"></a>Cos'è uno snapshot del data warehouse?
 Uno *snapshot del data warehouse* crea un punto di ripristino che è possibile usare per ripristinare o copiare il data warehouse a uno stato precedente.  Poiché SQL Data Warehouse è un sistema distribuito, uno snapshot del data warehouse è costituito da molti file che si trovano in Archiviazione di Azure. Gli snapshot acquisiscono le modifiche incrementali dai dati archiviati nel data warehouse.

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.subservice: common
-ms.openlocfilehash: 180780c3a3a644a8da0fa544c37bc8cd252c982f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c192b3e995cacd3085f343d1f6b2c243f1531acc
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469499"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415511"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
@@ -28,7 +28,7 @@ Gli errori di certificato sono causati da una delle due situazioni seguenti:
 1. L'app è connessa tramite un "proxy trasparente": questo significa che un server (ad esempio, un server aziendale) intercetta il traffico HTTPS, ne esegue la decrittografia e la crittografia con un certificato autofirmato.
 2. Viene eseguita un'applicazione che inserisce un certificato SSL autofirmato nei messaggi HTTPS ricevuti. Esempi di applicazioni che inseriscono certificati includono il software antivirus e per l'ispezione del traffico di rete.
 
-In presenza di un certificato autofirmato o non attendibile, Storage Explorer non è più in grado di stabilire se il messaggio HTTPS ricevuto è stato modificato. Se è disponibile una copia del certificato autofirmato, è possibile fare in modo che Storage Explorer lo consideri attendibile seguendo questa procedura:
+In presenza di un certificato autofirmato o non attendibile, Storage Explorer non riesce più a stabilire se il messaggio HTTPS ricevuto è stato modificato. Se è disponibile una copia del certificato autofirmato, è possibile fare in modo che Storage Explorer lo consideri attendibile seguendo questa procedura:
 
 1. Ottenere una copia del certificato X.509 con codifica Base64 (file con estensione cer) del certificato
 2. Fare clic su **Modifica** > **Certificati SSL** > **Importa certificati** e quindi usare la selezione file per trovare, selezionare e aprire il file con estensione cer.
@@ -53,6 +53,20 @@ In caso di dubbi sulla provenienza del certificato, è possibile provare questa 
 Se non è possibile trovare alcun certificato autofirmato seguendo i passaggi precedenti, contattare Microsoft tramite lo strumento di feedback per ricevere assistenza. In alternativa, è possibile scegliere di avviare Storage Explorer dalla riga di comando con il flag `--ignore-certificate-errors`. Quando viene avviato con questo flag, Storage Explorer ignorerà gli errori del certificato.
 
 ## <a name="sign-in-issues"></a>Problemi di accesso
+
+### <a name="blank-sign-in-dialog"></a>Finestra di dialogo di accesso vuota
+La causa delle finestre di dialogo di accesso vuote molto spesso è una richiesta di AD FS a Storage Explorer di eseguire un reindirizzamento non supportato da Electron. Per aggirare questo problema, è possibile provare a usare il flusso del codice del dispositivo per l'accesso. A questo scopo, seguire questa procedura:
+1. "Go to Experimental" (Vai a sperimentale) -> "Use Device Code Sign-In" (Usa l'accesso con codice del dispositivo).
+2. Aprire la finestra di dialogo della connessione (tramite l'icona a forma di spina sulla barra verticale a sinistra o facendo clic su "Aggiungi account" nel pannello dell'account).
+3. Scegliere a quale ambiente si vuole accedere.
+4. Fare clic sul pulsante "Accedi".
+5. Seguire le istruzioni visualizzate.
+
+Nota: questa funzionalità è attualmente disponibile solo nell'anteprima 1.7.0.
+
+Se si riscontrano problemi di accesso all'account che si vuole usare perché il browser predefinito è già connesso a un account diverso, è possibile:
+1. Copiare manualmente il collegamento e il codice in una sessione privata del browser.
+2. Copiare manualmente il collegamento e il codice in un browser diverso.
 
 ### <a name="reauthentication-loop-or-upn-change"></a>Ciclo di riautenticazione o modifica UPN
 Se ci si trova in un ciclo di riautenticazione, o se l'UPN di uno degli account è stato modificato, procedere come segue:
@@ -90,7 +104,7 @@ Se nessuno di questi metodi funziona [aprire un problema in GitHub](https://gith
 Se non è possibile recuperare le sottoscrizioni dopo aver eseguito correttamente l'accesso, provare i metodi di risoluzione dei problemi seguenti:
 
 * Verificare che l'account abbia accesso alle sottoscrizioni previste. È possibile verificare di disporre dell'accesso effettuando l'accesso al portale per l'ambiente di Azure che si sta tentando di usare.
-* Assicurarsi di aver effettuato l'accesso usando l'ambiente di Azure corretto, ad esempio Azure, Azure Cina, Azure Germania, Azure Governo degli Stati Uniti o Ambiente personalizzato.
+* Assicurarsi di aver effettuato l'accesso usando l'ambiente di Azure corretto, ad esempio Azure, Azure Cina 21Vianet, Azure Germania, Azure US Government o un ambiente personalizzato.
 * Se si è protetti da un proxy, assicurarsi che il proxy Storage Explorer sia stato configurato correttamente.
 * Provare a rimuovere e a aggiungere nuovamente l'account.
 * Se è presente un collegamento "Altre informazioni", esaminare e vedere quali messaggi di errore sono stati segnalati per i tenant con esito negativo. Se non si è certi su che cosa fare con i messaggi di errore visualizzati, è possibile [Segnalare un problema in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
@@ -116,7 +130,7 @@ In primo luogo, assicurarsi che le informazioni seguenti immesse siano corrette:
 * l'URL del proxy e il numero di porta
 * nome utente e password se richiesto dal proxy
 
-Tenere presente che Storage Explorer non supporta il file con estensione pac per la configurazione delle impostazioni del proxy.
+Tenere presente che Storage Explorer non supporta i file di configurazione automatica del proxy per la configurazione delle impostazioni del proxy.
 
 ### <a name="common-solutions"></a>soluzioni comuni
 

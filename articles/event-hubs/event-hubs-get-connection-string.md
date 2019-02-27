@@ -3,23 +3,23 @@ title: Ottenere la stringa di connessione - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce istruzioni su come ottenere la stringa di connessione che i client possono usare per connettersi a Hub eventi di Azure.
 services: event-hubs
 documentationcenter: na
-author: ShubhaVijayasarathy
+author: spelluru
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
-ms.openlocfilehash: ee4bd5d2acf1a029486f83ee721b9e1f72347958
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 02/19/2019
+ms.author: spelluru
+ms.openlocfilehash: edd197fb6d578df064c67a422767e3e70a0c8142
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238148"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445101"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Ottenere una stringa di connessione ad Hub eventi
 
-Per usare Hub eventi, è necessario creare uno spazio dei nomi di Hub eventi. Uno spazio dei nomi è un contenitore di ambito che può contenere più argomenti di Hub eventi/Kafka. Questo spazio dei nomi specifica un nome [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) univoco. Dopo avere creato uno spazio dei nomi, è possibile ottenere la stringa di connessione necessaria per comunicare con Hub eventi.
+Per usare Hub eventi, è necessario creare uno spazio dei nomi di Hub eventi. Uno spazio dei nomi è un contenitore di ambito per più argomenti di hub eventi o Kafka. Questo spazio dei nomi specifica un nome [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) univoco. Dopo avere creato uno spazio dei nomi, è possibile ottenere la stringa di connessione necessaria per comunicare con Hub eventi.
 
 La stringa di connessione per Hub eventi di Azure contiene i componenti seguenti:
 
@@ -37,30 +37,29 @@ Un esempio di stringa di connessione può avere l'aspetto seguente `Endpoint=sb:
 Questo articolo illustra in dettaglio vari modi per ottenere la stringa di connessione.
 
 ## <a name="get-connection-string-from-the-portal"></a>Ottenere la stringa di connessione dal portale
+1. Accedere al [portale di Azure](https://portal.azure.com). 
+2. Scegliere **Tutti i servizi** dal menu di spostamento a sinistra. 
+3. Nella sezione **Analytics** selezionare **Hub eventi**. 
+4. Selezionare l'hub eventi dal relativo elenco.
+6. Nella pagina **Spazio dei nomi di Hub eventi** selezionare **Criteri di accesso condivisi** nel menu a sinistra.
 
-Dopo aver creato lo spazio dei nomi di Hub eventi, la sezione Panoramica del portale può presentare la stringa di connessione come illustrato di seguito:
+    ![Voce di menu Criteri di accesso condivisi](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
+7. Selezionare un **criterio di accesso condiviso** nell'elenco dei criteri. Il criterio predefinito è denominato: **RootManageSharedAccessPolicy**. È possibile aggiungere un criterio con le autorizzazioni appropriate (lettura, scrittura) e usare quel criterio. 
 
-![Stringa di connessione ad Hub eventi](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
+    ![Criteri di accesso condiviso di Hub eventi](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
+8. Selezionare il pulsante di **copia** accanto al campo **Chiave primaria della stringa di connessione**. 
 
-Quando si fa clic sul collegamento della stringa di connessione nella sezione Panoramica, viene visualizzata la scheda Criteri di firma di accesso condiviso come illustrato nella figura seguente:
-
-![Criteri di firma di accesso condiviso di Hub eventi](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
-
-È possibile aggiungere nuovi criteri di firma di accesso condiviso e ottenere la stringa di connessione oppure è possibile usare i criteri predefiniti che sono già stati creati automaticamente. Quando vengono aperti i criteri, è possibile ottenere la stringa di connessione come illustrato nella figura seguente:
-
-![Ottenere la stringa di connessione ad Hub eventi](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
+    ![Hub eventi - Ottenere la stringa di connessione](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
 
 ## <a name="getting-the-connection-string-with-azure-powershell"></a>Ottenere la stringa di connessione con Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-È possibile usare Get-AzEventHubNamespaceKey per ottenere la stringa di connessione per il nome specifico dei criteri o della regola, come mostrato di seguito:
+È possibile usare [Get-AzEventHubNamespaceKey](/powershell/module/az.eventhub/get-azeventhubkey) per ottenere la stringa di connessione per il nome specifico dei criteri o della regola, come mostrato di seguito:
 
 ```azurepowershell-interactive
 Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
 ```
-
-Per altre informazioni, fare riferimento ad [Azure Event Hubs PowerShell module](https://docs.microsoft.com/powershell/module/az.eventhub/get-azeventhubkey) (Modulo PowerShell per Hub eventi di Azure).
 
 ## <a name="getting-the-connection-string-with-azure-cli"></a>Ottenere la stringa di connessione con l'interfaccia della riga di comando di Azure
 Per ottenere la stringa di connessione per lo spazio dei nomi, è possibile usare il comando seguente:
@@ -69,7 +68,7 @@ Per ottenere la stringa di connessione per lo spazio dei nomi, è possibile usar
 az eventhubs namespace authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --name RootManageSharedAccessKey
 ```
 
-Per altre informazioni, fare riferimento ad [Azure CLI for Event Hubs](https://docs.microsoft.com/cli/azure/eventhubs) (Interfaccia della riga di comando di Azure per Hub eventi).
+Per altre informazioni sui comandi dell'interfaccia della riga di comando di Azure per Hub eventi, vedere [Azure CLI for Event Hubs](/cli/azure/eventhubs) (Interfaccia della riga di comando di Azure per Hub eventi).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

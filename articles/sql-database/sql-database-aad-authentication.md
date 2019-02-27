@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/18/2019
-ms.openlocfilehash: 0bb7c047f6bd03a45aa6c5c6d07b8022ee59bec9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/20/2019
+ms.openlocfilehash: 4f8ee5a3a72fc143822a71bcb933f34e2f371019
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217174"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453138"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Usare l'autenticazione di Azure Active Directory per l'autenticazione con SQL
 
@@ -101,16 +101,16 @@ Per creare un utente di database indipendente nel database SQL di Azure, in Ista
 
 ### <a name="manage-instances"></a>Gestire le istanze
 
-- Gli utenti e gli account di accesso di Azure AD sono supportati come funzionalità di anteprima per [Istanze gestite](sql-database-managed-instance.md).
-- In [Istanze gestite](sql-database-managed-instance.md) non è supportata l'impostazione di account di accesso di Azure AD di cui è stato eseguito il mapping a un gruppo di Azure AD come proprietario del database.
+- Gli utenti e le entità server (account di accesso) di Azure AD sono supportati come funzionalità di anteprima per [Istanze gestite](sql-database-managed-instance.md).
+- In [Istanze gestite](sql-database-managed-instance.md) non è supportata l'impostazione di entità server (account di accesso) di Azure AD di cui è stato eseguito il mapping a un gruppo di Azure AD come proprietario del database.
     - Un'estensione di questo scenario si verifica quando un gruppo viene aggiunto come parte del ruolo del server `dbcreator`; in questo caso, gli utenti del gruppo possono connettersi a Istanza gestita e creare nuovi database, ma non possono accedere al database. Il nuovo proprietario del database, infatti, è SA e non l'utente di Azure AD. Questo problema non si verifica se al ruolo del server `dbcreator` si aggiunge il singolo utente.
-- È supportata l'esecuzione di processi e operazioni di gestione dell'agente SQL per gli account di accesso di Azure AD.
-- Operazioni di backup e ripristino del database possono essere eseguite dagli account di accesso di Azure AD.
-- È supportato il controllo di tutte le istruzioni relative agli eventi di autenticazione e agli account di accesso di Azure AD.
-- È supportata la connessione amministrativa dedicata per gli account di accesso di Azure AD membri del ruolo del server sysadmin.
+- È supportata l'esecuzione di processi e operazioni di gestione dell'agente SQL per le entità server (account di accesso) di Azure AD.
+- Le operazioni di backup e ripristino del database possono essere eseguite dalle entità server (account di accesso) di Azure AD.
+- È supportato il controllo di tutte le istruzioni relative agli eventi di autenticazione e alle entità server (account di accesso) di Azure AD.
+- È supportata la connessione amministrativa dedicata per le entità server (account di accesso) di Azure AD membri del ruolo del server sysadmin.
     - È supportata tramite l'utilità SQLCMD e SQL Server Management Studio.
-- Sono supportati i trigger di accesso per gli eventi di accesso provenienti dagli account di accesso di Azure AD.
-- Usando l'account di accesso di Azure AD è possibile configurare Service Broker e la posta elettronica del database.
+- Sono supportati i trigger di accesso per gli eventi di accesso provenienti dalle entità server (account di accesso) di Azure AD.
+- Usando un'entità server (account di accesso) di Azure AD è possibile configurare Service Broker e la posta elettronica del database.
 
 
 ## <a name="connecting-using-azure-ad-identities"></a>Connettersi usando le identità di Azure AD
@@ -121,7 +121,7 @@ L'autenticazione di Azure Active Directory supporta i metodi seguenti per la con
 - Con un nome di entità e una password di Azure AD
 - Con l'autenticazione del token dell'applicazione
 
-Per gli account di accesso di Azure AD (**versione di anteprima pubblica**) sono supportati i metodi di autenticazione seguenti:
+Per le entità server (account di accesso) di Azure AD (**versione di anteprima pubblica**) sono supportati i metodi di autenticazione seguenti:
 
 - Password di Azure Active Directory
 - Autenticazione integrata di Azure Active Directory
@@ -133,7 +133,7 @@ Per gli account di accesso di Azure AD (**versione di anteprima pubblica**) sono
 
 - Per migliorare la gestibilità, è consigliabile effettuare il provisioning di un gruppo di Azure AD dedicato come amministratore.   
 - È possibile configurare un solo amministratore di Azure AD, utente o gruppo, per un server di database SQL di Azure o Azure SQL Data Warehouse in qualsiasi momento.
-  - L'aggiunta di account di accesso di Azure AD per Istanze gestite (**versione di anteprima pubblica**) offre la possibilità di creare più account di accesso di Azure AD che possono essere aggiunti al ruolo `sysadmin`.
+  - L'aggiunta di entità server (account di accesso) di Azure AD per Istanze gestite (**versione di anteprima pubblica**) offre la possibilità di creare più entità server (account di accesso) di Azure AD che possono essere aggiunte al ruolo `sysadmin`.
 - Un solo amministratore di Azure AD per SQL Server può connettersi inizialmente al server di database SQL di Azure, a Istanza gestita o ad Azure SQL Data Warehouse usando un account Azure Active Directory. L'amministratore di Active Directory può configurare gli utenti del database di Azure AD successivi.   
 - È consigliabile impostare il timeout di connessione su 30 secondi.   
 - SQL Server 2016 Management Studio e SQL Server Data Tools per Visual Studio 2015, versione 14.0.60311.1 di aprile 2016 o successiva, supportano l'autenticazione di Azure Active Directory. L'autenticazione di Azure AD è supportata dal **provider di dati .NET Framework per server SQL** a partire da .NET Framework versione 4.6. Di conseguenza, le versioni più recenti di questi strumenti e applicazioni del livello dati (DAC e BACPAC) possono usare l'autenticazione di Azure AD.   
@@ -147,12 +147,12 @@ Per gli account di accesso di Azure AD (**versione di anteprima pubblica**) sono
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni su come creare e popolare Azure AD e quindi configurare Azure AD con il database SQL di Azure o con Azure SQL Data Warehouse, vedere [Configurare e gestire l'autenticazione di Azure Active Directory con il database SQL, con Istanza gestita oppure con SQL Data Warehouse](sql-database-aad-authentication-configure.md).
-- Per un'esercitazione sull'uso degli account di accesso di Azure AD con Istanze gestite, vedere [Account di accesso di Azure AD con Istanze gestite](sql-database-managed-instance-aad-security-tutorial.md)
+- Per un'esercitazione sull'uso delle entità server (account di accesso) di Azure AD con Istanze gestite, vedere [Entità server (account di accesso) di Azure AD con Istanze gestite](sql-database-managed-instance-aad-security-tutorial.md)
 - Per una panoramica dell'accesso e del controllo nel database SQL, vedere l'articolo relativo al [controllo dell'accesso al database SQL](sql-database-control-access.md).
 - Per una panoramica degli account di accesso, degli utenti e dei ruoli del database nel database SQL, vedere l'articolo relativo ad [account di accesso, utenti e ruoli del database](sql-database-manage-logins.md).
 - Per altre informazioni sulle entità di database, vedere [Entità](https://msdn.microsoft.com/library/ms181127.aspx).
 - Per altre informazioni sui ruoli del database, vedere [Ruoli a livello di database](https://msdn.microsoft.com/library/ms189121.aspx).
-- Per la sintassi sulla creazione di account di accesso di Azure AD per Istanze gestite, vedere [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+- Per la sintassi sulla creazione di entità server (account di accesso) di Azure AD per Istanze gestite, vedere [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 - Per informazioni generali sulle regole del firewall, vedere l'articolo relativo alle [regole del firewall per il database SQL](sql-database-firewall-configure.md).
 
 <!--Image references-->

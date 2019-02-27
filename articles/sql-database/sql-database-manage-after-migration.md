@@ -1,5 +1,5 @@
 ---
-title: Gestione dopo la migrazione - Database SQL di Azure | Microsoft Docs
+title: Gestire i database singoli e in pool dopo la migrazione - Database SQL di Azure | Microsoft Docs
 description: Informazioni su come gestire il database dopo la migrazione al database SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,28 +11,31 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 419ee13f88e63af9bebb6dda2d96530c54baa0d0
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.date: 02/13/2019
+ms.openlocfilehash: 148dff16d56755755f71e24e658e29c116ac5df1
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099735"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417636"
 ---
-# <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nuovo DBA nel cloud - Gestione del database nel database SQL di Azure
+# <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nuovo DBA nel cloud - Gestione dei database singoli e in pool nel database SQL di Azure
 
-Il passaggio da un ambiente tradizionale, gestito e controllato in autonomia, a un ambiente PaaS può risultare inizialmente piuttosto complesso. Gli sviluppatori di app o i DBA hanno bisogno di conoscere le funzionalità principali della piattaforma che contribuiscono a mantenere l'applicazione sempre disponibile, efficiente e flessibile. Questo articolo mira esattamente a questo. Nell'articolo vengono organizzate in modo sintetico le risorse e vengono proposte alcune indicazioni su come usare al meglio le principali funzionalità del database SQL per gestire e mantenere efficiente l'applicazione, nonché ottenere risultati ottimali nel cloud. Destinatari tipici di questo articolo:
+Il passaggio da un ambiente tradizionale, gestito e controllato in autonomia, a un ambiente PaaS può risultare inizialmente piuttosto complesso. Gli sviluppatori di app o i DBA hanno bisogno di conoscere le funzionalità principali della piattaforma che contribuiscono a mantenere l'applicazione sempre disponibile, efficiente e flessibile. Questo articolo mira esattamente a questo. Nell'articolo vengono organizzate in modo sintetico le risorse e vengono proposte alcune indicazioni su come usare al meglio le principali funzionalità del database SQL con i database singoli e in pool per gestire e mantenere efficiente l'applicazione, nonché ottenere risultati ottimali nel cloud. Destinatari tipici di questo articolo:
 
 - Utenti che valutano la migrazione delle applicazioni al database SQL di Azure - Modernizzazione delle applicazioni.
 - Utenti in fase di migrazione delle applicazioni - Scenari di migrazione in corso.
 - Utenti che hanno recentemente completato la migrazione al database SQL di Azure - Nuovo DBA nel cloud.
 
-In questo articolo vengono descritte alcune caratteristiche principali del database SQL di Azure come piattaforma immediatamente fruibile. Eccole:
+Questo articolo illustra alcune delle caratteristiche principali del database SQL di Azure come piattaforma immediatamente fruibile quando si lavora con i database singoli e i database in pool in pool elastici. Eccole:
 
 - Continuità aziendale e ripristino di emergenza (BCDR)
 - Sicurezza e conformità
 - Monitoraggio e manutenzione intelligenti del database
 - Spostamento dati
+
+> [!NOTE]
+> Questo articolo si applica alle opzioni di distribuzione seguenti nel database SQL di Azure: database singoli e pool elastici. Le informazioni non sono valide per l'opzione di distribuzione dell'istanza gestita nel database SQL.
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>Continuità aziendale e ripristino di emergenza (BCDR)
 
@@ -299,11 +302,11 @@ Il database SQL usa alcune tecniche intelligenti che consentono di gestire autom
 
 - **Esportazione**: È possibile esportare il database SQL di Azure come file BACPAC dal portale di Azure
 
-   ![esportazione di database](./media/sql-database-export/database-export.png)
+   ![esportazione di database](./media/sql-database-export/database-export1.png)
 
 - **Importazione**: È anche possibile importare dati come file BACPAC nel database dal portale di Azure.
 
-   ![importazione di database](./media/sql-database-import/import.png)
+   ![importazione di database](./media/sql-database-import/import1.png)
 
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>Come sincronizzare dati tra il database SQL e SQL Server
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: yegu
-ms.openlocfilehash: 5f448c1c66520a5941ad867eaf3c89c22693cc45
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 495fc031150d04f253279606baebb5d64d52bce7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235573"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313433"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Come ridimensionare Cache Redis di Azure
 Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache. Se i requisiti dell'applicazione cambiano dopo la creazione di una cache, è possibile aumentare o ridurre le dimensioni e il piano tariffario della cache. Questo articolo illustra come ridimensionare la cache usando il portale di Azure e strumenti come Azure PowerShell e l'interfaccia della riga di comando di Azure.
@@ -115,7 +115,7 @@ Nell'elenco seguente sono fornite le risposte alle domande poste comunemente sul
 * [Durante il ridimensionamento i dati nella cache andranno persi?](#will-i-lose-data-from-my-cache-during-scaling)
 * [L'impostazione databases personalizzata viene modificata durante il ridimensionamento?](#is-my-custom-databases-setting-affected-during-scaling)
 * [La cache rimarrà disponibile durante il ridimensionamento?](#will-my-cache-be-available-during-scaling)
-* [Perché non è possibile ridimensionare la cache o modificare le partizioni in un cluster se è configurata la replica geografica?](#scaling-limitations-with-geo-relication)
+* Perché non è possibile ridimensionare la cache o modificare le partizioni in un cluster se è configurata la replica geografica?
 * [Operazioni non supportate](#operations-that-are-not-supported)
 * [Quanto tempo richiede il ridimensionamento?](#how-long-does-scaling-take)
 * [Come è possibile stabilire quando il ridimensionamento è completato?](#how-can-i-tell-when-scaling-is-complete)

@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 02/17/2019
 ms.author: juliako
-ms.openlocfilehash: b399e18aa3cdd83d0c6907999f6446fd566259a1
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4127b6b2b2601b640a6fda4ccb60960d1762ee81
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998587"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414745"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
 
@@ -29,10 +29,10 @@ Questo articolo illustra come usare l'API [Upload video](https://api-portal.vide
 Una volta caricato il video, facoltativamente Video Indexer lo codifica (illustrato in questo articolo). Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuita) o un'opzione a pagamento (in cui non si è limitati dalla quota). Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2400 minuti di indicizzazione gratuita per gli utenti di API. Con l'opzione a pagamento, si crea un account di Video Indexer [connesso alla sottoscrizione di Azure e a un account di Servizi multimediali di Azure](connect-to-azure.md). Il pagamento viene effettuato per i minuti di indicizzazione, nonché in base ai costi correlati all'account multimediale. 
 
 ## <a name="uploading-considerations"></a>Considerazioni sul caricamento
-    
+
 - Quando si carica il video in base all'URL (scelta preferita), l'endpoint deve essere protetto con il protocollo TLS 1.2 (o versione successiva)
-- Le dimensioni di caricamento con l'opzione URL sono limitate a 10 GB
-- Le dimensioni di caricamento con l'opzione matrice di byte sono limitate a 2 GB 
+- Le dimensioni di caricamento con l'opzione URL sono limitate a 25 GB
+- Le dimensioni di caricamento con l'opzione matrice di byte sono limitate a 2 GB
 - L'opzione di matrice di byte scade dopo 30 minuti
 - L'URL fornito nel parametro `videoURL` deve essere codificato.
 

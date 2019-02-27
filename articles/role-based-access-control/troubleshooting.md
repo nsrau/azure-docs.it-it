@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi relativi al controllo degli accessi in base al ruolo in Azure | Microsoft Docs
-description: Risolvere i problemi relativi al controllo degli accessi in base al ruolo di Azure.
+title: Risolvere i problemi del controllo degli accessi in base al ruolo per le risorse di Azure | Microsoft Docs
+description: Risolvere i problemi relativi al controllo degli accessi in base al ruolo per le risorse di Azure.
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: e204beea5bdf72c2ec5ebcf661d3c983a2e0e6b4
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 7b27c811214def7f5646f886b955d035a50c0725
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411238"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342474"
 ---
-# <a name="troubleshoot-rbac-in-azure"></a>Risolvere i problemi relativi al controllo degli accessi in base al ruolo in Azure
+# <a name="troubleshoot-rbac-for-azure-resources"></a>Risolvere i problemi del controllo degli accessi in base al ruolo per le risorse di Azure
 
-Questo articolo contiene le risposte alle domande comuni sul controllo degli accessi in base al ruolo, per poter sapere che cosa accade quando si usano i ruoli nel portale di Azure e risolvere i problemi di accesso.
+Questo articolo contiene le risposte alle domande comuni sul controllo degli accessi in base al ruolo per le risorse di Azure, per poter sapere che cosa accade quando si usano i ruoli nel portale di Azure e risolvere i problemi di accesso.
 
 ## <a name="problems-with-rbac-role-assignments"></a>Problemi con le assegnazioni di ruolo di Controllo degli accessi in base al ruolo
 
@@ -119,6 +119,6 @@ Alcune funzionalità di [Funzioni di Azure](../azure-functions/functions-overvie
 Un lettore può fare clic sulla scheda **Funzionalità della piattaforma** e quindi su **Tutte le impostazioni** per visualizzare alcune impostazioni correlate a un'app per le funzioni (in modo simile a un'app Web), ma non può modificare nessuna impostazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](role-assignments-portal.md)
-* [Visualizzare i log attività per le modifiche del controllo degli accessi in base al ruolo](change-history-report.md)
+* [Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e il portale di Azure](role-assignments-portal.md)
+* [Visualizzare i log attività per le modifiche del controllo degli accessi in base al ruolo alle risorse di Azure](change-history-report.md)
 

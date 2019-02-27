@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a05efbe3feb81b11d547cd50d8ba3f87c2ff0e5b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 52f8e20cb66fb9c516435dd40ff7e362567bb338
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164720"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310863"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problemi di accesso a un'applicazione dal pannello di accesso
 
@@ -250,13 +250,13 @@ Per scaricare il certificato o i metadati dell'applicazione da Azure AD, seguire
 
 Per configurare un'applicazione non inclusa nella raccolta, è necessario disporre di Azure AD Premium e l'applicazione deve supportare SAML 2.0. Per altre informazioni sulle versioni di Azure AD, vedere [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
--   [Configurare i valori dei metadati dell'applicazione in Azure AD (URL di accesso, identificatore, URL di risposta)](#configuring-single-sign-on)
+-   Configurare i valori dei metadati dell'applicazione in Azure AD (URL di accesso, identificatore, URL di risposta)
 
 -   [Selezionare l'identificatore utente e aggiungere gli attributi utente da inviare all'applicazione](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
 
 -   [Recuperare il certificato e i metadati di Azure AD](#download-the-azure-ad-metadata-or-certificate)
 
--   [Configurare i valori dei metadati di Azure AD nell'applicazione (URL di accesso, autorità emittente, URL di disconnessione e certificato)](#configuring-single-sign-on)
+-   Configurare i valori dei metadati di Azure AD nell'applicazione (URL di accesso, autorità emittente, URL di disconnessione e certificato)
 
 ### <a name="configure-the-applications-metadata-values-in-azure-ad-sign-on-url-identifier-reply-url"></a>Configurare i valori dei metadati dell'applicazione in Azure AD (URL di accesso, identificatore, URL di risposta)
 

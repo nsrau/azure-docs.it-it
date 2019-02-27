@@ -1,6 +1,6 @@
 ---
-title: Configurare le password delle app usando le informazioni di sicurezza - Azure Active Directory | Microsoft Docs
-description: Usare le informazioni di sicurezza per configurare password generate automaticamente (password delle app), distinte dalle password normali, da usare con ognuna delle app non basate su browser.
+title: Configurare le password delle app dalla pagina Info di sicurezza (anteprima) - Azure Active Directory | Microsoft Docs
+description: Configurare le password generate automaticamente (password dell'app) da usare con qualsiasi app non basate su browser o qualsiasi app che non supporta la verifica a due fattori nell'organizzazione. Questa password dell'app è distinta da una password normale e può essere configurata dalla pagina Info di sicurezza.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,21 +9,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62dcdfe3aef40942dd61fe604e179b61dbdd747c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fcf0e421572a9a698bcc68af47d8950795ac8791
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211887"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456810"
 ---
-# <a name="manage-app-passwords-using-security-info-preview"></a>Gestire le password delle app usando le informazioni di sicurezza (anteprima)
+# <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Gestire le password delle app dalla pagina Info di sicurezza (anteprima)
+Alcune app, come Outlook 2010, non supportano la verifica in due passaggi. L'assenza di supporto significa che se si usa la verifica in due passaggi nell'organizzazione, l'app non funzionerà. Per ovviare a questo problema, è possibile creare una password generata automaticamente da usare con ogni app non basata su browser, diversa dalla password normale.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-Alcune app non basate su browser, come Outlook 2010, non supportano la verifica in due passaggi. L'assenza di supporto significa che se si usa la verifica in due passaggi, l'app non funzionerà. Per ovviare a questo problema, è possibile creare una password generata automaticamente da usare con ogni app non basata su browser, diversa dalla password normale.
+>[!Important]
+>L'amministratore potrebbe non consentire di usare le password delle app. Se l'opzione **Password dell'app** non è visibile, non è disponibile nell'organizzazione.
 
 Quando si usano password per le app, è importante tenere presente quanto segue:
 
@@ -36,52 +38,48 @@ Quando si usano password per le app, è importante tenere presente quanto segue:
     >[!Note]
     >I client di Office 2013, tra cui Outlook, supportano i nuovi protocolli di autenticazione e possono essere usati con la verifica in due passaggi. Questo supporto significa che dopo l'attivazione della verifica in due passaggi non sono più necessarie le password per le app per i client Office 2013. Per altre informazioni, vedere l'articolo [Funzionamento dell'autenticazione moderna per le applicazioni client di Office 2013 e Office 2016](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517).
 
-## <a name="create-and-delete-app-passwords-using-security-info"></a>Creare ed eliminare password delle app tramite le informazioni di sicurezza
+## <a name="create-new-app-passwords"></a>Creare nuove password per l'app
+Se si usa la verifica in due passaggi con l'account aziendale o dell'istituto di istruzione e l'amministratore ha disattivato l'esperienza delle informazioni di sicurezza, è possibile creare ed eliminare le password delle app usando la pagina **Info di sicurezza**.
 
-Se si usa la verifica in due passaggi con l'account aziendale o dell'istituto di istruzione e l'amministratore ha disattivato l'esperienza delle informazioni di sicurezza, è possibile creare ed eliminare le password delle app tramite il portale App personali.
+>[!Note]
+>Se l'amministratore non ha attivato l'esperienza delle informazioni di sicurezza, è necessario seguire le istruzioni e le informazioni nella sezione [Gestire le password delle app per la verifica in due passaggi](multi-factor-authentication-end-user-app-passwords.md).
 
-Se l'amministratore non ha attivato l'esperienza delle informazioni di sicurezza, è necessario seguire le istruzioni e le informazioni nella sezione [Gestire le password delle app per la verifica in due passaggi](multi-factor-authentication-end-user-app-passwords.md).
+### <a name="to-create-a-new-app-password"></a>Per creare una nuova password per l'app
+1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina https://myprofile.microsoft.com/.
 
-### <a name="to-create-app-passwords-using-the-my-apps-portal"></a>Per creare password delle app tramite il portale App personali
+    ![Pagina Profilo personale, con i collegamenti Info di sicurezza evidenziati](media/security-info/securityinfo-myprofile.png)
 
-1. Accedere all'account aziendale o dell'istituto di istruzione.
+2. Selezionare **Info di sicurezza** dal riquadro di spostamento a sinistra o dal collegamento nel blocco **Info di sicurezza** e quindi selezionare **Aggiungi metodo** dalla pagina **Info di sicurezza**.
 
-2. Passare a myapps.microsoft.com, selezionare il proprio nome nell'angolo superiore destro della pagina e quindi selezionare **Profilo**.
+    ![Pagina Info di sicurezza con l'opzione Aggiungi metodo evidenziata](media/security-info/securityinfo-myprofile-addmethod.png)
 
-3. Nell'area **Gestisci account** selezionare **Modifica le info di sicurezza**.
+3. Nella pagina **Aggiungi un metodo** selezionare **Password dell'app** dall'elenco a discesa e quindi selezionare **Aggiungi**.
 
-    ![Schermata Profilo con il collegamento Modifica le info di sicurezza evidenziato](media/security-info/security-info-profile.png)
+    ![Finestra di dialogo Aggiungi un metodo, con Password dell'app selezionata](media/security-info/securityinfo-myprofile-addpassword.png)
 
-4. Nella schermata **Proteggi l'account** selezionare **Aggiungi info di sicurezza**.
+4. Digitare il nome dell'app che richiede la password e quindi selezionare **Avanti**.
 
-    ![Schermata delle informazioni di sicurezza con le informazioni esistenti, modificabili](media/security-info/security-info-edit-add-info.png)
+    ![Pagina Password dell'app, con il nome dell'app](media/security-info/securityinfo-myprofile-password-appname.png)
 
-5. Nella schermata **Aggiungi info di sicurezza** selezionare **Password dell'app**.
+5. Copiare il testo dalla casella **Password**, incollare la password nell'apposita area dell'app (in questo esempio Outlook 2010) e quindi selezionare **Fine**.
 
-6. Nella schermata **Crea la password dell'app** digitare un nome per la password dell'app e quindi selezionare **Avanti**.
-
-    ![Schermata in cui si assegna il nome alla password dell'app](media/security-info/security-info-name-app-password.png)
-
-7. Selezionare **Copia** per copiare la password negli Appunti e quindi selezionare **Avanti**.
-
-    ![Schermata con la password dell'app per la copia](media/security-info/security-info-create-app-password.png)
+    ![Pagina Password dell'app, con il nome dell'app](media/security-info/securityinfo-myprofile-password-copytext.png)
     
-8. Assicurarsi che la password dell'app sia visualizzata nella schermata **Proteggi l'account**.
+    La password viene aggiunta ed è possibile accedere all'app a partire da questo momento.
 
-    ![Schermata Proteggi l'account con la password dell'app](media/security-info/security-info-keep-secure-app-password.png)
+## <a name="delete-your-app-passwords"></a>Elimina le password dell'app
+Se non è più necessario usare un'app che richiede una password, è possibile eliminare la password dell'app associata. L'eliminazione della password dell'app libera uno dei posti disponibili per la password dell'app da usare in futuro.
 
-### <a name="to-delete-app-passwords-using-the-my-apps-portal"></a>Per eliminare password delle app tramite il portale App personali
+>[!Important]
+>Se si elimina per errore una password dell'app, non è possibile annullare l'azione. Sarà necessario creare una nuova password dell'app e reimmetterla nell'app, seguendo la procedura illustrata nella sezione [Creare nuove password per l'app](#create-new-app-passwords) di questo articolo.
 
-1. Nella schermata **Proteggi l'account** selezionare la **X** accanto alla password dell'app da eliminare.
+### <a name="to-delete-an-app-password"></a>Per eliminare una password di app
 
-    ![Schermata Proteggi l'account, eliminare la password dell'app](media/security-info/security-info-keep-secure-delete-app-password.png)
+1. Nella pagina **Info di sicurezza** selezionare il collegamento **Elimina** accanto all'opzione **Password dell'app** per l'app specifica.
 
-2. Nella schermata **Elimina la password dell'applicazione** selezionare **Elimina**.
+    ![Collegamento per eliminare il metodo basato sulle password dell'app dalle informazioni di sicurezza](media/security-info/securityinfo-myprofile-password-appdelete.png)
 
-    ![Schermata Elimina la password dell'applicazione](media/security-info/security-info-keep-secure-delete-app-password2.png)
+2. Selezionare **Sì** nella finestra di dialogo di conferma per eliminare la **password dell'app**. La password dell'app, dopo essere stata eliminata, viene rimossa dalle informazioni di sicurezza e non viene più visualizzata nella pagina **Info di sicurezza**.
 
-## <a name="next-steps"></a>Passaggi successivi
-
-- Se è necessario aggiornare le informazioni di sicurezza, seguire le istruzioni descritte nell'articolo [Gestire le informazioni di sicurezza](security-info-manage-settings.md).
-
-- Per informazioni più generali sulle informazioni di sicurezza e sulle operazioni possibili, vedere [Security info overview](user-help-security-info-overview.md) (Panoramica delle informazioni di sicurezza) 
+## <a name="for-more-information"></a>Per altre informazioni
+- Per altre informazioni sulla pagina **Info di sicurezza** e su come configurarla, vedere [Panoramica delle informazioni di sicurezza](user-help-security-info-overview.md)

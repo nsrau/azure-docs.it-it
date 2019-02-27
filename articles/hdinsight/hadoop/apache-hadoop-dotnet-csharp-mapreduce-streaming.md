@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/27/2018
+ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 02821abd8769a89fc1c7ad9d0dd5cf4e5a245e5f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 130ca849b39336637f53b32043874b5d037a8f0d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435311"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342924"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Usare C# con lo streaming di MapReduce su Apache Hadoop in HDInsight
 
@@ -175,7 +175,13 @@ Dopo aver creato l'applicazione, compilarla per produrre il file `/bin/Debug/red
 
 2. Usare uno dei comandi seguenti per avviare il processo MapReduce:
 
-    * Se si usa __Data Lake Storage__ come risorsa di archiviazione predefinita:
+    * Se si usa __Azure Data Lake Storage Gen2__ come risorsa di archiviazione predefinita:
+
+        ```bash
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files abfs:///mapper.exe,abfs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+        ```
+
+    * Se si usa __Azure Data Lake Storage Gen1__ come risorsa di archiviazione predefinita:
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
@@ -190,7 +196,7 @@ Dopo aver creato l'applicazione, compilarla per produrre il file `/bin/Debug/red
     L'elenco seguente descrive le operazioni eseguite da ogni parametro:
 
     * `hadoop-streaming.jar`: Il file con estensione jar che contiene la funzionalità di streaming MapReduce.
-    * `-files`: Aggiunge i file `mapper.exe` e `reducer.exe` a questo processo. `adl:///` o `wasb:///` prima di ogni file rappresenta il percorso della radice di archiviazione predefinita per il cluster.
+    * `-files`: Aggiunge i file `mapper.exe` e `reducer.exe` a questo processo. `abfs:///`, `adl:///` o `wasb:///` prima di ogni file rappresenta il percorso della radice di archiviazione predefinita per il cluster.
     * `-mapper`: Specifica il file che implementa il mapper.
     * `-reducer`: Specifica il file che implementa il reducer.
     * `-input`: I dati di input.

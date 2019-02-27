@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 2/8/2019
 ms.author: moderakh
-ms.openlocfilehash: 88fcfec903dac9d939d658e5d06a51ab8ff1aba9
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1a86ceefdc5c3b60dc4bca5a1ac659534653aa66
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979174"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416276"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK per API SQL: risorse e note sulla versione
 > [!div class="op_single_selector"]
@@ -45,13 +45,12 @@ SQL API Async Java SD differisce da SQL API Java SDK offrendo operazioni asincro
 ## <a name="release-notes"></a>Note sulla versione
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
-* Disponibilità a livello generale diretta.
+* La connettività in modalità diretta è ora disponibile a livello generale. Per un esempio di uso della connettività in modalità diretta, vedere il repository GitHub [azure-cosmosdb-java](https://github.com/Azure/azure-cosmosdb-java).
 * Aggiunta del supporto per QueryMetrics.
-* Modifica delle API che accettano java.util.Collection per il cui ordine è invece importante accettare java.util.List.
-  Adesso ConnectionPolicy#getPreferredLocations(), JsonSerialization e PartitionKey(.) accettano List.
+* Modifica delle API che accettano java.util.Collection per il cui ordine è invece importante accettare java.util.List. Adesso ConnectionPolicy#getPreferredLocations(), JsonSerialization e PartitionKey(.) accettano List.
 
 ### <a name="a-name240-beta-1240-beta-1"></a><a name="2.4.0-beta-1"/>2.4.0-beta-1
-* Aggiunta del supporto per Direct.
+* Aggiunta del supporto per la connettività in modalità diretta.
 * Modifica delle API che accettano java.util.Collection per il cui ordine è invece importante accettare java.util.List.
   Adesso ConnectionPolicy#getPreferredLocations(), JsonSerialization e PartitionKey(.) accettano List.
 * Risolto un bug di sessione per la query di documenti in modalità gateway.

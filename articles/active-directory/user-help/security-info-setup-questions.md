@@ -1,6 +1,6 @@
 ---
-title: "Configurare le informazioni di sicurezza per l'uso di domande di sicurezza: Azure Active Directory | Microsoft Docs"
-description: Configurare le informazioni di sicurezza per verificare l'identità tramite le domande di sicurezza predefinite.
+title: Configurare le informazioni di sicurezza (anteprima) per l'uso delle domande di sicurezza - Azure Active Directory | Microsoft Docs
+description: Come configurare le informazioni di sicurezza per verificare l'identità usando le domande di sicurezza predefinite.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,44 +9,69 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab3817411c1285f2ca7c8aa294f90314e3545504
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b0fd2cd0250e3b3074e5632f30c8dbcc8db41e6e
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203489"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455025"
 ---
-# <a name="set-up-security-info-to-use-pre-defined-security-questions-preview"></a>Configurare le informazioni di sicurezza per l'uso di domande di sicurezza predefinite (anteprima)
+# <a name="set-up-security-info-preview-to-use-security-questions"></a>Configurare le informazioni di sicurezza (anteprima) per l'uso di domande di sicurezza
+È possibile seguire questi passaggi per aggiungere il metodo di reimpostazione della password. Dopo averle configurate per la prima volta, è possibile tornare alla pagina **Info di sicurezza** per aggiungere, aggiornare o eliminare le informazioni di sicurezza.
+
+Dopo aver configurato il metodo di reimpostazione della password, è necessario configurare anche il metodo di verifica a due fattori, usando un [app di autenticazione](security-info-setup-auth-app.md), l'[invio di SMS](security-info-setup-text-msg.md) o una [chiamata telefonica](security-info-setup-phone-number.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-La configurazione delle informazioni di sicurezza richiede l'accesso all'account aziendale o dell'istituto di istruzione e il completamento del processo di registrazione. Se le informazioni di sicurezza non sono mai state configurate, verrà chiesto di farlo.
+## <a name="set-up-your-security-questions-from-the-security-info-page"></a>Configurare le domande di sicurezza dalla pagina Info di sicurezza
+A seconda delle impostazioni dell'organizzazione, potrebbe essere possibile scegliere alcune domande a cui rispondere, come metodo per le informazioni di sicurezza. L'amministratore configura il numero di domande di sicurezza che è necessario scegliere e a cui rispondere.
 
-## <a name="set-up-security-questions"></a>Configurare le domande di sicurezza
-
-A seconda delle impostazioni dell'organizzazione, quando si effettua l'accesso è possibile che venga richiesto di aggiungere domande di sicurezza alle informazioni sulla sicurezza. In caso contrario, per iniziare a configurare le domande di sicurezza nelle informazioni sulla sicurezza, seguire i passaggi riportati in [Gestire le informazioni di sicurezza](security-info-manage-settings.md).
-
-Se vengono usate le domande di sicurezza, è consigliabile combinare questo metodo con un altro. Le domande di sicurezza possono risultare meno sicure rispetto ad altri metodi perché alcuni utenti potrebbero conoscere le risposte alle domande di un altro utente.
+Se vengono usate le domande di sicurezza, è consigliabile combinare questo metodo con un altro. Le domande di sicurezza possono risultare meno sicure rispetto ad altri metodi perché alcuni utenti potrebbero conoscere le risposte alle domande.
 
 >[!Note]
->Le domande di sicurezza vengono archiviate privatamente e in modo sicuro in un oggetto utente nella directory e gli utenti possono rispondere a tali domande solo durante la registrazione. All'amministratore non è consentito leggere o modificare le domande e le risposte di un utente.<br>Se l'opzione relativa alle domande di sicurezza non viene visualizzata, è possibile che l'organizzazione non consenta di usare le domande di sicurezza per la verifica. In questo caso, è necessario scegliere un altro metodo oppure contattare l'amministratore per ottenere assistenza.
+>Le domande di sicurezza vengono archiviate privatamente e in modo sicuro in un oggetto utente nella directory e gli utenti possono rispondere a tali domande solo durante la registrazione. All'amministratore non è consentito leggere o modificare le domande e le risposte di un utente.
 
-### <a name="to-choose-and-answer-your-security-questions"></a>Per scegliere e rispondere alle domande di sicurezza
+>Se l'opzione relativa alle domande di sicurezza non viene visualizzata, è possibile che l'organizzazione non consenta di usare le domande di sicurezza per la verifica. In questo caso, è necessario scegliere un altro metodo oppure contattare l'amministratore per ottenere assistenza.
 
-1. Selezionare **Domande di sicurezza**, quindi scegliere le domande di sicurezza alle quali si intende rispondere. 
+### <a name="to-set-up-your-security-questions"></a>Per configurare le domande di sicurezza
 
-    Il numero di domande di sicurezza che è necessario scegliere è stabilito dall'amministratore.
+1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina https://myprofile.microsoft.com/.
 
-    ![Pagina delle informazioni di sicurezza, selezionare le domande di sicurezza](media/security-info/security-info-keep-secure-setup-pick-questions.png)
+    ![Pagina Profilo personale, con i collegamenti Info di sicurezza evidenziati](media/security-info/securityinfo-myprofile.png)
 
-2. Fornire risposte per le domande selezionate, quindi selezionare **Fatto**.
+2. Selezionare **Info di sicurezza** dal riquadro di spostamento a sinistra o dal collegamento nel blocco **Info di sicurezza** e quindi selezionare **Aggiungi metodo** dalla pagina **Info di sicurezza**.
 
-## <a name="additional-security-info-options"></a>Opzioni aggiuntive per le informazioni di sicurezza
+    ![Pagina Info di sicurezza con l'opzione Aggiungi metodo evidenziata](media/security-info/securityinfo-myprofile-addmethod.png)
 
-Sono disponibili opzioni relative alle modalità di contatto da parte dell'organizzazione per verificare l'identità dell'utente, a seconda dell'operazione che si sta cercando di eseguire. Queste opzioni includono:
+3. Nella pagina **Aggiungi un metodo** selezionare **Domande di sicurezza** dall'elenco a discesa e quindi selezionare **Aggiungi**.
+
+    ![Finestra di dialogo Aggiungi un metodo, con l'opzione Domande di sicurezza selezionata](media/security-info/securityinfo-myprofile-addquestions.png)
+
+4. Nella pagina **Domande di sicurezza** scegliere le domande di sicurezza, rispondere e quindi selezionare **Salva**.
+
+    ![Aggiungere il numero di telefono e scegliere le chiamate telefoniche](media/security-info/securityinfo-myprofile-securityquestions.png)
+
+    Le informazioni di sicurezza vengono aggiornate ed è possibile usare le domande di sicurezza per verificare l'identità quando si usa la reimpostazione della password.
+
+## <a name="delete-security-questions-from-your-security-info-methods"></a>Eliminare le domande di sicurezza dai metodi di gestione delle informazioni di sicurezza
+Per non usare più le domande di sicurezza come metodo di gestione delle informazioni di sicurezza, è possibile rimuoverle dalla pagina **Info di sicurezza**.
+
+>[!Important]
+>Se si eliminano per errore le domande di sicurezza, non è possibile annullare l'azione. Sarà necessario aggiungere nuovamente il metodo, seguendo la procedura illustrata nella sezione [Configurare le domande di sicurezza](#set-up-your-security-questions-from-the-security-info-page) di questo articolo.
+
+### <a name="to-delete-your-security-questions"></a>Per eliminare le domande di sicurezza
+
+1. Nella pagina **Info di sicurezza** selezionare il collegamento **Elimina** accanto all'opzione **Domande di sicurezza**.
+
+    ![Collegamento per eliminare il metodo basato sul telefono dalle informazioni di sicurezza](media/security-info/securityinfo-myprofile-questionsdelete.png)
+
+2. Selezionare **Sì** nella finestra di dialogo di conferma per eliminare le **domande di sicurezza**. Dopo l'eliminazione delle domande di sicurezza, il metodo viene rimosso dalle informazioni di sicurezza e non viene più visualizzato nella pagina **Info di sicurezza**.
+
+## <a name="additional-security-info-methods"></a>Metodi aggiuntivi per le informazioni di sicurezza
+In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative alle modalità di contatto da parte dell'organizzazione per verificare l'identità dell'utente, tra cui:
 
 - **App di autenticazione.** Scaricare e usare un'app di autenticazione per ottenere una notifica di approvazione o un codice di approvazione generato in modo casuale per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come configurare e usare l'app Microsoft Authenticator, vedere [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md).
 
@@ -60,8 +85,6 @@ Sono disponibili opzioni relative alle modalità di contatto da parte dell'organ
     >Se alcune opzioni non sono disponibili, è probabile che l'organizzazione non consenta di usare questi metodi. In questo caso, è necessario scegliere un metodo disponibile oppure contattare l'amministratore per ottenere assistenza.
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-- Se è necessario aggiornare le informazioni di sicurezza, seguire le istruzioni descritte nell'articolo [Gestire le informazioni di sicurezza](security-info-manage-settings.md).
 
 - Se la password viene persa o dimenticata, reimpostarla dal [portale per la reimpostazione della password](https://passwordreset.microsoftonline.com/) oppure seguire i passaggi nell'articolo [Reimpostare la password aziendale o dell'istituto di istruzione](user-help-reset-password.md).
 

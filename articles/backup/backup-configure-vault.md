@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: 73074898c29a240e31b181025f8cc92f25de5061
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 006d47d397bab0869ae8a75d6c17d239e71608c3
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382752"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310576"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Eseguire il backup di un client o server Windows in Azure con Backup di Azure usando il modello di distribuzione Resource Manager
 Questo articolo illustra come eseguire il backup di file e cartelle di Windows Server o di un client Windows in Azure con Backup di Azure tramite il modello di distribuzione di Resource Manager.
@@ -72,7 +72,7 @@ Quando si crea per la prima volta un insieme di credenziali di Servizi di ripris
 
     ![Selezionare il nuovo insieme di credenziali dall'elenco corrispondente per Servizi di ripristino](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault.png)
 
-    Quando si seleziona l'insieme di credenziali, il pannello Insiemi di credenziali di Servizi di ripristino si restringe e vengono aperti il pannello **Panoramica** (*con il nome dell'insieme di credenziali nella parte superiore*) e il pannello dei dettagli dell'insieme di credenziali.
+    Quando si seleziona l'insieme di credenziali, il pannello Insiemi di credenziali di Servizi di ripristino si restringe e vengono aperti il pannello **Panoramica** (*con il nome dell'insieme di credenziali in alto*) e il pannello dei dettagli dell'insieme di credenziali.
 
     ![Visualizzare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-overview.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Differenze nel linguaggio di query di log di Monitoraggio di Azure | Microsoft Docs
-description: Informazioni di riferimento sul linguaggio di query per Esplora dati usato da Monitoraggio di Azure. Include elementi aggiuntivi specifici di Monitoraggio di Azure e gli elementi non supportati nelle query di log di Monitoraggio di Azure.
+description: Informazioni di riferimento per il linguaggio di query Kusto usato da Monitoraggio di Azure. Include elementi aggiuntivi specifici di Monitoraggio di Azure e gli elementi non supportati nelle query di log di Monitoraggio di Azure.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: bwren
-ms.openlocfilehash: 9c58796fa19ffb6d38582c809f7bb6ca948bd92c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1185f3f96fd39f168d138d7dbf66e7780884b1fa
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003628"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56266731"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Differenze nel linguaggio di query di log di Monitoraggio di Azure
 
-Sebbene i log di [Monitoraggio di Azure](log-query-overview.md) si basino su [Esplora dati di Azure](/azure/data-explorer) e usino lo [stesso linguaggio di query](/azure/kusto/query), la versione del linguaggio presenta alcune differenze. Questo articolo identifica gli elementi che risultano diversi tra la versione del linguaggio usata per Esplora dati e la versione usata per le query di log di Monitoraggio di Azure.
+Sebbene i log di [Monitoraggio di Azure](log-query-overview.md) si basino su [Esplora dati di Azure](/azure/data-explorer) e usino lo [stesso linguaggio Kusto](/azure/kusto/query), la versione del linguaggio presenta alcune differenze. Questo articolo identifica gli elementi che risultano diversi tra la versione del linguaggio usata per Esplora dati e la versione usata per le query di log di Monitoraggio di Azure.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="data-explorer-elements-not-supported-in-azure-monitor"></a>Elementi di Esplora dati non supportati in Monitoraggio di Azure
-Le sezioni seguenti descrivono gli elementi del linguaggio di query di Esplora dati che non sono supportati da Monitoraggio di Azure.
+## <a name="kql-elements-not-supported-in-azure-monitor"></a>Elementi KQL non supportati in Monitoraggio di Azure
+Le sezioni seguenti descrivono gli elementi del linguaggio di query Kusto che non sono supportati da Monitoraggio di Azure.
 
 ### <a name="statements-not-supported-in-azure-monitor"></a>Istruzioni non supportate in Monitoraggio di Azure
 
@@ -64,4 +64,4 @@ Gli operatori seguenti supportano specifiche funzionalità di Monitoraggio di Az
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Ottenere i riferimenti a diverse [risorse per la scrittura di query di log di Monitoraggio di Azure](query-language.md).
-- Accedere alla [documentazione di riferimento completa per il linguaggio di query di Esplora dati](/azure/kusto/query/).
+- Accedere alla [documentazione di riferimento completa per il linguaggio di query Kusto](/azure/kusto/query/).

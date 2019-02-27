@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: vainolo
-ms.author: vainolo
+ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: d092b4e8096b311ba9ca9d3fbceea8fb57bf4aa9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 08c71ac1aba659a2e0fbb6655b6ee0a21576bf5d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234663"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339788"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 
@@ -43,8 +43,11 @@ Il controllo del [database SQL di Azure](sql-database-technical-overview.md) e d
 > [!IMPORTANT]
 > I log di controllo vengono scritti in **BLOB di accodamento** nella risorsa di archiviazione BLOB di Azure della sottoscrizione di Azure.
 >
-> - **Archiviazione Premium** attualmente **non è supportata** da BLOB di accodamento.
+> - Sono supportati tutti i tipi di archiviazione (v1, v2, BLOB).
+> - Sono supportate tutte le configurazioni di replica di archiviazione.
+> - **Archiviazione Premium** attualmente **non è supportata**.
 > - **Storage in VNet** attualmente **non è supportato**.
+> - L'**archiviazione protetta da firewall** attualmente **non è supportata**
 
 ## <a id="subheading-8"></a>Definire criteri di controllo a livello di server o a livello di database
 

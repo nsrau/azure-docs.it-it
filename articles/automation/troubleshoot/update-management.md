@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 01f72b8d41c1a973c7d187f519a43ce62929a23e
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 0b92d36287646038d9195f7ba39352d8ced9a3b6
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359358"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270267"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Risoluzione dei problemi con Gestione aggiornamenti
 
@@ -43,7 +43,11 @@ Questo errore può dipendere dalle cause seguenti:
 #### <a name="resolution"></a>Risoluzione
 
 1. Vedere [Configurare la rete](../automation-hybrid-runbook-worker.md#network-planning) per informazioni sugli indirizzi e sulle porte da abilitare per il funzionamento di Gestione aggiornamenti.
-2. Se si usa un'immagine clonata, preparare prima l'immagine con Sysprep e installare l'agente MMA al termine dell'operazione.
+2. Se si usa un'immagine clonata:
+   1. Nell'area di lavoro di Log Analytics rimuovere la macchina virtuale dalla ricerca salvata per la configurazione dell'ambito `MicrosoftDefaultScopeConfig-Updates`. Le ricerche salvate sono disponibili in **Generale** nell'area di lavoro.
+   2. Eseguire `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`
+   3. Eseguire `Restart-Service HealthService` per riavviare `HealthService`. In questo modo viene ricreata la chiave e viene creato un nuovo UUID.
+   4. Se il problema persiste, preparare prima l'immagine con Sysprep e installare l'agente MMA al termine dell'operazione.
 
 ### <a name="multi-tenant"></a>Scenario: viene visualizzato un errore di sottoscrizione collegata durante la creazione di una distribuzione degli aggiornamenti per i computer in un altro tenant di Azure.
 

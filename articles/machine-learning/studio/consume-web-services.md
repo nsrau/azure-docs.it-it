@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: 4af7af6616b5415cd13abacd6aca13bd412d4ad8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4a05b99cf0e40e63c01aee27bd745dd165dc23b8
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998086"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452696"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Come usare un servizio Web di Azure Machine Learning Studio
 
-Dopo aver distribuito un modello predittivo di Azure Machine Learning come servizio Web, è possibile usare un'API REST per inviare dati e ottenere stime. È possibile inviare i dati in tempo reale o in modalità batch.
+Dopo aver distribuito un modello predittivo di Azure Machine Learning Studio come servizio Web, è possibile usare un'API REST per inviare dati a questo e ottenere stime. È possibile inviare i dati in tempo reale o in modalità batch.
 
 Per informazioni su come creare e distribuire un servizio Web di Machine Learning tramite Machine Learning Studio:
 
@@ -32,14 +32,14 @@ Per informazioni su come creare e distribuire un servizio Web di Machine Learnin
 ## <a name="overview"></a>Panoramica
 Con il servizio Web di Azure Machine Learning, un'applicazione esterna comunica con un modello di valutazione del flusso di lavoro di Machine Learning in tempo reale. Una chiamata al servizio Web di Machine Learning restituisce i risultati della stima a un'applicazione esterna. Per effettuare una chiamata al servizio Web di Machine Learning, passare una chiave API creata quando si distribuisce una stima. Il servizio Web di Machine Learning è basato su REST, una scelta di architettura diffusa per progetti di programmazione Web.
 
-Azure Machine Learning dispone di due tipi di servizi:
+Azure Machine Learning Studio dispone di due tipi di servizi:
 
 * Servizio di richiesta-risposta (RRS). Un servizio a latenza bassa e altamente scalabile che offre un'interfaccia ai modelli senza stato creati e distribuiti da Machine Learning Studio.
 * Servizio esecuzione batch (BES). Un servizio asincrono che valuta un batch di record di dati.
 
 Per altre informazioni sui servizi Web di Machine Learning, vedere [Distribuire un servizio Web di Azure Machine Learning](publish-a-machine-learning-web-service.md).
 
-## <a name="get-an-azure-machine-learning-authorization-key"></a>Ottenere una chiave di autorizzazione Azure Machine Learning
+## <a name="get-an-azure-machine-learning-studio-authorization-key"></a>Ottenere una chiave di autorizzazione di Azure Machine Learning Studio
 Quando si distribuisce l'esperimento, vengono generate le chiavi API per il servizio Web, recuperabili da diverse posizioni.
 
 ### <a name="from-the-microsoft-azure-machine-learning-web-services-portal"></a>Dal portale dei servizi Web di Microsoft Azure Machine Learning
@@ -103,7 +103,7 @@ Per connettersi a un servizio Web di Machine Learning, è necessario installare 
 **Per eseguire l'esempio di codice**
 
 1. Pubblicare l'esperimento "Sample 1: Download dataset from UCI: Adult 2 class dataset", che fa parte della raccolta di esempi di Machine Learning.
-2. Assegnare ad apiKey la chiave di un servizio Web. Vedere la sezione precedente **Ottenere una chiave di autorizzazione di Azure Machine Learning** .
+2. Assegnare ad apiKey la chiave di un servizio Web. Vedere **Ottenere una chiave di autorizzazione di Azure Machine Learning Studio** più indietro.
 3. Assegnare l'URI del servizio con l'URI della richiesta.
 
 **Di seguito è riportato l'aspetto di una richiesta completa.**
@@ -199,7 +199,7 @@ Per connettersi a un servizio Web di Machine Learning, usare la libreria **urlli
 **Per eseguire l'esempio di codice**
 
 1. Distribuire l'esperimento "Sample 1: Download dataset from UCI: Adult 2 class dataset", che fa parte della raccolta di esempi di Machine Learning.
-2. Assegnare ad apiKey la chiave di un servizio Web. Vedere la sezione **Ottenere una chiave di autorizzazione Azure Machine Learning** all'inizio di questo articolo.
+2. Assegnare ad apiKey la chiave di un servizio Web. Vedere la sezione **Ottenere una chiave di autorizzazione di Azure Machine Learning** all'inizio di questo articolo.
 3. Assegnare l'URI del servizio con l'URI della richiesta.
 
 **Di seguito è riportato l'aspetto di una richiesta completa.**

@@ -4,18 +4,18 @@ description: Usare il portale di Azure per distribuire i moduli in un dispositiv
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/03/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 8b7327796cf29c8c234c0a750c90e0689f508f7e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 9d7729dce5419c5813de3c4dfce55c40098f5988
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969404"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430115"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Distribuire i moduli di Azure IoT Edge dal portale di Azure
 
@@ -51,6 +51,7 @@ Nel portale di Azure è disponibile una procedura guidata che consente di creare
 
    * **Modulo IoT Edge**: opzione predefinita.
    * **Azure Stream Analytics Module** (Modulo di Analisi di flusso di Azure): solo i moduli generati da un carico di lavoro di Analisi di flusso di Azure.
+   * **Modulo Azure Machine Learning**: solo le immagini dei modelli generate da un'area di lavoro di Azure Machine Learning.
 
 1. Selezionare il **Modulo IoT Edge**.
 
@@ -82,6 +83,29 @@ Controllare le informazioni sulla distribuzione e quindi selezionare **Submit** 
 ## <a name="view-modules-on-your-device"></a>Visualizzare i moduli nel dispositivo
 
 Dopo aver distribuito i moduli nel dispositivo, è possibile visualizzarli tutti nella pagina **Dettagli dispositivo** del portale. Questa pagina visualizza il nome di ogni modulo distribuito e informazioni utili come lo stato della distribuzione e il codice di uscita.
+
+## <a name="deploy-modules-from-azure-marketplace"></a>Distribuire i moduli da Azure Marketplace
+
+Azure Marketplace è un marketplace online di servizi e applicazioni dove è possibile trovare un'ampia gamma di soluzioni e applicazioni aziendali certificate e ottimizzate per l'esecuzione in Azure, tra cui i [moduli IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). È anche possibile accedere ad Azure Marketplace tramite il portale di Azure scegliendo **Crea una risorsa**.
+
+È possibile installare un modulo IoT Edge da Azure Marketplace o dal portale di Azure:
+
+1. Trovare un modulo e iniziare il processo di distribuzione.
+
+   * Portale di Azure: Trovare un modulo e selezionare **Crea**.
+
+   * Azure Marketplace:
+
+     1. Trovare un modulo e selezionare **Scarica adesso**.
+     1. Accettare le condizioni per l'utilizzo e l'informativa sulla privacy del provider selezionando **Continua**.
+
+1. Scegliere la sottoscrizione e l'hub IoT a cui è collegato il dispositivo di destinazione.
+
+1. Scegliere **Distribuisci in un dispositivo**.
+
+1. Immettere il nome del dispositivo o selezionare **Trova dispositivo** per cercare tra i dispositivi registrati nell'hub.
+
+1. Selezionare **Crea** per continuare il processo standard di configurazione di un manifesto della distribuzione, inclusa l'aggiunta di altri moduli, se lo si desidera. I dettagli per il nuovo modulo, ad esempio URI dell'immagine, opzioni di creazione e proprietà desiderate, sono predefiniti, ma possono essere modificati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

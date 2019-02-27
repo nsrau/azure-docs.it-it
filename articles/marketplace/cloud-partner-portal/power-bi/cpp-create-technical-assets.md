@@ -14,23 +14,23 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: pbutlerm
-ms.openlocfilehash: d0545d7285289c7081faf51c6e3ea09071f55a51
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f3d6466ced6efdb4047f9531329b70477911bf21
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55665682"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414764"
 ---
-# <a name="create-power-bi-app-technical-assets"></a>Creare gli asset tecnici per app Power BI
+# <a name="create-power-bi-app-offer-technical-assets"></a>Creare gli asset tecnici per un'offerta di app Power BI
 
-Il principale asset tecnico che è necessario avere per questo tipo di offerta è un'applicazione Power BI, che consiste in una raccolta costituita da un set di dati, un report e/o un dashboard principale e da servizi connessi facoltativi e set di dati incorporati. Le applicazioni Power BI sono un'evoluzione del tipo di asset noto in precedenza come [pacchetto di contenuto](https://docs.microsoft.com/power-bi/service-organizational-content-pack-introduction).  Per informazioni complete sullo sviluppo di queste applicazioni, vedere [App Power BI](https://go.microsoft.com/fwlink/?linkid=2028636).
+Il principale asset tecnico necessario per questo tipo di offerta è un'app Power BI. Un'app Power BI è una raccolta di set di dati primari, report o dashboard, oltre che servizi connessi e set di dati incorporati facoltativi. Si tratta di un'evoluzione del tipo di asset noto in precedenza come [pacchetto di contenuto](https://docs.microsoft.com/power-bi/service-organizational-content-pack-introduction). Per altre informazioni sullo sviluppo di questo tipo di app, vedere [Che cosa sono le app modello di Power BI?](https://go.microsoft.com/fwlink/?linkid=2028636).
 
 
-## <a name="obtaining-an-installation-url"></a>Ottenere un URL di installazione
+## <a name="obtain-an-installation-url"></a>Ottenere un URL di installazione
 
-È possibile creare un'app Power BI solo all'interno del [servizio Power BI](https://powerbi.microsoft.com/) usando un account di accesso dotato di una [licenza di Power BI Pro](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro). Dopo aver creato e testato l'applicazione di servizio in Power BI, salvare l'URL di installazione dell'applicazione generato da Power BI.  È necessario specificare questo URL nella [scheda Technical Info](./cpp-technical-info-tab.md) (Informazioni tecniche) del modulo di invio del portale Cloud Partner.
+È possibile compilare un'app Power BI solo nel [servizio Power BI](https://powerbi.microsoft.com/). Per iniziare, accedere con una [licenza di Power BI Pro](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro). Dopo aver creato e testato l'applicazione di servizio in Power BI, salvare l'URL di installazione dell'app generato da Power BI. Specificare infine questo URL nella scheda [Technical Info](./cpp-technical-info-tab.md) (Informazioni tecniche) del modulo di invio del portale Cloud Partner.
  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver creato e testato l'app Power BI e aver creato l'offerta associata, è possibile [pubblicare l'offerta di Power BI](./cpp-publish-offer.md).  
+Dopo aver creato e testato l'app Power BI e aver creato l'offerta associata, è possibile [pubblicare l'offerta di app Power BI](./cpp-publish-offer.md). 

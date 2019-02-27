@@ -1,6 +1,6 @@
 ---
-title: Come modificare, eliminare o gestire i gruppi di gestione in Azure
-description: Informazioni su come gestire e aggiornare la gerarchia dei gruppi di gestione.
+title: Come modificare, eliminare o gestire i gruppi di gestione in Azure - Governance di Azure
+description: Informazioni su come visualizzare, gestire, aggiornare ed eliminare la gerarchia dei gruppi di gestione.
 author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 10dfa9812a0546f3a8c57e28227851b6f72657fc
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: dbfb6ecb9f29a82a8871922982a64dbefc338969
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582418"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342585"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gestire le risorse con i gruppi di gestione
 
@@ -39,11 +39,11 @@ Per apportare modifiche a un gruppo di gestione, è necessario disporre del ruol
 
 1. Selezionare l'opzione **Rinomina gruppo** nella parte superiore della pagina.
 
-   ![Rinomina gruppo](./media/detail_action_small.png)
+   ![Opzione Rinomina gruppo](./media/detail_action_small.png)
 
 1. All'apertura del menu, immettere il nuovo nome che si vuole visualizzare.
 
-   ![Rinomina gruppo](./media/rename_context.png)
+   ![Riquadro Rinomina gruppo](./media/rename_context.png)
 
 1. Selezionare **Salva**.
 
@@ -87,11 +87,11 @@ Per eliminare un gruppo di gestione è necessario che siano soddisfatti i requis
 
    - Se l'icona è disabilitata, posizionando il cursore del mouse sull'icona viene visualizzato il motivo.
 
-   ![Elimina gruppo](./media/delete.png)
+   ![Opzione Elimina gruppo](./media/delete.png)
 
 1. Si aprirà una finestra con la richiesta di confermare l'eliminazione del gruppo di gestione.
 
-   ![Elimina gruppo](./media/delete_confirm.png)
+   ![Finestra di dialogo di conferma dell'eliminazione del gruppo](./media/delete_confirm.png)
 
 1. Selezionare **Sì**.
 
@@ -195,13 +195,13 @@ Per controllare le proprie autorizzazioni, selezionare il gruppo di gestione e q
 
 1. Selezionare i puntini di sospensione in fondo alla riga della sottoscrizione che si vuole spostare.
 
-   ![Spostamento](./media/move_small.png)
+   ![Opzione Sposta](./media/move_small.png)
 
 1. Selezionare **Sposta**.
 
 1. Nel menu visualizzato selezionare il **Gruppo di gestione padre**.
 
-   ![Spostamento](./media/move_small_context.png)
+   ![Riquadro Sposta](./media/move_small_context.png)
 
 1. Selezionare **Salva**.
 

@@ -16,14 +16,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: c1d9047de814b7a80210fe2502d219921f5829a4
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 561eff75ef4268acd3f737f7aaa92ccaacfda7f3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976903"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328718"
 ---
-# <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Avvio rapido: Installazione manuale di SAP HANA a istanza singola nelle macchine virtuali di Azure
+# <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Guida introduttiva: Installazione manuale di SAP HANA a istanza singola nelle macchine virtuali di Azure
 ## <a name="introduction"></a>Introduzione
 Questa guida consente di configurare SAP HANA a istanza singola nelle macchine virtuali di Azure quando si installano manualmente SAP NetWeaver 7.5 e SAP HANA 1.0 SP12. L'argomento principale di questa guida è la distribuzione di SAP HANA in Azure. Questa guida non sostituisce la documentazione SAP. 
 
@@ -195,7 +195,7 @@ In base ai [requisiti di archiviazione TDI di SAP HANA](https://www.sap.com/docu
 | --- | --- | --- | --- | --- | --- |
 | GS5 | 448 GB | 2 x P30 | 1 x P20 | 1 x P10 | 1 x P10 | 
 
-Nella configurazione del disco suggerita il volume di dati HANA e il volume del registro vengono inseriti nello stesso set di dischi di archiviazione Premium di Azure con striping LVM o MDADM. Non è necessario definire alcun livello di ridondanza RAID poiché Archiviazione Premium di Azure mantiene tre immagini dei dischi per la ridondanza. Per assicurarsi di configurare uno spazio di archiviazione sufficiente, vedere [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) (Requisiti di archiviazione TDI di SAP HANA) e [SAP HANA Server Installation and Update Guide](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm) (Guida all'installazione e all'aggiornamento del server SAP HANA). Considerare anche i diversi volumi della velocità effettiva del disco rigido virtuale dei diversi dischi di archiviazione Premium di Azure, come documentato in [Archiviazione Premium a prestazioni elevate e dischi gestiti per le VM](https://docs.microsoft.com/azure/storage/storage-premium-storage). 
+Nella configurazione del disco suggerita il volume di dati HANA e il volume del registro vengono inseriti nello stesso set di dischi di archiviazione Premium di Azure con striping LVM o MDADM. Non è necessario definire alcun livello di ridondanza RAID poiché Archiviazione Premium di Azure mantiene tre immagini dei dischi per la ridondanza. Per assicurarsi di configurare uno spazio di archiviazione sufficiente, vedere [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) (Requisiti di archiviazione TDI di SAP HANA) e [SAP HANA Server Installation and Update Guide](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm) (Guida all'installazione e all'aggiornamento del server SAP HANA). Considerare anche i diversi volumi della velocità effettiva del disco rigido virtuale dei diversi dischi di archiviazione Premium di Azure, come documentato in [Archiviazione Premium a prestazioni elevate e dischi gestiti per le VM](../../windows/disks-types.md). 
 
 È possibile aggiungere altri dischi di Archiviazione Premium alle macchine virtuali HANA DBMS per archiviare i backup di database o dei log delle transazioni.
 
@@ -206,9 +206,7 @@ Per altre informazioni sui due strumenti principali per la configurazione dello 
 
 Per altre informazioni sul collegamento di dischi alle macchine virtuali di Azure che eseguono Linux come sistema operativo guest, vedere [Aggiungere un disco a una VM Linux](../../linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Archiviazione Premium di Azure consente di definire le modalità di memorizzazione nella cache del disco. Per il set di stripe che contiene /hana/data e /hana/log, la memorizzazione nella cache del disco deve essere disabilitata. Per altri volumi (dischi), la modalità di memorizzazione nella cache deve essere impostata su **ReadOnly**.
-
-Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../../windows/premium-storage.md).
+I dischi SSD Premium di Azure consentono di definire le modalità di memorizzazione nella cache del disco. Per il set di stripe che contiene /hana/data e /hana/log, la memorizzazione nella cache del disco deve essere disabilitata. Per altri volumi (dischi), la modalità di memorizzazione nella cache deve essere impostata su **ReadOnly**.
 
 Per trovare modelli JSON di esempio per la creazione di VM, consultare [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) (Modelli di avvio rapido di Azure).
 Il modello vm-simple-sles è un modello di base. Include una sezione di archiviazione, con un disco dati di 100 GB aggiuntivo. Questo modello può essere usato come base. È possibile adattare il modello a una configurazione specifica.

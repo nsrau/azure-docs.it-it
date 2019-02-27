@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: f05935f73f385b076741d2e856af8316a74e9d2f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 67bdabe24e789dc4d1f2020a7a7853eafaa607c3
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042496"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429367"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e .NET
 
@@ -30,7 +30,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
 1. **Criteri di connessione: usare la modalità di connessione diretta**
 
-    La modalità di connessione di un client ad Azure Cosmos DB influisce significativamente sulle prestazioni, in particolare in termini di latenza lato client osservata. Sono disponibili due impostazioni di configurazione chiave per la configurazione dei criteri di connessione client, ovvero la *modalità* di connessione e il [protocollo di *connessione*](#connection-protocol).  Le due modalità disponibili sono:
+    La modalità di connessione di un client ad Azure Cosmos DB influisce significativamente sulle prestazioni, in particolare in termini di latenza lato client osservata. Sono disponibili due impostazioni di configurazione chiave per la configurazione dei criteri di connessione client, ovvero la *modalità* di connessione e il *protocollo* di connessione.  Le due modalità disponibili sono:
 
    * Modalità gateway (predefinita)
       
@@ -48,7 +48,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
     |Modalità di connessione  |Protocollo supportato  |SDK supportati  |API/porta servizio  |
     |---------|---------|---------|---------|
     |Gateway  |   HTTPS    |  Tutti gli SDK    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(443), Graph(443)    |
-    |Diretto    |    HTTPS     |  .Net SDK e Java SDK    |    SQL(443)   |
+    |Diretto    |    HTTPS     |  .Net SDK e Java SDK    |   Porte nell'intervallo da 10.000 a 20.000    |
     |Diretto    |     TCP    |  .Net SDK    | Porte nell'intervallo da 10.000 a 20.000 |
 
     Azure Cosmos DB offre un modello di programmazione RESTful su HTTPS semplice e aperto. DocumentDB offre anche un protocollo TCP efficiente, con un modello di comunicazione di tipo RESTful disponibile tramite .NET SDK per client. Sia il protocollo TCP diretto che il protocollo HTTPS usano SSL per l'autenticazione iniziale e la crittografia del traffico. Per prestazioni ottimali, usare il protocollo TCP quando possibile.

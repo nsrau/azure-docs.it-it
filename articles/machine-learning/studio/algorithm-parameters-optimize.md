@@ -10,20 +10,20 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0f324dec9349b44252a85b2f9334a1b6d847faae
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 870345148b55bc6026202fbd433d8575e421faba
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247137"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456011"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Scegliere i parametri per ottimizzare gli algoritmi in Azure Machine Learning Studio
 
-In questo argomento viene descritto come scegliere il set di iperparametri corretto per un algoritmo in Azure Machine Learning. Per la maggior parte degli algoritmi di Machine Learning è necessario impostare i parametri. Quando si esegue il training di un modello, è necessario specificare valori per questi parametri. L'efficacia del modello di cui è stato eseguito il training dipende dai parametri scelti per il modello. Il processo per trovare il set ottimale di parametri è noto come *selezione del modello*.
+In questo argomento viene descritto come scegliere il set di iperparametri corretto per un algoritmo in Azure Machine Learning Studio. Per la maggior parte degli algoritmi di Machine Learning è necessario impostare i parametri. Quando si esegue il training di un modello, è necessario specificare valori per questi parametri. L'efficacia del modello di cui è stato eseguito il training dipende dai parametri scelti per il modello. Il processo per trovare il set ottimale di parametri è noto come *selezione del modello*.
 
 
 
-Ci sono vari modi per selezionare un modello. In Machine Learning, la convalida incrociata è uno dei metodi più diffusi per la selezione del modello ed è il meccanismo di selezione del modello predefinito in Azure Machine Learning. Poiché Azure Machine Learning supporta R e Python, è sempre possibile implementare i relativi meccanismi di selezione del modello tramite R o Python.
+Ci sono vari modi per selezionare un modello. In Machine Learning, la convalida incrociata è uno dei metodi più diffusi per la selezione del modello ed è il meccanismo di selezione del modello predefinito in Azure Machine Learning Studio. Poiché Azure Machine Learning Studio supporta R e Python, è sempre possibile implementare i relativi meccanismi di selezione del modello tramite R o Python.
 
 Il processo per trovare il migliore set di parametri è costituito da quattro passaggi:
 
@@ -32,7 +32,7 @@ Il processo per trovare il migliore set di parametri è costituito da quattro pa
 3. **Definire la metrica**: decidere quale metrica usare per determinare il migliore set di parametri, ad esempio, l'accuratezza, l'errore quadratico medio, la precisione, il richiamo, o il punteggio f.
 4. **Eseguire il training, valutare e confrontare**: per ogni combinazione univoca dei valori dei parametri, la convalida incrociata viene eseguita e basata sulla metrica di errore definita dall'utente. Dopo valutazione e confronto, è possibile scegliere il modello con le prestazioni migliori.
 
-Le figure seguenti illustrano come raggiungere l'obiettivo in Azure Machine Learning.
+Le figure seguenti illustrano come raggiungere l'obiettivo in Azure Machine Learning Studio.
 
 ![Trovare il miglior set di parametri](./media/algorithm-parameters-optimize/fig1.png)
 

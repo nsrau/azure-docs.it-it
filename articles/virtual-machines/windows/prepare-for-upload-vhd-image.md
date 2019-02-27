@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: 74132c436670247f3eb84859216274d3e1363d07
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b5e3e84ce8f8b4b364b2fa69dda0b0091db25b6d
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338703"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329780"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure
 Prima di caricare una macchina virtuale di Windows dall'ambiente locale a Microsoft Azure, è necessario preparare il disco rigido virtuale, VHD o VHDX. Azure supporta **solo macchine virtuali di prima generazione** nel formato di file VHD e con un disco a dimensione fissa. La dimensione massima consentita per il disco rigido virtuale è 1023 GB. È possibile convertire una VM di prima generazione dal file system VHDX a VHD e da un disco a espansione dinamica a un disco a dimensione fissa. Non è tuttavia possibile modificare la generazione di una macchina virtuale. Per altre informazioni, vedere [Should I create a generation 1 or 2 VM in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) (Creare una macchina virtuale di prima o seconda generazione in Hyper-V).
@@ -198,7 +198,7 @@ Assicurarsi che le impostazioni seguenti siano configurate correttamente per la 
 
 9. Se la VM farà parte di un dominio, verificare tutte le impostazioni seguenti per assicurarsi che le impostazioni precedenti non vengano ripristinate. I criteri da verificare sono i seguenti:
     
-    | Obiettivo                                     | Criterio                                                                                                                                                       | Valore                                                                                    |
+    | Obiettivo                                     | Policy                                                                                                                                                       | Valore                                                                                    |
     |------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
     | RDP è abilitato                           | Configurazione computer\Criteri\Impostazioni di Windows \Modelli amministrativi\Componenti\Servizi Desktop remoto\Host sessione Desktop remoto\Connessioni         | Consenti la connessione remota tramite Servizi Desktop remoto                                  |
     | Criteri di gruppo NLA                         | Impostazioni\Modelli amministrativi\Componenti\Servizi Desktop remoto\Host sessione Desktop remoto\Sicurezza                                                    | Richiedi autenticazione utente tramite Autenticazione a livello di rete per le connessioni remote |
@@ -232,7 +232,7 @@ Assicurarsi che le impostazioni seguenti siano configurate correttamente per la 
    ``` 
 5. Se la VM farà parte di un dominio, verificare le impostazioni seguenti per assicurarsi che le impostazioni precedenti non vengano ripristinate. I criteri AD da verificare sono i seguenti:
 
-    | Obiettivo                                 | Criterio                                                                                                                                                  | Valore                                   |
+    | Obiettivo                                 | Policy                                                                                                                                                  | Valore                                   |
     |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
     | Abilitare i profili di Windows Firewall | Configurazione computer\Criteri\Impostazioni di Windows\Modelli amministrativi\Rete\Connessione di rete\Windows Firewall\Profilo di dominio\Windows Firewall   | Proteggi tutte le connessioni di rete         |
     | Abilitare RDP                           | Configurazione computer\Criteri\Impostazioni di Windows\Modelli amministrativi\Rete\Connessione di rete\Windows Firewall\Profilo di dominio\Windows Firewall   | Consenti eccezioni per Desktop remoto in ingresso |
@@ -369,7 +369,7 @@ La configurazione ideale è **avere la versione più recente del livello di patc
 |                         | win32k.sys     | 6.1.7601.23807 - KB4022719                | 6.2.9200.22168 - KB4022718                  | 6.3.9600.18698 - KB4022726         | 10.0.14393.594 - KB4022715                              | -                          | -                                               | -                                               |
 |                         | rdpdd.dll      | 6.1.7601.23403 - KB3125574                | -                                           | -                                  | -                                                       | -                          | -                                               | -                                               |
 |                         | rdpwd.sys      | 6.1.7601.23403 - KB3125574                | -                                           | -                                  | -                                                       | -                          | -                                               | -                                               |
-| Sicurezza                | MS17-010       | KB4012212                                 | KB4012213                                   | KB4012213                          | KB4012606                                               | KB4012606                  | -                                               | -                                               |
+| Security                | MS17-010       | KB4012212                                 | KB4012213                                   | KB4012213                          | KB4012606                                               | KB4012606                  | -                                               | -                                               |
 |                         |                |                                           | KB4012216                                   |                                    | KB4013198                                               | KB4013198                  | -                                               | -                                               |
 |                         |                | KB4012215                                 | KB4012214                                   | KB4012216                          | KB4013429                                               | KB4013429                  | -                                               | -                                               |
 |                         |                |                                           | KB4012217                                   |                                    | KB4013429                                               | KB4013429                  | -                                               | -                                               |
@@ -406,6 +406,10 @@ Non tutti i ruoli o le applicazioni installate in un computer basato su Windows 
 5. Fare clic su **OK**.
 6. Al termine dell'esecuzione di Sysprep, arrestare la VM. Non usare **Riavvia** per arrestare la macchina virtuale.
 7. A questo punto il disco rigido virtuale è pronto per essere caricato. Per altre informazioni su come creare una VM da un disco generalizzato, vedere [Caricare un disco rigido virtuale generalizzato in Azure e creare una nuova macchina virtuale](sa-upload-generalized.md).
+
+
+>[!NOTE]
+> Un file unattend.xml personalizzato non è supportato. La proprietà additionalUnattendContent è supportata, ma fornisce solo supporto limitato per l'aggiunta delle opzioni di [microsoft-windows-shell-setup](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) nel file unattend.xml usato dall'agente di provisioning di Azure. Ad esempio  è possibile usare [additionalUnattendContent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) per aggiungere elementi FirstLogonCommands e LogonCommands. Vedere anche l'[esempio relativo ad additionalUnattendContent FirstLogonCommands](https://github.com/Azure/azure-quickstart-templates/issues/1407).
 
 
 ## <a name="complete-recommended-configurations"></a>Completare le configurazioni consigliate

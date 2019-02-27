@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 0bca7281c390388bd860219fb6f2eacb96b99df0
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: d6e1cc033416c90e27b5caf4bba310400e55b3a5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742389"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312282"
 ---
 # <a name="http-application-routing"></a>Routing di applicazioni HTTP
 
@@ -38,6 +38,9 @@ Il componente aggiuntivo Routing di applicazioni HTTP può essere abilitato tram
 ```azurecli
 az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
 ```
+
+> [!TIP]
+> Per abilitare più componenti aggiuntivi specificarli come un elenco delimitato da virgole. Ad esempio, per abilitare il routing e il monitoraggio di applicazioni HTTP, usare il formato `--enable-addons http_application_routing,monitoring`.
 
 È anche possibile abilitare il routing HTTP su un cluster servizio Azure Kubernetes esistente usando il comando [az servizio Azure Kubernetes enable-addons][az-aks-enable-addons]. Per abilitare il routing HTTP in un cluster esistente, aggiungere il `--addons`parametro e specificare *http_application_routing* come illustrato nell'esempio seguente:
 

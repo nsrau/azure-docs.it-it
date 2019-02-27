@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cbe13c9167ebccdd55d54ddd99ba11c6d58b01e8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9c684e9d1bf6cec12024cedfb5360d10e400e139
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429934"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416005"
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Modifica di runbook testuali in Automazione di Azure
 
@@ -22,7 +22,7 @@ L'editor di testo in Automazione di Azure può essere usato per modificare i [ru
 
 L'editor di testo include una funzionalità per inserire codice per cmdlet, risorse e runbook figlio all'interno di un runbook. Invece di digitare il codice manualmente, è possibile effettuare selezioni in un elenco di risorse disponibili e inserire automaticamente il codice nel runbook.
 
-Ogni runbook in Automazione di Azure include due versioni, ovvero una versione bozza e una versione pubblicata. Si modifica la versione bozza del runbook e quindi lo si pubblica in modo da poterlo eseguire. La versione pubblicata non può essere modificata. Per altre informazioni, vedere [Pubblicazione di un runbook](automation-creating-importing-runbook.md#publishing-a-runbook) .
+Ogni runbook in Automazione di Azure include due versioni, ovvero una versione bozza e una versione pubblicata. Si modifica la versione bozza del runbook e quindi lo si pubblica in modo da poterlo eseguire. La versione pubblicata non può essere modificata. Per altre informazioni, vedere [Pubblicazione di un Runbook](manage-runbooks.md#publish-a-runbook).
 
 Per usare i [runbook grafici](automation-runbook-types.md#graphical-runbooks), vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md).
 
@@ -33,7 +33,7 @@ Usare la procedura seguente per aprire un runbook per la modifica nell'editor di
 1. Nel portale di Azure selezionare l'account di automazione.
 2. In **AUTOMAZIONE PROCESSI** selezionare **Runbook** per aprire l'elenco dei runbook.
 3. Selezionare il runbook che si vuole modificare e quindi fare clic sul pulsante **Modifica**.
-4. Apportare le modifiche necessarie.
+4. Modificare il runbook.
 5. Fare clic su **Salva** dopo aver completato le modifiche desiderate.
 6. Fare clic su **Pubblica** se si desidera pubblicare la versione bozza più recente del runbook.
 
@@ -64,11 +64,11 @@ Usare la procedura seguente per aprire un runbook per la modifica nell'editor di
 
 ## <a name="to-edit-an-azure-automation-runbook-using-windows-powershell"></a>Per modificare un runbook di Automazione di Azure tramite Windows PowerShell
 
-Per modificare un runbook con Windows PowerShell, usare l'editor desiderato e salvarlo in un file con estensione PS1. È possibile usare il cmdlet [Export-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Export-AzureRmAutomationRunbook) per recuperare il contenuto del runbook e quindi il cmdlet [Import-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/import-azurermautomationrunbook) per sostituire la versione bozza del runbook esistente con quello modificato.
+Per modificare un runbook con Windows PowerShell, usare l'editor desiderato e salvarlo in un file con estensione `.ps1`. È possibile usare il cmdlet [Export-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Export-AzureRmAutomationRunbook) per recuperare il contenuto del runbook e quindi il cmdlet [Import-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/import-azurermautomationrunbook) per sostituire la versione bozza del runbook esistente con quello modificato.
 
 ### <a name="to-retrieve-the-contents-of-a-runbook-using-windows-powershell"></a>Per recuperare il contenuto di un runbook con Windows PowerShell
 
-I comandi di esempio seguenti mostrano come recuperare lo script per un runbook e salvarlo in un file di script. In questo esempio viene recuperata la versione bozza. È inoltre possibile recuperare la versione pubblicata del runbook, sebbene questa versione non possa essere modificata.
+I comandi di esempio seguenti mostrano come recuperare lo script per un runbook e salvarlo in un file di script. In questo esempio viene recuperata la versione bozza. È possibile anche recuperare la versione pubblicata del runbook, sebbene questa versione non possa essere modificata.
 
 ```powershell-interactive
 $resourceGroupName = "MyResourceGroup"
@@ -81,7 +81,7 @@ Export-AzureRmAutomationRunbook -Name $runbookName -AutomationAccountName $autom
 
 ### <a name="to-change-the-contents-of-a-runbook-using-windows-powershell"></a>Per modificare il contenuto di un Runbook con Windows PowerShell
 
-I comandi di esempio seguenti mostrano come sostituire il contenuto di un runbook con il contenuto di un file di script. Si noti che questa è la stessa procedura di esempio descritta in [Per importare un runbook da un file di script con Windows PowerShell](automation-creating-importing-runbook.md).
+I comandi di esempio seguenti mostrano come sostituire il contenuto di un runbook con il contenuto di un file di script. Questa è la stessa procedura di esempio descritta in [Per importare un runbook da un file di script con Windows PowerShell](manage-runbooks.md#import-a-runbook).
 
 ```powershell-interactive
 $resourceGroupName = "MyResourceGroup"
@@ -95,7 +95,7 @@ Publish-AzureRmAutomationRunbook -Name $runbookName -AutomationAccountName $auto
 
 ## <a name="related-articles"></a>Articoli correlati
 
-* [Creazione o importazione di un runbook in Automazione di Azure](automation-creating-importing-runbook.md)
+* [Gestire runbook in Automazione di Azure](manage-runbooks.md)
 * [Informazioni sul flusso di lavoro PowerShell](automation-powershell-workflow.md)
 * [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md)
 * [Certificati](automation-certificates.md)

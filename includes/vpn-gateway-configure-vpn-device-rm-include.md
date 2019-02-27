@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 02/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b5aea9d7fe54402693be095350f7c095334fd4b5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 886fa6c088f2fbabb3d3ba1cd0b15bbc488784f3
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30198112"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56418305"
 ---
 **Per scaricare gli script di configurazione del dispositivo VPN:**
 
@@ -27,7 +27,7 @@ A seconda del dispositivo VPN usato, potrebbe essere possibile scaricare un appo
 
 - Per collegamenti alle impostazioni di configurazione dei dispositivi, vedere [Dispositivi VPN convalidati](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable). I collegamenti alla configurazione del dispositivo vengono forniti nel modo più efficiente possibile. È sempre consigliabile rivolgersi al produttore del dispositivo per le informazioni di configurazione più aggiornate. L'elenco include le versioni testate. Se il sistema operativo in uso non è incluso in tale elenco, è comunque possibile che la versione sia compatibile. Rivolgersi al produttore del dispositivo per verificare la compatibilità della versione del sistema operativo del dispositivo VPN.
 
-- Per una panoramica della configurazione di dispositivi VPN, vedere [Panoramica delle configurazioni di dispositivi VPN di terze parti](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md).
+- Per una panoramica della configurazione di dispositivi VPN, vedere [Panoramica delle configurazioni di dispositivi VPN](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md).
 
 - Per informazioni sulla modifica degli esempi, vedere [Modifica degli esempi di configurazione di dispositivo](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#editing).
 

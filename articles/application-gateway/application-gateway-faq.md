@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 81a84e1ff4a9ed974a69762ce35075780e8d1f96
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 040aeda10410cc164c3f68b6615ebfb12d45541e
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991532"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453488"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -346,7 +346,7 @@ Sono disponibili tre log con il gateway applicazione. Per altre informazioni su 
 
 ### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>Che cos'è il criterio di conservazione per i log di diagnostica?
 
-I log di diagnostica vengono inseriti nell'account di archiviazione dei clienti, i quali possono impostare i criteri di conservazione in base alle preferenze. I log di diagnostica possono anche essere inviati a un hub eventi o a Log Analytics. Vedere [Diagnostica del gateway applicazione](application-gateway-diagnostics.md) per altri dettagli.
+I log di diagnostica vengono inseriti nell'account di archiviazione dei clienti, i quali possono impostare i criteri di conservazione in base alle preferenze. I log di diagnostica possono anche essere inviati a un hub eventi o a log di Monitoraggio di Azure. Vedere [Diagnostica del gateway applicazione](application-gateway-diagnostics.md) per altri dettagli.
 
 ### <a name="how-do-i-get-audit-logs-for-application-gateway"></a>Come si ottengono i log di controllo per il gateway applicazione?
 
@@ -358,7 +358,7 @@ Sì, il gateway applicazione supporta gli avvisi. Gli avvisi vengono configurati
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Come si analizzano le statistiche sul traffico per il gateway applicazione?
 
-È possibile visualizzare e analizzare i log di accesso tramite una serie di meccanismi, ad esempio Azure Log Analytics, Excel, Power BI e così via.
+È possibile visualizzare e analizzare i log di accesso tramite una serie di meccanismi, ad esempio i log di Monitoraggio di Azure, Excel, Power BI e così via.
 
 È stato anche pubblicato un modello di Resource Manager che installa ed esegue l'analizzatore di log [GoAccess](https://goaccess.io/), di ampia diffusione, per i log di accesso del gateway applicazione. GoAccess offre statistiche utili sul traffico HTTP, ad esempio il numero di visitatori unici, file richiesti, host, sistemi operativi, browser, codici di stato HTTP e altro ancora. Per altre informazioni, vedere il [file Readme nella cartella del modello di Resource Manager in GitHub](https://aka.ms/appgwgoaccessreadme).
 

@@ -2,17 +2,17 @@
 title: Creare pagine di errore personalizzate del gateway applicazione di Azure
 description: Questo articolo illustra come creare pagine di errore personalizzate del gateway applicazione.
 services: application-gateway
-author: amitsriva
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 2/14/2019
 ms.author: victorh
-ms.openlocfilehash: 2f76347105743538e9fc1d7588ecb949f2675696
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: abfe33ff679bef125d9bf5b78e1790a1a4c64863
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49071029"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301605"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Creare pagine di errore personalizzate del gateway applicazione
 
@@ -34,6 +34,7 @@ Le pagine di errore personalizzate possono essere definite a livello globale e a
 - **Entrambi i livelli**: la pagina di errore personalizzata definita a livello di listener sostituisce quella impostata a livello globale.
 
 Per creare una pagina di errore personalizzata è necessario disporre di:
+
 - un codice di stato risposta HTTP;
 - il percorso corrispondente per la pagina di errore; 
 - un BLOB del servizio di archiviazione di Azure accessibile pubblicamente per il percorso;
@@ -59,5 +60,19 @@ Dopo che l'utente ha specificato una pagina di errore, il gateway applicazione l
 4. Specificare un URL BLOB accessibile pubblicamente per un determinato codice di stato di errore e fare clic su **Salva**. Il gateway applicazione è ora configurato con la pagina di errore personalizzata.
 
    ![Codici di errore del gateway applicazione](media/custom-error/ag-error-codes.png)
+
+## <a name="azure-powershell-configuration"></a>Configurazione di Azure PowerShell
+
+È anche possibile usare Azure PowerShell per configurare una pagina di errore personalizzata. Una pagina di errore personalizzata globale di esempio:
+
+`$updatedgateway = Add-AzApplicationGatewayCustomError -ApplicationGateway $appgw -StatusCode HttpStatus502 -CustomErrorPageUrl $customError502Url`
+
+O una pagina di errore a livello di listener:
+
+`$updatedlistener = Add-AzApplicationGatewayHttpListenerCustomError -HttpListener $listener01 -StatusCode HttpStatus502 -CustomErrorPageUrl $customError502Url`
+
+Per altre informazioni, vedere [Add-AzApplicationGatewayCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewaycustomerror?view=azps-1.2.0) e [Add-AzApplicationGatewayHttpListenerCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewayhttplistenercustomerror?view=azps-1.3.0).
+
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per informazioni sulla diagnostica del gateway applicazione, vedere [Integrità back-end, log di diagnostica e metriche per il gateway applicazione](application-gateway-diagnostics.md).

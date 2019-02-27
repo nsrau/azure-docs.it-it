@@ -8,29 +8,29 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: cf20c7dbfbf7cd3f09579b03b835148c1c295137
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5f75f656312c11a4668ca9ef9fe7b2a61a7d13e8
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600630"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301140"
 ---
 # <a name="consumption-model"></a>Modello di utilizzo
 
 Pianificazione percorso fornisce un set di parametri per una descrizione dettagliata del modello di consumo specifico del veicolo.
-A seconda del valore di **vehicleEngineType**, sono supportati due modelli di consumo principali: _Combustione_ e _Elettrico_. È un errore specificare parametri che appartengono a modelli diversi nella stessa richiesta.
+A seconda del valore di **vehicleEngineType**, sono supportati due modelli di consumo principali: _combustione_ ed _elettrico_. È un errore specificare parametri che appartengono a modelli diversi nella stessa richiesta.
 Non è possibile usare il modello di consumo con i valori _bicicletta_ e _pedone_ di **travelMode**.
 
 ## <a name="parameter-constraints-for-consumption-model"></a>Vincoli dei parametri per il modello di consumo
 
 In entrambi i modelli di consumo, per specificare esplicitamente alcuni parametri è necessario specificarne anche altri. Le dipendenze sono le seguenti:
 
-* Tutti i parametri richiedono che l'utente specifichi **constantSpeedConsumption**. È un errore specificare qualsiasi altro parametro del modello di consumo, ad eccezione di **vehicleWeight**, se non è specificato **constantSpeedConsumption**\*.
+* Tutti i parametri richiedono che l'utente specifichi **constantSpeedConsumption**. È un errore specificare qualsiasi altro parametro del modello di consumo, ad eccezione di **vehicleWeight**, se non è specificato **constantSpeedConsumption**.
 * **accelerationEfficiency** e **decelerationEfficiency** devono essere sempre specificati in coppia (ovvero entrambi o nessuno).
 * Se vengono specificati **accelerationEfficiency** e **decelerationEfficiency**, il prodotto dei loro valori non deve essere maggiore di 1 per evitare il moto perpetuo.
 * **uphillEfficiency** e **downhillEfficiency** devono essere sempre specificati in coppia (ovvero entrambi o nessuno).
 * Se vengono specificati **uphillEfficiency** e **downhillEfficiency** , il prodotto dei loro valori non deve essere maggiore di 1 per evitare il moto perpetuo.
-* Se l'utente specifica parametri di \***efficienza**, è necessario specificare anche **vehicleWeight**. Quando **vehicleEngineType** è _combustion_, è necessario specificare anche **fuelEnergyDensityInMJoulesPerLiter**.
+* Se l'utente specifica i parametri \*__Efficiency__, è necessario specificare anche **vehicleWeight**. Quando **vehicleEngineType** è _combustion_, è necessario specificare anche **fuelEnergyDensityInMJoulesPerLiter**.
 * **maxChargeInkWh** e **currentChargeInkWh** devono essere sempre specificati in coppia (ovvero entrambi o nessuno).
 
 > [!NOTE]

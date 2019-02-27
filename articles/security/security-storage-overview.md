@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2019
 ms.author: terrylan
-ms.openlocfilehash: 5d8c9ae52152df6a0e016c12234afe4ae780b251
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ec0e8ae1bf657cda59f3d133db23106436e184e3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115437"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326757"
 ---
 # <a name="azure-storage-security-overview"></a>Panoramica della sicurezza di Archiviazione di Azure
 
@@ -79,7 +79,7 @@ Per molte organizzazioni, [la crittografia dei dati inattivi](https://cloudblogs
 
 Altre informazioni su Crittografia del servizio di archiviazione:
 
-* La [crittografia del servizio di archiviazione di Azure](https://azure.microsoft.com/services/storage/) è disponibile per [Archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/). Per informazioni su altri tipi di archiviazione di Azure, vedere [File di Azure](https://azure.microsoft.com/services/storage/files/), [Disco (Archiviazione Premium)](https://azure.microsoft.com/services/storage/premium-storage/), [Archiviazione tabelle](https://azure.microsoft.com/services/storage/tables/) e [Archiviazione code](https://azure.microsoft.com/services/storage/queues/).
+* La [crittografia del servizio di archiviazione di Azure](https://azure.microsoft.com/services/storage/) è disponibile per [Archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/). Per informazioni su altri tipi di archiviazione di Azure, vedere [File di Azure](https://azure.microsoft.com/services/storage/files/), [Archivio tabelle](https://azure.microsoft.com/services/storage/tables/) e [Archivio code](https://azure.microsoft.com/services/storage/queues/).
 * [Crittografia del servizio di archiviazione di Azure per dati inattivi](../storage/common/storage-service-encryption.md)
 
 ## <a name="azure-disk-encryption"></a>Azure Disk Encryption

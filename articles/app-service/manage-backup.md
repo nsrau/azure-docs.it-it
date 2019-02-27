@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1c58574a96c07dcb4008682efdf96fba111d7b61
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 18fc86e8d9b9622f11faad0f11dc57a83124a857
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810338"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417510"
 ---
 # <a name="back-up-your-app-in-azure"></a>Eseguire il backup dell'app in Azure
 La funzionalità di backup e ripristino nel [Servizio app di Azure](overview.md) consente di creare facilmente backup di app in modo manuale o pianificato. È possibile ripristinare l'app a una snapshot di uno stato precedente sovrascrivendo l'applicazione esistente o eseguendo il ripristino in un'altra applicazione. 
@@ -52,7 +52,7 @@ Le soluzioni di database seguenti sono supportate con funzionalità di backup:
 ## <a name="requirements-and-restrictions"></a>Requisiti e restrizioni
 * Per usufruire della funzionalità di backup e ripristino è necessario che il piano del Servizio app si trovi al livello **Standard** o al livello **Premium**. Per altre informazioni sul ridimensionamento del piano di servizio app per usare un livello superiore, vedere [Scalare un'app Web in Servizio app di Azure](web-sites-scale.md).  
   Il livello **Premium** consente un maggior numero di backup giornalieri rispetto al livello **Standard**.
-* Sono necessari un account di archiviazione e un contenitore di Azure nella stessa sottoscrizione dell'applicazione di cui si desidera eseguire il backup. Per altre informazioni sugli account di archiviazione di Azure, vedere i collegamenti al termine di questo articolo.
+* Sono necessari un account di archiviazione e un contenitore di Azure nella stessa sottoscrizione dell'applicazione di cui si desidera eseguire il backup. Per altre informazioni sugli account di archiviazione di Azure, vedere [Panoramica dell'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 * È possibile eseguire il backup di un massimo di 10 GB di contenuto del database e dell'app. Se la dimensione del backup supera questo limite, verrà visualizzato un messaggio di errore.
 * Il backup di Database di Azure per MySQL abilitato per SSL non è supportato. Se è configurato un backup, si otterranno i backup non riusciti.
 * Il backup di Database di Azure per PostgreSQL abilitato per SSL non è supportato. Se è configurato un backup, si otterranno i backup non riusciti.

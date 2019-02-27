@@ -6,15 +6,15 @@ keywords: ''
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/12/2019
+ms.date: 02/20/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5abc13a39db3f1061e3df76857645d8075feade5
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 1a15600889a3c5a3c0ca587c78499f32be0ab8ed
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245753"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456708"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Usare Visual Studio Code per sviluppare moduli per Azure IoT Edge ed eseguirne il debug
 
@@ -262,6 +262,7 @@ Durante il debug di moduli con questo metodo, i moduli sono in esecuzione in pri
       import ptvsd
       ptvsd.enable_attach(('0.0.0.0',  5678))
       ```
+
    - Aggiungere la singola riga di codice seguente al callback da sottoporre a debug:
 
       ```python
@@ -350,6 +351,12 @@ Si noterà che la distribuzione è stata creata correttamente con un ID distribu
 
 > [!NOTE]
 > L'esempio precedente illustra come eseguire il debug di moduli IoT Edge nei contenitori. Ha aggiunto porte esposte alle impostazioni `createOptions` del contenitore del modulo. Al termine del debug dei moduli, si consiglia di rimuovere le porte esposte per predisporre i moduli IoT Edge per l'ambiente di produzione.
+
+## <a name="build-and-debug-a-module-remotely"></a>Compilare ed eseguire il debug di un modulo in remoto
+
+Con le modifiche recenti nei motori Docker e Moby per supportare le connessioni SSH e una nuova impostazione negli strumenti di Azure IoT che consente l'inserimento delle impostazioni di ambiente nel riquadro comandi di Visual Studio Code e nei terminali di Azure IoT Edge, è ora possibile compilare i moduli ed eseguirne il debug nei dispositivi remoti.
+
+Vedere questo [post di blog per sviluppatori IoT](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) per altre informazioni e istruzioni dettagliate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

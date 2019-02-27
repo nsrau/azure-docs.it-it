@@ -10,21 +10,21 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/06/2017
-ms.openlocfilehash: 9fcdcc5f4e3e7a6aadb3749459562eb575deca2b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d4e267915338e8043138be0ca1a4922ac84d8eab
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822375"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456266"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Esercitazione di avvio rapido per il linguaggio di programmazione R per Azure Machine Learning Studio
 
 <!-- Stephen F Elston, Ph.D. -->
 
 ## <a name="introduction"></a>Introduzione
-Questa esercitazione con guida rapida consente di iniziare rapidamente a estendere Azure Machine Learning usando il linguaggio di programmazione R. Seguire questa esercitazione sulla programmazione R per creare, testare ed eseguire il codice R in Azure Machine Learning. Usando questa esercitazione, sarà possibile creare una soluzione completa di previsione con il linguaggio R in Azure Machine Learning.  
+Questa esercitazione di avvio rapido consente di iniziare rapidamente a estendere Azure Machine Learning Studio usando il linguaggio di programmazione R. Seguire questa esercitazione sulla programmazione R per creare, testare ed eseguire il codice R in Studio. Usando questa esercitazione, sarà possibile creare una soluzione completa di previsione con il linguaggio R in Studio.  
 
-Microsoft Azure Machine Learning contiene molti moduli validi per Machine Learning e per la manipolazione dei dati. Il potente linguaggio R è stato definito come la lingua franca dell'analisi. Per fortuna, le analisi e la manipolazione dei dati Azure Machine Learning possono essere estese usando R. Questa combinazione fornisce la scalabilità e la facilità di distribuzione di Azure Machine Learning con la flessibilità e l'analisi approfondita di R.
+Microsoft Azure Machine Learning Studio contiene molti moduli validi per Machine Learning e la manipolazione dei dati. Il potente linguaggio R è stato definito come la lingua franca dell'analisi. Fortunatamente le analisi e la manipolazione dei dati in Studio possono essere estese usando R. Questa combinazione fornisce la scalabilità e la facilità di distribuzione di Studio insieme alla flessibilità e l'analisi approfondita di R.
 
 
 
@@ -38,23 +38,23 @@ In questa esercitazione prenderemo in esame la produzione casearia in California
 I dati usati nell'articolo, insieme agli script R, possono essere [scaricati qui](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/blob/master/studio-samples/cadairydata.csv). Questi dati sono stati originariamente sintetizzati da informazioni pubblicate dalla University of Wisconsin all'indirizzo https://dairymarkets.com.
 
 ### <a name="organization"></a>Organizzazione
-La procedura sarà formata da diversi passaggi che consentiranno di apprendere come creare, testare ed eseguire il codice R per le analisi e la manipolazione dei dati nell'ambiente di Azure Machine Learning.  
+La procedura sarà formata da diversi passaggi che consentiranno di apprendere come creare, testare ed eseguire il codice R per le analisi e la manipolazione dei dati nell'ambiente di Azure Machine Learning Studio.  
 
 * Prima di tutto, verranno illustrate le nozioni di base dell'uso del linguaggio R nell'ambiente di Azure Machine Learning Studio.
-* Quindi, verranno discussi diversi aspetti relativi all'I/O dei dati, del codice R e dei grafici nell'ambiente di Azure Machine Learning.
+* Quindi, verranno discussi diversi aspetti relativi all'I/O dei dati, del codice R e dei grafici nell'ambiente di Azure Machine Learning Studio.
 * In seguito, verrà creata la prima parte della soluzione di previsione tramite la compilazione di codice per la pulizia e la trasformazione dei dati.
 * Con i dati preparati verrà eseguita un'analisi delle correlazioni tra più variabili nel set di dati.
 * Infine, verrà creato un modello di previsione in serie temporale (stagionale) per la produzione di latte.
 
 ## <a id="mlstudio"></a>Interagire con il linguaggio R in Machine Learning Studio
-Questa sezione illustra alcune nozioni di base relative all'interazione con il linguaggio di programmazione R nell'ambiente di Machine Learning Studio. Il linguaggio R fornisce uno strumento potente per creare moduli personalizzati di analisi e manipolazione di dati nell'ambiente di Azure Machine Learning.
+Questa sezione illustra alcune nozioni di base relative all'interazione con il linguaggio di programmazione R nell'ambiente di Machine Learning Studio. Il linguaggio R fornisce uno strumento potente per creare moduli personalizzati di analisi e manipolazione dei dati nell'ambiente di Azure Machine Learning Studio.
 
 In questa guida useremo RStudio per sviluppare, testare ed eseguire il debug di codice R su piccola scala. Questo codice viene quindi tagliato e incollato in un modulo [Execute R Script][execute-r-script] (Esegui script R) in Machine Learning Studio, pronto per l'esecuzione.  
 
 ### <a name="the-execute-r-script-module"></a>Modulo Execute R Script
 In Machine Learning Studio gli script R vengono eseguiti nel modulo [Execute R Script][execute-r-script]. Un esempio del modulo [Execute R Script][execute-r-script] in Machine Learning Studio è mostrato nella figura 1.
 
- ![Linguaggio di programmazione R: il modulo Execute R Script selezionato in Machine Learning Studio][1]
+ ![Linguaggio di programmazione R: il modulo Execute R Script selezionato in Machine Learning Studio](./media/r-quickstart/fig1.png)
 
 *Figura 1. Ambiente di Machine Learning Studio che mostra il modulo Execute R Script selezionato.*
 
@@ -66,20 +66,20 @@ Nella figura 1 è possibile osservare alcuni dei componenti principali dell'ambi
 
 Il modulo [Execute R Script][execute-r-script] verrà descritto dettagliatamente nelle parti successive di questo documento.
 
-Quando si usano funzioni R complesse, è preferibile effettuare le operazioni di modifica, test e debug in RStudio. Come con qualsiasi altro software di sviluppo, inoltre, è opportuno estendere il codice in modo incrementale, così da poterlo verificare in piccoli e semplici casi di test. Quindi tagliare e incollare le funzioni nella finestra dello script R del modulo [Execute R Script][execute-r-script]. Questo approccio consente di sfruttare sia l'ambiente di sviluppo integrato (IDE) di RStudio che la potenza di Azure Machine Learning.  
+Quando si usano funzioni R complesse, è preferibile effettuare le operazioni di modifica, test e debug in RStudio. Come con qualsiasi altro software di sviluppo, inoltre, è opportuno estendere il codice in modo incrementale, così da poterlo verificare in piccoli e semplici casi di test. Quindi tagliare e incollare le funzioni nella finestra dello script R del modulo [Execute R Script][execute-r-script]. Questo approccio consente di sfruttare sia l'ambiente di sviluppo integrato (IDE) di RStudio che la potenza di Azure Machine Learning Studio.  
 
 #### <a name="execute-r-code"></a>Eseguire il codice R
 Qualsiasi codice R nel modulo [Execute R Script][execute-r-script] verrà eseguito quando si esegue l'esperimento facendo clic sul pulsante **Run** (Esegui). Al termine dell'esecuzione, accanto all'icona [Execute R Script][execute-r-script] verrà visualizzato un segno di spunta.
 
 #### <a name="defensive-r-coding-for-azure-machine-learning"></a>Codice R difensivo per Azure Machine Learning
-Se si sviluppa un codice R per, ad esempio, un servizio Web usando Azure Machine Learning, è necessario pianificare in che modo il codice R gestirà gli input di dati imprevisti e le eccezioni. Per maggiore chiarezza, per gli esempi di codice riportati in questa guida non tratterò in modo approfondito le modalità di verifica e gestione delle eccezioni. Tuttavia, verranno forniti diversi esempi di funzioni che prevedono l'uso della capacità di gestione delle eccezioni di R.  
+Se si sviluppa un codice R, ad esempio per un servizio Web, usando Azure Machine Learning Studio, è necessario pianificare in che modo il codice R gestirà gli input di dati imprevisti e le eccezioni. Per maggiore chiarezza, per gli esempi di codice riportati in questa guida non tratterò in modo approfondito le modalità di verifica e gestione delle eccezioni. Tuttavia, verranno forniti diversi esempi di funzioni che prevedono l'uso della capacità di gestione delle eccezioni di R.  
 
 Per informazioni più complete sulla gestione delle eccezioni di R, si consiglia di leggere le sezioni rilevanti del libro di Wickham elencate in [Appendice B - Letture di approfondimento](#appendixb).
 
 #### <a name="debug-and-test-r-in-machine-learning-studio"></a>Eseguire il debug e testare R in Machine Learning Studio
 Come già anticipato, in genere è consigliabile eseguire il test e il debug del codice R creato su scala ridotta in RStudio. Tuttavia, in alcuni casi è necessario tenere traccia dei problemi relativi al codice R nel modulo [Execute R Script][execute-r-script] stesso. Inoltre, si consiglia di controllare i risultati in Machine Learning Studio.
 
-L'output dell'esecuzione del codice R e della piattaforma di Azure Machine Learning è disponibile principalmente in output.log, ma alcune informazioni aggiuntive possono essere presenti in error.log.  
+L'output dell'esecuzione del codice R e della piattaforma di Azure Machine Learning Studio è disponibile principalmente in output.log, ma alcune informazioni aggiuntive possono essere presenti in error.log.  
 
 Se si verifica un errore in Machine Learning Studio mentre si esegue il codice R, è necessario innanzitutto analizzare error.log. Questo file può contenere messaggi di errore utili a comprendere e correggere l'errore. Per visualizzare il file error.log, fare clic su **View error log** (Visualizza log degli errori) nel **riquadro delle proprietà** per il modulo [Execute R Script][execute-r-script] che contiene l'errore.
 
@@ -90,7 +90,7 @@ In questo esempio è stato eseguito il codice R seguente con una variabile y non
 
 L'esecuzione del codice non riesce, generando così una condizione di errore. Facendo clic su **View error log** (Visualizza log degli errori) nel **riquadro delle proprietà**, viene visualizzato quanto mostrato nella figura 2.
 
-  ![Finestra di popup con messaggio di errore][2]
+  ![Finestra di popup con messaggio di errore](./media/r-quickstart/fig2.png)
 
 *Figura 2. Finestra di popup con il messaggio di errore.*
 
@@ -109,12 +109,12 @@ Questo messaggio di errore non contiene sorprese e identifica chiaramente il pro
 Per ispezionare il valore dei singoli oggetti in R; è possibile stampare i valori nel file output.log. Le regole per l'analisi dei valori di oggetto sono essenzialmente le stesse di una sessione R interattiva. Se, ad esempio, si digita un nome di variabile in una riga, il valore dell'oggetto verrà stampato nel file output.log.  
 
 #### <a name="packages-in-machine-learning-studio"></a>Pacchetti in Machine Learning Studio
-Azure Machine Learning viene fornito con più di 350 pacchetti di linguaggio R preinstallati. Per recuperare un elenco dei pacchetti preinstallati, è possibile usare il codice seguente nel modulo [Execute R Script][execute-r-script].
+Studio viene fornito con più di 350 pacchetti di linguaggio R preinstallati. Per recuperare un elenco dei pacchetti preinstallati, è possibile usare il codice seguente nel modulo [Execute R Script][execute-r-script].
 
     data.set <- data.frame(installed.packages())
     maml.mapOutputPort("data.set")
 
-Se al momento non si riesce a comprendere l'ultima riga del codice, continuare a leggere. Nel resto del documento vengono discussi diversi aspetti dell'uso di R nell'ambiente di Azure Machine Learning.
+Se al momento non si riesce a comprendere l'ultima riga del codice, continuare a leggere. Nel resto del documento vengono discussi diversi aspetti dell'uso di R nell'ambiente di Studio.
 
 ### <a name="introduction-to-rstudio"></a>Introduzione a RStudio
 RStudio è un ambiente IDE molto usato per R. RStudio verrà usato per la modifica, i test e il debug di alcuni codici R usati in questa guida introduttiva. Dopo il test, quando il codice R è pronto, è possibile tagliarlo e incollarlo dall'editor di RStudio a un modulo [Execute R Script][execute-r-script] di Machine Learning Studio.  
@@ -157,14 +157,14 @@ Ora che sono presenti dei dati in Machine Learning Studio, è necessario creare 
 
 A questo punto, l'esperimento dovrebbe essere simile a quanto riportato nella Figura 3.
 
-![L'esperimento CA Dairy Analysis con il set di dati e il modulo Execute R Script][3]
+![L'esperimento CA Dairy Analysis con il set di dati e il modulo Execute R Script](./media/r-quickstart/fig3.png)
 
 *Figura 3. Esperimento CA Dairy Analysis con il set di dati e il modulo Execute R Script.*
 
 #### <a name="check-on-the-data"></a>Controllo dei dati
 Diamo ora un'occhiata ai dati caricati nell'esperimento. Nell'esperimento fare clic sull'output del **set di dati cadairydata.csv** e selezionare **Visualize** (Visualizza). Dovrebbe apparire una tabella simile a quella riportata nella Figura 4.  
 
-![Riepilogo del set di dati cadairydata.csv][4]
+![Riepilogo del set di dati cadairydata.csv](./media/r-quickstart/fig4.png)
 
 *Figura 4. Riepilogo del set di dati cadairydata.csv.*
 
@@ -200,7 +200,7 @@ L'input Script Bundle consente di spostare il contenuto di un file con estension
     load("src/yourData.rdata") # Reads a zipped R data file
 
 > [!NOTE]
-> Azure Machine Learning gestisce i file nel pacchetto con estensione zip come se fossero nella directory src/, quindi è necessario inserire questo nome della directory come prefisso nei nomi file. Ad esempio, se il file con estensione zip contiene i file `yourfile.R` e `yourData.rdata` nella radice del file con estensione zip, è necessario risolvere questi come `src/yourfile.R` e `src/yourData.rdata` quando si usano `source` e `load`.
+> Azure Machine Learning Studio gestisce i file nel pacchetto con estensione zip come se fossero nella directory src/, quindi è necessario inserire questo nome della directory come prefisso nei nomi file. Ad esempio, se il file con estensione zip contiene i file `yourfile.R` e `yourData.rdata` nella radice del file con estensione zip, è necessario risolvere questi come `src/yourfile.R` e `src/yourData.rdata` quando si usano `source` e `load`.
 > 
 > 
 
@@ -227,7 +227,7 @@ Il caricamento dei set di dati è già stato discusso in [Caricamento del set di
 
 Dopo aver completato questi passaggi, il modulo [Execute R Script][execute-r-script] eseguirà lo script R nel file con estensione zip durante l'esecuzione dell'esperimento. A questo punto l'esperimento dovrebbe avere un aspetto simile a quello riportato nella Figura 5.
 
-![Esperimento con script R compresso][6]
+![Esperimento con script R compresso](./media/r-quickstart/fig6.png)
 
 *Figura 5. Esperimento con script R compresso.*
 
@@ -289,7 +289,7 @@ Il comportamento della modalità di input Dataset2 è identico a quello di Datas
 
 Dopo aver eseguito l'esperimento, fare clic sulla porta di output Result Dataset1, quindi scegliere **Visualize**. I risultati dovrebbero essere simili a quanto visualizzato nella Figura 6.
 
-![Visualizzazione dell'output dei dati caseari della California][7]
+![Visualizzazione dell'output dei dati caseari della California](./media/r-quickstart/fig7.png)
 
 *Figura 6. Visualizzazione dell'output dei dati caseari della California.*
 
@@ -300,13 +300,13 @@ L'output Device del modulo [Execute R Script][execute-r-script] contiene messagg
 
 Per visualizzare l' output R Device, fare clic sulla porta e su **Visualize**. Nella Figura 7 sono riportati l'output standard e i messaggi di errore standard generati dallo script R.
 
-![Output ed errore standard dalla porta R Device][8]
+![Output ed errore standard dalla porta R Device](./media/r-quickstart/fig8.png)
 
 *Figura 7. Output ed errore standard dalla porta R Device.*
 
 Scorrendo verso il basso è possibile visualizzare l'output grafico generato dallo script R, riportato nella Figura 8.  
 
-![Output dei grafici dalla porta R Device][9]
+![Output dei grafici dalla porta R Device](./media/r-quickstart/fig9.png)
 
 *Figura 8. Output dei grafici dalla porta R Device.*  
 
@@ -689,7 +689,7 @@ In questa sezione vengono descritte alcune delle variabili in questo set di dati
 
 Eseguiamo il codice e vediamo cosa succede. Il grafico generato per la porta R Device dovrebbe essere simile a quello riportato nella Figura 16.
 
-![Matrice del grafico a dispersione delle variabili selezionate][17]
+![Matrice del grafico a dispersione delle variabili selezionate](./media/r-quickstart/fig17.png)
 
 *Figura 16. Matrice del grafico a dispersione delle variabili selezionate.*
 
@@ -753,7 +753,7 @@ Una volta definito `ts.detrend()` , viene applicato alle variabili di interesse 
 
 La riga di codice finale crea un grafico a dispersione pairwise. Dopo aver eseguito il codice R, i risultati del grafico a dispersione vengono mostrati nella Figura 17.
 
-![Grafico a dispersione pairwise della serie temporale detrendizzata e standardizzata][18]
+![Grafico a dispersione pairwise della serie temporale detrendizzata e standardizzata](./media/r-quickstart/fig18.png)
 
 *Figura 17. Grafico a dispersione pairwise della serie temporale detrendizzata e standardizzata.*
 
@@ -856,7 +856,7 @@ Il codice seguente estrae i valori di intervallo dall'elenco di oggetti CCF, che
 
 
     ## WARNING!
-    ## The following line works only in Azure Machine Learning
+    ## The following line works only in Azure Machine Learning Studio
     ## When running in RStudio, this code will result in an error
     #maml.mapOutputPort('outframe')
 
@@ -870,7 +870,7 @@ I nomi di riga sono in una colonna del frame di dati. In questo modo, vengono pr
 
 L'esecuzione del codice produce l'output mostrato nella Figura 19 quando si **visualizza** l'output nella porta Result Dataset. I nomi di riga sono nella prima colonna, come previsto.
 
-![Output dei risultati dall'analisi delle correlazioni][20]
+![Output dei risultati dall'analisi delle correlazioni](./media/r-quickstart/fig20.png)
 
 *Figura 19. Output dei risultati dall'analisi delle correlazioni.*
 
@@ -884,7 +884,7 @@ Il codice R completo per questa sezione è disponibile nel file con estensione z
 ### <a name="creating-the-dataframe-for-analysis"></a>Creazione del frame di dati per l'analisi
 Per iniziare, aggiungere un **nuovo** modulo [Execute R Script][execute-r-script] all'esperimento. Connettere l'output **Result Dataset** del modulo [Execute R Script][execute-r-script] all'input **Dataset1** del nuovo modulo. Il risultato dovrebbe essere simile al contenuto della Figura 20.
 
-![Esperimento con l'aggiunta del nuovo modulo Execute R Script][21]
+![Esperimento con l'aggiunta del nuovo modulo Execute R Script](./media/r-quickstart/fig21.png)
 
 *Figura 20. Esperimento con l'aggiunta del nuovo modulo Execute R Script.*
 
@@ -954,7 +954,7 @@ L'esecuzione di questo codice produce la serie di grafici in serie temporale ott
 ### <a name="a-trend-model"></a>Modello di tendenza
 Dopo aver creato un oggetto serie temporale e aver esaminato i dati, iniziamo a costruire un modello di trend per i dati di produzione di latte in California. A questo scopo, usiamo una regressione in serie temporale. Tuttavia, è chiaro dal tracciato che è necessario più di una pendenza e di un intercetta per modellare in modo accurato la tendenza osservata nei dati di training.
 
-Considerata la scala ridotta dei dati, il modello per la tendenza verrà compilato in RStudio, quindi il modello risultante verrà tagliato e incollato in Azure Machine Learning. RStudio fornisce infatti un ambiente interattivo adatto a questo tipo di analisi interattiva.
+Considerata la scala ridotta dei dati, il modello per la tendenza verrà compilato in RStudio, quindi il modello risultante verrà tagliato e incollato in Azure Machine Learning Studio. RStudio fornisce infatti un ambiente interattivo adatto a questo tipo di analisi interattiva.
 
 Come primo tentativo, eseguirò una regressione polinomiale con valori di potenza fino a 3. Esiste un pericolo reale di overfitting per questi tipi di modelli. È opportuno quindi evitare termini di ordine superiore. La funzione `I()` inibisce l'interpretazione dei contenuti (interpreta i contenuti così come sono) e consente di scrivere una funzione con interpretazione letterale in un'equazione di regressione.
 
@@ -1014,7 +1014,7 @@ Viene generato quanto segue.
 
 L'aspetto è decisamente migliore adesso. Tutti i termini sono significativi. Il valore 2e-16, tuttavia, è un valore predefinito e non dovrebbe essere preso troppo sul serio  
 
-Come test di integrità, effettueremo un grafico in serie temporale dei dati della produzione casearia in California con la curva di trend mostrata di seguito. È stato aggiunto il codice seguente nel modello [Execute R Script][execute-r-script] di Azure Machine Learning (non in RStudio) per creare il modello ed eseguire un tracciato. Il risultato viene mostrato nella Figura 23.
+Come test di integrità, effettueremo un grafico in serie temporale dei dati della produzione casearia in California con la curva di trend mostrata di seguito. È stato aggiunto il codice seguente nel modello [Execute R Script][execute-r-script] (Esegui script R) di Azure Machine Learning Studio (non in RStudio) per creare il modello ed eseguire un tracciato. Il risultato viene mostrato nella Figura 23.
 
     milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^3), data = cadairytrain)
 
@@ -1071,14 +1071,14 @@ Viene generato quanto segue.
 
 Vediamo come nel modello non sia più presente un termine dell'intercetta ma siano inclusi 12 fattori mese, proprio come ci aspettavamo.
 
-Creiamo adesso un altro grafico in serie temporale dei dati di produzione casearia in California per verificare l'effettivo funzionamento del modello con stagionalità. È stato aggiunto il codice seguente nel modello [Execute R Script][execute-r-script] di Azure Machine Learning per creare il modello ed eseguire un tracciato.
+Creiamo adesso un altro grafico in serie temporale dei dati di produzione casearia in California per verificare l'effettivo funzionamento del modello con stagionalità. È stato aggiunto il codice seguente nel modello [Execute R Script][execute-r-script] (Esegui script R) di Azure Machine Learning Studio per creare il modello ed eseguire un tracciato.
 
     milk.lm2 <- lm(Milk.Prod ~ Time + I(Month.Count^3) + Month - 1, data = cadairytrain)
 
     plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Milk Production 1000s lb", type = "l")
     lines(cadairytrain$Time, predict(milk.lm2, cadairytrain), lty = 2, col = 2)
 
-L'esecuzione di questo codice in Azure Machine Learning produce il tracciato mostrato nella Figura 24.
+L'esecuzione di questo codice in Azure Machine Learning Studio produce il tracciato mostrato nella Figura 24.
 
 ![Produzione di latte in California con un modello che include gli effetti stagionali](./media/r-quickstart/unnamed-chunk-20.png)
 
@@ -1198,7 +1198,7 @@ Muniti di una funzione per calcolare la deviazione standard, creiamo ed eseguiam
 
 L'esecuzione di questo codice produce nella porta di output Result Dataset il contenuto illustrato nella Figura 27.
 
-![Confronto di errori RMS per i modelli][26]
+![Confronto di errori RMS per i modelli](./media/r-quickstart/fig26.png)
 
 *Figura 27. Confronto di errori RMS per i modelli.*
 
@@ -1246,31 +1246,6 @@ Alcune importanti risorse su Internet:
 * Una rapida esercitazione su R di Kelly Black della Clarkson University è disponibile all'indirizzo http://www.cyclismo.org/tutorial/R/
 * Più di 60 risorse di R elencate all'indirizzo http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
 
-<!--Image references-->
-[1]: ./media/r-quickstart/fig1.png
-[2]: ./media/r-quickstart/fig2.png
-[3]: ./media/r-quickstart/fig3.png
-[4]: ./media/r-quickstart/fig4.png
-[5]: ./media/r-quickstart/fig5.png
-[6]: ./media/r-quickstart/fig6.png
-[7]: ./media/r-quickstart/fig7.png
-[8]: ./media/r-quickstart/fig8.png
-[9]: ./media/r-quickstart/fig9.png
-[10]: ./media/r-quickstart/fig10.png
-[11]: ./media/r-quickstart/fig11.png
-[12]: ./media/r-quickstart/fig12.png
-[13]: ./media/r-quickstart/fig13.png
-[14]: ./media/r-quickstart/fig14.png
-[15]: ./media/r-quickstart/fig15.png
-[16]: ./media/r-quickstart/fig16.png
-[17]: ./media/r-quickstart/fig17.png
-[18]: ./media/r-quickstart/fig18.png
-[19]: ./media/r-quickstart/fig19.png
-[20]: ./media/r-quickstart/fig20.png
-[21]: ./media/r-quickstart/fig21.png
-[22]: ./media/r-quickstart/fig22.png
-
-[26]: ./media/r-quickstart/fig26.png
 
 <!--links-->
 [appendixa]: #appendixa

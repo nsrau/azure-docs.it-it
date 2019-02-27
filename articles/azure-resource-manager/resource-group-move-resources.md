@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1902d00bc69fd12e7d424a2c2ab3bea562ff4e79
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ddbd77cbc199e78e74324c87d49155f27d6edeea
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108773"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417092"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -55,7 +55,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * Gestione API
 * App del servizio app (app Web): vedere [Limitazioni del servizio app](#app-service-limitations)
 * Certificati del servizio app - vedere [Limitazioni del certificato del servizio app](#app-service-certificate-limitations)
-* Automazione
+* Automazione - i runbook devono esistere nello stesso gruppo di risorse dell'account di automazione.
 * Azure Active Directory B2C
 * Azure Cosmos DB
 * Esplora dati di Azure
@@ -134,6 +134,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che non po
 * Firewall di Azure
 * Azure Migrate
 * Certificati: i certificati del servizio app possono essere spostati, ma i certificati caricati presentano alcune [limitazioni](#app-service-limitations).
+* Applicazioni classiche
 * Istanze di Container
 * Servizio contenitore
 * Data Box

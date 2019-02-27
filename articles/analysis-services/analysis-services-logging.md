@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 480d453cc906fa1b1d93e00bd4a6d2b080768a47
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 9f9a6511d63e57c6cbfa5ee2453f8038bb259047
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105837"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428993"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurare la registrazione diagnostica
 
-Un aspetto importante di qualsiasi soluzione di Analysis Services è costituito dal monitoraggio delle prestazioni dei server. I [log di diagnostica delle risorse di Azure](../azure-monitor/platform/diagnostic-logs-overview.md) consentono di monitorare e inviare log ad [Archiviazione di Microsoft Azure](https://azure.microsoft.com/services/storage/), trasmetterli ad [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) ed esportarli in [Log Analytics](https://azure.microsoft.com/services/log-analytics/), che è un servizio di [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). 
+Un aspetto importante di qualsiasi soluzione di Analysis Services è costituito dal monitoraggio delle prestazioni dei server. I [log di diagnostica delle risorse di Azure](../azure-monitor/platform/diagnostic-logs-overview.md) consentono di monitorare e inviare log ad [Archiviazione di Azure](https://azure.microsoft.com/services/storage/), trasmetterli ad [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) ed esportarli in [log di Monitoraggio di Azure](../azure-monitor/azure-monitor-log-hub.md).
 
-![Registrazione diagnostica in Archiviazione, Hub eventi o Log Analytics](./media/analysis-services-logging/aas-logging-overview.png)
+![Registrazione diagnostica in Archiviazione, Hub eventi o log di Monitoraggio di Azure](./media/analysis-services-logging/aas-logging-overview.png)
 
 
 ## <a name="whats-logged"></a>Informazioni registrate
@@ -82,7 +82,7 @@ Se si seleziona la categoria Metriche, vengono registrate nel log le stesse [met
 
     * **Archivia in un account di archiviazione**. Per usare questa opzione, è necessario un account di archiviazione esistente a cui connettersi. Vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md). Seguire le istruzioni per creare un account di Resource Manager di uso generale, quindi selezionare l'account di archiviazione ritornando in questa pagina del portale. Potrebbero essere necessari alcuni minuti per visualizzare gli account di archiviazione appena creati nel menu a discesa.
     * **Streaming in un hub eventi**. Per usare questa opzione, sono necessari uno spazio dei nomi esistente e un hub eventi a cui connettersi. Per altre informazioni, vedere [Creare uno spazio dei nomi di Hub eventi e un hub eventi usando il Portale di Azure](../event-hubs/event-hubs-create.md). Tornare a questa pagina del portale per selezionare lo spazio dei nomi dell'hub eventi e il nome dei criteri.
-    * **Invia a Log Analytics**. Per usare questa opzione, usare un'area di lavoro esistente o creare una nuova area di lavoro di Log Analytics seguendo la procedura per [creare una nuova area di lavoro](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) nel portale. Per altre informazioni sulla visualizzazione dei log in Log Analytics, vedere [Visualizzare i log in Log Analytics](#view-logs-in-log-analytics) in questo articolo.
+    * **Send to Azure Monitor (Log Analytics workspace)** (Invia a Monitoraggio di Azure - Area di lavoro di Log Analytics). Per usare questa opzione, usare un'area di lavoro esistente o [creare una nuova area di lavoro](../azure-monitor/learn/quick-create-workspace.md) nel portale. Per altre informazioni sulla visualizzazione dei log, vedere [Visualizzare i log nell'area di lavoro di Log Analytics](#view-logs-in-log-analytics) in questo articolo.
 
     * **Engine** (Motore). Selezionare questa opzione per registrare gli eventi estesi. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
     * **Servizio**. Selezionare questa opzione per registrare gli eventi a livello di servizio. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
@@ -150,47 +150,43 @@ I log sono in genere disponibili entro due ore dall'impostazione della registraz
 * Eliminare i log che non è più necessario mantenere nell'account di archiviazione.
 * Assicurarsi di impostare un periodo di conservazione dopo il quale i log obsoleti vengono eliminati dall'account di archiviazione.
 
-## <a name="view-logs-in-log-analytics"></a>Visualizzare i log in Log Analytics
+## <a name="view-logs-in-log-analytics-workspace"></a>Visualizzare i log nell'area di lavoro di Log Analytics
 
-Le metriche e gli eventi del server sono integrati con gli eventi estesi in Log Analytics per consentirne l'analisi affiancata. Log Analytics può anche essere configurato in modo da ricevere gli eventi da altri servizi di Azure e offrire una vista olistica dei dati della registrazione diagnostica in tutta l'architettura.
+Le metriche e gli eventi del server sono integrati con gli eventi estesi nell'area personale di Log Analytics per consentirne l'analisi affiancata. L'area di lavoro di Log Analytics può anche essere configurata in modo da ricevere gli eventi da altri servizi di Azure e offrire una vista olistica dei dati della registrazione diagnostica in tutta l'architettura.
 
-Per visualizzare i dati di diagnostica in Log Analytics, aprire la pagina Ricerca log dal menu a sinistra o nell'area Gestione, come illustrato nella figura seguente.
+Per visualizzare i dati di diagnostica, nell'area di lavoro di Log Analytics aprire **Log** nel menu a sinistra.
 
 ![Opzioni di Ricerca log nel portale di Azure](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
-Dopo aver abilitato la raccolta dei dati, in **Ricerca log** fare clic su **Tutti i dati raccolti**.
+Nel generatore di query espandere **LogManagement** > **AzureDiagnostics**. AzureDiagnostics include eventi del motore e del servizio. Viene immediatamente creata una query. Il campo EventClass\_s contiene nomi di eventi estesi, che possono apparire familiari a chi ha usato gli eventi estesi per la registrazione locale. Fare clic su **EventClass\_s** o su uno dei nomi di evento per consentire all'area di lavoro di Log Analytics di proseguire con la creazione della query. Assicurarsi di salvare le query per un successivo riutilizzo.
 
-In **Tipo** fare clic su **AzureDiagnostics** e quindi su **Applica**. AzureDiagnostics include eventi del motore e del servizio. Notare che viene creata una query di Log Analytics nell'immediato. Il campo EventClass\_s contiene nomi di eventi estesi, che possono apparire familiari a chi ha usato gli eventi estesi per la registrazione locale.
+### <a name="example-query"></a>Query di esempio
+Questa query calcola e restituisce la CPU per ogni evento di fine query/fine aggiornamento per un database modello e un server:
 
-Fare clic su **EventClass\_s** o su uno dei nomi di evento per consentire a Log Analytics di proseguire con la creazione della query. Assicurarsi di salvare le query per un successivo riutilizzo.
+```Kusto
+let window =  AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and ServerName_s =~"MyServerName" and DatabaseName_s == "Adventure Works Localhost" ;
+window
+| where OperationName has "QueryEnd" or (OperationName has "CommandEnd" and EventSubclass_s == 38)
+| where extract(@"([^,]*)", 1,Duration_s, typeof(long)) > 0
+| extend DurationMs=extract(@"([^,]*)", 1,Duration_s, typeof(long))
+| extend Engine_CPUTime=extract(@"([^,]*)", 1,CPUTime_s, typeof(long))
+| project  StartTime_t,EndTime_t,ServerName_s,OperationName,RootActivityId_g ,TextData_s,DatabaseName_s,ApplicationName_s,Duration_s,EffectiveUsername_s,User_s,EventSubclass_s,DurationMs,Engine_CPUTime
+| join kind=leftouter (
+window
+    | where OperationName == "ProgressReportEnd" or (OperationName == "VertiPaqSEQueryEnd" and EventSubclass_s  != 10) or OperationName == "DiscoverEnd" or (OperationName has "CommandEnd" and EventSubclass_s != 38)
+    | summarize sum_Engine_CPUTime = sum(extract(@"([^,]*)", 1,CPUTime_s, typeof(long))) by RootActivityId_g
+    ) on RootActivityId_g
+| extend totalCPU = sum_Engine_CPUTime + Engine_CPUTime
 
-Vedere Log Analytics, che fornisce al sito Web funzionalità avanzate di query, dashboard e avvisi sui dati raccolti.
-
-### <a name="queries"></a>Query
-
-Sono disponibili centinaia di query. Di seguito ne sono riportate alcune per iniziare.
-Per altre informazioni sull'uso del nuovo linguaggio di query di Ricerca log, vedere [Informazioni sulle ricerche log in Log Analytics](../log-analytics/log-analytics-log-search-new.md). 
-
-* Query che restituiscono query inviate a Azure Analysis Services che hanno richiesto più di cinque minuti (300.000 millisecondi) per il completamento.
-
-    ```
-    search * | where ( Type == "AzureDiagnostics" ) | where ( EventClass_s == "QUERY_END" ) | where toint(Duration_s) > 300000
-    ```
-
-* Identificare le repliche di scale-out.
-
-    ```
-    search * | summarize count() by ServerName_s
-    ```
-    Quando si usa la funzionalità di scale-out, è possibile identificare le repliche di sola lettura perché ai valori del campo ServerName\_s viene accodato il numero di istanza della replica. Il campo della risorsa contiene il nome della risorsa di Azure, che corrisponde al nome del server visibile agli utenti. Il campo IsQueryScaleoutReadonlyInstance_s è impostato su true per le repliche.
+```
 
 
-
-> [!TIP]
-> Se si dispone di una query di Log Analytics interessante da condividere, è possibile aggiungerla a questo articolo, purché si disponga di un account GitHub. È sufficiente fare clic su **Modifica** in alto a destra in questa pagina.
+Sono disponibili centinaia di query. Per altre informazioni sulle query, vedere [Introduzione alle query di log in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md).
 
 
-## <a name="tutorial---turn-on-logging-by-using-powershell"></a>Esercitazione: Attivare la registrazione mediante PowerShell
+## <a name="turn-on-logging-by-using-powershell"></a>Abilitare la registrazione tramite PowerShell
+
 In questa esercitazione rapida vengono creati un account di archiviazione nella stessa sottoscrizione e un gruppo di risorse come server di Analysis Services. Viene poi usato il cmdlet Set-AzureRmDiagnosticSetting per attivare la registrazione diagnostica e inviare i risultati al nuovo account di archiviazione.
 
 ### <a name="prerequisites"></a>Prerequisiti
@@ -253,7 +249,7 @@ Per abilitare la registrazione, usare il cmdlet Set-AzureRmDiagnosticSetting con
 Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
 ```
 
-L'output dovrebbe essere simile a quanto segue:
+L'output dovrebbe essere simile all'esempio seguente:
 
 ```powershell
 StorageAccountId            : 
@@ -292,7 +288,7 @@ Location                    :
 Tags                        :
 ```
 
-Ciò conferma che la registrazione è abilitata per il server. Le informazioni vengono salvate nell'account di archiviazione.
+Questo output conferma che la registrazione è abilitata per il server. Le informazioni vengono salvate nell'account di archiviazione.
 
 È possibile anche impostare criteri di conservazione per i log, in modo che i log meno recenti vengano eliminati automaticamente. È, ad esempio, possibile impostare i criteri di conservazione usando il flag **-RetentionEnabled** impostato su **$true** e impostare il parametro **-RetentionInDays** su **90**. I log antecedenti a 90 giorni vengono eliminati automaticamente.
 

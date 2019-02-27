@@ -1,6 +1,6 @@
 ---
-title: Visualizzare i log attività per le modifiche del controllo degli accessi in base al ruolo in Azure | Microsoft Docs
-description: Visualizzare i log di attività per le modifiche del controllo degli accessi in base al ruolo per gli ultimi 90 giorni.
+title: Visualizzare i log attività per le modifiche del controllo degli accessi in base al ruolo per le risorse di Azure | Microsoft Docs
+description: Visualizzare i log attività per le modifiche del controllo degli accessi in base al ruolo per le risorse di Azure per gli ultimi 90 giorni.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ff09647dc3271c947b3037afcfacc33951ddb07
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 01ac309d333b6e2456c53e0352067471514198c9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117649"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338812"
 ---
-# <a name="view-activity-logs-for-rbac-changes"></a>Visualizzare i log attività per le modifiche del controllo degli accessi in base al ruolo
+# <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Visualizzare i log attività per le modifiche del controllo degli accessi in base al ruolo per le risorse di Azure
 
-Talvolta è necessario visualizzare informazioni sul controllo degli accessi in base al ruolo, ad esempio a scopo di controllo o per la risoluzione di problemi. Ogni volta che un utente apporta modifiche alle assegnazioni o alle definizioni di ruolo all'interno delle sottoscrizioni, le modifiche vengono registrate in [Log attività di Azure](../azure-monitor/platform/activity-logs-overview.md). È possibile visualizzare i log attività per vedere tutte le modifiche apportate al controllo degli accessi in base al ruolo negli ultimi 90 giorni.
+È talvolta necessario visualizzare informazioni sulle modifiche del controllo degli accessi in base al ruolo per le risorse di Azure, ad esempio a scopo di controllo o per la risoluzione di problemi. Ogni volta che un utente apporta modifiche alle assegnazioni o alle definizioni di ruolo all'interno delle sottoscrizioni, le modifiche vengono registrate in [Log attività di Azure](../azure-monitor/platform/activity-logs-overview.md). È possibile visualizzare i log attività per vedere tutte le modifiche apportate al controllo degli accessi in base al ruolo negli ultimi 90 giorni.
 
 ## <a name="operations-that-are-logged"></a>Operazioni registrate
 

@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 87c3633bb3ed3537d1e258b9d8d50fd6d6356d81
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 02/20/2019
+ms.openlocfilehash: ced83fc31e9e4944f7392169b703056dc5b4fd98
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960031"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454838"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configurare e gestire l'autenticazione di Azure Active Directory con SQL
 
@@ -143,7 +143,7 @@ Per poter completare attività quali l'autenticazione degli utenti tramite l'app
 
     Il processo di modifica dell'amministratore può richiedere alcuni minuti. Al termine del processo, nella casella Amministratore di Active Directory verrà visualizzato il nome del nuovo amministratore.
 
-Dopo aver effettuato il provisioning di un amministratore di Azure AD per l'istanza gestita, è possibile iniziare a creare gli accessi di Azure AD (**versione di anteprima pubblica**) con la sintassi <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>. Per altre informazioni, vedere [Panoramica di Istanza gestita](sql-database-managed-instance.md#azure-active-directory-integration).
+Dopo aver effettuato il provisioning di un amministratore di Azure AD per l'istanza gestita, è possibile iniziare a creare le entità server (accessi) di Azure AD (**versione di anteprima pubblica**) con la sintassi <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>. Per altre informazioni, vedere [Panoramica di Istanza gestita](sql-database-managed-instance.md#azure-active-directory-integration).
 
 > [!TIP]
 > Per rimuovere un amministratore in un secondo momento, nella parte superiore della pagina Amministratore di Active Directory scegliere **Rimuovi amministratore** e quindi **Salva**.
@@ -264,7 +264,7 @@ Per altre informazioni sui comandi dell'interfaccia della riga di comando, veder
 ## <a name="create-contained-database-users-in-your-database-mapped-to-azure-ad-identities"></a>Creare gli utenti di database indipendente nel database di cui è stato eseguito il mapping alle identità di Azure AD
 
 >[!IMPORTANT]
->Istanza gestita supporta ora gli account di accesso di Azure AD (**versione di anteprima pubblica**), per creare gli account di accesso dagli utenti, gruppi o applicazioni di Azure AD. L'account di accesso di Azure AD offre la possibilità di eseguire l'autenticazione all'istanza gestita senza richiedere che gli utenti del database debbano essere creati come un utente di database indipendente. Per altre informazioni, vedere [Panoramica di Istanza gestita](sql-database-managed-instance.md#azure-active-directory-integration). Per la sintassi sulla creazione di account di accesso di Azure AD, vedere <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
+>Istanza gestita supporta ora le entità server (account di accesso) di Azure AD (**versione di anteprima pubblica**), per creare gli account di accesso dagli utenti, gruppi o applicazioni di Azure AD. Le entità server (account di accesso) di Azure AD offrono la possibilità di eseguire l'autenticazione all'istanza gestita senza richiedere che gli utenti del database debbano essere creati come un utente di database indipendente. Per altre informazioni, vedere [Panoramica di Istanza gestita](sql-database-managed-instance.md#azure-active-directory-integration). Per la sintassi sulla creazione di entità server (account di accesso) di Azure AD, vedere <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
 
 L'autenticazione di Azure Active Directory richiede la creazione di utenti del database come utenti di database indipendente. Un utente di database indipendente basato su un'identità di Azure AD è un utente di database che non può accedere al database master e del quale viene eseguito il mapping a un'identità nella directory di Azure AD associata al database. L'identità di Azure AD può essere un singolo account utente o un gruppo. Per altre informazioni sugli utenti di database indipendente, vedere [Utenti di database indipendente: rendere portabile un database](https://msdn.microsoft.com/library/ff929188.aspx).
 
@@ -323,14 +323,11 @@ Per verificare che l'amministratore di Azure AD sia configurato correttamente, c
 Per effettuare il provisioning di un utente di database indipendente basato su Azure AD, diverso dall'amministratore del server proprietario del database, connettersi al database con un'identità di Azure AD che abbia accesso al database.
 
 > [!IMPORTANT]
-> Il supporto per l'autenticazione di Azure Active Directory è disponibile con [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) e [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) in Visual Studio 2015. La versione di agosto 2016 di SQL Server Management Studio include anche il supporto per l'autenticazione universale di Active Directory, che consente agli amministratori di richiedere la Multi-Factor Authentication mediante chiamata telefonica, SMS, smart card con pin, o notifica dell'app per dispositivi mobili. L'uso degli accessi e degli utenti di Azure AD (**anteprima pubblica**) con SSDT non è attualmente supportato.
+> Il supporto per l'autenticazione di Azure Active Directory è disponibile con [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) e [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) in Visual Studio 2015. La versione di agosto 2016 di SQL Server Management Studio include anche il supporto per l'autenticazione universale di Active Directory, che consente agli amministratori di richiedere la Multi-Factor Authentication mediante chiamata telefonica, SMS, smart card con pin, o notifica dell'app per dispositivi mobili.
 
 ## <a name="using-an-azure-ad-identity-to-connect-using-ssms-or-ssdt"></a>Uso di un'identità di Azure AD per la connessione con SSMS o SSDT
 
 Le procedure seguenti mostrano come connettersi a un database SQL con un'identità di Azure Active Directory usando SQL Server Management Studio o SQL Server Database Tools.
-
->[!IMPORTANT]
->L'uso degli accessi e degli utenti di Azure AD (**anteprima pubblica**) con SSDT non è attualmente supportato.
 
 ### <a name="active-directory-integrated-authentication"></a>Autenticazione integrata di Active Directory
 

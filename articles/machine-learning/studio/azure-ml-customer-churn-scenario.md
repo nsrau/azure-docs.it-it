@@ -10,19 +10,19 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: dd65988146d3738d8540ddf4e54ed57813e10c16
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: a00548bd5eb88c95ea83d492524e2ae10f274bba
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243537"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453988"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analizzare la varianza dei clienti con Azure Machine Learning Studio
 ## <a name="overview"></a>Panoramica
-Questo argomento illustra un'implementazione di riferimento di un progetto di analisi della varianza del cliente compilata tramite Azure Machine Learning. L'articolo illustra i modelli generici associati per la risoluzione olistica dei problemi di varianza del cliente industriale. Viene inoltre misurata l'accuratezza dei modelli compilati usando Machine Learning e vengono poi valutate direzioni di sviluppo ulteriore.  
+Questo argomento illustra un'implementazione di riferimento di un progetto di analisi della varianza del cliente compilato tramite Azure Machine Learning Studio. L'articolo illustra i modelli generici associati per la risoluzione olistica dei problemi di varianza del cliente industriale. Viene inoltre misurata l'accuratezza dei modelli compilati usando Machine Learning e vengono poi valutate direzioni di sviluppo ulteriore.  
 
 ### <a name="acknowledgements"></a>Riconoscimenti
-Questo esperimento è stato sviluppato e testato da Serge Berger, Principal Data Scientist presso Microsoft e Roger Barga, in precedenza Product Manager per Microsoft Azure Machine Learning. Il team di documentazione di Azure esprime riconoscenza e ringrazia gli esperti per aver condiviso le proprie competenze in questo white paper.
+Questo esperimento è stato sviluppato e testato da Serge Berger, Principal Data Scientist presso Microsoft, e Roger Barga, ex Product Manager per Microsoft Azure Machine Learning Studio. Il team di documentazione di Azure esprime riconoscenza e ringrazia gli esperti per aver condiviso le proprie competenze in questo white paper.
 
 > [!NOTE]
 > I dati usati per questo esperimento non sono disponibili pubblicamente. Per un esempio su come compilare un modello di apprendimento automatico per l'analisi della varianza, vedere: [Retail churn model template](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) (Modello di varianza al dettaglio) nella [Azure AI Gallery](http://gallery.azure.ai/)
@@ -54,11 +54,11 @@ Un processo comune di risoluzione dei problemi legati alla varianza dei clienti 
 2. Un modello di intervento permette di valutare il modo in cui il livello di intervento può influire sulle probabilità di varianza e su indicatori di marketing come il Lifetime Value del cliente (CLV).
 3. Questa stessa analisi contribuisce a un'analisi qualitativa che viene poi inserita in una campagna di marketing proattiva rivolta ai segmenti di clientela a cui recapitare l'offerta ottimizzata.  
 
-![][1]
+![Diagramma che mostra come la tolleranza al rischio e i modelli decisionali possono produrre informazioni dettagliate interattive](./media/azure-ml-customer-churn-scenario/churn-1.png)
 
 Si tratta di un approccio rivolto al futuro è il modo migliore per trattare la varianza, ma risulta essere molto complesso: è necessario sviluppare un archetipo multi modello e tracciare le dipendenze tra i modelli. L'interazione tra modelli può essere incapsulata come illustrato nel diagramma seguente:  
 
-![][2]
+![Diagramma di interazione tra modelli di varianza](./media/azure-ml-customer-churn-scenario/churn-2.png)
 
 *Figura 4: Archetipo multi modello unificato*  
 
@@ -71,24 +71,24 @@ Un'aggiunta interessante in questo ambito è l'analisi dei Big Data. Negli attua
  
 
 ## <a name="implementing-the-modeling-archetype-in-machine-learning-studio"></a>Implementazione del sistema di modellazione in Machine Learning Studio
-Dato il problema appena descritto, qual è il modo migliore per implementare un modello integrato e un sistema di classificazione? In questa sezione viene illustrato tale processo tramite l'utilizzo di Azure Machine Learning Studio.  
+Dato il problema descritto, qual è il modo migliore per implementare un sistema di modellazione e classificazione integrato? In questa sezione viene illustrato tale processo tramite l'utilizzo di Azure Machine Learning Studio.  
 
 L'approccio multi modello è indispensabile quando si progetta un archetipo globale per la varianza. Anche la parte (predittiva) dell'approccio correlata al punteggio deve essere multi modello.  
 
 Nel diagramma seguente viene mostrato il prototipo creato, che impiega quattro algoritmi di valore in Cloud ML Studio per prevedere la varianza. Il motivo per usare un approccio multimodello non è solo il poter creare un classificatore basato su insiemi per aumentare l'accuratezza, ma anche la protezione da inserimenti superflui e la possibilità di migliorare la selezione futura.  
 
-![][3]
+![Screenshot che illustra un'area di lavoro di Studio complessa con numerosi moduli interconnessi](./media/azure-ml-customer-churn-scenario/churn-3.png)
 
 *Figura 5: Prototipo di un approccio di modellazione della varianza*  
 
 Nelle sezioni seguenti vengono forniti ulteriori dettagli sul modello di valori del prototipo implementato tramite Machine Learning Studio.  
 
 ### <a name="data-selection-and-preparation"></a>Selezione e preparazione dei dati
-I dati usati per creare i modelli e classificare i clienti sono stati ottenuti da una soluzione verticale CRM, con i dati offuscati per proteggere la privacy dei clienti. I dati contengono informazioni su 8.000 sottoscrizioni negli Stati Uniti e unisce tre origini: provisioning dei dati (metadati di sottoscrizione), dati dell'attività (uso del sistema) e dati del supporto tecnico. I dati non includono informazioni commerciali sui clienti. Ad esempio, non sono inclusi metadati relativi alla fedeltà o ai valori del credito.  
+I dati usati per creare i modelli e classificare i clienti sono stati ottenuti da una soluzione verticale CRM, con i dati offuscati per proteggere la privacy dei clienti. I dati contengono informazioni su 8.000 sottoscrizioni negli Stati Uniti e unisce tre origini: provisioning dei dati (metadati di sottoscrizione), dati dell'attività (uso del sistema) e dati del supporto tecnico. I dati non includono informazioni commerciali sui clienti. Ad esempio, non sono inclusi metadati relativi alla fedeltà o punteggi di credito.  
 
-Per semplicità, i processi ETL e di pulizia dei dati sono esclusi dall'ambito, in quanto si presuppone che la preparazione dei dati sia già stata completata altrove.   
+Per semplicità, i processi ETL e di pulizia dei dati sono esclusi dall'ambito, in quanto si presuppone che la preparazione dei dati sia già stata completata altrove.
 
-La selezione di funzionalità per la modellazione si basa su una classificazione preliminare di importanza del set di indicatori, inclusi nel processo che usa il modulo foresta casuale. Per l'implementazione in Machine Learning Studio, sono stati calcolati la media, la mediana e gli intervalli per le funzionalità rappresentative. Ad esempio, sono stati aggiunti aggregati per i dati qualitativi, ad esempio i valori minimi e massimi per l'attività degli utenti.    
+La selezione di funzionalità per la modellazione si basa su una classificazione preliminare di importanza del set di indicatori, inclusi nel processo che usa il modulo foresta casuale. Per l'implementazione in Machine Learning Studio, sono stati calcolati la media, la mediana e gli intervalli per le funzionalità rappresentative. Ad esempio, sono stati aggiunti aggregati per i dati qualitativi, ad esempio i valori minimi e massimi per l'attività degli utenti.
 
 Sono state inoltre acquisite informazioni temporali per gli ultimi sei mesi. Sono stati analizzati i dati per un anno e si è stabilito che anche se vi sono le tendenze statisticamente significative, l'effetto sulla varianza si riduce notevolmente dopo sei mesi.  
 
@@ -96,11 +96,11 @@ L'aspetto più importante è rappresentato dal fatto che l'intero processo, comp
 
 Nei diagrammi che seguono sono illustrati i dati usati.  
 
-![][4]
+![Screenshot che mostra un esempio dei dati usati con valori non elaborati](./media/azure-ml-customer-churn-scenario/churn-4.png)
 
 *Figura 6: Estratto dell'origine dati (offuscati)*  
 
-![][5]
+![Screenshot che mostra funzionalità statistiche estratte dall'origine dati](./media/azure-ml-customer-churn-scenario/churn-5.png)
 
 *Figura 7: Funzionalità estratte dall'origine dati*
  
@@ -122,7 +122,7 @@ Per la realizzazione del prototipo sono stati impiegati i seguenti quattro algor
 
 Nel diagramma seguente viene illustrata una porzione dell'area di progettazione dell'esperimento, che indica la sequenza secondo cui sono stati creati i modelli:  
 
-![][6]  
+![Screenshot di una piccola sezione dell'area di disegno dell'esperimento di Studio](./media/azure-ml-customer-churn-scenario/churn-6.png)  
 
 *Figura 8: Creazione di modelli in Machine Learning Studio*  
 
@@ -135,18 +135,18 @@ Inoltre, il set di dati di valutazione è stato inviato a un modello analogo com
 In questa sezione vengono presentati i risultati relativi all'accuratezza dei modelli in base al set di dati di punteggio.  
 
 ### <a name="accuracy-and-precision-of-scoring"></a>Accuratezza e precisione dei valori
-In genere, in Machine Learning di Azure, l'accuratezza dell'implementazione si trova sotto il livello di firma di accesso condiviso di circa il 10-15% (Area sottesa dalla curva o AUC).  
+In genere in Azure Machine Learning Studio l'accuratezza dell'implementazione si trova sotto il livello di firma di accesso condiviso di circa il 10-15% (area sottesa dalla curva o AUC).  
 
 La metrica più importante in ambito di varianza è tuttavia il tasso di errata classificazione, ovvero, tra i primi X candidati alla varianza, secondo le previsioni del classificatore, quali di essi **non** sono variati, ricevendo tuttavia il trattamento speciale? Nel diagramma seguente vengono confrontati tali tassi di errata classificazione per tutti i modelli:  
 
-![][7]
+![Grafico dell'area sottesa dalla curva che confronta le prestazioni di 4 algoritmi](./media/azure-ml-customer-churn-scenario/churn-7.png)
 
 *Figura 9: Area sottesa dalla curva del prototipo Passau*
 
 ### <a name="using-auc-to-compare-results"></a>Uso di AUC per il confronto dei risultati
 L'area sottesa dalla curva (AUC, Area Under Curve) è una metrica che rappresenta una misura globale di *separabilità* tra le distribuzioni di punteggi per popolazioni positive e negative. È simile al grafico ROC (Receiver Operator Characteristic) tradizionale, ma un'importante differenza è rappresentata dal fatto che la metrica AUC non richiede un valore soglia. ma fornisce invece un riepilogo dei risultati di **tutte** le scelte possibili. Al contrario, il grafico ROC tradizionale mostra il tasso positivo sull'asse verticale e il tasso di falsi positivi su quello orizzontale, con conseguente variazione della soglia di classificazione.   
 
-La metrica AUC viene in genere usata come misura di valore per diversi algoritmi (o diversi sistemi) perché consente il confronto dei modelli mediante i relativi valori AUC. Si tratta di un approccio comune in settori come la meteorologia e la bioscienza. AUC rappresenta quindi uno strumento popolare per la gestione delle prestazioni dei classificatori.  
+La metrica AUC viene usata come misura di valore per diversi algoritmi (o diversi sistemi) perché consente il confronto dei modelli mediante i relativi valori AUC. Si tratta di un approccio comune in settori come la meteorologia e la bioscienza. AUC rappresenta quindi uno strumento popolare per la gestione delle prestazioni dei classificatori.  
 
 ### <a name="comparing-misclassification-rates"></a>Confronto dei tassi di classificazione non corretta
 I tassi di errata classificazione nel set di dati in questione sono stati confrontati usando i dati CRM di circa 8.000 sottoscrizioni.  
@@ -160,14 +160,14 @@ Analogamente, l'accuratezza è più importante della precisione perché ciò che
 
 Il seguente diagramma disponibile su Wikipedia illustra la relazione in un grafico brillante e di facile comprensione:  
 
-![][8]
+![Due bersagli. Un bersaglio mostra i segni raggruppati in modo impreciso ma vicino al mirino contrassegnato con "Scarsa accuratezza: buona esattezza, bassa precisione". L'altro bersaglio mostra i segni raggruppati vicini tra loro ma lontani dal mirino contrassegnato con "Scarsa accuratezza: buona esattezza, buona precisione".](./media/azure-ml-customer-churn-scenario/churn-8.png)
 
 *Figura 10: Compromesso tra accuratezza e precisione*
 
 ### <a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>Risultati di accuratezza e precisione per il modello di albero decisionale incrementato
 Il grafico seguente illustra i risultati non elaborati della valutazione usando il prototipo di Machine Learning per il modello di albero decisionale incrementato, che risulta essere il più accurato dei quattro modelli:  
 
-![][9]
+![Frammento di tabella con le colonne Accuracy, Precision, Recall, F-Score, AUC, Average Log Loss e Training Log Loss per quattro algoritmi](./media/azure-ml-customer-churn-scenario/churn-9.png)
 
 *Figura 11: modello di albero delle decisioni con boosting*
 
@@ -200,18 +200,18 @@ Questa importante osservazione è spesso sottovalutata dalle aziende, dove in ge
 
 Tuttavia, la promessa dell'analisi self-service utilizzando Machine Learning Studio è data dal fatto che quattro categorie di informazioni, classificate per divisione o dipartimento, diventano un'origine preziosa per le attività di apprendimento automatico rivolte alla varianza.  
 
-Un'altra funzionalità interessante di apprendimento automatico presente in Azure Machine Learning è la possibilità di aggiungere un modulo personalizzato nel repository dei moduli predefiniti già disponibili. Essenzialmente, tale capacità consente di creare un'opportunità per selezionare raccolte e creare modelli per mercati verticali. Si tratta di un importante elemento di differenziazione per Azure Machine Learning nel mercato.  
+Un'altra funzionalità interessante di Azure Machine Learning Studio è la possibilità di aggiungere un modulo personalizzato nel repository dei moduli predefiniti già disponibili. Essenzialmente, tale capacità consente di creare un'opportunità per selezionare raccolte e creare modelli per mercati verticali. Si tratta di un importante elemento di differenziazione per Azure Machine Learning Studio nel mercato.  
 
 Si prevede di continuare a trattare questo argomento in futuro, specialmente per quanto riguarda l'analisi dei Big Data.
   
 
 ## <a name="conclusion"></a>Conclusioni
-In questo documento viene descritto un approccio intelligente alla gestione di un problema comune, vale a dire la varianza dei clienti, usando un framework generico. Viene considerato un prototipo per la valutazione dei modelli ed è implementato utilizzando Azure Machine Learning. Infine, sono state valutate l'accuratezza e le prestazioni della soluzione prototipo rispetto ad algoritmi paragonabili in SAS.  
+In questo documento viene descritto un approccio intelligente alla gestione di un problema comune, vale a dire la varianza dei clienti, usando un framework generico. Viene considerato un prototipo per la valutazione dei modelli, implementato con Azure Machine Learning Studio. Infine, sono state valutate l'accuratezza e le prestazioni della soluzione prototipo rispetto ad algoritmi paragonabili in SAS.  
 
  
 
 ## <a name="references"></a>Riferimenti
-[1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, luglio/agosto 2011, pp.18-20.  
+[1] Analisi predittiva: Beyond the Predictions, W. McKnight, Information Management, luglio/agosto 2011, pp.18-20.  
 
 [2] Articolo di Wikipedia: [Accuratezza e precisione](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
@@ -223,17 +223,6 @@ In questo documento viene descritto un approccio intelligente alla gestione di u
  
 
 ## <a name="appendix"></a>Appendice
-![][10]
+![Snapshot di una presentazione sul prototipo di varianza](./media/azure-ml-customer-churn-scenario/churn-10.png)
 
 *Figura 12: Snapshot di una presentazione sul prototipo di varianza*
-
-[1]: ./media/azure-ml-customer-churn-scenario/churn-1.png
-[2]: ./media/azure-ml-customer-churn-scenario/churn-2.png
-[3]: ./media/azure-ml-customer-churn-scenario/churn-3.png
-[4]: ./media/azure-ml-customer-churn-scenario/churn-4.png
-[5]: ./media/azure-ml-customer-churn-scenario/churn-5.png
-[6]: ./media/azure-ml-customer-churn-scenario/churn-6.png
-[7]: ./media/azure-ml-customer-churn-scenario/churn-7.png
-[8]: ./media/azure-ml-customer-churn-scenario/churn-8.png
-[9]: ./media/azure-ml-customer-churn-scenario/churn-9.png
-[10]: ./media/azure-ml-customer-churn-scenario/churn-10.png

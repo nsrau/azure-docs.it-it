@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: c3a737bdd9978e6cb02e3e8b7a34407eb1dd8fb6
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: fd301967800f67d95c12f1689981b2dfd8eb2d80
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380766"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452764"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opzioni di archiviazione per le applicazioni nel servizio Azure Kubernetes
 
@@ -20,7 +20,7 @@ Le applicazioni eseguite nel servizio Azure Kubernetes potrebbero richiedere l'a
 
 ![Opzioni di archiviazione per le applicazioni in un cluster del servizio Azure Kubernetes](media/concepts-storage/aks-storage-options.png)
 
-Questo articolo introduce i concetti di base per rendere disponibili risorse di archiviazione per le applicazioni nel servizio Azure Kubernetes:
+Questo articolo introduce i concetti di base per rendere disponibili risorse di archiviazione per le applicazioni nel servizio Kubernetes di Azure:
 
 - [Volumi](#volumes)
 - [Volumi permanenti](#persistent-volumes)
@@ -29,7 +29,7 @@ Questo articolo introduce i concetti di base per rendere disponibili risorse di 
 
 ## <a name="volumes"></a>Volumi
 
-Le applicazioni devono spesso essere in grado di archiviare e recuperare dati. Dato che Kubernetes considera in genere i singoli pod come risorse temporanee eliminabili, sono disponibili approcci diversi utilizzabili dalle applicazioni per usare e salvare i dati in base alle esigenze. Un *volume* rappresenta un modo per archiviare, recuperare e salvare i dati tra i pod e per l'intero ciclo di vita dell'applicazione.
+Le applicazioni devono spesso essere in grado di archiviare e recuperare dati. Dato che Kubernetes considera in genere i singoli pod come risorse temporanee eliminabili, sono disponibili approcci diversi utilizzabili dalle applicazioni per usare e rendere permanenti i dati in base alle esigenze. Un *volume* rappresenta un modo per archiviare, recuperare e salvare i dati tra i pod e per l'intero ciclo di vita dell'applicazione.
 
 Vengono creati volumi tradizionali per archiviare e recuperare i dati come risorse di Kubernetes supportate da Archiviazione di Azure. È possibile creare manualmente questi volumi di dati da assegnare ai pod direttamente o lasciare che vengano creati automaticamente da Kubernetes. Questi volumi di dati possono usare Dischi di Azure o File di Azure:
 
@@ -44,7 +44,7 @@ In Kubernetes, i volumi possono rappresentare più di un semplice disco tradizio
 
 ## <a name="persistent-volumes"></a>Volumi permanenti
 
-I volumi vengono definiti e creati come parte del ciclo di vita del pod ed esistono solo finché non viene eliminato il pod. I pod si aspettano in genere che le rispettive risorse di archiviazione rimangano disponibili se un pod viene ripianificato su un host diverso durante un evento di manutenzione, in particolare in StatefulSets. Un *volume permanente* è una risorsa di archiviazione creata e gestita dall'API di Kubernetes che può esistere oltre la durata di un singolo pod.
+I volumi definiti e creati nell'ambito del ciclo di vita del pod esistono solo finché non viene eliminato il pod. I pod si aspettano in genere che le rispettive risorse di archiviazione rimangano disponibili se un pod viene ripianificato su un host diverso durante un evento di manutenzione, in particolare in StatefulSets. Un *volume permanente* è una risorsa di archiviazione creata e gestita dall'API di Kubernetes che può esistere oltre la durata di un singolo pod.
 
 Per rendere disponibile un volume persistente si usano Dischi di Azure o File di Azure. Come indicato nella sezione precedente sui volumi, la scelta di dischi o file dipende spesso dalla necessità di accedere contemporaneamente ai dati o al livello di prestazioni.
 
@@ -130,11 +130,11 @@ Per informazioni su come creare i volumi dinamici e statici che usano Dischi di 
 
 Per altre informazioni sui concetti fondamentali relativi a Kubernetes e al servizio Azure Kubernetes, vedere gli articoli seguenti:
 
-- [Kubernetes / Cluster AKS e carichi di lavoro][aks-concepts-clusters-workloads]
-- [Kubernetes / Identità di AKS][aks-concepts-identity]
-- [Kubernetes / Sicurezza di AKS][aks-concepts-security]
-- [Kubernetes / Reti virtuali in AKS][aks-concepts-network]
-- [Kubernetes / Ridimensionamento in AKS][aks-concepts-scale]
+- [Kubernetes / Cluster servizio Azure Kubernetes e carichi di lavoro][aks-concepts-clusters-workloads]
+- [Kubernetes / Identità di servizio Azure Kubernetes][aks-concepts-identity]
+- [Kubernetes / Sicurezza di servizio Azure Kubernetes][aks-concepts-security]
+- [Kubernetes / Reti virtuali in servizio Azure Kubernetes][aks-concepts-network]
+- [Kubernetes / Ridimensionamento in servizio Azure Kubernetes][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
 

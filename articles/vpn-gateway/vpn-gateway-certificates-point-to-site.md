@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: e635eddabe239268829d3a907df10392c7e1b6a3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e574759ff8af172841db9fc94ee860a19dd14200
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850959"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415366"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Generare ed esportare i certificati per le connessioni da punto a sito usando PowerShell
 
@@ -47,7 +47,7 @@ Gli esempi usano il cmdlet New-SelfSignedCertificate per generare un certificato
 
 ### <a name="example-1"></a>Esempio 1
 
-Questo esempio usa la variabile dichiarata "$cert" della sezione precedente. Se è stata chiusa la console di PowerShell dopo aver creato il certificato radice autofirmato o si stanno creando i certificati client aggiuntivi in una nuova sessione della console di PowerShell, attenersi alla procedura nell'[esempio 2](#ex2).
+Usare questo esempio se dopo aver creato il certificato radice autofirmato non si è chiusa la console di PowerShell. Questo esempio continua dalla sezione precedente e usa la variabile dichiarata "$cert". Se è stata chiusa la console di PowerShell dopo aver creato il certificato radice autofirmato o si stanno creando i certificati client aggiuntivi in una nuova sessione della console di PowerShell, attenersi alla procedura nell'[esempio 2](#ex2).
 
 Modificare ed eseguire l'esempio per generare un certificato client. Se si esegue l'esempio seguente senza modificarlo, il risultato è un certificato client denominato "P2SChildCert".  Se si desidera assegnare un nome diverso al certificato figlio, modificare il valore CN. Non modificare il TextExtension quando si esegue questo esempio. Il certificato client generato viene installato automaticamente in "Certificati-Utente corrente\Personale\Certificati" nel computer in uso.
 

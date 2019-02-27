@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/03/2018
-ms.openlocfilehash: bddb97083bd1d1538b9f60ec3c0798cf1e964b1e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 7134a22532622d7de25a23897f83dc453d8a4344
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498149"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454056"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Porre una domanda a cui è possibile rispondere con i dati
 ## <a name="video-3-data-science-for-beginners-series"></a>Video 3: Data science per principianti
@@ -89,7 +89,7 @@ La cosa più importante, tuttavia, è porre una domanda ben strutturata, quella 
 
 Sono stati trattati alcuni principi di base per porre una domanda a cui è possibile rispondere con i dati.
 
-Anche gli altri video della serie "Analisi scientifica dei dati per principianti" di Microsoft Azure Machine Learning meritano di essere visti.
+Anche gli altri video della serie "Analisi scientifica dei dati per principianti" di Microsoft Azure Machine Learning Studio meritano di essere visti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Effettuare il primo esperimento di analisi scientifica dei dati con Machine Learning Studio](create-experiment.md)

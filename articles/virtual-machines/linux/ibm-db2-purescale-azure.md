@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: njray
-ms.openlocfilehash: 61cad318dbbe55ef5ecf1b8167b6594ab6e57553
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 901afc8f28b617eb5bada2a0f58761ddb9f67607
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247538"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327409"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale in Azure
 
@@ -89,7 +89,7 @@ Questa architettura esegue i livelli applicazione, archiviazione e dati sulle ma
 
 ### <a name="storage-considerations"></a>Considerazioni sulle risorse di archiviazione
 
-Analogamente a Oracle RAC, DB2 pureScale è un database ampliabile con I/O a blocchi a prestazioni elevate. È consigliabile usare l'opzione di [Archiviazione Premium di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) con le dimensioni maggiori in grado di soddisfare le proprie esigenze. Le opzioni di archiviazione di dimensioni inferiori possono essere adatte per gli ambienti di sviluppo e test, mentre gli ambienti di produzione necessitano spesso di una capacità di archiviazione maggiore. L'architettura di esempio usa [P30](https://azure.microsoft.com/pricing/details/managed-disks/) per il suo rapporto tra operazioni di I/O al secondo e dimensioni e prezzo. Indipendentemente dalle dimensioni, usare Archiviazione Premium per ottenere prestazioni ottimali.
+Analogamente a Oracle RAC, DB2 pureScale è un database ampliabile con I/O a blocchi a prestazioni elevate. È consigliabile usare l'opzione [SSD Premium di Azure](disks-types.md) con le dimensioni maggiori in grado di soddisfare le proprie esigenze. Le opzioni di archiviazione di dimensioni inferiori possono essere adatte per gli ambienti di sviluppo e test, mentre gli ambienti di produzione necessitano spesso di una capacità di archiviazione maggiore. L'architettura di esempio usa [P30](https://azure.microsoft.com/pricing/details/managed-disks/) per il suo rapporto tra operazioni di I/O al secondo e dimensioni e prezzo. Indipendentemente dalle dimensioni, usare Archiviazione Premium per ottenere prestazioni ottimali.
 
 DB2 pureScale usa un'architettura di condivisione totale, in cui tutti i dati sono accessibili da tutti i nodi del cluster. Lo spazio di archiviazione Premium deve essere condiviso tra le istanze, che si tratti di istanze su richiesta o dedicate.
 

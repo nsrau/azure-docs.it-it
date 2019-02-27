@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
-ms.openlocfilehash: 9aff955a2ae0f40785036c2fee22804785e6526a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4c428372868e3d3fac58bc851de8c59ad01d1d8f
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002275"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269961"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Analizzare i dati di log in Monitoraggio di Azure
 
-I dati del log raccolti da Monitoraggio di Azure vengono archiviati in un'area di lavoro Log Analytics, che è basata su [Esplora dati di Azure](/azure/data-explorer). Vengono raccolti i dati di telemetria di diverse origini e viene usato il [linguaggio di query di Esplora dati](/azure/kusto/query) per recuperare e analizzare i dati.
+I dati del log raccolti da Monitoraggio di Azure vengono archiviati in un'area di lavoro Log Analytics, che è basata su [Esplora dati di Azure](/azure/data-explorer). Vengono raccolti i dati di telemetria di diverse origini e viene usato il [linguaggio di query Kusto](/azure/kusto/query) di Esplora dati per recuperare e analizzare i dati.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -47,7 +47,7 @@ Di seguito sono indicati alcuni dei vari modi in cui verranno usate le query di 
 ![Ricerche log](media/log-query-overview/queries-overview.png)
 
 ## <a name="write-a-query"></a>Scrivere una query
-Monitoraggio di Azure usa [una versione del linguaggio di query di Esplora dati](get-started-queries.md) per recuperare e analizzare i dati dl log in diversi modi.  Si inizia in genere con query semplici per poi usare funzioni più avanzate, man mano che i requisiti diventano più complessi.
+Monitoraggio di Azure usa [una versione del linguaggio di query Kusto](get-started-queries.md) per recuperare e analizzare i dati di log in diversi modi.  Si inizia in genere con query semplici per poi usare funzioni più avanzate, man mano che i requisiti diventano più complessi.
 
 La struttura di base di una query è costituita da una tabella di origine seguita da una serie di operatori separati dal carattere barra verticale `|`.  È possibile concatenare più operatori per eseguire operazioni di recupero dei dati e funzioni più elaborate e avanzate.
 

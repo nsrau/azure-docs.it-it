@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: c9d8b875d7e5a831af52eae8abc642632cb5f635
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 287e4d63ca60200340a88dd45d6b8912a62b74cd
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238386"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454694"
 documentType: LandingData
 title: Istanza gestita di database SQL di Azure
 metadata:
@@ -75,7 +75,7 @@ sections:
     style: unordered
     items:
     - html: Il <a href="sql-database-managed-instance#business-critical-service-tier">livello di servizio Business Critical</a> è ora disponibile in <a href="https://azure.microsoft.com/blog/migrate-mission-critical-sql-workloads-to-the-most-economical-cloud-destination/">GA (General Availability)</a>.
-    - html: (Anteprima) È possibile creare <a href="https://aka.ms/managed-instance-aadlogins">accessi ad Azure AD a livello di Istanza </a> tramite <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> da un provider esterno.
+    - html: (Anteprima) È possibile creare <a href="https://aka.ms/managed-instance-aadlogins">entità server (accessi) di Azure AD a livello di istanza</a> usando <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a>.
     - html: (Anteprima) È possibile creare istanze con <a href="https://aka.ms/managed-instance-collation">regole di confronto a livello di server di propria scelta</a>.
     - html: È possibile <a href="https://aka.ms/managed-instance-configurable-backup-retention">configurare un periodo di conservazione backup fino a 35 giorni</a> per il ripristino temporizzato. Si noti che la conservazione backup a lungo termine (fino a 10 anni) non è ancora abilitata ed è quindi possibile usare <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">backup di sola copia</a> come opzione alternativa.
     - html: (Anteprima) È possibile usare <a href="https://aka.ms/managed-instance-failover-groups">gruppi di failover con distribuzione geografica</a> per mantenere una copia dell'istanza in un'altra area geografica e assicurare che i dati saranno disponibili anche in caso di emergenza a livello di area.

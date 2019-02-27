@@ -10,18 +10,18 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-ms.openlocfilehash: e62e5a1df2b5ad3099d2ef7e5dc33b0d11683988
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 221f78dbeb6bfb0c76ac12280511a8d5a5138c38
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245933"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453410"
 ---
 # <a name="create-azure-machine-learning-studio-experiments-from-working-examples-in-azure-ai-gallery"></a>Creare esperimenti di Azure Machine Learning Studio da esempi funzionanti in Azure AI Gallery
 
 Informazioni su come iniziare a usare gli esperimenti di esempio dalla [raccolta di intelligenza artificiale di Azure](https://gallery.azure.ai/) invece di creare esperimenti di Machine Learning completamente nuovi. È possibile usare gli esempi per compilare la propria soluzione di Machine Learning.
 
-Nella raccolta sono disponibili esperimenti di esempio del team di Microsoft Azure Machine Learning, oltre a esempi condivisi dalla community di Machine Learning. È anche possibile porre domande o inviare commenti sugli esperimenti disponibili.
+Nella raccolta sono disponibili esperimenti di esempio del team di Microsoft Azure Machine Learning Studio, oltre a esempi condivisi dalla community di Machine Learning. È anche possibile porre domande o inviare commenti sugli esperimenti disponibili.
 
 Per informazioni su come usare la raccolta, guardare il video di 3 minuti [Copiare il lavoro di altre persone per l'analisi scientifica dei dati](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) della serie [Analisi scientifica dei dati per principianti](data-science-for-beginners-the-5-questions-data-science-answers.md).
 

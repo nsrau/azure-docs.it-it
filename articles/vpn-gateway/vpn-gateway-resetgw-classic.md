@@ -2,25 +2,17 @@
 title: Reimpostare un'istanza di gateway VPN di Azure per ristabilire tunnel IPsec | Microsoft Docs
 description: Questo articolo descrive la reimpostazione di Gateway VPN di Azure per ristabilire i tunnel IPsec. L'articolo riguarda i gateway VPN nei modelli di distribuzione classica e Resource Manager.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: 79d77cb8-d175-4273-93ac-712d7d45b1fe
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/24/2017
+ms.date: 02/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8db17b92208bd956bd5f9b855249f03ecd5e2c59
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 6e57979e2c43cc47504495cce23947b93abb4020
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756700"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414934"
 ---
 # <a name="reset-a-vpn-gateway"></a>Reimpostare un gateway VPN
 
@@ -62,11 +54,13 @@ Verificare gli elementi seguenti prima di reimpostare il gateway:
 
 ### <a name="resource-manager-deployment-model"></a>Modello di distribuzione di Gestione risorse
 
-Il cmdlet per la reimpostazione di un gateway è **Reset-AzureRmVirtualNetworkGateway**. Prima di eseguire un ripristino assicurarsi di avere la versione più recente dei [cmdlet di PowerShell per Azure Resource Manager](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.0.0). Nell'esempio seguente viene ripristinato un gateway di rete virtuale denominato VNet1GW nel gruppo di risorse TestRG1:
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Il cmdlet per la reimpostazione di un gateway è **Reset-AzVirtualNetworkGateway**. Prima di eseguire un ripristino assicurarsi di avere la versione più recente dei [cmdlet di PowerShell per Azure Resource Manager](https://docs.microsoft.com/powershell/azure/azurerm/install-Az-ps?view=azurermps-4.0.0). Nell'esempio seguente viene ripristinato un gateway di rete virtuale denominato VNet1GW nel gruppo di risorse TestRG1:
 
 ```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
-Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
+$gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
+Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gw
 ```
 
 Risultato:

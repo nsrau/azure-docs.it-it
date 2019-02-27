@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bb3c2a9cfc1bccf4656be83c6babbe9c7ec139fb
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: f0e96b87e46872bebe7563e08f0eb7a33b11015f
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745351"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329849"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One nelle macchine virtuali di Azure
 Questo documento contiene indicazioni per la distribuzione di SAP Business One nelle macchine virtuali di Azure, ma non sostituisce la documentazione relativa all'installazione di Business One per SAP. Presenta le linee guida di base per la pianificazione e la distribuzione per consentire l'esecuzione di applicazioni Business One nell'infrastruttura di Azure.
@@ -119,7 +119,7 @@ Questi documenti consentono di prendere decisioni consapevoli nella scelta dei t
 
 In linea di principio è opportuno:
 
-- Preferire [Archiviazione Premium di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) ad [Archiviazione Standard di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
+- Usare SSD Premium su HDD Standard. Per altre informazioni sui tipi di dischi disponibili, vedere l'articolo [Selezionare un tipo di disco](../../windows/disks-types.md)
 - Preferire Azure Managed Disks ai dischi non gestiti
 - Assicurarsi che per i dischi sia configurata una velocità effettiva sufficiente in termini di I/O e operazioni di I/O al secondo
 - Combinare i volumi /hana/data e /hana/log per avere una configurazione di archiviazione economicamente conveniente
@@ -138,7 +138,6 @@ La tabella seguente presenta le dimensioni approssimative del lato DBMS per SQL 
 | Fino a 150 | 32 | 128 GB | D32s_v3, E32s_v3 |
 
 I valori indicati nella tabella dovrebbero dare un'idea delle dimensioni iniziali. Se è necessario un numero maggiore o minore di risorse, Azure consente di adattare la configurazione con facilità. Per cambiare il tipo di macchina virtuale è sufficiente riavviare la macchina.
-
 
 #### <a name="sap-hana-as-dbms"></a>SAP HANA come DBMS
 Se si usa SAP HANA come DBMS, seguire le considerazioni riportate nel documento [Guida operativa a SAP HANA in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).

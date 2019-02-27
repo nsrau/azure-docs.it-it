@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 096f310b7c82718ea836d1b2048ca665a1e1e2f4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 49f045e8da5094f583c01c514bf92f6bf3fe1c09
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994953"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453360"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>Esportare ed eliminare i dati utente interni al prodotto da Azure Machine Learning Studio
 
@@ -70,8 +70,8 @@ Gli utenti possono anche eliminare la propria intera area di lavoro:
 ![Eliminare un'area di lavoro gratuita in Machine Learning Studio](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  
 ## <a name="export-studio-data-with-powershell"></a>Esportare i dati di Machine Learning Studio con PowerShell
-Usare i comandi di PowerShell per esportare tutte le informazioni in un formato portabile da Azure Machine Learning Studio. Per informazioni, vedere [Modulo PowerShell per Microsoft Azure Machine Learning](powershell-module.md).
+Usare i comandi di PowerShell per esportare tutte le informazioni in un formato portabile da Azure Machine Learning Studio. Per informazioni, vedere [Modulo PowerShell per Microsoft Azure Machine Learning Studio](powershell-module.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per la documentazione sulla fatturazione dei servizi Web e del piano di impegno, vedere le [informazioni di riferimento sull'API REST di Azure Machine Learning](https://docs.microsoft.com/rest/api/machinelearning/). 
+Per la documentazione sulla fatturazione dei servizi Web e del piano di impegno, vedere le [informazioni di riferimento sull'API REST di Azure Machine Learning Studio](https://docs.microsoft.com/rest/api/machinelearning/). 

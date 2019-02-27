@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/13/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0afb8a09fa9780755bcfeef678b76e176f11b348
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: df4ae4b0c3f230947e0b9a5885070049f32a4b2f
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246035"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429863"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -188,6 +188,8 @@ Per ogni computer Windows gestito viene eseguita un'analisi due volte al giorno.
 Per ogni computer Linux gestito viene eseguita un'analisi ogni 3 ore.
 
 La visualizzazione nel dashboard dei dati aggiornati dei computer gestiti può richiedere da 30 minuti a 6 ore.
+
+L'utilizzo medio dei dati di Log Analytics per un computer con Gestione aggiornamenti è di circa 25 MB al mese. Questo valore è solo un'approssimazione ed è soggetto a modifiche, in base all'ambiente in uso. È consigliabile monitorare l'ambiente per visualizzare l'esatta quantità di dati usati.
 
 ## <a name="viewing-update-assessments"></a>Visualizzare la valutazione degli aggiornamenti
 

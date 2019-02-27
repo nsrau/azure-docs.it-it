@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: d6010b7ff03689588251a9649eecb412bf9f3a8d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: eb1fe69a7fb99949ac95291c33e76c1a32bf5439
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38701921"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310058"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Distribuire il servizio Gestione dispositivi StorSimple per i dispositivi StorSimple serie 8000
 
@@ -32,7 +32,7 @@ In questa esercitazione vengono descritti i passaggi necessari per la creazione,
 > [!NOTE]
 > -  Il portale di Azure supporta i dispositivi che eseguono l'aggiornamento 5.0 o versione successiva. Se il dispositivo non è aggiornato, installare l'aggiornamento 5 immediatamente. Per altre informazioni, vedere [Installare l'aggiornamento 5](storsimple-8000-install-update-5.md). 
 > - Se si usa un'appliance cloud StorSimple (8010/8020), non è possibile aggiornare un'appliance cloud. Usare la versione più recente del software per creare una nuova appliance cloud con l'aggiornamento 5.0 e quindi effettuare il failover nella nuova appliance cloud creata. 
-> - Tutti i dispositivi che eseguono l'aggiornamento 4.0 o versioni precedenti saranno caratterizzati da una [funzionalità di gestione ridotta](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
+> - Tutti i dispositivi che eseguono l'aggiornamento 4.0 o versioni precedenti saranno caratterizzati da una funzionalità di gestione ridotta. 
 
 ## <a name="create-a-service"></a>Creare un servizio
 Per creare un servizio Gestione dispositivi StorSimple, è necessario disporre di:
@@ -93,7 +93,7 @@ Per ottenere la chiave di registrazione del servizio, attenersi alla procedura s
 
 Conservare la chiave di registrazione del servizio in una posizione sicura. Questa chiave e la chiave DEK del servizio saranno necessarie per registrare altri dispositivi con il servizio. Dopo aver ottenuto la chiave di registrazione del servizio, è necessario configurare il dispositivo tramite l'interfaccia di Windows PowerShell per StorSimple.
 
-Per informazioni dettagliate sull'uso della chiave di registrazione, vedere [Passaggio 3: Configurare e registrare il dispositivo tramite Windows PowerShell per StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+Per informazioni dettagliate su come usare questa chiave di registrazione, vedere [Passaggio 3: Configurare e registrare il dispositivo tramite Windows PowerShell per StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
 ## <a name="regenerate-the-service-registration-key"></a>Rigenerare la chiave di registrazione del servizio
 La rigenerazione di una chiave di registrazione del servizio deve essere effettuata quando è necessario eseguire la rotazione delle chiavi o se l'elenco di amministratori del servizio è stato modificato. Quando si rigenera la chiave, quest'ultima viene usata solo per registrare dispositivi successivi. I dispositivi già registrati non sono interessati da questo processo.
@@ -127,7 +127,7 @@ La modifica della chiave DEK del servizio è un processo che prevede 3 fasi:
 2. Mediante Windows PowerShell per StorSimple, si consente di avviare la modifica della chiave DEK del servizio.
 3. Se si dispone di più di un dispositivo StorSimple, è necessario aggiornare la chiave DEK del servizio in altri dispositivi.
 
-### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>Passaggio 1: Usare uno script di Windows PowerShell per autorizzare un dispositivo a modificare la chiave DEK del servizio
+### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>Passaggio 1: Usare uno script di Windows PowerShell per autorizzare un dispositivo a modificare la chiave di crittografia dei dati del servizio
 In genere, l'amministratore dei dispositivi richiede all'amministratore del servizio di autorizzare un dispositivo a modificare le chiavi DEK del servizio. L'amministratore del servizio autorizza quindi il dispositivo a modificare la chiave.
 
 Questo passaggio viene eseguito usando lo script basato su Azure Resource Manager. L'amministratore del servizio può selezionare un dispositivo idoneo per l'autorizzazione. Il dispositivo viene quindi autorizzato ad avviare il processo di modifica della chiave DEK del servizio. 
@@ -143,7 +143,7 @@ Per essere autorizzato ad avviare le modifiche alla chiave DEK del servizio, un 
 * Non è possibile autorizzare un dispositivo mentre è in corso il rollover della chiave DEK del servizio.
 * È possibile autorizzare un dispositivo quando alcuni dei dispositivi registrati con il servizio hanno eseguito il rollover della crittografia mentre altri no. 
 
-### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Passaggio 2: Usare Windows PowerShell per StorSimple per avviare la modifica della chiave DEK del servizio
+### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Passaggio 2: Usare Windows PowerShell per StorSimple per avviare la modifica della chiave di crittografia dei dati del servizio
 Questo passaggio viene eseguito nell'interfaccia di Windows PowerShell per StorSimple nel dispositivo StorSimple autorizzato.
 
 > [!NOTE]
@@ -168,7 +168,7 @@ Se si usa la console seriale del dispositivo per la connessione all'interfaccia 
    
    Se nel servizio è registrato un unico dispositivo, il processo di rollover è completo ed è possibile ignorare il passaggio successivo. Se nel servizio sono registrati più dispositivi, andare al passaggio 3.
 
-### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>Passaggio 3: Aggiornare la chiave DEK del servizio in altri dispositivi StorSimple
+### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>Passaggio 3: Aggiornare la chiave di crittografia dei dati del servizio in altri dispositivi StorSimple
 Questa procedura deve essere eseguita nell'interfaccia di Windows PowerShell del dispositivo StorSimple se vi sono più dispositivi registrati per il servizio StorSimple Manager. La chiave ottenuta nel passaggio 2 deve essere usata per aggiornare tutti i dispositivi StorSimple rimanenti registrati con il servizio StorSimple Manager.
 
 Eseguire i passaggi seguenti per aggiornare la chiave DEK del servizio nel dispositivo.
@@ -176,7 +176,7 @@ Eseguire i passaggi seguenti per aggiornare la chiave DEK del servizio nel dispo
 #### <a name="to-update-the-service-data-encryption-key-on-physical-devices"></a>Per aggiornare la chiave di crittografia dei dati del servizio nei dispositivi fisici
 1. Usare Windows PowerShell per StorSimple per connettersi alla console. Selezionare l'opzione 1 per eseguire l'accesso completo.
 2. Al prompt dei comandi digitare: `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
-3. Specificare la chiave DEK ottenuta nel [Passaggio 2: Usare Windows PowerShell per StorSimple per avviare la modifica della chiave DEK del servizio](#to-initiate-the-service-data-encryption-key-change).
+3. Fornire la chiave di crittografia dei dati del servizio ottenuta in [Passaggio 2: Usare Windows PowerShell per StorSimple per avviare la modifica della chiave di crittografia dei dati del servizio](#to-initiate-the-service-data-encryption-key-change).
 
 #### <a name="to-update-the-service-data-encryption-key-on-all-the-80108020-cloud-appliances"></a>Per aggiornare la chiave di crittografia dei dati del servizio in tutte le appliance cloud 8010/8020
 1. Scaricare e configurare lo script di PowerShell [Update-CloudApplianceServiceEncryptionKey.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Update-CloudApplianceServiceEncryptionKey.ps1). 

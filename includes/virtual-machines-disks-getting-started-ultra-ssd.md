@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e55058d6b1f76b4afcb847b946df85d5ab69971b
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 972a538fab8a2aa84f6a12df48422abb40baac82
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985442"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56443376"
 ---
-# <a name="enabling-azure-ultra-ssds"></a>Abilitazione di unità Azure Ultra SSD
+# <a name="enabling-azure-ultra-ssd"></a>Abilitazione di unità Azure Ultra SSD
 
-Azure Ultra SSD offre una velocità effettiva elevata, un numero elevato di operazioni di I/O al secondo e archiviazione su disco con bassa latenza coerente per le macchine virtuali IaaS di Azure. Questa nuova offerta fornisce prestazioni all'avanguardia con gli stessi livelli di disponibilità delle offerte di dischi esistenti. I vantaggi aggiuntivi delle unità SSD Ultra includono la possibilità di modificare dinamicamente le prestazioni del disco in base ai carichi di lavoro, senza dover riavviare le macchine virtuali. Le unità Ultra SSD sono adatte per carichi di lavoro a elevato utilizzo di dati, come SAP HANA, database di alto livello e carichi di lavoro con numerose transazioni.
+Azure Ultra SSD offre una velocità effettiva elevata, un numero elevato di operazioni di I/O al secondo e archiviazione su disco con bassa latenza coerente per le macchine virtuali IaaS di Azure. Questa nuova offerta fornisce prestazioni all'avanguardia con gli stessi livelli di disponibilità delle offerte di dischi esistenti. I vantaggi aggiuntivi delle unità Ultra SSD includono la possibilità di modificare dinamicamente le prestazioni del disco in base ai carichi di lavoro, senza dover riavviare le macchine virtuali. Le unità Ultra SSD sono adatte per carichi di lavoro a elevato utilizzo di dati, come SAP HANA, database di alto livello e carichi di lavoro con numerose transazioni.
 
 Le unità Ultra SSD sono attualmente in anteprima ed è necessario [eseguire la registrazione](https://aka.ms/UltraSSDPreviewSignUp) all'anteprima per accedervi.
 
-Dopo l'approvazione, eseguire uno dei comandi seguenti per determinare in quale zona degli Stati Uniti orientali 2 distribuire l'unità Ultra SSD:
+Dopo l'approvazione, eseguire uno dei comandi seguenti per determinare in quale zona degli Stati Uniti orientali 2 distribuire il disco Ultra:
 
 PowerShell: `Get-AzComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
 
@@ -35,16 +35,16 @@ Il formato della risposta sarà simile al seguente, dove X è la zona da usare p
 
 Se il comando non restituisce risposte, significa che la registrazione alla funzionalità è ancora in sospeso o non è ancora stata approvata.
 
-Ora che si conosce la zona in cui eseguire la distribuzione, seguire la procedura illustrata in questo articolo per distribuire le prime macchine virtuali con i dischi Ultra SSD.
+Ora che si conosce la zona in cui eseguire la distribuzione, seguire la procedura illustrata in questo articolo per distribuire le prime macchine virtuali con unità Ultra SSD.
 
 ## <a name="deploying-an-ultra-ssd"></a>Distribuzione di un'unità Ultra SSD
 
 Determinare prima di tutto le dimensioni della macchina virtuale da distribuire. In questa anteprima sono supportate solo le famiglie di macchine virtuali DsV3 ed EsV3. Per altri dettagli su queste dimensioni di macchine virtuali, vedere la seconda tabella in questo [blog](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
-Vedere anche l'esempio [Create a VM with multiple Ultra SSD disks](https://aka.ms/UltraSSDTemplate) (Creare una macchina virtuale con più dischi Ultra SSD), che illustra come creare una macchina virtuale con più dischi Ultra SSD.
+Vedere anche l'esempio per la [creazione di una macchina virtuale con più unità Ultra SSD](https://aka.ms/UltraSSDTemplate), che illustra come creare una macchina virtuale con più unità Ultra SSD.
 
 Di seguito vengono elencati i cambiamenti apportati a un modello di Resource Manager nuovo/modificato: **apiVersion** per `Microsoft.Compute/virtualMachines` e `Microsoft.Compute/Disks` deve essere impostato come `2018-06-01` (o versione successiva).
 
-Specificare UltraSSD_LRS, come SKU del disco, la capacità del disco, le operazioni di I/O al secondo e la velocità effettiva in MBps per creare un disco Ultra SSD. Il seguente è un esempio che crea un disco con 1.024 GiB (GiB = 2^30 byte), 80.000 operazioni di I/O al secondo e 1.200 MBps  (MBps = 10^6 byte al secondo):
+Specificare UltraSSD_LRS come SKU del disco, la capacità del disco, le operazioni di I/O al secondo e la velocità effettiva in MBps per creare un disco Ultra. Il seguente è un esempio che crea un disco con 1.024 GiB (GiB = 2^30 byte), 80.000 operazioni di I/O al secondo e 1.200 MBps  (MBps = 10^6 byte al secondo):
 
 ```json
 "properties": {  
@@ -57,7 +57,7 @@ Specificare UltraSSD_LRS, come SKU del disco, la capacità del disco, le operazi
 }
 ```
 
-Aggiungere un'ulteriore funzionalità nelle proprietà della macchina virtuale per indicare che l'unità Ultra SSD è abilitata. Vedere l'[esempio](https://aka.ms/UltraSSDTemplate) per il modello di Resource Manager completo:
+Aggiungere un'ulteriore funzionalità nelle proprietà della macchina virtuale per indicare che l'unità Ultra è abilitata. Vedere l'[esempio](https://aka.ms/UltraSSDTemplate) per il modello di Resource Manager completo:
 
 ```json
 {
@@ -79,8 +79,8 @@ Dopo aver effettuato il provisioning della macchina virtuale, è possibile parti
 
 ## <a name="additional-ultra-ssd-scenarios"></a>Altri scenari delle unità Ultra SSD
 
-- Durante la creazione della macchina virtuale, possono essere create implicitamente anche unità Ultra SSD. Questi dischi riceveranno tuttavia un valore predefinito per le operazioni di I/O al secondo (500) e la velocità effettiva (8 MiB/s).
-- Unità Ultra SSD aggiuntive possono essere collegate alle macchine virtuali compatibili con Ultra SSD.
+- Durante la creazione della macchina virtuale possono essere create implicitamente anche unità Ultra SSD. Questi dischi riceveranno tuttavia un valore predefinito per le operazioni di I/O al secondo (500) e la velocità effettiva (8 MiB/s).
+- Unità Ultra SSD aggiuntive possono essere collegate alle macchine virtuali compatibili.
 - Ultra SSD supporta la regolazione degli attributi delle prestazioni del disco (operazioni di I/O al secondo e velocità effettiva) in fase di esecuzione senza scollegare il disco dalla macchina virtuale. Dopo l'esecuzione di un'operazione di ridimensionamento delle prestazioni in un disco, può essere necessario attendere fino a un'ora prima che la modifica abbia effetto.
 - Per aumentare la capacità del disco, è necessario deallocare una macchina virtuale.
 

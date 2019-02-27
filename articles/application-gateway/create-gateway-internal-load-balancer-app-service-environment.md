@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2018
 ms.author: genli
-ms.openlocfilehash: 16cfe4c1db8fe9ba4c80f6451611237e3ee12c55
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: ad52d2b1df458d04a1ca9bd52a99bab38ddabef1
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51617819"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308582"
 ---
 # <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>Il certificato del server back-end non è consentito per un gateway applicazione quando si usa un servizio di bilanciamento del carico interno con un ambiente del servizio app
 
-Questo articolo permette di risolvere questo problema: un certificato non è consentito quando si crea un gateway applicazione tramite un servizio di bilanciamento del carico interno con un ambiente del servizio app nel back-end e si usa SSL end-to-end in Azure.
+Questo articolo spiega come risolvere il problema seguente: Un certificato non è consentito quando si crea un gateway applicazione tramite un servizio di bilanciamento del carico interno con un ambiente del servizio app di Azure nel back-end usando SSL end-to-end in Azure.
 
 ## <a name="symptoms"></a>Sintomi
 
@@ -34,21 +34,21 @@ Quando si crea un gateway applicazione tramite un servizio di bilanciamento del 
 - **Listener:** multisito
 - **Porta:** 443
 - **Nome host:** test.appgwtestase.com
-- **Certificato SSL:** CN=test.appgwtestase.com
-- **Pool back-end:** indirizzo IP dell'FQDN
-- **Indirizzo IP:** 10.1.5.11
-- **Impostazioni HTTP:** HTTPS
-- **Porta:**: 443
-- **Probe personalizzato:** Nome host - test.appgwtestase.com
+- **Certificato SSL**: CN=test.appgwtestase.com
+- **Pool back-end**: indirizzo IP o FQDN
+- **Indirizzo IP**: 10.1.5.11
+- **Impostazioni HTTP**: HTTPS
+- **Porta**: 443
+- **Probe personalizzato**: nome host, test.appgwtestase.com
 - **Certificato di autenticazione:** file CER di test.appgwtestase.com
-- **Integrità del back-end:** Danneggiato - Il certificato del server back-end non è consentito con il gateway applicazione.
+- **Integrità del back-end**: non integro. Il certificato del server back-end non è consentito con il gateway applicazione.
 
 **Configurazione dell'ambiente del servizio app:**
 
-- **Indirizzo IP del servizio di bilanciamento del carico interno:** 10.1.5.11
+- **Indirizzo IP del servizio di bilanciamento del carico interno**: 10.1.5.11
 - **Nome di dominio:** appgwtestase.com
 - **Servizio app:** test.appgwtestase.com
-- **Associazione SSL:** SNI SSL - CN=test.appgwtestase.com
+- **Associazione SSL**: SNI SSL - CN=test.appgwtestase.com
 
 Quando si accede al gateway applicazione, viene visualizzato il messaggio di errore seguente perché il server back-end non è integro:
 
@@ -56,19 +56,19 @@ Quando si accede al gateway applicazione, viene visualizzato il messaggio di err
 
 ## <a name="solution"></a>Soluzione
 
-Quando non si usa un nome host per accedere a un sito Web HTTPS, il server back-end restituisce il certificato configurato nel sito Web predefinito. Per un ambiente del servizio app del servizio di bilanciamento del carico interno, il certificato predefinito proviene dal certificato del servizio di bilanciamento del carico interno. Se per il servizio di bilanciamento del carico interno non è configurato alcun certificato, il certificato proviene dal certificato dell'app dell'ambiente del servizio app.
+Quando non si usa un nome host per accedere a un sito Web HTTPS, il server back-end restituisce il certificato configurato nel sito Web predefinito, se SNI è disabilitato. Per un ambiente del servizio app del servizio di bilanciamento del carico interno, il certificato predefinito proviene dal certificato del servizio di bilanciamento del carico interno. Se per il servizio di bilanciamento del carico interno non è configurato alcun certificato, il certificato proviene dal certificato dell'app dell'ambiente del servizio app.
 
-Quando si usa un nome di dominio completo (FQDN) per accedere al servizio di bilanciamento del carico interno, il server back-end restituisce il certificato corretto caricato nelle impostazioni HTTP. In questo caso, tenere presenti le opzioni seguenti:
+Quando si usa un nome di dominio completo (FQDN) per accedere al servizio di bilanciamento del carico interno, il server back-end restituisce il certificato corretto caricato nelle impostazioni HTTP. In caso contrario, tenere presenti le opzioni seguenti:
 
 - Usare l'FQDN nel pool back-end del gateway applicazione in modo che punti all'indirizzo IP del servizio di bilanciamento del carico interno. Questa opzione funziona solo se è stato configurato un DNS personalizzato o una zona DNS privata. In caso contrario, è necessario creare un record "A" per un DNS pubblico.
 
-- Usare il certificato caricato nel servizio di bilanciamento del carico interno o il certificato predefinito nelle impostazioni HTTP. Il gateway applicazione ottiene il certificato quando accede all'indirizzo IP del servizio di bilanciamento del carico interno per il probe.
+- Usare il certificato caricato nel servizio di bilanciamento del carico interno o il certificato predefinito (certificato ILB) nelle impostazioni HTTP. Il gateway applicazione ottiene il certificato quando accede all'indirizzo IP del servizio di bilanciamento del carico interno per il probe.
 
-- Usare un certificato con caratteri jolly nel servizio di bilanciamento del carico interno nel server back-end.
+- Usare un certificato con caratteri jolly nel servizio di bilanciamento del carico interno e nel server back-end, in modo che il certificato sia comune per tutti i siti Web. Tuttavia, questa soluzione è possibile solo in caso di sottodomini e non se ognuno dei siti Web richiede nomi host diversi.
 
-- Deselezionare l'opzione **Use for App service** (Usa per servizio app) per il gateway applicazione.
+- Deselezionare l'opzione **Use for App service** (Usa per servizio app) per il gateway applicazione se si usa l'indirizzo IP del servizio di bilanciamento del carico interno.
 
-Per ridurre il sovraccarico, è possibile caricare il certificato del servizio di bilanciamento del carico interno nelle impostazioni HTTP per il funzionamento del percorso del probe. Questo passaggio è solo per l'inserimento del certificato nell'elenco dei certificati consentiti. Non verrà usato per le comunicazioni SSL. È possibile recuperare il certificato del servizio di bilanciamento del carico interno accedendo al servizio di bilanciamento del carico interno con il relativo indirizzo IP su HTTPS, quindi esportando il certificato SSL in un formato CER con codifica Base-64 e caricando il certificato nelle relative impostazioni HTTPS.
+Per ridurre il sovraccarico, è possibile caricare il certificato del servizio di bilanciamento del carico interno nelle impostazioni HTTP per il funzionamento del percorso del probe. Questo passaggio è solo per l'inserimento del certificato nell'elenco dei certificati consentiti. Non verrà usato per le comunicazioni SSL. È possibile recuperare il certificato del servizio di bilanciamento del carico interno accedendo al servizio di bilanciamento del carico interno con il suo indirizzo IP dal browser su HTTPS, quindi esportando il certificato SSL in un formato CER con codifica Base-64 e caricandolo nelle impostazioni HTTPS corrispondenti.
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 

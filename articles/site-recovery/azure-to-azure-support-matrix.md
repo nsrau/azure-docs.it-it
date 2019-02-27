@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: 5f3d884720bce5777a358a27dc477eabd5263d0c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4c58d053412b8f90b6423454fcda814e8cf6da75
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245185"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329014"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matrice di supporto per la replica da un'area di Azure a un'altra
 
@@ -177,8 +177,8 @@ Questa tabella riepiloga il supporto per il disco del sistema operativo, il disc
 
 **Componente** | **Supporto** | **Dettagli**
 --- | --- | ---
-Dimensione massima del disco del sistema operativo | 2048 GB | [Altre informazioni](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms) sui dischi delle VM.
-Disco temporaneo | Non supportate | Il disco temporaneo è sempre escluso dalla replica.<br/><br/> Non conservare dati persistenti sul disco temporaneo. [Altre informazioni](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk)
+Dimensione massima del disco del sistema operativo | 2048 GB | [Altre informazioni](../virtual-machines/windows/managed-disks-overview.md) sui dischi delle VM.
+Disco temporaneo | Non supportate | Il disco temporaneo è sempre escluso dalla replica.<br/><br/> Non conservare dati persistenti sul disco temporaneo. [Altre informazioni](../virtual-machines/windows/managed-disks-overview.md)
 Dimensione massima del disco dati | 4095 GB |
 Numero massimo di dischi dati | Fino a 64, in conformità con il supporto per una specifica dimensione di VM di Azure | [Altre informazioni](../virtual-machines/windows/sizes.md) sulle dimensioni delle VM.
 Frequenza di modifica del disco dati | Massimo 10 Mbps per disco per l'archiviazione Premium. Massimo 2 Mbps per disco per l'archiviazione Standard. | Se la frequenza di modifica media dei dati sul disco supera costantemente il limite massimo, la replica non verrà aggiornata.<br/><br/>  Se tuttavia il limite massimo viene superato sporadicamente, la replica può essere aggiornata, ma i punti di ripristino potrebbero essere visualizzati leggermente ritardati.
@@ -194,7 +194,7 @@ Crittografia per dati inattivi (SSE) | Supportato | La crittografia per dati ina
 Crittografia dischi di Azure (ADE) per sistema operativo Windows | Le macchine virtuali abilitate per [la crittografia con l'app di Azure AD](https://aka.ms/ade-aad-app) sono supportate |
 Crittografia dischi di Azure (ADE) per sistema operativo Linux | Non supportate |
 Aggiunta/rimozione a caldo disco | Non supportate | Se si aggiungono o rimuovono dischi dati dalla macchina virtuale, è necessario disabilitare la replica e abilitarla nuovamente per la macchina virtuale.
-Esclusione disco | Non supportate|   Il disco temporaneo è escluso per impostazione predefinita.
+Esclusione disco | [supportato tramite powershell](https://review.docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell?branch=pr-en-us-66458#replicate-azure-virtual-machine) |  Il disco temporaneo è escluso per impostazione predefinita.
 Spazi di archiviazione diretta  | Supportato per i punti di ripristino coerenti con l'arresto anomalo. I punti di ripristino coerenti con l'applicazione non sono supportati. |
 File server di scalabilità orizzontale  | Supportato per i punti di ripristino coerenti con l'arresto anomalo. I punti di ripristino coerenti con l'applicazione non sono supportati. |
 Archiviazione con ridondanza locale | Supportato |

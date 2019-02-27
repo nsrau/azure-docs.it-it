@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ce7b73afa150ef5fef58c5baf861da92c5203548
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: bb9b90ca239ff03f44b76a7ee5754eb7872caa31
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980501"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415902"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Linee guida sulle prestazioni per SQL Server in Macchine virtuali di Azure
 
@@ -41,8 +41,8 @@ Di seguito è riportato un elenco controllo rapido per ottimizzare le prestazion
 | Area | Ottimizzazioni |
 | --- | --- |
 | [Dimensioni macchina virtuale](#vm-size-guidance) | - [DS3_v2](../sizes-general.md) o successiva per SQL Enterprise Edition.<br/><br/> - [DS2_v2](../sizes-general.md) o successiva per SQL Standard Edition e Web Edition. |
-| [Archiviazione](#storage-guidance) | - Usare [Archiviazione Premium](../premium-storage.md). Archiviazione Standard è consigliata solo per i carichi di lavoro di sviluppo/test.<br/><br/> - Mantenere l'[account di archiviazione](../../../storage/common/storage-create-storage-account.md) e la macchina virtuale di SQL Server nella stessa area.<br/><br/> * Disabilitare l'[archiviazione con ridondanza geografica](../../../storage/common/storage-redundancy.md) (replica geografica) di Azure nell'account di archiviazione. |
-| [Dischi](#disks-guidance) | - Usare almeno 2 [dischi P30](../premium-storage.md#scalability-and-performance-targets) (1 per i file di log, 1 per i file di dati inclusi TempDB). Per i carichi di lavoro che richiedono circa 50.000 operazioni di I/O al secondo, è consigliabile usare un'unità Ultra SSD. <br/><br/> - Evitare l'uso del sistema operativo o di dischi temporanei per la registrazione o l'archiviazione di database.<br/><br/> - Abilitare la memorizzazione nella cache di lettura sui dischi che ospitano i file di dati e i file di dati di TempDB.<br/><br/> - Non abilitare la memorizzazione nella cache sui dischi che ospitano il file di log.  **Importante**: arrestare SQL Server quando si modificano le impostazioni della cache per un disco di una macchina virtuale di Azure.<br/><br/> - Eseguire lo striping di più dischi dati di Azure per ottenere una maggiore velocità effettiva I/O.<br/><br/> - Formattare con dimensioni di allocazione documentate. <br/><br/> - Posizionare TempDB sull'unità SSD locale per carichi di lavoro SQL Server di importanza strategica (dopo aver scelto le dimensioni della macchina virtuale corrette). |
+| [Archiviazione](#storage-guidance) | - Usare [unità SSD Premium](../disks-types.md). Archiviazione Standard è consigliata solo per i carichi di lavoro di sviluppo/test.<br/><br/> - Mantenere l'[account di archiviazione](../../../storage/common/storage-create-storage-account.md) e la macchina virtuale di SQL Server nella stessa area.<br/><br/> * Disabilitare l'[archiviazione con ridondanza geografica](../../../storage/common/storage-redundancy.md) (replica geografica) di Azure nell'account di archiviazione. |
+| [Dischi](#disks-guidance) | - Usare almeno 2 [dischi P30](../disks-types.md#premium-ssd) (1 per i file di log, 1 per i file di dati inclusi TempDB). Per i carichi di lavoro che richiedono circa 50.000 operazioni di I/O al secondo, è consigliabile usare un'unità Ultra SSD. <br/><br/> - Evitare l'uso del sistema operativo o di dischi temporanei per la registrazione o l'archiviazione di database.<br/><br/> - Abilitare la memorizzazione nella cache di lettura sui dischi che ospitano i file di dati e i file di dati di TempDB.<br/><br/> - Non abilitare la memorizzazione nella cache sui dischi che ospitano il file di log.  **Importante**: arrestare SQL Server quando si modificano le impostazioni della cache per un disco di una macchina virtuale di Azure.<br/><br/> - Eseguire lo striping di più dischi dati di Azure per ottenere una maggiore velocità effettiva I/O.<br/><br/> - Formattare con dimensioni di allocazione documentate. <br/><br/> - Posizionare TempDB sull'unità SSD locale per carichi di lavoro SQL Server di importanza strategica (dopo aver scelto le dimensioni della macchina virtuale corrette). |
 | [I/O](#io-guidance) |- Abilitare la compressione di pagina del database.<br/><br/> - Abilitare l'inizializzazione immediata per i file di dati.<br/><br/> - Limitare l'aumento automatico delle dimensioni per il database.<br/><br/> - Disabilitare la compattazione automatica del database.<br/><br/> - Spostare tutti i database su dischi dati, inclusi i database di sistema.<br/><br/> - Spostare le directory dei file di traccia e dei log degli errori di SQL Server sui dischi dati.<br/><br/> - Configurare il percorso predefinito del file di backup e del file di database.<br/><br/> - Abilitare le pagine bloccate.<br/><br/> - Applicare le correzioni delle prestazioni di SQL Server. |
 | [Elementi specifici delle funzionalità](#feature-specific-guidance) | - Eseguire il backup direttamente nell'archivio BLOB. |
 
@@ -59,10 +59,10 @@ Le macchine virtuali della [serie DSv2](../sizes-general.md#dsv2-series) support
 
 ## <a name="storage-guidance"></a>Linee guida per l'archiviazione
 
-Le VM serie DS, oltre alle serie DSv2 e GS, supportano [Archiviazione Premium](../premium-storage.md). Archiviazione Premium è l'impostazione consigliata per tutti i carichi di lavoro di produzione.
+Le macchine virtuali serie DS, oltre alle serie DSv2 e GS, supportano le [unità SSD Premium](../disks-types.md). Le unità SSD Premium sono consigliate per tutti i carichi di lavoro di produzione.
 
 > [!WARNING]
-> Archiviazione Standard è caratterizzata da latenze e larghezze di banda variabili ed è consigliata solo per i carichi di lavoro di sviluppo e test. Ciò include la nuova archiviazione SSD Standard. Per i carichi di lavoro di produzione si consiglia di usare Archiviazione Premium.
+> Le unità HDD e SSD Standard sono caratterizzate da latenze e larghezze di banda variabili e sono consigliate solo per i carichi di lavoro di sviluppo e test. Per i carichi di lavoro di produzione si consiglia di usare le unità SSD Premium.
 
 È inoltre consigliabile creare account di archiviazione di Azure nello stesso data center delle macchine virtuali di SQL Server per ridurre i tempi di trasferimento. Quando si crea un account di archiviazione, disabilitare la replica geografica in quanto l'ordine di scrittura coerente su più dischi non è garantito. In alternativa, si consiglia di configurare una tecnologia di ripristino di emergenza di SQL Server tra due data center di Azure. Per altre informazioni, vedere [Disponibilità elevata e ripristino di emergenza per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-high-availability-dr.md).
 
@@ -88,13 +88,13 @@ L'unità di archiviazione temporanea, etichettata come unità **D**:, non è per
 
 Per le VM serie D, Dv2 e G, l'unità temporanea è basata su SSD. Se il carico di lavoro usa TempDB in modo intensivo, ad esempio per gli oggetti temporanei o join complessi, l'archiviazione di TempDB nell'unità **D** potrebbe comportare una maggiore velocità effettiva e una minore latenza di TempDB. Per uno scenario di esempio, vedere la discussione relativa a TempDB nel post di blog seguente: [Storage Configuration Guidelines for SQL Server on Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm) (Linee guida per la configurazione dell'archiviazione per SQL Server nelle macchine virtuali di Azure).
 
-Per le macchine virtuali che supportano Archiviazione Premium (serie DS, DSv2 e GS), si consiglia di archiviare TempDB su un disco che supporta Archiviazione Premium con il caching di lettura attivato. 
+Per le macchine virtuali che supportano le unità SSD Premium (serie DS, DSv2 e GS), si consiglia di archiviare TempDB su un disco che supporta le unità SSD Premium con la memorizzazione nella cache di lettura abilitata.
 
-Esiste un'eccezione a questo consiglio: _se TempDB è soggetto a un utilizzo intenso in scrittura, è possibile migliorare le prestazioni archiviando TempDB nell'unità locale **D**, che in macchine di queste dimensioni è anche basata su SSD._ 
+Esiste un'eccezione a questo consiglio: _se TempDB è soggetto a un utilizzo intenso in scrittura, è possibile migliorare le prestazioni archiviando TempDB nell'unità locale **D**, che in macchine di queste dimensioni è anche basata su SSD._
 
 ### <a name="data-disks"></a>Dischi dati
 
-* **Usare i dischi dati per i file di dati e di log**: se non si usa lo striping del disco, usare due [dischi P30](../premium-storage.md#scalability-and-performance-targets) con Archiviazione Premium di cui uno contenente i file di log e l'altro contenente i file di dati e TempDB. Ogni disco di Archiviazione Premium offre un numero di operazioni di I/O al secondo e larghezza di banda (MB/s) a seconda delle dimensioni, come descritto nell'articolo [Uso di Archiviazione Premium per dischi](../premium-storage.md). Se si utilizza una tecnica di striping del disco, come Spazi di archiviazione, si ottengono prestazioni ottimali con due pool, uno per il/i file di log e l'altro per i file di dati. Tuttavia, se si prevede di usare le istanze cluster di failover (FCI) di SQL Server, è necessario configurare un pool.
+* **Usare i dischi dati per i file di dati e di log**: se non si usa lo striping del disco, usare due dischi P30 SSD Premium di cui uno contenente i file di log e l'altro contenente i file di dati e TempDB. Ogni unità SSD Premium offre un numero di operazioni di I/O al secondo e larghezza di banda (MB/s) a seconda delle dimensioni, come illustrato nell'articolo [Selezionare un tipo di disco](../disks-types.md). Se si utilizza una tecnica di striping del disco, come Spazi di archiviazione, si ottengono prestazioni ottimali con due pool, uno per il/i file di log e l'altro per i file di dati. Tuttavia, se si prevede di usare le istanze cluster di failover (FCI) di SQL Server, è necessario configurare un pool.
 
    > [!TIP]
    > - Per i risultati dei test in diverse configurazioni del disco e del carico di lavoro, vedere il post di blog seguente: [Storage Configuration Guidelines for SQL Server on Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/) (Linee guida per la configurazione dell'archiviazione per SQL Server nelle macchine virtuali di Azure).
@@ -125,7 +125,7 @@ Esiste un'eccezione a questo consiglio: _se TempDB è soggetto a un utilizzo int
 
   * Determinare il numero di dischi associati al pool di archiviazione dell'utente in base alle aspettative di carico. Tenere presente che le diverse dimensioni di macchine virtuali consentono diversi numeri di dischi dati associati. Per altre informazioni, vedere [Dimensioni delle macchine virtuali in Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-  * Se non si usa Archiviazione Premium (scenari di sviluppo e test), è consigliabile aggiungere il numero massimo di dischi dati supportato dalle [dimensioni della VM](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e usare lo striping del disco.
+  * Se non si usano unità SSD Premium (scenari di sviluppo e test), è consigliabile aggiungere il numero massimo di dischi dati supportato dalle [dimensioni della macchina virtuale](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e usare lo striping del disco.
 
 * **Memorizzazione dei criteri nella cache**: tenere presenti le raccomandazioni seguenti per la memorizzazione dei criteri nella cache a seconda della configurazione di archiviazione.
 
@@ -133,7 +133,7 @@ Esiste un'eccezione a questo consiglio: _se TempDB è soggetto a un utilizzo int
 
   * Se si usa lo striping del disco in un singolo pool di archiviazione, la maggior parte dei carichi di lavoro trarrà vantaggio dalla memorizzazione nella cache. Se si dispone di pool di archiviazione separato per i file di log e di dati, abilitare la cache di lettura solo nel pool di archiviazione per i file di dati. Per alcuni carichi di lavoro di scrittura pesanti, è possibile ottenere prestazioni migliori senza la memorizzazione nella cache. Ciò può essere determinato solo tramite test.
 
-  * Le raccomandazioni precedenti si applicano ai dischi di Archiviazione Premium. Se non si usa Archiviazione Premium, non abilitare la memorizzazione nella cache per i dischi dati.
+  * Le raccomandazioni precedenti si applicano alle unità SSD Premium. Se non si usano unità SSD Premium, non abilitare la memorizzazione nella cache per i dischi dati.
 
   * Per istruzioni sulla configurazione della memorizzazione nella cache su disco, vedere gli articoli seguenti. Per il modello di distribuzione (ASM) classica, vedere: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) e [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Per il modello di distribuzione di Azure Resource Manager, vedere: [Set-AzOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk?view=azurermps-4.4.1) e [Set-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdatadisk?view=azurermps-4.4.1).
 
@@ -150,7 +150,7 @@ Esiste un'eccezione a questo consiglio: _se TempDB è soggetto a un utilizzo int
 
 ## <a name="io-guidance"></a>Linee guida per l'I/O
 
-* Quando l'applicazione e le richieste vengono eseguite in parallelo, si ottengono i migliori risultati con Archiviazione Premium. Archiviazione Premium è progettato per scenari in cui la profondità della coda I/O è maggiore di 1, pertanto si noteranno eventualmente impercettibili miglioramenti delle prestazioni per le richieste seriali a thread singolo (anche se usano in modo intensivo l'archiviazione). Ad esempio, ciò potrebbe influire sui risultati di test a thread singolo degli strumenti di analisi delle prestazioni, ad esempio SQLIO.
+* Quando l'applicazione e le richieste vengono eseguite in parallelo, si ottengono i migliori risultati con le unità SSD Premium. Le unità SSD Premium sono progettate per scenari in cui la profondità della coda I/O è maggiore di 1, pertanto si noteranno eventualmente impercettibili miglioramenti delle prestazioni per le richieste seriali a thread singolo (anche se usano in modo intensivo l'archiviazione). Ad esempio, ciò potrebbe influire sui risultati di test a thread singolo degli strumenti di analisi delle prestazioni, ad esempio SQLIO.
 
 * È consigliabile usare la [compressione di pagina del database](https://msdn.microsoft.com/library/cc280449.aspx) in quanto consente di migliorare le prestazioni dei carichi di lavoro con utilizzo intensivo di I/O. Tuttavia, la compressione dei dati potrebbe incrementare l'utilizzo della CPU nel server di database.
 

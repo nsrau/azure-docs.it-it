@@ -11,14 +11,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/10/2018
+ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: e87ff83470ac8d375b4eee3b69f8793e3e11c0f5
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2f3db5e6260b065c83f0e337306d38dca6e5ff51
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497418"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341403"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Risoluzione degli errori di registrazione del provider di risorse
 
@@ -45,13 +45,21 @@ Message: The subscription is not registered to use namespace {resource-provider-
 
 Il messaggio di errore dovrebbe fornire suggerimenti per le versioni di API e i percorsi supportati. È possibile modificare il modello impostando uno dei valori suggeriti. La maggior parte dei provider, ma non tutti, vengono registrati automaticamente dal portale di Azure o dall'interfaccia della riga di comando che si sta usando. Se non è mai stato usato un provider di risorse specifico, potrebbe essere necessario registrarlo.
 
+In alternativa, quando si disabilita l'arresto automatico per le macchine virtuali, si potrebbe ricevere un messaggio di errore simile al seguente:
+
+```
+Code: AuthorizationFailed
+Message: The client '<identifier>' with object id '<identifier>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope ...
+```
+
 ## <a name="cause"></a>Causa
 
-Questi errori vengono visualizzati per uno di questi tre motivi:
+Questi errori vengono visualizzati per uno di questi motivi:
 
-* Il provider di risorse non è stato registrato per la sottoscrizione
+* Il provider di risorse richiesto non è stato registrato per la sottoscrizione
 * La versione dell'API non è supportata per il tipo di risorsa
 * Il percorso non è supportato per il tipo di risorsa
+* Per l'arresto automatico delle macchine virtuali, il provider di risorse Microsoft.DevTestLab deve essere registrato.
 
 ## <a name="solution-1---powershell"></a>Soluzione 1: PowerShell
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
-ms.openlocfilehash: 552ba28a9635cdd484ccd598726dcea0b3bcbc60
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 6a29aeda52fe599ec7e2ee3b3ea1846e05b73d7d
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261503"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268873"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorare e gestire insiemi di credenziali di Servizi di ripristino
 
@@ -40,7 +40,7 @@ Per monitorare gli avvisi o visualizzare i dati di gestione su un insieme di cre
 
     ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
-4. Nell'elenco di insiemi di credenziali fare clic su uno di essi per aprire il dashboard **Panoramica**. 
+4. Nell'elenco di insiemi di credenziali fare clic su uno di essi per aprire il dashboard **Panoramica**.
 
     ![Dashboard dell'insieme di credenziali dei servizi di ripristino](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
@@ -75,7 +75,7 @@ Per accedere al menu Avvisi di backup, dal menu dell'insieme di credenziali di S
 
 ![Avvisi di backup](./media/backup-azure-manage-windows-server/backup-alerts-menu.png)
 
-Il report Avvisi di backup elenca gli avvisi per l'insieme di credenziali. 
+Il report Avvisi di backup elenca gli avvisi per l'insieme di credenziali.
 
 ![Avvisi di backup](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
@@ -124,7 +124,7 @@ Per impostazione predefinita, tutti i dettagli, tranne **Ora ultima occorrenza**
 
 ### <a name="change-the-filter-in-alerts-report"></a>Modificare il filtro nei report degli avvisi
 
-Usare il menu **Filtra** per modificare la gravità, lo stato, l'ora di inizio e l'ora di fine per gli avvisi. 
+Usare il menu **Filtra** per modificare la gravità, lo stato, l'ora di inizio e l'ora di fine per gli avvisi.
 
 > [!NOTE]
 > Modificando il filtro di Avvisi di backup, gli avvisi critici o le avvertenze nel dashboard Panoramica dell'insieme di credenziali non cambiano.
@@ -184,7 +184,7 @@ Per visualizzare altri dettagli sui processi, fare clic su **In corso** o su **N
 
 Il menu **Processi di backup** visualizza informazioni sul tipo di elemento, sull'operazione, sullo stato, sull'ora di inizio e sulla durata.  
 
-Per aprire il menu Processi di backup, nel menu principale dell'insieme di credenziali fare clic su **Processi di backup**. 
+Per aprire il menu Processi di backup, nel menu principale dell'insieme di credenziali fare clic su **Processi di backup**.
 
 ![Elementi di backup da Impostazioni](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
@@ -263,17 +263,14 @@ Il riquadro Archivio di backup del dashboard indica lo spazio di archiviazione u
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
-**D1. Dopo quanto tempo lo stato del processo dell'agente di Backup di Azure viene indicato nel portale?**
+### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Dopo quanto tempo lo stato del processo dell'agente di Backup di Azure viene indicato nel portale?
+Il portale di Azure può impiegare fino a 15 minuti per visualizzare lo stato del processo dell'agente di Backup di Azure.
 
-R1. Il portale di Azure può impiegare fino a 15 minuti per visualizzare lo stato del processo dell'agente di Backup di Azure.
+### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Quando un processo di backup non riesce, quanto tempo passa prima che venga generato un avviso?
+Un avviso viene generato entro 20 minuti dall'errore di backup di Azure.
 
-**D2. Quando un processo di backup non riesce, quanto tempo passa prima che venga generato un avviso?**
-
-R2. Un avviso viene generato entro 20 minuti dall'errore di backup di Azure.
-
-**D3. Esiste un caso in cui non viene inviato un messaggio di posta elettronica se le notifiche sono configurate?**
-
-R3. Sì. Le notifiche non vengono inviate nei casi seguenti.
+### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Esiste un caso in cui non viene inviato un messaggio di posta elettronica se le notifiche sono configurate?
+Sì. Le notifiche non vengono inviate nei casi seguenti.
 
 * Se le notifiche sono configurate su base oraria e un avviso viene generato e risolto entro l'ora
 * Quando un processo viene annullato

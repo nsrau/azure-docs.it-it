@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 79cf839a23d41058e0d9583a378dc063cd220136
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1d7f58780819202eb02e3a48b4b5e0ac108a0432
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981758"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447464"
 ---
 # <a name="understand-cost-management-data"></a>Informazioni sui dati di Gestione costi
 
@@ -61,6 +61,8 @@ La tabella seguente mostra le offerte non supportate.
 | **Piani di supporto** | Supporto tecnico Standard di Azure per enti pubblici | MS-AZR-USGOV-0041P |
 | **Piani di supporto** | Supporto Pro-Direct di Azure per enti pubblici | MS-AZR-USGOV-0042P |
 | **Piani di supporto** | Supporto tecnico Developer di Azure per enti pubblici | MS-AZR-USGOV-0043P |
+
+Per i clienti con le categorie di offerta con pagamento in base al consumo, MSDN e Visual Studio, i dati sono disponibili in Gestione costi a partire dal 10/02/2018.
 
 Se i dati relativi a una sottoscrizione non vengono visualizzati e si vuole determinare se la sottoscrizione rientra tra le offerte supportate, è possibile convalidare che la sottoscrizione sia supportata. Per convalidare che una sottoscrizione di Azure sia supportata, accedere al [portale di Azure](https://portal.azure.com). Selezionare quindi **Tutti i servizi** nel riquadro del menu a sinistra. Nell'elenco dei servizi selezionare **Sottoscrizioni**. Nel menu dell'elenco delle sottoscrizioni fare clic sulla sottoscrizione da verificare. La sottoscrizione verrà visualizzata nella scheda Panoramica e sarà possibile vedere le informazioni in **Offerta** e **ID offerta**. La figura seguente mostra un esempio.
 

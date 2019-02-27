@@ -1,6 +1,6 @@
 ---
 title: Limiti delle risorse per Azure NetApp Files | Microsoft Docs
-description: Descrive i limiti per le risorse di Azure NetApp Files, inclusi i limiti per pool di capacità, volumi e subnet delegata.
+description: Descrive i limiti per le risorse di Azure NetApp Files, inclusi i limiti per account NetApp, pool di capacità, volumi, snapshot e la subnet delegata.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -11,33 +11,29 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: reference
-ms.date: 01/03/2019
+ms.topic: concepts
+ms.date: 02/14/2019
 ms.author: b-juche
-ms.openlocfilehash: f34afb1df2ae38353f29a80bfb6798c16856dbeb
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 196d85917e0a9900e141d58bff171beeb8540409
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54056519"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430014"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limiti delle risorse per Azure NetApp Files
+
 Conoscere i limiti delle risorse per Azure NetApp Files è utile per gestire i volumi.
 
-## <a name="capacity_pools"></a>Pool di capacità
-
+- Ogni sottoscrizione di Azure può avere fino a 10 account NetApp.
+- Ogni account NetApp può avere fino a 25 pool di capacità.
+- Ogni pool di capacità può appartenere a un solo account di NetApp.  
 - La dimensione minima di un singolo pool di capacità è 4 TiB e la dimensione massima è di 500 TiB. 
-- Ogni pool di capacità può appartenere a un solo account di NetApp. Tuttavia, è possibile avere più pool di capacità all'interno di un account di NetApp.  
-
-## <a name="volumes"></a>Volumi
-
+- Ogni pool di capacità può avere fino a 500 volumi.
 - La dimensione minima di un singolo volume è 100 GiB e la dimensione massima è di 92 TiB.
-- È possibile avere un massimo di 100 volumi per ogni sottoscrizione di Azure in ogni area.  
+- Ogni volume può avere fino a 255 snapshot.
+- Ogni rete virtuale di Azure può avere una sola subnet delegata ad Azure NetApp Files.
 
-## <a name="delegated_subnet"></a>Subnet delegata 
-
-In ogni rete virtuale di Azure è possibile delegare una sola subnet ad Azure NetApp Files.
-
-## <a name="next-steps"></a>Passaggi successivi
+**Passaggi successivi**
 
 [Informazioni sulla gerarchia di archiviazione di Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)

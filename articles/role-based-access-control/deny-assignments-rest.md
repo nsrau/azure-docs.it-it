@@ -1,6 +1,6 @@
 ---
-title: Elencare le assegnazioni di rifiuto usando il controllo degli accessi in base al ruolo e l'API REST di Azure | Documentazione Microsoft
-description: Informazioni su come elencare le assegnazioni di rifiuto per utenti, gruppi e applicazioni tramite il controllo degli accessi in base al ruolo e l'API REST.
+title: Elencare le assegnazioni di rifiuto per le risorse di Azure usando l'API REST - Azure | Microsoft Docs
+description: Informazioni su come elencare le assegnazioni di rifiuto per utenti, gruppi e applicazioni tramite il controllo degli accessi in base al ruolo per le risorse di Azure e l'API REST.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 44c1d3b18bb9bdc63247379fe3f277cb6542f2da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 29b8e0953109238b724cc8df9f456706f71a041e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975585"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341624"
 ---
-# <a name="list-deny-assignments-using-rbac-and-the-rest-api"></a>Elencare le assegnazioni di rifiuto usando il controllo degli accessi in base al ruolo e l'API REST
+# <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Elencare le assegnazioni di rifiuto per le risorse di Azure usando l'API REST
 
 Attualmente le assegnazioni di rifiuto sono di **sola lettura** e possono essere impostate solo da Azure. Sebbene non sia possibile creare le proprie assegnazioni di rifiuto, queste possono essere elencate in quanto potrebbero avere un impatto sulle autorizzazioni valide. Questo articolo descrive come elencare le assegnazioni di rifiuto tramite il controllo degli accessi in base al ruolo e l'API REST.
 
@@ -36,7 +36,7 @@ Attualmente le assegnazioni di rifiuto sono di **sola lettura** e possono essere
 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per il quale elencare le assegnazioni di rifiuto.
 
-    | Scope | type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Sottoscrizione |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
@@ -60,7 +60,7 @@ Attualmente le assegnazioni di rifiuto sono di **sola lettura** e possono essere
 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per il quale elencare le assegnazioni di rifiuto.
 
-    | Scope | type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Sottoscrizione |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
@@ -95,6 +95,6 @@ Attualmente le assegnazioni di rifiuto sono di **sola lettura** e possono essere
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Informazioni sulle assegnazioni di rifiuto](deny-assignments.md)
+- [Informazioni sulle assegnazioni di rifiuto per le risorse di Azure](deny-assignments.md)
 - [Eseguire con privilegi elevati l'accesso per l'amministratore globale in Azure Active Directory](elevate-access-global-admin.md)
 - [Informazioni di riferimento sulle API REST](/rest/api/azure/)

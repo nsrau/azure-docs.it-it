@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 2851517aee0176775bde8b58994f0ed20f6ed01d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 567f64b8b720588807caeb5e49bae15f14c5b0a7
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56212547"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329797"
 ---
-# <a name="azure-data-factory-mapping-data-flow-debug-mode"></a>Modalità di debug dei flussi di dati di mapping di Azure Data Factory
+# <a name="mapping-data-flow-debug-mode"></a>Modalità di debug dei flussi di dati di mapping
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 

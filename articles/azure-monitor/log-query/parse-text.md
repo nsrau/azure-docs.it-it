@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: b6a2ca70faa36b94ace8158f33e58b5e6688ece3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 9897fbb3f5efe1f5255992e4894ea22041595263
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002203"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268193"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Analizzare i dati di testo in log di Monitoraggio di Azure
 Alcuni dati di log raccolti da Monitoraggio di Azure includeranno più informazioni in una singola proprietà. L'analisi di questi dati in più proprietà ne semplifica l'uso nelle query. Un esempio comune è un [log personalizzato](../../log-analytics/log-analytics-data-sources-custom-logs.md) che raccoglie un'intera voce di registro con più valori in una singola proprietà. Creando proprietà separate per i diversi valori, è possibile eseguire ricerche e aggregare in ciascuna di esse.
@@ -63,7 +63,7 @@ Gli svantaggi di questo metodo sono i seguenti:
 Per informazioni sull'analisi dei dati durante la raccolta, vedere [Creare campi personalizzati in Monitoraggio di Azure](../platform/custom-fields.md). Crea proprietà personalizzate nella tabella che è possibile usare nelle query proprio come qualsiasi altra proprietà.
 
 ## <a name="parse-data-in-query-using-patterns"></a>Analizzare i dati nelle query usando criteri
-Quando i dati da analizzare possono essere identificati in base a un criterio ripetuto nei record, è possibile usare diversi operatori nel [linguaggio di query di Esplora dati](/azure/kusto/query/) per estrarre i dati specifici in una o più nuove proprietà.
+Quando i dati da analizzare possono essere identificati in base a un criterio ripetuto nei record, è possibile usare diversi operatori nel [linguaggio di query Kusto](/azure/kusto/query/) per estrarre i dati specifici in una o più nuove proprietà.
 
 ### <a name="simple-text-patterns"></a>Semplici criteri di testo
 
@@ -139,7 +139,7 @@ MyCustomCSVLog_CL
 ```
 
 ## <a name="parse-predefined-structures-in-a-query"></a>Analizzare le strutture predefinite in una query
-Se i dati vengono formattati in una struttura nota, è possibile usare una delle funzioni nel [linguaggio di query di Esplora dati](/azure/kusto/query/) per l'analisi di strutture predefinite:
+Se i dati vengono formattati in una struttura nota, è possibile usare una delle funzioni nel [linguaggio di query Kusto](/azure/kusto/query/) per l'analisi di strutture predefinite:
 
 - [JSON](/azure/kusto/query/parsejsonfunction)
 - [XML](/azure/kusto/query/parse-xmlfunction)

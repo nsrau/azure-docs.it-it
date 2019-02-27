@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 6ad943d2ae98093f7e5b94df59757ff603083cfe
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 799a40d759dc5614bd43234638982d5275d9d325
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668956"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429197"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Disponibilità elevata per NFS in macchine virtuali di Azure su SUSE Linux Enterprise Server
 
@@ -43,6 +43,7 @@ ms.locfileid: "43668956"
 
 [sles-hae-guides]:https://www.suse.com/documentation/sle-ha-12/
 [sles-for-sap-bp]:https://www.suse.com/documentation/sles-for-sap-12/
+[suse-ha-12sp3-relnotes]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP3/
 
 [template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 [template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
@@ -76,6 +77,7 @@ Leggere prima di tutto le note e i documenti seguenti relativi a SAP
 * [Guide alle procedure consigliate per SUSE Linux Enterprise High Availability Extension 12 SP3][sles-hae-guides]
   * Archiviazione NFS a disponibilità elevata con DRBD e Pacemaker
 * [Guide alle procedure consigliate per SUSE Linux Enterprise Server for SAP Applications 12 SP3][sles-for-sap-bp]
+* [Note sulla versione di SUSE High Availability Extension 12 SP3][suse-ha-12sp3-relnotes]
 
 ## <a name="overview"></a>Panoramica
 
@@ -119,7 +121,7 @@ Azure Marketplace contiene un'immagine per SUSE Linux Enterprise Server for SAP 
    4. Nome utente e password amministratore  
       Verrà creato un nuovo utente con cui è possibile accedere alla macchina
    5. Subnet ID  
-      ID della subnet a cui devono essere connesse le macchine virtuali. Lasciare vuoto se si vuole creare una nuova rete virtuale o selezionare la subnet della rete virtuale Express Route o VPN per connettere la macchina virtuale alla rete locale. L'ID in genere è simile al seguente: /subscriptions/**&lt;ID sottoscrizione&gt;**/resourceGroups/**&lt;nome gruppo risorse&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nome rete virtuale&gt;**/subnets/**&lt;nome subnet&gt;**
+      Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID in genere è simile al seguente: /subscriptions/**&lt;ID sottoscrizione&gt;**/resourceGroups/**&lt;nome gruppo risorse&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nome rete virtuale&gt;**/subnets/**&lt;nome subnet&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuire Linux manualmente tramite il portale di Azure
 

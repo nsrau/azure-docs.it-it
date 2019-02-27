@@ -5,15 +5,15 @@ author: yossi-y
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 02/19/2019
 ms.author: bwren
 ms.subservice: alerts
-ms.openlocfilehash: 36be305e60806ba2cdea260fc46bc329c43284cb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 53cd84d669a3f14d5ac028cc29ae483962860f72
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429787"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447215"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Query per avvisi del log in Monitoraggio di Azure
 Le [regole di avviso basate sui log di Monitoraggio di Azure](alerts-unified-log.md) vengono eseguite a intervalli regolari, pertanto è necessario assicurarsi che siano scritte in modo da ridurre al minimo il sovraccarico e la latenza. Questo articolo include consigli per la scrittura di query efficienti per gli avvisi del log e un processo per la conversione delle query esistenti. 
@@ -31,16 +31,11 @@ Le query che iniziano con `search` o `union` consentono di eseguire la ricerca i
 
 ```Kusto
 search "Memory"
-
 search * | where == "Memory"
-
 search ObjectName: "Memory"
-
 search ObjectName == "Memory"
-
 union * | where ObjectName == "Memory"
 ```
- 
 
 Anche se `search` e `union` sono utili durante l'esplorazione dei dati, cercando i termini nell'intero modello di dati, risultano meno efficienti rispetto all'uso di una tabella perché devono analizzare più tabelle. Dato che le query nelle regole di avviso vengono eseguite a intervalli regolari, ciò può comportare un sovraccarico eccessivo aumentando la latenza per l'avviso. A causa di questo sovraccarico, le query per le regole di avviso di log in Azure devono sempre iniziare con una tabella per definire un ambito specifico, con conseguente miglioramento sia delle prestazioni che della pertinenza dei risultati.
 
@@ -55,7 +50,9 @@ app('Contoso-app1').requests,
 app('Contoso-app2').requests, 
 workspace('Contoso-workspace1').Perf 
 ```
- 
+
+>[!NOTE]
+>Le [query su più risorse](../log-query/cross-workspace-query.md) negli avvisi dei log sono supportate nella nuova [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Per impostazione predefinita, Monitoraggio di Azure usa l'[API legacy degli avvisi di Log Analytics](api-alerts.md) per la creazione di nuove regole di avviso relative ai log dal portale di Azure, a meno che non si esegua la commutazione dall'[API legacy degli avvisi relativi ai log](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Dopo la commutazione, la nuova API diventa quella predefinita per le nuove regole di avviso nel portale di Azure e consente di creare regole di avviso dei log basate su query su più risorse. È possibile creare regole di avviso dei log basate su [query su più risorse](../log-query/cross-workspace-query.md) senza effettuare la commutazione usando il [modello ARM per l'API scheduledQueryRules](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template), ma questa regola di avviso è gestibile tramite l'[API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e non dal portale di Azure.
 
 ## <a name="examples"></a>Esempi
 Gli esempi seguenti includono query di log che usano `search` e `union` con indicazione delle procedure che è possibile usare per modificare queste query per l'uso con le regole di avviso.

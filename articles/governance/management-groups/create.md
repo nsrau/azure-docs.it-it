@@ -1,6 +1,6 @@
 ---
-title: Creare gruppi di gestione per organizzare le risorse di Azure
-description: Informazioni su come creare gruppi di gestione di Azure per gestire più risorse.
+title: Creare gruppi di gestione per organizzare le risorse di Azure | Governance di Azure
+description: Informazioni su come creare gruppi di gestione di Azure per gestire più risorse tramite il portale, Azure PowerShell e l'interfaccia della riga di comando di Azure.
 author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 699a9b7a371a004213419567d0672f56b5365598
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 01bfd10b2f37a7990ab9a1badfcb09422baa391a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620115"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342202"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Creare gruppi di gestione per la gestione e l'organizzazione delle risorse
 

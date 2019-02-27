@@ -11,26 +11,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/10/2019
+ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f5049a5a829ce8e94b62409c9d3b1439e8431fb1
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: f4838f688210f9017d691bd6a463217a75fc90d4
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101346"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447515"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Amministratori della sottoscrizione classica di Azure
 
-Microsoft consiglia di gestire l'accesso alle risorse usando il controllo degli accessi in base al ruolo (RBAC). Tuttavia, se si sta ancora usando il modello di distribuzione classica è necessario usare un ruolo di amministratore sottoscrizione classica: Amministratore del servizio e coamministratore. Per altre informazioni, vedere [Distribuzione Azure Resource Manager o classica](../azure-resource-manager/resource-manager-deployment-model.md).
+Microsoft consiglia di gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo. Tuttavia, se si sta ancora usando il modello di distribuzione classica è necessario usare un ruolo di amministratore sottoscrizione classica: Amministratore del servizio e coamministratore. Per altre informazioni, vedere [Distribuzione Azure Resource Manager o classica](../azure-resource-manager/resource-manager-deployment-model.md).
 
 Questo articolo descrive come aggiungere o modificare i ruoli di coamministratore o amministratore del servizio di Azure e come visualizzare l'amministratore dell'account.
 
 ## <a name="add-a-co-administrator"></a>Aggiungere un coamministratore
 
 > [!TIP]
-> Se l'utente deve gestire distribuzioni classiche di Azure è necessario aggiungere un coamministratore. È consigliabile usare Controllo degli accessi in base al ruolo per tutti gli altri scopi.
+> È necessario aggiungere un coamministratore solo se l'utente deve gestire distribuzioni classiche di Azure tramite il [modulo PowerShell di gestione del servizio Azure](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure). Se l'utente usa il portale di Azure solo per gestire le risorse classiche, non è necessario aggiungere il ruolo amministratore classico per l'utente.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore del servizio.
 
@@ -155,4 +155,4 @@ Seguire questi passaggi per visualizzare l'amministratore account.
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Comprendere i diversi ruoli in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../role-based-access-control/role-assignments-portal.md)
+* [Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e il portale di Azure](../role-based-access-control/role-assignments-portal.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a4a4b760652ce38e27e12e9eb73fbe7692eddbc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e8d39b614c373c63cf1405c5db0f64581c481d1f
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204373"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417204"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Anteprima: Distribuire la funzionalità Protezione password di Azure AD
 
@@ -53,15 +53,18 @@ Questa condizione si ottiene preferibilmente con l'applicazione completa di patc
     |`https://login.microsoftonline.com`|Richieste di autenticazione|
     |`https://enterpriseregistration.windows.net`|Funzionalità di Protezione password di Azure AD|
 
+* Tutti i computer che ospitano il servizio proxy di Protezione password di Azure AD devono essere configurati per consentire il traffico HTTP TLS 1.2 in uscita.
 * Un account amministratore globale per registrare il servizio proxy di Protezione password di Azure AD e la foresta in Azure AD.
 * Un account con privilegi di amministratore di dominio di Active Directory nel dominio radice della foresta per registrare la foresta di Windows Server Active Directory in Azure AD.
 * Qualsiasi dominio di Active Directory che esegue il software del servizio agente del controller di dominio deve usare DFSR per la replica di sysvol.
 
 ## <a name="single-forest-deployment"></a>Distribuzione della foresta singola
 
-Il diagramma seguente illustra l'interazione tra i componenti di base di Protezione password di Azure AD in un ambiente Active Directory locale.  
+Il diagramma seguente illustra l'interazione tra i componenti di base di Protezione password di Azure AD in un ambiente Active Directory locale.
 
 ![Come interagiscono i componenti di Protezione password di Azure AD](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
+
+Prima della distribuzione è opportuno rivedere il funzionamento del software. Vedere [Panoramica dei concetti relativi a Protezione password di Azure AD](concept-password-ban-bad-on-premises.md).
 
 ### <a name="download-the-software"></a>Scaricare il software
 

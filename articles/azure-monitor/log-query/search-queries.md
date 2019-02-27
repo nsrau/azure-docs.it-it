@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: cda66b91a0e829ec3bc84a82c190b9d856827ad3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2df4cf994e118fef9048504daf40fabc1625c375
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004452"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267684"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Query di ricerca nei log di Monitoraggio di Azure
 
@@ -144,4 +144,4 @@ search in (Event) "win"
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere altre esercitazioni nel [sito sul linguaggio di query di Esplora dati](/azure/kusto/query/).
+- Vedere altre esercitazioni nel [sito sul linguaggio di query Kusto](/azure/kusto/query/).

@@ -1,5 +1,5 @@
 ---
-title: Creare un'area di lavoro
+title: Creare un'area di lavoro di Machine Learning Studio
 titleSuffix: Azure Machine Learning Studio
 description: Per usare Azure Machine Learning Studio, deve essere presente un'area di lavoro di Machine Learning Studio. Quest'area di lavoro contiene tutti gli strumenti necessari per la creazione, la gestione e la pubblicazione di esperimenti.
 services: machine-learning
@@ -10,24 +10,23 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 16c67c217c8ef33a360fd479a45317d6c42af494
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: bcd5b377f00ad43ff727c581471aad3ac651bdbb
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486318"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270102"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-workspace"></a>Creare e condividere un'area di lavoro di Azure Machine Learning Studio
 
 Per usare Azure Machine Learning Studio, deve essere presente un'area di lavoro di Machine Learning Studio. Quest'area di lavoro contiene tutti gli strumenti necessari per la creazione, la gestione e la pubblicazione di esperimenti.
 
+## <a name="create-a-studio-workspace"></a>Creare un'area di lavoro di Studio
 
-
-### <a name="to-create-a-workspace"></a>Per creare un'area di lavoro
 1. Accedere al [portale di Azure](https://portal.azure.com/)
 
     > [!NOTE]
-    > Per eseguire l'accesso e creare un'area di lavoro è necessario essere amministratore di una sottoscrizione di Azure. 
+    > Per accedere e creare un'area di lavoro di Studio è necessario il ruolo di amministratore di una sottoscrizione di Azure. 
     >
     > 
 
@@ -40,9 +39,13 @@ Per usare Azure Machine Learning Studio, deve essere presente un'area di lavoro 
     - Il *nome dell'area di lavoro* può contenere al massimo 260 caratteri e non può terminare con uno spazio. Il nome non può includere questi caratteri: `< > * % & : \ ? + /`
     - Se si distribuiscono i servizi Web da quest'area di lavoro, vengono usati il *piano di servizio Web* che si sceglie (o si crea) e il *piano tariffario* selezionato.
 
-    ![Creazione di una nuova area di lavoro](./media/create-workspace/create-new-workspace.png)
+    ![Creare una nuova area di lavoro di Studio](./media/create-workspace/create-new-workspace.png)
 
 5. Fare clic su **Create**(Crea).
+
+> [!NOTE]
+> Machine Learning Studio si basa su un account di archiviazione di Azure specificato dall'utente per salvare i dati intermedi quando esegue il flusso di lavoro. Dopo la creazione dell'area di lavoro, se l'account di archiviazione viene eliminato o se le chiavi di accesso vengono cambiate, l'area di lavoro non funzionerà più e tutti gli esperimenti al suo interno avranno esito negativo.
+Se si elimina accidentalmente l'account di archiviazione, ricrearlo con lo stesso nome e nella stessa area dell'account di archiviazione eliminato e risincronizzare la chiave di accesso. Se sono state modificate le chiavi di accesso dell'account di archiviazione, sincronizzarle di nuovo nell'area di lavoro usando il portale di Azure.
 
 Dopo aver distribuito l'area di lavoro è possibile aprirla in Machine Learning Studio.
 
@@ -56,12 +59,12 @@ Dopo aver distribuito l'area di lavoro è possibile aprirla in Machine Learning 
 
     ![Aprire gli esperimenti](./media/create-workspace/my-experiments.png)
 
-Per informazioni sulla gestione dell'area di lavoro, vedere [Gestire un'area di lavoro di Azure Machine Learning](manage-workspace.md).
-Se si verifica un problema durante la creazione dell'area di lavoro, vedere [Guida per la risoluzione dei problemi: Creare e connettersi a un'area di lavoro di Machine Learning](troubleshooting-creating-ml-workspace.md).
+Per informazioni sulla gestione dell'area di lavoro di Studio, vedere [Gestire un'area di lavoro di Azure Machine Learning Studio](manage-workspace.md).
+Se si verifica un problema durante la creazione dell'area di lavoro, vedere [Guida per la risoluzione dei problemi: Creare e connettersi a un'area di lavoro di Machine Learning Studio](troubleshooting-creating-ml-workspace.md).
 
 
-## <a name="sharing-an-azure-machine-learning-workspace"></a>Condivisione di un'area di lavoro di Azure Machine Learning
-Dopo la creazione di un'area di lavoro di Machine Learning, è possibile invitare utenti all'area di lavoro per condividere l'accesso all'area di lavoro e a tutti i rispettivi esperimenti, dataset, notebook e così via. È possibile aggiungere gli utenti in due ruoli:
+## <a name="share-an-azure-machine-learning-studio-workspace"></a>Condividere un'area di lavoro di Azure Machine Learning Studio
+Dopo la creazione di un'area di lavoro di Machine Learning Studio, è possibile invitare utenti nell'area di lavoro per condividere l'accesso a questa e agli esperimenti, ai set di dati, ai notebook e così via al suo interno. È possibile aggiungere gli utenti in due ruoli:
 
 * **Utente**: un utente dell'area di lavoro può creare, aprire, modificare ed eliminare esperimenti, dataset e così via nell'area di lavoro.
 * **Proprietario**: un proprietario può invitare e rimuovere gli utenti dell'area di lavoro in aggiunta alle operazioni consentite a un utente.
@@ -71,7 +74,7 @@ Dopo la creazione di un'area di lavoro di Machine Learning, è possibile invitar
 > 
 > 
 
-### <a name="to-share-a-workspace"></a>Per condividere un'area di lavoro
+### <a name="to-share-a-studio-workspace"></a>Per condividere un'area di lavoro di Studio
 
 1. Accedere a Machine Learning Studio all'indirizzo [https://studio.azureml.net/Home](https://studio.azureml.net/Home).
 

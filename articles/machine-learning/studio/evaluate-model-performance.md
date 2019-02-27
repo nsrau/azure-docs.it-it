@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: b663177a07446b888bc7bf9e919bf180458d36bc
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e5c85451ca48aab8f980b89de41ebf40f1f97ff3
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487009"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453954"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Come valutare le prestazioni del modello in Azure Machine Learning Studio
 
@@ -29,7 +29,7 @@ Questo articolo illustra come valutare le prestazioni di un modello in Azure Mac
 
 La valutazione delle prestazioni di un modello è una delle fasi principali nel processo di analisi scientifica dei dati. Indica quanto è stato positivo il punteggio (stime) di un set di dati da un modello sottoposto a training. 
 
-Azure Machine Learning supporta la valutazione del modello tramite due moduli di apprendimento automatico principali, ovvero [Evaluate Model][evaluate-model] e [Cross-Validate Model][cross-validate-model]. Questi moduli consentono all'utente di osservare le prestazioni del proprio modello in termini di una serie di metriche comunemente usate in Machine Learning e nella statistica.
+Azure Machine Learning Studio supporta la valutazione del modello tramite due moduli di apprendimento automatico principali, ovvero [Evaluate Model][evaluate-model] e [Cross-Validate Model][cross-validate-model]. Questi moduli consentono all'utente di osservare le prestazioni del proprio modello in termini di una serie di metriche comunemente usate in Machine Learning e nella statistica.
 
 ## <a name="evaluation-vs-cross-validation"></a>Confronto tra la valutazione e la convalida incrociata
 La valutazione e la convalida incrociata sono due modi standard di misurare le prestazioni del proprio modello. Entrambi generano metriche di valutazione che l'utente può usare per controllare o mettere a confronto quelle di altri modelli.
@@ -83,7 +83,7 @@ Dopo aver eseguito l'esperimento, è possibile fare clic sulla porta di output d
 Figura 4. Risultati della convalida incrociata di un modello di regressione.
 
 ## <a name="evaluating-a-binary-classification-model"></a>Valutazione di un modello di classificazione binaria
-In uno scenario di classificazione binaria la variabile di destinazione ha solo due risultati possibili, ad esempio: {0, 1} o {false, true}, {negative, positive}. Si presupponga di ricevere un set di dati di un dipendente adulto con alcune variabili demografiche e occupazionali e di dover stimare il livello di reddito, una variabile binaria con i valori {"<=50.000", ">50.000"}. In altri termini, la classe negativa rappresenta il caso in cui il dipendente realizza un valore inferiore o uguale a 50.000 l'anno, mentre la classe positiva rappresenta tutti gli altri dipendenti. Come nello scenario della regressione, verrà eseguito il training di un modello, verrà calcolato il punteggio di alcuni dati e verranno valutati i risultati. In questo caso la differenza principale consiste nella scelta degli output e dei calcoli delle metriche in Azure Machine Learning. Per illustrare lo scenario della stima del livello di reddito, verrà usato il set di dati [Adult](http://archive.ics.uci.edu/ml/datasets/Adult) per creare un esperimento in Azure Machine Learning e valutare le prestazioni di un modello di regressione logistica a due classi, un classificatore binario comunemente usato.
+In uno scenario di classificazione binaria la variabile di destinazione ha solo due risultati possibili, ad esempio: {0, 1} o {false, true}, {negative, positive}. Si presupponga di ricevere un set di dati di un dipendente adulto con alcune variabili demografiche e occupazionali e di dover stimare il livello di reddito, una variabile binaria con i valori {"<=50.000", ">50.000"}. In altri termini, la classe negativa rappresenta il caso in cui il dipendente realizza un valore inferiore o uguale a 50.000 l'anno, mentre la classe positiva rappresenta tutti gli altri dipendenti. Come nello scenario della regressione, verrà eseguito il training di un modello, verrà calcolato il punteggio di alcuni dati e verranno valutati i risultati. In questo caso la differenza principale consiste nella scelta degli output e dei calcoli delle metriche in Azure Machine Learning Studio. Per illustrare lo scenario della stima del livello di reddito, verrà usato il set di dati [Adult](http://archive.ics.uci.edu/ml/datasets/Adult) per creare un esperimento in Studio e valutare le prestazioni di un modello di regressione logistica a due classi, un classificatore binario comunemente usato.
 
 ### <a name="creating-the-experiment"></a>Creazione di un esperimento
 Aggiungere i seguenti moduli all'area di lavoro in Azure Machine Learning Studio:
@@ -105,7 +105,7 @@ Dopo aver eseguito l'esperimento, è possibile fare clic sulla porta di output d
 
 L'accuratezza è semplicemente la percentuale delle istanze classificate correttamente. In genere è la prima metrica che viene osservata quando si valuta un classificatore. Tuttavia, quando i dati di test non sono bilanciati (se la maggior parte delle istanze appartiene a una delle classi) o se l'utente è più interessato alle prestazioni di una classe, l'accuratezza non mostra realmente l'efficacia di un classificatore. Nello scenario di classificazione del livello di reddito, si supponga di eseguire il test di alcuni dati in cui il 99% delle istanze rappresenta le persone che guadagnano una cifra inferiore o uguale a 50.000 l'anno. È possibile ottenere un'accuratezza pari a 0,99 facendo una stima della classe “<=50.000” per tutte le istanze. In questo caso sembra che il classificatore svolga un buon lavoro in linea generale, ma in realtà non è in grado di classificare correttamente gli individui con un reddito superiore (il restante 1%).
 
-Per questo motivo è utile calcolare metriche aggiuntive che raccolgano aspetti più specifici della valutazione. Prima di entrare nei dettagli di tali metriche, è importante comprendere la matrice di confusione della valutazione di una classificazione binaria. Le etichette delle classi nel set di training possono assumere solo 2 valori possibili, cui faremo riferimento con positivo o negativo. Le istanze positive e negative stimate correttamente da un classificatore si definiscono rispettivamente valori veri positivi (VP) e veri negativi (VN). Analogamente, le istanze classificate in modo errato si definiscono valori falsi positivi (FP) e falsi negativi (FN). La matrice di confusione è semplicemente una tabella che mostra il numero di istanze all'interno di ognuna di queste 4 categorie. Azure Machine Learning stabilisce automaticamente quale delle due classi nel set di dati è quella positiva. Se le etichette delle classi sono valori booleani o interi, le istanze con etichetta "true" o "1" vengono assegnate alla classe positiva. Se si tratta di stringhe, come nel caso del set di dati sul reddito, le etichette vengono ordinate alfabeticamente: il primo livello sarà la classe negativa, mentre il secondo livello quella positiva.
+Per questo motivo è utile calcolare metriche aggiuntive che raccolgano aspetti più specifici della valutazione. Prima di entrare nei dettagli di tali metriche, è importante comprendere la matrice di confusione della valutazione di una classificazione binaria. Le etichette delle classi nel set di training possono assumere solo 2 valori possibili, cui faremo riferimento con positivo o negativo. Le istanze positive e negative stimate correttamente da un classificatore si definiscono rispettivamente valori veri positivi (VP) e veri negativi (VN). Analogamente, le istanze classificate in modo errato si definiscono valori falsi positivi (FP) e falsi negativi (FN). La matrice di confusione è semplicemente una tabella che mostra il numero di istanze all'interno di ognuna di queste 4 categorie. Azure Machine Learning Studio stabilisce automaticamente quale delle due classi nel set di dati è quella positiva. Se le etichette delle classi sono valori booleani o interi, le istanze con etichetta "true" o "1" vengono assegnate alla classe positiva. Se si tratta di stringhe, come nel caso del set di dati sul reddito, le etichette vengono ordinate alfabeticamente: il primo livello sarà la classe negativa, mentre il secondo livello quella positiva.
 
 ![Matrice di confusione di classificazione binaria](./media/evaluate-model-performance/6a.png)
 

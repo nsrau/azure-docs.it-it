@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: b75a2faa2030fc343cbabb17eb37b63c9ea34f70
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: d36f2851f9c4f30725c8f8057d61970b6560009e
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232382"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313212"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Come amministrare Cache Redis di Azure
 Questo argomento descrive come eseguire attività di amministrazione, ad esempio il [riavvio](#reboot) e la [pianificazione degli aggiornamenti](#schedule-updates) per le istanze di Cache Redis di Azure.
@@ -94,7 +94,7 @@ Il pannello **Pianifica aggiornamenti** consente di definire un intervallo di ma
 
 Per specificare un intervallo di manutenzione, selezionare i giorni desiderati e specificare l'ora di inizio dell'intervallo per ogni giorno, quindi fare clic su **OK**. Si noti che l'orario dell'intervallo di manutenzione è in formato UTC. 
 
-L'intervallo di manutenzione minimo predefinito per gli aggiornamenti è di cinque ore. Questo valore non è configurabile dal portale di Azure, ma può essere configurato in PowerShell usando il parametro `MaintenanceWindow` del cmdlet [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry). Per altre informazioni, vedere [È possibile gestire gli aggiornamenti pianificati usando PowerShell, l'interfaccia della riga di comando o altri strumenti di gestione?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
+L'intervallo di manutenzione minimo predefinito per gli aggiornamenti è di cinque ore. Questo valore non è configurabile dal portale di Azure, ma può essere configurato in PowerShell usando il parametro `MaintenanceWindow` del cmdlet [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry). Per altre informazioni, vedere È possibile gestire gli aggiornamenti pianificati usando PowerShell, l'interfaccia della riga di comando o altri strumenti di gestione?
 
 
 ## <a name="schedule-updates-faq"></a>Domande frequenti sulla pianificazione degli aggiornamenti

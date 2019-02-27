@@ -2,24 +2,24 @@
 title: Inviare eventi tramite Node.js- Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce una procedura dettagliata per la creazione di un'applicazione Node.js in grado di inviare eventi da Hub eventi di Azure.
 services: event-hubs
-author: ShubhaVijayasarathy
+author: spelluru
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
-ms.openlocfilehash: 7281e6bb2dda5dc3fddb5f39bf271293ebb88a73
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/19/2019
+ms.author: spelluru
+ms.openlocfilehash: ec3182d11f1b2ffa31acd05fa1f2db695f3f2cf7
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732014"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447719"
 ---
 # <a name="send-events-to-azure-event-hubs-using-nodejs"></a>Inviare eventi a Hub eventi di Azure usando Node.js
 
-Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
+Hub eventi di Azure è una piattaforma di streaming per Big Data e un servizio di inserimento eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
 
 Questa esercitazione descrive come inviare eventi a un hub eventi da un'applicazione scritta in Node.js.
 
@@ -34,7 +34,7 @@ Per completare questa esercitazione è necessario soddisfare i prerequisiti segu
 - Visual Studio Code (scelta consigliata) o qualsiasi altro ambiente di sviluppo integrato
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Creare uno spazio dei nomi di Hub eventi e un hub eventi
-Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi di tipo Hub eventi e ottenere le credenziali di gestione necessarie all'applicazione per comunicare con l'hub eventi. Per creare uno spazio dei nomi e un hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md) e quindi procedere con i passaggi seguenti di questa esercitazione.
+Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi di tipo Hub eventi e ottenere le credenziali di gestione necessarie all'applicazione per comunicare con l'hub eventi. Per creare uno spazio dei nomi e un hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md) e quindi continuare con i passaggi seguenti di questa esercitazione.
 
 Ottenere la stringa di connessione per lo spazio dei nomi dell'hub eventi seguendo le istruzioni disponibili nell'articolo: [Ottenere una stringa di connessione](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). La stringa di connessione sarà necessaria più avanti nell'esercitazione.
 
@@ -56,7 +56,7 @@ L'SDK clonato contiene vari esempi che illustrano come inviare eventi a un hub e
 
 1. Aprire il progetto in Visual Studio Code. 
 2. Creare un file denominato **.env** nella cartella del **client**. Copiare e incollare le variabili di ambiente di esempio da **sample.env** nella cartella radice.
-3. Configurare la stringa di connessione dell'hub eventi, il nome dell'hub eventi e l'endpoint di archiviazione. È possibile copiare la stringa di connessione per l'hub eventi dalla **Stringa di connessione - chiave primaria** in **RootManageSharedAccessKey** nella pagina dell'Hub eventi nel portale di Azure. Per informazioni dettagliate, vedere [Get connection string](event-hubs-create.md#create-an-event-hubs-namespace) (Ottenere la stringa di connessione).
+3. Configurare la stringa di connessione dell'hub eventi, il nome dell'hub eventi e l'endpoint di archiviazione. Per istruzioni su come ottenere una stringa di connessione per un hub eventi, vedere [Ottenere una stringa di connessione](event-hubs-create.md#create-an-event-hubs-namespace).
 4. Nell'interfaccia della riga di comando di Azure andare al percorso della cartella del **client**. Installare i pacchetti di nodo e creare il progetto eseguendo questi comandi:
 
     ```shell
@@ -71,29 +71,39 @@ L'SDK clonato contiene vari esempi che illustrano come inviare eventi a un hub e
 
 
 ## <a name="review-the-sample-code"></a>Esaminare il codice di esempio 
-Ecco il codice di esempio per inviare eventi da un hub eventi con Node.js. È possibile creare manualmente un file sampleSender.js ed eseguirlo per inviare gli eventi in un hub eventi. 
-
+Esaminare il codice di esempio nel file simpleSender.js per inviare eventi a un hub eventi.
 
 ```javascript
-const { EventHubClient, EventPosition } = require('@azure/event-hubs');
-
-const client = EventHubClient.createFromConnectionString(process.env["EVENTHUB_CONNECTION_STRING"], process.env["EVENTHUB_NAME"]);
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const lib_1 = require("../lib");
+const dotenv = require("dotenv");
+dotenv.config();
+const connectionString = "EVENTHUB_CONNECTION_STRING";
+const entityPath = "EVENTHUB_NAME";
+const str = process.env[connectionString] || "";
+const path = process.env[entityPath] || "";
 
 async function main() {
-    // NOTE: For receiving events from Azure Stream Analytics, please send Events to an EventHub where the body is a JSON object/array.
-    // const eventData = { body: { "message": "Hello World" } };
-    const data = { body: "Hello World 1" };
+    const client = lib_1.EventHubClient.createFromConnectionString(str, path);
+    const data = {
+        body: "Hello World!!"
+    };
     const delivery = await client.send(data);
-    console.log("message sent successfully.");
+    console.log(">>> Sent the message successfully: ", delivery.tag.toString());
+    console.log(delivery);
+    console.log("Calling rhea-promise sender close directly. This should result in sender getting reconnected.");
+    await Object.values(client._context.senders)[0]._sender.close();
+    // await client.close();
 }
 
 main().catch((err) => {
-    console.log(err);
+    console.log("error: ", err);
 });
 
 ```
 
-Ricordare di impostare le variabili di ambiente prima di eseguire lo script. È possibile configurare questa impostazione nella riga di comando come illustrato nell'esempio seguente o usare il [pacchetto dotenv](https://www.npmjs.com/package/dotenv#dotenv). 
+Ricordare di impostare le variabili di ambiente prima di eseguire lo script. È possibile configurare le variabili nella riga di comando come illustrato nell'esempio seguente o usare il [pacchetto dotenv](https://www.npmjs.com/package/dotenv#dotenv). 
 
 ```shell
 // For windows

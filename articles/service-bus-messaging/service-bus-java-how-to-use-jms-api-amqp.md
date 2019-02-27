@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: aschhab
-ms.openlocfilehash: f0c3aac95b1d19dc3f217cc146532254d8740ca0
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 23a0c731eea22a772d7423bc3047af1183d55b7f
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853290"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312890"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Come usare l'API JMS (Java Message Service) con il bus di servizio e AMQP 1.0
 AMQP (Advanced Message Queuing Protocol) 1.0 è un protocollo di messaggistica wire-level efficiente e affidabile che può essere utilizzato per creare potenti applicazioni di messaggistica multipiattaforma.
@@ -44,7 +44,8 @@ Per informazioni su dove scaricare l'ultima versione della libreria client JMS b
 * geronimo-jms\_1.1\_spec-1.0.jar
 * qpid-jms-client-[versione].jar
 
-> ![NOTE] Le versioni e i nomi JAR JMS possono essere stati modificati. Per informazioni dettagliate, vedere [Qpid JMS - AMQP 1.0](https://qpid.apache.org/maven.html#qpid-jms-amqp-10).
+> [!NOTE]
+> Le versioni e i nomi JAR JMS possono essere stati modificati. Per informazioni dettagliate, vedere [Qpid JMS - AMQP 1.0](https://qpid.apache.org/maven.html#qpid-jms-amqp-10).
 
 ## <a name="coding-java-applications"></a>Compilazione di applicazioni Java
 ### <a name="java-naming-and-directory-interface-jndi"></a>Java Naming and Directory Interface (JNDI)

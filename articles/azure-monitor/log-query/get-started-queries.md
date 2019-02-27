@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 599e6b0cd615be7275df127b0b2f174bd8e6c290
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 52a441d5d8f3f44b35253e02786a033da5439597
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994888"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269857"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Introduzione alle query di log in Monitoraggio di Azure
 
@@ -43,7 +43,7 @@ In questa esercitazione si apprenderà come scrivere query di log in Monitoraggi
 Le query possono iniziare con un nome di tabella o con il comando *search*. È consigliabile iniziare con un nome di tabella, perché definisce un chiaro ambito per la query e consente di migliorare sia le prestazioni di query che la pertinenza dei risultati.
 
 > [!NOTE]
-> Il linguaggio di query di Esplora dati usato da Monitoraggio di Azure fa distinzione tra maiuscole e minuscole. Le parole chiave del linguaggio sono in genere scritte in lettere minuscole. Quando si usano nomi di tabelle o di colonne in una query, assicurarsi di usare la giusta combinazione di maiuscole e minuscole, come indicato nel riquadro dello schema.
+> Il linguaggio di query Kusto usato da Monitoraggio di Azure fa distinzione tra maiuscole e minuscole. Le parole chiave del linguaggio sono in genere scritte in lettere minuscole. Quando si usano nomi di tabelle o di colonne in una query, assicurarsi di usare la giusta combinazione di maiuscole e minuscole, come indicato nel riquadro dello schema.
 
 ### <a name="table-based-queries"></a>Query basate su tabella
 Monitoraggio di Azure organizza i dati in tabelle, ognuna composta da più colonne. Tutte le tabelle e le colonne vengono visualizzate nel riquadro Schema del portale di Log Analytics. Identificare una tabella di interesse ed esaminarne i dati:
@@ -108,7 +108,7 @@ SecurityEvent
 
 Quando si scrivono le condizioni di filtro, è possibile usare le espressioni seguenti:
 
-| Expression | Descrizione | Esempio |
+| Expression | DESCRIZIONE | Esempio |
 |:---|:---|:---|
 | == | Controllo dell'uguaglianza<br>(fa distinzione tra maiuscole e minuscole) | `Level == 8` |
 | =~ | Controllo dell'uguaglianza<br>(non fa distinzione tra maiuscole e minuscole) | `EventSourceName =~ "microsoft-windows-security-auditing"` |

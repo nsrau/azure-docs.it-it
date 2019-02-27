@@ -8,53 +8,132 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: df7e61bb9d064c4530c0212cc02fbdd849017612
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 66137f01672820584f97273ddca26a66ada781ba
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872000"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312535"
 ---
-# <a name="detecting-domain-specific-content"></a>Rilevamento di contenuti specifici del dominio
+# <a name="detect-domain-specific-content"></a>Rilevare contenuti specifici di dominio
 
-Oltre all'assegnazione di tag e alla classificazione di primo livello, Visione artificiale è in grado di rilevare informazioni specializzate (o specifiche di dominio). Le informazioni specializzate possono essere implementate come metodo autonomo o con la classificazione di alto livello. In tal modo è possibile perfezionare ulteriormente la tassonomia basata sulle 86 categorie con l'aggiunta di modelli specifici di dominio.
+Oltre all'assegnazione di tag e alla classificazione di primo livello, Visione artificiale supporta anche un'ulteriore analisi specifica di dominio tramite modelli di cui è stato effettuato il training su dati specializzati. 
 
-Per usare i modelli specifici di dominio, sono disponibili due opzioni.
+È possibile usare i modelli specifici di dominio in due modi: autonomamente (analisi con ambito) o come miglioramento per la funzionalità di categorizzazione.
 
-* Analisi con ambito  
-  Analizza solo un modello selezionato, con una chiamata POST HTTP. Se si conosce il modello da usare, specificarne il nome. Si ottengono solo informazioni rilevanti per il modello specificato. È possibile ad esempio usare questa opzione per eseguire il riconoscimento solo di persone famose. La risposta contiene un elenco di personaggi potenzialmente corrispondenti, associati ai punteggi di attendibilità.
-* Analisi avanzata  
-  Esegue l'analisi per indicare dettagli aggiuntivi relativi alle categorie della tassonomia 86. Questa opzione è disponibile per essere usata in applicazioni in cui gli utenti desiderano ottenere l'analisi di immagini generiche oltre ai dettagli di uno o più modelli specifici di dominio. Quando questo metodo viene richiamato, lo strumento di classificazione della tassonomia 86 viene chiamato per primo. Se una delle categorie corrisponde a uno dei modelli noti, viene eseguito un secondo passaggio delle chiamate alla funzione di classificazione. Se ad esempio il parametro `details` della chiamata POST HTTP è impostato su "all" o include "celebrities", il metodo chiama la funzione di classificazione dei personaggi famosi dopo quella della tassonomia 86. Se l'immagine è classificata come `people_` o una delle relative sottocategorie, viene chiamata la funzione di classificazione dei personaggi famosi.
+### <a name="scoped-analysis"></a>Analisi con ambito
 
-## <a name="listing-domain-specific-models"></a>Definizione dell'elenco di modelli specifici di dominio
+È possibile analizzare un'immagine usando solo il modello specifico di dominio scelto chiamando l'API [Models/\<modello\>/Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200). 
 
-È possibile elencare i modelli specifici di dominio supportati da Visione artificiale. La tabella seguente include i modelli attualmente supportati per il rilevamento di contenuti specifici di dominio:
+Di seguito è riportata una risposta JSON di esempio restituita dall'API **models/celebrities/analyze** per l'immagine specificata:
+
+![Satya Nadella in piedi](./images/satya.jpeg)
+
+```json
+{
+  "result": {
+    "celebrities": [{
+      "faceRectangle": {
+        "top": 391,
+        "left": 318,
+        "width": 184,
+        "height": 184
+      },
+      "name": "Satya Nadella",
+      "confidence": 0.99999856948852539
+    }]
+  },
+  "requestId": "8217262a-1a90-4498-a242-68376a4b956b",
+  "metadata": {
+    "width": 800,
+    "height": 1200,
+    "format": "Jpeg"
+  }
+}
+```
+
+### <a name="enhanced-categorization-analysis"></a>Analisi avanzata della categorizzazione  
+
+È anche possibile usare i modelli specifici di dominio per integrare l'analisi generale delle immagini. È possibile eseguire questa operazione come parte della [categorizzazione di alto livello](concept-categorizing-images.md) indicando modelli specifici di dominio nel parametro *details* della chiamata API [Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). 
+
+In questo caso, viene chiamato per primo lo strumento di classificazione della tassonomia di 86 categorie. Se per una delle categorie è presente un modello specifico di dominio corrispondente, l'immagine viene passata anche attraverso il modello e vengono aggiunti i risultati. 
+
+La risposta JSON seguente mostra come includere l'analisi specifica di dominio come nodo `detail` in un'analisi della categorizzazione più ampia.
+
+```json
+"categories":[  
+  {  
+    "name":"abstract_",
+    "score":0.00390625
+  },
+  {  
+    "name":"people_",
+    "score":0.83984375,
+    "detail":{  
+      "celebrities":[  
+        {  
+          "name":"Satya Nadella",
+          "faceRectangle":{  
+            "left":597,
+            "top":162,
+            "width":248,
+            "height":248
+          },
+          "confidence":0.999028444
+        }
+      ],
+      "landmarks":[  
+        {  
+          "name":"Forbidden City",
+          "confidence":0.9978346
+        }
+      ]
+    }
+  }
+]
+```
+
+## <a name="list-the-domain-specific-models"></a>Elencare i modelli specifici di dominio
+
+Visione artificiale supporta attualmente i modelli specifici di dominio seguenti:
 
 | NOME | DESCRIZIONE |
 |------|-------------|
 | celebrities | Riconoscimento di personaggi famosi, supportato per le immagini classificate nella categoria `people_` |
 | landmarks | Riconoscimento di luoghi di interesse, supportato per le immagini classificate nella categoria `outdoor_` o `building_` |
 
-### <a name="domain-model-list-example"></a>Esempio di elenco di modelli di dominio
-
-La risposta JSON seguente elenca i modelli specifici di dominio supportati da Visione artificiale.
+La chiamata dell'API [Models](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) restituisce queste informazioni insieme alle categorie cui può essere applicato ogni modello:
 
 ```json
-{
-    "models": [
-        {
-            "name": "celebrities",
-            "categories": ["people_", "人_", "pessoas_", "gente_"]
-        },
-        {
-            "name": "landmarks",
-            "categories": ["outdoor_", "户外_", "屋外_", "aoarlivre_", "alairelibre_",
-                "building_", "建筑_", "建物_", "edifício_"]
-        }
-    ]
+{  
+  "models":[  
+    {  
+      "name":"celebrities",
+      "categories":[  
+        "people_",
+        "人_",
+        "pessoas_",
+        "gente_"
+      ]
+    },
+    {  
+      "name":"landmarks",
+      "categories":[  
+        "outdoor_",
+        "户外_",
+        "屋外_",
+        "aoarlivre_",
+        "alairelibre_",
+        "building_",
+        "建筑_",
+        "建物_",
+        "edifício_"
+      ]
+    }
+  ]
 }
 ```
 

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 2857b7f5347cf546a9745dcbea02f636a798f4a2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0cffb4fdff4bddc33c6938e27425035c929808b7
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004248"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301928"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 
@@ -60,14 +60,18 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 
   Il server di database SQL o l'istanza gestita che ospita i database secondari nel gruppo di failover. Il server o l'istanza secondaria non può trovarsi nella stessa area del server o dell'istanza primaria.
 
-- **Aggiunta di database al gruppo di failover in un server di database SQL**
+- **Aggiunta di database singoli al gruppo di failover**
 
-  È possibile inserire alcuni database o database singoli all'interno di un pool elastico nello stesso server di database SQL all'interno dello stesso gruppo di failover. Se si aggiunge un database singolo al gruppo di failover, viene creato automaticamente un database secondario usando la stessa edizione e la stessa dimensione dell'ambiente di calcolo. Se il database primario si trova in un pool elastico, il database secondario viene creato automaticamente nel pool elastico con lo stesso nome. Se si aggiunge un database che dispone già di un database secondario nel server secondario, tale replica geografica viene ereditata dal gruppo. Quando si aggiunge un database che dispone già di un database secondario in un server che non fa parte del gruppo di failover, viene creato un nuovo database secondario nel server secondario.
+  È possibile inserire più database singoli nello stesso server di database SQL all'interno dello stesso gruppo di failover. Se si aggiunge un database singolo al gruppo di failover, viene creato automaticamente un database secondario usando la stessa edizione e le stesse dimensioni di calcolo nel server secondario.  Tale server è stato specificato quando è stato creato il gruppo di failover. Se si aggiunge un database che ha già un database secondario nel server secondario, tale collegamento della replica geografica viene ereditato dal gruppo. Quando si aggiunge un database che dispone già di un database secondario in un server che non fa parte del gruppo di failover, viene creato un nuovo database secondario nel server secondario.
   
 > [!IMPORTANT]
   > In un'istanza gestita vengono replicati tutti i database utente. Non è possibile selezionare un subset di database utente per la replica nel gruppo di failover.
 
-- **Listener di lettura/scrittura del gruppo di failover**
+- **Aggiunta di database nel pool elastico al gruppo di failover**
+
+  È possibile inserire tutti o alcuni database all'interno di un pool elastico nello stesso gruppo di failover. Se il database primario si trova in un pool elastico, il database secondario viene creato automaticamente nel pool elastico con lo stesso nome (pool secondario). È necessario assicurarsi che il server secondario contenga un pool elastico con lo stesso identico nome e capacità sufficiente per ospitare i database secondari che verranno creati dal gruppo di failover. Se si aggiunge un database nel pool che ha già un database secondario nel pool secondario, tale collegamento della replica geografica viene ereditato dal gruppo. Quando si aggiunge un database che ha già un database secondario in un server che non fa parte del gruppo di failover, viene creato un nuovo database secondario nel pool secondario.
+  
+  - **Listener di lettura/scrittura del gruppo di failover**
 
   Un record CNAME DNS con formato che punta all'URL del database primario corrente. Consente alle applicazioni SQL di lettura/scrittura di riconnettersi al database primario in modo trasparente quando viene modificato il database primario dopo il failover.
 

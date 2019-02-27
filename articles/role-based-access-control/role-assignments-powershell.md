@@ -1,6 +1,6 @@
 ---
-title: Gestire l'accesso tramite il controllo degli accessi in base al ruolo e Azure PowerShell | Microsoft Docs
-description: Informazioni su come gestire l'accesso per utenti, gruppi e applicazioni tramite il controllo degli accessi in base al ruolo e Azure PowerShell. Vengono presentate anche la visualizzazione, la concessione e la rimozione dell'accesso.
+title: Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e Azure PowerShell | Microsoft Docs
+description: Informazioni su come gestire l'accesso alle risorse di Azure per utenti, gruppi e applicazioni tramite il controllo degli accessi in base al ruolo e Azure PowerShell. Vengono presentate anche la visualizzazione, la concessione e la rimozione dell'accesso.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4e4a920c47dc7f75dc4b6714f101d6cbda715a3a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 84fd4262d3b64b369d6307a6a875e8a459324aaa
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106172"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343775"
 ---
-# <a name="manage-access-using-rbac-and-azure-powershell"></a>Gestire l'accesso tramite il controllo degli accessi in base al ruolo e Azure PowerShell
+# <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e Azure PowerShell
 
-[Il controllo degli accessi in base al ruolo](overview.md) è la modalità di gestione dell'accesso alle risorse in Azure. Questo articolo descrive come gestire l'accesso per utenti, gruppi e applicazioni tramite il controllo degli accessi in base al ruolo e Azure PowerShell.
+Il [controllo degli accessi in base al ruolo](overview.md) è la modalità di gestione dell'accesso alle risorse di Azure. Questo articolo descrive come gestire l'accesso per utenti, gruppi e applicazioni tramite il controllo degli accessi in base al ruolo e Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -326,6 +326,6 @@ PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionNam
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: Concedere l'accesso per un gruppo tramite il controllo degli accessi in base al ruolo e Azure PowerShell](tutorial-role-assignments-group-powershell.md)
-- [Esercitazione: Creare un ruolo personalizzato con Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Esercitazione: Concedere l'accesso alle risorse di Azure a un gruppo usando il controllo degli accessi in base al ruolo e Azure PowerShell](tutorial-role-assignments-group-powershell.md)
+- [Esercitazione: Creare un ruolo personalizzato per le risorse di Azure tramite Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Gestire le risorse con Azure PowerShell](../azure-resource-manager/powershell-azure-resource-manager.md)

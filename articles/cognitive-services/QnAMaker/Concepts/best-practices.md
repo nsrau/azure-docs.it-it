@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 9ea62d731cf0c16c17f3c2e4f3e1954661289934
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 038d41ae299076754a2f778ec67aac04e630d476
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245542"
+ms.locfileid: "56270182"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedure consigliate per una knowledge base di QnA Maker
 Il [ciclo di vita di sviluppo della knowledge base](../Concepts/development-lifecycle-knowledge-base.md) fornisce informazioni sulla gestione della KB dall'inizio alla fine. Usare queste procedure consigliate per migliorare la knowledge base e fornire risultati migliori per gli utenti finali dell'applicazione/chat bot.
@@ -25,6 +25,18 @@ Il [ciclo di vita di sviluppo della knowledge base](../Concepts/development-life
 Il servizio QnA Maker migliora continuamente gli algoritmi di estrazione di domande e risposte dal contenuto, espandendo l'elenco di file e formati di pagina HTML supportati. Seguire le [linee guida](../Concepts/data-sources-supported.md) per l'estrazione di dati in base al tipo di documento. 
 
 In generale, le pagine di domande frequenti devono essere autonome e non combinate con altre informazioni. I manuali di prodotti devono avere titoli chiari e preferibilmente una pagina di indice. 
+
+## <a name="creating-good-questions-and-answers"></a>Creazione di domande e risposte di qualità
+
+### <a name="good-questions"></a>Domande di qualità
+
+Le domande migliori sono quelle semplici. Considerare la parola chiave o la frase per ogni domanda e quindi creare una domanda semplice basata su tale parola chiave o frase. 
+
+È possibile aggiungere tutte le domande alternative che si ritiene necessario, mantenendole però semplici. L'aggiunta di parole o frasi che non fanno parte dell'obiettivo principale della domanda non aiuta QnA Maker a trovare una corrispondenza. 
+
+### <a name="good-answers"></a>Risposte di qualità
+
+Le migliori risposte sono semplici, purché non si limitino a Sì o No. Se la risposta deve contenere un collegamento ad altre fonti o fornire un'esperienza avanzata con elementi multimediali e collegamenti, usare i [tag](../how-to/metadata-generateanswer-usage.md) per distinguere il tipo di risposta che ci si aspetta e quindi inviare il tag con la query per ottenere la versione della risposta corretta.
 
 ## <a name="chit-chat"></a>Chit Chat
 Aggiungere una chit-chat al bot, per renderlo più colloquiale e accattivante con uno sforzo minimo. È possibile aggiungere facilmente un set di dati chit-chat per 3 personalità predefinite quando si crea la KB, con possibilità di apportare modifiche in qualsiasi momento. Come [aggiungere chit-chat alla KB](../How-To/chit-chat-knowledge-base.md). 
@@ -58,7 +70,6 @@ Assicurarsi di usare al meglio le funzionalità di classificazione supportate da
 ### <a name="choosing-a-threshold"></a>Scelta della soglia
 Il punteggio di attendibilità predefinito che viene usato come soglia è 50, ma è possibile modificarlo per la KB in base alle esigenze. Poiché ogni KB è diversa, occorre testare e scegliere la soglia più adatta alla propria KB. Per altre informazioni, vedere il [punteggio di attendibilità](../Concepts/confidence-score.md). 
 
-
 ### <a name="add-alternate-questions"></a>Aggiungere domande alternative
 Le [domande alternative](../How-To/edit-knowledge-base.md) aumentano la probabilità di una corrispondenza con una query utente. Le domande alternative sono utili quando ci sono più modi per porre la stessa domanda. Ciò può includere modifiche alla struttura della frase e allo stile delle parole.
 
@@ -81,7 +92,7 @@ Sebbene, in parte, sia disponibile il supporto per i sinonimi in lingua inglese,
 |acquistare|acquisto<br>netbanking<br>servizi bancari NET|
 
 ### <a name="use-distinct-words-to-differentiate-questions"></a>Usare parole diverse per distinguere le domande
-Gli algoritmi di corrispondenza e classificazione di QnA Maker, che mettono in corrispondenza una query utente con una domanda nella knowledge base, funzionano meglio se ogni domanda risponde a esigenze diverse. La ripetizione dello stesso set di parole tra domande riduce la probabilità di scelta della risposta corretta per una determinata query utente che usa tali parole. 
+L'algoritmo di classificazione di QnA Maker, che mette in corrispondenza una query utente con una domanda nella knowledge base, funziona meglio se ogni domanda risponde a esigenze diverse. La ripetizione dello stesso set di parole tra domande riduce la probabilità di scelta della risposta corretta per una determinata query utente che usa tali parole. 
 
 Ad esempio, si potrebbero avere due QnA separate con le domande seguenti:
 
@@ -91,7 +102,6 @@ Ad esempio, si potrebbero avere due QnA separate con le domande seguenti:
 |dove si *trova* il bancomat|
 
 Poiché queste due QnA sono formulate con parole molto simili, questa analogia potrebbe causare punteggi molto simili per molte query utente che hanno formula *"dove si `<x>` trova"*. Provare invece a differenziare chiaramente con query quali *"dov'è il parcheggio"* e *"dov'è il bancomat"*, evitando parole come "trova" che potrebbe ricorrere in molte domande nella KB. 
-
 
 ## <a name="collaborate"></a>Collaborare
 QnA Maker permette agli utenti di [collaborare](../How-to/collaborate-knowledge-base.md) a una knowledge base. Per accedere alle knowledge base, gli utenti necessitano dell'accesso al gruppo di risorse di QnA Maker in Azure. Alcune organizzazioni potrebbero voler assegnare all'esterno le attività di modifica e manutenzione della knowledge base, mantenendo comunque la possibilità di proteggere l'accesso alle risorse di Azure. Questo modello di approvazione dell'editor di testo può essere ottenuto configurando due [servizi QnA Maker](../How-to/set-up-qnamaker-service-azure.md) identici in diverse sottoscrizioni e se si seleziona uno per il ciclo di test di modifica. Una volta completati i test, il contenuto della knowledge base può essere trasferito con un processo di [importazione-esportazione](../Tutorials/migrate-knowledge-base.md) al servizio QnA Maker del responsabile approvazione che infine pubblicherà la knowledge base e aggiornerà l'endpoint.

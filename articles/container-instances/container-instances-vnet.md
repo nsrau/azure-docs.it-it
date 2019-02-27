@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 73c61c62a84642b93ed96cdd80e258a1128fef6a
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 79ba32f85c608d98b29b235bf1417e74f7e2a4d4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077472"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313484"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuire le istanze di contenitore in una rete virtuale di Azure
 
@@ -35,6 +35,7 @@ Quando si distribuiscono gruppi di contenitori in una rete virtuale, si applican
 
 * Per distribuire gruppi di contenitori in una subnet, quest'ultima non può contenere altri tipi di risorse. Rimuovere tutte le risorse presenti in una subnet esistente prima di distribuire gruppi di contenitori nella subnet oppure creare una nuova subnet.
 * Gruppi di contenitori distribuiti in una rete virtuale attualmente non supportano gli indirizzi IP pubblici né etichette del nome DNS.
+* Non è possibile usare un'[identità gestita](container-instances-managed-identity.md) in un gruppo di contenitori distribuito in una rete virtuale.
 * A causa di altre risorse di rete coinvolte, la distribuzione di un gruppo di contenitori in una rete virtuale è leggermente più lenta, in genere, rispetto a quella di un'istanza di contenitore standard.
 
 ## <a name="preview-limitations"></a>Limiti di anteprima

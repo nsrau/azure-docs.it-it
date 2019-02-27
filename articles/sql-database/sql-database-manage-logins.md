@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 34c7d431815ae7a9452bb0703cde18050d38bdb7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b12fdcec32aca65b0c66f6a3fb14595453d36fdb
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164618"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301758"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Controllo e concessione dell'accesso al database SQL e a SQL Data Warehouse
 
@@ -84,9 +84,9 @@ Oltre ai ruoli amministrativi a livello di server illustrati in precedenza, il d
 
 ### <a name="database-creators"></a>Autori di database
 
-Uno di questi ruoli amministrativi è il ruolo **dbmanager**. I membri di questo ruolo possono creare nuovi database. Per usare questo ruolo, creare un utente nel database `master` e quindi aggiungere l'utente al ruolo **dbmanager** del database. Per creare un database, l'utente deve essere basato su un account di accesso di SQL Server nel database master o essere un utente di database indipendente basato su un utente di Azure Active Directory.
+Uno di questi ruoli amministrativi è il ruolo **dbmanager**. I membri di questo ruolo possono creare nuovi database. Per usare questo ruolo, creare un utente nel database `master` e quindi aggiungere l'utente al ruolo **dbmanager** del database. Per creare un database, l'utente deve essere basato su un account di accesso di SQL Server nel database `master` o essere un utente di database indipendente basato su un utente di Azure Active Directory.
 
-1. Connettersi al database master usando un account amministratore.
+1. Connettersi al database `master` usando un account amministratore.
 2. creare un account di accesso con autenticazione di SQL Server con l'istruzione [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx). Istruzione di esempio:
 
    ```sql
@@ -98,7 +98,7 @@ Uno di questi ruoli amministrativi è il ruolo **dbmanager**. I membri di questo
 
    Per migliorare le prestazioni, gli account di accesso (entità a livello di server) vengono temporaneamente memorizzati nella cache a livello di database. Per aggiornare la cache di autenticazione, vedere [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
 
-3. Nel database master creare un utente con l'istruzione [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) . L'utente può essere un utente di database indipendente con autenticazione di Azure Active Directory (se l'ambiente è stato configurato per l'autenticazione di Azure AD), un utente di database indipendente con autenticazione di SQL Server oppure un utente con autenticazione di SQL Server basato su un account di accesso con autenticazione di SQL Server (creato nel passaggio precedente). Istruzioni di esempio:
+3. Nel database `master` creare un utente con l'istruzione [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx). L'utente può essere un utente di database indipendente con autenticazione di Azure Active Directory (se l'ambiente è stato configurato per l'autenticazione di Azure AD), un utente di database indipendente con autenticazione di SQL Server oppure un utente con autenticazione di SQL Server basato su un account di accesso con autenticazione di SQL Server (creato nel passaggio precedente). Istruzioni di esempio:
 
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
@@ -106,7 +106,7 @@ Uno di questi ruoli amministrativi è il ruolo **dbmanager**. I membri di questo
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. Aggiungere il nuovo utente al ruolo del database **dbmanager** con l'istruzione [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) . Istruzioni di esempio:
+4. Aggiungere il nuovo utente al ruolo del database **dbmanager** in `master` con l'istruzione [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx). Istruzioni di esempio:
 
    ```sql
    ALTER ROLE dbmanager ADD MEMBER Mary; 
@@ -118,7 +118,7 @@ Uno di questi ruoli amministrativi è il ruolo **dbmanager**. I membri di questo
 
 5. Se necessario, configurare una regola firewall per consentire la connessione del nuovo utente. Il nuovo utente può essere gestito da una regola firewall esistente.
 
-L'utente potrà così connettersi al database master e creare nuovi database. L'account che crea il database ne diventa il proprietario.
+L'utente potrà così connettersi al database `master` e creare nuovi database. L'account che crea il database ne diventa il proprietario.
 
 ### <a name="login-managers"></a>Gestione degli account di accesso
 
@@ -141,11 +141,19 @@ Inizialmente, solo gli amministratori o il proprietario del database possono cre
 GRANT ALTER ANY USER TO Mary;
 ```
 
-Per concedere a utenti aggiuntivi il controllo completo del database, rendere tali utenti membri del ruolo predefinito del database **db_owner** con l'istruzione `ALTER ROLE`.
+Per concedere a utenti aggiuntivi il controllo completo del database, rendere tali utenti membri del ruolo predefinito del database **db_owner**.
+
+Nel database SQL di Azure usare l'istruzione `ALTER ROLE`.
 
 ```sql
-ALTER ROLE db_owner ADD MEMBER Mary; 
+ALTER ROLE db_owner ADD MEMBER Mary;
 ```
+
+In Azure SQL Data Warehouse usare [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+```sql
+EXEC sp_addrolemember 'db_owner', 'Mary';
+```
+
 
 > [!NOTE]
 > Un motivo comune per creare un utente di database basato su un account di accesso di un server di database SQL è l'esigenza degli utenti di accedere a più database. Dato che gli utenti di database indipendenti sono singole entità, ogni database gestisce utente e password propri. Ciò può causare complicazioni quando l'utente deve ricordare le password per tutti i database e può diventare insostenibile quando occorre modificare più password per molti database. Tuttavia, quando si usano gli account di accesso di SQL Server e la disponibilità elevata (replica geografica attiva e gruppi di failover), gli account di accesso di SQL Server devono essere impostati manualmente in ogni server. In caso contrario, l'utente del database non verrà più mappato all'account di accesso server dopo un failover e non sarà in grado di accedere al database dopo il failover. Per altre informazioni sulla configurazione degli account di accesso per la replica geografica, vedere [Configurare e gestire la sicurezza dei database SQL di Azure per il ripristino geografico o il failover](sql-database-geo-replication-security-config.md).

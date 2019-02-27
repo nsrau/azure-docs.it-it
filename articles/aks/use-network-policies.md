@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: iainfou
-ms.openlocfilehash: ade5a39273aa807f6c69f76342a0f715c7a96309
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 250c4fc6e51bacc68c965394b9fd430b1b75a52c
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232175"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447175"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteggere il traffico tra i pod usando criteri di rete nel servizio Azure Kubernetes
 
@@ -27,21 +27,7 @@ Questo articolo illustra come usare i criteri di rete per controllare il flusso 
 
 È necessaria l'interfaccia della riga di comando di Azure 2.0.56 o versioni successive installata e configurata. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
-## <a name="overview-of-network-policy"></a>Panoramica dei criteri di rete
-
-Per impostazione predefinita, tutti i pod in un cluster del servizio Azure Kubernetes possono inviare e ricevere traffico senza limitazioni. Per migliorare la sicurezza, è possibile definire regole per il controllo del flusso del traffico. Ad esempio, le applicazioni back-end vengono spesso esposte solo ai servizi front-end richiesti oppure i componenti dei database sono accessibili solo ai livelli applicazione a cui si connettono.
-
-I criteri di rete sono risorse di Kubernetes che consentono di controllare il flusso del traffico tra i pod. È possibile scegliere di consentire o non consentire il traffico in base a impostazioni come la porta del traffico, lo spazio dei nomi o le etichette assegnate. I criteri di rete vengono definiti come manifesti YAML e possono essere inclusi come parte di un manifesto più ampio che crea anche una distribuzione o un servizio.
-
-Per vedere i criteri di rete in azione, è possibile creare e quindi espandere un criterio che definisce il flusso del traffico nel modo seguente:
-
-* Rifiutare tutto il traffico verso il pod.
-* Consentire il traffico in base alle etichette del pod.
-* Consentire il traffico in base allo spazio dei nomi.
-
-## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Creare un cluster del servizio Azure Kubernetes e abilitare i criteri di rete
-
-I criteri di rete possono essere abilitati solo quando viene creato il cluster. Non è possibile abilitare criteri di rete in un cluster esistente del servizio Azure Kubernetes. Per creare un servizio Azure Kubernetes con criteri di rete, abilitare per prima cosa un flag funzionalità per la sottoscrizione. Per registrare il flag funzionalità *EnableNetworkPolicy*, usare il comando [az feature register][az-feature-register] come mostrato nell'esempio seguente:
+Per creare un servizio Azure Kubernetes con criteri di rete, abilitare per prima cosa un flag funzionalità per la sottoscrizione. Per registrare il flag funzionalità *EnableNetworkPolicy*, usare il comando [az feature register][az-feature-register] come mostrato nell'esempio seguente:
 
 ```azurecli-interactive
 az feature register --name EnableNetworkPolicy --namespace Microsoft.ContainerService
@@ -59,7 +45,25 @@ Quando si è pronti, aggiornare la registrazione del provider di risorse *Micros
 az provider register --namespace Microsoft.ContainerService
 ```
 
-Per usare i criteri di rete con un cluster del servizio Azure Kubernetes, è necessario usare il [plug-in Azure CNI][azure-cni] e definire la propria rete virtuale e le subnet. Per altri dettagli su come pianificare gli intervalli di subnet necessari, vedere [Configurare funzionalità di rete avanzate][use-advanced-networking]. Lo script di esempio seguente:
+## <a name="overview-of-network-policy"></a>Panoramica dei criteri di rete
+
+Per impostazione predefinita, tutti i pod in un cluster del servizio Azure Kubernetes possono inviare e ricevere traffico senza limitazioni. Per migliorare la sicurezza, è possibile definire regole per il controllo del flusso del traffico. Ad esempio, le applicazioni back-end vengono spesso esposte solo ai servizi front-end richiesti oppure i componenti dei database sono accessibili solo ai livelli applicazione a cui si connettono.
+
+I criteri di rete sono risorse di Kubernetes che consentono di controllare il flusso del traffico tra i pod. È possibile scegliere di consentire o non consentire il traffico in base a impostazioni come la porta del traffico, lo spazio dei nomi o le etichette assegnate. I criteri di rete vengono definiti come manifesti YAML e possono essere inclusi come parte di un manifesto più ampio che crea anche una distribuzione o un servizio.
+
+Per vedere i criteri di rete in azione, è possibile creare e quindi espandere un criterio che definisce il flusso del traffico nel modo seguente:
+
+* Rifiutare tutto il traffico verso il pod.
+* Consentire il traffico in base alle etichette del pod.
+* Consentire il traffico in base allo spazio dei nomi.
+
+## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Creare un cluster del servizio Azure Kubernetes e abilitare i criteri di rete
+
+I criteri di rete possono essere abilitati solo quando viene creato il cluster. Non è possibile abilitare criteri di rete in un cluster esistente del servizio Azure Kubernetes. 
+
+Per usare i criteri di rete con un cluster del servizio Azure Kubernetes, è necessario usare il [plug-in Azure CNI][azure-cni] e definire la propria rete virtuale e le subnet. Per altri dettagli su come pianificare gli intervalli di subnet necessari, vedere [Configurare funzionalità di rete avanzate][use-advanced-networking].
+
+Lo script di esempio seguente:
 
 * Crea una rete virtuale e una subnet.
 * Crea un'entità servizio di Azure Active Directory (AD) da usare con il cluster del servizio Azure Kubernetes.
@@ -86,7 +90,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 
 # Create a service principal and read in the application ID
-read SP_ID <<< $(az ad sp create-for-rbac --password $SP_PASSWORD --skip-assignment --query [appId] -o tsv)
+SP_ID=$(az ad sp create-for-rbac --password $SP_PASSWORD --skip-assignment --query [appId] -o tsv)
 
 # Wait 15 seconds to make sure that service principal has propagated
 echo "Waiting for service principal to propagate..."
@@ -241,6 +245,9 @@ spec:
           app: webapp
           role: frontend
 ```
+
+> [!NOTE]
+> Il criterio di rete usa un *namespaceSelector* e un elemento *podSelector* (elemento) per la regola per il traffico in ingresso. La sintassi YAML è importante perché le regole per il traffico in ingresso siano o meno complementari. In questo esempio, entrambi gli elementi devono corrispondere perché la regola per il traffico in ingresso venga applicata. Le versioni di Kubernetes precedenti alla *1.12* potrebbero non interpretare correttamente questi elementi e limitare il traffico di rete nel modo previsto. Per altre informazioni, vedere [Behavior of to and from selectors][policy-rules] (Comportamento dei selettori di ingresso e uscita).
 
 Applicare il criterio di rete aggiornato usando il comando [kubectl apply][kubectl-apply] e specificare il nome del manifesto YAML:
 
@@ -442,6 +449,7 @@ Per altre informazioni sull'uso dei criteri, fare riferimento ai [criteri di ret
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

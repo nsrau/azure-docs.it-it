@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: 90c508fb5ad3caf961747f2ac10bae42dd1f4c35
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c31510b0d5ca2afcd6a52cf4301e5e5eaae7da5b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114961"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343511"
 ---
 # <a name="working-with-security-policies"></a>Utilizzo dei criteri di sicurezza
 
-Questo articolo illustra come vengono configurati i criteri di sicurezza e come visualizzarli nel Centro sicurezza. Il Centro sicurezza di Azure assegna automaticamente i [criteri di sicurezza predefiniti](security-center-policy-definitions.md) in ogni sottoscrizione caricata. È possibile configurarli in [Criteri di Azure](../azure-policy/azure-policy-introduction.md), che consente anche di impostare i criteri nei gruppi di gestione e in più sottoscrizioni.
+Questo articolo illustra come vengono configurati i criteri di sicurezza e come visualizzarli nel Centro sicurezza. Il Centro sicurezza di Azure assegna automaticamente i [criteri di sicurezza predefiniti](security-center-policy-definitions.md) in ogni sottoscrizione caricata. È possibile configurarli in [Criteri di Azure](../governance/policy/overview.md), che consente anche di impostare i criteri nei gruppi di gestione e in più sottoscrizioni.
 
-Per istruzioni su come impostare i criteri con PowerShell, vedere [Guida introduttiva: Creare un'assegnazione di criteri per identificare le risorse non conformi con il modulo AzureRM di PowerShell](../azure-policy/assign-policy-definition-ps.md).
+Per istruzioni su come impostare i criteri con PowerShell, vedere [Guida introduttiva: Creare un'assegnazione di criteri per identificare le risorse non conformi con il modulo di Azure PowerShell](../governance/policy/assign-policy-powershell.md).
 
 >[!NOTE]
 > Il Centro sicurezza ha avviato l'integrazione con i Criteri di Azure. I clienti esistenti verranno automaticamente migrati alla nuova iniziativa incorporata in Criteri di Azure, anziché ai precedenti criteri di sicurezza in Centro sicurezza. Questa modifica non influirà su risorse o ambiente, ad eccezione della presenza di una nuova iniziativa in Criteri di Azure.
 
 ## <a name="what-are-security-policies"></a>Informazioni sui criteri di sicurezza
-Un criterio di sicurezza definisce la configurazione specifica dei carichi di lavoro e contribuisce ad assicurare la conformità ai requisiti aziendali o normativi per la sicurezza. In Criteri di Azure è possibile definire criteri per le sottoscrizioni di Azure e adattarli al tipo di carico di lavoro o alla riservatezza dei dati. Ad esempio, le applicazioni che usano dati regolamentati come le informazioni personali possono richiedere un livello di sicurezza maggiore di quello degli altri carichi di lavoro. Per impostare un criterio nelle sottoscrizioni o nei gruppi di gestione, impostarle nei [Criteri di Azure](../azure-policy/azure-policy-introduction.md).
+Un criterio di sicurezza definisce la configurazione specifica dei carichi di lavoro e contribuisce ad assicurare la conformità ai requisiti aziendali o normativi per la sicurezza. In Criteri di Azure è possibile definire criteri per le sottoscrizioni di Azure e adattarli al tipo di carico di lavoro o alla riservatezza dei dati. Ad esempio, le applicazioni che usano dati regolamentati come le informazioni personali possono richiedere un livello di sicurezza maggiore di quello degli altri carichi di lavoro. Per impostare un criterio nelle sottoscrizioni o nei gruppi di gestione, impostarle nei [Criteri di Azure](../governance/policy/overview.md).
 
 I criteri di sicurezza determinano i suggerimenti per la sicurezza ottenuti nel Centro sicurezza di Azure. È possibile monitorare la conformità a tali criteri per identificare potenziali vulnerabilità e attenuare le minacce. Per altre informazioni su come determinare l'opzione più appropriata, vedere l'elenco di [criteri di sicurezza predefiniti](security-center-policy-definitions.md).
 
@@ -52,7 +52,7 @@ Il Centro sicurezza crea automaticamente un criterio di sicurezza predefinito pe
 - Assegnare i criteri ai gruppi di gestione e alle sottoscrizioni, che possono rappresentare un'intera organizzazione o una business unit all'interno dell'organizzazione.
 - Monitorare la conformità ai criteri.
 
-Per altre informazioni su Criteri di Azure, vedere [Creare e gestire i criteri per applicare la conformità](../azure-policy/create-manage-policy.md).
+Per altre informazioni su Criteri di Azure, vedere [Creare e gestire i criteri per applicare la conformità](../governance/policy/tutorials/create-and-manage.md).
 
 Un criterio di Azure è costituito dai componenti seguenti:
 
@@ -236,4 +236,4 @@ In questo articolo è stato descritto come modificare i criteri di sicurezza in 
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md). Risposte alle domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/): Post di blog sulla sicurezza e sulla conformità di Azure.
 
-Per altre informazioni su Criteri di Azure, vedere [Informazioni su Criteri di Azure](../azure-policy/azure-policy-introduction.md).
+Per altre informazioni su Criteri di Azure, vedere [Informazioni su Criteri di Azure](../governance/policy/overview.md).

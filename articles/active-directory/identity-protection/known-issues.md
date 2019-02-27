@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd894b214366302af4651b5944e250086be14beb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bc08710909252c9bcade6177a105684128acc5bf
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183837"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339024"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Domande frequenti e problemi noti con Identity Protection (procedura aggiornata) in Azure Active Directory
 
@@ -33,6 +33,8 @@ ms.locfileid: "56183837"
 
 
 **Ignora rischio utente** in Identity Protection (procedura aggiornata) imposta il **\<nome dell'amministratore con un collegamento ipertestuale che punta al pannello dell'utente\>** come attore nella cronologia del rischio dell'utente di Identity Protection (procedura aggiornata).
+
+Un problema noto corrente può causare latenze nel flusso di rimozione dei rischi utente. Se si hanno "criteri di rischio utente", questi criteri smetteranno di venire applicati agli utenti rimossi entro alcuni minuti da quando si fa clic su "Ignora rischio utente". Tuttavia, ci sono ritardi noti nell'esperienza utente di aggiornamento dello "stato del rischio" degli utenti rimossi. Come soluzione alternativa, aggiornare la pagina a livello di browser per visualizzare lo "stato del rischio" più recente per l'utente.
 
 
 ## <a name="risky-users-report"></a>Report utenti a rischio

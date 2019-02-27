@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: f5695e52528c3384c46c49c5c5ec2e451bd0be7c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7f964397b476d5a97ecdde0ae22bd6662a435e1a
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998086"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456521"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concetti di base di Kubernetes per il servizio Azure Kubernetes
 
@@ -52,7 +52,7 @@ Il master del cluster include i componenti di Kubernetes principali seguenti:
 
 servizio Azure Kubernetes fornisce un master del cluster a tenant singolo con un server API, un'Utilità di pianificazione e altri elementi dedicati. L'utente definisce il numero e la dimensioni dei nodi mentre la piattaforma Azure configura la comunicazione sicura tra il master del cluster e i nodi. L'interazione con il master del cluster si verifica mediante le API di Kubernetes, ad esempio `kubectl` o il dashboard di Kubernetes.
 
-Grazie a questo master del cluster gestito non è necessario configurare componenti come un archivio *etcd* a disponibilità elevata, ma non è possibile accedere direttamente al master del cluster. Gli aggiornamenti di Kubernetes sono orchestrati tramite l'interfaccia della riga di comando di Azure o il portale di Azure che aggiorna il master del cluster e quindi i nodi. Per risolvere eventuali problemi è possibile esaminare il log del master del cluster tramite Log Analytics di Azure.
+Grazie a questo master del cluster gestito non è necessario configurare componenti come un archivio *etcd* a disponibilità elevata, ma non è possibile accedere direttamente al master del cluster. Gli aggiornamenti di Kubernetes sono orchestrati tramite l'interfaccia della riga di comando di Azure o il portale di Azure che aggiorna il master del cluster e quindi i nodi. Per risolvere eventuali problemi è possibile esaminare il log del master del cluster tramite i log di Monitoraggio di Azure.
 
 Se è necessario configurare il master del cluster in modo particolare o di accedervi direttamente, è possibile distribuire il proprio cluster Kubernetes usando [servizio Azure Kubernetes-engine][aks-engine].
 
@@ -70,7 +70,7 @@ La dimensione della macchina virtuale di Azure per i nodi definisce il numero di
 
 In servizio Azure Kubernetes l'immagine della macchina virtuale per i nodi del cluster è attualmente basata su Ubuntu Linux. Quando si crea un cluster servizio Azure Kubernetes o si aumenta il numero di nodi, la piattaforma Azure crea il numero richiesto di macchine virtuali e le configura. Non è richiesta alcuna configurazione manuale.
 
-Se è necessario usare un sistema operativo host diverso, un altro runtime del contenitore o includere pacchetti personalizzati, è possibile distribuire il proprio cluster Kubernetes usando [servizio Azure Kubernetes-engine][aks-engine]. `aks-engine` upstream rilascia funzionalità e fornisce opzioni di configurazione prima che siano supportate ufficialmente nei cluster AKS. Ad esempio, se si desidera usare contenitori di Windows o un runtime del contenitore diverso da Docker, è possibile utilizzare `aks-engine` per configurare e distribuire un cluster Kubernetes che soddisfi le esigenze correnti.
+Se è necessario usare un sistema operativo host diverso, un altro runtime del contenitore o includere pacchetti personalizzati, è possibile distribuire il proprio cluster Kubernetes usando [servizio Azure Kubernetes-engine][aks-engine]. `aks-engine` upstream rilascia funzionalità e offre opzioni di configurazione prima che siano supportate ufficialmente nei cluster del servizio Azure Kubernetes. Ad esempio, se si desidera usare contenitori di Windows o un runtime del contenitore diverso da Docker, è possibile utilizzare `aks-engine` per configurare e distribuire un cluster Kubernetes che soddisfi le esigenze correnti.
 
 ### <a name="resource-reservations"></a>Prenotazioni di risorse
 
@@ -103,7 +103,7 @@ Quando si ridimensiona o si aggiorna un cluster servizio Azure Kubernetes, l'azi
 
 Kubernetes usa i *pod* per eseguire un'istanza dell'applicazione. Un pod rappresenta una singola istanza dell'applicazione. I pod hanno in genere un mapping 1:1 con i contenitori, anche se vi sono scenari avanzati in cui un pod può contenere più contenitori. I pod multi-contenitore sono pianificati insieme nello stesso nodo e consentono ai contenitori di condividere le risorse correlate.
 
-Quando si crea un pod è possibile definire *limiti per le risorse* per richiedere una certa quantità di risorse della CPU o di memoria. L'Utilità di pianificazione di Kubernetes tenta di pianificare i pod per l'esecuzione in un nodo con le risorse disponibili per soddisfare la richiesta. È anche possibile specificare limiti massimi per le risorse che impediscono a un pod dato di usare troppe risorse di calcolo del nodo sottostante. Una procedura consigliata consiste nell'includere i limiti per le risorse di tutti i pod per aiutare l'Utilità di pianificazione di Kubernetes a capire quali risorse sono necessarie e consentite.
+Quando si crea un pod è possibile definire *limiti per le risorse* per richiedere una certa quantità di risorse della CPU o di memoria. L'Utilità di pianificazione di Kubernetes tenta di pianificare i pod per l'esecuzione in un nodo con le risorse disponibili per soddisfare la richiesta. È anche possibile specificare limiti massimi per le risorse che impediscono a un pod dato di usare troppe risorse di calcolo del nodo sottostante. Una procedura consigliata consiste nell'includere limiti per le risorse per tutti i pod, per consentire all'l'Utilità di pianificazione di Kubernetes di capire quali risorse sono necessarie e consentite.
 
 Per altre informazioni, vedere [Pod di Kubernetes][kubernetes-pods] e [Ciclo di vita dei pod di Kubernetes][kubernetes-pod-lifecycle].
 
@@ -203,7 +203,7 @@ Quando si crea un cluster servizio Azure Kubernetes, sono disponibili gli spazi 
 
 - *predefinito*: lo spazio dei nomi dove i pod e le distribuzioni vengono creati per impostazione predefinita se non ne viene specificato un altro. Negli ambienti più piccoli è possibile distribuire le applicazioni direttamente nello spazio dei nomi predefinito senza creare altre suddivisioni logiche. Quando si interagisce con l'API di Kubernetes, ad esempio `kubectl get pods`, viene usato lo spazio dei nomi predefinito se non ne viene specificato un altro.
 - *kube system*: lo spazio dei nomi in cui sono presenti le risorse principali, ad esempio le funzionalità di rete come DNS e proxy o il dashboard di Kubernetes. In genere non si distribuiscono le proprie applicazioni in questo spazio dei nomi.
-- *kube-public*: questo spazio dei nomi solitamente non viene usato ma può essere usato per le risorse che devono essere visibili nell'intero cluster e visualizzabili da tutti gli utenti.
+- *kube-public*: questo spazio dei nomi solitamente non viene usato ma può essere usato per le risorse che devono essere visibili nell'intero cluster ed essere visualizzate da tutti gli utenti.
 
 Per altre informazioni, vedere [Spazi dei nomi di Kubernetes][kubernetes-namespaces].
 
@@ -211,10 +211,10 @@ Per altre informazioni, vedere [Spazi dei nomi di Kubernetes][kubernetes-namespa
 
 Questo articolo tratta alcuni dei componenti principali di Kubernetes descrivendo come si applicano ai cluster servizio Azure Kubernetes. Per altre informazioni sui concetti fondamentali relativi a Kubernetes e al servizio Azure Kubernetes, vedere gli articoli seguenti:
 
-- [Kubernetes / Accesso e identità per AKS][aks-concepts-identity]
-- [Kubernetes / Sicurezza di AKS][aks-concepts-security]
-- [Kubernetes / Reti virtuali in AKS][aks-concepts-network]
-- [Kubernetes / Archiviazione in AKS][aks-concepts-storage]
+- [Kubernetes / Accesso e identità per servizio Azure Kubernetes][aks-concepts-identity]
+- [Kubernetes / Sicurezza di servizio Azure Kubernetes][aks-concepts-security]
+- [Kubernetes / Reti virtuali in servizio Azure Kubernetes][aks-concepts-network]
+- [Kubernetes / Archiviazione in servizio Azure Kubernetes][aks-concepts-storage]
 - [Kubernetes / Ridimensionamento in AKS][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->

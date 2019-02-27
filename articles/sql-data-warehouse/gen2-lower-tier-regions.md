@@ -9,20 +9,18 @@ ms.subservice: design
 ms.date: 12/03/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 22993395d60df23533b67ec48d0ea7f979d73e22
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: bd0ec4d334b581d86451e5e534e80c1fde1e33ac
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692463"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445238"
 ---
 # <a name="azure-sql-data-warehouse-gen2-support-for-lower-compute-tiers"></a>Supporto per i livelli inferiori di calcolo di Azure SQL Data Warehouse Gen2
 
 Microsoft aiuta a ridurre il costo di esecuzione di un data warehouse in grado di gestire le query più complesse aggiungendo i livelli inferiori di calcolo per l'ultrarapido Azure SQL Data Warehouse Gen2. I clienti possono scoprire le principali funzionalità di prestazioni, flessibilità e sicurezza di Azure SQL Data Warehouse, partendo da 100 DWU (Unità Data Warehouse) a elevato utilizzo di calcolo per ridimensionare fino a 30.000 DWU in pochi minuti. I clienti possono trarre vantaggio dalle prestazioni e dalla flessibilità di Gen2 con i livelli inferiori di calcolo. 
 
-Trascinando il punto di ingresso per il data warehouse di nuova generazione, Microsoft apre le porte ai clienti orientati al valore che desiderano valutare tutti i vantaggi di un data warehouse sicuro e a prestazioni elevate, senza dover intuire quale sia l'ambiente di prova più appropriato.  I clienti potranno cominciare da un minimo di 100 DWU a elevato utilizzo di calcolo, fino all'attuale punto di ingresso di 500 DWU a elevato utilizzo di calcolo.  Azure SQL Data Warehouse Gen2 continua a supportare le operazioni di pausa e ripresa e va oltre la semplice flessibilità di calcolo.  Gen2 supporta anche la capacità di archiviazione a colonna illimitata con una memoria di query 2,5 volte superiore, fino a 128 query simultanee, e con funzionalità di caching adattivo che offrono esperienze con prestazioni in media 5 volte superiori rispetto alla stessa Unità Data Warehouse di Gen1 allo stesso prezzo.  I backup con ridondanza geografica sono standard per Gen2 con un'efficace protezione dei dati integrata. Azure SQL Data Warehouse Gen2 è pronto a ridimensionare.
-
-Il portale non supporta ancora la distribuzione o il ridimensionamento alle istanze di Gen2 di livello inferiore. Nel frattempo [inviare un ticket](sql-data-warehouse-get-started-create-support-ticket.md) se si desidera sfruttare i vantaggi offerti dal nuovo livello.
+Trascinando il punto di ingresso per il data warehouse di nuova generazione, Microsoft apre le porte ai clienti orientati al valore che desiderano valutare tutti i vantaggi di un data warehouse sicuro e a prestazioni elevate, senza dover intuire quale sia l'ambiente di prova più appropriato.  I clienti potranno cominciare da un minimo di 100 DWU a elevato utilizzo di calcolo, fino all'attuale punto di ingresso di 500 DWU a elevato utilizzo di calcolo.  Azure SQL Data Warehouse Gen2 continua a supportare le operazioni di pausa e ripresa e va oltre la semplice flessibilità di calcolo.  Gen2 supporta anche la capacità di archiviazione a colonna illimitata con una memoria di query 2,5 volte superiore, fino a 128 query simultanee, e con funzionalità di caching adattivo che offrono esperienze con prestazioni in media 5 volte superiori rispetto alla stessa Unità Data Warehouse di Gen1 allo stesso prezzo.  I backup con ridondanza geografica sono standard per Gen2 con un'efficace protezione dei dati integrata. Azure SQL Data Warehouse Gen2 è scalabile in base alle esigenze.
 
 ## <a name="getting-started-with-azure-sql-data-warehouse-gen2"></a>Introduzione a Azure SQL Data Warehouse Gen2 
 
@@ -34,22 +32,7 @@ Aggiornare [Gen1 con ottimizzazione per il calcolo di Azure SQL Data Warehouse a
 
 ## <a name="supported-regions-for-lower-compute-tiers"></a>Aree supportate per i livelli inferiori di calcolo
 
-- Stati Uniti Orientali 1 
-- Stati Uniti Orientali 2
-- Europa occidentale
-- Europa settentrionale
-- Stati Uniti occidentali 2
-- Asia sud-orientale
-- Stati Uniti meridionali
-- Stati Uniti centrali 
-- Asia orientale
-- Giappone orientale
-- India centrale
-- Australia orientale
-- Australia sud-orientale
-- Canada centrale
-- Giappone occidentale 
-- Canada centrale
+[Tabella delle aree di disponibilità supportate](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

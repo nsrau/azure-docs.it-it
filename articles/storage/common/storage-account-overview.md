@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 880ae672409704ddcd5597ae758f8c786c3c0720
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 430aa6e60efe63e6741436e53152126bc15798fc
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244488"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327851"
 ---
 # <a name="azure-storage-account-overview"></a>Panoramica dell'account di archiviazione di Azure
 
@@ -78,7 +78,7 @@ Quando si assegna un nome all'account di archiviazione, tenere presenti queste r
 Gli account di archiviazione per utilizzo generico possono essere configurati per uno dei livelli di prestazioni seguenti:
 
 * Un livello di prestazioni standard per l'archiviazione di BLOB, file, tabelle, code e dischi delle macchine virtuali di Azure.
-* Un livello di prestazioni Premium per l'archiviazione solo dei dischi delle macchine virtuali di Azure. Vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../../virtual-machines/windows/premium-storage.md) per una panoramica approfondita del servizio di archiviazione Premium.
+* Un livello di prestazioni Premium per l'archiviazione solo dei dischi delle macchine virtuali non gestiti.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Livelli di accesso per i dati BLOB in blocchi
 

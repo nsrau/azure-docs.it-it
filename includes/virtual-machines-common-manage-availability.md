@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: aff3f47624fe21e1d0f020e8e5732e60b4b53657
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 42b6dde708e2a1dbda225fd95e3db964267ae48a
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54084056"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56334030"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Informazioni sui riavvii delle VM: manutenzione e tempo di inattività
 Sono tre gli scenari che possono interessare la macchina virtuale in Azure: manutenzione dell'hardware non pianificata, tempo di inattività imprevisto e manutenzione pianificata.
@@ -41,7 +41,7 @@ Per ridurre le conseguenze dei tempi di inattività causati da uno o più di que
 Per garantire la ridondanza dell'applicazione, è consigliabile raggruppare due o più macchine virtuali in un set di disponibilità. Questa configurazione in un data center assicura infatti che, nel corso di un evento di manutenzione pianificata o non pianificata, almeno una delle macchine virtuali sia sempre disponibile e soddisfi per almeno il 99,95% i requisiti del contratto di servizio di Azure. Per altre informazioni, vedere [Contratto di Servizio per Macchine virtuali](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
 > [!IMPORTANT]
-> Evitare di lasciare un'unica istanza di macchina virtuale in un set di disponibilità. Le macchine virtuali in questa configurazione non si qualificano per la garanzia del contratto di servizio e sono soggette a tempi di inattività durante gli eventi di manutenzione pianificata di Azure, se non quando una macchina virtuale singola usa [Archiviazione Premium di Azure](../articles/virtual-machines/windows/premium-storage.md). Il contratto di servizio di Azure si applica alle macchine virtuali singole che usano Archiviazione Premium.
+> Evitare di lasciare un'unica istanza di macchina virtuale in un set di disponibilità. Le macchine virtuali in questa configurazione non si qualificano per la garanzia del Contratto di servizio e sono soggette a tempi di inattività durante gli eventi di manutenzione pianificata di Azure, fatta eccezione per quando una macchina virtuale singola usa [unità SSD Premium di Azure](../articles/virtual-machines/windows/disks-types.md#premium-ssd). Il Contratto di servizio di Azure si applica alle macchine virtuali singole che usano unità SSD Premium.
 
 A ciascuna macchina virtuale nel set di disponibilità viene assegnato un **dominio di aggiornamento** e un **dominio di errore** dalla piattaforma Azure sottostante. Per ogni set di disponibilità vengono assegnati cinque domini di aggiornamento non configurabili dall'utente per impostazione predefinita, è possibile quindi aumentare le distribuzioni Resource Manager per fornire fino a venti domini di aggiornamento, per indicare i gruppi di macchine virtuali con il relativo hardware fisico sottostante che è possibile riavviare contemporaneamente. Se in un set di disponibilità vengono configurate più di cinque macchine virtuali, la sesta macchina viene inserita nello stesso dominio di aggiornamento della prima, la settima nel dominio di aggiornamento della seconda e così via. I domini di aggiornamento non vengono necessariamente riavviati in ordine sequenziale durante la manutenzione pianificata, ma ne viene riavviato uno solo alla volta. Un dominio di aggiornamento riavviato ha 30 minuti di tempo per eseguire il ripristino prima che venga avviata la manutenzione in un altro dominio di aggiornamento.
 
@@ -60,7 +60,7 @@ Se si usano macchine virtuali con dischi non gestiti, è fortemente consigliabil
 
 [!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
 
-Se si intende usare macchine virtuali con [dischi non gestiti](../articles/virtual-machines/windows/about-disks-and-vhds.md#types-of-disks), seguire queste procedure consigliate per gli account di archiviazione in cui i dischi rigidi virtuali (VHD) delle macchine virtuali vengono archiviati come [BLOB di pagine](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
+Se si intende usare macchine virtuali con dischi non gestiti, seguire queste procedure consigliate per gli account di archiviazione in cui i dischi rigidi virtuali delle macchine virtuali vengono archiviati come [BLOB di pagine](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 
 1. **Mantenere tutti i dischi (sistema operativo e dati) associati a una macchina virtuale nello stesso account di archiviazione**
 2. **Esaminare i [limiti](../articles/storage/common/storage-scalability-targets.md) al numero di dischi non gestiti in un account di archiviazione** prima di aggiungere altri dischi rigidi virtuali a un account di archiviazione

@@ -1,6 +1,6 @@
 ---
-title: Trasmettere i log di Azure Active Directory a Log Analytics tramite Monitoraggio di Azure (anteprima) | Microsoft Docs
-description: Informazioni su come integrare i log di Azure Active Directory con Log Analytics tramite Monitoraggio di Azure (anteprima)
+title: Trasmettere i log di Azure Active Directory ai log di Monitoraggio di Azure (anteprima) | Microsoft Docs
+description: Informazioni su come integrare i log di Azure Active Directory con i log di Monitoraggio di Azure (anteprima)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -17,30 +17,30 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51db96523a96015822f4507731bad2a398521530
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e2e9c1b2513f769b065883dc98b649a68d565ccc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165842"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456487"
 ---
-# <a name="integrate-azure-ad-logs-with-log-analytics-using-azure-monitor-preview"></a>Integrare i log di Azure AD con Log Analytics tramite Monitoraggio di Azure (anteprima)
+# <a name="integrate-azure-ad-logs-with-azure-monitor-logs-preview"></a>Integrare i log di Azure AD con i log di Monitoraggio di Azure (anteprima)
 
-Log Analytics consente di eseguire query sui dati per trovare eventi specifici, analizzare le tendenze ed eseguire la correlazione su varie origini dati. L'integrazione dei log attività di Azure AD in Log Analytics consente ora di eseguire attività quali:
+I log di Monitoraggio di Azure consentono di eseguire query sui dati per trovare eventi specifici, analizzare le tendenze ed eseguire la correlazione su varie origini dati. L'integrazione dei log attività di Azure AD nei log di Monitoraggio di Azure consente ora di eseguire attività quali:
 
  * Confrontare i log di accesso di Azure AD con i log di sicurezza pubblicati dal Centro sicurezza di Azure
 
  * Risolvere i problemi di colli di bottiglia delle prestazioni nella pagina di accesso dell'applicazione tramite la correlazione dei dati sulle prestazioni delle applicazioni da Azure Application Insights.  
 
-Il video seguente di una sessione di Ignite illustra i vantaggi derivanti dall'utilizzo di Log Analytics per i log di Azure AD in scenari utente pratici.
+Il video seguente di una sessione di Ignite illustra i vantaggi derivanti dall'utilizzo dei log di Monitoraggio di Azure per i log di Azure AD in scenari utente pratici.
 
 > [!VIDEO https://www.youtube.com/embed/MP5IaCTwkQg?start=1894]
 
-Questo articolo illustra come integrare i log di Azure Active Directory (Azure AD) con Log Analytics tramite Monitoraggio di Azure.
+Questo articolo illustra come integrare i log di Azure Active Directory (Azure AD) con Monitoraggio di Azure.
 
 ## <a name="supported-reports"></a>Report supportati
 
-È possibile indirizzare i log attività di controllo e i log attività di accesso a Log Analytics per ulteriori analisi. 
+È possibile indirizzare i log attività di controllo e i log attività di accesso ai log di Monitoraggio di Azure per ulteriori analisi. 
 
 * **Log di controllo**: Il [report delle attività del log di controllo](concept-audit-logs.md) consente di accedere alla cronologia di ogni attività eseguita nel tenant.
 * **Log di accesso**: Il [report delle attività di accesso](concept-sign-ins.md) consente di determinare chi ha eseguito le attività segnalate nei log di controllo.
@@ -58,13 +58,13 @@ Per usare questa funzionalità, sono necessari:
 * Un utente con il ruolo di *amministratore globale* o *amministratore della sicurezza* per il tenant di Azure AD.
 * Disporre di un'area di lavoro di Log Analytics nella sottoscrizione di Azure. Informazioni su [come creare un'area di lavoro di Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
-## <a name="send-logs-to-log-analytics"></a>Inviare log a Log Analytics
+## <a name="send-logs-to-azure-monitor-logs"></a>Inviare log ai log di Monitoraggio di Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 
 2. Selezionare **Azure Active Directory** > **Impostazioni di diagnostica** -> **Aggiungi impostazioni di diagnostica**. È anche possibile selezionare **Esporta impostazioni** dalla pagina **Log di controllo** o **Accessi** per visualizzare la pagina di configurazione delle impostazioni di diagnostica.  
     
-3. Nel menu **Impostazioni di diagnostica** selezionare la casella di controllo **Invia a Log Analytics** e quindi selezionare **Configura**.
+3. Nel menu **Impostazioni di diagnostica** selezionare la casella di controllo **Send to Log Analytics workspace** (Invia ad area di lavoro di Log Analytics) e quindi selezionare **Configura**.
 
 4. Selezionare l'area di lavoro di Log Analytics a cui si vogliono inviare i log oppure creare una nuova area di lavoro nella finestra di dialogo visualizzata.  
 
@@ -80,5 +80,5 @@ Per usare questa funzionalità, sono necessari:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Analizzare i log attività di Azure AD in Log Analytics](howto-analyze-activity-logs-log-analytics.md)
-* [Installare e usare le viste di Log Analytics per Azure Active Directory](howto-install-use-log-analytics-views.md)
+* [Analizzare i log attività di Azure AD con i log di Monitoraggio di Azure](howto-analyze-activity-logs-log-analytics.md)
+* [Installare e usare le viste di analisi dei log per Azure Active Directory](howto-install-use-log-analytics-views.md)

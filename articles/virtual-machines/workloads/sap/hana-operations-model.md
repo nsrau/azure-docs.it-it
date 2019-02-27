@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 776057a177904d086974258b5221ab474f4b1bcb
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 36a648e2d46cce96a8ff663f45ccf45326898a84
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44030645"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417007"
 ---
 # <a name="operations-model-and-responsibilities"></a>Responsabilità e modello operativo
 
@@ -60,13 +60,13 @@ L'infrastruttura sottostante delle istanze Large di HANA fornisce funzionalità 
 
 **Dati**: i dati gestiti da SAP HANA e altri dati, ad esempio file di backup nei volumi o nelle condivisioni di file. Le responsabilità del cliente includono il monitoraggio dello spazio disponibile su disco e la gestione del contenuto nei volumi, nonché il monitoraggio della corretta esecuzione dei backup dei volumi dei dischi e degli snapshot di archiviazione. La corretta esecuzione della replica dei dati nei siti di ripristino di emergenza è responsabilità di Microsoft.
 
-**Applicazioni**: le istanze di applicazioni SAP o, in caso di applicazioni non SAP, il relativo livello applicazione. Le responsabilità del cliente includono la distribuzione, l'amministrazione, l'esecuzione di operazioni e il monitoraggio di tali applicazioni. Il cliente è responsabile della pianificazione della capacità per l'utilizzo delle risorse della CPU, della memoria, delle risorse di archiviazione di Azure, della larghezza di banda di rete nelle reti virtuali e per l'utilizzo delle risorse dalle reti virtuali di Azure a SAP HANA in Azure (istanze Large).
+**Applicazioni:** le istanze di applicazioni SAP o, in caso di applicazioni non SAP, il relativo livello applicazione. Le responsabilità del cliente includono la distribuzione, l'amministrazione, l'esecuzione di operazioni e il monitoraggio di tali applicazioni. Il cliente è responsabile della pianificazione della capacità per l'utilizzo delle risorse della CPU, della memoria, delle risorse di archiviazione di Azure, della larghezza di banda di rete nelle reti virtuali e per l'utilizzo delle risorse dalle reti virtuali di Azure a SAP HANA in Azure (istanze Large).
 
 **WAN**: le connessioni stabilite dall'ambiente locale alle distribuzioni di Azure per i carichi di lavoro. Tutti i clienti con istanze Large di HANA usano Azure ExpressRoute per la connettività. Questa connessione non fa parte della soluzione SAP HANA in Azure (istanze Large) e pertanto la relativa configurazione è responsabilità del cliente.
 
 **Archivio**: può essere preferibile archiviare copie dei dati usando i metodi preferiti negli account di archiviazione. L'archiviazione comporta gestione, conformità, costi e operazioni. Il cliente è responsabile della generazione di copie di archivio e backup in Azure e della relativa archiviazione in base ai criteri di conformità.
 
-Vedere [Contratto di Servizio per SAP HANA in istanze di grandi dimensioni di Azure](https://azure.microsoft.com/support/legal/sla/sap-hana-large/v1_0/).
+Vedere [Contratto di Servizio per SAP HANA in istanze di grandi dimensioni di Azure](https://azure.microsoft.com/support/legal/sla/sap-hana-large/).
 
 **Passaggi successivi**
 - Fare riferimento all'[architettura di SAP HANA (istanze Large) in Azure](hana-architecture.md)

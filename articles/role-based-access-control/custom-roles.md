@@ -1,6 +1,6 @@
 ---
-title: Ruoli personalizzati in Azure | Microsoft Docs
-description: Informazioni su come definire i ruoli personalizzati con il controllo degli accessi in base al ruolo di Azure per la gestione degli accessi specifica per le risorse in Azure.
+title: Ruoli personalizzati per le risorse di Azure | Microsoft Docs
+description: Informazioni su come creare i ruoli personalizzati con il controllo degli accessi in base al ruolo per la gestione degli accessi specifica per le risorse di Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8d2e3dc989a44de0c7c091dfbe1254a0e204faae
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6307c57f32700c0c2dd2e5da15b98a2a54dbe9c4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697130"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339329"
 ---
-# <a name="custom-roles-in-azure"></a>Ruoli personalizzati in Azure
+# <a name="custom-roles-for-azure-resources"></a>Ruoli personalizzati per le risorse di Azure
 
-Se i [ruoli predefiniti](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati. Analogamente ai ruoli predefiniti, è possibile assegnare i ruoli personalizzati a utenti, gruppi ed entità servizio nell'ambito della sottoscrizione, del gruppo di risorse e della risorsa. I ruoli personalizzati vengono archiviati in una directory di Azure Active Directory (Azure AD) e possono essere condivisi tra le sottoscrizioni. Ogni directory può avere al massimo 2000 ruoli personalizzati. È possibile creare ruoli personalizzati usando Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST.
+Se i [ruoli predefiniti per le risorse di Azure](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati. Analogamente ai ruoli predefiniti, è possibile assegnare i ruoli personalizzati a utenti, gruppi ed entità servizio nell'ambito della sottoscrizione, del gruppo di risorse e della risorsa. I ruoli personalizzati vengono archiviati in una directory di Azure Active Directory (Azure AD) e possono essere condivisi tra le sottoscrizioni. Ogni directory può avere al massimo 2000 ruoli personalizzati. È possibile creare ruoli personalizzati usando Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST.
 
 ## <a name="custom-role-example"></a>Esempio di ruolo personalizzato
 
@@ -107,7 +107,7 @@ Come per i ruoli predefiniti, la proprietà `AssignableScopes` specifica gli amb
 | Visualizzare un ruolo personalizzato | `Microsoft.Authorization/ roleDefinition/read` | Gli utenti a cui viene concessa questa operazione a livello di ambito possono visualizzare i ruoli personalizzati disponibili per l'assegnazione in tale ambito. Tutti i ruoli predefiniti consentono la disponibilità dei ruoli personalizzati per l'assegnazione. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Creare ruoli personalizzati con Azure PowerShell](custom-roles-powershell.md)
-- [Creare ruoli personalizzati con l'interfaccia della riga di comando di Azure](custom-roles-cli.md)
-- [Informazioni sulle definizioni del ruolo](role-definitions.md)
-- [Risolvere i problemi relativi al controllo degli accessi in base al ruolo in Azure](troubleshooting.md)
+- [Creare ruoli personalizzati per le risorse di Azure tramite Azure PowerShell](custom-roles-powershell.md)
+- [Creare ruoli personalizzati per le risorse di Azure tramite l'interfaccia della riga di comando di Azure](custom-roles-cli.md)
+- [Informazioni sulle definizioni del ruolo per le risorse di Azure](role-definitions.md)
+- [Risolvere i problemi del controllo degli accessi in base al ruolo per le risorse di Azure](troubleshooting.md)

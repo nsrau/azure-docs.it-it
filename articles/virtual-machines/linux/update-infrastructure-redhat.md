@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/7/2019
 ms.author: borisb
-ms.openlocfilehash: 4505dcf5d9407a609bcf97c56835ff186607127d
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: c5e67e581d3fc370710528609bf94b1110416c33
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563736"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311376"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure per VM Red Hat Enterprise Linux su richiesta in Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) consente ai provider di servizi cloud (come Azure) di eseguire il mirroring del contenuto dei repository ospitati in Red Hat, creare repository personalizzati con contenuto specifico di Azure e garantirne la disponibilità per le VM degli utenti finali.
@@ -103,10 +103,10 @@ I nuovi server RHUI di Azure vengono distribuiti con [Gestione traffico di Azure
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>Aggiornare il certificato client RHUI scaduto in una macchina virtuale
 
-Se si usa un'immagine di macchina virtuale RHEL di una versione precedente, ad esempio RHEL 7.4 (URN immagine: `RedHat:RHEL:7.4:7.4.2018010506`), si riscontreranno problemi di connettività a RHUI dovuti a un certificato client SSL ormai scaduto. Verrà visualizzato un errore simile al seguente: _"Il peer SSL ha rifiutato il certificato perché scaduto"_. Per risolvere il problema, aggiornare il pacchetto client RHUI nella macchina virtuale usando il comando seguente:
+Se si usa un'immagine di macchina virtuale RHEL di una versione precedente, ad esempio RHEL 7.4 (URN immagine: `RedHat:RHEL:7.4:7.4.2018010506`), si riscontreranno problemi di connettività a RHUI dovuti a un certificato client SSL ormai scaduto. Verrà visualizzato un errore simile al seguente: _"Il peer SSL ha rifiutato il certificato considerandolo scaduto"_ oppure _Errore: impossibile recuperare i metadati del repository (repomd.xml) per il repository:... Si prega di verificare il suo percorso e riprovare"_. Per risolvere il problema, aggiornare il pacchetto client RHUI nella macchina virtuale usando il comando seguente:
 
 ```bash
-sudo yum update -y --disablerepo='*' --enablerepo='*-microsoft-*'
+sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
 ```
 
 In alternativa, anche l'esecuzione di `sudo yum update` potrebbe aggiornare il pacchetto del certificato client (a seconda della versione RHEL), nonostante gli errori di "certificato SSL scaduto" visualizzati per altri repository. Se l'aggiornamento ha esito positivo, dovrebbe essere ripristinata la normale connettività agli altri repository RHUI e sarà possibile eseguire `sudo yum update`.

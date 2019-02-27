@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0d46fc8a152c4426832669ce22d4aa78ac640e6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0e82e8f6caafb38b758f552913def234a92a0d83
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173943"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454651"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Aggiungere manualmente un account all'app
 Se la fotocamera non è in grado di acquisire il codice a matrice, è possibile aggiungere manualmente le informazioni dell'account all'app Microsoft Authenticator per la verifica a due fattori. Questa opzione funziona per gli account aziendali o degli istituti di istruzione e per gli account non Microsoft.
@@ -29,7 +29,7 @@ I codici forniti per gli account non fanno distinzione tra maiuscole e minuscole
 
 ## <a name="add-your-work-or-school-account"></a>Aggiungere l'account aziendale o dell'istituto di istruzione
 
-1. Sul computer, annotarsi il **Codice** e le informazioni dell'**Url** sulla pagina **Configura app per dispositivi mobili**. Tenere aperta questa pagina per visualizzare il codice e l'URL.
+1. Nel computer prendere nota del **Codice** e delle informazioni dell'**Url** sulla pagina **Configura app per dispositivi mobili**. Tenere aperta questa pagina per visualizzare il codice e l'URL.
     
     ![Schermata contenente il codice a matrice](./media/user-help-auth-app-add-account-manual/auth-app-barcode.png)
 
@@ -47,7 +47,7 @@ I codici forniti per gli account non fanno distinzione tra maiuscole e minuscole
 
 ## <a name="add-your-google-account"></a>Aggiungere l'account Google
 
-1. In un computer, selezionare **CAN'T SCAN IT (Impossibile effettuare scansione)** dalla pagina **Configurare Authenticator** con il codice a matrice.
+1. Nel computer, selezionare **CAN'T SCAN IT (Impossibile effettuare scansione)** dalla pagina **Configurare Authenticator** con il codice a matrice.
 
     La pagina **Impossibile effettuare scansione del codice a barre** verrà visualizzata con il codice segreto. Tenere aperta questa pagina per visualizzare il codice segreto.
 
@@ -55,7 +55,7 @@ I codici forniti per gli account non fanno distinzione tra maiuscole e minuscole
 
 3. Immettere un **nome dell'account** (ad esempio, Google) e digitare la **Chiave privata** dal passaggio 1, quindi selezionare **Fine**.
 
-4. Nella pagina **Configurare Authenticator** sul PC, digitare il codice di verifica a sei cifre fornito nell'app per l'account Google, quindi selezionare **Verifica**.
+4. Nella pagina **Configurare Authenticator** sul computer digitare il codice di verifica a sei cifre fornito nell'app per l'account Google, quindi selezionare **Verifica**.
 
     La schermata **Account** dell'app mostra il nome dell'account e un codice di verifica a sei cifre. Per una maggiore sicurezza, il codice di verifica cambia ogni 30 secondi per impedire che venga usato più volte.
 
@@ -70,7 +70,7 @@ I codici forniti per gli account non fanno distinzione tra maiuscole e minuscole
 
 3. Immettere un **nome dell'account** (ad esempio, Facebook) e digitare la **Chiave privata** dal passaggio 1, quindi selezionare **Fine**.
 
-4. Nella pagina **Autenticatore a due fattori** sul PC, digitare il codice di verifica a sei cifre fornito nell'app per l'account Facebook, quindi selezionare **Verifica**.
+4. Nella pagina **Autenticatore a due fattori** sul computer digitare il codice di verifica a sei cifre fornito nell'app per l'account Facebook, quindi selezionare **Verifica**.
 
     La schermata **Account** dell'app mostra il nome dell'account e un codice di verifica a sei cifre. Per una maggiore sicurezza, il codice di verifica cambia ogni 30 secondi per impedire che venga usato più volte.
 
@@ -80,7 +80,7 @@ I codici forniti per gli account non fanno distinzione tra maiuscole e minuscole
 ## <a name="add-your-amazon-account"></a>Aggiungere l'account Amazon
 È possibile aggiungere l'account Amazon attivando la verifica a due fattori e quindi aggiungendo l'account all'app.
 
-1. Nel computer, selezionare **Non riesci a scansionare il codice a barre?** dalla pagina **Scegli come ricevere i codici** con il codice a matrice.
+1. Nel computer selezionare **Non riesci a scansionare il codice a barre?** dalla pagina **Scegli come ricevere i codici** con il codice a matrice.
 
     Verrà visualizzato il messaggio **Non riesci a scansionare il codice a barre?** contenente il codice segreto. Tenere aperto questo messaggio per visualizzare il codice segreto.
 
@@ -90,9 +90,9 @@ I codici forniti per gli account non fanno distinzione tra maiuscole e minuscole
 
 4. Completare il processo di iscrizione, inclusa l'aggiunta di un metodo di verifica di sicurezza, ad esempio un SMS e quindi selezionare **Invia codice**.
 
-5. Nella pagina **Aggiungi un metodo di verifica di sicurezza** sul PC, digitare il codice di verifica a sei cifre fornito dal metodo di verifica di sicurezza per l'account di Amazon e quindi selezionare **Verifica il codice e continua**.
+5. Nella pagina **Aggiungi un metodo di verifica di sicurezza** sul computer digitare il codice di verifica a sei cifre fornito dal metodo di verifica di sicurezza per l'account di Amazon e quindi selezionare **Verifica il codice e continua**.
 
-6. Nella pagina Quasi terminato, decidere se rendere il PC un dispositivo attendibile e quindi selezionare **Ho capito. Attiva la verifica in due passaggi**.
+6. Nella pagina Quasi terminato, decidere se rendere il computer un dispositivo attendibile e quindi selezionare **Ho capito. Attiva la verifica in due passaggi**.
 
     Viene visualizzata la pagina **Impostazioni di sicurezza avanzate**, che mostra i dettagli aggiornati della verifica a due fattori.
 

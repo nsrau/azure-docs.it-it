@@ -16,24 +16,21 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 750bb275ef936b3911503cd4c0f50674d3dff2d1
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: bd91607260d47d37bc3ce94ec63f700082416b6d
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981146"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329900"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Come scollegare un disco dati da una macchina virtuale di Windows
 
 Quando un disco dati collegato a una macchina virtuale non è più necessario, è possibile scollegarlo con facilità. Il disco verrà rimosso dalla macchina virtuale, ma non dall'archivio.
 
 > [!WARNING]
-> Se si scollega un disco, questo non viene automaticamente eliminato. Se è stata eseguita la sottoscrizione all'archiviazione Premium, si continueranno a sostenere costi di archiviazione per il disco. Per altre informazioni, consultare [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](premium-storage.md#pricing-and-billing).
->
->
+> Se si scollega un disco, questo non viene automaticamente eliminato. Se è stata eseguita la sottoscrizione all'archiviazione Premium, si continueranno a sostenere costi di archiviazione per il disco. Per altre informazioni, consultare [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](disks-types.md#billing).
 
 Se si vogliono riusare i dati presenti nel disco, è possibile ricollegarlo alla stessa macchina virtuale o collegarlo a una nuova.
-
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
@@ -51,7 +48,6 @@ Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 
 Il disco rimane nello spazio di archiviazione ma non è più collegato a una macchina virtuale.
 
-
 ## <a name="detach-a-data-disk-using-the-portal"></a>Scollegare un disco dati tramite il portale
 
 1. Dal menu a sinistra selezionare **Macchine virtuali**.
@@ -65,5 +61,5 @@ Il disco rimane nello spazio di archiviazione ma non è più collegato a una mac
 Il disco rimane nello spazio di archiviazione ma non è più collegato a una macchina virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Se si desidera riutilizzare il disco dati, è sufficiente [collegarlo a un'altra VM](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
+Se si desidera riutilizzare il disco dati, è sufficiente [collegarlo a un'altra VM](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

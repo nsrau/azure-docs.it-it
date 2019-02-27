@@ -7,16 +7,16 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: danlep
-ms.openlocfilehash: 8bae44215cdc17e9f1617c909ef197f2757fc114
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 42790905509e2ea8bbba87587ed01b1929221db5
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857755"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329320"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Informazioni di riferimento sui webhook per Registro Azure Container
 
-È possibile [configurare webhook](container-registry-webhook.md) per il registro contenitori, che generano eventi quando vengono eseguite determinate azioni nel registro. È ad esempio possibile abilitare webhook che vengono attivati per le operazioni `push` e `delete` dell'immagine del contenitore. Quando un webhook viene attivato, Registro Azure Container invia una richiesta HTTP o HTTPS contenente informazioni sull'evento a un endpoint specificato. L'endpoint può quindi elaborare il webhook e agire di conseguenza.
+È possibile [configurare webhook](container-registry-webhook.md) per il registro contenitori, che generano eventi quando vengono eseguite determinate azioni nel registro. Abilitare, ad esempio, webhook che vengono attivati per le operazioni `push` e `delete` dell'immagine del contenitore. Quando un webhook viene attivato, Registro Azure Container invia una richiesta HTTP o HTTPS contenente informazioni sull'evento a un endpoint specificato. L'endpoint può quindi elaborare il webhook e agire di conseguenza.
 
 Le sezioni seguenti illustrano in dettaglio lo schema delle richieste dei webhook generate da eventi supportati. Le sezioni sugli eventi contengono lo schema del payload per il tipo di evento, un payload della richiesta di esempio e uno o più comandi di esempio che attiverebbero il webhook.
 
@@ -40,17 +40,17 @@ Webhook attivato quando viene eseguito il push di un'immagine del contenitore in
 
 ### <a name="push-event-payload"></a>Payload dell'evento push
 
-|Elemento|type|DESCRIZIONE|
+|Elemento|Type|DESCRIZIONE|
 |-------------|----------|-----------|
 |`id`|string|ID dell'evento del webhook.|
-|`timestamp`|Datetime|Ora in cui è stato attivato l'evento del webhook.|
+|`timestamp`|DateTime|Ora in cui è stato attivato l'evento del webhook.|
 |`action`|string|Azione che ha attivato l'evento webhook.|
 |[target](#target)|Tipo complesso|Destinazione dell'evento che ha attivato l'evento del webhook.|
 |[request](#request)|Tipo complesso|Richiesta che ha generato l'evento del webhook.|
 
 ### <a name="target"></a>target
 
-|Elemento|type|DESCRIZIONE|
+|Elemento|Type|DESCRIZIONE|
 |------------------|----------|-----------|
 |`mediaType`|string|Tipo MIME dell'oggetto di riferimento.|
 |`size`|Int32|Numero di byte del contenuto. Uguale al campo Length.|
@@ -61,7 +61,7 @@ Webhook attivato quando viene eseguito il push di un'immagine del contenitore in
 
 ### <a name="request"></a>richiesta
 
-|Elemento|type|DESCRIZIONE|
+|Elemento|Type|DESCRIZIONE|
 |------------------|----------|-----------|
 |`id`|string|ID della richiesta che ha avviato l'evento.|
 |`host`|string|Nome host accessibile esternamente dell'istanza del registro, specificato dall'intestazione host HTTP nelle richieste in ingresso.|
@@ -104,17 +104,17 @@ Webhook attivato quando viene eliminato un repository o un manifesto. Non attiva
 
 ### <a name="delete-event-payload"></a>Payload dell'evento delete
 
-|Elemento|type|DESCRIZIONE|
+|Elemento|Type|DESCRIZIONE|
 |-------------|----------|-----------|
 |`id`|string|ID dell'evento del webhook.|
-|`timestamp`|Datetime|Ora in cui è stato attivato l'evento del webhook.|
+|`timestamp`|DateTime|Ora in cui è stato attivato l'evento del webhook.|
 |`action`|string|Azione che ha attivato l'evento webhook.|
 |[target](#delete_target)|Tipo complesso|Destinazione dell'evento che ha attivato l'evento del webhook.|
 |[request](#delete_request)|Tipo complesso|Richiesta che ha generato l'evento del webhook.|
 
 ### <a name="delete_target"></a> target
 
-|Elemento|type|DESCRIZIONE|
+|Elemento|Type|DESCRIZIONE|
 |------------------|----------|-----------|
 |`mediaType`|string|Tipo MIME dell'oggetto di riferimento.|
 |`digest`|string|Digest del contenuto, definito dalla specifica API HTTP del registro contenitori V2.|
@@ -122,7 +122,7 @@ Webhook attivato quando viene eliminato un repository o un manifesto. Non attiva
 
 ### <a name="delete_request"></a> request
 
-|Elemento|type|DESCRIZIONE|
+|Elemento|Type|DESCRIZIONE|
 |------------------|----------|-----------|
 |`id`|string|ID della richiesta che ha avviato l'evento.|
 |`host`|string|Nome host accessibile esternamente dell'istanza del registro, specificato dall'intestazione host HTTP nelle richieste in ingresso.|
@@ -154,12 +154,12 @@ Comandi dell'[interfaccia della riga di comando di Azure](/cli/azure/acr) di ese
 
 ```azurecli
 # Delete repository
-az acr repository delete -n MyRegistry --repository MyRepository
+az acr repository delete --name MyRegistry --repository MyRepository
 
-# Delete manifest
-az acr repository delete -n MyRegistry --repository MyRepository --tag MyTag --manifest
+# Delete image
+az acr repository delete --name MyRegistry --image MyRepository:MyTag
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Uso dei webhook del Registro contenitori di Azure](container-registry-webhook.md)
+[Uso dei webhook di Registro Azure Container](container-registry-webhook.md)

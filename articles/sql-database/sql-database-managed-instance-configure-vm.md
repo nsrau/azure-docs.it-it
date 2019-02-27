@@ -11,17 +11,17 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: 79dbaf98f953a9cb72a7fa7cf9facc2b17fad504
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.date: 02/18/2019
+ms.openlocfilehash: 640182b50492ed21cd604423fe1cef7301095941
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410065"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408800"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Avvio rapido: Configurare una macchina virtuale di Azure per la connessione a un'istanza gestita di database SQL di Azure
 
-Questo argomento di avvio rapido illustra come configurare una macchina virtuale di Azure per la connessione a un'istanza gestita di database SQL di Azure tramite SQL Server Management Studio (SSMS). Per un argomento di avvio rapido che illustra come connettersi tramite un computer client locale usando una connessione da punto a sito, vedere [Configurare una connessione da punto a sito](sql-database-managed-instance-configure-p2s.md) 
+Questo argomento di avvio rapido illustra come configurare una macchina virtuale di Azure per la connessione a un'istanza gestita di database SQL di Azure tramite SQL Server Management Studio (SSMS). Per una guida introduttiva che illustra come connettersi tramite un computer client locale usando una connessione da punto a sito, vedere [Configurare una connessione da punto a sito](sql-database-managed-instance-configure-p2s.md) 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -77,7 +77,7 @@ Il modo più semplice per creare una macchina virtuale client con tutti gli stru
    | Impostazione| Valore consigliato | DESCRIZIONE |
    | ---------------- | ----------------- | ----------- |
    | **Sottoscrizione** | Una sottoscrizione valida | Deve trattarsi di una sottoscrizione in cui si dispone dell'autorizzazione per creare nuove risorse. |
-   | **Gruppo di risorse** |Il gruppo di risorse specificato nell'argomento di avvio rapido [Creare un'istanza gestita](sql-database-managed-instance-get-started.md).|Deve essere il gruppo di risorse in cui si trova la rete virtuale.|
+   | **Gruppo di risorse** |Il gruppo di risorse specificato nella guida introduttiva [Creare un'istanza gestita](sql-database-managed-instance-get-started.md).|Deve essere il gruppo di risorse in cui si trova la rete virtuale.|
    | **Posizione** | Posizione per il gruppo di risorse | Questo valore viene popolato in base al gruppo di risorse selezionato. | 
    | **Nome macchina virtuale**  | Qualsiasi nome valido | Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Nome utente amministratore**|Qualsiasi nome utente valido|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Non usare "serveradmin" perché è un ruolo a livello di server riservato.<br>Questo nome utente viene usato ogni volta che ci si [connette alla macchina virtuale](#connect-to-virtual-machine).| 
@@ -97,7 +97,8 @@ Il modo più semplice per creare una macchina virtuale client con tutti gli stru
 4. Selezionare **Acquista** per distribuire la macchina virtuale di Azure nella rete.
 5. Selezionare l'icona **Notifiche** per visualizzare lo stato della distribuzione.
 
-Non continuare finché non viene creata la macchina virtuale di Azure. 
+> [!IMPORTANT]
+> Non continuare finché non sono trascorsi circa 15 minuti dalla creazione della macchina virtuale per dare agli script di post-creazione il tempo di installare SQL Server Management Studio.
 
 ## <a name="connect-to-virtual-machine"></a>Connettersi alla macchina virtuale
 

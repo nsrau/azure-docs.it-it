@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4ec6e1288b34f04350a88697ca13ed044922ee50
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 19e0e5797e05589baa1e104f3e9ab8b4d9cc2d6c
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002243"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267292"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
 Nel [portale di Azure](https://portal.azure.com) è possibile configurare il monitoraggio delle prestazioni applicative per le app Web, i back-end per dispositivi mobili e le app per le API in [Servizio app di Azure](../../app-service/overview.md). [Application Insights di Azure](../../azure-monitor/app/app-insights-overview.md) consente di instrumentare l'app per inviare dati di telemetria sulle proprie attività al servizio Application Insights, in cui verranno archiviati e analizzati. Sarà quindi possibile usare grafici delle metriche e strumenti di ricerca per diagnosticare i problemi, migliorare le prestazioni e valutare l'utilizzo.
@@ -29,7 +29,7 @@ Nel [portale di Azure](https://portal.azure.com) è possibile configurare il mon
 * **Fase di compilazione** : è possibile installare un pacchetto nell'app durante lo sviluppo. Questa opzione è più versatile. Oltre agli stessi pacchetti standard, è possibile scrivere codice per personalizzare la telemetria o per inviare dati di telemetria personalizzati. È possibile registrare attività specifiche o registrare eventi in base alla semantica del dominio dell'app. 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>Strumentazione della fase di esecuzione con Application Insights
-Se si sta già eseguendo un servizio app in Azure, vengono già visualizzati alcuni dati di monitoraggio: la frequenza di esecuzione con errori e la frequenza delle richieste. Aggiungere Application Insights per usufruire di maggiori funzionalità, come i tempi di risposta, il monitoraggio delle chiamate alle dipendenze, il rilevamento intelligente e l'avanzato linguaggio di query di Esplora dati. 
+Se si sta già eseguendo un servizio app in Azure, vengono già visualizzati alcuni dati di monitoraggio: la frequenza di esecuzione con errori e la frequenza delle richieste. Aggiungere Application Insights per ottenere più dati, come i tempi di risposta, il monitoraggio delle chiamate alle dipendenze, il rilevamento intelligente e il potente linguaggio di query Kusto. 
 
 1. **Selezionare Application Insights** nel pannello di controllo di Azure per il servizio app.
 

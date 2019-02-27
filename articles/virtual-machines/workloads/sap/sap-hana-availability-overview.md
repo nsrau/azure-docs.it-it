@@ -16,18 +16,18 @@ ms.workload: infrastructure
 ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7049a4b5159687ab928cda7ddc6b1a35959529ac
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 1db56ad31991b85ffad415818c7c67f0ee30808d
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972108"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328079"
 ---
 # <a name="sap-hana-high-availability-for-azure-virtual-machines"></a>Disponibilità elevata di SAP HANA per macchine virtuali di Azure
 
 È possibile usare numerose funzionalità di Azure per distribuire database di importanza strategica come SAP HANA nelle macchine virtuali di Azure. Questo articolo fornisce istruzioni su come ottenere la disponibilità per le istanze di SAP HANA ospitate nelle macchine virtuali di Azure. L'articolo descrive numerosi scenari che è possibile implementare usando l'infrastruttura di Azure per aumentare la disponibilità di SAP HANA in Azure. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 L'articolo presuppone che l'utente abbia familiarità con le nozioni di base sull'infrastruttura distribuita come servizio (IaaS) in Azure, tra cui: 
 
@@ -47,7 +47,7 @@ Questi articoli forniscono una buona panoramica dell'uso di SAP HANA in Azure:
 - [Disponibilità elevata per SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/6d252db7cdd044d19ad85b46e6c294a4.html)
 - [Domande frequenti: Disponibilità elevata per SAP HANA](https://archive.sap.com/documents/docs/DOC-66702)
 - [Perform system replication for SAP HANA](https://archive.sap.com/documents/docs/DOC-47702) (Eseguire la replica di sistema per SAP HANA)
-- [SAP HANA 2.0 SPS 01 What's new: High availability](https://blogs.sap.com/2017/05/15/sap-hana-2.0-sps-01-whats-new-high-availability-by-the-sap-hana-academy/) (Novità di SAP HANA 2.0 SPS 01: disponibilità elevata)
+- [Novità di SAP HANA 2.0 SPS 01: disponibilità elevata](https://blogs.sap.com/2017/05/15/sap-hana-2.0-sps-01-whats-new-high-availability-by-the-sap-hana-academy/)
 - [Network recommendations for SAP HANA system replication](https://www.sap.com/documents/2016/06/18079a1c-767c-0010-82c7-eda71af511fa.html) (Raccomandazioni sulla rete per la replica di sistema SAP HANA)
 - [SAP HANA system replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html) (Replica di sistema SAP HANA)
 - [SAP HANA service auto-restart](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/cf10efba8bea4e81b1dc1907ecc652d3.html) (Riavvio automatico del servizio SAP HANA)
@@ -61,7 +61,7 @@ Azure offre contratti di servizio di disponibilità differenti per i diversi com
 
 [Contratto di Servizio per Macchine virtuali](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/) descrive due diversi contratti di servizio, per due diverse configurazioni:
 
-- Una VM singola che usa [Archiviazione Premium di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) per il disco del sistema operativo e tutti i dischi dati. Questa opzione offre un tempo di attività mensile del 99,9%.
+- Una macchina virtuale singola che usa [dischi SSD Premium di Azure](../../windows/disks-types.md) per il disco del sistema operativo e tutti i dischi dati. Questa opzione offre un tempo di attività mensile del 99,9%.
 - Più macchine virtuali (almeno due) organizzate in un [set di disponibilità di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Questa opzione offre un tempo di attività mensile del 99,95%.
 
 Confrontare il requisito di disponibilità con i contratti di servizio che i componenti di Azure possono fornire. Scegliere quindi gli scenari per SAP HANA per ottenere il livello di disponibilità necessario.

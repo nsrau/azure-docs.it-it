@@ -16,21 +16,17 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 4aefc8c033383125a803eb0c8a38e2f3de119540
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e9c3e10f9b48bfe2efa5396c9e64d3d87be3d826
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467911"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330648"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Eseguire la migrazione di macchine virtuali di Azure a Managed Disks in Azure
 
 Il servizio Azure Managed Disks semplifica la gestione dell'archiviazione, eliminando la necessità di gestire separatamente gli account.  È anche possibile eseguire la migrazione delle macchine virtuali di Azure esistenti a Managed Disks per trarre vantaggio dalla maggiore affidabilità delle macchine virtuali in un set di disponibilità. Assicura che i dischi di macchine virtuali diverse in un set di disponibilità siano sufficientemente isolati tra loro per evitare singoli punti di errore. Colloca automaticamente i dischi di macchine virtuali differenti in un set di disponibilità in diverse unità di scala di archiviazione (indicatori) per limitare l'impatto degli errori di una singola unità causati da anomalie hardware e software.
-In base alle specifiche esigenze, è possibile scegliere tra due tipi di opzioni di archiviazione:
-
-- [Managed Disks Premium](premium-storage.md) prevede unità SSD basate su supporti di archiviazione che assicurano prestazioni elevate e supporto per dischi a bassa latenza per le macchine virtuali che eseguono carichi di lavoro con elevato numero di operazioni di I/O. Per trarre vantaggio dalla velocità e dalle prestazioni di questi dischi, è possibile migrare a Managed Disks Premium.
-
-- [Managed Disks Standard](standard-storage.md) usa supporti di memorizzazione basati su unità disco rigido (HDD) ed è ideale per le operazioni di sviluppo/test e per altri carichi di lavoro ad accesso sporadico, meno sensibili alla variabilità delle prestazioni.
+In base alle esigenze specifiche, è possibile scegliere tra quattro tipi di opzioni di archiviazione. Per informazioni sui tipi di dischi disponibili, vedere l'articolo [Selezionare un tipo di disco](disks-types.md)
 
 È possibile eseguire la migrazione a Managed Disks negli scenari seguenti:
 

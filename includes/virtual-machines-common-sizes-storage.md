@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: bb88736762219028d58fe70d0ec32309967c95a4
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: dbbfea183454b1068558111bf62b45f5fa6415cc
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55830703"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56334028"
 ---
 Le dimensioni delle macchine virtuali ottimizzate per l'archiviazione offrono I/O e velocità effettiva del disco elevati, ideali per i database NoSQL, SQL e Big Data, data warehousing e database transazionali di grandi dimensioni.  Tra gli esempi sono inclusi Cassandra, MongoDB, Cloudera e Redis. Questo articolo offre informazioni sul numero di vCPU, dischi dati e schede di rete, nonché sulla velocità effettiva di archiviazione e sulla larghezza di banda di rete per ogni dimensione ottimizzata.
 
@@ -64,7 +64,7 @@ Memorizzazione nella cache Archiviazione Premium:  Non supportato
 | Standard_L32s <sup>1</sup> | 32   | 256  | 5,630 | 64   | 160,000 / 1,600   | 40.000 /1.000     | 8 / 20,000 | 
  
 
-La massima velocità effettiva del disco possibile con le macchine virtuali serie Ls può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati. Per informazioni dettagliate, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per i carichi di lavoro delle macchine virtuali di Azure](../articles/virtual-machines/windows/premium-storage.md).
+La massima velocità effettiva del disco possibile con le macchine virtuali serie Ls può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati. Per maggiori dettagli, vedere [Progettazione per prestazioni elevate](../articles/virtual-machines/windows/premium-storage-performance.md).
 
 <sup>1</sup> L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
 

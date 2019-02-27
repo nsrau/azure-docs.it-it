@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 36902edd7b2df472960d19b8ef9a4ebd4cdfe695
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 937ac1d892cdea849d7e5a89c8e69c6b069f2efd
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906681"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56334009"
 ---
 Questo articolo fornisce informazioni sulle generazioni precedenti delle dimensioni delle macchine virtuali. Queste dimensioni possono ancora essere usate, ma sono disponibili generazioni più recenti.
 
@@ -22,11 +22,11 @@ Questo articolo fornisce informazioni sulle generazioni precedenti delle dimensi
 
 ACU: 160
 
-Archiviazione Premium: supportata
+Archiviazione Premium:  Supportato
 
-Memorizzazione nella cache Archiviazione Premium: supportata
+Memorizzazione nella cache Archiviazione Premium:  Supportato
 
-| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Valore massimo per dischi di dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
+| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: IOPS/MBps (dimensione della cache espressa in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1 |1 |3,5 |7 |4 |4.000/32 (43) |3.200/32 |2 / 500 |
 | Standard_DS2 |2 |7 |14 |8 |8.000/64 (86) |6.400/64 |2 / 1000 |
@@ -39,18 +39,18 @@ Memorizzazione nella cache Archiviazione Premium: supportata
 
 ACU: 160 <sup>1</sup>
 
-Archiviazione Premium: supportata
+Archiviazione Premium:  Supportato
 
-Memorizzazione nella cache Archiviazione Premium: supportata
+Memorizzazione nella cache Archiviazione Premium:  Supportato
 
-| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Valore massimo per dischi di dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
+| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: IOPS/MBps (dimensione della cache espressa in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11 |2 |14 |28 |8 |8.000/64 (72) |6.400/64 |2 / 1000 |
 | Standard_DS12 |4 |28 |56 |16 |16.000/128 (144) |12.800/128 |4 / 2000 |
 | Standard_DS13 |8 |56 |112 |32 |32.000/256 (288) |25.600/256 |8 / 4000 |
 | Standard_DS14 |16 |112 |224 |64 |64.000/512 (576) |51.200/512 |8 / 8000 |
 
-<sup>1</sup> La massima velocità effettiva del disco (IOPS o MBps) possibile con una VM serie DS può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati.  Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/virtual-machines/windows/premium-storage.md).
+<sup>1</sup> La massima velocità effettiva del disco (IOPS o MBps) possibile con una VM serie DS può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati.  Per maggiori dettagli, vedere [Progettazione per prestazioni elevate](../articles/virtual-machines/windows/premium-storage-performance.md).
 
 
 
@@ -58,13 +58,13 @@ Memorizzazione nella cache Archiviazione Premium: supportata
 
 ACU: 160
 
-Archiviazione Premium: non supportata
+Archiviazione Premium:  Non supportato
 
-Memorizzazione nella cache Archiviazione Premium: non supportata
+Memorizzazione nella cache Archiviazione Premium:  Non supportato
 
-| Dimensione         | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/Mbps di lettura/Mbps di scrittura | Velocità effettiva/disco di dati massimo: IOPS | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
+| Dimensione         | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/MBps di scrittura | Velocità effettiva massima del disco dati: IOPS | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D1  | 1         | 3,5         | 50             | 3000 / 46 / 23                                           | 4/4 x 500                         | 2 / 500                 |
+| Standard_D1  | 1         | 3,5         | 50             | 3000 / 46 / 23                                           | 4/4 x 500                         | 2 / 500                 |
 | Standard_D2  | 2         | 7           | 100            | 6000 / 93 / 46                                           | 8/8 x 500                         | 2 / 1000                     |
 | Standard_D3  | 4         | 14          | 200            | 12000 / 187 / 93                                         | 16/16 x 500                         | 4 / 2000                     |
 | Standard_D4  | 8         | 28          | 400            | 24000 / 375 / 187                                        | 32/32 x 500                       | 8 / 4000                     |
@@ -75,11 +75,11 @@ Memorizzazione nella cache Archiviazione Premium: non supportata
 
 ACU: 160
 
-Archiviazione Premium: non supportata
+Archiviazione Premium:  Non supportato
 
-Memorizzazione nella cache Archiviazione Premium: non supportata
+Memorizzazione nella cache Archiviazione Premium:  Non supportato
 
-| Dimensione         | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/Mbps di lettura/Mbps di scrittura | Velocità effettiva/disco di dati massimo: IOPS | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
+| Dimensione         | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/MBps di scrittura | Velocità effettiva massima del disco dati: IOPS | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8/8 x 500                         | 2 / 1000                     |
 | Standard_D12 | 4         | 28          | 200            | 12000 / 187 / 93                                         | 16/16 x 500                         | 4 / 2000                     |
@@ -92,13 +92,13 @@ Memorizzazione nella cache Archiviazione Premium: non supportata
 
 ACU: 225
 
-Archiviazione Premium: non supportata
+Archiviazione Premium:  Non supportato
 
-Memorizzazione nella cache Archiviazione Premium: non supportata
+Memorizzazione nella cache Archiviazione Premium:  Non supportato
 
 Le dimensioni delle serie A8-A11 e H sono note anche come *istanze a elevato uso di calcolo*. L'hardware che esegue queste dimensioni è progettato e ottimizzato per applicazioni a elevato utilizzo di calcolo e di rete, come applicazioni cluster HPC, modellazione e simulazioni. La serie A8-A11 usa Intel Xeon E5-2670 a 2,6 GHZ, mentre la serie H usa Intel Xeon E5-2667 v3 a 3,2 GHz.  Questo articolo offre informazioni sul numero di vCPU, dischi dati e schede di rete, nonché sulla velocità effettiva di archiviazione e sulla larghezza di banda della rete per ogni dimensione di questo raggruppamento. 
 
-| Dimensione | vCPU | Memoria: GiB | Spazio di archiviazione temp (HDD): GiB | Valore massimo per dischi di dati | Velocità effettiva del disco di dati max: IOPS | Schede di interfaccia di rete max|
+| Dimensione | vCPU | Memoria: GiB | Spazio di archiviazione temp (HDD): GiB | Numero massimo di dischi dati | Velocità effettiva massima del disco dati: IOPS | Schede di interfaccia di rete max|
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A8 <sup>1</sup> |8 |56 |382 |32 |32x500 |2 |
 | Standard_A9 <sup>1</sup> |16 |112 |382 |64 |64x500 |4 |
@@ -113,11 +113,11 @@ Le dimensioni delle serie A8-A11 e H sono note anche come *istanze a elevato uso
 
 ACU: 50-100
 
-Archiviazione Premium: non supportata
+Archiviazione Premium:  Non supportato
 
-Memorizzazione nella cache Archiviazione Premium: non supportata
+Memorizzazione nella cache Archiviazione Premium:  Non supportato
 
-| Dimensione | vCPU | Memoria: GiB | Spazio di archiviazione temp (HDD): GiB | Valore massimo per dischi di dati | Velocità effettiva del disco di dati max: IOPS | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps)  |
+| Dimensione | vCPU | Memoria: GiB | Spazio di archiviazione temp (HDD): GiB | Numero massimo di dischi dati | Velocità effettiva massima del disco dati: IOPS | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps)  |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A0 <sup>1</sup> |1 |0,768 |20 |1 |1x500 |2 / 100 |
 | Standard_A1 |1 |1,75 |70 |2 |2x500 |2 / 500  |
@@ -143,9 +143,9 @@ Nel modello di distribuzione classico, alcuni nomi di dimensioni VM sono leggerm
 
 ## <a name="basic-a"></a>Basic A
 
-Archiviazione Premium: non supportata
+Archiviazione Premium:  Non supportato
 
-Memorizzazione nella cache Archiviazione Premium: non supportata
+Memorizzazione nella cache Archiviazione Premium:  Non supportato
 
 Le dimensioni del livello Basic sono destinate principalmente ai carichi di lavoro di sviluppo e alle altre applicazioni che non necessitano di bilanciamento del carico, scalabilità automatica o macchine virtuali con utilizzo intensivo della memoria.
 

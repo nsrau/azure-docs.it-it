@@ -1,6 +1,6 @@
 ---
-title: Copiare dati in o dall'anteprima di Azure Data Lake Storage Gen2 usando Data Factory (Preview) | Microsoft Docs
-description: Informazioni su come copiare dati in o dall'anteprima di Azure Data Lake Storage Gen2 usando Azure Data Factory.
+title: Copiare dati da e in Azure Data Lake Storage Gen2 tramite Data Factory | Microsoft Docs
+description: Informazioni su come copiare dati in e da Azure Data Lake Storage Gen2 tramite Azure Data Factory.
 services: data-factory
 author: linda33wj
 manager: craigg
@@ -8,18 +8,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: 5e8bc85a309a8c6755f1efae1ca702720cf01477
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 7a01b4baa9dafba4f0193c7a73dc1ae44214f501
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662305"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311581"
 ---
-# <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-preview-using-azure-data-factory-preview"></a>Copiare dati in o dall'anteprima di Azure Data Lake Storage Gen2 usando Azure Data Factory (Preview)
+# <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copiare dati da e in Azure Data Lake Storage Gen2 tramite Azure Data Factory
 
-L'anteprima di Azure Data Lake Storage Gen2 è un set di funzionalità dedicate all'analisi dei Big Data e integrate in [Archiviazione BLOB di Azure](../storage/blobs/storage-blobs-introduction.md). Consente di interagire con i dati approfittando dei paradigmi sia del file system che dell'archiviazione di oggetti.
+Azure Data Lake Storage Gen2 è un set di funzionalità dedicate all'analisi dei Big Data e integrate in [Archiviazione BLOB di Azure](../storage/blobs/storage-blobs-introduction.md). Consente di interagire con i dati approfittando dei paradigmi sia del file system che dell'archiviazione di oggetti.
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati in e da Data Lake Storage Gen2. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta informazioni generali sull'attività di copia.
 

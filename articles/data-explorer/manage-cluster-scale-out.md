@@ -7,17 +7,19 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 38dc7b70630276d51c75ca7e87f0b69ea7fe040a
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/18/2019
+ms.openlocfilehash: 15ef5282e0a073e870f2ac12b5fc442407535770
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735124"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408443"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Gestire l'aumento del numero di istanze di un cluster per rispondere al cambiamento della domanda
 
-Ridimensionare un cluster in modo appropriato è fondamentale per garantire le prestazioni di Esplora dati di Azure. Ma in un cluster non è possibile prevedere la domanda con un'accuratezza del 100%. La scelta di dimensioni statiche per un cluster può portare al suo sottoutilizzo o sovrautilizzo e nessuna delle due condizioni è ideale. Un approccio migliore consiste nel *ridimensionare* il cluster, aumentandone o diminuendone la capacità in base al cambiamento della domanda. Questo articolo illustra come gestire l'aumento del numero di istanze di un cluster.
+Ridimensionare un cluster in modo appropriato è fondamentale per garantire le prestazioni di Esplora dati di Azure. Ma in un cluster non è possibile prevedere la domanda con un'accuratezza del 100%. La scelta di dimensioni statiche per un cluster può portare al suo sottoutilizzo o sovrautilizzo e nessuna delle due condizioni è ideale. Un approccio migliore consiste nel *ridimensionare* il cluster, aumentandone o diminuendone la capacità in base al cambiamento della domanda. Sono disponibili due flussi di lavoro per la scalabilità, l'aumento delle prestazioni e l'aumento del numero di istanze. Questo articolo illustra il flusso di lavoro per l'aumento del numero di istanze.
+
+Questo articolo illustra come gestire l'aumento del numero di istanze di un cluster, operazione nota anche come scalabilità automatica. La scalabilità automatica consente di aumentare automaticamente il numero di istanze in base a pianificazioni e regole predefinite. Determinare le impostazioni di scalabilità automatica per il cluster nel portale di Azure, come descritto di seguito.
 
 Passare al cluster e in **Impostazioni** selezionare **Scale out** (Aumenta istanze). In **Configura** selezionare **Abilita scalabilità automatica**.
 
@@ -35,6 +37,8 @@ La figura seguente mostra il flusso dei passaggi successivi. Sotto la figura son
 
 1. Nella sezione **Regola di ridimensionamento** sulla destra specificare i valori per ogni impostazione.
 
+    **Criteri**
+
     | Impostazione | Descrizione e valore |
     | --- | --- | --- |
     | **Aggregazione temporale** | Selezionare un criterio di aggregazione, ad esempio **Media**. |
@@ -42,7 +46,13 @@ La figura seguente mostra il flusso dei passaggi successivi. Sotto la figura son
     | **Statistica intervallo di tempo** | Scegliere tra **Medio**, **Minimo**, **Massimo** e **Somma**. |
     | **Operatore** | Scegliere l'opzione appropriata, ad esempio **Maggiore o uguale a**. |
     | **Soglia** | Scegliere un valore appropriato. Ad esempio, per l'utilizzo della cache 80% è un buon punto di partenza. |
-    | **Duration** | Scegliere un periodo di tempo appropriato da considerare per il calcolo delle metriche. Iniziare con il valore predefinito di dieci minuti. |
+    | **Durata (in minuti)** | Scegliere un periodo di tempo appropriato da considerare per il calcolo delle metriche. Iniziare con il valore predefinito di 10 minuti. |
+    |  |  |
+
+    **Azione**
+
+    | Impostazione | Descrizione e valore |
+    | --- | --- | --- |
     | **operazione** | Scegliere l'opzione appropriata per ridurre o aumentare il numero di istanze. |
     | **Numero di istanze** | Scegliere il numero di nodi o istanze da aggiungere o rimuovere quando viene soddisfatta una condizione di metrica. |
     | **Disattiva regole dopo (minuti)** | Scegliere un intervallo di tempo appropriato per l'attesa tra le operazioni di ridimensionamento. Iniziare con il valore predefinito di cinque minuti. |
@@ -56,11 +66,13 @@ La figura seguente mostra il flusso dei passaggi successivi. Sotto la figura son
     | --- | --- | --- |
     | *Minimi* | Numero di istanze al di sotto del quale non verrà effettuato il ridimensionamento del cluster, indipendentemente dall'utilizzo. |
     | *Massimo* | Numero di istanze al di sopra del quale non verrà effettuato il ridimensionamento del cluster, indipendentemente dall'utilizzo. |
-    | *Default* | Numero predefinito di istanze, usato in caso di problemi durante la lettura delle metriche delle risorse. |
+    | *Default* | Numero predefinito di istanze, usato in caso di problemi di lettura delle metriche delle risorse. |
     |  |  |
 
 1. Selezionare **Salva**.
 
 È stata configurata un'operazione per aumentare il numero di istanze del cluster di Esplora dati di Azure. Aggiungere un'altra regola per configurare un'operazione per ridurne il numero. In questo modo il cluster può essere ridimensionato in modo dinamico in base alle metriche specificate.
+
+È anche possibile [aumentare le prestazioni del cluster](manage-cluster-scale-up.md) per dimensionarlo correttamente.
 
 Se occorre assistenza per problemi relativi al ridimensionamento di un cluster, aprire una richiesta di supporto nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

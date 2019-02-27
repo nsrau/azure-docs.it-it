@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: d0af6c098f68c23bf9ef6161bd307afec518ead7
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: cc4893837feeec6116750a7e37e7621af11ab0a4
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011690"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453920"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Come usare Gestione API di Azure con le reti virtuali
 Le reti virtuali di Azure (VNET) consentono di posizionare le risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
@@ -126,11 +126,11 @@ Quando un'istanza del servizio Gestione API è ospitata in una rete virtuale, ve
 >[!IMPORTANT]
 > Le porte per cui *Scopo* è **grassetto** sono necessarie per la corretta distribuzione del servizio Gestione API. Se si bloccano le altre porte, si verifica una riduzione delle prestazioni nella capacità di usare e monitorare il servizio in esecuzione.
 
-* **Funzionalità SSL**: per abilitare la creazione e la convalida della catena di certificati SSL, il servizio Gestione API richiede la connettività di rete in uscita a ocsp.msocsp.com, mscrl.microsoft.com e crl.microsoft.com. Questa dipendenza non è necessaria se un certificato caricato in Gestione API contiene l'intera catena per la radice dell'autorità di certificazione.
++ **Funzionalità SSL**: per abilitare la creazione e la convalida della catena di certificati SSL, il servizio Gestione API richiede la connettività di rete in uscita a ocsp.msocsp.com, mscrl.microsoft.com e crl.microsoft.com. Questa dipendenza non è necessaria se un certificato caricato in Gestione API contiene l'intera catena per la radice dell'autorità di certificazione.
 
-* **Accesso a DNS**: L'accesso in uscita sulla porta 53 è necessario per la comunicazione con i server DNS. Se è presente un server DNS personalizzato all'altra estremità di un gateway VPN, il server DNS deve essere raggiungibile dalla subnet che ospita Gestione API.
++ **Accesso a DNS**: L'accesso in uscita sulla porta 53 è necessario per la comunicazione con i server DNS. Se è presente un server DNS personalizzato all'altra estremità di un gateway VPN, il server DNS deve essere raggiungibile dalla subnet che ospita Gestione API.
 
-* **Metriche e monitoraggio dell'integrità**: la connettività di rete in uscita agli endpoint di Monitoraggio di Azure, che si risolve nei domini seguenti: 
++ **Metriche e monitoraggio dell'integrità**: la connettività di rete in uscita agli endpoint di Monitoraggio di Azure, che si risolve nei domini seguenti: 
 
     | Ambiente Azure | Endpoint                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -138,17 +138,22 @@ Quando un'istanza del servizio Gestione API è ospitata in una rete virtuale, ve
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
     | Azure Cina       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
 
-* **Inoltro SMTP**: connettività di rete in uscita per il server di inoltro SMTP, che si risolve nell'host `ies.global.microsoft.com`.
++ **Inoltro SMTP**: connettività di rete in uscita per il server di inoltro SMTP, che si risolve nell'host `ies.global.microsoft.com`.
 
-* **Diagnostica del portale di Azure**: per abilitare il flusso dei log di diagnostica dal portale di Azure quando si usa l'estensione di Gestione API dall'interno di una rete virtuale, è richiesto l'accesso in uscita a `dc.services.visualstudio.com` sulla porta 443. Ciò consente di risolvere eventuali problemi che potrebbero verificarsi quando si usa l'estensione.
++ **CAPTCHA del portale per sviluppatori**: connettività di rete in uscita per il CAPTCHA del portale degli sviluppatori, che si risolve nell'host `client.hip.live.com`.
 
-* **Installazione di Express Route**: secondo una diffusa configurazione, i clienti definiscono la propria route predefinita (0.0.0.0/0) verso la quale viene forzato il traffico Internet in uscita invece di far passare il flusso localmente. Questo flusso di traffico interrompe sempre la connettività con Gestione API di Azure perché il traffico in uscita è bloccato in locale o convertito tramite NAT in un set non riconoscibile di indirizzi che non usano più i diversi endpoint di Azure. La soluzione consiste nel definire una o più route definite dall'utente ([UDR][UDRs], User Defined Routes) o nella subnet contenente il servizio Gestione API di Azure. Una route UDR definisce le route specifiche della subnet che verranno accettate invece della route predefinita.
-  Se possibile, è consigliabile utilizzare la seguente configurazione:
- * La configurazione di ExpressRoute annuncia 0.0.0.0/0 e per impostazione predefinita esegue il tunneling forzato di tutto il traffico in uscita in un ambiente locale.
- * L'UDR applicata alla subnet contenente il servizio Gestione API di Azure definisce 0.0.0.0/0 con un tipo di hop successivo di Internet.
- L'effetto combinato di questi passaggi è che il livello di subnet UDR avrà la precedenza sul tunneling forzato di ExpressRoute, garantendo l'accesso a Internet in uscita dal servizio Gestione API di Azure.
++ **Diagnostica del portale di Azure**: per abilitare il flusso dei log di diagnostica dal portale di Azure quando si usa l'estensione di Gestione API dall'interno di una rete virtuale, è richiesto l'accesso in uscita a `dc.services.visualstudio.com` sulla porta 443. Ciò consente di risolvere eventuali problemi che potrebbero verificarsi quando si usa l'estensione.
 
-* **Routing tramite appliance virtuali di rete**: le configurazioni che usano una route definita dall'utente con una route predefinita (0.0.0.0/0) per instradare il traffico Internet dalla subnet di Gestione API tramite un'appliance virtuale di rete in Azure bloccheranno il traffico di gestione proveniente da Internet verso l'istanza del servizio Gestione API distribuita all'interno della subnet di rete virtuale. Questa configurazione non è supportata.
++ **Installazione di Express Route**: secondo una diffusa configurazione, i clienti definiscono la propria route predefinita (0.0.0.0/0) verso la quale viene forzato il traffico Internet in uscita invece di far passare il flusso localmente. Questo flusso di traffico interrompe sempre la connettività con Gestione API di Azure perché il traffico in uscita è bloccato in locale o convertito tramite NAT in un set non riconoscibile di indirizzi che non usano più i diversi endpoint di Azure. La soluzione consiste nel definire una o più route definite dall'utente ([UDR][UDRs], User Defined Routes) o nella subnet contenente il servizio Gestione API di Azure. Una route UDR definisce le route specifiche della subnet che verranno accettate invece della route predefinita.
+
+    Se possibile, è consigliabile utilizzare la seguente configurazione:
+
+     * La configurazione di ExpressRoute annuncia 0.0.0.0/0 e per impostazione predefinita esegue il tunneling forzato di tutto il traffico in uscita in un ambiente locale.
+     * L'UDR applicata alla subnet contenente il servizio Gestione API di Azure definisce 0.0.0.0/0 con un tipo di hop successivo di Internet.
+
+    L'effetto combinato di questi passaggi è che il livello di subnet UDR avrà la precedenza sul tunneling forzato di ExpressRoute, garantendo l'accesso a Internet in uscita dal servizio Gestione API di Azure.
+
++ **Routing tramite appliance virtuali di rete**: le configurazioni che usano una route definita dall'utente con una route predefinita (0.0.0.0/0) per instradare il traffico Internet dalla subnet di Gestione API tramite un'appliance virtuale di rete in Azure bloccheranno il traffico di gestione proveniente da Internet verso l'istanza del servizio Gestione API distribuita all'interno della subnet di rete virtuale. Questa configurazione non è supportata.
 
 >[!WARNING]
 >Gestione API di Azure non è supportato con le configurazioni di ExpressRoute che **annunciano erroneamente route dal percorso di peering pubblico al percorso di peering privato**. Le configurazioni di ExpressRoute che dispongono di peering pubblico configurato, riceveranno gli annunci di route da Microsoft per un elevato numero di intervalli di indirizzi IP di Microsoft Azure. Se questi intervalli di indirizzi vengono annunciati in modo non corretto nel percorso di peering privato, il risultato finale è che tutti i pacchetti di rete in uscita dalla subnet dell'istanza di Gestione API di Azure verranno erroneamente sottoposti a tunneling forzato verso l'infrastruttura di rete locale del cliente. Questo flusso di rete interromperà il servizio Gestione API di Azure. La soluzione a questo problema consiste nell'interrompere l'annuncio di più route dal percorso di peering pubblico al percorso di peering privato.

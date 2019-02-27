@@ -6,12 +6,12 @@ ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: 2f26c4ae352ea5385886abcaecba5f50d30c530a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: f5c42b73b0452392cdd2a06619722b3f7de2cc27
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537223"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417483"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Usare gli endpoint e le regole di servizio di rete virtuale per Database di Azure per PostgreSQL
 
@@ -23,6 +23,7 @@ Per creare una regola di rete virtuale, devono innanzitutto essere disponibili u
 
 > [!NOTE]
 > Questa funzionalità è disponibile in tutte le aree del cloud pubblico di Azure in cui Database di Azure per PostgreSQL viene distribuito nei server per utilizzo generico e ottimizzati per la memoria.
+> In caso di peering di reti virtuali, se il traffico scorre attraverso un gateway di rete virtuale comune con endpoint di servizio e deve raggiungere il peer, creare una regola di elenco di controllo di accesso o di rete virtuale per consentire a Macchine virtuali di Azure all'interno della rete virtuale del gateway di accedere al server di Database di Azure per PostgreSQL.
 
 <a name="anch-terminology-and-description-82f" />
 

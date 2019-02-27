@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
-ms.openlocfilehash: f5c8880535d5b4b89ec3f13caa20051ae1709925
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 86e4720f001f05534bc9af703f0f98d7ca5d95e4
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812787"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268839"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing del traffico di rete virtuale
 
@@ -121,7 +121,7 @@ Un gateway di rete locale può scambiare le route con un gateway di rete virtual
 
 Quando si scambiano le route con Azure tramite BGP, viene aggiunta una route separata alla tabella di route di tutte le subnet di una rete virtuale per ogni prefisso annunciato. La route viene aggiunta con *Gateway di rete virtuale* come origine e tipo di hop successivo. 
 
-È possibile disabilitare la propagazione delle route BGP su una subnet mediante una proprietà in una tabella di route. Quando si scambiano le route con Azure tramite BGP, le route non vengono aggiunte alla tabella di route di tutte le subnet con propagazione BGP disabilitata. La connettività con connessioni VPN è ottenuta usando [route personalizzate](#custom-routes) con *gateway di rete virtuale* come tipo di hop successivo. Per informazioni dettagliate, vedere [come disabilitare la propagazione delle route BGP](manage-route-table.md#create-a-route-table).
+È possibile disabilitare la propagazione delle route ER e Gateway VPN su una subnet mediante una proprietà in una tabella di route. Quando si scambiano le route con Azure tramite BGP, le route non vengono aggiunte alla tabella di route di tutte le subnet con propagazione BGP disabilitata. La connettività con connessioni VPN è ottenuta usando [route personalizzate](#custom-routes) con *gateway di rete virtuale* come tipo di hop successivo. Per informazioni dettagliate, vedere [come disabilitare la propagazione delle route BGP](manage-route-table.md#create-a-route-table).
 
 ## <a name="how-azure-selects-a-route"></a>Modalità di selezione di una route da parte di Azure
 

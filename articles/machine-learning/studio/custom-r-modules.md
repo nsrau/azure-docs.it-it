@@ -1,7 +1,7 @@
 ---
 title: Definire moduli R personalizzati
 titleSuffix: Azure Machine Learning Studio
-description: Questo argomento descrive come creare e distribuire un modulo R personalizzato in Azure Machine Learning. Viene descritto in cosa consistono i moduli R personalizzati e i file usati per definirli.
+description: Questo argomento descrive come creare e distribuire un modulo R personalizzato in Azure Machine Learning Studio. Viene descritto in cosa consistono i moduli R personalizzati e i file usati per definirli.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0da5456845b940ef88ac40ffed1f53e84fe54080
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 43691988e3f4f253c642702ad19272a5267c14cc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488306"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56457031"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Definire moduli R personalizzati per Azure Machine Learning Studio
 
@@ -24,9 +24,9 @@ Questo argomento descrive come creare e distribuire un modulo R personalizzato i
 
 
 ## <a name="what-is-a-custom-r-module"></a>In cosa consiste un modulo R personalizzato?
-Un **modulo personalizzato** è un modulo definito dall'utente che può essere caricato nell'area di lavoro ed eseguito come parte di un esperimento di Azure Machine Learning. Un **modulo R personalizzato** è un modulo personalizzato che esegue una funzione R definita dall'utente. **R** è un linguaggio di programmazione per il calcolo e statistico e la grafica ampiamente usato in campo statistico e di analisi dei dati per l'implementazione degli algoritmi. R è attualmente l'unico linguaggio supportato nei moduli personalizzati, ma il supporto per altri linguaggi è previsto per le versioni future.
+Un **modulo personalizzato** è un modulo definito dall'utente che può essere caricato nell'area di lavoro ed eseguito come parte di un esperimento di Azure Machine Learning Studio. Un **modulo R personalizzato** è un modulo personalizzato che esegue una funzione R definita dall'utente. **R** è un linguaggio di programmazione per il calcolo e statistico e la grafica ampiamente usato in campo statistico e di analisi dei dati per l'implementazione degli algoritmi. R è attualmente l'unico linguaggio supportato nei moduli personalizzati, ma il supporto per altri linguaggi è previsto per le versioni future.
 
-In Azure Machine Learning, i moduli personalizzati presentano uno **stato di prima classe** , nel senso che possono essere usati esattamente come qualsiasi altro modulo. Possono essere eseguiti con altri moduli, inclusi nelle visualizzazioni o negli esperimenti pubblicati. Gli utenti possono gestire l'algoritmo implementato dal modulo, le porte di input e output da usare, i parametri di modellazione e altri comportamenti di runtime. Per una semplice condivisione è anche possibile pubblicare un esperimento contenente moduli personalizzati nella Raccolta di intelligenza artificiale per Azure.
+In Azure Machine Learning Studio i moduli personalizzati presentano uno **stato di prima classe**, nel senso che possono essere usati esattamente come qualsiasi altro modulo. Possono essere eseguiti con altri moduli, inclusi nelle visualizzazioni o negli esperimenti pubblicati. Gli utenti possono gestire l'algoritmo implementato dal modulo, le porte di input e output da usare, i parametri di modellazione e altri comportamenti di runtime. Per una semplice condivisione è anche possibile pubblicare un esperimento contenente moduli personalizzati nella Raccolta di intelligenza artificiale per Azure.
 
 ## <a name="files-in-a-custom-r-module"></a>File in un modulo R personalizzato
 Un modulo R personalizzato viene definito da un file ZIP che contiene almeno due file:
@@ -55,7 +55,7 @@ Considerare l'esempio di un modulo **Add Rows** (Aggiungi righe) personalizzato 
     } 
 
 ### <a name="the-xml-definition-file"></a>File di definizione XML
-Per esporre la funzione `CustomAddRows` come modulo di Azure Machine Learning, è necessario creare un file di definizione XML per specificare l'aspetto e il comportamento del modulo **Add Rows personalizzato** . 
+Per esporre la funzione `CustomAddRows` come modulo di Azure Machine Learning Studio, è necessario creare un file di definizione XML per specificare l'aspetto e il comportamento del modulo **Add Rows personalizzato**. 
 
     <!-- Defined a module using an R Script -->
     <Module name="Custom Add Rows">
@@ -105,7 +105,7 @@ Ora è possibile accedere al modulo **Add Rows personalizzato** con gli esperime
 
 ## <a name="elements-in-the-xml-definition-file"></a>Elementi nel file di definizione .xml
 ### <a name="module-elements"></a>Elementi dei moduli
-L'elemento **Module** viene usato per definire un modulo personalizzato nel file XML. Si possono definire più moduli in un file XML usando più elementi **Module** . Ogni modulo nell'area di lavoro deve avere un nome univoco. La registrazione di un modulo personalizzato con lo stesso nome di un modulo personalizzato esistente sostituisce il modulo esistente con quello nuovo. I moduli personalizzati possono essere tuttavia registrati con lo stesso nome di un modulo di Azure Machine Learning esistente. In questo caso verranno visualizzati nella categoria **Custom** (Personalizzati) del pannello dei moduli.
+L'elemento **Module** viene usato per definire un modulo personalizzato nel file XML. Si possono definire più moduli in un file XML usando più elementi **Module** . Ogni modulo nell'area di lavoro deve avere un nome univoco. La registrazione di un modulo personalizzato con lo stesso nome di un modulo personalizzato esistente sostituisce il modulo esistente con quello nuovo. I moduli personalizzati possono essere tuttavia registrati con lo stesso nome di un modulo di Azure Machine Learning Studio esistente. In questo caso verranno visualizzati nella categoria **Custom** (Personalizzati) del pannello dei moduli.
 
     <Module name="Custom Add Rows" isDeterministic="false"> 
         <Owner>Microsoft Corporation</Owner>
@@ -330,7 +330,7 @@ Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezio
   * **default**: il valore della proprietà predefinita deve corrispondere a un valore ID di uno degli elementi **Item**.
 
 ### <a name="auxiliary-files"></a>File ausiliari
-Qualsiasi file inserito nel file ZIP del modulo personalizzato sarà disponibile per l'uso durante la fase di esecuzione. Vengono mantenute le strutture di directory presenti. Ciò significa che l'esecuzione del file funziona nello stesso modo sia localmente che in Azure Machine Learning. 
+Qualsiasi file inserito nel file ZIP del modulo personalizzato sarà disponibile per l'uso durante la fase di esecuzione. Vengono mantenute le strutture di directory presenti. Ciò significa che l'esecuzione del file funziona nello stesso modo sia localmente che in Azure Machine Learning Studio. 
 
 > [!NOTE]
 > Si noti che tutti i file vengono estratti nella directory 'src', quindi tutti i percorsi avranno il prefisso 'src /'.

@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: 87d15f7b351f2b8b6a8c010651d82faa66b28918
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: f8b0955afa1705dd8e3c01a943cc5e5d885f9c71
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276466"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456963"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Usare l'estensione per script personalizzati di Azure versione 2 con macchine virtuali Linux
 L'estensione per script personalizzati versione 2 scarica ed esegue script nelle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o altre attività di configurazione o gestione. È possibile scaricare gli script da Archiviazione di Azure, o da un altro percorso Internet accessibile, oppure è possibile fornirli al runtime dell'estensione. 
 
-L'estensione per script personalizzati è integrabile con i modelli di Azure Resource Manager. È anche possibile eseguirla tramite l'interfaccia della riga di comando di Azure, PowerShell, il portale di Azure o l'API REST di Macchine virtuali di Azure.
+L'estensione per script personalizzati è integrabile con i modelli di Azure Resource Manager. È anche possibile eseguirla tramite l'interfaccia della riga di comando di Azure, PowerShell o l'API REST di Macchine virtuali di Azure.
 
 Questo articolo descrive come usare l'estensione per script personalizzati dall'interfaccia della riga di comando di Azure ed eseguire l'estensione usando un modello di Azure Resource Manager. Sono inoltre illustrate le procedure di risoluzione dei problemi per i sistemi Linux.
 

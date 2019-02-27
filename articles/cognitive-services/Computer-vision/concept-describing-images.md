@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7919a84ffe948c9b6a8f68fc1372f1976c09bc79
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 91618b211fdd869daf74491b175d6359ffa3f30c
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864282"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312192"
 ---
 # <a name="describe-images-with-human-readable-language"></a>Descrivere le immagini con un linguaggio leggibile dall'utente
 
-Gli algoritmi di Visione artificiale analizzano il contenuto in un'immagine. Tale analisi costituisce la base per una descrizione visualizzata come linguaggio leggibile dall'utente in frasi complete. La descrizione riepiloga gli elementi trovati nell'immagine. Gli algoritmi di Visione artificiale generano descrizioni diverse in base alle caratteristiche visive identificate nell'immagine. Tutte le descrizioni vengono valutate e per ognuna viene generato un punteggio di attendibilità. Viene quindi restituito un elenco dei punteggi di attendibilità in ordine decrescente.
+Visione artificiale può analizzare un'immagine e generare una frase leggibile che ne descrive il contenuto. L'algoritmo restituisce in realtà diverse descrizioni in base alle diverse caratteristiche visive e a ogni descrizione viene assegnato un punteggio di attendibilità. L'output finale è un elenco di descrizioni ordinate dall'attendibilità più alta a quella più bassa.
 
 ## <a name="image-description-example"></a>Esempio di descrizione immagine
 

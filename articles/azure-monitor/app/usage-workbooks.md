@@ -13,12 +13,12 @@ ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: f7133ed74c9862a7e3d496a9093faaf3959e0d78
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: bcd4ae5b7092aafc452c5af3d17fd22c263b5d35
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993419"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270148"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Creare report interattivi con cartelle di lavoro di Monitoraggio di Azure
 
@@ -77,7 +77,7 @@ Le sezioni di query, estremamente flessibili, possono essere usate per risponder
 
 * Quante eccezioni ha generato il sito nello stesso periodo di tempo come riduzione dell'utilizzo?
 * Qual è stata la distribuzione dei tempi di caricamento della pagina per gli utenti che visualizzano una pagina?
-* Quanti utenti hanno visualizzato un insieme di pagine nel sito ma non un altro insieme di pagine? Queste informazioni possono essere utili per comprendere se sono presenti cluster di utenti che usano sottoinsiemi diversi di funzionalità del sito (usare l'operatore `join` con il modificatore `kind=leftanti` nel linguaggio di query di Esplora dati).
+* Quanti utenti hanno visualizzato un insieme di pagine nel sito ma non un altro insieme di pagine? Queste informazioni possono essere utili per comprendere se sono presenti cluster di utenti che usano subset di funzionalità del sito diversi (usare l'operatore `join` con il modificatore `kind=leftanti` nel [linguaggio di query Kusto](/azure/kusto/query/)).
 
 Le query, poi, non sono limitate al contesto dell'applicazione da cui è stata avviata la cartella di lavoro. È possibile eseguire query in più app monitorate da Application Insights, nonché in aree di lavoro di Log Analytics, a condizione di avere le autorizzazioni di accesso necessarie per tali risorse.
 

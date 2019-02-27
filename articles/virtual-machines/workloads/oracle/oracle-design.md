@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: d4c0bbdfb1afcef33727ba4b5b432c5de79168d4
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 8241dc0303b7e60f9ce1e04e56d152c9a0b3906c
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495221"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327511"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Progettare e implementare un database Oracle in Azure
 
@@ -158,8 +158,6 @@ Quando si crea un nuovo disco gestito dal portale, è possibile scegliere il **t
 
 ![Screenshot della pagina del disco gestito](./media/oracle-design/premium_disk01.png)
 
-Per altre informazioni, vedere [Archiviazione Premium a prestazioni elevate e dischi gestiti per le VM](https://docs.microsoft.com/azure/storage/storage-premium-storage).
-
 Dopo avere configurato la risorsa di archiviazione in una macchina virtuale, è possibile sottoporre i dischi a test di carico prima di creare un database. Conoscendo la velocità di I/O in termini di latenza e velocità effettiva, è possibile determinare se le macchine virtuali supportano la velocità effettiva prevista con gli obiettivi di latenza.
 
 Sono disponibili numerosi strumenti per il test di carico delle applicazioni, ad esempio Oracle Orion, Sysbench e Fio.
@@ -190,17 +188,15 @@ Dopo avere ottenuto un quadro preciso dei requisiti di I/O, è possibile sceglie
 
 Sono disponibili tre opzioni per la memorizzazione nella cache dell'host:
 
-- *Sola lettura*: tutte le richieste sono memorizzate nella cache per le letture future. Tutte le scritture vengono rese persistenti direttamente nell'archivio BLOB di Azure.
+- *Sola lettura*: tutte le richieste vengono memorizzate nella cache per le letture future. Tutte le scritture vengono rese persistenti direttamente nell'archivio BLOB di Azure.
 
-- *Lettura/scrittura*: si tratta di un algoritmo "read-ahead". Le letture e le scritture sono memorizzate nella cache per le letture future. Le scritture non write-through sono rese persistenti prima nella cache locale. Per SQL Server, le scritture sono rese persistenti in Archiviazione di Microsoft Azure perché usa le scritture write-through. Offre anche la latenza del disco più bassa per i carichi di lavoro leggeri.
+- *Lettura/Scrittura*: si tratta di un algoritmo "read-ahead". Le letture e le scritture sono memorizzate nella cache per le letture future. Le scritture non write-through sono rese persistenti prima nella cache locale. Per SQL Server, le scritture sono rese persistenti in Archiviazione di Microsoft Azure perché usa le scritture write-through. Offre anche la latenza del disco più bassa per i carichi di lavoro leggeri.
 
-- *Nessuna* (disabilitata): usando questa opzione, è possibile ignorare la cache. Tutti i dati vengono trasferiti sul disco e resi persistenti in Archiviazione di Azure. Questo metodo offre la massima frequenza di I/O per i carichi di lavoro con un uso intensivo dell'I/O. È anche necessario considerare il costo delle transazioni.
+- *No* (funzionalità disabilitata): usando questa opzione, è possibile ignorare la cache. Tutti i dati vengono trasferiti sul disco e resi persistenti in Archiviazione di Azure. Questo metodo offre la massima frequenza di I/O per i carichi di lavoro con un uso intensivo dell'I/O. È anche necessario considerare il costo delle transazioni.
 
 **Raccomandazioni**
 
 Per ottimizzare la velocità effettiva, è consigliabile iniziare con l'opzione **Nessuna** per la memorizzazione nella cache dell'host. Per Archiviazione Premium, tenere presente che è necessario disabilitare le "barriere" quando si esegue il montaggio del file system con le opzioni **Sola lettura** o **Nessuna**. Aggiornare il file /etc/fstab con l'UUID dei dischi.
-
-Per altre informazioni, vedere [Archiviazione Premium per VM Linux](https://docs.microsoft.com/azure/storage/storage-premium-storage#premium-storage-for-linux-vms).
 
 ![Screenshot della pagina del disco gestito](./media/oracle-design/premium_disk02.png)
 
@@ -211,18 +207,18 @@ Per altre informazioni, vedere [Archiviazione Premium per VM Linux](https://docs
 Dopo avere salvato l'impostazione del disco dati, non è possibile modificare l'impostazione della cache host, a meno che l'unità a livello di sistema operativo non venga smontata e quindi rimontata dopo avere apportato la modifica.
 
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 Dopo avere installato e configurato l'ambiente Azure, il passaggio successivo consiste nel proteggere la rete. Di seguito sono elencati alcuni suggerimenti:
 
-- *Criteri del gruppo di sicurezza di rete*: il gruppo di sicurezza di rete può essere definito da una subnet o una scheda di interfaccia di rete. È più semplice controllare l'accesso a livello di subnet per la sicurezza e forzare il routing per elementi come i firewall per le applicazioni.
+- *Criteri del gruppo di sicurezza di rete*: un gruppo di sicurezza di rete può essere definito da una subnet o una scheda di interfaccia di rete. È più semplice controllare l'accesso a livello di subnet per la sicurezza e forzare il routing per elementi come i firewall per le applicazioni.
 
-- *Jumpbox*: per una maggiore sicurezza dell'accesso, gli amministratori non devono connettersi direttamente al servizio dell'applicazione o al database. Viene usato un jumpbox come elemento intermedio tra il computer dell'amministratore e le risorse di Azure.
+- *Jumpbox*: Per una maggiore sicurezza dell'accesso, gli amministratori non devono connettersi direttamente al servizio dell'applicazione o al database. Viene usato un jumpbox come elemento intermedio tra il computer dell'amministratore e le risorse di Azure.
 ![Screenshot della pagina della topologia jumpbox](./media/oracle-design/jumpbox.png)
 
     Il computer dell'amministratore deve offrire accesso con restrizioni IP al solo jumpbox. Il jumpbox deve avere accesso all'applicazione e al database.
 
-- *Rete privata* (subnet): è consigliabile tenere il servizio dell'applicazione e il database in subnet separate, per garantire un maggiore controllo ai criteri del gruppo di sicurezza di rete.
+- *Rete privata* (subnet): è consigliabile tenere il servizio dell'applicazione e il database in subnet separate, per garantire un maggiore controllo tramite i criteri del gruppo di sicurezza di rete.
 
 
 ## <a name="additional-reading"></a>Informazioni aggiuntive
@@ -234,5 +230,5 @@ Dopo avere installato e configurato l'ambiente Azure, il passaggio successivo co
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: Creare VM a disponibilità elevata](../../linux/create-cli-complete.md)
+- [Esercitazione: Creare macchine virtuali a disponibilità elevata](../../linux/create-cli-complete.md)
 - [Esplorare gli esempi dell'interfaccia della riga di comando di Azure per la distribuzione della VM](../../linux/cli-samples.md)

@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 10/04/2018
 ms.author: ramankum
 ms.subservice: disks
-ms.openlocfilehash: 94482666d0db3157b0c18c0b47f9937457172521
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 18258bf8ac9d241fd8a01957d903b1db882c2d36
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115998"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326875"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Aggiornare il tipo di archiviazione di un disco gestito
 
-Azure Managed Disks offre tre tipi di archiviazione: [SSD Premium](../windows/premium-storage.md), [SDD Standard](../windows/disks-standard-ssd.md) e [HDD Standard](../windows/standard-storage.md). È possibile spostare un disco gestito tra i vari tipi di archiviazione con un tempo di inattività minimo, a seconda delle esigenze di prestazioni. Questa operazione non è supportata per i dischi non gestiti. È tuttavia possibile [convertire facilmente un disco non gestito in un disco gestito](convert-unmanaged-to-managed-disks.md).
+Azure Managed Disks offre quattro tipi di archiviazione: unità SSD Ultra, SSD Premium, SSD Standard e unità disco rigido (HDD) standard. È possibile spostare un disco gestito tra i vari tipi di archiviazione con un tempo di inattività minimo, a seconda delle esigenze di prestazioni. Questa operazione non è supportata per i dischi non gestiti. È tuttavia possibile [convertire facilmente un disco non gestito in un disco gestito](convert-unmanaged-to-managed-disks.md).
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
@@ -35,6 +35,7 @@ Azure Managed Disks offre tre tipi di archiviazione: [SSD Premium](../windows/pr
 * Se si usa un disco non gestito, per prima cosa [convertirlo in un disco gestito](convert-unmanaged-to-managed-disks.md) per consentirne lo spostamento tra i tipi di archiviazione. 
 * Gli esempi di questo articolo richiedono la versione 6.0.0 o successiva del modulo di Azure PowerShell. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Eseguire [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) per creare una connessione con Azure.
 
+* Gli esempi di questo articolo richiedono la versione 6.0.0 o successiva del modulo di Azure PowerShell. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Eseguire [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) per creare una connessione con Azure.
 
 ## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium"></a>Convertire tutte le istanze di Managed Disks di una macchina virtuale da Standard a Premium
 

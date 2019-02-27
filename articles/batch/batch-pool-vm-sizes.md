@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 921dfc12a7353725d3f9e05d7aa3245ec8ba6084
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 43094839c9da9b00c97d1dffd53f98a3acd119d5
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185997"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417143"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Scegliere le dimensioni delle macchine virtuali per i nodi di calcolo in un pool di Azure Batch
 
@@ -44,14 +44,16 @@ I pool di Batch in configurazione macchina virtuale supportano tutte le dimensio
 | Serie B | Tutti |
 | Serie DC | Tutti |
 | Con ottimizzazione estrema per la memoria | Tutti |
-| Serie Hb<sup>1</sup> | Tutti |
-| Serie Hb<sup>1</sup> | Tutti |
+| Serie Hb<sup>1,2</sup> | Tutti |
+| Serie Hc<sup>1,2</sup> | Tutti |
 | Serie Lsv2 | Tutti |
+| Serie NDv2<sup>1,2</sup> | Tutti |
 | Serie NDv2<sup>1</sup> | Tutti |
-| Serie NVv2 | Tutti |
 | SAP HANA | Tutti |
 
-<sup>1</sup> Può essere usato dagli account Batch in modalità sottoscrizione utente. Nell'account Batch della modalità sottoscrizione utente deve essere impostata la quota di core. Per altre informazioni, vedere la [configurazione per la modalità sottoscrizione utente](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
+
+<sup>1</sup> Pianificato per il supporto.  
+<sup>2</sup> Può essere usato dagli account Batch in modalità sottoscrizione utente. Nell'account Batch della modalità sottoscrizione utente deve essere impostata la quota di core. Per altre informazioni, vedere la [configurazione per la modalità sottoscrizione utente](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
 
 Le dimensioni seguenti di VM sono supportate solo per i nodi per priorità bassa:
 

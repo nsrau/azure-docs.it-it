@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: f065a7c428f191e37449145e946b26c3133ede05
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: cc8c10f8a3f515d3401dbb469a7e4a31c4fe3501
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700008"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329814"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Uso dei dati di riferimento per le ricerche in Analisi di flusso
 I dati di riferimento, noti anche come tabella di ricerca, sono un set di dati limitato di natura statica o soggetti a lenti cambiamenti, usati per eseguire una ricerca o la correlazione con il flusso di dati. Ad esempio, in uno scenario IoT, si potrebbero archiviare i metadati relativi ai sensori, che non cambiano spesso, in dati di riferimento e unirli ai flussi di dati IoT in tempo reale. Analisi di flusso di Azure carica i dati di riferimento nella memoria per ottenere un'elaborazione del flusso a bassa latenza. Per usare i dati di riferimento in un processo di Analisi di flusso di Azure, si usa in genere un [JOIN dei dati di riferimento](https://msdn.microsoft.com/library/azure/dn949258.aspx) nella query. 
@@ -74,7 +74,7 @@ Analisi di flusso di Azure verifica automaticamente se sono disponibili BLOB di 
 
 ## <a name="azure-sql-database-preview"></a>Database SQL di Azure (anteprima)
 
-I dati di riferimento del database SQL di Azure vengono recuperati dal processo di Analisi di flusso archiviati come snapshot in memoria per l'elaborazione. Lo snapshot dei dati di riferimento viene anche archiviato in un contenitore all'interno di un account di archiviazione specificato nelle impostazioni di configurazione. Il contenitore viene creato automaticamente quando il processo viene avviato ed eliminato automaticamente quando il processo viene arrestato.
+I dati di riferimento del database SQL di Azure vengono recuperati dal processo di Analisi di flusso archiviati come snapshot in memoria per l'elaborazione. Lo snapshot dei dati di riferimento viene anche archiviato in un contenitore all'interno di un account di archiviazione specificato nelle impostazioni di configurazione. Il contenitore viene creato automaticamente all'avvio del processo. Se il processo viene arrestato o si trova in uno stato di errore, i contenitori creati automaticamente vengono eliminati quando il processo viene riavviato.  
 
 Se i dati di riferimento sono costituiti da un set di dati che cambia lentamente, è necessario aggiornare periodicamente lo snapshot che viene usato nel processo. Analisi di flusso consente di impostare una frequenza di aggiornamento quando si configura la connessione all'input del database SQL di Azure. Il runtime di Analisi di flusso eseguirà query sul database SQL di Azure all'intervallo specificato dalla frequenza di aggiornamento. La frequenza di aggiornamento più veloce supportata è una volta al minuto. Per ogni aggiornamento, Analisi di flusso archivia un nuovo snapshot nell'account di archiviazione specificato.
 

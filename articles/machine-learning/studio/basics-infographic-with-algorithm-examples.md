@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodc18
 ms.date: 12/18/2017
-ms.openlocfilehash: 2db14056b6b5ccf16c8009c21bfcff00954a7802
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 78daf4534334d56c962d97e7a9aac8a7910db34c
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242896"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453597"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infografica scaricabile: Nozioni fondamentali di Machine Learning con esempi di algoritmi
 
@@ -33,7 +33,7 @@ Scaricare questa panoramica infografica di facile comprensione delle nozioni fon
 
 ## <a name="more-help-with-algorithms-for-beginners-and-advanced-users"></a>Altre informazioni sugli algoritmi per principianti e utenti esperti
 
-* Per una discussione più approfondita sui diversi tipi di algoritmi di Machine Learning, sul loro uso e su come scegliere quello giusto per la soluzione, vedere [Come scegliere gli algoritmi di Microsoft Azure Machine Learning](algorithm-choice.md).
+* Per una discussione più approfondita sui diversi tipi di algoritmi di Machine Learning, sul loro uso e su come scegliere quello giusto per la propria soluzione, vedere [Come scegliere gli algoritmi di Microsoft Azure Machine Learning Studio](algorithm-choice.md).
 * Per un elenco per categoria degli algoritmi di Machine Learning disponibili in Machine Learning Studio, vedere l'argomento relativo al [modello di inizializzazione][initialize-model] nella Guida degli algoritmi e dei moduli di Machine Learning Studio.
 * Per un elenco alfabetico completo degli algoritmi e dei moduli disponibili in Machine Learning Studio, vedere l'argomento relativo all'[elenco alfabetico dei moduli di Machine Learning Studio][a-z-list] nella Guida degli algoritmi e dei moduli di Machine Learning Studio.
 * Per una panoramica della Raccolta di intelligenza artificiale per Azure e delle risorse create dalla community disponibili, vedere [Share and discover resources in the Azure AI Gallery](gallery-how-to-use-contribute-publish.md) (Condividere e trovare risorse nella Raccolta di intelligenza artificiale per Azure).

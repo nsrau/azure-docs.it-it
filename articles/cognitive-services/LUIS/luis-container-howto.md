@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: a8251881b114d7b102481476d3e77923b34d34c7
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 99647770df9a8ca194559863a1d7212faf1c83a1
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982387"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328215"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installare ed eseguire i contenitori docker LUIS
  
@@ -312,7 +312,7 @@ Dopo il caricamento del log, [esaminare le espressioni dell'endpoint](https://do
 
 Per arrestare il contenitore, nell'ambiente della riga di comando in cui è in esecuzione il contenitore premere **CTRL+C**.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se si esegue il contenitore con un punto di [montaggio](luis-container-configuration.md#mount-settings) di output e la registrazione attivata, il contenitore genera file di log utili per risolvere i problemi che si verificano durante l'avvio o l'esecuzione del contenitore. 
 
@@ -358,5 +358,5 @@ In questo articolo sono stati descritti i concetti e il flusso di lavoro per sca
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Rivedere [Configurare i contenitori](luis-container-configuration.md) per informazioni sulle impostazioni di configurazione.
-* Per risolvere i problemi correlati alla funzionalità LUIS, vedere le [domande frequenti](luis-resources-faq.md).
+* Per risolvere i problemi correlati alle funzionalità di LUIS, vedere [Risoluzione dei problemi](troubleshooting.md).
 * Usare altri [contenitori di Servizi cognitivi](../cognitive-services-container-support.md)

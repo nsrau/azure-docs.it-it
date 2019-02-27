@@ -7,12 +7,12 @@ manager: jhubbard
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: af067cabf312ec3c2556b84dc4d739e41ec0aacc
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: aef55660d07c8923a82baf7f8b6320abf3ccdd1d
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53535284"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430217"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Usare gli endpoint e le regole di servizio di rete virtuale per Database di Azure per MySQL
 
@@ -24,6 +24,7 @@ Per creare una regola di rete virtuale, devono innanzitutto essere disponibili u
 
 > [!NOTE]
 > Questa funzionalità è disponibile in tutte le aree di Azure in cui Database di Azure per MySQL viene distribuito nei server per utilizzo generico e ottimizzati per la memoria.
+> In caso di peering di reti virtuali, se il traffico scorre attraverso un gateway di rete virtuale comune con endpoint di servizio e deve raggiungere il peer, creare una regola di elenco di controllo di accesso o di rete virtuale per consentire a Macchine virtuali di Azure all'interno della rete virtuale del gateway di accedere al server di Database di Azure per MySQL.
 
 <a name="anch-terminology-and-description-82f" />
 

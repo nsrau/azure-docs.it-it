@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 120e0f3c7e6af22210ba04565b86b8098851b26d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3974d1de2bd90049541dcc249f18346c9e48fd3d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186897"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456028"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Accedere agli account con l'app Microsoft Authenticator
 L'app Microsoft Authenticator consente di accedere ai propri account se si usa la verifica a due fattori. La verifica a due fattori consente di accedere agli account in modo più sicuro, in particolare durante la visualizzazione di informazioni riservate. Poiché le password possono essere dimenticate, rubate o compromesse, la verifica a due fattori è un'ulteriore misura di sicurezza che consente di proteggere l'account rendendo più difficile l'intromissione di altri utenti.
@@ -62,9 +62,9 @@ Dopo avere attivato l'accesso tramite telefono, è possibile accedere usando sol
 
     Dopo aver digitato il nome utente, viene visualizzata una schermata **Approva l'accesso** con un numero a due cifre, in cui viene richiesto di accedere tramite l'app Microsoft Authenticator. Se non si vuole usare questo metodo di accesso, è possibile selezionare **Usa la tua password** e quindi accedere usando la password.
 
-    ![Finestra di dialogo Approva l'accesso sul PC](media/user-help-auth-app-sign-in/microsoft-auth-app-sign-in.png)
+    ![Finestra di dialogo Approva l'accesso sul computer](media/user-help-auth-app-sign-in/microsoft-auth-app-sign-in.png)
 
-2. Aprire la notifica o l'app Microsoft Authenticator sul dispositivo e quindi toccare il numero corrispondente a quello visualizzato nella schermata **Approva l'accesso** del PC.
+2. Aprire la notifica o l'app Microsoft Authenticator sul dispositivo e quindi toccare il numero corrispondente a quello visualizzato nella schermata **Approva l'accesso** del computer.
 
     ![Finestra di dialogo Approva l'accesso sul dispositivo](media/user-help-auth-app-sign-in/microsoft-auth-app-sign-in-numbers.png)
 
@@ -113,7 +113,7 @@ Per i passaggi necessari per accedere all'account aziendale o dell'istituto di i
 |**Che cosa succede se si perde il telefono o se il telefono non è a portata di mano? Come si accede all'account in questi casi?**| È sempre possibile selezionare il collegamento Usa la tua password nella pagina di accesso per tornare a usare la password. Tuttavia, se si usa la verifica in due passaggi, sarà comunque necessario usare un secondo metodo per verificare l'identità.<br><br>**Importante**<br>È consigliabile assicurarsi di usare più di un metodo di verifica aggiornato associato all'account.<br><br>È possibile gestire i metodi di verifica per gli account personali dalla pagina [Impostazioni di sicurezza](https://account.live.com/proofs/manage). Per gli account aziendali o dell'istituto di istruzione, è possibile passare alla pagina [Verifica aggiuntiva di sicurezza](https://aka.ms/MFASetup) dell'organizzazione o alla pagina **Proteggi l'account** se l'amministratore ha attivato le informazioni di sicurezza. Per altri dettagli sulle informazioni di sicurezza, vedere [Gestire le informazioni di sicurezza](security-info-manage-settings.md).<br><br>Se non si è in grado di gestire i metodi di verifica, è necessario contattare l'amministratore.|
 |**Come si smette di usare questa funzionalità per tornare a usare la password?**|Per gli account personali, selezionare il collegamento **Usa la tua password** durante l'accesso. La scelta più recente viene memorizzata dal sistema e proposta per impostazione predefinita al successivo accesso. Se si vuole tornare all'accesso tramite telefono, selezionare il collegamento **Usa un'app** durante l'accesso.<br><br>Per gli account aziendali o dell'istituto di istruzione, è necessario passare alla pagina Verifica aggiuntiva di sicurezza (ad esempio, https://aka.ms/MFASetup) e rimuovere l'app Microsoft Authenticator.|
 |**Perché non è possibile usare più di un account aziendale o dell'istituto di istruzione per l'accesso tramite telefono?**| Un telefono deve essere registrato in un solo account aziendale o dell'istituto di istruzione. Se si vuole attivare l'accesso tramite telefono per un account aziendale o dell'istituto di istruzione diverso, è innanzitutto necessario annullare la registrazione del dispositivo precedente tramite la pagina **Impostazioni**.|
-|**È possibile accedere al PC tramite il telefono?**| Per il PC, è consigliabile accedere con Windows Hello in Windows 10. Windows Hello permette di usare il viso, le impronte digitali o un PIN per accedere.|
+|**È possibile accedere al computer tramite il telefono?**| Per il computer, è consigliabile accedere con Windows Hello in Windows 10. Windows Hello permette di usare il viso, le impronte digitali o un PIN per accedere.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 - In caso di domande generali sull'app, vedere le [domande frequenti su Microsoft Authenticator](user-help-auth-app-faq.md)

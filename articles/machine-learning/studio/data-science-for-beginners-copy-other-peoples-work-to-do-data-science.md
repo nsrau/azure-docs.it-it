@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/05/2018
-ms.openlocfilehash: 194f92b84b17fc2f2c9bc8f3aca6f6ad05f65d30
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 821ee126350d18102ec92de04436a76050734dc4
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241445"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456827"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copiare il lavoro di altre persone per l'analisi scientifica dei dati
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Data science per principianti
@@ -52,7 +52,7 @@ Uno dei segreti commerciali di analisi scientifica dei dati è quello di far svo
 
 Microsoft offre un servizio basato su cloud, chiamato [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/), che può essere valutato gratuitamente. Offre un'area di lavoro in cui si possono provare i diversi algoritmi di Machine Learning e, una volta creata la soluzione personalizzata, si potrà avviarla come servizio Web.
 
-Parte di questo servizio è un componente chiamato **[Raccolta di intelligenza artificiale per Azure](https://gallery.azure.ai/)**. Contiene risorse, come una raccolta di esperimenti di Azure Machine Learning, ovvero modelli, creati da persone che li hanno poi messi a disposizione di altri utenti. Questi esperimenti sono un ottimo modo per sfruttare le idee e il lavoro di altri utenti per iniziare a creare soluzioni personalizzate. La raccolta è disponibile per chiunque voglia prenderne visione.
+Parte di questo servizio è un componente chiamato **[Raccolta di intelligenza artificiale per Azure](https://gallery.azure.ai/)**. Contiene risorse, come una raccolta di esperimenti di Azure Machine Learning Studio, ovvero modelli, creati da persone che li hanno poi messi a disposizione di altri utenti. Questi esperimenti sono un ottimo modo per sfruttare le idee e il lavoro di altri utenti per iniziare a creare soluzioni personalizzate. La raccolta è disponibile per chiunque voglia prenderne visione.
 
 ![Raccolta di intelligenza artificiale per Azure](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
@@ -88,8 +88,8 @@ Esistono altri esperimenti in [Raccolta di intelligenza artificiale per Azure](h
 
 In [Raccolta di intelligenza artificiale per Azure](https://gallery.azure.ai) è possibile trovare esperimenti funzionanti che si possono usare come punto di partenza per le proprie soluzioni.
 
-Anche gli altri video della serie "Analisi scientifica dei dati per principianti" di Microsoft Azure Machine Learning meritano di essere visti.
+Anche gli altri video della serie "Analisi scientifica dei dati per principianti" di Microsoft Azure Machine Learning Studio meritano di essere visti.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [È possibile effettuare il primo esperimento di analisi scientifica dei dati con Azure Machine Learning](create-experiment.md)
+* [È possibile effettuare il primo esperimento di analisi scientifica dei dati con Azure Machine Learning Studio](create-experiment.md)
 * [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](what-is-machine-learning.md)

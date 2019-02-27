@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 280538c16f5a464f759eca74cce8ff6a97bfa4b2
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 40cb4b7969ec2272936d1361be8183db84f944d8
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244299"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455059"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Usare PowerShell per creare modelli di Studio ed endpoint di servizio Web da un esperimento
 
@@ -25,9 +25,9 @@ Si supponga, ad esempio, di essere proprietari di un franchising globale di nole
 
 Si potrebbe eseguire il training del modello una sola volta usando una versione unita di tutti i set di dati di tutte le località. Tuttavia, ogni negozio ha un ambiente unico. Perciò è preferibile eseguire il training del modello di regressione separatamente usando i set di dati dei singoli punti di noleggio. In questo modo, ogni modello di cui è stato eseguito il training terrà conto delle diverse caratteristiche, quali dimensioni del negozio, volume, posizione geografica, popolazione, traffico compatibile con le biciclette e così via.
 
-Questo potrebbe essere l'approccio migliore, ma creare 1.000 esperimenti di training in Azure Machine Learning che rappresentano le singole località non è molto pratico. Oltre a essere un'attività eccessivamente complessa, risulta anche inefficiente poiché ogni esperimento avrebbe tutti gli stessi componenti eccetto il set di dati di training.
+Questo potrebbe essere l'approccio migliore, ma creare 1.000 esperimenti di training in Azure Machine Learning Studio che rappresentano le singole località non è molto pratico. Oltre a essere un'attività eccessivamente complessa, risulta anche inefficiente poiché ogni esperimento avrebbe tutti gli stessi componenti eccetto il set di dati di training.
 
-Per fortuna, l'[API di ripetizione del training di Azure Machine Learning](retrain-models-programmatically.md) permette di eseguire questa operazione, automatizzando l'attività con [Azure Machine Learning PowerShell](powershell-module.md).
+Per fortuna, l'[API di ripetizione del training di Azure Machine Learning Studio](retrain-models-programmatically.md) consente di eseguire questa operazione, automatizzando l'attività con [Azure Machine Learning Studio PowerShell](powershell-module.md).
 
 > [!NOTE]
 > Per eseguire l'esempio più velocemente, il numero di punti di noleggio verrà ridotto da 1.000 a 10. ma gli stessi principi e procedure si applicano anche a 1.000 località. Tuttavia, se si desidera eseguire il training da 1.000 set di dati, è consigliabile eseguire gli script di PowerShell seguenti in parallelo. Come eseguire questa operazione non rientra nell'ambito di questo articolo, ma in Internet è possibile trovare esempi di multithreading con PowerShell.  

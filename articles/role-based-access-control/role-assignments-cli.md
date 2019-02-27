@@ -1,6 +1,6 @@
 ---
-title: Gestire l'accesso tramite il controllo degli accessi in base al ruolo e l'interfaccia della riga di comando di Azure | Microsoft Docs
-description: Informazioni su come gestire l'accesso per utenti, gruppi e applicazioni tramite il controllo degli accessi in base al ruolo e l'interfaccia della riga di comando di Azure. Vengono presentate anche la visualizzazione, la concessione e la rimozione dell'accesso.
+title: Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e l'interfaccia della riga di comando di Azure | Microsoft Docs
+description: Informazioni su come gestire l'accesso alle risorse di Azure per utenti, gruppi e applicazioni tramite il controllo degli accessi in base al ruolo e l'interfaccia della riga di comando di Azure. Vengono presentate anche la visualizzazione, la concessione e la rimozione dell'accesso.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6d1e64c7630f3fd35124e6671476174ddfc16bb6
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 751f582e2cfc39b62194ec55efa5cd8580c001e3
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437100"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341717"
 ---
-# <a name="manage-access-using-rbac-and-azure-cli"></a>Gestire l'accesso tramite il controllo degli accessi in base al ruolo e l'interfaccia della riga di comando di Azure
+# <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e l'interfaccia della riga di comando di Azure
 
-[Il controllo degli accessi in base al ruolo](overview.md) è la modalità di gestione dell'accesso alle risorse in Azure. Questo articolo descrive come gestire l'accesso per utenti, gruppi e applicazioni tramite il controllo degli accessi in base al ruolo e l'interfaccia della riga di comando di Azure.
+Il [controllo degli accessi in base al ruolo](overview.md) è la modalità di gestione dell'accesso alle risorse di Azure. Questo articolo descrive come gestire l'accesso per utenti, gruppi e applicazioni tramite il controllo degli accessi in base al ruolo e l'interfaccia della riga di comando di Azure.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per gestire l'accesso, è necessario uno degli elementi seguenti:
 
@@ -311,5 +311,5 @@ az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: creare un ruolo personalizzato con l'interfaccia della riga di comando di Azure](tutorial-custom-role-cli.md)
-- [Usare l'interfaccia della riga di comando di Azure per gestire risorse e gruppi di risorse](../azure-resource-manager/xplat-cli-azure-resource-manager.md)
+- [Esercitazione: Creare un ruolo personalizzato per le risorse di Azure tramite l'interfaccia della riga di comando di Azure](tutorial-custom-role-cli.md)
+- [Usare l'interfaccia della riga di comando di Azure per gestire risorse e gruppi di risorse](../azure-resource-manager/cli-azure-resource-manager.md)

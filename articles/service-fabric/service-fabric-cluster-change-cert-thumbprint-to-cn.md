@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/01/2019
 ms.author: ryanwi
-ms.openlocfilehash: 9c1f8507cfa1f21214428e852e6ffed4d7703254
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: e1a52aff0890e32ae739285c0380258939f29597
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564324"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312872"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Passare dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato in un cluster
 Nessun certificato può avere la stessa identificazione digitale di un altro, il che rende difficile eseguire il rollover o gestire il certificato del cluster. Più certificati, tuttavia, possono avere lo stesso nome comune o lo stesso oggetto.  Commutare un cluster distribuito dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato rende molto più semplice la gestione dei certificati. In questo articolo viene descritto come aggiornare un cluster di Service Fabric in esecuzione per usare il nome comune del certificato anziché l'identificazione personale del certificato.
@@ -96,7 +96,7 @@ Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
 ```
 
 >[!NOTE]
-> I segreti del set di scalabilità di macchine virtuali non supportano lo stesso ID risorsa per due segreti separati, perché ogni segreto è una risorsa univoca con controllo delle versioni. 
+> I segreti del set di scalabilità non supportano lo stesso ID risorsa per due segreti separati, perché ogni segreto è una risorsa univoca con controllo delle versioni. 
 
 ## <a name="download-and-update-the-template-from-the-portal"></a>Scaricare e aggiornare il modello dal portale
 Il certificato è stato installato sul set di scalabilità sottostante, ma è necessario aggiornare anche il cluster di Service Fabric perché usi tale certificato e il relativo nome comune.  A questo punto, scaricare il modello per la distribuzione del cluster.  Accedere al [portale di Azure](https://portal.azure.com) e passare al gruppo di risorse che ospita il cluster.  In **Impostazioni**, selezionare **Distribuzioni**.  Selezionare la distribuzione più recente e fare clic su **Visualizza modello**.

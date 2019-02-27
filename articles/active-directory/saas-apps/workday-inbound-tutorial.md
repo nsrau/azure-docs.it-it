@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5ac06200766f37c64252599ec8a4dddb6846ea7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9e209fe0486b72c14912fd0af1b29c878e4b4545
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175405"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340111"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workday per il provisioning utenti automatico
 
@@ -261,7 +261,7 @@ In questo passaggio si creerà un gruppo di sicurezza del sistema di integrazion
     * **Non vincolato:** tutti i membri del gruppo di sicurezza possono accedere a tutte le istanze di dati protette dal gruppo di sicurezza.
     * **Vincolato:** tutti i membri del gruppo di sicurezza hanno accesso contestuale a un subset delle istanze di dati (righe) a cui può accedere il gruppo di sicurezza.
   * Verificare il partner di integrazione di Workday per selezionare il tipo di gruppo di sicurezza appropriato per l'integrazione.
-  * Una volta appurato il tipo di gruppo, selezionare **Integration System Security Group (Unconstrained)** (Gruppo di sicurezza del sistema di integrazione (Non vincolato)) o **Integration System Security Group (Unconstrained)** (Gruppo di sicurezza del sistema di integrazione (Non vincolato)) dall'elenco a discesa **Type of Tenanted Security Group** (Tipo di gruppo di sicurezza con tenant).
+  * Una volta appurato il tipo di gruppo, selezionare **Integration System Security Group (Unconstrained)** (Gruppo di sicurezza del sistema di integrazione - Non vincolato) o **Integration System Security Group (Constrained)** (Gruppo di sicurezza del sistema di integrazione - Vincolato) dall'elenco a discesa **Type of Tenanted Security Group** (Tipo di gruppo di sicurezza con tenant).
 
     ![Creare un gruppo di sicurezza](./media/workday-inbound-tutorial/wd_isu_04.png "Creare un gruppo di sicurezza")
 

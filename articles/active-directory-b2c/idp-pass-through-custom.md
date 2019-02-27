@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f21f835ea50563497b73fb6e4505f60411029406
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cd24d4ad026af7d8bce70902376c3a31d659a203
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882999"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56427872"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Passare un token di accesso tramite un criterio personalizzato all'applicazione in Azure Active Directory B2C
 
@@ -24,11 +24,11 @@ ms.locfileid: "55882999"
 
 Un [criterio personalizzato](active-directory-b2c-get-started-custom.md) in Azure Active Directory (Azure AD) B2C fornisce agli utenti dell'applicazione un'opportunità di iscriversi o accedere con un provider di identità. Quando questo si verifica, Azure AD B2C riceve un [token di accesso](active-directory-b2c-reference-tokens.md) dal provider di identità. Azure AD B2C usa tale token per recuperare informazioni sull'utente. Aggiungere un tipo di attestazione e l'attestazione di output nel criterio personalizzato per passare il token attraverso le applicazioni registrate in Azure AD B2C. 
 
-Azure AD B2C attualmente supporta solo il passaggio di token di accesso dei provider di identità [OAuth 2.0](active-directory-b2c-reference-oauth-code.md), tra cui Facebook e [Google](active-directory-b2c-custom-setup-goog-idp.md). Per tutti gli altri provider di identità, l'attestazione viene restituita vuota.
+Azure AD B2C supporta il passaggio del token di accesso dei provider di identità [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) e [OpenID Connect](active-directory-b2c-reference-oidc.md). Per tutti gli altri provider di identità, l'attestazione viene restituita vuota.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Il criterio personalizzato è configurato con un provider di identità OAuth 2.0.
+- I criteri personalizzati sono configurati con un provider di identità OAuth 2.0 o OpenID Connect.
 
 ## <a name="add-the-claim-elements"></a>Aggiungere gli elementi di attestazione 
 

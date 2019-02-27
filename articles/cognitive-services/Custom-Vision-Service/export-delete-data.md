@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: pafarley
-ms.openlocfilehash: 7f27170a5e97d7860bcb059f16273b38757de747
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 01273ca241769c5e3bb7b7222355d32b29fd51b9
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867036"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308503"
 ---
 # <a name="export-or-delete-user-data-in-custom-vision"></a>Esportare o eliminare i dati in Visione personalizzata
 
-Content Moderator raccoglie i dati dell'utente per il funzionamento del servizio, ma i clienti hanno il controllo completo sulla visualizzazione, l'esportazione e l'eliminazione dei propri dati mediante l'[API Training](https://go.microsoft.com/fwlink/?linkid=865446) del Servizio visione artificiale personalizzato.
+Visione personalizzata raccoglie i dati dell'utente per il funzionamento del servizio, ma i clienti hanno il controllo completo sulla visualizzazione, l'esportazione e l'eliminazione dei propri dati mediante l'[API Training](https://go.microsoft.com/fwlink/?linkid=865446) del Servizio visione artificiale personalizzato.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 

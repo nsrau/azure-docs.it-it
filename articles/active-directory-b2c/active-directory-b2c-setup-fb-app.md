@@ -1,5 +1,5 @@
 ---
-title: Configurare l'iscrizione e l'accesso con un account Facebook tramite Azure Active Directory B2C | Microsoft Docs
+title: Configurare l'iscrizione e l'accesso con un account Facebook - Azure Active Directory B2C | Microsoft Docs
 description: Consentire l'iscrizione e l'accesso ai clienti con account Facebook alle applicazioni da Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ea1afb83c3e381c33b1c29c224d1ce0cc1d3d080
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 56534589c89fefb38f206f1c57da7996ae43e81d
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163042"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428500"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Facebook tramite Azure Active Directory B2C
 
 ## <a name="create-a-facebook-application"></a>Creare un'applicazione Facebook
 
-Per usare un account Facebook come provider di identità in Azure Active Directory (Azure AD) B2C, è necessario creare nel tenant un'applicazione che lo rappresenti. Se non si possiede già un account Facebook, è possibile crearlo sul sito [https://www.facebook.com/](https://www.facebook.com/).
+Per usare un account Facebook come [provider di identità](active-directory-b2c-reference-oauth-code.md) in Azure Active Directory (Azure AD) B2C, è necessario creare nel tenant un'applicazione che lo rappresenti. Se non si possiede già un account Facebook, è possibile crearlo sul sito [https://www.facebook.com/](https://www.facebook.com/).
 
 1. Accedere al [sito Web Facebook for developers](https://developers.facebook.com/) con le credenziali dell'account Facebook.
 2. Se non è ancora stato fatto, è necessario registrarsi come sviluppatore Facebook. A tale scopo, selezionare **Registrati** nell'angolo in alto a destra della pagina, accettare le condizioni di Facebook e completare la procedura di registrazione.

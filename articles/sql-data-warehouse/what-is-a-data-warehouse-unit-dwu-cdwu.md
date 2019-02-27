@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 76db38a59d2239de79ebcdcfd454ac60a8f514be
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 9ce7a36f796716f48f6575b2391ac563eebf4530
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299883"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447821"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Unità Data Warehouse (DWU) e DWU a elevato utilizzo di calcolo (cDWU)
 Raccomandazioni per la scelta del numero ideale di unità Data Warehouse (DWU, DWU a elevato utilizzo di calcolo) per ottimizzare prezzo e prestazioni e per come modificarne il numero. 
@@ -37,7 +37,9 @@ L'aumento delle DWU:
 - Aumenta il numero massimo di query simultanee e slot di concorrenza.
 
 ## <a name="service-level-objective"></a>Obiettivo del livello di servizio
-L'obiettivo del livello di servizio (SLO) è l'impostazione di scalabilità che determina il livello di costi e prestazioni del data warehouse. I livelli di servizio per la seconda generazione sono misurati in unità di calcolo data warehouse (DWU a elevato utilizzo di calcolo), ad esempio DW2000c. I livelli di servizio di prima generazione sono misurati in DWU, ad esempio DW2000. 
+L'obiettivo del livello di servizio (SLO) è l'impostazione di scalabilità che determina il livello di costi e prestazioni del data warehouse. I livelli di servizio per la seconda generazione sono misurati in unità di calcolo data warehouse (DWU a elevato utilizzo di calcolo), ad esempio DW2000c. I livelli di servizio di prima generazione sono misurati in DWU, ad esempio DW2000.
+  > [!NOTE]
+  > Azure SQL Data Warehouse Gen2 ha di recente aggiunto funzionalità di scalabilità aggiuntive per supportare livelli di calcolo minimo di 100 DWU a elevato utilizzo di calcolo. I data warehouse esistenti attualmente su Gen1 che richiedono i livelli di calcolo più bassi possono ora eseguire l'aggiornamento a Gen2 nelle aree attualmente disponibili senza costi aggiuntivi.  Se la propria area non è ancora supportata, è comunque possibile eseguire l'aggiornamento a un'area supportata. Per altre informazioni, vedere [Aggiornamento a Gen2](upgrade-to-latest-generation.md).
 
 In T-SQL l'impostazione di SERVICE_OBJECTIVE determina il livello di servizio e il livello di prestazioni per data warehouse.
 

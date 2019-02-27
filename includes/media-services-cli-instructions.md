@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 06651b06ae84934c16e9f1ac9f604abda8b65615
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: c13ba8ab42d949e5752bfefd9b792b14a5a5ce59
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55648584"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56408228"
 ---
-## <a name="open-cli-shell"></a>Aprire la shell interfaccia della riga di comando
+## <a name="cli-shell"></a>Shell dell'interfaccia della riga di comando
 
 Per eseguire i comandi dell'interfaccia della riga di comando, è consigliabile usare [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest). **Cloud Shell** è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Gli strumenti comuni di Azure sono preinstallati e configurati in Cloud Shell per l'uso con l'account. Offre la flessibilità necessaria per scegliere l'esperienza shell più adatta al proprio modo di lavorare. Gli utenti Linux possono scegliere un'esperienza Bash, mentre gli utenti Windows possono scegliere PowerShell.
 

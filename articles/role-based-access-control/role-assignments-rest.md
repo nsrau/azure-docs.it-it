@@ -1,6 +1,6 @@
 ---
-title: Gestire l'accesso tramite il controllo degli accessi in base al ruolo e l'API REST - Azure | Microsoft Docs
-description: Informazioni su come gestire l'accesso per utenti, gruppi e applicazioni tramite il controllo degli accessi in base al ruolo e l'API REST. Vengono presentate anche la visualizzazione, la concessione e la rimozione dell'accesso.
+title: Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e l'API REST | Microsoft Docs
+description: Informazioni su come gestire l'accesso alle risorse di Azure per utenti, gruppi e applicazioni tramite il controllo degli accessi in base al ruolo e l'API REST. Vengono presentate anche la visualizzazione, la concessione e la rimozione dell'accesso.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,20 +15,20 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 859a410a4ff9204e8e52fbd2cc3b38823f4bb830
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: c2ef9b0070cc9ac190b773f023ffc18d1b251a41
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435219"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338411"
 ---
-# <a name="manage-access-using-rbac-and-the-rest-api"></a>Gestire l'accesso tramite il controllo degli accessi in base al ruolo e l'API REST
+# <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e l'API REST
 
-[Il controllo degli accessi in base al ruolo](overview.md) è la modalità di gestione dell'accesso alle risorse in Azure. Questo articolo descrive come gestire l'accesso per utenti, gruppi e applicazioni tramite il controllo degli accessi in base al ruolo e l'API REST.
+Il [controllo degli accessi in base al ruolo](overview.md) è la modalità di gestione dell'accesso alle risorse di Azure. Questo articolo descrive come gestire l'accesso per utenti, gruppi e applicazioni tramite il controllo degli accessi in base al ruolo e l'API REST.
 
 ## <a name="list-access"></a>Elencare l'accesso
 
-Per visualizzare le informazioni sull'accesso nel controllo degli accessi in base al ruolo, elencare le assegnazioni di ruolo. Per elencare le assegnazioni di ruolo, usare una delle API REST per l'[elenco delle assegnazioni di ruolo](/rest/api/authorization/roleassignments/list). Per affinare i risultati, specificare un ambito e un filtro facoltativo. Per chiamare l'API, è necessario avere accesso all'operazione `Microsoft.Authorization/roleAssignments/read` nell'ambito specificato. L'accesso a questa operazione viene concesso a diversi [ruoli predefiniti](built-in-roles.md).
+Per visualizzare le informazioni sull'accesso nel controllo degli accessi in base al ruolo, elencare le assegnazioni di ruolo. Per elencare le assegnazioni di ruolo, usare una delle API REST per l'[elenco delle assegnazioni di ruolo](/rest/api/authorization/roleassignments/list). Per affinare i risultati, specificare un ambito e un filtro facoltativo. Per chiamare l'API, è necessario avere accesso all'operazione `Microsoft.Authorization/roleAssignments/read` nell'ambito specificato. L'accesso a questa operazione viene concesso a diversi [ruoli predefiniti per le risorse di Azure](built-in-roles.md).
 
 1. Iniziare con la richiesta seguente:
 
@@ -38,7 +38,7 @@ Per visualizzare le informazioni sull'accesso nel controllo degli accessi in bas
 
 1. All'intero dell'URI sostituire *{scope}* con l'ambito per il quale elencare le assegnazioni di ruolo.
 
-    | Scope | type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Sottoscrizione |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
@@ -77,7 +77,7 @@ Per concedere l'accesso mediante il controllo degli accessi in base al ruolo, si
     
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per l'assegnazione di ruolo.
 
-    | Scope | type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Sottoscrizione |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
@@ -105,7 +105,7 @@ Per rimuovere un accesso mediante il controllo degli accessi in base al ruolo, s
 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per la rimozione dell'assegnazione di ruolo.
 
-    | Scope | type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Sottoscrizione |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
@@ -117,4 +117,4 @@ Per rimuovere un accesso mediante il controllo degli accessi in base al ruolo, s
 
 - [Distribuire le risorse con i modelli e l'API REST di Resource Manager](../azure-resource-manager/resource-group-template-deploy-rest.md)
 - [Informazioni di riferimento sulle API REST](/rest/api/azure/)
-- [Creare ruoli personalizzati con l'API REST](custom-roles-rest.md)
+- [Creare ruoli personalizzati per le risorse di Azure tramite l'API REST](custom-roles-rest.md)

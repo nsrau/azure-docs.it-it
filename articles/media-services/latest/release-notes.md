@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 8e2af866dcea3bd8ece29811b2cc8ccd4318ee54
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8f549c20480e3866725717aa054af6653ab5a913
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242806"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343996"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -38,11 +38,13 @@ Per altre informazioni, vedere [Materiale sussidiario sulla migrazione per aggio
 
 La versione 3 di Servizi multimediali è ora supportata nei cloud nazionali di Azure. Non tutte le funzionalità sono già disponibili in tutti i cloud. Per informazioni, vedere [Cloud e aree in cui sono presenti Servizi multimediali di Azure v3](azure-clouds-regions.md).
 
+L'evento [Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) è stato aggiunto agli schemi di Griglia di eventi di Azure per Servizi multimediali.
+
 ## <a name="january-2019"></a>Gennaio 2019
 
 ### <a name="media-encoder-standard-and-mpi-files"></a>Media Encoder Standard e file MPI 
 
-Durante la codifica con Media Encoder Standard per produrre file MP4, un nuovo file con estensione mpi viene generato e aggiunto all'asset di output. Questo file MPI è progettato per migliorare le prestazioni per scenari di creazione dinamica dei pacchetti e streaming.
+Durante la codifica con Media Encoder Standard per produrre file MP4, un nuovo file con estensione mpi viene generato e aggiunto all'asset di output. Questo file MPI è progettato per migliorare le prestazioni per scenari di [creazione dinamica dei pacchetti](dynamic-packaging-overview.md) e streaming.
 
 Non è consigliabile modificare o rimuovere il file MPI né creare dipendenze nel proprio servizio sull'esistenza o meno di tale file.
 
@@ -186,7 +188,7 @@ Le funzionalità seguenti sono presenti in .Net SDK:
 * **Localizzatori di streaming** per pubblicare ed eseguire lo streaming dei contenuti ai dispositivi degli utenti finali
 * **Criteri di streaming** e **Criteri di chiave simmetrica** per configurare il recapito della chiave e la protezione del contenuto (Digital Rights Management) per la distribuzione dei contenuti.
 * **Eventi live** e **Output live** per configurare l'inserimento e l'archiviazione dei contenuti in streaming live.
-* **Asset** per archiviare e pubblicare i contenuti multimediali in Archiviazione di Azure. 
+* **Assets** per archiviare e pubblicare i contenuti multimediali in Archiviazione di Azure. 
 * **Endpoint di streaming** per configurare e ridimensionare la creazione dinamica dei pacchetti, la crittografia e lo streaming di contenuti multimediali live e on demand.
 
 ### <a name="known-issues"></a>Problemi noti
@@ -195,4 +197,4 @@ Le funzionalità seguenti sono presenti in .Net SDK:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Panoramica](media-services-overview.md)
+[Overview](media-services-overview.md)

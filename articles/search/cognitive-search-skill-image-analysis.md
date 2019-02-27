@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f658f6bb9e66eda13dbf4213e37dcd96b17f76e7
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: c70c3cc1818e85c03c78524d1e8571af6d686218
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411018"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429061"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Competenza cognitiva di Analisi delle immagini
 
@@ -34,7 +34,7 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 
 I parametri fanno distinzione tra maiuscole e minuscole.
 
-| Nome parametro     | Descrizione |
+| Nome parametro     | DESCRIZIONE |
 |--------------------|-------------|
 | defaultLanguageCode   |  Stringa che indica la lingua di restituzione. Il servizio restituisce i risultati di riconoscimento nella lingua specificata. Se questo parametro non è specificato, il valore predefinito è "en". <br/><br/>Le lingue supportate sono: <br/>*en* - Inglese (predefinito) <br/> *zh* - Cinese semplificato|
 |visualFeatures |   Matrice di stringhe che indica i tipi di caratteristiche visive da restituire. I tipi di caratteristiche visive valide comprendono:  <ul><li> *categorie* - suddivide l'immagine in categorie in base a una tassonomia definita nella [documentazione](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) Servizi cognitivi.</li><li> *tag* - contrassegna l'immagine con un elenco dettagliato delle parole correlate con il contenuto dell'immagine.</li><li>*Descrizione* - descrive il contenuto dell'immagine con una frase in lingua inglese completa.</li><li>*Visi* - rileva se sono presenti visi. Se presenti, genera le coordinate, il genere e l'età.</li><li> *ImageType* - rileva se l'immagine è clipart o un disegno.</li><li>   *Colore* - determina il colore principale, il colore dominante e se un'immagine è in bianco e nero.</li><li>*Adulti* - rileva se l'immagine è di natura pornografica (raffigura un'immagine di nudo o un atto sessuale). Viene rilevato anche il contenuto che presenta riferimenti sessuali.</li></ul> I nomi delle caratteristiche visive fanno distinzione tra maiuscole e minuscole.|
@@ -43,9 +43,9 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 ## <a name="skill-inputs"></a>Input competenze
 
-| Nome input      | Descrizione                                          |
+| Nome input      | DESCRIZIONE                                          |
 |---------------|------------------------------------------------------|
-| image         | Tipo complesso. Attualmente funziona solo con il campo "/document/normalized_images", prodotto dall'indicizzatore di BLOB di Azure quando ```imageAction``` è impostato su ```generateNormalizedImages```. Per altre informazioni, vedere [esempio](#sample-output).|
+| image         | Tipo complesso. Attualmente funziona solo con il campo "/document/normalized_images", prodotto dall'indicizzatore di BLOB di Azure quando ```imageAction``` è impostato su un valore diverso da ```none```. Per altre informazioni, vedere [esempio](#sample-output).|
 
 
 
@@ -246,7 +246,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 ## <a name="error-cases"></a>Casi di errore
 Nei seguenti casi di errore, non viene estratto nessun elemento.
 
-| Codice di errore | Descrizione |
+| Codice di errore | DESCRIZIONE |
 |------------|-------------|
 | NotSupportedLanguage | La lingua fornita non è supportata. |
 | InvalidImageUrl | L'URL dell'immagine è formattato in modo errato o non è accessibile.|

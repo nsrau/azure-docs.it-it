@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: dd9314b8c61a98e6bc080503bcdd6b5c6257bd49
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: b7d498b34fa3e247d5d4688f8d87213e7707fd86
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750563"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408783"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Analisi di serie temporali in Esplora dati di Azure
 
@@ -224,9 +224,9 @@ demo_many_series1
 |   |   |
 | --- | --- |
 |   | Conteggio |
-|   | 23115 |
+|   | 18339 |
 
-A questo punto, si crea un set di 23115 serie temporali della metrica di conteggio delle letture. Si aggiunge la clausola `by` all'istruzione make-series, si applica la regressione lineare e si selezionano le prime due serie temporali che risultano avere la tendenza decrescente più significativa:
+A questo punto, si crea un set di 18339 serie temporali della metrica di conteggio delle letture. Si aggiunge la clausola `by` all'istruzione make-series, si applica la regressione lineare e si selezionano le prime due serie temporali che risultano avere la tendenza decrescente più significativa:
 
 ```kusto
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
@@ -235,7 +235,7 @@ demo_many_series1
 | make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, Op, DB
 | extend (rsquare, slope) = series_fit_line(reads)
 | top 2 by slope asc 
-| render timechart with(title='Service Traffic Outage for 2 instances (out of 23115)')
+| render timechart with(title='Service Traffic Outage for 2 instances (out of 18339)')
 ```
 
 ![Prime due serie temporali](media/time-series-analysis/time-series-top-2.png)
@@ -258,6 +258,6 @@ demo_many_series1
 |   | Loc 15 | 37 | 1151 | -102743.910227889 |
 |   | Loc 13 | 37 | 1249 | -86303.2334644601 |
 
-In meno di due minuti, Esplora dati di Azure ha analizzato più di 20.000 serie temporali e ha rilevato due serie temporali anomale in cui il conteggio delle letture è calato improvvisamente.
+In meno di due minuti, Esplora dati di Azure ha analizzato quasi 20.000 serie temporali e ha rilevato due serie temporali anomale in cui il conteggio delle letture è calato improvvisamente.
 
 Queste funzionalità avanzate, unite alle prestazioni elevate di Esplora dati di Azure, offrono una soluzione potente ed esclusiva per l'analisi di serie temporali.

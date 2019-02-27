@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: f6c629182fdcce83c566869860480d9c70488797
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 50feca90d375d6afd3b04afe019ad9f9025f19dc
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53712747"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308572"
 ---
 # <a name="variables-section-of-azure-resource-manager-templates"></a>Sezione variables dei modelli di Azure Resource Manager
 Nella sezione variables è possibile costruire valori da usare in tutto il modello. Non è obbligatorio definire le variabili. Queste tuttavia consentono spesso di semplificare il modello, riducendo le espressioni complesse.
@@ -58,9 +58,7 @@ L'esempio precedente illustra un modo per definire una variabile. È possibile u
             {
                 "name": "<name-of-array-property>",
                 "count": <number-of-iterations>,
-                "input": {
-                    <properties-to-repeat>
-                }
+                "input": <object-or-value-to-repeat>
             }
         ]
     },
@@ -68,9 +66,7 @@ L'esempio precedente illustra un modo per definire una variabile. È possibile u
         {
             "name": "<variable-array-name>",
             "count": <number-of-iterations>,
-            "input": {
-                <properties-to-repeat>
-            }
+            "input": <object-or-value-to-repeat>
         }
     ]
 }
@@ -117,38 +113,45 @@ Recuperare le impostazioni correnti con:
 
 ## <a name="use-copy-element-in-variable-definition"></a>Usare l'elemento di copia nella definizione della variabile
 
-È possibile usare la sintassi **copia** per creare una variabile con una matrice di vari elementi. Fornire un conteggio del numero di elementi. Ogni elemento contiene le proprietà nell'oggetto **input**. È possibile usare l'istruzione copy in una variabile oppure per creare la variabile. Quando si definisce una variabile e si usa l'istruzione **copy** all'interno di tale variabile, si crea un oggetto che dispone di una proprietà di matrice. Quando si usa l'istruzione **copy** al livello superiore e si definiscono una o più variabili all'interno di esso, si creano una o più matrici. Entrambi gli approcci sono illustrati nell'esempio seguente:
+Per creare più istanze di una variabile, usare la proprietà `copy` nella sezione variables. Si crea una matrice di elementi costruita dal valore della proprietà `input`. È possibile usare la proprietà `copy` all'interno di una variabile o al livello superiore della sezione variables. Quando si usa `copyIndex` all'interno di un'iterazione delle variabili, è necessario specificare il nome dell'iterazione.
+
+L'esempio seguente illustra come usare copy:
 
 ```json
 "variables": {
-    "disk-array-on-object": {
-        "copy": [
-            {
-                "name": "disks",
-                "count": 3,
-                "input": {
-                    "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
-                    "diskSizeGB": "1",
-                    "diskIndex": "[copyIndex('disks')]"
-                }
-            }
-        ]
-    },
+  "disk-array-on-object": {
     "copy": [
-        {
-            "name": "disks-top-level-array",
-            "count": 3,
-            "input": {
-                "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('disks-top-level-array')]"
-            }
+      {
+        "name": "disks",
+        "count": 3,
+        "input": {
+          "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('disks')]"
         }
+      }
     ]
+  },
+  "copy": [
+    {
+      "name": "disks-top-level-array",
+      "count": 3,
+      "input": {
+        "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
+        "diskSizeGB": "1",
+        "diskIndex": "[copyIndex('disks-top-level-array')]"
+      }
+    },
+    {
+      "name": "top-level-string-array",
+      "count": 5,
+      "input": "[concat('myDataDisk', copyIndex('top-level-string-array', 1))]"
+    }
+  ]
 },
 ```
 
-La variabile **disk-array-on-object** contiene l'oggetto seguente con una matrice denominata **disks**:
+Dopo che l'espressione copy è stata valutata, la variabile **disk-array-on-object** contiene l'oggetto seguente con una matrice denominata **disks**:
 
 ```json
 {
@@ -194,34 +197,19 @@ La variabile **disks-top-level-array** contiene la matrice seguente:
 ]
 ```
 
-È anche possibile specificare più di un oggetto quando si usa la copia per creare le variabili. Nell'esempio seguente vengono definite due matrici come variabili. Una è denominata **disks-top-level-array** e include cinque elementi. L'altra è denominata **a-different-array** e include tre elementi.
+La variabile **top-level-string-array** contiene la matrice seguente:
 
 ```json
-"variables": {
-    "copy": [
-        {
-            "name": "disks-top-level-array",
-            "count": 5,
-            "input": {
-                "name": "[concat('oneDataDisk', copyIndex('disks-top-level-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('disks-top-level-array')]"
-            }
-        },
-        {
-            "name": "a-different-array",
-            "count": 3,
-            "input": {
-                "name": "[concat('twoDataDisk', copyIndex('a-different-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('a-different-array')]"
-            }
-        }
-    ]
-},
+[
+  "myDataDisk1",
+  "myDataDisk2",
+  "myDataDisk3",
+  "myDataDisk4",
+  "myDataDisk5"
+]
 ```
 
-Questo approccio funziona bene quando occorre verificare che i valori dei parametri siano nel formato corretto per il valore di un modello. L'esempio seguente formatta i valori dei parametri da usare nella definizione delle regole di sicurezza:
+L'uso di copy funziona bene quando occorre associare i valori dei parametri a quelli delle risorse. L'esempio seguente formatta i valori dei parametri da usare nella definizione delle regole di sicurezza:
 
 ```json
 {

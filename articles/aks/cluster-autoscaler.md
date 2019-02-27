@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: bfdea1d5380750ec23964cd8564db9b3a9539f15
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: f8804a157c21f3c90c667646689eec0968bc9027
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754644"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453002"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Ridimensionare automaticamente un cluster per soddisfare le richieste delle applicazioni nel servizio Azure Kubernetes (AKS)
 
@@ -27,7 +27,9 @@ Questo articolo illustra come abilitare e gestire il componente di scalabilità 
 
 Questo articolo richiede che sia in esecuzione l'interfaccia della riga di comando di Azure versione 2.0.55 o successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
-I cluster AKS che supportano il componente di scalabilità automatica del cluster devono usare set di scalabilità di macchine virtuali ed eseguire Kubernetes versione *1.12.4* o successive. Il supporto di questo set di scalabilità è in anteprima. Per acconsentire esplicitamente e creare i cluster che usano set di scalabilità, installare l’estensione dell’interfaccia della riga di comando di Azure *aks-preview* usando il comando [az extension add][az-extension-add], come illustrato nell'esempio seguente:
+### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga comando di aks-preview
+
+I cluster AKS che supportano il componente di scalabilità automatica del cluster devono usare set di scalabilità di macchine virtuali ed eseguire Kubernetes versione *1.12.4* o successive. Il supporto di questo set di scalabilità è in anteprima. Per acconsentire esplicitamente e creare cluster che usano set di scalabilità, installare prima l'estensione dell'interfaccia della riga di comando di Azure *aks-preview* usando il comando [az extension add][az-extension-add], come illustrato nell'esempio seguente:
 
 ```azurecli-interactive
 az extension add --name aks-preview
@@ -35,6 +37,26 @@ az extension add --name aks-preview
 
 > [!NOTE]
 > Quando si installa l’estensione *aks-preview*, ogni cluster AKS creato usa il modello di distribuzione in anteprima del set di scalabilità. Per rifiutare esplicitamente e creare cluster normali completamente supportati, rimuovere l'estensione usando `az extension remove --name aks-preview`.
+
+### <a name="register-scale-set-feature-provider"></a>Registrare il provider della funzionalità dei set di scalabilità
+
+Per creare un servizio AKS che usi set di scalabilità, è anche necessario abilitare un flag della funzionalità per la sottoscrizione. Per registrare il flag della funzionalità *VMSSPreview*, usare il comando [az feature register][az-feature-register] come illustrato nell'esempio seguente:
+
+```azurecli-interactive
+az feature register --name VMSSPreview --namespace Microsoft.ContainerService
+```
+
+Sono necessari alcuni minuti per visualizzare lo stato *Registered*. È possibile controllare lo stato di registrazione usando il comando [az feature list][az-feature-list]:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
+```
+
+Quando si è pronti, aggiornare la registrazione del provider di risorse *Microsoft.ContainerService* usando il comando [az provider register][az-provider-register]:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
 
 ## <a name="about-the-cluster-autoscaler"></a>Informazioni sul componente di scalabilità automatica
 
@@ -149,6 +171,9 @@ Questo articolo ha descritto come ridimensionare automaticamente il numero di no
 [aks-scale-apps]: tutorial-kubernetes-scale.md
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
 
 <!-- LINKS - external -->
 [az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview

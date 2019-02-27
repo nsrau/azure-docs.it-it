@@ -8,28 +8,28 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: luywang
 ms.custom: include file
-ms.openlocfilehash: 5c7c9938b6a0b3d2e6050940154a8dc3f114341e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: efa43d7faf9d048ff963a74d8c69618ee535654c
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53638817"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56443373"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Backup e ripristino di emergenza per dischi IaaS di Azure
 
 Questo articolo illustra come pianificare il backup e il ripristino di emergenza di macchine virtuali (VM) e dischi IaaS in Azure. Questo documento è relativo a dischi gestiti e non gestiti.
 
-Per prima cosa, verranno esaminate le funzionalità di tolleranza di errore predefinite della piattaforma di Azure che consentono la protezione da errori locali. Saranno quindi illustrati gli scenari di emergenza non pienamente coperti dalle funzionalità predefinite. Verranno forniti anche alcuni esempi di scenari di carico di lavoro per cui è possibile applicare diverse considerazioni relative a backup e ripristino di emergenza. Saranno infine esaminate le soluzioni possibili per il ripristino di emergenza di dischi IaaS. 
+Per prima cosa, verranno esaminate le funzionalità di tolleranza di errore predefinite della piattaforma di Azure che consentono la protezione da errori locali. Saranno quindi illustrati gli scenari di emergenza non pienamente coperti dalle funzionalità predefinite. Verranno forniti anche alcuni esempi di scenari di carico di lavoro per cui è possibile applicare diverse considerazioni relative a backup e ripristino di emergenza. Saranno infine esaminate le soluzioni possibili per il ripristino di emergenza di dischi IaaS.
 
 ## <a name="introduction"></a>Introduzione
 
-La piattaforma Azure usa diversi metodi per la ridondanza e la tolleranza di errore, in modo da contribuire alla protezione dei clienti da errori hardware localizzati. Gli errori locali possono includere problemi relativi a un computer server di Archiviazione di Azure che archivia parte dei dati per un disco virtuale o errori di un'unità SSD o HDD su tale server. Questi errori isolati relativi ai componenti hardware si possono verificare durante il normale funzionamento. 
+La piattaforma Azure usa diversi metodi per la ridondanza e la tolleranza di errore, in modo da contribuire alla protezione dei clienti da errori hardware localizzati. Gli errori locali possono includere problemi relativi a un computer server di Archiviazione di Azure che archivia parte dei dati per un disco virtuale o errori di un'unità SSD o HDD su tale server. Questi errori isolati relativi ai componenti hardware si possono verificare durante il normale funzionamento.
 
 La piattaforma Azure è progettata per essere resiliente agli errori di questo tipo. Le emergenze gravi possono provocare errori oppure l'inaccessibilità di molti server di archiviazione o addirittura di un intero data center. Anche se le VM e i dischi sono normalmente protetti da errori localizzati, sono necessari passaggi aggiuntivi per proteggere il carico di lavoro da errori irreversibili a livello di area, ad esempio un'emergenza grave, che possono interessare le macchine virtuali e i dischi.
 
 Oltre a potenziali errori della piattaforma, è possibile che si verifichino problemi con un'applicazione o i dati dei clienti. Ad esempio, è possibile che una nuova versione dell'applicazione apporti accidentalmente una modifica ai dati che ne causa l'interruzione. In tal caso, è consigliabile ripristinare una versione precedente dell'applicazione e dei dati che contenga l'ultimo stato valido noto. A questo scopo, sono necessari backup regolari.
 
-Per assicurare il ripristino di emergenza a livello di area, è necessario eseguire il backup dei dischi IaaS delle VM in un'area diversa. 
+Per assicurare il ripristino di emergenza a livello di area, è necessario eseguire il backup dei dischi IaaS delle VM in un'area diversa.
 
 Prima di esaminare le opzioni di backup e ripristino di emergenza, è utile esaminare i metodi disponibili per la gestione degli errori localizzati.
 
@@ -47,9 +47,9 @@ Per assicurare che siano sempre mantenute tre repliche, Archiviazione di Azure c
 
 Grazie a questa architettura, Azure ha offerto in modo costante una durabilità di livello aziendale per i dischi IaaS, con una [percentuale di frequenza di errori annualizzata](https://en.wikipedia.org/wiki/Annualized_failure_rate) pari a zero, ovvero la migliore del settore.
 
-Gli errori hardware localizzati nell'host di calcolo o nella piattaforma di archiviazione a volte possono provocare la mancata disponibilità temporanea della VM coperta dal [Contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) per la disponibilità delle macchine virtuali. Azure offre anche un Contratto di servizio leader di settore per singole istanze di macchine virtuali che usano dischi SSD Premium di Azure.
+Gli errori hardware localizzati nell'host di calcolo o nella piattaforma di archiviazione a volte possono provocare la mancata disponibilità temporanea della VM coperta dal [Contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) per la disponibilità delle macchine virtuali. Azure offre anche un Contratto di servizio leader di settore per singole istanze di macchine virtuali che usano unità SSD Premium di Azure.
 
-Per proteggere i carichi di lavoro dell'applicazione dall'inattività causata dalla mancata disponibilità temporanea di un disco o di una VM, i clienti possono usare i [set di disponibilità](../articles/virtual-machines/windows/manage-availability.md). Due o più macchine virtuali in un set di disponibilità offrono la ridondanza per l'applicazione. Azure crea quindi queste VM e questi dischi in domini di errore separati con diverso tipo di alimentazione, diverse risorse di rete e diversi componenti del server. 
+Per proteggere i carichi di lavoro dell'applicazione dall'inattività causata dalla mancata disponibilità temporanea di un disco o di una VM, i clienti possono usare i [set di disponibilità](../articles/virtual-machines/windows/manage-availability.md). Due o più macchine virtuali in un set di disponibilità offrono la ridondanza per l'applicazione. Azure crea quindi queste VM e questi dischi in domini di errore separati con diverso tipo di alimentazione, diverse risorse di rete e diversi componenti del server.
 
 A causa di questi domini di errore separati, gli errori hardware localizzati in genere non interessano più VM contemporaneamente nello stesso set. La presenza di domini di errore separati offre una disponibilità elevata per l'applicazione. È consigliabile usare i set di disponibilità quando è necessaria la disponibilità elevata. La sezione successiva prende in esame l'aspetto del ripristino di emergenza.
 
@@ -98,11 +98,11 @@ I problemi relativi ai dati delle applicazioni IaaS costituiscono un'altra possi
 
 ## <a name="disaster-recovery-solution-azure-backup"></a>Soluzione per il ripristino di emergenza: Backup di Azure 
 
-[Backup di Azure](https://azure.microsoft.com/services/backup/) viene usato per i backup e il ripristino di emergenza e funziona con [dischi gestiti](../articles/virtual-machines/windows/managed-disks-overview.md) e [non gestiti](../articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks). È possibile creare un processo di backup con backup basati su orari specifici e con criteri semplici per il ripristino delle VM e la conservazione dei backup. 
+[Backup di Azure](https://azure.microsoft.com/services/backup/) viene usato per i backup e il ripristino di emergenza e funziona con [dischi gestiti](../articles/virtual-machines/windows/managed-disks-overview.md) e non gestiti. È possibile creare un processo di backup con backup basati su orari specifici e con criteri semplici per il ripristino delle VM e la conservazione dei backup.
 
-Se si usano [dischi SSD Premium](../articles/virtual-machines/windows/premium-storage.md), [dischi gestiti](../articles/virtual-machines/windows/managed-disks-overview.md) o altri tipi di dischi con l'opzione di [archiviazione con ridondanza locale](../articles/storage/common/storage-redundancy-lrs.md), è particolarmente importante eseguire backup periodici per il ripristino di emergenza. Backup di Azure archivia i dati nell'insieme di credenziali dei servizi di ripristino per la conservazione a lungo termine. Scegliere l'opzione di [archiviazione con ridondanza geografica](../articles/storage/common/storage-redundancy-grs.md) per l'insieme di credenziali dei servizi di ripristino di backup. Questa opzione assicura che i backup vengano replicati in un'area di Azure differente per la protezione da emergenze a livello di area.
+Se si usano [unità SSD Premium](../articles/virtual-machines/windows/disks-types.md), [dischi gestiti](../articles/virtual-machines/windows/managed-disks-overview.md) o altri tipi di dischi con l'opzione di [archiviazione con ridondanza locale](../articles/storage/common/storage-redundancy-lrs.md), è particolarmente importante eseguire backup periodici per il ripristino di emergenza. Backup di Azure archivia i dati nell'insieme di credenziali dei servizi di ripristino per la conservazione a lungo termine. Scegliere l'opzione di [archiviazione con ridondanza geografica](../articles/storage/common/storage-redundancy-grs.md) per l'insieme di credenziali dei servizi di ripristino di backup. Questa opzione assicura che i backup vengano replicati in un'area di Azure differente per la protezione da emergenze a livello di area.
 
-Per i [dischi non gestiti](../articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks) è possibile usare il tipo di archiviazione con ridondanza locale per dischi IaaS, ma occorre assicurarsi che Backup di Azure sia abilitato con l'opzione di archiviazione con ridondanza geografica per l'insieme di credenziali dei servizi di ripristino.
+Per i dischi non gestiti è possibile usare il tipo di archiviazione con ridondanza locale per dischi IaaS, ma occorre assicurarsi che Backup di Azure sia abilitato con l'opzione di archiviazione con ridondanza geografica per l'insieme di credenziali dei servizi di ripristino.
 
 > [!NOTE]
 > Se si usa l'opzione di [archiviazione con ridondanza geografica](../articles/storage/common/storage-redundancy-grs.md) o di [archiviazione con ridondanza geografica e accesso in lettura](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) per i dischi non gestiti, saranno comunque necessari snapshot coerenti per il backup e il ripristino di emergenza. Usare [Backup di Azure](https://azure.microsoft.com/services/backup/) o [snapshot coerenti](#alternative-solution-consistent-snapshots).
@@ -136,7 +136,7 @@ Per risolvere questo problema, Backup di Azure fornisce funzionalità di backup 
 
 Quando Backup di Azure avvia un processo di backup all'orario pianificato, attiva l'estensione di backup installata nella VM, in modo che crei uno snapshot temporizzato. Uno snapshot viene acquisito in combinazione con il Servizio Copia Shadow del volume per ottenere uno snapshot coerente dei dischi nella macchina virtuale senza che sia necessario spegnerla. L'estensione di backup nella VM scarica tutte le operazioni di scrittura prima di creare uno snapshot coerente di tutti i dischi. Dopo l'acquisizione dello snapshot, Backup di Azure trasferisce i dati nell'insieme di credenziali di backup. Per aumentare l'efficienza del processo di backup, il servizio identifica e trasferisce solo i blocchi di dati che sono stati modificati dopo l'ultimo backup.
 
-Per il ripristino, è possibile visualizzare i backup disponibili tramite Backup di Azure e quindi avviare il ripristino. È possibile creare e ripristinare i backup di Azure tramite il [portale di Azure](https://portal.azure.com/), [con PowerShell](../articles/backup/backup-azure-vms-automation.md) oppure tramite l'[interfaccia della riga di comando di Azure](/cli/azure/). 
+Per il ripristino, è possibile visualizzare i backup disponibili tramite Backup di Azure e quindi avviare il ripristino. È possibile creare e ripristinare i backup di Azure tramite il [portale di Azure](https://portal.azure.com/), [con PowerShell](../articles/backup/backup-azure-vms-automation.md) oppure tramite l'[interfaccia della riga di comando di Azure](/cli/azure/).
 
 ### <a name="steps-to-enable-a-backup"></a>Procedura di abilitazione dei backup
 
@@ -166,15 +166,15 @@ Se è necessario ripristinare o ricreare una VM, è possibile ripristinarla da q
 
 -   È possibile creare una nuova VM come rappresentazione temporizzata della macchina virtuale sottoposta a backup.
 
--   È possibile ripristinare i dischi e quindi usare il modello per la macchina virtuale per personalizzare e ricreare la VM ripristinata. 
+-   È possibile ripristinare i dischi e quindi usare il modello per la macchina virtuale per personalizzare e ricreare la VM ripristinata.
 
 Per altre informazioni, vedere le istruzioni per [usare il portale di Azure per ripristinare macchine virtuali](../articles/backup/backup-azure-arm-restore-vms.md). Questo documento illustra anche la procedura specifica per il ripristino di VM sottoposte a backup in un data center associato usando l'insieme di credenziali di backup con ridondanza geografica in caso di emergenza nel data center primario. In questo caso, Backup di Azure usa il servizio di calcolo dell'area secondaria per creare la macchina virtuale ripristinata.
 
-È anche possibile usare PowerShell per il [ripristino di una VM](../articles/backup/backup-azure-arm-restore-vms.md#restore-a-vm-during-an-azure-datacenter-disaster) o per la [creazione di una nuova VM dai dischi ripristinati](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+È anche possibile usare PowerShell per la [creazione di una nuova macchina virtuale dai dischi ripristinati](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
 ## <a name="alternative-solution-consistent-snapshots"></a>Soluzioni alternativa: snapshot coerenti
 
-Se non si può usare Backup di Azure, è possibile implementare un meccanismo di backup personalizzato tramite gli snapshot. La creazione di snapshot coerenti per tutti i dischi usati da una VM e quindi la replica di tali snapshot in un'altra area è un processo complicato. Azure considera quindi l'uso del servizio Backup come un'opzione migliore rispetto alla creazione di una soluzione personalizzata. 
+Se non si può usare Backup di Azure, è possibile implementare un meccanismo di backup personalizzato tramite gli snapshot. La creazione di snapshot coerenti per tutti i dischi usati da una VM e quindi la replica di tali snapshot in un'altra area è un processo complicato. Azure considera quindi l'uso del servizio Backup come un'opzione migliore rispetto alla creazione di una soluzione personalizzata.
 
 Se si usa l'archiviazione con ridondanza geografica e accesso in lettura o l'archiviazione con ridondanza geografica per i dischi, gli snapshot vengono replicati automaticamente in un data center secondario. Se si usa l'archiviazione con ridondanza locale per i dischi, è necessario eseguire manualmente la replica dei dati. Per altre informazioni, vedere [Eseguire il backup dei dischi di VM non gestiti con snapshot incrementali](../articles/virtual-machines/windows/incremental-snapshots.md).
 
@@ -216,7 +216,7 @@ La sola creazione degli snapshot potrebbe non essere sufficiente per il ripristi
 
 Se si usa l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica e accesso in lettura per i dischi, gli snapshot vengono replicati automaticamente nell'area secondaria. È possibile che si verifichi un ritardo di pochi minuti prima della replica. Se il data center primario smette di funzionare prima del completamento della replica degli snapshot, non sarà possibile accedere agli snapshot dal data center secondario. La probabilità che questo problema si verifichi è bassa.
 
-> [!NOTE] 
+> [!NOTE]
 > Il semplice posizionamento dei dischi in un account di archiviazione con ridondanza geografica o archiviazione con ridondanza geografica e accesso in lettura non è sufficiente a proteggere la VM da situazioni di emergenza. È necessario creare anche snapshot coordinati o usare Backup di Azure. Questa operazione è necessaria per il ripristino di uno stato coerente della VM.
 
 Se si usa l'archiviazione con ridondanza locale, è necessario copiare gli snapshot in un account di archiviazione diverso immediatamente dopo la creazione dello snapshot. La destinazione della copia potrebbe essere un account di archiviazione con ridondanza locale in un'area diversa. La copia si troverà quindi in un'area remota. È anche possibile copiare lo snapshot in un account di archiviazione con ridondanza geografica e accesso in lettura nella stessa area. In questo caso lo snapshot viene replicato in modo differito nell'area secondaria remota. Il backup viene protetto da emergenze nel sito primario dopo il completamento delle operazioni di copia e di replica.
@@ -260,12 +260,10 @@ La differenza principale tra l'archiviazione con ridondanza geografica e l'archi
 
 Se si verifica un'interruzione significativa, è possibile che il team di Azure attivi un failover geografico e modifichi le voci del DNS primario in modo che facciano riferimento alle risorse di archiviazione secondarie. A questo punto, se è abilitata l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica e accesso in lettura, è possibile accedere ai dati nell'area che era precedentemente secondaria. In altri termini, se l'account di archiviazione è di tipo archiviazione con ridondanza geografica e si verifica un problema, è possibile accedere alle risorse di archiviazione secondarie solo se è disponibile il failover geografico.
 
-Per altre informazioni, vedere [Cosa fare se si verifica un'interruzione di Archiviazione di Azure](../articles/storage/common/storage-disaster-recovery-guidance.md). 
+Per altre informazioni, vedere [Cosa fare se si verifica un'interruzione di Archiviazione di Azure](../articles/storage/common/storage-disaster-recovery-guidance.md).
 
 >[!NOTE] 
 >Microsoft controlla se si verifica un failover. Il failover non è controllato per i singoli account di archiviazione e non viene quindi determinato dai singoli clienti. Per implementare il ripristino di emergenza per account di archiviazione o dischi di macchine virtuali specifici, è necessario usare le tecniche illustrate in precedenza in questo articolo.
-
-
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png

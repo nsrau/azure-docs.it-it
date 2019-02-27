@@ -2,16 +2,17 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 11/08/2018
+ms.date: 02/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 4ab9da996226b3f26fd30db1cd012c80253a85a5
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 69f77bf969c5d9adfb084682fbbc9eb9e762c8b4
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51333766"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306866"
 ---
-Per la larghezza di banda Internet minima richiesta per i dispositivi si applicano i requisiti seguenti.
+I dispositivi sono progettati per continuare a funzionare quando la connessione a Internet è lenta o viene interrotta. In condizioni operative normali è consigliabile usare: 
 
-- Il dispositivo deve avere una larghezza di banda Internet dedicata a 20 Mbps (o superiore) sempre disponibile. La larghezza di banda non deve essere condivisa con altre applicazioni.
-- Il dispositivo ha una larghezza di banda Internet dedicata a 64 Mbps (o superiore) quando si usa la limitazione della larghezza di banda della rete.
+- Larghezza di banda minima di download di 10 Mbps per assicurarsi che il dispositivo rimanga aggiornato.
+- Larghezza di banda minima di upload e download dedicata di 20 Mbps per trasferire i file.
+

@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: c682bca1f3d4f0e2659ed107a2b15e4e4e28b0d9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 1bf9889f601795c1ba70abdd17f6e8c9a01785f1
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492488"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453869"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning Studio
 Il portale dei servizi Web di Microsoft Azure Machine Learning consente di gestire i servizi Web classici e nuovi di Machine Learning. Poiché i servizi Web classici e nuovi sono basati su tecnologie diverse, sono disponibili funzionalità di gestione leggermente diverse.
@@ -28,7 +28,8 @@ Nel portale dei servizi Web di Azure Machine Learning è possibile:
 * Creare, eliminare o aggiornare i piani di fatturazione (solo servizi nuovi).
 * Aggiungere ed eliminare gli endpoint (solo servizi classici)
 
-
+>[!NOTE]
+>È anche possibile gestire i servizi Web classici in [Machine Learning Studio](http://studio.azureml.net) nella scheda **Servizi Web**.
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Autorizzazioni per gestire i nuovi servizi Web basati su Resource Manager
 
@@ -38,7 +39,7 @@ Se l'utente non dispone delle autorizzazioni corrette per accedere alle risorse 
 
 *Web Service deployment failed. This account does not have sufficient access to the Azure subscription that contains the Workspace. In order to deploy a Web Service to Azure, the same account must be invited to the Workspace and be given access to the Azure subscription that contains the Workspace.* (Distribuzione del servizio Web non riuscita. L'account non dispone dei diritti di accesso sufficienti per accedere alla sottoscrizione di Azure che contiene l'area di lavoro. Per distribuire un servizio Web in Azure, è necessario che lo stesso account sia invitato all'area di lavoro e che gli sia assegnato l'accesso alla sottoscrizione di Azure contenente l'area di lavoro).
 
-Per altre informazioni sulla creazione di un'area di lavoro, vedere [Creare e condividere un'area di lavoro di Azure Machine Learning](create-workspace.md).
+Per altre informazioni sulla creazione di un'area di lavoro, vedere [Creare e condividere un'area di lavoro di Azure Machine Learning Studio](create-workspace.md).
 
 Per altre informazioni sull'impostazione delle autorizzazioni di accesso, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 
@@ -107,7 +108,7 @@ Il dashboard del piano contiene le informazioni seguenti:
 
 ## <a name="manage-classic-web-services"></a>Gestire i servizi Web classici
 > [!NOTE]
-> Le procedure di questa sezione si riferiscono alla gestione dei servizi Web classici nel portale dei servizi Web di Azure Machine Learning. Per informazioni sulla gestione dei servizi Web classici tramite Machine Learning Studio e il portale di Azure, vedere [Gestire un'area di lavoro di Azure Machine Learning](manage-workspace.md).
+> Le procedure di questa sezione si riferiscono alla gestione dei servizi Web classici nel portale dei servizi Web di Azure Machine Learning. Per informazioni sulla gestione dei servizi Web classici tramite Machine Learning Studio e il portale di Azure, vedere [Gestire un'area di lavoro di Azure Machine Learning Studio](manage-workspace.md).
 > 
 > 
 

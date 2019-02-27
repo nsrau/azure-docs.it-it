@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: caleteet
 manager: femila
-ms.openlocfilehash: 884f6a81796341e274027095691585212d5a3749
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: acbd41b7203e458a5ed60382354c862748863053
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54829927"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328028"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Rete per consorzi Hyperledger Fabric
 
@@ -70,7 +70,7 @@ Nel modello **Hyperledger Fabric Consortium** selezionare **Crea**.
 
 La distribuzione del modello consente di configurare in modo guidato la rete multinodo [Hyperledger 1.3](https://hyperledger-fabric.readthedocs.io/en/release-1.3/). Il flusso di distribuzione è suddiviso in quattro fasi: informazioni di base, impostazioni della rete per consorzi, configurazione dell'infrastruttura e componenti facoltativi.
 
-### <a name="basics"></a>Informazioni di base
+### <a name="basics"></a>Nozioni di base
 
 In **Basics** (Informazioni di base) specificare i valori dei parametri standard per qualsiasi distribuzione. Ad esempio, la sottoscrizione, il gruppo di risorse e le proprietà di base delle macchine virtuali.
 
@@ -100,7 +100,7 @@ In **Impostazioni di rete** specificare i valori di input per la creazione di un
 **Network configuration**|È possibile scegliere di creare una nuova rete o aggiungersi a una rete esistente. Se si sceglie *Join existing* (Aggiungi esistente), è necessario fornire valori aggiuntivi. |New network (Nuova rete) <br/> Join existing (Aggiungi esistente) |
 **HLF CA password** (Password CA HLF)|Password usata per i certificati generati dalle autorità di certificazione create nell'ambito della distribuzione. La password deve contenere tre dei tipi di caratteri seguenti: un carattere maiuscolo, un carattere minuscolo, un numero e un carattere speciale.<br /><br />Inizialmente tutte le macchine virtuali hanno la stessa password, ma è possibile cambiarla dopo il provisioning.|1-25 caratteri |
 **Organization setup** (Configurazione organizzazione) |È possibile personalizzare il nome e il certificato dell'organizzazione oppure usare i valori predefiniti.|Predefinito <br/> Avanzate |
-**VPN network settings** (Impostazioni rete VPN)| Provisioning di un gateway con tunnel VPN per l'accesso alle macchine virtuali | Yes <br/> No  |
+**VPN network settings** (Impostazioni rete VPN)| Provisioning di un gateway con tunnel VPN per l'accesso alle macchine virtuali | Sì <br/> No  |
 
 Selezionare **OK**.
 
@@ -113,7 +113,7 @@ In **Fabric configuration** ( Configurazione dell'infrastruttura) è possibile c
 | Nome parametro | DESCRIZIONE | Valori consentiti |
 |---|---|---|
 **Tipo di scala**|Tipo di distribuzione di una singola macchina virtuale con più contenitori o di più macchine virtuali in un modello di aumento del numero di istanze.|Single VM (Singola VM) o Multi VM (Più VM) |
-**Tipo di disco della macchina virtuale**|Tipo di archiviazione a supporto di ognuno dei nodi distribuiti. <br/> Per altre informazioni sull'archiviazione, vedere [Introduzione ad Archiviazione di Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction) e [Archiviazione Premium](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).|SSD Standard <br/> SSD Premium |
+**Tipo di disco della macchina virtuale**|Tipo di archiviazione a supporto di ognuno dei nodi distribuiti. <br/> Per altre informazioni sui tipi di dischi disponibili, vedere [Selezionare un tipo di disco](../../virtual-machines/windows/disks-types.md).|SSD Standard <br/> SSD Premium |
 
 ### <a name="multiple-vm-deployment-additional-settings"></a>Distribuzione su più macchine virtuali (impostazioni aggiuntive)
 

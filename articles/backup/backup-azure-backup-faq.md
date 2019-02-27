@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: b31bdacbaf1ab81223d2a99472233cd5024edced
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: bfc1c419d5d58b4528b76dbed6fd0060f6b2833d
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300732"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446665"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 Questo articolo risponde alle domande comuni sul servizio Backup di Azure.
@@ -26,12 +26,11 @@ Sì. Si possono creare fino a 500 insiemi di credenziali di Servizi di ripristin
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>Esistono limiti al numero di server/computer che possono essere registrati in ogni insieme di credenziali?
 È possibile registrare fino a 1000 macchine virtuali di Azure per insieme di credenziali. Se si usa l'agente di Backup di Microsoft Azure, è possibile registrare fino a 50 agenti di Backup di Microsoft Azure per insieme di credenziali. È possibile registrare 50 server MAB/server DPM in un insieme di credenziali.
 
-
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-data-from-different-servers-in-the-vault-when-restoring-data"></a>Se l'organizzazione ha un insieme di credenziali, come è possibile isolare i dati di server diversi nell'insieme di credenziali durante il ripristino dei dati?
 I dati del server che si desidera ripristinare insieme usano la stessa passphrase durante la configurazione del backup. Se si desidera isolare il ripristino in uno o più server specifici, usare una passphrase solo per questi server. Ad esempio, per i server del reparto risorse umane può essere usata una passphrase, per quelli dell'ufficio contabilità un'altra e per quelli di archiviazione un'altra ancora.
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>È possibile spostare l'insieme di credenziali tra sottoscrizioni?
- No. L'insieme di credenziali viene creato a livello di sottoscrizione e non può essere riassegnato a un'altra sottoscrizione.
+Sì. Per spostare un insieme di credenziali di Servizi di ripristino, vedere questo [articolo](backup-azure-move-recovery-services-vault.md).
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>È possibile spostare i dati di backup in un altro insieme di credenziali?
  No. Non è possibile spostare i dati di backup archiviati in un insieme di credenziali in un insieme di credenziali diverso.
@@ -40,7 +39,8 @@ I dati del server che si desidera ripristinare insieme usano la stessa passphras
  No. Un insieme di credenziali di Servizi di ripristino può solo modificare le opzioni di archiviazione prima che un backup venga archiviato.
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>È possibile eseguire un ripristino a livello di elemento per le macchine virtuali di cui è stato eseguito il backup in un insieme di credenziali di Servizi di ripristino?
-No, il ripristino a livello di elemento non è supportato.
+- Il ripristino a livello di elemento è supportato per le macchine virtuali di Azure sottoposte a backup con il servizio Backup di Azure. Per altre informazioni, vedere [questo articolo](backup-azure-restore-files-from-vm.md).
+- Il ripristino a livello di elemento non è supportato per i punti di ripristino online di macchine virtuali locali di cui è stato eseguito il backup con il server di Backup di Azure o System Center DPM.
 
 
 ## <a name="azure-backup-agent"></a>Agente di Backup di Azure
@@ -76,10 +76,8 @@ Le versioni di DPM supportate sono riepilogate nella [matrice di supporto](backu
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>È possibile usare il server di Backup di Azure per creare un backup di ripristino bare metal per un server fisico? <br/>
 Sì.
 
-
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>È possibile usare DPM per eseguire il backup delle App in Azure Stack?
  No. È possibile usare Backup di Azure per proteggere Azure Stack. Backup di Azure non supporta l'uso di DPM per eseguire il backup delle app in Azure Stack.
-
 
 ### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>Se ho installato l'agente Backup di Azure per proteggere i file e le cartelle, posso installare System Center DPM per eseguire il backup dei carichi di lavoro locali in Azure?
 Sì. Ma è consigliabile configurare prima DPM e poi installare l'agente di Backup di Azure.  L'installazione dei componenti in questo ordine assicura che l'agente di Backup di Azure funzioni con DPM. L'installazione dell'agente prima di installare DPM non è consigliabile o supportata.
@@ -93,7 +91,6 @@ Sì.
 - Il backup delle macchine virtuali di Azure viene eseguito una volta al giorno.
 
 ### <a name="what-operating-systems-are-supported-for-backup"></a>Quali sistemi operativi sono supportati per il backup?
-
 Backup di Azure supporta i sistemi operativi per il backup di file, cartelle e applicazioni protetti tramite server di Backup di Azure e DPM.
 
 **Sistema operativo**| **SKU** |**Dettagli**
@@ -138,29 +135,23 @@ SharePoint | Somma dei database di contenuto e configurazione in una farm di Sha
 Exchange |Somma di tutti i database di Exchange in un server di Exchange di cui viene eseguito il backup.
 Stato del sistema/ripristino bare metal |Ogni copia del ripristino bare metal o dello stato del sistema del computer di cui viene eseguito il backup.
 
-
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>È previsto un limite per la quantità di dati sottoposti a backup con un insieme di credenziali di Servizi di ripristino?
 Non c'è alcun limite alla quantità di dati di cui è possibile eseguire il backup con un insieme di credenziali di Servizi di ripristino.
 
-### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>Se si annulla un processo di backup una volta avviato, i dati di backup trasferiti vengono eliminati?
- No. Tutti i dati trasferiti nell'insieme di credenziali prima dell'annullamento del processo di backup rimangono nell'insieme di credenziali. Backup di Azure usa un meccanismo di checkpoint per aggiungere occasionalmente checkpoint ai dati di backup durante il backup. Dato che sono presenti checkpoint nei dati di backup, il processo di backup successivo può convalidare l'integrità dei file. Il processo di backup successivo sarà incrementale nei backup di dati eseguiti in precedenza. I backup incrementali trasferiscono solo dati nuovi o modificati, il che equivale a un migliore utilizzo della larghezza di banda.
-
-Se si annulla un processo di backup per una macchina virtuale di Azure, tutti i dati trasferiti vengono ignorati. Il processo di backup successivo trasferisce i dati incrementali dall'ultimo processo di backup riuscito.
-
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Perché le dimensioni dei dati trasferiti nell'insieme di credenziali di Servizi di ripristino sono inferiori a quelle dei dati selezionati per il backup?
-
- Tutti i dati di cui viene eseguito il backup dall'agente di Backup di Azure, da DPM o dal server di Backup di Azure vengono compressi e crittografati prima di essere trasferiti. Dopo aver applicato la compressione e la crittografia, i dati nell'insieme di credenziali sono ridotti del 30-40%.
+Tutti i dati di cui viene eseguito il backup dall'agente di Backup di Azure, da DPM o dal server di Backup di Azure vengono compressi e crittografati prima di essere trasferiti. Dopo aver applicato la compressione e la crittografia, i dati nell'insieme di credenziali sono ridotti del 30-40%.
 
 ### <a name="can-i-delete-individual-files-from-a-recovery-point-in-the-vault"></a>È possibile eliminare singoli file da un punto di recupero nell'insieme di credenziali?
 No, Backup di Azure non supporta l'eliminazione o la cancellazione di singoli elementi dai backup archiviati.
 
-
 ### <a name="if-i-cancel-a-backup-job-after-it-starts-is-the-transferred-backup-data-deleted"></a>Se si annulla un processo di backup dopo averlo avviato, i dati di backup trasferiti vengono eliminati?
-
  No. Tutti i dati trasferiti nell'insieme di credenziali prima dell'annullamento del processo di backup rimangono nell'insieme di credenziali.
+
 - Backup di Azure usa un meccanismo di checkpoint per aggiungere occasionalmente checkpoint ai dati di backup durante il backup.
 - Dato che sono presenti checkpoint nei dati di backup, il processo di backup successivo può convalidare l'integrità dei file.
 - Il processo di backup successivo sarà incrementale nei backup di dati eseguiti in precedenza. I backup incrementali trasferiscono solo dati nuovi o modificati, il che equivale a un migliore utilizzo della larghezza di banda.
+
+Se si annulla un processo di backup per una macchina virtuale di Azure, tutti i dati trasferiti vengono ignorati. Il processo di backup successivo trasferisce i dati incrementali dall'ultimo processo di backup riuscito.
 
 ## <a name="retention-and-recovery"></a>Conservazione e ripristino
 
@@ -177,7 +168,7 @@ Sì, è possibile personalizzare i criteri. Ad esempio, è possibile configurare
 
 
 ### <a name="if-a-backup-is-kept-for-a-long-time-does-it-take-more-time-to-recover-an-older-data-point-br"></a>Se un backup viene conservato a lungo, è necessario più tempo per ripristinare un punto dati meno recente? <br/>
-No, il tempo necessario per ripristinare il punto meno recente o il più recente è lo stesso. Ogni punto di ripristino si comporta come un punto completo.
+ No. Il tempo necessario per ripristinare il punto meno recente o il più recente è lo stesso. Ogni punto di ripristino si comporta come un punto completo.
 
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>Se ogni punto di ripristino si comporta come un punto completo, questo influisce sul totale dell'archiviazione di backup fatturabile?
 I punti di conservazione tipici a lungo termine archiviano i dati di backup come punti completi.
@@ -203,7 +194,7 @@ Non esistono limiti al numero di ripristini da Backup di Azure.
 Quando vengono applicati nuovi criteri, vengono seguite la pianificazione e la conservazione stabilite dai nuovi criteri.
 
 - Se il periodo di conservazione viene esteso, i punti di ripristino esistenti vengono contrassegnati in modo che vengano mantenuti in base ai nuovi criteri.
-- - Se il periodo di conservazione viene ridotto, vengono contrassegnati per l'eliminazione ed eliminati nel successivo processo di pulizia.
+- Se il periodo di conservazione viene ridotto, vengono contrassegnati per l'eliminazione ed eliminati nel successivo processo di pulizia.
 
 ## <a name="encryption"></a>Crittografia
 

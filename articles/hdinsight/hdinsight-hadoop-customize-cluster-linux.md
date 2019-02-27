@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: ea83d061f7160db04c847be66e79da60da78634d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d325cfd679c2a8b878ae9a7b483431aba32b2a5a
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662908"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313280"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>Personalizzare i cluster HDInsight basati su Linux tramite azioni script
 
@@ -55,7 +55,7 @@ Un'azione di script è uno script Bash eseguito sui nodi di un cluster HDInsight
 
     * Account di Azure Data Lake Storage accessibile dal cluster HDInsight. Per informazioni sull'uso di Azure Data Lake Storage con HDInsight, vedere [Guida introduttiva: Impostazione dei cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 
-        Il formato dell'URI per gli script archiviati in Data Lake Storage è `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
+        Il formato dell'URI per gli script archiviati in Data Lake Storage Gen1 è `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
 
         > [!NOTE]  
         > L'entità servizio usata da HDInsight per accedere a Data Lake Storage deve avere accesso in lettura allo script.

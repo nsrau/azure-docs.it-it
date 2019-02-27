@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 02/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 55558f1483a576e7ac3b9ce027588eceabd5db70
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c0f824e2be0215192ca4ca1a722e814cbf299b7a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311712"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342423"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Sicurezza e privacy dei dati in Ricerca di Azure
 
@@ -60,14 +60,16 @@ Tutti i servizi di Azure supportano i controlli degli accessi in base al ruolo p
 
 ## <a name="service-access-and-authentication"></a>Accesso al servizio e autenticazione
 
-Ricerca di Azure non solo eredita le misure di sicurezza della piattaforma Azure, ma fornisce anche la propria autenticazione basata su chiavi. Una chiave API è una stringa composta da lettere e numeri generati casualmente. Il tipo di chiave (amministratore o di query) determina il livello di accesso. L'invio di una chiave valida è considerato come prova che la richiesta ha origine da un'entità attendibile. Per accedere al servizio di ricerca vengono usati due tipi di chiavi:
+Ricerca di Azure non solo eredita le misure di sicurezza della piattaforma Azure, ma fornisce anche la propria autenticazione basata su chiavi. Una chiave API è una stringa composta da lettere e numeri generati casualmente. Il tipo di chiave (amministratore o di query) determina il livello di accesso. L'invio di una chiave valida è considerato come prova che la richiesta ha origine da un'entità attendibile. 
 
-* Amministratore (valida per qualsiasi operazione in lettura/scrittura sul servizio)
-* Di query (valida per operazioni di sola lettura, ad esempio le query su un indice)
+Esistono due livelli di accesso al servizio di ricerca, abilitati da due tipi di chiavi:
 
-Le chiavi amministratore vengono create quando viene effettuato il provisioning del servizio. Esistono due chiavi amministratore, designate come *primaria* e *secondaria* per distinguerle, ma di fatto sono intercambiabili. Ogni servizio ha due chiavi amministratore in modo che sia possibile eseguire il rollover di una senza perdere l'accesso al servizio. È possibile rigenerare qualsiasi delle due chiavi amministrative ma non è possibile aggiungere chiavi al totale delle chiavi amministrative disponibili. È consentito un massimo di due chiavi amministratore per ogni servizio di ricerca.
+* Accesso amministratore (valido per qualsiasi operazione di lettura/scrittura sul servizio)
+* Accesso query (valido per operazioni di sola lettura, ad esempio le query su un indice)
 
-Le chiavi di query vengono create in base alle necessità e sono progettate per le applicazioni client che chiamano il servizio di ricerca direttamente. È possibile creare fino a 50 chiavi di query. Nel codice dell'applicazione si specificano l'URL di ricerca e una chiave API di query per consentire l'accesso di sola lettura al servizio. Il codice dell'applicazione specifica anche l'indice usato dall'applicazione. L'endpoint, una chiave API per l'accesso di sola lettura e un indice di destinazione definiscono insieme l'ambito e il livello di accesso della connessione dall'applicazione client.
+Le *chiavi amministratore* vengono create quando viene effettuato il provisioning del servizio. Esistono due chiavi amministratore, designate come *primaria* e *secondaria* per distinguerle, ma di fatto sono intercambiabili. Ogni servizio ha due chiavi amministratore in modo che sia possibile eseguire il rollover di una senza perdere l'accesso al servizio. È possibile rigenerare qualsiasi delle due chiavi amministrative ma non è possibile aggiungere chiavi al totale delle chiavi amministrative disponibili. È consentito un massimo di due chiavi amministratore per ogni servizio di ricerca.
+
+Le *chiavi di query* vengono create in base alle necessità e sono progettate per le applicazioni client che chiamano il servizio di ricerca direttamente. È possibile creare fino a 50 chiavi di query. Nel codice dell'applicazione si specificano l'URL di ricerca e una chiave API di query per consentire l'accesso di sola lettura al servizio. Il codice dell'applicazione specifica anche l'indice usato dall'applicazione. L'endpoint, una chiave API per l'accesso di sola lettura e un indice di destinazione definiscono insieme l'ambito e il livello di accesso della connessione dall'applicazione client.
 
 L'autenticazione è necessaria per ogni richiesta, dove ogni richiesta è costituita da una chiave obbligatoria, un'operazione e un oggetto. Se concatenati, i due livelli di autorizzazione (completa o di sola lettura) più il contesto (ad esempio un'operazione di query su un indice) sono sufficienti per fornire una sicurezza ad ampio spettro per le operazioni del servizio. Per altre informazioni sulle chiavi, vedere [Create and manage api-keys](search-security-api-keys.md) (Creare e gestire le chiavi API).
 
@@ -93,7 +95,9 @@ Per informazioni sulla struttura di una richiesta in Ricerca di Azure, vedere [A
 
 ## <a name="user-access-to-index-content"></a>Accesso utente al contenuto dell'indice
 
-L'accesso per utente ai contenuti di un indice viene implementato tramite filtri di sicurezza sulle query, che restituiscono i documenti associati a una determinata identità di sicurezza. Invece di ruoli e assegnazioni di ruolo predefiniti, il controllo di accesso basato sull'identità viene implementato come un filtro che limita i risultati della ricerca di documenti e contenuto in base alle identità. La tabella seguente descrive due approcci per limitare i risultati della ricerca di contenuto non autorizzato.
+Per impostazione predefinita, l'accesso utente a un indice è determinato dalla chiave di accesso per la richiesta della query. La maggior parte degli sviluppatori crea e assegna [*chiavi di query*](search-security-api-keys.md) per le richieste di ricerca lato client. Una chiave di query concede l'accesso in lettura a tutti i contenuti all'interno dell'indice.
+
+Se è necessario il controllo per utente granulare sul contenuto, è possibile creare filtri di sicurezza sulle query, che restituiscono i documenti associati a una determinata identità di sicurezza. Invece di ruoli e assegnazioni di ruolo predefiniti, il controllo di accesso basato sull'identità viene implementato come un *filtro* che limita i risultati della ricerca di documenti e contenuto in base alle identità. La tabella seguente descrive due approcci per limitare i risultati della ricerca di contenuto non autorizzato.
 
 | Approccio | DESCRIZIONE |
 |----------|-------------|

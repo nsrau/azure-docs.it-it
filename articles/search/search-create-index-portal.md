@@ -7,31 +7,29 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 02/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4bba8b41418dadad1b241d60ab0b7aeee4c046d7
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 6a2bac71c37cc750eb24e3492ecdcdf0b2333cce
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316710"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338836"
 ---
-# <a name="how-to-create-an-azure-search-index-using-the-azure-portal"></a>Come creare un indice di Ricerca di Azure nel portale di Azure
+# <a name="create-an-azure-search-index-in-the-portal"></a>Creare un indice di Ricerca di Azure nel portale
 
 Ricerca di Azure include una finestra di progettazione degli indici nel portale utile per i prototipi o per creare un [indice di ricerca](search-what-is-an-index.md) ospitato nel servizio Ricerca di Azure. Lo strumento viene usato per la costruzione degli schemi. Quando si salva la definizione, viene reso disponibile un indice vuoto in Ricerca di Azure. La modalità di caricamento dell'indice e dei dati ricercabili viene scelta dall'utente.
 
 La finestra di progettazione degli indici rappresenta solo uno degli approcci per la creazione di un indice. A livello di codice, è possibile creare un indice usando le API [.NET](search-create-index-dotnet.md) o [REST](search-create-index-rest-api.md).
 
-## <a name="prerequisites"></a>Prerequisiti
-
-Questo articolo presuppone la disponibilità di una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) e del [servizio Ricerca di Azure](search-create-service-portal.md).
-
-## <a name="open-index-designer-and-name-an-index"></a>Aprire la finestra di progettazione degli indici e assegnare un nome a un indice
+## <a name="start-index-designer"></a>Avviare la finestra di progettazione degli indici
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e aprire il dashboard del servizio. Per cercare i servizi di ricerca esistenti nella sottoscrizione corrente, è possibile fare clic su **Tutti i servizi** nell'indice. 
 
-2.  Fare clic sul pulsante **Aggiungi indice** nella barra dei comandi nella parte superiore della pagina.
+2. Fare clic sul collegamento **Aggiungi indice** nella barra dei comandi nella parte superiore della pagina.
+
+   ![Collegamento Aggiungi indice nella barra dei comandi](media/search-create-index-portal/add-index.png "Collegamento Aggiungi indice nella barra dei comandi")
 
 3. Assegnare un nome all'indice di Ricerca di Azure. Il riferimento ai nomi di indice è previsto nelle operazioni di indicizzazione e creazione di query. Il nome dell'indice diventa parte dell'URL dell'endpoint usato per le connessioni all'indice e per l'invio di richieste HTTP nell'API REST di Ricerca di Azure.
 
@@ -39,39 +37,31 @@ Questo articolo presuppone la disponibilità di una [sottoscrizione di Azure](ht
    * Usare solo lettere minuscole, numeri o trattini ("-").
    * Il limite per il nome è di 60 caratteri.
 
-## <a name="define-the-fields-of-your-index"></a>Definire i campi dell'indice
+## <a name="add-fields"></a>Aggiungere i campi
 
 La composizione dell'indice include un *insieme di campi* che definisce i dati su cui è possibile eseguire ricerche nell'indice. In generale, la raccolta di campi specifica la struttura dei documenti caricati separatamente. La raccolta Campi include i campi obbligatori e facoltativi, denominati e digitati, con gli attributi dell'indice che determinano le modalità d'uso del campo.
 
-1. Nel pannello **Aggiungi indice** fare clic su **Campi >** per aprire con effetto di scorrimento il pannello di definizione del campo. 
+1. Aggiungere i campi per specificare tutti i documenti che verranno caricati, impostando un [tipo di dati](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) per ognuno. Se ad esempio i documenti includono *ID hotel*, *nome hotel*, *indirizzo*, *città* e *area*, creare un campo corrispondente per ognuno di essi nell'indice. Rivedere le [istruzioni di progettazione nella sezione seguente](#design) per informazioni sull'impostazione degli attributi.
 
-2. Accettare il campo *chiave* generato di tipo Edm.String. Per impostazione predefinita, il campo viene denominato *id* ma è possibile rinominarlo, purché la stringa soddisfi le [regole di denominazione](https://docs.microsoft.com/rest/api/searchservice/Naming-rules). Per ogni indice di Ricerca di Azure è obbligatorio un campo chiave che deve essere una stringa.
+2. Specificare un campo *chiave* di tipo Edm.String. I valori per questo campo devono identificare in modo univoco ogni documento. Per impostazione predefinita, il campo viene denominato *id* ma è possibile rinominarlo, purché la stringa soddisfi le [regole di denominazione](https://docs.microsoft.com/rest/api/searchservice/Naming-rules). Se ad esempio la raccolta di campi include *ID hotel*, sceglierlo come chiave. Per ogni indice di Ricerca di Azure è obbligatorio un campo chiave che deve essere una stringa.
 
-3. Aggiungere i campi per specificare tutti i documenti che verranno caricati. Se i documenti includono *ID*, *nome hotel*, *indirizzo*, *città* e *area*, creare un campo corrispondente per ciascuno di essi nell'indice. Rivedere le [istruzioni di progettazione nella sezione seguente](#design) per informazioni sugli attributi di impostazione.
+3. Impostare gli attributi in ogni campo. La finestra di progettazione degli indici esclude tutti gli attributi non validi per il tipo di dati, ma non suggerisce che cosa includere. Esaminare le indicazioni fornite nella sezione successiva per comprendere la funzione degli attributi.
 
-4. Facoltativamente, aggiungere tutti i campi che vengono usati internamente nelle espressioni di filtro. È possibile impostare gli attributi nel campo per escludere i campi dalle operazioni di ricerca.
+    La documentazione API di Ricerca di Azure include esempi di codice che presentano un semplice indice *hotel*. Nello screenshot seguente è possibile vedere la definizione dell'indice, che include l'analizzatore di lingua francese specificato durante la definizione dell'indice, che è possibile ricreare come esercitazione nel portale.
 
-5. Al termine, fare clic su **OK** per salvare e creare l'indice.
+    ![Indice demo degli hotel](media/search-create-index-portal/field-definitions.png "Indice demo degli hotel")
 
-## <a name="tips-for-adding-fields"></a>Suggerimenti per l'aggiunta di campi
-
-La creazione di un indice nel portale prevede l'uso quasi esclusivo della tastiera. Abbreviare la procedura seguendo questo flusso di lavoro:
-
-1. Innanzitutto, compilare l'elenco dei campi immettendo i nomi impostando i tipi di dati.
-
-2. Successivamente, usare le caselle di controllo nella parte superiore di ciascun attributo abilitare in blocco l'impostazione per tutti i campi e quindi cancellare selettivamente le caselle di alcuni campi non necessarie. Ad esempio, nei i campi della stringa in genere è possibile eseguire ricerche. Di conseguenza, è possibile fare clic su **Recuperabile** e **Ricercabile** sia per restituire i valori del campo nei risultati della ricerca, che per consentire la ricerca full-text nel campo. 
+4. Al termine, fare clic su **Crea** per salvare e creare l'indice.
 
 <a name="design"></a>
 
-## <a name="design-guidance-for-setting-attributes"></a>Indicazioni di progettazione per impostare gli attributi
+## <a name="set-attributes"></a>Impostare gli attributi
 
 Sebbene sia possibile aggiungere nuovi campi in qualsiasi momento, le definizioni del campo esistente vengono bloccate per la durata dell'indice. Per questo motivo, gli sviluppatori in genere usano il portale per la creazione di indici semplici, idee di test o usano le pagine del portale per cercare un'impostazione. L'iterazione frequente su una progettazione degli indici è più efficiente se si segue un approccio basato sul codice in modo che sia possibile ricompilare l'indice con facilità.
 
-Gli analizzatori e gli strumenti suggerimenti vengono associati ai campi prima che venga salvato l'indice. Assicurarsi di fare clic su ogni pagina a schede per aggiungere gli analizzatori del linguaggio o gli strumenti suggerimenti alla definizione dell'indice.
+Gli analizzatori e gli strumenti suggerimenti vengono associati ai campi prima che venga salvato l'indice. Assicurarsi di aggiungere gli analizzatori della lingua o gli strumenti suggerimenti alla definizione dell'indice durante la creazione.
 
-I campi della stringa spesso sono contrassegnati come **Ricercabile** e **Recuperabile**.
-
-I campi usati per limitare i risultati della ricerca includono **Classificabile**, **Filtrabile**, e **Con facet**.
+I campi della stringa spesso sono contrassegnati come **Ricercabile** e **Recuperabile**. I campi usati per limitare i risultati della ricerca includono **Classificabile**, **Filtrabile**, e **Con facet**.
 
 Gli attributi del campo determinano le modalità in cui un campo viene usato, ad esempio se viene usato nella ricerca full-text, nella navigazione con facet, nelle operazioni di ordinamento e così via. Nella tabella seguente sono descritti i singoli attributi.
 
@@ -84,19 +74,11 @@ Gli attributi del campo determinano le modalità in cui un campo viene usato, ad
 |**key**|Identificatore univoco per i documenti all'interno dell'indice. È necessario scegliere un singolo campo come campo chiave e questo deve essere di tipo `Edm.String`.|  
 |**retrievable**|Specifica se il campo può essere restituito nel risultato di una ricerca. Questo attributo è utile quando si vuole usare un campo, ad esempio *margine di profitto*, come meccanismo di filtro, ordinamento o punteggio ma si preferisce che il campo non sia visibile all'utente finale. L'attributo deve essere `true` for `key` .|  
 
-## <a name="create-the-hotels-index-used-in-example-api-sections"></a>Creare l'indice degli hotel usato nelle sezioni API di esempio
-
-La documentazione API di Ricerca di Azure include esempi di codice che presentano un semplice indice *hotel*. Nelle schermate riportate di seguito, è possibile visualizzare la definizione dell'indice, che include l'analizzatore di lingua francese specificato durante la definizione dell'indice, che è possibile ricreare come esercitazione nel portale.
-
-![](./media/search-create-index-portal/field-definitions.png)
-
-![](./media/search-create-index-portal/set-analyzer.png)
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 Dopo aver creato un indice di Ricerca di Azure, è possibile passare al passaggio successivo: [caricare i dati ricercabili nell'indice](search-what-is-data-import.md).
 
-In alternativa, è anche possibile analizzare in modo approfondito gli indici. Oltre alla raccolta di campi, un indice specifica anche gli analizzatori, gli strumenti suggerimenti, i profili di punteggio e le impostazioni CORS. Il portale offre pagine a schede per definire gli elementi più comuni: i campi, gli analizzatori e gli strumenti di suggerimento. Per creare o modificare altri elementi, è possibile usare l'API REST o .NET SDK.
+In alternativa, è anche possibile [analizzare in modo approfondito gli indici](search-what-is-an-index.md). Oltre alla raccolta di campi, un indice specifica anche gli analizzatori, gli strumenti suggerimenti, i profili di punteggio e le impostazioni CORS. Il portale offre pagine a schede per definire gli elementi più comuni: i campi, gli analizzatori e gli strumenti di suggerimento. Per creare o modificare altri elementi, è possibile usare l'API REST o .NET SDK.
 
 ## <a name="see-also"></a>Vedere anche 
 

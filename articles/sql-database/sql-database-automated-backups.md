@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: af3a654010fa676096bfad895d5814b2cefa8e71
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7afc1170ba2503c8a8c97be9a19459c92e331449
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997129"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453580"
 ---
 # <a name="automated-backups"></a>Backup automatizzati
 
@@ -85,6 +85,11 @@ I database autonomi e in pool offrono la possibilità di configurare la conserva
 Come i backup di ripristino temporizzato, i backup di conservazione a lungo termine sono a ridondanza geografica e protetti dalla [riproduzione su più aree di Azure Storage](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
 
 Per altre informazioni, vedere [Conservazione dei backup a lungo termine](sql-database-long-term-retention.md).
+
+## <a name="storage-costs"></a>Costi di archiviazione
+7 giorni di backup automatizzati dei database vengono copiati nell'archivio BLOB Standard con archiviazione con ridondanza geografica e accesso in lettura per impostazione predefinita. Le risorse di archiviazione vengono usate da backup completi settimanali, backup differenziali giornalieri e backup del log delle transazioni copiati ogni 5 minuti. Le dimensioni del log delle transazioni dipendono dalla frequenza di modifica del database. Una quantità di risorse di archiviazione minima equivalente al 100% delle dimensioni del database viene fornita senza addebiti aggiuntivi. L'utilizzo aggiuntivo dell'archivio di backup verrà addebitato in base a GB/mese.
+
+Per altre informazioni sui prezzi delle risorse di archiviazione, vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/sql-database/single/). 
 
 ## <a name="are-backups-encrypted"></a>I backup sono crittografati?
 

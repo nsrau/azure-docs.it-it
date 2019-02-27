@@ -1,6 +1,6 @@
 ---
-title: Creare ruoli personalizzati con l'interfaccia della riga di comando di Azure | Microsoft Docs
-description: Informazioni su come creare ruoli personalizzati per il controllo degli accessi in base al ruolo con l'interfaccia della riga di comando di Azure. Viene illustrato come elencare, creare, aggiornare ed eliminare ruoli personalizzati.
+title: Creare ruoli personalizzati per le risorse di Azure tramite l'interfaccia della riga di comando di Azure | Microsoft Docs
+description: Informazioni su come creare ruoli personalizzati con il controllo degli accessi in base al ruolo per le risorse di Azure tramite l'interfaccia della riga di comando di Azure. Viene illustrato come elencare, creare, aggiornare ed eliminare ruoli personalizzati.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3b5d18a3e0bf846137dfdf68b8e5dd9e2db58792
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: b768f6e240c354369246a6d978ed3e8dd2f58f92
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437257"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338139"
 ---
-# <a name="create-custom-roles-using-azure-cli"></a>Creare ruoli personalizzati con l'interfaccia della riga di comando di Azure
+# <a name="create-custom-roles-for-azure-resources-using-azure-cli"></a>Creare ruoli personalizzati per le risorse di Azure tramite l'interfaccia della riga di comando di Azure
 
-Se i [ruoli predefiniti](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati. Questo articolo descrive come creare e gestire ruoli personalizzati con l'interfaccia della riga di comando di Azure.
+Se i [ruoli predefiniti per le risorse di Azure](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati. Questo articolo descrive come creare e gestire ruoli personalizzati con l'interfaccia della riga di comando di Azure.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per creare ruoli personalizzati è necessario:
 
@@ -162,6 +162,6 @@ az role definition delete --name "Virtual Machine Operator"
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: creare un ruolo personalizzato con l'interfaccia della riga di comando di Azure](tutorial-custom-role-cli.md)
-- [Ruoli personalizzati in Azure](custom-roles.md)
+- [Esercitazione: creare un ruolo personalizzato per le risorse di Azure tramite l'interfaccia della riga di comando di Azure](tutorial-custom-role-cli.md)
+- [Ruoli personalizzati per le risorse di Azure](custom-roles.md)
 - [Operazioni di provider di risorse con Azure Resource Manager](resource-provider-operations.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 77763765e75500d994235bba0a5c0c3bb3e3be70
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 9917901146eb0a050531a66ab24fbd88c91c02c9
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756819"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311206"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introduzione a Storage Explorer
 
@@ -221,7 +221,7 @@ Per illustrare questo scenario, si supponga che l'utente A sia l'amministratore 
 
 3. L'utente B usa Storage Explorer per collegarsi all'account appartenente all'utente A usando la firma di accesso condiviso fornita.
 
-### <a name="generate-a-sas-connection-string-for-the-account-you-want-to-share"></a>Generare una stringa di connessione della firma di accesso condiviso per l'account da condividere
+### <a name="generate-a-sas-query-string-for-the-account-you-want-to-share"></a>Generare una stringa di query della firma di accesso condiviso per l'account da condividere
 
 1. In Storage Explorer fare clic con il pulsante destro del mouse sull'account di archiviazione che si vuole condividere e quindi scegliere **Get Shared Access Signature** (Ottieni firma di accesso condiviso).
 
@@ -231,7 +231,7 @@ Per illustrare questo scenario, si supponga che l'utente A sia l'amministratore 
 
     ![Finestra di dialogo Get SAS (Ottieni firma di accesso condiviso)][15]
 
-3. Accanto alla casella di testo **Connection String** (Stringa di connessione) selezionare **Copy** (Copia) per copiare la stringa negli Appunti e quindi fare clic su **Close** (Chiudi).
+3. Accanto alla casella di testo **Query String** (Stringa di query) selezionare **Copy** (Copia) per copiare la stringa negli Appunti e quindi fare clic su **Close** (Chiudi).
 
 ### <a name="attach-to-a-storage-account-by-using-a-sas-connection-string"></a>Collegarsi a un account di archiviazione tramite una stringa di connessione della firma di accesso condiviso
 

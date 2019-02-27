@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: 1aa9c6da2d59294c5791d65a0943bfce497f9be4
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 434971e707cdca62c76ede9f295e7af20aa4cc3f
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387047"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313535"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Usare l'estensione Diagnostica per Linux per monitorare le metriche e i registri
 
@@ -271,7 +271,7 @@ sampleRateInSeconds | (facoltativo) L'intervallo predefinito tra la raccolta di 
 
 Elemento | Valore
 ------- | -----
-ResourceId | L'ID della risorsa di Azure Resource Manager della macchina virtuale o del set di scalabilità di macchine a cui appartiene la macchina virtuale. Questa impostazione deve essere specificata anche se nella configurazione viene usato un sink JsonBlob.
+resourceId | L'ID della risorsa di Azure Resource Manager della macchina virtuale o del set di scalabilità di macchine a cui appartiene la macchina virtuale. Questa impostazione deve essere specificata anche se nella configurazione viene usato un sink JsonBlob.
 scheduledTransferPeriod | La frequenza con cui le metriche aggregate devono essere calcolate e trasferite a Metriche di Azure, espressa come un intervallo di tempo IS 8601. Il periodo di trasferimento più piccolo è 60 secondi, ovvero PT1M. È necessario specificare almeno un scheduledTransferPeriod.
 
 Gli esempi delle metriche specificate nella sezione performanceCounters vengono raccolti ogni 15 secondi o alla frequenza di esempio definita in modo esplicito per il contatore. Se vengono visualizzate più frequenze scheduledTransferPeriod, come illustrato nell'esempio, ogni aggregazione viene calcolata in modo indipendente.
@@ -316,7 +316,7 @@ type | Identifica il provider effettivo della metrica.
 class | Con "counter" identifica la metrica specifica all'interno dello spazio dei nomi del provider.
 counter | Con "class" identifica la metrica specifica all'interno dello spazio dei nomi del provider.
 counterSpecifier | Identifica la metrica specifica all'interno dello spazio dei nomi di Metriche di Azure.
-condition | (facoltativo) Seleziona un'istanza specifica dell'oggetto a cui si applica la metrica oppure seleziona l'aggregazione in tutte le istanze di tale oggetto. Per ulteriori informazioni, vedere le [`builtin`definizioni delle metriche](#metrics-supported-by-builtin).
+condition | (facoltativo) Seleziona un'istanza specifica dell'oggetto a cui si applica la metrica oppure seleziona l'aggregazione in tutte le istanze di tale oggetto. Per altre informazioni, vedere le definizioni delle metriche `builtin`.
 sampleRate | Intervallo IS 8601 che imposta la frequenza con cui vengono raccolti gli esempi non elaborati per questa metrica. Se non viene impostata, l'intervallo di raccolta viene impostato dal valore di [sampleRateInSeconds](#ladcfg). La frequenza di esempio più piccola supportata è 15 secondi (PT15S).
 unit | Deve essere una delle seguenti stringhe: "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond". Definisce l'unità per la metrica. Gli utenti dei dati raccolti prevedono che i valori dei dati raccolti corrispondano a questa unità. LAD ignora questo campo.
 displayName | L'etichetta, nella lingua specificata dall'impostazione locale associata, da allegare a questi dati in Metriche di Azure. LAD ignora questo campo.

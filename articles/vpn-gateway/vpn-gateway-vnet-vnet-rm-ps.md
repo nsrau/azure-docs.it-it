@@ -2,18 +2,17 @@
 title: "Connettere una rete virtuale Azure a un'altra rete virtuale con una connessione da rete virtuale a rete virtuale: PowerShell | Microsoft Docs"
 description: Connettere reti virtuali tra loro tramite una connessione da rete virtuale a rete virtuale e PowerShell.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/14/2018
+ms.date: 02/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6624c28d686a584017d703889e57ef1a7126b16d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6da0511456f413924eee9d4cf622f50125b15833
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695516"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416565"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurare una connessione gateway VPN tra reti virtuali usando PowerShell
 
@@ -28,8 +27,6 @@ I passaggi di questo articolo sono applicabili al modello di distribuzione Resou
 > * [Portale di Azure (classico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Connettersi tra modelli di distribuzione diversi - Portale di Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Connettersi tra modelli di distribuzione diversi - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
->
->
 
 ## <a name="about"></a>Informazioni sulla connessione di reti virtuali
 
@@ -80,7 +77,11 @@ Per questo esercizio è possibile combinare le configurazioni oppure sceglierne 
 
 ### <a name="before-you-begin"></a>Prima di iniziare
 
-Prima di iniziare, è necessario installare la versione più recente dei cmdlet di PowerShell per Azure Resource Manager, almeno 4.0 o versione successiva. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+* Poiché la creazione di un gateway richiede fino a 45 minuti, Azure Cloud Shell andrà periodicamente in timeout nel corso dell'esercizio. È possibile riavviare Cloud Shell facendo clic nella parte superiore sinistra del terminale. Assicurarsi di dichiarare nuovamente tutte le variabili quando si riavvia il terminale.
+
+* Se si preferisce installare la versione più recente del modulo Azure PowerShell in locale, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="Step1"></a>Passaggio 1: Pianificare gli intervalli di indirizzi IP
 
@@ -122,10 +123,28 @@ Negli esempi vengono usati i valori seguenti:
 
 ### <a name="Step2"></a>Passaggio 2: Creare e configurare TestVNet1
 
-1. Dichiarare le variabili. Nell'esempio seguente vengono dichiarate le variabili usando i valori per questo esercizio. Nella maggior parte dei casi è necessario sostituire i valori con quelli personalizzati. È tuttavia possibile usare queste variabili se si esegue la procedura per acquisire familiarità con questo tipo di configurazione. Modificare le variabili se necessario, quindi copiarle e incollarle nella console di PowerShell.
+1. Verificare le impostazioni della sottoscrizione.
 
-  ```powershell
-  $Sub1 = "Replace_With_Your_Subscription_Name"
+  Se si usa PowerShell in locale, connettersi al proprio account. Se si usa Azure Cloud Shell, si è connessi automaticamente.
+
+  ```azurepowershell-interactive
+  Connect-AzAccount
+  ```
+
+  Controllare le sottoscrizioni per l'account.
+
+  ```azurepowershell-interactive
+  Get-AzSubscription
+  ```
+
+  Se sono disponibili più sottoscrizioni, specificare la sottoscrizione da usare.
+
+  ```azurepowershell-interactive
+  Select-AzSubscription -SubscriptionName nameofsubscription
+  ```
+2. Dichiarare le variabili. Nell'esempio seguente vengono dichiarate le variabili usando i valori per questo esercizio. Nella maggior parte dei casi è necessario sostituire i valori con quelli personalizzati. È tuttavia possibile usare queste variabili se si esegue la procedura per acquisire familiarità con questo tipo di configurazione. Modificare le variabili se necessario, quindi copiarle e incollarle nella console di PowerShell.
+
+  ```azurepowershell-interactive
   $RG1 = "TestRG1"
   $Location1 = "East US"
   $VNetName1 = "TestVNet1"
@@ -143,73 +162,57 @@ Negli esempi vengono usati i valori seguenti:
   $Connection14 = "VNet1toVNet4"
   $Connection15 = "VNet1toVNet5"
   ```
+3. Creare un gruppo di risorse.
 
-2. Connettersi all'account. Per eseguire la connessione, usare gli esempi che seguono:
-
-  ```powershell
-  Connect-AzureRmAccount
-  ```
-
-  Controllare le sottoscrizioni per l'account.
-
-  ```powershell
-  Get-AzureRmSubscription
-  ```
-
-  Specificare la sottoscrizione da usare.
-
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName $Sub1
-  ```
-3. Creare un nuovo gruppo di risorse.
-
-  ```powershell
-  New-AzureRmResourceGroup -Name $RG1 -Location $Location1
+  ```azurepowershell-interactive
+  New-AzResourceGroup -Name $RG1 -Location $Location1
   ```
 4. Creare le configurazioni di subnet per TestVNet1. L'esempio seguente mostra come creare una rete virtuale denominata TestVNet1 e tre subnet, denominate rispettivamente GatewaySubnet, FrontEnd e Backend. Quando si sostituiscono i valori, è importante che la subnet gateway venga denominata sempre esattamente GatewaySubnet. Se si assegnano altri nomi, la creazione del gateway ha esito negativo.
 
   L'esempio seguente fa uso delle variabili impostate in precedenza. In questo esempio, la subnet del gateway usa /27. Nonostante sia possibile creare una subnet del gateway con dimensioni di /29 soltanto, è consigliabile crearne una più grande che includa più indirizzi selezionando almeno /28 o /27. In questo modo saranno disponibili indirizzi sufficienti per supportare in futuro le possibili configurazioni aggiuntive desiderate.
 
-  ```powershell
-  $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
-  $besub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
-  $gwsub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
+  ```azurepowershell-interactive
+  $fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
+  $besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
+  $gwsub1 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
   ```
 5. Creare TestVNet1.
 
-  ```powershell
-  New-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 `
   -Location $Location1 -AddressPrefix $VNetPrefix11,$VNetPrefix12 -Subnet $fesub1,$besub1,$gwsub1
   ```
 6. Richiedere un indirizzo IP pubblico da allocare per il gateway che verrà creato per la rete virtuale. Si noti che AllocationMethod è dinamico. Non è possibile specificare l'indirizzo IP che si desidera usare. Viene allocato in modo dinamico per il gateway. 
 
-  ```powershell
-  $gwpip1 = New-AzureRmPublicIpAddress -Name $GWIPName1 -ResourceGroupName $RG1 `
+  ```azurepowershell-interactive
+  $gwpip1 = New-AzPublicIpAddress -Name $GWIPName1 -ResourceGroupName $RG1 `
   -Location $Location1 -AllocationMethod Dynamic
   ```
 7. Definire la configurazione del gateway. La configurazione del gateway definisce la subnet e l'indirizzo IP pubblico da utilizzare. Per creare la configurazione del gateway, usare l'esempio seguente.
 
-  ```powershell
-  $vnet1 = Get-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
-  $subnet1 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
-  $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 `
+  ```azurepowershell-interactive
+  $vnet1 = Get-AzVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
+  $subnet1 = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
+  $gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 `
   -Subnet $subnet1 -PublicIpAddress $gwpip1
   ```
 8. Creare il gateway per TestVNet1. In questo passaggio viene creato il gateway di rete virtuale per TestVNet1. Le configurazioni da rete virtuale a rete virtuale richiedono un tipo di VpnType RouteBased. La creazione di un gateway spesso richiede anche più di 45 minuti di tempo a seconda dello SKU gateway selezionato.
 
-  ```powershell
-  New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
   -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn `
   -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
+Una volta completati i comandi, la creazione del gateway richiederà fino a 45 minuti. Se si usa Azure Cloud Shell, è possibile riavviare la sessione facendo doppio clic nella parte superiore sinistra del terminale di Cloud Shell, quindi configurare TestVNet4. Non è necessario attendere fino al completamento del gateway TestVNet1.
+
 ### <a name="step-3---create-and-configure-testvnet4"></a>Passaggio 3 - Creare e configurare TestVNet4
 
-Dopo aver configurato TestVNet1, creare TestVNet4. Eseguire la procedura seguente, sostituendo i valori con quelli personalizzati quando necessario. Questo passaggio può essere eseguito nella stessa sessione di PowerShell perché si trova nella stessa sottoscrizione.
+Dopo aver configurato TestVNet1, creare TestVNet4. Eseguire la procedura seguente, sostituendo i valori con quelli personalizzati quando necessario.
 
-1. Dichiarare le variabili. Sostituire i valori con quelli desiderati per la propria configurazione.
+1. Connettersi e dichiarare le variabili. Sostituire i valori con quelli desiderati per la propria configurazione.
 
-  ```powershell
+  ```azurepowershell-interactive
   $RG4 = "TestRG4"
   $Location4 = "West US"
   $VnetName4 = "TestVNet4"
@@ -226,64 +229,66 @@ Dopo aver configurato TestVNet1, creare TestVNet4. Eseguire la procedura seguent
   $GWIPconfName4 = "gwipconf4"
   $Connection41 = "VNet4toVNet1"
   ```
-2. Creare un nuovo gruppo di risorse.
+2. Creare un gruppo di risorse.
 
-  ```powershell
-  New-AzureRmResourceGroup -Name $RG4 -Location $Location4
+  ```azurepowershell-interactive
+  New-AzResourceGroup -Name $RG4 -Location $Location4
   ```
 3. Creare le configurazioni di subnet per TestVNet4.
 
-  ```powershell
-  $fesub4 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName4 -AddressPrefix $FESubPrefix4
-  $besub4 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName4 -AddressPrefix $BESubPrefix4
-  $gwsub4 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName4 -AddressPrefix $GWSubPrefix4
+  ```azurepowershell-interactive
+  $fesub4 = New-AzVirtualNetworkSubnetConfig -Name $FESubName4 -AddressPrefix $FESubPrefix4
+  $besub4 = New-AzVirtualNetworkSubnetConfig -Name $BESubName4 -AddressPrefix $BESubPrefix4
+  $gwsub4 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName4 -AddressPrefix $GWSubPrefix4
   ```
 4. Creare TestVNet4.
 
-  ```powershell
-  New-AzureRmVirtualNetwork -Name $VnetName4 -ResourceGroupName $RG4 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetwork -Name $VnetName4 -ResourceGroupName $RG4 `
   -Location $Location4 -AddressPrefix $VnetPrefix41,$VnetPrefix42 -Subnet $fesub4,$besub4,$gwsub4
   ```
 5. Richiedere un indirizzo IP pubblico.
 
-  ```powershell
-  $gwpip4 = New-AzureRmPublicIpAddress -Name $GWIPName4 -ResourceGroupName $RG4 `
+  ```azurepowershell-interactive
+  $gwpip4 = New-AzPublicIpAddress -Name $GWIPName4 -ResourceGroupName $RG4 `
   -Location $Location4 -AllocationMethod Dynamic
   ```
 6. Definire la configurazione del gateway.
 
-  ```powershell
-  $vnet4 = Get-AzureRmVirtualNetwork -Name $VnetName4 -ResourceGroupName $RG4
-  $subnet4 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet4
-  $gwipconf4 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName4 -Subnet $subnet4 -PublicIpAddress $gwpip4
+  ```azurepowershell-interactive
+  $vnet4 = Get-AzVirtualNetwork -Name $VnetName4 -ResourceGroupName $RG4
+  $subnet4 = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet4
+  $gwipconf4 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName4 -Subnet $subnet4 -PublicIpAddress $gwpip4
   ```
 7. Creare il gateway di TestVNet4. La creazione di un gateway spesso richiede anche più di 45 minuti di tempo a seconda dello SKU gateway selezionato.
 
-  ```powershell
-  New-AzureRmVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4 `
   -Location $Location4 -IpConfigurations $gwipconf4 -GatewayType Vpn `
   -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
 ### <a name="step-4---create-the-connections"></a>Passaggio 4: Creare le connessioni
 
-1. Ottenere entrambi i gateway di rete virtuale. Se entrambi i gateway sono nella stessa sottoscrizione, come nell'esempio, è possibile completare questo passaggio nella stessa sessione di PowerShell.
+Attendere fino al completamento di entrambi i gateway. Riavviare la sessione di Azure Cloud Shell e copiare e incollare le variabili dall'inizio dei passaggi 2 e 3 nella console per dichiarare nuovamente i valori.
 
-  ```powershell
-  $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
-  $vnet4gw = Get-AzureRmVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4
+1. Ottenere entrambi i gateway di rete virtuale.
+
+  ```azurepowershell-interactive
+  $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
+  $vnet4gw = Get-AzVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4
   ```
 2. Creare la connessione da TestVNet1 a TestVNet4. In questo passaggio viene creata la connessione da TestVNet1 a TestVNet4. Verrà visualizzata una chiave condivisa a cui si fa riferimento negli esempi. È possibile utilizzare i propri valori specifici per la chiave condivisa. L'importante è che la chiave condivisa corrisponda per entrambe le configurazioni. Il completamento della creazione di una connessione può richiedere un po' di tempo.
 
-  ```powershell
-  New-AzureRmVirtualNetworkGatewayConnection -Name $Connection14 -ResourceGroupName $RG1 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetworkGatewayConnection -Name $Connection14 -ResourceGroupName $RG1 `
   -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet4gw -Location $Location1 `
   -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
 3. Creare la connessione da TestVNet4 a TestVNet1. Questo passaggio è simile a quello precedente, ma riguarda la creazione della connessione da TestVNet4 a TestVNet1. Assicurarsi che le chiavi condivise corrispondano. Dopo alcuni minuti la connessione verrà stabilita.
 
-  ```powershell
-  New-AzureRmVirtualNetworkGatewayConnection -Name $Connection41 -ResourceGroupName $RG4 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetworkGatewayConnection -Name $Connection41 -ResourceGroupName $RG4 `
   -VirtualNetworkGateway1 $vnet4gw -VirtualNetworkGateway2 $vnet1gw -Location $Location4 `
   -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
@@ -291,11 +296,15 @@ Dopo aver configurato TestVNet1, creare TestVNet4. Eseguire la procedura seguent
 
 ## <a name="difsub"></a>Come connettere reti virtuali che si trovano in sottoscrizioni diverse
 
-In questo scenario vengono connesse le reti virtuali TestVNet1 e TestVNet5, che si trovano in sottoscrizioni diverse. Non è necessario che le sottoscrizioni siano associate allo stesso tenant di Active Directory. La differenza tra questi passaggi e quelli del set precedente consiste nel fatto che una parte dei passaggi di configurazione deve essere eseguita in una sessione di PowerShell separata nel contesto della seconda sottoscrizione, soprattutto quando le due sottoscrizioni appartengono a organizzazioni diverse.
+In questo scenario vengono connesse le reti virtuali TestVNet1 e TestVNet5, che si trovano in sottoscrizioni diverse. Non è necessario che le sottoscrizioni siano associate allo stesso tenant di Active Directory.
+
+La differenza tra questi passaggi e quelli del set precedente consiste nel fatto che una parte dei passaggi di configurazione deve essere eseguita in una sessione di PowerShell separata nel contesto della seconda sottoscrizione, soprattutto quando le due sottoscrizioni appartengono a organizzazioni diverse.
+
+Poiché in questo esercizio si cambia il contesto della sottoscrizione, quando si arriva al passaggio 8 può risultare più semplice usare PowerShell in locale nel computer anziché usare Azure Cloud Shell.
 
 ### <a name="step-5---create-and-configure-testvnet1"></a>Passaggio 5: Creare e configurare TestVNet1
 
-È necessario completare il [passaggio 1](#Step1) e il [passaggio 2](#Step2) della sezione precedente per creare e configurare TestVNet1 e il gateway VPN per TestVNet1. Per questo configurazione, non è necessario creare TestVNet4 dalla sezione precedente, ma, se è già stata creata, non si verificheranno conflitti con questi passaggi. Al termine, continuare con il passaggio 6 per creare TestVNet5. 
+È necessario completare il [passaggio 1](#Step1) e il [passaggio 2](#Step2) della sezione precedente per creare e configurare TestVNet1 e il gateway VPN per TestVNet1. Per questo configurazione, non è necessario creare TestVNet4 dalla sezione precedente, ma, se è già stata creata, non si verificheranno conflitti con questi passaggi. Al termine, continuare con il passaggio 6 per creare TestVNet5.
 
 ### <a name="step-6---verify-the-ip-address-ranges"></a>Passaggio 6: Verificare gli intervalli di indirizzi IP
 
@@ -322,7 +331,7 @@ Questo passaggio deve essere eseguito nel contesto della nuova sottoscrizione. Q
 
 1. Dichiarare le variabili. Sostituire i valori con quelli desiderati per la propria configurazione.
 
-  ```powershell
+  ```azurepowershell-interactive
   $Sub5 = "Replace_With_the_New_Subscription_Name"
   $RG5 = "TestRG5"
   $Location5 = "Japan East"
@@ -342,56 +351,56 @@ Questo passaggio deve essere eseguito nel contesto della nuova sottoscrizione. Q
   ```
 2. Connettersi alla sottoscrizione 5. Aprire la console di PowerShell e connettersi al proprio account. Per connettersi, usare l'esempio seguente:
 
-  ```powershell
-  Connect-AzureRmAccount
+  ```azurepowershell-interactive
+  Connect-AzAccount
   ```
 
   Controllare le sottoscrizioni per l'account.
 
-  ```powershell
-  Get-AzureRmSubscription
+  ```azurepowershell-interactive
+  Get-AzSubscription
   ```
 
   Specificare la sottoscrizione da usare.
 
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName $Sub5
+  ```azurepowershell-interactive
+  Select-AzSubscription -SubscriptionName $Sub5
   ```
 3. Creare un nuovo gruppo di risorse.
 
-  ```powershell
-  New-AzureRmResourceGroup -Name $RG5 -Location $Location5
+  ```azurepowershell-interactive
+  New-AzResourceGroup -Name $RG5 -Location $Location5
   ```
 4. Creare le configurazioni di subnet per TestVNet5.
 
-  ```powershell
-  $fesub5 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName5 -AddressPrefix $FESubPrefix5
-  $besub5 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName5 -AddressPrefix $BESubPrefix5
-  $gwsub5 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName5 -AddressPrefix $GWSubPrefix5
+  ```azurepowershell-interactive
+  $fesub5 = New-AzVirtualNetworkSubnetConfig -Name $FESubName5 -AddressPrefix $FESubPrefix5
+  $besub5 = New-AzVirtualNetworkSubnetConfig -Name $BESubName5 -AddressPrefix $BESubPrefix5
+  $gwsub5 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName5 -AddressPrefix $GWSubPrefix5
   ```
 5. Creare TestVNet5.
 
-  ```powershell
-  New-AzureRmVirtualNetwork -Name $VnetName5 -ResourceGroupName $RG5 -Location $Location5 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetwork -Name $VnetName5 -ResourceGroupName $RG5 -Location $Location5 `
   -AddressPrefix $VnetPrefix51,$VnetPrefix52 -Subnet $fesub5,$besub5,$gwsub5
   ```
 6. Richiedere un indirizzo IP pubblico.
 
-  ```powershell
-  $gwpip5 = New-AzureRmPublicIpAddress -Name $GWIPName5 -ResourceGroupName $RG5 `
+  ```azurepowershell-interactive
+  $gwpip5 = New-AzPublicIpAddress -Name $GWIPName5 -ResourceGroupName $RG5 `
   -Location $Location5 -AllocationMethod Dynamic
   ```
 7. Definire la configurazione del gateway.
 
-  ```powershell
-  $vnet5 = Get-AzureRmVirtualNetwork -Name $VnetName5 -ResourceGroupName $RG5
-  $subnet5  = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet5
-  $gwipconf5 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName5 -Subnet $subnet5 -PublicIpAddress $gwpip5
+  ```azurepowershell-interactive
+  $vnet5 = Get-AzVirtualNetwork -Name $VnetName5 -ResourceGroupName $RG5
+  $subnet5  = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet5
+  $gwipconf5 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName5 -Subnet $subnet5 -PublicIpAddress $gwpip5
   ```
 8. Creare il gateway di TestVNet5.
 
-  ```powershell
-  New-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5 -Location $Location5 `
+  ```azurepowershell-interactive
+  New-AzVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5 -Location $Location5 `
   -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
@@ -401,13 +410,13 @@ In questo esempio, dato che i gateway si trovano in sottoscrizioni diverse, il p
 
 1. **[Sottoscrizione 1]** Ottenere il gateway di rete virtuale per la Sottoscrizione 1. Accedere e connettersi alla sottoscrizione 1 prima di eseguire questo esempio:
 
-  ```powershell
-  $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
+  ```azurepowershell-interactive
+  $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
   ```
 
   Copiare l'output degli elementi seguenti e inviarli all'amministratore della Sottoscrizione 5 tramite posta elettronica o con un altro metodo.
 
-  ```powershell
+  ```azurepowershell-interactive
   $vnet1gw.Name
   $vnet1gw.Id
   ```
@@ -422,13 +431,13 @@ In questo esempio, dato che i gateway si trovano in sottoscrizioni diverse, il p
   ```
 2. **[Sottoscrizione 5]** Ottenere il gateway di rete virtuale per la Sottoscrizione 5. Accedere e connettersi alla sottoscrizione 5 prima di eseguire questo esempio:
 
-  ```powershell
-  $vnet5gw = Get-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5
+  ```azurepowershell-interactive
+  $vnet5gw = Get-AzVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5
   ```
 
   Copiare l'output degli elementi seguenti e inviarli all'amministratore della Sottoscrizione 1 tramite posta elettronica o con un altro metodo.
 
-  ```powershell
+  ```azurepowershell-interactive
   $vnet5gw.Name
   $vnet5gw.Id
   ```
@@ -445,23 +454,23 @@ In questo esempio, dato che i gateway si trovano in sottoscrizioni diverse, il p
 
   Connettersi alla sottoscrizione 1 prima di eseguire questo esempio:
 
-  ```powershell
+  ```azurepowershell-interactive
   $vnet5gw = New-Object -TypeName Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
   $vnet5gw.Name = "VNet5GW"
   $vnet5gw.Id   = "/subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW"
   $Connection15 = "VNet1toVNet5"
-  New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet5gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
+  New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet5gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
 4. **[Sottoscrizione 5]** Creare la connessione da TestVNet5 a TestVNet1. Questo passaggio è simile a quello precedente, ma riguarda la creazione della connessione da TestVNet5 a TestVNet1. Anche in questo caso vale lo stesso processo per la creazione di un oggetto di PowerShell in base ai valori ottenuti dalla Sottoscrizione 1. In questo passaggio assicurarsi che le chiavi condivise corrispondano.
 
   Connettersi alla sottoscrizione 5 prima di eseguire questo esempio:
 
-  ```powershell
+  ```azurepowershell-interactive
   $vnet1gw = New-Object -TypeName Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
   $vnet1gw.Name = "VNet1GW"
   $vnet1gw.Id = "/subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW "
   $Connection51 = "VNet5toVNet1"
-  New-AzureRmVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
+  New-AzVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
 
 ## <a name="verify"></a>Come verificare una connessione

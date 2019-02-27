@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 02/20/2019
 ms.author: terrylan
-ms.openlocfilehash: af73225e08488d490e50456d235805af17ef0066
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 48a7e52d4284e5c2db1d77d24d91fd4701aad8d7
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112218"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455757"
 ---
 # <a name="azure-network-architecture"></a>Architettura di rete di Azure
 L'architettura di rete di Azure segue una versione modificata del modello Core/Distribution/Access (core/di distribuzione/accesso) standard del settore, con livelli hardware distinti. I livelli includono:
@@ -28,7 +28,7 @@ L'architettura di rete di Azure segue una versione modificata del modello Core/D
 - Distribuzione (i router di accesso e l'aggregazione L2). Il livello di distribuzione consente di separare il routing L3 dalla commutazione L2.
 - Access (commutatori host L2)
 
-L'architettura di rete ha due livelli di commutatori di livello 2. Un livello aggrega il traffico proveniente dall'altro livello. Il secondo livello viene riprodotta a ciclo continuo per incorporare la ridondanza. Ne conseguono un footprint VLAN più flessibile e il miglioramento del ridimensionamento delle porte. L'architettura mantiene distinti i livelli L2 e L3, consentendo l'uso dell'hardware in ogni livello nella rete e riducendo al minimo la possibilità che gli errori in un livello abbiano ripercussioni sugli altri. L'uso di trunk consente la condivisione delle risorse, ad esempio la connettività all'infrastruttura L3.
+L'architettura di rete ha due livelli di commutatori di livello 2. Un livello aggrega il traffico proveniente dall'altro livello. Il secondo livello viene riprodotta a ciclo continuo per incorporare la ridondanza. Questa architettura offre un footprint VLAN più flessibile e il miglioramento del ridimensionamento delle porte. L'architettura mantiene distinti i livelli L2 e L3, consentendo l'uso dell'hardware in ogni livello nella rete e riducendo al minimo la possibilità che gli errori in un livello abbiano ripercussioni sugli altri. L'uso di trunk consente la condivisione delle risorse, ad esempio la connettività all'infrastruttura L3.
 
 ## <a name="network-configuration"></a>Configurazione di rete
 L'architettura di rete di un cluster di Azure all'interno di un data center include i dispositivi seguenti:
@@ -72,23 +72,15 @@ I clienti possono distribuire varie opzioni di implementazione VLAN tramite il p
 ### <a name="edge-architecture"></a>Architettura perimetrale
 I data center di Azure sono basati su infrastrutture di rete altamente ridondanti e con provisioning adeguato. Le reti nei data center di Azure vengono implementate da Microsoft con architetture con ridondanza N+1 (need plus one) o superiori. Le funzionalità di failover completo all'interno e tra i data center garantiscono la disponibilità delle reti e dei servizi. Esternamente, i data center vengono gestite da circuiti di rete dedicati a larghezza di banda elevata. Questi circuiti connettono in modo ridondante le proprietà con oltre 1200 provider di servizi Internet a livello globale in più punti di peering. Ciò offre oltre 2.000 Gbps di capacità perimetrale potenziale all'interno della rete.
 
-I router di filtraggio ai livelli di perimetro e di accesso della rete di Azure garantiscono un grado di sicurezza ben definito a livello di pacchetti. Questo contribuisce a impedire tentativi non autorizzati di connessione ad Azure. I router garantiscono che il contenuto effettivo dei pacchetti includa dati nel formato previsto e conformi allo schema di comunicazione client/server previsto. Azure implementa un'architettura a più livelli costituita dai componenti di separazione delle reti e di controllo degli accessi seguenti:
+I router di filtraggio ai livelli di perimetro e accesso della rete di Azure garantiscono un grado di sicurezza ben definito a livello di pacchetti e impediscono tentativi non autorizzati di connessione ad Azure. I router garantiscono che il contenuto effettivo dei pacchetti includa dati nel formato previsto e conformi allo schema di comunicazione client/server previsto. Azure implementa un'architettura a più livelli costituita dai componenti di separazione delle reti e di controllo degli accessi seguenti:
 
 - **Router perimetrali.** Separano l'ambiente applicativo da Internet. I router perimetrali sono progettati per garantire protezione anti-spoofing e limitare l'accesso tramite elenchi di controllo di accesso (ACL).
 - **Router di distribuzione (accesso).** Sono progettati per consentire solo gli indirizzi IP approvati da Microsoft, fornire l'anti-spoofing e stabilire connessioni mediante ACL.
 
-### <a name="a10-ddos-mitigation-architecture"></a>Architettura di mitigazione DDoS A10
-Gli attacchi Denial of Service continuano a costituire una minaccia reale all'affidabilità dei Servizi online. In un momento in cui gli attacchi diventano sempre più mirati e sofisticati e i servizi Microsoft sempre più diversificati a livello geografico, la capacità di identificare e ridurre al minimo l'impatto di questi attacchi è della massima priorità. Di seguito viene spiegato in che modo il sistema di mitigazione DDoS A10 viene implementato dalla prospettiva dell'architettura di rete.
+### <a name="ddos-mitigation"></a>Mitigazione DDoS
+Gli attacchi Distributed Denial of Service (DDoS) continuano a costituire una minaccia reale all'affidabilità dei Servizi online. In un momento in cui gli attacchi diventano sempre più mirati e sofisticati e i servizi Microsoft sempre più diversificati a livello geografico, la capacità di identificare e ridurre al minimo l'impatto di questi attacchi è della massima priorità.
 
-Azure usa dispositivi di rete A10 nel router del data center (DCR) che offrono prevenzione e mitigazione automatiche. La soluzione A10 usa il monitoraggio di rete di Azure per campionare i pacchetti di flussi e determinare l'eventuale presenza di un attacco. Una volta rilevato l'attacco, i dispositivi A10 vengono usati come strumenti di scrubbing per mitigare gli attacchi. In seguito alla mitigazione verrà consentito altro traffico pulito nel data center di Azure direttamente dal router del data center. La soluzione A10 viene usata da Microsoft per proteggere l'infrastruttura di rete di Azure.
-
-I tipi di protezione DDoS nella soluzione A10 includono:
-
-- Protezione da flood UDP per IPv4 e IPv6
-- Protezione da flood ICMP per IPv4 e IPv6
-- Protezione da flood TCP per IPv4 e IPv6
-- Protezione da attacchi SYN TCP per IPv4 e IPv6
-- Attacco di frammentazione
+La [protezione DDoS di Azure Standard](../virtual-network/ddos-protection-overview.md) offre un meccanismo di difesa dagli attacchi DDoS. Per altre informazioni, vedere [Protezione DDoS di Azure: procedure consigliate e architetture di riferimento](azure-ddos-best-practices.md).
 
 > [!NOTE]
 > Microsoft offre protezione DDoS per impostazione predefinita a tutti i clienti Azure.

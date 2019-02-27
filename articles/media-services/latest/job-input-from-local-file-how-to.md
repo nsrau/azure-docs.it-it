@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 02/18/2019
 ms.author: juliako
-ms.openlocfilehash: 4860390820c29cd8f44ebbf5e05e8c58090d5740
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 3eb16034cc6507944ca7bebb59893e0d72a6f4c9
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996946"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415460"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>Creare un input del processo da un file locale
 
@@ -33,6 +33,10 @@ Il codice seguente mostra come creare un asset di input da usare come input per 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#SubmitJob)]
+
+## <a name="job-error-codes"></a>Codici di errore dei processi
+
+Vedere i [codici di errore](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

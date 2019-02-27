@@ -10,21 +10,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: ddda9ef2b9bb716f7cdd33aa8fe9233f6c7d8e82
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 94e5f5b29e93409df2373cf6c56e8185dc5373a2
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749001"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312975"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Specificare un gruppo di risorse per le macchine virtuali di un lab in Azure DevTest Labs
-I proprietari dei lab possono configurare le macchine virtuali del lab da creare in uno specifico gruppo di risorse. Usare questa funzionalità per non raggiungere i limiti del gruppo di risorse della sottoscrizione di Azure. Questa funzionalità consente anche di consolidare tutte le risorse del lab in un singolo gruppo di risorse. Semplifica anche la verifica di tali risorse e l'applicazione dei [criteri](../governance/policy/overview.md) necessari per gestirle a livello di gruppo di risorse.
+I proprietari dei lab possono configurare le macchine virtuali del lab da creare in uno specifico gruppo di risorse. Questa funzionalità è utile negli scenari seguenti: 
+
+- Per fare in modo che i lab creino meno gruppi di risorse nella sottoscrizione.
+- Per far sì che i lab operino all'interno di un set fisso di gruppi di risorse configurato dall'utente
+- Per aggirare le restrizioni e le approvazioni richieste per creare gruppi di risorse nella sottoscrizione di Azure.
+- Per consolidare tutte le risorse del lab in un singolo gruppo di risorse per semplificare il rilevamento di tali risorse e l'applicazione di [criteri](../governance/policy/overview.md) per la gestione a livello di gruppo di risorse.
 
 Con questa funzionalità, è possibile usare uno script per specificare un gruppo di risorse nuovo o esistente nella sottoscrizione di Azure per tutte le macchine virtuali del lab. DevTest Labs supporta attualmente questa funzionalità tramite un'API. 
 
-## <a name="api-to-configure-a-resource-group-for-labs-vms"></a>API per configurare un gruppo di risorse per le macchine virtuali dei lab
+## <a name="api-to-configure-a-resource-group-for-lab-virtual-machines"></a>API per configurare un gruppo di risorse per le macchine virtuali dei lab
 Verranno ora illustrate le opzioni disponibili per i proprietari dei lab quando usano questa API: 
 
 - È possibile scegliere il **gruppo di risorse del lab** per tutte le macchine virtuali.
@@ -32,7 +37,7 @@ Verranno ora illustrate le opzioni disponibili per i proprietari dei lab quando 
 - È possibile immettere un nome del **nuovo gruppo di risorse** per tutte le macchine virtuali.
 - È possibile continuare con il comportamento esistente, che prevede la creazione di un gruppo di risorse per ogni macchina virtuale del lab.
  
-Questa impostazione si applica alle nuove macchine virtuali create nel lab. Le macchine virtuali meno recenti create nei propri gruppi di risorse non subiranno modifiche. È tuttavia possibile eseguire la migrazione di queste macchine virtuali dai singoli gruppi di risorse al gruppo di risorse comune in modo che tutte le macchine virtuali del lab siano in un gruppo di risorse comune. Per altre informazioni, vedere [Spostare le risorse in un nuovo gruppo di risorse](../azure-resource-manager/resource-group-move-resources.md). Gli ambienti creati nel lab rimarranno nei rispettivi gruppi di risorse.
+Questa impostazione si applica alle nuove macchine virtuali create nel lab. Le macchine virtuali meno recenti create nei propri gruppi di risorse non subiranno modifiche. Gli ambienti creati nel lab rimarranno nei rispettivi gruppi di risorse.
 
 ### <a name="how-to-use-this-api"></a>Come usare questa API:
 - Quando si usa questa API, usare la versione **2018_10_15_preview**. 
@@ -86,7 +91,7 @@ Se si usa il modello di Azure Resource Manager per creare un lab, usare la propr
                 "labStorageType": "Premium",
                 "premiumDataDisks": "Disabled",
                 "provisioningState": "Succeeded",
-                "uniqueIdentifier": "6e6f668f-992b-435c-bac3-d328b745cd25"
+                "uniqueIdentifier": "000000000f-0000-0000-0000-00000000000000"
             },
             "dependsOn": []
         },

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: add222c024b5adde1ce81d6ed7f725d0a691c232
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: dd6836ef4f859ce77c1a56095d32373d8e08f468
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246052"
+ms.locfileid: "56270387"
 ---
 # <a name="tag-support-for-azure-resources"></a>Supporto dei tag per le risorse di Azure
 Questo articolo descrive se un tipo di risorsa supporta [tag](resource-group-using-tags.md).
@@ -1132,7 +1132,7 @@ Per ottenere gli stessi dati come file con valori delimitati da virgole, scarica
 | servers/tdeCertificates | No  | 
 
 > [!NOTE]
-> Il database master non supporta i tag, ma altri database, inclusi i database del data warehouse, supportano i tag.
+> Il database master non supporta i tag, ma altri database, inclusi i database di Azure SQL Data Warehouse, supportano i tag. I database di Azure SQL Data Warehouse devono essere nello stato attivo (non in pausa).
 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine

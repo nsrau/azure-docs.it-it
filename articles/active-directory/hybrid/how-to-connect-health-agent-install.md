@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 565e33748d3a39c61c75313188980c51d5bea5b9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a52b78b62395f571e448a73b8c34847ef16b2613
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203897"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429537"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installazione dell'agente di Azure AD Connect Health
 Questo documento illustra le procedure per installare e configurare l'agente di Azure AD Connect Health. Gli agenti sono disponibili per il download in [questa pagina](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent).
@@ -36,13 +36,13 @@ La tabella seguente è un elenco di requisiti per l'uso di Azure AD Connect Heal
 | Connettività in uscita agli endpoint di servizio di Azure | Durante l'installazione e la fase di esecuzione, l'agente richiede la connettività agli endpoint di servizio di Azure AD Connect Health. Se la connettività in uscita è bloccata tramite firewall, verificare che gli endpoint seguenti siano aggiunti all'elenco elementi consentiti. Vedere [Endpoint di connettività in uscita](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) |
 |Connettività in uscita in base agli indirizzi IP | Per informazioni sui filtri basati su indirizzo IP nei firewall, vedere [Intervalli di indirizzi IP di Azure](https://www.microsoft.com/download/details.aspx?id=41653).|
 | L'analisi SSL per il traffico in uscita è filtrata o disabilitata | Il passaggio di registrazione dell'agente o le operazioni di caricamento dei dati possono avere esito negativo in caso di analisi SSL o di interruzione per il traffico in uscita a livello di rete. Vedere altre informazioni sulla [configurazione dell'ispezione SSL](https://technet.microsoft.com/library/ee796230.aspx) |
-| Porte del firewall nel server che esegue l'agente |Per consentire la comunicazione dell'agente con gli endpoint di servizio Azure AD Connect Health è necessario che le porte del firewall seguenti siano aperte.<br /><br /><li>Porta TCP 443</li><li>Porta TCP 5671</li> <br />Vedere altre informazioni sull'[abilitazione delle porte del firewall](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
+| Porte del firewall nel server che esegue l'agente |Per consentire la comunicazione dell'agente con gli endpoint di servizio Azure AD Connect Health è necessario che le porte del firewall seguenti siano aperte.<br /><br /><li>Porta TCP 443</li><li>Porta TCP 5671</li> <br />Si noti che la porta 5671 non è più necessaria per la versione più recente dell'agente. Eseguire l'aggiornamento alla versione più recente, in modo che sia necessaria solo la porta 443. Vedere altre informazioni sull'[abilitazione delle porte del firewall](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
 | Consentire i siti Web seguenti se è abilitata la funzionalità Protezione avanzata di IE |Se la funzionalità Sicurezza avanzata di Internet Explorer è abilitata, nel server in cui verrà installato l'agente devono essere consentiti i siti Web seguenti.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>Server federativo dell'organizzazione considerato attendibile da Azure Active Directory. Ad esempio: https:\//sts.contoso.com</li> Vedere altre informazioni sulla [configurazione di IE](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing) |
 | Assicurarsi che sia installato PowerShell v4.0 o versione successiva | <li>Windows Server 2008 R2 include PowerShell v2.0, che non è sufficiente per l'agente. Aggiornare PowerShell come illustrato di seguito in [Installazione dell'agente in server Windows Server 2008 R2](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 include PowerShell v3.0, che non è sufficiente per l'agente.  [Aggiornare](https://www.microsoft.com/download/details.aspx?id=40855) Windows Management Framework.</li><li>Windows Server 2012 R2 e versioni successive includono una versione sufficientemente recente di PowerShell.</li>|
 |Disabilitare FIPS|La funzionalità FIPS non è supportata dagli agenti di Azure AD Connect Health.|
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Connettività in uscita agli endpoint di servizio di Azure
- Durante l'installazione e la fase di esecuzione, l'agente richiede la connettività agli endpoint di servizio di Azure AD Connect Health. Se la connettività in uscita è bloccata tramite firewall, verificare che gli endpoint seguenti siano aggiunti all'elenco elementi consentiti. Vedere altre informazioni sulla [verifica della connettività in uscita](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)
+ Durante l'installazione e la fase di esecuzione, l'agente richiede la connettività agli endpoint di servizio di Azure AD Connect Health. Se la connettività in uscita è bloccata tramite firewall, verificare che gli URL seguenti non siano bloccati per impostazione predefinita. Non disabilitare il monitoraggio della sicurezza o l'ispezione degli URL, ma consentire tali URL come si farebbe con il resto del traffico Internet. Essi consentono la comunicazione con gli endpoint di servizio di Azure AD Connect Health. Vedere altre informazioni sulla [verifica della connettività in uscita](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)
 
 | Ambiente di dominio | Endpoint del servizio di Azure richiesti |
 | --- | --- |
@@ -119,7 +119,7 @@ Per poter usare questa funzionalità per raccogliere dati e analizzarli, l'agent
 1. Fare clic su **Start**, scegliere **Programmi** e quindi **Strumenti di amministrazione** e infine fare clic su **Criteri di sicurezza locali**.
 2. Passare alla cartella **Impostazioni sicurezza\Criteri locali\Assegnazione diritti utente** e quindi fare doppio clic su **Generazione di controlli di sicurezza**.
 3. Nella scheda **Impostazioni di sicurezza locali** verificare che sia elencato l'account del servizio AD FS 2.0. Se l'account non è presente, fare clic su **Aggiungi utente o gruppo** e aggiungerlo all'elenco, quindi fare clic su **OK**.
-4. Per abilitare il controllo, aprire un prompt dei comandi con privilegi elevati ed eseguire il comando seguente: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
+4. Per abilitare il controllo, aprire un prompt dei comandi con privilegi elevati ed eseguire il comando seguente: <code>auditpol.exe /set /subcategory:"0CCE9222-69AE-11D9-BED3-505054503030" /failure:enable /success:enable</code>
 5. Chiudere **Criteri di sicurezza locali**.
 <br />   -- **La procedura seguente è necessaria solo per i server AD FS primari.** -- <br />
 6. Aprire lo snap-in **Gestione AD FS**. Per aprire lo snap-in Gestione AD FS, fare clic su **Start**, scegliere **Programmi**, **Strumenti di amministrazione** e quindi fare clic su **Gestione AD FS 2.0**.
@@ -132,7 +132,7 @@ Per poter usare questa funzionalità per raccogliere dati e analizzarli, l'agent
 1. Per passare a **Criteri di sicurezza locali**, aprire **Server Manager** nella schermata Start oppure Server Manager nella barra delle applicazioni sul desktop e quindi fare clic su **Strumenti/Criteri di sicurezza locali**.
 2. Passare alla cartella **Impostazioni sicurezza\Criteri locali\Assegnazione diritti utente** e quindi fare doppio clic su **Generazione di controlli di sicurezza**.
 3. Nella scheda **Impostazioni sicurezza locale** verificare che sia elencato l'account del servizio AD FS. Se l'account non è presente, fare clic su **Aggiungi utente o gruppo** e aggiungerlo all'elenco, quindi fare clic su **OK**.
-4. Per abilitare il controllo, aprire un prompt dei comandi con privilegi elevati ed eseguire il comando seguente: ```auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable```.
+4. Per abilitare il controllo, aprire un prompt dei comandi con privilegi elevati ed eseguire il comando seguente: ```auditpol.exe /set /subcategory:"0CCE9222-69AE-11D9-BED3-505054503030" /failure:enable /success:enable```.
 5. Chiudere **Criteri di sicurezza locali**.
 <br />   -- **La procedura seguente è necessaria solo per i server AD FS primari.** -- <br />
 6. Aprire lo snap-in **Gestione AD FS** facendo clic su Strumenti in Server Manager e quindi selezionando Gestione AD FS.
@@ -144,7 +144,7 @@ Per poter usare questa funzionalità per raccogliere dati e analizzarli, l'agent
 1. Per passare a **Criteri di sicurezza locali**, aprire **Server Manager** nella schermata Start oppure Server Manager nella barra delle applicazioni sul desktop e quindi fare clic su **Strumenti/Criteri di sicurezza locali**.
 2. Passare alla cartella **Impostazioni sicurezza\Criteri locali\Assegnazione diritti utente** e quindi fare doppio clic su **Generazione di controlli di sicurezza**.
 3. Nella scheda **Impostazioni sicurezza locale** verificare che sia elencato l'account del servizio AD FS. Se l'account non è presente, fare clic su **Aggiungi utente o gruppo**, quindi aggiungere l'account del servizio AD FS all'elenco e fare clic su **OK**.
-4. Per abilitare il controllo, aprire un prompt dei comandi con privilegi elevati ed eseguire questo comando: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
+4. Per abilitare il controllo, aprire un prompt dei comandi con privilegi elevati ed eseguire questo comando: <code>auditpol.exe /set /subcategory:"0CCE9222-69AE-11D9-BED3-505054503030" /failure:enable /success:enable.</code>
 5. Chiudere **Criteri di sicurezza locali**.
 <br />   -- **La procedura seguente è necessaria solo per i server AD FS primari.** -- <br />
 6. Aprire lo snap-in **Gestione AD FS** facendo clic su Strumenti in Server Manager e quindi selezionando Gestione AD FS.

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.author: dobett
-ms.openlocfilehash: bbd5058be502839f83db484136d1c97bac4a3d79
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 1b0e99998aaf29c366cce1926f930174686cfee6
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585952"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414899"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Usare endpoint personalizzati e il routing dei messaggi per i messaggi da dispositivo a cloud
 
@@ -34,7 +34,7 @@ Un singolo messaggio può corrispondere alla condizione di più query di routing
 
 Un hub IoT dispone di un [endpoint predefinito](iot-hub-devguide-messages-read-builtin.md). È possibile creare endpoint personalizzati per indirizzare i messaggi collegando all'hub gli altri servizi nella sottoscrizione. L'hub IoT supporta attualmente i contenitori di Archiviazione di Azure, l'Hub eventi, le code e gli argomenti del bus di servizio come endpoint personalizzati.
 
-Quando si usa il routing e gli endpoint personalizzati, i messaggi sono inviati solo all'endpoint predefinito se non corrispondono ad alcuna query. Per recapitare i messaggi all'endpoint predefinito e anche a un endpoint personalizzato, aggiungere una route per l'invio dei messaggi all'endpoint **events**.
+Quando si usa il routing e gli endpoint personalizzati, i messaggi sono inviati solo all'endpoint predefinito se non corrispondono ad alcuna query. Per recapitare i messaggi all'endpoint predefinito e anche a un endpoint personalizzato, aggiungere una route per l'invio dei messaggi all'endpoint **events** predefinito.
 
 > [!NOTE]
 > * L'hub IoT supporta solo la scrittura dei dati nei contenitori di Archiviazione di Azure come BLOB.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44712f364b434d123abe17b043f7c2309871bd12
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e5fb263819a5bb96175f636f53a16c28649a3f39
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198950"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339550"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Creare una strategia di gestione di controllo di accesso resiliente con Azure Active Directory
 
@@ -78,7 +78,7 @@ Questo set di criteri di esempio concederà, agli utenti selezionati in **AppUse
 **Set di criteri di mitigazione dell'accesso condizionale:**
 
 * Criterio 1: Blocca l'accesso a persone all'esterno dei gruppi di destinazione
-  * Utenti e gruppi: Includi tutti gli utenti. Escludi AppAccess CoreAdmins ed EmergencyAccess
+  * Utenti e gruppi: Includere tutti gli utenti. Escludi AppUsers CoreAdmins ed EmergencyAccess
   * App cloud: Includi tutte le app
   * Condizioni: (nessuna)
   * Concedi controlli: Blocco

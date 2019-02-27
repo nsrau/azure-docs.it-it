@@ -1,30 +1,31 @@
 ---
-title: Come impaginare gli elementi in una pagina dei risultati della ricerca - Ricerca di Azure
-description: L’impaginazione in Ricerca di Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure.
+title: Come usare i risultati della ricerca - Ricerca di Azure
+description: Strutturare e ordinare i risultati della ricerca, ottenere un numero di documenti e aggiungere l'esplorazione dei contenuti ai risultati della ricerca in Ricerca di Azure.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
-ms.devlang: rest-api
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/29/2016
+ms.date: 02/14/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5f36dbb72e2518f7e3a27ef3aadec85312d751c2
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8cf65f0ed3ecd5c9a86d6adcdd5defd930522f85
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309342"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301554"
 ---
-# <a name="how-to-page-search-results-in-azure-search"></a>Come impaginare i risultati della ricerca in Ricerca di Azure
-In questo articolo vengono fornite indicazioni su come utilizzare l'API REST del servizio Ricerca di Azure per implementare elementi standard di una pagina di risultati di ricerca, ad esempio i conteggi totali, il recupero di documenti, i criteri di ordinamento e la navigazione.
+# <a name="how-to-work-with-search-results-in-azure-search"></a>Come usare i risultati della ricerca in Ricerca di Azure
+In questo articolo vengono fornite indicazioni su come implementare elementi standard di una pagina di risultati della ricerca, ad esempio i conteggi totali, il recupero di documenti, i criteri di ordinamento e l'esplorazione. Le opzioni relative alla pagina che forniscono dati o informazioni per i risultati della ricerca vengono specificate tramite richieste [Cerca nel documento](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) inviate al servizio Ricerca di Azure. 
 
-In ogni caso citato di seguito, le opzioni relative alla pagina che forniscono dati o informazioni per la pagina dei risultati della ricerca vengono specificati tramite richieste [Cerca nel documento](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) inviate al servizio Ricerca di Azure. Le richieste includono comando GET, percorso e parametri di query che indicano al servizio quali elementi sono richiesti e come formulare la risposta.
+Nell'API REST le richieste includono un comando GET, un percorso e parametri di query che indicano al servizio quali elementi sono richiesti e come formulare la risposta. In .NET SDK l'API equivalente è [DocumentSearchResult Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult?view=azure-dotnet).
+
+Alcuni esempi di codice includono un'interfaccia front-end Web, che è possibile trovare in [New York City Jobs demo app](http://azjobsdemo.azurewebsites.net/) (App demo relativa alle offerte di lavoro della città di New York) e [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
-> Una richiesta valida include diversi elementi, ad esempio URL e percorso del servizio, verbo HTTP, `api-version`, e così via. Per brevità, gli esempi sono stati tagliati in modo da evidenziare solo la sintassi rilevante per l'impaginazione. Vedere la documentazione dell' [API REST del servizio Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice) per informazioni dettagliate sulla sintassi della richiesta.
-> 
+> Una richiesta valida include diversi elementi, ad esempio URL e percorso del servizio, verbo HTTP, `api-version`, e così via. Per brevità, gli esempi sono stati tagliati in modo da evidenziare solo la sintassi rilevante per l'impaginazione. Per altre informazioni sulla sintassi delle richieste, vedere [API REST per il servizio Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice). 
 > 
 
 ## <a name="total-hits-and-page-counts"></a>Corrispondenze totali e conteggi delle pagine
@@ -32,7 +33,7 @@ La visualizzazione del numero totale di risultati ottenuti da una query e la res
 
 ![][1]
 
-In Ricerca di Azure è possibile utilizzare i parametri `$count`, `$top`, e `$skip` per restituire questi valori. Nell'esempio seguente viene illustrata una richiesta di esempio per le corrispondenze totali, restituite come `@OData.count`:
+In Ricerca di Azure è possibile utilizzare i parametri `$count`, `$top`, e `$skip` per restituire questi valori. Nell'esempio seguente viene illustrata una richiesta di esempio per i riscontri totali in un indice denominato "onlineCatalog", restituite come `@OData.count`:
 
         GET /indexes/onlineCatalog/docs?$count=true
 
@@ -70,7 +71,7 @@ In genere per impostazione predefinita i risultati vengono ordinati per pertinen
 
  ![][3]
 
-In Ricerca di Azure, l'ordinamento è basato sull’espressione `$orderby` per tutti i campi indicizzati come `"Sortable": true.`
+In Ricerca di Azure l'ordinamento è basato sull'espressione `$orderby` per tutti i campi indicizzati come `"Sortable": true.` Una clausola `$orderby` è un'espressione OData. Per informazioni sulla sintassi, vedere [Sintassi delle espressioni OData filter e order-by](query-odata-filter-orderby-syntax.md).
 
 La pertinenza è fortemente associata ai profili di punteggio. È possibile utilizzare il punteggio predefinito, che si basa sull'analisi del testo e sulle statistiche, per ordinare tutti i risultati, con punteggi più alti ai documenti che contengono più corrispondenze o corrispondenze migliori con un termine di ricerca.
 
@@ -83,7 +84,7 @@ Creare un metodo che accetta l'opzione di ordinamento selezionata come input e r
  ![][5]
 
 > [!NOTE]
-> Mentre l'assegnazione del punteggio predefinita è sufficiente per molti scenari, è consigliabile invece basare la pertinenza su un profilo di punteggio personalizzato. Un profilo di punteggio personalizzato offre un modo per favorire gli elementi più vantaggiosi per l'azienda. Vedere [Aggiungere un profilo di punteggio](https://docs.microsoft.com/rest/api/searchservice/Add-scoring-profiles-to-a-search-index) per ulteriori informazioni. 
+> Mentre l'assegnazione del punteggio predefinita è sufficiente per molti scenari, è consigliabile invece basare la pertinenza su un profilo di punteggio personalizzato. Un profilo di punteggio personalizzato offre un modo per favorire gli elementi più vantaggiosi per l'azienda. Per altre informazioni, vedere [Aggiungere profili di punteggio a un indice di ricerca](index-add-scoring-profiles.md). 
 > 
 > 
 
@@ -91,7 +92,7 @@ Creare un metodo che accetta l'opzione di ordinamento selezionata come input e r
 L’esplorazione di ricerca è comune in una pagina di risultati, che spesso si trova all'inizio di una pagina o sul lato. In Ricerca di Azure, l’esplorazione basata su facet fornisce una ricerca autoindirizzata in base a filtri predefiniti. Per maggiori informazioni vendere [Esplorazione basata su facet in Ricerca di Azure](search-faceted-navigation.md) .
 
 ## <a name="filters-at-the-page-level"></a>Filtri a livello di pagina
-Se la progettazione della soluzione include pagine di ricerca dedicate per specifici tipi di contenuto (ad esempio un'applicazione di vendita in linea con servizi elencati nella parte superiore della pagina), è possibile inserire un'espressione di filtro insieme a un evento **onClick** per aprire una pagina in uno stato prefiltrato. 
+Se la progettazione della soluzione include pagine di ricerca dedicate per specifici tipi di contenuto (ad esempio un'applicazione di vendita in linea con servizi elencati nella parte superiore della pagina), è possibile inserire un'[espressione di filtro](search-filters.md) insieme a un evento **onClick** per aprire una pagina in uno stato prefiltrato. 
 
 È possibile inviare un filtro con o senza espressione di ricerca. Ad esempio, la seguente richiesta filtrerà la marca, restituendo solo i documenti ad essa corrispondenti.
 

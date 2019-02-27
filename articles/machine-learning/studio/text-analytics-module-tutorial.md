@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: 79882fc895262f0fb607ec048e7912ae5f2efdd7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: e8e50aa49595addeab3369f74b618c31b7cf1625
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242669"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454379"
 ---
 # <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio"></a>Creare un modello di analisi della valutazione in Azure Machine Learning Studio
 
-È possibile usare Azure Machine Learning per creare modelli di analisi del testo e renderli operativi. Questi modelli consentono di risolvere, ad esempio, problemi di classificazione dei documenti o analisi di valutazione.
+È possibile usare Azure Machine Learning Studio per creare modelli di analisi del testo e renderli operativi. Questi modelli consentono di risolvere, ad esempio, problemi di classificazione dei documenti o analisi di valutazione.
 
 In un esperimento di analisi del testo è necessario in genere:
 
@@ -66,7 +66,7 @@ In alternativa all'uso al modulo Extract N-Gram Features è possibile usare il m
 ## <a name="step-3-train-classification-or-regression-model"></a>Passaggio 3: Addestrare il modello di classificazione o regressione
 Il testo è stato ora trasformato in colonne di caratteristiche numeriche. Il set di dati contiene ancora le colonne di stringhe dalle fasi precedenti, perciò usiamo Select Columns in Dataset per escluderle.
 
-Usiamo poi [Two-Class Logistic Regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) per stimare il target: punteggio di recensione alto o basso. A questo punto il problema di analisi del testo è stato trasformato in un normale problema di classificazione. È possibile usare gli strumenti disponibili in Azure Machine Learning per migliorare il modello. Ad esempio è possibile sperimentare diversi classificatori per scoprire l'accuratezza dei loro risultati o usare l'ottimizzazione con iperparametri per migliorare l'accuratezza.
+Usiamo poi [Two-Class Logistic Regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) per stimare il target: punteggio di recensione alto o basso. A questo punto il problema di analisi del testo è stato trasformato in un normale problema di classificazione. È possibile usare gli strumenti disponibili in Azure Machine Learning Studio per migliorare il modello. Ad esempio è possibile sperimentare diversi classificatori per scoprire l'accuratezza dei loro risultati o usare l'ottimizzazione con iperparametri per migliorare l'accuratezza.
 
 ![Addestramento e assegnazione dei punteggi](./media/text-analytics-module-tutorial/scoring-text.png)
 

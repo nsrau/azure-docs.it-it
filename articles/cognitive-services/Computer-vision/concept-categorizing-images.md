@@ -1,5 +1,5 @@
 ---
-title: Classificazione delle immagini - Visione artificiale
+title: Categorizzazione delle immagini - Visione artificiale
 titleSuffix: Azure Cognitive Services
 description: Informazioni sui concetti relativi alla funzione di classificazione delle immagini dell'API Visione artificiale.
 services: cognitive-services
@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 1967ba60088cae2b946cfcfe1467c2de5aebccdf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a85fb65ad971bfc70bdab0689e99921e616b56ac
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879952"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308860"
 ---
-# <a name="image-categorization-with-computer-vision"></a>Classificazione delle immagini con Visione artificiale
+# <a name="categorize-images"></a>Categorizzare le immagini
 
-Oltre ai tag e alle descrizioni, Visione artificiale restituisce le categorie basate su tassonomia definite nelle versioni precedenti. Tali categorie sono organizzate in una tassonomia con gerarchie ereditarie padre-figlio. Tutte le categorie sono in inglese e possono essere usate singolarmente o con i nuovi modelli di assegnazione di tag.
+Oltre ai tag e a una descrizione, Visione artificiale restituisce le categorie basate su tassonomia rilevate in un'immagine. A differenza dei tag, le categorie sono organizzate in una gerarchia ereditaria padre/figlio e ne è disponibile un numero inferiore (86, rispetto alle migliaia di tag). Tutti i nomi di categoria sono in inglese. La categorizzazione può essere eseguita da sola o insieme al più recente modello basato sui tag.
 
 ## <a name="the-86-category-concept"></a>Categoria basata su 86 concetti
 
-In base all'elenco di 86 concetti illustrati nel diagramma seguente, un'immagine può essere classificata a partire da un concetto ampio fino ad arrivare a uno più specifico. Per la classificazione completa in formato testo, vedere [Category Taxonomy](category-taxonomy.md) (Tassonomia delle categorie).
+Visione artificiale può categorizzare un'immagine in modo generale o più specifico, usando l'elenco di 86 categorie nel diagramma seguente. Per la classificazione completa in formato testo, vedere [Category Taxonomy](category-taxonomy.md) (Tassonomia delle categorie).
 
 ![Elenchi raggruppati di tutte le categorie nella tassonomia delle categorie](./Images/analyze_categories-v2.png)
 

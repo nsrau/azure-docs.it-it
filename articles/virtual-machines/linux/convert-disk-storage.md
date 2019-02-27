@@ -16,23 +16,23 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 42b0b7a1ca2767a7051a6c57ef2aeac8cf2bb64c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 10dc7a2c7e4de44979ec72b1d292c69866e1faae
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477404"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326409"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Convertire l'archiviazione di Azure Managed Disks da Standard a Premium e viceversa
 
-Managed Disks offre tre opzioni di archiviazione: [SSD Premium](../windows/premium-storage.md), SDD Standard e [HDD Standard](../windows/standard-storage.md). È possibile passare facilmente tra le opzioni con un tempo di inattività minimo a seconda delle esigenze di prestazioni. Non è supportato per dischi non gestiti. È possibile eseguire facilmente la [conversione a Managed Disks](convert-unmanaged-to-managed-disks.md) per passare facilmente tra i tipi di dischi.
+Managed Disks offre quattro opzioni per il [tipo di disco](disks-types.md): unità SSD Ultra, SSD Premium, SSD Standard e unità disco rigido (HDD) standard. È possibile passare facilmente tra le opzioni con un tempo di inattività minimo a seconda delle esigenze di prestazioni. Non è supportato per dischi non gestiti. È possibile eseguire facilmente la [conversione a Managed Disks](convert-unmanaged-to-managed-disks.md) per passare facilmente tra i tipi di dischi.
 
 Questo articolo illustra come convertire la versione di Managed Disks da Standard a Premium e viceversa usando l'interfaccia della riga di comando di Azure. Se è necessario installarla o aggiornarla, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 * La conversione richiede un riavvio della VM, quindi pianificare la migrazione dell'archiviazione su dischi durante una finestra di manutenzione preesistente. 
-* Se si usano dischi non gestiti, prima di tutto eseguire la [conversione a Managed Disks](convert-unmanaged-to-managed-disks.md) per passare tra un'opzione di archiviazione e l'altra, come indicato in questo articolo. 
+* Se si usano dischi non gestiti, prima di tutto eseguire la [conversione a Managed Disks](convert-unmanaged-to-managed-disks.md) per passare tra un'opzione di archiviazione e l'altra, come indicato in questo articolo.
 
 
 ## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium-and-vice-versa"></a>Convertire tutte le istanze di Managed Disks di una VM da Standard a Premium e viceversa

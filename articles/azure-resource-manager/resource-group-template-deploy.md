@@ -12,86 +12,115 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: ff67474566737ca75206cd1237c89f873cb173a8
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 18dc82880830b6f8d14a7fc01930f75e9e61e5b0
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489853"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300551"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell
 
-Questo articolo illustra come usare Azure PowerShell con modelli di Gestione risorse per distribuire risorse in Azure. Per comprendere i concetti di distribuzione e gestione delle soluzioni di Azure, vedere [Panoramica di Azure Resource Manager](resource-group-overview.md).
+Si vedrà ora come usare Azure PowerShell con i modelli di Resource Manager per distribuire risorse in Azure. Per altre informazioni sui concetti di distribuzione e gestione delle soluzioni di Azure, vedere [Panoramica di Azure Resource Manager](resource-group-overview.md).
 
-Il modello di Resource Manager che si distribuisce può essere un file locale nel computer o un file esterno che si trova in un repository come GitHub. Il modello che viene distribuito in questo articolo è disponibile come [modello di account di archiviazione in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
+Per distribuire un modello, occorrono in genere due passaggi:
 
-Se necessario, installare il modulo Azure PowerShell usando le istruzioni disponibili nella [Guida di Azure PowerShell](/powershell/azure/overview) e quindi eseguire `Connect-AzAccount` per creare una connessione con Azure.
+1. Creare un gruppo di risorse. Il gruppo di risorse funge da contenitore per le risorse distribuite. Il nome del gruppo di risorse può contenere solo caratteri alfanumerici, punti, caratteri di sottolineatura, trattini e parentesi. Può contenere fino a 90 caratteri. Non può terminare con un punto.
+2. Distribuire un modello. Il modello definisce le risorse da creare.  La distribuzione crea le risorse nel gruppo di risorse specificato.
+
+Questo metodo di distribuzione in due passaggi viene usato in questo articolo.  L'altra opzione consiste nel distribuire un gruppo di risorse e le risorse contemporaneamente.  Per altre informazioni, vedere [Creare un gruppo di risorse e distribuire risorse](./deploy-to-subscription.md#create-resource-group-and-deploy-resources).
+
+## <a name="prerequisites"></a>Prerequisiti
+
+A meno che non si usi [Azure Cloud Shell](#deploy-templates-from-azure-cloud-shell) per distribuire i modelli, è necessario installare Azure PowerShell e connettersi ad Azure:
+- **Installare i cmdlet di Azure PowerShell nel computer locale.** Per altre informazioni, vedere [Get started with Azure PowerShell](/powershell/azure/get-started-azureps) (Introduzione ad Azure PowerShell).
+- **Connettersi ad Azure tramite [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount.md)**. Se sono disponibili più sottoscrizioni di Azure, potrebbe anche essere necessario eseguire [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext.md). Per altre informazioni, vedere [Use multiple Azure subscriptions](/powershell/azure/manage-subscriptions-azureps) (Usare più sottoscrizioni di Azure).
+- *Scaricare e salvare un [modello di avvio rapido](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json). Il nome del file locale usato in questo articolo è **c:\MyTemplates\azuredeploy.json**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-
-<a id="deploy-local-template" />
-
-## <a name="deploy-a-template-from-your-local-machine"></a>Distribuire un modello dal computer locale
-
-Per distribuire le risorse in Azure, seguire questa procedura:
-
-1. Accedere con l'account Azure
-2. Creare un gruppo di risorse che funge da contenitore per le risorse distribuite. Il nome del gruppo di risorse può contenere solo caratteri alfanumerici, punti, caratteri di sottolineatura, trattini e parentesi. Può contenere fino a 90 caratteri. Non può terminare con un punto.
-3. Distribuire nel gruppo di risorse il modello che definisce le risorse da creare.
-
-Un modello può includere parametri che consentono di personalizzare la distribuzione. Può includere ad esempio valori specifici per un determinato ambiente (di sviluppo, test e produzione). Il modello di esempio definisce un parametro per lo SKU dell'account di archiviazione.
+## <a name="deploy-templates-stored-locally"></a>Distribuire modelli archiviati in locale
 
 L'esempio seguente crea un gruppo di risorse e distribuisce un modello dal computer locale:
 
-```powershell
-Connect-AzAccount
+```azurepowershell
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 
-Select-AzSubscription -SubscriptionName <yourSubscriptionName>
- 
-New-AzResourceGroup -Name ExampleResourceGroup -Location "South Central US"
-New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile c:\MyTemplates\storage.json -storageAccountType Standard_GRS
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
+  -TemplateFile c:\MyTemplates\azuredeploy.json
 ```
 
-Per il completamento della distribuzione sarà necessario attendere alcuni minuti. Al termine, viene visualizzato un messaggio che include il risultato:
+Si noti che *c:\MyTemplates\azuredeploy.json* è un modello di avvio rapido.  Vedere [Prerequisiti](#prerequisites).
 
-```powershell
-ProvisioningState       : Succeeded
-```
+Per il completamento della distribuzione sarà necessario attendere alcuni minuti.
 
-## <a name="deploy-a-template-from-an-external-source"></a>Distribuire un modello da un'origine esterna
+## <a name="deploy-templates-stored-externally"></a>Distribuire modelli archiviati esternamente
 
 Anziché archiviare i modelli di Resource Manager nel computer locale, è consigliabile archiviarli in una posizione esterna, ad esempio in un repository di controllo del codice sorgente come GitHub. o, in alternativa, archiviarli in un account di archiviazione di Azure per consentire l'accesso condiviso nell'organizzazione.
 
 Per distribuire un modello esterno, usare il parametro **TemplateUri**. Usare l'URI indicato nell'esempio per distribuire il modello di esempio da GitHub.
 
-```powershell
-New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json `
-  -storageAccountType Standard_GRS
+```azurepowershell
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-L'esempio precedente richiede l'utilizzo di un URI accessibile pubblicamente per il modello, che funziona per la maggior parte degli scenari. Il proprio modello non deve infatti includere dati sensibili. Se è necessario specificare dati riservati, ad esempio una password di amministratore, passare il valore come parametro protetto. Se invece si preferisce che il modello usato non sia accessibile pubblicamente, è possibile proteggerlo archiviandolo in un contenitore di archiviazione privato. Per informazioni sulla distribuzione di un modello che richiede un token di firma di accesso condiviso (SAS), vedere [Distribuire un modello privato con un token di firma di accesso condiviso](resource-manager-powershell-sas-token.md).
+L'esempio precedente richiede l'utilizzo di un URI accessibile pubblicamente per il modello, che funziona per la maggior parte degli scenari. Il proprio modello non deve infatti includere dati sensibili. Se è necessario specificare dati riservati, ad esempio una password di amministratore, passare il valore come parametro protetto. Se invece si preferisce che il modello usato non sia accessibile pubblicamente, è possibile proteggerlo archiviandolo in un contenitore di archiviazione privato. Per informazioni sulla distribuzione di un modello che richiede un token di firma di accesso condiviso (SAS), vedere [Distribuire un modello privato con un token di firma di accesso condiviso](resource-manager-powershell-sas-token.md). Per eseguire un'esercitazione, vedere [Esercitazione: Integrare Azure Key Vault in Distribuzione modelli di Resource Manager](./resource-manager-tutorial-use-key-vault.md).
 
-[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
+## <a name="deploy-templates-from-azure-cloud-shell"></a>Distribuire modelli da Azure Cloud Shell
 
-Immettere i comandi seguenti in Cloud Shell:
+È possibile usare [Azure Cloud Shell](https://shell.azure.com) per distribuire il modello. Per distribuire un modello esterno, specificare l'URI del modello. Per distribuire un modello locale, è innanzitutto necessario caricare il modello nell'account di archiviazione per Cloud Shell. Per caricare i file nella shell, selezionare l'icona del menu **Carica/Scarica file** dalla finestra della shell.
 
-```powershell
-New-AzResourceGroup -Name ExampleResourceGroup -Location "South Central US"
-New-AzResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateUri <copied URL> `
-  -storageAccountType Standard_GRS
+Per aprire Cloud Shell, passare a [https://shell.azure.com](https://shell.azure.com) oppure selezionare **Prova** dalla sezione di codice seguente:
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>Effettuale la distribuzione in più gruppi di risorse o sottoscrizioni
+Per incollare il codice nella shell, fare clic con il pulsante destro del mouse all'interno della shell e quindi scegliere **Incolla**.
+
+## <a name="deploy-to-multiple-resource-groups-or-subscriptions"></a>Eseguire la distribuzione in più gruppi di risorse o sottoscrizioni
 
 In genere si distribuiscono tutte le risorse del modello in un unico gruppo di risorse, ma in alcuni scenari può essere preferibile distribuire insieme un set di risorse, inserendole tuttavia in gruppi di sottoscrizioni e risorse diversi. Un'unica distribuzione può interessare solo cinque gruppi di risorse. Per altre informazioni, vedere [Distribuire le risorse di Azure in più gruppi di sottoscrizioni e risorse](resource-manager-cross-resource-group-deployment.md).
 
-<a id="parameter-file" />
+## <a name="redeploy-when-deployment-fails"></a>Eseguire nuovamente la distribuzione se non è riuscita
 
-## <a name="parameters"></a>Parametri
+Quando una distribuzione non riesce, è possibile ridistribuire automaticamente una distribuzione precedente con esito positivo dalla cronologia della distribuzione. Per specificare la ridistribuzione, usare il parametro `-RollbackToLastDeployment` o `-RollBackDeploymentName` nel comando di distribuzione.
+
+Per usare questa opzione, le distribuzioni devono avere nomi univoci in modo che sia possibile identificarle nella cronologia. Se non si dispone di nomi univoci, la distribuzione non riuscita corrente potrebbe sovrascrivere quella eseguita in modo corretto nella cronologia. È possibile usare questa opzione solo con le distribuzioni a livello di radice. Le distribuzioni di un modello annidato non sono disponibili per la ridistribuzione.
+
+Per eseguire nuovamente l'ultima distribuzione con esito positivo, aggiungere il parametro `-RollbackToLastDeployment` come contrassegno.
+
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -Name ExampleDeployment02 `
+  -ResourceGroupName $resourceGroupName `
+  -TemplateFile c:\MyTemplates\azuredeploy.json `
+  -RollbackToLastDeployment
+```
+
+Per eseguire nuovamente una distribuzione specifica, usare il parametro `-RollBackDeploymentName` e specificare il nome della distribuzione.
+
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -Name ExampleDeployment02 `
+  -ResourceGroupName $resourceGroupName `
+  -TemplateFile c:\MyTemplates\azuredeploy.json `
+  -RollBackDeploymentName ExampleDeployment01
+```
+
+La distribuzione specificata deve aver avuto esito positivo.
+
+## <a name="pass-parameter-values"></a>Passare i valori dei parametri
 
 Per passare i valori dei parametri, è possibile usare i parametri inline o un file di parametri. Gli esempi precedenti in questo articolo illustrano i parametri inline.
 
@@ -137,7 +166,7 @@ Il file dei parametri deve essere nel formato seguente:
 }
 ```
 
-Si noti che la sezione dei parametri include un nome di parametro che corrisponde al parametro definito nel modello (storageAccountType). Il file dei parametri contiene un valore per il parametro. Questo valore viene passato automaticamente al modello durante la distribuzione. È possibile creare più di un file dei parametri e successivamente passare il file dei parametri appropriato per lo scenario. 
+Si noti che la sezione dei parametri include un nome di parametro che corrisponde al parametro definito nel modello (storageAccountType). Il file dei parametri contiene un valore per il parametro. Questo valore viene passato automaticamente al modello durante la distribuzione. È possibile creare più di un file dei parametri e successivamente passare il file dei parametri appropriato per lo scenario.
 
 Copiare l'esempio precedente e salvarlo come file denominato `storage.parameters.json`.
 
@@ -145,7 +174,7 @@ Per passare un file dei parametri locale, usare il parametro **TemplateParameter
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile c:\MyTemplates\storage.json `
+  -TemplateFile c:\MyTemplates\azuredeploy.json `
   -TemplateParameterFile c:\MyTemplates\storage.parameters.json
 ```
 
@@ -167,20 +196,20 @@ Tuttavia, quando si usa un file di parametri esterni, non è possibile trasmette
 
 Se il modello include un parametro con lo stesso nome di uno dei parametri nel comando di PowerShell, PowerShell aggiunge al parametro del modello il suffisso **FromTemplate**. Ad esempio, un parametro denominato **ResourceGroupName** nel modello sarà in conflitto con il parametro **ResourceGroupName** nel cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). Verrà quindi richiesto di fornire un valore per **ResourceGroupNameFromTemplate**. In generale, è consigliabile evitare questa confusione non attribuendo ai parametri lo stesso nome dei parametri usati per operazioni di distribuzione.
 
-## <a name="test-a-template-deployment"></a>Testare una distribuzione del modello
+## <a name="test-template-deployments"></a>Testare le distribuzioni del modello
 
 Per testare il modello e i valori dei parametri senza distribuire effettivamente le risorse, usare [Test-AzureRmResourceGroupDeployment](/powershell/module/az.resources/test-azresourcegroupdeployment). 
 
 ```powershell
 Test-AzResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile c:\MyTemplates\storage.json -storageAccountType Standard_GRS
+  -TemplateFile c:\MyTemplates\azuredeploy.json -storageAccountType Standard_GRS
 ```
 
 Se non vengono rilevati errori, il comando termina senza una risposta. Se viene rilevato un errore, il comando restituisce un messaggio di errore. Ad esempio, passare un valore non corretto per lo SKU dell'account di archiviazione restituisce l'errore seguente:
 
 ```powershell
 Test-AzResourceGroupDeployment -ResourceGroupName testgroup `
-  -TemplateFile c:\MyTemplates\storage.json -storageAccountType badSku
+  -TemplateFile c:\MyTemplates\azuredeploy.json -storageAccountType badSku
 
 Code    : InvalidTemplate
 Message : Deployment template validation failed: 'The provided value 'badSku' for the template parameter 'storageAccountType'
@@ -197,9 +226,8 @@ Test-AzResourceGroupDeployment : After parsing a value an unexpected character w
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Gli esempi inclusi in questo articolo distribuiscono risorse a un gruppo di risorse nella sottoscrizione predefinita. Per usare una sottoscrizione diversa, vedere [Gestire più sottoscrizioni di Azure](/powershell/azure/manage-subscriptions-azureps).
-* Per specificare la modalità di gestione delle risorse che sono presenti nel gruppo, ma non sono definite nel modello, vedere [Modalità di distribuzione di Azure Resource Manager](deployment-modes.md).
-* Per informazioni su come definire i parametri nel modello, vedere [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](resource-group-authoring-templates.md).
-* Per suggerimenti su come risolvere i comuni errori di distribuzione, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
-* Per informazioni sulla distribuzione di un modello che richiede un token di firma di accesso condiviso, vedere [Distribuire un modello privato con un token di firma di accesso condiviso](resource-manager-powershell-sas-token.md).
-* Per implementare in modo sicuro il servizio in più di un'area, vedere [Azure Deployment Manager](deployment-manager-overview.md).
+
+- Per implementare in modo sicuro il servizio in più di un'area, vedere [Azure Deployment Manager](deployment-manager-overview.md).
+- Per specificare la modalità di gestione delle risorse che sono presenti nel gruppo, ma non sono definite nel modello, vedere [Modalità di distribuzione di Azure Resource Manager](deployment-modes.md).
+- Per informazioni su come definire i parametri nel modello, vedere [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](resource-group-authoring-templates.md).
+- Per informazioni sulla distribuzione di un modello che richiede un token di firma di accesso condiviso, vedere [Distribuire un modello privato con un token di firma di accesso condiviso](resource-manager-powershell-sas-token.md).

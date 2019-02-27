@@ -7,18 +7,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: 433718c19e0df5fac87273f2b46f8ae090ed7510
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: e1a928711a596c159ac920f11c123b73b72d3aa2
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888567"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313416"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formati di file e codec di compressione supportati in Azure Data Factory
 
-*Questo argomento si applica ai connettori seguenti: [Amazon S3](connector-amazon-simple-storage-service.md), [BLOB di Azure](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Archiviazione file di Azure](connector-azure-file-storage.md), [File system](connector-file-system.md), [FTP](connector-ftp.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) e [SFTP](connector-sftp.md).*
+*Questo articolo si applica ai connettori seguenti: [Amazon S3](connector-amazon-simple-storage-service.md), [BLOB di Azure](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Archiviazione file di Azure](connector-azure-file-storage.md), [File system](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) e [SFTP](connector-sftp.md).*
 
 Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. Se si intende **analizzare o generare file con un formato specifico**, Azure Data Factory supporta i tipi di formato file seguenti:
 
@@ -428,6 +428,13 @@ Per la copia in esecuzione nel runtime di integrazione self-hosted con la serial
 - **Per usare JRE**: il runtime di integrazione a 64 bit richiede JRE a 64 bit disponibile [qui](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **Per usare OpenJDK**: è supportato a partire dalla versione 3.13 del runtime di integrazione. Includere jvm.dll in un pacchetto con tutti gli altri assembly necessari di OpenJDK nel computer del runtime di integrazione self-hosted e impostare di conseguenza la variabile di ambiente di sistema JAVA_HOME.
 
+>[!TIP]
+>Se si copiano i dati nel/dal formato Parquet usando il runtime di integrazione self-hosted e si verifica l'errore "An error occurred when invoking java, message: **java.lang.OutOfMemoryError:Java heap space**" (Errore durante la chiamata di Java, messaggio: java.lang.OutOfMemoryError: spazio dell'heap di Java), è possibile aggiungere una variabile di ambiente `_JAVA_OPTIONS` nel computer che ospita il runtime di integrazione self-hosted per regolare le dimensioni min/max dell'heap per JVM e poter ottimizzare la copia, quindi eseguire di nuovo la pipeline. 
+
+![Impostare le dimensioni dell'heap JVM nel runtime di integrazione self-hosted](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
+
+Esempio: impostare la variabile `_JAVA_OPTIONS` con il valore `-Xms256m -Xmx16g`. Il flag `Xms` specifica il pool di allocazione della memoria iniziale per Java Virtual Machine (JVM), mentre `Xmx` specifica il pool di allocazione della memoria massima. JVM verrà quindi avviato con una quantità di memoria pari a `Xms` e potrà usare una quantità massima di memoria pari a `Xmx`. Per impostazione predefinita, Azure Data Factory usa una quantità di memoria minima pari a 64 MB e una quantità di memoria massima pari a 1 GB.
+
 ### <a name="data-type-mapping-for-parquet-files"></a>Mapping dei tipi di dati per i file Parquet
 
 | Tipo di dati provvisori di Data Factory | Tipo Parquet primitivo | Tipo Parquet originale (deserializzazione) | Tipo Parquet originale (serializzazione) |
@@ -486,8 +493,8 @@ Per la copia in esecuzione nel runtime di integrazione self-hosted con la serial
 | SByte | Byte |
 | Byte | Breve |
 | Int16 | Breve |
-| UInt16 | int |
-| Int32 | int |
+| UInt16 | Int |
+| Int32 | Int |
 | UInt32 | long |
 | Int64 | long |
 | UInt64 | string |

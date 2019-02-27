@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: 73df93345cf73939f33afedfd655cef847d895dc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bd9e9d64849c90d23146b814d2d48a8400d069f0
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863568"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447957"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Eseguire la migrazione da Riconoscimento vocale Bing al Servizio di riconoscimento vocale
 
@@ -65,7 +65,7 @@ Se l'organizzazione dispone di applicazioni in fase di sviluppo o in produzione 
 
 Le [API REST](rest-apis.md) del Servizio di riconoscimento vocale sono compatibili con le API Riconoscimento vocale Bing. Se attualmente si usa l'API REST Riconoscimento vocale Bing, è sufficiente modificare l'endpoint REST e passare a una chiave di sottoscrizione al servizio Voce.
 
-I protocolli WebSocket del Servizio di riconoscimento vocale sono compatibili con quelli utilizzati da Riconoscimento vocale Bing. Per le nuove attività di sviluppo è consigliabile usare l'SDK del servizio Voce anziché i protocolli WebSocket. È opportuno anche eseguire la migrazione di codice esistente nell'SDK. Tuttavia, come con le API REST, il codice esistente che usa Riconoscimento vocale Bing tramite WebSocket richiede solo una modifica dell'endpoint e una chiave di aggiornamento.
+I protocolli WebSocket del Servizio di riconoscimento vocale sono compatibili con quelli utilizzati da Riconoscimento vocale Bing. Per le nuove attività di sviluppo è consigliabile usare Speech SDK anziché i protocolli WebSocket. È opportuno anche eseguire la migrazione di codice esistente nell'SDK. Tuttavia, come con le API REST, il codice esistente che usa Riconoscimento vocale Bing tramite WebSocket richiede solo una modifica dell'endpoint e una chiave di aggiornamento.
 
 Se si usa una libreria client di Riconoscimento vocale Bing per un linguaggio di programmazione specifico, per eseguire la migrazione a [Speech SDK](speech-sdk.md) è necessario apportare modifiche all'applicazione perché l'API è diversa. Speech SDK può semplificare il codice permettendo anche di accedere alle nuove funzionalità.
 

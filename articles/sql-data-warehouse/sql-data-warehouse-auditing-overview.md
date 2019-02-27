@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: ef791bdfafbbd49cacad1a75c7171b9a030df2a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 701c5c175e22556aefa95d1ac3836d52cd19b845
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456222"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342305"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Servizio di controllo di Azure SQL Data Warehouse
 
@@ -74,10 +74,13 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
     ![Riquadro di spostamento][8]
 
     > [!IMPORTANT]
-    > I log di controllo a livello di server vengono scritti nei **BLOB di accodamento**  nell'archivio BLOB di Azure della sottoscrizione di Azure.
+    > I log di controllo vengono scritti in **BLOB di accodamento** nella risorsa di archiviazione BLOB di Azure della sottoscrizione di Azure.
     >
-    > * **Archiviazione Premium** attualmente **non è supportata** da Accodare BLOB.
-    > * **Storage in VNet** attualmente **non è supportato**.
+    > - Sono supportati tutti i tipi di archiviazione (v1, v2, BLOB).
+    > - Sono supportate tutte le configurazioni di replica di archiviazione.
+    > - **Archiviazione Premium** attualmente **non è supportata**.
+    > - **Storage in VNet** attualmente **non è supportato**.
+    > - L'**archiviazione protetta da firewall** attualmente **non è supportata**
 
 8. Fare clic su **Save**.
 

@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jeconnoc
 ms.custom: include file
-ms.openlocfilehash: 15cbfb9babe38ba6acaf4312735ab839af3f2d99
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 74496cd3d4cd01be326baae870b075eb923983af
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34371304"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56443301"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Domande frequenti sulla migrazione dalla distribuzione classica alla distribuzione Azure Resource Manager
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Il piano di migrazione influisce sui servizi o sulle applicazioni esistenti in esecuzione nelle macchine virtuali di Azure? 
 
-di serie Le VM (classiche) sono servizi completamente supportati con disponibilità generale. È possibile continuare a usare queste risorse per sfruttare meglio la presenza su Microsoft Azure.
+ No. Le VM (classiche) sono servizi completamente supportati con disponibilità generale. È possibile continuare a usare queste risorse per sfruttare meglio la presenza su Microsoft Azure.
 
 ## <a name="what-happens-to-my-vms-if-i-dont-plan-on-migrating-in-the-near-future"></a>Che cosa accade alle macchine virtuali se non è prevista la migrazione a breve? 
 
@@ -43,7 +43,7 @@ Non è possibile interrompere la migrazione in caso di esito negativo dell'opera
 
 ## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>In caso si debba usare le risorse IaaS in Resource Manager, è necessario acquistare un altro circuito ExpressRoute? 
 
-di serie È stato recentemente abilitato lo [spostamento dei circuiti ExpressRoute dal modello di distribuzione classica al modello di distribuzione Resource Manager](../articles/expressroute/expressroute-move.md). Se si dispone già di un circuito ExpressRoute, non è necessario acquistare un nuovo.
+ No. È stato recentemente abilitato lo [spostamento dei circuiti ExpressRoute dal modello di distribuzione classica al modello di distribuzione Resource Manager](../articles/expressroute/expressroute-move.md). Se si dispone già di un circuito ExpressRoute, non è necessario acquistare un nuovo.
 
 ## <a name="what-if-i-had-configured-role-based-access-control-policies-for-my-classic-iaas-resources"></a>Che cosa succede se sono stati configurati criteri di controllo degli accessi in base al ruolo per le risorse IaaS classiche? 
 
@@ -54,7 +54,7 @@ Durante la migrazione le risorse si trasformano dal modello di distribuzione cla
 <a name="vault">Quando</a> si sposta una macchina virtuale dalla modalità classica alla modalità Resource Manager, i backup eseguiti prima della migrazione non verranno spostati nella macchina virtuale di Resource Manager appena migrata. Tuttavia, se si vogliono conservare i backup delle macchine virtuali classiche, seguire questi passaggi prima della migrazione. 
 
 1. Nell'insieme di credenziali di Servizi di ripristino passare alla scheda **Elementi protetti** e selezionare la macchina virtuale. 
-2. Fare clic su [Arresta protezione](../articles/backup/backup-azure-manage-vms.md#stop-protecting-virtual-machines). Lasciare *deselezionata* l'opzione **Elimina i dati di backup associati**.
+2. Fare clic su Arresta protezione. Lasciare *deselezionata* l'opzione **Elimina i dati di backup associati**.
 
 > [!NOTE]
 > I costi dell'istanza di backup verranno addebitati finché si conserveranno i dati. Le copie di backup saranno eliminate in base all'intervallo di conservazione. Tuttavia, l'ultima copia di backup viene sempre mantenuta finché non si eliminano in modo esplicito i dati di backup. È consigliabile controllare l'intervallo di conservazione della macchina virtuale e attivare "Eliminare i dati di backup" sull'elemento protetto nell'insieme di credenziali al termine del periodo di conservazione. 

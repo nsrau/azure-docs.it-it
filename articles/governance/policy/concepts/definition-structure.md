@@ -4,17 +4,17 @@ description: Descrizione di come la definizione dei criteri delle risorse viene 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/11/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: aa334f88d04bb30ce01fe12fecb3aac3c9cd572d
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1c65ea47f7dd091ea326d9300a8ef09208a03951
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237418"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447787"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -80,7 +80,7 @@ Il parametro **mode** (modalità) determina quali tipi di risorse verranno valut
 
 Nella maggior parte dei casi, è consigliabile impostare il parametro **mode** su `all`. Tutte le definizioni di criteri create tramite il portale usano la modalità `all`. Se si usa PowerShell o l'interfaccia della riga di comando di Azure è necessario specificare il parametro **mode** manualmente. Se la definizione dei criteri non include un valore **mode**, assume il valore predefinito `all` in Azure PowerShell e `null` nell'interfaccia della riga di comando di Azure. Un valore mode `null` equivale all'utilizzo di `indexed` per supportare la compatibilità con le versioni precedenti.
 
-`indexed` deve essere usato durante la creazione di criteri che applicano tag o percorsi. Sebbene non sia necessario, evita che le risorse che non supportano tag e percorsi vengano visualizzate come non conformi nei risultati sulla conformità. L'eccezione è rappresentata dai **gruppi di risorse**. Per i criteri che applicano percorsi o tag a un gruppo di risorse, impostare il parametro **mode** su `all` e specificare una destinazione specifica per il tipo `Microsoft.Resources/subscriptions/resourceGroup`. Per un esempio, vedere [Applicare tag di gruppi di risorse](../samples/enforce-tag-rg.md).
+`indexed` deve essere usato durante la creazione di criteri che applicano tag o percorsi. Sebbene non sia necessario, evita che le risorse che non supportano tag e percorsi vengano visualizzate come non conformi nei risultati sulla conformità. L'eccezione è rappresentata dai **gruppi di risorse**. Per i criteri che applicano percorsi o tag a un gruppo di risorse, impostare il parametro **mode** su `all` e specificare una destinazione specifica per il tipo `Microsoft.Resources/subscriptions/resourceGroups`. Per un esempio, vedere [Applicare tag di gruppi di risorse](../samples/enforce-tag-rg.md).
 
 ## <a name="parameters"></a>Parametri
 
@@ -215,7 +215,9 @@ Una condizione valuta se una funzione di accesso **field** o **value** soddisfa 
 - `"like": "value"`
 - `"notLike": "value"`
 - `"match": "value"`
+- `"matchInsensitively": "value"`
 - `"notMatch": "value"`
+- `"notMatchInsensitively": "value"`
 - `"contains": "value"`
 - `"notContains": "value"`
 - `"in": ["value1","value2"]`
@@ -227,7 +229,8 @@ Una condizione valuta se una funzione di accesso **field** o **value** soddisfa 
 Quando si usano le condizioni **like** e **notLike**, è possibile inserire un carattere jolly `*` nel valore.
 Il valore non deve contenere più di un carattere jolly `*`.
 
-Quando si usano le condizioni **match** e **notMatch**, specificare `#` per rappresentare una cifra, `?` per rappresentare una lettera, `.` per rappresentare tutti i caratteri e qualsiasi altro carattere per rappresentare il carattere effettivo. Ad esempio, vedere [Consentire modelli nome multipli](../samples/allow-multiple-name-patterns.md).
+Quando si usano le condizioni **match** e **notMatch**, specificare `#` per rappresentare una cifra, `?` per rappresentare una lettera, `.` per rappresentare tutti i caratteri e qualsiasi altro carattere per rappresentare il carattere effettivo.
+**match** e **notMatch** fanno distinzione tra maiuscole e minuscole. Alternative senza distinzione tra maiuscole e minuscole sono disponibili in **matchInsensitively** e **notMatchInsensitively**. Ad esempio, vedere [Consentire modelli nome multipli](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Campi
 
@@ -245,15 +248,41 @@ Sono supportati i seguenti campi:
 - `identity.type`
   - Restituisce il tipo di [identità gestita](../../../active-directory/managed-identities-azure-resources/overview.md) abilitata per la risorsa.
 - `tags`
-- `tags.<tagName>`
+- `tags['<tagName>']`
+  - Questa sintassi tra parentesi quadre supporta nomi di tag con segni di punteggiatura, ad esempio un trattino, punti o spazi.
   - Dove **\<tagName\>** è il nome del tag per il quale convalidare la condizione.
-  - Esempio: `tags.CostCenter` dove **CostCenter** è il nome del tag.
-- `tags[<tagName>]`
-  - Questa sintassi tra parentesi quadre supporta nomi di tag che contengono punti.
-  - Dove **\<tagName\>** è il nome del tag per il quale convalidare la condizione.
-  - Esempio: `tags[Acct.CostCenter]` dove **Acct.CostCenter** è il nome del tag.
-
+  - Esempi: `tags['Acct.CostCenter']` dove **Acct.CostCenter** è il nome del tag.
+- `tags['''<tagName>''']`
+  - Questa sintassi tra parentesi quadre supporta nomi di tag contenenti apostrofi eseguendo l'escape con esso in caratteri di escape con apostrofi doppi.
+  - Dove **'\<tagName\>'** è il nome del tag per il quale convalidare la condizione.
+  - Esempio: `tags['''My.Apostrophe.Tag''']` dove **'\<tagName\>'** è il nome del tag.
 - alias delle proprietà; per un elenco, vedere [alias](#aliases).
+
+> [!NOTE]
+> `tags.<tagName>`, `tags[tagName]` e `tags[tag.with.dots]` sono comunque modi accettabili per dichiarare un campo tags.
+> Tuttavia, le espressioni preferibili sono quelle elencate in precedenza.
+
+#### <a name="use-tags-with-parameters"></a>Usare tag con parametri
+
+È possibile passare a un campo di tag un valore di parametro. Passare un parametro a un campo di tag aumenta la flessibilità della definizione dei criteri durante l'assegnazione dei criteri.
+
+Nell'esempio seguente, `concat` viene usato per creare una ricerca nei campi di tag per il tag che ha come nome il valore del parametro **tagName**. Se il tag non esiste, viene usato l'effetto **Append** per aggiungere il tag usando il valore del tag con lo stesso nome impostato sul gruppo di risorse padre delle risorse controllate tramite la funzione di ricerca `resourcegroup()`.
+
+```json
+{
+    "if": {
+        "field": "[concat('tags[', parameters('tagName'), ']')]",
+        "exists": "false"
+    },
+    "then": {
+        "effect": "append",
+        "details": [{
+            "field": "[concat('tags[', parameters('tagName'), ']')]",
+            "value": "[resourcegroup().tags[parameters('tagName')]]"
+        }]
+    }
+}
+```
 
 ### <a name="value"></a>Valore
 
@@ -341,7 +370,7 @@ Per informazioni dettagliate su ogni effetto, ordine di valutazione, proprietà 
 
 ### <a name="policy-functions"></a>Funzioni dei criteri
 
-Fatta eccezione per la distribuzione seguente e le funzioni della risorsa, tutte le [funzioni del modello Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) possono essere usate all'interno di una regola dei criteri:
+Tutte le [funzioni del modello di Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) sono disponibili per l'utilizzo all'interno di una regola dei criteri, ad eccezione delle seguenti:
 
 - copyIndex()
 - deployment()
@@ -353,7 +382,7 @@ Fatta eccezione per la distribuzione seguente e le funzioni della risorsa, tutte
 
 Inoltre, la funzione `field` è disponibile per le regole dei criteri. `field` viene principalmente usata con **AuditIfNotExists** e **DeployIfNotExists** per fare riferimento ai campi sulla risorsa che viene valutata. Altre informazioni sono disponibili nell'esempio [DeployIfNotExists](effects.md#deployifnotexists-example).
 
-#### <a name="policy-function-examples"></a>Esempi di funzione dei criteri
+#### <a name="policy-function-example"></a>Esempio di funzione dei criteri
 
 Questo esempio di regola dei criteri usa la `resourceGroup` funzione risorsa per ottenere la proprietà **name**, in combinazione con la matrice `concat` e la funzione oggetto per creare una condizione `like` che fa in modo che il nome della risorsa inizi con il nome del gruppo di risorse.
 
@@ -367,24 +396,6 @@ Questo esempio di regola dei criteri usa la `resourceGroup` funzione risorsa per
     },
     "then": {
         "effect": "deny"
-    }
-}
-```
-
-Questo esempio di regola dei criteri usa la funzione risorse `resourceGroup` per ottenere il valore della matrice della proprietà **tags** nel tag **CostCenter** nel gruppo di risorse e aggiungerlo al tag **CostCenter**  nella nuova risorsa.
-
-```json
-{
-    "if": {
-        "field": "tags.CostCenter",
-        "exists": "false"
-    },
-    "then": {
-        "effect": "append",
-        "details": [{
-            "field": "tags.CostCenter",
-            "value": "[resourceGroup().tags.CostCenter]"
-        }]
     }
 }
 ```

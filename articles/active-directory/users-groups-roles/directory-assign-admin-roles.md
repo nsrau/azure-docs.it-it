@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 02/08/19
+ms.date: 02/16/19
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 199c0e53fb9462a121072dbea8c90928c0d75abf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c1496653c319b4732614cd1c8148afb5c5b06215
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178948"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456742"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
-Azure Active Directory (Azure AD) consente di designare amministratori diversi per le diverse funzioni. Per eseguire attività come l'aggiunta o la modifica di utenti, l’assegnazione di ruoli amministrativi, la reimpostazione delle password utente, la gestione delle licenze utente e dei nomi di dominio, è possibile designare gli amministratori nel portale di Azure AD.
+Azure Active Directory (Azure AD) consente di designare amministratori limitati per svolgere funzioni in ruoli con meno privilegi. Per eseguire attività come l'aggiunta o la modifica di utenti, l’assegnazione di ruoli amministrativi, la reimpostazione delle password utente, la gestione delle licenze utente e dei nomi di dominio, è possibile designare gli amministratori nel portale di Azure AD. Le autorizzazioni utente predefinite possono essere modificate solo nelle impostazioni utente in Azure AD.
 
 L'amministratore globale ha accesso a tutte le funzionalità amministrative. Per impostazione predefinita, la persona che effettua l'iscrizione per una sottoscrizione di Azure riceve il ruolo Amministratore globale per la directory. Solo gli amministratori globali e gli amministratori dei ruoli con privilegi possono delegare i ruoli di amministratore. Per ridurre il rischio per l'azienda, è consigliabile assegnare questo ruolo solo ad alcune persone della società.
 
@@ -42,7 +42,7 @@ Sono disponibili i ruoli di amministratore seguenti:
 
 * **[Sviluppatore di applicazioni](#application-developer)**: gli utenti in questo ruolo possono creare registrazioni di applicazioni quando l'opzione "Gli utenti possono registrare applicazioni" è impostata su No. Questo ruolo consente inoltre ai membri di fornire il consenso per proprio conto quando l'opzione "Users can consent to apps accessing company data on their behalf" (Gli utenti possono consentire alle app l'accesso ai dati della società per loro conto) è impostata su No. I membri di questo ruolo vengono aggiunti come proprietari durante la creazione di nuove registrazioni di applicazione o nelle applicazioni aziendali.
 
-* **[Amministratore dell'autenticazione](#authentication-administrator)**: gli utenti con questo ruolo possono visualizzare le informazioni relative al metodo di autenticazione corrente e configurare o reimpostare le credenziali diverse dalle password. Gli amministratori dell'autenticazione possono forzare gli utenti a eseguire di nuovo la registrazione per le credenziali esistenti diverse dalle password (ad esempio MFA, FIDO) e revocare la scelta di "ricordare l'autenticazione a più fattori sul dispositivo", richiedendo tale autenticazione al successivo accesso solo di altri utenti non amministratori o membri dei ruoli seguenti:
+* **[Amministratore dell'autenticazione](#authentication-administrator)**: Gli utenti con questo ruolo possono impostare o reimpostare le credenziali diverse dalle password. Gli amministratori dell'autenticazione possono forzare gli utenti a eseguire di nuovo la registrazione per le credenziali esistenti diverse dalle password (ad esempio MFA, FIDO) e revocare la scelta di "ricordare l'autenticazione a più fattori sul dispositivo", richiedendo tale autenticazione al successivo accesso solo di altri utenti non amministratori o membri dei ruoli seguenti:
   * Amministratore dell'autenticazione
   * Ruoli con autorizzazioni di lettura nella directory
   * Mittente dell'invito guest

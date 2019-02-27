@@ -1,6 +1,6 @@
 ---
-title: Gestire l'accesso alle risorse di Azure con Privileged Identity Management (PIM)
-description: Informazioni sulla gestione dell'accesso alle risorse di Azure con Privileged Identity Management (PIM) e con il controllo degli accessi in base al ruolo.
+title: Gestire l'accesso alle risorse di Azure con Azure AD Privileged Identity Management (PIM)
+description: Informazioni sulla gestione dell'accesso alle risorse di Azure con Azure Active Directory Privileged Identity Management (PIM) e il controllo degli accessi in base al ruolo.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: 141cba29f5027ce092775d97c1abe9ecf11badf5
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 757068034868744b408c9402b521a0e4c73950f7
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436046"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338205"
 ---
-# <a name="manage-access-to-azure-resources-with-privileged-identity-management"></a>Gestire l'accesso alle risorse di Azure con Privileged Identity Management
+# <a name="manage-access-to-azure-resources-with-azure-ad-privileged-identity-management"></a>Gestire l'accesso alle risorse di Azure con Azure AD Privileged Identity Management
 
 Per proteggere gli account con privilegi da attacchi informatici, è possibile usare Azure Active Directory Privileged Identity Management (PIM) per ridurre il tempo di esposizione dei privilegi e aumentare la visibilità nel loro uso tramite report e avvisi. Per fare ciò, PIM consente agli utenti di assumere i loro privilegi soltanto "just in time" (JIT), oppure tramite l'assegnazione dei privilegi per una durata abbreviata, dopo la quale i privilegi vengono revocati automaticamente. 
 
@@ -33,4 +33,4 @@ Per proteggere gli account con privilegi da attacchi informatici, è possibile u
 - Assegnare l'accesso temporaneo alle risorse di Azure per attività rapide o pianificazioni di chiamate
 - Ottenere avvisi quando a nuovi utenti o gruppi viene assegnato l'accesso alle risorse e quando vengono attivate assegnazioni idonee
 
-Per altre informazioni, vedere [Panoramica del controllo degli accessi in base al ruolo in Azure PIM](../active-directory/privileged-identity-management/azure-pim-resource-rbac.md).
+Per altre informazioni, vedere [What is Azure AD Privileged Identity Management?](../active-directory/privileged-identity-management/pim-configure.md) (Che cos'è Azure AD Privileged Identity Management?).
