@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: d5cba3b21ff6099a4132a7ebfab38d1ead9afded
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 91814579675882ba969f5903ebeddcebbcbd6616
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118083"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301537"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Panoramica di Application Insights per DevOps
 
@@ -177,18 +177,18 @@ La diagnosi non è proprio uguale al debug. Prima di iniziare l'analisi del codi
 
 **Quando si verifica?** La visualizzazione cronologica fornita dai grafici di eventi e di metriche consente di correlare gli effetti alle possibili cause. Se sono presenti picchi intermittenti nel tempo di risposta e nella frequenza delle eccezioni, esaminare il numero di richieste: se i picchi si presentano contemporaneamente, sembrerebbe un problema di risorse. È necessario assegnare più CPU o memoria oppure è una dipendenza che non riesce a gestire il carico?
 
-**Dipende da chi?**   Se si verifica una riduzione improvvisa delle prestazioni di un particolare tipo di richiesta, ad esempio quando il cliente desidera un estratto conto, potrebbe essere dovuto a un sottosistema esterno invece che all'applicazione Web. In Esplora metriche, selezionare la percentuale di errori di dipendenza e la frequenza della durata delle dipendenze e confrontare le cronologie delle ultime ore o giorni con il problema rilevato. Se vi sono variazioni di correlazione, il problema potrebbe essere dovuto a un sottosistema esterno.  
+**Dipende da chi?**  Se si verifica una riduzione improvvisa delle prestazioni di un particolare tipo di richiesta, ad esempio quando il cliente desidera un estratto conto, potrebbe essere dovuto a un sottosistema esterno invece che all'applicazione Web. In Esplora metriche, selezionare la percentuale di errori di dipendenza e la frequenza della durata delle dipendenze e confrontare le cronologie delle ultime ore o giorni con il problema rilevato. Se vi sono variazioni di correlazione, il problema potrebbe essere dovuto a un sottosistema esterno.  
 
 
 ![Grafici degli errori di dipendenza e delle chiamate di durata alle dipendenze](./media/detect-triage-diagnose/11-dependencies.png)
 
 Alcuni problemi di dipendenza lenta sono problemi di georilevazione. La banca Fabrikam usa macchine virtuali di Azure e ha scoperto che aveva inavvertitamente posizionato i server Web e di account in paesi diversi. Si è avuto un notevole miglioramento con la migrazione di uno dei server.
 
-**Che cosa è successo?**  Se il problema non sembra essere una dipendenza e se non è sempre presente, è probabilmente causato da una modifica recente. La prospettiva storica offerta dai grafici di metriche e di eventi semplifica la correlazione di eventuali modifiche improvvise con le distribuzioni. Ciò consente di limitare l'ambito della ricerca del problema. Per identificare le righe del codice dell'applicazione che rallentano le prestazioni, attivare Application Insights Profiler. Fare riferimento a [Profilatura delle app Web di Azure attive con Application Insights](./../../azure-monitor/app/profiler.md). Dopo aver abilitato il profiler, viene visualizzata una traccia simile alla seguente. In questo esempio, è evidente come sia stato il metodo *GetStorageTableData* a causare il problema.  
+**Che cosa è successo?** Se il problema non sembra essere una dipendenza e se non è sempre presente, è probabilmente causato da una modifica recente. La prospettiva storica offerta dai grafici di metriche e di eventi semplifica la correlazione di eventuali modifiche improvvise con le distribuzioni. Ciò consente di limitare l'ambito della ricerca del problema. Per identificare le righe del codice dell'applicazione che rallentano le prestazioni, attivare Application Insights Profiler. Fare riferimento a [Profilatura delle app Web di Azure attive con Application Insights](./../../azure-monitor/app/profiler.md). Dopo aver abilitato il profiler, viene visualizzata una traccia simile alla seguente. In questo esempio, è evidente come sia stato il metodo *GetStorageTableData* a causare il problema.  
 
 ![Traccia di Application Insights Profiler](./media/detect-triage-diagnose/AppInsightsProfiler.png)
 
-**Cosa sta succedendo?**  Alcuni problemi si verificano solo raramente e possono essere difficili da rilevare mediante il test offline. È possibile solo tentare di acquisire il bug quando si verifica in tempo reale. È possibile esaminare i dump dello stack nei report di eccezione. Inoltre, è possibile scrivere le chiamate di traccia, con il framework di registrazione preferito o con TrackTrace() o TrackEvent().  
+**Cosa sta succedendo?** Alcuni problemi si verificano solo raramente e possono essere difficili da rilevare mediante il test offline. È possibile solo tentare di acquisire il bug quando si verifica in tempo reale. È possibile esaminare i dump dello stack nei report di eccezione. Inoltre, è possibile scrivere le chiamate di traccia, con il framework di registrazione preferito o con TrackTrace() o TrackEvent().  
 
 Fabrikam ha un problema intermittente con i trasferimenti tra conti, ma solo con determinati tipi di conti. Per comprendere meglio la situazione, sono state inserite chiamate TrackTrace() in punti chiave nel codice, associando il tipo di conto come una proprietà a ogni chiamata. In tal modo è facile filtrare solo quelle tracce in Ricerca diagnostica. Sono stati associati anche i valori dei parametri come proprietà e misure alle chiamate di traccia.
 
@@ -230,6 +230,6 @@ Ecco come un solo team usa Application Insights non solo per risolvere singoli p
 * [Applicazione Web ASP.NET](../../azure-monitor/app/asp-net.md)
 * [Applicazione Web Java](../../azure-monitor/app/java-get-started.md)
 * [Applicazione Web Node.js](../../azure-monitor/app/nodejs.md)
-* App già distribuite, ospitate in [IIS](../../azure-monitor/app/monitor-web-app-availability.md), [J2EE](../../azure-monitor/app/java-live.md) o [Azure](../../azure-monitor/app/app-insights-overview.md).
+* App già distribuite, ospitate in [IIS](../../azure-monitor/app/monitor-web-app-availability.md), [Java EE](../../azure-monitor/app/java-live.md) o [Azure](../../azure-monitor/app/app-insights-overview.md).
 * [Pagine Web](../../azure-monitor/app/javascript.md): app a singola pagina o pagina Web ordinaria da usare autonomamente o in combinazione con una delle opzioni del server.
 * [Test di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md) per testare l'applicazione dalla rete internet pubblica.

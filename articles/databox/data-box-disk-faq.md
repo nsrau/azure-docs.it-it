@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 01/09/2019
+ms.date: 02/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 68bc3302874849a69249a50dcecd46024ad939ef
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 007c63c163b6e972bd59189569c92c99d2718cbe
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448330"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301486"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Che cos'è Azure Data Box Disk?
 
@@ -62,7 +62,7 @@ R. Se si verificano problemi con i dischi di Data Box, [contattare il supporto t
 ## <a name="configure-and-connect"></a>Configurazione e connessione
  
 ### <a name="q-can-i-specify-the-number-of-data-box-disks-in-the-order"></a>D: È possibile specificare il numero di dischi di Data Box nell'ordine?
-R.   No. Si ottengono dischi da 8 TB (per un massimo di 5 dischi) a seconda delle dimensioni dei dati e della disponibilità dei dischi.  
+R.  No. Si ottengono dischi da 8 TB (per un massimo di 5 dischi) a seconda delle dimensioni dei dati e della disponibilità dei dischi.  
 
 ### <a name="q-how-do-i-unlock-the-data-box-disks"></a>D: Come si sbloccano i dischi di Data Box? 
 R.  Nel portale di Azure accedere all'ordine di dischi di Data Box e passare a **Dettagli dispositivo**. Copiare la passkey. Scaricare ed estrarre lo strumento di sblocco di Data Box Disk dal portale di Azure per il sistema operativo in uso. Eseguire lo strumento nel computer che contiene i dati che si vuole copiare nei dischi. Fornire la passkey per sbloccare i dischi. La stessa passkey sblocca tutti i dischi. 
@@ -120,7 +120,7 @@ R.  Per velocizzare il processo di copia:
 - Copiare i file nel disco della macchina virtuale.
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box-disks"></a>D: È possibile usare più account di archiviazione con i dischi di Data Box?
-R.   No. Con i dischi di Data Box è attualmente supportato un solo account di archiviazione, generale o classico. Sono supportati BLOB sia ad accesso frequente che sporadico. Attualmente, sono supportati solo gli account di archiviazione in Stati Uniti, Europa occidentale ed Europa settentrionale nel cloud pubblico di Azure.
+R.  No. Con i dischi di Data Box è attualmente supportato un solo account di archiviazione, generale o classico. Sono supportati BLOB sia ad accesso frequente che sporadico. Attualmente, sono supportati solo gli account di archiviazione in Stati Uniti, Europa occidentale ed Europa settentrionale nel cloud pubblico di Azure.
 
 ### <a name="q-what-is-the-toolset-available-for-my-data-with-data-box-disks"></a>D: Qual è il set di strumenti disponibile per i dati con i Data Box Disk?
 R. Il set di strumenti disponibile con il Data Box Disk contiene tre strumenti:
@@ -131,6 +131,9 @@ R. Il set di strumenti disponibile con il Data Box Disk contiene tre strumenti:
 Il set di strumenti è disponibile per Windows e Linux. È possibile scaricare il set di strumenti qui:
  - [Scaricare il set di strumenti di Data Box Disk per Windows](https://aka.ms/databoxdisktoolswin) 
  - [Scaricare il set di strumenti di Data Box Disk per Linux](https://aka.ms/databoxdisktoolslinux)
+ 
+ ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>D: È possibile usare Data Box Disk per trasferire i dati in File di Azure e quindi usare i dati con Sincronizzazione file di Azure? 
+ R. File di Azure non è supportato con Data Box Disk. I metadati non vengono conservati anche se i dati dei file vengono usati successivamente con Sincronizzazione file di Azure.
 
 
 ## <a name="verify-and-upload"></a>Verifica e caricamento

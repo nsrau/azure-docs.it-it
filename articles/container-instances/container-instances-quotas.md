@@ -1,18 +1,18 @@
 ---
 title: Quote e aree disponibili per Istanze di Azure Container
-description: Quote predefinite e aree disponibili per il servizio Istanze di Azure Container.
+description: Quote, limiti e aree disponibili per il servizio Istanze di Azure Container.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 02/08/2019
+ms.date: 02/15/2019
 ms.author: danlep
-ms.openlocfilehash: 35e846aa5954e3714d301c9c75cf42b31961fdfe
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c676989b4b882f2b1887a1b6a5091b60027f61d0
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56160578"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328407"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Quote e aree disponibili per Istanze di Azure Container
 
@@ -22,19 +22,30 @@ Tutti i servizi di Azure prevedono determinati limiti predefiniti e quote per le
 
 [!INCLUDE [container-instances-limits](../../includes/container-instances-limits.md)]
 
+## <a name="feature-availability"></a>Disponibilità delle funzionalità
+
+Istanze di Azure Container consente di pianificare contenitori sia Windows che Linux con la stessa API. Tuttavia, le funzionalità seguenti sono attualmente disponibili solo in gruppi di contenitori Linux. È previsto il supporto per la versione Windows.
+
+* Più contenitori per gruppo di contenitori
+* Montaggio di volumi (File di Azure, emptyDir, GitRepo, segreto)
+* Rete virtuale (anteprima)
+* Risorse GPU (anteprima)
+
 ## <a name="region-availability"></a>Aree di disponibilità
 
-Istanze di Azure Container è disponibile nelle aree seguenti con i limiti di CPU e memoria specificati. I valori sono aggiornati al momento della pubblicazione. Per informazioni aggiornate, usare l'API di [elenco delle funzionalità](/rest/api/container-instances/listcapabilities/listcapabilities). La disponibilità e i limiti delle risorse possono variare quando si usano le Istanze di Azure Container con una [rete virtuale](container-instances-vnet.md) (anteprima) o con le [risorse della GPU](container-instances-gpu.md) (anteprima).
+Istanze di Azure Container è disponibile nelle aree seguenti con i limiti di CPU e memoria specificati per ogni gruppo di contenitori. I valori sono aggiornati al momento della pubblicazione. Per informazioni aggiornate, usare l'API di [elenco delle funzionalità](/rest/api/container-instances/listcapabilities/listcapabilities). 
+
+La disponibilità e i limiti delle risorse possono variare quando si usano le Istanze di Azure Container con una [rete virtuale](container-instances-vnet.md) (anteprima) o con le [risorse della GPU](container-instances-gpu.md) (anteprima).
 
 | Località | OS | CPU | Memoria (GB) |
 | -------- | -- | :---: | :-----------: |
-| Canada centrale, Stati Uniti centrali, Stati Uniti orientali 2 | Linux | 4 | 16 |
+| Canada centrale, Stati Uniti centrali, Stati Uniti orientali 2, Stati Uniti centro-meridionali | Linux | 4 | 16 |
 | Stati Uniti orientali, Europa settentrionale, Europa occidentale, Stati Uniti occidentali, Stati Uniti occidentali 2 | Linux | 4 | 14 |
 | Giappone orientale | Linux | 2 | 8 |
 | Australia orientale, Asia sud-orientale | Linux | 2 | 7 |
-| India centrale, Asia orientale, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, India meridionale | Linux | 2 | 3,5 |
-| Stati Uniti orientali, Europa occidentale, Stati Uniti occidentali |  Windows | 4 | 14 |
-| Australia orientale, Canada centrale, India centrale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali 2, Giappone orientale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, India meridionale, Asia sud-orientale, Stati Uniti occidentali 2 |  Windows | 2 | 3,5 |
+| India centrale, Asia orientale, Stati Uniti centro-settentrionali, India meridionale | Linux | 2 | 3,5 |
+| Stati Uniti orientali, Europa occidentale, Stati Uniti occidentali | Windows | 4 | 14 |
+| Australia orientale, Canada centrale, India centrale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali 2, Giappone orientale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, India meridionale, Asia sud-orientale, Stati Uniti occidentali 2 | Windows | 2 | 3,5 |
 
 La disponibilità di Istanze di Container con questi limiti di risorse dipende dell'area di distribuzione. Quando un'area ha un carico elevato, può verificarsi un errore durante la distribuzione delle istanze. Per mitigare tale errore di distribuzione, provare a distribuire le istanze con impostazioni di memoria e CPU inferiori oppure provare a eseguire la distribuzione in un secondo momento.
 

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 6c7dd6ebaf7eebefcdcfa50bbd77ad80f4cda907
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: b3d79f106554bf4a80df835ac880fbb7a72c8bfe
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077455"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268397"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Domande frequenti
 
@@ -70,7 +70,7 @@ R.  Per ottenere Azure Data Box, accedere al portale di Azure e creare un ordine
 ### <a name="q-i-was-not-able-to-create-a-data-box-order-in-the-azure-portal-why-would-this-be"></a>D: La creazione di un ordine di Data Box nel portale di Azure non è riuscita. Quale può essere il motivo?
 R. Se non è stato possibile creare un ordine per Data Box, si è verificato un problema in relazione al tipo di sottoscrizione o all'accesso. 
 
-Controllare la sottoscrizione. Data Box è disponibile solo per le offerte di sottoscrizione Contratto Enterprise (EA), Cloud Solution Provider (CSP) o con pagamento a consumo. Se il tipo di sottoscrizione non è elencato, contattare il supporto tecnico Microsoft per aggiornare la sottoscrizione.
+Controllare la sottoscrizione. Data Box è disponibile solo per le offerte di sottoscrizione Contratto Enterprise (EA) e Cloud Solution Provider (CSP). Se il tipo di sottoscrizione non è elencato, contattare il supporto tecnico Microsoft per aggiornare la sottoscrizione.
 
 Se si dispone di un tipo di offerta supportato per la sottoscrizione, controllare il livello di accesso della sottoscrizione stessa. Per creare un ordine, è necessario essere un collaboratore o un proprietario della sottoscrizione.
 
@@ -244,7 +244,7 @@ R.  Per supportare la catena di custodia, è disponibile la documentazione segue
 R.  I documenti di accompagnamento del corriere vengono acquisiti nella cronologia ordini di Data Box. Tale report è disponibile all'utente dopo la restituzione del dispositivo al data center di Azure e dopo l'eliminazione dei dati dai dischi del dispositivo stesso. Per esigenze di controllo immediate, è anche possibile accedere direttamente al sito Web del corriere con il numero di tracciabilità dell'ordine e ottenere le informazioni necessarie.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>È possibile trasportare direttamente il dispositivo Data Box al data center di Azure? 
-R.   No. I data center di Azure non accettano attualmente la consegna di Data Box da parte di clienti o di corrieri diversi da UPS.
+R.  No. I data center di Azure non accettano attualmente la consegna di Data Box da parte di clienti o di corrieri diversi da UPS.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
