@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Riconoscere i contenuti vocali, C++ (Linux) - Servizi di riconoscimento vocale'
+title: 'Avvio rapido: Riconoscere i contenuti vocali, C++ (Linux) - Servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sul riconoscimento vocale in C++ in Linux con Speech SDK
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 9e1844320786fe8a2a856b06b3a8093ca49568eb
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 7cc6153681a05944ea83b756a0439ff0c8922f91
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446359"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959528"
 ---
-# <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Guida introduttiva: Riconoscere i contenuti vocali in C++ su Linux con Speech SDK
+# <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscere i contenuti vocali in C++ su Linux con Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -31,7 +31,7 @@ In questo articolo viene creata un'applicazione console C++ per Ubuntu Linux 16.
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-La versione corrente di Speech SDK di Servizi cognitivi è `1.3.0`.
+La versione corrente di Speech SDK di Servizi cognitivi è `1.3.1`.
 
 Speech SDK per Linux è utilizzabile per compilare applicazioni sia a 64 bit che a 32 bit. Le librerie necessarie e i file di intestazione possono essere scaricati come file tar da https://aka.ms/csspeech/linuxbinary.
 

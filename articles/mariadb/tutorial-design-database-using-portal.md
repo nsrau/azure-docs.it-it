@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 23af00b8a8e061056e9b7ad8ea2c999414783ad6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2bbe69d114df61f6ca01add0b3459220d59d83e0
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538107"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880516"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Esercitazione: Progettare un database di Database di Azure per MariaDB con il portale di Azure
 
@@ -28,6 +28,8 @@ In questa esercitazione si userà il portale di Azure per imparare a:
 > * Eseguire query sui dati
 > * Aggiornare i dati
 > * Ripristinare i dati
+
+Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -57,7 +59,7 @@ Si crea un server di Database di Azure per MariaDB con un set definito di [risor
     Password | *A scelta dell'utente* | Immettere una nuova password per l'account dell'amministratore del server. Deve contenere tra 8 e 128 caratteri. La password deve contenere caratteri di tre delle categorie seguenti: lettere maiuscole, lettere minuscole, numeri (0-9) e caratteri non alfanumerici (!, $, #, % e così via).
     Conferma password | *A scelta dell'utente*| Confermare la password dell'account amministratore.
     Località | *Area più vicina ai propri utenti*| Selezionare la località più vicina agli utenti o alle altre applicazioni Azure.
-    Version | *Ultima versione*| Ultima versione, a meno che non si abbiano requisiti specifici per cui deve esserne usata un'altra.
+    Versione | *Ultima versione*| Ultima versione, a meno che non si abbiano requisiti specifici per cui deve esserne usata un'altra.
     Piano tariffario | Vedere la descrizione. | Configurazioni di calcolo, archiviazione e backup per il nuovo server. Selezionare **Piano tariffario** > **Utilizzo generico**. Mantenere i valori predefiniti per le impostazioni seguenti:<br><ul><li>**Generazione di calcolo** (Generazione 5)</li><li>**vCore** (2 vCore)</li><li>**Archiviazione** (5 GB)</li><li>**Periodo di conservazione backup** (7 giorni)</li></ul><br>Per abilitare l'archiviazione con ridondanza geografica dei backup del server, in **Opzioni di ridondanza per il backup** selezionare **Con ridondanza geografica**. <br><br>Per salvare la selezione del piano tariffario, selezionare **OK**. Lo screenshot successivo mostra queste selezioni.
     
    ![Piano tariffario](./media/tutorial-design-database-using-portal/3-pricing-tier.png)

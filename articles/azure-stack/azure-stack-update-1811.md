@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 09e1f99c7d0b56f5e2af893385dde19b8f358a19
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: 14e587276deab9656c3be04c96182942767ae0f2
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099140"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986023"
 ---
 # <a name="azure-stack-1811-update"></a>Aggiornamento di Azure Stack 1811
 
@@ -86,6 +86,8 @@ Azure Stack rilascia gli aggiornamenti rapidi a intervalli regolari. Assicurarsi
     Dopo che sono stati importati correttamente i certificati host estensione obbligatorio, è possibile riprendere l'aggiornamento 1811 dal portale di amministratore. Mentre si consiglia di operatori di Azure Stack per pianificare una finestra di manutenzione durante il processo di aggiornamento, un errore a causa di certificati host estensione mancante non dovrebbe influire i carichi di lavoro o i servizi esistenti.  
 
     Durante l'installazione di questo aggiornamento, il portale utenti di Azure Stack è disponibile mentre viene configurato l'host dell'estensione. La configurazione dell'host di estensione può richiedere fino a 5 ore. Durante questo periodo, è possibile controllare lo stato di un aggiornamento o riprendere un'installazione di un aggiornamento non riuscito con [PowerShell per amministratori di Azure Stack o l'endpoint con privilegi](azure-stack-monitor-update.md).
+
+- Quando Azure Stack è gestito da System Center Operations Manager (SCOM), assicurarsi di aggiornare il Management Pack per Microsoft Azure Stack alla versione 10.0.3.11 prima di applicare 1811.
 
 ## <a name="new-features"></a>Nuove funzionalità
 

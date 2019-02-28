@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: a4c3d952edd115748c6a63f031d9c8e115aedb1c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1af6214833109ad89e8b5f27eefc0c99cdaf2496
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884461"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984187"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Guida introduttiva: Creare un account di archiviazione di Azure Data Lake Storage Gen2
 
@@ -83,7 +83,7 @@ Per creare un gruppo di risorse nel portale di Azure, seguire questa procedura:
 Per creare un account di archiviazione per utilizzo generico v2 nel portale di Azure, eseguire questa procedura:
 
 > [!NOTE]
-> Lo spazio dei nomi gerarchico è attualmente disponibile in tutte le aree pubbliche. Non è attualmente disponibile nei cloud sovrani.
+> Lo spazio dei nomi gerarchico è attualmente disponibile in tutte le aree pubbliche.
 
 1. Nel portale di Azure espandere il menu a sinistra per aprire il menu dei servizi e scegliere **Tutti i servizi**. Scorrere quindi verso il basso fino ad **Archiviazione** e scegliere **Account di archiviazione**. Nella finestra **Account di archiviazione** visualizzata scegliere **Aggiungi**.
 2. Selezionare la **sottoscrizione** e il **gruppo di risorse creato in precedenza**.
@@ -141,7 +141,7 @@ Login-AzAccount
 Per creare un nuovo gruppo di risorse con PowerShell, usare il comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup): 
 
 > [!NOTE]
-> Lo spazio dei nomi gerarchico è attualmente disponibile in tutte le aree pubbliche. Non è attualmente disponibile nei cloud sovrani.
+> Lo spazio dei nomi gerarchico è attualmente disponibile in tutte le aree pubbliche.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -201,7 +201,7 @@ az group create `
 ```
 
 > [!NOTE]
-> > Lo spazio dei nomi gerarchico è attualmente disponibile in tutte le aree pubbliche. Non è attualmente disponibile nei cloud sovrani.
+> > Lo spazio dei nomi gerarchico è attualmente disponibile in tutte le aree pubbliche.
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>Creare un account di archiviazione per utilizzo generico v2
 

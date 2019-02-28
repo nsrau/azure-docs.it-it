@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: d0051f081f005d61a1eed43d177a11781b2b3fa8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7b73a0efbe20b43b3ba8e94fce3aabf12ea918e8
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997091"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986057"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Aggiungere Kubernetes per il Marketplace di Azure Stack
 
@@ -31,7 +31,7 @@ ms.locfileid: "55997091"
 
 È possibile offrire Kubernetes come un elemento del Marketplace per gli utenti. Gli utenti possono distribuire quindi Kubernetes in un'unica operazione coordinata.
 
-Esaminare l'articolo seguente usando un modello di Azure Resource Manager per la distribuzione e provisioning delle risorse per un cluster autonomo di Kubernetes. L'elemento del Marketplace di Cluster Kubernetes 0.3.0 richiede la versione di Azure Stack 1808. Prima di iniziare, verificare le impostazioni di globale tenant di Azure e Azure Stack. Raccogliere le informazioni necessarie su Azure Stack. Aggiungere le risorse necessarie per il tenant e per il Marketplace di Azure Stack. Il cluster dipende da un server Ubuntu, uno script personalizzato e gli elementi di Kubernetes in marketplace.
+Esaminare l'articolo seguente usando un modello di Azure Resource Manager per la distribuzione e provisioning delle risorse per un cluster autonomo di Kubernetes. Prima di iniziare, verificare le impostazioni di globale tenant di Azure e Azure Stack. Raccogliere le informazioni necessarie su Azure Stack. Aggiungere le risorse necessarie per il tenant e per il Marketplace di Azure Stack. Il cluster dipende da un server Ubuntu, uno script personalizzato e l'elemento del Marketplace di Cluster Kubernetes in marketplace.
 
 ## <a name="create-a-plan-an-offer-and-a-subscription"></a>Creare un piano, un'offerta e una sottoscrizione
 
@@ -117,7 +117,7 @@ Se si usa Active Directory Federated Services (ADFS) per il servizio di gestione
        | Valore | DESCRIZIONE                     |
        | ---   | ---                             |
        | IP ERCS | In ASDK, l'endpoint con privilegi è in genere `AzS-ERCS01`. |
-       | Nome applicazione | Immettere un nome semplice per l'entità servizio dell'applicazione. |
+       | Nome dell'applicazione | Immettere un nome semplice per l'entità servizio dell'applicazione. |
        | Percorso dell'archivio certificati | Il percorso nel computer in cui è memorizzato il certificato. Ciò viene indicato con il percorso dell'archivio e l'ID certificato generato nel primo passaggio. Ad esempio: `Cert:\LocalMachine\My\1C2ED76081405F14747DC3B5F76BB1D83227D824` |
 
        Quando richiesto, usare le credenziali seguenti per connettersi all'endpoint del privilegio. 
@@ -247,7 +247,7 @@ Aggiunta di Kubernetes da Marketplace:
     > [!note]  
     > Può richiedere cinque minuti per l'elemento del marketplace venga visualizzato nel Marketplace.
 
-    ![Kubernetes](user/media/azure-stack-solution-template-kubernetes-deploy/marketplaceitem.png)
+    ![kubernetes](user/media/azure-stack-solution-template-kubernetes-deploy/marketplaceitem.png)
 
 ## <a name="update-or-remove-the-kubernetes"></a>Aggiornare o rimuovere di Kubernetes 
 

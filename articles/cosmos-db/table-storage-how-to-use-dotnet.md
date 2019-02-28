@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
-ms.openlocfilehash: 7798af5d667bcf70ba562bb7198f9af570f3005a
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 57ed02463555ce9e958aedd9c2b317f7a167567b
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044417"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985887"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>Introduzione all'archiviazione tabelle di Azure e all'API Tabelle di Azure Cosmos DB con .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -36,7 +36,6 @@ Per completare correttamente l'esempio sono necessari gli elementi seguenti:
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Libreria comune di Archiviazione di Azure per .NET (anteprima)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). - Un pacchetto di anteprima obbligatorio supportato in ambienti di produzione. 
 * [Libreria di tabelle Microsoft Azure CosmosDB per .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table): questa libreria è attualmente disponibile solo per .NET Standard. Non è ancora disponibile per .NET Core.
-* [Gestione configurazione di Azure per .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Account di archiviazione di Azure](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
@@ -77,14 +76,11 @@ Per completare questo esempio, all'interno del progetto è necessario fare rifer
 
 * [Libreria di tabelle Microsoft Azure Cosmos DB per .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Questo pacchetto consente l'accesso a livello di codice alle risorse dati nell'account di archiviazione tabelle di Azure o nell'account dell'API di tabella di Azure Cosmos DB. Questa libreria è attualmente disponibile solo per .NET Standard. Non è ancora disponibile per .NET Core.
 
-* [Libreria Gestione configurazione di Microsoft Azure per .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): questo pacchetto fornisce una classe per l'analisi di una stringa di connessione in un file di configurazione, indipendentemente dalla posizione in cui viene eseguita l'applicazione.
-
 Per ottenere i pacchetti NuGet, seguire questa procedura:
 
 1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**.
 2. Cercare online "Microsoft.Azure.Storage.Common", scegliere la versione <= 9.0.0.1 e selezionare **Installa** per installare la libreria comune di Archiviazione di Azure per .NET (anteprima) e le relative dipendenze. Assicurarsi che la casella **Includi versione preliminare** sia selezionata, dato che si tratta di un pacchetto di anteprima.
 3. Cercare online "Microsoft.Azure.CosmosDB.Table" e selezionare **Installa** per installare la libreria di tabelle Microsoft Azure CosmosDB.
-4. Cercare online "WindowsAzure.ConfigurationManager" e selezionare **Installa** per installare la libreria di Microsoft Azure Configuration Manager.
 
 > [!NOTE]
 > Le dipendenze ODataLib nella libreria comune di archiviazione per .NET vengono risolte dai pacchetti ODataLib disponibili in NuGet, non da WCF Data Services. È possibile scaricare le librerie ODataLib direttamente oppure farvi riferimento nel progetto del codice tramite NuGet. I pacchetti ODataLib specifici usati dalla libreria client di archiviazione sono [OData](https://nuget.org/packages/Microsoft.Data.OData/), [Edm](https://nuget.org/packages/Microsoft.Data.Edm/) e [Spatial](https://nuget.org/packages/System.Spatial/). Queste librerie sono usate dalle classi di archiviazione tabelle di Azure, ma sono dipendenze necessarie per la programmazione con la libreria comune di archiviazione.

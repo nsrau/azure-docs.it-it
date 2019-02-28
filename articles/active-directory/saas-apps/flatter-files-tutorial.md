@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: e086975f52a40eabcbec1fa4e7aedf1d717bde89
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 24fa4297701e5144ba58d6d0e8ec034a6cdda570
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455552"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872218"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Esercitazione: Integrazione di Azure Active Directory con Flatter Files
 
@@ -48,7 +48,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-flatter-files-from-the-gallery"></a>Aggiunta di Flatter Files dalla raccolta
 
-Per configurare l'integrazione di Flatter Files in Azure AD, è necessario aggiungere Flatter Files dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Flatter Files in Azure AD, è necessario aggiungere Flatter Files dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Flatter Files dalla raccolta, seguire questa procedura:**
 
@@ -73,12 +73,12 @@ Per configurare l'integrazione di Flatter Files in Azure AD, è necessario aggiu
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Flatter Files usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Flatter Files.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Flatter Files, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Flatter Files, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Flatter Files](#configure-flatter-files-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Flatter Files](#create-flatter-files-test-user)**: per avere una controparte di Britta Simon in Flatter Files collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -124,11 +124,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Flatter Files, seguire 
 
 2. Fare clic su **DASHBOARD**. 
    
-    ![Configurare l'accesso Single Sign-On](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
+    ![Configure Single Sign-On](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
 
 3. Fare clic su **Settings** (Impostazioni) e quindi nella scheda **Company** (Azienda) seguire questa procedura: 
    
-    ![Configurare l'accesso Single Sign-On](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
+    ![Configure Single Sign-On](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
     
     a. Selezionare **Use SAML 2.0 for Authentication**.
     
@@ -136,7 +136,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Flatter Files, seguire 
 
 4. Nella finestra di dialogo **SAML Configuration** (Configurazione SAML) seguire questa procedura: 
    
-    ![Configurare l'accesso Single Sign-On](./media/flatter-files-tutorial/tutorial_flatter_files_08.png)  
+    ![Configure Single Sign-On](./media/flatter-files-tutorial/tutorial_flatter_files_08.png)  
    
     a. Nella casella di testo **Domain** (Dominio) digitare il dominio registrato.
    
@@ -149,9 +149,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Flatter Files, seguire 
 
     d. Fare clic su **Update**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -174,15 +174,15 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Flatter Files.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Flatter Files.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Flatter Files**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Flatter Files**.
+2. Nell'elenco di applicazioni selezionare **Flatter Files**.
 
     ![Collegamento di Flatter Files nell'elenco delle applicazioni](common/all-applications.png)
 

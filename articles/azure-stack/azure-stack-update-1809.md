@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: a4298a8bd78f178c56776e703e72ff99aac54207
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: 251f61a0356f4e8f379c17b477e24a0cefce68e7
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887907"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985003"
 ---
 # <a name="azure-stack-1809-update"></a>Aggiornamento di Azure Stack 1809
 
@@ -147,7 +147,9 @@ Per altre informazioni su questi problemi di protezione, fare clic su collegamen
 
   ```PowerShell
   Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
-  ``` 
+  ```
+
+- Quando Azure Stack è gestito da System Center Operations Manager (SCOM), assicurarsi di aggiornare il Management Pack per Microsoft Azure Stack alla versione 10.0.3.11 prima di applicare 1809.
 
 ### <a name="known-issues-with-the-update-process"></a>Problemi noti con il processo di aggiornamento
 

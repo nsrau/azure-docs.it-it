@@ -4,18 +4,19 @@ description: In questa guida introduttiva al linguaggio Go si aggiungono espress
 titleSuffix: Language Understanding - Microsoft Cognitive Services
 author: diberry
 manager: nitinme
+services: cognitive-services
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 4bc76f67b2d8908abe601aa1fcdfd1962678c548
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 60594137306bfe58024877947959f2865fffe019
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865652"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961806"
 ---
 # <a name="quickstart-change-model-using-go"></a>Avvio rapido: Modificare il modello tramite Go
 
@@ -45,7 +46,7 @@ In questa guida introduttiva si passano le espressioni a un endpoint LUIS per ot
 
 3. Aggiungere la funzione di richiesta HTTP generica, che include il passaggio della chiave di creazione e modifica nell'intestazione. 
 
-   [!code-go[Add HTTP request function which includes passing authoring key in header. ](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=12-36 "Add HTTP request function, which includes passing authoring key in header. ")]
+   [!code-go[Add HTTP request function which includes passing authoring key in header.](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=12-36 "Add HTTP request function, which includes passing authoring key in header. ")]
 
 4. Aggiungere espressioni di esempio dal file JSON.
 
@@ -53,15 +54,15 @@ In questa guida introduttiva si passano le espressioni a un endpoint LUIS per ot
 
 5. Richiedere il training. Viene usata una funzione helper per impostare il VERBO per la stessa route dello stato del training. 
 
-   [!code-go[Request training. ](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=77-86 "Request training. ")]
+   [!code-go[Request training.](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=77-86 "Request training. ")]
 
 6. Richiedere lo stato del training. Viene usata una funzione helper per impostare il VERBO per la stessa route della richiesta di training. 
 
-   [!code-go[Request training status. ](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=87-90 "Request training status. ")]
+   [!code-go[Request training status.](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=87-90 "Request training status. ")]
 
 7. Aggiungere la funzione main per gestire l'analisi da riga di comando.
 
-   [!code-go[Add main function to handle command line parsing. ](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=38-60 "Add main function to handle command-line parsing.")]
+   [!code-go[Add main function to handle command line parsing.](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=38-60 "Add main function to handle command-line parsing.")]
 
 ## <a name="add-an-utterance-from-the-command-line-train-and-get-status"></a>Aggiungere un'espressione dalla riga di comando, eseguire il training e ottenere lo stato
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 5597f3c017ccf2dbb58b7b6b046720c8f49803c5
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 77c38089a4f9c6518d9736df7f3020c66ad17b3b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312288"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877045"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Spostare macchine virtuali di Azure nelle zone di disponibilità
 Le zone di disponibilità di Azure proteggono le applicazioni e i dati dai guasti del data center. Ogni zona di disponibilità è costituita da uno o più data center dotati di impianti indipendenti per l'energia, il raffreddamento e la rete. Per garantire la resilienza, sono presenti almeno tre zone separate in tutte le aree abilitate. La separazione fisica delle zone di disponibilità all'interno di un'area consente di proteggere le applicazioni e i dati da eventuali guasti del data center. Con le zone di disponibilità, Azure offre un contratto di servizio con tempo di attività delle VM del 99,99% tra i migliori del settore. La zona di disponibilità è supportata in aree selezionate, come indicato [qui](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones). 
@@ -70,7 +70,7 @@ In uno scenario in cui le macchine virtuali sono state distribuite come "istanza
     - [Gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Servizi di bilanciamento del carico](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials
         
-     - [IP pubblico ](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+     - [IP pubblico](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
     
    Per qualsiasi altro componente di rete, vedere la [documentazione](https://docs.microsoft.com/azure/#pivot=products&panel=network) relativa alle reti. 
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3b483310918bf58efc639b7d4220e54603b6561
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9e5a428f09d6c6327ff04b44591698b1e84df041
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210884"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883199"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-degreed"></a>Esercitazione: Integrazione di Azure Active Directory con Degreed
 
@@ -81,9 +81,9 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Degreed, è n
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Degreed](#configure-degreed-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Degreed](#create-degreed-test-user)**: per avere una controparte di Britta Simon in Degreed collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -95,7 +95,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Degreed, seguire questa
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
-2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare l'accesso Single Sign-On.
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
 
     ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
@@ -107,9 +107,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Degreed, seguire questa
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Degreed](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://degreed.com/?orgsso=<company code>`
+    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://degreed.com/?orgsso=<company code>`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://degreed.com/<instancename>`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://degreed.com/<instancename>`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Degreed](mailto:admin@degreed.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -132,9 +132,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Degreed, seguire questa
 
 Per configurare l'accesso Single Sign-On sul lato **Degreed**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Degreed](mailto:admin@degreed.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -155,9 +155,9 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Degreed.
 
@@ -185,7 +185,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 ### <a name="create-degreed-test-user"></a>Creare l'utente di test di Degreed
 
-Questa sezione descrive come creare un utente chiamato Britta Simon in Degreed. Degreed supporta il provisioning JIT, che è abilitato per impostazione predefinita.
+Questa sezione descrive come creare un utente chiamato Britta Simon in Degreed. Degreed supporta il provisioning just-in-time, che è abilitato per impostazione predefinita.
 
 Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Degreed viene creato un nuovo utente, se questo non esiste già.
 

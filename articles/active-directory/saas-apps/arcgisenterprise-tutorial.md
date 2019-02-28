@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff18a5c0eec79a48a828abdca43b4a4f43e96ebf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 63e4769a0089259ee337931e2dbc0e8bcc9290c5
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56161694"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869021"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Esercitazione: Integrazione di Azure Active Directory con ArcGIS Enterprise
 

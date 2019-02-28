@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b31358e72449d1ec73d50ad1f2583609c10f9e9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ef76cf9cfa97d7d3ecc6c511c269b52ce6a2dec0
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204339"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876841"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-unifi"></a>Esercitazione: Integrazione di Azure Active Directory con UNIFI
 

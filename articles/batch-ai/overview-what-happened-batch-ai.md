@@ -7,12 +7,12 @@ ms.service: batch-ai
 ms.topic: overview
 ms.date: 2/14/2019
 ms.author: garye
-ms.openlocfilehash: 87dcf18a2517561e3166726f8f1f1a70c2ec7713
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: fb1114e94c227ce6787532c6059186399d0f57f0
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447804"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961356"
 ---
 # <a name="whats-happening-to-azure-batch-ai"></a>Che cosa accadrà ad Azure Batch per intelligenza artificiale?
 
@@ -282,7 +282,7 @@ ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 ```
 
-Altre informazioni sulla registrazione di altri account di archiviazione o su come ottenere un riferimento a un altro archivio dati registrato sono disponibili nella [documentazione del servizio Azure Machine Learning](../machine-learning/service/how-to-access-data.md#create-a-datastore).
+Altre informazioni sulla registrazione di altri account di archiviazione o su come ottenere un riferimento a un altro archivio dati registrato sono disponibili nella [documentazione del servizio Azure Machine Learning](../machine-learning/service/how-to-access-data.md#access).
 
 
 #### <a name="downloading-and-uploading-data"></a>Download e caricamento dei dati 
@@ -434,7 +434,7 @@ estimator = TensorFlow(source_directory=project_folder,
                        use_gpu=True)
 ```
 
-Le informazioni complete per questo frammento di codice di training (incluso il file tf_mnist_replica.py) sono disponibili nel [repository github del notebook di esempio di Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server). L'archivio dati stesso può essere montato nei singoli nodi oppure i dati di training possono essere scaricati nel nodo stesso. Altre informazioni su come fare riferimento all'archivio dati nell'oggetto Estimator sono disponibili nella [documentazione del servizio Azure Machine Learning](../machine-learning/service/how-to-access-data.md#access-datastores-for-training). 
+Le informazioni complete per questo frammento di codice di training (incluso il file tf_mnist_replica.py) sono disponibili nel [repository github del notebook di esempio di Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server). L'archivio dati stesso può essere montato nei singoli nodi oppure i dati di training possono essere scaricati nel nodo stesso. Altre informazioni su come fare riferimento all'archivio dati nell'oggetto Estimator sono disponibili nella [documentazione del servizio Azure Machine Learning](../machine-learning/service/how-to-access-data.md#access). 
 
 L'invio di un'esecuzione in Azure Machine Learning avviene tramite la funzione di invio.
 

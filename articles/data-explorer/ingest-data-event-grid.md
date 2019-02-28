@@ -8,14 +8,14 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/30/2019
-ms.openlocfilehash: 343baedb77eb5c8a250e2ab967332dc0905f5112
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 6dac6fb18f221ddb45e5b5b7e325868915732368
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743686"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804648"
 ---
-# <a name="quickstart-ingest-azure-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Guida introduttiva: Inserire BLOB di Azure in Esplora dati di Azure tramite una sottoscrizione delle notifiche di Griglia di eventi
+# <a name="quickstart-ingest-azure-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Avvio rapido: Inserire BLOB di Azure in Esplora dati di Azure tramite una sottoscrizione delle notifiche di Griglia di eventi
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure offre l'inserimento continuo di dati (caricamento) dai BLOB scritti nei contenitori di BLOB. Questo risultato si ottiene impostando una sottoscrizione di [Griglia di eventi di Azure](/azure/event-grid/overview) per gli eventi di creazione di BLOB e instradando questi eventi a Kusto tramite Hub eventi. Per questa guida introduttiva, è necessario avere un account di archiviazione con una sottoscrizione di Griglia di eventi che invia le relative notifiche a Hub eventi. È quindi possibile creare una connessione dati di Griglia di eventi e verificare il flusso di dati attraverso l'intero sistema.
 
@@ -58,7 +58,7 @@ Creare una tabella in Esplora dati di Azure a cui verranno inviati i dati da Hub
 
 1. Nel portale di Azure, in corrispondenza del cluster selezionare **Query**.
 
-    ![Collegamento all'applicazione di query](media/ingest-data-event-hub/query-explorer-link.png)
+    ![Collegamento all'applicazione di query](media/ingest-data-event-grid/query-explorer-link.png)
 
 1. Copiare il comando seguente nella finestra e selezionare **Esegui** per creare la tabella (TestTable) che riceverà i dati inseriti.
 
@@ -82,11 +82,11 @@ A questo punto è possibile connettersi a Griglia di eventi da Esplora dati di A
 
 1. Nel cluster creato selezionare **Database** e quindi **TestDatabase**.
 
-    ![Selezionare il database di test](media/ingest-data-event-hub/select-test-database.png)
+    ![Selezionare il database di test](media/ingest-data-event-grid/select-test-database.png)
 
 1. Selezionare **Inserimento dati** e quindi **Aggiungi connessione dati**.
 
-    ![Inserimento di dati](media/ingest-data-event-hub/data-ingestion-create.png)
+    ![Inserimento di dati](media/ingest-data-event-grid/data-ingestion-create.png)
 
 1. Selezionare il tipo di connessione: **Archiviazione BLOB**.
 
@@ -185,9 +185,9 @@ Se non si prevede di usare nuovamente la griglia di eventi, eliminare **test-hub
 
 1. Nel portale di Azure selezionare **Gruppi di risorse** all'estrema sinistra e quindi selezionare il gruppo di risorse creato.  
 
-    Se il menu a sinistra è compresso, selezionare ![pulsante Espandi](media/ingest-data-event-hub/expand.png) per espanderlo.
+    Se il menu a sinistra è compresso, selezionare ![pulsante Espandi](media/ingest-data-event-grid/expand.png) per espanderlo.
 
-   ![Selezionare il gruppo di risorse da eliminare](media/ingest-data-event-hub/delete-resources-select.png)
+   ![Selezionare il gruppo di risorse da eliminare](media/ingest-data-event-grid/delete-resources-select.png)
 
 1. In **test-resource-group** selezionare **Elimina gruppo di risorse**.
 
