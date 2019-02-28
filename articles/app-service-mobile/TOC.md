@@ -127,7 +127,7 @@
 
 ### HTTPS
 #### [Configurare l'autenticazione reciproca TLS](../app-service/app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Acquistare un certificato SSL in Azure](../app-service/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Buy an SSL certificate in Azure](../app-service/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json) (Acquistare un certificato SSL in Azure)
 #### [Usare un certificato SSL ottenuto altrove](../app-service/app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### Proteggere un ambiente del servizio app

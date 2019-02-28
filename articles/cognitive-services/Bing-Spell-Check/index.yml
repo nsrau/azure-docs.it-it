@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 28172ed2309c1e97fe6dafa46cf055862a894cee
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: daf643a96195bc5f8f30652eaf1e7b071d63fa87
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730342"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888237"
 documentType: LandingData
 title: Documentazione dell'API Controllo ortografico Bing
 metadata:
@@ -12,18 +12,39 @@ metadata:
   title: Documentazione dell'API Controllo ortografico Bing - Esercitazioni e informazioni di riferimento sulle API - Servizi cognitivi di Azure| Microsoft Docs
   description: Informazioni su come usare l'API Controllo ortografico Bing per ottenere suggerimenti di correzioni per i documenti di testo. Le esercitazioni illustrano come compilare app che usano l'API.
   services: cognitive-services
-  author: noellelacharite
-  manager: nolachar
+  author: aahill
+  manager: cgronlun
   ms.service: cognitive-services
   ms.subservice: bing-spell-check
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/09/2018
-  ms.author: nolachar
+  ms.date: 02/19/2019
+  ms.author: aahi
 abstract:
   description: L'API Controllo ortografico Bing consente di eseguire il controllo grammaticale e ortografico contestuale. Bing ha sviluppato un correttore ortografico basato sul Web, che sfrutta i vantaggi offerti da Machine Learning e dalla traduzione automatica statistica per eseguire in modo dinamico il training di un algoritmo altamente contestuale in continua evoluzione. Il correttore ortografico è basato su un numero elevatissimo di ricerche Web e documenti. Informazioni su come analizzare il contenuto in modi diversi con le guide introduttive, le esercitazioni e gli esempi.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-spell-check/overview
+      html: <p>Informazioni sull'API Controllo ortografico Bing.</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Informazioni sull'API Controllo ortografico Bing
+    - href: /azure/cognitive-services/bing-spell-check/concepts/sending-requests
+      html: <p>Informazioni su come inviare richieste di controllo ortografico all'API Controllo ortografico Bing.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Richieste di controllo ortografico
+    - href: /azure/cognitive-services/bing-spell-check/concepts/using-spell-check
+      html: <p>Informazioni sull'uso delle diverse modalità di controllo ortografico dell'API.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Risposta di Ricerca immagini
 - title: Guide introduttive di 5 minuti
   items:
   - type: paragraph
@@ -63,7 +84,6 @@ sections:
     style: unordered
     items:
     - html: <a href="tutorials/spellcheck.md">App Web a singola pagina</a>
-    - html: <a href="tutorials/spellcheck-source.md">App Web a singola pagina (codice sorgente)</a>
 - title: Esempi
   items:
   - type: paragraph

@@ -229,6 +229,8 @@ items:
       href: how-to-connect-health-operations.md
     - name: Usare Azure AD Connect Health con AD FS
       href: how-to-connect-health-adfs.md
+    - name: Report sugli indirizzi IP rischiosi per Azure AD Connect Health con AD FS
+      href: how-to-connect-health-adfs-risky-ip.md
     - name: Usare Azure AD Connect Health per la sincronizzazione
       href: how-to-connect-health-sync.md
     - name: Usare Azure AD Connect Health con AD DS
@@ -295,7 +297,7 @@ items:
       href: tshoot-connect-attribute-not-syncing.md
     - name: Problemi di installazione
       href: tshoot-connect-install-issues.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Porte e protocolli necessari per la soluzione ibrida di gestione delle identità
     href: reference-connect-ports.md
@@ -333,9 +335,9 @@ items:
     href: reference-connect-adsynctools.md
   - name: Informazioni di riferimento su ADConnectivityTools
     href: reference-connect-adconnectivitytools.md
-ms.openlocfilehash: 3baf6790640a8504089fc47472f3f8a9fc22a873
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 8eb252f12a4a1a66ba7e8bd5c584e7aad227e24c
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765809"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889282"

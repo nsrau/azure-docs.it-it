@@ -408,18 +408,18 @@ items:
     - name: Connettere HDInsight alla rete locale
       href: ../connect-on-premises-network.md
       maintainContext: true
-  - name: Monitoraggio dell'uso di Log Analytics
+  - name: Monitoraggio con i log di Monitoraggio di Azure
     items:
-    - name: Usare Azure Log Analytics
+    - name: Usare i log di Monitoraggio di Azure
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
       maintainContext: true
-    - name: Usare query con Log Analytics
+    - name: Usare le query con i log di Monitoraggio di Azure
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
       maintainContext: true
     - name: Monitorare le prestazioni di un cluster
       href: ../hdinsight-key-scenarios-to-monitor.md
       maintainContext: true
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
@@ -464,9 +464,9 @@ items:
   - name: Strumenti Windows per HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 128c98b4d7a103cc03c5cf927e54522a109d2068
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: d07e259c801336c1337e193f377045d6c4803442
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330546"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887115"
