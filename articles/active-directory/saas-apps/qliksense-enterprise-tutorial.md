@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd6b66d010702ca2c3c4892aa47beea76dc18c8d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4d5824708f6a99d0222ef5e236758b78a7eedafb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198848"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882179"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>Esercitazione: Integrazione di Azure Active Directory con Qlik Sense Enterprise
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Qlik Sense Enterprise, 
 
     a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<Qlik Sense Fully Qualifed Hostname>:4443/azure/hub`
 
-    b. Nella casella di testo **Identificatore** digitare un URL usando il criterio seguente:
+    b. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
     | |
     |--|
     | `https://<Qlik Sense Fully Qualifed Hostname>.qlikpoc.com`|
