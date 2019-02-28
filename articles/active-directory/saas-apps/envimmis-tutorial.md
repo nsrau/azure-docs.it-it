@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeac36ae28d3d780e1a1e190a0cc0cccda81382f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ad35d8d3ff04de7e3d99976d637c4fad47c0cd6c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166930"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869004"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Esercitazione: Integrazione di Azure Active Directory con Envi MMIS
 
@@ -79,9 +79,9 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Envi MMIS, è
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Envi MMIS](#configure-envi-mmis-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Envi MMIS](#create-envi-mmis-test-user)**: per avere una controparte di Britta Simon in Envi MMIS collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -93,7 +93,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Envi MMIS, seguire ques
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
-2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare l'accesso Single Sign-On.
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
 
     ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
@@ -103,15 +103,15 @@ Per configurare l'accesso Single Sign-On di Azure AD con Envi MMIS, seguire ques
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Envi MMIS](common/idp-intiated.png)
+    ![Informazioni sull'accesso Single Sign-On per URL e dominio di Envi MMIS](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://www.<CUSTOMER DOMAIN>.com/Account`
 
-    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://www.<CUSTOMER DOMAIN>.com/Account/Acs`
+    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://www.<CUSTOMER DOMAIN>.com/Account/Acs`
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Envi MMIS](common/metadata-upload-additional-signon.png)
+    ![Informazioni sull'accesso Single Sign-On per URL e dominio di Envi MMIS](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://www.<CUSTOMER DOMAIN>.com/Account`
 
@@ -166,9 +166,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Envi MMIS, seguire ques
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/envimmis-tutorial/configure6.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -189,9 +189,9 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Envi MMIS.
 

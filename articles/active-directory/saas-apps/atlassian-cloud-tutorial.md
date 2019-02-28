@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3356d7425e692f248a3850e8bef7b80d4daba276
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 601f2dc69c7b390ea05cb66976dc7bbcc98d9502
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179944"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880499"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>Esercitazione: Integrazione di Azure Active Directory con Atlassian Cloud
 
@@ -28,7 +28,7 @@ Questa esercitazione descrive come integrare Atlassian Cloud con Azure Active Di
 L'integrazione di Atlassian Cloud con Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere ad Atlassian Cloud.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) ad Atlassian Cloud con gli account Azure AD personali.
+* È possibile abilitare gli utenti per l'accesso automatico ad Atlassian Cloud (Single Sign-On) con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -68,7 +68,7 @@ Per configurare l'integrazione di Atlassian Cloud in Azure AD, è necessario agg
 
 4. Nella casella di ricerca digitare **Atlassian Cloud**, selezionare **Atlassian Cloud** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![Atlassian Cloud nell'elenco risultati](common/search-new-app.png)
+     ![Atlassian Cloud nell'elenco dei risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
@@ -78,11 +78,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Atlassian Cloud, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per Atlassian Cloud](#configure-atlassian-cloud-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On di Atlassian Cloud](#configure-atlassian-cloud-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Atlassian Cloud](#create-atlassian-cloud-test-user)**: per avere una controparte di Britta Simon in Atlassian Cloud collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -94,7 +94,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Atlassian Cloud, seguir
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
-2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare l'accesso Single Sign-On.
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
 
     ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
@@ -108,11 +108,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Atlassian Cloud, seguir
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://auth.atlassian.com/saml/<unique ID>`
 
-    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://auth.atlassian.com/login/callback?connection=saml-<unique ID>`
+    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://auth.atlassian.com/login/callback?connection=saml-<unique ID>`
 
     c. Fare clic su **Impostare URL aggiuntivi**.
 
-    d. Nella casella di testo **Stato dell'inoltro** digitare un URL nel formato seguente: `https://<instancename>.atlassian.net`
+    d. Nella casella di testo **Stato dell'inoltro** digitare un URL usando il modello seguente: `https://<instancename>.atlassian.net`
 
     > [!NOTE]
     > I valori precedenti non sono valori reali. è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Questi valori vengono ottenuti dalla schermata di configurazione SAML di Atlassian Cloud, illustrata più avanti nell'esercitazione.
@@ -152,11 +152,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Atlassian Cloud, seguir
 
 3. Nel riquadro sinistro selezionare **SAML single sign-on** (Single Sign-On SAML). Se non è ancora stato fatto, sottoscrivere Atlassian Identity Manager.
 
-    ![Configurare l'accesso Single Sign-On](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_11.png)
+    ![Configura accesso Single Sign-On](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_11.png)
 
 4. Nella finestra **Add SAML configuration** (Aggiungi configurazione SAML) seguire questa procedura:
 
-    ![Configurare l'accesso Single Sign-On](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_12.png)
+    ![Configura accesso Single Sign-On](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_12.png)
 
     a. Nella casella **Identity provider Entity ID** (ID entità del provider di identità) incollare l'ID di entità SAML copiato dal portale di Azure.
 
@@ -168,7 +168,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Atlassian Cloud, seguir
 
 5. Per assicurarsi di avere configurato gli URL corretti, aggiornare le impostazioni di Azure AD seguendo questa procedura:
 
-    ![Configurare l'accesso Single Sign-On](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_13.png)
+    ![Configura accesso Single Sign-On](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_13.png)
 
     a. Nella finestra SAML copiare l'**ID identità SP** e quindi nel portale di Azure, in **URL e dominio** Atlassian Cloud, incollarlo nella casella **Identificatore**.
 
@@ -177,9 +177,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Atlassian Cloud, seguir
     > [!NOTE]
     > I clienti esistenti, dopo avere aggiornato i valori **SP Identity ID** (ID identità SP) e **SP Assertion Consumer Service URL** (URL del servizio consumer di asserzione SP) nel portale di Azure, devono selezionare **Yes, update configuration** (Sì, aggiorna la configurazione). I nuovi clienti possono ignorare questo passaggio.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -200,9 +200,9 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad Atlassian Cloud.
 

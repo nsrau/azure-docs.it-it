@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9d6071b4c0034a9bd69e326205bda2ec3bcb377
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: be1f126a1ddadfa7ab60518002d5628f91abe71c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169956"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869803"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-idrive"></a>Esercitazione: Integrazione di Azure Active Directory con IDrive
 

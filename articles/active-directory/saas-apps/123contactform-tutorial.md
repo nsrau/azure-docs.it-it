@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a91c5c67706c648af7eacedbc8093d5db8c6a55
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2450548858d3b7eab3fda11b7f309519f6b871c8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172349"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869040"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-123contactform"></a>Esercitazione: Integrazione di Azure Active Directory con 123ContactForm
 
@@ -80,9 +80,9 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con 123ContactFor
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per 123ContactForm](#configure-123contactform-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di 123ContactForm](#create-123contactform-test-user)**: per avere una controparte di Britta Simon in 123ContactForm collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -94,7 +94,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con 123ContactForm, seguire
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
-2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare l'accesso Single Sign-On.
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
 
     ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
@@ -108,7 +108,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con 123ContactForm, seguire
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/metadata`
 
-    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/acs`
+    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/acs`
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
@@ -137,7 +137,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con 123ContactForm, seguire
 
 1. Per configurare l'accesso Single Sign-On sul lato **123ContactForm** accedere a [https://www.123contactform.com/form-2709121/](https://www.123contactform.com/form-2709121/) e seguire questa procedura:
 
-    ![Configurare l'accesso Single Sign-On](./media/123contactform-tutorial/submit.png) 
+    ![Configure Single Sign-On](./media/123contactform-tutorial/submit.png) 
 
     a. Nella casella di testo **Email** (Posta elettronica) digitare l'indirizzo di posta elettronica di un utente, ad esempio **BrittaSimon@Contoso.com**.
 
@@ -147,7 +147,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con 123ContactForm, seguire
 
 2. In **Microsoft Azure AD - Single sign-on - Configure App Settings** (Microsoft Azure AD - Single Sign-On - Configura impostazioni app) seguire questa procedura:
 
-    ![Configurare l'accesso Single Sign-On](./media/123contactform-tutorial/url3.png)
+    ![Configure Single Sign-On](./media/123contactform-tutorial/url3.png)
 
     a. Se si vuole configurare l'applicazione in **modalità avviata da IDP**, copiare il valore di **IDENTIFIER** (IDENTIFICATORE) per l'istanza e incollarlo nella casella di testo **Identificatore** nella sezione **Configurazione SAML di base** del portale di Azure.
 
@@ -155,9 +155,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con 123ContactForm, seguire
 
     c. Se si vuole configurare l'applicazione in **modalità avviata da SP**, copiare il valore di **SIGN ON URL** (URL DI ACCESSO) per l'istanza e incollarlo nella casella di testo **URL di accesso** nella sezione **Configurazione SAML di base** del portale di Azure.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -178,9 +178,9 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a 123ContactForm.
 

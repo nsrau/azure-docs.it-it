@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d91f395f2fd7e65f66f1a885dbd09e725029858
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f9bbf8e4ebf59e8084d0a831c55685238c053e13
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183956"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882706"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Esercitazione: Integrazione di Azure Active Directory con AirWatch
 
@@ -39,7 +39,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 Per configurare l'integrazione di Azure AD con AirWatch, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
-* Sottoscrizione di AirWatch abilitata per l'accesso Single Sign-On
+* Sottoscrizione AirWatch abilitata per l'accesso Single Sign-On
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -77,11 +77,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 Per configurare e testare l'accesso Single Sign-On di Azure AD con AirWatch, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per AirWatch](#configure-airwatch-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On di AirWatch](#configure-airwatch-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Creare l'utente di test di AirWatch](#create-airwatch-test-user)**: per avere una controparte di Britta Simon in AirWatch collegata alla rappresentazione dell'utente in Azure AD.
-5. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+5. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -93,7 +93,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con AirWatch, seguire quest
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
-2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare l'accesso Single Sign-On.
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
 
     ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con AirWatch, seguire quest
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di AirWatch](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`
+    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare il valore in questo formato: `AirWatch`
 
@@ -118,7 +118,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con AirWatch, seguire quest
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
-    | Nome |  Attributo di origine|
+    | NOME |  Source Attribute|
     |---------------|----------------|
     | UID | user.userprincipalname |
     | | |
@@ -171,7 +171,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con AirWatch, seguire quest
 
    ![Utente](./media/airwatch-tutorial/ic791922.png "Utente")
 
-5. Fare clic sulla scheda **Server**.
+5. Fare clic sulla scheda **Server** .
 
    ![Server](./media/airwatch-tutorial/ic791923.png "Server")
 
@@ -197,7 +197,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con AirWatch, seguire quest
 
     d. Fare clic su **Save**.
 
-8. Fare di nuovo clic sulla scheda **User**.
+8. Fare di nuovo clic sulla scheda **User** .
 
     ![Utente](./media/airwatch-tutorial/ic791926.png "Utente")
 
@@ -219,9 +219,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con AirWatch, seguire quest
 
     g. Fare clic su **Save**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -242,9 +242,9 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a AirWatch.
 

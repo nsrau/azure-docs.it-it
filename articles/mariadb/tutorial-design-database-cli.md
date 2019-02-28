@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/10/2018
 ms.custom: mvc
-ms.openlocfilehash: fa056dad052914e771251585cb426c70591aa235
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ed80008548585015c9e29aaea013fdeb85fd8e9d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541192"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872778"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Esercitazione: Progettare un'istanza di Database di Azure per MariaDB con l'interfaccia della riga di comando di Azure
 
@@ -27,6 +27,8 @@ Database di Azure per MariaDB è un servizio di database relazionale in Microsof
 > * Eseguire query sui dati
 > * Aggiornare i dati
 > * Ripristinare i dati
+
+Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 È possibile usare Azure Cloud Shell nel browser o [installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli) nel computer in uso per eseguire i blocchi di codice di questa esercitazione.
 

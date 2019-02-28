@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: a3b039b1ea492c44505c427ec171cf7a4a5fad01
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 16f67f55b752e8602d43066cc1ce503ce9e5c1e2
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47062436"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879204"
 ---
 # <a name="create-a-xamarinandroid-app"></a>Creare un'app per Xamarin.Android
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -68,11 +68,11 @@ Seguire questa procedura per creare un back-end dell'app per dispositivi mobili.
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 In caso di problemi di compilazione della soluzione, eseguire Gestione pacchetti NuGet ed effettuare l'aggiornamento dei pacchetti di supporto `Xamarin.Android`. I progetti di avvio rapido potrebbero non includere sempre le versioni più recenti.
 
-Si noti che tutti i pacchetti di supporto a cui fa riferimento il progetto devono avere la stessa versione. Il [pacchetto Azure Mobile Apps NuGet](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) presenta la dipendenza `Xamarin.Android.Support.CustomTabs` per la piattaforma Android, perciò se il progetto usa pacchetti di supporto più recenti è necessario installare questo pacchetto con la versione richiesta direttamente per evitare conflitti.
+Si noti che tutti i pacchetti di supporto a cui fa riferimento il progetto devono avere la stessa versione. Il [pacchetto NuGet di App per dispositivi mobili di Azure](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) presenta la dipendenza `Xamarin.Android.Support.CustomTabs` per la piattaforma Android, perciò se il progetto usa pacchetti di supporto più recenti è necessario installare questo pacchetto direttamente con la versione richiesta per evitare conflitti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Aggiungere la sincronizzazione offline all'app](app-service-mobile-xamarin-android-get-started-offline-data.md)
-* [Add authentication to your app ](app-service-mobile-xamarin-android-get-started-users.md)
+* [Aggiungere l'autenticazione all'app](app-service-mobile-xamarin-android-get-started-users.md)
 * [Aggiungere notifiche push all'app Xamarin.Android](app-service-mobile-xamarin-android-get-started-push.md)
 * [Come usare il client gestito per le app per dispositivi mobili di Azure](app-service-mobile-dotnet-how-to-use-client-library.md)
 

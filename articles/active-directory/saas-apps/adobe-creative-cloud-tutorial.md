@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a160c604050f567f3fc0f77ca20a22349f07fd9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 225945c3accb9a92cc4a04faa9ba029092feae57
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341165"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868698"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Esercitazione: Integrazione di Azure Active Directory con Adobe Creative Cloud
 
@@ -28,7 +28,7 @@ Questa esercitazione descrive come integrare Adobe Creative Cloud con Azure Acti
 L'integrazione di Adobe Creative Cloud con Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere ad Adobe Creative Cloud.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) ad Adobe Creative Cloud con gli account Azure AD personali.
+* È possibile abilitare gli utenti per l'accesso automatico ad Adobe Creative Cloud (Single Sign-On) con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-adobe-creative-cloud-from-the-gallery"></a>Aggiungere Adobe Creative Cloud dalla raccolta
 
-Per configurare l'integrazione di Adobe Creative Cloud in Azure AD, è necessario aggiungere Adobe Creative Cloud dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Adobe Creative Cloud in Azure AD, è necessario aggiungere Adobe Creative Cloud dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Adobe Creative Cloud dalla raccolta, seguire questa procedura:**
 
@@ -67,20 +67,20 @@ Per configurare l'integrazione di Adobe Creative Cloud in Azure AD, è necessari
 
 4. Nella casella di ricerca digitare **Adobe Creative Cloud** selezionare **Adobe Creative Cloud** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-    ![Adobe Creative Cloud nell'elenco risultati](common/search-new-app.png)
+    ![Adobe Creative Cloud nell'elenco dei risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Adobe Creative Cloud usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Adobe Creative Cloud.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Adobe Creative Cloud, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Adobe Creative Cloud, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Adobe Creative Cloud](#configure-adobe-creative-cloud-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Adobe Creative Cloud](#create-adobe-creative-cloud-test-user)**: per avere una controparte di Britta Simon in Adobe Creative Cloud collegata alla rappresentazione dell'utente in Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare un utente di test di Adobe Creative Cloud](#create-adobe-creative-cloud-test-user)**: per avere una controparte di Britta Simon in Adobe Creative Cloud collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -103,14 +103,14 @@ Per configurare l'accesso Single Sign-On di Azure AD con Adobe Creative Cloud, s
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Adobe Creative Cloud](common/sp-identifier.png)
+    ![Informazioni su URL e dominio per Single Sign-On di Adobe Creative Cloud](common/sp-identifier.png)
 
     a. Nella casella di testo **URL di accesso** digitare il valore nel formato: `https://adobe.com`.
 
     b. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://www.okta.com/saml2/service-provider/<token>`
 
     > [!NOTE]
-    > Poiché il valore dell'identificatore non è reale, è necessario aggiornarlo con l'identificatore effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di Adobe Creative Cloud](https://www.adobe.com/au/creativecloud/business/teams/plans.html). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Il valore dell'identificatore non è reale. è necessario aggiornare questo valore con l'ID effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di Adobe Creative Cloud](https://www.adobe.com/au/creativecloud/business/teams/plans.html). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 5. L'applicazione Adobe Creative Cloud prevede un formato specifico per le asserzioni SAML. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente** nella pagina di integrazione dell'applicazione. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 
@@ -118,7 +118,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Adobe Creative Cloud, s
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
-    | Nome | Attributo di origine|
+    | NOME | Source Attribute|
     |----- | --------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
@@ -187,9 +187,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Adobe Creative Cloud, s
 
     b. Usare il valore di AssertionConsumerService specificato da Adobe per **URL di risposta** nella finestra di dialogo **Configurare le impostazioni dell'app**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -212,17 +212,17 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad Adobe Creative Cloud.
+In questa sezione viene concesso a Britta Simon l'accesso ad Adobe Creative Cloud per consentirle di usare l'accesso Single Sign-On di Azure.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Adobe Creative Cloud**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Adobe Creative Cloud**.
+2. Nell'elenco di applicazioni selezionare **Adobe Creative Cloud**.
 
-    ![Collegamento di Adobe Creative Cloud nell'elenco delle applicazioni](common/all-applications.png)
+    ![Il collegamento ad Adobe Creative Cloud nell'elenco di applicazioni](common/all-applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -238,7 +238,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-adobe-creative-cloud-test-user"></a>Creare l'utente di test di Adobe Creative Cloud
+### <a name="create-adobe-creative-cloud-test-user"></a>Creare un utente di test di Adobe Creative Cloud
 
 Per consentire agli utenti di Azure AD di accedere ad Adobe Creative Cloud, è necessario eseguirne il provisioning in Adobe Creative Cloud. Nel caso di Adobe Creative Cloud il provisioning è un'attività manuale.
 

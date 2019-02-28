@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 4eca01cd1566f54b7a9f940397cf47f55057ebd7
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: ace39ad587fa8a3bf78f3807cbee4970d29c910e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453155"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878439"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flock"></a>Esercitazione: Integrazione di Azure Active Directory con Flock
 
@@ -48,7 +48,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-flock-from-the-gallery"></a>Aggiunta di Flock dalla raccolta
 
-Per configurare l'integrazione di Flock in Azure AD è necessario aggiungere Flock dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Flock in Azure AD è necessario aggiungere Flock dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Flock dalla raccolta, seguire questa procedura:**
 
@@ -73,12 +73,12 @@ Per configurare l'integrazione di Flock in Azure AD è necessario aggiungere Flo
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Flock usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Flock.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Flock, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Flock, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Flock](#configure-flock-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Flock](#create-flock-test-user)**: per avere una controparte di Britta Simon in Flock collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -104,9 +104,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Flock, seguire questa p
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Flock](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<subdomain>.flock.com/`
+    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<subdomain>.flock.com/`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<subdomain>.flock.com/`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<subdomain>.flock.com/`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Flock](mailto:support@flock.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -145,9 +145,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Flock, seguire questa p
 
     d. Fare clic su **Save**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -170,15 +170,15 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Flock.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Flock.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Flock**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Flock**.
+2. Nell'elenco delle applicazioni, selezionare **Flock**.
 
     ![Collegamento di Flock nell'elenco delle applicazioni](common/all-applications.png)
 

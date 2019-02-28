@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: d2e81e4f2eda730dc064699f42ba7bfb49648082
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: e83991f553d00af11cfc275137f8e73ebab2098c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230833"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882638"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Esercitazione: Bilanciare il carico delle macchine virtuali tra zone di disponibilità con un servizio Load Balancer Standard tramite il portale di Azure
 
@@ -177,7 +177,7 @@ Per distribuire il traffico alle macchine virtuali, è necessario che un pool di
 4. Fare clic su **Aggiungi nuova risorsa back-end** per aggiungere ogni macchina virtuale (*myVM2* e *myVM3*) al pool back-end del servizio di bilanciamento del carico.
 5. Fare clic su **Aggiungi**.
 
-    ![Aggiunta al pool di indirizzi back-end ](./media/load-balancer-standard-public-availability-zones-portal/add-backend-pool.png)
+    ![Aggiunta al pool di indirizzi back-end](./media/load-balancer-standard-public-availability-zones-portal/add-backend-pool.png)
 
 3. Verificare che l'impostazione del pool back-end di bilanciamento del carico visualizzi tutte le tre macchine virtuali: **myVM1**, **myVM2** e **myVM3**.
 

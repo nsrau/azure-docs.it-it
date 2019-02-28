@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84ea41388151087a0da965e3f8724907b615dee0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dc6bcd30a9835fe3cece103b9a773fb24cadbe4a
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56161575"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889742"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evidencecom"></a>Esercitazione: Integrazione di Azure Active Directory con Evidence.com
 
@@ -77,11 +77,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Evidence.com, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per Evidence.com](#configure-evidence.com-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On per Evidence.com](#configure-evidencecom-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Evidence.com](#create-evidence.com-test-user)**: per avere una controparte di Britta Simon in Evidence.com collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di Evidence.com](#create-evidencecom-test-user)**: per avere una controparte di Britta Simon in Evidence.com collegata alla rappresentazione dell'utente in Azure AD.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -93,7 +93,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Evidence.com, seguire q
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
-2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare l'accesso Single Sign-On.
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
 
     ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
@@ -103,11 +103,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Evidence.com, seguire q
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Evidence.com](common/sp-identifier.png)
+    ![Informazioni su URL e dominio per Single Sign-On di Evidence.com](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<yourtenant>.evidence.com`
+    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<yourtenant>.evidence.com`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<yourtenant>.evidence.com`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<yourtenant>.evidence.com`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Evidence.com](https://communities.taser.com/support/SupportContactUs?typ=LE). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -122,13 +122,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con Evidence.com, seguire q
 
     a. URL di accesso
 
-    b. Identificatore Azure AD
+    b. Identificatore di Azure AD
 
     c. URL di chiusura sessione
 
 ### <a name="configure-evidencecom-single-sign-on"></a>Configurare l'accesso Single Sign-On per Evidence.com
 
-1. In una finestra del separata del Web browser accedere al tenant Evidence.com come amministratore e passare alla scheda **Admin**.
+1. In una finestra del separata del Web browser accedere al tenant Evidence.com come amministratore e passare alla scheda **Admin** .
 
 2. Fare clic su **Agency Single Sign On**
 
@@ -140,9 +140,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Evidence.com, seguire q
 
 6. Salvare la configurazione in Evidence.com.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -163,9 +163,9 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Evidence.com.
 
@@ -199,11 +199,11 @@ Per consentire agli utenti di Azure AD di accedere, è necessario effettuarne il
 
 1. In una finestra del Web browser accedere al sito aziendale Evidence.com come amministratore.
 
-2. Passare alla scheda **Admin** (Amministrazione).
+2. Passare alla scheda **Admin** .
 
-3. Fare clic su **Add User** (Aggiungi utente).
+3. Fare clic su **Add User**.
 
-4. Fare clic su **Add** (Aggiungi).
+4. Fare clic su **Add** .
 
 5. Il valore per **Email Address** dell'utente aggiunto deve corrispondere al nome utente degli utenti in Azure AD a cui si vuole concedere l'accesso. Se il nome utente e l'indirizzo di posta elettronica dell'organizzazione sono diversi, è possibile usare la sezione **Evidence.com > Attributi > Single Sign-On** del portale di Azure per cambiare il valore nameidentifer inviato a Evidence.com in modo che venga usato l'indirizzo di posta elettronica.
 

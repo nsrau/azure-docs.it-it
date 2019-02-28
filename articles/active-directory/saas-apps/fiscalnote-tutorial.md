@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89745bd38efae931136e347a47941b5204daf8ca
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 55eb93b77d2a23bafbb36763755a6bc1138b0433
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313110"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868689"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fiscalnote"></a>Esercitazione: Integrazione di Azure Active Directory con FiscalNote
 
@@ -51,7 +51,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-fiscalnote-from-the-gallery"></a>Aggiunta di FiscalNote dalla raccolta
 
-Per configurare l'integrazione di FiscalNote in Azure AD, è necessario aggiungere FiscalNote dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di FiscalNote in Azure AD, è necessario aggiungere FiscalNote dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere FiscalNote dalla raccolta, seguire questa procedura:**
 
@@ -76,12 +76,12 @@ Per configurare l'integrazione di FiscalNote in Azure AD, è necessario aggiunge
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con FiscalNote usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in FiscalNote.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con FiscalNote, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con FiscalNote, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per FiscalNote](#configure-fiscalnote-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di FiscalNote](#create-fiscalnote-test-user)**: per avere una controparte di Britta Simon in FiscalNote collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -105,11 +105,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con FiscalNote, seguire que
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di FiscalNote](common/sp-identifier.png)
+    ![Informazioni su URL e dominio per Single Sign-On di FiscalNote](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<InstanceName>.fiscalnote.com/login?client=<ClientID>&redirect_uri=https://app.fiscalnote.com/saml-login.html&audience=https://api.fiscalnote.com/&connection=<CONNECTION_NAME>&response_type=id_token%20token`
+    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<InstanceName>.fiscalnote.com/login?client=<ClientID>&redirect_uri=https://app.fiscalnote.com/saml-login.html&audience=https://api.fiscalnote.com/&connection=<CONNECTION_NAME>&response_type=id_token%20token`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `urn:auth0:fiscalnote:<CONNECTIONNAME>`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `urn:auth0:fiscalnote:<CONNECTIONNAME>`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto del client FiscalNote](mailto:support@fiscalnote.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -120,7 +120,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con FiscalNote, seguire que
 
 6. Oltre quelli elencati in precedenza, l'applicazione FiscalNote prevede il passaggio di qualche altro attributo nella risposta SAML. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
 
-    | Nome | Attributo di origine|
+    | NOME | Source Attribute|
     | ---------------| ----------------|
     | familyName| user.surname|
     | email| user.mail|
@@ -161,9 +161,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con FiscalNote, seguire que
 
 Per configurare l'accesso Single Sign-On sul lato **FiscalNote** è necessario inviare il file **Certificato (base)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di FiscalNote](mailto:support@fiscalnote.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -186,15 +186,15 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a FiscalNote.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a FiscalNote.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **FiscalNote**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **FiscalNote**.
+2. Nell'elenco delle applicazioni, selezionare **FiscalNote**.
 
     ![Collegamento di FiscalNote nell'elenco delle applicazioni](common/all-applications.png)
 

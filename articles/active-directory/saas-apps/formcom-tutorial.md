@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 9cd15222ee7c86a6cfbe519a730d3724ca1ec0f6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: d50cf28ebfc34d9b7deaff95c177f0eebd210be3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455637"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879731"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Esercitazione: Integrazione di Azure Active Directory con Form.com
 
@@ -78,7 +78,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Form.com, è 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Form.com](#configure-formcom-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Form.com](#create-formcom-test-user)**: per avere una controparte di Britta Simon in Form.com collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -106,7 +106,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Form.com, seguire quest
 
     a. Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<subdomain>.wa-form.com`
 
-    b. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<subdomain>.form.com`
+    b. Nella casella di testo **Identificatore** digitare un URL usando il modello seguente: `https://<subdomain>.form.com`
 
     c. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente:
     | |
@@ -135,9 +135,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Form.com, seguire quest
 
 Per configurare l'accesso Single Sign-On sul lato **Form.com** è necessario inviare il file **Certificato (Base64)** scaricato, l'**URL dei metadati della federazione dell'app** e gli URL appropriati copiati dal portale di Azure al [team di supporto di Form.com](https://form.com/about/company/contact-us/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -160,9 +160,9 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Form.com.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Form.com.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Form.com**.
 
@@ -170,7 +170,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 2. Nell'elenco delle applicazioni selezionare **Form.com**.
 
-    ![Collegamento di Form.com nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento Form.com nell'elenco delle applicazioni](common/all-applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

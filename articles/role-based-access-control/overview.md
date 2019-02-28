@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/14/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2d8f3ffb4f7d90b053c8a285d62007f5655d9adb
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: eb8791a4031eeeeeccddda024514af208ff66251
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338632"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806572"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Che cos'è il controllo degli accessi in base al ruolo per le risorse di Azure?
 
@@ -108,7 +108,7 @@ Cosa succede se si hanno più assegnazioni di ruolo sovrapposte? Il controllo de
 
 ## <a name="deny-assignments"></a>Assegnazioni di rifiuto
 
-In precedenza, il controllo degli accessi in base al ruolo era un modello per il solo consenso, ma ora supporta in modo limitato le assegnazioni di rifiuto. Analogamente a un'assegnazione di ruolo, un'*assegnazione di rifiuto* associa un set di azioni di rifiuto a un utente, un gruppo, un'entità servizio o un'identità gestita in un determinato ambito allo scopo di rifiutare l'accesso. Un'assegnazione di ruolo definisce un set di azioni *consentite*, mentre un'assegnazione di rifiuto definisce un set di azioni *non consentite*. In altre parole, le assegnazioni di rifiuto impediscono agli utenti di eseguire azioni specificate, anche se un'assegnazione di ruolo concede loro l'accesso. Le assegnazioni di rifiuto hanno la precedenza sulle assegnazioni di ruolo. Attualmente le assegnazioni di rifiuto sono di **sola lettura** e possono essere impostate solo da Azure. Per altre informazioni, vedere [Informazioni sulle assegnazioni di rifiuto per le risorse di Azure](deny-assignments.md) e [Visualizzare le assegnazioni di rifiuto per le risorse di Azure usando il portale di Azure](deny-assignments-portal.md).
+In precedenza, il controllo degli accessi in base al ruolo era un modello per il solo consenso, ma ora supporta in modo limitato le assegnazioni di rifiuto. Analogamente a un'assegnazione di ruolo, un'*assegnazione di rifiuto* associa un set di azioni di rifiuto a un utente, un gruppo, un'entità servizio o un'identità gestita in un determinato ambito allo scopo di rifiutare l'accesso. Un'assegnazione di ruolo definisce un set di azioni *consentite*, mentre un'assegnazione di rifiuto definisce un set di azioni *non consentite*. In altre parole, le assegnazioni di rifiuto impediscono agli utenti di eseguire azioni specificate, anche se un'assegnazione di ruolo concede loro l'accesso. Le assegnazioni di rifiuto hanno la precedenza sulle assegnazioni di ruolo. Attualmente le assegnazioni di rifiuto sono di **sola lettura** e possono essere impostate solo da Microsoft. Per altre informazioni, vedere [Informazioni sulle assegnazioni di rifiuto per le risorse di Azure](deny-assignments.md) e [Visualizzare le assegnazioni di rifiuto per le risorse di Azure usando il portale di Azure](deny-assignments-portal.md).
 
 ## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>Come il controllo degli accessi in base al ruolo determina se un utente può accedere a una risorsa
 

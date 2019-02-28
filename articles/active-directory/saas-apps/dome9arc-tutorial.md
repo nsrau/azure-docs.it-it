@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91ef20398bc3e15b1ee47c6e7c28795f4d9bc08c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: da98268d0a6ee015c848e9fe91cb3deecf28c4f4
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190943"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875702"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>Esercitazione: Integrazione di Azure Active Directory con Dome9 Arc
 
@@ -79,9 +79,9 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Dome9 Arc, è
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Dome9 Arc](#configure-dome9-arc-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Dome9 Arc](#create-dome9-arc-test-user)**: per avere una controparte di Britta Simon in Dome9 Arc collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -93,7 +93,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Dome9 Arc, seguire ques
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
-2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare l'accesso Single Sign-On.
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
 
     ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Dome9 Arc, seguire ques
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://secure.dome9.com/`
 
-    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://secure.dome9.com/sso/saml/yourcompanyname`
+    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://secure.dome9.com/sso/saml/yourcompanyname`
 
     > [!NOTE]
     > Selezionare il valore del nome della società nel portale di amministrazione di Dome9 Arc illustrato più avanti nell'esercitazione.
@@ -127,7 +127,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Dome9 Arc, seguire ques
 
 7. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura: 
 
-    | Nome |  Attributo di origine|
+    | NOME |  Source Attribute|
     | ---------------| --------------- |
     | memberof | user.assignedroles |
 
@@ -189,9 +189,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Dome9 Arc, seguire ques
 
     e. Fare clic su **Save**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -212,9 +212,9 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad Dome9 Arc.
 
@@ -255,11 +255,11 @@ Per consentire agli utenti di Azure AD di accedere a Dome9 Arc, è necessario ef
 
     ![Aggiungere un dipendente](./media/dome9arc-tutorial/user1.png)
 
-3. Fare clic su **ADD USER** (AGGIUNGI UTENTE).
+3. Fare clic su **Aggiungi utente**.
 
     ![Aggiungere un dipendente](./media/dome9arc-tutorial/user2.png)
 
-4. Nella sezione **Create User** (Crea utente) eseguire la procedura seguente:
+4. Nella sezione **Crea utente** , eseguire la procedura seguente:
 
     ![Aggiungere un dipendente](./media/dome9arc-tutorial/user3.png)
 
@@ -271,7 +271,7 @@ Per consentire agli utenti di Azure AD di accedere a Dome9 Arc, è necessario ef
 
     d. Impostare l'opzione **SSO User** (Utente SSO) su **On** (Abilitato).
 
-    e. Fare clic su **CREATE** (CREA).
+    e. Fare clic su **Create** (Crea).
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

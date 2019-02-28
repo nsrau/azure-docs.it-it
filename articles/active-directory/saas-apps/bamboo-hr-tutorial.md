@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 403ca71aee0a10b1934e095ce119f6706c0381b8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 52846cad3a0f60bc8ba9431b8927763c8695bf85
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188512"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879153"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Esercitazione: Integrazione di Azure Active Directory con BambooHR
 

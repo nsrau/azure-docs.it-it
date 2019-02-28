@@ -8,12 +8,12 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: fa8091011575822907915b67cf48bffaf5e7e728
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: bb7a48b08fde07380276d33393225c3f5220b93f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657077"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880700"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Esercitazione: Effettuare il provisioning di un server di Database di Azure per MySQL usando il modello di Azure Resource Manager
 
@@ -29,6 +29,8 @@ In questa esercitazione si useranno il modello di Azure Resource Manager e altre
 > * Caricare dati di esempio
 > * Eseguire query sui dati
 > * Aggiornare i dati
+
+Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="create-an-azure-database-for-mysql-server-with-vnet-service-endpoint-using-azure-resource-manager-template"></a>Creare un server di Database di Azure per MySQL con un endpoint servizio rete virtuale usando un modello di Azure Resource Manager
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8afd2201d55dfed94cf8f0dd34ca26870c0cc324
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1c92e76d1fd49121d09a56f986c39de52dbbde1c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169361"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877725"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appraisd"></a>Esercitazione: Integrazione di Azure Active Directory con Appraisd
 

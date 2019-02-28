@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb1191345d4624a31bf6b3a795b36fa35bab1aa0
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 039f00f1a61a2f06374fea144181ab6205828122
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340502"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874733"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-happyfox"></a>Esercitazione: Integrazione di Azure Active Directory con HappyFox
 
@@ -53,7 +53,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-happyfox-from-the-gallery"></a>Aggiunta di HappyFox dalla raccolta
 
-Per configurare l'integrazione di HappyFox in Azure AD, è necessario aggiungere HappyFox dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di HappyFox in Azure AD, è necessario aggiungere HappyFox dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere HappyFox dalla raccolta, seguire questa procedura:**
 
@@ -78,12 +78,12 @@ Per configurare l'integrazione di HappyFox in Azure AD, è necessario aggiungere
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con HappyFox usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in HappyFox.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con HappyFox, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con HappyFox, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per HappyFox ](#configure-happyfox-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di HappyFox ](#create-happyfox-test-user)**: per avere una controparte di Britta Simon in HappyFox collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -109,9 +109,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con HappyFox, seguire quest
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di HappyFox](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<subdomain>.happyfox.com/`
+    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<subdomain>.happyfox.com/`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<subdomain>.happyfox.com/saml/metadata/`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<subdomain>.happyfox.com/saml/metadata/`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di HappyFox](https://support.happyfox.com/home). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -136,27 +136,27 @@ Per configurare l'accesso Single Sign-On di Azure AD con HappyFox, seguire quest
 
 2. Passare a **Manage** (Gestisci) e quindi fare clic sulla scheda **Integrations** (Integrazioni).
 
-    ![Configurare l'accesso Single Sign-On](./media/happyfox-tutorial/header.png) 
+    ![Configure Single Sign-On](./media/happyfox-tutorial/header.png) 
 
 3. Nella scheda Integrations (Integrazioni) fare clic su **Configure** (Configura) in **SAML Integration** (Integrazione SAML) per aprire Single Sign On Settings (Impostazioni Single Sign-On).
 
-    ![Configurare l'accesso Single Sign-On](./media/happyfox-tutorial/configure.png)
+    ![Configure Single Sign-On](./media/happyfox-tutorial/configure.png)
 
 4. Nella sezione di configurazione SAML incollare il valore di **URL di accesso** copiato dal portale di Azure nella casella di testo **SSO Target URL** (URL di destinazione SSO).
 
-    ![Configurare l'accesso Single Sign-On](./media/happyfox-tutorial/targeturl.png)
+    ![Configure Single Sign-On](./media/happyfox-tutorial/targeturl.png)
 
 5. Aprire in Blocco note il certificato scaricato dal portale di Azure e incollarne il contenuto nella sezione **IdP Signature** (Firma IdP).
 
-    ![Configurare l'accesso Single Sign-On](./media/happyfox-tutorial/cert.png)
+    ![Configure Single Sign-On](./media/happyfox-tutorial/cert.png)
 
 6. Fare clic sul pulsante **Save Settings** (Salva impostazioni).
 
-    ![Configurare l'accesso Single Sign-On](./media/happyfox-tutorial/savesettings.png)
+    ![Configure Single Sign-On](./media/happyfox-tutorial/savesettings.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -179,15 +179,15 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a HappyFox.
+In questa sezione l'utente Britta Simon viene abilitato per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a HappyFox.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **HappyFox**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **HappyFox**.
+2. Nell'elenco di applicazioni selezionare **HappyFox**.
 
     ![Collegamento di HappyFox nell'elenco delle applicazioni](common/all-applications.png)
 

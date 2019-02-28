@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25171a2d455bda3f6a3c0ee85bad47c44820110c
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 27d1c51a9957461fab97e9dfdddac1963d0d2f28
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300755"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865995"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fidelity-netbenefits"></a>Esercitazione: Integrazione di Azure Active Directory con Fidelity NetBenefits
 
@@ -51,7 +51,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-fidelity-netbenefits-from-the-gallery"></a>Aggiunta di Fidelity NetBenefits dalla raccolta
 
-Per configurare l'integrazione di Fidelity NetBenefits in Azure AD, è necessario aggiungere Fidelity NetBenefits dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Fidelity NetBenefits in Azure AD, è necessario aggiungere Fidelity NetBenefits dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Fidelity NetBenefits dalla raccolta, seguire questa procedura:**
 
@@ -69,19 +69,19 @@ Per configurare l'integrazione di Fidelity NetBenefits in Azure AD, è necessari
 
 4. Nella casella di ricerca digitare **Fidelity NetBenefits**, selezionare **Fidelity NetBenefits** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![Fidelity NetBenefits nell'elenco risultati](common/search-new-app.png)
+     ![Fidelity NetBenefits nell'elenco dei risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Fidelity NetBenefits usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Fidelity NetBenefits.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Fidelity NetBenefits, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Fidelity NetBenefits, è necessario completare i passaggi seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Fidelity NetBenefits](#configure-fidelity-netbenefits-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Fidelity NetBenefits](#create-fidelity-netbenefits-test-user)**: per avere una controparte di Britta Simon in Fidelity NetBenefits collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -120,7 +120,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Fidelity NetBenefits, s
     ![image](common/edit-attribute.png)
 
     >[!Note]
-    >Fidelity NetBenefits supporta la federazione statica e dinamica. In quella statica non viene usato il provisioning utenti JIT basato su SAML, mentre quella dinamica supporta il provisioning utenti JIT. Per l'uso di del provisioning basato su JIT, i clienti devono aggiungere altre attestazioni in Azure AD come la data di nascita dell'utente e così via. Tali dettagli vengono forniti dal **manager del servizio clienti Fidelity** assegnato, che deve abilitare questa federazione dinamica per l'istanza.
+    >Fidelity NetBenefits supporta la federazione statica e dinamica. In quella statica non viene usato il provisioning degli utenti Just-In-Time basato su SAML, mentre quella dinamica supporta il provisioning degli utenti Just-In-Time. Per l'uso di del provisioning basato su JIT, i clienti devono aggiungere altre attestazioni in Azure AD come la data di nascita dell'utente e così via. Tali dettagli vengono forniti dal **manager del servizio clienti Fidelity** assegnato, che deve abilitare questa federazione dinamica per l'istanza.
 
 6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
@@ -140,9 +140,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Fidelity NetBenefits, s
 
 Per configurare l'accesso Single Sign-On sul lato **Fidelity NetBenefits**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Fidelity NetBenefits](mailto:SSOMaintenance@fmr.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -165,15 +165,15 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Fidelity NetBenefits.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Fidelity NetBenefits.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Fidelity NetBenefits**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Fidelity NetBenefits**.
+2. Nell'elenco delle applicazioni, selezionare **Fidelity NetBenefits**.
 
     ![Collegamento di Fidelity NetBenefits nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -195,7 +195,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 In questa sezione viene creato un utente di nome Britta Simon in Fidelity NetBenefits. Se si sta creando una federazione statica, collaborare con il **manager del servizio clienti Fidelity** assegnato per creare gli utenti nella piattaforma Fidelity NetBenefits. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
-Per la federazione dinamica, gli utenti vengono creati usando il provisioning utenti JIT. Per l'uso di del provisioning basato su JIT, i clienti devono aggiungere altre attestazioni in Azure AD come la data di nascita dell'utente e così via. Tali dettagli vengono forniti dal **manager del servizio clienti Fidelity** assegnato, che deve abilitare questa federazione dinamica per l'istanza.
+Per la federazione dinamica, gli utenti vengono creati utilizzando il provisioning degli utenti Just-In-Time. Per l'uso di del provisioning basato su JIT, i clienti devono aggiungere altre attestazioni in Azure AD come la data di nascita dell'utente e così via. Tali dettagli vengono forniti dal **manager del servizio clienti Fidelity** assegnato, che deve abilitare questa federazione dinamica per l'istanza.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

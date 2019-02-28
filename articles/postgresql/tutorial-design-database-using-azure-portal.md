@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 03/20/2018
-ms.openlocfilehash: 441b56aa683ac01566d2fd2877b9b8b912194f3a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 869bee8fcd0d1c2876ac7317fb239a1d5c61cb87
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536526"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864550"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Esercitazione: Progettare un'istanza di Database di Azure per PostgreSQL usando il portale di Azure
 
@@ -78,7 +78,7 @@ Il servizio Database di Azure per PostgreSQL usa un firewall a livello di server
 
 1.  Al termine della distribuzione, fare clic su **Tutte le risorse** nel menu a sinistra e digitare il nome **mydemoserver** per cercare il server appena creato. Fare clic sul nome del server elencato nei risultati della ricerca. Si apre la pagina **Panoramica** del server in cui vengono fornite le opzioni per una configurazione aggiuntiva.
 
-   ![Database di Azure per PostgreSQL - Cercare il server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
+   ![Database di Azure per PostgreSQL - Cercare il server](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 2.  Nella pagina del server selezionare **Sicurezza connessione**. 
 
@@ -98,7 +98,7 @@ Quando si è creato il server del Database di Azure per PostgreSQL, è stato cre
 
 1. Nel menu a sinistra nel portale di Azure fare clic su **Tutte le risorse** e cercare il server appena creato.
 
-   ![Database di Azure per PostgreSQL - Cercare il server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
+   ![Database di Azure per PostgreSQL - Cercare il server](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 2. Fare clic sul nome del server **mydemoserver**.
 

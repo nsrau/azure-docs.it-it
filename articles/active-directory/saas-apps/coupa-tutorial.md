@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 558dc96f0bdd3aec12bf129f72b2ad067a130171
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1d1bac1e9fee9b06fb88237ddc3a7374eed32e40
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172536"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879639"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Esercitazione: Integrazione di Azure Active Directory con Coupa
 
@@ -108,7 +108,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Coupa, seguire questa p
     a. Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<companyname>.coupahost.com`
 
     > [!NOTE]
-    > Poiché il valore dell'URL di accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso Sign-On effettivo. Per ottenere questo valore, contattare [il team di supporto client Coupa](https://success.coupa.com/Support/Contact_Us?).
+    > Poiché il valore dell'URL di accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere questo valore, contattare [il team di supporto client Coupa](https://success.coupa.com/Support/Contact_Us?).
 
     b. Nella casella **Identificatore** digitare un URL:
     | Environment  | URL |

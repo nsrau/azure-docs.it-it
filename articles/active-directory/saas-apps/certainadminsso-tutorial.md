@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Certain Admin SSO | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Certain Admin SSO | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Certain Admin SSO.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe717a37b576b6cd49a26ef4d7fca1a74aa76962
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: dac73f68ec067e60d846ad726002ba53a7f0afb1
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300677"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868477"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-certain-admin-sso"></a>Esercitazione: Integrazione di Azure Active Directory con Certain Admin SSO
+# <a name="tutorial-azure-active-directory-integration-with-certain-admin-sso"></a>Esercitazione: integrazione di Azure Active Directory con Certain Admin SSO
 
 Questa esercitazione descrive come integrare Certain Admin SSO con Azure Active Directory (Azure AD).
 L'integrazione di Certain Admin SSO con Azure AD offre i vantaggi seguenti:
@@ -49,9 +49,9 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-certain-admin-sso-from-the-gallery"></a>Aggiunta di Certain Admin SSO dalla raccolta
 
-Per configurare l'integrazione di Certain Admin SSO in Azure AD, è necessario aggiungere questa app dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Certain Admin SSO in Azure AD, è necessario aggiungere questa app dalla raccolta all'elenco delle app SaaS gestite.
 
-**Per aggiungere Certain Admin SSO dalla raccolta, seguire questa procedura:**
+**Per aggiungere Certain Admin SSO dalla raccolta, eseguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
@@ -79,7 +79,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Certain Admin
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Certain Admin SSO](#configure-certain-admin-sso-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Certain Admin SSO](#create-certain-admin-sso-test-user)**: per avere una controparte di Britta Simon in Certain Admin SSO collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -103,11 +103,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Certain Admin SSO, segu
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Certain Admin SSO](common/sp-identifier.png)
+    ![Informazioni sull'accesso Single Sign-On per gli URL e il dominio di Certain Admin SSO](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<YOUR DOMAIN URL>/svcs/sso_admin_login/handleRequest/<ID>`
+    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<YOUR DOMAIN URL>/svcs/sso_admin_login/handleRequest/<ID>`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.certain.com`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<SUBDOMAIN>.certain.com`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team del supporto clienti di Certain Admin SSO](mailto:integrations@certain.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -130,9 +130,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Certain Admin SSO, segu
 
 Per configurare l'accesso Single Sign-On sul lato **Certain Admin SSO** è necessario inviare il file **Certificato (Base64)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Certain Admin SSO](mailto:integrations@certain.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -155,9 +155,9 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Certain Admin SSO.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Certain Admin SSO.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Certain Admin SSO**.
 

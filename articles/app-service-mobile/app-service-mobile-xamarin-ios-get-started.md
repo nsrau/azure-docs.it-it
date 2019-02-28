@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 8b890630d352619da86c3017426e24f55ef016d9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d08ebc7c1e52022ec918020387264c464d1cd967
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307171"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883420"
 ---
 # <a name="create-a-xamarinios-app"></a>Creare un'app per Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -29,7 +29,7 @@ Questa esercitazione illustra come aggiungere un servizio back-end basato sul cl
 
 Il completamento di questa esercitazione è un prerequisito per tutte le altre esercitazioni Xamarin.iOS relative all'uso della funzionalità di Azure App Service relativa alle app per dispositivi mobili.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 
 * Un account Azure attivo. Se non è disponibile un account, iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 app per dispositivi mobili gratuite che potranno essere usate anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -72,7 +72,7 @@ Seguire questa procedura per configurare il progetto server per l'uso del back-e
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Aggiungere la sincronizzazione offline all'app](app-service-mobile-xamarin-ios-get-started-offline-data.md)
-* [Add authentication to your app ](app-service-mobile-xamarin-ios-get-started-users.md)
+* [Aggiungere l'autenticazione all'app](app-service-mobile-xamarin-ios-get-started-users.md)
 * [Aggiungere notifiche push all'app Xamarin.Android](app-service-mobile-xamarin-ios-get-started-push.md)
 * [Come usare il client gestito per le app per dispositivi mobili di Azure](app-service-mobile-dotnet-how-to-use-client-library.md)
 

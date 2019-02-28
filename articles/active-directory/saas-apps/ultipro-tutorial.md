@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1620f9e48602c6843692669d9f4c0e5e488e58d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1152ff23db9c53ef36db537acdd75acb19223b2a
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193017"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873186"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ultipro"></a>Esercitazione: Integrazione di Azure Active Directory con UltiPro
 
@@ -112,7 +112,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con UltiPro, seguire questa
     | `https://<companyname>.ultiproworkplace.com?cpi=AZUREADISSSUERURL`|
     | ` https://<companyname>.ultipro.ca`|
     
-    b. Nella casella di testo **Identificatore** digitare un URL usando il criterio seguente:
+    b. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
     | |
     |--|
     | `https://<companyname>.ultipro.com/adfs/services/trust`|

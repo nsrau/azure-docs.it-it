@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c96d78bf797365ef1336211753d9fffcaa227781
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ba92047d282ab86b6cd1f72017996f7de92088c2
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196316"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874920"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amplitude"></a>Esercitazione: Integrazione di Azure Active Directory con Amplitude
 
@@ -153,7 +153,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Amplitude, seguire ques
 
     b. Copiare il valore dell'**URL di risposta (ACS)** e incollarlo nella casella di testo **URL di risposta** di **Configurazione SAML di base** del portale di Azure.
 
-    c. Fare clic su **Save**
+    c. Fare clic su **Save** (Salva).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
