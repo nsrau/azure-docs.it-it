@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 222ac0b5dede45b9ae2b6fe9ba464e738ea48b94
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4f51ade234c8792f235bd8c9218b3c6ef9f22de7
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194258"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870823"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>Esercitazione: Integrazione di Azure Active Directory con Cisco Umbrella
 
@@ -147,7 +147,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
 6. In **Opzione A: Caricare il file XML**e caricare il file **XML dei metadati di federazione** scaricato dal portale di Azure. Dopo il caricamento dei metadati, i valori seguenti vengono popolati automaticamente. A questo punto, fare clic su **AVANTI**.
 
-    ![Finestra di selezione file ](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_choosefile.png)
+    ![Finestra di selezione file](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_choosefile.png)
 
 7. Nella sezione **Convalida configurazione SAML** fare clic su **TESTA LA CONFIGURAZIONE SAML**.
 

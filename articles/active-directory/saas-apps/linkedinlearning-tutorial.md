@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9328564b082ba3eb0cff94652271fcd64cf2630c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 321b236e7d4f0635dcc4ced40e34f1e356859279
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168767"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866165"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Esercitazione: Integrazione di Azure Active Directory con LinkedIn Learning
 
@@ -28,7 +28,7 @@ Questa esercitazione descrive come integrare LinkedIn Learning con Azure Active 
 L'integrazione di LinkedIn Learning con Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere a LinkedIn Learning.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a LinkedIn Learning con gli account Azure AD personali.
+* È possibile abilitare gli utenti per l'accesso automatico a LinkedIn Learning (Single Sign-On) con i propri account Azure AD.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -45,10 +45,10 @@ Per configurare l'integrazione di Azure AD con LinkedIn Learning sono necessari 
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* LinkedIn Learning supporta l'accesso Single Sign-On avviato da **SP e IDP**
-* LinkedIn Learning supporta il provisioning utenti **JIT**
+* LinkedIn Learning supporta il Single Sign-On avviato da **provider di servizi e IDP**
+* LinkedIn Learning supporta il provisioning utenti **Just-in-time**
 
-## <a name="adding-linkedin-learning-from-the-gallery"></a>Aggiunta di LinkedIn Learning dalla raccolta
+## <a name="adding-linkedin-learning-from-the-gallery"></a>Aggiungere LinkedIn Learning dalla raccolta
 
 Per configurare l'integrazione di LinkedIn Learning in Azure AD è necessario aggiungere LinkedIn Learning dalla raccolta all'elenco di app SaaS gestite.
 
@@ -66,23 +66,23 @@ Per configurare l'integrazione di LinkedIn Learning in Azure AD è necessario ag
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **LinkedIn Learning**, selezionare **LinkedIn Learning** nel pannello dei risultati quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **LinkedIn Learning**, selezionare **LinkedIn Learning** dal pannello dei risultati quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![LinkedIn Learning nell'elenco risultati](common/search-new-app.png)
+     ![LinkedIn Learning nell'elenco dei risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con LinkedIn Learning in base a un utente di test di nome **Britta Simon**.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con LinkedIn Learning in base a un utente test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in LinkedIn Learning.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con LinkedIn Learning è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per LinkedIn Learning](#configure-linkedin-learning-single-sign-on)**: per configurare le impostazioni dell'accesso Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On di LinkedIn Learning](#configure-linkedin-learning-single-sign-on)**: per configurare le impostazioni dell'accesso Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di LinkedIn Learning](#create-linkedin-learning-test-user)**: per avere una controparte di Britta Simon in LinkedIn Learning collegata alla relativa rappresentazione in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -94,7 +94,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con LinkedIn Learning segui
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
-2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare l'accesso Single Sign-On.
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
 
     ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
@@ -110,14 +110,14 @@ Per configurare l'accesso Single Sign-On di Azure AD con LinkedIn Learning segui
 
     b. Nella casella di testo **URL di risposta** immettere l'**URL del servizio consumer di asserzione** copiato dal portale di LinkedIn.
 
-    c. Se si vuole configurare l'applicazione in modalità **avviata da SP**, fare clic sull'opzione **Impostare URL aggiuntivi** nella sezione **Configurazione SAML di base**, in cui verrà specificato l'URL di accesso. Per creare l'URL di accesso, copiare l'**URL del servizio consumer di asserzione** e sostituire /saml/ con /login/. Dopo aver completato questa operazione, il formato dell'URL di accesso dovrebbe essere il seguente:
+    c. Se si vuole configurare l'applicazione in modalità **avviata da provider di servizi**, fare clic sull'opzione **Impostare URL aggiuntivi** nella sezione **Configurazione SAML di base**, in cui verrà specificato l'URL di accesso. Per creare l'URL di accesso, copiare l'**URL del servizio consumer di asserzione** e sostituire /saml/ con /login/. Dopo aver completato questa operazione, il formato dell'URL di accesso dovrebbe essere il seguente:
 
     `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=learning&applicationInstanceId=<InstanceId>`
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di LinkedIn Learning](common/metadata-upload-additional-signon.png)
 
     > [!NOTE]
-    > Dal momento che questi non sono i valori reali, è necessario aggiornarli con i valori reali di identificatore e URL di risposta. La procedura è descritta più avanti nella sezione **Configurare l'accesso Single Sign-On per LinkedIn Learning** dell'esercitazione.
+    > Dal momento che questi non sono i valori reali, è necessario aggiornarli con i valori reali di identificatore e URL di risposta. La procedura è descritta più avanti nella sezione **Configurare l'accesso Single Sign-On di LinkedIn Learning** dell'esercitazione.
 
 5. L'applicazione LinkedIn Learning prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra l'elenco degli attributi predefiniti in cui **nameidentifier** è associato a **user.userprincipalname**. L'applicazione LinkedIn Learning prevede che **nameidentifier** sia associato a **user.mail**, di conseguenza è necessario modificare il mapping dell'attributo. A questo scopo, fare clic sull'icona **Modifica** e modificare il mapping.
 
@@ -125,7 +125,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con LinkedIn Learning segui
 
 6. Oltre quelli elencati in precedenza, l'applicazione LinkedIn Learning prevede il passaggio di qualche altro attributo nella risposta SAML. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
     
-    | Nome | Attributo di origine |
+    | NOME | Source Attribute |
     | ---------------| --------------- |
     | email  | user.mail  |
     | department  | user.department  |
@@ -160,23 +160,23 @@ Per configurare l'accesso Single Sign-On di Azure AD con LinkedIn Learning segui
 
 2. In **Account Center** (Centro account) fare clic su **Global Settings** (Impostazioni globali) in **Settings** (Impostazioni). Selezionare anche **Learning - Default** (Learning - Predefinito) nell'elenco a discesa.
 
-    ![Configurare l'accesso Single Sign-On](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
+    ![Configure Single Sign-On](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
 
 3. Fare clic su **OR Click Here to load and copy individual fields from the form** (O fare clic qui per caricare e copiare i singoli file dal modulo), copiare l'**ID entità** e l'**URL del servizio consumer di asserzione** e incollarli nella sezione **Configurazione SAML di base** nel portale di Azure.
 
-    ![Configurare l'accesso Single Sign-On](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
+    ![Configure Single Sign-On](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
 
 4. Accedere alla sezione **LinkedIn Admin Settings** (Impostazioni di amministrazione LinkedIn). Caricare il file XML scaricato dal portale di Azure facendo clic sull'opzione **Upload XML file** (Carica file XML).
 
-    ![Configurare l'accesso Single Sign-On](./media/linkedinlearning-tutorial/tutorial_linkedin_metadata_03.png)
+    ![Configure Single Sign-On](./media/linkedinlearning-tutorial/tutorial_linkedin_metadata_03.png)
 
 5. Fare clic su **On** per abilitare SSO. Lo stato SSO passa da **Not Connected** (Non connesso) a **Connected** (Connesso)
 
-    ![Configurare l'accesso Single Sign-On](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_05.png)
+    ![Configure Single Sign-On](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_05.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -197,9 +197,9 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a LinkedIn Learning.
 
@@ -227,9 +227,9 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 ### <a name="create-linkedin-learning-test-user"></a>Creare l'utente di test di LinkedIn Learning
 
-L'applicazione LinkedIn Learning supporta il provisioning utenti JIT e dopo l'autenticazione gli utenti vengono automaticamente creati nell'applicazione. Nella pagina delle impostazioni di amministrazione del portale di LinkedIn Learning spostare il selettore dell'opzione **Automatically Assign licenses** (Assegna automaticamente le licenze) per attivare il provisioning JIT, assegnando una licenza all'utente.
+L'applicazione LinkedIn Learning supporta il provisioning dell'utente just-in-time e dopo l'autenticazione gli utenti sono automaticamente creati nell'applicazione. Nella pagina delle impostazioni di amministrazione del portale di LinkedIn Learning spostare il selettore dell'opzione **Automatically Assign licenses** (Assegna automaticamente le licenze) per attivareil provisioning just-in-time, assegnando una licenza all'utente.
 
-   ![Creazione di un utente di test di Azure AD](./media/linkedinlearning-tutorial/LinkedinUserprovswitch.png)
+   ![Creazione di un utente test di Azure AD](./media/linkedinlearning-tutorial/LinkedinUserprovswitch.png)
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 
