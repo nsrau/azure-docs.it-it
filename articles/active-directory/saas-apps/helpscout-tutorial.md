@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 790176d6a9ad54357e90c0f68368038fb786bd0d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 3650704cd3d01d1cce21a665f3731a00a2107ab7
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454532"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865723"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Esercitazione: Integrazione di Azure Active Directory con Help Scout
 
@@ -50,7 +50,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-help-scout-from-the-gallery"></a>Aggiunta di Help Scout dalla raccolta
 
-Per configurare l'integrazione di Help Scout in Azure AD, è necessario aggiungere Help Scout dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Help Scout in Azure AD, è necessario aggiungere Help Scout dalla raccolta al proprio elenco delle app SaaS gestite.
 
 **Per aggiungere Help Scout dalla raccolta, seguire questa procedura:**
 
@@ -75,12 +75,12 @@ Per configurare l'integrazione di Help Scout in Azure AD, è necessario aggiunge
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Help Scout usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Help Scout.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Help Scout, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Help Scout, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Help Scout](#configure-help-scout-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Help Scout](#create-help-scout-test-user)**: per avere una controparte di Britta Simon in Help Scout collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -104,7 +104,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Help Scout, seguire que
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Help Scout](common/idp-intiated.png)
+    ![Informazioni su URL e dominio per Single Sign-On di Help Scout](common/idp-intiated.png)
 
     a. Il valore di **Identificatore** corrisponde al valore di **Audience URI (Service Provider Entity ID)** (URI destinatario - ID entità provider di servizi) di Help Scout e inizia con `urn:`
 
@@ -115,7 +115,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Help Scout, seguire que
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Help Scout](common/metadata-upload-additional-signon.png)
+    ![Informazioni su URL e dominio per Single Sign-On di Help Scout](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL di accesso** digitare l'URL come: `https://secure.helpscout.net/members/login/`
 
@@ -139,37 +139,37 @@ Per configurare l'accesso Single Sign-On di Azure AD con Help Scout, seguire que
 
 2. Fare clic su **Manage** (Gestisci) nel menu in alto e quindi selezionare **Company** (Società) nel menu a discesa.
 
-    ![Configurare l'accesso Single Sign-On](./media/helpscout-tutorial/settings1.png)
+    ![Configure Single Sign-On](./media/helpscout-tutorial/settings1.png)
 
 3. Selezionare **Authentication** (Autenticazione) nel riquadro di spostamento a sinistra.
 
-    ![Configurare l'accesso Single Sign-On](./media/helpscout-tutorial/settings2.png)
+    ![Configure Single Sign-On](./media/helpscout-tutorial/settings2.png)
 
 4. Nella sezione relativa alle impostazioni SAML, seguire questa procedura:
 
-    ![Configurare l'accesso Single Sign-On](./media/helpscout-tutorial/settings3.png)
+    ![Configure Single Sign-On](./media/helpscout-tutorial/settings3.png)
 
     a. Copiare il valore di **Post-back URL (Assertion Consumer Service URL)** (URL post-back (URL servizio consumer di asserzione)) e incollarlo nella casella di testo **URL di risposta** nella sezione **Configurazione SAML di base** del portale di Azure.
 
     b. Copiare il valore **Audience URI (Service Provider Entity ID)** (URI destinatario - ID entità provider di servizi) e incollarlo nella casella di testo **Identificatore** nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Attivare **Abilita SAML** ed eseguire la procedura seguente:
+5. Attiva **Abilita SAML** ed esegui la procedura seguente:
 
-    ![Configurare l'accesso Single Sign-On](./media/helpscout-tutorial/settings4.png)
+    ![Configure Single Sign-On](./media/helpscout-tutorial/settings4.png)
 
     a. Nella casella di testo **Single Sign-On URL** (URL Single Sign-On) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
     b. Fare clic sul pulsante **Browser** per caricare il **Certificato (Base64)** scaricato dal portale di Azure.
 
-    c. Immettere i domini di posta elettronica domini, ad esempio `contoso.com` nella casella di testo **Email Domains** (Domini di posta elettronica). È possibile separare più domini con una virgola. In qualsiasi momento un utente di Help Scout o un amministratore che entra in tale dominio specifico nella [pagina di accesso di Help Scout](https://secure.helpscout.net/members/login/) verrà indirizzato al provider di identità per l'autenticazione con le proprie credenziali.
+    c. Immettere i domini di posta elettronica domini, ad esempio `contoso.com` nella casella di testo **Email Domains** (Domini di posta elettronica). È possibile separare più domini con una virgola. In qualsiasi momento un utente di Scout Guida o un amministratore che entra in tale dominio specifico nella [pagina di accesso della Guida Scout](https://secure.helpscout.net/members/login/) verrà indirizzato al provider di identità per l'autenticazione con le proprie credenziali.
 
-    d. Infine, è possibile attivare o disattivare **Force SAML Sign-on** (Forza accesso SAML) se si desidera che gli utenti accedano a Help Scout solo tramite questo metodo. Se si desidera lasciare l'opzione per poter accedere con le proprie credenziali di Help Scout, è possibile lasciarla disattivata. Anche se questa opzione è abilitata, il proprietario dell'account sarà sempre in grado di accedere a Help Scout con la password dell'account.
+    d. Infine, è possibile attivare o disattivare **Force SAML Sign-on** (Forza accesso SAML) se si desidera che gli utenti accedano a Guida Scout solo tramite questo metodo. Se si desidera lasciare l'opzione per poter accedere con le proprie credenziali di Scout Guida, è possibile lasciarla disattivata. Anche se questa opzione è abilitata, il proprietario dell'account sarà sempre in grado di accedere a Scout Guida con la password dell'account.
 
     e. Fare clic su **Save**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -192,9 +192,9 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Help Scout.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure tramite la concessione dell'accesso a Help Scout.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Help Scout**.
 

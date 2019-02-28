@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 847f9b4fbed247665768e7f6869a3be9cf2f2f48
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: c2f3dc5c3a5ca0de7480f1127d83edeea24afe54
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56299718"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871027"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Esercitazione: Integrazione di Azure Active Directory con FilesAnywhere
 
@@ -51,7 +51,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-filesanywhere-from-the-gallery"></a>Aggiungere FilesAnywhere dalla raccolta
 
-Per configurare l'integrazione di FilesAnywhere in Azure AD, è necessario aggiungere FilesAnywhere dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di FilesAnywhere in Azure AD, è necessario aggiungere FilesAnywhere dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere FilesAnywhere dalla raccolta, seguire questa procedura:**
 
@@ -76,12 +76,12 @@ Per configurare l'integrazione di FilesAnywhere in Azure AD, è necessario aggiu
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con FilesAnywhere usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in FilesAnywhere.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con FilesAnywhere, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con FilesAnywhere, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per FilesAnywhere](#configure-filesanywhere-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di FilesAnywhere](#create-filesanywhere-test-user)**: per avere una controparte di Britta Simon in FilesAnywhere collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con FilesAnywhere, seguire 
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di FilesAnywhere](common/both-replyurl.png)
 
-    Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<company name>.filesanywhere.com/saml20.aspx?c=<Client Id>`
+    Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<company name>.filesanywhere.com/saml20.aspx?c=<Client Id>`
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
@@ -126,7 +126,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con FilesAnywhere, seguire 
 
 7. Oltre quelli elencati in precedenza, l'applicazione FilesAnywhere prevede il passaggio di qualche altro attributo nella risposta SAML. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
 
-    | Nome | Attributo di origine|
+    | NOME | Source Attribute|
     | ---------------| --------------- |    
     | clientid | *"uniquevalue"* |
 
@@ -166,9 +166,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con FilesAnywhere, seguire 
 
 Per configurare l'accesso Single Sign-On sul lato **FilesAnywhere** è necessario inviare il file **Certificato (Base64)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di FilesAnywhere](mailto:support@FilesAnywhere.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -191,7 +191,7 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a FilesAnywhere.
 
@@ -199,7 +199,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **FilesAnywhere**.
+2. Selezionare **FilesAnywhere** nell'elenco delle applicazioni.
 
     ![Collegamento di FilesAnywhere nell'elenco delle applicazioni](common/all-applications.png)
 

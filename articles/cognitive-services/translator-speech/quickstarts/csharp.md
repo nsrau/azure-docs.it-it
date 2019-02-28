@@ -10,14 +10,15 @@ ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: de0fbf7b273777672c95a3466405cef95da64353
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: a76c11341d0e145e6d2e9f86a7300ddb9319f6f5
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874295"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673888"
 ---
-# <a name="quickstart-translator-speech-api-with-c"></a>Avvio rapido: API Traduzione vocale con C# 
+# <a name="quickstart-translator-speech-api-with-c"></a>Guida introduttiva: API Traduzione vocale con C#
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
@@ -157,7 +158,7 @@ Se il risultato è positivo, viene creato un file denominato "speak2.wav" conten
 > [!div class="nextstepaction"]
 > [Esercitazione su Traduzione vocale](../tutorial-translator-speech-csharp.md)
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedere anche 
 
 [Panoramica di Traduzione vocale](../overview.md)
 [Informazioni di riferimento sull'API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

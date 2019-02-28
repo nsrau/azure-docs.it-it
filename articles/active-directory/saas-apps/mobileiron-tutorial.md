@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c438dd898acb4be1c32da3539642c95c9b0b09cb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 66641eb0d6b0377fc4133e5324eefbfcb0dd026a
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181236"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870480"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Esercitazione: Integrazione di Azure Active Directory con MobileIron
 

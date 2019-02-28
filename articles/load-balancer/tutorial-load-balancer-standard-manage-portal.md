@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/18
+ms.date: 08/20/2018
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: c22f69764447ffd4f8b67e9162fd8b45b40b175b
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 7caddde5c7695d0c572dc139b52cd0743e39d778
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230034"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672000"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Esercitazione: Bilanciare il carico del traffico Internet verso le macchine virtuali con il portale di Azure
 
@@ -50,7 +50,7 @@ In questa sezione viene creato un servizio di bilanciamento del carico pubblico 
     | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
     | NOME                   | *myLoadBalancer*                                   |
-    | type          | Pubblico                                        |
+    | Type          | Pubblico                                        |
     | SKU           | Standard                          |
     | Indirizzo IP pubblico | Selezionare **Crea nuovo** e digitare *myPublicIP* nella casella di testo. Per impostazione predefinita, per l'indirizzo IP pubblico è selezionato lo SKU Standard. Per **Zona di disponibilità** selezionare **Con ridondanza della zona**. |
     | Sottoscrizione               | Selezionare la propria sottoscrizione.    |

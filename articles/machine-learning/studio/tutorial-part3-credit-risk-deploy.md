@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 6e3f0613e89ef7d6e9b44e519226a793940d41f6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: f64000ed502ee817f907e6ac9c89c2f037725a39
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56006759"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823791"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>Esercitazione 3: Distribuire il modello di rischio di credito - Azure Machine Learning Studio
 
@@ -234,7 +234,7 @@ Questo è un servizio Web di Azure che può ricevere e restituire dati tramite l
 
 I modelli di app Web consentono di compilare un'app Web personalizzata che riconosce i dati di input del servizio Web e i dati da restituire. È sufficiente concedere l'accesso al proprio servizio Web e ai dati e il modello farà il resto.
 
-Per altre informazioni sull'utilizzo di modelli di app Web, vedere [Utilizzare un servizio Web di Azure Machine Learning con un modello di app Web](consume-web-service-with-web-app-template.md).
+Per altre informazioni sull'utilizzo di modelli di app Web, vedere [Utilizzare un servizio Web di Azure Machine Learning con un modello di app Web](/azure/machine-learning/studio/consume-web-services).
 
 
 

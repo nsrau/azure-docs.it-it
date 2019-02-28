@@ -12,12 +12,12 @@ ms.date: 12/09/2018
 ms.topic: tutorial
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, contenitori
-ms.openlocfilehash: 7a77b8a1a2205465956d8c30a3fee6aec5e8428b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: af0a4a719f964e400119be313842f385b410406c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663792"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817423"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Team di sviluppo con Azure Dev Spaces
 
@@ -125,9 +125,9 @@ Di seguito è riportato un diagramma che aiuta a capire il funzionamento dei div
 Questa funzionalità integrata di Azure Dev Spaces consente di testare codice end-to-end in un ambiente condiviso senza richiedere a ogni sviluppatore di ricreare lo stack completo dei servizi nel proprio spazio. Questo routing richiede l'inoltro delle intestazioni di propagazione nel codice dell'app, come illustrato nel passaggio precedente di questa Guida.
 
 ### <a name="test-code-running-in-the-devscott-space"></a>Testare il codice in esecuzione nello spazio _dev/scott_
-Per testare la nuova versione di *mywebapi* in combinazione con *webfrontend*, aprire il browser all'URL del punto di accesso pubblico per *webfrontend*, ad esempio http://dev.webfrontend.123456abcdef.eastus.aksapp.io) e passare alla pagina delle informazioni. Verrà visualizzato il messaggio originale "Salve da webfrontend e Salve da mywebapi".
+Per testare la nuova versione di *mywebapi* in combinazione con *webfrontend*, aprire il browser all'URL del punto di accesso pubblico per *webfrontend*, ad esempio http://dev.webfrontend.123456abcdef.eus.azds.io) e passare alla pagina delle informazioni. Verrà visualizzato il messaggio originale "Salve da webfrontend e Salve da mywebapi".
 
-A questo punto, aggiungere "scott.s". all'URL in modo che sia simile a http://scott.s.dev.webfrontend.123456abcdef.eastus.aksapp.io e aggiornare il browser. Si dovrebbe raggiungere il punto di interruzione impostato nel progetto *mywebapi*. Premere F5 per continuare e nel browser dovrebbe essere visualizzato il nuovo messaggio "Salve da webfrontend e mywebapi ora dice qualcosa di nuovo". Ciò è dovuto al fatto che il percorso del codice aggiornato in *mywebapi* è in esecuzione nello spazio _dev/scott_.
+A questo punto, aggiungere "scott.s". all'URL in modo che sia simile a http://scott.s.dev.webfrontend.123456abcdef.eus.azds.io e aggiornare il browser. Si dovrebbe raggiungere il punto di interruzione impostato nel progetto *mywebapi*. Premere F5 per continuare e nel browser dovrebbe essere visualizzato il nuovo messaggio "Salve da webfrontend e mywebapi ora dice qualcosa di nuovo". Ciò è dovuto al fatto che il percorso del codice aggiornato in *mywebapi* è in esecuzione nello spazio _dev/scott_.
 
 Dopo aver impostato uno spazio _dev_ che contiene sempre le ultime modifiche, e presupponendo che l'applicazione sia progettata per trarre vantaggio dal routing basato su spazio di DevSpace descritto in questa sezione dell'esercitazione, dovrebbe risultare evidente quanto può essere utile usare Dev Spaces per testare le nuove funzionalità nel contesto dell'applicazione più grande. Invece di dover distribuire _tutti_ i servizi nello spazio privato, è possibile creare uno spazio privato che deriva da _dev_ e attivare solo i servizi effettivamente in uso. L'infrastruttura di routing di Dev Spaces gestirà il resto utilizzando tutti i servizi dello spazio privato che riesce a trovare, mentre per impostazione predefinita torna all'ultima versione in esecuzione nello spazio _dev_. E soprattutto _più_ sviluppatori possono sviluppare attivamente diversi servizi contemporaneamente nel proprio spazio senza interrompersi a vicenda.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7bc6b57122072c2fe0c063c1278cf11d97469b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0e86ede90a19d829e87b47d49fa4a12a17fe1d5c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191317"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867049"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Esercitazione: Integrazione di Azure Active Directory con Snowflake
 
@@ -141,7 +141,7 @@ Per configurare Single Sign-On di Azure AD con Snowflake, seguire questa procedu
     > [!NOTE]
     > È separato dal contesto selezionato nell'angolo in alto a destra sotto il nome utente
     
-    ![Amministratore di Snowflake ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+    ![Amministratore di Snowflake](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
 10. Aprire il **certificato Base64 scaricato** nel Blocco note. Copiare il valore tra ---BEGIN CERTIFICATE--- e ---END CERTIFICATE--- e incollarlo tra le virgolette accanto a **certificate**. Nella casella di testo **ssoUrl** incollare il valore dell'**URL di accesso** copiato dal portale di Azure. Selezionare **Tutte le query** e fare clic su **Esegui**.
 
@@ -219,11 +219,11 @@ Per consentire agli utenti di Azure AD di accedere a Snowflake, è necessario ef
 
 2. Impostare **Switch Role** (Cambia ruolo) su **ACCOUNTADMIN** facendo clic su **profile** (profilo) nella parte superiore destra della pagina.  
 
-    ![Amministratore di Snowflake ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+    ![Amministratore di Snowflake](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
 3. Creare l'utente eseguendo la query SQL seguente e verificando che il parametro "Login name" sia impostato sul nome utente di Azure AD nel foglio di lavoro come illustrato di seguito.
 
-    ![SQL amministratore di Snowflake ](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
+    ![SQL amministratore di Snowflake](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
 
     ```
     use role accountadmin;

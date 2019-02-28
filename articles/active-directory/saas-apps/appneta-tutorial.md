@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 491140900dc74ade68109f3c9de586b0f3709b4f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5c11d1206a080603f58d2fcb3ffb5b9f8defb16d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172621"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867542"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appneta-performance-monitor"></a>Esercitazione: Integrazione di Azure Active Directory con AppNeta Performance Monitor
 
@@ -111,7 +111,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con AppNeta Performance Mon
     b. Nella casella di testo **Identificatore (ID entità)** digitare il valore `PingConnect`
 
     > [!NOTE]
-    > Poiché il valore dell'URL di accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso Sign-On effettivo. Contattare il [team di supporto del client AppNeta Performance Monitor](mailto:support@appneta.com) per ottenere questo valore. È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché il valore dell'URL di accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Contattare il [team di supporto del client AppNeta Performance Monitor](mailto:support@appneta.com) per ottenere questo valore. È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 5. L'applicazione AppNeta Performance Monitor prevede un formato specifico per le asserzioni SAML. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente** nella pagina di integrazione dell'applicazione. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 
