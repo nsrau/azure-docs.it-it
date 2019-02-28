@@ -19,7 +19,7 @@ ms.locfileid: "56329269"
 Un volume permanente rappresenta una parte di risorsa di archiviazione di cui è stato eseguito il provisioning per l'uso con pod Kubernetes. Un volume permanente può essere usato da uno o più pod e se ne può eseguire il provisioning in modo dinamico o in modo statico. Questo articolo mostra come creare in modo dinamico volumi persistenti con i dischi di Azure per l'uso con un singolo pod in un cluster del servizio Azure Kubernetes.
 
 > [!NOTE]
-> Un disco di Azure può essere montato solo con la *modalità di accesso**ReadWriteOnce*, che lo rende disponibile solo a un singolo pod nel servizio Azure Kubernetes. Se è necessario condividere un volume permanente tra più pod, usare i [File di Azure][azure-files-pvc].
+> Un disco di Azure può essere montato solo con la *modalità di accesso* *ReadWriteOnce*, che lo rende disponibile solo a un singolo pod nel servizio Azure Kubernetes. Se è necessario condividere un volume permanente tra più pod, usare i [File di Azure][azure-files-pvc].
 
 Per altre informazioni sui volumi Kubernetes permanenti, vedere [Kubernetes persistent volumes][kubernetes-volumes] (Volumi Kubernetes permanenti).
 
