@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 25a0867d9a2060989ce7206279b4acabe39b4ff3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b7dbea4736eae3371d288883ba40d8edfe310869
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478271"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727945"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Esercitazione: Migrare dati locali in una risorsa di archiviazione cloud tramite AzCopy
 

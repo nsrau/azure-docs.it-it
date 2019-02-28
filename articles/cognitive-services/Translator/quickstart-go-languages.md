@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Ottenere le lingue supportate, Go: API Traduzione testuale'
+title: 'Avvio rapido: Ottenere le lingue supportate, Go: API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari insieme a esempi usando l'API Traduzione testuale con Go.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: f750bfb07ee273f7b1d355657bfd3c4808f84ef5
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 3bccf50d9236fb5b51b89f31ffc2ec9b0d2c74cd
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891719"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727282"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-go"></a>Guida introduttiva: Usare l'API Traduzione testuale per ottenere un elenco delle lingue supportate usando Go
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-go"></a>Avvio rapido: Usare l'API Traduzione testuale per ottenere un elenco delle lingue supportate usando Go
 
 In questa guida di avvio rapido si apprenderà come effettuare una richiesta GET che restituisce un elenco delle lingue supportate usando Go e l'API REST Traduzione testuale.
 

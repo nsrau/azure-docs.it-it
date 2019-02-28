@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Cercare le parole con il dizionario bilingue, C# - API Traduzione testuale'
+title: 'Avvio rapido: Cercare le parole con il dizionario bilingue, C# - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva verrà illustrato come ottenere traduzioni alternative per un termine e verranno forniti esempi di utilizzo di tali traduzioni usando .NET Core e l'API Traduzione testuale.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 11/26/2018
+ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 7ab37122697170d62789ef5872a2815cd8c55bb0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 268f4e07fee2fedda37b86e589d3be7fd3d84df4
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884682"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737179"
 ---
-# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-c"></a>Guida introduttiva: Cercare le parole con il dizionario bilingue usando C#
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-c"></a>Avvio rapido: Cercare le parole con il dizionario bilingue usando C#
 
 In questa guida introduttiva verrà illustrato come ottenere traduzioni alternative per un termine e verranno forniti esempi di utilizzo di tali traduzioni usando .NET Core e l'API Traduzione testuale.
 
