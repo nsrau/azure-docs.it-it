@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Contenuto di immagini specifico di dominio - REST, Python'
+title: 'Guida introduttiva: Contenuto di immagini specifico di dominio - REST, Python'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si identificheranno celebrit√† e luoghi di interesse in un'immagine in base a modelli di dominio usando l'API Visione artificiale con Python.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 02/21/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e74ce007c4309c4eb446589de47dd7a12cbf13db
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bdbff3777949298fbefec80ecb6608d6af10037b
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857023"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651652"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Avvio rapido: Usare un modello di dominio usando l'API REST e Python in Visione artificiale
 
@@ -26,7 +26,7 @@ In questa guida introduttiva si identificheranno luoghi di interesse o celebrit√
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) prima di iniziare.
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/try/cognitive-services/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

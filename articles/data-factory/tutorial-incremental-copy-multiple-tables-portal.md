@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: 686e008a83924460b1f85212b5c06796b6bc8217
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: e6a24bfe25513b1b4eacd8bc192caa5518c896c6
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354213"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593200"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Caricare dati in modo incrementale da più tabelle in SQL Server a un database SQL di Azure
 In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati delta da più tabelle di un database di SQL Server locale a un database SQL di Azure.    
@@ -270,7 +270,7 @@ Mentre si spostano i dati da un archivio dati di una rete privata (locale) a un 
 1. Nella finestra **Integration Runtime Setup** (Configurazione runtime di integrazione) selezionare **Perform data movement and dispatch activities to external computes** (Eseguire attività di invio e spostamento dati in servizi di calcolo esterni) e fare clic su **Avanti**. 
 
    ![Selezionare il tipo di runtime di integrazione](./media/tutorial-incremental-copy-multiple-tables-portal/select-integration-runtime-type.png)
-1. Selezionare ** Private Network** (Rete privata) e fare clic su **Avanti**. 
+1. Selezionare **Private Network** (Rete privata) e fare clic su **Avanti**. 
 
    ![Selezionare una rete privata](./media/tutorial-incremental-copy-multiple-tables-portal/select-private-network.png)
 1. Immettere **MySelfHostedIR** per **Nome**, e fare clic su **Avanti**. 
@@ -508,9 +508,9 @@ Questa pipeline accetta un elenco di nomi di tabella come parametro. L'attività
     1. Selezionare **Import parameter** (Importa parametro). 
     1. Specificare i valori seguenti per i parametri: 
 
-        | NOME | type | Valore | 
+        | NOME | Type | Valore | 
         | ---- | ---- | ----- |
-        | LastModifiedtime | Datetime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
+        | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | string | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Attività stored procedure: impostazioni della stored procedure](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)

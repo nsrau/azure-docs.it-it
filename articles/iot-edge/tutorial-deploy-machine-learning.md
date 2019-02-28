@@ -4,17 +4,17 @@ description: In questa esercitazione Azure Machine Learning viene distribuito co
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/15/2018
+ms.date: 02/21/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 464d16d4bbcbdbefd36ce1132630ad702d7a0c90
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 0f7201ffd71a6bc3e68f83f005c693cae4fef84a
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076971"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649001"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Esercitazione: Distribuire Azure Machine Learning come modulo di IoT Edge (anteprima)
 
@@ -58,7 +58,7 @@ Risorse cloud:
 
 Per disabilitare l'identificazione di un processo nel dispositivo IoT Edge, sarà necessario fornire l'indirizzo IP e la porta per **workload_uri** e **management_uri** nella sezione **connect** della configurazione del daemon IoT Edge.
 
-Ottenere prima l'indirizzo IP. Immettere `ipconfig` nella riga di comando e copiare l'indirizzo IP dell'interfaccia **docker0**.
+Ottenere prima l'indirizzo IP. Immettere `ifconfig` nella riga di comando e copiare l'indirizzo IP dell'interfaccia **docker0**.
 
 Modificare il file di configurazione del daemon IoT Edge:
 

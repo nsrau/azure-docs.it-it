@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 1fe21e8c7a4f4b73648eb5cf0cd3ee5e96dff760
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 262706868fe286f2134e71f53330ebd2eeb66488
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107595"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587838"
 ---
 # <a name="create-a-scheduled-backup-for-a-web-app-using-powershell"></a>Creare un backup programmato per un'app Web con PowerShell
 
@@ -50,8 +50,8 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Crea un account di archiviazione. |
-| [New-AzStorageContainer](/powershell/module/azure.storage/new-AzStoragecontainer) | Crea un contenitore di Archiviazione di Azure. |
-| [New-AzStorageContainerSASToken](/powershell/module/azure.storage/new-AzStoragecontainersastoken) | Genera un token di firma di accesso condiviso per un contenitore di archiviazione di Azure. |
+| [New-AzStorageContainer](/powershell/module/az.storage/new-AzStoragecontainer) | Crea un contenitore di Archiviazione di Azure. |
+| [New-AzStorageContainerSASToken](/powershell/module/az.storage/new-AzStoragecontainersastoken) | Genera un token di firma di accesso condiviso per un contenitore di archiviazione di Azure. |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Consente di creare un piano di servizio app. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Crea un'App Web. |
 | [Edit-AzWebAppBackupConfiguration](/powershell/module/az.websites/edit-azwebappbackupconfiguration) | Modifica la configurazione del backup per l'app Web. |

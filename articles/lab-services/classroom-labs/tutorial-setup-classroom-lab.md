@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 96d5e94cb60888f7e098e31d7f06481a766cabd5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4abec80df4aeeb4c20d56b43ba122ee7266905a6
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998519"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649588"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Esercitazione: Configurare un lab per le classi 
 Questa esercitazione descrive come configurare un lab per le classi con macchine virtuali usate dagli studenti nella classe.  
@@ -69,10 +69,8 @@ Un proprietario del lab può aggiungere altri utenti al ruolo **Autore di labora
 
     ![Pagina di configurazione del modello al termine dell'operazione](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Nella pagina **Configure template** (Configura modello) procedere come segue: Questi passaggi sono **facoltativi** per l'esercitazione.
-    1. Avviare la macchina virtuale modello selezionando **Start** (Avvia).
     2. Connettersi alla macchina virtuale modello selezionando **Connect** (Connetti). 
-    3. Installare e configurare il software nella macchina virtuale modello. 
-    4. **Arrestare** la VM.  
+    3. Installare e configurare il software nella macchina virtuale modello.     
     5. Immettere una **descrizione** per il modello.
 9. Selezionare **Next** (Avanti) nella pagina del modello. 
 10. Nella pagina **Publish the template** (Pubblica il modello) eseguire le azioni seguenti. 

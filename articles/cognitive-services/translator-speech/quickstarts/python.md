@@ -10,14 +10,15 @@ ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 34d397412a6d461325465ccc5dd41a62d91c6fc5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 9a6afc4dfb25a2a5f6e778fbda877a93269a96eb
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872051"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673276"
 ---
-# <a name="quickstart-translator-speech-api-with-python"></a>Avvio rapido: API Traduzione vocale con Python
+# <a name="quickstart-translator-speech-api-with-python"></a>Guida introduttiva: API Traduzione vocale con Python
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
@@ -30,7 +31,7 @@ Per eseguire questo codice è necessario [Python 3.x](https://www.python.org/dow
 
 È necessario installare il [pacchetto websocket-client](https://pypi.python.org/pypi/websocket-client) per Python.
 
-È inoltre necessario un file con estensione wav denominato "speak.wav" nella stessa cartella del file eseguibile che si compila dal codice seguente. Il file con estensione wav deve essere in formato PCM standard, a 16 bit, 16 kHz, mono. 
+È inoltre necessario un file con estensione wav denominato "speak.wav" nella stessa cartella del file eseguibile che si compila dal codice seguente. Il file con estensione wav deve essere in formato PCM standard, a 16 bit, 16 kHz, mono.
 
 È necessario disporre di un [account delle API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Traduzione vocale Microsoft**. È infine necessaria una chiave di sottoscrizione a pagamento configurata nel [dashboard di Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -132,7 +133,7 @@ Se il risultato è positivo, viene creato un file denominato "speak2.wav" conten
 > [!div class="nextstepaction"]
 > [Esercitazione su Traduzione vocale](../tutorial-translator-speech-csharp.md)
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedere anche 
 
 [Panoramica di Traduzione vocale](../overview.md)
 [Informazioni di riferimento sull'API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

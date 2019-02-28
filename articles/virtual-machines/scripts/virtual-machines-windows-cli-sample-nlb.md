@@ -1,7 +1,7 @@
 ---
 title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una macchina virtuale Windows Server 2016 con bilanciamento del carico di rete | Microsoft Docs
 description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una macchina virtuale Windows Server 2016 con bilanciamento del carico di rete
-services: virtual-machines-Windows
+services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rickstercdn
 manager: jeconnoc
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
-ms.openlocfilehash: 76e7d550c53ad2e9d1c1a1bab5ea4000279fcaa4
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 5f7f07fb51c39062466675d56f65c6bf2504c3e9
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700418"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672050"
 ---
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>Bilanciare il carico del traffico tra macchine virtuali a disponibilità elevata
 

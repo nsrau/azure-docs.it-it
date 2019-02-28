@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 1560dad31e00b00a2d27cf1675e05901e6611825
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: a73eac1dea731bbf1ffb903ddf2438e791fec9d5
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309863"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56726450"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Spostare macchine virtuali di Azure in un'altra area
 
@@ -70,7 +70,7 @@ La sezione seguente illustra le architetture di distribuzione più comuni adotta
 
 
 
- ## <a name="move-vms-as-is-to-a-target-region"></a>Spostare le macchine virtuali così come sono in un'area di destinazione
+## <a name="move-vms-as-is-to-a-target-region"></a>Spostare le macchine virtuali così come sono in un'area di destinazione
 
 In base alle [architetture](#typical-architectures-for-a-multi-tier-deployment) citate sopra, ecco come saranno le distribuzioni dopo aver eseguito lo spostamento delle VM così come sono nell'area di destinazione.
 

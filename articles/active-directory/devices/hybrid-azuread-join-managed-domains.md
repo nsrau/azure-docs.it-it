@@ -17,12 +17,12 @@ ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6618c5f2ab26c70325ef65c84527c7a5c3734bb9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c8a22b2fe7da22365c6414da9babe73488a499fb
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166182"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651856"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Esercitazione: Configurare l'aggiunta all'identità ibrida di Azure Active Directory per i domini gestiti
 
@@ -55,8 +55,6 @@ Questa esercitazione presuppone che l'utente abbia familiarità con:
   
 
 Per configurare lo scenario in questo articolo, sono necessari gli elementi seguenti:
-
-- Una Active Directory locale (AD) con un livello di schema 85 o versione successiva. Per altre informazioni, vedere [Aggiornare lo schema Active Directory](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema).
 
 - La [versione più recente di Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 o versioni successive) da installare. 
 

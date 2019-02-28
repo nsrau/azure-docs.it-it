@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 535dd04efd9f150365b24ae175ee90fbb247305f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 28b15e950aa4ebbfcb1b04bfd495b3accf13528e
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846677"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586903"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introduzione agli argomenti del bus di servizio
 
@@ -41,40 +41,11 @@ Questa esercitazione illustra i passaggi seguenti:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Creare uno spazio dei nomi tramite il portale di Azure
-
-> [!NOTE] 
-> È possibile creare entità di messaggistica e uno spazio dei nomi del bus di servizio anche usando [PowerShell](/powershell/azure/get-started-azureps). Per altre informazioni, vedere [Gestire le risorse del bus di servizio di Azure con PowerShell](service-bus-manage-with-ps.md).
-
-Se è già stato creato uno spazio dei nomi di messaggistica del bus di servizio, passare alla sezione [Creare un argomento usando il portale di Azure](#2-create-a-topic-using-the-azure-portal).
-
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Creare un argomento usando il portale di Azure
+[!INCLUDE [service-bus-create-topics-subscriptions-portal](../../includes/service-bus-create-topics-subscriptions-portal.md)]
 
-1. Accedere al [portale di Azure][azure-portal].
-2. Nel riquadro di spostamento a sinistra del portale fare clic su **Bus di servizio**. Se l'opzione **Bus di servizio** non è visualizzata, fare clic su **Tutti i servizi** oppure su **Tutte le risorse**. Fare clic sullo spazio dei nomi in cui si vuole creare l'argomento. 
-3. Verrà visualizzata la finestra della panoramica dello spazio dei nomi. Fare clic su **Argomenti**:
-   
-    ![Creare un argomento][createtopic1]
-4. Fare clic su **+ Argomento**.
-   
-    ![Selezionare gli argomenti][createtopic2]
-5. Immettere un nome per l'argomento. Lasciare invariati i valori predefiniti delle altre opzioni.
-   
-    ![Selezionare Nuovo][createtopic3]
-6. Fare clic su **Crea**nella parte inferiore della finestra di dialogo.
-
-## <a name="3-create-a-subscription-to-the-topic"></a>3. Creare una sottoscrizione all'argomento
-
-1. Nel riquadro delle risorse nel portale fare clic sullo spazio dei nomi creato nel passaggio 1, quindi su **Argomenti** e infine sul nome dell'argomento creato nel passaggio 2.
-2. Nella parte superiore del riquadro della panoramica fare clic su **+ Sottoscrizione** per aggiungere una sottoscrizione all'argomento.
-
-    ![Creare la sottoscrizione][createtopic4]
-
-3. Immettere un nome per la sottoscrizione. Lasciare invariati i valori predefiniti delle altre opzioni.
-
-## <a name="4-send-messages-to-the-topic"></a>4. Inviare messaggi all'argomento
+## <a name="send-messages-to-the-topic"></a>Inviare messaggi all'argomento
 
 Per inviare messaggi all'argomento, scrivere un'applicazione console C# usando Visual Studio.
 
@@ -231,7 +202,7 @@ Avviare Visual Studio e creare un nuovo progetto **Console App (.NET Core)** (Ap
    
       ![Dimensioni dei messaggi][topic-message]
 
-## <a name="5-receive-messages-from-the-subscription"></a>5. Ricevere messaggi dalla sottoscrizione
+## <a name="receive-messages-from-the-subscription"></a>Ricevere messaggi dalla sottoscrizione
 
 Per ricevere i messaggi inviati, creare un'altra applicazione console .NET Core e installare il pacchetto NuGet **Microsoft.Azure.ServiceBus**, come per l'applicazione mittente precedente.
 
