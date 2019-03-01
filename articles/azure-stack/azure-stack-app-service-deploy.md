@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 0467f131ab4300ba3217ed01f37ebb7f4b8dbe5e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e8028bc9a4a6f3245dca61d6dd30db22dc295a7f
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732773"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992448"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Aggiungere un provider di risorse del servizio App in Azure Stack
 
@@ -30,7 +30,7 @@ ms.locfileid: "56732773"
 Usare le indicazioni fornite in questo articolo per distribuire il servizio App in Azure Stack.
 
 > [!IMPORTANT]  
-> Applicare l'aggiornamento 1809 al sistema integrato Azure Stack o distribuire più recente Azure Stack Development Kit (ASDK) prima di distribuire Azure App Service 1.4.
+> Applicare l'aggiornamento 1901 al sistema integrato Azure Stack o distribuire più recente Azure Stack Development Kit (ASDK) prima di distribuire 1.5 servizio App di Azure.
 
 È possibile concedere agli utenti la possibilità di creare applicazioni web e API. Per consentire agli utenti di creare queste applicazioni, è necessario:
 
@@ -38,7 +38,7 @@ Usare le indicazioni fornite in questo articolo per distribuire il servizio App 
  - Dopo aver installato il provider di risorse del servizio App, è possibile includerla in piani e offerte. Gli utenti possono eseguire la sottoscrizione per il servizio e per iniziare la creazione di applicazioni.
 
 > [!IMPORTANT]  
-> Prima di eseguire il programma di installazione di provider di risorse, assicurarsi di aver seguito le indicazioni fornite in [prima di iniziare a](azure-stack-app-service-before-you-get-started.md).
+> Prima di eseguire il programma di installazione di provider di risorse, assicurarsi di aver seguito le indicazioni fornite in [prima di iniziare](azure-stack-app-service-before-you-get-started.md) e aver letto il [note sulla versione](azure-stack-app-service-release-notes-update-five.md), che accompagna la versione 1.5, per informazioni sulle nuove la funzionalità, correzioni e i problemi noti che potrebbero influire sulla distribuzione.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Eseguire l'installazione di provider risorse servizio App
 
@@ -99,7 +99,7 @@ Per distribuire il provider di risorse del servizio App, seguire questa procedur
 
    ![Programma di installazione del servizio App][4]
 
-8. Immettere le informazioni per la condivisione file e quindi selezionare **successivo**. L'indirizzo della condivisione file deve usare il nome di dominio completo (FQDN) o l'indirizzo IP del File Server. Ad esempio, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, o \\\10.0.0.1\websites.
+8. Immettere le informazioni per la condivisione file e quindi selezionare **successivo**. L'indirizzo della condivisione file deve usare il nome di dominio completo (FQDN) o l'indirizzo IP del File Server. Ad esempio, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, o \\\10.0.0.1\websites.  Se si usa un file server che fa parte del dominio, è necessario fornire il nome utente completo, inclusi dominio, ad esempio, myfileserverdomain\FileShareOwner.
 
    >[!NOTE]
    >Il programma di installazione prova a verificare la connettività alla condivisione di file prima di procedere. Tuttavia, se si distribuisce in una rete virtuale esistente, questo test di connettività potrebbe non riuscire. Si riceve un avviso e un prompt dei comandi per continuare. Se le informazioni sulle condivisioni file è corretti, continuare la distribuzione.
@@ -184,6 +184,11 @@ Per distribuire il provider di risorse del servizio App, seguire questa procedur
 
     ![Programma di installazione del servizio App][17]
 
+## <a name="post-deployment-steps"></a>Passaggi di post-distribuzione
+
+> [!IMPORTANT]  
+> Se è stato specificato l'applicazione relying Party di servizio App con un'istanza SQL di sempre su devi [aggiungere i database appservice_hosting e appservice_metering a un gruppo di disponibilità](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) e sincronizzare i database per evitare eventuali perdite di servizio nel evento di un failover del database.
+
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>Convalidare il servizio App nell'installazione di Azure Stack
 
 1. Nel portale di amministrazione di Azure Stack, passare a **Amministrazione - servizio App**.
@@ -192,7 +197,7 @@ Per distribuire il provider di risorse del servizio App, seguire questa procedur
 
     ![Gestione del servizio App](media/azure-stack-app-service-deploy/image12.png)
 
-    Se si distribuisce in una rete virtuale esistente e si usa un indirizzo IP interno per la connessione per il file server, è necessario aggiungere una regola di sicurezza in uscita. Questa regola consente il traffico tra la subnet del ruolo di lavoro e file server SMB.  A tale scopo, passare a WorkersNsg nel portale di amministrazione e aggiungere una regola di sicurezza in uscita con le proprietà seguenti:
+    Se si distribuisce in una rete virtuale esistente e si usa un indirizzo IP interno per la connessione al file server, è necessario aggiungere una regola di sicurezza in uscita. Questa regola consente il traffico tra la subnet del ruolo di lavoro e il file server SMB.  A tale scopo, passare a WorkersNsg nel portale di amministrazione e aggiungere una regola di sicurezza in uscita con le proprietà seguenti:
 
     - Origine: Qualsiasi
     - Intervallo di porte di origine: *

@@ -11,28 +11,28 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: a017e1c70658953e1c08cd92a7e1e5184fee0bb5
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: c993322bdf4266939eab854e217cae6e90326d29
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447396"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991564"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Aggiorna servizio App di Azure in Azure Stack
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
 > [!IMPORTANT]  
-> Applicare l'aggiornamento 1809 o in un secondo momento per Azure Stack integrato system o distribuire il kit di sviluppo di Azure Stack più recente prima di distribuire Azure App Service 1.4. Prima di aggiornare il provider di risorse, esaminare le note sulla versione per informazioni sulle nuove funzionalità, correzioni e i problemi noti che potrebbero influire sulla distribuzione.
+> Applicare l'aggiornamento 1901 al sistema integrato Azure Stack o distribuire il kit di sviluppo di Azure Stack più recente prima di distribuire 1.5 servizio App di Azure.
 
 Seguendo le istruzioni riportate in questo articolo, è possibile aggiornare il [provider di risorse del servizio App](azure-stack-app-service-overview.md) distribuito in un ambiente Azure Stack che è connesso a Internet.
 
 > [!IMPORTANT]  
-> Prima di eseguire l'aggiornamento, assicurarsi di aver già completato la [distribuzione del servizio App di Azure nel Provider di risorse di Azure Stack](azure-stack-app-service-deploy.md)
+> Prima di eseguire l'aggiornamento, assicurarsi di aver già completato la [distribuzione di servizio App di Azure nel Provider di risorse di Azure Stack](azure-stack-app-service-deploy.md) e che sono letti i [note sulla versione](azure-stack-app-service-release-notes-update-five.md) che accompagnano la versione 1.5 informazioni sulle nuove funzionalità, correzioni e i problemi noti che potrebbero influire sulla distribuzione.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Eseguire l'installazione di provider risorse servizio App
 

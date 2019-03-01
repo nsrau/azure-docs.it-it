@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 02/22/2019
-ms.openlocfilehash: 3b057e9c4a0fccb3f85ec237433e4020fd4a84da
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 01b0a86ede79187d8f180df0f2f71f6eaadb7428
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737485"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990536"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Prima di iniziare con il servizio App in Azure Stack
 
@@ -30,7 +30,7 @@ ms.locfileid: "56737485"
 Prima di distribuire il servizio App di Azure in Azure Stack, è necessario completare i passaggi dei prerequisiti in questo articolo.
 
 > [!IMPORTANT]
-> Applicare l'aggiornamento 1809 al sistema integrato Azure Stack o distribuire più recente Azure Stack Development Kit (ASDK) prima di distribuire Azure App Service 1.4.
+> Applicare l'aggiornamento 1901 al sistema integrato Azure Stack o distribuire più recente Azure Stack Development Kit (ASDK) prima di distribuire 1.5 servizio App di Azure.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Scaricare il programma di installazione e script helper
 
@@ -49,15 +49,7 @@ Prima di distribuire il servizio App di Azure in Azure Stack, è necessario comp
 
 ## <a name="syndicate-the-custom-script-extension-from-the-marketplace"></a>Pubblicare l'estensione Script personalizzato dal Marketplace
 
-Servizio App di Azure in Azure Stack richiede v1.9.0 estensione Script personalizzato.  L'estensione deve essere [sfruttati da Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) prima di avviare la distribuzione o aggiornamento del servizio App di Azure in Azure Stack
-
-## <a name="high-availability"></a>Disponibilità elevata
-
-L'aggiornamento 1802 dello Stack di Azure aggiunto il supporto per domini di errore. Le nuove distribuzioni del servizio App di Azure in Azure Stack verranno distribuite tra domini di errore e garantire tolleranza di errore.
-
-Per le distribuzioni esistenti di servizio App di Azure in Azure Stack, che sono state distribuite prima dell'aggiornamento 1802, vedere la [ribilanciare un provider di risorse del servizio App in domini di errore](azure-stack-app-service-fault-domain-update.md) articolo.
-
-Inoltre, distribuire il server di file richiesto e istanze di SQL Server in una configurazione a disponibilità elevata.
+Servizio App di Azure in Azure Stack richiede v1.9.1 estensione Script personalizzato.  L'estensione deve essere [sfruttati da Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) prima di avviare la distribuzione o aggiornamento del servizio App di Azure in Azure Stack
 
 ## <a name="get-certificates"></a>Ottenere i certificati
 

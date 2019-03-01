@@ -12,23 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 332722a1774eea41ab3566051da138f2383fef98
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 9d941c36499f851f20c41fa6dd01faf14e4192ba
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447668"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992771"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Aggiornamento offline del servizio App di Azure in Azure Stack
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
 > [!IMPORTANT]
-> Applicare l'aggiornamento 1809 o in un secondo momento per Azure Stack integrato system o distribuire il kit di sviluppo di Azure Stack più recente prima di distribuire Azure App Service 1.4. Prima di aggiornare il provider di risorse, esaminare le note sulla versione per informazioni sulle nuove funzionalità, correzioni e i problemi noti che potrebbero influire sulla distribuzione.
+> Applicare l'aggiornamento 1901 o in un secondo momento per Azure Stack integrato system o distribuire il kit di sviluppo di Azure Stack più recente prima di distribuire 1.5 servizio App di Azure. 
 
 Seguendo le istruzioni riportate in questo articolo, è possibile aggiornare il [provider di risorse del servizio App](azure-stack-app-service-overview.md) distribuito in un ambiente Azure Stack:
 
@@ -36,9 +35,7 @@ Seguendo le istruzioni riportate in questo articolo, è possibile aggiornare il 
 * protetta da Active Directory Federation Services (ADFS).
 
 > [!IMPORTANT]
-> Prima di eseguire l'aggiornamento, assicurarsi di aver già completato la [distribuzione del servizio App di Azure nel Provider di risorse di Azure Stack](azure-stack-app-service-deploy-offline.md)
->
->
+> Prima di eseguire l'aggiornamento, assicurarsi di aver già completato la [distribuzione di servizio App di Azure nel Provider di risorse di Azure Stack](azure-stack-app-service-deploy-offline.md) e di aver letto la [note sulla versione](azure-stack-app-service-release-notes-update-five.md), che accompagnano la versione 1.5, per informazioni sulle nuove funzionalità, correzioni e i problemi noti che potrebbero influire sulla distribuzione.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Eseguire l'installazione di provider risorse servizio App
 
@@ -101,7 +98,7 @@ Per aggiornare il servizio App in un ambiente disconnesso, è innanzitutto neces
 
    1. Fare clic sui **Connect** accanto alle **sottoscrizioni di Azure Stack** casella.
         * Se si usa Azure Active Directory (Azure AD), immettere l'account amministratore di Azure AD e la password specificata quando è stato distribuito Azure Stack. Fare clic su **Accedi**.
-        * Se si usa Active Directory Federation Services (ADFS), specificare l'account di amministratore. Ad esempio _cloudadmin@azurestack.local_. Immettere la password e fare clic su **Accedi**.
+        * Se si usa Active Directory Federation Services (ADFS), specificare l'account di amministratore. Ad esempio, _cloudadmin@azurestack.local_. Immettere la password e fare clic su **Accedi**.
    2. Nel **delle sottoscrizioni di Azure Stack** , quindi selezionare la **sottoscrizione del Provider predefinito**.
    3. Nel **località di Azure Stack** selezionare il percorso che corrisponde all'area di cui si esegue la distribuzione. Ad esempio, selezionare **locale** se la distribuzione in Azure Stack Development Kit.
    4. Se viene rilevata una distribuzione di servizio App esistente, quindi l'account di archiviazione e del gruppo di risorse verrà popolata e in grigio.

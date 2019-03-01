@@ -1,6 +1,6 @@
 ---
-title: Note sulla versione 4 di aggiornare il servizio App in Azure Stack | Microsoft Docs
-description: Informazioni sulle novità nell'aggiornamento 4 per il servizio App in Azure Stack, i problemi noti e dove scaricare l'aggiornamento.
+title: Note sulla versione 5 di aggiornare il servizio App in Azure Stack | Microsoft Docs
+description: Informazioni sulle novità nell'aggiornamento 5 per il servizio App in Azure Stack, i problemi noti e dove scaricare l'aggiornamento.
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -12,37 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 02/27/2019
 ms.author: anwestg
-ms.reviewer: anwestg
-ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 5108d4f65208f12875ad592e2e9222f8e1fdb130
+ms.reviewer: ''
+ms.openlocfilehash: 0a0eb9586e78442947138831dd774298906aaf9c
 ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991082"
+ms.locfileid: "56993320"
 ---
-# <a name="app-service-on-azure-stack-update-4-release-notes"></a>Servizio App in note sulla versione update 4 di Azure Stack
+# <a name="app-service-on-azure-stack-update-5-release-notes"></a>Servizio App in note sulla versione di Azure Stack update 5
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-Queste note sulla versione descrivono i miglioramenti e correzioni in servizio App di Azure in Azure Stack Update 4 e problemi noti. Problemi noti sono suddivisi in problemi correlati direttamente per la distribuzione, il processo di aggiornamento e i problemi con la build (post-installazione).
+Queste note sulla versione descrivono i miglioramenti e correzioni in servizio App di Azure in Azure Stack Update 5 e problemi noti. Problemi noti sono suddivisi in problemi correlati direttamente per la distribuzione, il processo di aggiornamento e i problemi con la build (post-installazione).
 
 > [!IMPORTANT]
-> Applicare l'aggiornamento 1809 al sistema integrato Azure Stack o distribuire il kit di sviluppo di Azure Stack più recente prima di distribuire Azure App Service 1.4.
->
->
+> Applicare l'aggiornamento 1901 al sistema integrato Azure Stack o distribuire il kit di sviluppo di Azure Stack più recente prima di distribuire 1.5 servizio App di Azure.
+
 
 ## <a name="build-reference"></a>Riferimento alla compilazione
 
-Il servizio App sul numero di build di Azure Stack Update 4 è **78.0.13698.5**
+Il servizio App sul numero di build di Azure Stack Update 5 è **80.0.2.15**
 
 ### <a name="prerequisites"></a>Prerequisiti
 
 Vedere le [documentazione prima di iniziare a](azure-stack-app-service-before-you-get-started.md) prima di iniziare la distribuzione.
 
-Prima di iniziare l'aggiornamento del servizio App di Azure in Azure Stack a 1.4:
+Prima di iniziare l'aggiornamento del servizio App di Azure in Azure Stack a 1.5:
 
 - Verificare che tutti i ruoli sono pronti nell'amministrazione del servizio App di Azure nel portale di amministrazione di Azure Stack
 
@@ -53,57 +51,34 @@ Prima di iniziare l'aggiornamento del servizio App di Azure in Azure Stack a 1.4
 
 - Eseguire il backup della condivisione file di contenuto di App del Tenant
 
-- Divulgare l'estensione Script personalizzato versione 1.9 di Marketplace
+- Pubblicare i **estensione Script personalizzata** versione **1.9.1** dal Marketplace
 
 ### <a name="new-features-and-fixes"></a>Nuove funzionalità e correzioni
 
-Servizio App di Azure in Azure Stack aggiornamento 4 include le correzioni e i miglioramenti seguenti:
-
-- Risoluzione dei [2018 CVE-8600](https://aka.ms/CVE20188600) Cross-Site Scripting vulnerabilità.
-
-- Aggiunta del supporto per la versione API di servizio App 2018-02-01
+Servizio App di Azure in Azure Stack aggiornamento 5 include le correzioni e i miglioramenti seguenti:
 
 - Gli aggiornamenti **Tenant del servizio App, amministratore, i portali di funzioni e gli strumenti di Kudu**. Coerente con la versione di SDK portale di Azure Stack.
+
+- Gli aggiornamenti **strumenti di Kudu** risolvere i problemi con lo stile e le funzionalità per i clienti che operano **disconnesso** Azure Stack. 
 
 - Aggiornamenti al servizio di base per migliorare l'affidabilità e messaggistica abilitazione più semplice diagnosi dei problemi comuni degli errori.
 
 - **Gli aggiornamenti per gli strumenti e Framework di applicazione seguenti**:
-  - NodeJS aggiunto 10.6.0
-  - Aggiunto Monitoraggio prestazioni rete 6.1.0
-  - Added Zulu OpenJDK 8.31.0.2
-  - Aggiunta di Tomcat 8.5.34 e 9.0.12
-  - Versioni PHP aggiunto:
-    - 5.6.37
-    - 7.0.31
-    - 7.1.20
-    - 7.2.8
-  - Aggiornamento alle versioni di Python:
-    - 2.7.15
-    - 3.6.6
-  - Git aggiornato per Windows a v 2.17.1.2
-  - Kudu aggiornata a 78.11022.3613
+  - NodeJS aggiunto 10.14.1
+  - Aggiunta di NPM 6.4.1
+  - Kudu aggiornata a 79.20129.3767
   
 - **Aggiornamenti del sistema operativo sottostante di tutti i ruoli**:
-  - [Aggiornamento cumulativo 10 2018 per Windows Server 2016 per sistemi basati su x64 (KB4462928)](https://support.microsoft.com/help/4462928/windows-10-update-kb4462928)
+  - [Aggiornamento cumulativo per Windows Server 2016-02 2019 per sistemi basati su x64 (KB4487006)](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006)
 
-- Risolto il problema di convalida modello durante la distribuzione di Wordpress; RETE NEURALE PROFONDA; e gli elementi della raccolta Orchard CMS
-
-- Risolto il problema di configurazione quando Azure Stack consente di ruotare il certificato client di Azure Resource Manager
-
-- Ripristinare la funzionalità nelle impostazioni Cross Origin Resource Sharing nel portale tenant di servizio App
-
-- Messaggio di errore visualizzato nell'esperienza del portale di amministratore del servizio App quando il piano di controllo di provider di risorse non può connettersi all'istanza di SQL Server configurata
-
-- Verificare che l'endpoint viene specificato nella stringa di connessione di archiviazione personalizzati quando specificato nella nuova applicazione (funzione)
-
-### <a name="post-deployment-steps"></a>Passaggi post-distribuzione
+### <a name="post-deployment-steps"></a>Passaggi di post-distribuzione
 
 > [!IMPORTANT]  
 > Se è stato specificato l'applicazione relying Party di servizio App con un'istanza SQL di sempre su devi [aggiungere i database appservice_hosting e appservice_metering a un gruppo di disponibilità](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) e sincronizzare i database per evitare eventuali perdite di servizio nel evento di un failover del database.
 
-### <a name="post-update-steps-optional"></a>Passaggi di post-aggiornamento (facoltativi)
+### <a name="post-update-steps"></a>Passaggi di post-aggiornamento
 
-Per i clienti che desiderano eseguire la migrazione al database indipendente per il servizio App di Azure esistente nelle distribuzioni di Azure Stack, eseguire questi passaggi dopo che il servizio App di Azure in Azure Stack 1.4 aggiornamento è stata completata:
+Per i clienti che desiderano eseguire la migrazione al database indipendente per il servizio App di Azure esistente nelle distribuzioni di Azure Stack, eseguire questi passaggi dopo che il servizio App di Azure in Azure Stack 1.5 update ha completato:
 
 > [!IMPORTANT]
 > La procedura di migrazione richiede circa 5-10 minuti.  La procedura comporta la terminazione di sessioni di accesso del database esistente.  Pianificare i tempi di inattività eseguire la migrazione e la convalida di servizio App di Azure sulla migrazione di Azure Stack post.  Se è stato completato questi passaggi dopo l'aggiornamento nel servizio App di Azure in Azure Stack 1.3 questi passaggi non sono necessari.

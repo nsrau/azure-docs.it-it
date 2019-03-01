@@ -12,32 +12,32 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 315a96680674636f7cab9d93b362febcb25f9922
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: af3e7528e2312cef1832dc104e83384a91acf263
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447066"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991343"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Aggiungere un provider di risorse del servizio App a un ambiente Azure Stack disconnesso protetto da AD FS
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
 > [!IMPORTANT]
-> Applicare l'aggiornamento 1809 al sistema integrato Azure Stack o distribuire il kit di sviluppo di Azure Stack più recente prima di distribuire Azure App Service 1.4.
+> Applicare l'aggiornamento 1901 al sistema integrato Azure Stack o distribuire il kit di sviluppo di Azure Stack più recente prima di distribuire 1.5 servizio App di Azure.
 
 Seguendo le istruzioni riportate in questo articolo, è possibile installare il [provider di risorse del servizio App](azure-stack-app-service-overview.md) in un ambiente Azure Stack:
 
 - non è connesso a Internet
 - protetta da Active Directory Federation Services (ADFS).
 
- > [!IMPORTANT]
- > Prima di distribuire il provider di risorse, esaminare le note sulla versione per informazioni sulle nuove funzionalità, correzioni e i problemi noti che potrebbero influire sulla distribuzione.
- 
+> [!IMPORTANT]  
+> Prima di eseguire il programma di installazione di provider di risorse, assicurarsi di aver seguito le indicazioni fornite in [prima di iniziare a](azure-stack-app-service-before-you-get-started.md) e aver letto la [note sulla versione](azure-stack-app-service-release-notes-update-five.md) che accompagnano l'1.5 versione informazioni sulle nuove la funzionalità, correzioni e i problemi noti che potrebbero influire sulla distribuzione.
+
 Per aggiungere il provider di risorse del servizio App per la distribuzione di Azure Stack non in linea, è necessario completare le attività di primo livello:
 
 1. Completare la [passaggi preliminari](azure-stack-app-service-before-you-get-started.md) (come acquistare i certificati, che può richiedere alcuni giorni per la ricezione).
@@ -105,7 +105,7 @@ Per distribuire il servizio App in un ambiente disconnesso, è innanzitutto nece
 
     ![Programma di installazione del servizio App][5]
 
-9. Immettere le informazioni per la condivisione file e quindi fare clic su **successivo**. L'indirizzo della condivisione file deve usare il nome di dominio completo o indirizzo IP del File Server. Ad esempio, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, o \\\10.0.0.1\websites
+9. Immettere le informazioni per la condivisione file e quindi fare clic su **successivo**. L'indirizzo della condivisione file deve usare il nome di dominio completo o indirizzo IP del File Server. Ad esempio, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, o \\\10.0.0.1\websites.  Se si usa un file server che fa parte del dominio, è necessario fornire il nome utente completo, inclusi dominio, ad esempio, myfileserverdomain\FileShareOwner.
 
     > [!NOTE]
     > Il programma di installazione tenta di testare la connettività alla condivisione file prima di procedere.  Tuttavia, se si sceglie di distribuire in una rete virtuale esistente, il programma di installazione potrebbe non essere in grado di connettersi alla condivisione file e viene visualizzato un avviso che chiede se si desidera continuare.  Verificare le informazioni di condivisione file e continuare se sono corrette.
@@ -196,6 +196,11 @@ Per distribuire il servizio App in un ambiente disconnesso, è innanzitutto nece
 
     ![Programma di installazione del servizio App][18]
 
+## <a name="post-deployment-steps"></a>Passaggi di post-distribuzione
+
+> [!IMPORTANT]  
+> Se è stato specificato l'applicazione relying Party di servizio App con un'istanza SQL di sempre su devi [aggiungere i database appservice_hosting e appservice_metering a un gruppo di disponibilità](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) e sincronizzare i database per evitare eventuali perdite di servizio nel evento di un failover del database.
+
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>Convalidare il servizio App nell'installazione di Azure Stack
 
 1. Nel portale di amministrazione di Azure Stack, passare a **Amministrazione - servizio App**.
@@ -205,7 +210,7 @@ Per distribuire il servizio App in un ambiente disconnesso, è innanzitutto nece
     ![Gestione del servizio App](media/azure-stack-app-service-deploy/image12.png)
 
 > [!NOTE]
-> Se si sceglie di distribuire in una rete virtuale esistente e un indirizzo IP interno per la connessione per il file server, è necessario aggiungere una regola di sicurezza in uscita, consentendo il traffico tra la subnet del ruolo di lavoro e file server SMB.  A tale scopo, passare a WorkersNsg nel portale di amministrazione e aggiungere una regola di sicurezza in uscita con le proprietà seguenti:
+> Se si sceglie di distribuire in una rete virtuale esistente e un indirizzo IP interno per la connessione al file server, è necessario aggiungere una regola di sicurezza in uscita, consentendo il traffico tra la subnet del ruolo di lavoro e il file server SMB.  A tale scopo, passare a WorkersNsg nel portale di amministrazione e aggiungere una regola di sicurezza in uscita con le proprietà seguenti:
 > * Origine: Qualsiasi
 > * Intervallo di porte di origine: *
 > * Destinazione: Indirizzi IP

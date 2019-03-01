@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/28/2019
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: e1a00ea36efa6af816c371f5498085fc2cf491b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: eb5d1ca55efed7e83739f21a432b61b6aad25f70
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165026"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194011"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Aggiungere server di hosting per il provider di risorse MySQL
 
@@ -44,7 +44,9 @@ Assicurarsi di avere le credenziali per un account con privilegi di amministrato
 4. Fornire i dettagli della connessione dell'istanza di MySQL Server.
 
    * Per la **nome del Server di Hosting MySQL**, fornire il nome di dominio completo (FQDN) o un indirizzo IPv4 valido. Non usare il nome breve della macchina virtuale.
-   * Un'istanza di MySQL predefinita non è specificata, quindi è necessario specificare il **le dimensioni del Server di Hosting in GB**. Immettere una dimensione vicina al valore di capacità del server di database.
+   - L'amministratore predefinito **nomeutente** per il Bitnami MySQL le immagini disponibili nel marketplace di Azure Stack viene *radice*. 
+   - Se non si conosce la radice **Password**, vedere la [documentazione Bitnami](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) per informazioni su come eseguire questa operazione. 
+   - Un'istanza di MySQL predefinita non è specificata, quindi è necessario specificare il **le dimensioni del Server di Hosting in GB**. Immettere una dimensione vicina al valore di capacità del server di database.
    * Mantenere l'impostazione predefinita per **sottoscrizione**.
    * Per la **gruppo di risorse**, crearne uno nuovo o usare un gruppo esistente.
 
