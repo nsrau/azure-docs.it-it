@@ -1,0 +1,56 @@
+items:
+- name: API di Azure per FHIR
+  href: index.yml
+- name: Panoramica
+  items:
+  - name: Informazioni sull'API di Azure per FHIR
+    href: overview.md
+  - name: Informazioni su FHIR Server per Azure
+    href: overview-open-source-server.md
+- name: Guide introduttive
+  items:
+  - name: Distribuire l'API di Azure per FHIR - Portale
+    href: fhir-paas-portal-quickstart.md
+  - name: Distribuire l'API di Azure per FHIR - PowerShell
+    href: fhir-paas-powershell-quickstart.md
+  - name: Distribuire l'API di Azure per FHIR - Interfaccia della riga di comando
+    href: fhir-paas-cli-quickstart.md
+  - name: Distribuire FHIR Server per Azure - Portale
+    href: fhir-oss-portal-quickstart.md
+  - name: Distribuire FHIR Server per Azure - PowerShell
+    href: fhir-oss-powershell-quickstart.md
+  - name: Distribuire FHIR Server per Azure - Interfaccia della riga di comando
+    href: fhir-oss-cli-quickstart.md
+  expanded: true
+- name: Esercitazioni
+  items:
+  - name: Accedere all'API FHIR con Postman
+    href: access-fhir-postman-tutorial.md
+  expanded: false
+- name: Guide alle procedure
+  items:
+  - name: Registrare un'applicazione della risorsa
+    href: register-resource-azure-ad-client-app.md
+  - name: Registrare un'applicazione client riservata
+    href: register-confidential-azure-ad-client-app.md
+  - name: Registrare un'applicazione client pubblica
+    href: register-public-azure-ad-client-app.md
+  - name: Registrare un'applicazione client di servizio
+    href: register-service-azure-ad-client-app.md
+  - name: Ottenere un token per l'API di Azure per FHIR - Interfaccia della riga di comando
+    href: get-healthcare-apis-access-token-cli.md
+  - name: Trovare ID oggetto identità
+    href: find-identity-object-ids.md
+  expanded: false
+- name: Risorse
+  items:
+  - name: Domande frequenti
+    href: fhir-faq.md
+  - name: Funzionalità supportate
+    href: fhir-features-supported.md
+ms.openlocfilehash: 60d0d4b8368a64b9ef66608de6824cec9876b8be
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958117"

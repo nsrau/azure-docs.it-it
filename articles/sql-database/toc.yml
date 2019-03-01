@@ -247,12 +247,12 @@ items:
       href: sql-database-aad-authentication.md
     - name: Controllo
       items:
-      - name: Controllo - Database singoli e pool elastici
+      - name: Introduzione al controllo del database SQL
         href: sql-database-auditing.md
       - name: Controllo - Istanza gestita
         href: sql-database-managed-instance-auditing.md
-      - name: Controllo tabelle (deprecato)
-        href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
+      - name: Formato del log di controllo
+        href: sql-database-audit-log-format.md
     - name: Maschera dati dinamica
       href: sql-database-dynamic-data-masking-get-started.md
     - name: Always Encrypted
@@ -716,9 +716,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Disinstallare un processo elastico (opzione deprecata)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 0d518613897f550af5dabe073f5baf4550a0dcf9
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: e9e048d8c27a0d1accfbd029892bebad6a5ffba6
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672971"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011059"

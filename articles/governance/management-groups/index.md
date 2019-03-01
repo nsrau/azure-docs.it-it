@@ -1,22 +1,12 @@
 ---
 title: Organizzare le risorse con i gruppi di gestione di Azure - Azure Governance
-description: Informazioni sui gruppi di gestione, sul funzionamento delle autorizzazioni e sul relativo utilizzo.
+description: 'Informazioni sui gruppi di gestione, sul funzionamento delle autorizzazioni e sul relativo utilizzo.'
 author: rthorn17
-manager: rithorn
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/20/2018
+ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: 9d606a46bd08ce3e999806bed2357968e5ffd914
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339288"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizzare le risorse con i gruppi di gestione di Azure
 
@@ -30,9 +20,9 @@ Ad esempio, è possibile applicare a un gruppo di gestione criteri che limitano 
 
 ![albero](./media/tree.png)
 
-Creare una gerarchia per poter applicare un criterio, ad esempio la limitazione delle località delle VM all'area Stati Uniti occidentali nel gruppo di gestione "Team infrastruttura". Questo criterio erediterà da entrambe le sottoscrizioni EA all'interno del gruppo di gestione e verrà applicato a tutte le macchine virtuali all'interno delle sottoscrizioni. Questo criterio di sicurezza non potrà essere modificato dal proprietario della risorsa o della sottoscrizione e garantisce così una governance migliore.
+Creare una gerarchia per poter applicare un criterio, ad esempio limitare le località delle VM all'area Stati Uniti occidentali nel gruppo "Produzione". Questo criterio erediterà da entrambe le sottoscrizioni EA all'interno del gruppo di gestione e verrà applicato a tutte le macchine virtuali all'interno delle sottoscrizioni. Questo criterio di sicurezza non potrà essere modificato dal proprietario della risorsa o della sottoscrizione e garantisce così una governance migliore.
 
-Un altro scenario in cui è utile usare gruppi di gestione è per offrire agli utenti l'accesso a più sottoscrizioni. Spostando molte sottoscrizioni all'interno del gruppo di gestione, è possibile creare un'assegnazione di [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) nel gruppo di gestione, con ereditarietà di tale accesso in tutte le sottoscrizioni.
+Un altro scenario in cui è utile usare gruppi di gestione è per offrire agli utenti l'accesso a più sottoscrizioni. Spostando più sottoscrizioni all'interno del gruppo di gestione, è possibile creare un'assegnazione di [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) nel gruppo di gestione, con ereditarietà di tale accesso in tutte le sottoscrizioni.
 Una sola assegnazione nel gruppo di gestione può consentire agli utenti di accedere a tutte le risorse necessarie invece di eseguire script di controllo degli accessi in base al ruolo per diverse sottoscrizioni.
 
 ### <a name="important-facts-about-management-groups"></a>Informazioni importanti sui gruppi di gestione
@@ -42,12 +32,12 @@ Una sola assegnazione nel gruppo di gestione può consentire agli utenti di acce
   - Questo limite non include il livello radice o il livello sottoscrizione.
 - Ogni gruppo di gestione e sottoscrizione può supportare un solo elemento padre.
 - Ogni gruppo di gestione può avere molti elementi figlio.
-- Tutte le sottoscrizioni e i gruppi di gestione si trovano all'interno di una singola gerarchia in ogni directory. Per le eccezioni durante l'anteprima, vedere [Informazioni importanti sul gruppo di gestione radice](#important-facts-about-the-root-management-group).
+- Tutte le sottoscrizioni e i gruppi di gestione si trovano all'interno di una singola gerarchia in ogni directory. Vedere [Informazioni importanti sul gruppo di gestione radice](#important-facts-about-the-root-management-group).
 
 ## <a name="root-management-group-for-each-directory"></a>Gruppo di gestione radice per ogni directory
 
 A ogni directory viene assegnato un gruppo di gestione principale denominato gruppo di gestione "radice".
-Questo gruppo di gestione radice è integrato nella gerarchia in modo da ricondurre al suo interno tutti i gruppi di gestione e le sottoscrizioni. Il gruppo di gestione radice consente l'applicazione di criteri globali e assegnazioni di Controllo degli accessi in base al ruolo a livello di directory. Inizialmente l'[Amministratore directory deve elevare se stesso](../../role-based-access-control/elevate-access-global-admin.md) al ruolo di proprietario del gruppo radice. Una diventato proprietario del gruppo, l'amministratore può assegnare qualsiasi ruolo Controllo degli accessi in base al ruolo ad altri utenti della directory o gruppi per gestire la gerarchia.
+Questo gruppo di gestione radice è integrato nella gerarchia in modo da ricondurre al suo interno tutti i gruppi di gestione e le sottoscrizioni. Il gruppo di gestione radice consente l'applicazione di criteri globali e assegnazioni di Controllo degli accessi in base al ruolo a livello di directory. Inizialmente l'[Amministratore globale di Azure AD deve elevare se stesso](../../role-based-access-control/elevate-access-global-admin.md) al ruolo di proprietario di questo gruppo radice. Una diventato proprietario del gruppo, l'amministratore può assegnare qualsiasi ruolo Controllo degli accessi in base al ruolo ad altri utenti della directory o gruppi per gestire la gerarchia.
 
 ### <a name="important-facts-about-the-root-management-group"></a>Informazioni importanti sul gruppo di gestione radice
 
@@ -60,7 +50,7 @@ Questo gruppo di gestione radice è integrato nella gerarchia in modo da ricondu
   - Le nuove sottoscrizioni vengono inserite automaticamente nel gruppo di gestione radice al momento della creazione.
 - Tutti i clienti di Azure possono vedere il gruppo di gestione radice, ma non tutti i clienti dispongono dell'accesso per gestire il gruppo di gestione radice.
   - Chiunque abbia accesso a una sottoscrizione può vedere il contesto in cui tale sottoscrizione si trova nella gerarchia.  
-  - A nessun utente viene assegnato l'accesso predefinito al gruppo di gestione radice. Gli amministratori globali di directory sono gli unici utenti che possono elevare i propri privilegi per ottenere l'accesso.  Dopo avere ottenuto l'accesso, gli amministratori di directory possono assegnare qualsiasi ruolo Controllo degli accessi in base al ruolo agli altri utenti per la gestione.  
+  - A nessun utente viene assegnato l'accesso predefinito al gruppo di gestione radice. Gli amministratori globali di Azure AD sono gli unici utenti che possono elevare i propri privilegi per ottenere l'accesso.  Dopo avere ottenuto l'accesso, gli amministratori globali possono assegnare qualsiasi ruolo Controllo degli accessi in base al ruolo agli altri utenti per la gestione.  
 
 > [!IMPORTANT]
 > Qualsiasi assegnazione di accesso utente o di criteri nel gruppo di gestione radice **viene applicata a tutte le risorse all'interno della directory**.
@@ -69,21 +59,21 @@ Questo gruppo di gestione radice è integrato nella gerarchia in modo da ricondu
 
 ## <a name="initial-setup-of-management-groups"></a>Configurazione iniziale dei gruppi di gestione
 
-Quando un utente inizia a usare i gruppi di gestione, si verifica un processo di configurazione iniziale. Il primo passaggio è la creazione del gruppo di gestione radice nella directory. Dopo avere creato questo gruppo, tutte le sottoscrizioni esistenti nella directory diventano elementi figlio del gruppo di gestione radice. Lo scopo di questo processo è assicurarsi che esista un'unica gerarchia di gruppi di gestione all'interno di una directory. Un'unica gerarchia all'interno della directory consente ai clienti amministrativi di applicare i criteri e l'accesso globale per cui gli altri clienti all'interno della directory non possono eseguire il bypass. Un valore assegnato alla radice verrà applicato a tutti i gruppi di gestione, le sottoscrizioni, i gruppi di risorse e le risorse all'interno della directory avendo una gerarchia all'interno della directory.
+Quando un utente inizia a usare i gruppi di gestione, si verifica un processo di configurazione iniziale. Il primo passaggio è la creazione del gruppo di gestione radice nella directory. Dopo avere creato questo gruppo, tutte le sottoscrizioni esistenti nella directory diventano elementi figlio del gruppo di gestione radice. Lo scopo di questo processo è assicurarsi che esista un'unica gerarchia di gruppi di gestione all'interno di una directory. Un'unica gerarchia all'interno della directory consente ai clienti amministrativi di applicare i criteri e l'accesso globale per cui gli altri clienti all'interno della directory non possono eseguire il bypass. Un valore assegnato alla radice verrà applicato all'intera gerarchia, che include tutti i gruppi di gestione, le sottoscrizioni, i gruppi di risorse e le risorse all'interno di quel tenant di Azure AD.
 
 ## <a name="trouble-seeing-all-subscriptions"></a>Difficoltà a visualizzare tutte le sottoscrizioni
 
-In alcune directory che hanno iniziato a usare gruppi di gestione nelle prime fasi dell'anteprima precedente (25 giugno 2018) è stato rilevato un problema con l'inclusione di tutte le sottoscrizioni nella gerarchia.  I processi per includere le sottoscrizioni nella gerarchia sono stati implementati dopo un'assegnazione di ruolo o criteri nel gruppo di gestione radice della directory.
+In alcune directory che hanno iniziato a usare gruppi di gestione nelle prime fasi dell'anteprima antecedenti al 25 giugno 2018 potrebbe essere rilevato un problema per cui le sottoscrizioni non sono tutte incluse nella gerarchia.  Il processo per includere le sottoscrizioni nella gerarchia è stato implementato dopo un'assegnazione di ruolo o di criteri nel gruppo di gestione radice della directory.
 
 ### <a name="how-to-resolve-the-issue"></a>Come risolvere il problema
 
 Per risolvere il problema sono disponibili due opzioni.
 
 1. Rimuovere tutte le assegnazioni di ruoli e criteri dal gruppo di gestione radice
-    1. Rimuovendo tutte le assegnazioni di ruoli e criteri dal gruppo di gestione radice, questo servizio inserirà tutte le sottoscrizioni nella gerarchia nel successivo ciclo notturno.  Questo processo garantisce che non vengano concesse accidentalmente assegnazioni di accesso o di criteri a tutte le sottoscrizioni dei tenant.
-    1. Il modo migliore per eseguire questo processo senza compromettere i servizi è applicare l'assegnazione del ruolo o dei criteri un livello sotto il gruppo di gestione radice. Successivamente è possibile rimuovere tutte le assegnazioni dall'ambito radice.
+   1. Rimuovendo tutte le assegnazioni di ruoli e criteri dal gruppo di gestione radice, questo servizio inserirà tutte le sottoscrizioni nella gerarchia nel successivo ciclo notturno.  Questo processo garantisce che non vengano concesse accidentalmente assegnazioni di accesso o di criteri a tutte le sottoscrizioni dei tenant.
+   1. Il modo migliore per eseguire questo processo senza compromettere i servizi è applicare l'assegnazione del ruolo o dei criteri un livello sotto il gruppo di gestione radice. Successivamente è possibile rimuovere tutte le assegnazioni dall'ambito radice.
 1. Chiamare direttamente l'API per avviare il processo di recupero delle sottoscrizioni
-    1. Qualsiasi cliente nella directory può chiamare le API *TenantBackfillStatusRequest* o *StartTenantBackfillRequest*. Quando viene chiamata l'API StartTenantBackfillRequest, si avvia il processo di configurazione iniziale che prevede il trasferimento di tutte le sottoscrizioni nella gerarchia. Questo processo avvia anche l'applicazione di tutte le nuove sottoscrizioni come elementi figlio del gruppo di gestione radice. Questo processo può essere eseguito senza modificare le assegnazioni nel livello radice. Chiamando l'API, si conferma che qualsiasi assegnazione di accesso o di criteri nella radice può essere applicata a tutte le sottoscrizioni.
+   1. Qualsiasi cliente nella directory può chiamare le API *TenantBackfillStatusRequest* o *StartTenantBackfillRequest*. Quando viene chiamata l'API StartTenantBackfillRequest, si avvia il processo di configurazione iniziale che prevede il trasferimento di tutte le sottoscrizioni nella gerarchia. Questo processo avvia anche l'applicazione di tutte le nuove sottoscrizioni come elementi figlio del gruppo di gestione radice. Questo processo può essere eseguito senza modificare le assegnazioni nel livello radice. Chiamando l'API, si conferma che qualsiasi assegnazione di accesso o di criteri nella radice può essere applicata a tutte le sottoscrizioni.
 
 Per eventuali domande su questo processo di backfill, contattare managementgroups@microsoft.com  
   
@@ -95,17 +85,18 @@ Ad esempio, il ruolo Controllo degli accessi in base al ruolo Collaboratore Macc
 
 Il grafico seguente mostra l'elenco dei ruoli e delle azioni supportate per i gruppi di gestione.
 
-| Nome del ruolo Controllo degli accessi in base al ruolo             | Create | Rinominare | Spostamento | Delete | Assegnare l'accesso | Assegnare un criterio | Lettura  |
-|:-------------------------- |:------:|:------:|:----:|:------:|:-------------:| :------------:|:-----:|
-|Proprietario                       | X      | X      | X    | X      | X             | X             | X     |
-|Collaboratore                 | X      | X      | X    | X      |               |               | X     |
-|Collaboratore gruppo di gestione*             | X      | X      | X    | X      |               |               | X     |
-|Lettore                      |        |        |      |        |               |               | X     |
-|Lettore gruppo di gestione*                  |        |        |      |        |               |               | X     |
-|Collaboratore per i criteri delle risorse |        |        |      |        |               | X             |       |
-|Amministratore accessi utente   |        |        |      |        | X             |               |       |
+| Nome del ruolo Controllo degli accessi in base al ruolo             | Create | Rinominare | Spostamento** | Delete | Assegnare l'accesso | Assegnare un criterio | Lettura  |
+|:-------------------------- |:------:|:------:|:------:|:------:|:-------------:| :------------:|:-----:|
+|Proprietario                       | X      | X      | X      | X      | X             | X             | X     |
+|Collaboratore                 | X      | X      | X      | X      |               |               | X     |
+|Collaboratore gruppo di gestione*             | X      | X      | X      | X      |               |               | X     |
+|Reader                      |        |        |        |        |               |               | X     |
+|Lettore gruppo di gestione*                  |        |        |        |        |               |               | X     |
+|Collaboratore per i criteri delle risorse |        |        |        |        |               | X             |       |
+|Amministratore accessi utente   |        |        |        |        | X             |               |       |
 
 *: i ruoli Collaboratore gruppo di gestione e Lettore gruppo di gestione consentono agli utenti di eseguire le azioni solo nell'ambito del gruppo di gestione.  
+**: per spostare una sottoscrizione o un gruppo di gestione all'interno o all'esterno di un gruppo di gestione radice, non sono necessarie assegnazioni di ruolo.  Per informazioni su come spostare elementi all'interno della gerarchia, vedere [Gestire le risorse con i gruppi di gestione](manage.md).
 
 ### <a name="custom-rbac-role-definition-and-assignment"></a>Definizione e assegnazione di un ruolo personalizzato Controllo degli accessi in base al ruolo
 
@@ -113,17 +104,11 @@ Attualmente i ruoli personalizzati Controllo degli accessi in base al ruolo non 
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Controllare i gruppi di gestione con i log attività
 
-Per monitorare i gruppi di gestione tramite questa API, usare l'[API dei log attività del tenant](/rest/api/monitor/tenantactivitylogs). Attualmente non è possibile usare PowerShell, l'interfaccia della riga di comando o il portale di Azure per monitorare l'attività dei gruppi di gestione.
+I gruppi di gestione sono supportati all'interno del [log attività di Azure](../../azure-monitor/platform/activity-logs-overview.md). È possibile cercare tutti gli eventi che si verificano per un gruppo di gestione nella stessa posizione centrale delle altre risorse di Azure.  È ad esempio possibile vedere tutte le modifiche delle assegnazioni di ruoli o di criteri apportate a uno specifico gruppo di gestione.
 
-1. Come amministratore del tenant di Azure AD [elevare l'accesso](../../role-based-access-control/elevate-access-global-admin.md) quindi assegnare un ruolo di lettore all'utente di controllo sull'ambito `/providers/microsoft.insights/eventtypes/management`.
-1. Come utente responsabile del controllo, chiamare l'[API dei log attività del tenant](/rest/api/monitor/tenantactivitylogs) per visualizzare le attività dei gruppi di gestione. Per ottenere tutte le attività dei gruppi di gestione, filtrare per il provider di risorse **Microsoft.Management**.  Esempio:
+![Log attività con i gruppi di gestione](media/al-mg.png)
 
-```http
-GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
-```
-
-> [!NOTE]
-> Per chiamare correttamente questa API dalla riga di comando, provare [ARMClient](https://github.com/projectkudu/ARMClient).
+Quando si esegue una query sui gruppi di gestione all'esterno del portale di Azure, l'ambito di destinazione per tali gruppi sarà simile a **"/providers/Microsoft.Management/managementGroups/{yourMgID}"**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -131,6 +116,6 @@ Per altre informazioni sui gruppi di gestione, vedere:
 
 - [Creare gruppi di gestione per organizzare le risorse di Azure](create.md)
 - [Come modificare, eliminare o gestire i gruppi di gestione](manage.md)
-- [Gruppi di gestione nel modulo Resources di Azure PowerShell](https://aka.ms/mgPSdocs)
-- [Gruppi di gestione nell'API REST](https://aka.ms/mgAPIdocs)
-- [Gruppi di gestione nell'interfaccia della riga di comando di Azure](https://aka.ms/mgclidoc)
+- [Gruppi di gestione nel modulo Resources di Azure PowerShell](/powershell/module/az.resources#resources)
+- [Gruppi di gestione nell'API REST](/rest/api/resources/managementgroups)
+- [Gruppi di gestione nell'interfaccia della riga di comando di Azure](/cli/azure/account/management-group)

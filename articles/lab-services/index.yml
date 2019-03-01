@@ -1,12 +1,12 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6b15db6bc4e5d868080cb2949e34b62fd8033854
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: eec0d8284163811354edd14b2b1b6b3ea8e12af4
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726177"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960123"
 documentType: LandingData
-title: Documentazione dell'anteprima di Azure Lab Services e di Azure DevTest Labs
+title: Documentazione di Azure Lab Services e Azure DevTest Labs
 metadata:
   title: Documentazione di Azure Lab Services - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
   description: Informazioni su come usare Azure Lab Services per configurare rapidamente un lab per la classe o di sviluppo, test o hackathon per il team o gli studenti nel cloud. Esercitazioni, esempi e altri contenuti di Azure illustrano come creare, gestire e proteggere i lab.

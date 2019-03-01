@@ -1,5 +1,5 @@
 items:
-- name: Documentazione di Configurazione di app Azure
+- name: Documentazione di Configurazione di app Azure (anteprima)
   href: index.yml
 - name: Panoramica
   items:
@@ -26,8 +26,6 @@ items:
     href: integrate-azure-managed-service-identity.md
 - name: Esempi
   items:
-  - name: Esempi di codice
-    href: https://github.com/Azure/AppConfiguration/samples
   - name: Interfaccia della riga di comando di Azure
     href: cli-samples.md
 - name: Concetti
@@ -51,10 +49,14 @@ items:
   - name: Provider di configurazione di Java Spring
     href: https://go.microsoft.com/fwlink/?linkid=2074659
   - name: REST
-    href: https://docs.microsoft.com/rest/api/azure-app-configuration
-ms.openlocfilehash: c35296a6923e464ca20a873de4165ea20c08278f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+    href: https://go.microsoft.com/fwlink/?linkid=2078296
+- name: Risorse
+  items:
+  - name: Inviare commenti e suggerimenti per il prodotto
+    href: https://github.com/Azure/AppConfiguration
+ms.openlocfilehash: 6723ea35f6cc674c0e2776260c2077d781a5014c
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884135"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56989773"
