@@ -15,12 +15,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 11736b978242416bcfb95d3025975028e4148e98
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 44fc096fa95be3a469ada7c7dc212ce4fc04e83b
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486539"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57218057"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Archiviazione di Azure Stack: Differenze e considerazioni
 
@@ -44,6 +44,7 @@ Questo articolo riepiloga le differenze note di archiviazione di Azure Stack dai
 |Dimensioni massime blob di blocco|4,75 TB (100 MB x 50.000 blocchi)|4,75 TB (100 MB x 50.000 blocchi) per l'aggiornamento 1802 o una versione più recente. 50.000 x 4 MB (circa 195 GB) per le versioni precedenti.
 |Copia di snapshot blob di pagine|Backup non gestito della macchina virtuale nei dischi Azure collegati a una macchina virtuale in esecuzione supportata|Non è ancora supportata.
 |Copia di snapshot incrementale blob di pagine|Premium e standard BLOB di Azure supportate|Non è ancora supportata.
+|Pagina fatturazione blob|Sono previsti addebiti per le pagine univoche, siano essi nel blob o nello snapshot. Non comporta costi aggiuntivi per gli snapshot associati a un blob finché non blob di base in fase di aggiornamento.|Sono previsti addebiti per gli snapshot del blob e assiociated base. Verranno addebitate le spese aggiuntive per ogni singolo snapshot.
 |Livelli di archiviazione per l'archiviazione blob|Accesso frequente, sporadico e archivio i livelli di archiviazione.|Non è ancora supportata.
 |Eliminazione temporanea per l'archiviazione blob|Disponibilità generale|Non è ancora supportata.
 |Dimensioni massime blob pagina|8 TB|1 TB

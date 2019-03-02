@@ -3,31 +3,85 @@ title: Connettersi ad Azure Stack con CLI | Microsoft Docs
 description: Informazioni su come usare l'interfaccia della riga di comando multipiattaforma (CLI) per gestire e distribuire le risorse in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2019
-ms.author: sethm
+ms.date: 02/28/2019
+ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 40973fbdd1965eb84776fc9365718c65fa0149a7
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: fe5e998b919a3e2a876ef943424bd7161b71b5d4
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416990"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241205"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Usare i profili delle versioni API con il comando di Azure in Azure Stack
 
-È possibile seguire i passaggi descritti in questo articolo per informazioni su backup l'interfaccia della riga di comando di Azure per gestire le risorse di Azure Stack Development Kit dalle piattaforme client Linux, Mac e Windows.
+*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-## <a name="install-cli"></a>Installare l'interfaccia della riga di comando
+È possibile seguire i passaggi descritti in questo articolo per informazioni su backup l'interfaccia della riga di comando di Azure per gestire le risorse di Azure Stack Development Kit (ASDK) dalle piattaforme client Linux, Mac e Windows.
 
-Accedere alla workstation di sviluppo e installare CLI. Azure Stack richiede la versione 2.0 o versione successiva della riga di comando di Azure. È possibile installare tale versione usando i passaggi descritti nel [installare CLI Azure](/cli/azure/install-azure-cli) articolo. Per verificare se l'installazione ha avuto esito positivo, aprire un terminale o una finestra del prompt dei comandi ed eseguire il comando seguente:
+## <a name="prepare-for-azure-cli"></a>Preparazione della riga di comando di Azure
+
+È necessario il certificato radice di autorità di certificazione per Azure Stack per l'uso della riga di comando di Azure nel computer di sviluppo. Si utilizza il certificato per gestire le risorse tramite l'interfaccia della riga di comando.
+
+ - **Il certificato radice CA Azure Stack** è obbligatorio se si usa l'interfaccia della riga di comando da una workstation all'esterno di ASDK.  
+
+ - **L'endpoint di macchina virtuale gli alias** fornisce un alias, ad esempio "UbuntuLTS" o "Win2012Datacenter", che fa riferimento a un editore di immagini, offerta, SKU e versione come parametro singolo quando si distribuiscono le macchine virtuali.  
+
+Le sezioni seguenti descrivono come ottenere questi valori.
+
+### <a name="export-the-azure-stack-ca-root-certificate"></a>Esportare il certificato di autorità di certificazione di Azure Stack radice
+
+Se si usa un sistema integrato, non è necessario esportare il certificato di autorità di certificazione radice. È necessario esportare il certificato radice CA in un ASDK.
+
+Per esportare il certificato radice ASDK nel formato PEM:
+
+1. [Creare una macchina virtuale Windows in Azure Stack](azure-stack-quick-windows-portal.md).
+
+2. Accedi al computer, aprire un prompt di PowerShell con privilegi elevato e quindi eseguire lo script seguente:
+
+      ```powershell  
+      $label = "AzureStackSelfSignedRootCert"
+      Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
+      $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
+      if (-not $root)
+      {
+          Write-Error "Certificate with subject CN=$label not found"
+          return
+      }
+      
+    Write-Host "Exporting certificate"
+    Export-Certificate -Type CERT -FilePath root.cer -Cert $root
+
+    Write-Host "Converting certificate to PEM format"
+    certutil -encode root.cer root.pem
+```
+
+3. Copiare il certificato nel computer locale.
+
+
+### <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Configurare l'endpoint di alias di macchina virtuale
+
+È possibile configurare un endpoint accessibile pubblicamente che ospita un file di alias di macchina virtuale. Il file di alias di macchina virtuale è un file JSON che fornisce un nome comune per un'immagine. Si userà il nome quando si distribuisce una macchina virtuale come parametro di comando di Azure.
+
+1. Se si pubblica un'immagine personalizzata, prendere nota delle informazioni server di pubblicazione, offerta, SKU e versione specificati durante la pubblicazione. Se è un'immagine del marketplace, è possibile visualizzare le informazioni usando il ```Get-AzureVMImage``` cmdlet.  
+
+2. Scaricare il [file di esempio](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) da GitHub.
+
+4. Creare un account di archiviazione in Azure Stack. Al termine, creare un contenitore blob. Impostare i criteri di accesso per "pubblico".  
+
+3. Caricare il file JSON nel nuovo contenitore. Al termine, è possibile visualizzare l'URL del blob. Selezionare il nome del blob e quindi selezionando l'URL dalle proprietà del blob.
+
+### <a name="install-or-ugrade-cli"></a>Installare o aggiornare CLI
+
+Accedere alla workstation di sviluppo e installare CLI. Azure Stack richiede la versione 2.0 o versione successiva della riga di comando di Azure. La versione più recente dei profili di API richiede una versione corrente della riga di comando.  È possibile installare l'interfaccia della riga di comando usando i passaggi descritti nel [installare CLI Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) articolo. Per verificare se l'installazione ha avuto esito positivo, aprire un terminale o una finestra del prompt dei comandi ed eseguire il comando seguente:
 
 ```azurecli
 az --version
@@ -35,82 +89,326 @@ az --version
 
 Dovrebbe visualizzare la versione della CLI di Azure e altre librerie dipendenti installate nel computer.
 
-## <a name="trust-the-azure-stack-ca-root-certificate"></a>Considerare attendibile il certificato di autorità di certificazione di Azure Stack radice
+### <a name="install-python-on-windows"></a>Installare Python in Windows
 
-1. Ottenere il certificato di radice della CA di Azure Stack [l'operatore di Azure Stack](../azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) e attendibile. Per rendere attendibile il certificato radice CA Azure Stack, aggiungerlo al certificato Python esistente.
+1. Installare [Python 3 nel sistema](https://www.python.org/downloads/).
 
-1. Trovare il percorso di certificato nel computer. Il percorso può variare in base alla quale è stato installato Python. Dovrai disporre [pip](https://pip.pypa.io) e il [quella ottenibile](https://pypi.org/project/certifi/) modulo installato. È possibile usare il comando Python seguito dal prompt di bash:
+2. Aggiornare PIP. PIP è una gestione pacchetti per Python. Aprire un prompt dei comandi o un prompt di PowerShell con privilegi elevato e digitare il comando seguente:
+
+    ```PowerShell  
+    python -m pip install --upgrade pip
+    ```
+
+3. Installare il **quella ottenibile** modulo. [Quella ottenibile](https://pypi.org/project/certifi/) un modulo e una raccolta di certificati radice per convalidare l'attendibilità dei certificati SSL durante la verifica dell'identità host TLS. Aprire un prompt dei comandi o un prompt di PowerShell con privilegi elevato e digitare il comando seguente:
+
+    ```PowerShell
+    pip install certifi
+    ```
+
+### <a name="install-python-on-linux"></a>Installare Python in Linux
+
+1. L'immagine di Ubuntu 16.04 include Python 2.7 e 3.5 di Python installato per impostazione predefinita. È possibile verificare la versione di Python 3 eseguendo il comando seguente:
 
     ```bash  
-    python -c "import certifi; print(certifi.where())"
+    python3 --version
+    ```
+
+2. Aggiornare PIP. PIP è una gestione pacchetti per Python. Aprire un prompt dei comandi o un prompt di PowerShell con privilegi elevato e digitare il comando seguente:
+
+    ```bash  
+    sudo -H pip3 install --upgrade pip
+    ```
+
+3. Installare il **quella ottenibile** modulo. [Quella ottenibile](https://pypi.org/project/certifi/) è una raccolta di certificati radice per convalidare l'attendibilità dei certificati SSL durante la verifica dell'identità host TLS. Aprire un prompt dei comandi o un prompt di PowerShell con privilegi elevato e digitare il comando seguente:
+
+    ```bash
+    pip3 install certifi
+    ```
+
+### <a name="install-python-on-macos"></a>Installare Python in macOS
+
+1. Installare [Python 3 nel sistema](https://www.python.org/downloads/). Per le versioni di Python 3.7, Python.org fornisce due opzioni di installazione binari per il download. La variante predefinito è 64-bit-only e funziona su macOS 10.9 (Mavericks) e successive. Controllare la versione di python, aprire il terminale e digitando il comando seguente:
+
+    ```bash  
+    python3 --version
+    ```
+
+2. Aggiornare PIP. PIP è una gestione pacchetti per Python. Aprire un prompt dei comandi o un prompt di PowerShell con privilegi elevato e digitare il comando seguente:
+
+    ```bash  
+    sudo -H pip3 install --upgrade pip
+    ```
+
+3. Installare il **quella ottenibile** modulo. [Quella ottenibile](https://pypi.org/project/certifi/) un modulo e una raccolta di certificati radice per convalidare l'attendibilità dei certificati SSL durante la verifica dell'identità host TLS. Aprire un prompt dei comandi o un prompt di PowerShell con privilegi elevato e digitare il comando seguente:
+
+    ```bash
+    pip3 install certifi
+    ```
+
+## <a name="windows-azure-ad"></a>Windows (Azure AD)
+
+In questa sezione illustrerà impostazione della riga di comando se si usa Azure AD come servizio di gestione di identità e uso della riga di comando in un computer Windows.
+
+### <a name="trust-the-azure-stack-ca-root-certificate"></a>Considerare attendibile il certificato di autorità di certificazione di Azure Stack radice
+
+Per rendere attendibile il certificato radice CA Azure Stack, aggiungerlo al certificato Python esistente.
+
+1. Trovare il percorso di certificato nel computer. Il percorso può variare in base alla quale è stato installato Python. Aprire un prompt dei comandi o un prompt di PowerShell con privilegi elevato e digitare il comando seguente:
+
+    ```PowerShell  
+      python -c "import certifi; print(certifi.where())"
+    ```
+
+    Prendere nota del percorso di certificati. Ad esempio: `~/lib/python3.5/site-packages/certifi/cacert.pem`. Il percorso specifica varia in base al sistema operativo e la versione di Python installata.
+
+2. Considerare attendibile il certificato radice CA Azure Stack aggiungendolo al certificato Python esistente.
+
+    ```powershell
+    $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
+
+    $root = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
+    $root.Import($pemFile)
+
+    Write-Host "Extracting required information from the cert file"
+    $md5Hash    = (Get-FileHash -Path $pemFile -Algorithm MD5).Hash.ToLower()
+    $sha1Hash   = (Get-FileHash -Path $pemFile -Algorithm SHA1).Hash.ToLower()
+    $sha256Hash = (Get-FileHash -Path $pemFile -Algorithm SHA256).Hash.ToLower()
+
+    $issuerEntry  = [string]::Format("# Issuer: {0}", $root.Issuer)
+    $subjectEntry = [string]::Format("# Subject: {0}", $root.Subject)
+    $labelEntry   = [string]::Format("# Label: {0}", $root.Subject.Split('=')[-1])
+    $serialEntry  = [string]::Format("# Serial: {0}", $root.GetSerialNumberString().ToLower())
+    $md5Entry     = [string]::Format("# MD5 Fingerprint: {0}", $md5Hash)
+    $sha1Entry    = [string]::Format("# SHA1 Fingerprint: {0}", $sha1Hash)
+    $sha256Entry  = [string]::Format("# SHA256 Fingerprint: {0}", $sha256Hash)
+    $certText = (Get-Content -Path $pemFile -Raw).ToString().Replace("`r`n","`n")
+
+    $rootCertEntry = "`n" + $issuerEntry + "`n" + $subjectEntry + "`n" + $labelEntry + "`n" + `
+    $serialEntry + "`n" + $md5Entry + "`n" + $sha1Entry + "`n" + $sha256Entry + "`n" + $certText
+
+    Write-Host "Adding the certificate content to Python Cert store"
+    Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
+
+    Write-Host "Python Cert store was updated to allow the Azure Stack CA root certificate"
+    ```
+
+### <a name="connect-to-azure-stack"></a>Connettersi ad Azure Stack
+
+1. Registrare l'ambiente dello Stack di Azure eseguendo il `az cloud register` comando.
+
+    In alcuni scenari, connettività diretta a internet in uscita viene instradata attraverso un proxy o firewall, che impone l'intercettazione SSL. In questi casi, il `az cloud register` comando può non riuscire con un errore, ad esempio "Impossibile ottenere gli endpoint dal cloud". Per risolvere questo errore, è possibile impostare le variabili di ambiente seguenti:
+
+    ```shell  
+    set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
+    set ADAL_PYTHON_SSL_NO_VERIFY=1
+    ```
+
+    Registrare l'ambiente specificando il nome. Specificare il nome dell'ambiente dopo la `-n` passare. Usare `AzureStackUser` per l'ambiente utente. Se si è l'operatore, specificare `AzureStackAdmin`.
+
+    ```azurecli  
+    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+    ```
+
+1. Impostare l'ambiente attivo usando i comandi seguenti.
+
+      ```azurecli
+      az cloud set -n <environmentname>
+      ```
+
+1. Aggiornare la configurazione dell'ambiente per utilizzare il profilo di versione API specifico dello Stack di Azure. Per aggiornare la configurazione, eseguire il comando seguente:
+
+    ```azurecli
+    az cloud update --profile 2018-03-01-hybrid
+   ```
+
+    >[!NOTE]  
+    >Se si esegue una versione di Azure Stack prima della compilazione 1808, è necessario usare il profilo di versione API **2017-03-09-profile** anziché il profilo di versione API **2018-03-01-hybrid**. È necessario usare una versione recente della riga di comando di Azure.
+ 
+1. Accedere all'ambiente Azure Stack usando il `az login` comando. È possibile accedere all'ambiente Azure Stack come un utente o come un [entità servizio](../../active-directory/develop/app-objects-and-service-principals.md). 
+
+  - Accedere come un *utente*: 
+
+    È possibile specificare il nome utente e password direttamente all'interno di `az login` comando o eseguire l'autenticazione usando un browser. È necessario eseguire quest'ultimo se l'account è abilitata l'autenticazione a più fattori:
+
+    ```azurecli
+    az login -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
+    ```
+
+    > [!NOTE]
+    > Se l'account utente è attivata l'autenticazione a più fattori, è possibile usare la `az login` comando senza fornire il `-u` parametro. Questo comando fornisce un URL e un codice che è necessario usare per eseguire l'autenticazione.
+
+  - Accedere come un *entità servizio*: 
+    
+    Prima di accedere, [creare un'entità servizio tramite il portale di Azure](azure-stack-create-service-principals.md) o CLI e assegnarle un ruolo. Accedere a questo punto, usando il comando seguente:
+
+    ```azurecli  
+    az login --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> --service-principal -u <Application Id of the Service Principal> -p <Key generated for the Service Principal>
+    ```
+
+### <a name="test-the-connectivity"></a>Testare la connettività
+
+Con tutte le impostazioni, usare della riga di comando per creare risorse in Azure Stack. Ad esempio, è possibile creare un gruppo di risorse per un'applicazione e aggiungere una macchina virtuale. Usare il comando seguente per creare un gruppo di risorse denominato "MyResourceGroup":
+
+```azurecli
+az group create -n MyResourceGroup -l local
+```
+
+Se il gruppo di risorse viene creato correttamente, il comando precedente restituisce le proprietà seguenti della risorsa appena creata:
+
+![Gruppo di risorse creare output](media/azure-stack-connect-cli/image1.png)
+
+## <a name="windows-ad-fs"></a>Windows (AD FS)
+
+In questa sezione illustrerà impostazione della riga di comando se si usa Active Directory Federated Services (ADFS) come il servizio di gestione delle identità e uso della riga di comando in un computer Windows.
+
+### <a name="trust-the-azure-stack-ca-root-certificate"></a>Considerare attendibile il certificato di autorità di certificazione di Azure Stack radice
+
+1. Trovare il percorso di certificato nel computer. Il percorso può variare in base alla quale è stato installato Python. Aprire un prompt dei comandi o un prompt di PowerShell con privilegi elevato e digitare il comando seguente:
+
+    ```PowerShell  
+      python -c "import certifi; print(certifi.where())"
+    ```
+
+    Prendere nota del percorso di certificati. Ad esempio: `~/lib/python3.5/site-packages/certifi/cacert.pem`. Il percorso specifica varia in base al sistema operativo e la versione di Python installata.
+
+2. Considerare attendibile il certificato radice CA Azure Stack aggiungendolo al certificato Python esistente.
+
+    ```powershell
+    $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
+
+    $root = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
+    $root.Import($pemFile)
+
+    Write-Host "Extracting required information from the cert file"
+    $md5Hash    = (Get-FileHash -Path $pemFile -Algorithm MD5).Hash.ToLower()
+    $sha1Hash   = (Get-FileHash -Path $pemFile -Algorithm SHA1).Hash.ToLower()
+    $sha256Hash = (Get-FileHash -Path $pemFile -Algorithm SHA256).Hash.ToLower()
+
+    $issuerEntry  = [string]::Format("# Issuer: {0}", $root.Issuer)
+    $subjectEntry = [string]::Format("# Subject: {0}", $root.Subject)
+    $labelEntry   = [string]::Format("# Label: {0}", $root.Subject.Split('=')[-1])
+    $serialEntry  = [string]::Format("# Serial: {0}", $root.GetSerialNumberString().ToLower())
+    $md5Entry     = [string]::Format("# MD5 Fingerprint: {0}", $md5Hash)
+    $sha1Entry    = [string]::Format("# SHA1 Fingerprint: {0}", $sha1Hash)
+    $sha256Entry  = [string]::Format("# SHA256 Fingerprint: {0}", $sha256Hash)
+    $certText = (Get-Content -Path $pemFile -Raw).ToString().Replace("`r`n","`n")
+
+    $rootCertEntry = "`n" + $issuerEntry + "`n" + $subjectEntry + "`n" + $labelEntry + "`n" + `
+    $serialEntry + "`n" + $md5Entry + "`n" + $sha1Entry + "`n" + $sha256Entry + "`n" + $certText
+
+    Write-Host "Adding the certificate content to Python Cert store"
+    Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
+
+    Write-Host "Python Cert store was updated to allow the Azure Stack CA root certificate"
+    ```
+
+### <a name="connect-to-azure-stack"></a>Connettersi ad Azure Stack
+
+1. Registrare l'ambiente dello Stack di Azure eseguendo il `az cloud register` comando.
+
+    In alcuni scenari, connettività diretta a internet in uscita viene instradata attraverso un proxy o firewall, che impone l'intercettazione SSL. In questi casi, il `az cloud register` comando può non riuscire con un errore, ad esempio "Impossibile ottenere gli endpoint dal cloud". Per risolvere questo errore, è possibile impostare le variabili di ambiente seguenti:
+
+    ```shell  
+    set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
+    set ADAL_PYTHON_SSL_NO_VERIFY=1
+    ```
+
+    Registrare l'ambiente specificando il nome. Specificare il nome dell'ambiente dopo la `-n` passare. Usare `AzureStackUser` per l'ambiente utente. Se si è l'operatore, specificare `AzureStackAdmin`.
+
+    ```azurecli  
+    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+    ```
+
+1. Impostare l'ambiente attivo usando i comandi seguenti.
+
+      ```azurecli
+      az cloud set -n <environmentname>
+      ```
+
+1. Aggiornare la configurazione dell'ambiente per utilizzare il profilo di versione API specifico dello Stack di Azure. Per aggiornare la configurazione, eseguire il comando seguente:
+
+    ```azurecli
+    az cloud update --profile 2018-03-01-hybrid
+   ```
+
+    >[!NOTE]  
+    >Se si esegue una versione di Azure Stack prima della compilazione 1808, è necessario usare il profilo di versione API **2017-03-09-profile** anziché il profilo di versione API **2018-03-01-hybrid**. È necessario usare una versione recente della riga di comando di Azure.
+
+1. Accedere all'ambiente Azure Stack usando il `az login` comando. È possibile accedere all'ambiente Azure Stack come un utente o come un [entità servizio](../../active-directory/develop/app-objects-and-service-principals.md). 
+
+  - Accedere come un *utente*: 
+
+    È possibile specificare il nome utente e password direttamente all'interno di `az login` comando o eseguire l'autenticazione usando un browser. È necessario eseguire quest'ultimo se l'account è abilitata l'autenticazione a più fattori:
+
+    ```azurecli
+    az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/" --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2018-03-01-hybrid"
+    ``
+
+    > [!NOTE]
+    > If your user account has multi-factor authentication enabled, you can use the `az login` command without providing the `-u` parameter. Running this command gives you a URL and a code that you must use to authenticate.
+
+  - Sign in as a *service principal*: 
+    
+    Prepare the .pem file to be used for service principal login.
+
+    On the client machine where the principal was created, export the service principal certificate as a pfx with the private key located at `cert:\CurrentUser\My`; the cert name has the same name as the principal.
+
+    Convert the pfx to pem (use the OpenSSL utility).
+
+    Sign in to the CLI:
+  
+    ```azurecli  
+    az login --service-principal \
+      -u <Client ID from the Service Principal details> \
+      -p <Certificate's fully qualified name, such as, C:\certs\spn.pem>
+      --tenant <Tenant ID> \
+      --debug 
+    ```
+
+### <a name="test-the-connectivity"></a>Testare la connettività
+
+Con tutte le impostazioni, usare della riga di comando per creare risorse in Azure Stack. Ad esempio, è possibile creare un gruppo di risorse per un'applicazione e aggiungere una macchina virtuale. Usare il comando seguente per creare un gruppo di risorse denominato "MyResourceGroup":
+
+```azurecli
+az group create -n MyResourceGroup -l local
+```
+
+Se il gruppo di risorse viene creato correttamente, il comando precedente restituisce le proprietà seguenti della risorsa appena creata:
+
+![Gruppo di risorse creare output](media/azure-stack-connect-cli/image1.png)
+
+
+## <a name="linux-azure-ad"></a>Linux (Azure AD)
+
+In questa sezione illustrerà impostazione della riga di comando se si usa Azure AD come servizio di gestione di identità e uso della riga di comando in un computer Linux.
+
+### <a name="trust-the-azure-stack-ca-root-certificate"></a>Considerare attendibile il certificato di autorità di certificazione di Azure Stack radice
+
+Considerare attendibile il certificato radice CA Azure Stack aggiungendolo al certificato Python esistente.
+
+1. Trovare il percorso di certificato nel computer. Il percorso può variare in base alla quale è stato installato Python. Dovrai disporre di pip e quella ottenibile [modulo installato](#install-python-on-linux). È possibile usare il comando Python seguito dal prompt di bash:
+
+    ```bash  
+    python3 -c "import certifi; print(certifi.where())"
     ```
 
     Prendere nota del percorso del certificato; ad esempio, `~/lib/python3.5/site-packages/certifi/cacert.pem`. Il percorso specifico varia a seconda del sistema operativo e la versione di Python installata.
 
-### <a name="set-the-path-for-a-development-machine-inside-the-cloud"></a>Impostare il percorso per un computer di sviluppo all'interno di cloud
+2. Eseguire il comando bash seguente con il percorso del certificato.
 
-Se si eseguono CLI da un computer Linux che viene creato all'interno dell'ambiente Azure Stack, eseguire il comando bash seguente con il percorso del certificato.
+  - Per un computer Linux remoto:
 
-```bash
-sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
-```
+    ```bash  
+    sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
+    ```
 
-### <a name="set-the-path-for-a-development-machine-outside-the-cloud"></a>Impostare il percorso per un computer di sviluppo all'esterno del cloud
+  - Per una macchina Linux all'interno dell'ambiente Azure Stack:
 
-Se si eseguono CLI da un computer all'esterno dell'ambiente Azure Stack:  
+    ```bash  
+    sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
+    ```
 
-1. Configurare [connettività VPN ad Azure Stack](azure-stack-connect-azure-stack.md).
-1. Copiare il certificato con estensione PEM ottenuto tramite l'operatore di Azure Stack e prendere nota del percorso del file (PATH_TO_PEM_FILE).
-1. Eseguire i comandi nelle sezioni seguenti, a seconda del sistema operativo nella workstation di sviluppo.
-
-#### <a name="linux"></a>Linux
-
-```bash
-sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
-```
-
-#### <a name="macos"></a>macOS
-
-```bash
-sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
-```
-
-#### <a name="windows"></a> Windows
-
-```powershell
-$pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
-
-$root = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
-$root.Import($pemFile)
-
-Write-Host "Extracting required information from the cert file"
-$md5Hash    = (Get-FileHash -Path $pemFile -Algorithm MD5).Hash.ToLower()
-$sha1Hash   = (Get-FileHash -Path $pemFile -Algorithm SHA1).Hash.ToLower()
-$sha256Hash = (Get-FileHash -Path $pemFile -Algorithm SHA256).Hash.ToLower()
-
-$issuerEntry  = [string]::Format("# Issuer: {0}", $root.Issuer)
-$subjectEntry = [string]::Format("# Subject: {0}", $root.Subject)
-$labelEntry   = [string]::Format("# Label: {0}", $root.Subject.Split('=')[-1])
-$serialEntry  = [string]::Format("# Serial: {0}", $root.GetSerialNumberString().ToLower())
-$md5Entry     = [string]::Format("# MD5 Fingerprint: {0}", $md5Hash)
-$sha1Entry    = [string]::Format("# SHA1 Fingerprint: {0}", $sha1Hash)
-$sha256Entry  = [string]::Format("# SHA256 Fingerprint: {0}", $sha256Hash)
-$certText = (Get-Content -Path $pemFile -Raw).ToString().Replace("`r`n","`n")
-
-$rootCertEntry = "`n" + $issuerEntry + "`n" + $subjectEntry + "`n" + $labelEntry + "`n" + `
-$serialEntry + "`n" + $md5Entry + "`n" + $sha1Entry + "`n" + $sha256Entry + "`n" + $certText
-
-Write-Host "Adding the certificate content to Python Cert store"
-Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
-
-Write-Host "Python Cert store was updated to allow the Azure Stack CA root certificate"
-```
-
-## <a name="get-the-virtual-machine-aliases-endpoint"></a>Ottenere l'endpoint di alias di macchina virtuale
-
-Prima di poter creare le macchine virtuali con CLI, è necessario contattare l'operatore di Azure Stack e ottenere l'URI dell'endpoint alias macchina virtuale. Ad esempio, Azure Usa l'URI seguente: `https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json`. L'amministratore del cloud deve configurare un endpoint simile per Azure Stack con le immagini disponibili nel marketplace di Azure Stack. È necessario passare l'URI dell'endpoint del `endpoint-vm-image-alias-doc` parametro per il `az cloud register` comando, come illustrato nella sezione successiva. 
-  
-## <a name="connect-to-azure-stack"></a>Connettersi ad Azure Stack
+### <a name="connect-to-azure-stack"></a>Connettersi ad Azure Stack
 
 Usare la procedura seguente per connettersi ad Azure Stack:
 
@@ -120,83 +418,33 @@ Usare la procedura seguente per connettersi ad Azure Stack:
    set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
    set ADAL_PYTHON_SSL_NO_VERIFY=1
    ```
-   
-    a. Per registrare il *cloud amministrativi* ambiente, usare:
 
-      ```azurecli
-      az cloud register \ 
-        -n AzureStackAdmin \ 
-        --endpoint-resource-manager "https://adminmanagement.local.azurestack.external" \ 
-        --suffix-storage-endpoint "local.azurestack.external" \ 
-        --suffix-keyvault-dns ".adminvault.local.azurestack.external" \ 
-        --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
-      ```
-    b. Per registrare il *utente* ambiente, usare:
+2. Registrare l'ambiente specificando il nome. Specificare il nome dell'ambiente dopo la `-n` passare. Usare `AzureStackUser` per l'ambiente utente. Se si è l'operatore, specificare `AzureStackAdmin`.
 
-      ```azurecli
-      az cloud register \ 
-        -n AzureStackUser \ 
-        --endpoint-resource-manager "https://management.local.azurestack.external" \ 
-        --suffix-storage-endpoint "local.azurestack.external" \ 
-        --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
-        --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
-      ```
-    c. Per registrare il *utente* in un ambiente multi-tenancy, usare:
-
-      ```azurecli
-      az cloud register \ 
-        -n AzureStackUser \ 
-        --endpoint-resource-manager "https://management.local.azurestack.external" \ 
-        --suffix-storage-endpoint "local.azurestack.external" \ 
-        --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
-        --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases> \
-        --endpoint-active-directory-resource-id=<URI of the ActiveDirectoryServiceEndpointResourceID> \
-        --profile 2018-03-01-hybrid
-      ```
-    d. Per registrare l'utente in un ambiente di AD FS, usare:
-
-      ```azurecli
-      az cloud register \
-        -n AzureStack  \
-        --endpoint-resource-manager "https://management.local.azurestack.external" \
-        --suffix-storage-endpoint "local.azurestack.external" \
-        --suffix-keyvault-dns ".vault.local.azurestack.external"\
-        --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" \
-        --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/"\
-        --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/"\
-        --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases> \
-        --profile "2018-03-01-hybrid"
-      ```
-1. Impostare l'ambiente attivo usando i comandi seguenti.
-   
-    a. Per il *cloud amministrativi* ambiente, usare:
-
-      ```azurecli
-      az cloud set \
-        -n AzureStackAdmin
+      ```azurecli  
+      az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
 
-    b. Per il *utente* ambiente, usare:
+3. Impostare l'ambiente attivo. 
 
       ```azurecli
-      az cloud set \
-        -n AzureStackUser
+        az cloud set -n <environmentname>
       ```
 
-1. Aggiornare la configurazione dell'ambiente per utilizzare il profilo di versione API specifico dello Stack di Azure. Per aggiornare la configurazione, eseguire il comando seguente:
+4. Aggiornare la configurazione dell'ambiente per utilizzare il profilo di versione API specifico dello Stack di Azure. Per aggiornare la configurazione, eseguire il comando seguente:
 
     ```azurecli
-    az cloud update \
-      --profile 2018-03-01-hybrid
+      az cloud update --profile 2018-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >Se si esegue una versione di Azure Stack prima della compilazione 1808, è necessario usare il profilo di versione API **2017-03-09-profile** anziché il profilo di versione API **2018-03-01-hybrid**.
+    >Se si esegue una versione di Azure Stack prima della compilazione 1808, è necessario usare il profilo di versione API **2017-03-09-profile** anziché il profilo di versione API **2018-03-01-hybrid**. È necessario usare una versione recente della riga di comando di Azure.
 
-1. Accedere all'ambiente Azure Stack usando il `az login` comando. È possibile accedere all'ambiente Azure Stack come un utente o come un [entità servizio](../../active-directory/develop/app-objects-and-service-principals.md). 
+5. Accedere all'ambiente Azure Stack usando il `az login` comando. È possibile accedere all'ambiente Azure Stack come un utente o come un [entità servizio](../../active-directory/develop/app-objects-and-service-principals.md). 
 
-    * Ambienti di Azure AD
-      * Accedere come un *utente*: È possibile specificare il nome utente e password direttamente all'interno di `az login` comando o eseguire l'autenticazione usando un browser. È necessario eseguire quest'ultimo se l'account è abilitata l'autenticazione a più fattori:
+    * Accedere come un *utente*:
+
+    È possibile specificare il nome utente e password direttamente all'interno di `az login` comando o eseguire l'autenticazione usando un browser. È necessario eseguire quest'ultimo se l'account è abilitata l'autenticazione a più fattori:
 
       ```azurecli
       az login \
@@ -204,10 +452,12 @@ Usare la procedura seguente per connettersi ad Azure Stack:
         --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
       ```
 
-      > [!NOTE]
-      > Se l'account utente è attivata l'autenticazione a più fattori, è possibile usare la `az login` comando senza fornire il `-u` parametro. Questo comando fornisce un URL e un codice che è necessario usare per eseguire l'autenticazione.
+    > [!NOTE]
+    > Se l'account utente è attivata l'autenticazione a più fattori, è possibile usare la `az login` comando senza fornire il `-u` parametro. Questo comando fornisce un URL e un codice che è necessario usare per eseguire l'autenticazione.
    
-      * Accedere come un *entità servizio*: Prima di accedere, [creare un'entità servizio tramite il portale di Azure](azure-stack-create-service-principals.md) o CLI e assegnarle un ruolo. Accedere a questo punto, usando il comando seguente:
+    * Accedere come un *entità servizio*
+    
+    Prima di accedere, [creare un'entità servizio tramite il portale di Azure](azure-stack-create-service-principals.md) o CLI e assegnarle un ruolo. Accedere a questo punto, usando il comando seguente:
 
       ```azurecli  
       az login \
@@ -216,34 +466,113 @@ Usare la procedura seguente per connettersi ad Azure Stack:
         -u <Application Id of the Service Principal> \
         -p <Key generated for the Service Principal>
       ```
-    * Ambienti di AD FS
 
-        * Accedere come utente con un web browser con un codice di dispositivo:  
-           ```azurecli  
-           az login --use-device-code
-           ```
+### <a name="test-the-connectivity"></a>Testare la connettività
 
-           > [!NOTE]  
-           >Esecuzione del comando fornisce un URL e un codice che è necessario usare per eseguire l'autenticazione.
+Con tutte le impostazioni, usare della riga di comando per creare risorse in Azure Stack. Ad esempio, è possibile creare un gruppo di risorse per un'applicazione e aggiungere una macchina virtuale. Usare il comando seguente per creare un gruppo di risorse denominato "MyResourceGroup":
 
-        * Accedere come un'entità servizio:
+```azurecli
+    az group create -n MyResourceGroup -l local
+```
+
+Se il gruppo di risorse viene creato correttamente, il comando precedente restituisce le proprietà seguenti della risorsa appena creata:
+
+![Gruppo di risorse creare output](media/azure-stack-connect-cli/image1.png)
+
+## <a name="linux-ad-fs"></a>Linux (AD FS)
+
+In questa sezione illustrerà impostazione della riga di comando se si usa Active Directory Federated Services (ADFS) come il servizio di gestione e uso della riga di comando in un computer Linux.
+
+### <a name="trust-the-azure-stack-ca-root-certificate"></a>Considerare attendibile il certificato di autorità di certificazione di Azure Stack radice
+
+Considerare attendibile il certificato radice CA Azure Stack aggiungendolo al certificato Python esistente.
+
+1. Trovare il percorso di certificato nel computer. Il percorso può variare in base alla quale è stato installato Python. Dovrai disporre di pip e quella ottenibile [modulo installato](#install-python-on-linux). È possibile usare il comando Python seguito dal prompt di bash:
+
+    ```bash  
+    python3 -c "import certifi; print(certifi.where())"
+    ```
+
+    Prendere nota del percorso del certificato; ad esempio, `~/lib/python3.5/site-packages/certifi/cacert.pem`. Il percorso specifico varia a seconda del sistema operativo e la versione di Python installata.
+
+2. Eseguire il comando bash seguente con il percorso del certificato.
+
+  - Per un computer Linux remoto:
+
+    ```bash  
+    sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
+    ```
+
+  - Per una macchina Linux all'interno dell'ambiente Azure Stack:
+
+    ```bash  
+    sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
+    ```
+
+### <a name="connect-to-azure-stack"></a>Connettersi ad Azure Stack
+
+Usare la procedura seguente per connettersi ad Azure Stack:
+
+1. Registrare l'ambiente dello Stack di Azure eseguendo il `az cloud register` comando. In alcuni scenari, connettività diretta a internet in uscita viene instradata attraverso un proxy o firewall, che impone l'intercettazione SSL. In questi casi, il `az cloud register` comando può non riuscire con un errore, ad esempio "Impossibile ottenere gli endpoint dal cloud". Per risolvere questo errore, è possibile impostare le variabili di ambiente seguenti:
+
+   ```shell
+   set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
+   set ADAL_PYTHON_SSL_NO_VERIFY=1
+   ```
+
+2. Registrare l'ambiente specificando il nome. Specificare il nome dell'ambiente dopo la `-n` passare. Usare `AzureStackUser` per l'ambiente utente. Se si è l'operatore, specificare `AzureStackAdmin`.
+
+      ```azurecli  
+      az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+      ```
+
+3. Impostare l'ambiente attivo. 
+
+      ```azurecli
+        az cloud set -n <environmentname>
+      ```
+
+4. Aggiornare la configurazione dell'ambiente per utilizzare il profilo di versione API specifico dello Stack di Azure. Per aggiornare la configurazione, eseguire il comando seguente:
+
+    ```azurecli
+      az cloud update --profile 2018-03-01-hybrid
+   ```
+
+    >[!NOTE]  
+    >Se si esegue una versione di Azure Stack prima della compilazione 1808, è necessario usare il profilo di versione API **2017-03-09-profile** anziché il profilo di versione API **2018-03-01-hybrid**. È necessario usare una versione recente della riga di comando di Azure.
+
+5. Accedere all'ambiente Azure Stack usando il `az login` comando. È possibile accedere all'ambiente Azure Stack come un utente o come un [entità servizio](../../active-directory/develop/app-objects-and-service-principals.md). 
+
+6. Accedi: 
+
+  *  Come un **utente** usando un web browser con un codice di dispositivo:  
+
+    ```azurecli  
+    az login --use-device-code
+    ```
+
+    > [!NOTE]  
+    >Esecuzione del comando fornisce un URL e un codice che è necessario usare per eseguire l'autenticazione.
+
+  * Come un'entità servizio:
         
-          1. Preparare il file con estensione PEM da utilizzare per l'accesso dell'entità servizio.
+    Preparare il file con estensione PEM da utilizzare per l'accesso dell'entità servizio.
 
-            * Nel computer client in cui l'entità è stata creata, esportare il certificato dell'entità servizio come un file pfx con la chiave privata disponibile all'indirizzo `cert:\CurrentUser\My`; il certificato nome ha lo stesso nome dell'entità.
-        
-            * Convertire il file pfx in pem (usare l'utilità di OpenSSL).
+      * Nel computer client in cui l'entità è stata creata, esportare il certificato dell'entità servizio come un file pfx con la chiave privata disponibile all'indirizzo `cert:\CurrentUser\My`; il certificato nome ha lo stesso nome dell'entità.
+  
+      * Convertire il file pfx in pem (usare l'utilità di OpenSSL).
 
-          2.  Accedi per l'interfaccia della riga di comando:
-            ```azurecli  
-            az login --service-principal \
-              -u <Client ID from the Service Principal details> \
-              -p <Certificate's fully qualified name, such as, C:\certs\spn.pem>
-              --tenant <Tenant ID> \
-              --debug 
-            ```
+    Accedi per l'interfaccia della riga di comando:
 
-## <a name="test-the-connectivity"></a>Testare la connettività
+      ```azurecli  
+      az login --service-principal \
+        -u <Client ID from the Service Principal details> \
+        -p <Certificate's fully qualified name, such as, C:\certs\spn.pem>
+        --tenant <Tenant ID> \
+        --debug 
+      ```
+
+### <a name="test-the-connectivity"></a>Testare la connettività
 
 Con tutte le impostazioni, usare della riga di comando per creare risorse in Azure Stack. Ad esempio, è possibile creare un gruppo di risorse per un'applicazione e aggiungere una macchina virtuale. Usare il comando seguente per creare un gruppo di risorse denominato "MyResourceGroup":
 
@@ -251,7 +580,6 @@ Con tutte le impostazioni, usare della riga di comando per creare risorse in Azu
 az group create \
   -n MyResourceGroup -l local
 ```
-
 Se il gruppo di risorse viene creato correttamente, il comando precedente restituisce le proprietà seguenti della risorsa appena creata:
 
 ![Gruppo di risorse creare output](media/azure-stack-connect-cli/image1.png)

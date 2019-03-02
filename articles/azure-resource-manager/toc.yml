@@ -59,22 +59,17 @@ items:
     - name: Parametri
       href: resource-manager-templates-parameters.md
     - name: variables
-      href: resource-manager-templates-variables.md
+      href: resource-group-authoring-templates.md#variables
     - name: Funzioni
       href: resource-group-authoring-templates.md#functions
     - name: Risorse
       href: resource-manager-templates-resources.md
     - name: Output
-      href: resource-manager-templates-outputs.md
-  - name: Materiale sussidiario
-    items:
-    - name: Procedure consigliate per i modelli
-      href: template-best-practices.md
-    - name: Governance per le sottoscrizioni
-      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold
-      maintainContext: true
-    - name: Modelli per la coerenza del cloud
-      href: templates-cloud-consistency.md
+      href: resource-group-authoring-templates.md#outputs
+  - name: Procedure consigliate per i modelli
+    href: template-best-practices.md
+  - name: Modelli per la coerenza del cloud
+    href: templates-cloud-consistency.md
   - name: Provider e tipi di risorse
     href: resource-manager-supported-services.md
   - name: Gruppi di gestione
@@ -265,9 +260,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: 061f23dd0f25fccdbcfe459dc71f998319b06d58
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: cb2e9b6d12acfb6fff514fc5e2603d9531acd76f
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886690"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241683"
