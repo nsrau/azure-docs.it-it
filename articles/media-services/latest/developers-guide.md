@@ -13,19 +13,19 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/16/2019
+ms.date: 02/22/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 2f0191bd181a8e10fa59f6d1d53da348e6440aba
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 97123ec795353073b912bd83e0abb45e23549a75
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343580"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749801"
 ---
 # <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>Iniziare a sviluppare con l'API Servizi multimediali v3 usando gli SDK e/o gli strumenti
 
-Gli sviluppatori possono usare l'[API REST](https://aka.ms/ams-v3-rest-sdk) Servizi multimediali o le librerie client che consentono di interagire con l'API REST per creare, gestire e mantenere facilmente flussi di lavoro multimediali personalizzati. L'API Servizi multimediali v3 è basata sulla specifica OpenAPI (in precedenza nota come Swagger).
+Gli sviluppatori possono usare l'[API REST](https://aka.ms/ams-v3-rest-ref) Servizi multimediali o le librerie client che consentono di interagire con l'API REST per creare, gestire e mantenere facilmente flussi di lavoro multimediali personalizzati. L'API [Servizi multimediali v3](https://aka.ms/ams-v3-rest-sdk) è basata sulla specifica OpenAPI (in precedenza nota come Swagger).
 
 Questo argomento fornisce collegamenti a SDK, strumenti, documentazione. Fornisce inoltre alcune informazioni utili per diversi ambienti di sviluppo.
 
@@ -95,6 +95,7 @@ Esaminare la documentazione [Informazioni di riferimento su .NET](https://aka.ms
 - [Usare il servizio di crittografia dinamica e di distribuzione di licenze DRM - .NET](protect-with-drm.md)
 - [Ottenere una chiave di firma dai criteri esistenti - .NET](get-content-key-policy-dotnet-howto.md)
 - [Creare filtri con Servizi multimediali - .NET](filters-dynamic-manifest-dotnet-howto.md)
+- [Esempi di video on-demand avanzato di Funzioni di Azure v2 con Servizi multimediali v3](http://aka.ms/ams3functions)
 
 ## <a name="java"></a>Java
 

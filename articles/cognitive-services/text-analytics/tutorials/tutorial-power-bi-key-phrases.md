@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 2439244edcc1b7026a2cc8a62a946188e279f15f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4489fc82f836d8c311fcd776e211670897618b54
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245831"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889478"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Esercitazione: Integrare Power BI con il servizio cognitivo Analisi del testo
 
@@ -94,7 +94,7 @@ L'[API Frasi chiave](//westus.dev.cognitive.microsoft.com/docs/services/TextAnal
 | | |
 | - | - |
 | `id`  | Identificatore univoco per il documento nella richiesta. Anche la risposta contiene questo campo. In questo modo, se si elaborano più documenti, è possibile associare facilmente le frasi chiave estratte al documento da cui provengono. Dato che in questa esercitazione si sta elaborando un solo documento per richiesta, è possibile impostare come hardcoded il valore di `id` in modo che sia lo stesso per ogni richiesta.|
-| `text`  | Testo da elaborare. Il valore di questo campo proviene dalla colonna `Merged` creata nella [sezione precedente](#PreparingData), che contiene la riga dell'oggetto combinata e il testo del commento. L'API Frasi chiave richiede che la lunghezza dei dati non superi 5.000 caratteri.|
+| `text`  | Testo da elaborare. Il valore di questo campo proviene dalla colonna `Merged` creata nella [sezione precedente](#PreparingData), che contiene la riga dell'oggetto combinata e il testo del commento. L'API Frasi chiave richiede che la lunghezza dei dati non superi 5.120 caratteri.|
 | `language` | Codice del linguaggio naturale in cui è scritto il documento. Tutti i messaggi nei dati di esempio sono in inglese, quindi è possibile impostare come hardcoded il valore `en` per questo campo.|
 
 ## <a name="create-a-custom-function"></a>Creare una funzione personalizzata

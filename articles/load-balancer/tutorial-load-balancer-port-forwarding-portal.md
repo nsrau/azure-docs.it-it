@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/18
+ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: da41b33f3e5d24c0391c8486d9c0b372877eff21
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 6cb9e839b1fffd29ce1d78e82fb4ab054b92efc6
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232193"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959128"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Esercitazione: configurare il port forwarding in Azure Load Balancer tramite il portale
 
@@ -44,25 +44,26 @@ Per tutti i passaggi in questa esercitazione, accedere al portale di Azure all'i
 
 Per prima cosa, creare un servizio di bilanciamento del carico standard pubblico in grado di bilanciare il traffico nelle macchine virtuali. Un servizio di bilanciamento del carico standard supporta solo indirizzi IP pubblici standard. Quando si crea un servizio di bilanciamento del carico standard, si crea anche un nuovo indirizzo IP pubblico standard configurato come front-end del bilanciamento del carico, denominato **LoadBalancerFrontEnd** per impostazione predefinita.  
 
-1. In alto a sinistra nel portale selezionare **Crea una risorsa** > **Rete** > **Load Balancer**.
-   
-1. Nel riquadro **Crea servizio di bilanciamento del carico** digitare o selezionare i valori seguenti:
-   
-   - **Nome**: Digitare *MyLoadBalancer*.
-   - **Tipo**: Selezionare **Pubblico**. 
-   - **SKU**: Selezionare **Standard**.
-   - **Indirizzo IP pubblico**: Selezionare **Crea nuovo**, quindi digitare *MyPublicIP* nel campo.
-   - **Configurare indirizzo IP** > **Zona di disponibilità**: Selezionare **Con ridondanza della zona**.
-   - **Gruppo di risorse**: selezionare **Crea nuovo**, immettere *MyResourceGroupLB* e quindi selezionare **OK**. 
-   - **Località**: Selezionare **Europa occidentale**. 
-     
-     >[!NOTE]
-     >Assicurarsi di creare il bilanciamento del carico e tutte le relative risorse in una posizione che supporti le zone di disponibilità. Per altre informazioni, consultare [Aree che supportano la funzionalità Zone di disponibilità di Azure](../availability-zones/az-overview.md#regions-that-support-availability-zones). 
-   
-1. Selezionare **Create**.
-   
-![Creare un servizio di bilanciamento del carico](./media/tutorial-load-balancer-port-forwarding-portal/1-load-balancer.png)
+1. Nella parte superiore sinistra dello schermo fare clic su **Crea una risorsa** > **Rete** > **Servizio di bilanciamento del carico**.
+2. Nella scheda **Generale** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le impostazioni rimanenti e quindi selezionare **Rivedi e crea**:
 
+    | Impostazione                 | Valore                                              |
+    | ---                     | ---                                                |
+    | Sottoscrizione               | Selezionare la propria sottoscrizione.    |    
+    | Gruppo di risorse         | Selezionare **Crea nuovo** e digitare *MyResourceGroupLB* nella casella di testo.|
+    | NOME                   | *myLoadBalancer*                                   |
+    | Region         | Selezionare **Europa occidentale**.                                        |
+    | Type          | Selezionare **Pubblica**.                                        |
+    | SKU           | Selezionare **Standard**.                          |
+    | Indirizzo IP pubblico | Selezionare **Crea nuovo**. |
+    | Nome dell'indirizzo IP pubblico              | Digitare *myPublicIP* nella casella di testo.   |
+    |Zona di disponibilità| Selezionare **Con ridondanza della zona**.    |
+     
+    >[!NOTE]
+     >Assicurarsi di creare il bilanciamento del carico e tutte le relative risorse in una posizione che supporti le zone di disponibilità. Per altre informazioni, consultare [Aree che supportano la funzionalità Zone di disponibilità di Azure](../availability-zones/az-overview.md#regions-that-support-availability-zones). 
+
+3. Nella scheda **Rivedi e crea** fare clic su **Crea**.  
+  
 ## <a name="create-and-configure-back-end-servers"></a>Creare e configurare i server back-end
 
 Creare una rete virtuale con due macchine virtuali, quindi aggiungere le VM al pool back-end del servizio di bilanciamento del carico. 

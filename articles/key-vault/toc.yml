@@ -17,6 +17,9 @@ items:
     href: quick-create-net.md
   - name: Impostare e recuperare un segreto - Node.js
     href: quick-create-node.md
+  - name: Impostare e recuperare un segreto - Modello
+    displayName: resource manager, resource manager template, arm
+    href: quick-create-template.md
   expanded: true
 - name: Esercitazioni
   items:
@@ -105,7 +108,7 @@ items:
     items:
     - name: Usare Spring Boot Starter
       href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Azure PowerShell
     href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
@@ -171,9 +174,9 @@ items:
     href: http://blogs.technet.com/b/kv/
   - name: Commenti e suggerimenti sul prodotto
     href: https://feedback.azure.com/forums/906355-azure-key-vault
-ms.openlocfilehash: ca44c7d12064c7a458b1718ede2684c58bdab9b8
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e4cf443e80ad77e0892b164ecf63aec6afc2a428
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822566"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308058"

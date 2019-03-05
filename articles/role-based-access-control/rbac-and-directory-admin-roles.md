@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 11/30/2018
+ms.date: 02/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 00b96b5bfa88a6c1c31d3415027ce1d4eda11e6b
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: c53b9f13c365a5ace227f792f5b0c80ae8fac6ff
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339091"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807355"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Ruoli di amministratore sottoscrizione classico, ruoli di controllo degli accessi in base al ruolo di Azure e ruoli di amministratore di Azure AD
 
@@ -48,11 +48,15 @@ Amministratore account, Amministratore del servizio e Coamministratore sono i tr
 | Amministratore del servizio | 1 per ogni sottoscrizione di Azure | <ul><li>Gestire i servizi nel [portale di Azure](https://portal.azure.com)</li><li>Assegnare utenti al ruolo di coamministratore</li></ul> | Per impostazione predefinita, per una nuova sottoscrizione l'amministratore account è anche amministratore del servizio.<br>L'amministratore del servizio ha un accesso equivalente a quello di un utente cui viene assegnato il ruolo di proprietario nell'ambito della sottoscrizione.<br>L'amministratore del servizio ha accesso completo al portale di Azure. |
 | Coamministratore | 200 per ogni sottoscrizione | <ul><li>Questo ruolo ha gli stessi privilegi di accesso dell'amministratore del servizio, ma non può modificare l'associazione di sottoscrizioni alle directory di Azure</li><li>Può assegnare utenti al ruolo di coamministratore, ma non può modificare l'amministratore del servizio</li></ul> | Il coamministratore ha un accesso equivalente a quello di un utente cui viene assegnato il ruolo di proprietario nell'ambito della sottoscrizione. |
 
-Nel portale di Azure è possibile visualizzare gli utenti cui è assegnato il ruolo di amministratore account e amministratore del servizio visualizzando le proprietà della sottoscrizione.
+Nel portale di Azure è possibile gestire i coamministratori o visualizzare l'amministratore del servizio usando la scheda **Amministratori (versione classica)**.
 
-![Account amministratore e amministratore del servizio nel portale di Azure](./media/rbac-and-directory-admin-roles/account-admin-service-admin.png)
+![Amministratori della sottoscrizione classica di Azure nel portale di Azure](./media/rbac-and-directory-admin-roles/classic-administrators.png)
 
-Per informazioni su come aggiungere o modificare gli amministratori classici delle sottoscrizioni, vedere [Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure](../billing/billing-add-change-azure-subscription-administrator.md) nella documentazione relativa alla fatturazione di Azure.
+Nel portale di Azure è possibile visualizzare o cambiare l'amministratore del servizio o visualizzare l'amministratore account nel pannello delle proprietà della sottoscrizione.
+
+![Account amministratore e amministratore del servizio nel portale di Azure](./media/rbac-and-directory-admin-roles/account-admin.png)
+
+Per altre informazioni, vedere [Amministratori della sottoscrizione classica di Azure](classic-administrators.md).
 
 ### <a name="azure-account-and-azure-subscriptions"></a>Account e sottoscrizioni di Azure
 
@@ -81,9 +85,11 @@ Nel portale di Azure le assegnazioni di ruolo tramite il controllo degli accessi
 
 ![Pannello Controllo di accesso (IAM) nel portale di Azure](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
 
-Quando si fa clic sull'opzione **Ruoli** viene visualizzato l'elenco dei ruoli predefiniti e personalizzati.
+Quando si fa clic sulla scheda **Ruoli**, viene visualizzato l'elenco dei ruoli predefiniti e personalizzati.
 
 ![Ruoli predefiniti nel portale di Azure](./media/rbac-and-directory-admin-roles/roles-list.png)
+
+Per altre informazioni, vedere [Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e il portale di Azure](role-assignments-portal.md).
 
 ## <a name="azure-ad-administrator-roles"></a>Ruoli di amministratore di Azure AD
 
@@ -95,9 +101,7 @@ I ruoli di amministratore di Azure AD consentono di gestire le risorse di Azure 
 | [Amministratore utenti](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-account-administrator) | <ul><li>Creare e gestire tutti gli aspetti di utenti e gruppi</li><li>Gestire i ticket di supporto</li><li>Monitorare l'integrità dei servizi</li><li>Modificare le password degli utenti, degli amministratori del supporto tecnico e di altri amministratori degli utenti</li></ul> |  |
 | [Amministratore fatturazione](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>Effettuare acquisti</li><li>Gestire le sottoscrizioni</li><li>Gestire i ticket di supporto</li><li>Monitorare l'integrità dei servizi</li></ul> |  |
 
-Per un elenco di tutti i ruoli di amministratore di Azure AD, vedere [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
-
-Nel portale di Azure è possibile visualizzare l'elenco dei ruoli di amministratore di Azure AD nel pannello **Ruoli e amministratori**.
+Nel portale di Azure è possibile visualizzare l'elenco dei ruoli di amministratore di Azure AD nel pannello **Ruoli e amministratori**. Per un elenco di tutti i ruoli di amministratore di Azure AD, vedere [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ![Ruoli di amministratore di Azure AD nel portale di Azure](./media/rbac-and-directory-admin-roles/directory-admin-roles.png)
 
@@ -124,4 +128,4 @@ Diversi ruoli di amministratore di Azure si applicano ad Azure AD e a Microsoft 
 
 - [Che cos'è il controllo degli accessi in base al ruolo per le risorse di Azure?](overview.md)
 - [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
-- [Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure](../billing/billing-add-change-azure-subscription-administrator.md)
+- [Amministratori della sottoscrizione classica di Azure](classic-administrators.md)

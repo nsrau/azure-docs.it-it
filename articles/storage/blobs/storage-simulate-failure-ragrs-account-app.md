@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: tamram
-ms.openlocfilehash: 2d86c0c4838fb2ae9d839e64a067824019133d8b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0cbb4d2bc6449dc1cf12a374085b429743224995
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024434"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872880"
 ---
 # <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Esercitazione: Simulare un errore nell'accesso all'archiviazione con ridondanza e accesso in lettura
 
@@ -75,7 +75,7 @@ Al termine, selezionare **File** e **Salva** per salvare le modifiche.
 
 ### <a name="interrupting-the-application"></a>Interruzione dell'applicazione
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python e Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python e Java v7](#tab/dotnet-python-java-v7)
 
 Eseguire l'applicazione nell'ambiente IDE o nella shell.
 
@@ -83,7 +83,7 @@ Quando l'applicazione inizia la leggere dall'endpoint primario, premere un **tas
 
 ![Scenario app](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Eseguire l'applicazione nell'ambiente IDE o nella shell.
 
@@ -99,7 +99,7 @@ Mentre l'applicazione è in pausa, rimuovere il commento dalla regola personaliz
 
 Il codice di esempio cerca le richieste effettuate all'account di archiviazione RA-GRS e, se il percorso contiene il nome del file `HelloWorld`, restituisce il codice di risposta `503 - Service Unavailable`.
 
-Passare a Fiddler e selezionare **Regole** -> **Personalizza regole**.
+Passare a Fiddler e selezionare **Regole** -> **Personalizza regole...**.
 
 Rimuovere il commento nelle righe seguenti, sostituire `STORAGEACCOUNTNAME` con il nome dell'account di archiviazione. Selezionare **File** -> **Salva** per salvare le modifiche. 
 
@@ -113,7 +113,7 @@ Rimuovere il commento nelle righe seguenti, sostituire `STORAGEACCOUNTNAME` con 
          }
 ```
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python e Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python e Java v7](#tab/dotnet-python-java-v7)
 
 Per riprendere l'esecuzione dell'applicazione, premere **qualsiasi tasto**.
 
@@ -123,7 +123,7 @@ Questo è il modello [Interruttore](https://docs.microsoft.com/azure/architectur
 
 ![Incollare la regola personalizzata](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Dopo aver introdotto l'errore, immettere **G** per testarlo.
 
@@ -133,7 +133,7 @@ Verrà segnalato che è in uso la pipeline secondaria invece di quella primaria.
 
 ### <a name="simulate-primary-endpoint-restoration"></a>Simulare il ripristino di un endpoint primario
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python e Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python e Java v7](#tab/dotnet-python-java-v7)
 
 Dopo aver impostato la regola personalizzata di Fiddler nel passaggio precedente, le richieste all'endpoint primario hanno esito negativo.
 
@@ -153,7 +153,7 @@ Al termine premere un **tasto qualsiasi** per riprendere l'applicazione. L'appli
 
 ![Riprendere l'applicazione](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Dopo aver impostato la regola personalizzata di Fiddler nel passaggio precedente, le richieste all'endpoint primario hanno esito negativo.
 
@@ -173,11 +173,11 @@ Al termine, immettere **G** per testare il download. L'applicazione segnalerà c
 
 ### <a name="start-and-pause-the-application"></a>Avviare e mettere in pausa l'applicazione
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python e Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python e Java v7](#tab/dotnet-python-java-v7)
 
 Eseguire l'applicazione nell'ambiente IDE o nella shell. Quando l'applicazione inizia la leggere dall'endpoint primario, premere un **tasto qualsiasi** nella finestra della console per sospendere l'applicazione.
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Poiché si controlla l'esempio, non è necessario interromperlo per testare l'errore.
 
@@ -210,13 +210,13 @@ Per aggiungere una route statica per un host di destinazione, digitare il comand
 
 Sostituire `<destination_ip>` con l'indirizzo IP dell'account di archiviazione e `<gateway_ip>` con l'indirizzo IP dell'host locale.
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python e Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python e Java v7](#tab/dotnet-python-java-v7)
 
 Per riprendere l'esecuzione dell'applicazione, premere **qualsiasi tasto**.
 
 Dopo aver avviato di nuovo l'applicazione, le richieste all'endpoint primario iniziano a segnalare errori. L'applicazione tenta di ristabilire la connessione all'endpoint primario per cinque volte. Dopo aver superato la soglia di errore di cinque tentativi, richiede l'immagine dall'endpoint secondario di sola lettura. Dopo che l'applicazione ha recuperato correttamente l'immagine dall'endpoint secondario per 20 volte, l'applicazione tenta di connettersi all'endpoint primario. Se l'endpoint primario non è ancora raggiungibile, l'applicazione riprende a leggere l'endpoint secondario. Questo è il modello [Interruttore](/azure/architecture/patterns/circuit-breaker) descritto nell'esercitazione precedente.
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Dopo aver introdotto l'errore, immettere **G** per testarlo. Verrà segnalato che è in uso la pipeline secondaria invece di quella primaria.
 
@@ -236,14 +236,14 @@ Per eliminare la route statica di un host di destinazione, ossia dell'account di
 
 `route delete <destination_ip>`
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python e Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python e Java v7](#tab/dotnet-python-java-v7)
 
 Premere **qualsiasi tasto** per riprendere l'esecuzione dell'applicazione. L'applicazione continua la lettura dall'endpoint primario fino al raggiungimento di 999 letture.
 
 ![Riprendere l'applicazione](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Immettere **G** per testare il download. L'applicazione segnalerà che è ora di nuovo in uso la pipeline primaria.
 

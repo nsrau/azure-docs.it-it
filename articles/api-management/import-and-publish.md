@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 02/24/2019
 ms.author: apimpm
-ms.openlocfilehash: 4173c0b26b2d176549d3a89cc6fdfa928b6cca5b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0e104f4cbdef7edc5c109781509e3924400e5ba4
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963845"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959732"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importare e pubblicare la prima API 
 
@@ -48,7 +48,7 @@ In questa esercitazione si apprenderà come:
 Questa sezione illustra come importare e pubblicare un'API back-end Specifica OpenAPI.
  
 1. Selezionare **API** in **GESTIONE API**.
-2. Selezionare **Specifica OpenAPI** dall'elenco.
+2. Selezionare **Specifica OpenAPI** nell'elenco e fare clic su **Completa** nell'elemento popup.
 
     ![Creare un'API](./media/api-management-get-started/create-api.png)
 
@@ -65,7 +65,8 @@ Questa sezione illustra come importare e pubblicare un'API back-end Specifica Op
     | **Schema URL**            | *HTTPS*                                            | Determina i protocolli da usare per l'accesso all'API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
     | **Suffisso dell'URL dell'API**        | *conference*                                       | Il suffisso viene aggiunto all'URL di base del servizio Gestione API. Gestione API distingue le API in base al suffisso, quindi è necessario che questo sia univoco per ciascuna API di un editore specifico.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
     | **Prodotti**              | *Illimitato*                                        | I prodotti sono associazioni di una o più API. È possibile includere diverse API in un prodotto e offrirle agli sviluppatori tramite il portale per sviluppatori. <br/>Per pubblicare l'API, associarla a un prodotto (in questo esempio, *Unlimited*). Per aggiungere la nuova API a un prodotto, digitare il nome del prodotto. È possibile eseguire questa operazione anche in un secondo momento nella pagina **Impostazioni**. Questo passaggio può essere ripetuto più volte per aggiungere l'API a più prodotti.<br/>Per avere accesso all'API, gli sviluppatori devono prima sottoscrivere un prodotto. In questo modo ottengono una chiave di sottoscrizione valida per tutte le API nel prodotto. <br/> Se si è creata l'istanza di Gestione API, si è già un amministratore ed è quindi già stata effettuata la sottoscrizione di ogni prodotto.<br/> Per impostazione predefinita, con ogni istanza di Gestione API vengono forniti due prodotti di esempio: **Starter** e **Senza limiti**. |
-    | Assegnare un numero di versione a questa API?         |                                                    | Per altre informazioni sul controllo delle versioni, vedere [Pubblicare più versioni dell'API](api-management-get-started-publish-versions.md).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+    | **Tag**                  |                                                    | Tag per l'organizzazione delle API. I tag possono essere usati per le operazioni di ricerca, raggruppamento o filtro.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+    | **Assegnare un numero di versione a questa API?**     |                                                    | Per altre informazioni sul controllo delle versioni, vedere [Pubblicare più versioni dell'API](api-management-get-started-publish-versions.md).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
     >[!NOTE]
     > Per pubblicare l'API, è necessario associarla a un prodotto. È possibile eseguire questa operazione nella pagina **Impostazioni**.

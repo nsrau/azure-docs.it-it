@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: dea623684454d4b14a370251df10599eb03bbb34
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c17a74c81d9c9d2ac3f585ab17f0b7d2acc628f6
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856921"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873925"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Esercitazione: Estrarre dati con una relazione di tipo contestuale da un'espressione
 
@@ -74,7 +74,7 @@ L'entità gerarchica è una buona soluzione per questo tipo di dati, perché i d
     |Transfer Steve Standish from San Diego toward Bellevue |
     |lift Tanner Thompson from Kansas city and shift to Chicago|
 
-    [ ![Screenshot di LUIS con nuove espressioni nella finalità MoveEmployee](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
+    [![Screenshot di LUIS con nuove espressioni nella finalità MoveEmployee](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
 
 ## <a name="create-a-location-entity"></a>Creare un'entità posizione
 LUIS deve comprendere le posizioni tramite etichette per l'origine e la destinazione nelle espressioni. Se è necessario visualizzare l'espressione nella vista token (non elaborata), selezionare l'interruttore **Entities View** (Vista entità) sulla barra sopra le espressioni. Dopo aver spostato l'interruttore, l'etichetta del controllo diventerà **Tokens View** (Vista token).
@@ -91,7 +91,7 @@ Se è presente un solo elemento figlio (di origine o di destinazione) di un'enti
 
 1. Nell'espressione `move John W. Smith leaving Seattle headed to Dallas` selezionare la parola `Seattle`. Verrà visualizzato un menu a discesa con una casella di testo nella parte superiore. Immettere il nome dell'entità `Location` nella casella di testo, quindi selezionare **Create new entity** (Crea nuova entità) nel menu a discesa. 
 
-    [![Screenshot della creazione di una nuova entità nella pagina delle finalità](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png "Screenshot della creazione di una nuova entità nella pagina delle finalità")](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png#lightbox)
+    [![Screenshot della creazione di una nuova entità nella pagina delle finalità](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-1.png "Screenshot della creazione di una nuova entità nella pagina delle finalità")](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-1.png#lightbox)
 
 1. Nella finestra popup, selezionare il tipo di entità **Hierarchical** (Gerarchica) con `Origin` e `Destination` come entità figlio. Selezionare **Operazione completata**.
 
@@ -99,7 +99,7 @@ Se è presente un solo elemento figlio (di origine o di destinazione) di un'enti
 
 1. L'etichetta per `Seattle` è contrassegnata come `Location` perché Language Understanding non sa se il termine era l'origine, la destinazione o nessuna delle due. Selezionare `Seattle`, quindi selezionare **Location** (Posizioni) e infine selezionare `Origin` dal menu a destra.
 
-    [![Screenshot della finestra di dialogo delle etichette di entità per modificare gli elementi figlio dell'entità Locations (Posizioni)](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png "Screenshot della finestra di dialogo delle etichette di entità per modificare gli elementi figlio dell'entità Locations (Posizioni)")](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png#lightbox)
+    [![Screenshot della finestra di dialogo delle etichette di entità per modificare gli elementi figlio dell'entità Locations (Posizioni)](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-2.png "Screenshot della finestra di dialogo delle etichette di entità per modificare gli elementi figlio dell'entità Locations (Posizioni)")](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-2.png#lightbox)
 
 1. Assegnare un'etichetta alle altre località in tutte le altre espressioni. Una volta etichettate tutte le posizioni, l'aspetto delle espressioni diventa simile a un modello. 
 

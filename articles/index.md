@@ -1314,7 +1314,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                         <li>
                                             <a href="/azure/iot-fundamentals">
                                                 <img src="media/index/IoTHub.svg" alt="" />
-                                                <p>Nozioni fondamentali sull'IoT</p>
+                                                <p>Azure IoT</p>
                                             </a>
                                         </li>
                                         <li>
@@ -3929,12 +3929,12 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/iothub.svg" alt="" />
+                                                        <img src="media/index/question-mark-grey.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Nozioni fondamentali sull'IoT</h3>
-                                                    <p>Introduzione alla connessione dei dispositivi</p>
+                                                    <h3>Se si è nuovi utenti di Azure IoT,</h3>
+                                                    <p>iniziare qui per informazioni sui servizi più adatti a specifiche esigenze</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4010,7 +4010,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Acceleratori di soluzioni IoT</h3>
-                                                    <p>Acquisisci e analizza i dati non usati per migliorare i risultati aziendali</p>
+                                                    <p>Acquisire e analizzare i dati non usati per migliorare i risultati aziendali</p>
                                                 </div>
                                             </div>
                                         </div>

@@ -22,7 +22,7 @@ items:
     - name: Accesso condizionale
       tocHref: /azure/active-directory/conditional-access/
       topicHref: /azure/active-directory/conditional-access/
-    - name: Autenticazione
+    - name: Authentication
       tocHref: /azure/active-directory/authentication/
       topicHref: /azure/active-directory/authentication/
     - name: Sviluppo
@@ -139,7 +139,35 @@ items:
     topicHref: /azure/azure-netapp-files/
   - name: Personalizzazione del portale di Azure
     tocHref: /azure/azure-portal/
-    topicHref: /azure/azure-portal/
+    topicHref: /azure/azure-portal/\
+  - name: Internet delle cose
+    tocHref: /azure/iot-fundamentals/
+    topicHref: /azure/iot-fundamentals/
+    items:
+    - name: Hub IoT
+      tocHref: /azure/iot-hub/
+      topicHref: /azure/iot-hub/
+    - name: IoT Central
+      tocHref: /azure/iot-central/
+      topicHref: /azure/iot-central/
+    - name: IoT Edge
+      tocHref: /azure/iot-edge/
+      topicHref: /azure/iot-edge/
+    - name: Gemelli digitali di Azure
+      tocHref: /azure/digital-twins/
+      topicHref: /azure/digital-twins/
+    - name: Acceleratori di soluzioni IoT
+      tocHref: /azure/iot-accelerators/
+      topicHref: /azure/iot-accelerators/
+    - name: Servizio Device Provisioning in hub IoT
+      tocHref: /azure/iot-dps/
+      topicHref: /azure/iot-dps/
+    - name: Time Series Insights
+      tocHref: /azure/time-series-insights/
+      topicHref: /azure/time-series-insights/
+    - name: Mappe di Azure
+      tocHref: /azure/azure-maps/
+      topicHref: /azure/azure-maps/
   - name: Gestione risorse
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
@@ -304,7 +332,7 @@ items:
     - name: DC/OS e Swarm
       tocHref: /azure/container-service/dcos-swarm/
       topicHref: /azure/container-service/dcos-swarm/
-    - name: Kubernetes
+    - name: kubernetes
       tocHref: /azure/container-service/kubernetes/
       topicHref: /azure/container-service/kubernetes/
   - name: Cosmos DB
@@ -406,34 +434,6 @@ items:
   - name: API di Azure per FHIR
     tocHref: /azure/healthcare-apis
     topicHref: /azure/healthcare-apis
-  - name: Internet delle cose
-    tocHref: /azure/iot-fundamentals/
-    topicHref: /azure/iot-fundamentals/
-    items:
-    - name: Nozioni fondamentali sull'IoT
-      tocHref: /azure/iot-fundamentals/
-      topicHref: /azure/iot-fundamentals/
-    - name: IoT Edge
-      tocHref: /azure/iot-edge/
-      topicHref: /azure/iot-edge/
-    - name: Hub IoT
-      tocHref: /azure/iot-hub/
-      topicHref: /azure/iot-hub/
-    - name: Servizio Device Provisioning in hub IoT
-      tocHref: /azure/iot-dps/
-      topicHref: /azure/iot-dps/
-    - name: Acceleratori di soluzioni IoT
-      tocHref: /azure/iot-accelerators/
-      topicHref: /azure/iot-accelerators/
-    - name: IoT Central
-      tocHref: /azure/iot-central/
-      topicHref: /azure/iot-central/
-    - name: Mappe
-      tocHref: /azure/azure-maps/
-      topicHref: /azure/azure-maps/
-    - name: Time Series Insights
-      tocHref: /azure/time-series-insights/
-      topicHref: /azure/time-series-insights/
   - name: Jenkins
     tocHref: /azure/jenkins/
     topicHref: /azure/jenkins/
@@ -542,7 +542,7 @@ items:
   - name: Ricerca
     tocHref: /azure/search/
     topicHref: /azure/search/
-  - name: Sicurezza
+  - name: Security
     tocHref: /azure/security/
     topicHref: /azure/security/
   - name: Centro sicurezza
@@ -649,9 +649,9 @@ items:
   - name: Gateway VPN
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/
-ms.openlocfilehash: 437c5cc70a4325c3911d906c85f7b89407bc1200
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 38927a138c186109532729ba1b7e413644e31019
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011121"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339080"

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: 5c7586ae2ff1a648348c1155a528035fa72c7744
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a48d14f20d885849a233c592db8d9cf587342755
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299815"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870066"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Panoramica di Azure Service Fabric
 Azure Service Fabric è una piattaforma di sistemi distribuiti che semplifica la disposizione in pacchetti, la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili. Service Fabric fa fronte anche alle principali problematiche correlate allo sviluppo e alla gestione di applicazioni cloud native. Gli sviluppatori e gli amministratori non devono più occuparsi di risolvere complessi problemi di infrastruttura e possono concentrarsi sull'implementazione di carichi di lavoro cruciali e impegnativi, con la certezza di assicurare scalabilità, affidabilità e gestibilità. Service Fabric rappresenta la piattaforma di prossima generazione per la creazione e la gestione di applicazioni cloud di classe enterprise di primo livello eseguite in contenitori.
@@ -56,7 +56,7 @@ Per altre informazioni sulla creazione di cluster, vedere gli articoli relativi 
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Microservizi con e senza stato per Service Fabric
 Service Fabric consente di compilare applicazioni costituite da microservizi o contenitori. I microservizi senza stato, come i gateway di protocollo, i proxy Web e così via, non mantengono uno stato variabile al di fuori di una richiesta e della relativa risposta fornita dal servizio. I ruoli di lavoro di Servizi cloud di Azure sono un esempio di servizio senza stato. I microservizi con stato, come gli account utente, i database, i dispositivi, i carrelli acquisti e le code, mantengono invece uno stato variabile e autorevole anche all'esterno della richiesta e della relativa risposta. Le attuali applicazioni su scala Internet sono costituite da una combinazione di microservizi con e senza stato. 
 
-Un fattore essenziale per la differenziazione di Service Fabric è la creazione di servizi con stato, mediante i [modelli di programmazione incorporati](service-fabric-choose-framework.md) o mediante i servizi con stato in contenitori. L'articolo [Scenari di applicazione di Service Fabric](service-fabric-application-scenarios.md) descrive gli scenari in cui vengono usati i servizi con stato.
+Una differenza essenziale rispetto a Service Fabric è la creazione di servizi con stato, tramite i [modelli di programmazione incorporati](service-fabric-choose-framework.md) o i servizi con stato in contenitori. L'articolo [Scenari di applicazione di Service Fabric](service-fabric-application-scenarios.md) descrive gli scenari in cui vengono usati i servizi con stato.
 
 
 ## <a name="application-lifecycle-management"></a>Gestione del ciclo di vita delle applicazioni

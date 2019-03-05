@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 02/19/2018
 ms.author: raynew
-ms.openlocfilehash: 17ec7723044cec391ebe390bbcfba3aa6f2f29ca
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 61219fc4e1fc329708a7e58ee6a293e4e25cca31
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446852"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887812"
 ---
 # <a name="back-up-sql-server-databases-on-azure-vms"></a>Eseguire il backup di database SQL Server in macchine virtuali di Azure 
 
@@ -52,8 +52,7 @@ Questa anteprima pubblica ha una serie di limitazioni.
 - Le operazioni di backup/ripristino per gli snapshot del database, i database e i database mirror di istanze del cluster di failover non sono supportate.
 - Non è possibile proteggere i database con un numero elevato di file. Il numero massimo di file supportati non è deterministico. Non dipende solo dal numero di file, ma anche dalla lunghezza del loro percorso. 
 
-Per ulteriori dettagli sugli scenari supportati e non supportati, vedere la [sezione delle domande frequenti](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq).
-
+Rivedere le [domande frequenti](faq-backup-sql-server.md) relative al backup di database di SQL Server.
 ## <a name="scenario-support"></a>Supporto degli scenari
 
 **Supporto** | **Dettagli**
@@ -69,9 +68,9 @@ Per ulteriori dettagli sugli scenari supportati e non supportati, vedere la [sez
 Prima di eseguire il backup del database di SQL Server, verificare le condizioni seguenti:
 
 1. Identificare o [creare](backup-azure-sql-database.md#create-a-recovery-services-vault) un insieme di credenziali di Servizi di ripristino nella stessa area o nelle stesse impostazioni locali della macchina virtuale che ospita l'istanza di SQL Server.
-2. [Controllare le autorizzazioni VM](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) necessarie per eseguire il backup dei database SQL.
+2. [Controllare le autorizzazioni VM](#fix-sql-sysadmin-permissions) necessarie per eseguire il backup dei database SQL.
 3. Verificare che la VM abbia [connettività di rete](backup-azure-sql-database.md#establish-network-connectivity).
-4. Verificare che i database di SQL Server siano denominati in base alle [linee guida per la denominazione](backup-azure-sql-database.md#sql-database-naming-guidelines-for-azure-backup) per Backup di Backup.
+4. Verificare che i database di SQL Server siano denominati in base alle [linee guida per la denominazione](backup-azure-sql-database.md) per Backup di Backup.
 5. Verificare che non siano abilitate altre soluzioni di backup per il database. Disabilitare tutti gli altri backup di SQL Server prima di configurare questo scenario. È possibile abilitare Backup di Azure per una VM di Azure e Backup di Azure per un database SQL Server in esecuzione nella VM senza alcun conflitto.
 
 
@@ -197,7 +196,7 @@ Configurare il backup come segue:
 
     - Selezionare i criteri predefiniti: **HourlyLogBackup**.
     - Scegliere un criterio di backup creato in precedenza per SQL.
-    - [Definire un nuovo criterio](backup-azure-sql-database.md#define-a-backup-policy) basato sull'obiettivo del punto di recupero (RPO) e sull'intervallo di conservazione.
+    - [Definire un nuovo criterio](backup-azure-sql-database.md#configure-a-backup-policy) basato sull'obiettivo del punto di recupero (RPO) e sull'intervallo di conservazione.
     - Durante l'anteprima non è possibile modificare un criterio di backup esistente.
     
 9. Nel **menu Backup** selezionare **Abilita backup**.
@@ -326,7 +325,7 @@ Se è necessario correggere le autorizzazioni a causa di un errore **UserErrorSQ
 
     ![Messaggio di distribuzione riuscita](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-In alternativa, è possibile abilitare la [protezione automatica](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) sull'intera istanza o sul gruppo di disponibilità AlwaysOn selezionando l'opzione **ON** nell'elenco a discesa corrispondente nella colonna **AUTOPROTECT**. La funzionalità di [protezione automatica](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) non solo abilita la protezione per tutti i database esistenti in un'unica operazione, ma protegge anche automaticamente i nuovi database che verranno aggiunti in futuro a tale istanza o gruppo di disponibilità.  
+In alternativa, è possibile abilitare la [protezione automatica](backup-azure-sql-database.md#enable-auto-protection) sull'intera istanza o sul gruppo di disponibilità AlwaysOn selezionando l'opzione **ON** nell'elenco a discesa corrispondente nella colonna **AUTOPROTECT**. La funzionalità di [protezione automatica](backup-azure-sql-database.md#enable-auto-protection) non solo abilita la protezione per tutti i database esistenti in un'unica operazione, ma protegge anche automaticamente i nuovi database che verranno aggiunti in futuro a tale istanza o gruppo di disponibilità.  
 
    ![Abilitare la protezione automatica per il gruppo di disponibilità AlwaysOn](./media/backup-azure-sql-database/enable-auto-protection.png)
 

@@ -166,19 +166,19 @@ items:
       href: application-gateway-create-probe-ps.md
   - name: Risolvere problemi
     items:
-    - name: Risolvere i problemi di un gateway applicazione - Servizio di bilanciamento del carico interno con un ambiente del servizio app
+    - name: ILB con un ambiente del servizio app
       href: create-gateway-internal-load-balancer-app-service-environment.md
-    - name: Risolvere i problemi di un gateway applicazione con il servizio app - Reindirizzamento all'URL del servizio app
+    - name: Reindirizzamento all'URL del servizio app
       href: troubleshoot-app-service-redirection-app-service-url.md
-    - name: Risolvere i problemi di affinità delle sessioni nel gateway applicazione di Azure
+    - name: Problemi di affinità di sessione
       href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
-    - name: Risolvere gli errori di tipo Gateway non valido (502)
+    - name: Errori di tipo Gateway non valido (502)
       href: application-gateway-troubleshooting-502.md
     - name: Diagnostica
       href: application-gateway-diagnostics.md
   - name: Pagine di errore personalizzate
     href: custom-error.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Regole CRS
     href: application-gateway-crs-rulegroups-rules.md
@@ -212,9 +212,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: 7fd344a06dcd29c53d313a59c484101b1d0b2c8f
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 7fe790e7b75e3cf6bead50635b7be690b1b7eeb7
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985666"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309044"

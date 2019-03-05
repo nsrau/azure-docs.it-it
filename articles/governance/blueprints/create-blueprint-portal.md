@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0a41f038595524a9ffaa5134ca2fe53fc0ae83af
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 7aeb3cf2d56dbe20c85adca2243f5830575693e3
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338377"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818664"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definire e assegnare un progetto Azure Blueprint nel portale
 
@@ -34,7 +34,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Il primo passaggio nella definizione di un modello standard per la conformità è la creazione di un progetto dalle risorse disponibili. In questo esempio si creerà un nuovo progetto denominato 'MyBlueprint' per configurare le assegnazioni di ruolo e di criteri per la sottoscrizione, aggiungere un nuovo gruppo di risorse e creare un modello di Resource Manager e un'assegnazione di ruolo nel nuovo gruppo di risorse.
 
-1. Fare clic su **Tutti i servizi** e quindi cercare e selezionare **Criteri** nel riquadro sinistro. Nella pagina **Criteri** fare clic su **Progetti**.
+1. Selezionare **Tutti i servizi** nel riquadro a sinistra. Cercare e selezionare **Progetti**.
 
 1. Selezionare **Definizioni di progetto** nella pagina a sinistra e fare clic sul pulsante **+ Crea progetto** nella parte superiore della pagina.
 
@@ -44,22 +44,22 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
 
 1. Specificare un nome in **Nome progetto**, ad esempio "MyBlueprint" (lettere e numeri, fino a 48 caratteri, ma senza spazi o caratteri speciali) per il progetto, ma per il momento lasciare vuoto il campo **Descrizione del progetto**.  Nella casella **Località della definizione** fare clic sui puntini di sospensione a destra, selezionare il [gruppo di gestione](../management-groups/overview.md) o la sottoscrizione in cui si vuole salvare il progetto e fare clic su **Seleziona**.
 
-1. Verificare che le informazioni siano corrette (i campi **Nome progetto** e **Percorso della definizione** non potranno essere modificati successivamente) e fare clic su **Avanti: Artefatti** nella parte inferiore della pagina o nella scheda **Artefatti** nella parte superiore della pagina.
+1. Verificare che le informazioni siano corrette (i campi **Nome progetto** e **Località della definizione** non potranno essere modificati successivamente) e fare clic su **Avanti: Artefatti** nella parte inferiore della pagina o nella scheda **Artefatti** nella parte superiore della pagina.
 
-1. Aggiungere un'assegnazione di ruolo alla sottoscrizione: fare clic sulla riga **+ Aggiungi artefatto...** sotto la voce **Sottoscrizione**. Verrà visualizzata la finestra "Aggiungi elemento" sul lato destro del browser. Selezionare "Assegnazione ruolo" per _Tipo di elemento_. In _Ruolo_ selezionare "Collaboratore" e lasciare il campo _Add User, App or Group_ (Aggiungi utente, app o gruppo) con la casella di controllo che indica un **parametro dinamico**. Fare clic su **Aggiungi** per aggiungere questo elemento al progetto.
+1. Aggiungere un'assegnazione di ruolo alla sottoscrizione: fare clic sulla riga **+ Aggiungi artefatto...** sotto la voce **Sottoscrizione**. Verrà visualizzata la finestra "Aggiungi elemento" sul lato destro del browser. Selezionare "Assegnazione ruolo" per _Tipo di elemento_. In _Ruolo_ selezionare "Collaboratore" e lasciare il campo _Aggiungi utente, app o gruppo_ con la casella di controllo che indica un **parametro dinamico**. Fare clic su **Aggiungi** per aggiungere questo elemento al progetto.
 
    ![Elemento - Assegnazione di ruolo](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
    > La maggior parte degli _elementi_ supporta parametri. Un parametro cui è assegnato un valore durante la creazione del progetto è un **parametro statico**. Se il parametro viene assegnato durante l'assegnazione del progetto, si tratta di un **parametro dinamico**. Per altre informazioni, vedere [Blueprint parameters](./concepts/parameters.md) (Parametri per i progetti).
 
-1. Aggiungere un'assegnazione di criteri alla sottoscrizione: fare clic sulla riga **+ Aggiungi artefatto...** direttamente sotto **Sottoscrizione**. Selezionare "Assegnazione criteri" per _Tipo di elemento_. Modificare il valore di _Tipo_ in "Predefinito" e in _Cerca_ immettere "tag". Fare clic al di fuori di _Cerca_ per applicare il filtro. Selezionare "Applica tag e relativo valore predefinito ai gruppi di risorse". Fare clic su **Aggiungi** per aggiungere questo elemento al progetto.
+1. Aggiungere un'assegnazione di criteri alla sottoscrizione: Fare clic sulla riga **+ Aggiungi artefatto** sotto l'artefatto dell'assegnazione di ruolo. Selezionare "Assegnazione criteri" per _Tipo di elemento_. Modificare il valore di _Tipo_ in "Predefinito" e in _Cerca_ immettere "tag". Fare clic al di fuori di _Cerca_ per applicare il filtro. Selezionare "Applica tag e relativo valore predefinito ai gruppi di risorse". Fare clic su **Aggiungi** per aggiungere questo elemento al progetto.
 
 1. Fare clic nella riga dell'assegnazione di criteri "Applica tag e relativo valore predefinito ai gruppi di risorse". Viene visualizzata la finestra per fornire i parametri per l'elemento come parte della definizione del progetto, in cui è possibile impostare i parametri per tutte le assegnazioni (**parametri statici**) in base a questo progetto anziché durante l'assegnazione (**parametri dinamici**). Poiché ai fini di questo esempio vengono usati **parametri dinamici** durante l'assegnazione del progetto, lasciare le impostazioni predefinite e fare clic su **Annulla**.
 
-1. Aggiungere un gruppo di risorse alla sottoscrizione: fare clic sulla riga **+ Aggiungi artefatto...** sotto la voce **Sottoscrizione**. Selezionare "Gruppo di risorse" per _Tipo di elemento_. Lasciare vuoti i campi _Nome gruppo di risorse_ e _Località_, ma assicurarsi che sia selezionata la casella di controllo per ogni proprietà in modo che i parametri siano **parametri dinamici**. Fare clic su **Aggiungi** per aggiungere questo elemento al progetto.
+1. Aggiungere un gruppo di risorse alla sottoscrizione: fare clic sulla riga **+ Aggiungi artefatto...** sotto la voce **Sottoscrizione**. Selezionare "Gruppo di risorse" per _Tipo di elemento_. Lasciare vuoti i campi _Nome visualizzato dell'artefatto_, _Nome gruppo di risorse_ e _Località_, ma assicurarsi che sia selezionata la casella di controllo per ogni proprietà di parametro in modo che i parametri siano **parametri dinamici**. Fare clic su **Aggiungi** per aggiungere questo elemento al progetto.
 
-1. Aggiungere un modello nel gruppo di risorse: fare clic su **+ Aggiungi artefatto...** direttamente sotto la voce **Gruppo di risorse**. Selezionare "Modello di Azure Resource Manager" per _Tipo di elemento_, impostare _Nome visualizzato dell'artefatto_ su "Account di archiviazione" e lasciare vuoto il campo _Descrizione_. Nella scheda **Modello** nella casella dell'editor incollare il modello di Resource Manager seguente. Dopo aver incollato il modello, fare clic sulla scheda **Parametri** e osservare che il parametro del modello **storageAccountType** e il valore predefinito **Standard_LRS** sono stati automaticamente rilevati e completati, ma sono configurati come **parametri dinamici**. Rimuovere il segno di spunta dalla casella di controllo e osservare come l'elenco a discesa contenga ora solo i valori inclusi nel modello di Resource Manager in **allowedValues**. Selezionare la casella per reimpostarla su un **parametro dinamico**. Fare clic su **Aggiungi** per aggiungere questo elemento al progetto.
+1. Aggiungere un modello nel gruppo di risorse: fare clic su **+ Aggiungi artefatto...** sotto la voce **Gruppo di risorse**. Selezionare "Modello di Azure Resource Manager" per _Tipo di elemento_, impostare _Nome visualizzato dell'artefatto_ su "Account di archiviazione" e lasciare vuoto il campo _Descrizione_. Nella scheda **Modello** nella casella dell'editor incollare il modello di Resource Manager seguente. Dopo aver incollato il modello, selezionare la scheda **Parametri** e notare che i parametri del modello **storageAccountType** e **location** sono stati rilevati. Ogni parametro è stato rilevato e popolato automaticamente, ma configurato come **parametro dinamico**. Rimuovere il segno di spunta dalla casella di controllo **storageAccountType** e osservare come l'elenco a discesa contenga ora solo i valori inclusi nel modello di Resource Manager in **allowedValues**. Selezionare la casella per reimpostarla su un **parametro dinamico**. Fare clic su **Aggiungi** per aggiungere questo elemento al progetto.
 
    > [!IMPORTANT]
    > Se si importa il modello, assicurarsi che il file sia solo JSON e non includa codice HTML. Quando si fa riferimento a un URL in GitHub, assicurarsi di aver fatto clic su **RAW** per ottenere il file JSON puro e non quello che include HTML per la visualizzazione in GitHub. Se il modello importato non è un file JSON puro, si verificherà un errore.
@@ -81,20 +81,27 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
                "metadata": {
                    "description": "Storage Account type"
                }
+           },
+           "location": {
+               "type": "string",
+               "defaultValue": "[resourceGroup().location]",
+               "metadata": {
+                   "description": "Location for all resources."
+               }
            }
        },
        "variables": {
-           "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
+           "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
        },
        "resources": [{
            "type": "Microsoft.Storage/storageAccounts",
            "name": "[variables('storageAccountName')]",
-           "apiVersion": "2016-01-01",
-           "location": "[resourceGroup().location]",
+           "location": "[parameters('location')]",
+           "apiVersion": "2018-07-01",
            "sku": {
                "name": "[parameters('storageAccountType')]"
            },
-           "kind": "Storage",
+           "kind": "StorageV2",
            "properties": {}
        }],
        "outputs": {
@@ -126,7 +133,7 @@ In [Creare un progetto](#create-a-blueprint) non è stata fornita alcuna descriz
 
 1. Fare clic su **Avanti: Artefatti** nella parte inferiore della pagina o nella scheda **Artefatti** nella parte superiore della pagina.
 
-1. Aggiungere un'assegnazione di ruolo nel gruppo di risorse: fare clic sulla riga **+ Aggiungi artefatto...** direttamente sotto la voce **Gruppo di risorse**. Selezionare "Assegnazione ruolo" per _Tipo di elemento_. In _Ruolo_ selezionare "Proprietario", rimuovere il segno di spunta per il campo _Add User, App or Group_ (Aggiungi utente, app o gruppo) e quindi cercare e selezionare un utente, un'app o un gruppo da aggiungere. Questo elemento usa un **parametro statico** con la stessa impostazione in ogni assegnazione di questo progetto. Fare clic su **Aggiungi** per aggiungere questo elemento al progetto.
+1. Aggiungere un'assegnazione di ruolo nel gruppo di risorse: fare clic sulla riga **+ Aggiungi artefatto...** direttamente sotto la voce **Gruppo di risorse**. Selezionare "Assegnazione ruolo" per _Tipo di elemento_. In _Ruolo_ selezionare "Proprietario", rimuovere il segno di spunta per il campo _Aggiungi utente, app o gruppo_ e quindi cercare e selezionare un utente, un'app o un gruppo da aggiungere. Questo elemento usa un **parametro statico** con la stessa impostazione in ogni assegnazione di questo progetto. Fare clic su **Aggiungi** per aggiungere questo elemento al progetto.
 
    ![Elemento - Assegnazione di ruolo n. 2](./media/create-blueprint-portal/add-role-assignment-2.png)
 
@@ -157,12 +164,29 @@ Una volta pubblicato, un progetto può essere assegnato a una sottoscrizione. As
 
 1. Nell'elenco di progetti fare clic con il pulsante destro del mouse su quello creato in precedenza (oppure fare clic sui puntini di sospensione) e scegliere **Assegna progetto**.
 
-1. Nella pagina **Assegna progetto** selezionare le sottoscrizioni in cui si vuole distribuire questo progetto nell'elenco a discesa **Sottoscrizione**.
+1. Nella pagina **Assegna progetto** selezionare una o più sottoscrizioni in cui si vuole distribuire il progetto nell'elenco a discesa **Sottoscrizione**.
+
+   - Se sono disponibili offerte Enterprise supportate da [Fatturazione di Azure](../../billing/index.md), viene attivato un collegamento **Crea nuovo** sotto la casella **Sottoscrizione**.
+
+     1. Selezionare il collegamento **Crea nuovo** per creare una nuova sottoscrizione invece di selezionarne una esistente.
+
+        ![Assegnazione del progetto - creazione della sottoscrizione](./media/create-blueprint-portal/assignment-create-subscription.png)
+
+     1. Specificare un **nome visualizzato** per la nuova sottoscrizione.
+
+     1. Selezionare l'**offerta** disponibile nell'elenco a discesa.
+
+     1. Usare i puntini di sospensione per selezionare il [gruppo di gestione](../management-groups/index.md) di cui la sottoscrizione sarà un elemento figlio.
+
+     1. Selezionare **Crea** nella parte inferiore della pagina.
+
+     > [!IMPORTANT]
+     > La nuova sottoscrizione viene creata appena si sceglie **Crea**.
 
    > [!NOTE]
    > Viene creata un'assegnazione per ogni sottoscrizione selezionata, permettendo successive modifiche a un'assegnazione a una sottoscrizione singola senza forzare modifiche nelle altre sottoscrizioni selezionate.
 
-1. Per **Assigned Name** (Nome assegnato) specificare un nome univoco per l'assegnazione.
+1. In **Assigned Name** (Nome assegnato) specificare un nome univoco per l'assegnazione.
 
 1. In **Località** selezionare un'area per l'identità gestita in cui creare l'assegnazione. Azure Blueprint usa questa identità gestita per distribuire tutti gli elementi nel progetto assegnato. Per altre informazioni, vedere [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md) (Identità gestite per risorse di Azure).
 
@@ -198,7 +222,7 @@ Ora che il progetto è stato assegnato a una sottoscrizione, verificare lo stato
 
    ![Visualizza i dettagli dell'assegnazione](./media/create-blueprint-portal/view-assignment-details.png)
 
-1. Nella pagina **Dettagli della distribuzione** verificare che tutti gli elementi siano stati distribuiti correttamente e che non si siano verificati errori durante la distribuzione. In caso di errori, vedere [Troubleshooting blueprint](./troubleshoot/general.md) (Risoluzione dei problemi relativi a un progetto) per istruzioni su come determinare gli eventuali problemi.
+1. Nella pagina **Assegnazione progetto** verificare che tutti gli artefatti siano stati distribuiti correttamente e che non si siano verificati errori durante la distribuzione. In caso di errori, vedere [Troubleshooting blueprint](./troubleshoot/general.md) (Risoluzione dei problemi relativi a un progetto) per istruzioni su come determinare gli eventuali problemi.
 
 ## <a name="unassign-a-blueprint"></a>Annullare l'assegnazione di un progetto
 

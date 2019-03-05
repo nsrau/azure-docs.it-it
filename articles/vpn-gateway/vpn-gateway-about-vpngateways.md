@@ -6,14 +6,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 10/19/2018
+ms.date: 02/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: d35e7cfbf55d0dc53214bbb7b1153c3270c611c2
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 7b2b5c7201fe45fb52eb333b9e32b4996e00df9b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471323"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822924"
 ---
 # <a name="what-is-vpn-gateway"></a>Che cos'è un Gateway VPN?
 
@@ -57,7 +57,7 @@ Quando si crea un gateway di rete virtuale, specificare lo SKU del gateway da us
 
 ## <a name="diagrams"></a>Diagrammi delle topologie di connessione
 
-È importante tenere presente che sono disponibili configurazioni diverse per le connessioni del gateway VPN. È necessario determinare la configurazione più adatta alle proprie esigenze. Nelle sezioni seguenti è possibile trovare informazioni e diagrammi delle topologie sulle connessioni gateway VPN seguenti. Le sezioni seguenti contengono tabelle che elencano:
+È importante tenere presente che sono disponibili configurazioni diverse per le connessioni del gateway VPN. È necessario determinare la configurazione più adatta alle proprie esigenze. Nelle sezioni seguenti è possibile trovare informazioni e diagrammi delle topologie sulle connessioni gateway VPN seguenti: Le sezioni seguenti contengono tabelle che elencano:
 
 * Modello di distribuzione disponibile
 * Strumenti di configurazione disponibili
@@ -152,7 +152,6 @@ Per le domande frequenti sul gateway VPN, vedere le [Domande frequenti su Gatewa
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Pianificare la configurazione del gateway VPN. Vedere [Pianificazione e progettazione per il gateway VPN](vpn-gateway-plan-design.md).
 - Per altre informazioni, vedere [Domande frequenti sul gateway VPN](vpn-gateway-vpn-faq.md).
 - Vedere [Sottoscrizione e limiti del servizio](../azure-subscription-service-limits.md#networking-limits).
 - Informazioni su alcune altre [funzionalità di rete](../networking/networking-overview.md) chiave di Azure.

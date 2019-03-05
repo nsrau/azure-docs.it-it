@@ -4,226 +4,197 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/02/2017
+ms.topic: tutorial
+ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e09693d17f5eca1b5e4597c522903c3f9148bc74
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 31fc8eeb67c6ed3cb90f5ce1f5cc57eb9e6ff88a
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178890"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984068"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lecorpio"></a>Esercitazione: Integrazione di Azure Active Directory con Lecorpio
 
 Questa esercitazione descrive come integrare Lecorpio con Azure Active Directory (Azure AD).
-
 L'integrazione di Lecorpio con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD chi può accedere a Lecorpio.
-- È possibile abilitare gli utenti per l'accesso automatico a Lecorpio (Single Sign-On) con i propri account Azure AD.
-- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
+* È possibile controllare in Azure AD chi può accedere a Lecorpio.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Lecorpio con gli account Azure AD personali.
+* È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Lecorpio, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD
-- Sottoscrizione di Lecorpio abilitata per l'accesso Single Sign-On
-
-> [!NOTE]
-> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
-
-A questo scopo, è consigliabile seguire le indicazioni seguenti:
-
-- Non usare l'ambiente di produzione a meno che non sia necessario.
-- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
+* Sottoscrizione di Lecorpio abilitata per l'accesso Single Sign-On
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
-1. Aggiunta di Lecorpio dalla raccolta
-1. Configurazione e test dell'accesso Single Sign-On di Azure AD
+In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
+
+* Lecorpio supporta l'accesso SSO avviato da **SP**
 
 ## <a name="adding-lecorpio-from-the-gallery"></a>Aggiunta di Lecorpio dalla raccolta
-Per configurare l'integrazione di Lecorpio in Azure AD, è necessario aggiungere Lecorpio dalla raccolta al proprio elenco di app SaaS gestite.
+
+Per configurare l'integrazione di Lecorpio in Azure AD, è necessario aggiungere Lecorpio dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Lecorpio dalla raccolta, seguire questa procedura:**
 
-1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
-    ![Active Directory][1]
+    ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
 
-    ![APPLICAZIONI][2]
-    
-1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo.
+    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
-    ![APPLICAZIONI][3]
+3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-1. Nella casella di ricerca digitare **Lecorpio**.
+    ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-    ![Creazione di un utente test di Azure AD](./media/lecorpio-tutorial/tutorial_lecorpio_search.png)
+4. Nella casella di ricerca digitare **Lecorpio**, selezionare **Lecorpio** nel pannello dei risultati, quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-1. Nel pannello dei risultati selezionare **Lecorpio** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+     ![Lecorpio nell'elenco risultati](common/search-new-app.png)
 
-    ![Creazione di un utente test di Azure AD](./media/lecorpio-tutorial/tutorial_lecorpio_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
-In questa sezione si configura e si testa l'accesso Single Sign-On di Azure AD con Lecorpio con un utente test di nome "Britta Simon".
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Lecorpio usando un utente di test di nome **Britta Simon**.
+Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Lecorpio.
 
-Per il corretto funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Lecorpio che corrisponde a un utente di Azure AD. Deve essere stabilita, in altre parole, una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Lecorpio.
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Lecorpio, è necessario completare le procedure di base seguenti:
 
-La relazione di collegamento viene stabilita assegnando al valore di **nome utente** in Azure AD lo stesso valore di **Username** in Lecorpio.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
+2. **[Configurare l'accesso Single Sign-On per Lecorpio](#configure-lecorpio-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di Lecorpio](#create-lecorpio-test-user)**: per avere una controparte di Britta Simon in Lecorpio collegata alla rappresentazione dell'utente in Azure AD.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Lecorpio, è necessario completare i blocchi predefiniti seguenti:
+### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
-1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-1. **[Creazione di un utente test di Lecorpio](#creating-a-lecorpio-test-user)**: per avere una controparte di Britta Simon in Lecorpio collegata alla rappresentazione in Azure AD dell'utente.
-1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
+Per configurare l'accesso Single Sign-On di Azure AD con Lecorpio, seguire questa procedura:
 
-In questa sezione si abilita l'accesso Single Sign-On di Azure AD nel portale di Azure e si configura l'accesso Single Sign-On nell'applicazione Lecorpio.
+1. Nella pagina di integrazione dell'applicazione **Lecorpio** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
-**Per configurare l'accesso Single Sign-On di Azure AD con Lecorpio, seguire questa procedura:**
+    ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
-1. Nella pagina di integrazione dell'applicazione **Lecorpio** del portale di Azure fare clic su **Single Sign-On**.
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
 
-    ![Configure Single Sign-On][4]
+    ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
- 
-    ![Configure Single Sign-On](./media/lecorpio-tutorial/tutorial_lecorpio_samlbase.png)
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
 
-1. Nella sezione **URL e dominio Lecorpio** seguire questa procedura:
+    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-    ![Configure Single Sign-On](./media/lecorpio-tutorial/tutorial_lecorpio_url.png)
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-    a. Nella casella di testo **URL di accesso** digitare il valore usando il modello seguente: `https://<instance name>.lecorpio.com/<customer name>`
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Lecorpio](common/sp-identifier.png)
 
-    b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<instance name>.lecorpio.com/<customer name>`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<instance name>.lecorpio.com/<customer name>`
 
-    > [!NOTE] 
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. In questo caso, è consigliabile di usare il valore univoco della stringa nell'identificatore. Per ottenere questi valori, contattare il [team di supporto clienti di Lecorpio](mailto:info@lecorpio.com). 
- 
-1. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<instance name>.lecorpio.com/<customer name>`
 
-    ![Configure Single Sign-On](./media/lecorpio-tutorial/tutorial_lecorpio_certificate.png) 
+    > [!NOTE]
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Lecorpio](mailto:info@lecorpio.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-1. Fare clic sul pulsante **Salva** .
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
-    ![Configure Single Sign-On](./media/lecorpio-tutorial/tutorial_general_400.png)
+    ![Collegamento di download del certificato](common/metadataxml.png)
 
-1. Per configurare l'accesso Single Sign-On sul lato **Lecorpio**, è necessario inviare il file **XML dei metadati** scaricato al [team di supporto di Lecorpio](mailto:info@lecorpio.com).
+6. Nella sezione **Configura Lecorpio** copiare gli URL appropriati in base alle esigenze.
 
-> [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili qui: [Documentazione incorporata di Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+    ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
-### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+    a. URL di accesso
 
-![Creare un utente di Azure AD][100]
+    b. Identificatore Azure AD
 
-**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
+    c. URL disconnessione
 
-1. Nel **portale di Azure** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
+### <a name="configure-lecorpio-single-sign-on"></a>Configurare l'accesso Single Sign-On per Lecorpio
 
-    ![Creazione di un utente test di Azure AD](./media/lecorpio-tutorial/create_aaduser_01.png) 
+Per configurare l'accesso Single Sign-On sul lato **Lecorpio**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Lecorpio](mailto:info@lecorpio.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-1. Andare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
-    
-    ![Creazione di un utente test di Azure AD](./media/lecorpio-tutorial/create_aaduser_02.png) 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
- 
-    ![Creazione di un utente test di Azure AD](./media/lecorpio-tutorial/create_aaduser_03.png) 
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
-1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
- 
-    ![Creazione di un utente test di Azure AD](./media/lecorpio-tutorial/create_aaduser_04.png) 
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
-    a. Nella casella di testo **Nome** digitare **BrittaSimon**.
+    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
-    b. Nella casella di testo **Nome utente** digitare l'**indirizzo di posta elettronica** di BrittaSimon.
+2. Selezionare **Nuovo utente** in alto nella schermata.
 
-    c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
+    ![Pulsante Nuovo utente](common/new-user.png)
+
+3. In Proprietà utente seguire questa procedura.
+
+    ![Finestra di dialogo Utente](common/user-properties.png)
+
+    a. Nel campo **Nome** immettere **BrittaSimon**.
+  
+    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    Ad esempio: BrittaSimon@contoso.com
+
+    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Create**(Crea).
- 
-### <a name="creating-a-lecorpio-test-user"></a>Creazione di un utente test di Lecorpio
 
-In questa sezione si crea un utente di nome Britta Simon in Lecorpio. 
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-È necessario contattare il [team di supporto clienti di Lecorpio](mailto:info@lecorpio.com) per aggiungere gli utenti nell'applicazione Lecorpio.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Lecorpio.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Lecorpio**.
 
-In questa sezione si abilita Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Lecorpio.
+    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
-![Assegna utente][200] 
+2. Nell'elenco delle applicazioni selezionare **Lecorpio**.
 
-**Per assegnare Britta Simon a Lecorpio, seguire questa procedura:**
+    ![Collegamento di Lecorpio nell'elenco delle applicazioni](common/all-applications.png)
 
-1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
+3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
-    ![Assegna utente][201] 
+    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-1. Nell'elenco di applicazioni selezionare **Lecorpio**.
+4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
-    ![Configure Single Sign-On](./media/lecorpio-tutorial/tutorial_lecorpio_app.png) 
+    ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
-1. Scegliere **Utenti e gruppi** dal menu a sinistra.
+5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
 
-    ![Assegna utente][202] 
+6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 
-1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-    ![Assegna utente][203]
+### <a name="create-lecorpio-test-user"></a>Creare l'utente di test di Lecorpio
 
-1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+In questa sezione si crea un utente di nome Britta Simon in Lecorpio. Collaborare con il  [team di supporto di Lecorpio](mailto:info@lecorpio.com) per aggiungere gli utenti alla piattaforma Lecorpio. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
-1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
-
-1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
-    
-### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro Lecorpio nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Lecorpio.
+Quando si fa clic sul riquadro di Lecorpio nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Lecorpio per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/lecorpio-tutorial/tutorial_general_01.png
-[2]: ./media/lecorpio-tutorial/tutorial_general_02.png
-[3]: ./media/lecorpio-tutorial/tutorial_general_03.png
-[4]: ./media/lecorpio-tutorial/tutorial_general_04.png
-
-[100]: ./media/lecorpio-tutorial/tutorial_general_100.png
-
-[200]: ./media/lecorpio-tutorial/tutorial_general_200.png
-[201]: ./media/lecorpio-tutorial/tutorial_general_201.png
-[202]: ./media/lecorpio-tutorial/tutorial_general_202.png
-[203]: ./media/lecorpio-tutorial/tutorial_general_203.png
-
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

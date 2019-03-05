@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 97c33a5dc2eb43644081579b5d1c0172ce953906
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 75a78e303991e5426c97b8ceb0eb1375e03be2a2
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449351"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868188"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Esercitazione: Copiare dati in Azure Data Box Disk ed eseguire la verifica
 
@@ -178,20 +178,20 @@ Scegliere questa procedura facoltativa quando si usano più dischi e si ha un se
 1. Nel computer Windows, assicurarsi di avere scaricato ed estratto in una cartella locale lo strumento di divisione della copia di Data Box. Questo strumento è stato scaricato quando è stato scaricato il set di strumenti di Data Box Disk per Windows.
 2. Aprire Esplora file. Prendere nota dell'unità di origine dati e le lettere di unità assegnate al Data Box Disk. 
 
-     ![Divisione della copia dati ](media/data-box-disk-deploy-copy-data/split-copy-1.png)
+     ![Divisione della copia dati](media/data-box-disk-deploy-copy-data/split-copy-1.png)
  
 3. Identificare i dati di origine da copiare. Ad esempio, in questo caso:
     - Sono stati identificati i seguenti dati di BLOB in blocchi.
 
-         ![Divisione della copia dati ](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
+         ![Divisione della copia dati](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
 
     - Sono stati identificati i seguenti dati di BLOB di pagine.
 
-         ![Divisione della copia dati ](media/data-box-disk-deploy-copy-data/split-copy-3.png)
+         ![Divisione della copia dati](media/data-box-disk-deploy-copy-data/split-copy-3.png)
  
 4. Passare alla cartella in cui è stato estratto il software. Individuare il file `SampleConfig.json` in tale cartella. Si tratta di un file di sola lettura che è possibile modificare e salvare.
 
-   ![Divisione della copia dati ](media/data-box-disk-deploy-copy-data/split-copy-4.png)
+   ![Divisione della copia dati](media/data-box-disk-deploy-copy-data/split-copy-4.png)
  
 5. Modificare il file `SampleConfig.json`.
  
@@ -200,27 +200,27 @@ Scegliere questa procedura facoltativa quando si usano più dischi e si ha un se
     - Immettere le lettere di unità corrispondenti ai dischi di destinazione. I dati vengono prelevati dal percorso di origine e copiati tra più dischi.
     - Specificare un percorso per i file di log. Per impostazione predefinita, viene inviato alla directory corrente in cui si trova il file `.exe`.
 
-     ![Divisione della copia dati ](media/data-box-disk-deploy-copy-data/split-copy-5.png)
+     ![Divisione della copia dati](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 
 6. Per convalidare il formato di file, passare a `JSONlint`. Salvare il file con il nome `ConfigFile.json`. 
 
-     ![Divisione della copia dati ](media/data-box-disk-deploy-copy-data/split-copy-6.png)
+     ![Divisione della copia dati](media/data-box-disk-deploy-copy-data/split-copy-6.png)
  
 7. Aprire una finestra del prompt dei comandi. 
 
-8. Eseguire `DataBoxDiskSplitCopy.exe`. type
+8. Eseguire `DataBoxDiskSplitCopy.exe`. Type
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
-     ![Divisione della copia dati ](media/data-box-disk-deploy-copy-data/split-copy-7.png)
+     ![Divisione della copia dati](media/data-box-disk-deploy-copy-data/split-copy-7.png)
  
 9. Premere INVIO per continuare lo script.
 
-    ![Divisione della copia dati ](media/data-box-disk-deploy-copy-data/split-copy-8.png)
+    ![Divisione della copia dati](media/data-box-disk-deploy-copy-data/split-copy-8.png)
   
 10. Dopo aver diviso e copiato il set di dati, viene visualizzato il riepilogo dello strumento Copia suddivisa per la sessione di copia. Di seguito è riportato un output di esempio.
 
-    ![Divisione della copia dati ](media/data-box-disk-deploy-copy-data/split-copy-9.png)
+    ![Divisione della copia dati](media/data-box-disk-deploy-copy-data/split-copy-9.png)
  
 11. Verificare che i dati siano stati suddivisi tra i dischi di destinazione. 
  
@@ -229,7 +229,7 @@ Scegliere questa procedura facoltativa quando si usano più dischi e si ha un se
      
     Se si esamina ulteriormente il contenuto dell'unità `n:`, si noterà che le due sottocartelle vengono create in corrispondenza dei dati in formato BLOB in blocchi e BLOB di pagine.
     
-     ![Divisione della copia dati ](media/data-box-disk-deploy-copy-data/split-copy-12.png)
+     ![Divisione della copia dati](media/data-box-disk-deploy-copy-data/split-copy-12.png)
 
 12. Se la sessione di copia non riesce, per recuperarla e riprenderla usare il comando seguente:
 

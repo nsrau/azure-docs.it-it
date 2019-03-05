@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 91814579675882ba969f5903ebeddcebbcbd6616
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 45824ba93e86622b1bbd92aae01f18f89bee6adf
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301537"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673343"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Panoramica di Application Insights per DevOps
 
@@ -230,6 +230,7 @@ Ecco come un solo team usa Application Insights non solo per risolvere singoli p
 * [Applicazione Web ASP.NET](../../azure-monitor/app/asp-net.md)
 * [Applicazione Web Java](../../azure-monitor/app/java-get-started.md)
 * [Applicazione Web Node.js](../../azure-monitor/app/nodejs.md)
-* App già distribuite, ospitate in [IIS](../../azure-monitor/app/monitor-web-app-availability.md), [Java EE](../../azure-monitor/app/java-live.md) o [Azure](../../azure-monitor/app/app-insights-overview.md).
+* App già distribuite, ospitate in [IIS](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Azure](../../azure-monitor/app/app-insights-overview.md).
 * [Pagine Web](../../azure-monitor/app/javascript.md): app a singola pagina o pagina Web ordinaria da usare autonomamente o in combinazione con una delle opzioni del server.
 * [Test di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md) per testare l'applicazione dalla rete internet pubblica.

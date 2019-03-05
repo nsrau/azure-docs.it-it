@@ -657,9 +657,11 @@ items:
       href: platform/grafana-plugin.md
   - name: Analizzare i dati
     items:
-    - name: Creare grafici delle metriche in Esplora metriche
+    - name: Introduzione a Esplora metriche
+      href: platform/metrics-getting-started.md
+    - name: Funzionalità avanzate di Esplora metriche
       href: platform/metrics-charts.md
-    - name: Esempi di grafici di Esplora metriche
+    - name: Esempi di grafici delle metriche
       href: platform/metric-chart-samples.md
     - name: Visualizzare eventi nel log attività
       href: ../azure-resource-manager/resource-group-audit.md
@@ -917,7 +919,7 @@ items:
         href: insights/solutions-best-practices.md
       - name: Raccogliere i dati di monitoraggio da un runbook
         href: platform/runbook-datacollect.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Application Insights
     items:
@@ -1032,9 +1034,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: cd33e8c02f85884bc47fd2db9a0bb626e181d1e3
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 84cda925280e7497b2538d958a841bba3fc48d60
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985156"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341307"

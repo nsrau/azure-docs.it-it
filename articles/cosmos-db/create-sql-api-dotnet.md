@@ -8,14 +8,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/10/2018
-ms.openlocfilehash: 6f90485b17361089de9770bb630db38cf91abe12
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 530cd5adf942f32aaf883f668e3564ba5c12bbe2
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040915"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588025"
 ---
-# <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Avvio rapido: Creare un'app Web .NET con Azure Cosmos DB usando l'API SQL e il portale di Azure
+# <a name="quickstart-build-a-net-web-app-using-azure-cosmos-db-sql-api-account"></a>Guida introduttiva: Compilare un'app Web .NET usando un account API SQL di Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)

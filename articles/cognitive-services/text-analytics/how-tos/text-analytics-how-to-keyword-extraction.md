@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: bbf72847dd9d9a29bf1f2fa0574b83194d07a5c6
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: a427910c598ce7a93dd1b74fb4297d9825ba14ca
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245610"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887387"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Esempio: Come estrarre frasi chiave con Analisi del testo
 
@@ -33,7 +33,7 @@ L'estrazione di frasi chiave risulta più efficiente quando si elaborano grandi 
 
 È necessario disporre di documenti JSON nel formato seguente: id, testo, lingua
 
-Le dimensioni dei singoli documenti devono essere inferiori a 5000 caratteri e si possono avere fino a 1000 elementi (ID) per ogni raccolta. La raccolta viene inviata nel corpo della richiesta. L'esempio seguente illustra il contenuto che è possibile inviare per l'estrazione di espressioni chiave.
+Le dimensioni dei documenti devono essere inferiori a 5.120 caratteri per documento e ogni raccolta può contenere fino a 1.000 elementi (ID). La raccolta viene inviata nel corpo della richiesta. L'esempio seguente illustra il contenuto che è possibile inviare per l'estrazione di espressioni chiave.
 
 ```json
     {

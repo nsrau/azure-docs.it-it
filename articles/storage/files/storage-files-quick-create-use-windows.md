@@ -1,41 +1,45 @@
 ---
-title: 'Guida introduttiva: creare e usare una condivisione file di Azure per Windows | Microsoft Docs'
-description: Usare questa guida introduttiva per creare e usare una condivisione file di Azure per Windows.
+title: Guida introduttiva di Azure - Creare e usare una condivisione file di Azure in macchine virtuali Windows | Microsoft Docs
+description: In questa guida introduttiva si configura una condivisione file di Azure nel portale di Azure e la si connette a una macchina virtuale Windows. Ci si connette alla condivisione file e si carica un file, quindi si acquisisce uno snapshot della condivisione file, si modifica il file nella condivisione file e si ripristina uno snapshot precedente della condivisione.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/01/2019
-ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 141a8c9d63d3f0fd615ec0648b15c669f28f7118
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.author: rogarana
+ms.subservice: files
+ms.openlocfilehash: 12dea044dab2aafad1d7597214d159011b5ab536
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663996"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652468"
 ---
-# <a name="quickstart-create-and-use-an-azure-file-share-for-windows"></a>Guida introduttiva: Creare e usare una condivisione file di Azure per Windows
-L'articolo illustra i passaggi di base per la creazione e l'uso di una condivisione file di Azure. In questa guida introduttiva, particolare attenzione è dedicata a come configurare rapidamente una condivisione file di Azure in modo da provare come funziona il servizio. Se sono necessarie istruzioni più dettagliate per la creazione e l'uso di condivisioni file di Azure nel proprio ambiente, vedere [Usare una condivisione file di Azure con Windows](storage-how-to-use-files-windows.md).
+# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Guida introduttiva: Creare e gestire una condivisione file di Azure con macchine virtuali Windows
+
+L'articolo illustra i passaggi di base per la creazione e l'uso di una condivisione file di Azure. In questa guida introduttiva, particolare attenzione è dedicata a come configurare rapidamente una condivisione file di Azure in modo da sperimentare il funzionamento del servizio. Se sono necessarie istruzioni più dettagliate per la creazione e l'uso di condivisioni file di Azure nel proprio ambiente, vedere [Usare una condivisione file di Azure con Windows](storage-how-to-use-files-windows.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
+
 Accedere al [portale di Azure](https://portal.azure.com).
 
 ## <a name="prepare-your-environment"></a>Preparare l'ambiente
-Prima di creare una condivisione file di Azure, è necessario configurare gli elementi seguenti per questa guida introduttiva:
+
+In questa guida introduttiva si configurano gli elementi seguenti:
 
 - Un account di archiviazione di Azure e una condivisione file di Azure
 - Una VM Windows Server 2016 Datacenter
 
 ### <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-Prima di poter utilizzare una condivisione file di Azure, è necessario creare un account di archiviazione di Azure. Un account di archiviazione è un pool condiviso di spazio di archiviazione in cui è possibile distribuire una condivisione file di Azure o altre risorse di archiviazione, ad esempio BLOB o code. Un account di archiviazione può contenere un numero illimitato di condivisioni. In una condivisione può essere archiviato un numero illimitato di file, fino ai limiti di capacità dell'account di archiviazione.
+Prima di poter utilizzare una condivisione file di Azure, è necessario creare un account di archiviazione di Azure. Un account di archiviazione per utilizzo generico v2 consente l'accesso a tutti i servizi di Archiviazione di Azure: BLOB, file, code e tabelle. La guida introduttiva crea un account di archiviazione per utilizzo generico v2, ma i passaggi per creare qualsiasi tipo di account di archiviazione sono simili. Un account di archiviazione può contenere un numero illimitato di condivisioni. In una condivisione può essere archiviato un numero illimitato di file, fino ai limiti di capacità dell'account di archiviazione.
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ### <a name="create-an-azure-file-share"></a>Creare una condivisione file di Azure
+
 Quindi, creare una condivisione file.
 
 1. Una volta completata la distribuzione dell'account di archiviazione di Azure, selezionare **Vai alla risorsa**.
@@ -58,6 +62,7 @@ Quindi, creare una condivisione file.
 Finora, sono stati creati un account di archiviazione e una condivisione file di Azure contenente un solo file in Azure. Quindi si creerà la macchina virtuale di Azure con Windows Server 2016 Datacenter per rappresentare il server locale in questa guida introduttiva.
 
 ### <a name="deploy-a-vm"></a>Distribuire una macchina virtuale
+
 1. In seguito, espandere il menu a sinistra del portale e scegliere **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 1. Nella casella di ricerca sopra l'elenco delle risorse di **Azure Marketplace**, cercare e selezionare **Windows Server 2016 Datacenter** e quindi scegliere **Crea**.
 1. Nella scheda **Informazioni di base** in **Dettagli del progetto** selezionare il gruppo di risorse creato per questa guida introduttiva.
@@ -112,6 +117,7 @@ A questo punto, è stata creata una nuova macchina virtuale e collegato un disco
       ![Il percorso UNC dal riquadro Connetti di File di Azure](./media/storage-files-quick-create-use-windows/portal_netuse_connect3.png)
 
 ## <a name="create-a-share-snapshot"></a>Creare uno snapshot di condivisione
+
 Ora che è stato eseguito il mapping dell'unità, è possibile creare uno snapshot.
 
 1. Nel portale, passare alla condivisione file e selezionare **Creare uno snapshot**.
@@ -132,7 +138,7 @@ Ora che è stato eseguito il mapping dell'unità, è possibile creare uno snapsh
 
 ## <a name="restore-from-a-snapshot"></a>Ripristino da uno snapshot
 
-1. Dal portale, selezionare *qsTestFile* > selezionare il pulsante **Ripristina**.
+1. Nel pannello dello snapshot della condivisione file fare clic con il pulsante destro del mouse su *qsTestFile* e scegliere il pulsante **Ripristina**.
 1. Selezionare **Sovrascrivi file originale**.
 
    ![Pulsanti Scarica e Ripristina](./media/storage-files-quick-create-use-windows/snapshot-download-restore-portal.png)
@@ -147,6 +153,7 @@ Ora che è stato eseguito il mapping dell'unità, è possibile creare uno snapsh
    ![Pulsante Elimina](./media/storage-files-quick-create-use-windows/portal-snapshots-delete.png)
 
 ## <a name="use-a-share-snapshot-in-windows"></a>Usare uno snapshot di condivisione in Windows
+
 Proprio come con gli snapshot VSS in locale, è possibile visualizzare gli snapshot dalla condivisione file di Azure montata usando la scheda Versioni precedenti.
 
 1. In Esplora file, cercare la condivisione montata.

@@ -7,18 +7,20 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 1354faad4abf9a8a4b56414628d39d9a6f90d721
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 2befbf66733430e6077f5e5ff3044c30a77b7e5c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426168"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958984"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Esercitazione: Monitorare i log e le metriche di Firewall di Azure
 
 È possibile monitorare Firewall di Azure con i log del firewall. È possibile usare anche i log attività per controllare le operazioni eseguite sulle risorse di Firewall di Azure. Usando le metriche, è possibile visualizzare i contatori delle prestazioni nel portale. 
 
-Alcuni di questi log sono accessibili tramite il portale. I log possono essere inviati a [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Archiviazione e Hub eventi ed essere analizzati in Log Analytics o con strumenti diversi come ad esempio Excel e Power BI.
+Alcuni di questi log sono accessibili tramite il portale. I log possono essere inviati ai [log di Monitoraggio di Azure](../azure-monitor/insights/azure-networking-analytics.md), Archiviazione e Hub eventi ed essere analizzati nei log di Monitoraggio di Azure o con strumenti diversi come ad esempio Excel e Power BI.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 In questa esercitazione si apprenderà come:
 
@@ -48,7 +50,7 @@ Dopo aver completato questa procedura per abilitare la registrazione diagnostica
 
 3. Fare clic su **Abilita diagnostica** per avviare la raccolta dei dati.
 4. La pagina **Impostazioni di diagnostica** include le impostazioni per i log di diagnostica. 
-5. In questo esempio Log Analytics archivia i log, quindi digitare **Firewall log analytics** come nome.
+5. In questo esempio i log di Monitoraggio di Azure archiviano i log, quindi digitare **Firewall log analytics** come nome.
 6. Fare clic su **Invia a Log Analytics** per configurare l'area di lavoro. Per salvare i log di diagnostica è possibile anche usare l'hub eventi e un account di archiviazione.
 7. In **Log Analytics** fare clic su **Configura**.
 8. Nella pagina delle aree di lavoro di Log Analytics fare clic su **Crea nuova area di lavoro**.
@@ -89,14 +91,14 @@ Per abilitare la registrazione diagnostica, eseguire la procedura seguente:
 
 È possibile visualizzare e analizzare i dati del log attività usando uno dei metodi seguenti:
 
-* **Strumenti di Azure**: recuperare le informazioni dal log attività con Azure PowerShell, l'interfaccia della riga di comando (CLI) di Azure, l'API REST di Azure o il portale di Azure. Le istruzioni dettagliate di ciascun metodo sono fornite nell'articolo [Operazioni attività con Resource Manager](../azure-resource-manager/resource-group-audit.md).
-* **Power BI**: se non si ha ancora un account [Power BI](https://powerbi.microsoft.com/pricing) , è possibile crearne uno di prova gratuitamente. Usando il [pacchetto di contenuto dei log attività di Azure per Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) è possibile analizzare i dati con i dashboard preconfigurati che possono anche essere personalizzati.
+* **Strumenti di Azure**: consente di recuperare informazioni dal log attività con Azure PowerShell, l'interfaccia della riga di comando di Azure, l'API REST di Azure o il portale di Azure. Le istruzioni dettagliate di ciascun metodo sono fornite nell'articolo [Operazioni attività con Resource Manager](../azure-resource-manager/resource-group-audit.md).
+* **Power BI**: se non esiste ancora un account [Power BI](https://powerbi.microsoft.com/pricing), è possibile crearne uno di prova gratuitamente. Usando il [pacchetto di contenuto dei log attività di Azure per Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) è possibile analizzare i dati con i dashboard preconfigurati che possono anche essere personalizzati.
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Visualizzare e analizzare i log delle regole di rete e di applicazione
 
-Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) raccoglie i file di log di contatori ed eventi. Include visualizzazioni e funzionalità di ricerca avanzate per analizzare i log.
+I [log di Monitoraggio di Azure](../azure-monitor/insights/azure-networking-analytics.md) raccolgono i file di log di contatori ed eventi. Include visualizzazioni e funzionalità di ricerca avanzate per analizzare i log.
 
-Per query di esempio di Log Analytics di Firewall di Azure, vedere [Azure Firewall Log Analytics samples](log-analytics-samples.md) (Esempi di Log Analytics di Firewall di Azure).
+Per query di esempio di Log Analytics di Firewall di Azure, vedere [Esempi di Log Analytics per Firewall di Azure](log-analytics-samples.md).
 
 È anche possibile connettersi all'account di archiviazione e recuperare le voci del log JSON per i log di accesso e delle prestazioni. Dopo avere scaricato i file JSON, è possibile convertirli in CSV e visualizzarli in Excel, PowerBI o un altro strumento di visualizzazione dei dati.
 
@@ -108,10 +110,10 @@ Passare a un firewall di Azure e in **Monitoraggio** fare clic su **Metriche**. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo avere configurato il firewall per raccogliere i log, è possibile esplorare Log Analytics per visualizzare i dati.
+Dopo aver configurato il firewall per raccogliere i log, è possibile esplorare i log di Monitoraggio di Azure per visualizzare i dati.
 
 > [!div class="nextstepaction"]
-> [Soluzioni di monitoraggio di rete in Log Analytics](../azure-monitor/insights/azure-networking-analytics.md)
+> [Soluzioni di monitoraggio di rete nei log di Monitoraggio di Azure](../azure-monitor/insights/azure-networking-analytics.md)
 
 [1]: ./media/tutorial-diagnostics/figure1.png
 [2]: ./media/tutorial-diagnostics/figure2.png

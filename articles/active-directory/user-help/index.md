@@ -31,7 +31,7 @@ Questo contenuto è utile per configurare e usare le informazioni di sicurezza e
                     <div class="cardText">
                         <h3>Guida all'app Microsoft Authenticator</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/user-help-auth-app-overview">Panoramica</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-overview">Overview</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-auth-app-download-install">Scaricare e installare l'app</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-auth-app-add-account-overview">Aggiungere gli account</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-auth-app-sign-in">Accedere con l'app</a><br/>
@@ -51,10 +51,9 @@ Questo contenuto è utile per configurare e usare le informazioni di sicurezza e
                         <p>
                         <a href="/azure/active-directory/user-help/myprofile-portal-overview">Overview</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-security-info-overview">Gestire le informazioni di sicurezza</a><br/>
-                        <a href="/azure/active-directory/user-help/myprofile-portal-recent-activity-page">Visualizzare l'attività di accesso recente</a><br/>
                         <a href="/azure/active-directory/user-help/myprofile-portal-organizations-page">Gestire le organizzazioni</a><br/>
                         <a href="/azure/active-directory/user-help/myprofile-portal-devices-page">Gestire i dispositivi connessi</a><br/>
-                        <a href="/azure/active-directory/user-help/myprofile-portal-privacy-page">Visualizzare informazioni relative alla privacy</a><br/>                       
+                        <a href="/azure/active-directory/user-help/myprofile-portal-privacy-page">Visualizzare le informazioni relative alla privacy</a>
                         </p>
                     </div>
                 </div>
@@ -68,7 +67,7 @@ Questo contenuto è utile per configurare e usare le informazioni di sicurezza e
                     <div class="cardText">
                         <h3>Guida alle informazioni di sicurezza (anteprima)</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/user-help-security-info-overview">Panoramica</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-security-info-overview">Overview</a><br/>
                         <a href="/azure/active-directory/user-help/security-info-setup-signin">Configurare da un prompt della pagina di accesso</a><br/>
                         <a href="/azure/active-directory/user-help/security-info-setup-auth-app">Configurare un'app di autenticazione</a><br/>
                         <a href="/azure/active-directory/user-help/security-info-setup-text-msg">Configurare SMS</a><br/>

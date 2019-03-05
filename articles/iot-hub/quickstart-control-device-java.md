@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/22/2018
+ms.date: 02/22/2019
 ms.author: dobett
-ms.openlocfilehash: 454c3961cb31e147f647095c0a3a71a6c65630f1
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 30c5026c0f7c8fcce3cee8780622f4c835f043ce
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422118"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670945"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Guida introduttiva: Controllare un dispositivo connesso a un hub IoT (Java)
 
@@ -42,7 +42,7 @@ Le due applicazioni di esempio eseguite in questa guida introduttiva sono scritt
 Per verificare la versione corrente di Java installata nel computer di sviluppo, usare il comando seguente:
 
 ```cmd/sh
-java --version
+java -version
 ```
 
 Per compilare gli esempi, è necessario installare Maven 3. È possibile scaricare Maven per più piattaforme da [Apache Maven](https://maven.apache.org/download.cgi).
@@ -57,21 +57,21 @@ Se non è già stato fatto, scaricare il progetto Java di esempio da https://git
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
-Se è stata completata la precedente [Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-java.md), ignorare questo passaggio.
+Se è stata completata la precedente [Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-java.md), è possibile ignorare questo passaggio.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Registrare un dispositivo
 
-Se è stata completata la precedente [Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-java.md), ignorare questo passaggio.
+Se è stata completata la precedente [Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-java.md), è possibile ignorare questo passaggio.
 
 È necessario registrare un dispositivo con l'hub IoT perché questo possa connettersi. In questa guida introduttiva si usa Azure Cloud Shell per registrare un dispositivo simulato.
 
-1. Eseguire i comandi seguenti in Azure Cloud Shell per aggiungere l'estensione dell'interfaccia della riga di comando dell'hub IoT e per creare l'identità del dispositivo. 
+1. Eseguire i comandi seguenti in Azure Cloud Shell per aggiungere l'estensione dell'interfaccia della riga di comando dell'hub IoT e per creare l'identità del dispositivo.
 
-   **YourIoTHubName**: sostituire questo segnaposto con il nome scelto per l'hub IoT.
+   **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
-   **MyJavaDevice**: questo valore è il nome specificato per il dispositivo registrato. Usare MyJavaDevice come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usare tale nome nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
+   **MyJavaDevice**: nome del dispositivo da registrare. Usare **MyJavaDevice** come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usare tale nome nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -81,7 +81,7 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 
 2. Eseguire il comando seguente in Azure Cloud Shell per ottenere la _stringa di connessione del dispositivo_ per il dispositivo appena registrato.
 
-   **YourIoTHubName**: sostituire questo segnaposto con il nome scelto per l'hub IoT.
+   **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
@@ -99,8 +99,8 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 ## <a name="retrieve-the-service-connection-string"></a>Recuperare la stringa di connessione del servizio
 
 È necessaria anche una _stringa di connessione del servizio_ per consentire all'applicazione back-end di connettersi all'hub IoT dell'utente e recuperare i messaggi. Il comando seguente recupera la stringa di connessione del servizio per l'hub IoT:
-   
-**YourIoTHubName**: sostituire questo segnaposto con il nome scelto per l'hub IoT.
+
+**YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
 ```azurecli-interactive
 az iot hub show-connection-string --hub-name YourIoTHubName --output table
@@ -179,4 +179,4 @@ In questa guida introduttiva è stato chiamato un metodo diretto su un dispositi
 Per informazioni su come indirizzare messaggi da dispositivo a cloud a diverse destinazioni nel cloud, continuare con l'esercitazione successiva.
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Indirizzare i dati di telemetria a endpoint diversi per l'elaborazione](tutorial-routing.md)
+> [Esercitazione: indirizzare i dati di telemetria a endpoint diversi per l'elaborazione](tutorial-routing.md)

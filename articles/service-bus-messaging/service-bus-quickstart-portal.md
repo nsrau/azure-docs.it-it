@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 69c9a6d2d059ffbac5fe3e0ddb103eaec51123c3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: fa6d2b7d1fbd99e482cc013720c39b4b150f6742
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264021"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889546"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Avvio rapido: Usare il portale di Azure per creare una coda del bus di servizio
 Il bus di servizio di Microsoft Azure è un broker di messaggi di integrazione aziendale che garantisce la sicurezza della messaggistica e completa affidabilità. Uno scenario tipico del bus di servizio comporta in genere il disaccoppiamento di due o più applicazioni, servizi o processi e il trasferimento delle modifiche apportate ai dati o allo stato. Scenari di questo tipo potrebbero comportare la pianificazione di più processi batch in un'altra applicazione o servizio oppure l'attivazione dell'evasione degli ordini. Una società di vendita al dettaglio, ad esempio, potrebbe inviare i dati dei punti vendita a un back office o al centro di distribuzione locale per gli aggiornamenti di rifornimento e inventario. In questo scenario l'app client invia e riceve messaggi verso e da una coda del bus di servizio.  
@@ -33,46 +33,9 @@ Per completare questa esercitazione, accertarsi di avere installato:
 - [Visual Studio 2017 Update 3 (versione 15.3, 26730.01)](https://www.visualstudio.com/vs) o versioni successive.
 - [NET Core SDK](https://www.microsoft.com/net/download/windows) versione 2.0 o successiva.
 
-## <a name="log-on-to-the-azure-portal"></a>Accedere al portale di Azure
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-Aprire e accedere prima di tutto al [portale di Azure][Azure portal] con la propria sottoscrizione di Azure. Il primo passaggio è la creazione di uno spazio dei nomi del bus di servizio di tipo **Messaggistica**.
-
-## <a name="create-a-service-bus-namespace"></a>Creare uno spazio dei nomi del bus di servizio
-
-Uno spazio dei nomi di messaggistica del bus di servizio fornisce un contenitore di ambito univoco, a cui fa riferimento il [nome di dominio completo][], in cui si crea una o più code, argomenti e sottoscrizioni. L'esempio seguente crea uno spazio dei nomi di messaggistica del bus di servizio in un [gruppo di risorse](/azure/azure-resource-manager/resource-group-portal) nuovo o esistente:
-
-1. Nel riquadro di spostamento sinistro del portale fare clic su **+ Crea una risorsa**, quindi su **Enterprise Integration** e infine su **Bus di servizio**.
-2. Nella finestra di dialogo **Crea spazio dei nomi** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
-3. Dopo aver verificato che il nome dello spazio dei nomi sia disponibile, scegliere il piano tariffario, ovvero Standard o Premium.
-4. Nel campo **Sottoscrizione** scegliere una sottoscrizione di Azure in cui creare lo spazio dei nomi.
-5. Nel campo **Gruppo di risorse** scegliere un gruppo di risorse esistente nel quale risiederà lo spazio dei nomi oppure crearne uno nuovo.      
-6. In **Località**scegliere il paese o l'area in cui deve essere ospitato lo spazio dei nomi.
-7. Fare clic su **Create**(Crea). A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
-
-![namespace](./media/service-bus-quickstart-portal/create-namespace.png)
-
-### <a name="obtain-the-management-credentials"></a>Ottenere le credenziali di gestione
-
-Con la creazione di un nuovo spazio dei nomi viene generata automaticamente una regola di firma di accesso condiviso iniziale con una coppia associata di chiavi primaria e secondaria, ognuna delle quali concede il controllo completo su tutti gli aspetti dello spazio dei nomi. Per copiare la regola iniziale seguire questa procedura: 
-
-1.  Fare clic su **Tutte le risorse**, quindi sul nome dello spazio dei nomi appena creato.
-2. Nella finestra dello spazio dei nomi fare clic su **Criteri di accesso condiviso**.
-3. Nella schermata **Criteri di accesso condiviso** fare clic su **RootManageSharedAccessKey**.
-4. Nella finestra **Criteri: RootManageSharedAccessKey** fare clic sul pulsante **Copia** accanto a **Stringa di connessione primaria** per copiare la stringa di connessione negli Appunti e usarla in un secondo momento. Incollare questo valore nel Blocco note o in un'altra posizione temporanea. 
-
-    ![connection-string][connection-string]
-5. Ripetere il passaggio precedente e copiare e incollare il valore della **chiave primaria** in un percorso temporaneo per usarlo in seguito.
-
-## <a name="create-a-queue"></a>Creare una coda
-
-Per creare una coda del bus di servizio, specificare lo spazio dei nomi in cui crearla. L'esempio seguente mostra come creare una coda nel portale:
-
-1. Nel riquadro di spostamento a sinistra del portale, fare clic su **Bus di servizio** (se non viene visualizzato **Bus di servizio**, fare clic su **Altri servizi**).
-2. Fare clic sullo spazio dei nomi in cui si vuole creare la coda.
-3. Nella finestra dello spazio dei nomi fare clic su **Code** e quindi nella finestra **Code** fare clic su **+ Coda**.
-4. Immettere il nome della coda in **Nome** e lasciare le impostazioni predefinite per gli altri valori.
-5. Nella parte inferiore della finestra fare clic su **Crea**.
-6. Prendere nota del nome della coda.
+[!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## <a name="send-and-receive-messages"></a>Inviare e ricevere messaggi
 
@@ -82,28 +45,22 @@ Per eseguire il codice, seguire questa procedura:
 
 1. Clonare il [repository GitHub del bus di servizio](https://github.com/Azure/azure-service-bus/) eseguendo il comando seguente:
 
-   ```shell
+   ```
    git clone https://github.com/Azure/azure-service-bus.git
    ```
-
 3. Passare alla cartella dell'esempio `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
-
-4. Copiare la stringa di connessione e il nome della coda ottenuti nella sezione [Ottenere le credenziali di gestione](#obtain-the-management-credentials).
-
+4. Copiare la stringa di connessione e il nome della coda ottenuti nella sezione "Ottenere le credenziali di gestione".
 5.  Al prompt dei comandi digitare il comando seguente:
 
-   ```shell
-   dotnet build
-   ```
-
+    ```
+    dotnet build
+    ```
 6.  Passare alla cartella `bin\Debug\netcoreapp2.0`.
-
 7.  Digitare il comando seguente per eseguire il programma. Assicurarsi di sostituire `myConnectionString` con il valore ottenuto in precedenza e `myQueueName` con il nome della coda creata:
 
-   ```shell
-   dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
-   ``` 
-
+    ```shell
+    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
+    ``` 
 8. 10 messaggi vengono inviati alla coda e successivamente vengono ricevuti dalla coda:
 
    ![output programma](./media/service-bus-quickstart-portal/dotnet.png)
@@ -254,8 +211,7 @@ In questo articolo sono stati creati uno spazio dei nomi del bus di servizio e a
 
 
 [account gratuito]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[nome di dominio completo]: https://wikipedia.org/wiki/Fully_qualified_domain_name
+[fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 
-[connection-string]: ./media/service-bus-quickstart-portal/connection-string.png
 [service-bus-flow]: ./media/service-bus-quickstart-portal/service-bus-flow.png
