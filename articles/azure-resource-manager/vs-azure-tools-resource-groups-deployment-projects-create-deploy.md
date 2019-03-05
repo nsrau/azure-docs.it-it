@@ -11,22 +11,20 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2018
+ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0b00bff2b32ac9dd16d4d38ee35be006c0247bb8
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 246ee5f8360869c1b0f901ee54d56e017ac8aeb7
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493443"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649680"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio
 
 Con Visual Studio è possibile creare un progetto che distribuisce l'infrastruttura e il codice in Azure. Ad esempio, è possibile definire l'host Web, il sito Web e il database per l'app e distribuire l'infrastruttura insieme al codice. Visual Studio offre molti modelli di partenza per la distribuzione di scenari comuni. In questo articolo viene eseguita la distribuzione di un'app Web e un database SQL.  
 
 Questo articolo illustra come usare [Visual Studio 2017 con lo sviluppo di Azure e i carichi di lavoro ASP.NET installati](/dotnet/azure/dotnet-tools). Se si usa Visual Studio 2015 Update 2 e Microsoft Azure SDK per .NET 2.9 oppure Visual Studio 2013 con Azure SDK 2.9, l'esperienza è sostanzialmente uguale.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-azure-resource-group-project"></a>Creare un progetto Gruppo di risorse di Azure
 
@@ -148,7 +146,9 @@ Visual Studio fornisce anche il supporto per IntelliSense, per semplificare l'in
 5. Scegliere il pulsante **Distribuisci** per distribuire il progetto in Azure. Una console di PowerShell viene aperta al di fuori dell'istanza di Visual Studio. Immettere la password di amministratore di SQL Server nella console di PowerShell quando richiesto. **La console di PowerShell potrebbe essere nascosta dietro altri elementi o ridotta a icona nella barra delle applicazioni.**  Cercare la console e selezionarla per immettere la password.
    
    > [!NOTE]
-   > È possibile che Visual Studio richieda l'installazione dei cmdlet di Azure PowerShell. Per distribuire correttamente i gruppi di risorse, è necessario il cmdlet di Azure PowerShell. Se richiesto, occorre installarli. Per altre informazioni, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps).
+   > È possibile che Visual Studio richieda l'installazione dei cmdlet di Azure PowerShell. Se richiesto, occorre installarli. Per distribuire correttamente i gruppi di risorse sono necessari moduli di Azure PowerShell. Lo script PowerShell del progetto non funziona con il nuovo [modulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az). 
+   >
+   > Per altre informazioni, vedere [Installare e configurare moduli Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
    > 
    > 
 6. La distribuzione può richiedere alcuni minuti. Nelle finestre **Output** viene visualizzato lo stato della distribuzione. Al termine della distribuzione, l'ultimo messaggio indica una distribuzione riuscita con un testo simile al seguente:
