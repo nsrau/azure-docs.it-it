@@ -8,18 +8,19 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 2/5/2019
-ms.openlocfilehash: 145a56bee857debdbf028834a3ed378efd8671c8
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: c171962fd6177a01afdb8e9605b09574c99f485e
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447498"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889223"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Esercitazione: Inserire dati in Esplora dati di Azure senza una riga di codice
 
-Questa esercitazione illustra come inserire i dati dei log di diagnostica e attività in un cluster di Esplora dati di Azure senza una riga di codice. Questo semplice metodo di inserimento consente di iniziare rapidamente a eseguire query in Esplora dati di Azure per l'analisi dei dati.
+Questa esercitazione illustra come inserire i dati dei log di diagnostica e attività in un cluster di Esplora dati di Azure senza scrivere codice. Questo semplice metodo di inserimento consente di iniziare rapidamente a eseguire query in Esplora dati di Azure per l'analisi dei dati.
 
 In questa esercitazione si apprenderà come:
+
 > [!div class="checklist"]
 > * Creare tabelle e mapping di inserimento in un database di Esplora dati di Azure.
 > * Formattare i dati inseriti usando un criterio di aggiornamento.
@@ -28,20 +29,20 @@ In questa esercitazione si apprenderà come:
 > * Eseguire query sui dati inseriti usando Esplora dati di Azure.
 
 > [!NOTE]
-> Creare tutte le risorse nella stessa località/area di Azure. Questo è un requisito per i log di diagnostica di Monitoraggio di Azure.
+> Creare tutte le risorse nella stessa località o area di Azure. Questo è un requisito per i log di diagnostica di Monitoraggio di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* [Un cluster e un database di Esplora dati di Azure](create-cluster-database-portal.md). In questa esercitazione il nome del database è *AzureMonitoring*.
+* [Un cluster e un database di Esplora dati di Azure](create-cluster-database-portal.md). In questa esercitazione il nome del database è *TestDatabase*.
 
-## <a name="azure-monitoring-data-provider---diagnostic-and-activity-logs"></a>Provider di dati di Monitoraggio di Azure: log di diagnostica e attività
+## <a name="azure-monitor-data-provider-diagnostic-and-activity-logs"></a>Provider di dati di Monitoraggio di Azure: log di diagnostica e attività
 
 Visualizzare e interpretare i dati forniti dai log di diagnostica e attività di Monitoraggio di Azure. Verrà creata una pipeline di inserimento in base a questi schemi di dati.
 
 ### <a name="diagnostic-logs-example"></a>Esempio di log di diagnostica
 
-I log di diagnostica di Azure sono metriche generate da un servizio di Azure che forniscono dati sul funzionamento del servizio stesso. I dati vengono aggregati con un intervallo di tempo di 1 minuto. Ogni evento dei log di diagnostica contiene un unico record. Di seguito è riportato un esempio di schema di evento di metrica di Esplora dati di Azure sulla durata di una query:
+I log di diagnostica di Azure sono metriche generate da un servizio di Azure che forniscono dati sul funzionamento del servizio stesso. I dati vengono aggregati con un intervallo di tempo di 1 minuto. Ogni evento di un log di diagnostica contiene un unico record. Di seguito è riportato un esempio di schema di evento di metrica di Esplora dati di Azure sulla durata di una query:
 
 ```json
 {
@@ -59,7 +60,7 @@ I log di diagnostica di Azure sono metriche generate da un servizio di Azure che
 
 ### <a name="activity-logs-example"></a>Esempio di log attività
 
-I log attività di Azure sono log a livello di sottoscrizione contenenti una raccolta di record. Offrono informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione. A differenza dei log di diagnostica, un evento dei log attività include una matrice di record. Sarà necessario dividere questa matrice di record più avanti nell'esercitazione. Di seguito è riportato un esempio di evento di log attività per il controllo dell'accesso:
+I log attività di Azure sono log a livello di sottoscrizione contenenti una raccolta di record. Offrono informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione. A differenza dei log di diagnostica, ogni evento di un log attività include una matrice di record. Sarà necessario dividere questa matrice di record più avanti nell'esercitazione. Di seguito è riportato un esempio di evento di log attività per il controllo dell'accesso:
 
 ```json
 {
@@ -116,23 +117,23 @@ I log attività di Azure sono log a livello di sottoscrizione contenenti una rac
 }
 ```
 
-## <a name="set-up-ingestion-pipeline-in-azure-data-explorer"></a>Configurare la pipeline di inserimento in Esplora dati di Azure 
+## <a name="set-up-an-ingestion-pipeline-in-azure-data-explorer"></a>Configurare una pipeline di inserimento in Esplora dati di Azure
 
-La configurazione della pipeline di Esplora dati di Azure implica vari passaggi, che includono la [creazione di una tabella e l'inserimento dei dati](/azure/data-explorer/ingest-sample-data#ingest-data). È anche possibile manipolare, mappare e aggiornare i dati.
+La configurazione di una pipeline di Esplora dati di Azure prevede diversi passaggi come [la creazione di una tabella e l'inserimento dei dati](/azure/data-explorer/ingest-sample-data#ingest-data). È anche possibile manipolare, mappare e aggiornare i dati.
 
-### <a name="connect-to-azure-data-explorer-web-ui"></a>Connettersi all'interfaccia utente Web di Esplora dati di Azure
+### <a name="connect-to-the-azure-data-explorer-web-ui"></a>Connettersi all'interfaccia utente Web di Esplora dati di Azure
 
-1. Nel database *AzureMonitoring* di Esplora dati di Azure selezionare **Query** per aprire l'interfaccia utente Web di Esplora dati di Azure.
+Nel database *TestDatabase* di Esplora dati di Azure selezionare **Query** per aprire l'interfaccia utente Web di Esplora dati di Azure.
 
-    ![Query](media/ingest-data-no-code/query-database.png)
+![Pagina Query](media/ingest-data-no-code/query-database.png)
 
-### <a name="create-target-tables"></a>Creare le tabelle di destinazione
+### <a name="create-the-target-tables"></a>Creare le tabelle di destinazione
 
 Usare l'interfaccia utente Web di Esplora dati di Azure per creare le tabelle di destinazione nel database di Esplora dati di Azure.
 
-#### <a name="diagnostic-logs-table"></a>Tabella dei log di diagnostica
+#### <a name="the-diagnostic-logs-table"></a>Tabella dei log di diagnostica
 
-1. Creare la tabella *DiagnosticLogsRecords* nel database *AzureMonitoring* che riceverà i record dei log di diagnostica usando il comando di controllo `.create table`:
+1. Nel database *TestDatabase* creare una tabella denominata *DiagnosticLogsRecords* per archiviare i record di log di diagnostica. Usare il comando di controllo seguente `.create table`:
 
     ```kusto
     .create table DiagnosticLogsRecords (Timestamp:datetime, ResourceId:string, MetricName:string, Count:int, Total:double, Minimum:double, Maximum:double, Average:double, TimeGrain:string)
@@ -140,19 +141,19 @@ Usare l'interfaccia utente Web di Esplora dati di Azure per creare le tabelle di
 
 1. Selezionare **Run** (Esegui) per creare la tabella.
 
-    ![Eseguire la query](media/ingest-data-no-code/run-query.png)
+    ![Esegui query](media/ingest-data-no-code/run-query.png)
 
-#### <a name="activity-logs-tables"></a>Tabelle dei log attività
+#### <a name="the-activity-logs-tables"></a>Tabelle dei log attività
 
-Poiché la struttura dei log attività non è tabulare, sarà necessario manipolare i dati ed espandere ogni evento in uno o più record. I dati non elaborati verranno inseriti in una tabella intermedia, *ActivityLogsRawRecords*. A quel punto, i dati verranno manipolati ed espansi. I dati espansi verranno quindi inseriti nella tabella *ActivityLogsRecords* usando un criterio di aggiornamento. Pertanto, per l'inserimento dei log attività sarà necessario creare due tabelle distinte.
+Poiché la struttura dei log attività non è tabulare, sarà necessario manipolare i dati ed espandere ogni evento in uno o più record. I dati non elaborati verranno inseriti in una tabella intermedia denominata *ActivityLogsRawRecords*. A quel punto, i dati verranno manipolati ed espansi. I dati espansi verranno quindi inseriti nella tabella *ActivityLogsRecords* usando un criterio di aggiornamento. Pertanto, per l'inserimento dei log attività sarà necessario creare due tabelle distinte.
 
-1. Creare la tabella *ActivityLogsRecords* nel database *AzureMonitoring* che riceverà i record dei log attività. Eseguire la query di Esplora dati di Azure seguente per creare la tabella:
+1. Creare la tabella denominata *ActivityLogsRecords* nel database *TestDatabase* per ricevere i record dei log attività. Per creare la tabella, eseguire la query di Esplora dati di Azure seguente:
 
     ```kusto
     .create table ActivityLogsRecords (Timestamp:datetime, ResourceId:string, OperationName:string, Category:string, ResultType:string, ResultSignature:string, DurationMs:int, IdentityAuthorization:dynamic, IdentityClaims:dynamic, Location:string, Level:string)
     ```
 
-1. Creare la tabella dati intermedia *ActivityLogsRawRecords* nel database *AzureMonitoring* per la manipolazione dei dati:
+1. Creare la tabella dati intermedia denominata *ActivityLogsRawRecords* nel database *TestDatabase* per la manipolazione dei dati:
 
     ```kusto
     .create table ActivityLogsRawRecords (Records:dynamic)
@@ -166,25 +167,25 @@ Poiché la struttura dei log attività non è tabulare, sarà necessario manipol
 
 ### <a name="create-table-mappings"></a>Creare i mapping della tabella
 
- Il formato dei dati è `json`, quindi è necessario eseguirne il mapping. Il mapping `json` mappa ogni percorso JSON al nome di una colonna della tabella.
+ Poiché il formato dei dati è `json`, è necessario eseguirne il mapping. Il mapping `json` mappa ogni percorso JSON al nome di una colonna della tabella.
 
-#### <a name="diagnostic-logs-table-mapping"></a>Mapping della tabella dei log di diagnostica
+#### <a name="table-mapping-for-diagnostic-logs"></a>Mapping della tabella per i log di diagnostica
 
-Usare la query seguente per eseguire il mapping dei dati con la tabella:
+Per eseguire il mapping dei dati dei log di diagnostica con la tabella, usare la query seguente:
 
 ```kusto
 .create table DiagnosticLogsRecords ingestion json mapping 'DiagnosticLogsRecordsMapping' '[{"column":"Timestamp","path":"$.time"},{"column":"ResourceId","path":"$.resourceId"},{"column":"MetricName","path":"$.metricName"},{"column":"Count","path":"$.count"},{"column":"Total","path":"$.total"},{"column":"Minimum","path":"$.minimum"},{"column":"Maximum","path":"$.maximum"},{"column":"Average","path":"$.average"},{"column":"TimeGrain","path":"$.timeGrain"}]'
 ```
 
-#### <a name="activity-logs-table-mapping"></a>Mapping della tabella dei log attività
+#### <a name="table-mapping-for-activity-logs"></a>Mapping della tabella per i log attività
 
-Usare la query seguente per eseguire il mapping dei dati con la tabella:
+Per eseguire il mapping dei dati dei log attività con la tabella, usare la query seguente:
 
 ```kusto
 .create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
-### <a name="create-update-policy"></a>Creare il criterio di aggiornamento
+### <a name="create-the-update-policy-for-activity-logs-data"></a>Creare i criteri di aggiornamento per i dati dei log attività
 
 1. Creare una [funzione](/azure/kusto/management/functions) che espande la raccolta di record in modo che ogni valore riceva una riga distinta. Usare l'operatore [`mvexpand`](/azure/kusto/query/mvexpandoperator):
 
@@ -207,165 +208,169 @@ Usare la query seguente per eseguire il mapping dei dati con la tabella:
     }
     ```
 
-2. Aggiungere un [criterio di aggiornamento](/azure/kusto/concepts/updatepolicy) nella tabella di destinazione. Eseguirà automaticamente la query sui nuovi dati inseriti nella tabella dati intermedia *ActivityLogsRawRecords* e inserirà i relativi risultati nella tabella *ActivityLogsRecords*:
+2. Aggiungere il [criterio di aggiornamento](/azure/kusto/concepts/updatepolicy) nella tabella di destinazione. Questo criterio eseguirà automaticamente la query sui nuovi dati inseriti nella tabella dati intermedia *ActivityLogsRawRecords* e inserirà i relativi risultati nella tabella *ActivityLogsRecords*:
 
     ```kusto
     .alter table ActivityLogsRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
     ```
 
-## <a name="create-an-event-hub-namespace"></a>Creare uno spazio dei nomi di hub eventi
+## <a name="create-an-azure-event-hubs-namespace"></a>Creare uno spazio dei nomi di Hub eventi di Azure
 
 I log di diagnostica di Azure consentono l'esportazione delle metriche in un account di archiviazione o in un hub eventi. In questa esercitazione le metriche verranno instradate tramite un hub eventi. Con i passaggi seguenti verrà creato uno spazio dei nomi di hub eventi e un hub eventi per i log di diagnostica. Monitoraggio di Azure creerà il componente *insights-operational-logs* dell'hub eventi per i log attività.
 
-1. Creare un hub eventi usando un modello di Resource Manager nel portale di Azure. Usare il pulsante seguente per avviare la distribuzione. Fare clic con il pulsante destro del mouse e selezionare **Apri in una nuova finestra** per poter seguire il resto dei passaggi di questo articolo. Il pulsante **Distribuzione in Azure** consente di passare al portale di Azure.
+1. Creare un hub eventi usando un modello di Azure Resource Manager nel portale di Azure. Per seguire il resto dei passaggi di questo articolo, fare clic con il pulsante destro del mouse sul pulsante **Distribuisci in Azure** e quindi selezionare **Apri in una nuova finestra**. Il pulsante **Distribuzione in Azure** consente di passare al portale di Azure.
 
-    [![Distribuzione in Azure](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![Pulsante Distribuisci in Azure](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
 1. Creare uno spazio dei nomi di hub eventi e un hub eventi per i log di diagnostica.
 
     ![Creazione dell'hub eventi](media/ingest-data-no-code/event-hub.png)
 
-    Compilare il modulo con le informazioni seguenti. Usare i valori predefiniti per tutte le impostazioni non elencate nella tabella seguente.
+1. Compilare il modulo con le informazioni seguenti. Per tutte le impostazioni non elencate nella tabella seguente usare i valori predefiniti.
 
-    **Impostazione** | **Valore consigliato** | **Descrizione campo**
+    **Impostazione** | **Valore consigliato** | **Descrizione**
     |---|---|---|
-    | Sottoscrizione | Sottoscrizione in uso | Selezionare la sottoscrizione di Azure da usare per l'hub eventi.|
-    | Gruppo di risorse | *test-resource-group* | Creare un nuovo gruppo di risorse. |
-    | Località | Selezionare l'area più appropriata in base alle esigenze. | Creare lo spazio dei nomi di hub eventi nella stessa posizione delle altre risorse.
-    | Nome spazio dei nomi | *AzureMonitoringData* | Scegliere un nome univoco per identificare lo spazio dei nomi.
-    | Nome hub eventi | *DiagnosticLogsData* | L'hub eventi si trova nello spazio dei nomi, che fornisce un contenitore di ambito univoco. |
-    | Consumer group name (Nome gruppo di consumer) | *adxpipeline* | Creare un nome del gruppo di consumer. Consente a più applicazioni di avere ognuna una visualizzazione distinta del flusso di eventi. |
+    | **Sottoscrizione** | *Sottoscrizione in uso* | Selezionare la sottoscrizione di Azure da usare per l'hub eventi.|
+    | **Gruppo di risorse** | *test-resource-group* | Creare un nuovo gruppo di risorse. |
+    | **Posizione** | Selezionare l'area più appropriata in base alle esigenze. | Creare lo spazio dei nomi di hub eventi nella stessa posizione delle altre risorse.
+    | **Nome spazio dei nomi** | *AzureMonitoringData* | Scegliere un nome univoco per identificare lo spazio dei nomi.
+    | **Nome hub eventi** | *DiagnosticLogsData* | L'hub eventi si trova nello spazio dei nomi, che fornisce un contenitore di ambito univoco. |
+    | **Nome gruppo di consumer** | *adxpipeline* | Creare un nome del gruppo di consumer. I gruppi di consumer consentono a più applicazioni di avere ognuna una visualizzazione distinta del flusso di eventi. |
     | | |
 
-## <a name="connect-azure-monitoring-logs-to-event-hub"></a>Connettere i log di Monitoraggio di Azure all'hub eventi
+## <a name="connect-azure-monitor-logs-to-your-event-hub"></a>Connettere i log di Monitoraggio di Azure all'hub eventi
 
-### <a name="diagnostic-logs-connection-to-event-hub"></a>Connessione dei log di diagnostica all'hub eventi
+A questo punto è necessario collegare i log di diagnostica e i log attività all'hub eventi.
 
-Selezionare una risorsa da cui esportare le metriche. Esistono diversi tipi di risorse che consentono l'esportazione dei log di diagnostica, tra cui lo spazio dei nomi di hub eventi, KeyVault, hub IoT e il cluster di Esplora dati di Azure. In questa esercitazione verrà usato il cluster di Esplora dati di Azure come risorsa.
+### <a name="connect-diagnostic-logs-to-your-event-hub"></a>Collegare i log di diagnostica all'hub eventi
+
+Selezionare una risorsa da cui esportare le metriche. Esistono diversi tipi di risorse che consentono l'esportazione dei log di diagnostica, tra cui lo spazio dei nomi di hub eventi, Azure Key Vault, hub IoT di Azure e i cluster di Esplora dati di Azure. In questa esercitazione verrà usato un cluster di Esplora dati di Azure come risorsa.
 
 1. Selezionare il cluster Kusto nel portale di Azure.
+1. Selezionare **Impostazioni di diagnostica** e quindi selezionare il collegamento **Abilita diagnostica**. 
 
     ![Impostazioni di diagnostica](media/ingest-data-no-code/diagnostic-settings.png)
 
-1. Scegliere **Impostazioni di diagnostica** dal menu a sinistra.
-1. Fare clic sul collegamento **Abilita diagnostica**. Viene visualizzata la finestra **Impostazioni di diagnostica**.
-
-    ![Finestra Impostazioni di diagnostica](media/ingest-data-no-code/diagnostic-settings-window.png)
-
-1. Nel riquadro **Impostazioni di diagnostica**:
+1. Viene visualizzato il riquadro **Impostazioni di diagnostica**. Eseguire questa procedura:
     1. Assegnare ai dati del log di diagnostica il nome *ADXExportedData*.
-    1. Selezionare la casella di controllo **AllMetrics** (facoltativo).
+    1. In **METRICA** selezionare la casella di controllo **AllMetrics** (facoltativo).
     1. Selezionare la casella di controllo **Streaming in un hub eventi**.
-    1. Fare clic su **Configura**.
+    1. Selezionare **Configura**.
 
-1. Nel riquadro **Selezionare l'hub eventi** configurare l'esportazione nell'hub eventi creato:
-    1. **Selezionare lo spazio dei nomi dell'hub eventi** *AzureMonitoringData* dal menu a discesa.
-    1. **Selezionare il nome dell'hub eventi** *diagnosticlogsdata* dal menu a discesa.
-    1. **Selezionare il nome dei criteri per l'hub eventi** dal menu a discesa.
-    1. Fare clic su **OK**.
+    ![Riquadro Impostazioni di diagnostica](media/ingest-data-no-code/diagnostic-settings-window.png)
 
-1. Fare clic su **Save**. Nella finestra vengono visualizzati lo spazio dei nomi, il nome e il nome del criterio per l'hub eventi.
+1. Nel riquadro **Selezionare l'hub eventi** configurare il modo in cui esportare i dati dai log di diagnostica nell'hub eventi creato:
+    1. Nell'elenco **Selezionare lo spazio dei nomi dell'hub eventi** selezionare *AzureMonitoringData*.
+    1. Nell'elenco **Selezionare il nome dell'hub eventi**  selezionare *diagnosticlogsdata*.
+    1. Nell'elenco **Selezionare il nome dei criteri per l'hub eventi** selezionare **RootManagerSharedAccessKey**.
+    1. Selezionare **OK**.
 
-    ![Salvare le impostazioni di diagnostica](media/ingest-data-no-code/save-diagnostic-settings.png)
+1. Selezionare **Salva**.
 
-### <a name="activity-logs-connection-to-event-hub"></a>Connessione dei log attività all'hub eventi
+### <a name="connect-activity-logs-to-your-event-hub"></a>Collegare i log attività all'hub eventi
 
 1. Scegliere **Log attività** dal menu a sinistra del portale di Azure.
-1. Viene visualizzata la finestra **Log attività**. **Fare clic su Esporta in Hub eventi**.
+1. Viene visualizzata la finestra **Log attività**. Selezionare **Esporta in Hub eventi**.
 
-    ![Log attività](media/ingest-data-no-code/activity-log.png)
+    ![Finestra Log attività](media/ingest-data-no-code/activity-log.png)
 
-1. Nella finestra **Esporta log attività**:
+1. Viene visualizzata la finestra **Esporta log attività**:
  
-    ![Esporta log attività](media/ingest-data-no-code/export-activity-log.png)
+    ![Finestra Esporta log attività](media/ingest-data-no-code/export-activity-log.png)
 
-    1. Selezionare la propria sottoscrizione.
-    1. Nel menu a discesa **Aree** scegliere **Seleziona tutto**
-    1. Selezionare la casella di controllo **Esporta in un hub eventi**.
-    1. Fare clic su **Selezionare uno spazio dei nomi del bus di servizio** per aprire il riquadro **Selezionare l'hub eventi**.
-    1. Nei menu a discesa del riquadro **Selezionare l'hub eventi** selezionare la propria sottoscrizione, lo spazio dei nomi dell'evento *AzureMonitoringData* e il nome del criterio dell'hub eventi predefinito.
-    1. Fare clic su **OK**.
-    1. Fare clic su **Salva** nell'angolo in alto a destra della finestra. Verrà creato un hub eventi denominato *insights-operational-logs*.
+1. Nella finestra **Esporta log attività** seguire questa procedura:
+      1. Selezionare la propria sottoscrizione.
+      1. Nell'elenco **Aree** scegliere **Seleziona tutto**.
+      1. Selezionare la casella di controllo **Esporta in un hub eventi**.
+      1. Scegliere **Selezionare uno spazio dei nomi del bus di servizio** per aprire il riquadro **Selezionare l'hub eventi**.
+      1. Nel riquadro **Selezionare l'hub eventi** selezionare la propria sottoscrizione.
+      1. Nell'elenco **Selezionare lo spazio dei nomi dell'hub eventi** selezionare *AzureMonitoringData*.
+      1. Nell'elenco **Selezionare il nome dei criteri per l'hub eventi** selezionare il nome dei criteri per l'hub eventi predefinito.
+      1. Selezionare **OK**.
+      1. Nell'angolo superiore sinistro della finestra selezionare **Salva**.
+   Verrà creato un hub eventi denominato *insights-operational-logs*.
 
 ### <a name="see-data-flowing-to-your-event-hubs"></a>Esaminare il flusso di dati verso gli hub eventi
 
-1. Attendere alcuni minuti finché non viene definita la connessione. L'esportazione dei log attività nell'hub eventi è completata. Passare allo spazio dei nomi di hub eventi per vedere gli hub eventi creati.
+1. Attendere alcuni minuti finché non viene definita la connessione e non viene completata l'esportazione dei log attività nell'hub eventi. Passare allo spazio dei nomi di hub eventi per vedere gli hub eventi creati.
 
     ![Hub eventi creati](media/ingest-data-no-code/event-hubs-created.png)
 
 1. Esaminare il flusso di dati verso l'hub eventi:
 
-    ![Dati degli hub eventi](media/ingest-data-no-code/event-hubs-data.png)
+    ![Dati dell'hub eventi](media/ingest-data-no-code/event-hubs-data.png)
 
-## <a name="connect-event-hub-to-azure-data-explorer"></a>Connettere l'hub eventi a Esplora dati di Azure
+## <a name="connect-an-event-hub-to-azure-data-explorer"></a>Connettere un hub eventi a Esplora dati di Azure
 
-### <a name="diagnostic-logs-data-connection"></a>Connessione dati dei log di diagnostica
+A questo punto è necessario creare le connessioni dati per i log di diagnostica e i log attività.
 
-1. Nel cluster di Esplora dati di Azure *kustodocs* scegliere **Database** dal menu a sinistra.
-1. Nella finestra **Database** selezionare il nome del database *AzureMonitoring*.
+### <a name="create-the-data-connection-for-diagnostic-logs"></a>Creare la connessione dati per i log di diagnostica
+
+1. Nel cluster di Esplora dati di Azure denominato *kustodocs* scegliere **Database** dal menu a sinistra.
+1. Nella finestra **Database** selezionare il database *TestDatabase*.
 1. Scegliere **Inserimento dati** dal menu a sinistra.
 1. Nella finestra **Inserimento dati** fare clic su **+ Aggiungi connessione dati**.
 1. Nella finestra **Connessione dati** immettere le informazioni seguenti:
 
-    ![Connessione all'hub eventi](media/ingest-data-no-code/event-hub-data-connection.png)
+    ![Connessione dati dell'hub eventi](media/ingest-data-no-code/event-hub-data-connection.png)
 
     Origine dati:
 
     **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
-    | Data connection name (Nome connessione dati) | *DiagnosticsLogsConnection* | Nome della connessione da creare in Esplora dati di Azure.|
-    | Spazio dei nomi dell'hub eventi | *AzureMonitoringData* | Nome scelto in precedenza che identifica lo spazio dei nomi. |
-    | Hub eventi | *diagnosticlogsdata* | Hub eventi creato. |
-    | Gruppo di consumer | *adxpipeline* | Gruppo di consumer definito nell'hub eventi creato. |
+    | **Nome connessione dati** | *DiagnosticsLogsConnection* | Nome della connessione da creare in Esplora dati di Azure.|
+    | **Spazio dei nomi dell'hub eventi** | *AzureMonitoringData* | Nome scelto in precedenza che identifica lo spazio dei nomi. |
+    | **Hub eventi** | *diagnosticlogsdata* | Hub eventi creato. |
+    | **Gruppo di consumer** | *adxpipeline* | Gruppo di consumer definito nell'hub eventi creato. |
     | | |
 
     Tabella di destinazione:
 
-    Sono disponibili due opzioni per il routing: *statico* e *dinamico*. Per questa esercitazione viene usato il routing statico (impostazione predefinita), in cui vengono specificati il nome della tabella, il formato di file e il mapping. Lasciare deselezionato **My data includes routing info** (I miei dati includono le informazioni di routing).
+    Sono disponibili due opzioni per il routing: *statico* e *dinamico*. Per questa esercitazione viene usato il routing statico (impostazione predefinita), in cui vengono specificati il nome della tabella, il formato dati e il mapping. Lasciare deselezionato **My data includes routing info** (I miei dati includono le informazioni di routing).
 
      **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
-    | Tabella | *DiagnosticLogsRecords* | La tabella creata nel database *AzureMonitoring*. |
-    | Formato dati | *JSON* | Formato nella tabella. |
-    | Mapping di colonne | *DiagnosticLogsRecordsMapping* | Il mapping creato nel database *AzureMonitoring*, che mappa i dati JSON in ingresso con i nomi di colonna e i tipi di dati di *DiagnosticLogsRecords*.|
+    | **Tabella** | *DiagnosticLogsRecords* | Tabella creata nel database *TestDatabase*. |
+    | **Formato dati** | *JSON* | Formato usato nella tabella. |
+    | **Mapping di colonne** | *DiagnosticLogsRecordsMapping* | Il mapping creato nel database *TestDatabase*, che mappa i dati JSON in ingresso con i nomi di colonna e i tipi di dati della tabella *DiagnosticLogsRecords*.|
     | | |
 
-1. Fare clic su **Crea**  
+1. Selezionare **Create**.  
 
-### <a name="activity-logs-data-connection"></a>Connessione dei dati dei log attività
+### <a name="create-the-data-connection-for-activity-logs"></a>Creare la connessione dati per i log attività
 
-Ripetere i passaggi descritti nella sezione [Connessione dati dei log di diagnostica](#diagnostic-logs-data-connection) per creare una connessione dati dei log attività.
+Ripetere i passaggi descritti nella sezione Creare la connessione dati per i log di diagnostica per creare una connessione dati per i log attività.
 
-1. Nella finestra **Connessione dati** immettere le informazioni seguenti:
+1. Nella finestra **Connessione dati** usare le impostazioni seguenti:
 
     Origine dati:
 
     **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
-    | Data connection name (Nome connessione dati) | *ActivityLogsConnection* | Nome della connessione da creare in Esplora dati di Azure.|
-    | Spazio dei nomi dell'hub eventi | *AzureMonitoringData* | Nome scelto in precedenza che identifica lo spazio dei nomi. |
-    | Hub eventi | *insights-operational-logs* | Hub eventi creato. |
-    | Gruppo di consumer | *$Default* | Il gruppo di consumer predefinito. Se necessario, è possibile crearne uno diverso. |
+    | **Nome connessione dati** | *ActivityLogsConnection* | Nome della connessione da creare in Esplora dati di Azure.|
+    | **Spazio dei nomi dell'hub eventi** | *AzureMonitoringData* | Nome scelto in precedenza che identifica lo spazio dei nomi. |
+    | **Hub eventi** | *insights-operational-logs* | Hub eventi creato. |
+    | **Gruppo di consumer** | *$Default* | Il gruppo di consumer predefinito. Se necessario, è possibile crearne uno diverso. |
     | | |
 
     Tabella di destinazione:
 
-    Sono disponibili due opzioni per il routing: *statico* e *dinamico*. Per questa esercitazione viene usato il routing statico (impostazione predefinita), in cui vengono specificati il nome della tabella, il formato di file e il mapping. Lasciare deselezionato **My data includes routing info** (I miei dati includono le informazioni di routing).
+    Sono disponibili due opzioni per il routing: *statico* e *dinamico*. Per questa esercitazione viene usato il routing statico (impostazione predefinita), in cui vengono specificati il nome della tabella, il formato dati e il mapping. Lasciare deselezionato **My data includes routing info** (I miei dati includono le informazioni di routing).
 
      **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
-    | Tabella | *ActivityLogsRawRecords* | La tabella creata nel database *AzureMonitoring*. |
-    | Formato dati | *JSON* | Formato nella tabella. |
-    | Mapping di colonne | *ActivityLogsRawRecordsMapping* | Il mapping creato nel database *AzureMonitoring*, che mappa i dati JSON in ingresso con i nomi di colonna e i tipi di dati di *ActivityLogsRawRecords*.|
+    | **Tabella** | *ActivityLogsRawRecords* | Tabella creata nel database *TestDatabase*. |
+    | **Formato dati** | *JSON* | Formato usato nella tabella. |
+    | **Mapping di colonne** | *ActivityLogsRawRecordsMapping* | Il mapping creato nel database *TestDatabase*, che mappa i dati JSON in ingresso con i nomi di colonna e i tipi di dati della tabella *ActivityLogsRawRecords*.|
     | | |
 
-1. Fare clic su **Crea**  
+1. Selezionare **Create**.  
 
 ## <a name="query-the-new-tables"></a>Eseguire una query sulle nuove tabelle
 
 È stata configurata una pipeline con un flusso di dati. L'inserimento tramite il cluster richiede 5 minuti per impostazione predefinita, quindi aspettare alcuni minuti durante il flusso di dati prima di avviare la query.
 
-### <a name="diagnostic-logs-table-query-example"></a>Esempio di query sulla tabella dei log di diagnostica
+### <a name="an-example-of-querying-the-diagnostic-logs-table"></a>Esempio di query sulla tabella dei log di diagnostica
 
 La query seguente analizza i dati sulla durata della query dai record dei log di diagnostica di Esplora dati di Azure:
 
@@ -383,7 +388,7 @@ Risultati della query:
 |   | 00:06,156 |
 | | |
 
-### <a name="activity-logs-table-query-example"></a>Esempio di query sulla tabella dei log attività
+### <a name="an-example-of-querying-the-activity-logs-table"></a>Esempio di query sulla tabella dei log attività
 
 La query seguente analizza i dati dai record dei log attività di Esplora dati di Azure:
 

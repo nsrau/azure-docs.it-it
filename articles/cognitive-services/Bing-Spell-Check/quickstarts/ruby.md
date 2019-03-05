@@ -1,80 +1,88 @@
 ---
-title: 'Guida introduttiva: API Controllo ortografico Bing, Ruby'
+title: "Guida introduttiva: Controllare l'ortografia con l'API REST Controllo ortografico Bing e Ruby"
 titlesuffix: Azure Cognitive Services
-description: Ottenere informazioni ed esempi di codice per iniziare a usare rapidamente l'API Controllo ortografico Bing.
+description: Introduzione all'uso dell'API REST Controllo ortografico Bing per controllare l'ortografia e la grammatica.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/14/2017
+ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: d3c273c7e5774e4f6d5b6984b77ff76bfb041343
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d488923f38a9c65cb117b4535b50bb9fdff2dbfc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873173"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888849"
 ---
-# <a name="quickstart-for-bing-spell-check-api-with-ruby"></a>Guida introduttiva all'API Controllo ortografico Bing con Ruby 
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Guida introduttiva: Controllare l'ortografia con l'API REST Controllo ortografico Bing e Ruby
 
-Questo articolo spiega come usare l'[API Controllo ortografico Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/) con Ruby. L'API Controllo ortografico restituisce un elenco di parole che non riconosce insieme a suggerimenti di parole sostitutive. In genere si invia il testo a questa API e quindi si effettuano le sostituzioni suggerite nel testo oppure si mostrano i suggerimenti all'utente dell'applicazione in modo che possa decidere se effettuare le sostituzioni. Questo articolo illustra come inviare una richiesta che contiene il testo "Hollo, wrld!" Le parole sostitutive suggerite sono "Hello" e "world".
+Usare questa guida introduttiva per effettuare la prima chiamata all'API REST Controllo ortografico Bing con Ruby. Questa semplice applicazione invia una richiesta all'API e restituisce un elenco di parole non riconosciute, seguite dalle correzioni suggerite. L'applicazione è scritta in Ruby, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente di questa applicazione è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire il codice è necessario [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) o versioni successive.
+* [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) o versione successiva
 
-È necessario avere un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Controllo ortografico Bing versione 7**. Per questa guida introduttiva è sufficiente la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/#lang). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure. Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+[!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
-## <a name="get-spell-check-results"></a>Ottenere i risultati del controllo ortografico
 
-1. Creare un nuovo progetto Ruby nell'ambiente di sviluppo integrato preferito.
-2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
-4. Eseguire il programma.
+## <a name="create-and-initialize-the-application"></a>Creare e inizializzare l'applicazione
 
-```ruby
-require 'net/http'
-require 'uri'
-require 'json'
+1. Creare un nuovo file Ruby nell'ambiente di sviluppo integrato o nell'editor preferito e aggiungere i requisiti seguenti. 
 
-uri = 'https://api.cognitive.microsoft.com'
-path = '/bing/v7.0/spellcheck?'
-params = 'mkt=en-us&mode=proof'
+    ```javascript
+    require 'net/http'
+    require 'uri'
+    require 'json'
+    ```
 
-uri = URI(uri + path + params)
-uri.query = URI.encode_www_form({
-    # Request parameters
-    'text' => 'Hollo, wrld!'
-})
+2. Creare variabili per la chiave di sottoscrizione, l'URI dell'endpoint e il percorso. Creare i parametri della richiesta aggiungendo il parametro `mkt=` al proprio mercato e `&mode` alla modalità di prova `proof`.
 
-# NOTE: Replace this example key with a valid subscription key.
-key = 'ENTER KEY HERE'
+    ```ruby
+    key = 'ENTER YOUR KEY HERE'
+    uri = 'https://api.cognitive.microsoft.com'
+    path = '/bing/v7.0/spellcheck?'
+    params = 'mkt=en-us&mode=proof'
+    ```
 
-# The headers in the following example 
-# are optional but should be considered as required:
-#
-# X-MSEdge-ClientIP: 999.999.999.999  
-# X-Search-Location: lat: +90.0000000000000;long: 00.0000000000000;re:100.000000000000
-# X-MSEdge-ClientID: <Client ID from Previous Response Goes Here>
-#
-# See below for more information.
+## <a name="send-a-spell-check-request"></a>Inviare una richiesta di controllo ortografico
 
-request = Net::HTTP::Post.new(uri)
-request['Content-Type'] = "application/x-www-form-urlencoded"
+1. Creare un URI dalla stringa con uri, percorso e parametri dell'host. Impostare la query in modo che contenga il testo di cui si vuole controllare l'ortografia.
 
-request['Ocp-Apim-Subscription-Key'] = key
+   ```ruby
+   uri = URI(uri + path + params)
+   uri.query = URI.encode_www_form({
+      # Request parameters
+   'text' => 'Hollo, wrld!'
+   })
+   ```
 
-response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-    http.request(request)
-end
+2. Creare una richiesta usando l'URI creato sopra. Aggiungere la chiave all'intestazione `Ocp-Apim-Subscription-Key`.
 
-result = JSON.pretty_generate(JSON.parse(response.body))
-puts result
-```
+    ```ruby
+    request = Net::HTTP::Post.new(uri)
+    request['Content-Type'] = "application/x-www-form-urlencoded"
+    request['Ocp-Apim-Subscription-Key'] = key
+    ```
 
-**Risposta**
+3. Inviare la richiesta.
+
+    ```ruby
+    response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+        http.request(request)
+    end
+    ```
+
+4. Ottenere la risposta JSON e stamparla nella console. 
+
+    ```ruby
+    result = JSON.pretty_generate(JSON.parse(response.body))
+    puts result
+    ```
+
+## <a name="example-json-response"></a>Risposta JSON di esempio
 
 Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
@@ -119,9 +127,7 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione sul Controllo ortografico Bing](../tutorials/spellcheck.md)
+> [Creare un'app Web a pagina singola](../tutorials/spellcheck.md)
 
-## <a name="see-also"></a>Vedere anche 
-
-- [Panoramica del Controllo ortografico Bing](../proof-text.md)
+- [Informazioni sull'API Controllo ortografico Bing](../overview.md)
 - [Informazioni di riferimento per l'API Controllo ortografico Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

@@ -8,12 +8,12 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/15/2019
-ms.openlocfilehash: 9d00819143d9a8fc38bfc09844d55f088e732b46
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 1b5f05f3cddea986230327165399b0fe530e361b
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453027"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588076"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Avvio rapido: Analizzare i dati in Azure Data Lake Storage Gen2 con Azure Databricks
 
@@ -124,6 +124,9 @@ In questa sezione viene creato un notebook nell'area di lavoro di Azure Databric
     > Questo blocco di codice accede direttamente all'endpoint Data Lake Gen2 usando OAuth, ma è possibile connettere in altri modi l'area di lavoro di Databricks all'account di Data Lake Storage Gen2. È ad esempio possibile montare il file system usando OAuth oppure usare un accesso diretto con Chiave condivisa. <br>Per alcuni esempi di questi approcci, vedere l'articolo [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) sul sito Web di Azure Databricks.
 
 5. In questo blocco di codice sostituire i valori segnaposto `storage-account-name`, `application-id`, `authentication-id` e `tenant-id` con i valori raccolti durante la creazione dell'entità servizio. Impostare il valore segnaposto `file-system-name` sul nome che si vuole assegnare al file system.
+
+    > [!NOTE]
+    > In un ambiente di produzione è consigliabile archiviare la chiave di autenticazione in Azure Databricks. Aggiungere quindi una chiave di ricerca al blocco di codice invece della chiave di autenticazione. Per alcuni esempi di questo approccio, vedere l'articolo [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) nel sito Web di Azure Databricks.
 
 6. Premere **MAIUSC + INVIO** per eseguire il codice in questo blocco.
 

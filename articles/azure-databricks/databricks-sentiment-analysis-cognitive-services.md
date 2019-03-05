@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 12/07/2018
-ms.openlocfilehash: 449d721683bd59646506db57d78b9535aa7d614d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6509db136524d90db11b83acb701bda71c541060
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100184"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882621"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Esercitazione: Analisi della valutazione sui dati in streaming con Azure Databricks
 
@@ -596,4 +596,4 @@ In questa esercitazione si è appreso come usare Azure Databricks per trasmetter
 Passare all'esercitazione successiva per apprendere come eseguire attività di Machine Learning con Azure Databricks.
 
 > [!div class="nextstepaction"]
->[Machine Learning con Azure Databricks ](https://docs.azuredatabricks.net/spark/latest/mllib/decision-trees.html)
+>[Machine Learning con Azure Databricks](https://docs.azuredatabricks.net/spark/latest/mllib/decision-trees.html)

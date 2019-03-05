@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/07/2019
+ms.date: 02/26/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 0f4fd963ce3649c901a76f6677be059ba5be25af
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: de1bd8599682baae860737401d02c7c1dec9e223
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337562"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960650"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Che cos'è Servizi multimediali di Azure v3?
 
@@ -88,7 +88,7 @@ Il contenuto di Servizi multimediali v3 è organizzato in base alla struttura se
 | Guide introduttive | Illustrano le istruzioni fondamentali di base per i nuovi clienti che vogliono provare rapidamente Servizi multimediali.|
 | Esercitazioni | Illustrano le procedure basate su scenari per alcune delle principali attività di Servizi multimediali.|
 | Esempi | Collegamenti a esempi di codice. |
-| Concetti | Contengono una spiegazione dettagliata delle funzionalità e dei diagrammi di Servizi multimediali v3. Prima di iniziare lo sviluppo, è consigliabile esaminare i concetti fondamentali descritti in questi argomenti.<br/><br/>* Caricamento e archiviazione nel cloud<br/>* Codifica<br/>* Analisi di contenuti multimediali<br/>* Creazione di pacchetti, distribuzione, protezione<br/>* Streaming live<br/>* Monitoraggio continuo<br/>* Clienti più importanti<br/><br/>e altro ancora. |
+| Concetti | Contengono una spiegazione dettagliata delle [funzionalità e dei concetti di Servizi multimediali v3](concepts-overview.md). Prima di iniziare lo sviluppo, è consigliabile esaminare i concetti fondamentali descritti in questi argomenti.<br/><br/>* Caricamento e archiviazione nel cloud<br/>* Codifica<br/>* Analisi di contenuti multimediali<br/>* Creazione di pacchetti, distribuzione, protezione<br/>* Streaming live<br/>* Monitoraggio<br/>* Clienti più importanti<br/><br/>e altro ancora. |
 | Guide alle procedure | Illustrano come completare un'attività.|
 
 ## <a name="next-steps"></a>Passaggi successivi

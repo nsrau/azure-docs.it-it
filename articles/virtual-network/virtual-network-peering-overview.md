@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2018
+ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: c91292bff22a76e4c15f031094809e20fdc43031
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3f308c38e9fa23c36f964b117f620a39e56c9bbd
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175728"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958185"
 ---
 # <a name="virtual-network-peering"></a>Peering di rete virtuale
 
@@ -63,7 +63,7 @@ Dopo aver eseguito il peering delle reti virtuali nella stessa area, gli utenti 
 
 ![Peering reti virtuali con transito](./media/virtual-networks-peering-overview/figure04.png)
 
-Il transito gateway non è supportato nella relazione di peering tra reti virtuali create in regioni diverse. Entrambe le reti virtuali nella relazione di peering devono trovarsi nella stessa area per consentire il transito del gateway. Il transito del gateway tra reti virtuali create tramite modelli di distribuzione diversi (Gestione risorse e classico) è supportato solo se il gateway si trova nella rete virtuale (Resource Manager). Per altre informazioni sull'uso di un gateway per la trasmissione, vedere [Configurare un gateway VPN per il transito nel peering di rete virtuale](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Il transito gateway non è supportato nella relazione di peering tra reti virtuali create in regioni diverse. Entrambe le reti virtuali nella relazione di peering devono trovarsi nella stessa area per consentire il transito del gateway. Il transito del gateway tra reti virtuali create tramite modelli di distribuzione diversi (Resource Manager e classico) è supportato solo se il gateway (VPN o ExpressRoute) si trova nella rete virtuale (Resource Manager). Per altre informazioni sull'uso di un gateway per la trasmissione, vedere [Configurare un gateway VPN per il transito nel peering di rete virtuale](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Quando viene eseguito il peering di reti virtuali che condividono una singola connessione Azure ExpressRoute, il traffico tra di esse passa attraverso la relazione di peering, ovvero tramite la rete backbone di Azure. È comunque possibile continuare a usare i gateway locali in ogni rete virtuale per connettersi al circuito locale. oppure usare un gateway condiviso e configurare il transito per la connettività locale.
 
@@ -77,8 +77,7 @@ Per verificare un peering di rete virtuale, è possibile [verificare le route va
 
 ## <a name="requirements-and-constraints"></a>Requisiti e vincoli
 
-I vincoli seguenti si applicano quando il peering viene eseguito globalmente nelle reti virtuali:
-- Le reti virtuali possono trovarsi in qualsiasi area di cloud pubblico di Azure e nelle aree dei cloud di Azure Cina, ma non nei cloud di Azure per enti pubblici.
+I vincoli seguenti si applicano solo quando il peering viene eseguito globalmente nelle reti virtuali:
 - Le risorse in una rete virtuale non possono comunicare con l'indirizzo IP front-end di un servizio di bilanciamento del carico interno di Azure nella rete virtuale con peering globale. Il servizio di bilanciamento del carico e le risorse che comunicano con quest'ultimo devono essere nella stessa area.
 - Non è possibile usare i gateway remoti o consentire il transito del gateway. Per usare i gateway remoti o per consentire il transito gateway,  le reti virtuali con peering devono trovarsi nella stessa area.
 

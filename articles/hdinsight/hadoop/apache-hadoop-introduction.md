@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
 ms.date: 01/28/2019
-ms.openlocfilehash: bca4443f2c8990dff45922c76df21ad0af7c91b5
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 47afcf98b27faca6d12aec96d648a0b42c28855a
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298909"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888968"
 ---
 # <a name="what-is-azure-hdinsight-and-the-apache-hadoop-technology-stack"></a>Informazioni su Azure HDInsight e sullo stack di tecnologie Apache Hadoop
 
@@ -44,7 +44,7 @@ Questa sezione elenca le funzionalità di Azure HDInsight.
 |Cloud nativo     |     Azure HDInsight permette di creare cluster ottimizzati per [Hadoop](apache-hadoop-linux-tutorial-get-started.md), [Spark](../spark/apache-spark-jupyter-spark-sql.md), [Interactive Query (LLAP)](../interactive-query/apache-interactive-query-get-started.md), [Kafka](../kafka/apache-kafka-get-started.md), [Storm](../storm/apache-storm-tutorial-get-started-linux.md), [HBase](../hbase/apache-hbase-tutorial-get-started-linux.md) e  [ML Services](../r-server/r-server-get-started.md) in Azure. HDInsight fornisce anche un contratto di servizio end-to-end per tutti i carichi di lavoro di produzione.  |
 |Costi contenuti e scalabilità     | HDInsight consente di [ridimensionare](../hdinsight-administer-use-portal-linux.md#scale-clusters) i carichi di lavoro aumentando o riducendo le prestazioni. È possibile ridurre il costo  [creando cluster su richiesta](../hdinsight-hadoop-create-linux-clusters-adf.md)  e pagando solo per le risorse usate. È anche possibile compilare pipeline di dati per rendere operativi i processi. Calcolo e archiviazione disaccoppiati offrono migliori prestazioni e flessibilità. |
 |Sicurezza e conformità    | HDInsight consente di proteggere i dati aziendali usando [Rete virtuale di Azure](../hdinsight-extend-hadoop-virtual-network.md), la [crittografia](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md) e l'integrazione con [Azure Active Directory](../domain-joined/apache-domain-joined-introduction.md). HDInsight soddisfa anche i più diffusi [standard di conformità](https://azure.microsoft.com/overview/trusted-cloud) del settore e governativi.        |
-|Monitoraggio    | Azure HDInsight si integra con [Azure Log Analytics](../hdinsight-hadoop-oms-log-analytics-tutorial.md) per fornire una singola interfaccia che consente di monitorare tutti i cluster.        |
+|Monitoraggio    | Azure HDInsight si integra con i [log di Monitoraggio di Azure](../hdinsight-hadoop-oms-log-analytics-tutorial.md) per fornire una singola interfaccia che consente di monitorare tutti i cluster.        |
 |Disponibilità globale | HDInsight è disponibile in più  [aree](https://azure.microsoft.com/regions/services/)  di qualsiasi altra offerta di analisi di Big Data. Azure HDInsight è anche disponibile in Azure per enti pubblici, Cina e Germania per soddisfare le esigenze aziendali nelle principali aree sovrane. |  
 |Produttività     |  Azure HDInsight consente di usare strumenti di produttività avanzati per Hadoop e Spark con gli ambienti di sviluppo più diffusi. Questi ambienti di sviluppo includono [Visual Studio](apache-hadoop-visual-studio-tools-get-started.md), [VSCode](../hdinsight-for-vscode.md), [Eclipse](../spark/apache-spark-eclipse-tool-plugin.md) e [IntelliJ](../spark/apache-spark-intellij-tool-plugin.md) per supportare Scala, Python, R, Java e .NET. I data scientist possono anche collaborare usando notebook diffusi, ad esempio [Jupyter](../spark/apache-spark-jupyter-notebook-kernels.md) e [Zeppelin](../spark/apache-spark-zeppelin-notebook.md).    |
 |Estensibilità     |  È possibile estendere i cluster HDInsight con componenti installati (Hue, Presto e così via) con [azioni script](../hdinsight-hadoop-customize-cluster-linux.md), l'[aggiunta di nodi perimetrali](../hdinsight-apps-use-edge-node.md) o l'[integrazione con altre applicazioni Big Data certificate](../hdinsight-apps-install-applications.md). HDInsight consente un'integrazione senza problemi con le più diffuse soluzioni Big Data tramite una distribuzione [con un clic](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/).|

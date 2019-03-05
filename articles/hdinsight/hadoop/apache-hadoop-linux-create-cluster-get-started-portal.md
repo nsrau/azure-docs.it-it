@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 003bd5ccae2b22dc411259226d84b11444694651
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 829b566469e5fd61460c1451b196eec24fd4e3f8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417906"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882927"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>Guida introduttiva: Iniziare a usare Apache Hadoop e Apache Hive in Azure HDInsight con il portale di Azure
 
@@ -165,7 +165,7 @@ Al termine dell'esercitazione, è consigliabile eliminare il cluster. Con HDInsi
 In questa esercitazione si è appreso come creare un cluster HDInsight basato su Linux usando un modello di Resource Manager e come eseguire query Hive di base. Passare all'articolo successivo per informazioni su come eseguire un'operazione di estrazione, trasformazione e caricamento (ETL) usando Hadoop in HDInsight.
 
 > [!div class="nextstepaction"]
->[Estrarre, trasformare e caricare dati Apache Hive in HDInsight ](../hdinsight-analyze-flight-delay-data-linux.md)
+>[Estrarre, trasformare e caricare dati Apache Hive in HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
 
 Se si è pronti per iniziare a usare i dati, ma sono necessarie altre informazioni sulle modalità di archiviazione dei dati in HDInsight o sulle procedure di importazione dei dati in HDInsight, vedere gli articoli seguenti:
 
