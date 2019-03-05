@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ab920094561b9143945793ddd4ea3da877a7ae90
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 46dae28fd6c9eaa3d5e03f5f06c5e92449653679
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340536"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737723"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Eseguire il failover e il failback delle macchine virtuali di Azure tra aree di Azure
 
@@ -48,7 +48,7 @@ Questa esercitazione descrive come eseguire il failover di una singola macchina 
    * **Elaborato più recente**: con questa opzione la macchina virtuale viene ripristinata all'ultimo punto di ripristino elaborato dal servizio Site Recovery.
    * **Personalizzato**: questa opzione consente di eseguire il failover in un determinato punto di ripristino ed è particolarmente utile per eseguire un failover di test.
 
-3. Selezionare **Arrestare la macchina prima di iniziare il failover** se si vuole provare ad arrestare le macchine virtuali di origine tramite Site Recovery prima di attivare il failover. Il failover continua anche se l'arresto ha esito negativo.
+3. Selezionare **Arrestare la macchina prima di iniziare il failover** se si vuole provare ad arrestare le macchine virtuali di origine tramite Site Recovery prima di attivare il failover. Il failover continua anche se l'arresto ha esito negativo. Si noti che Site Recovery non esegue la pulizia dell'origine dopo il failover.
 
 4. Nella pagina **Processi** è possibile seguire lo stato di avanzamento del failover.
 

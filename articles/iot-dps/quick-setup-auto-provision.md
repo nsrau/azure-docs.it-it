@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 15d243218632ce9010d0f4542fb97f311e8a3166
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0b16c6da0066ac4e919c1bef031d3206a359aae6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53182639"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818120"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Configurare il servizio Device Provisioning in hub IoT con il portale di Azure
 
@@ -38,7 +38,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
     * **Nome:** specificare un nome univoco per la nuova istanza del servizio Device Provisioning. Se il nome immesso è disponibile, viene visualizzato un segno di spunta verde.
     * **Sottoscrizione:** scegliere la sottoscrizione da usare per creare l'istanza del servizio Device Provisioning.
-    * **Gruppo di risorse:** questo campo consente di creare un nuovo gruppo di risorse o sceglierne uno esistente per contenere la nuova istanza. Scegliere lo stesso gruppo di risorse che contiene l'hub Iot creato in precedenza, ad esempio, **TestResources**. Inserendo tutte le risorse correlate in un gruppo è possibile gestirle insieme. Ad esempio, con l'eliminazione del gruppo di risorse vengono eliminate tutte le risorse contenute in quel gruppo. Per altre informazioni, vedere [Usare i gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/resource-group-portal.md).
+    * **Gruppo di risorse:** questo campo consente di creare un nuovo gruppo di risorse o sceglierne uno esistente per contenere la nuova istanza. Scegliere lo stesso gruppo di risorse che contiene l'hub Iot creato in precedenza, ad esempio, **TestResources**. Inserendo tutte le risorse correlate in un gruppo è possibile gestirle insieme. Ad esempio, con l'eliminazione del gruppo di risorse vengono eliminate tutte le risorse contenute in quel gruppo. Per altre informazioni, vedere [Manage Azure Resource Manager resource groups](../azure-resource-manager/manage-resource-groups-portal.md) (Gestire gruppi di risorse di Azure Resource Manager).
     * **Località:** selezionare la località più vicina ai dispositivi.
 
       ![Immettere le informazioni di base sull'istanza del servizio Device Provisioning nel pannello del portale](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  

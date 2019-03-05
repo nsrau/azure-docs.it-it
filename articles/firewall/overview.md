@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 11/28/2018
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: b01e16f85eaccee4d765b4985769df670d4d35ca
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 003b43760b4c0ae5785315e6acf0ed9982d9b1fe
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413031"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960854"
 ---
 # <a name="what-is-azure-firewall"></a>Informazioni sul firewall di Azure
 
@@ -56,14 +56,14 @@ Il traffico di rete in ingresso all'indirizzo IP pubblico del firewall viene con
 
 ### <a name="azure-monitor-logging"></a>Registrazione di Monitoraggio di Azure
 
-Tutti gli eventi vengono integrati con Monitoraggio di Azure, che consente di archiviare i log in un account di archiviazione, trasmettere gli eventi a Hub eventi o inviarli a Log Analytics.
+Tutti gli eventi vengono integrati con Monitoraggio di Azure, per consentire di archiviare i log in un account di archiviazione e di trasmettere i flussi di eventi all'hub eventi o inviarli ai log di Monitoraggio di Azure.
 
 ## <a name="known-issues"></a>Problemi noti
 
 Il Firewall di Azure presenta i problemi noti seguenti:
 
 
-|Problema  |Descrizione  |Mitigazione  |
+|Problema  |DESCRIZIONE  |Mitigazione  |
 |---------|---------|---------|
 |Conflitto con la funzionalità JIT (Just-in-Time) del Centro sicurezza di Azure|Se per accedere a una macchina virtuale che si trova in una subnet con una route definita dall'utente che punta a Firewall di Azure come gateway predefinito viene usata la funzionalità JIT del Centro sicurezza di Azure, questa non funziona. Ciò è dovuto al routing asimmetrico, ovvero un pacchetto viene ricevuto tramite l'indirizzo IP della macchina virtuale (accesso aperto da JIT), ma il percorso di ritorno è tramite il firewall, che elimina il pacchetto perché nel firewall non è stata stabilita alcuna sessione.|Per risolvere questo problema, posizionare le macchine virtuali JIT in una subnet separata che non contenga una route definita dall'utente al firewall.|
 |Il peering globale con hub e spoke non è supportato|Uso del modello hub e spoke, in cui l'hub e il firewall vengono distribuiti in un'unica area di Azure, con gli spoke in un'altra area di Azure. Le connessioni all'hub tramite il peering reti virtuali globale non è supportato.|Si tratta di un comportamento previsto da progettazione. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md#azure-firewall-limits).|

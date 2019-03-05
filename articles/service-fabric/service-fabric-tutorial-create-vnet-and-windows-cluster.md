@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/19/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 590e1e5853ccf4a525477f194c78f1fd8ce679ed
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 64ba17053179d428f5ef7e5ce9685240bde6665f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453070"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822992"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Esercitazione: Distribuire un cluster Windows di Service Fabric in una rete virtuale di Azure
 
@@ -178,7 +178,7 @@ Creare due applicazioni Azure AD per controllare l'accesso al cluster: un'applic
 Eseguire `SetupApplications.ps1` e indicare l'ID tenant, il nome del cluster e l'URL di risposta dell'applicazione Web come parametri.  Specificare anche i nomi utente e le password per gli utenti.  Ad esempio: 
 
 ```PowerShell
-$Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
+$Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysfcluster123' -WebApplicationReplyUrl 'https://mysfcluster123.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin
 ```
@@ -186,7 +186,7 @@ $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysf
 > [!NOTE]
 > Per i cloud nazionali (ad esempio Azure per enti pubblici, Azure Cina o Azure Germania), specificare anche il parametro `-Location`.
 
-L'*ID tenant* o l'ID directory si trovano nel [portale di Azure](https://portal.azure.com). Selezionare **Azure Active Directory -> Proprietà** e copiare il valore **ID directory**.
+L'*ID tenant* o l'ID directory si trovano nel [portale di Azure](https://portal.azure.com). Selezionare **Azure Active Directory -> Proprietà** e copiare il valore di **ID directory**.
 
 *ClusterName* viene usato come prefisso per le applicazioni Azure AD create dallo script. Non è necessario che corrisponda esattamente al nome effettivo del cluster. Ha solo lo scopo di facilitare il mapping degli elementi di Azure AD al cluster di Service Fabric con cui vengono usati.
 

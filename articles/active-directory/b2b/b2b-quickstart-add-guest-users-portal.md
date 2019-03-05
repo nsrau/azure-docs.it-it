@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Aggiungere utenti guest nel portale di Azure'
+title: 'Avvio rapido: Aggiungere utenti guest nel portale di Azure - Azure Active Directory'
 description: Usare questa guida introduttiva per ottenere informazioni su come gli amministratori di Azure AD possono aggiungere utenti guest B2B nel portale di Azure e seguire il flusso di lavoro di invito B2B.
 services: active-directory
 ms.service: active-directory
@@ -11,14 +11,14 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8916711ab7d5278f34a3d4ad101a0aabb883f84c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bb01ae6514dfb97cc8a923619513383ace0b09a5
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182698"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669976"
 ---
-# <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Avvio rapido: Aggiungere utenti guest alla directory nel portale di Azure
+# <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Guida introduttiva: Aggiungere utenti guest alla directory nel portale di Azure
 
 È possibile invitare chiunque a collaborare con l'organizzazione aggiungendolo alla directory come utente guest. È quindi possibile inviare un messaggio di posta elettronica di invito contenente un collegamento di riscatto oppure inviare un collegamento diretto a un'app che si vuole condividere. Gli utenti guest possono accedere con la propria identità aziendale, dell'istituto di istruzione o di social networking.
 

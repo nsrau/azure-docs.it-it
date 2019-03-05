@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 764b5ebb73340d377250d39e20b17ed0daf18bbe
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 7cf0788bdd013eb6a42ee5aa3f5c054a557cbc77
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447685"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651839"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Esercitazione: Configurare un account lab con Azure Lab Services
 In Azure Lab Services l'account lab funge da account centrale in cui vengono gestiti tutti i lab dell'organizzazione. Nell'account lab si concedono ad altri utenti le autorizzazioni alla creazione di lab e di impostano criteri che si applicano a tutti i lab all'interno dell'account lab. Questa esercitazione illustra come creare un account lab come amministratore del lab. 
@@ -66,7 +66,7 @@ Per configurare un lab per le classi in un account del lab, l'utente deve essere
 
 Per fornire ai docenti l'autorizzazione per creare lab per le proprie classi, aggiungerli al ruolo **Autore di laboratori**:
 
-1. Nella pagina **Account Lab** selezionare **Controllo di accesso (IAM)** e fare clic su **+ Aggiungi assegnazione di ruolo** sulla barra degli strumenti. 
+1. Nella pagina **Account Lab** selezionare **Controllo di accesso (IAM)**, selezionare **+ Aggiungi** sulla barra degli strumenti e quindi selezionare **+ Aggiungi assegnazione di ruolo** sulla barra degli strumenti. 
 
     ![Fare clic su Controllo di accesso -> Aggiungi un'assegnazione di ruolo](../media/tutorial-setup-lab-account/add-role-assignment-button.png)
 1. Nella pagina **Aggiungi un'assegnazione di ruolo** selezionare **Autore di lab** per **Ruolo**, scegliere l'utente che si vuole aggiungere a questo ruolo e fare clic su **Salva**. 

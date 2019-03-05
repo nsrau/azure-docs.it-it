@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: cec96871d379f9484bf8e08a9d511146a80d45c6
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 35a041216bf24a4c6ab73f9d5c3e85dff38a4501
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095601"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588110"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Esercitazione: Copiare dati in Azure Data Box tramite NFS
 
@@ -71,6 +71,10 @@ Se si usa un computer host Linux, eseguire la procedura seguente per configurare
     L'esempio seguente mostra come connettersi tramite NFS a una condivisione del Data Box. L'indirizzo IP del dispositivo Data Box è `10.161.23.130` e la condivisione `Mystoracct_Blob` viene montata sulla macchina virtuale Ubuntu, dato che il punto di montaggio è `/home/databoxubuntuhost/databox`.
 
     `sudo mount -t nfs 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
+    
+    Per i client Mac, è necessario aggiungere un'altra opzione in questo modo: 
+    
+    `sudo mount -t nfs -o sec=sys,resvport 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
 
     **Creare sempre una cartella per i file che si intendono copiare nella condivisione e quindi copiare i file in tale cartella**. La cartella creata nelle condivisioni di BLOB in blocchi e BLOB di pagine rappresenta un contenitore in cui i dati vengono caricati come BLOB. Non è possibile copiare direttamente i file nella cartella *root* dell'account di archiviazione.
 

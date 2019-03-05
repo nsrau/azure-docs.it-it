@@ -8,16 +8,16 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/19/2018
+ms.date: 02/22/2019
 ms.author: dobett
-ms.openlocfilehash: 73eae5f024c6dc707e5fa7c0a55d88672271e313
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 97491ca483ec402a491e5f20b2527b93df810d64
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515778"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674107"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>Guida introduttiva: Controllare un dispositivo connesso a un hub IoT (Node.js)
+# <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>Avvio rapido: Controllare un dispositivo connesso a un hub IoT (Node.js)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
@@ -49,21 +49,21 @@ Se non è già stato fatto, scaricare il progetto Node.js di esempio da https://
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
-Se è stata completata la precedente [Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-node.md), ignorare questo passaggio.
+Se è stata completata la precedente [Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-node.md), è possibile ignorare questo passaggio.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Registrare un dispositivo
 
-Se è stata completata la precedente [Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-node.md), ignorare questo passaggio.
+Se è stata completata la precedente [Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-node.md), è possibile ignorare questo passaggio.
 
 È necessario registrare un dispositivo con l'hub IoT perché questo possa connettersi. In questa guida introduttiva si usa Azure Cloud Shell per registrare un dispositivo simulato.
 
-1. Eseguire i comandi seguenti in Azure Cloud Shell per aggiungere l'estensione dell'interfaccia della riga di comando dell'hub IoT e per creare l'identità del dispositivo. 
+1. Eseguire i comandi seguenti in Azure Cloud Shell per aggiungere l'estensione dell'interfaccia della riga di comando dell'hub IoT e per creare l'identità del dispositivo.
 
-   **YourIoTHubName**: sostituire questo segnaposto con il nome scelto per l'hub IoT.
+   **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
-   **MyNodeDevice**: nome specificato per il dispositivo registrato. Usare MyNodeDevice come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usare tale nome nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
+   **MyNodeDevice**: nome del dispositivo da registrare. Usare **MyNodeDevice** come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usare tale nome nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -73,7 +73,7 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 
 2. Eseguire il comando seguente in Azure Cloud Shell per ottenere la _stringa di connessione del dispositivo_ per il dispositivo appena registrato.
 
-    **YourIoTHubName**: sostituire questo segnaposto con il nome scelto per l'hub IoT.
+    **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
@@ -90,7 +90,7 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 
 3. È necessaria anche una _stringa di connessione del servizio_ per consentire all'applicazione back-end di connettersi all'hub IoT dell'utente e recuperare i messaggi. Il comando seguente recupera la stringa di connessione del servizio per l'hub IoT:
 
-    **YourIoTHubName**: sostituire questo segnaposto con il nome scelto per l'hub IoT.
+    **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
     ```azurecli-interactive
     az iot hub show-connection-string \
@@ -160,4 +160,4 @@ In questa guida introduttiva è stato chiamato un metodo diretto su un dispositi
 Per informazioni su come indirizzare messaggi da dispositivo a cloud a diverse destinazioni nel cloud, continuare con l'esercitazione successiva.
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Indirizzare i dati di telemetria a endpoint diversi per l'elaborazione](tutorial-routing.md)
+> [Esercitazione: indirizzare i dati di telemetria a endpoint diversi per l'elaborazione](tutorial-routing.md)

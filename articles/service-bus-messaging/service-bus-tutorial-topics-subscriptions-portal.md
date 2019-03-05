@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: fb3358775881f102ecea62fbd20a1e4d85dda308
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 10f3f7d6b878e8f1d4efee360e0f8a9967ac07bc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001635"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886435"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Esercitazione: Aggiornare l'inventario usando il portale di Azure e argomenti/sottoscrizioni
 
@@ -45,49 +45,11 @@ Per completare questa esercitazione, accertarsi di avere installato:
 
 Ogni [sottoscrizione a un argomento](service-bus-messaging-overview.md#topics) può ricevere una copia di ogni messaggio. Gli argomenti sono completamente compatibili a livello di protocollo e di semantica con le code del bus di servizio. Gli argomenti del bus di servizio supportano un'ampia gamma di regole di selezione con condizioni di filtro, con azioni facoltative per impostare o modificare le proprietà dei messaggi. Ogni volta che una regola corrisponde, genera un messaggio. Per altre informazioni su regole, filtri e azioni, seguire questo [collegamento](topic-filters.md).
 
-## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-Aprire e accedere prima di tutto al [portale di Azure][Azure portal] con la propria sottoscrizione di Azure. Il primo passaggio è la creazione di uno spazio dei nomi del bus di servizio di tipo **Messaggistica**.
+[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
-## <a name="create-a-service-bus-namespace"></a>Creare uno spazio dei nomi del bus di servizio
 
-Uno spazio dei nomi di messaggistica del bus di servizio fornisce un contenitore di ambito univoco, a cui fa riferimento il [nome di dominio completo][], in cui si crea una o più code, argomenti e sottoscrizioni. L'esempio seguente crea uno spazio dei nomi di messaggistica del bus di servizio in un [gruppo di risorse](/azure/azure-resource-manager/resource-group-portal) nuovo o esistente:
-
-1. Nel riquadro di spostamento sinistro del portale fare clic su **+ Crea una risorsa**, quindi su **Enterprise Integration** e infine su **Bus di servizio**.
-2. Nella finestra di dialogo **Crea spazio dei nomi** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
-3. Dopo aver verificato che il nome dello spazio dei nomi sia disponibile, scegliere il piano tariffario, ovvero Standard o Premium.
-4. Nel campo **Sottoscrizione** scegliere una sottoscrizione di Azure in cui creare lo spazio dei nomi.
-5. Nel campo **Gruppo di risorse** scegliere un gruppo di risorse esistente nel quale risiederà lo spazio dei nomi oppure crearne uno nuovo.      
-6. In **Località**scegliere il paese o l'area in cui deve essere ospitato lo spazio dei nomi.
-7. Fare clic su **Create**(Crea). A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
-
-  ![namespace](./media/service-bus-tutorial-topics-subscriptions-portal/create-namespace.png)
-
-### <a name="obtain-the-management-credentials"></a>Ottenere le credenziali di gestione
-
-Con la creazione di un nuovo spazio dei nomi viene generata automaticamente una regola di firma di accesso condiviso iniziale con una coppia associata di chiavi primaria e secondaria, ognuna delle quali concede il controllo completo su tutti gli aspetti dello spazio dei nomi. Per copiare la regola iniziale seguire questa procedura:
-
-1. Fare clic su **Tutte le risorse**, quindi sul nome dello spazio dei nomi appena creato.
-2. Nella finestra dello spazio dei nomi fare clic su **Criteri di accesso condiviso**.
-3. Nella schermata **Criteri di accesso condiviso** fare clic su **RootManageSharedAccessKey**.
-4. Nella finestra **Criteri: RootManageSharedAccessKey** fare clic sul pulsante **Copia** accanto a **Stringa di connessione primaria** per copiare la stringa di connessione negli Appunti e usarla in un secondo momento. Incollare questo valore nel Blocco note o in un'altra posizione temporanea.
-
-    ![connection-string][connection-string]
-5. Ripetere il passaggio precedente e copiare e incollare il valore della **chiave primaria** in un percorso temporaneo per usarlo in seguito.
-
-## <a name="create-a-topic-and-subscriptions"></a>Creare un argomento e le sottoscrizioni
-
-Per creare un argomento del bus di servizio, specificare lo spazio dei nomi in cui crearlo. L'esempio seguente mostra come creare un argomento nel portale:
-
-1. Nel riquadro di spostamento a sinistra del portale fare clic su **Bus di servizio**. Se l'opzione **Bus di servizio** non è visualizzata, fare clic su **Tutti i servizi**.
-2. Fare clic sullo spazio dei nomi in cui si vuole creare l'argomento.
-3. Nella finestra dello spazio dei nomi fare clic su **Argomenti** e quindi nella finestra **Argomenti** fare clic su **+ Argomenti**.
-4. Immettere il nome dell'argomento in **Nome** e lasciare le impostazioni predefinite per gli altri valori.
-5. Nella parte inferiore della finestra fare clic su **Crea**.
-6. Prendere nota del nome dell'argomento.
-7. Selezionare l'argomento appena creato.
-8. Fare clic su **+ Sottoscrizione**, immettere il nome della sottoscrizione **S1** e lasciare le impostazioni predefinite per tutti gli altri valori.
-9. Ripetere due volte il passaggio precedente, creando le sottoscrizioni denominate **S2** e **S3**.
 
 ## <a name="create-filter-rules-on-subscriptions"></a>Creare regole di filtro nelle sottoscrizioni
 
@@ -105,7 +67,7 @@ Per eseguire il codice, seguire questa procedura:
 
 2. Passare alla cartella dell'esempio `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveTutorialwithFilters`.
 
-3. Ottenere la stringa di connessione copiata nel Blocco note nella sezione [Ottenere le credenziali di gestione](#obtain-the-management-credentials) di questa esercitazione. È anche necessario il nome dell'argomento creato nella sezione precedente.
+3. Ottenere la stringa di connessione copiata nel Blocco note nella sezione relativa all'ottenimento delle credenziali di gestione di questa esercitazione. È anche necessario il nome dell'argomento creato nella sezione precedente.
 
 4. Al prompt dei comandi digitare il comando seguente:
 
@@ -451,7 +413,7 @@ Passare alla prossima esercitazione per altre informazioni su come usare le funz
 > [Aggiornare l'inventario usando PowerShell e argomenti/sottoscrizioni](service-bus-tutorial-topics-subscriptions-powershell.md)
 
 [account gratuito]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[nome di dominio completo]: https://wikipedia.org/wiki/Fully_qualified_domain_name
+[fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 
 [connection-string]: ./media/service-bus-tutorial-topics-subscriptions-portal/connection-string.png

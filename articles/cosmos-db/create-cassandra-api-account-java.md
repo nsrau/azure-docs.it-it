@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to build a Java application to access and manage Azure Cosmos DB resources so that customers can store key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: fc1505526ddff33c68b6d7a4030338dd7d712598
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b6876bf8210d47729ad8e765ccffe709a0fccacc
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994473"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958695"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>Esercitazione: creare un account API Cassandra di Azure Cosmos DB con un'applicazione Java per archiviare dati chiave/valore
 
@@ -43,7 +43,7 @@ Questa esercitazione illustra le attività seguenti:
 
 1. Accedere al  [portale di Azure](https://portal.azure.com/). 
 
-2. Selezionare **Crea una risorsa** > **Database** > **Azure Cosmos DB**. 
+2. Selezionare **Crea una risorsa** > **Database** > **Azure Cosmos DB**. 
 
 3. Nel riquadro**Nuovo account** immettere le impostazioni per il nuovo account Azure Cosmos. 
 
@@ -52,12 +52,12 @@ Questa esercitazione illustra le attività seguenti:
    |ID   |   Immettere un nome univoco    | Immettere un nome univoco per identificare l'account Azure Cosmos. <br/><br/>Poiché cassandra.cosmosdb.azure.azure.com è accodato all'ID fornito per creare il proprio punto di contatto, usare un ID univoco ma facilmente identificabile.         |
    |API    |  Cassandra   |  L'API determina il tipo di account da creare. <br/> Selezionare **Cassandra**, poiché in questo articolo si creerà un database con colonne ampie che può essere interrogato usando la sintassi del linguaggio query di Cassandra (CQL).  |
    |Sottoscrizione    |  Sottoscrizione in uso        |  Selezionare la sottoscrizione di Azure da usare per l'account Azure Cosmos.        |
-   |Gruppo di risorse   | Immettere un nome    |  Selezionare **Crea Nuovo**, quindi immettere il nome di un nuovo gruppo di risorse per l'account. Per semplicità si può usare lo stesso nome usato come ID.    |
+   |Gruppo di risorse   | Immettere un nome    |  Selezionare**Crea nuovo** e quindi immettere il nome di un nuovo gruppo di risorse per l'account. Per semplicità si può usare lo stesso nome usato come ID.    |
    |Località    |  Selezionare l'area più vicina agli utenti    |  Selezionare la posizione geografica in cui ospitare l'account Azure Cosmos. Usare la località più vicina agli utenti per offrire loro la massima velocità di accesso ai dati.    |
 
    ![Creare un account con il portale](./media/create-cassandra-api-account-java/create-account.png)
 
-4. Selezionare **Crea**. <br/>La creazione dell'account richiede alcuni minuti, Dopo la creazione della risorsa, è possibile visualizzare la notifica **Distribuzione completata** nella parte destra del portale.
+4. Selezionare **Create**. <br/>La creazione dell'account richiede alcuni minuti, Dopo la creazione della risorsa, è possibile visualizzare la notifica **Distribuzione completata** nella parte destra del portale.
 
 ## <a name="get-the-connection-details-of-your-account"></a>Ottenere i dettagli della connessione dell'account  
 

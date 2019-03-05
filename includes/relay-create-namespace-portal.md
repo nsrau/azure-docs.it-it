@@ -4,18 +4,18 @@ ms.service: service-bus-relay
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
-ms.openlocfilehash: 13ac2ec0569dc79791eca9efb2bd51e7b76ddd05
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: bbcf38ab54632144920b729f433c222f426d96dc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572285"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56825597"
 ---
 1. Accedere al [portale di Azure][Azure portal].
 2. Nel menu a sinistra selezionare **+ Crea una risorsa**. Quindi, selezionare **Integrazione** > **Inoltro**. Se **Inoltro** non è visibile nell'elenco, selezionare **Visualizza tutto** nell'angolo superiore destro. 
 3. Nel pannello **Crea spazio dei nomi** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
 4. Nella casella **Sottoscrizione** selezionare una sottoscrizione di Azure in cui creare lo spazio dei nomi.
-5. Nella casella [Gruppo di risorse](../articles/azure-resource-manager/resource-group-portal.md) selezionare un gruppo di risorse esistente nel quale inserire lo spazio dei nomi oppure crearne uno nuovo.  
+5. Nella casella [Gruppo di risorse](../articles/azure-resource-manager/manage-resource-groups-portal.md) selezionare un gruppo di risorse esistente nel quale inserire lo spazio dei nomi oppure crearne uno nuovo.  
 6. In **Località** selezionare il paese o l'area in cui deve essere ospitato lo spazio dei nomi.
    
     ![Crea spazio dei nomi][create-namespace]
@@ -28,7 +28,7 @@ ms.locfileid: "51572285"
 3. In **Criteri di accesso condiviso** selezionare **RootManageSharedAccessKey**.
    
     ![connection-info][connection-info]
-4. In **Criteri: RootManageSharedAccessKey** selezionare il pulsante **Copia** accanto a **Stringa di connessione - chiave primaria**. La stringa di connessione viene copiata negli Appunti per un uso successivo. Incollare questo valore nel Blocco note o in un'altra posizione temporanea.
+4. In **Criteri: RootManageSharedAccessKey** selezionare il pulsante **Copia** accanto a **Stringa di connessione - Chiave primaria**. La stringa di connessione viene copiata negli Appunti per un uso successivo. Incollare questo valore nel Blocco note o in un'altra posizione temporanea.
    
     ![connection-string][connection-string]
 

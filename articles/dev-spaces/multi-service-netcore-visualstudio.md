@@ -12,19 +12,19 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, contenitori
-ms.openlocfilehash: b91fb86dfa8ca0d8e75be2c44f9821df84739790
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 6a9058d7f84b336b332ffdaf9b41abfb660433e6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664937"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819855"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Sviluppo multiservizio con Azure Dev Spaces
 
 Questa esercitazione illustra lo sviluppo di applicazioni multiservizio con Azure Dev Spaces, insieme ad alcuni vantaggi aggiuntivi offerti da Dev Spaces.
 
 ## <a name="call-another-container"></a>Chiamare un altro contenitore
-In questa sezione si creerà un secondo servizio `mywebapi` al quale `webfrontend` assegnerà un nome. Ogni servizio viene eseguito in contenitori separati. Verrà quindi eseguito il debug in entrambi i contenitori.
+In questa sezione si creerà un secondo servizio, `mywebapi`, e si farà in modo che venga chiamato da `webfrontend`. Ogni servizio viene eseguito in contenitori separati. Verrà quindi eseguito il debug in entrambi i contenitori.
 
 ![](media/common/multi-container.png)
 
@@ -35,7 +35,7 @@ Per motivi di tempo, scarichiamo il codice di esempio da un repository GitHub. P
 1. Aprire il progetto `mywebapi` in una *finestra di Visual Studio separata*.
 1. Selezionare **Azure Dev Spaces** nell'elenco a discesa delle impostazioni di avvio, come in precedenza per il progetto `webfrontend`. Anziché creare un nuovo cluster servizio Azure Kubernetes ora, selezionare lo stesso già creato. Come in precedenza, lasciare lo spazio impostato sul valore predefinito `default` e fare clic su **OK**. Nella finestra Output si nota che Visual Studio inizia a riscaldare il nuovo servizio nello spazio di sviluppo per velocizzare le operazioni quando si avvia il debug.
 1. Premere F5 e attendere la compilazione e la distribuzione del servizio. Il servizio è pronto quando la barra di stato di Visual Studio diventa arancione
-1. Prendere nota dell'URL dell'endpoint visualizzato nel riquadro **Azure Dev Spaces per servizio Azure Kubernetes** nella finestra **Output**. Sarà simile a http://localhost:\<portnumber\>. Potrebbe sembrare che il contenitore sia in esecuzione in locale, ma in realtà viene eseguito nello spazio di sviluppo in Azure.
+1. Prendere nota dell'URL dell'endpoint visualizzato nel riquadro **Azure Dev Spaces per il servizio Azure Kubernetes** nella finestra **Output**. Sarà simile a http://localhost:\<portnumber\>. Potrebbe sembrare che il contenitore sia in esecuzione in locale, ma in realtà viene eseguito nello spazio di sviluppo in Azure.
 2. Quando `mywebapi` è pronto, aprire il browser all'indirizzo localhost e aggiungere `/api/values` all'URL per richiamare l'API GET predefinita per `ValuesController`. 
 3. Se tutte le operazioni hanno avuto esito positivo, dovrebbe venire visualizzata una risposta da parte del servizio `mywebapi` simile a quanto segue.
 
@@ -85,7 +85,7 @@ Ecco fatto! È ora disponibile un'applicazione multicontenitore in cui ogni cont
 Come si sarà notato, nonostante *webfrontend* non contenga codice speciale per stampare la chiamata HTTP effettuata a *mywebapi*, nella finestra di output vengono visualizzati messaggi di traccia HTTP:
 ```
 // The request from your browser
-webfrontend.<id>.<region>.aksapp.io --gyk-> webfrontend-668b7ddb9f-n5rhj:
+default.webfrontend.856bb3af715744c6810b.eus.azds.io --gyk-> webfrontend:
    GET /Home/About HTTP/1.1
 
 // *webfrontend* reaching out to *mywebapi*
@@ -98,7 +98,7 @@ webfrontend-668b7ddb9f-n5rhj <-pu5-- mywebapi:
    Hello from mywebapi
 
 // Response from *webfrontend* to your browser
-webfrontend.<id>.<region>.aksapp.io <-gyk-- webfrontend-668b7ddb9f-n5rhj:
+default.webfrontend.856bb3af715744c6810b.eus.azds.io <-gyk-- webfrontend:
    HTTP/1.1 200 OK
    <!DOCTYPE html>
    <html>

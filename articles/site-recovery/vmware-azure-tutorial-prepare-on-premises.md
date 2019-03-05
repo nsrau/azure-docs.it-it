@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: bee9d2f823fe46d81550ea5090222f491562d636
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: ea67c19beeb2fa52b77b04913aee1838569c4ac6
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700112"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675025"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparare i server VMware locali per il ripristino di emergenza in Azure
 
@@ -80,7 +80,7 @@ Assicurarsi che i server e le VM VMware siano conformi ai requisiti.
 3. Verificare il supporto per [rete](vmware-physical-azure-support-matrix.md#network) e [archiviazione](vmware-physical-azure-support-matrix.md#storage) locale. 
 4. Controllare cosa è supportato per le [funzionalità di rete di Azure](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), l'[archiviazione](vmware-physical-azure-support-matrix.md#azure-storage) e il [calcolo](vmware-physical-azure-support-matrix.md#azure-compute), dopo il failover.
 5. Le macchine virtuali locali replicate in Azure devono essere conformi ai [requisiti delle macchine virtuali di Azure](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
-6. Nelle macchine virtuali Linux, il nome del dispositivo o del punto di montaggio deve essere univoco. Verificare che non esistano due punti di montaggio/dispositivi con nomi distinti per maiuscole / minuscole. Ad esempio, due dispositivi della stessa macchina virtuale denominati *dispositivo1* e *Dispositivo1* non sono consentiti.
+6. Nelle macchine virtuali Linux, il nome del dispositivo o del punto di montaggio deve essere univoco. Verificare che non esistano due punti di montaggio/dispositivi con lo stesso nome. Il nome non fa distinzione tra maiuscole e minuscole. Ad esempio, due dispositivi per la stessa macchina virtuale denominati _dispositivo1_ e _Dispositivo1_ non sono consentiti.
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparare la connessione alle macchine virtuali di Azure dopo il failover

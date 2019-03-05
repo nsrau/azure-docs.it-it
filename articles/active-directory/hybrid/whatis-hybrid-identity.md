@@ -13,14 +13,14 @@ ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df5d42135c538ca3d0a63252805efb44cef7e8b0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 536edcf74bff6f89dade4a713c40c9bef12e18af
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190467"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881805"
 ---
-# <a name="what-is-hybrid-identity"></a>Informazioni sull'identità ibrida 
+# <a name="what-is-hybrid-identity"></a>Informazioni sull'identità ibrida
 
 Oggi nelle aziende di piccole e grandi dimensioni si ricorre sempre più spesso a una combinazione di applicazioni locali e cloud e  gli utenti devono poter accedere a tali applicazioni sia in locale che nel cloud. Questo requisito comporta la definizione di uno scenario complesso. 
 
@@ -30,7 +30,7 @@ Per accedere all'identità ibrida, a seconda degli scenari è possibile uno dei 
 
 - **[Sincronizzazione dell'hash delle password](whatis-phs.md)**  
 - **[Autenticazione pass-through](how-to-connect-pta.md)**  
-- **[Federazione](whatis-fed.md)** 
+- **[Federazione (AD FS)](whatis-fed.md)** 
 
 Questi metodi di autenticazione offrono anche funzionalità [Single Sign-On](how-to-connect-sso.md).  La funzionalità Single Sign-On consente agli utenti di eseguire l'accesso automaticamente dai dispositivi di proprietà dell'azienda connessi alla rete aziendale.
 
@@ -47,7 +47,7 @@ Di seguito sono riportati alcuni scenari comuni di gestione di identità ibride 
 |Consentire agli utenti di accedere ai servizi cloud usando la propria password locale.|![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| ![Consigliato](./media/whatis-hybrid-identity/ic195031.png) |![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| 
 |Implementare l'accesso SSO usando le credenziali aziendali.|![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| ![Consigliato](./media/whatis-hybrid-identity/ic195031.png) |![Consigliato](./media/whatis-hybrid-identity/ic195031.png)|  
 |Assicurarsi che gli hash delle password non vengano archiviati nel cloud.| |![Consigliato](./media/whatis-hybrid-identity/ic195031.png)|![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| 
-|Abilitare soluzioni di autenticazione a più fattori nel cloud.| |![Consigliato](./media/whatis-hybrid-identity/ic195031.png)|![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| 
+|Abilitare soluzioni di autenticazione a più fattori basate sul cloud.|![Consigliato](./media/whatis-hybrid-identity/ic195031.png)|![Consigliato](./media/whatis-hybrid-identity/ic195031.png)|![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| 
 |Abilitare soluzioni di autenticazione a più fattori locali.| | |![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| 
 |Supportare l'autenticazione tramite smart card per gli utenti.<sup>4</sup>| | |![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| 
 |Visualizzare le notifiche di scadenza delle password nel portale di Office e sul desktop di Windows 10.| | |![Consigliato](./media/whatis-hybrid-identity/ic195031.png)| 

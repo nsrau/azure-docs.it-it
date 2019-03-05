@@ -13,20 +13,22 @@ ms.topic: sample
 ms.date: 12/14/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: fe0ed1eda1a086915bc5655d36cf403f922669c9
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 70e0b7ad86d1b75003ac5a62297dd85d4731d4f9
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426472"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56726134"
 ---
 # <a name="set-up-custom-domain"></a>Configurare un dominio personalizzato
 
 Questo script di esempio configura un dominio personalizzato nell'endpoint proxy e del portale del servizio Gestione API.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 3.6 o successiva. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure.
+Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 1.0 o successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -34,10 +36,10 @@ Se si sceglie di installare e usare PowerShell in locale, per questa esercitazio
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando il gruppo di risorse e tutte le risorse correlate non sono più necessari, è possibile usare il comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) per rimuoverli.
+Quando non servono più, è possibile usare il comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuovere il gruppo di risorse e tutte le risorse correlate.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 [!INCLUDE [api-management-custom-domain](../../../includes/api-management-custom-domain.md)]

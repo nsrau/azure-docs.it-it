@@ -5,16 +5,17 @@ services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 02/12/2019
+ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: b38f66670ba29022713ae39824a190fcffb688c7
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: d976a1c5e9366069b82cff718593ce72d7ad8a08
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238715"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588943"
 ---
+## <a name="create-a-namespace-in-the-azure-portal"></a>Creare uno spazio dei nomi nel portale di Azure
 Per iniziare a usare le entità di messaggistica del bus di servizio in Azure, prima di tutto è necessario creare uno spazio dei nomi con un nome univoco in Azure. Uno spazio dei nomi fornisce un contenitore di ambito per fare riferimento alle risorse del bus di servizio all'interno dell'applicazione.
 
 Per creare uno spazio dei nomi:
@@ -27,7 +28,7 @@ Per creare uno spazio dei nomi:
     1. Immettere un **nome per lo spazio dei nomi**. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
     2. Selezionare il piano tariffario (Basic, Standard o Premium) per lo spazio dei nomi. Se si vogliono usare [argomenti e sottoscrizioni](../articles/service-bus-messaging/service-bus-queues-topics-subscriptions.md#topics-and-subscriptions), scegliere Standard o Premium. Argomenti e sottoscrizioni non sono supportati nel piano tariffario Basic.
     3. Se si seleziona il piano tariffario **Premium**, procedere come segue: 
-        1. Specificare il numero di **unità di messaggistica**. Il piano Premium fornisce l'isolamento delle risorse a livello di CPU e memoria in modo che ogni carico di lavoro venga eseguito in isolamento. Questo contenitore di risorse viene chiamato unità di messaggistica. Ad ogni spazio dei nomi Premium viene allocata almeno un'unità di messaggistica. È possibile acquistare 1, 2 o 4 unità di messaggistica per ogni spazio dei nomi Premium del bus di servizio. Per altre informazioni, vedere [Messaggistica Premium del bus di servizio](../articles/service-bus-messaging/service-bus-premium-messaging.md).
+        1. Specificare il numero di **unità di messaggistica**. Il piano Premium fornisce l'isolamento delle risorse a livello di CPU e memoria in modo che ogni carico di lavoro venga eseguito in isolamento. Questo contenitore di risorse viene chiamato unità di messaggistica. Uno spazio dei nomi Premium ha almeno un'unità di messaggistica. È possibile acquistare 1, 2 o 4 unità di messaggistica per ogni spazio dei nomi Premium del bus di servizio. Per altre informazioni, vedere [Messaggistica Premium del bus di servizio](../articles/service-bus-messaging/service-bus-premium-messaging.md).
         2. Specificare se impostare lo spazio dei nomi **con ridondanza della zona**. La ridondanza della zona fornisce maggiore disponibilità tramite la distribuzione delle repliche tra più zone di disponibilità all'interno di un'area senza costi aggiuntivi. Per altre informazioni, vedere [Zone di disponibilità di Azure](../articles/availability-zones/az-overview.md).
     4. Per **Sottoscrizione** scegliere una sottoscrizione di Azure in cui creare lo spazio dei nomi.
     5. Per **Gruppo di risorse** scegliere un gruppo di risorse esistente in cui risiederà lo spazio dei nomi oppure crearne uno nuovo.      
@@ -45,7 +46,7 @@ Per creare uno spazio dei nomi:
 
     ![Home page dello spazio dei nomi del bus di servizio](./media/service-bus-create-namespace-portal/service-bus-namespace-home-page.png)
 
-### <a name="get-the-management-credentials"></a>Ottenere le credenziali di gestione
+## <a name="get-the-connection-string"></a>Ottenere la stringa di connessione 
 Con la creazione di un nuovo spazio dei nomi viene generata automaticamente una regola di firma di accesso condiviso iniziale con una coppia associata di chiavi primaria e secondaria, ognuna delle quali concede il controllo completo su tutti gli aspetti dello spazio dei nomi. Per informazioni su come creare regole con diritti più limitati per mittenti e ricevitori, vedere [Autenticazione e autorizzazione del bus di servizio](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md). Per copiare le chiavi primaria e secondaria per lo spazio dei nomi, procedere come segue: 
 
 1. Fare clic su **Tutte le risorse**, quindi sul nome dello spazio dei nomi appena creato.

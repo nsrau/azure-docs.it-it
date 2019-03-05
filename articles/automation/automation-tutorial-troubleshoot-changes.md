@@ -11,12 +11,12 @@ ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 9fa1e3ffd92b3c375837c7b9a4a0e7fd1a80893a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 77dda5f113a10f0bfb59457b1059563c58db0dde
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433680"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816940"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Risolvere i problemi delle modifiche nell'ambiente
 
@@ -62,12 +62,14 @@ Durante l'onboarding, il provisioning della macchina virtuale viene effettuato c
 L'agente consente di comunicare con la macchina virtuale e ottenere informazioni sul software installato.
 
 L'abilitazione della soluzione può richiedere fino a 15 minuti. Durante questo intervallo di tempo, non chiudere la finestra del browser.
-Dopo l'abilitazione della soluzione, le informazioni sul software installato e sulle modifiche nella macchina virtuale passano a Log Analytics.
+Dopo l'abilitazione della soluzione, le informazioni sul software installato e sulle modifiche nella macchina virtuale passano ai log di Monitoraggio di Azure.
 Affinché i dati diventino disponibili per l'analisi, sarà necessario attendere da 30 minuti a 6 ore.
 
-## <a name="using-change-tracking-in-log-analytics"></a>Uso di Rilevamento modifiche in Log Analytics
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Rilevamento modifiche genera dati di log che vengono inviati a Log Analytics.
+## <a name="using-change-tracking-in-azure-monitor-logs"></a>Uso del rilevamento delle modifiche nei log di Monitoraggio di Azure
+
+Il rilevamento delle modifiche genera dati di log che vengono inviati ai log di Monitoraggio di Azure.
 Per eseguire ricerche nei log tramite l'esecuzione di query, selezionare **Log Analytics** nella parte superiore della finestra **Rilevamento modifiche**.
 I dati di Rilevamento modifiche vengono archiviati sotto il tipo **ConfigurationChange**.
 L'esempio di query di Log Analytics seguente restituisce tutti i servizi di Windows arrestati.
@@ -77,7 +79,7 @@ ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Per altre informazioni sull'esecuzione e sulla ricerca nei file di log in Log Analytics, vedere [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md).
+Per altre informazioni sull'esecuzione dei file di log e sulla ricerca al loro interno nei log di Monitoraggio di Azure, vedere [Log di Monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="configure-change-tracking"></a>Configurare Rilevamento modifiche
 

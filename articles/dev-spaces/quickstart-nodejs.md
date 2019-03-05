@@ -10,12 +10,12 @@ ms.date: 09/26/2018
 ms.topic: quickstart
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, contenitori
-ms.openlocfilehash: bfc70186590bce0165cf25f089f6863152cfba47
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 744d9c5c62337c318aa5e8281e8855b085695c2e
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658369"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818511"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>Guida introduttiva: Creare uno spazio di sviluppo Kubernetes con Azure Dev Spaces (Node.js)
 
@@ -33,11 +33,11 @@ In questa guida si apprenderà come:
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito](https://azure.microsoft.com/free).
 - [Visual Studio Code](https://code.visualstudio.com/download).
 - [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) versione 2.0.43 o successiva.
-- Un cluster Kubernetes che esegue Kubernetes 1.9.6 o versione successiva nell'area EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral o CanadaEast con **Routing di applicazioni HTTP** abilitato.
+- Un cluster Kubernetes che esegue Kubernetes 1.9.6 o versione successiva nell'area Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti occidentali 2, Europa occidentale, Asia sud-orientale, Canada centrale o Canada orientale.
 
     ```cmd
     az group create --name MyResourceGroup --location <region>
-    az aks create -g MyResourceGroup -n myAKS --location <region> --kubernetes-version 1.10.9 --enable-addons http_application_routing --generate-ssh-keys
+    az aks create -g MyResourceGroup -n myAKS --location <region> --kubernetes-version 1.10.9 --generate-ssh-keys
     ```
 
 ## <a name="set-up-azure-dev-spaces"></a>Configurare Azure Dev Spaces

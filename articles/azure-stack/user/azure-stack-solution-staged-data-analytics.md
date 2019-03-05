@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/01/2018
+ms.date: 03/04/2018
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: be7bf4596989cf8dfd154e0a366f93650546224b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0261dff10e553ecbd39d394eb19e7ad3dd76f0a2
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247358"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340967"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Esercitazione: Creare una soluzione analitica di dati di staging con Azure e Azure Stack 
 
@@ -138,7 +138,7 @@ Creare una nuova funzione di Azure Stack per spostare pulire i dati da Azure Sta
     | Sottoscrizione | Sottoscrizione in uso | Sottoscrizione in cui viene creata questa nuova app per le funzioni. |
     | **Gruppo di risorse** |  |  |
     | myResourceGroup | Nome del nuovo gruppo di risorse in cui creare l'app per le funzioni. |  |
-    | OS |  Windows | L'hosting senza server attualmente è disponibile solo in un ambiente di esecuzione su Windows. |
+    | OS | Windows | L'hosting senza server attualmente è disponibile solo in un ambiente di esecuzione su Windows. |
     | **Piano di hosting** |  |  |
     | Piano a consumo | Piano di hosting che definisce come vengono allocate le risorse all'app per le funzioni. Nel piano a consumo predefinito, le risorse vengono aggiunte in modo dinamico come richiesto dalle funzioni. In questo hosting senza server, si paga solo per l'esecuzione delle funzioni. |  |
     | Località | Area più vicina | Scegliere un'area nelle vicinanze o vicino ad altri servizi di accesso di funzioni. |

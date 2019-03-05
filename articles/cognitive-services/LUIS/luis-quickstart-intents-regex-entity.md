@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 5ebd8875f14eef9a5febaf5356f0d2fadb0828bd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 012d77227e7c0283b565361dda32cb77e12fc62b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869637"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867270"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Esercitazione: Ottenere dati formattati in modo corretto dall'espressione
 Questa esercitazione illustra come creare un'app per estrarre dati formattati in modo coerente da un'espressione usando l'entità di **espressione regolare**.
@@ -82,7 +82,7 @@ Un'espressione regolare è una scelta appropriata per questo tipo di dati quando
     |Chi è l'autore di hrf-546234?|
     |Qual è il titolo di hrf-456234?|
 
-    [ ![Schermata della pagina della finalità con le nuove espressioni evidenziate](./media/luis-quickstart-intents-regex-entity/findform-intent.png) ](./media/luis-quickstart-intents-regex-entity/findform-intent.png#lightbox)
+    [ ![Screenshot della pagina della finalità con le nuove espressioni evidenziate](./media/luis-quickstart-intents-regex-entity/findform-intent.png)](./media/luis-quickstart-intents-regex-entity/findform-intent.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
