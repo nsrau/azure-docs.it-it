@@ -15,14 +15,14 @@ ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 3b7b70a5ac0c74cc920df823d1f9ae1152f86bff
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8e83da53d0b2f71abc1f74a0ca8fbc2405e75bda
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561196"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736584"
 ---
-# <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Avvio rapido: Distribuire un'applicazione Reliable Services .NET su Service Fabric
+# <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Guida introduttiva: Distribuire un'applicazione Reliable Services .NET su Service Fabric
 
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili.
 
@@ -55,10 +55,10 @@ Per completare questa guida introduttiva:
 
 Dopo aver installato il runtime, gli SDK e gli strumenti di Visual Studio e aver avviato il Docker, creare un cluster di sviluppo locale a cinque nodi.
 
-> [!IMPORTANT]
-> Prima di poter creare un cluster, Docker **deve** essere in esecuzione.
+> [!Note]
+> Durante questa procedura, è necessario che il Docker sia in esecuzione per fare in modo che il cluster venga creato con le funzionalità del contenitore abilitate. Se il Docker non è in esecuzione, sarà necessario ricreare il cluster per abilitare le funzionalità del contenitore.
+> Anche se non è necessaria per questa specifica guida introduttiva, l'istruzione di avere il Docker in esecuzione quando si crea il cluster viene inclusa come procedura consigliata.
 > Per testare se Docker è in esecuzione, aprire una finestra del terminale ed eseguire `docker ps` per vedere se si verifica un errore. Se la risposta non indica un errore, Docker è in esecuzione ed è possibile creare un cluster.
-
 
 1. Aprire una nuova finestra di PowerShell con privilegi elevati come amministratore.
 2. Eseguire il comando di PowerShell seguente per creare un cluster di sviluppo:

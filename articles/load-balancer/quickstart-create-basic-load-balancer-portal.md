@@ -12,43 +12,45 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2018
+ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 64c0a42ac3cc074e5fd9e2824180009431b11e1e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 3ec4b8fb9ebb7a03983ce5da3dad56e0fe9917e8
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231972"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986329"
 ---
-# <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Guida introduttiva: Creare un servizio di bilanciamento del carico Basic pubblico usando il portale di Azure
+# <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Guida introduttiva: Creare un servizio Load Balancer Basic usando il portale di Azure
 
 Il bilanciamento del carico offre un livello più elevato di disponibilità e scalabilità distribuendo le richieste in ingresso tra le macchine virtuali. È possibile usare il portale di Azure per creare un servizio di bilanciamento del carico e bilanciare il traffico tra le macchine virtuali. Questo argomento di avvio rapido illustra come creare e configurare un servizio di bilanciamento del carico, i server back-end e le risorse di rete con il piano tariffario Basic.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
 
-Per eseguire le attività di questo avvio rapido, accedere al [portale di Azure](http://portal.azure.com).
+Per eseguire le attività di questa guida introduttiva, accedere al [portale di Azure](http://portal.azure.com).
 
-## <a name="create-a-basic-load-balancer"></a>Creare un servizio di bilanciamento del carico Basic
+## <a name="create-a-basic-load-balancer"></a>Creare un servizio Load Balancer Basic
 
-Creare prima di tutto un servizio di bilanciamento del carico Basic pubblico usando il portale. Il nome e l'indirizzo IP pubblico specificati vengono configurati automaticamente come front-end del servizio di bilanciamento del carico.
+Creare prima di tutto un servizio Load Balancer Basic pubblico usando il portale. Il nome e l'indirizzo IP pubblico specificati vengono configurati automaticamente come front-end del servizio di bilanciamento del carico.
 
-1. In alto a sinistra nel portale selezionare **Crea una risorsa** > **Rete** > **Load Balancer**.
-   
-1. Nel riquadro **Crea servizio di bilanciamento del carico** digitare o selezionare i valori seguenti:
-   
-   - **Nome**: Digitare *MyLoadBalancer*.
-   - **Tipo**: Selezionare **Pubblico**. 
-   - **SKU**: Selezionare **Basic**.
-   - **Indirizzo IP pubblico:** Selezionare **Crea nuovo**. 
-     - Campo **Indirizzo IP pubblico**: digitare *MyPublicIP*.
-     - **Configurare l'indirizzo IP pubblico** > **Assegnazione**: Selezionare **Dinamica**.
-   - **Gruppo di risorse**: selezionare **Crea nuovo**, immettere *MyResourceGroupLB* e quindi selezionare **OK**. 
-   
-1. Selezionare **Create**.
-   
-![Creare un servizio di bilanciamento del carico](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
+1. Nella parte superiore sinistra dello schermo fare clic su **Crea una risorsa** > **Rete** > **Servizio di bilanciamento del carico**.
+2. Nella scheda **Generale** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le opzioni rimanenti e quindi selezionare **Rivedi e crea**:
+
+    | Impostazione                 | Valore                                              |
+    | ---                     | ---                                                |
+    | Sottoscrizione               | Selezionare la propria sottoscrizione.    |    
+    | Gruppo di risorse         | Selezionare **Crea nuovo** e digitare *MyResourceGroupLB* nella casella di testo.|
+    | NOME                   | *myLoadBalancer*                                   |
+    | Region         | Selezionare **Europa occidentale**.                                        |
+    | Type          | Selezionare **Pubblica**.                                        |
+    | SKU           | Selezionare **Basic**.                          |
+    | Indirizzo IP pubblico | Selezionare **Crea nuovo**. |
+    | Nome dell'indirizzo IP pubblico              | *MyPublicIP*   |
+    | Assegnazione| statico|
+
+3. Nella scheda **Rivedi e crea** fare clic su **Crea**.   
+
 
 ## <a name="create-back-end-servers"></a>Creare i server back-end
 

@@ -10,12 +10,12 @@ ms.subservice: entity-linking-intelligence
 ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
-ms.openlocfilehash: c3e7d27fa0e62c1dcc92e7eac7ddb56a1de5ba49
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: fc1bdd5c6ad4829e22af9922c6749e60f842abaf
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857814"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594033"
 ---
 # <a name="tutorial-build-an-entity-linking-app-with-c"></a>Esercitazione: Creare un'app Entity Linking con C#
 
@@ -55,7 +55,7 @@ Entity Linking è ora installato come parte dell'applicazione. È possibile veri
  ![Libreria di NuGet inclusa nel progetto](./Images/NugetLibraryInProject.png)
  
 ### <a name="step-4-add-an-input-and-output-text-block-to-your-apps-xaml">Passaggio 4: Aggiungere blocco di testo di input e di output nel codice XAML dell'app</a>
-Passare a ** MainPage.xaml ** in **Esplora soluzioni** e quindi fare doppio clic sul file che verrà aperto in una nuova finestra. Per praticità, è possibile fare doppio clic sul pulsante **XAML** nella scheda **Progettazione**. In questo modo verrà nascosta la **finestra di progettazione grafica** riservando tutto lo spazio alla visualizzazione del codice.
+Passare a **MainPage.xaml** in **Esplora soluzioni** e quindi fare doppio clic sul file che verrà aperto in una nuova finestra. Per praticità, è possibile fare doppio clic sul pulsante **XAML** nella scheda **Progettazione**. In questo modo verrà nascosta la **finestra di progettazione grafica** riservando tutto lo spazio alla visualizzazione del codice.
 
  ![Libreria di NuGet inclusa nel progetto](./Images/UWPMainPage.png)
  

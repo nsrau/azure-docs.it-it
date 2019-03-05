@@ -11,33 +11,38 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 3940c2f239a4354cfb44a499f7375f4ba34f8aa8
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.date: 02/18/2019
+ms.openlocfilehash: 3bf0f62b0a8d909231ad747435ce363e6686fe80
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892028"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874750"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Introduzione all'istanza gestita di database SQL di Azure
 
-L'opzione di distribuzione [Istanza gestita](sql-database-managed-instance-index.yml) crea un database con quasi il 100% di compatibilità con il più recente motore di database SQL Server in locale (Enterprise Edition), fornendo un'implementazione della [rete virtuale (VNet)](../virtual-network/virtual-networks-overview.md) nativa che risolve problemi di sicurezza comuni e un [modello aziendale](https://azure.microsoft.com/pricing/details/sql-database/) favorevole per i clienti di SQL Server in locale. In questa sezione verrà illustrato come configurare e creare rapidamente un'istanza gestita ed eseguire la migrazione dei database.
+L'opzione di distribuzione [Istanza gestita](sql-database-managed-instance-index.yml) crea un database con quasi il 100% di compatibilità con il più recente motore di database SQL Server in locale (Enterprise Edition), fornendo un'implementazione della [rete virtuale](../virtual-network/virtual-networks-overview.md) nativa che risolve problemi di sicurezza comuni e un [modello aziendale](https://azure.microsoft.com/pricing/details/sql-database/) favorevole per i clienti di SQL Server in locale. In questo articolo verrà illustrato come configurare e creare rapidamente un'istanza gestita ed eseguire la migrazione dei database.
 
 ## <a name="quickstart-overview"></a>Panoramica della guida introduttiva
 
-Le guide introduttive seguenti consentono di creare rapidamente un'istanza gestita, configurare una macchina virtuale o una connessione VPN da punto a sito per l'applicazione client e ripristinare un database nella nuova istanza gestita usando un file `.bak`:
+Le guide introduttive seguenti consentono di creare rapidamente un'istanza gestita, configurare una macchina virtuale o una connessione VPN da punto a sito per l'applicazione client e ripristinare un database nella nuova istanza gestita usando un file `.bak`.
 
-- [Creare un'istanza gestita usando il portale di Azure](sql-database-managed-instance-get-started.md). Nel portale di Azure è possibile configurare i parametri necessari (nome utente/password, numero di core, dimensioni massime di archiviazione) e creare automaticamente l'ambiente di rete di Azure senza la necessità di conoscere i dettagli della rete e i requisiti dell'infrastruttura. Assicurarsi solo di avere un [tip di sottoscrizione](sql-database-managed-instance-resource-limits.md#supported-subscription-types) autorizzato a creare un'istanza gestita. Se si vuole personalizzare la rete o usarne una propria, vedere come configurare l'ambiente di rete per un'istanza gestita.
-- Un'istanza gestita viene creata nella propria rete virtuale senza un endpoint pubblico. Per l'accesso dell'applicazione client è possibile creare una macchina virtuale nella stessa rete virtuale (subnet diversa) o creare una connessione VPN da punto a sito nella rete virtuale dal computer client usando una di queste guide introduttive.
+### <a name="configure-environment"></a>Configurare l'ambiente
+Come primo passaggio, è necessario creare la prima istanza gestita con l'ambiente di rete in cui verrà inserita, nonché abilitare la connessione dal computer o dalla macchina virtuale in cui vengono eseguite le query sull'istanza gestita. È possibile usare le guide seguenti:
+
+- [Creare un'istanza gestita usando il portale di Azure](sql-database-managed-instance-get-started.md). Nel portale di Azure è possibile configurare i parametri necessari (nome utente/password, numero di core e dimensioni massime di archiviazione) e creare automaticamente l'ambiente di rete di Azure senza la necessità di conoscere i dettagli della rete e i requisiti dell'infrastruttura. Assicurarsi solo di avere un [tipo di sottoscrizione](sql-database-managed-instance-resource-limits.md#supported-subscription-types) attualmente autorizzato a creare un'istanza gestita. Se si vuole usare o personalizzare una propria rete, vedere come [configurare una rete virtuale esistente per Istanza gestita di database SQL di Azure](sql-database-managed-instance-configure-vnet-subnet.md) o [creare una rete virtuale per Istanza gestita di database SQL di Azure](sql-database-managed-instance-create-vnet-subnet.md).
+- Un'istanza gestita viene creata nella propria rete virtuale senza un endpoint pubblico. Per l'accesso dell'applicazione client, è possibile **creare una macchina virtuale nella stessa rete virtuale (subnet diversa)** o **creare una connessione VPN da punto a sito nella rete virtuale dal computer client** usando una di queste guide introduttive:
+
   - Creare una [macchina virtuale di Azure nella rete virtuale dell'istanza gestita](sql-database-managed-instance-configure-vm.md) per la connettività dell'applicazione client, incluso SQL Server Management Studio.
   - Configurare la [connessione VPN da punto a sito nell'istanza gestita](sql-database-managed-instance-configure-p2s.md) dal computer client in cui sono installati SQL Server Management Studio e altre applicazioni di connettività client. Questa è l'altra delle due opzioni per la connettività all'istanza gestita e alla relativa rete virtuale.
 
   > [!NOTE]
   > È anche possibile usare ExpressRoute o una connessione da sito a sito dalla rete locale, ma questi approcci esulano dall'ambito di queste guide introduttive.
 
-Dopo aver creato un'istanza gestita e configurato l'accesso, è possibile avviare la migrazione dei database memorizzati in SQL Server locale o nelle macchine virtuali di Azure. La migrazione non riesce se il database di origine da migrare contiene alcune funzionalità non supportate. Per evitare errori e controllare la compatibilità, è possibile installare [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595), che analizzerà i database in SQL Server per rilevare eventuali errori che potrebbero impedire la migrazione a un'istanza gestita, ad esempio la presenza di [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) o di più file di log. Se questi problemi vengono risolti, i database sono pronti per la migrazione a un'istanza gestita. [Database Experimentation Assistant](https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/) è un altro strumento utile che consente di registrare il carico di lavoro in SQL Server e di riprodurlo in un'istanza gestita per determinare se la migrazione a un'istanza gestita genererà eventuali problemi di prestazioni.
+### <a name="migrate-your-databases"></a>Eseguire la migrazione dei database 
+Dopo aver creato un'istanza gestita e configurato l'accesso, è possibile avviare la migrazione dei database da SQL Server locale o dalle macchine virtuali di Azure. La migrazione non riesce se il database di origine da migrare contiene alcune funzionalità non supportate. Per evitare errori e controllare la compatibilità, è possibile installare [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595), che analizzerà i database in SQL Server per rilevare eventuali errori che potrebbero impedire la migrazione a un'istanza gestita, ad esempio la presenza di [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) o di più file di log. Se questi problemi vengono risolti, i database sono pronti per la migrazione a un'istanza gestita. [Database Experimentation Assistant](https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/) è un altro strumento utile che consente di registrare il carico di lavoro in SQL Server e di riprodurlo in un'istanza gestita per determinare se la migrazione a un'istanza gestita genererà eventuali problemi di prestazioni.
 
-Una volta sicuri di poter migrare il database in un'istanza gestita, è possibile usare le funzionalità di ripristino native di SQL Server per ripristinare un database in un'istanza gestita da un file `.bak`. Per una guida introduttiva, vedere [Eseguire il ripristino da un backup in un'istanza gestita](sql-database-managed-instance-get-started-restore.md). In questa guida introduttiva si esegue il ripristino da un file con estensione `.bak` archiviato nell'archivio BLOB di Azure usando il comando Transact-SQL `RESTORE`. 
+Una volta sicuri di poter migrare il database in un'istanza gestita, è possibile usare le funzionalità di ripristino native di SQL Server per ripristinare un database in un'istanza gestita da un file `.bak`. È possibile usare questo metodo per eseguire la migrazione dei database dal motore di database di SQL Server installato in locale o in una macchina virtuale di Azure. Per una guida introduttiva, vedere [Eseguire il ripristino da un backup in un'istanza gestita](sql-database-managed-instance-get-started-restore.md). In questa guida introduttiva si esegue il ripristino da un file con estensione `.bak` archiviato nell'archivio BLOB di Azure usando il comando Transact-SQL `RESTORE`. 
 
 > [!TIP]
 > Per usare il comando Transact-SQL `BACKUP` per creare un backup del database nell'archivio BLOB di Azure, vedere [Backup di SQL Server nell'URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url).

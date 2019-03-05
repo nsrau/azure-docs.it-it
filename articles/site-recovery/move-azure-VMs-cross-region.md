@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: bbede01844f20c0240b154fd319b818a43463131
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: efa8f4fc604440b8c1396aa654834ce83a41844e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824564"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875821"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Spostare macchine virtuali di Azure in un'altra area
 
@@ -28,7 +28,7 @@ Questa esercitazione illustra come spostare VM di Azure in un'altra area con Azu
 > * [Copiare i dati nell'area di destinazione](#copy-data-to-the-target-region)
 > * [Testare la configurazione](#test-the-configuration)
 > * [Eseguire lo spostamento ](#perform-the-move-to-the-target-region-and-confirm)
-> * [Rimuovere la risorsa nell'area di origine ](#discard-the-resource-in-the-source-region)
+> * [Rimuovere la risorsa nell'area di origine](#discard-the-resource-in-the-source-region)
 
 > [!IMPORTANT]
 > Questo documento descrive come spostare le VM di Azure da un'area a un'altra allo stato attuale. Se il requisito è migliorare la disponibilità dell'infrastruttura spostando le VM in zone di disponibilità, vedere questa esercitazione.
@@ -39,7 +39,7 @@ Questa esercitazione illustra come spostare VM di Azure in un'altra area con Azu
 - Verificare se la [combinazione di area di origine-area di destinazione scelta è supportata](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support) e prendere una decisione basata su informazioni aggiornate in merito all'area di destinazione.
 - Assicurarsi di aver compreso i [componenti e l'architettura dello scenario](azure-to-azure-architecture.md).
 - Rivedere le [limitazioni e i requisiti del supporto](azure-to-azure-support-matrix.md).
-- Verificare le autorizzazioni dell'account. Se è appena stato creato l'account gratuito di Azure, si è amministratori della propria sottoscrizione. Se non si è l'amministratore della propria sottoscrizione, rivolgersi all'amministratore per l'assegnazione delle autorizzazioni necessarie. Per abilitare la replica per una VM e infine copiare i dati nella destinazione con Azure Site Recovery, è necessario quanto segue:
+- Verificare le autorizzazioni dell'account: Se è appena stato creato l'account gratuito di Azure, si è amministratori della propria sottoscrizione. Se non si è l'amministratore della propria sottoscrizione, rivolgersi all'amministratore per l'assegnazione delle autorizzazioni necessarie. Per abilitare la replica per una VM e infine copiare i dati nella destinazione con Azure Site Recovery, è necessario quanto segue:
 
     1. Autorizzazioni per creare una macchina virtuale nelle risorse di Azure. Al ruolo predefinito 'Collaboratore Macchina virtuale' sono assegnate le autorizzazioni seguenti, che includono:
         - Autorizzazione per la creazione di una macchina virtuale nel gruppo di risorse selezionato
@@ -69,7 +69,7 @@ Questa esercitazione illustra come spostare VM di Azure in un'altra area con Azu
     > [!NOTE]
     > Azure Site Recovery individua e crea automaticamente una rete virtuale e un account di archiviazione quando si abilita la replica per la VM di origine. In alternativa, è possibile creare preventivamente queste risorse e assegnarle alla VM nel passaggio di abilitazione della replica. Tutte le altre risorse devono invece essere create manualmente nell'area di destinazione, come indicato di seguito.
 
-     Per creare le risorse di rete usate più di frequente che sono pertinenti per il caso specifico in base alla configurazione della VM di origine, vedere i documenti seguenti:
+     Per creare le risorse di rete usate più di frequente che sono pertinenti per il caso specifico in base alla configurazione della VM di origine, vedere i documenti seguenti.
 
     - [Gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Servizi di bilanciamento del carico](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
@@ -95,11 +95,11 @@ La procedura seguente illustra come usare Azure Site Recovery per copiare i dati
 9. Selezionare il modello di distribuzione Resource Manager. Selezionare quindi la **sottoscrizione di origine** e il **gruppo di risorse di origine**.
 10. Fare clic su **OK** per salvare le impostazioni.
 
-### <a name="enable-replication-for-azure-vms-and-start-copying-the-data"></a>Abilitare la replica per le VM di Azure e avviare la copia dei dati
+### <a name="enable-replication-for-azure-vms-and-start-copying-the-data"></a>Abilitare la replica per le VM di Azure e avviare la copia dei dati.
 
 Site Recovery recupera un elenco delle macchine virtuali associate alla sottoscrizione e al gruppo di risorse.
 
-1. Nel passaggio successivo selezionare la macchina virtuale che si vuole spostare. Fare quindi clic su **OK**.
+1. Nel passaggio successivo Selezionare la macchina virtuale che si vuole spostare. Fare quindi clic su **OK**.
 3. In **Impostazioni** fare clic su **Ripristino di emergenza**.
 4. In **Configure disaster recovery** (Configura ripristino di emergenza)  >  **Area di destinazione** selezionare l'area di destinazione in cui si vuole eseguire la replica.
 5. Si può scegliere di procedere con le risorse di destinazione predefinite oppure usare quelle già create.
@@ -128,7 +128,7 @@ Site Recovery recupera un elenco delle macchine virtuali associate alla sottoscr
 5. Al termine del failover, la macchina virtuale di Azure di replica viene visualizzata nel portale di Azure in **Macchine virtuali**. Verificare che la macchina virtuale sia in esecuzione, che sia stata dimensionata in modo adeguato e che sia connessa alla rete appropriata.
 6. Se si vuole eliminare la VM creata nell'ambito del test dello spostamento, fare clic su **Pulisci failover di test** per l'elemento replicato. In **Note** registrare e salvare eventuali osservazioni associate al test.
 
-## <a name="perform-the-move-to-the-target-region-and-confirm"></a>Eseguire lo spostamento nell'area di destinazione e confermare
+## <a name="perform-the-move-to-the-target-region-and-confirm"></a>Eseguire lo spostamento nell'area di destinazione e confermare.
 
 1.  Passare all'insieme di credenziali e in **Impostazioni** > **Elementi replicati** fare clic sulla macchina virtuale e quindi su **Failover**.
 2. In **Failover** selezionare **Più recente**. 

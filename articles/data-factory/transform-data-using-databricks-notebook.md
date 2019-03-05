@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 7035035823e00fb0c12de3f4eeae11d8b3e1d54d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 181e2c1d1a9758d6f196c9cb2b281eefa141d81a
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016924"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984765"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Eseguire un notebook di Databricks con l'attività dei notebook di Databricks in Azure Data Factory
 
@@ -109,7 +109,7 @@ In questa sezione viene creato un servizio collegato Databricks. Questo servizio
 
     1.  Generare il valore di **Access Token** (Token di accesso) nell'area di lavoro di Azure Databricks. La procedura è disponibile [qui](https://docs.databricks.com/api/latest/authentication.html#generate-token).
 
-    1.  In **Cluster version** (Versione cluster) selezionare **4.0** (con Apache Spark 2.3.0, Scala 2.11)
+    1.  In **Cluster version** (Versione cluster) selezionare **4.2** (con Apache Spark 2.3.1, Scala 2.11)
 
     1.  In **Cluster node type** (Tipo di nodo cluster) selezionare **Standard\_D3\_v2** nella categoria **General Purpose (HDD)** (Utilizzo generico (HDD)) per questa esercitazione. 
     

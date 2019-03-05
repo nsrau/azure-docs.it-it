@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 16c9eea61391511f7515308131b3541e186cd7ae
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: b8600ed03140e302c730d44c6410d2020b7c48a3
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232618"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983184"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Esercitazione: Bilanciare il carico del traffico interno con un servizio di bilanciamento del carico Basic nel portale di Azure
 
@@ -87,22 +87,25 @@ Creare un servizio di bilanciamento del carico interno Basic usando il portale. 
 
 1. In alto a sinistra nel portale selezionare **Crea una risorsa** > **Rete** > **Load Balancer**.
    
-1. Nel riquadro **Crea servizio di bilanciamento del carico** digitare o selezionare i valori seguenti:
-   
-   - **Nome**: Digitare *MyLoadBalancer*.
-   - **Tipo**: Selezionare **Interno**. 
-   - **SKU**: Selezionare **Basic**.
-   - **Rete virtuale**: Selezionare **Scegli una rete virtuale**, quindi **MyVNet**.
-   - **Subnet**: Selezionare **Scegli una subnet**, quindi **MyBackendSubnet**.
-   - **Assegnazione indirizzo IP**: Selezionare **Statico** se non selezionato.
-   - **Indirizzo IP privato**: Digitare un indirizzo nello spazio degli indirizzi della rete virtuale e della subnet, per esempio *10.3.0.7*.
-   - **Gruppo di risorse**: Nell'elenco a discesa **Seleziona esistente** e selezionare **MyResourceGroupLB**. 
-   
-1. Selezionare **Create**.
-   
-![Creare un servizio di bilanciamento del carico](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
+2. Nella scheda **Generale** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le opzioni rimanenti e quindi selezionare **Rivedi e crea**:
 
-## <a name="create-basic-load-balancer-resources"></a>Creare le risorse del servizio di bilanciamento del carico Basic
+    | Impostazione                 | Valore                                              |
+    | ---                     | ---                                                |
+    | Sottoscrizione               | Selezionare la propria sottoscrizione.    |    
+    | Gruppo di risorse         | Selezionare **Crea nuovo** e digitare *MyResourceGroupLB* nella casella di testo.|
+    | NOME                   | *myLoadBalancer*                                   |
+    | Region         | Selezionare **Europa occidentale**.                                        |
+    | Type          | Selezionare **Pubblica**.                                        |
+    | SKU           | Selezionare **Basic**.                          |
+    | Rete virtuale           | Selezionare *MyVNet*.                          |    
+| Indirizzo IP pubblico | Selezionare **Crea nuovo**. |
+    | Assegnazione di un indirizzo IP pubblico              | Selezionare **Statico**.   |
+    | Indirizzo IP privato|Digitare un indirizzo nello spazio degli indirizzi della rete virtuale e della subnet, per esempio *10.3.0.7*.  |
+
+3. Nella scheda **Rivedi e crea** fare clic su **Crea**. 
+   
+
+## <a name="create-basic-load-balancer-resources"></a>Creare le risorse del servizio Load Balancer Basic
 
 In questa sezione si configurano le impostazioni del servizio di bilanciamento del carico per un pool di indirizzi back-end e un probe di integrità e si specificano le regole di bilanciamento del carico.
 

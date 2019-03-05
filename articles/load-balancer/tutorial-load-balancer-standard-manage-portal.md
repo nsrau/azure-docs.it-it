@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 7caddde5c7695d0c572dc139b52cd0743e39d778
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: fa40f4f666444209f70d3f49b7947450af01ec36
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672000"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983287"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Esercitazione: Bilanciare il carico del traffico Internet verso le macchine virtuali con il portale di Azure
 
@@ -45,21 +45,22 @@ Accedere al portale di Azure all'indirizzo [http://portal.azure.com](http://port
 In questa sezione viene creato un servizio di bilanciamento del carico pubblico che consente di bilanciare il carico delle macchine virtuali. Load Balancer Standard supporta solo un indirizzo IP pubblico standard. Quando si crea un'istanza di Load Balancer Standard, è necessario creare anche un nuovo indirizzo IP pubblico standard che viene configurato come front-end (denominato *LoadBalancerFrontend* per impostazione predefinita) per Load Balancer Standard. 
 
 1. Nella parte superiore sinistra dello schermo fare clic su **Crea una risorsa** > **Rete** > **Servizio di bilanciamento del carico**.
-2. Nella pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le impostazioni rimanenti e quindi selezionare **Crea**:
-    
+2. Nella scheda **Generale** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le opzioni rimanenti e quindi selezionare **Rivedi e crea**:
+
     | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
+    | Sottoscrizione               | Selezionare la propria sottoscrizione.    |    
+    | Gruppo di risorse         | Selezionare **Crea nuovo** e digitare *MyResourceGroupSLB* nella casella di testo.|
     | NOME                   | *myLoadBalancer*                                   |
-    | Type          | Pubblico                                        |
-    | SKU           | Standard                          |
-    | Indirizzo IP pubblico | Selezionare **Crea nuovo** e digitare *myPublicIP* nella casella di testo. Per impostazione predefinita, per l'indirizzo IP pubblico è selezionato lo SKU Standard. Per **Zona di disponibilità** selezionare **Con ridondanza della zona**. |
-    | Sottoscrizione               | Selezionare la propria sottoscrizione.    |
-    |Gruppo di risorse | Selezionare **Crea nuovo** e quindi digitare *myResourceGroupSLB*.    |
-    | Località           | Selezionare **Europa occidentale**.                          |
-    
+    | Region         | Selezionare **Europa occidentale**.                                        |
+    | Type          | Selezionare **Pubblica**.                                        |
+    | SKU           | Selezionare **Standard**.                          |
+    | Indirizzo IP pubblico | Selezionare **Crea nuovo**. |
+    | Nome dell'indirizzo IP pubblico              | Digitare *myPublicIP* nella casella di testo.   |
+    |Zona di disponibilità| Selezionare **Con ridondanza della zona**.    |
+3. Nella scheda **Rivedi e crea** fare clic su **Crea**.   
 
-![Creare un servizio di bilanciamento del carico](./media/load-balancer-standard-public-portal/create-load-balancer.png)
-   
+  
 ## <a name="create-backend-servers"></a>Creare i server back-end
 
 In questa sezione si crea una rete virtuale, si creano tre macchine virtuali per il pool back-end del servizio di bilanciamento del carico e quindi si installa IIS nelle macchine virtuali per testare il servizio di bilanciamento del carico.

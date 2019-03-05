@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/15/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: a2dc5653b7579d9c5db4667d84e6e5b5082abaab
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 869f6d2391632c77e01e4383c1457f88b9171c8b
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448075"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651193"
 ---
 # <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Esercitazione: Configurare i dispositivi connessi alla soluzione di monitoraggio
 
@@ -36,7 +36,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="add-a-simulated-device"></a>Aggiungere un dispositivo simulato
 
-Passare alla pagina **Dispositivi** nella soluzione e fare clic su **+ Nuovo dispositivo**:
+Passare alla pagina **Device Explorer** nella soluzione, quindi fare clic su **+ New device** (+ Nuovo dispositivo):
 
 [![Effettuare il provisioning di un dispositivo simulato](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-expanded.png#lightbox)
 
@@ -46,7 +46,7 @@ Nel pannello **Nuovo dispositivo**, scegliere **Simulato**, lasciare **1** come 
 
 ## <a name="test-the-simulated-device"></a>Testare il dispositivo simulato
 
-Per verificare che il dispositivo motore simulato stia inviando telemetria e riportando i valori delle proprietà, selezionarlo nell'elenco dei dispositivi nella pagina **Dispositivi**. Le informazioni in tempo reale sul motore vengono visualizzate nel pannello **Dettagli dispositivo**:
+Per verificare che il dispositivo motore simulato stia inviando telemetria e riportando i valori delle proprietà, selezionarlo nell'elenco dei dispositivi nella pagina **Device Explorer**. Le informazioni in tempo reale sul motore vengono visualizzate nel pannello **Dettagli dispositivo**:
 
 [![Visualizzare il nuovo dispositivo motore simulato](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-expanded.png#lightbox)
 
@@ -60,7 +60,7 @@ Per visualizzare i dati di diagnostica dettagliati, scorrere verso il basso nel 
 
 ## <a name="reconfigure-a-device"></a>Riconfigurare un dispositivo
 
-Per verificare che sia possibile aggiornare le proprietà di configurazione del motore, selezionarlo nell'elenco dispositivi nella pagina **Dispositivi**. Fare quindi clic su **Processi** e scegliere **Proprietà**. Il pannello dei processi mostra i valori delle proprietà per il dispositivo selezionato che è possibile aggiornare:
+Per verificare che sia possibile aggiornare le proprietà di configurazione del motore, selezionarlo nell'elenco dispositivi nella pagina **Device Explorer**. Fare quindi clic su **Processi** e scegliere **Proprietà**. Il pannello dei processi mostra i valori delle proprietà per il dispositivo selezionato che è possibile aggiornare:
 
 [![Riconfigurare un dispositivo](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-expanded.png#lightbox)
 
@@ -83,7 +83,7 @@ Per semplificare l'organizzazione e la gestione dei dispositivi per un operatore
 * Il team Smart Vehicle gestisce i veicoli e i dispositivi di prototipazione.
 * Il team Smart Building gestisce i refrigeratori, i montacarichi e i motori.
 
-Per visualizzare tutti i dispositivi, passare alla pagina **Dispositivi** e scegliere il filtro **All devices** (Tutti i dispositivi):
+Per visualizzare tutti i dispositivi, passare alla pagina **Device Explorer** e scegliere il filtro **All devices** (Tutti i dispositivi):
 
 [![Visualizzare tutti i dispositivi](./media/iot-accelerators-remote-monitoring-manage/devicesalldevices-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesalldevices-expanded.png#lightbox)
 
@@ -103,7 +103,7 @@ Nella pannello **Processi** selezionare **Tag**, impostare il nome del processo 
 
 ### <a name="create-filters"></a>Creare filtri
 
-È possibile usare i valori dei tag per creare filtri. Nella pagina **Dispositivi** fare clic su **Manage device groups** (Gestisci gruppi di dispositivi):
+È possibile usare i valori dei tag per creare filtri. Nella pagina **Device Explorer** fare clic su **Manage device groups** (Gestisci gruppi di dispositivi):
 
 [![Gestire i gruppi di dispositivi](./media/iot-accelerators-remote-monitoring-manage/devicesmanagefilters-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmanagefilters-expanded.png#lightbox)
 

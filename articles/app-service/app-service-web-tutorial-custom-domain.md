@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 88e55573e88a45d7733e12c3bb8751763a0ef901
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 0885671d777d79c6f8a9fc993aa1224312705bce
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113363"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650904"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Esercitazione: Eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure
 
@@ -199,6 +199,15 @@ Per l’esempio di dominio `contoso.com`, creare i record A e TXT in base alla t
 | - | - | - |
 | Una  | `@` | Indirizzo IP ricavato da [Copiare l'indirizzo IP dell'app](#info) |
 | TXT | `@` | `<app_name>.azurewebsites.net` |
+
+> [!NOTE]
+> Per aggiungere un sottodominio (come `www.contoso.com`) usando un record A al posto di un [record CNAME](#map-a-cname-record) consigliato, il record A e il record TXT devono corrispondere invece alla tabella seguente:
+>
+> | Tipo di record | Host | Valore |
+> | - | - | - |
+> | Una  | `www` | Indirizzo IP ricavato da [Copiare l'indirizzo IP dell'app](#info) |
+> | TXT | `www` | `<app_name>.azurewebsites.net` |
+>
 
 Dopo aver aggiunto i record, la pagina dei record DNS è simile all'esempio seguente:
 

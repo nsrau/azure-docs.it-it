@@ -1,6 +1,6 @@
 ---
 title: Introduzione ad Apache Kafka in HDInsight - Azure
-description: "Informazioni su Apache Kafka in HDInsight: che cos'è, quale funzione svolge e dove trovare esempi e informazioni introduttive."
+description: Informazioni su Apache Kafka in HDInsight. Che cos'è, che cosa fa e dove trovare esempi e informazioni introduttive.
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 04/11/2018
-ms.openlocfilehash: 587279d247b945b787051721d256f00a090d56db
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 4d054542d600f2569170f40b8f6c053e005fc8af
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313963"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889189"
 ---
 # <a name="what-is-apache-kafka-on-hdinsight"></a>Che cosa è Apache Kafka in HDInsight?
 
@@ -38,7 +38,7 @@ Di seguito sono illustrate le caratteristiche specifiche di Kafka in HDInsight:
 
     Per altre informazioni, vedere l'articolo relativo alla [disponibilità elevata con Apache Kafka in HDInsight](apache-kafka-high-availability.md).
 
-* Azure Log Analytics può essere usato per monitorare Kafka in HDInsight. Log Analytics presenta informazioni a livello di macchina virtuale come le metriche relative a dischi e schede di interfaccia di rete e le metriche JMX di Kafka.
+* I log di Monitoraggio di Azure possono essere usati per monitorare Kafka in HDInsight. I log di Monitoraggio di Azure presentano informazioni a livello di macchina virtuale, come le metriche relative a dischi e schede di interfaccia di rete e le metriche JMX di Kafka.
 
     Per altre informazioni, vedere [Analizzare i log per Apache Kafka in HDInsight](apache-kafka-log-analytics-operations-management.md).
 
@@ -60,11 +60,11 @@ Viene usata la replica per duplicare le partizioni tra i nodi e garantire protez
 
 Quelli che seguono sono attività e criteri comuni che possono essere eseguiti usando Kafka in HDInsight:
 
-* **Replica dei dati Apache Kafka**: Kafka offre l'utilità MirrorMaker, che replica i dati tra cluster Kafka.
+* **Replica di dati di Apache Kafka**: Kafka offre l'utilità MirrorMaker, che replica i dati tra cluster Kafka.
 
     Per informazioni sull'uso di MirrorMaker, vedere l'articolo su come [replicare gli argomenti Apache Kafka con Apache Kafka in HDInsight](apache-kafka-mirroring.md).
 
-* **Modello di messaggistica per la pubblicazione/sottoscrizione**: Kafka offre un'API Producer per la pubblicazione di record in un argomento Kafka. L'API Consumer viene usata quando si sottoscrive un argomento.
+* **Modello pubblicazione-sottoscrizione di messaggi**: Kafka offre un'API Producer per la pubblicazione di record in un argomento Kafka. L'API Consumer viene usata quando si sottoscrive un argomento.
 
     Per altre informazioni, vedere [Iniziare a usare Apache Kafka in HDInsight](apache-kafka-get-started.md).
 
@@ -82,13 +82,13 @@ Quelli che seguono sono attività e criteri comuni che possono essere eseguiti u
 
 ## <a name="use-cases"></a>Casi d'uso
 
-* **Messaggistica**: poiché supporta il modello di messaggio per la pubblicazione/sottoscrizione, Kafka viene usato spesso come broker di messaggi.
+* **Messaggistica**: poiché supporta il modello di pubblicazione-sottoscrizione dei messaggi, Kafka viene spesso usato come broker di messaggi.
 
-* **Rilevamento delle attività**: poiché Kafka offre la registrazione ordinata dei record, può essere usato per tenere traccia delle attività e per ricrearle. Ad esempio, le azioni dell'utente in un sito Web o in un'applicazione.
+* **Rilevamento dell'attività**: poiché Kafka offre la registrazione ordinata dei record, può essere usato per tenere traccia delle attività e per ricrearle. Ad esempio, le azioni dell'utente in un sito Web o in un'applicazione.
 
-* **Aggregazione**: usando l'elaborazione dei flussi, è possibile aggregare informazioni da flussi diversi per combinare e centralizzare le informazioni in dati operativi.
+* **Aggregazione**: Usando l'elaborazione dei flussi, è possibile aggregare informazioni da flussi diversi per combinarle e centralizzarle in dati operativi.
 
-* **Trasformazione**: usando l'elaborazione dei flussi, è possibile combinare e arricchire dati da più argomenti di input in uno o più argomenti di output.
+* **Trasformazione**: Usando l'elaborazione dei flussi, è possibile combinare e arricchire dati da più argomenti di input in uno o più argomenti di output.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

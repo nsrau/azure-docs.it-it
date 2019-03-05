@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: ebce27f3558661aca9e1bd6e7130c96c396d33ee
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bb173981e3f06c923fa7357eb64777493bd17b8c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257123"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958270"
 ---
 # <a name="what-is-azure-data-explorer"></a>Informazioni su Esplora dati di Azure
 
@@ -45,9 +45,9 @@ Il diagramma seguente illustra i diversi aspetti dell'uso di Esplora dati di Azu
 
 L'uso di Esplora dati di Azure in genere segue questo modello:
 
-1. **Creare il database:** Creare un *cluster* e quindi creare uno o più *database* in tale cluster. [Quickstart: Create an Azure Data Explorer cluster and database](create-cluster-database-portal.md) (Guida introduttiva: creare un cluster e un database di Esplora dati di Azure)
+1. **Creare il database:** creare un *cluster* e quindi creare uno o più *database* al suo interno. [Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure](create-cluster-database-portal.md)
 
-1. **Inserire i dati:** caricare i dati nelle tabelle del database per poter eseguire query. [Quickstart: Ingest data from Event Hub into Azure Data Explorer (Guida introduttiva: Inserire dati dall'hub eventi a Esplora dati di Azure)](ingest-data-event-hub.md)
+1. **Inserire dati:** caricare i dati nelle tabelle del database per poter eseguire query. [Guida introduttiva: Inserire dati dall'hub eventi in Esplora dati di Azure](ingest-data-event-hub.md)
 
 1. **Eseguire query sul database:** usare l'applicazione Web per eseguire, esaminare e condividere le query e i risultati. È disponibile nel portale di Azure e come applicazione autonoma. È anche possibile inviare le query a livello di codice (con un SDK) o a un endpoint dell'API REST. [Guida introduttiva: Eseguire query sui dati in Esplora dati di Azure](web-query-data.md)
 
@@ -57,7 +57,7 @@ Una query in Esplora dati di Azure è una richiesta di sola lettura per elaborar
 
 Esplora dati di Azure gestisce in modo ugualmente efficiente grandi quantità di dati strutturati, semi-strutturati (tipi annidati simili a JSON) e non strutturati (con testo libero). Consente di cercare termini di testo specifici, individuare determinati eventi ed eseguire calcoli basati su metriche sui dati strutturati. Esplora dati di Azure integra i log di testo non strutturati con numeri e dimensioni strutturati estraendo i valori in fase di esecuzione dai campi di testo in formato libero. L'esplorazione dei dati è semplificata grazie alla combinazione di operazioni di indicizzazione del testo, archivio colonne e serie temporali veloci.
 
-Le funzionalità di Esplora dati di Azure vengono estese da altri servizi basati su un linguaggio di query avanzato, tra cui [Log Analytics](/azure/log-analytics/), [Application Insights](/azure/application-insights/), [Time Series Insights](/azure/time-series-insights/) e [Windows Defender Advanced Threat Protection](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection/).
+Le funzionalità di Esplora dati di Azure vengono estese da altri servizi basati su un linguaggio di query avanzato, tra cui i [log di Monitoraggio di Azure](/azure/log-analytics/), [Application Insights](/azure/application-insights/), [Time Series Insights](/azure/time-series-insights/) e [Windows Defender Advanced Threat Protection](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection/).
 
 ## <a name="feedback"></a>Commenti e suggerimenti
 
@@ -71,8 +71,8 @@ Tutti i commenti e suggerimenti su Esplora dati di Azure e sul relativo linguagg
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Quickstart: Create an Azure Data Explorer cluster and database](create-cluster-database-portal.md) (Guida introduttiva: creare un cluster e un database di Esplora dati di Azure)
+[Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure](create-cluster-database-portal.md)
 
-[Quickstart: Ingest data from Event Hub into Azure Data Explorer (Guida introduttiva: Inserire dati dall'hub eventi a Esplora dati di Azure)](ingest-data-event-hub.md)
+[Guida introduttiva: Inserire dati dall'hub eventi in Esplora dati di Azure](ingest-data-event-hub.md)
 
 [Guida introduttiva: Eseguire query sui dati in Esplora dati di Azure](web-query-data.md)

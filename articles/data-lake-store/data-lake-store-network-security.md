@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: ed2d1256508e588000970879dae7ac653797fbf9
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 7f20f237b83550b4c78b1fb7488e62119470a85a
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883314"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876994"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Integrazione della rete virtuale per Azure Data Lake Storage Gen1
 
@@ -87,7 +87,7 @@ Alcune opzioni disponibili sono:
 
 1.  Passare al portale di Azure ed eseguire l'accesso all'account.
  
-2.  [Creare una nuova rete virtuale ](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)nella sottoscrizione. In alternativa, è possibile accedere a una rete virtuale esistente. La rete virtuale deve trovarsi nella stessa area dell'account Data Lake Storage Gen1.
+2.  [Creare una nuova rete virtuale](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) nella sottoscrizione. In alternativa, è possibile accedere a una rete virtuale esistente. La rete virtuale deve trovarsi nella stessa area dell'account Data Lake Storage Gen1.
  
 3.  Nel pannello **Rete virtuale** selezionare **Endpoint servizio**.
  

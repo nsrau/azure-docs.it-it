@@ -6,15 +6,15 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.custom: mvc
-ms.date: 05/29/2018
+ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: bb9bcfcc5f78ee82f187d331055e8f2fd2ed9e64
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: ebd206f6de031ea73d621568e091632e2e8123b9
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745810"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674506"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Esercitazione: Usare un dispositivo simulato per testare la connettività con l'hub IoT
 
@@ -122,7 +122,7 @@ Questa volta viene visualizzato un errore di autenticazione quando l'applicazion
 
 Se il dispositivo usa uno degli SDK per dispositivi hub IoT, il codice della libreria SDK genera il token di firma di accesso condiviso usato per l'autenticazione con l'hub. Un token di firma di accesso condiviso viene generato dal nome dell'hub, dal nome del dispositivo e dalla chiave del dispositivo.
 
-In alcuni scenari, ad esempio in un gateway di protocollo cloud o nell'ambito di uno schema di autenticazione personalizzato, potrebbe essere necessario generare manualmente il token di firma di accesso condiviso. Per risolvere i problemi relativi al codice di generazione della firma di accesso condiviso, è utile essere in grado di generare un token di firma di accesso condiviso corretto noto da usare durante il test.
+In alcuni scenari, ad esempio in un gateway di protocollo cloud o nell'ambito di uno schema di autenticazione personalizzato, potrebbe essere necessario generare manualmente il token di firma di accesso condiviso. Per risolvere i problemi relativi al codice di generazione della firma di accesso condiviso, è utile generare un token di firma di accesso condiviso valido noto da usare durante il test.
 
 > [!NOTE]
 > Il file di esempio SimulatedDevice-2.js include esempi che illustrano come generare un token di firma di accesso condiviso con o senza l'SDK.
@@ -133,7 +133,7 @@ Per generare un token di firma di accesso condiviso corretto noto tramite l'inte
 az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubName}
 ```
 
-Prendere nota del testo completo del token di firma di accesso condiviso generato. Un token di firma di accesso condiviso ha un aspetto simile al seguente: `'SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307'`
+Prendere nota del testo completo del token di firma di accesso condiviso generato. Un token di firma di accesso condiviso ha un aspetto simile al seguente: `SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307`
 
 In una finestra del terminale nel computer di sviluppo passare alla cartella radice del progetto di esempio di Node.js scaricato. Passare quindi alla cartella **iot-hub\Tutorials\ConnectivityTests\simulated-device**.
 
@@ -189,13 +189,9 @@ La finestra del terminale visualizza alcune informazioni mentre vengono inviati 
 
 ![Invio dei messaggi dal dispositivo simulato](media/tutorial-connectivity/sim-3-sending.png)
 
-È possibile usare **Metriche** nel portale per verificare che i messaggi di telemetria raggiungano l'hub IoT:
+È possibile usare **Metriche** nel portale per verificare che i messaggi di telemetria raggiungano l'hub IoT. Selezionare l'hub IoT nell'elenco a discesa **Risorsa**, selezionare **i Messaggi di telemetria inviati** come metrica e impostare l'intervallo di tempo su **Ultima ora**. Il grafico mostra il conteggio aggregato dei messaggi inviati dal dispositivo simulato:
 
-![Passare alle metriche dell'hub IoT](media/tutorial-connectivity/metrics-portal.png)
-
-Selezionare l'hub IoT nell'elenco a discesa **Risorsa**, selezionare **i Messaggi di telemetria inviati** come metrica e impostare l'intervallo di tempo su **Ultima ora**. Il grafico mostra il conteggio aggregato dei messaggi inviati dal dispositivo simulato:
-
-![Visualizzare le metriche dell'hub IoT](media/tutorial-connectivity/metrics-active.png)
+![Visualizzare le metriche dell'hub IoT](media/tutorial-connectivity/metrics-portal.png)
 
 Sono necessari alcuni minuti prima che le metriche diventino disponibili dopo l'avvio del dispositivo simulato.
 

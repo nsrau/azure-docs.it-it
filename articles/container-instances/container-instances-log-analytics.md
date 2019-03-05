@@ -1,24 +1,26 @@
 ---
-title: Registrazione di istanze di contenitore con Azure Log Analytics
-description: Informazioni su come inviare l'output dei contenitori (STDOUT e STDERR) ad Azure Log Analytics.
+title: Registrazione di istanze di contenitore con i log di Monitoraggio di Azure
+description: Informazioni su come inviare l'output dei contenitori (STDOUT e STDERR) ai log di Monitoraggio di Azure.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 4dbcccc1a4b23ca37918495dc536df08a70cade7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 13f1fa92365c284ed10bd7c0a1b2fdefef50b29e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337887"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879714"
 ---
-# <a name="container-instance-logging-with-azure-log-analytics"></a>Registrazione di istanze di contenitore con Azure Log Analytics
+# <a name="container-instance-logging-with-azure-monitor-logs"></a>Registrazione di istanze di contenitore con i log di Monitoraggio di Azure
 
-Le aree di lavoro di Log Analytics offrono una posizione centralizzata per l'archiviazione e l'esecuzione di query sui dati di log, non solo dalle risorse di Azure, ma anche per le risorse locali e quelle in altri cloud. Il servizio Istanze di Azure Container supporta per impostazione predefinita l'invio di dati a Log Analytics.
+Le aree di lavoro di Log Analytics offrono una posizione centralizzata per l'archiviazione e l'esecuzione di query sui dati di log, non solo dalle risorse di Azure, ma anche per le risorse locali e quelle in altri cloud. Il servizio Istanze di Azure Container supporta per impostazione predefinita l'invio di dati ai log di Monitoraggio di Azure.
 
-Per inviare i dati delle istanze di contenitore a Log Analytics, è necessario creare un gruppo di contenitori usando l'interfaccia della riga di comando di Azure (o Cloud Shell) e un file YAML. Le sezioni seguenti descrivono la creazione di un gruppo di contenitori abilitato per la registrazione e l'esecuzione di query sui log.
+Per inviare i dati delle istanze di contenitore ai log di Monitoraggio di Azure, è necessario creare un gruppo di contenitori usando l'interfaccia della riga di comando di Azure (o Cloud Shell) e un file YAML. Le sezioni seguenti descrivono la creazione di un gruppo di contenitori abilitato per la registrazione e l'esecuzione di query sui log.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -96,7 +98,7 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 Si riceverà una risposta da Azure contenente i dettagli di distribuzione poco dopo aver eseguito il comando.
 
-## <a name="view-logs-in-log-analytics"></a>Visualizzare i log in Log Analytics
+## <a name="view-logs-in-azure-monitor-logs"></a>Visualizzare i log di Monitoraggio di Azure
 
 Dopo aver distribuito il gruppo di contenitori, possono essere necessari diversi minuti (fino a 10) per la visualizzazione delle prime voci di log nel portale di Azure. Per visualizzare i log del gruppo di contenitori, aprire l'area di lavoro di Log Analytics e quindi:
 
@@ -109,7 +111,7 @@ Dovrebbero essere visibili vari risultati visualizzati dalla query`search *`. Se
 
 ## <a name="query-container-logs"></a>Eseguire query sui log dei contenitori
 
-Log Analytics include un [linguaggio di query][query_lang] completo per estrarre informazioni potenzialmente da migliaia di righe di output del log.
+I log di Monitoraggio di Azure includono un [linguaggio di query][query_lang] completo per estrarre informazioni potenzialmente da migliaia di righe di output del log.
 
 L'agente di registrazione di Istanze di Azure Container invia le voci alla tabella `ContainerInstanceLog_CL` nell'area di lavoro di Log Analytics. La struttura di base di una query è costituita da una tabella di origine (`ContainerInstanceLog_CL`) seguita da una serie di operatori separati dal carattere barra verticale (`|`). È possibile concatenare più operatori per limitare i risultati ed eseguire funzioni avanzate.
 
@@ -130,11 +132,11 @@ ContainerInstanceLog_CL
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Log di Monitoraggio di Azure
 
-Per altre informazioni sull'esecuzione di query nei log e la configurazione di avvisi in Azure Log Analytics, vedere:
+Per altre informazioni sull'esecuzione di query sui log e la configurazione di avvisi nei log di Monitoraggio di Azure, vedere:
 
-* [Informazioni sulle ricerche log in Log Analytics](../log-analytics/log-analytics-log-search.md)
+* [Informazioni sulle ricerche nei log di Monitoraggio di Azure](../log-analytics/log-analytics-log-search.md)
 * [Avvisi unificati in Monitoraggio di Azure](../azure-monitor/platform/alerts-overview.md)
 
 
@@ -142,7 +144,7 @@ Per altre informazioni sull'esecuzione di query nei log e la configurazione di a
 
 Per informazioni sul monitoraggio delle risorse di CPU e memoria per l'istanza di contenitore, vedere:
 
-* [Monitorare le risorse dei contenitori in Istanze di contenitore di Azure](container-instances-monitor.md).
+* [Monitorare le risorse dei contenitori in Istanze di Azure Container](container-instances-monitor.md).
 
 <!-- IMAGES -->
 [log-search-01]: ./media/container-instances-log-analytics/portal-query-01.png

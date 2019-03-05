@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bb1ec22d4113c7b9cecbc428bf70ac91d9a7e75
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 3da54c4f7fae5a613d88f169d58a083f9273c0d3
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457908"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587889"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Configurare le informazioni di sicurezza (anteprima) dal messaggio di richiesta della pagina di accesso
 È possibile seguire questa procedura se subito dopo l'accesso all'account aziendale o dell'istituto di istruzione viene richiesto di configurare le informazioni di sicurezza.
@@ -68,9 +68,9 @@ Seguire questa procedura per configurare le informazioni di sicurezza per l'acco
 
     Verrà inviata una notifica all'app Microsoft Authenticator sul dispositivo mobile per testare l'account.
 
-    ![Testare l'account con l'app Authenticator](media/security-info/securityinfo-prompt-test-app.png)
+    ![Testare l'account con l'app di autenticazione](media/security-info/securityinfo-prompt-test-app.png)
 
-8. Approvare la notifica nell'app Microsoft Authenticator e quindi selezionare **Avanti**.
+8. Approvare la notifica nell'app Microsoft Authenticator, quindi selezionare **Avanti**.
 
     ![Notifica di operazione riuscita e connessione dell'app e dell'account](media/security-info/securityinfo-prompt-auth-app-success.png).
 

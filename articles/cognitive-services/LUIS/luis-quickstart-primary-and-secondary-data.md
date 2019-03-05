@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 9da2f8fa345ad3447d7c3344772458c451cf427e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d333eb6baa41321fdf7daca3c545d5d5e3ed5fe4
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867240"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732705"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Esercitazione: Estrarre nomi con entità semplice ed elenco di frasi
 
@@ -233,7 +233,9 @@ Aprire il file [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive
 
     [![Screenshot della finestra popup di creazione di un nuovo elenco di frasi](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Screenshot della finestra popup di creazione di un nuovo elenco di frasi")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
-    Se si vuole aggiungere più parole all'elenco di frasi, esaminare **Related Values** (Valori correlati) e aggiungere quelle pertinenti. 
+    Se si vogliono aggiungere altre parole all'elenco di frasi, selezionare **Recommend** (Consiglia), quindi esaminare **Related Values** (Valori correlati) e aggiungere quelle pertinenti. 
+
+    Verificare che l'opzione **These values are interchangeable** (Questi valori sono intercambiabili) sia selezionata perché questi valori devono essere tutti considerati sinonimi delle mansioni. Vedere altre informazioni sui [concetti relativi agli elenchi di frasi](luis-concept-feature.md#how-to-use-phrase-lists) intercambiabili e non intercambiabili.
 
 1. Fare clic su **Save** (Salva) per attivare l'elenco di frasi.
 

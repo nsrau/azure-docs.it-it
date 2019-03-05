@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 02/04/2019
+ms.date: 02/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 0ceff87cd3075d517ee1c0027e19dbf423e44f5c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f36e13ccf91c983c54897dcff7e1c02689fb055c
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108756"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592656"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>Esercitazione: Trasferire i dati con Azure Data Box Gateway (anteprima)
 
@@ -133,6 +133,7 @@ Eseguire questa procedura nel client Linux connesso al Data Box Edge.
 > Per la versione di anteprima valgono le avvertenze seguenti:
 > - Dopo aver creato un file nelle condivisioni, non è possibile rinominarlo. 
 > - Se si elimina un file da una condivisione, la voce corrispondente nell'account di archiviazione non viene eliminata.
+> - Se si usa `rsync` per copiare i dati, l'opzione `rsync -a` non è supportata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

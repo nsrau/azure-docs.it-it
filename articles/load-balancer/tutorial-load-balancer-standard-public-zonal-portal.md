@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/17/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 76e55c643378e689f12d485100a81ccefa4196f4
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 5f3b9b48fc5f15738c3de9928ca0bb220a66db12
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229813"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985989"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Esercitazione: Bilanciare il carico delle macchine virtuali all'interno di una zona di disponibilità con un servizio Load Balancer Standard tramite il portale di Azure
 
@@ -48,18 +48,22 @@ Accedere al portale di Azure all'indirizzo [http://portal.azure.com](http://port
 Load Balancer Standard supporta solo un indirizzo IP pubblico standard. Quando si crea un nuovo indirizzo IP pubblico durante la creazione del servizio di bilanciamento del carico, l'indirizzo viene automaticamente configurato come versione SKU Standard. È inoltre automaticamente con ridondanza della zona.
 
 1. In alto a sinistra nella schermata selezionare **Crea una risorsa** > **Rete** > **Load Balancer**.
-2. Nella pagina **Crea servizio di bilanciamento del carico** immettere questi valori per il bilanciamento del carico:
-    - **myLoadBalancer** come nome del servizio di bilanciamento del carico.
-    - **Pubblico** come tipo di bilanciamento del carico.
-      - **myPublicIPZonal** come nuovo indirizzo IP pubblico da creare. Fare clic su **Scegli indirizzo IP pubblico**. Selezionare quindi **Crea nuovo**. Per nome, immettere **myPublicIP**. Lo SKU è Standard per impostazione predefinita. Per **Zona di disponibilità** selezionare **Zona 1**.
-    - **myResourceGroupZLB** come nome del nuovo gruppo di risorse creato.
-    - **westeurope** come posizione.
-3. Fare clic su **Crea** per creare il servizio di bilanciamento del carico.
-   
-    ![Creare un'istanza di Load Balancer Standard di zona con il portale di Azure](./media/tutorial-load-balancer-standard-zonal-portal/create-load-balancer-zonal-frontend.png)
+2. Nella scheda **Generale** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le opzioni rimanenti e quindi selezionare **Rivedi e crea**:
 
+    | Impostazione                 | Valore                                              |
+    | ---                     | ---                                                |
+    | Sottoscrizione               | Selezionare la propria sottoscrizione.    |    
+    | Gruppo di risorse         | Selezionare **Crea nuovo** e digitare *MyResourceGroupZLB* nella casella di testo.|
+    | NOME                   | *myLoadBalancer*                                   |
+    | Region         | Selezionare **Europa occidentale**.                                        |
+    | Type          | Selezionare **Pubblica**.                                        |
+    | SKU           | Selezionare **Standard**.                          |
+    | Indirizzo IP pubblico | Selezionare **Crea nuovo**. |
+    | Nome dell'indirizzo IP pubblico              | Digitare *myPublicIP* nella casella di testo.   |
+    |Zona di disponibilità| Selezionare **1**.    |
+3. Nella scheda **Rivedi e crea** fare clic su **Crea**.   
 
-## <a name="create-backend-servers"></a>Creare i server back-end
+ ## <a name="create-backend-servers"></a>Creare i server back-end
 
 In questa sezione si crea una rete virtuale. Si creano inoltre due macchine virtuali nella stessa zona ,ovvero la zona 1, per l'area da aggiungere al pool back-end del servizio di bilanciamento del carico. Quindi si installa IIS nelle macchine virtuali per testare il servizio di bilanciamento del carico con ridondanza della zona. In caso di errore di una macchina virtuale, il probe di integrità per la macchina virtuale nella stessa zona ha esito negativo. Il traffico continua a essere gestito dalle altre macchine virtuali all'interno della stessa zona.
 

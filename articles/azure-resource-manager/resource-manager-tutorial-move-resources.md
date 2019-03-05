@@ -13,14 +13,14 @@ ms.devlang: na
 ms.date: 12/19/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: cf1894a218af35459e0d0dc432c5813169856cca
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 5bc8a408ce247ad2980983c3eb32807074af599f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267701"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820825"
 ---
-# <a name="tutorial-move-azure-resources-to-another-resource-group-or-subscription"></a>Esercitazione: Spostare le risorse di Azure in un altro gruppo di risorse o sottoscrizione
+# <a name="tutorial-move-azure-resources-to-another-resource-group"></a>Esercitazione: spostare risorse di Azure in un altro gruppo di risorse
 
 Verrà illustrato come spostare le risorse di Azure da un gruppo di risorse a un altro. È anche possibile spostare le risorse di Azure da una sottoscrizione di Azure a un'altra. In questa esercitazione si usa un modello di Resource Manager per distribuire due gruppi di risorse e un account di archiviazione. Si sposta quindi l'account di archiviazione da un gruppo di risorse all'altro.
 

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/17/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: e83991f553d00af11cfc275137f8e73ebab2098c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2b37d77e00595be125490431694f4549f61fced6
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882638"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56982794"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Esercitazione: Bilanciare il carico delle macchine virtuali tra zone di disponibilità con un servizio Load Balancer Standard tramite il portale di Azure
 
@@ -50,16 +50,20 @@ Accedere al portale di Azure all'indirizzo [http://portal.azure.com](http://port
 Load Balancer Standard supporta solo un indirizzo IP pubblico standard. Quando si crea un nuovo indirizzo IP pubblico durante la creazione del servizio di bilanciamento del carico, l'indirizzo viene automaticamente configurato come versione SKU Standard e con ridondanza della zona.
 
 1. Nella parte superiore sinistra dello schermo fare clic su **Crea una risorsa** > **Rete** > **Servizio di bilanciamento del carico**.
-2. Nella pagina **Crea servizio di bilanciamento del carico** immettere questi valori per il bilanciamento del carico:
-    - *myLoadBalancer* come nome del servizio di bilanciamento del carico.
-    - **Pubblico** come tipo di bilanciamento del carico.
-     - *myPublicIP* come nuovo indirizzo IP pubblico da creare. A tale scopo, fare clic su **Scegliere un indirizzo IP pubblico** e quindi su **Crea nuovo**. Per il tipo di nome *myPublicIP*, il valore di SKU è Standard per impostazione predefinita e selezionare **Con ridondanza della zona** per **Zona di disponibilità**.
-    - *myResourceGroupLBAZ* come nome del nuovo gruppo di risorse creato.
-    - **westeurope** come posizione.
-3. Fare clic su **Crea** per creare il servizio di bilanciamento del carico.
-   
-    ![Creare un servizio di bilanciamento del carico](./media/load-balancer-standard-public-availability-zones-portal/1a-load-balancer.png)
+2. Nella scheda **Generale** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le opzioni rimanenti e quindi selezionare **Rivedi e crea**:
 
+    | Impostazione                 | Valore                                              |
+    | ---                     | ---                                                |
+    | Sottoscrizione               | Selezionare la propria sottoscrizione.    |    
+    | Gruppo di risorse         | Selezionare **Crea nuovo** e digitare *MyResourceGroupLBAZ* nella casella di testo.|
+    | NOME                   | *myLoadBalancer*                                   |
+    | Region         | Selezionare **Europa occidentale**.                                        |
+    | Type          | Selezionare **Pubblica**.                                        |
+    | SKU           | Selezionare **Standard**.                          |
+    | Indirizzo IP pubblico | Selezionare **Crea nuovo**. |
+    | Nome dell'indirizzo IP pubblico              | Digitare *myPublicIP* nella casella di testo.   |
+    |Zona di disponibilità| Selezionare **Con ridondanza della zona**.    |
+   
 
 ## <a name="create-backend-servers"></a>Creare i server back-end
 
