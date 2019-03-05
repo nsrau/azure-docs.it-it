@@ -16,12 +16,12 @@ ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: def9026fb0422d8868af098f12180617aefe7eff
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 4499424ef25e7d2ba32b691cce6d5d3d1face0d0
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877946"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308466"
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipi di quote in Azure Stack
 
@@ -44,7 +44,7 @@ ms.locfileid: "56877946"
 
 | **Elemento** | **Valore predefinito** | **Descrizione** |
 | --- | --- | --- |
-| Capacità massima (GB) |2048 |Capacità di archiviazione totale che può essere utilizzata da una sottoscrizione in questa posizione. |
+| Capacità massima (GB) |2048 |Totale capacità di archiviazione (inclusi i BLOB e tutti gli snapshot assiociated, tabelle e code) possono essere usate da una sottoscrizione in questa posizione. |
 | Numero totale di account di archiviazione |20 |Il numero massimo di account di archiviazione che è possibile creare una sottoscrizione in questa posizione. |
 
 > [!NOTE]  
