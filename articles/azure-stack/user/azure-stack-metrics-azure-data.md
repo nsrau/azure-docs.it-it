@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2018
+ms.date: 03/04/2018
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: c16f218903557a6d3a10f3ef201587d2885fffa9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b8df87e5d5091219b9b44a6b957250e254c97fec
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239104"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341797"
 ---
 # <a name="azure-monitor-on-azure-stack"></a>Monitoraggio di Azure in Azure Stack
 
@@ -27,7 +27,7 @@ ms.locfileid: "55239104"
 
 Questo articolo offre una panoramica del servizio monitoraggio di Azure in Azure Stack. Viene descritto il funzionamento del monitoraggio di Azure e informazioni aggiuntive su come usare monitoraggio di Azure in Azure Stack. 
 
-Per un'introduzione, panoramica e su come iniziare a usare monitoraggio di Azure, vedere l'articolo di Azure globale [Introduzione a monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started).
+Per un'introduzione, panoramica e su come iniziare a usare monitoraggio di Azure, vedere l'articolo di Azure globale [Introduzione a monitoraggio di Azure in Azure Stack](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started).
 
 ![Pannello Stack monitoraggio di Azure](./media/azure-stack-metrics-azure-data/azs-monitor.png)
 
@@ -36,7 +36,7 @@ Monitoraggio di Azure è il servizio di piattaforma che mette a disposizione un'
 > [!Note]  
 Le metriche e log di diagnostica non sono disponibili per Azure Stack Development Kit.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites-for-azure-monitor-on-azure-stack"></a>Prerequisiti per il monitoraggio di Azure in Azure Stack
 
 Registrare il **Microsoft. Insights** provider di risorse in impostazioni dei provider di risorse offerta della sottoscrizione. È possibile verificare che il provider di risorse è disponibile nell'offerta associata alla sottoscrizione:
 
@@ -46,13 +46,13 @@ Registrare il **Microsoft. Insights** provider di risorse in impostazioni dei pr
 4. Selezionare **provider di risorse** sotto **impostazioni.** 
 5. Trovare **Microsoft. Insights** nell'elenco e verificare che lo stato sia **Registered.**.
 
-## <a name="overview"></a>Panoramica
+## <a name="overview-of-azure-monitor-on-azure-stack"></a>Panoramica del monitoraggio di Azure in Azure Stack
 
 Ad esempio monitoraggio di Azure in Azure, monitoraggio di Azure in Azure Stack offre log e metriche dell'infrastruttura di livello di base per la maggior parte dei servizi.
 
 ## <a name="azure-monitor-sources-compute-subset"></a>Origini di monitoraggio di Azure: subset di calcolo
 
-![Monitoraggio di Azure origini - subset di calcolo](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
+![Monitoraggio di Azure in Azure Stack origini - subset di calcolo](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
 
 Il **Microsoft. COMPUTE** include provider di risorse in Azure Stack:
  - Macchine virtuali 
@@ -86,7 +86,7 @@ Le risorse di calcolo elencate sopra hanno una VM host dedicata e sistema operat
 
 ## <a name="azure-monitor-sources-everything-else"></a>Origini di monitoraggio di Azure: tutto il resto
 
-![Origini di monitoraggio di Azure: altro](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
+![Monitoraggio di Azure su origini di Azure Stack - tutti gli altri elementi](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
 
 ### <a name="resources---metrics-and-diagnostics-logs"></a>Registra le risorse - metriche e diagnostica
 

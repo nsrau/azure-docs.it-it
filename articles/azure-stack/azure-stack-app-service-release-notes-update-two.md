@@ -16,12 +16,12 @@ ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: 0fa938b02b24bd79017bede5346b882e6587bd5d
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 8126397dfb3b02778413ab6ee696a8138c792c15
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766925"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342565"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>Servizio App in note sulla versione update 2 di Azure Stack
 
@@ -56,7 +56,7 @@ Servizio App di Azure in Azure Stack Update 2 include le correzioni e i migliora
 - Aggiornamenti al servizio di base per migliorare l'affidabilità e messaggistica abilitazione più semplice diagnosi dei problemi comuni degli errori.
 
 - **Gli aggiornamenti per gli strumenti e Framework di applicazione seguenti**:
-  - Aggiunta di .net Framework 4.7.1
+  - Aggiunta di .NET Framework 4.7.1
   - Aggiunti **Node. js** versioni:
     - NodeJS 6.12.3
     - NodeJS 8.9.4
@@ -84,15 +84,15 @@ Servizio App di Azure in Azure Stack Update 2 include le correzioni e i migliora
 - I ruoli di lavoro sono in grado di raggiungere il server di file quando il servizio App viene distribuito in una rete virtuale esistente e il file server è disponibile nella rete privata solo.
 
 Se si sceglie di distribuire in una rete virtuale esistente e un indirizzo IP interno per la connessione al file server, è necessario aggiungere una regola di sicurezza in uscita, consentendo il traffico tra la subnet del ruolo di lavoro e il file server SMB. A tale scopo, passare a WorkersNsg nel portale di amministrazione e aggiungere una regola di sicurezza in uscita con le proprietà seguenti:
- * Origine: Qualsiasi
- * Intervallo di porte di origine: *
- * Destinazione: Indirizzi IP
- * Intervallo di indirizzi IP di destinazione: Intervallo di indirizzi IP per il file server
- * Intervallo di porte di destinazione: 445
- * Protocollo: TCP
- * Azione: CONSENTI
- * Priorità: 700
- * Nome: Outbound_Allow_SMB445
+* Origine: Qualsiasi
+* Intervallo di porte di origine: *
+* Destinazione: Indirizzi IP
+* Intervallo di indirizzi IP di destinazione: Intervallo di indirizzi IP per il file server
+* Intervallo di porte di destinazione: 445
+* Protocollo: TCP
+* Azione: CONSENTI
+* Priorità: 700
+* Nome: Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Problemi noti per gli amministratori Cloud funziona nel servizio App di Azure in Azure Stack
 

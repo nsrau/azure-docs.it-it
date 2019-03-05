@@ -7,6 +7,8 @@ items:
     href: sql-database-technical-overview.md
   - name: Scegliere una versione di Azure SQL
     href: sql-database-paas-vs-sql-server-iaas.md
+  - name: Note sulla versione
+    href: sql-database-release-notes.md
 - name: Guide introduttive
   items:
   - name: Guida introduttiva del database singolo
@@ -547,7 +549,7 @@ items:
       href: dns-alias-overview.md
     - name: PowerShell per l'alias DNS
       href: dns-alias-powershell.md
-    - name: Porte - ADO.NET
+    - name: 'Porte: ADO.NET'
       href: sql-database-develop-direct-route-ports-adonet-v12.md
     - name: C e C++
       href: sql-database-develop-cplusplus-simple.md
@@ -629,10 +631,10 @@ items:
           href: saas-multitenantdb-schema-management.md
         - name: ETL per l'analisi
           href: saas-multitenantdb-tenant-analytics.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.sql/#sql
+    href: /powershell/module/az.sql
   - name: Interfaccia della riga di comando di Azure
     href: /cli/azure/sql
   - name: .NET
@@ -716,9 +718,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Disinstallare un processo elastico (opzione deprecata)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 459ea95c74eedc207b08bda6ece5a27b963d8df7
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 02c5f768de9b4e6ef03757c21a0d1188649f1b1d
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214028"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338128"

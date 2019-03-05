@@ -29,7 +29,7 @@ items:
     href: user-help-auth-app-overview.md
   - name: Scaricare e installare l'app
     href: user-help-auth-app-download-install.md
-  - name: Panoramica sull'aggiunta di account
+  - name: Aggiungere una panoramica degli account
     href: user-help-auth-app-add-account-overview.md
     items:
     - name: Aggiungere un account aziendale o dell'istituto di istruzione
@@ -52,8 +52,6 @@ items:
     href: myprofile-portal-overview.md
   - name: Gestire le informazioni di sicurezza
     href: user-help-security-info-overview.md
-  - name: Visualizzare l'attività di accesso
-    href: myprofile-portal-recent-activity-page.md
   - name: Gestire le organizzazioni
     href: myprofile-portal-organizations-page.md
   - name: Gestire i dispositivi connessi
@@ -101,9 +99,9 @@ items:
     href: active-directory-saas-access-panel-introduction.md
   - name: Risolvere i problemi
     href: active-directory-saas-access-panel-user-help.md
-ms.openlocfilehash: b7d8c297559736c9f22b118d50423f980302018d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: ce88ac8f7ca81009f7c28b08408723ac5161eda1
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452575"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340062"
