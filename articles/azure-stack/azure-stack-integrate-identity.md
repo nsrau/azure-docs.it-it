@@ -6,29 +6,19 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 03/04/2019
 ms.author: patricka
 ms.reviewer: thoroet
-ms.lastreviewed: 01/23/19
-ms.openlocfilehash: 86a7f98f8232d4fb3e915efee6d9b53f1fae6e7e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.lastreviewed: 03/04/2019
+ms.openlocfilehash: 65e5a678b4619897930873e77208005e14c054d2
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737706"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410282"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrazione di Data Center Azure Stack - identità
-È possibile distribuire Azure Stack tramite Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS) come provider di identità. È necessario effettuare la scelta prima di distribuire Azure Stack. Distribuzione tramite AD FS è detta anche la distribuzione di Azure Stack in modalità disconnessa.
-
-Nella tabella seguente illustra le differenze tra le scelte di due identità:
-
-||Disconnesso da internet|Connesso a internet|
-|---------|---------|---------|
-|Fatturazione|Deve essere la capacità<br> Enterprise Agreement (EA)|Come è a pagamento o la capacità<br>Contratto Enterprise o Cloud Solution Provider (CSP)|
-|Identità|Deve essere ADFS|Azure AD o AD FS|
-|Marketplace |Supportato<br>Gestione delle licenze BYOL|Supportato<br>Gestione delle licenze BYOL|
-|Registrazione|Obbligatorio, è necessario un supporto rimovibile<br> e un dispositivo connesso separato.|Automatizzata|
-|Aggiornamenti e patch|Obbligatorio, è necessario un supporto rimovibile<br> e un dispositivo connesso separato.|Pacchetto di aggiornamento può essere scaricato direttamente<br> da Internet ad Azure Stack.|
+È possibile distribuire Azure Stack tramite Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS) come provider di identità. È necessario effettuare la scelta prima di distribuire Azure Stack. In uno scenario connesso, è possibile scegliere di Azure AD o AD FS. Per uno scenario disconnesso, è supportato solo da AD FS.
 
 > [!IMPORTANT]
 > È possibile passare al provider di identità senza ridistribuire l'intera soluzione di Azure Stack.
@@ -43,7 +33,7 @@ L'autenticazione è una parte dell'identità. Per gestire basato su accesso cont
 
 L'istanza di ADFS esistente è l'account servizio token di sicurezza (STS) che invia le attestazioni per AD FS Azure Stack (la risorsa servizio token di sicurezza). In Azure Stack, automazione crea la relazione di trust di provider di attestazioni con l'endpoint dei metadati per l'istanza di ADFS esistente.
 
-In AD FS esistente, è necessario configurare un trust della relying party. Questo passaggio non viene eseguito per l'automazione e deve essere configurato dall'operatore. L'endpoint dei metadati di Azure Stack è documentato nel file AzureStackStampDeploymentInfo.JSON o tramite l'endpoint con privilegi eseguendo il comando `Get-AzureStackInfo`.
+In AD FS esistente, è necessario configurare un trust della relying party. Questo passaggio non viene eseguito per l'automazione e deve essere configurato dall'operatore. L'endpoint di Azure Stack VIP per AD FS, è possibile crearle usando il modello `https://adfs.<Region>.<ExternalFQDN>/`.
 
 La configurazione del trust della relying party richiede anche di configurare le regole di trasformazione di attestazioni che sono fornite da Microsoft.
 

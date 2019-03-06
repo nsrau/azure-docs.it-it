@@ -76,6 +76,8 @@ items:
       href: search-limits-quotas-capacity.md
     - name: Allocare partizioni e repliche
       href: search-capacity-planning.md
+    - name: Strategie e procedure consigliate per la distribuzione
+      href: search-performance-optimization.md
   - name: Security
     items:
     - name: Panoramica della sicurezza
@@ -228,15 +230,13 @@ items:
       href: search-manage.md
     - name: Amministrazione di PowerShell
       href: search-manage-powershell.md
-    - name: Prestazioni e ottimizzazioni
-      href: search-performance-optimization.md
   - name: Monitoraggio
     items:
     - name: Monitorare le attività e la registrazione
       href: search-monitor-usage.md
     - name: Analisi del traffico di ricerca
       href: search-traffic-analytics.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Interfaccia della riga di comando di Azure
     href: https://docs.microsoft.com/cli/azure/search?view=azure-cli-latest
@@ -309,9 +309,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/search/
   - name: Video
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: 10f61a434d509ab5dc6255ecf326a49a95380e97
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: ca754d1244a207fc4c18122e5624af218e6ef04f
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213875"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404842"

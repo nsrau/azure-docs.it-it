@@ -292,7 +292,7 @@ Azure DevOps Projects </a>
                                                 <h3>Sviluppare le proprie competenze con Microsoft Learn</h3>
                                                 <ul class="noBullet">
                                                     <li>
-                                                        <a class="barLink" href="/learn/modules/tour-azure-services-and-features/">
+                                                        <a class="barLink" href="/learn/modules/tour-azure-portal/">
                                                             <img src="https://docs.microsoft.com/learn/achievements/tour-azure-services-and-features.svg" alt="">
 Presentazione dei servizi e delle funzionalità di Azure </a>
                                                     </li>
@@ -1021,6 +1021,21 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                             <a href="/azure/migrate/migrate-overview">
                                                 <img src="media/index/azure-migrate.svg" alt="" />
                                                 <p>Azure Migrate</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Realtà mista</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/digital-twins/">
+                                                <img src="media/index/digital_twin.svg" alt="" />
+                                                <p>Gemelli digitali di Azure</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/spatial-anchors/">
+                                                <img src="https://azure.microsoft.com/patterns/styles/glyphs-icons/hololens.svg" alt="" />
+                                                <p>Ancoraggi nello spazio di Azure</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -2475,7 +2490,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/en-us/azure/databox-family/" data-linktype="absolute-path">
+                                <a href="/azure/databox-family/" data-linktype="absolute-path">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2494,7 +2509,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/en-us/azure/avere-vfxt/" data-linktype="absolute-path">
+                                <a href="/azure/avere-vfxt/" data-linktype="absolute-path">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4010,7 +4025,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Acceleratori di soluzioni IoT</h3>
-                                                    <p>Acquisire e analizzare i dati non usati per migliorare i risultati aziendali</p>
+                                                    <p>Acquisisci e analizza i dati non usati per migliorare i risultati aziendali</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5788,6 +5803,49 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                                 <div class="cardText">
                                                     <h3>21Vianet per Microsoft Azure Cina</h3>
                                                     <p>Compilare e ospitare applicazioni in conformità ai criteri e alle normative di gestione dei dati previsti dagli enti pubblici in Cina</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#mixed">Realtà mista</a>
+                        <ul id="mixed" class="cardsA">
+                            <li>
+                                <a href="/azure/digital-twins/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/digital_twin.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Gemelli digitali di Azure</h3>
+                                                    <p>Creare soluzioni per intelligenza spaziale IoT di nuova generazione</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/spatial-anchors/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://azure.microsoft.com/patterns/styles/glyphs-icons/hololens.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Ancoraggi nello spazio di Azure</h3>
+                                                    <p>Creare esperienze di realtà mista multiutente e con riconoscimento dello spazio</p>
                                                 </div>
                                             </div>
                                         </div>

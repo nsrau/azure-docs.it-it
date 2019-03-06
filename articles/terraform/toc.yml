@@ -40,6 +40,22 @@ items:
       href: terraform-create-vm-scaleset-network-disks-hcl.md
     - name: Effettuare il provisioning di un set di scalabilità di macchine virtuali da un'immagine personalizzata di Packer
       href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+  - name: Reti
+    items:
+    - name: Topologia hub-spoke
+      items:
+      - name: 1. Creare una topologia hub-spoke
+        href: terraform-hub-spoke-introduction.md
+      - name: 2. Creare una rete virtuale locale
+        href: terraform-hub-spoke-on-prem.md
+      - name: 3. Creare una rete virtuale hub
+        href: terraform-hub-spoke-hub-network.md
+      - name: 4. Creare un'appliance di rete virtuale hub
+        href: terraform-hub-spoke-hub-nva.md
+      - name: 5. Creare una rete spoke
+        href: terraform-hub-spoke-spoke-network.md
+      - name: 6. Convalidare la connettività della topologia di rete
+        href: terraform-hub-spoke-validation.md
   - name: Strumenti
     items:
     - name: Installare l'estensione Terraform per Visual Studio Code
@@ -60,7 +76,7 @@ items:
   items:
   - name: Archiviare lo stato in Archiviazione di Azure
     href: terraform-backend.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Registro moduli per Azure
     href: https://registry.terraform.io/modules/Azure
@@ -72,9 +88,9 @@ items:
     href: https://azure.microsoft.com/solutions/devops/terraform/
   - name: Roadmap per Azure
     href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: 352b6bcf9bbce9e38ba2b048d1b8997896870f24
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: f37cb15bccf0fe07ace24d3277015a69b9881091
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750240"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404825"
