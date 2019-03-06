@@ -11,12 +11,12 @@ ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: bd1994aca3dbbc23977b01d3511f87b5ec08b96d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 41609a75efec6c15d894b61867fb9d3ae727dc8c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251861"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440557"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Strumenti di diagnostica di Azure Stack
 
@@ -163,7 +163,7 @@ Usare questi passaggi per l'esecuzione di Get-AzureStackLog in un computer host 
     -   Vengono raccolti i log di ACS nel *memorizzazione* e *ACS* ruoli.
 
 > [!NOTE]
-> Limiti di dimensioni e durata sono applicati per i log raccolti perché è essenziale per garantire un utilizzo efficiente dello spazio di archiviazione per assicurarsi di che non ottenere inondato di log. Tuttavia, durante la diagnosi di un problema è necessario in alcuni casi i log che non esista più a causa di questi limiti. È pertanto **altamente consigliato** eseguire l'offload i log con uno spazio di archiviazione esterna (un account di archiviazione di Azure, un dispositivo di archiviazione aggiuntivi in locale e così via) ogni 8 a 12 ore e mantenerli presenti per 1-3 mesi, a seconda di requisiti. Assicurarsi anche questo percorso di archiviazione verrà crittografato.
+> Limiti di dimensioni e durata sono applicati per i log raccolti perché è essenziale per garantire un utilizzo efficiente dello spazio di archiviazione per assicurarsi di che non ottenere inondato di log. Tuttavia, durante la diagnosi di un problema è necessario in alcuni casi i log che non esista più a causa di questi limiti. È pertanto **altamente consigliato** di offload ogni 8 a 12 ore i log con uno spazio di archiviazione esterna (un account di archiviazione di Azure, un altro dispositivo di archiviazione locale e così via) e mantenerli presenti per 1-3 mesi, a seconda di requisiti. Assicurarsi anche questo percorso di archiviazione verrà crittografato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Microsoft Azure Stack troubleshooting (Risoluzione dei problemi di Microsoft Azure Stack)](azure-stack-troubleshooting.md)

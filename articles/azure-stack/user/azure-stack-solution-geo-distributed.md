@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7c7279f1895764c2a3ed73e824d44c2eed68240c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 299ea79a7a344a57bf302aae049ba87234427343
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244576"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442784"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Esercitazione: Creare una soluzione di app con distribuzione geografica con Azure e Azure Stack
 
@@ -533,7 +533,7 @@ Il **Custom domain** pagina viene aggiornata con il nuovo indirizzo IP dedicato.
 
 #### <a name="test-https"></a>Testare HTTPS
 
-In diversi browser passare a https://<your.custom.domain>to assicurarsi web PA viene servita.
+In diversi browser passare a https://<your.custom.domain>to assicurarsi che l'app web verrà resi disponibili.
 
 ![Alt text](media/azure-stack-solution-geo-distributed/image42.png)
 
