@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 03/04/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: 1fb9917e30a88cf5a68c9e170d66eeaa1d477deb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.lastreviewed: 03/04/2019
+ms.openlocfilehash: 12edea505ba3b0c8009512a52e3eea9ecea5bb26
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877147"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405199"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrare Azure Stack con Azure
 
@@ -325,7 +325,7 @@ Facoltativamente, è possibile usare il cmdlet Get-Content per puntare a un file
 
     Le registrazioni di app di Azure Stack sono precedute **Azure Stack**.
 
-In alternativa, è possibile verificare se la registrazione è riuscita con la funzionalità di gestione di Marketplace. Se viene visualizzato un elenco di elementi del marketplace nel Pannello di gestione di Marketplace, la registrazione è riuscita. Tuttavia, in ambienti non connessi, non sarà in grado di visualizzare elementi del marketplace nella gestione di Marketplace. Tuttavia, è possibile utilizzare lo strumento offline per verificare la registrazione.
+In alternativa, è possibile verificare se la registrazione è riuscita con la funzionalità di gestione di Marketplace. Se viene visualizzato un elenco di elementi del marketplace nel Pannello di gestione di Marketplace, la registrazione è riuscita. Tuttavia, in ambienti non connessi, non sarà in grado di visualizzare elementi del marketplace nella gestione di Marketplace.
 
 > [!NOTE]
 > Dopo aver completata la registrazione, il messaggio di avviso attiva per la registrazione non verrà più visualizzato. Negli scenari disconnessi, si verrà visualizzato un messaggio nella gestione di Marketplace che richiede di registrare e attivare Azure Stack, anche se è stato registrato correttamente.

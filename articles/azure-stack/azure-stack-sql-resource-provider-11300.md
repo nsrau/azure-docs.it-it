@@ -16,12 +16,12 @@ ms.date: 1/09/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 1/09/2019
-ms.openlocfilehash: aaa4dc48f237a4647cfde330e40eda91eeb1388d
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 176cf22957725927f9705985bf5471a1c5e4caad
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768733"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436324"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>Note sulla versione SQL resource provider 1.1.30.0
 
@@ -49,7 +49,7 @@ Questa versione del provider di risorse SQL di Azure Stack include le correzioni
 
 ### <a name="fixes"></a>Correzioni
 
-- **SQL resource provider PowerShell per Azure Stack compatibilità**. Il provider di risorse SQL è stato aggiornato a con il profilo di Stack 2018-03-01-ibrida di Azure PowerShell e per garantire la compatibilità con AzureRM 1.3.0 aziendali e versioni successive.
+- **Provider di risorse SQL PowerShell per Azure Stack compatibilità**. Il provider di risorse SQL è stato aggiornato a con il profilo di Stack 2018-03-01-ibrida di Azure PowerShell e per garantire la compatibilità con AzureRM 1.3.0 aziendali e versioni successive.
 
 - **Pannello SQL login change password**. Risolto un problema in cui la password non può essere modificata nel pannello Modifica password. Le notifiche di modifica collegamenti rimossi dalla password.
 

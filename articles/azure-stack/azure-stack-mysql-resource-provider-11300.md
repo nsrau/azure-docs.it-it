@@ -16,12 +16,12 @@ ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 1bfdaef4523a714aed0f1b7bbdb5a600f7775ffb
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5934d075378df9f04130b79eb43131d71eaa25af
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244811"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449462"
 ---
 # <a name="mysql-resource-provider-11300--release-notes"></a>Note sulla versione di MySQL resource provider 1.1.30.0
 
@@ -49,7 +49,7 @@ Questa versione del provider di risorse MySQL di Azure Stack include le correzio
 
 ### <a name="fixes"></a>Correzioni
 
-- **MySQL resource provider PowerShell per Azure Stack compatibilità**. Il provider di risorse MySQL è stato aggiornato a con il profilo di Stack 2018-03-01-ibrida di Azure PowerShell e per garantire la compatibilità con AzureRM 1.3.0 aziendali e versioni successive.
+- **Provider di risorse MySQL compatibilità di PowerShell per Azure Stack**. Il provider di risorse MySQL è stato aggiornato a con il profilo di Stack 2018-03-01-ibrida di Azure PowerShell e per garantire la compatibilità con AzureRM 1.3.0 aziendali e versioni successive.
 
 - **Pannello di MySQL login change password**. Risolto un problema in cui la password non può essere modificata nel pannello Modifica password. Le notifiche di modifica collegamenti rimossi dalla password.
 

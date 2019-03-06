@@ -16,12 +16,12 @@ ms.date: 02/25/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: f81a781bf3d1232c0af519b81f38c1d27fa6b2df
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: ed149398a1244ad0cb09c3e0fe128973c6caa00d
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818392"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408004"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>Esercitazione: Offrire database SQL a disponibilità elevata
 
@@ -44,7 +44,7 @@ Prima di iniziare i passaggi descritti in questa esercitazione, assicurarsi che 
 > Tutti gli elementi seguenti sono necessari per il modello di avvio rapido di Azure Stack da utilizzare.
 
 - [Windows Server 2016 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) immagine del marketplace.
-- SQL Server 2016 SP1 o SP2 (Enterprise, Standard o Developer) nell'immagine server Windows Server 2016. Questa esercitazione Usa la [SQL Server 2016 SP2 Enterprise in Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.sqlserver2016sp2enterprisewindowsserver2016) immagine del marketplace.
+- SQL Server 2016 SP1 o SP2 (Enterprise, Standard o Developer) nell'immagine server Windows Server 2016. Questa esercitazione Usa la [SQL Server 2016 SP2 Enterprise in Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) immagine del marketplace.
 - [Estensione di SQL Server IaaS](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) versione 1.2.30 o versione successiva. L'estensione SQL IaaS consente di installare i componenti necessari richiesti per gli elementi del Marketplace SQL Server per tutte le versioni di Windows. Consente le impostazioni specifiche del linguaggio SQL deve essere configurata nelle macchine virtuali di SQL. Se l'estensione non è installato in locale Marketplace, verrà eseguito il provisioning di SQL.
 - [Estensione script personalizzata per Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension) versione 1.9.1 o versione successiva. L'estensione Script personalizzato è uno strumento che può essere utilizzato per avviare automaticamente le attività di personalizzazione di post-distribuzione della macchina virtuale.
 - [PowerShell Desired State Configuration (DSC)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) versione 2.76.0.0 o versione successiva. DSC è una piattaforma di gestione di Windows PowerShell che consente la distribuzione e la gestione dei dati di configurazione per i servizi software e la gestione dell'ambiente in cui questi servizi vengono eseguiti.

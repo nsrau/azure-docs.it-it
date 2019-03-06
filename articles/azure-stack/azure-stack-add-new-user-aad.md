@@ -16,16 +16,16 @@ ms.date: 02/12/2019
 ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 5c07288bbfbf70be62723f835192cf09d92166ab
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 40b26429cf4e7f218c2b5a276ae936f60bd6abe4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163224"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453236"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Aggiungere un nuovo account tenant di Azure Stack in Azure Active Directory
 
-Dopo aver [distribuzione di Azure Stack Development Kit](azure-stack-run-powershell-script.md), è necessario un account utente di tenant in modo da poter esplorare il portale tenant e testare i piani e offerte. È possibile creare un account tenant dal [usando il portale di Azure](#create-an-azure-stack-tenant-account-using-the-azure-portal) o tramite [usando PowerShell](#create-an-azure-stack-tenant-account-using-powershell).
+Dopo aver [distribuzione di Azure Stack Development Kit](azure-stack-run-powershell-script.md), è necessario un account utente di tenant in modo da poter esplorare il portale tenant e testare i piani e offerte. È possibile creare un account tenant dal [usando il portale di Azure](#create-an-azure-stack-tenant-account-using-the-azure-portal) oppure tramite PowerShell.
 
 ## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Creare un account tenant di Azure Stack usando il portale di Azure
 

@@ -15,12 +15,12 @@ ms.date: 01/08/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 898fb12c4e38804cca71be6ef08b078f92633e32
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9300e60902b9234af01a64173eefcfb1bc033c61
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240154"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410197"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Convalidare i certificati di infrastruttura a chiave pubblica di Azure Stack
 
@@ -83,7 +83,11 @@ Usare questi passaggi per preparare e per convalidare i certificati di infrastru
     ```
     
     > [!Note]  
-    > AD FS e Graph sono necessarie se si usa AD FS come il sistema di identità.
+    > AD FS e Graph sono necessarie se si usa AD FS come il sistema di identità. Ad esempio: 
+    >
+    > ```PowerShell  
+    > $directories = 'ADFS','Graph','ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
+    > ```
     
      - Inserire i certificati nelle directory appropriate creata nel passaggio precedente. Ad esempio:   
         - `c:\certificates\ACSBlob\CustomerCertificate.pfx`
