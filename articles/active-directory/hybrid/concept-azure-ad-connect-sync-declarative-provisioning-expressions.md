@@ -74,8 +74,7 @@ L'esempio seguente popola il dominio dell'attributo metaverse con il nome netbio
 * **Confronto**: &lt;, &lt;=, &lt;&gt;, =, &gt;, &gt;=
 * **Matematici**: +, -, \*, -
 * **Stringa**: & (concatenazione)
-* 
-  **Logici**: &&amp;amp; (AND), || (OR)
+* **Logici**: &&amp;amp; (AND), || (OR)
 * **Ordine di valutazione**: ( )
 
 Gli operatori vengono valutati da sinistra a destra e hanno la stessa priorità di valutazione. Ad esempio, \* (moltiplicazione) non viene valutato prima di - (sottrazione). L'operazione 2\*(5+3) è diversa da 2\*5+3. Le parentesi ( ) vengono usate per modificare l'ordine di valutazione quando un ordine da sinistra a destra non è appropriato.
