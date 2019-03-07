@@ -19,7 +19,7 @@ ms.locfileid: "53633114"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Esercitazione: Configurare un ambiente di anteprima di Azure Time Series Insights
 
-Questa esercitazione illustra il processo di creazione di un ambiente di anteprima con pagamento a consumo di Azure Time Series Insights. In questa esercitazione si apprenderà come:
+Questa esercitazione illustra il processo di creazione di un ambiente di anteprima con pagamento in base al consumo di Azure Time Series Insights. In questa esercitazione si apprenderà come:
 
 * Creare un ambiente di anteprima di Azure Time Series Insights.
 * Connettere l'ambiente di anteprima di Azure Time Series Insights a un hub eventi in Hub eventi di Azure.
@@ -130,7 +130,7 @@ Questa sezione illustra come creare un ambiente di anteprima di Azure Time Serie
    | **Nome hub IoT** | Immettere il nome dell'hub IoT creato per il simulatore di dispositivo. |
    | **Criteri di accesso dell'hub IoT** | Immettere **iothubowner**. |
    | **Gruppo di consumer dell'hub IoT** | È necessario un gruppo di consumer univoco per l'anteprima di Azure Time Series Insights. Selezionare **Nuovo**, immettere un nome univoco e quindi selezionare **Aggiungi**. |
-   | **Timestamp property** (Proprietà timestamp) | Questo campo viene usato per identificare la proprietà timestamp nei dati di telemetria in ingresso. Per questa esercitazione, non compilare il campo. Questo simulatore usa il timestamp in arrivo dall'hub IoT predefinito di Time Series Insights.|
+   | **Timestamp property** (Proprietà timestamp) | Questo campo viene usato per identificare la proprietà timestamp nei dati di telemetria in ingresso. Per questa esercitazione, non compilare il campo. Questo simulatore usa il timestamp in ingresso dall'hub IoT predefinito di Time Series Insights.|
 
    Selezionare quindi **Rivedi e crea**.
 

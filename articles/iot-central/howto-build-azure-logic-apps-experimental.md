@@ -46,7 +46,7 @@ Questa sezione illustra come pubblicare un messaggio in Microsoft Teams quando v
 
     ![Accedere al connettore IoT Central](./media/howto-build-azure-logic-apps-experimental/addtrigger.png)
 
-1. Dopo l'accesso dovrebbero essere visualizzati dei campi. Selezionare l'applicazione****  e la**** regola dagli elenchi a discesa.
+1. Dopo l'accesso dovrebbero essere visualizzati dei campi. Selezionare **l'applicazione** e la **regola** dagli elenchi a discesa.
 
     ![Selezionare l'applicazione e la regola](./media/howto-build-azure-logic-apps-experimental/pickappandrule.png)
 
