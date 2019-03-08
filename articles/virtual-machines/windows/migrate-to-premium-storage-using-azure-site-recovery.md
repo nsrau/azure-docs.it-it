@@ -85,7 +85,7 @@ Questi sono i requisiti di Azure per questo scenario di migrazione:
 ### <a name="step-2-choose-your-protection-goals"></a>Passaggio 2: Scegliere gli obiettivi della protezione 
 
 1. Nella VM in cui si vuole installare il server di configurazione aprire il [portale di Azure](https://portal.azure.com).
-2. Andare su **Insieme di credenziali di Servizi di ripristino** > **Impostazioni** > **Site Recovery** > **Passaggio 1: Preparare l'infrastruttura**** > Obiettivo di protezione**.
+2. Andare su **Insieme di credenziali di Servizi di ripristino** > **Impostazioni** > **Site Recovery** > **Passaggio 1: Preparare l'infrastruttura** > **Obiettivo di protezione**.
 
    ![Passare al riquadro Obiettivo di protezione][2]
 
