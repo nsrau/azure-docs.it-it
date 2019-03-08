@@ -103,7 +103,7 @@ In questa sezione viene creata una nuova pipeline di compilazione. Configurare l
 
    Se si dispone di più registri contenitori per ospitare le immagini del modulo, è necessario duplicare questa attività, selezionare un registro contenitori diverso e usare **Ignora moduli** nelle impostazioni avanzate per ignorare le immagini che non sono per questo specifico registro.
 
-8. Selezionare l'attività **Pubblica artefatti di compilazione** per modificarla. Specificare il percorso del file di distribuzione generato dall'attività di compilazione. Impostare il valore del**** percorso per la pubblicazione in modo che corrisponda alla variabile di output impostato nell'attività di compilazione modulo. Ad esempio: `$(edge.DEPLOYMENT_FILE_PATH)`. Lasciare invariati gli altri valori predefiniti. 
+8. Selezionare l'attività **Pubblica artefatti di compilazione** per modificarla. Specificare il percorso del file di distribuzione generato dall'attività di compilazione. Impostare il valore del **percorso per la pubblicazione** in modo che corrisponda alla variabile di output impostato nell'attività di compilazione modulo. Ad esempio: `$(edge.DEPLOYMENT_FILE_PATH)`. Lasciare invariati gli altri valori predefiniti. 
 
 9. Aprire la scheda **Trigger** e selezionare la casella **Abilita l'integrazione continua**. Verificare che il ramo contenente il codice sia incluso.
 
