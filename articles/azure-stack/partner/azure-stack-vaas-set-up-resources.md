@@ -15,39 +15,37 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: ef46df4d5162a08d9dc4d8674cf5867f863ce332
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: ad97381d983446dfcc32dd1ba82af587a500b9da
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342480"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762144"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Esercitazione: Configurare le risorse per la convalida come servizio
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-È necessario creare una soluzione. Una convalida come soluzione di servizio (VaaS) rappresenta una soluzione di Azure Stack con hardware specifiche di una distinta base. Si userà la soluzione per verificare se l'hardware può supportare l'esecuzione dello Stack di Azure. Seguire questa esercitazione per prepararsi a usare il servizio con la soluzione.
+La convalida come servizio (VaaS) è un servizio di Azure che consente di convalidare e supportare le soluzioni di Azure Stack nel mercato. Seguire questo articolo prima di usare il servizio per accreditare la soluzione.
 
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Per usare VaaS configurando Azure AD istanza (Azure AD).
+> * Prepararsi a utilizzare VaaS impostando backup di Azure Active Directory (AD).
 > * Creare un account di archiviazione.
 
 ## <a name="configure-an-azure-ad-tenant"></a>Configurare un tenant di Azure AD
 
-Un tenant di Azure AD è necessario per l'autenticazione e la registrazione con VaaS. Le funzionalità di controllo degli accessi in base al ruolo di accesso del tenant da utilizzare per il partner per gestire quali utenti dell'organizzazione partner possono usare VaaS.
-
-Registrazione di Azure AD dell'organizzazione tenant di directory (anziché la directory di Azure AD usata per Azure Stack) e stabilire un criterio per gestire gli account utente in essa. Per altre informazioni, vedere [Amministrare la directory di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-administer).
+Un tenant di Azure AD viene usato per registrare un'organizzazione e autenticare gli utenti con VaaS. Il partner utilizzerà le funzionalità di controllo degli accessi in base al ruolo di accesso del tenant per gestire quali utenti dell'organizzazione partner possono usare VaaS. Per altre informazioni, vedere [Informazioni su Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis).
 
 ### <a name="create-a-tenant"></a>Creare un tenant
 
-Creare un tenant in modo specifico per l'uso con VaaS con un nome descrittivo, ad esempio, `ContosoVaaS@onmicrosoft.com`.
+Creare un tenant che verranno utilizzati per accedere ai servizi VaaS nell'organizzazione. Usare un nome descrittivo, ad esempio `ContosoVaaS@onmicrosoft.com`.
 
 1. Creare un tenant di Azure AD nel [portale di Azure](https://portal.azure.com), o usare un tenant esistente. <!-- For instructions on creating new Azure AD tenants, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). -->
 
 2. Aggiungere i membri dell'organizzazione nel tenant. Questi utenti sono responsabili per l'uso del servizio per visualizzare o pianificare i test. Dopo aver completato la registrazione, verranno definiti i livelli di accesso degli utenti.
- 
+
     Autorizzare gli utenti nel tenant per eseguire azioni in VaaS assegnando i ruoli seguenti:
 
     | Nome ruolo | DESCRIZIONE |
@@ -63,7 +61,7 @@ Creare un tenant in modo specifico per l'uso con VaaS con un nome descrittivo, a
     3. Selezionare **applicazioni aziendali** > **servizio di Azure Stack convalida** dell'applicazione.
     4. Selezionare **Utenti e gruppi**. Il **Azure Stack di servizio di convalida - utenti e i gruppi** pannello elenca gli utenti con autorizzazione a utilizzare l'applicazione.
     5. Selezionare **+ Add user** per aggiungere un utente dal tenant e assegnare un ruolo.
-   
+
     Se si vuole isolare le risorse VaaS e azioni tra gruppi diversi all'interno di un'organizzazione, è possibile creare più directory di tenant di Azure AD.
 
 ### <a name="register-your-tenant"></a>Registrazione del tenant
@@ -102,10 +100,7 @@ L'account di archiviazione di Azure è ospitata nel cloud pubblico di Azure, non
 
 3. Sotto **gruppo di risorse**, selezionare **Crea nuovo**. Immettere un nome per il nuovo gruppo di risorse.
 
-4. Immettere un nome per l'account di archiviazione. Il nome che scelto deve essere:
-    - Univoco in Azure
-    - Tra 3 e 24 caratteri
-    - Contenere solo lettere minuscole e numeri
+4. Rivedere le [convenzioni di denominazione](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#storage) per gli account di archiviazione di Azure. Immettere un nome per l'account di archiviazione.
 
 5. Selezionare il **Stati Uniti occidentali** area dell'account di archiviazione.
 
@@ -119,7 +114,7 @@ L'account di archiviazione di Azure è ospitata nel cloud pubblico di Azure, non
     - Il **campo replica** è impostata su **l'archiviazione con ridondanza locale (LRS)** per impostazione predefinita.
     - Per impostazione predefinita, il campo **Livello di accesso** deve essere impostato su **Frequente**.
 
-7. Fare clic su **Rivedi e crea** per esaminare le impostazioni dell'account di archiviazione e creare l'account.
+7. Selezionare **Rivedi e crea** per esaminare le impostazioni dell'account di archiviazione e creare l'account.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

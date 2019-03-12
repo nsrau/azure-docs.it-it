@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 12edea505ba3b0c8009512a52e3eea9ecea5bb26
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 2ed9598ecfb45323505e8527cfb3ab9fe7d8b58e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405199"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764728"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrare Azure Stack con Azure
 
@@ -483,11 +483,18 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 
 ## <a name="registration-failures"></a>Errori di registrazione
 
-Si può vedere uno degli errori riportati di seguito durante il tentativo di registrazione di Azure Stack:
+È possibile visualizzare uno degli errori seguenti durante il tentativo di registrazione di Azure Stack:
 1. Impossibile recuperare le informazioni hardware obbligatorie per $hostName. Verificare la connettività e host fisico, quindi provare a eseguire nuovamente la registrazione.
+
 2. Impossibile connettersi al $hostName per ottenere informazioni sull'hardware: verificare la connettività e host fisico quindi provare a eseguire nuovamente la registrazione.
 
-Causa: In genere si tratta in quanto si tenta di ottenere i dettagli sull'hardware, ad esempio UUID, Bios e CPU dagli host tentare l'attivazione e non sono riusciti a causa dell'impossibilità di connettersi all'host fisico.
+> Causa: si tratta generalmente perché è tentare di ottenere i dettagli sull'hardware, ad esempio UUID, Bios e CPU dagli host tentare l'attivazione e non sono riusciti a causa dell'impossibilità di connettersi all'host fisico.
+
+Quando si tenta di accedere a gestione Marketplace, si verifica un errore durante il tentativo di divulgare i prodotti. 
+> Causa: solitamente questo accade quando Azure Stack è in grado di accedere alla risorsa di registrazione. Una causa comune è quando cambia il tenant di directory di una sottoscrizione di Azure Reimposta la registrazione. Se è stato modificato il tenant di directory della sottoscrizione, è possibile accedere l'utilizzo di Azure Stack marketplace o il report. È necessario ripetere la registrazione per risolvere questo problema.
+
+Gestione di Marketplace richiede comunque per registrare e attivare Azure Stack, anche quando è già stato registrato il timbro usando la procedura disconnessa. 
+> Causa: si tratta di un problema noto per gli ambienti disconnessi. È possibile verificare lo stato della registrazione seguendo [questi passaggi](azure-stack-registration.md#verify-azure-stack-registration). Per utilizzare la gestione di Marketplace, è necessario usare [lo strumento offline](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
