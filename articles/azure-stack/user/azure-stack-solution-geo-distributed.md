@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 299ea79a7a344a57bf302aae049ba87234427343
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 857aa71a4812534030ca638fd8bab11f60535ea0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442784"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536947"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Esercitazione: Creare una soluzione di app con distribuzione geografica con Azure e Azure Stack
 
@@ -507,9 +507,9 @@ Dopo che il servizio App ha terminato il caricamento del certificato, viene visu
 
 1.  Nel **Aggiungi associazione SSL** pagina, usare il menu a discesa per selezionare il nome di dominio da proteggere e il certificato da usare.
 
-2.  Nelle **tipo SSL**, scegliere se usare [ **indicazione nome Server (SNI)**](http://en.wikipedia.org/wiki/Server_Name_Indication)o basato su IP SSL.
+2.  Nelle **tipo SSL**, scegliere se usare [ **indicazione nome Server (SNI)**](https://en.wikipedia.org/wiki/Server_Name_Indication)o basato su IP SSL.
 
--   **SSL basato su SNI**-è possibile aggiungere associazioni SSL basate su SNI più. Questa opzione consente di usare più certificati SSL per proteggere più domini nello stesso indirizzo IP. La maggior parte dei browser moderni (tra cui Internet Explorer, Chrome, Firefox e Opera) supporta SNI. Per altre informazioni sul supporto dei browser, vedere [Indicazione nome server](http://wikipedia.org/wiki/Server_Name_Indication).
+-   **SSL basato su SNI**-è possibile aggiungere associazioni SSL basate su SNI più. Questa opzione consente di usare più certificati SSL per proteggere più domini nello stesso indirizzo IP. La maggior parte dei browser moderni (tra cui Internet Explorer, Chrome, Firefox e Opera) supporta SNI. Per altre informazioni sul supporto dei browser, vedere [Indicazione nome server](https://wikipedia.org/wiki/Server_Name_Indication).
 
 -   **SSL basato su IP**-può essere aggiunta una sola associazione SSL basata su IP. Questa opzione consente di usare solo un certificato SSL per proteggere un indirizzo IP pubblico dedicato. Per proteggere più domini, proteggerli tutti usando lo stesso certificato SSL. Questa è l'opzione tradizionale per l'associazione SSL.
 
