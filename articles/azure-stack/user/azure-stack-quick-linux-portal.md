@@ -7,17 +7,17 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 12/03/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: ef2d59393902194af3e257ce0fd5bf403b293af1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d9a17bdad0bfa4965d36fbe2a2cf3a7890060e98
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245424"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772569"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Guida introduttiva: creare una macchina virtuale di server con il portale di Azure Stack
 
@@ -43,7 +43,7 @@ ms.locfileid: "55245424"
 
    Se si usa Azure Stack Development Kit (ASDK), non si dispone dell'accesso a un client SSH. Se è necessario un client, esistono diversi pacchetti che includono un client SSH. Ad esempio, PuTTY include un client SSH e il generatore di chiavi SSH (puttygen.exe). Per altre informazioni sui pacchetti disponibili, leggere l'articolo di Azure seguente: [Come usare le chiavi SSH con Windows in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
 
-   Questa Guida introduttiva Usa PuTTY per generare le chiavi SSH e connettersi alla macchina virtuale Linux server. Per scaricare e installare PuTTY, passare a [ http://www.putty.org/ ](http://www.putty.org).
+   Questa Guida introduttiva Usa PuTTY per generare le chiavi SSH e connettersi alla macchina virtuale Linux server. Per scaricare e installare PuTTY, passare a [ https://www.putty.org/ ](http://www.putty.org).
 
 ## <a name="create-an-ssh-key-pair"></a>Creare una coppia di chiavi SSH
 

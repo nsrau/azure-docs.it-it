@@ -10,36 +10,36 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c7bf766dc0f73b37fc7de537537c7a885a50c30a
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 09b8556a83dec286ce8d67fa5fd6d27e027325bf
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339573"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769217"
 ---
 # <a name="deploy-the-local-agent"></a>Distribuire l'agente locale
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Informazioni su come usare la convalida come un agente locale del servizio (VaaS) per controllare l'hardware. La soluzione di Azure Stack in fase di convalida prima di eseguire il test di convalida occorre installarvi l'agente locale.
+Informazioni su come usare la convalida come un agente locale del servizio (VaaS) per eseguire test di convalida. L'agente locale deve essere distribuito prima di eseguire i test di convalida.
 
 > [!Note]  
-> È necessario assicurarsi che la macchina in cui viene eseguito l'agente locale non perdita l'accesso uscita a internet. Questo computer deve essere accessibile solo agli utenti che si sono autorizzati a usare VaaS per conto del tenant.
+> Assicurarsi che la macchina in cui viene eseguito l'agente locale non perdita l'accesso in uscita a internet. Questo computer deve essere accessibile solo agli utenti autorizzati a usare VaaS per conto del tenant.
 
 Per distribuire l'agente locale:
 
-1. Installare l'agente locale
-2. Eseguire i controlli di integrità
-3. Eseguire l'agente locale
+1. Installare l'agente locale.
+2. Eseguire i controlli di integrità.
+3. Eseguire l'agente locale.
 
 ## <a name="download-and-start-the-local-agent"></a>Scaricare e avviare l'agente locale
 
-Scaricare l'agente in un computer che soddisfi i prerequisiti nel tuo Data Center che non fa parte del sistema Azure Stack, ma quello che ha accesso a tutti gli endpoint di Azure Stack.
+Scaricare l'agente in un computer che soddisfi i prerequisiti nel tuo Data Center e può accedere a tutti gli endpoint di Azure Stack. Questo computer non deve far parte del sistema Azure Stack o ospitati nel cloud Azure Stack.
 
 ### <a name="machine-prerequisites"></a>Prerequisiti dei computer
 
@@ -51,8 +51,6 @@ Verificare che il computer soddisfi i criteri seguenti:
 - Processori di almeno 8 core
 - Spazio su disco minimo di 200 GB
 - Connettività di rete a internet stabile
-
-Azure Stack è il sistema sottoposto a test. Il computer non deve far parte di Azure Stack o ospitati nel cloud Azure Stack.
 
 ### <a name="download-and-install-the-agent"></a>Scaricare e installare l'agente
 
@@ -95,7 +93,7 @@ Il comando Scarica un'immagine del repository (repository) immagine pubblica (fi
 
 ## <a name="checks-before-starting-the-tests"></a>Controlla prima di avviare i test
 
-L'esecuzione di azioni remote dei test. Il computer che esegue il test deve avere accesso agli endpoint di Azure Stack, in caso contrario, i test non funziona. Se si usa l'agente locale VaaS, usare la macchina in cui verrà eseguito l'agente. È possibile verificare che il computer abbia accesso agli endpoint di Azure Stack, eseguire i controlli seguenti:
+I test eseguiti operazioni remote. Il computer che esegue il test deve avere accesso agli endpoint di Azure Stack, in caso contrario, i test non funziona. Se si usa l'agente locale VaaS, usare la macchina in cui verrà eseguito l'agente. È possibile verificare che il computer abbia accesso agli endpoint di Azure Stack, eseguire i controlli seguenti:
 
 1. Controllare che l'URI di Base può essere raggiunto. Aprire un prompt dei comandi o bash shell ed eseguire il seguente comando, sostituendo `<EXTERNALFQDN>` con il nome di dominio completo esterna dell'ambiente:
 

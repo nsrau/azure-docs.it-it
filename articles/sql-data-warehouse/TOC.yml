@@ -3,7 +3,7 @@ items:
   href: index.md
 - name: Panoramica
   items:
-  - name: Informazioni su SQL Data Warehouse
+  - name: Che cos'è SQL Data Warehouse?
     href: sql-data-warehouse-overview-what-is.md
   - name: Architettura di SQL Data Warehouse
     href: massively-parallel-processing-mpp-architecture.md
@@ -265,7 +265,7 @@ items:
         href: tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
       - name: Visualizzare con Power BI
         href: sql-data-warehouse-get-started-visualize-with-power-bi.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: T-SQL
     items:
@@ -311,9 +311,9 @@ items:
       href: sql-data-warehouse-partner-data-integration.md
     - name: Gestione dei dati
       href: sql-data-warehouse-partner-data-management.md
-ms.openlocfilehash: e3eab380b4f8234c50376899bcd0af8492337999
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: fb1b3751d398af947eb6dad1a40699104280bc21
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217717"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730663"

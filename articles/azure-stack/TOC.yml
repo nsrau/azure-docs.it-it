@@ -9,14 +9,14 @@ items:
     items:
     - name: Aggiornamenti recenti
       href: azure-stack-servicing-policy.md#update-package-release-cadence
+    - name: aggiornamento 1902
+      href: azure-stack-update-1902.md
     - name: aggiornamento 1901
       href: azure-stack-update-1901.md
     - name: aggiornamento 1811
       href: azure-stack-update-1811.md
     - name: aggiornamento 1809
       href: azure-stack-update-1809.md
-    - name: aggiornamento 1808
-      href: azure-stack-update-1808.md
 - name: Guide introduttive
   items:
   - name: Usare il portale di amministrazione
@@ -294,7 +294,7 @@ items:
       href: azure-stack-app-service-update.md
     - name: Aggiornamento del servizio App Offline
       href: azure-stack-app-service-update-offline.md
-    - name: Aggiungere altri ruoli di lavoro Web
+    - name: Aggiungere i ruoli di infrastruttura di servizio App
       href: azure-stack-app-service-add-worker-roles.md
     - name: Configurare le origini di distribuzione
       href: azure-stack-app-service-configure-deployment-sources.md
@@ -399,9 +399,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: Formazione e certificazione
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 0a38112e8e57c685dec49a380a0e669429dc2673
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: ed6de4a1839c8fe60248e79e5349d8077193d052
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991623"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774269"

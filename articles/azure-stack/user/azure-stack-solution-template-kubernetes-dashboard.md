@@ -1,6 +1,6 @@
 ---
-title: Abilitare il Dashboard di Kubernetes in Azure Stack | Microsoft Docs
-description: Informazioni su come abilitare il Dashboard di Kubernetes in Azure Stack
+title: Accedere al Dashboard di Kubernetes in Azure Stack | Microsoft Docs
+description: Informazioni su come accedere al Dashboard di Kubernetes in Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,24 +11,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: cdc1be0c0274977fe14ef704fbb74fa955ad7e11
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 243fb01a5c8112afaf310f616b93c2667ac6f19d
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242412"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729862"
 ---
-# <a name="enable-the-kubernetes-dashboard-in-azure-stack"></a>Abilitare il Dashboard di Kubernetes in Azure Stack 
+# <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Accedere al Dashboard di Kubernetes in Azure Stack 
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack* 
 > [!Note]   
 > Kubernetes in Azure Stack è disponibile in anteprima. Scenario disconnesso di Azure Stack non è attualmente supportato per l'anteprima. 
 
-Kubernetes include un dashboard web che è possibile usare per le operazioni di gestione di base. Questo dashboard consente di visualizzare lo stato di integrità di base e le metriche per le applicazioni, creare e distribuire servizi e modificare applicazioni esistenti. Questo articolo illustra come abilitare il dashboard di Kubernetes in Azure Stack.
+Kubernetes include un dashboard web che è possibile usare per le operazioni di gestione di base. Questo dashboard consente di visualizzare lo stato di integrità di base e le metriche per le applicazioni, creare e distribuire servizi e modificare applicazioni esistenti. Questo articolo illustra come configurare il dashboard di Kubernetes in Azure Stack.
 
 ## <a name="prerequisites-for-kubernetes-dashboard"></a>Prerequisiti per il Dashboard di Kubernetes
 

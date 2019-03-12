@@ -11,18 +11,18 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.custom: mvc
-ms.date: 01/09/2019
+ms.date: 03/07/2019
 ms.author: sethm
 ms.reviewer: efemmano
-ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: c57d662d8754353777638137c9ae7e97a5c7de15
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.lastreviewed: 03/07/2019
+ms.openlocfilehash: 00bb17eadfee32e9b0d006ac76bb8e1cd614f13e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980978"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780389"
 ---
 # <a name="azure-stack-add-on-plans"></a>Piani aggiuntivi di Azure Stack
 
@@ -30,16 +30,36 @@ Un operatore di Azure Stack, si creare piani aggiuntivi per modificare un [piano
 
 Vi sono casi quando la combinazione di tutti gli elementi in un singolo piano è ottima. In altri casi è consigliabile avere una base piano e quindi offrire i servizi aggiuntivi utilizzando piani aggiuntivi. Ad esempio, è possibile decidere di offrire servizi IaaS come parte di un piano di base, con tutti i servizi PaaS considerati come i piani aggiuntivi.
 
-È di un altro motivo per usare i piani aggiuntivi per consentire agli utenti di tenere in considerazione dell'utilizzo delle risorse. A tale scopo, è possibile iniziare con un piano di base che include le quote di dimensioni relativamente ridotte (a seconda dei servizi necessarie). Quindi, come gli utenti raggiungono la capacità, si sarebbe un avviso che hanno stato utilizzato l'allocazione delle risorse in base al piano assegnato. Da qui, gli utenti possono selezionare un piano aggiuntivo che fornisce le risorse aggiuntive.
+Un altro motivo per usare i piani aggiuntivi è consentono di monitorare l'utilizzo delle risorse. A tale scopo, è possibile iniziare con un piano di base che include le quote di dimensioni relativamente ridotte (a seconda dei servizi necessarie). Quindi, come gli utenti raggiungono la capacità, si sarebbe un avviso che hanno stato utilizzato l'allocazione delle risorse in base al piano assegnato. Da qui, gli utenti possono selezionare un piano aggiuntivo che fornisce le risorse aggiuntive.
 
 > [!NOTE]
 > Quando non si desidera usare un piano del componente aggiuntivo per estendere una quota, è possibile anche effettuare [modificare la configurazione originale della quota](azure-stack-quota-types.md#edit-a-quota).
 
-Quando un utente aggiunge un piano del componente aggiuntivo a una sottoscrizione di offerta esistente, le risorse aggiuntive possono richiedere fino a un'ora da visualizzare.
+Quando si aggiunge un piano del componente aggiuntivo a una sottoscrizione di offerta esistente, le risorse aggiuntive possono richiedere fino a un'ora da visualizzare.
 
-## <a name="create-an-add-on-plan"></a>Creare un piano aggiuntivo
+Piani aggiuntivi vengono creati tramite la modifica di un'offerta esistente.
 
-Piani aggiuntivi vengono creati tramite la modifica di un'offerta esistente:
+## <a name="create-an-add-on-plan-1902-and-later"></a>Creare un piano aggiuntivo (1902 e versioni successive)
+
+1. Accedere al portale di amministrazione di Azure Stack come amministratore del cloud.
+2. Seguire la stessa procedura usata per [creare un nuovo piano base](azure-stack-create-plan.md) per creare un nuovo piano di offerta di servizi che non sono stati offerti in precedenza.
+3. Nel portale di amministrazione, fare clic su **offre** e quindi selezionare l'offerta venga aggiornato con un piano del componente aggiuntivo.
+
+   ![Crea piano aggiuntivo](media/create-add-on-plan/add-on1.png)
+
+4. Scorrere verso il basso le proprietà di offerta e selezionare **piani aggiuntivi**. Fare clic su **Aggiungi**.
+
+    ![Crea piano aggiuntivo](media/create-add-on-plan/add-on2.png)
+
+5. Selezionare il piano da aggiungere. In questo esempio, il piano viene chiamato **20 storageaccounts**. Dopo aver selezionato il piano, fare clic su **seleziona** per aggiungere il piano all'offerta. Si dovrebbe ricevere una notifica che il piano è stato aggiunto all'offerta.
+
+    ![Crea piano aggiuntivo](media/create-add-on-plan/add-on3.png)
+
+6. Esaminare l'elenco di piani aggiuntivi inclusi con l'opzione per verificare che sia elencato il nuovo piano di componente aggiuntivo.
+
+    [![Crea piano di componente aggiuntivo](media/create-add-on-plan/add-on4.png "crea piano di componente aggiuntivo")](media/create-add-on-plan/add-on4lg.png#lightbox)
+
+## <a name="create-an-add-on-plan-1901-and-earlier"></a>Creare un piano aggiuntivo (1901 e precedenti)
 
 1. Accedere al portale di amministrazione di Azure Stack come amministratore del cloud.
 2. Seguire la stessa procedura usata per [creare un nuovo piano base](azure-stack-create-plan.md) per creare un nuovo piano di offerta di servizi che non sono stati offerti in precedenza. In questo esempio, Key Vault (**Microsoft. keyvault**) i servizi verranno inclusi nel nuovo piano.

@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 01/07/2019
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a128be720675898a2512f43bf714b9ad6aca0450
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 3830dc15cebe24a8fb910b641b7b986437aeec52
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338536"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768979"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>Convalida di un concetti chiave di servizio
 
@@ -33,7 +33,7 @@ Una soluzione VaaS rappresenta una soluzione di Azure Stack con hardware specifi
 ### <a name="create-a-solution-in-the-vaas-portal"></a>Creare una soluzione nel portale di VaaS
 
 1. Accedi per il [VaaS portale](https://azurestackvalidation.com).
-2. Nel dashboard soluzioni, selezionare nella **nuova soluzione**.
+2. Nel dashboard soluzioni, selezionare **nuova soluzione**.
 3. Immettere un nome per la soluzione. Per suggerimenti sulla denominazione, vedere [convenzione di denominazione per le soluzioni VaaS](azure-stack-vaas-best-practice.md#naming-convention-for-vaas-solutions).
 4. Selezionare **salvare** per creare la soluzione.
 
@@ -52,7 +52,7 @@ Per altre informazioni sui tipi di flusso di lavoro, vedere [What ' s convalida 
 
 ### <a name="getting-started-with-vaas-workflows"></a>Guida introduttiva a VaaS i flussi di lavoro
 
-1. Nel dashboard soluzioni, creare una nuova soluzione o selezionarne uno esistente. In questo viene aggiornato e i riquadri del flusso di lavoro.
+1. Nel dashboard soluzioni, creare una nuova soluzione o selezionarne uno esistente. Ciò consente di aggiornare e attiva i riquadri del flusso di lavoro.
 2. Per creare un nuovo flusso di lavoro, selezionare nella **avviare** su qualsiasi riquadro. Per informazioni specifiche per ogni flusso di lavoro, vedere gli articoli seguenti:
     - Superamento test: [Guida introduttiva: Usare la convalida di un portale del servizio per pianificare il primo test](azure-stack-vaas-schedule-test-pass.md)
     - Convalida di soluzioni: [Convalidare una nuova soluzione di Azure Stack](azure-stack-vaas-validate-solution-new.md)
@@ -65,7 +65,7 @@ Per altre informazioni sulle proprietà del flusso di lavoro e i parametri, vede
 
 ## <a name="tests"></a>Test
 
-Un test in VaaS è costituito da un gruppo di azioni eseguite su una soluzione di Azure Stack. I test hanno diversi scopi designati identificati per categoria, ad esempio funzionale o l'affidabilità e uno o più servizi di Azure Stack di destinazione. Ogni test definisce il proprio set di parametri, alcuni dei quali sono specificati dai parametri comuni del flusso di lavoro che lo contiene.
+Un test in VaaS è costituito da un gruppo di operazioni eseguite su una soluzione di Azure Stack. I test hanno diversi scopi designati identificati per categoria, ad esempio funzionale o l'affidabilità e uno o più servizi di Azure Stack di destinazione. Ogni test definisce il proprio set di parametri, alcuni dei quali sono specificati dai parametri comuni del flusso di lavoro che lo contiene.
 
 Per altre informazioni sulla gestione e i test di monitoraggio, vedere [monitorare e gestire i test nel portale di VaaS](azure-stack-vaas-monitor-test.md).
 
@@ -76,7 +76,7 @@ Per altre informazioni sui parametri di test, vedere [parametri comuni del fluss
 Un agente VaaS determina l'esecuzione di test. Due tipi di agenti di eseguire i test VaaS:
 
 - Il **agente cloud**. Si tratta dell'agente predefinito disponibile in VaaS. Nessun programma di installazione è obbligatorio, ma ciò richiede la connettività in ingresso all'ambiente e gli endpoint di Azure Stack devono essere risolvibili da internet. Alcuni test non sono compatibili con l'agente di cloud.
-- Oggetto **agente locale**. In questo modo si per eseguire la convalida in scenari in cui la connettività in ingresso all'ambiente non è fattibile. Alcuni test richiedono l'esecuzione tramite l'agente locale.
+- Oggetto **agente locale**. Ciò consente di eseguire la convalida in scenari in cui la connettività in ingresso all'ambiente non è fattibile. Alcuni test richiedono l'esecuzione tramite l'agente locale.
 
 Gli agenti locali non sono associati a qualsiasi soluzione di Azure Stack o VaaS particolare. Come procedura consigliata, deve essere eseguito all'esterno di un ambiente Azure Stack.
 

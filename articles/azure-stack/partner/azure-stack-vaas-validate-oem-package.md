@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 02/19/2019
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: f5b884ddda292b1c523a5364d34753ccb3a5bbdf
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: c2b0343ff472fe380750152712ca88d9ebb404e2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194443"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782786"
 ---
 # <a name="validate-oem-packages"></a>Convalidare i pacchetti dell'OEM
 
@@ -42,58 +42,97 @@ Quando si usa la **la convalida del pacchetto** flusso di lavoro per convalidare
 Creare un contenitore nell'account di archiviazione per i BLOB di pacchetto. Questo contenitore è utilizzabile per tutti i viene eseguita la convalida del pacchetto.
 
 1. Nel [portale di Azure](https://portal.azure.com), passare all'account di archiviazione creato nel [configurare la convalida come le risorse di un servizio](azure-stack-vaas-set-up-resources.md).
+
 2. Nel pannello sinistro sotto **servizio Blob**, selezionare **contenitori**.
-3. Selezionare **+ contenitore** nel menu della barra e specificare un nome per il contenitore, ad esempio, `vaaspackages`.
+
+3. Selezionare **+ contenitore** dalla barra dei menu.
+    1. Specificare un nome per il contenitore, ad esempio, `vaaspackages`.
+    1. Selezionare il livello di accesso da usare per i client non autenticati, ad esempio VaaS. Per informazioni dettagliate su come concedere accesso VaaS ai pacchetti in ogni scenario, vedere [gestione livello di accesso del contenitore](#handling-container-access-level).
 
 ### <a name="upload-package-to-storage-account"></a>Carica pacchetto all'account di archiviazione
 
-1. Preparare il pacchetto da convalidare. Se il pacchetto contiene più file, comprimerlo in un `.zip` file.
-2. Nel [portale di Azure](https://portal.azure.com), selezionare il contenitore del pacchetto e caricare il pacchetto facendo clic sulla **caricare** nella barra dei menu.
-3. Selezionare il pacchetto `.zip` file da caricare. Mantenere valori predefiniti per **tipo Blob** (ovvero **Blob in blocchi**) e **dimensioni blocco**.
+1. Preparare il pacchetto da convalidare. Si tratta di un `.zip` file il cui contenuto deve corrispondere alla struttura descritta in [creare un pacchetto dell'OEM](azure-stack-vaas-create-oem-package.md).
 
-> [!NOTE]
-> Verificare che il `.zip` contenuto viene inserito nella radice del `.zip` file. Non vi sarà alcun nelle sottocartelle nel pacchetto.
+    > [!NOTE]
+    > Verificare che il `.zip` contenuto viene inserito nella radice del `.zip` file. Non vi sarà alcun nelle sottocartelle nel pacchetto.
+
+1. Nel [portale di Azure](https://portal.azure.com), selezionare il contenitore del pacchetto e caricare il pacchetto facendo clic sulla **caricare** nella barra dei menu.
+
+1. Selezionare il pacchetto `.zip` file da caricare. Mantenere valori predefiniti per **tipo Blob** (vale a dire **Blob in blocchi**) e **dimensioni blocco**.
 
 ### <a name="generate-package-blob-url-for-vaas"></a>Generare l'URL blob pacchetto per VaaS
 
-Quando si crea una **convalida dei pacchetti** flusso di lavoro nel portale di VaaS, si dovrà fornire un URL del blob di archiviazione di Azure contenente il pacchetto.
+Quando si crea una **convalida dei pacchetti** flusso di lavoro nel portale di VaaS, si dovrà fornire un URL del blob di archiviazione di Azure contenente il pacchetto. Alcuni *interattiva* test, inclusi **verifica di aggiornamento mensile AzureStack** e **verifica del pacchetto estensione OEM**, richiedono anche un URL per i BLOB di pacchetto.
 
-#### <a name="option-1-generating-a-blob-sas-url"></a>Opzione 1: Generazione di un URL di firma di accesso condiviso di blob
+#### <a name="handling-container-access-level"></a>Gestione livello di accesso del contenitore
 
-Usare questa opzione se non si desidera abilitare l'accesso in lettura pubblico al contenitore di archiviazione o BLOB.
+Il livello di accesso minimo richiesto da VaaS dipende dal fatto che si sta creando un flusso di lavoro di convalida del pacchetto o pianificazione un' *interattiva* di test.
 
-1. Nel [portale di Azure](https://portal.azure.com/), passare all'account di archiviazione e individuare il file zip contenente il pacchetto
+Nel caso di **privato** e **Blob** accedere a livelli, è necessario concedere temporaneamente l'accesso al blob di pacchetto fornendo VaaS una [firma di accesso condiviso](https://docs.microsoft.com/en-us/azure/storage/common/storage-dotnet-shared-access-signature-part-1?) (SAS). Il **contenitore** a livello di accesso non è necessario generare gli URL di firma di accesso condiviso, ma consente accesso non autenticato al contenitore e ai relativi BLOB.
 
-2. Selezionare **genera firma di accesso condiviso** dal menu di scelta rapida
+|Livello di accesso | Requisiti del flusso di lavoro | Requisito di test |
+|---|---------|---------|
+|Privato | Generare un URL di firma di accesso condiviso per blob di pacchetto ([Option 1](#option-1-generate-a-blob-sas-url)). | Generare un URL di firma di accesso condiviso a livello di account e aggiungere manualmente il nome del blob del pacchetto ([Option 2](#option-2-construct-a-container-sas-url)). |
+|BLOB | Specificare la proprietà URL blob ([opzione 3](#option-3-grant-public-read-access)). | Generare un URL di firma di accesso condiviso a livello di account e aggiungere manualmente il nome del blob del pacchetto ([Option 2](#option-2-construct-a-container-sas-url)). |
+|Contenitore | Specificare la proprietà URL blob ([opzione 3](#option-3-grant-public-read-access)). | Specificare la proprietà URL blob ([opzione 3](#option-3-grant-public-read-access)).
 
-3. Selezionare **Read** da **autorizzazioni**
+Le opzioni per la concessione dell'accesso ai pacchetti sono ordinate dal accesso minimi per l'accesso maggiore.
 
-4. Impostare **ora di inizio** sull'ora corrente, e **ora di fine** almeno 48 ore dal **ora di inizio**. Se si prevede di eseguire altri test con lo stesso pacchetto, provare ad aumentare **ora di fine** per la lunghezza delle attività di test. I test pianificati tramite VaaS dopo **ora di fine** avranno esito negativo e una nuova firma di accesso condiviso verrà dovranno essere generati.
+#### <a name="option-1-generate-a-blob-sas-url"></a>Opzione 1: Generare un URL di firma di accesso condiviso di blob
+
+Usare questa opzione se il livello di accesso del contenitore di archiviazione è impostato su **privato**, in cui il contenitore non Abilita accesso in lettura pubblico al contenitore o ai relativi BLOB.
+
+> [!NOTE]
+> Questo metodo non funziona per *interattiva* i test. Vedere [opzione 2: Costruire un URL di firma di accesso condiviso del contenitore](#option-2-construct-a-container-sas-url).
+
+1. Nel [portale di Azure](https://portal.azure.com/), passare all'account di archiviazione e individuare il file zip contenente il pacchetto.
+
+2. Selezionare **genera firma di accesso condiviso** dal menu di scelta rapida.
+
+3. Selezionare **Read** dalla **autorizzazioni**.
+
+4. Impostare **ora di inizio** sull'ora corrente, e **ora di fine** almeno 48 ore dal **ora di inizio**. Se si creano altri flussi di lavoro con lo stesso pacchetto, provare ad aumentare **ora di fine** per la lunghezza delle attività di test.
 
 5. Selezionare **Genera token di firma di accesso condiviso e URL**.
 
 Usare la **URL di firma di accesso condiviso di Blob** quando fornendo pacchetto blob gli URL per il portale.
 
-#### <a name="option-2-grant-public-read-access"></a>Opzione 2: Concedere l'accesso in lettura pubblico
+#### <a name="option-2-construct-a-container-sas-url"></a>Opzione 2: Costruire un URL di firma di accesso condiviso del contenitore
+
+Usare questa opzione se il livello di accesso del contenitore di archiviazione è impostato su **privati** ed è necessario fornire un URL di blob di pacchetto a un *interattivo* di test. Questo URL è anche utilizzabile a livello di flusso di lavoro.
+
+1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
+
+1. Selezionare **Blob** dalla **opzioni di servizi consentiti**. Deselezionare le altre opzioni.
+
+1. Selezionare **contenitore** e **oggetto** dalla **tipi di risorse consentiti**.
+
+1. Selezionare **Read** e **elenco** dalla **disponga delle autorizzazioni**. Deselezionare le altre opzioni.
+
+1. Selezionare **ora di inizio** come ora corrente e **ora di fine** per almeno 14 giorni dalla **ora di inizio**. Se si prevede di eseguire altri test con lo stesso pacchetto, provare ad aumentare **ora di fine** per la lunghezza delle attività di test. I test pianificati tramite VaaS dopo **ora di fine** avranno esito negativo e una nuova firma di accesso condiviso verrà dovranno essere generati.
+
+1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
+    Il formato deve apparire come segue: `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+
+1. Modificare l'URL di firma di accesso condiviso generato per includere il contenitore del pacchetto, `{containername}`e il nome del blob di pacchetto, `{mypackage.zip}`, come indicato di seguito:  `https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+
+    Utilizzare questo valore quando fornendo pacchetto blob gli URL per il portale.
+
+#### <a name="option-3-grant-public-read-access"></a>Opzione 3: Concedere l'accesso in lettura pubblico
+
+Usare questa opzione se sono accettabile per consentire l'accesso per i singoli BLOB o, nel caso di client non autenticati *interattiva* dei test, il contenitore.
 
 > [!CAUTION]
 > Questa opzione apre il BLOB per l'accesso anonimo di sola lettura.
 
-1. Concessione **accesso solo per i BLOB in lettura pubblico** al contenitore del pacchetto, seguendo le istruzioni nella sezione [concedere le autorizzazioni agli utenti anonimi per contenitori e blob](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs).
+1. Impostare il livello di accesso del contenitore del pacchetto su **Blob** oppure **contenitore** seguendo le istruzioni nella sezione [concedere le autorizzazioni agli utenti anonimi per contenitori e blob](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs).
 
-> [!NOTE]
-> Se si specifica un URL del pacchetto a un *test interattiva* (ad esempio, verifica di aggiornamento mensile AzureStack o la verifica del pacchetto di estensione OEM), è necessario concedere **accesso in lettura pubblico completo** a continuare il test.
+    > [!NOTE]
+    > Se si specifica un URL del pacchetto a un *interattiva* test, è necessario concedere **accesso in lettura pubblico completo** al contenitore per continuare il test.
 
-2. Nel contenitore del pacchetto, selezionare il blob di pacchetto per aprire il riquadro proprietà.
+1. Nel contenitore del pacchetto, selezionare il blob di pacchetto per aprire il riquadro proprietà.
 
-3. Copia il **URL**. Utilizzare questo valore quando fornendo pacchetto blob gli URL per il portale.
-
-## <a name="apply-monthly-update"></a>Applicare l'aggiornamento mensile
-
-[!INCLUDE [azure-stack-vaas-workflow-section_update-azs](includes/azure-stack-vaas-workflow-section_update-azs.md)]
-
-> [!NOTE]
-> Dopo aver applicato l'aggiornamento mensile, è consigliabile eseguire Test-AzureStack per verificare che l'aggiornamento sia stato applicato correttamente ed è in uno stato integro. Se Test-AzureStack non riesce, segnalare il problema a Microsoft. Non procedere con il passaggio di test fino a quando non viene risolto il problema. Informazioni su come eseguire il comando Test-Azure Stack sono reperibile in questo [articolo](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test).
+1. Copia il **URL**. Utilizzare questo valore quando fornendo pacchetto blob gli URL per il portale.
 
 ## <a name="create-a-package-validation-workflow"></a>Creare un flusso di lavoro di convalida del pacchetto
 
@@ -136,17 +175,44 @@ I test seguenti sono necessari per la convalida del pacchetto OEM:
 
     > [!NOTE]
     > Pianificazione di un test di convalida su un'istanza esistente creerà una nuova istanza al posto di istanza precedente nel portale. I log per l'istanza precedente verranno mantenuti ma non sono accessibili dal portale.  
-    Una volta che un test è stata completata, il **pianificazione** azione viene disabilitata.
+    > Una volta che un test è stata completata, il **pianificazione** azione viene disabilitata.
 
 2. Selezionare l'agente che verrà eseguito il test. Per informazioni sull'aggiunta di locale l'esecuzione agenti di test, vedere [distribuire l'agente locale](azure-stack-vaas-local-agent.md).
 
-3. Per selezionare la verifica del pacchetto di estensione OEM completato **pianificazione** dal menu di scelta rapida per aprire un prompt dei comandi per la pianificazione dell'istanza di test.
+3. Per completare la verifica del pacchetto di estensione OEM, selezionare **pianificazione** dal menu di scelta rapida per aprire un prompt dei comandi per la pianificazione dell'istanza di test.
 
 4. Esaminare i parametri di test e quindi selezionare **Submit** per pianificare la verifica del pacchetto di estensione OEM per l'esecuzione.
 
+    Verifica del pacchetto estensione OEM è suddiviso in due passaggi manuali: Aggiornamento di Azure Stack e aggiornamento OEM.
+
+    1. **Selezionare** "Run" nell'interfaccia utente per eseguire lo script relativi alle verifiche preliminari. Si tratta di un test automatizzato che richiede circa 5 minuti e non richiede alcun intervento.
+
+    1. Dopo aver completato lo script relativi alle verifiche preliminari, eseguire il passaggio manuale: **installare** l'aggiornamento più recente dello Stack di Azure usando il portale di Azure Stack.
+
+    1. **Eseguire** Test-AzureStack sul modulo. Se si verificano problemi, non continuare con il test e contattare [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com).
+
+        Per informazioni su come eseguire il comando Test-AzureStack, vedere [lo stato del sistema Azure Stack convalidare](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test).
+
+    1. **Selezionare** "Avanti" per eseguire lo script postcheck. Si tratta di un test automatizzato che contrassegna la fine del processo di aggiornamento di Azure Stack.
+
+    1. **Selezionare** "Esegui" per eseguire lo script relativi alle verifiche preliminari per l'aggiornamento di OEM.
+
+    1. Dopo aver completato la verifica preliminare, eseguire il passaggio manuale: **installare** il pacchetto di estensione OEM tramite il portale.
+
+    1. **Eseguire** Test-AzureStack sul modulo.
+
+        > [!NOTE]
+        > Come in precedenza, non continuare con il test e contattare [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) se ha esito negativo. Questo passaggio è fondamentale poiché consentirà di risparmiare è una ridistribuzione.
+
+    1. **Selezionare** "Avanti" per eseguire lo script postcheck. Ciò contrassegna la fine del passaggio di aggiornamento dell'OEM.
+
+    1. Rispondere a eventuali domande rimanenti alla fine del test e **seleziona** "Submit".
+
+    1. Ciò contrassegna la fine del test interattiva.
+
 5. Esaminare il risultato per la verifica del pacchetto di estensione OEM. Il test è stato completato correttamente, pianificare il motore di simulazione del Cloud per l'esecuzione.
 
-Quando tutti i test è sono completata, invia il nome della soluzione VaaS e convalida del pacchetto per [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) per richiedere la firma del pacchetto.
+Per inviare un richiesta di firma del pacchetto, inviare [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) il nome della soluzione e il nome di convalida del pacchetto associato a questa esecuzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

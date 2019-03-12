@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 9300e60902b9234af01a64173eefcfb1bc033c61
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 1e5154f4f6c77e9a024ced58f3b75a0111a614c3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410197"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769375"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Convalidare i certificati di infrastruttura a chiave pubblica di Azure Stack
 
@@ -75,7 +75,7 @@ Usare questi passaggi per preparare e per convalidare i certificati di infrastru
     ```PowerShell  
     New-Item C:\Certificates -ItemType Directory
     
-    $directories = 'ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
+    $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'Admin Extension Host', 'Admin Portal', 'api_appservice', 'ARM Admin', 'ARM Public', 'ftp_appservice', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal', 'sso_appservice', 'wildcard_dbadapter', 'wildcard_sso_appservice'
     
     $destination = 'c:\certificates'
     
@@ -86,7 +86,7 @@ Usare questi passaggi per preparare e per convalidare i certificati di infrastru
     > AD FS e Graph sono necessarie se si usa AD FS come il sistema di identità. Ad esempio: 
     >
     > ```PowerShell  
-    > $directories = 'ADFS','Graph','ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
+    > $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'ADFS', 'Admin Extension Host', 'Admin Portal', 'api_appservice', 'ARM Admin', 'ARM Public', 'ftp_appservice', 'Graph', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal', 'sso_appservice', 'wildcard_dbadapter', 'wildcard_sso_appservice'
     > ```
     
      - Inserire i certificati nelle directory appropriate creata nel passaggio precedente. Ad esempio:   
@@ -254,17 +254,17 @@ Usare questi passaggi per preparare e convalidare i certificati di infrastruttur
 
 | Directory | Certificate |
 | ---    | ----        |
-| acsBlob | wildcard_blob_\< regione >\< externalFQDN > |
-| ACSQueue  |  wildcard_queue\< regione >\< externalFQDN > |
-| ACSTable  |  wildcard_table\< regione >\< externalFQDN > |
-| Host dell'estensione di amministrazione  |  wildcard_adminhosting\< regione >\< externalFQDN > |
-| Portale di amministrazione  |  adminportal\< regione >\< externalFQDN > |
-| Amministratore ARM  |  adminmanagement\< regione >\< externalFQDN > |
-| Pubblico ARM  |  gestione\< regione >\< externalFQDN > |
-| Insieme di credenziali delle chiavi  |  wildcard_vault\< regione >\< externalFQDN > |
-| KeyVaultInternal  |  wildcard_adminvault\< regione >\< externalFQDN > |
-| Host dell'estensione pubblica  |  wildcard_hosting\< regione >\< externalFQDN > |
-| Portale pubblico  |  portale\< regione > _\< externalFQDN > |
+| acsBlob | wildcard_blob_\<region>_\<externalFQDN> |
+| ACSQueue  |  wildcard_queue_\<region>_\<externalFQDN> |
+| ACSTable  |  wildcard_table_\<regione > _\<externalFQDN > |
+| Host dell'estensione di amministrazione  |  wildcard_adminhosting_\<regione > _\<externalFQDN > |
+| Portale di amministrazione  |  adminportal_\<regione > _\<externalFQDN > |
+| Amministratore ARM  |  adminmanagement_\<regione > _\<externalFQDN > |
+| Pubblico ARM  |  management_\<regione > _\<externalFQDN > |
+| Insieme di credenziali delle chiavi  |  wildcard_vault_\<regione > _\<externalFQDN > |
+| KeyVaultInternal  |  wildcard_adminvault_\<regione > _\<externalFQDN > |
+| Host dell'estensione pubblica  |  wildcard_hosting_\<regione > _\<externalFQDN > |
+| Portale pubblico  |  portal_\<regione > _\<externalFQDN > |
 
 ## <a name="using-validated-certificates"></a>Utilizzo di certificati convalidati
 

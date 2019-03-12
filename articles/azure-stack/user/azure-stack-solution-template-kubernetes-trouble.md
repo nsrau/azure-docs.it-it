@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi della distribuzione di Kubernetes da Azure Stackk | Microsoft Docs
+title: Risolvere i problemi di distribuzione di Kubernetes in Azure Stack | Microsoft Docs
 description: Informazioni su come risolvere i problemi di distribuzione di Kubernetes in Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -11,16 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2019
-ms.author: mabrigg
+ms.author: mabvrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 551958317249cbfa25e3af9922f9ded6850c2521
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 5436b562b4f9054e0e00e3cc6abb1724797437db
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752297"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729636"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Risolvere i problemi di distribuzione di Kubernetes in Azure Stack
 
@@ -87,7 +86,7 @@ Il diagramma seguente illustra il processo generale per distribuire il cluster.
 È possibile raccogliere i log nelle macchine virtuali che supportano il cluster Kubernetes. È anche possibile esaminare il log di distribuzione. Si potrebbe essere necessario rivolgersi all'amministratore di Azure Stack per verificare la versione di Azure Stack che è necessario usare e per ottenere i log da Azure Stack che sono correlati alla distribuzione.
 
 1. Rivedere le [lo stato di distribuzione](#review-deployment-status) e [recuperare i registri](#get-logs-from-a-vm) dal nodo master nel cluster Kubernetes.
-2. Assicurarsi che si usa la versione più recente di Azure Stack. Se non si conosce la versione in uso, contattare l'amministratore di Azure Stack. Il tempo di marketplace di cluster Kubernetes 0.3.0 richiede la versione di Azure Stack 1808 o supera.
+2. Assicurarsi che si usa la versione più recente di Azure Stack. Se non si conosce la versione in uso, contattare l'amministratore di Azure Stack.
 3.  Esaminare i file di creazione della macchina virtuale. Si potrebbero avere avuto problemi seguenti:  
     - La chiave pubblica potrebbe non essere valida. Esaminare la chiave creata.  
     - Creazione della macchina virtuale è possibile che hanno generato un errore interno o ha generato un errore di creazione. Numerosi fattori possono causare errori, quali i limiti di capacità per la sottoscrizione di Azure Stack.
@@ -148,21 +147,26 @@ Per ottenere i log, procedere come segue:
 3. Nella stessa sessione, eseguire il comando seguente con i parametri aggiornati per adattarli all'ambiente:
 
     ```Bash  
-    ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmdhost 192.168.102.37
+    ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmd-host 192.168.102.37
     ```
 
 4. Esaminare i parametri e impostare i valori nel proprio ambiente.
     | Parametro           | DESCRIZIONE                                                                                                      | Esempio                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -i, --identity-file | File chiave privata RSA per connettere la VM master di Kubernetes. La chiave deve iniziare con `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.pem                                                        |
-    | -h, --host          | L'indirizzo IP pubblico o il nome di dominio completo (FQDN) del master del cluster Kubernetes della macchina virtuale. Il nome VM viene avviata con `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
+    | -d, --vmd-host       | L'indirizzo IP pubblico o il FQDN di DVM. Il nome VM viene avviata con `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
+    | -f, --force | Non chiedere conferma prima di caricare la chiave privata. | |
+    | -i, --identity-file | File chiave privata RSA per connettere la VM master di Kubernetes. La chiave deve iniziare con: <br>`-----BEGIN RSA PRIVATE KEY-----` | C:\data\id_rsa.pem                                                        |
+    | -h, --help  | L'uso del comando per stampare `getkuberneteslogs.sh` script. | |
+    | -m, --master-host          | L'indirizzo IP pubblico o il nome di dominio completo (FQDN) del master del cluster Kubernetes della macchina virtuale. Il nome VM viene avviata con `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
     | -u, --utente          | Il nome utente del master del cluster Kubernetes della macchina virtuale. Questo nome viene impostato quando si configura l'elemento del marketplace.                                                                    | azureuser                                                                     |
-    | -d, --vmdhost       | L'indirizzo IP pubblico o il FQDN di DVM. Il nome VM viene avviata con `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
+
+
+
 
    Quando si aggiungono i valori dei parametri, che potrebbe essere simile al codice seguente:
 
     ```Bash  
-    ./getkuberneteslogs.sh --identity-file "C:\secretsecret.pem" --user azureuser --vmdhost 192.168.102.37
+    ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmdhost 192.168.102.37
      ```
 
     I registri vengono creati al completamento dell'esecuzione.

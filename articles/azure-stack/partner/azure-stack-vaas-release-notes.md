@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 02/19/2019
-ms.openlocfilehash: 884c87501a54a582177cba99596fe6f0b4cccf36
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 3cda9d487d9548251c68d61db51bf2fb826b6f79
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593336"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775289"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Note sulla versione per la convalida come servizio
 
@@ -107,7 +107,7 @@ Il 30 novembre 2018
 
   - Categoria di test interattiva
 
-    Il **Interactive** categoria di test è stato aggiunto. Questi test lasciare che i partner per esercitarsi con scenari di Azure Stack interattivi, non automatica.
+    Il **Interactive** categoria di test è stato aggiunto. Questi test verificano gli scenari di Azure Stack interattivi, non automatica.
 
   - Verifica di caratteristiche interattive
 

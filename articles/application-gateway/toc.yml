@@ -44,6 +44,8 @@ items:
     href: how-application-gateway-works.md
   - name: Componenti del gateway applicazione
     href: application-gateway-components.md
+  - name: Panoramica della configurazione
+    href: configuration-overview.md
   - name: SSL
     items:
     - name: Panoramica dei criteri SSL
@@ -78,12 +80,14 @@ items:
   items:
   - name: Gestire il traffico Web
     items:
-    - name: Azure PowerShell
+    - name: Portale di Azure
       href: tutorial-manage-web-traffic-powershell.md
     - name: Modello
       href: create-vmss-template.md
   - name: Configurare il servizio di bilanciamento del carico interno
     items:
+    - name: Portale di Azure
+      href: configure-application-gateway-with-private-frontend-ip.md
     - name: Azure PowerShell
       href: application-gateway-ilb-arm.md
   - name: Configurare la terminazione SSL
@@ -178,7 +182,7 @@ items:
       href: application-gateway-diagnostics.md
   - name: Pagine di errore personalizzate
     href: custom-error.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Regole CRS
     href: application-gateway-crs-rulegroups-rules.md
@@ -212,9 +216,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: 7fe790e7b75e3cf6bead50635b7be690b1b7eeb7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 57ae904b8bc65ef9b249b055d8f1abb3b25c4752
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309044"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729959"

@@ -10,23 +10,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d4854bd623bb11d50a712be3a5aea07db24c2951
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9b64631b274423edda35189a942e2f142ae591f1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432244"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761174"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Monitorare e gestire i test nel portale di VaaS
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Dopo la pianificazione di test con la soluzione di Azure Stack, convalida come servizio (VaaS) inizierà la segnalazione dello stato di esecuzione di test. Queste informazioni sono disponibili nel portale di VaaS e azioni, ad esempio la ripianificazione e l'annullamento dei test.
+Dopo la pianificazione di test con la soluzione di Azure Stack, convalida come servizio (VaaS) inizierà la segnalazione dello stato di esecuzione di test. Queste informazioni sono disponibili nel portale di VaaS e azioni, ad esempio la ripianificazione e annullamento dei test.
 
 ## <a name="navigate-to-the-workflow-tests-summary-page"></a>Passare alla pagina di riepilogo del test del flusso di lavoro
 
@@ -40,7 +40,7 @@ Dopo la pianificazione di test con la soluzione di Azure Stack, convalida come s
 
 ## <a name="change-workflow-parameters"></a>Modificare i parametri del flusso di lavoro
 
-Ogni tipo di flusso di lavoro consente di modificare la [parametri di Test](azure-stack-vaas-parameters.md#test-parameters) specificato durante la creazione del flusso di lavoro.
+È possibile modificare il [parametri di Test](azure-stack-vaas-parameters.md#test-parameters) specificato durante la creazione del flusso di lavoro per qualsiasi tipo di flusso di lavoro.
 
 1. Nella pagina di riepilogo del test, selezionare la **modifica** pulsante.
 
@@ -60,9 +60,9 @@ In **superamento Test** flussi di lavoro, entrambe le **aggiungere test** e **mo
 
 ## <a name="managing-test-instances"></a>La gestione di istanze di test
 
-Per le esecuzioni non ufficiali (ad esempio, il **superamento Test** flusso di lavoro), la pagina di riepilogo del test sono elencati i test pianificati per la soluzione di Azure Stack.
+Per le esecuzioni non ufficiali (vale a dire il **superamento Test** flusso di lavoro), la pagina di riepilogo del test sono elencati i test pianificati per la soluzione di Azure Stack.
 
-Per le esecuzioni ufficiali (ad esempio, il **convalida** i flussi di lavoro), la pagina di riepilogo del test sono elencati i test necessari per completare la convalida della soluzione Azure Stack. Test di convalida vengono pianificati da questa pagina.
+Per le esecuzioni ufficiale (vale a dire il **convalida** i flussi di lavoro), la pagina di riepilogo del test sono elencati i test necessari per completare la convalida della soluzione Azure Stack. Test di convalida vengono pianificati da questa pagina.
 
 Ogni istanza di test pianificato Mostra le informazioni seguenti:
 
@@ -81,7 +81,7 @@ Ogni istanza di test pianificato Mostra le informazioni seguenti:
 
 ### <a name="actions"></a>Azioni
 
-Ogni istanza di test sono elencati disponibili azioni da eseguire quando si fa clic sul menu di scelta rapida **[...]**  nella tabella delle istanze di test.
+Ogni istanza di test sono elencati disponibili azioni da eseguire quando si seleziona il menu di scelta rapida **[...]**  nella tabella delle istanze di test.
 
 #### <a name="view-information-about-the-test-definition"></a>Visualizzare le informazioni sulla definizione di test
 
@@ -118,7 +118,7 @@ Selezionare **per visualizzare le operazioni** dal contesto del menu per visuali
 
 #### <a name="download-logs-for-a-completed-test-instance"></a>Scaricare i log per un'istanza di test completato
 
-Selezionare **scaricare i log** dal menu di scelta rapida per scaricare un `.zip` file di output dei log durante l'esecuzione di test. Questa azione è disponibile solo per i test che sono state completate, ad esempio, un test con un indicatore di stato del `Cancelled`, `Failed`, `Aborted`, o `Succeeded`.
+Selezionare **scaricare i log** dal menu di scelta rapida per scaricare un `.zip` file di output dei log durante l'esecuzione di test. Questa azione è disponibile solo per i test che sono state completate, vale a dire un test con un indicatore di stato del `Cancelled`, `Failed`, `Aborted`, o `Succeeded`.
 
 #### <a name="reschedule-a-test-instance-or-schedule-a-test"></a>Modificare la pianificazione di un'istanza di test o pianificare un test
 
