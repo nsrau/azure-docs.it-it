@@ -16,12 +16,12 @@ ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 09/28/2018
-ms.openlocfilehash: cd02845f648275ee17f763bd5a94b386f7ed64fd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c7a6330f8e0197092f4c581f46c3cc6e68dba247
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246365"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540228"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Usare i profili delle versioni API con Java in Azure Stack
 
@@ -64,7 +64,7 @@ Usare la procedura seguente per installare il SDK per Java:
 
 1.  Seguire le istruzioni ufficiali per installare Git. Per istruzioni, vedere [Guida introduttiva - installazione di Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-2.  Seguire le istruzioni ufficiali per installare il [SDK per Java](http://zulu.org/download/) e [Maven](https://maven.apache.org/). La versione corretta è la versione 8 di Java Developer Kit. Apache Maven corretto è la versione 3.0 o versione successiva. Per completare la Guida introduttiva, è necessario impostare la variabile di ambiente JAVA_HOME al percorso di installazione di Java Development Kit. Per altre informazioni, vedere [creare la prima funzione con Java e Maven](../../azure-functions/functions-create-first-java-maven.md).
+2.  Seguire le istruzioni ufficiali per installare il [SDK per Java](https://zulu.org/download/) e [Maven](https://maven.apache.org/). La versione corretta è la versione 8 di Java Developer Kit. Apache Maven corretto è la versione 3.0 o versione successiva. Per completare la Guida introduttiva, è necessario impostare la variabile di ambiente JAVA_HOME al percorso di installazione di Java Development Kit. Per altre informazioni, vedere [creare la prima funzione con Java e Maven](../../azure-functions/functions-create-first-java-maven.md).
 
 3.  Per installare i pacchetti di dipendenza corretto, aprire il file POM. XML nell'applicazione Java. Aggiungere una dipendenza, come illustrato nel codice seguente:
 

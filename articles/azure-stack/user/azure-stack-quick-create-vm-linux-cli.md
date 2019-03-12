@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: bb0eac4f7de11c2b80412319227a00d5dbe6d8c6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b3fbd91ddf06d4515ee55d24ba9330d0af6dc124
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243403"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540268"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Guida introduttiva: creare una macchina virtuale di server Linux con CLI di Azure in Azure Stack
 
@@ -82,7 +82,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="use-ssh-to-connect-to-the-virtual-machine"></a>Usare SSH per connettersi alla macchina virtuale
 
-Da un computer client con SSH installato, connettersi alla macchina virtuale. Se si lavora in un client Windows, usare [Putty](http://www.putty.org/) per creare la connessione. Per connettersi alla macchina virtuale, usare il comando seguente:
+Da un computer client con SSH installato, connettersi alla macchina virtuale. Se si lavora in un client Windows, usare [Putty](https://www.putty.org/) per creare la connessione. Per connettersi alla macchina virtuale, usare il comando seguente:
 
 ```bash
 ssh <publicIpAddress>

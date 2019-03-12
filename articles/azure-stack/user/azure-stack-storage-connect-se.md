@@ -9,17 +9,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 9debcd121cbbde626758abccfe838abda12ad840
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1c59f092957704c44b5cda012aa7c471fdaa3275
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822834"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763368"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Connettere storage explorer per una sottoscrizione di Azure Stack o un account di archiviazione
 
@@ -30,7 +30,7 @@ In questo articolo verrà illustrato come connettersi a sottoscrizioni di Azure 
 > [!NOTE]  
 > Sono disponibili diversi strumenti disponibili per spostare i dati da e verso archiviazione di Azure Stack. Per altre informazioni, vedere [trasferimento dei dati degli strumenti per l'archiviazione di Azure Stack](azure-stack-storage-transfer.md).
 
-Se non è stato installato, Esplora archivi [download di storage explorer](http://www.storageexplorer.com/) e installarlo.
+Se non è stato installato, Esplora archivi [download di storage explorer](https://www.storageexplorer.com/) e installarlo.
 
 Dopo la connessione a una sottoscrizione di Azure Stack o un account di archiviazione, è possibile usare la [articoli Esplora archiviazione di Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md) per lavorare con i dati di Azure Stack. 
 

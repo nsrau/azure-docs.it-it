@@ -9,17 +9,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: How to
-ms.date: 03/04/2019
+ms.topic: conceptual
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: 4cd94a0d5891c2d34e152dad87d21cbb45a2ec39
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 3fb5c3deeddb6f3ee381ca45df76feebf3405b21
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336870"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766570"
 ---
 # <a name="scheduling-a-test"></a>Pianificazione di un test
 
@@ -53,7 +53,7 @@ Accedere al portale, selezionare o creare una soluzione e quindi selezionare la 
 
 ![Testo alternativo](media/vaas_test_pass_parameters.png)
 
-Definire il flusso di lavoro per la soluzione. Il flusso di lavoro include i passaggi di processo che consentono di testare la soluzione.
+Specificare i parametri che si applicano a tutti i test all'interno del flusso di lavoro.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 2. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
@@ -63,22 +63,23 @@ Definire il flusso di lavoro per la soluzione. Il flusso di lavoro include i pas
 
 ## <a name="select-tests-to-run"></a>Selezionare i test da eseguire
 
-Scegliere i test da eseguire nel flusso di lavoro.
+I test selezionati verranno pianificati una volta creato il flusso di lavoro.
 
 1. Selezionare i test da eseguire nel flusso di lavoro.
 
     Se si desidera sostituire i parametri comuni (vale a dire, i parametri forniti nella sezione precedente) per qualsiasi test, scegliere il **modifica** collegamento accanto a specificare nuovi valori.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
+
 1. Selezionare **successivo** per esaminare il flusso di lavoro.
 
 ## <a name="review-and-submit"></a>Rivedi e invia
 
-Esaminare, creare e pianificare il flusso di lavoro.
+Completare la creazione del flusso di lavoro.
 
 1. Esaminare le informazioni visualizzate.
 
-    I servizi crea il flusso di lavoro con le informazioni fornite e i test selezionati verranno pianificati.
+    Il servizio crea il flusso di lavoro con le informazioni fornite e i test selezionati verranno pianificati.
 
     Se qualsiasi elemento non viene visualizzata correttamente, usare il **Previous** i pulsanti per passare a una sezione precedente.
 

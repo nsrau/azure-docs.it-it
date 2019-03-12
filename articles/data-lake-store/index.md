@@ -1,22 +1,16 @@
 ---
 title: Documentazione di Azure Data Lake Storage Gen1 - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
-description: Informazioni su come configurare, gestire e accedere a un repository Data Lake con iperscalabilità e compatibile con Hadoop per le analisi sui dati di qualsiasi dimensione, tipo e velocità di inserimento.
+description: 'Informazioni su come configurare, gestire e accedere a un repository Data Lake con iperscalabilità e compatibile con Hadoop per le analisi sui dati di qualsiasi dimensione, tipo e velocità di inserimento.'
 services: data-lake-store
 author: twooley
 manager: twooley
 layout: LandingPage
-ms.assetid: ''
+ms.assetid: null
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 68e4a7bd73b7fdd4b21140c912422b062f51c775
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869195"
 ---
 # <a name="azure-data-lake-storage-gen1-documentation"></a>Documentazione di Azure Data Lake Storage Gen1
 
@@ -198,7 +192,7 @@ Informazioni su come usare Azure Data Lake Storage Gen1 (precedentemente noto co
                         <p><a href="/java/api/overview/azure/datalake">Java</a></p>
                         <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.js</a></p>
                         <p><a href="https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python">Python (gestione di account)</a></p>
-                        <p><a href="http://azure-datalake-store.readthedocs.io/en/latest">Python (gestione del file system)</a></p>
+                        <p><a href="https://azure-datalake-store.readthedocs.io/en/latest">Python (gestione del file system)</a></p>
                     </div>
                 </div>
             </div>

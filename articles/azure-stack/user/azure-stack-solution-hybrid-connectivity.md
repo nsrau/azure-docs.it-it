@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 2530f6f59ef458d5a7c2de5850d8fab322798ba3
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a05021255c6226329f1d7a3f0e7fa8c9be756646
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752660"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546722"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Esercitazione: configurare la connettività di cloud ibrido con Azure e Azure Stack
 
@@ -119,7 +119,7 @@ Usare la procedura seguente per creare una rete virtuale usando il portale. È p
 
 Per creare una rete virtuale in Azure:
 
-1. Il browser per connettersi a usare il [portale di Azure](http://portal.azure.com/) e accedere con l'account di Azure.
+1. Il browser per connettersi a usare il [portale di Azure](https://portal.azure.com/) e accedere con l'account di Azure.
 2. Selezionare **crea una risorsa**. Nel **Cerca nel marketplace** campo, immettere `virtual network`'. Trovare **rete virtuale** nell'elenco risultati e quindi selezionare **rete virtuale**.
 3. Dal **selezionare un modello di distribuzione** , selezionare dalla lista **Resource Manager**e quindi selezionare **Create**.
 4. Sul **crea rete virtuale**, configurare le impostazioni di rete virtuale. I nomi di campi obbligatori sono preceduti da un asterisco rosso.  Quando si immette un valore valido, l'asterisco modificato un segno di spunta verde.
@@ -132,7 +132,7 @@ Per creare una rete virtuale in Azure Stack:
 
 Prima di connettere la rete virtuale a un gateway, è necessario creare la subnet del gateway per la rete virtuale che si desidera connettersi. Il servizio del gateway Usa gli indirizzi IP specificati nella subnet del gateway.
 
-Nel [portale di Azure](http://portal.azure.com/), passare alla rete virtuale di Resource Manager in cui si desidera creare un gateway di rete virtuale.
+Nel [portale di Azure](https://portal.azure.com/), passare alla rete virtuale di Resource Manager in cui si desidera creare un gateway di rete virtuale.
 
 1. Selezionare la rete virtuale per aprire la **rete virtuale** pagina.
 2. Nelle **le impostazioni**, selezionare **subnet**.
