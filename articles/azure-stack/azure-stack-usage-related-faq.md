@@ -15,12 +15,12 @@ ms.date: 02/26/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 00fb888f201f4bb8d211050b288516021d837dc5
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 9f835382cbfe56c1601267ae994a94b56c0c3692
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888772"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727043"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Domande frequenti in API di utilizzo di Azure Stack
 
@@ -197,15 +197,15 @@ L'utilizzo viene segnalato il provider di risorse seguenti:
 **Unità**: GB\*mese      
 **Note**: Disco gestito le dimensioni effettive su disco Premium 
 
-**ID contatore**: 75d4b707-1027-4403-9986-6ec7c05579c8  
+**ID contatore**: 108fa95b-be0d-4cd9-96e8-5b0d59505df1  
 **Nome misuratore**: ActualStandardSnapshotSize   
 **Unità**: GB\*mese   
 **Note**: Le dimensioni effettive sul disco di snapshot gestito standard.  
 
-**ID contatore**: 5ca1cbb9-6f14-4e76-8be8-1ca91547965e   
+**ID contatore**: 578ae51d-4ef9-42f9-85ae-42b52d3d83ac   
 **Nome misuratore**: ActualPremiumSnapshotSize   
 **Unità**: GB\*mese   
-**Note**: Le dimensioni effettive sul disco gestito Premium.   
+**Note**: Le dimensioni effettive su disco dello snapshot gestiti premium.   
 
 **ID contatore**: 5d76e09f-4567-452a-94cc-7d1f097761f0   
 **Nome misuratore**: S4   
@@ -285,7 +285,11 @@ L'utilizzo viene segnalato il provider di risorse seguenti:
 **ID contatore**: 95b0c03f-8a82-4524-8961-ccfbf575f536   
 **Nome misuratore**: ActualPremiumSnapshotSize   
 **Unità**: Byte\*ore   
-**Note**: Le dimensioni effettive sul disco gestito Premium (deprecata) 
+**Note**: Le dimensioni effettive su disco dello snapshot gestiti premium (deprecata) 
+
+**ID contatore**: 75d4b707-1027-4403-9986-6ec7c05579c8 **nome del contatore**: ActualStandardSnapshotSize **Unit**: GB\*mese **note**: Le dimensioni effettive sul disco di snapshot standard gestito (deprecata)  
+
+**ID contatore**: 5ca1cbb9-6f14-4e76-8be8-1ca91547965e **nome del contatore**: ActualPremiumSnapshotSize **Unit**: GB\*mese **note**: Le dimensioni effettive su disco dello snapshot gestiti premium (deprecata)  
 
 ### <a name="sql-rp"></a>Provider di risorse SQL
   

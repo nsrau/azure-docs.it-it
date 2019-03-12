@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7d675eb55e7ecda1dcf79859e85821c4e86ccbdd
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 7f9a4ce4f1e16f69a1d8998e24c1bfe955d17d92
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338519"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767108"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>Automatizzare la convalida di Azure Stack con PowerShell
 
@@ -29,13 +29,13 @@ Convalida come servizio (VaaS) offre la possibilità di automatizzare l'avvio de
 > [!NOTE]  
 > Automazione è disponibile solo per il flusso di lavoro di superamento Test. I flussi di lavoro di convalida del pacchetto e la convalida di soluzioni sono supportate solo tramite il portale VaaS.
 
-In questa esercitazione descrive come creare uno script che:
+Questo script può essere usato per:
 
 > [!div class="checklist"]
-> * Installa i prerequisiti
-> * Installa e avvia l'agente locale
-> * Avvia una categoria di test, ad esempio di integrazione, funzionale, affidabilità
-> * I risultati dei test di report
+> * Installare i componenti prerequisiti
+> * Installare e avviare l'agente locale
+> * Avviare una categoria di test, ad esempio *integration*, *funzionale*, *affidabilità*
+> * Segnalare i risultati di test
 
 ## <a name="launch-the-test-pass-workflow"></a>Avviare il flusso di lavoro di superamento Test
 

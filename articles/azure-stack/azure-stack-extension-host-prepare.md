@@ -1,26 +1,26 @@
 ---
 title: Preparazione per l'host dell'estensione per Azure Stack | Microsoft Docs
-description: Informazioni su come preparare host dell'estensione, che viene abilitato automaticamente tramite un pacchetto di Azure Stack aggiornamenti futuro.
+description: Informazioni su come preparare per host dell'estensione, viene abilitata automaticamente con un pacchetto di aggiornamenti futuro di Azure Stack.
 services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 02/07/2019
+ms.date: 03/07/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: b0d3b3e4901fbcece13c201938be8bccb1bb9c82
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.lastreviewed: 03/07/2019
+ms.openlocfilehash: 47cc7d9f09b7fb22cf99ad010f1dc75e6388c314
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962367"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731914"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Preparazione per l'host dell'estensione per Azure Stack
 
-L'host dell'estensione protegge Azure Stack, riducendo il numero di porte TCP/IP necessarie. Questo articolo esamina la preparazione di Azure Stack per l'host dell'estensione, che viene abilitato automaticamente tramite un pacchetto di aggiornamento di Azure Stack dopo l'aggiornamento 1808. Questo articolo si applica agli aggiornamenti di Azure Stack 1808 1809 e 1811.
+L'host dell'estensione protegge Azure Stack, riducendo il numero di porte TCP/IP necessarie. Questo articolo esamina la preparazione di Azure Stack per l'host di estensione che viene abilitato automaticamente tramite un pacchetto di aggiornamento di Azure Stack dopo l'aggiornamento 1808. Questo articolo si applica agli aggiornamenti di Azure Stack 1808 1809 e 1811.
 
 ## <a name="certificate-requirements"></a>Requisiti dei certificati
 
@@ -66,15 +66,14 @@ Lo strumento di controllo dello stato di preparazione di Azure Stack offre la po
     > [!Note]  
     > Se si distribuisce con Azure Active Directory Federated Services (ADFS) è necessario aggiungere le seguenti directory alla **$directories** nello script: `ADFS`, `Graph`.
 
-4. Eseguire i cmdlet seguenti per avviare la verifica del certificato:
+4. Inserire i certificati esistenti, che attualmente in uso in Azure Stack, nelle directory appropriate. Ad esempio, inserire il **ARM Admin** del certificato nel `Arm Admin` cartella. E quindi inserire i certificati di hosting appena creati nella `Admin extension host` e `Public extension host` le directory.
+5. Eseguire il cmdlet seguente per avviare la verifica del certificato:
 
     ```PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
     Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
     ```
-
-5. Inserire i certificati nelle directory appropriate.
 
 6. Controllare l'output e tutti i certificati superano tutti i test.
 
@@ -128,10 +127,10 @@ Usare un computer in grado di connettersi all'endpoint di Azure Stack con privil
 > Questo passaggio non è necessario usare la delega delle Zone DNS di integrazione DNS.
 Se i record A singolo host sono stati configurati per pubblicare gli endpoint di Azure Stack, è necessario creare due record host aggiuntivo:
 
-| IP | Nome host | Tipo |
+| IP | Nome host | Type |
 |----|------------------------------|------|
-| \<IP> | *.Adminhosting.\<Region>.\<FQDN> | A |
-| \<IP> | *.Hosting.\<Region>.\<FQDN> | A |
+| \<IP> | *.Adminhosting.\<Region>.\<FQDN> | Una  |
+| \<IP> | *.Hosting.\<Region>.\<FQDN> | Una  |
 
 Gli indirizzi IP allocati può essere recuperato tramite endpoint con privilegi eseguendo il cmdlet **Get-AzureStackStampInformation**.
 
@@ -141,7 +140,7 @@ L'articolo [integrazione di Data Center di Azure Stack - pubblicano endpoint](az
 
 ### <a name="publish-new-endpoints"></a>Pubblicare nuovi endpoint
 
-Sono disponibili due nuovi endpoint deve essere pubblicato tramite il firewall. Gli indirizzi IP allocato dal pool di indirizzi VIP pubblici può essere recuperato tramite il codice seguente che deve essere eseguito tramite Azure Stack [dell'ambiente con privilegi endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
+Sono disponibili due nuovi endpoint deve essere pubblicato tramite il firewall. Gli indirizzi IP allocato dal pool di indirizzi VIP pubblici può essere recuperato tramite il codice seguente che deve essere eseguito da Azure Stack [dell'ambiente con privilegi endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 
 ```PowerShell
 # Create a PEP Session

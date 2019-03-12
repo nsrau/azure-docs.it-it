@@ -27,15 +27,13 @@ items:
       href: understand-cost-mgt-data.md
     - name: Informazioni e utilizzo degli ambiti
       href: understand-work-scopes.md
-    - name: Eseguire la migrazione dal Contratto Enterprise alle API del Contratto del cliente Microsoft
-      href: migrate-cost-management-api.md
   - name: Guide alle procedure
     items:
     - name: Assegnare l'accesso ai dati
       href: assign-access-acm-data.md
     - name: Usare gli avvisi per i costi
       href: cost-mgt-alerts-monitor-usage-spending.md
-  - name: Informazioni di riferimento
+  - name: riferimento
     items:
     - name: API REST di Gestione costi di Azure
       href: https://docs.microsoft.com/rest/api/cost-management
@@ -117,9 +115,9 @@ items:
         href: cost-mgt-faq.md
       - name: Contattare il supporto di Cloudyn
         href: support-request-cost-management.md
-ms.openlocfilehash: deec8d274f50f2fad6b18141ec924245c3c2f5ec
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 68493e64b38c75332ba571d0bcf877c88a0c0f6a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337856"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57529634"

@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 12/20/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6126bacf50d47029c29772b35f6dc1d552d47029
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: ca22f29597cb452d6d33338b8ba0367c9377f6fb
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592639"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772518"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack"></a>Che cos'è la convalida come servizio per Azure Stack?
 
@@ -65,7 +65,7 @@ Per altre informazioni, vedere [Avvio rapido: Usare la convalida come portale de
 |----|------------|
 | [Convalida di nuove soluzioni](azure-stack-vaas-validate-solution-new.md) | Motore di simulazione di cloud<br>Suite Operational SDK di calcolo<br>Test di identificazione del disco<br>KeyVault Extension SDK Operational Suite<br>KeyVault SDK Operational Suite<br>Network SDK Operational Suite<br>Storage Account SDK Operational Suite<br> |
 | [Convalida del pacchetto OEM](azure-stack-vaas-validate-oem-package.md) | Verifica del pacchetto estensione di OEM<br>Motore di simulazione di cloud |
-| [Convalida dell'aggiornamento mensile](azure-stack-vaas-validate-microsoft-updates.md) | Verifica aggiornamento AzureStack mensile<br>Motore di simulazione di cloud<br> |
+| [Convalida dell'aggiornamento mensile](azure-stack-vaas-validate-microsoft-updates.md) | Verificare l'aggiornamento mensile Azure Stack<br>Motore di simulazione di cloud<br> |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

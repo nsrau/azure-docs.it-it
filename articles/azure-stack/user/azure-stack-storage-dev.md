@@ -5,17 +5,17 @@ services: azure-stack
 author: mattbriggs
 ms.author: mabrigg
 ms.date: 02/27/2019
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 45bd47d0a55f447cc6222bb24de8eafcf37e263b
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: c1f210f7007426114c30e792186010b8905b1d15
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010651"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764592"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Introduzione agli strumenti di sviluppo per archiviazione di Azure Stack
 
@@ -58,7 +58,7 @@ Per l'installazione tramite Composer: (richiedere il blob come esempio).
     }
     ```
 
-2. Scaricare [Phar](http://getcomposer.org/composer.phar) alla radice del progetto.
+2. Scaricare [Phar](https://getcomposer.org/composer.phar) alla radice del progetto.
 3. Eseguire: `php composer.phar install`.
 
 ### <a name="previous-versions-1802-to-1809-update"></a>Versioni precedenti (aggiornamento 1802 per 1809)
@@ -87,7 +87,7 @@ Per l'installazione tramite Composer: (prendere BLOB come esempio).
     }
   ```
 
-2. Scaricare [Phar](http://getcomposer.org/composer.phar) alla radice del progetto.
+2. Scaricare [Phar](https://getcomposer.org/composer.phar) alla radice del progetto.
 3. Eseguire: `php composer.phar install`.
 
 ## <a name="endpoint-declaration"></a>Dichiarazione dell'endpoint

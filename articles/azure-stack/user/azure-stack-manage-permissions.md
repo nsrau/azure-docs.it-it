@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 03/11/2019
 ms.author: patricka
-ms.reviewer: unknown
-ms.lastreviewed: 12/06/2018
-ms.openlocfilehash: 03c1879c34a00bb09b5a4dee6af7da7b984045fc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.reviewer: fiseraci
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 3565bf4c4a19bcf1b136b4cbb781006658865a1c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241186"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767210"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Gestire l'accesso alle risorse con controllo degli accessi Azure Stack Role-Based
 
@@ -93,8 +93,8 @@ I passaggi seguenti descrivono come configurare le autorizzazioni per un utente.
 2. Nel riquadro di spostamento a sinistra scegliere **Gruppi di risorse**.
 3. Scegliere il nome del gruppo di risorse che si desidera impostare le autorizzazioni su.
 4. Nel riquadro di spostamento del gruppo di risorse, scegliere **controllo di accesso (IAM)**. Il **assegnazioni di ruolo** visualizzazione Elenca gli elementi che dispongono dell'accesso al gruppo di risorse. È possibile filtrare e raggruppare i risultati.
-5. Nel **controllo di accesso** menu barra, scegliere **aggiungere un'assegnazione di ruolo**.
-6. Sul **aggiungere un'assegnazione di ruolo** riquadro:
+5. Nel **controllo di accesso** menu barra, scegliere **Add**.
+6. Sul **aggiungere autorizzazioni** riquadro:
 
    * Scegliere il ruolo da assegnare il **ruolo** elenco a discesa.
    * Scegliere la risorsa che si desidera assegnare dal **assegna accesso a** elenco a discesa.
