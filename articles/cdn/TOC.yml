@@ -13,6 +13,8 @@ items:
     href: cdn-create-new-endpoint.md
   - name: Integrare un account di archiviazione
     href: cdn-create-a-storage-account-with-cdn.md
+  - name: Creare un profilo con il modello di Azure Resource Manager
+    href: create-profile-resource-manager-template.md
 - name: Esercitazioni
   items:
   - name: Aggiungere la rete CDN di Azure a un'app Web
@@ -178,12 +180,12 @@ items:
   - name: Aggiornamenti del servizio
     href: https://azure.microsoft.com/updates/?product=cdn
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-cdn
+    href: https://stackoverflow.com/questions/tagged/azure-cdn
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=cdn
-ms.openlocfilehash: dbb216e848309dc696e1923166deced18827f08e
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 3aa21668a51af3d89951a0a5d13d31cacf3f6f4d
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232192"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727094"

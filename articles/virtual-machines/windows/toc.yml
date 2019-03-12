@@ -124,8 +124,6 @@ items:
     href: monitor.md
   - name: Backup e ripristino
     href: backup-recovery.md
-  - name: HPC (High Performance Computing)
-    href: high-performance-computing.md
   - name: Esempio di infrastruttura
     href: infrastructure-example.md
 - name: Guide alle procedure
@@ -313,43 +311,46 @@ items:
         href: excel-cluster-hpcpack.md
   - name: Gestire l'archiviazione
     items:
-    - name: Domande frequenti sui dischi
-      href: faq-for-disks.md
     - name: Aggiungere un disco
       items:
       - name: Azure Powershell
         href: attach-disk-ps.md
       - name: Portale di Azure
         href: attach-managed-disk-portal.md
-    - name: Misurare il benchmark di un disco
-      href: disks-benchmarks.md
     - name: Scollegare un disco
       href: detach-disk.md
+    - name: Eseguire la distribuzione di dischi con un modello
+      href: using-managed-disks-template-deployments.md
     - name: Ridimensionare un disco
       href: expand-os-disk.md
     - name: Snapshot di un disco
       href: snapshot-copy-managed-disk.md
     - name: Eseguire il backup di dischi non gestiti
       href: incremental-snapshots.md
-    - name: Convertire il disco tra archiviazione Standard e Premium
-      href: convert-disk-storage.md
-    - name: Eseguire la migrazione ad Archiviazione Premium con Azure Site Recovery
-      href: migrate-to-premium-storage-using-azure-site-recovery.md
+    - name: Migrazione e conversione
+      items:
+      - name: Convertire il disco tra archiviazione Standard e Premium
+        href: convert-disk-storage.md
+      - name: Eseguire la migrazione ad Archiviazione Premium con Azure Site Recovery
+        href: migrate-to-premium-storage-using-azure-site-recovery.md
+      - name: Eseguire la migrazione a Managed Disks
+        href: migrate-to-managed-disks.md
+      - name: VM non gestita a Managed Disks
+        href: convert-unmanaged-to-managed-disks.md
+    - name: Prestazioni
+      items:
+      - name: Abilitare l'acceleratore di scrittura
+        href: how-to-enable-write-accelerator.md
+      - name: Abilitare dischi Ultra SSD
+        href: disks-enable-ultra-ssd.md
+      - name: Misurare il benchmark di un disco
+        href: disks-benchmarks.md
     - name: Trovare dischi non collegati
       href: find-unattached-disks.md
     - name: Usare Archiviazione file
-      href: mount-azure-file-storage.md
-    - name: Eseguire la distribuzione di dischi con un modello
-      href: using-managed-disks-template-deployments.md
-    - name: Abilitare l'acceleratore di scrittura
-      href: how-to-enable-write-accelerator.md
-    - name: Abilitare dischi Ultra SSD
-      href: disks-enable-ultra-ssd.md
-    - name: Eseguire la migrazione a Managed Disks
-      href: migrate-to-managed-disks.md
-      items:
-      - name: VM non gestita a Managed Disks
-        href: convert-unmanaged-to-managed-disks.md
+      href: ../../storage/files/storage-files-quick-create-use-windows.md
+    - name: Domande frequenti sui dischi
+      href: faq-for-disks.md
   - name: Gestire la rete
     href: ps-common-network-ref.md
     items:
@@ -461,9 +462,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: Domande frequenti
     href: faq.md
-ms.openlocfilehash: 3ddf84852fee0dc30aa9bc7e9d49f06493f6b0cc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 78a321bbf5bbf3c970d7b6caef3409d55d33c808
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448442"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732520"

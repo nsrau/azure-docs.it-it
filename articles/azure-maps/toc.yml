@@ -63,47 +63,49 @@ items:
       href: how-to-search-for-address.md
     - name: Eseguire il rendering di dati personalizzati su una mappa statica
       href: how-to-render-custom-data.md
-  - name: Creare mappe in JavaScript
+  - name: Sviluppare con Web SDK
     items:
-    - name: Usare il controllo mappa
-      href: how-to-use-map-control.md
-    - name: Creare una mappa
-      href: map-create.md
-    - name: Scegliere uno stile mappa
-      href: choose-map-style.md
-    - name: Aggiungere controlli mappa
-      href: map-add-controls.md
-    - name: Aggiungere un livello per i simboli
-      href: map-add-pin.md
-    - name: Aggiungere un popup
-      href: map-add-popup.md
-    - name: Aggiungere un livello per le bolle
-      href: map-add-bubble-layer.md
-    - name: Aggiungere una forma
-      href: map-add-shape.md
-    - name: Aggiungere un livello per le mappe termiche
-      href: map-add-heat-map-layer.md
-    - name: Aggiungere un livello per le immagini
-      href: map-add-image-layer.md
-    - name: Aggiungere un livello per i riquadri
-      href: map-add-tile-layer.md
-    - name: Aggiungere i marcatori HTML
-      href: map-add-custom-html.md
-    - name: Servizi
+    - name: Controllo mappa
+      items:
+      - name: Usare il controllo mappa
+        href: how-to-use-map-control.md
+      - name: Creare una mappa
+        href: map-create.md
+      - name: Scegliere uno stile mappa
+        href: choose-map-style.md
+      - name: Aggiungere controlli alla mappa
+        href: map-add-controls.md
+      - name: Aggiungere un livello per i simboli
+        href: map-add-pin.md
+      - name: Aggiungere un popup
+        href: map-add-popup.md
+      - name: Aggiungere un livello per le bolle
+        href: map-add-bubble-layer.md
+      - name: Aggiungi forme
+        href: map-add-shape.md
+      - name: Aggiungere un livello per le mappe termiche
+        href: map-add-heat-map-layer.md
+      - name: Sovrapporre un'immagine
+        href: map-add-image-layer.md
+      - name: Aggiungere livelli per i riquadri
+        href: map-add-tile-layer.md
+      - name: Marcatori HTML
+        href: map-add-custom-html.md
+      - name: Visualizzare il traffico
+        href: map-show-traffic.md
+      - name: Interazione con gli eventi del mouse
+        href: map-events.md
+      - name: Rendere accessibile l'app
+        href: map-accessibility.md
+    - name: Modulo di servizi
       items:
       - name: Visualizzare i risultati della ricerca
         href: map-search-location.md
       - name: Ottenere informazioni su una coordinata
         href: map-get-information-from-coordinate.md
-      - name: Visualizzare le indicazioni a A a B
+      - name: Visualizzare le indicazioni stradali da A a B
         href: map-route.md
-    - name: Visualizzare il traffico
-      href: map-show-traffic.md
-    - name: Interazione con gli eventi del mouse
-      href: map-events.md
-    - name: Applicazioni di mapping accessibili
-      href: map-accessibility.md
-  - name: Creare mappe di Android
+  - name: Sviluppare con Android SDK
     items:
     - name: Come usare il controllo mappa di Android
       href: how-to-use-android-map-control-library.md
@@ -150,7 +152,7 @@ items:
 - name: Risorse
   items:
   - name: Condizioni per l'utilizzo di Mappe di Azure
-    href: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31.
+    href: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31.
   - name: Prezzi
     href: https://azure.microsoft.com/pricing/details/azure-maps
   - name: Calcolatore prezzi
@@ -197,9 +199,9 @@ items:
       href: /azure/iot-edge
     - name: IoT SDK per dispositivi
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
-ms.openlocfilehash: b0584c77ed7d8b3ed6c6962d02b75e061a97bf14
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 2d974c96dd953c7a2727bcd5b1bcc3b60ad807a0
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336734"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569230"

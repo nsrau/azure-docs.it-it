@@ -7,11 +7,11 @@ items:
     href: container-instances-overview.md
 - name: Guide introduttive
   items:
-  - name: Creare contenitori - interfaccia della riga di comando
+  - name: Distribuire un'istanza di contenitore - Interfaccia della riga di comando
     href: container-instances-quickstart.md
-  - name: Creare contenitori - Portale
+  - name: Distribuire un'istanza di contenitore - Portale
     href: container-instances-quickstart-portal.md
-  - name: Creare contenitori - PowerShell
+  - name: Distribuire un'istanza di contenitore - PowerShell
     href: container-instances-quickstart-powershell.md
   expanded: true
 - name: Esercitazioni
@@ -30,12 +30,14 @@ items:
     href: container-instances-samples-rm.md
 - name: Concetti
   items:
-  - name: Quote e limiti a livello di area
-    href: container-instances-quotas.md
-  - name: Relazione con agenti di orchestrazione
-    href: container-instances-orchestrator-relationship.md
   - name: Gruppi di contenitori
     href: container-instances-container-groups.md
+  - name: Quote e limiti
+    href: container-instances-quotas.md
+  - name: Aree di disponibilità
+    href: container-instances-region-availability.md
+  - name: Relazione con agenti di orchestrazione
+    href: container-instances-orchestrator-relationship.md
 - name: Guide alle procedure
   items:
   - name: Distribuire
@@ -44,48 +46,50 @@ items:
       href: container-instances-multi-container-yaml.md
     - name: Gruppi di più contenitori - Resource Manager
       href: container-instances-multi-container-group.md
-    - name: Distribuzione in una rete virtuale (anteprima)
+    - name: Distribuire in una rete virtuale (anteprima)
       href: container-instances-vnet.md
-    - name: Distribuire con risorse GPU (anteprima)
-      href: container-instances-gpu.md
     - name: Eseguire la distribuzione da Registro Azure Container
       href: container-instances-using-azure-container-registry.md
+  - name: Scenari dei contenitori
+    items:
+    - name: Impostare i criteri di riavvio per le attività a esecuzione unica
+      href: container-instances-restart-policy.md
     - name: Impostare le variabili di ambiente (env)
       href: container-instances-environment-variables.md
-    - name: Configurare probe di attività
-      href: container-instances-liveness-probe.md
-  - name: Gestisci
-    items:
-    - name: Aggiornare i contenitori in esecuzione
-      href: container-instances-update.md
     - name: Eseguire un comando (exec)
       href: container-instances-exec.md
-    - name: Monitorare l'utilizzo di CPU e memoria
-      href: container-instances-monitor.md
-    - name: Registrazione con i log di Monitoraggio di Azure
-      href: container-instances-log-analytics.md
-  - name: Eseguire carichi di lavoro
-    items:
-    - name: Eseguire attività con criteri di riavvio
-      href: container-instances-restart-policy.md
-    - name: Agenti di compilazione Jenkins su ACI
+    - name: Eseguire il processo di compilazione Jenkins
       href: container-instances-jenkins.md
     - name: Usare un'identità gestita (anteprima)
       href: container-instances-managed-identity.md
-  - name: Configurare i volumi di dati
+    - name: Usare risorse della GPU (anteprima)
+      href: container-instances-gpu.md
+  - name: Montare i volumi di dati
     items:
-    - name: File di Azure
+    - name: Condivisione file di Azure
       href: container-instances-volume-azure-files.md
-    - name: emptyDir
-      href: container-instances-volume-emptydir.md
-    - name: gitRepo
-      href: container-instances-volume-gitrepo.md
-    - name: secret
+    - name: Segreto
       href: container-instances-volume-secret.md
+    - name: Directory vuota
+      href: container-instances-volume-emptydir.md
+    - name: Repository Git clonato
+      href: container-instances-volume-gitrepo.md
+  - name: Gestire i contenitori in esecuzione
+    items:
+    - name: Configurare probe di attività
+      href: container-instances-liveness-probe.md
+    - name: Aggiornare i contenitori in esecuzione
+      href: container-instances-update.md
+  - name: Monitoraggio e log
+    items:
+    - name: Monitorare l'utilizzo di CPU e memoria
+      href: container-instances-monitor.md
+    - name: Ottenere i log e gli eventi dei contenitori
+      href: container-instances-get-logs.md
+    - name: Registrazione con Azure Log Analytics
+      href: container-instances-log-analytics.md
   - name: Risolvere problemi
     items:
-    - name: Ottenere i log contenitore e gli eventi
-      href: container-instances-get-logs.md
     - name: Risolvere i problemi comuni
       href: container-instances-troubleshooting.md
 - name: riferimento
@@ -119,12 +123,12 @@ items:
   - name: Inviare commenti e suggerimenti per il prodotto
     href: https://feedback.azure.com/forums/602224-azure-container-instances
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-container-instances
+    href: https://stackoverflow.com/questions/tagged/azure-container-instances
   - name: Video
     href: https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest
-ms.openlocfilehash: 062c4f2b196ab587577ef4703f79af2f7259c776
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: fcee083f7d98aba1856cf204f5c2d559d1b5925b
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871707"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731201"

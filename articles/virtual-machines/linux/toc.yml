@@ -124,8 +124,6 @@ items:
     href: monitor.md
   - name: Backup e ripristino
     href: backup-recovery.md
-  - name: HPC (High Performance Computing)
-    href: high-performance-computing.md
   - name: Considerazioni sulla distribuzione
     items:
     - name: Linee guida per l'infrastruttura
@@ -398,7 +396,7 @@ items:
       - name: MS SQL in Linux
         href: /sql/linux/sql-server-linux-azure-virtual-machine
     - name: High Performance Computing (HPC)
-      href: https://docs.microsoft.com/powershell/high-performance-computing/overview
+      href: https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/
     - name: IBM Db2 pureScale
       items:
       - name: Architettura
@@ -407,49 +405,52 @@ items:
         href: deploy-ibm-db2-purescale-azure.md
   - name: Gestire l'archiviazione
     items:
-    - name: Domande frequenti sui dischi
-      href: faq-for-disks.md
     - name: Aggiungere un disco
       items:
       - name: Interfaccia della riga di comando di Azure
         href: add-disk.md
       - name: Portale di Azure
         href: attach-disk-portal.md
-    - name: Misurare il benchmark di un disco
-      href: disks-benchmarks.md
     - name: Scollegare un disco
       href: detach-disk.md
+    - name: Eseguire la distribuzione di dischi con un modello
+      href: using-managed-disks-template-deployments.md
     - name: Ridimensionare un disco
       href: expand-disks.md
     - name: Snapshot di un disco
       href: snapshot-copy-managed-disk.md
     - name: Eseguire il backup di dischi non gestiti
       href: incremental-snapshots.md
-    - name: Eseguire la conversione in Managed Disks
-      href: convert-unmanaged-to-managed-disks.md
-    - name: Convertire il disco tra archiviazione Standard e Premium
-      href: convert-disk-storage.md
+    - name: Migrazione e conversione
+      items:
+      - name: Eseguire la migrazione ad Archiviazione Premium con Azure Site Recovery
+        href: migrate-to-premium-storage-using-azure-site-recovery.md
+      - name: Eseguire la conversione in Managed Disks
+        href: convert-unmanaged-to-managed-disks.md
+      - name: Convertire il disco tra archiviazione Standard e Premium
+        href: convert-disk-storage.md
     - name: Copiare file in una VM
       href: copy-files-to-linux-vm-using-scp.md
-    - name: Eseguire la migrazione ad Archiviazione Premium con Azure Site Recovery
-      href: migrate-to-premium-storage-using-azure-site-recovery.md
-    - name: Trovare dischi non collegati
-      href: find-unattached-disks.md
-    - name: Usare Archiviazione file
-      href: mount-azure-file-storage-on-linux-using-smb.md
-    - name: Eseguire la distribuzione di dischi con un modello
-      href: using-managed-disks-template-deployments.md
-    - name: Uso dell'acceleratore di scrittura
-      href: how-to-enable-write-accelerator.md
-    - name: Abilitare dischi Ultra SSD
-      href: disks-enable-ultra-ssd.md
-    - name: Ottimizzare le prestazioni
-      href: optimization.md
+    - name: Prestazioni
       items:
+      - name: Uso dell'acceleratore di scrittura
+        href: how-to-enable-write-accelerator.md
+      - name: Abilitare dischi Ultra SSD
+        href: disks-enable-ultra-ssd.md
+      - name: Misurare il benchmark di un disco
+        href: disks-benchmarks.md
+      - name: Ottimizzazione delle prestazioni
+        href: optimization.md
       - name: Configurare RAID software
         href: configure-raid.md
       - name: Configurare la LVM
         href: configure-lvm.md
+    - name: Trovare dischi non collegati
+      href: find-unattached-disks.md
+    - name: Usare Archiviazione file
+      href: mount-azure-file-storage-on-linux-using-smb.md
+    - name: Domande frequenti sui dischi
+      href: faq-for-disks.md
   - name: Gestire la rete
     items:
     - name: Creare una rete virtuale
@@ -559,9 +560,9 @@ items:
     href: faq.md
 - name: Risolvere problemi
   href: ../troubleshooting/index.md
-ms.openlocfilehash: 776adc5310db7c4a7762409a53c57e896cc95360
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ade43488288949aa22942c8df2d6900e4522615a
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438290"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732017"
