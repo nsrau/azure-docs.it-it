@@ -140,7 +140,7 @@ items:
         href: storage-https-custom-domain-cdn.md
       - name: BLOB non modificabili
         href: storage-blob-immutable-storage.md
-      - name: Advanced Threat Protection (anteprima)
+      - name: Advanced Threat Protection
         href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Abilitare la connessione TLS sicura per il client di Archiviazione di Azure
         href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -382,7 +382,7 @@ items:
         href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Interfaccia della riga di comando classica di Azure
         href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Informazioni di riferimento
+  - name: riferimento
     items:
     - name: PowerShell
       href: /powershell/module/azure.storage
@@ -590,7 +590,7 @@ items:
         href: ../blobs/data-lake-storage-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Eseguire la migrazione di un archivio HDFS locale
         href: ../blobs/data-lake-storage-migrate-on-premises-HDFS-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Informazioni di riferimento
+  - name: riferimento
     items:
     - name: REST
       href: https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2
@@ -614,9 +614,9 @@ items:
       href: http://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: Video
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: 33a3a620b18a004d82c29fc0b1abf483d8961cf6
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: b871bb21667cac76779f32188858b2f2261686c4
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337907"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792209"

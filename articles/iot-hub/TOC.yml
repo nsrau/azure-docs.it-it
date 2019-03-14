@@ -274,19 +274,14 @@ items:
         href: iot-hub-configure-file-upload-powershell.md
       - name: Utilizzare l'interfaccia della riga di comando di Azure
         href: iot-hub-configure-file-upload-cli.md
-    - name: Monitorare con la diagnostica
+    - name: Metriche in Monitoraggio di Azure
+      href: iot-hub-metrics.md
+    - name: Configurare i log di diagnostica
       href: iot-hub-monitor-resource-health.md
-      items:
-      - name: Eseguire la migrazione alle impostazioni di diagnostica
-        href: iot-hub-migrate-to-diagnostics-settings.md
-      - name: Monitoraggio delle operazioni
-        href: iot-hub-operations-monitoring.md
     - name: Proteggere l'hub con un certificato X.509
       href: iot-hub-security-x509-get-started.md
     - name: Aggiornare un hub IoT
       href: iot-hub-upgrade.md
-    - name: Metriche di utilizzo
-      href: iot-hub-metrics.md
     - name: Abilitare la traccia dei messaggi
       href: iot-hub-distributed-tracing.md
     - name: Configurare il filtro IP
@@ -378,6 +373,12 @@ items:
     href: https://docs.microsoft.com/rest/api/iothub/certificates
   - name: Modello di Resource Manager
     href: /azure/templates/microsoft.devices/iothub-allversions
+  - name: Ritiro di funzionalità e API
+    items:
+    - name: Monitoraggio delle operazioni
+      href: iot-hub-operations-monitoring.md
+    - name: Eseguire la migrazione alle impostazioni di diagnostica
+      href: iot-hub-migrate-to-diagnostics-settings.md
 - name: Risorse correlate
   items:
   - name: Soluzioni
@@ -444,9 +445,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: cdeb8f013ee8a0dff212d5fc9facc199ed81828e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3bde9a6b9abcb5b99224ae9397756fe410cc0708
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530876"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791869"

@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 02/22/2019
-ms.openlocfilehash: 01b0a86ede79187d8f180df0f2f71f6eaadb7428
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: e39904378edd9583cd7802d0a75f2f365a35d2b6
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990536"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791954"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Prima di iniziare con il servizio App in Azure Stack
 
@@ -147,11 +147,11 @@ Il certificato per l'identità deve contenere un oggetto che corrisponde al form
 | --- | --- |
 | SSO.appservice. \<regione\>.\< DomainName\>.\< estensione\> | sso.appservice.redmond.azurestack.external |
 
-
 ### <a name="validate-certificates"></a>La convalida dei certificati
-Prima di distribuire il provider di risorse del servizio app, dovrebbe [convalidare i certificati da utilizzare](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) utilizzando lo strumento di controllo di conformità di Azure Stack disponibile il [PowerShell Gallery](https://aka.ms/AzsReadinessChecker). Lo strumento di controllo dello stato di preparazione dello Stack di Azure verifica che i certificati PKI generati siano idonei per la distribuzione di servizi app. 
 
-Come procedura consigliata, quando si lavora con uno qualsiasi dei necessari [i certificati di infrastruttura a chiave pubblica di Azure Stack](azure-stack-pki-certs.md), è consigliabile pianificare il tempo necessario per testare ed eseguire nuovamente i certificati se necessario. 
+Prima di distribuire il provider di risorse del servizio app, dovrebbe [convalidare i certificati da utilizzare](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) utilizzando lo strumento di controllo di conformità di Azure Stack disponibile il [PowerShell Gallery](https://aka.ms/AzsReadinessChecker). Lo strumento di controllo dello stato di preparazione dello Stack di Azure verifica che i certificati PKI generati siano idonei per la distribuzione di servizi app.
+
+Come procedura consigliata, quando si lavora con uno qualsiasi dei necessari [i certificati di infrastruttura a chiave pubblica di Azure Stack](azure-stack-pki-certs.md), è consigliabile pianificare il tempo necessario per testare ed eseguire nuovamente i certificati se necessario.
 
 ## <a name="virtual-network"></a>Rete virtuale
 
@@ -170,6 +170,15 @@ Subnet
 - PublishersSubnet /24
 - WorkersSubnet /21
 
+## <a name="licensing-concerns-for-required-file-server-and-sql-server"></a>Problemi di licenza per il file richiesto server e SQL Server
+
+Servizio App di Azure in Azure Stack richiede un File Server e SQL Server per il funzionamento.  Si è liberi di utilizzare le risorse esistenti all'esterno di distribuzione di Azure Stack o distribuire le risorse all'interno di propria sottoscrizione di Azure Stack predefinita del Provider.
+
+Se si sceglie di distribuire le risorse all'interno della sottoscrizione di Azure Stack predefinita del Provider, le licenze per le risorse (licenze di Windows Server e licenze di SQL Server) sono inclusi nel costo del servizio App di Azure in Azure Stack soggetti a quanto segue vincoli:
+
+- l'infrastruttura viene distribuita nel **sottoscrizione del Provider predefinito**;
+- l'infrastruttura viene usato esclusivamente dal servizio App di Azure nel provider di risorse di Azure Stack.  Nessun altro carichi di lavoro amministrativo (altri provider di risorse, ad esempio SQL-RP) o tenant (ad esempio applicazioni tenant, che richiedono un database), è consentito effettuare utilizzo di questa infrastruttura.
+
 ## <a name="prepare-the-file-server"></a>Preparare il file server
 
 Servizio App di Azure richiede l'uso di un file server. Per le distribuzioni di produzione, il file server deve essere configurato per essere in grado di gestire gli errori e a disponibilità elevata.
@@ -180,7 +189,7 @@ Azure Stack Development Kit solo per le distribuzioni, è possibile usare la [mo
 
 ### <a name="quickstart-template-for-highly-available-file-server-and-sql-server"></a>Modello di avvio rapido per File Server a disponibilità elevata e SQL Server
 
-Oggetto [modello di avvio rapido di architettura di riferimento](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) è ora disponibile, che distribuirà i File Server, SQL Server, Active Directory di supporto dell'infrastruttura in una rete virtuale configurata per supportare una distribuzione a disponibilità elevata di Servizio App di Azure in Azure Stack.  
+Oggetto [modello di avvio rapido di architettura di riferimento](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) è ora disponibile, che distribuirà i File Server, SQL Server, Active Directory di supporto dell'infrastruttura in una rete virtuale configurata per supportare una distribuzione a disponibilità elevata di Servizio App di Azure in Azure Stack.
 
 ### <a name="steps-to-deploy-a-custom-file-server"></a>Passaggi per distribuire un File Server personalizzato
 
@@ -303,12 +312,11 @@ Per uno dei ruoli di SQL Server, è possibile usare un'istanza predefinita o un'
 Il programma di installazione del servizio App verrà verificare che SQL Server disponga di indipendenza del database abilitata. Per abilitare l'indipendenza del database in SQL Server che ospiterà i database di servizio App, eseguire questi comandi SQL:
 
 ```sql
-sp_configure 'contained database authentication', 1;  
-GO  
-RECONFIGURE;  
+sp_configure 'contained database authentication', 1;
+GO
+RECONFIGURE;
 GO
 ```
-
 
 >[!IMPORTANT]
 > Se si sceglie di distribuire il servizio App in una rete virtuale esistente di SQL Server deve essere distribuito in una Subnet separata dal servizio App e il File Server.
