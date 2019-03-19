@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 479278400aa056a7cebcefaa2eedee3d98bc9a15
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 682c9e209c4fa4a9f4971af5da901faf1ec58c22
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815237"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889744"
 ---
 # <a name="register-in-dev-center"></a>Eseguire la registrazione nel Dev Center  
 Per assicurarsi di non essere connessi a un account personale aprire una nuova sessione di Navigazione in incognito su Chrome o InPrivate Browsing in Internet Explorer.  
 1.  Effettuare la registrazione come venditore in Dev Center.  
-    *   Per accedere ed eseguire la registrazione come venditore, visitare la pagina Azure Dev Center all'indirizzo [dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure).  
+    *   Per accedere ed eseguire la registrazione come venditore, visitare la pagina Azure Dev Center all'indirizzo [dev.windows.com/registration?accountprogram=azure](https://dev.windows.com/registration?accountprogram=azure).  
 2.  Completare la procedura guidata `Help us protect your account`, che verifica l'identità tramite l'indirizzo di posta elettronica o numero di telefono.  
 
     ![Caselle per specificare le informazioni sul numero di telefono nella procedura guidata per la protezione dell'account](./media/marketplace-publishers-guide/registerdevcenteremail.png)  
@@ -82,7 +82,7 @@ Per assicurarsi di non essere connessi a un account personale aprire una nuova s
 
     *   Un esempio di un'offerta commerciale è un'offerta di VM con un modello di fatturazione oraria.  
 
----  
+---
 
 ## <a name="get-help-with-dev-center-registration"></a>Guida per la Registrazione in Dev Center  
 Se si hanno problemi con la registrazione in Dev Center, attenersi alla seguente procedura per inviare un ticket di supporto.  
@@ -125,7 +125,7 @@ Le informazioni bancarie e fiscali sono necessarie per tutte le offerte commerci
 
 4.  Fare clic sul pulsante Avanti. 
 
----   
+---
 
 ## <a name="add-tax-information"></a>Aggiungere informazioni fiscali  
 1.  Accedere a Dev Center con l'ID Microsoft.  
@@ -142,57 +142,57 @@ Le informazioni bancarie e fiscali sono necessarie per tutte le offerte commerci
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti: 
 
-*   **Quali server di pubblicazione richiede la registrazione di un account Dev Center?** 
-> Gli autori che pubblicano con il tipo di inserzione transazione: macchina virtuale, app di Azure: modelli di soluzione e app gestite.  
+* **Quali server di pubblicazione richiede la registrazione di un account Dev Center?** 
+  > Gli autori che pubblicano con il tipo di inserzione transazione: macchina virtuale, app di Azure: modelli di soluzione e app gestite.  
 
-*   **Perché è necessario disporre di un account Dev Center?**
-> L'account Dev Center consente a Microsoft di fatturare al cliente per conto del server di pubblicazione in base al tipo di elenco delle transazioni. La registrazione dell'account Dev Center consente a Microsoft di convalidare le informazioni legali, fiscali e bancarie dell'azienda del cliente. Per altre informazioni, fare clic [qui](https://docs.microsoft.com/azure/marketplace/become-publisher).
+* **Perché è necessario disporre di un account Dev Center?**
+  > L'account Dev Center consente a Microsoft di fatturare al cliente per conto del server di pubblicazione in base al tipo di elenco delle transazioni. La registrazione dell'account Dev Center consente a Microsoft di convalidare le informazioni legali, fiscali e bancarie dell'azienda del cliente. Per altre informazioni, fare clic [qui](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
-*   **Come si avvia la registrazione al Dev Center?**
-> Per evitare duplicazioni, verificare prima di tutto che la propria società non abbia già registrato un account Dev Center. È necessario eseguire l'accesso con l'account Microsoft che si vuole associare all'account per sviluppatore. Se non si dispone già di un account Microsoft, è possibile crearne uno nuovo [qui](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1), ad esempio contoso_marketplace@live.com. Per accedere e registrarsi, andare alla pagina https://dev.windows.com/en-us/registration?accountProgram=Azure
-<br>Per altre informazioni sul processo di registrazione, fare clic [qui](https://docs.microsoft.com/azure/marketplace/register-dev-center).</br>
+* **Come si avvia la registrazione al Dev Center?**
+  > Per evitare duplicazioni, verificare prima di tutto che la propria società non abbia già registrato un account Dev Center. È necessario eseguire l'accesso con l'account Microsoft che si vuole associare all'account per sviluppatore. Se non si dispone già di un account Microsoft, è possibile crearne uno nuovo [qui](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1), ad esempio contoso_marketplace@live.com. Per accedere e registrarsi, andare alla pagina https://dev.windows.com/en-us/registration?accountProgram=Azure
+  > <br>Per altre informazioni sul processo di registrazione, fare clic [qui](https://docs.microsoft.com/azure/marketplace/register-dev-center).</br>
 
-*   **Quale tipo di account occorre scegliere, "Individuale" o "Aziendale"?**
-> Per pubblicare un'offerta di transazione sul Marketplace, è necessario selezionare l'account di tipo aziendale durante la registrazione dell'account Dev Center.
+* **Quale tipo di account occorre scegliere, "Individuale" o "Aziendale"?**
+  > Per pubblicare un'offerta di transazione sul Marketplace, è necessario selezionare l'account di tipo aziendale durante la registrazione dell'account Dev Center.
 
-*   **Dopo aver creato l'account, è possibile modificarne il tipo da "Individuale" ad "Aziendale"?**
-> No. Dopo aver creato l'account non è possibile aggiornarne il tipo.
+* **Dopo aver creato l'account, è possibile modificarne il tipo da "Individuale" ad "Aziendale"?**
+  > No. Dopo aver creato l'account non è possibile aggiornarne il tipo.
 
-*   **Perché viene visualizzato il messaggio di errore "Il campo Città è obbligatorio" anche se la città è stata specificata correttamente?**
-> Verificare di avere specificato correttamente anche il CAP. Viene infatti eseguita una convalida anche tra città e CAP.
+* **Perché viene visualizzato il messaggio di errore "Il campo Città è obbligatorio" anche se la città è stata specificata correttamente?**
+  > Verificare di avere specificato correttamente anche il CAP. Viene infatti eseguita una convalida anche tra città e CAP.
 
-*   **Come si fa a ottenere un codice promozionale?**
-> Completare il modulo di [Registrazione al Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup) per ricevere un codice promozionale di Dev Center.
+* **Come si fa a ottenere un codice promozionale?**
+  > Completare il modulo di [Registrazione al Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup) per ricevere un codice promozionale di Dev Center.
  
-*   **Che cosa succede dopo che è stata completata la registrazione?**
-> Cercare un messaggio di posta elettronica da verify@microsoft.com con riga dell'oggetto "Azione necessaria: Verificare l'account di posta elettronica con Microsoft". Fare clic sul collegamento di verifica temporale per completare la registrazione. *Se non si riceve l'e-mail entro 24 ore, controllare nella cartella della posta indesiderata.*
+* **Che cosa succede dopo che è stata completata la registrazione?**
+  > Cercare un messaggio di posta elettronica da verify@microsoft.com con riga dell'oggetto "Azione necessaria: Verificare l'account di posta elettronica con Microsoft". Fare clic sul collegamento di verifica temporale per completare la registrazione. *Se non si riceve l'e-mail entro 24 ore, controllare nella cartella della posta indesiderata.*
 
-*   **Quali sono i passaggi successivi alla verifica da parte del Dev Center?**
-> Passare a "Programmi" https://developer.microsoft.com/dashboard/Account/Programs) e accedere all'account Dev Center. Se Azure non viene visualizzato come programma registrato, in "Recommended programs for you" (Applicazioni consigliate) cercare Azure e selezionare "Per iniziare".
+* **Quali sono i passaggi successivi alla verifica da parte del Dev Center?**
+  > Passare a "Programmi" https://developer.microsoft.com/dashboard/Account/Programs) e accedere all'account Dev Center. Se Azure non viene visualizzato come programma registrato, in "Recommended programs for you" (Applicazioni consigliate) cercare Azure e selezionare "Per iniziare".
 
-*   **Come si collega l'account Dev Center personale al profilo di pubblicazione del portale Cloud Partner?**
-> Il passaggio finale prima della pubblicazione è collegare l'account Dev Center personale al [profilo](https://cloudpartner.azure.com/#profile) del portale Cloud Partner. Se l'account Dev Center è diverso dall'account del [portale Cloud Partner](https://cloudpartner.azure.com/#alloffers), aggiungere l'account Dev Center come nuovo [utente](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-users) nel portale Cloud Partner. Accedere al [portale per Cloud Partner](https://cloudpartner.azure.com/#alloffers) con l'account Dev Center. Selezionare il profilo di pubblicazione nel menu in alto a destra nel Web browser. Selezionare Link Dev Center Account (Collega account Dev Center).
+* **Come si collega l'account Dev Center personale al profilo di pubblicazione del portale Cloud Partner?**
+  > Il passaggio finale prima della pubblicazione è collegare l'account Dev Center personale al [profilo](https://cloudpartner.azure.com/#profile) del portale Cloud Partner. Se l'account Dev Center è diverso dall'account del [portale Cloud Partner](https://cloudpartner.azure.com/#alloffers), aggiungere l'account Dev Center come nuovo [utente](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-users) nel portale Cloud Partner. Accedere al [portale per Cloud Partner](https://cloudpartner.azure.com/#alloffers) con l'account Dev Center. Selezionare il profilo di pubblicazione nel menu in alto a destra nel Web browser. Selezionare Link Dev Center Account (Collega account Dev Center).
 
-*   **Perché l'applicazione di Dev Center di un utente è stata rifiutata?**
-> La società di verifica di terze parti (Duns & Bradstreet) non è riuscita a contattare l'utente attraverso il numero di telefono che l'utente aveva specificato. L'utente deve contattare il supporto all'indirizzo [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) per riavviare il processo di verifica
+* **Perché l'applicazione di Dev Center di un utente è stata rifiutata?**
+  > La società di verifica di terze parti (Duns & Bradstreet) non è riuscita a contattare l'utente attraverso il numero di telefono che l'utente aveva specificato. L'utente deve contattare il supporto all'indirizzo [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) per riavviare il processo di verifica
 
 > oppure
-
+> 
 > La registrazione dell'account è stata rifiutata per problemi relativi all'area geografica. Le società con filiali distribuite in località diverse dalla sede centrale necessitano di un solo account Dev Center.
  
-*   **Cosa fare se il nome della società che si desidera usare esiste già in Dev Center?**
-> Assegnare un nome di società temporaneo, contattare il supporto all'indirizzo [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) e inviare i documenti di registrazione della propria società.
+* **Cosa fare se il nome della società che si desidera usare esiste già in Dev Center?**
+  > Assegnare un nome di società temporaneo, contattare il supporto all'indirizzo [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) e inviare i documenti di registrazione della propria società.
 
-*   **Come si aggiungono le informazioni relative a proventi e imposte?**
-> Non è possibile pubblicare offerte di transazione se prima non sono state inserite tutte le informazioni fiscali e bancarie nell'account Dev Center.  Per altre informazioni sull'aggiunta di informazioni relative all'account, visitare le sezioni relative a [come aggiungere le informazioni bancarie e fiscali](https://docs.microsoft.com/azure/marketplace/register-dev-center).
+* **Come si aggiungono le informazioni relative a proventi e imposte?**
+  > Non è possibile pubblicare offerte di transazione se prima non sono state inserite tutte le informazioni fiscali e bancarie nell'account Dev Center.  Per altre informazioni sull'aggiunta di informazioni relative all'account, visitare le sezioni relative a [come aggiungere le informazioni bancarie e fiscali](https://docs.microsoft.com/azure/marketplace/register-dev-center).
 
-*   **È possibile modificare l'account Microsoft di accesso a Dev Center?**
->  No. Dopo aver creato un account Dev Center, l'account del proprietario non può essere modificato. È necessario ricominciare con un account Dev Center completamente nuovo usando l'account Microsoft desiderato.
+* **È possibile modificare l'account Microsoft di accesso a Dev Center?**
+  >  No. Dopo aver creato un account Dev Center, l'account del proprietario non può essere modificato. È necessario ricominciare con un account Dev Center completamente nuovo usando l'account Microsoft desiderato.
 
-*   **Dove si contatta il supporto per problemi di registrazione a Dev Center?**
-Per accedere al supporto, visitare la pagina Supporto per gli sviluppatori Windows all'indirizzo [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support). 
+* **Dove si contatta il supporto per problemi di registrazione a Dev Center?**
+  Per accedere al supporto, visitare la pagina Supporto per gli sviluppatori Windows all'indirizzo [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 *   Visitare la pagina [Guida alla pubblicazione per Azure Marketplace e AppSource](./marketplace-publishers-guide.md).  
  
----  
+---

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: e2b08dbbeb078a4e139400112e9cdd9416878214
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.openlocfilehash: 41b80e3914c93a4baeb39f35c7281f8fe81ff37c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383008"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835317"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Domande frequenti su Analisi del traffico
 
@@ -83,6 +83,7 @@ Se non viene visualizzato alcun risultato, contattare l'amministratore dell'abbo
 - India centrale
 - India meridionale
 - Giappone orientale
+- US Gov Virginia
 
 L'area di lavoro di Log Analytics deve esistere nelle aree indicate di seguito:
 - Canada centrale
@@ -94,6 +95,7 @@ L'area di lavoro di Log Analytics deve esistere nelle aree indicate di seguito:
 - Asia sud-orientale 
 - India centrale
 - Giappone orientale
+- US Gov Virginia
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>I gruppi di sicurezza di rete per cui vengono abilitati i log dei flussi possono trovarsi in aree differenti dalla propria area di lavoro?
 
@@ -105,7 +107,7 @@ Sì.
 
 ## <a name="can-i-use-an-existing-workspace"></a>È possibile usare un'area di lavoro esistente?
 
-Sì. Se si seleziona un'area di lavoro esistente, assicurarsi che sia stata eseguita la migrazione al nuovo linguaggio di query. Se non si vuole aggiornare l'area di lavoro, è necessario crearne una nuova. Per altre informazioni sul nuovo linguaggio di query, vedere [Aggiornamento di Azure Log Analytics alla nuova ricerca log](../log-analytics/log-analytics-log-search-upgrade.md).
+Sì. Se si seleziona un'area di lavoro esistente, assicurarsi che sia stata eseguita la migrazione al nuovo linguaggio di query. Se non si vuole aggiornare l'area di lavoro, è necessario crearne una nuova. Per altre informazioni sul nuovo linguaggio di query, vedere [monitoraggio di Azure registra l'aggiornamento alla nuova ricerca log](../log-analytics/log-analytics-log-search-upgrade.md).
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>È possibile usare sottoscrizioni diverse per l'account di archiviazione di Azure e l'area di lavoro di Log Analytics?
 
@@ -118,6 +120,12 @@ Sì, è possibile usare sottoscrizioni diverse per l'account di archiviazione di
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>Cosa succede se non riesco a configurare un NSG per Analisi del traffico a causa di un errore "Non trovato"?
 
 Selezionare un'area supportata. Se si seleziona un'area non supportata, viene visualizzato un errore "Non trovato". Le regioni supportate sono state elencate in precedenza in questo articolo.
+
+## <a name="why-am-i-getting-the-error-failed-to-update-flow-logs-settings-for--internalservererror-when-enabling-nsgs-in-us-gov-virginia"></a>Perché viene visualizzato l'errore "è stato possibile aggiornare le impostazioni dei log di flusso per... ... InternalServerError "non corretto Quando si abilita NSG in US Gov Virginia?
+
+Ciò è dovuto a un bug in cui i provider di risorse 'Microsoft. Network' non è nuovamente registrato per una sottoscrizione di US Gov Virginia. Il team sta lavorando la correzione per questo oggetto. Come soluzione alternativa, dovrà [registrare di nuovo manualmente 'Microsoft. Network' applicazione relying Party](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-register-provider-errors). 
+
+Se il problema persiste, contattare il supporto. 
 
 ## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>Cosa accade se si ottiene lo stato "Impossibile caricare" nella pagina dei registri di flusso NSG?
 

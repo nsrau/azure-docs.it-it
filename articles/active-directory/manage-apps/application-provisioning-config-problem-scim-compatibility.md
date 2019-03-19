@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a1e5643c9d5f6fc2492dd52ccd07606a47d21b2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8fc326c1ba529bc394a5ce5a059e3fe91baa7a9a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190518"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124071"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemi noti e risolti con la conformità al protocollo SCIM 2.0 del servizio di provisioning utenti di Azure AD
 
@@ -59,36 +59,36 @@ Sì. Se si usa già questa istanza dell'applicazione per il single sign-on ed è
  
 1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 2. Nella sezione **Azure Active Directory > Applicazioni aziendali** del portale di Azure, individuare e selezionare la propria applicazione SCIM.
-3.  Nella sezione **Proprietà** della propria app SCIM, copiare l’**ID oggetto**.
-4.  In una nuova finestra del browser Web, accedere a https://developer.microsoft.com/graph/graph-explorer e accedere come amministratore del tenant di Azure AD in cui deve essere aggiunta l'app.
+3. Nella sezione **Proprietà** della propria app SCIM, copiare l’**ID oggetto**.
+4. In una nuova finestra del browser Web, accedere a https://developer.microsoft.com/graph/graph-explorer e accedere come amministratore del tenant di Azure AD in cui deve essere aggiunta l'app.
 5. In Graph explorer, eseguire il comando seguente per individuare l'ID del processo di provisioning. Sostituire "[id-oggetto]" con l’ID principale del servizio (ID oggetto) copiato nel terzo passaggio.
  
- `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
+   `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
 
- ![Get Jobs](./media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Get Jobs") 
+   ![Get Jobs](./media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Get Jobs") 
 
 
 6. Nei risultati, copiare la stringa "ID" completa che inizia con "customappsso" o "scim".
 7. Eseguire il comando seguente per recuperare la configurazione di mapping degli attributi per eseguirne un backup. Usare lo stesso [id-oggetto] di prima e sostituire [id-processo] con l'ID del processo di provisioning copiato nell'ultimo passaggio.
  
- `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
+   `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
  
- ![Get Schema](./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Get Schema") 
+   ![Get Schema](./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Get Schema") 
 
 8. Copiare l'output JSON dall'ultimo passaggio e salvarlo in un file di testo. Questo file contiene tutti i mapping degli attributi personalizzati aggiunti all’app precedente e include alcune migliaia di righe di JSON.
 9. Eseguire il comando seguente per eliminare il processo di provisioning:
  
- `DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]`
+   `DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]`
 
 10. Eseguire il comando seguente per creare un nuovo processo di provisioning con le correzioni più recenti di servizio.
 
- `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs `
- `{   templateId: "scim"   } `
+    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs `
+    `{   templateId: "scim"   } `
    
 11. Nei risultati dell’ultimo passaggio, copiare la stringa "ID" completa che inizia con "scim". Facoltativamente, è possibile applicare di nuovo i mapping degli attributi precedenti eseguendo il comando seguente, sostituendo [nuovo-id-processo] con il nuovo ID di processo appena copiato e immettendo il codice JSON di output salvato nel passaggio 7 come corpo della richiesta.
 
- `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema `
- `{   <your-schema-json-here>   }`
+    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema `
+    `{   <your-schema-json-here>   }`
 
 12. Tornare alla prima finestra del browser Web e selezionare la scheda **Provisioning** dell'applicazione.
 13. Verificare la configurazione, quindi avviare il processo di provisioning. 
@@ -97,15 +97,15 @@ Sì. Se si usa già questa istanza dell'applicazione per il single sign-on ed è
 
 Sì. Se si è codificata un'applicazione precedente alle correzioni con il comportamento precedente ed è necesario distribuirne una nuova istanza, procedere come indicato di seguito. Questa procedura spiega come usare l'API Microsoft Graph ed Esplora nell'API Microsoft Graph per creare un processo di provisioning SCIM con il comportamento precedente.
  
-1.  Accedere al portale di Azure all'indirizzo https://portal.azure.com.
+1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 2. Nella sezione **Azure Active Directory > Applicazioni aziendali > Crea applicazione** del portale di Azure, creare una nuova applicazione **Non nella raccolta**.
-3.  Nella sezione **Proprietà** della nuova app personalizzata, copiare l’**ID oggetto**.
-4.  In una nuova finestra del browser Web, accedere a https://developer.microsoft.com/graph/graph-explorer e accedere come amministratore del tenant di Azure AD in cui deve essere aggiunta l'app.
+3. Nella sezione **Proprietà** della nuova app personalizzata, copiare l’**ID oggetto**.
+4. In una nuova finestra del browser Web, accedere a https://developer.microsoft.com/graph/graph-explorer e accedere come amministratore del tenant di Azure AD in cui deve essere aggiunta l'app.
 5. In Graph explorer, eseguire il comando seguente per inizializzare la configurazione del provisioning dell'app.
-Sostituire "[id-oggetto]" con l’ID principale del servizio (ID oggetto) copiato nel terzo passaggio.
+   Sostituire "[id-oggetto]" con l’ID principale del servizio (ID oggetto) copiato nel terzo passaggio.
 
- `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
- `{   templateId: "customappsso"   }`
+   `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
+   `{   templateId: "customappsso"   }`
  
 6. Tornare alla prima finestra del browser Web e selezionare la scheda **Provisioning** dell'applicazione.
 7. Completare la configurazione del provisioning utenti con la normale procedura.

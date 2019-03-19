@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: c11b59f8ea432075b147a391de4b7bd3331e639e
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
-ms.translationtype: HT
+ms.openlocfilehash: ef24e356c9ac8424fc519a3b16af5d37a20e706f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2018
-ms.locfileid: "27704422"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999784"
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Come usare il plug-in slave di Azure con una soluzione di integrazione continua Hudson
 Il plug-in slave di Azure per Hudson consente di eseguire il provisioning di nodi slave in Azure quando si eseguono build distribuite.
@@ -182,13 +182,13 @@ In questa sezione si creerà un'attività di Hudson che verrà eseguita in un no
 
 Hudson creerà quindi un nodo slave utilizzando il modello creato nella sezione precedente ed eseguirà lo script specificato nell'istruzione di compilazione di questa attività.
 
-## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure].
+## <a name="next-steps"></a>Fasi successive
+Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java in Azure].
 
 <!-- URL List -->
 
-[Centro per sviluppatori Java di Azure]: https://azure.microsoft.com/develop/java/
-[profilo di sottoscrizione]: http://go.microsoft.com/fwlink/?LinkID=396395
+[Centro per sviluppatori Java in Azure]: https://azure.microsoft.com/develop/java/
+[profilo di sottoscrizione]: https://go.microsoft.com/fwlink/?LinkID=396395
 
 <!-- IMG List -->
 

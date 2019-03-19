@@ -7,40 +7,40 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/02/2018
+ms.date: 02/26/2019
 ms.author: ashish
-ms.openlocfilehash: 30f96c54dd916188296ca0245d4095a32ae0bbe4
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.openlocfilehash: e8a85401c0c7282d64ebcbe2f9180f25f36f7289
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742882"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108155"
 ---
 # <a name="scale-hdinsight-clusters"></a>Ridimensionare i cluster HDInsight
 
 HDInsight offre elasticità permettendo di aumentare e ridurre il numero di nodi di lavoro nei cluster. In questo modo, è possibile ridurre un cluster nelle ore di chiusura o nei fine settimana ed espanderlo durante i picchi delle richieste aziendali.
 
-Se, ad esempio, vengono eseguite attività di elaborazione batch una volta al giorno o una volta al mese, il cluster HDInsight può essere aumentato pochi minuti prima dell'evento pianificato in modo che sia disponibile un'adeguata potenza di calcolo della memoria e della CPU. È possibile automatizzare il ridimensionamento con il cmdlet [`Set–AzureRmHDInsightClusterSize`](hdinsight-administer-use-powershell.md#scale-clusters) di PowerShell.  Successivamente, al termine dell'elaborazione e quando l'utilizzo diminuisce di nuovo, è possibile ridurre il cluster HDInsight a un numero inferiore di nodi di lavoro.
+Se, ad esempio, vengono eseguite attività di elaborazione batch una volta al giorno o una volta al mese, il cluster HDInsight può essere aumentato pochi minuti prima dell'evento pianificato in modo che sia disponibile un'adeguata potenza di calcolo della memoria e della CPU.  Successivamente, al termine dell'elaborazione e quando l'utilizzo diminuisce di nuovo, è possibile ridurre il cluster HDInsight a un numero inferiore di nodi di lavoro.
 
-* Per ridimensionare il cluster tramite [PowerShell](hdinsight-administer-use-powershell.md):
+## <a name="utilities-to-scale-clusters"></a>Utilità per ridimensionare i cluster
 
-    ```powershell
-    Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
-    ```
-    
-* Per ridimensionare il cluster tramite l'[interfaccia della riga di comando classica di Azure](hdinsight-administer-use-command-line.md):
+Microsoft fornisce le utilità seguenti per ridimensionare i cluster:
 
-    ```
-    azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
-    ```
+|Utility | DESCRIZIONE|
+|---|---|
+|[PowerShell Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) - ClusterName \<nome Cluster > - TargetInstanceCount \<NewSize >|
+|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm/overview) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) - ClusterName \<nome Cluster > - TargetInstanceCount \<NewSize >|
+|[Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)|[ridimensionamento hdinsight AZ](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) -resource-group \<gruppo di risorse >-nome \<nome Cluster >-destinazione-instance-count \<NewSize >|
+|[Interfaccia della riga di comando classica di Azure](hdinsight-administer-use-command-line.md)|ridimensionamento del cluster Azure hdinsight \<clusterName > \<il numero di istanze di destinazione >|
+|[Portale di Azure](https://portal.azure.com)|Aprire il riquadro del cluster HDInsight, selezionare **dimensioni del Cluster** nel menu a sinistra, quindi nel riquadro delle dimensioni del Cluster, digitare il numero di nodi di lavoro e selezionare Salva.|  
 
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
-    
-* Per ridimensionare il cluster tramite il [portale di Azure](https://portal.azure.com), aprire il riquadro del cluster HDInsight, scegliere **Ridimensiona cluster** dal menu a sinistra, digitare il numero di nodi di lavoro nel riquadro Ridimensiona cluster e quindi selezionare Salva.
-
-    ![Ridimensionare un cluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
+![Ridimensionare un cluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
 Usando uno di questi metodi, è possibile aumentare o ridurre il cluster HDInsight in pochi minuti.
+
+> [!IMPORTANT]  
+> * La CLI di Azure classica è deprecata e deve essere usata solo con il modello di distribuzione classica. Per tutte le altre distribuzioni, usare il [CLI Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).  
+> * Il modulo AzureRM di PowerShell è deprecato.  Usare la [modulo di Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) laddove possibile.
 
 ## <a name="scaling-impacts-on-running-jobs"></a>Impatto del ridimensionamento sui processi in esecuzione
 
@@ -53,9 +53,10 @@ Per risolvere questo problema, è possibile attendere il completamento del proce
 Per visualizzare un elenco dei processi in sospeso e in esecuzione, è possibile usare l'interfaccia utente ResourceManager di YARN seguendo questi passaggi:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Nel menu a sinistra scegliere **Sfoglia**, scegliere **Cluster HDInsight** e quindi selezionare il cluster.
-3. Nel riquadro del cluster HDInsight selezionare **Dashboard** nel menu superiore per aprire l'interfaccia utente di Ambari. Immettere le credenziali di accesso al cluster.
-4. Fare clic su **YARN** nell'elenco dei servizi nel menu a sinistra. Nella pagina YARN selezionare **Collegamenti rapidi** e posizionare il puntatore del mouse sul nodo head attivo e quindi fare clic su **ResourceManager UI** (Interfaccia utente ResourceManager).
+2. A sinistra, passare a **tutti i servizi** > **Analitica** > **i cluster HDInsight**e quindi selezionare il cluster.
+3. Dalla visualizzazione principale, passare a **dashboard Cluster** > **Ambari home**. Immettere le credenziali di accesso al cluster.
+4. La UI Ambari, selezionare **YARN** nell'elenco dei servizi nel menu a sinistra.  
+5. Nella pagina YARN, scegliere **collegamenti rapidi** e passare il mouse sul nodo head attivo, quindi selezionare **ResourceManager UI**.
 
     ![Interfaccia utente ResourceManager](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
 
@@ -97,13 +98,11 @@ Come accennato in precedenza, tutti i processi in sospeso e in esecuzione vengon
 
 ## <a name="hdinsight-name-node-stays-in-safe-mode-after-scaling-down"></a>Il nodo dei nomi HDInsight resta in modalità sicura dopo la riduzione
 
-![Ridimensionare un cluster](./media/hdinsight-scaling-best-practices/scale-cluster.png)
-
-Se si riduce il cluster a un solo nodo di lavoro, come mostrato nell'immagine precedente, Apache Hadoop Distributed File System può restare bloccato in modalità sicura quando i nodi di lavoro vengono riavviati a causa dell'applicazione di patch oppure immediatamente dopo l'operazione di ridimensionamento.
+Se si riduce il cluster al numero minimo di un nodo di lavoro, Apache HSFS può restare bloccato in modalità provvisoria quando i nodi di lavoro vengono riavviati a causa dell'applicazione di patch oppure immediatamente dopo l'operazione di ridimensionamento.
 
 La causa principale di questo comportamento è che Hive usa alcuni file `scratchdir` e, per impostazione predefinita, si aspetta tre repliche di ogni blocco, mentre è possibile una sola replica se il cluster viene ridotto al numero minimo di un nodo di lavoro. Di conseguenza, i file in `scratchdir` diventano *sottoreplicati*. Questo può far sì che Hadoop Distributed File System resti in modalità sicura al riavvio dei servizi dopo l'operazione di ridimensionamento.
 
-Quando viene eseguito un tentativo di riduzione, HDInsight si affida alle interfacce di gestione di Apache Ambari per rimuovere innanzitutto i nodi di lavoro aggiuntivi indesiderati, operazione che comporta la replica dei rispettivi blocchi Hadoop Distributed File System in altri nodi di lavoro online, e quindi per ridurre in modo sicuro il cluster. Hadoop Distributed File System passa in modalità sicura durante la finestra di manutenzione e si suppone che ne esca al termine del ridimensionamento. È a questo punto che Hadoop Distributed File System può restare bloccato in modalità sicura.
+Quando si verifica un tentativo di riduzione, HDInsight si basa le interfacce di gestione di Apache Ambari per rimuovere innanzitutto i nodi di lavoro aggiuntivi indesiderati, che esegue la replica dei rispettivi blocchi HDFS ad altri nodi di lavoro online, e quindi ridimensionare in modo sicuro il cluster verso il basso. Hadoop Distributed File System passa in modalità sicura durante la finestra di manutenzione e si suppone che ne esca al termine del ridimensionamento. È a questo punto che Hadoop Distributed File System può restare bloccato in modalità sicura.
 
 Hadoop Distributed File System è configurato con l'opzione `dfs.replication` impostata su 3. In questo modo, i blocchi dei file temporanei sono sottoreplicati ogni volta che vi sono meno di tre nodi di lavoro online, perché non sono disponibili le tre copie previste di ogni blocco di file.
 
@@ -245,7 +244,7 @@ Potrebbero essere visualizzati anche uno o più errori critici nei blocchi NameN
 
 ![Integrità dei blocchi NameNode](./media/hdinsight-scaling-best-practices/ambari-hdfs-crit.png)
 
-Per pulire i file temporanei, operazione che rimuove gli errori di replica dei blocchi, usare SSH in ogni nodo head ed eseguire il comando seguente:
+Per pulire i file temporanei, che consente di rimuovere gli errori di replica di blocco, usare SSH in ogni nodo head ed eseguire il comando seguente:
 
 ```
 hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/

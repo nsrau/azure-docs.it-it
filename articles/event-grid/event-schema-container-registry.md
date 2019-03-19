@@ -1,19 +1,19 @@
 ---
 title: Schema di eventi del Registro contenitori della Griglia di eventi di Azure
-description: Descrive le proprietà disponibili per gli eventi del Registro contenitori con Griglia di eventi di Azure
+description: Vengono descritte le proprietà che sono disponibili per gli eventi di registro contenitori con griglia di eventi di Azure
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/13/2019
+ms.date: 03/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 6f00d4f249543ece0eb8db4a8e040300d55b2de8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462845"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084328"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Schema di eventi di Griglia di eventi di Azure per il Registro contenitori
 
@@ -21,12 +21,14 @@ Questo articolo illustra le proprietà e lo schema per gli eventi del Registro c
 
 ## <a name="available-event-types"></a>Tipi di evento disponibili
 
-L'archiviazione BLOB genera i tipi di eventi seguenti:
+Registro contenitori di Azure genera i tipi di evento seguenti:
 
 | Tipo evento | DESCRIZIONE |
 | ---------- | ----------- |
 | Microsoft.ContainerRegistry.ImagePushed | Generato quando viene eseguito il push di un'immagine. |
 | Microsoft.ContainerRegistry.ImagePushed | Generato quando un'immagine viene eliminata. |
+| Microsoft.ContainerRegistry.ChartPushed | Generato quando viene eseguito il push di un grafico Helm. |
+| Microsoft.ContainerRegistry.ChartDeleted | Generato quando viene eliminato un grafico Helm. |
 
 ## <a name="example-event"></a>Evento di esempio
 
@@ -93,11 +95,67 @@ Lo schema per l'eliminazione di un'immagine è simile:
 }]
 ```
 
+Lo schema per un grafico il push di eventi è simile allo schema per un evento push creati da un'immagine, ma non include un oggetto della richiesta:
+
+```json
+[{
+  "id": "ea3a9c28-5b17-40f6-a500-3f02b6829277",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
+  "subject": "mychart:1.0.0",
+  "eventType": "Microsoft.ContainerRegistry.ChartPushed",
+  "eventTime": "2019-03-12T22:16:31.5164086Z",
+  "data": {
+    "id":"ea3a9c28-5b17-40f6-a500-3f02b682927",
+    "timestamp":"2019-03-12T22:16:31.0087496+00:00",
+    "action":"chart_push",
+    "target":{
+      "mediaType":"application/vnd.acr.helm.chart",
+      "size":25265,
+      "digest":"sha256:7f060075264b5ba7c14c23672698152ae6a3ebac1c47916e4efe19cd624d5fab",
+      "repository":"repo",
+      "tag":"mychart-1.0.0.tgz",
+      "name":"mychart",
+      "version":"1.0.0"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+Lo schema per un evento grafico eliminato è simile allo schema per un evento eliminato con immagine, ma non include un oggetto della richiesta:
+
+```json
+[{
+  "id": "39136b3a-1a7e-416f-a09e-5c85d5402fca",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
+  "subject": "mychart:1.0.0",
+  "eventType": "Microsoft.ContainerRegistry.ChartDeleted",
+  "eventTime": "019-03-12T22:42:08.7034064Z",
+  "data": {
+    "id":"ea3a9c28-5b17-40f6-a500-3f02b682927",
+    "timestamp":"2019-03-12T22:42:08.3783775+00:00",
+    "action":"chart_delete",
+    "target":{
+      "mediaType":"application/vnd.acr.helm.chart",
+      "size":25265,
+      "digest":"sha256:7f060075264b5ba7c14c23672698152ae6a3ebac1c47916e4efe19cd624d5fab",
+      "repository":"repo",
+      "tag":"mychart-1.0.0.tgz",
+      "name":"mychart",
+      "version":"1.0.0"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
 ## <a name="event-properties"></a>Proprietà degli eventi
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
 | subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
@@ -110,7 +168,7 @@ Un evento presenta i seguenti dati di primo livello:
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | id | stringa | L'ID evento. |
 |  timestamp | stringa | L'ora in cui si è verificato l'evento. |
@@ -120,7 +178,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 
 Di seguito sono elencate le proprietà dell'oggetto di destinazione:
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | mediaType | stringa | Tipo MIME dell'oggetto di riferimento. |
 | size | numero intero | Numero di byte del contenuto. Uguale al campo Length. |
@@ -128,10 +186,12 @@ Di seguito sono elencate le proprietà dell'oggetto di destinazione:
 | length | numero intero | Numero di byte del contenuto. Uguale al campo Size. |
 | repository | stringa | Nome del repository. |
 | tag | stringa | Nome tag. |
+| name | stringa | Il nome del grafico. |
+| version | stringa | La versione del grafico. |
 
 Di seguito sono elencate le proprietà dell'oggetto della richiesta:
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | id | stringa | ID della richiesta che ha avviato l'evento. |
 | indirizzo | stringa | L'IP o nome host e possibilmente la porta della connessione client che ha avviato l'evento. Questo valore è il RemoteAddr. dalla richiesta http standard. |

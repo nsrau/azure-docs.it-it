@@ -1,5 +1,5 @@
 ---
-title: Differenze T-SQL di Istanza gestita di database SQL di Azure | Microsoft Docs
+title: Differenze T-SQL di Istanza gestita del database SQL di Azure | Microsoft Docs
 description: Questo articolo illustra le differenze T-SQL tra un'istanza gestita di database SQL di Azure e SQL Server
 services: sql-database
 ms.service: sql-database
@@ -11,21 +11,22 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: 942b1423583f663f22ced6ea8399409778b2f6de
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/13/2019
+ms.openlocfilehash: 8654899e0a6dfce8f25855eba6c5f4a88af78665
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455128"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903131"
 ---
-# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Differenze T-SQL tra Istanza gestita di database SQL di Azure e SQL Server
+# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server
 
 L'opzione di distribuzione Istanza gestita assicura una compatibilità elevata con il motore di database di SQL Server locale. La maggior parte delle funzionalità del motore di database di SQL Server è supportata in un'istanza gestita.
 
 ![migrazione](./media/sql-database-managed-instance/migration.png)
 
 Esistono tuttavia alcune differenze nella sintassi e nel comportamento, riepilogate e illustrate in questo articolo. <a name="Differences"></a>
+
 - [Disponibilità](#availability) incluse le differenze relative a [Always On](#always-on-availability) e [Backup](#backup),
 - [Sicurezza](#security) incluse le differenze relative a [Controllo](#auditing), [Certificati](#certificates), [Credenziali](#credential), [Provider del servizio di crittografia](#cryptographic-providers), [Accessi/utenti](#logins--users), [Chiave del servizio e chiave master del servizio](#service-key-and-service-master-key),
 - [Configurazione](#configuration) incluse le differenze relative a [Estensione del pool di buffer](#buffer-pool-extension), [Regole di confronto](#collation), [Livelli di compatibilità](#compatibility-levels), [Mirroring del database](#database-mirroring), [Opzioni di database](#database-options), [SQL Server Agent](#sql-server-agent), [Opzioni tabella](#tables),
@@ -50,25 +51,31 @@ La [disponibilità elevata](sql-database-high-availability.md) è incorporata in
 Le istanze gestite hanno backup automatici e consentono agli utenti di creare backup `COPY_ONLY` di database completi. I backup differenziali, di log e dello snapshot dei file non sono supportati.
 
 - Con un'istanza gestita è possibile eseguire il backup di un database di istanza solo in un account di Archiviazione BLOB di Azure:
-  - Solo `BACKUP TO URL` è supportata
-  - `FILE`, `TAPE` e i dispositivi di backup non sono supportati  
+  - È supportato solo `BACKUP TO URL`
+  - I dispositivi di backup, `FILE` e `TAPE` non sono supportati  
 - La maggior parte delle opzioni `WITH` generali è supportata
-  - `COPY_ONLY` è obbligatoria
-  - `FILE_SNAPSHOT` non è supportata
+  - `COPY_ONLY` è obbligatorio
+  - `FILE_SNAPSHOT` non è supportato
   - Le opzioni nastro `REWIND`, `NOREWIND`, `UNLOAD` e `NOUNLOAD` non sono supportate
   - Le opzioni specifiche dei log `NORECOVERY`, `STANDBY` e `NO_TRUNCATE` non sono supportate
 
-Limitazioni:  
+ Limitazioni:  
 
 - Con un'istanza gestita è possibile eseguire il backup di un database di istanza in un supporto di backup con un massimo di 32 set di stripe, sufficienti per database fino a 4 TB se si usa la compressione del backup.
-- La dimensione massima dei set di stripe di backup è 195 GB (dimensioni massime del BLOB). Aumentare il numero di set di stripe nel comando backup per ridurre le dimensioni dei singoli set di stripe e restare nel limite consentito.
+- Dimensioni di striping backup max usando il `BACKUP` comando in un'istanza gestita corrisponde a 195 GB (dimensione massima dei blob). Aumentare il numero di set di stripe nel comando backup per ridurre le dimensioni dei singoli set di stripe e restare nel limite consentito.
 
-> [!TIP]
-> Per evitare questa limitazione in locale, eseguire il backup su `DISK` anziché su `URL`, caricare il file di backup nel BLOB e quindi eseguire il ripristino. Il ripristino supporta file di dimensioni maggiori perché usa un tipo di BLOB diverso.  
+    > [!TIP]
+    > Per aggirare questa limitazione durante il backup di un database da SQL Server in un ambiente locale o in una macchina virtuale, è possibile eseguire le operazioni seguenti:
+    >
+    > - Eseguire il backup del `DISK` invece di backup `URL`
+    > - Caricare i file di backup nell'archiviazione Blob
+    > - Eseguire il ripristino in istanza gestita
+    >
+    > Il `Restore` comando in un'istanza gestita supporta le dimensioni del blob più grande nei file di backup poiché viene utilizzato un tipo di blob diverso per l'archiviazione dei file di backup caricati.
 
 Per informazioni sui backup con T-SQL, vedere [BACKUP](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql).
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 ### <a name="auditing"></a>Controllo
 
@@ -110,7 +117,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 ### <a name="credential"></a>Credenziali
 
-Solo Azure Key Vault e le identità `SHARED ACCESS SIGNATURE` sono supportati. Gli utenti di Windows non sono supportati.
+Sono supportati solo l'insieme di credenziali delle chiavi di Azure e le identità `SHARED ACCESS SIGNATURE`. Gli utenti di Windows non sono supportati.
 
 Vedere [CREATE CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) e [ALTER CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/alter-credential-transact-sql).
 
@@ -125,44 +132,51 @@ Un'istanza gestita non può accedere ai file e pertanto non è possibile creare 
 
 - Gli account di accesso SQL creati `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY` e `FROM SID` sono supportati. Vedere [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
 - Le entità server (account di accesso) di Azure Active Directory (Azure AD) create con la sintassi [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) o con la sintassi [CREATE USER FROM LOGIN [account di accesso Azure AD]](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) sono supportate (**anteprima pubblica**). Si tratta di account di accesso creati a livello di server.
-    - Istanza gestita supporta le entità di database di Azure AD con la sintassi `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. Queste entità sono note anche come utenti di database indipendenti di Azure AD.
+
+    Istanza gestita supporta le entità di database di Azure AD con la sintassi `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. Queste entità sono note anche come utenti di database indipendenti di Azure AD.
+
 - Gli account di accesso di Windows creati con la sintassi `CREATE LOGIN ... FROM WINDOWS` non sono supportati. Usare gli accessi e gli utenti di Azure Active Directory.
 - L'utente di Azure AD che ha creato l'istanza ha [privilegi amministrativi illimitati](sql-database-manage-logins.md#unrestricted-administrative-accounts).
 - Gli utenti non amministratori di Azure Active Directory (Azure AD) a livello di database possono essere creati con la sintassi `CREATE USER ... FROM EXTERNAL PROVIDER`. Vedere [CREATE USER ... FROM EXTERNAL PROVIDER](sql-database-manage-logins.md#non-administrator-users).
 - Le entità server (account di accesso) di Azure AD supportano le funzionalità di SQL all'interno di una sola istanza gestita. Le funzionalità che richiedono l'interazione tra istanze, all'interno dello stesso tenant di Azure AD o in un tenant diverso, non sono supportate per gli utenti di Azure AD. Tra queste funzionalità sono incluse:
-    - Replica transazionale SQL e
-    - Server di collegamento
+
+  - Replica transazionale SQL e
+  - Server di collegamento
+
 - L'impostazione di un account di accesso di Azure AD mappato a un gruppo di Azure AD come proprietario del database non è supportata.
 - Le rappresentazione delle entità di livello server di Azure AD con altre entità di Azure AD è supportata, ad esempio la clausola [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql). Limitazione di EXECUTE AS:
-    - EXECUTE AS USER non è supportata per gli utenti di Azure AD quando il nome è diverso dal nome di accesso. Ad esempio, quando l'utente è stato creato tramite la sintassi CREATE USER [myAadUser] FROM LOGIN [john@contoso.com] e si prova a eseguire la rappresentazione tramite EXEC AS USER = _myAadUser_. Quando si crea un utente **USER** da un'entità server (account di accesso) di Azure AD, specificare per user_name lo stesso valore di login_name indicato in **LOGIN**.
-    - Solo le entità di livello server SQL (account di accesso) che fanno parte del ruolo `sysadmin` possono eseguire le operazioni seguenti destinate a entità di sicurezza di Azure AD: 
-        - EXECUTE AS USER
-        - EXECUTE AS LOGIN
+
+  - EXECUTE AS USER non è supportata per gli utenti di Azure AD quando il nome è diverso dal nome di accesso. Ad esempio, quando l'utente è stato creato tramite la sintassi CREATE USER [myAadUser] FROM LOGIN [john@contoso.com] e si prova a eseguire la rappresentazione tramite EXEC AS USER = _myAadUser_. Quando si crea un utente **USER** da un'entità server (account di accesso) di Azure AD, specificare per user_name lo stesso valore di login_name indicato in **LOGIN**.
+  - Solo le entità di livello server SQL (account di accesso) che fanno parte del ruolo `sysadmin` possono eseguire le operazioni seguenti destinate a entità di sicurezza di Azure AD:
+
+    - EXECUTE AS USER
+    - EXECUTE AS LOGIN
+
 - Limitazioni dell'**anteprima pubblica** per le entità server (account di accesso) di Azure AD:
-    - Limitazioni dell'amministratore di Active Directory per Istanza gestita:
-        - L'amministratore di Azure AD usato per configurare l'istanza gestita non può essere usato per creare un'entità server (account di accesso) di Azure AD all'interno dell'istanza gestita. È necessario creare la prima entità server (account di accesso) di Azure AD usando un account di SQL Server che è un `sysadmin`. Si tratta di una limitazione temporanea che verrà rimossa quando le entità server (account di accesso) di Azure AD saranno disponibili a livello generale. Se si prova a usare un account amministratore di Azure AD per creare l'account di accesso, viene visualizzato l'errore seguente: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
-        - Attualmente, il primo account di accesso di Azure AD nel database master deve essere creato dall'account di SQL Server standard (non Azure AD) che è un `sysadmin` usando [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) FROM EXTERNAL PROVIDER. Non appena verrà rilasciata la versione disponibile a livello generale, questa limitazione verrà rimossa e l'account di accesso iniziale di Azure AD potrà essere creato dall'amministratore di Active Directory per Istanza gestita.
+
+  - Limitazioni dell'amministratore di Active Directory per Istanza gestita:
+
+    - L'amministratore di Azure AD usato per configurare l'istanza gestita non può essere usato per creare un'entità server (account di accesso) di Azure AD all'interno dell'istanza gestita. È necessario creare la prima entità server (account di accesso) di Azure AD usando un account di SQL Server che è un `sysadmin`. Si tratta di una limitazione temporanea che verrà rimossa quando le entità server (account di accesso) di Azure AD saranno disponibili a livello generale. Se si prova a usare un account amministratore di Azure AD per creare l'account di accesso, viene visualizzato l'errore seguente: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+      - Attualmente, il primo account di accesso di Azure AD nel database master deve essere creato dall'account di SQL Server standard (non Azure AD) che è un `sysadmin` usando [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) FROM EXTERNAL PROVIDER. Non appena verrà rilasciata la versione disponibile a livello generale, questa limitazione verrà rimossa e l'account di accesso iniziale di Azure AD potrà essere creato dall'amministratore di Active Directory per Istanza gestita.
     - Il framework DacFx (esportazione/importazione) usato con SQL Server Management Studio (SSMS) o SqlPackage non è supportato per gli account di accesso di Azure AD. Questa limitazione verrà rimossa quando le entità server (account di accesso) di Azure AD saranno disponibili a livello generale.
     - Uso di entità server (account di accesso) di Azure AD con SSMS
-        - La creazione di script per gli account di accesso di Azure AD (con un qualsiasi account di accesso autenticato) non è supportata.
-        - IntelliSense non riconosce l'istruzione **CREATE LOGIN FROM EXTERNAL PROVIDER** e mostrerà una sottolineatura rossa.
+
+      - La creazione di script per gli account di accesso di Azure AD (con un qualsiasi account di accesso autenticato) non è supportata.
+      - IntelliSense non riconosce l'istruzione **CREATE LOGIN FROM EXTERNAL PROVIDER** e mostrerà una sottolineatura rossa.
+
 - Solo l'account di accesso dell'entità di livello server (creato dal processo di provisioning di Istanza gestita), i membri dei ruoli server (`securityadmin` o `sysadmin`) o altri account di accesso con autorizzazione ALTER ANY LOGIN a livello di server possono creare entità server (account di accesso) di Azure AD nel database master per Istanza gestita.
-- Se l'account di accesso è un'entità di sicurezza SQL, solo gli account di accesso che fanno parte del ruolo `sysadmin` possono usare il comando per creare gli account di accesso per un account di Azure AD.
+- Se l'account di accesso è un'entità di sicurezza SQL, solo gli account di accesso che fanno parte del ruolo `sysadmin` possono usare il comando per creare gli account di accesso per un account Azure AD.
 - L'account di accesso di Azure AD deve essere un membro di un'istanza di Azure AD all'interno della stessa directory usata per Istanza gestita di database SQL di Azure.
 - Le entità server (account di accesso) di Azure AD sono visibili in Esplora oggetti a partire da SSMS 18.0, anteprima 5.
 - È consentita la sovrapposizione di entità server (account di accesso) di Azure AD con un account amministratore di Azure AD. Le entità server (account di accesso) di Azure AD hanno la precedenza sull'amministratore di Azure AD quando viene risolta l'entità e vengono applicate le autorizzazioni all'istanza gestita.
 - Durante l'autenticazione, per risolvere l'entità che esegue l'autenticazione viene applicata la sequenza seguente:
+
     1. Se l'account di Azure AD è mappato direttamente all'entità server (account di accesso) di Azure AD (presente in sys.server_principals come tipo "E"), concedere l'accesso e applicare le autorizzazioni dell'entità del server (account di accesso) di Azure AD.
     2. Se l'account di Azure AD è membro di un gruppo di Azure AD mappato all'entità server (account di accesso) di Azure AD (presente in sys.server_principals come tipo "X"), concedere l'accesso e applicare le autorizzazioni dell'account di accesso del gruppo di Azure AD.
     3. Se l'account di Azure AD è uno specifico amministratore di Azure AD configurato nel portale per Istanza gestita (non è presente nelle viste di sistema di Istanza gestita), applicare le speciali autorizzazioni dell'amministratore di Azure AD per Istanza gestita (modalità legacy).
     4. Se l'account di Azure AD è mappato direttamente a un utente di Azure AD in un database (presente in sys.database_principals come tipo "E"), concedere l'accesso e applicare le autorizzazioni dell'utente del database di Azure AD.
     5. Se l'account di Azure AD è membro di un gruppo di Azure AD mappato a un utente di Azure AD in un database (presente in sys.database_principals come tipo "X"), concedere l'accesso e applicare le autorizzazioni dell'account di accesso del gruppo di Azure AD.
     6. Se è presente un account di accesso di Azure AD mappato a un account utente di Azure AD o a un account di gruppo di Azure AD, quando viene risolto l'utente che esegue l'autenticazione, vengono applicate tutte le autorizzazioni di questo account di accesso di Azure AD.
-
-
-
-
-
 
 ### <a name="service-key-and-service-master-key"></a>Chiave del servizio e chiave master del servizio
 
@@ -257,8 +271,6 @@ Le opzioni seguenti non possono essere modificate:
 - `SINGLE_USER`
 - `WITNESS`
 
-La modifica del nome non è supportata.
-
 Per altre informazioni, vedere [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
 ### <a name="sql-server-agent"></a>Agente SQL Server
@@ -319,10 +331,9 @@ Un'istanza gestita non può accedere a condivisioni file e cartelle di Windows e
 
 Un'istanza gestita non può accedere a condivisioni file e cartelle di Windows e pertanto vengono applicati i vincoli seguenti:
 
-- Solo `CREATE ASSEMBLY FROM BINARY` è supportata. Vedere [CREATE ASSEMBLY FROM BINARY](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
+- È supportato solo `CREATE ASSEMBLY FROM BINARY`. Vedere [CREATE ASSEMBLY FROM BINARY](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
 - `CREATE ASSEMBLY FROM FILE` non è supportata. Vedere [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
 - `ALTER ASSEMBLY` non può fare riferimento a file. Vedere [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
-
 
 ### <a name="dbcc"></a>DBCC
 
@@ -416,7 +427,7 @@ Le opzioni di database seguenti sono impostate/sottoposte a override e non posso
 - Qualsiasi filegroup ottimizzato per la memoria esistente viene rinominato in XTP  
 - Le opzioni `SINGLE_USER` e `RESTRICTED_USER` vengono convertite in `MULTI_USER`
 
-Limitazioni:  
+ Limitazioni:  
 
 - I file `.BAK` che contengono più set di backup non possono essere ripristinati.
 - I file `.BAK` che contengono più file di log non possono essere ripristinati.
@@ -437,7 +448,7 @@ Il broker di servizio tra istanze non è supportato:
 
 ### <a name="stored-procedures-functions-triggers"></a>Stored procedure, funzioni, trigger
 
-- `NATIVE_COMPILATION` non è attualmente supportato.
+- `NATIVE_COMPILATION` non è supportato nel livello utilizzo generico.
 - Le opzioni [sp_configure](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-configure-transact-sql) seguenti non sono supportate:
   - `allow polybase export`
   - `allow updates`
@@ -448,7 +459,6 @@ Il broker di servizio tra istanze non è supportato:
 - `xp_cmdshell` non è supportata. Vedere [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
 - Le `Extended stored procedures` non sono supportate, incluse `sp_addextendedproc` e `sp_dropextendedproc`. Vedere [Stored procedure estese](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`, `sp_attach_single_file_db` e `sp_detach_db` non sono supportate. Vedere [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) e [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
-- `sp_renamedb` non è supportata. Vedere [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
 ## <a name="Changes"></a> Modifiche nel comportamento
 
@@ -459,7 +469,7 @@ Le variabili, funzioni e viste seguenti restituiscono risultati diversi:
 - `@@SERVERNAME` restituisce il nome DNS completo "collegabile", ad esempio my-managed-instance.wcus17662feb9ce98.database.windows.net. Vedere [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
 - `SYS.SERVERS` restituisce il nome DNS completo "collegabile", ad esempio `myinstance.domain.database.windows.net` per le proprietà 'name' e 'data_source'. Vedere [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
 - `@@SERVICENAME` restituisce NULL perché il concetto di servizio valido per SQL Server non si applica a un'istanza gestita. Vedere [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
-- `SUSER_ID` è supportata. Restituisce NULL se l'account di accesso di Azure AD non è presente in sys.syslogins. Vedere [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
+- `SUSER_ID` è supportato. Restituisce NULL se l'account di accesso di Azure AD non è presente in sys.syslogins. Vedere [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` non è supportata. Restituisce dati errati (problema noto temporaneo). Vedere [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql).
 - `GETDATE()` e altre funzioni di data/ora predefinite restituiscono sempre la data e ora nel fuso orario UTC. Vedere [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
 
@@ -467,7 +477,11 @@ Le variabili, funzioni e viste seguenti restituiscono risultati diversi:
 
 ### <a name="tempdb-size"></a>Dimensioni di TEMPDB
 
-`tempdb` è suddiviso in 12 file, ognuno con dimensioni massime di 14 GB. Queste dimensioni massime per file non possono essere modificate ed è possibile aggiungere nuovi file a `tempdb`. Questa limitazione verrà rimossa a breve. Alcune query potrebbero restituire un errore se necessitano di più di 168 GB in `tempdb`.
+Dimensione file massima di `tempdb` non può essere maggiore di 24 GB/core nel livello utilizzo generico. Max `tempdb` dimensione nel livello Business Critical è limitata con le dimensioni di archiviazione di istanza. `tempdb` vengono sempre suddivisi in file di 12 dati. Queste dimensioni massime per file non possono essere modificate ed è possibile aggiungere nuovi file a `tempdb`. Alcune query potrebbero restituire un errore se necessitano più di 24GB / core in `tempdb`.
+
+### <a name="cannot-restore-contained-database"></a>Non è possibile ripristinare i database indipendenti
+
+Non è possibile ripristinare l'istanza gestita [database indipendenti](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). Point-in-time ripristinare i database indipendenti esistenti non funzionano in istanza gestita. Questo problema verrà rimossa a breve e nel frattempo è consigliabile rimuovere l'opzione di indipendenza dai database che vengono inseriti in istanza gestita e non utilizzano l'opzione di contenimento per i database di produzione.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Superamento dello spazio di archiviazione con file di database di piccole dimensioni
 
@@ -500,7 +514,7 @@ In numerose viste di sistema, contatori delle prestazioni, messaggi di errore, X
 
 ### <a name="database-mail-profile"></a>Profilo di posta elettronica database
 
-Può esistere un solo profilo di posta elettronica database, che deve essere denominato `AzureManagedInstance_dbmail_profile`.
+Il profilo di posta elettronica database utilizzato da SQL Agent deve essere chiamato `AzureManagedInstance_dbmail_profile`.
 
 ### <a name="error-logs-are-not-persisted"></a>I log degli errori non sono persistenti
 
@@ -514,7 +528,7 @@ Un'istanza gestita inserisce informazioni dettagliate nei log degli errori e mol
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>L'ambito della transazione in due database nella stessa istanza non è supportato
 
-La classe `TransactionScope` in .Net non funziona se vengono inviate due query ai due database nella stessa istanza all'interno del medesimo ambito della transazione:
+`TransactionScope` classe in .NET non funziona se le due query vengono inviate per i due database nella stessa istanza nello stesso ambito di transazione:
 
 ```C#
 using (var scope = new TransactionScope())
