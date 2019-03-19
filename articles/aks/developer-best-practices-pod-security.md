@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 412f27c572953b3f44ddca54a99f75895f438f21
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: d48a1a1c9e220690649bbf60e9909a38d575c156
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53559077"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651959"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la sicurezza dei pod nel servizio Azure Kubernetes
 
@@ -70,7 +70,7 @@ Consultare l'operatore del cluster per determinare le impostazioni del contesto 
 
 Per limitare il rischio di esposizione delle credenziali nel codice dell'applicazione, evitare l'uso di credenziali predefinite o condivise. Le credenziali o le chiavi non devono essere incluse direttamente nel codice. In caso di esposizione delle credenziali, è necessario aggiornare o ridistribuire l'applicazione. Un approccio migliore consiste nell'assegnare ai pod la propria identità e un modo per autenticare se stessi oppure nel recuperare automaticamente le credenziali da un insieme di credenziali digitali.
 
-Il servizio Azure Kubernetes offre due modi per autenticare automaticamente i pod o richiedere le credenziali da un insieme di credenziali digitali:
+Quanto segue [AKS associato progetti open source] [ aks-associated-projects] consentono di autenticare automaticamente i POD o richiesta delle credenziali e chiavi da un insieme di credenziali digitale:
 
 * Identità gestite per le risorse di Azure e
 * Driver FlexVol di Azure Key Vault
@@ -83,7 +83,7 @@ Un'identità gestita per le risorse di Azure consente a un pod di autenticarsi c
 
 Un'identità gestita evita che il codice dell'applicazione debba includere le credenziali per accedere a un servizio, ad esempio Archiviazione di Azure. Poiché ogni pod esegue l'autenticazione con la propria identità, è possibile controllare e verificare l'accesso. Se l'applicazione si connette ad altri servizi di Azure, usare le identità gestite per limitare il riutilizzo delle credenziali e il rischio di esposizione.
 
-Per altre informazioni sulle identità del pod, vedere [Configure an AKS cluster to use pod managed identities][aad-pod-identity] (Configurare un cluster AKS per usare le identità gestite del pod) e [Assign and use pod managed identities in your code][aad-pod-identity] (Assegnare e usare le identità gestite del pod nel codice).
+Per altre informazioni sulle identità di pod, vedere [configurare un cluster servizio contenitore di AZURE per usare le identità di pod gestito e con le applicazioni][aad-pod-identity]
 
 ### <a name="use-azure-key-vault-with-flexvol"></a>Usare Azure Key Vault con FlexVol
 
@@ -99,7 +99,7 @@ Con Azure Key Vault segreti come credenziali, chiavi dell'account di archiviazio
 
 In questo articolo è stato illustrato in particolare come proteggere i pod. Per implementare alcune di queste aree, vedere gli articoli seguenti:
 
-* [Usare identità gestite per le risorse di Azure con AKS][aad-pod-identity]
+* [Usare identità gestite per le risorse di Azure con servizio Azure Kubernetes][aad-pod-identity]
 * [Integrare Azure Key Vault con il servizio Azure Kubernetes][aks-keyvault-flexvol]
 
 <!-- EXTERNAL LINKS -->
@@ -107,6 +107,7 @@ In questo articolo è stato illustrato in particolare come proteggere i pod. Per
 [aks-keyvault-flexvol]: https://github.com/Azure/kubernetes-keyvault-flexvol
 [linux-capabilities]: http://man7.org/linux/man-pages/man7/capabilities.7.html
 [selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#selinuxoptions-v1-core
+[aks-associated-projects]: https://github.com/Azure/AKS/blob/master/previews.md#associated-projects
 
 <!-- INTERNAL LINKS -->
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md

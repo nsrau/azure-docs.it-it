@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b133947a7daf1977f084ee4008599882b51d9e8b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 3e217e0e3367c6e1200567f589749fec9e626da8
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428478"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817457"
 ---
 # <a name="managing-azure-automation-data"></a>Gestione dei dati di Automazione di Azure
 Questo articolo contiene più argomenti per la gestione di un ambiente di Automazione di Azure.
@@ -39,7 +39,7 @@ La tabella seguente riepiloga i criteri di conservazione per diverse risorse.
 
 I criteri di conservazione sono applicabili a tutti gli utenti e non è attualmente possibile personalizzarli.
 
-Tuttavia, se si desidera conservare i dati per un periodo di tempo più lungo, è possibile trasferire i log del processo runbook a Log Analytics.  Per maggiori informazioni, consultare [Inoltrare lo stato e i flussi del processo da Automazione a Log Analytics](automation-manage-send-joblogs-log-analytics.md).   
+Tuttavia, se si desidera conservare i dati per un periodo di tempo più lungo, è possibile inoltrare runbook i log di processo per i log di monitoraggio di Azure.  Per altre informazioni, esaminare [inoltrare dati dei processi di automazione di Azure per i log di monitoraggio di Azure](automation-manage-send-joblogs-log-analytics.md).   
 
 ## <a name="backing-up-azure-automation"></a>Backup di Automazione di Azure
 Quando si elimina un account di automazione in Microsoft Azure, vengono eliminati tutti gli oggetti presenti nell'account, ad esempio Runbook, moduli, configurazioni, impostazioni, processi e asset. Non sarà possibile ripristinare gli oggetti dopo l'eliminazione dell'account.  È possibile usare le informazioni seguenti per eseguire il backup dei contenuti dell'account di Automazione prima di eliminarlo. 

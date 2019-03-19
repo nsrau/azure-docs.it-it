@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/14/2019
-ms.openlocfilehash: 76fe764d828a7fa6e4ebb015f98b9af485d5df5f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.date: 02/25/2019
+ms.openlocfilehash: 2c95ec4d88e55af0becc73719bcc6126501267db
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567088"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866828"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>Database SQL: supporto dei client di livello inferiore e modifiche all'endpoint IP per il controllo tabelle
 
@@ -28,6 +28,7 @@ ms.locfileid: "55567088"
 Il [controllo del database](sql-database-auditing.md) funziona automaticamente con i client SQL che supportano il reindirizzamento TDS. Si noti che il reindirizzamento non è applicabile quando si usa il metodo di controllo BLOB.
 
 ## <a id="subheading-1"></a>Supporto dei client di livello inferiore
+
 Qualsiasi client che implementa TDS 7.4 deve supportare anche il reindirizzamento. Rappresentano un'eccezione JDBC 4.0, in cui non è del tutto supportata la funzionalità di reindirizzamento, e Tedious per Node.JS, in cui non è implementato il reindirizzamento.
 
 Per i "client di livello inferiore", ad esempio quelli che supportano la versione 7.3 di TDS e inferiori, il nome di dominio completo del server nella stringa di connessione deve essere modificato:
@@ -46,6 +47,7 @@ Un elenco parziale di "client di livello inferiore" include:
 **Commento:** La precedente modifica del nome di dominio completo del server può risultare utile per applicare criteri di controllo a livello di SQL Server senza dover eseguire una procedura di configurazione in ogni database (attenuazione temporanea).
 
 ## <a id="subheading-2"></a>Modifiche all'endpoint IP quando si abilita il Controllo
+
 Si noti che quando si abilita il controllo delle tabelle, l'endpoint IP del database viene modificato. Se si dispone di impostazioni del firewall restrittive, aggiornarle.
 
 Il nuovo endpoint IP del database dipenderà dall'area del database:
@@ -78,5 +80,4 @@ Il nuovo endpoint IP del database dipenderà dall'area del database:
 | Stati Uniti centro-occidentali |52.161.29.186, 52.161.27.213 |
 | Canada centrale |13.88.248.106, 13.88.248.110 |
 | Canada orientale |40.86.227.82, 40.86.225.194 |
-| Regno Unito settentrionale |13.87.101.18, 13.87.100.232 |
-| Regno Unito meridionale 2 |13.87.32.202, 13.87.32.226 |
+| Regno Unito meridionale |13.87.32.202, 13.87.32.226 |

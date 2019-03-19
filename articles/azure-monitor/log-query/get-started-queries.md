@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 52a441d5d8f3f44b35253e02786a033da5439597
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 8c3ef3f115d37400eb72fdaca5df4f326382df5c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269857"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871639"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Introduzione alle query di log in Monitoraggio di Azure
 
 
 > [!NOTE]
-> Prima di seguire questa esercitazione, è consigliabile completare l'esercitazione [Introduzione a Log Analytics in Monitoraggio di Azure](get-started-portal.md).
+> È consigliabile completare [Introduzione a Azure Monitor Log Analitica](get-started-portal.md) prima di completare questa esercitazione.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-In questa esercitazione si apprenderà come scrivere query di log in Monitoraggio di Azure. Si apprenderà come:
+In questa esercitazione si apprenderà come scrivere query di log di monitoraggio di Azure. Si apprenderà come:
 
 - Comprendere la struttura delle query
 - Ordinare i risultati di query

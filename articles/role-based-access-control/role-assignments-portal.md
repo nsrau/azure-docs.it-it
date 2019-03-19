@@ -1,5 +1,5 @@
 ---
-title: Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e il portale di Azure | Microsoft Docs
+title: Gestire l'accesso alle risorse di Azure tramite RBAC e il portale di Azure | Microsoft Docs
 description: Informazioni su come gestire l'accesso alle risorse di Azure per utenti, gruppi, entità servizio e identità gestite tramite il controllo degli accessi in base al ruolo e il portale di Azure. Vengono presentate anche la visualizzazione, la concessione e la rimozione dell'accesso.
 services: active-directory
 documentationcenter: ''
@@ -11,43 +11,79 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1e3057108ef179af2f4692c061091fbdf59f0af2
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: bb23cbc275e01eab5361504c547c020b0a29f4c3
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342338"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805291"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e il portale di Azure
 
-Il [controllo degli accessi in base al ruolo](overview.md) è la modalità di gestione dell'accesso alle risorse di Azure. Questo articolo descrive come gestire l'accesso per utenti, gruppi, entità servizio e identità gestite tramite il controllo degli accessi in base al ruolo e il portale di Azure.
+Il [controllo degli accessi in base al ruolo](overview.md) è la modalità di gestione dell'accesso alle risorse di Azure. Questo articolo descrive come gestire l'accesso usando il portale di Azure. Se è necessario gestire l'accesso ad Azure Active Directory, vedere [visualizzazione e assegnare ruoli di amministratore in Azure Active Directory](../active-directory/users-groups-roles/directory-manage-roles-portal.md).
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Per aggiungere e rimuovere le assegnazioni di ruolo, è necessario disporre di:
+
+- `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` le autorizzazioni, ad esempio [amministratore accesso utenti](built-in-roles.md#user-access-administrator) o [proprietario](built-in-roles.md#owner)
+
+## <a name="overview-of-access-control-iam"></a>Cenni preliminari sul controllo di accesso (IAM)
+
+**Controllo di accesso (IAM)** è il pannello che consente di gestire l'accesso alle risorse di Azure. È noto anche come gestione delle identità e degli accessi e viene visualizzato in diverse posizioni nel portale di Azure. Di seguito viene riportato un esempio del pannello Controllo di accesso (IAM) per una sottoscrizione.
+
+![Pannello Controllo di accesso (IAM) per una sottoscrizione](./media/role-assignments-portal/access-control-numbers.png)
+
+La tabella seguente descrive ciò che alcuni elementi sono di uso per:
+
+| # | Elemento | Che cos'è usarlo per |
+| --- | --- | --- |
+| 1 | Risorse in cui viene aperto il controllo di accesso (IAM) | Identificare l'ambito (sottoscrizione in questo esempio) |
+| 2 | **Aggiungere** pulsante | Aggiungere assegnazioni di ruolo |
+| 3 | **Controllare l'accesso** scheda | Visualizzare le assegnazioni di ruolo per un singolo utente |
+| 4 | **Le assegnazioni di ruolo** scheda | Visualizzare le assegnazioni di ruolo nell'ambito corrente |
+| 5 | **Ruoli** scheda | Visualizzare tutti i ruoli e autorizzazioni |
+
+Per essere più efficaci con il pannello di controllo (IAM) di accesso, è utile se si sta tentando di gestire l'accesso, è possibile rispondere alle domande seguenti tre:
+
+1. **Chi deve accedere?**
+
+    Che fa riferimento a un utente, gruppo, l'entità servizio o identità gestita. Detta anche un *entità di sicurezza*.
+
+1. **Quali autorizzazioni sono necessarie?**
+
+    Le autorizzazioni sono raggruppate in ruoli. È possibile selezionare da un elenco dei ruoli predefiniti diversi.
+
+1. **In cui devono accedere?**
+
+    In cui si riferisce al set di risorse di cui si applica l'accesso. In cui può essere un gruppo di gestione, sottoscrizione, gruppo di risorse o una singola risorsa, ad esempio un account di archiviazione. Questa operazione viene definita la *ambito*.
 
 ## <a name="open-access-control-iam"></a>Controllo di accesso (IAM)
 
-Il pannello del **Controllo di accesso (IAM)**, anche noto come gestione delle identità e degli accessi, è disponibile in tutto il portale. Per visualizzare o gestire l'accesso nel portale, è necessario innanzitutto aprire il pannello Controllo di accesso (IAM) e selezionare l'ambito degli elementi da visualizzare o modificare.
+La prima cosa che è necessario stabilire è la posizione in cui aprire il pannello di accesso (IAM) di controllo. A seconda le risorse che si desidera gestiscono l'accesso. Si desidera gestire l'accesso per tutti gli elementi in un gruppo di gestione, tutto in una sottoscrizione, tutti gli elementi in un gruppo di risorse o una singola risorsa?
 
-1. Nel portale di Azure selezionare **Tutti i servizi** e quindi l'ambito o la risorsa da visualizzare o gestire. È possibile ad esempio selezionare **Gruppi di gestione**, **Sottoscrizioni**, **Gruppi di risorse** o una risorsa.
+1. Nel portale di Azure, fare clic su **tutti i servizi** e quindi selezionare l'ambito. È possibile ad esempio selezionare **Gruppi di gestione**, **Sottoscrizioni**, **Gruppi di risorse** o una risorsa.
 
-1. Fare clic sulla risorsa specifica da visualizzare o gestire.
+1. Scegliere la risorsa specifica.
 
 1. Fare clic su **Controllo di accesso (IAM)**.
 
-    Di seguito viene riportato un esempio del pannello Controllo di accesso (IAM) per una sottoscrizione.
+    Di seguito viene riportato un esempio del pannello Controllo di accesso (IAM) per una sottoscrizione. Se si apportano modifiche controllo accesso qui, essi verrà applicata all'intera sottoscrizione.
 
     ![Pannello Controllo di accesso (IAM) per una sottoscrizione](./media/role-assignments-portal/access-control-subscription.png)
 
 ## <a name="view-roles-and-permissions"></a>Visualizzare ruoli e autorizzazioni
 
-Una definizione di ruolo è una raccolta di autorizzazioni usata per l'assegnazione dei ruoli. Azure dispone di più di 70 [ruoli predefiniti per le risorse di Azure](built-in-roles.md). Seguire questa procedura per visualizzare i ruoli e le autorizzazioni che possono essere eseguite sul piano di gestione e dati.
+Una definizione di ruolo è una raccolta di autorizzazioni usata per l'assegnazione dei ruoli. Azure dispone di più di 70 [ruoli predefiniti per le risorse di Azure](built-in-roles.md). Seguire questi passaggi per visualizzare i ruoli disponibili e le autorizzazioni.
 
-1. Aprire **Controllo di accesso (IAM)** sull'ambito, come gruppo di gestione, sottoscrizione, gruppo di risorse o risorsa, in cui si intende visualizzare i ruoli e autorizzazioni.
+1. Aprire **controllo di accesso (IAM)** in qualsiasi ambito.
 
 1. Fare clic su **Ruoli** per visualizzare l'elenco di tutti i ruoli predefiniti e personalizzati.
 
-   È possibile visualizzare il numero di utenti e gruppi assegnati a ogni ruolo nell'ambito.
+   È possibile visualizzare il numero di utenti e gruppi assegnati a ogni ruolo nell'ambito corrente.
 
    ![Elenco dei ruoli](./media/role-assignments-portal/roles-list.png)
 
@@ -57,7 +93,7 @@ Una definizione di ruolo è una raccolta di autorizzazioni usata per l'assegnazi
 
 ## <a name="view-role-assignments"></a>Visualizzare le assegnazioni di ruolo
 
-Quando si gestisce l'accesso, si ha l'esigenza di sapere chi ha accesso, quali sono le sue autorizzazioni e il relativo livello. Per elencare l'accesso per un utente, gruppo, entità servizio o identità gestita, vengono visualizzate le assegnazioni di ruolo.
+Quando si gestiscono l'accesso, si desidera sapere chi ha accesso, quali sono le relative autorizzazioni e in quale ambito. Per elencare l'accesso per un utente, gruppo, l'entità servizio o identità gestita, si consente di visualizzare le assegnazioni di ruolo.
 
 ### <a name="view-role-assignments-for-a-single-user"></a>Visualizzare le assegnazioni di ruolo di un singolo utente
 
@@ -85,7 +121,7 @@ Seguire questi passaggi per visualizzare l'accesso per un singolo utente, gruppo
 
 1. Aprire **Controllo di accesso (IAM)** sull'ambito, come gruppo di gestione, sottoscrizione, gruppo di risorse o risorsa, in cui si intende visualizzare l'accesso.
 
-1. Fare clic sulla scheda **Assegnazioni di ruolo** oppure sul pulsante **Visualizza** nel riquadro Visualizza assegnazioni di ruolo per visualizzare tutte le assegnazioni di ruolo in questo ambito.
+1. Fare clic sulla scheda **Assegnazioni di ruolo** per visualizzare tutte le assegnazioni di ruolo in questo ambito.
 
    ![Controllo di accesso - Scheda Assegnazioni di ruolo](./media/role-assignments-portal/access-control-role-assignments.png)
 
@@ -101,9 +137,11 @@ Per concedere l'accesso in RBAC, assegnare un ruolo a un utente, gruppo, entità
 
 1. Fare clic sulla scheda **Assegnazioni di ruolo** per visualizzare tutte le assegnazioni di ruolo in questo ambito.
 
-1. Fare clic su **Aggiungi assegnazione di ruolo** per aprire il riquadro Aggiungi assegnazione di ruolo.
+1. Fare clic su **Aggiungi** > **Aggiungi assegnazione di ruolo** per aprire il riquadro Aggiungi assegnazione di ruolo.
 
    Se non si dispone delle autorizzazioni per assegnare ruoli, l'opzione Aggiungi assegnazione di ruolo verrà disabilitata.
+
+   ![Menu Aggiungi](./media/role-assignments-portal/add-menu.png)
 
    ![Riquadro Aggiungi assegnazione di ruolo](./media/role-assignments-portal/add-role-assignment.png)
 
@@ -127,9 +165,11 @@ Per rendere un utente amministratore per una sottoscrizione di Azure, assegnargl
 
 1. Fare clic sulla scheda **Assegnazioni di ruolo** per visualizzare tutte le assegnazioni di ruolo in questa sottoscrizione.
 
-1. Fare clic su **Aggiungi assegnazione di ruolo** per aprire il riquadro Aggiungi assegnazione di ruolo.
+1. Fare clic su **Aggiungi** > **Aggiungi assegnazione di ruolo** per aprire il riquadro Aggiungi assegnazione di ruolo.
 
    Se non si dispone delle autorizzazioni per assegnare ruoli, l'opzione Aggiungi assegnazione di ruolo verrà disabilitata.
+
+   ![Menu Aggiungi](./media/role-assignments-portal/add-menu.png)
 
    ![Riquadro Aggiungi assegnazione di ruolo](./media/role-assignments-portal/add-role-assignment.png)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 8b5b56e39e1b9830d5b998ace2a384d6878cd510
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 6ed968b1613a96a2f4ab449c7b52488e066a38ab
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041816"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991819"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Backup online e ripristino dei dati su richiesta in Azure Cosmos DB
 
@@ -20,11 +20,18 @@ Azure Cosmos DB esegue automaticamente il backup dei dati a intervalli regolari.
 
 ## <a name="automatic-and-online-backups"></a>Backup automatici e online
 
-Con Azure Cosmos DB, non solo i dati ma anche i relativi backup sono altamente ridondanti e resilienti in caso di emergenze a livello di area. I backup automatici vengono attualmente eseguiti ogni quattro ore e in qualsiasi momento, rimangono archiviati i due backup più recenti. In caso di eliminazione accidentale o danneggiamento dei dati, è necessario contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/options/) entro otto ore in modo che il team di Azure Cosmos DB possa offrire supporto per il ripristino dei dati dai backup.
+Con Azure Cosmos DB, non solo i dati ma anche i relativi backup sono altamente ridondanti e resilienti in caso di emergenze a livello di area. La procedura seguente illustra come Azure Cosmos DB esegue il backup dei dati:
 
-I backup vengono eseguiti senza effetti sulle prestazioni o la disponibilità dell'applicazione. Azure Cosmos DB esegue il backup dei dati in background senza utilizzare velocità effettiva di cui è stato effettuato il provisioning aggiuntiva (UR) o senza influire sulle prestazioni e la disponibilità del database.
+* Azure Cosmos DB esegue automaticamente un backup del database ogni 4 ore e in qualsiasi momento, vengono archiviati solo i backup più recenti di 2. Tuttavia, se il contenitore o il database viene eliminato, Azure Cosmos DB conserva gli snapshot esistenti di un determinato contenitore o database per 30 giorni.
 
-Azure Cosmos DB archivia i backup automatici in Archiviazione BLOB di Azure, mentre i dati effettivi si trovano in locale all'interno di Azure Cosmos DB. Per garantire la bassa latenza, lo snapshot del backup viene archiviato in Archiviazione BLOB di Azure nella stessa area dell'area di scrittura corrente (o una delle aree di scrittura, nel caso di una configurazione multimaster) dell'account del database di Cosmos DB. Per garantire la resilienza in caso di emergenze a livello di area, ogni snapshot dei dati di backup nell'archivio BLOB di Azure viene a sua volta replicato in un'altra area tramite l'archiviazione con ridondanza geografica. L'area in cui viene replicato il backup dipende dall'area di origine e dalla coppia di aree associata all'area di origine. Per altre informazioni, vedere l'[elenco di coppie di aree di Azure con ridondanza geografica](../best-practices-availability-paired-regions.md). Non è possibile accedere direttamente a questo backup. Azure Cosmos DB userà questo backup solo se viene avviato un ripristino del backup.
+* Azure Cosmos DB archivia questi backup nell'archiviazione Blob di Azure, mentre i dati effettivi si trovano in locale all'interno di Azure Cosmos DB.
+
+*  Per garantire bassa latenza, lo snapshot del backup verrà archiviato in archiviazione Blob di Azure nella stessa area come area di scrittura corrente (o una delle aree di scrittura, nel caso in cui si ha una configurazione multimaster) del Cosmos Azure account del database. Per garantire la resilienza in caso di emergenze a livello di area, ogni snapshot dei dati di backup nell'archivio BLOB di Azure viene a sua volta replicato in un'altra area tramite l'archiviazione con ridondanza geografica. L'area in cui viene replicato il backup dipende dall'area di origine e dalla coppia di aree associata all'area di origine. Per altre informazioni, vedere l'[elenco di coppie di aree di Azure con ridondanza geografica](../best-practices-availability-paired-regions.md). Non è possibile accedere direttamente a questo backup. Azure Cosmos DB userà questo backup solo se viene avviato un ripristino del backup.
+
+* I backup vengono eseguiti senza effetti sulle prestazioni o la disponibilità dell'applicazione. Azure Cosmos DB esegue il backup dei dati in background senza utilizzare velocità effettiva di cui è stato effettuato il provisioning aggiuntiva (UR) o senza influire sulle prestazioni e la disponibilità del database.
+
+* Se è accidentalmente eliminato o danneggiato i dati, è necessario contattare [supporto tecnico di Azure](https://azure.microsoft.com/support/options/) entro 8 ore in modo che possa aiutare il team di Azure Cosmos DB si ripristinano i dati dai backup.
+
 L'immagine seguente mostra come viene eseguito il backup di un contenitore di Azure Cosmos con tutte le tre partizioni fisiche primarie nell'area Stati Uniti occidentali in un account di Archiviazione BLOB di Azure remoto negli Stati Uniti occidentali e quindi replicato negli Stati Uniti orientali:
 
 ![Backup completi periodici di tutte le entità di Cosmos DB nell'archiviazione con ridondanza geografica di Azure](./media/online-backup-and-restore/automatic-backup.png)

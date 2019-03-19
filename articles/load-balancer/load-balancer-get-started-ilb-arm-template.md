@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d029de11c7101e961506f1fa46f5a71c6efb103e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 6cbde9d0d53cdd688c39381978bd338c66d5688e
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044009"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671676"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Creare un servizio di bilanciamento del carico interno usando un modello
 
@@ -28,6 +28,7 @@ ms.locfileid: "54044009"
 > * [Interfaccia della riga di comando di Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Modello](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -44,10 +45,10 @@ Per distribuire il modello scaricato tramite PowerShell, seguire questa procedur
 1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
 2. Scaricare il file dei parametri sul disco locale.
 3. Modificare il file e salvarlo.
-4. Per creare un gruppo di risorse usando il modello, eseguire il cmdlet **New-AzureRmResourceGroupDeployment** .
+4. Eseguire la **New-AzResourceGroupDeployment** cmdlet per creare un gruppo di risorse usando il modello.
 
-    ```azurecli
-    New-AzureRmResourceGroupDeployment -Name TestRG -Location westus `
+    ```azurepowershell-interactive
+    New-AzResourceGroupDeployment -Name TestRG -Location westus `
         -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json' `
         -TemplateParameterFile 'C:\temp\azuredeploy.parameters.json'
     ```
@@ -59,7 +60,7 @@ Per distribuire il modello tramite l'interfaccia della riga di comando di Azure,
 1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
 2. Eseguire il comando **azure config mode** per passare alla modalità Gestione risorse, come illustrato di seguito.
 
-    ```azurecli
+    ```azurecli-interactive
     azure config mode arm
     ```
 

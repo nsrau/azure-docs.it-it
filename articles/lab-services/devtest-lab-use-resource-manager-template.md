@@ -14,18 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 99c4f838c3c4e4708c3e21ff9c7e63b69a507dbe
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 663864837e2847125d0925b9b82d8962e54290b3
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746915"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56726483"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Creare macchine virtuali usando un modello di Azure Resource Manager 
 
 Quando si crea una macchina virtuale (VM) in DevTest Labs tramite il [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040), è possibile visualizzare il modello di Azure Resource Manager prima di salvare la macchina virtuale. Il modello può essere usato come base per creare altre lab VM con le stesse impostazioni.
 
 Questo articolo descrive il modello di Resource Manager di più macchine virtuali rispetto al modello di una singola macchina virtuale e illustra come visualizzare e salvare un modello quando si crea una macchina virtuale.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="multi-vm-vs-single-vm-resource-manager-templates"></a>Modello di Resource Manager di più macchine virtuali rispetto al modello di Resource Manager di una singola macchina virtuale
 Esistono due modi per creare macchine virtuali in DevTest Labs usando un modello di Resource Manager: eseguire il provisioning della risorsa Microsoft.DevTestLab/labs/virtualmachines o eseguire il provisioning della risorsa Microsoft.Commpute/virtualmachines. Le due procedure vengono usate in diversi scenari e richiedono autorizzazioni differenti.
@@ -34,7 +36,7 @@ Esistono due modi per creare macchine virtuali in DevTest Labs usando un modello
 
    ![Elenco delle macchine come singoli elementi nell'elenco delle macchine virtuali di DevTest Labs](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
 
-   È possibile eseguire il provisioning di questo tipo di modello di Resource Manager mediante il comando Azure PowerShell **New-AzureRmResourceGroupDeployment** o mediante il comando dell'interfaccia della riga di comando di Azure **az group deployment create**. Richiede le autorizzazioni di amministratore, in modo che gli utenti assegnati a un ruolo utente DevTest Labs non possano eseguire la distribuzione. 
+   Questo tipo di modello di Resource Manager può eseguire il provisioning tramite il comando di Azure PowerShell **New-AzResourceGroupDeployment** o tramite il comando di Azure **distribuzione gruppo di az creare**. Richiede le autorizzazioni di amministratore, in modo che gli utenti assegnati a un ruolo utente DevTest Labs non possano eseguire la distribuzione. 
 
 - Modelli di Resource Manager che usano un tipo di risorsa Microsoft.Compute/virtualmachines possono eseguire il provisioning di più macchine virtuali come un unico ambiente nell'elenco di macchine virtuali di DevTest Labs:
 

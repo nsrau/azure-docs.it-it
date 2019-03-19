@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/26/2018
 ms.author: glenga
-ms.openlocfilehash: 77b863bc32442261e220b5dd3f11c0bd33b4fa7a
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: cda977ba59070c3ddaac05784277d6c0b5109f0f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807258"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727112"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Installare o aggiornare manualmente le estensioni delle associazioni di Funzioni di Azure dal portale
 
-Il runtime di Funzioni di Azure versione 2.x usa le estensioni delle associazioni per implementare il codice per i trigger e le associazioni. Le estensioni delle associazioni sono incluse nei pacchetti NuGet. Per registrare un'estensione, essenzialmente si installa un pacchetto. Quando si sviluppano le funzioni, il modo in cui si installano le estensioni delle associazioni dipende dall'ambiente di sviluppo. Per altre informazioni, vedere [Registrare le estensioni delle associazioni](functions-triggers-bindings.md#register-binding-extensions) nell'articolo relativo ai trigger e alle associazioni.
+Il runtime di Funzioni di Azure versione 2.x usa le estensioni delle associazioni per implementare il codice per i trigger e le associazioni. Le estensioni delle associazioni sono incluse nei pacchetti NuGet. Per registrare un'estensione, essenzialmente si installa un pacchetto. Quando si sviluppano le funzioni, il modo in cui si installano le estensioni delle associazioni dipende dall'ambiente di sviluppo. Per altre informazioni, vedere [Registrare le estensioni delle associazioni](./functions-bindings-register.md) nell'articolo relativo ai trigger e alle associazioni.
 
 In alcuni casi è necessario installare o aggiornare manualmente le estensioni delle associazioni nel portale di Azure. Potrebbe essere necessario, ad esempio, eseguire l'aggiornamento di un'associazione registrata a una versione più recente. Potrebbe essere anche necessario registrare un'associazione supportata che non può essere installata nella scheda **Integrazione** nel portale.
 

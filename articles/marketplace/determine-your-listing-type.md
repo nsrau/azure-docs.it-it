@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4abed1718d77c93e864fe5bb1d39aba5e5272f10
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 2755232ea81f1551477431f4eb1f0aeab8b8bfe8
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074471"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734041"
 ---
 # <a name="determine-your-publishing-option"></a>Determinare l'opzione di pubblicazione
 L'opzione di pubblicazione scelta per l'offerta è correlata direttamente sia ai requisiti di idoneità che ai vantaggi GMT del marketplace. L'aspetto più importante è che la selezione dell'opzione di pubblicazione e del tipo di offerta nel portale Cloud Partner definisce il modo in cui gli utenti interagiranno con l'offerta nel marketplace.

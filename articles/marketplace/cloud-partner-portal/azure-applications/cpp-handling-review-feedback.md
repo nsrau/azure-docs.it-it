@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 98ab9b25c59af194a1a81c600c373b2180272e10
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: e5fe076cfe733b4fa0151570603c090af98de0e8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106955"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882689"
 ---
 # <a name="handling-review-feedback"></a>Gestione del feedback della revisione
 
@@ -29,7 +29,7 @@ Questo articolo illustra come accedere all'ambiente Azure DevOps usato dal team 
 
 I problemi di revisione vengono in genere chiamati richieste pull.  Ogni richiesta pull è collegata a un elemento [Azure DevOps](https://azure.microsoft.com/services/devops/) (in precedenza detto Visual Studio Team Services o VSTS) online, che contiene i dettagli del problema.  L'immagine seguente visualizza un esempio di riferimento a una richiesta pull di revisione.  In caso di situazioni complesse, i team di revisione e supporto possono inviare un messaggio di posta elettronica. 
 
-![Scheda Stato con il feedback della revisione](./media/status-tab-ms-review.png)
+![Scheda Stato con i commenti e suggerimenti della revisione](./media/status-tab-ms-review.png)
 
 
 ## <a name="vsts-access"></a>Accesso VSTS
@@ -58,14 +58,14 @@ Usare la procedura seguente per esaminare i problemi documentati nella richiesta
 
 1. Nella sezione **Microsoft review** (Revisione Microsoft) del modulo **Publishing steps** (Passaggi per la pubblicazione) fare clic su un collegamento a una richiesta pull per avviare il browser e passare alla home page **Overview** (Panoramica) per la richiesta pull.  L'immagine seguente illustra una home page di esempio relativa a un problema critico per l'offerta di app di esempio Contoso.  Questa pagina contiene utili informazioni di riepilogo relative ai problemi riscontrati nella revisione dell'app Azure.  
 
-    [ ![Home page della richiesta pull](./media/pr-home-page-thumb.png) ](./media/pr-home-page.png)
+    [![Home page di richiesta pull](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
     <br/> *Fare clic sull'immagine per ingrandirla.*
     
 2. (Facoltativo) Sul lato destro della finestra, nella sezione **Policies** (Criteri), fare clic sul messaggio relativo al problema (in questo esempio: **Policy Validation failed** (Errore nella convalida dei criteri)) per esaminare i dettagli specifici del problema, inclusi i file di log associati.  Gli errori vengono in genere visualizzati nella parte inferiore dei file di log.
 
 3. Nel menu sul lato sinistro della home page selezionare **Files** (File) per visualizzare i file dell'elenco che includono gli asset tecnici per l'offerta.  I revisori Microsoft dovrebbero aver aggiunto commenti che descrivono i problemi critici individuati.  Nell'esempio seguente sono stati individuati due problemi. 
 
-    [ ![Home page della richiesta pull](./media/pr-files-page-thumb.png) ](./media/pr-files-page.png)
+    [![Home page di richiesta pull](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
     <br/> *Fare clic sull'immagine per ingrandirla.*
 
 4. Fare clic su ogni nodo di commento nell'albero a sinistra per passare al commento nel contesto del codice circostante.  Correggere il codice sorgente nel progetto del team per risolvere il problema descritto nel commento.

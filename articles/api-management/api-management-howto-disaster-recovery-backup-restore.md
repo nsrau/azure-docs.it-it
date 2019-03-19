@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 7da97b763c532a2189ef058cbb8ffb14c5b150f9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 56d0b8ced4a0eed3c2bf215ed0e5fc77c343f7fd
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968374"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728642"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
 
@@ -32,6 +32,8 @@ Questa guida mostra come eseguire l'autenticazione delle richieste di Azure Reso
 > Il processo di backup e ripristino di un'istanza del servizio Gestione API per il ripristino di emergenza può essere usato anche per la replica delle istanze del servizio Gestione API per scenari quali la gestione temporanea.
 >
 > Ogni backup scade dopo 30 giorni. Se si tenta di ripristinare un backup dopo la scadenza del periodo di 30 giorni, il ripristino avrà esito negativo e verrà visualizzato il messaggio `Cannot restore: backup expired`.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -207,7 +209,7 @@ Il ripristino è un'operazione a lunga esecuzione che potrebbe richiedere 30 min
 <!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
-> Le operazioni di backup e ripristino possono essere eseguite rispettivamente anche con i comandi di PowerShell, *Backup-AzureRmApiManagement* e *Restore-AzureRmApiManagement*.
+> Operazioni di backup e ripristino possono essere eseguite anche con PowerShell *Backup-AzApiManagement* e *Restore-AzApiManagement* comandi rispettivamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

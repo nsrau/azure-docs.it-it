@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4ed44bff002ed8422f199c24a566fe6ff606af8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3a1a334c6c7852923da94403352bb7318b241629
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190654"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735845"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Esercitazione: Integrazione di Azure Active Directory con Trisotech Digital Enterprise Server
 
@@ -144,13 +144,13 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     c. Nella casella di testo **Application ID** (ID applicazione) digitare l'URL usando il modello seguente: `https://<companyname>.trisotech.com`.
 
-    d. Fare clic su **Save**
+    d. Fare clic su **Save** (Salva).
 
     e. Immettere il nome di dominio nella casella di testo **Allowed Domains (empty means everyone)** (Domini consentiti - Se vuoto significa tutti i domini). Vengono automaticamente assegnate le licenze per gli utenti che corrispondono ai domini consentiti
 
-    f. Fare clic su **Save**
+    f. Fare clic su **Save** (Salva).
 
- ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 

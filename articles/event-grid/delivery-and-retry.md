@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: spelluru
-ms.openlocfilehash: b69215a76b332db9b994827705d6bbc3b48af5c8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 6dfa84eff8dcc104ae6f9c16262f3b1c697df6c1
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465514"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991207"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Recapito di messaggi di Griglia di eventi e nuovi tentativi
 
@@ -24,17 +24,20 @@ Attualmente, Griglia di eventi invia singolarmente ogni evento ai sottoscrittori
 
 ## <a name="retry-schedule-and-duration"></a>Pianificazione e durata della ripetizione
 
-Griglia di eventi usa criteri per i tentativi di tipo backoff esponenziale per il recapito degli eventi. Se l'endpoint non risponde o restituisce un codice di errore, Griglia di eventi esegue un nuovo tentativo di recapito in base alla pianificazione seguente:
+Griglia di eventi usa criteri per i tentativi di tipo backoff esponenziale per il recapito degli eventi. Se un endpoint non risponde o restituisce un codice di errore, griglia di eventi di tentativi di recapito in base alla pianificazione seguente in base ad approssimazioni ottimali:
 
 1. 10 secondi
-2. 30 secondi
-3. 1 minuto
-4. 5 minuti
-5. 10 minuti
-6. 30 minuti
-7. 1 ora
+1. 30 secondi
+1. 1 minuto
+1. 5 minuti
+1. 10 minuti
+1. 30 minuti
+1. 1 ora
+1. Su base oraria per fino a 24 ore
 
-Griglia di eventi aggiunge una piccola parte di casualità a tutti i passaggi tra tentativi. Dopo un'ora, il recapito degli eventi viene ripetuto una volta all'ora.
+Griglia di eventi aggiunge una piccola parte di casualità a tutti i passaggi di ripetizione dei tentativi e può, in base alle esigenze, ignorare determinati tentativi se un endpoint è coerente non integro, verso il basso per un lungo periodo o sembra essere sovraccaricato.
+
+Per un comportamento deterministico, impostare l'ora dell'evento durata (TTL) e i tentativi di recapito massimo nel [i criteri di ripetizione dei tentativi di sottoscrizione](manage-event-delivery.md).
 
 Per impostazione predefinita, Griglia di eventi fa scadere tutti gli eventi che non vengono recapitati entro 24 ore. Quando si crea una sottoscrizione di eventi, è possibile [personalizzare i criteri di ripetizione](manage-event-delivery.md). È necessario specificare il numero massimo di tentativi di recapito (il valore predefinito è 30) e la durata (TTL) dell'evento (il valore predefinito è 1440 minuti).
 

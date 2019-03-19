@@ -4,16 +4,16 @@ description: Informazioni su come ottenere e controllare set di dati di grandi d
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/31/2019
+ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 8808f42cdd6fb547b70695278993faa0f52cdb61
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: ef61314ae124668fc8970e6d68a0f927bdf771bc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338394"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889036"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Utilizzo di set di dati della risorsa di Azure di grandi dimensioni
 
@@ -22,6 +22,9 @@ Azure Resource Graph è progettato per elaborare e ottenere informazioni sulle r
 ## <a name="data-set-result-size"></a>Dimensioni dei risultati dei set di dati
 
 Per impostazione predefinita, Resource Graph limita a **100** record i risultati che possono essere restituiti da ogni query. Questa impostazione protegge sia l'utente che il servizio da query non intenzionali che restituirebbero set di dati di grandi dimensioni. Questo evento si verifica per lo più mentre l'utente fa diversi esperimenti con le query per trovare e filtrare le risorse nel modo più adeguato alle sue esigenze. Questa impostazione è diversa dall'uso degli operatori di linguaggio [top](/azure/kusto/query/topoperator) o [limit](/azure/kusto/query/limitoperator) di Esplora dati di Azure per limitare i risultati.
+
+> [!NOTE]
+> Quando si usa **primo**, si consiglia di ordinare per almeno una colonna con i risultati `asc` o `desc`. Senza l'ordinamento, i risultati restituiti sono casuali e non ripetibile.
 
 È possibile eseguire l'override del limite predefinito tramite tutti i metodi di interazione con Resource Graph. Gli esempi seguenti mostrano come impostare il limite di dimensioni dei set di dati su _200_:
 
@@ -43,6 +46,9 @@ Attualmente il valore massimo consentito per **First** è _5000_.
 
 Un'altra opzione per l'elaborazione di set di dati di grandi dimensioni è il controllo **Skip**. Questo controllo consente alla query di saltare o ignorare il numero definito di record prima di restituire i risultati. **Skip** è utile per le query che ordinano i risultati in un modo significativo allo scopo di ottenere i record situati in una posizione centrale del set di risultati. Se i risultati desiderati sono alla fine del set di dati restituito, è più efficiente usare una configurazione di ordinamento diversa e recuperare i risultati dall'inizio del set di dati.
 
+> [!NOTE]
+> Quando si usa **Skip**, si consiglia di ordinare per almeno una colonna con i risultati `asc` o `desc`. Senza l'ordinamento, i risultati restituiti sono casuali e non ripetibile.
+
 Gli esempi seguenti mostrano come ignorare i primi _10_ record restituiti da una query facendo iniziare il set di risultati restituito dall'undicesimo record:
 
 ```azurecli-interactive
@@ -63,7 +69,7 @@ Se è necessario suddividere un set di risultati in set di record più piccoli a
 Quando **resultTruncated** è **true**, la proprietà **$skipToken** è impostata nella risposta. Questo valore viene usato con gli stessi valori di query e sottoscrizione per ottenere il set di record successivo che soddisfa la query.
 
 > [!IMPORTANT]
-> Affinché la paginazione funzioni, la query deve **proiettare** il campo **ID**. Se questo campo non è presente nella query, la risposta dell'API REST non includerà **$skipToken**.
+> Affinché la paginazione funzioni, la query deve **proiettare** il campo **ID**. Se è manca dalla query, la risposta dell'API REST non includerà il **$skipToken**.
 
 Per un esempio, vedere [Next page query](/rest/api/azureresourcegraph/resources/resources#next_page_query) (Query della pagina successiva) nella documentazione dell'API REST.
 

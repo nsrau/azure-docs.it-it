@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5089083862f243a6a6847a58ac0777c52f978e73
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 701be795ca217c4a2dc5a7dbaa3a3717d16c85bc
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189729"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730223"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Aggiungere un'entità servizio al ruolo di amministratore del server 
 
@@ -42,7 +42,7 @@ Per completare questa attività, è necessario avere autorizzazioni di [amminist
 
 
 > [!NOTE]
-> Per le operazioni server con i cmdlet di AzureRM, l'entità servizio che esegue l'utilità di pianificazione deve appartenere anche al ruolo **Proprietario** per la risorsa in [Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md). 
+> Per operazioni server con i cmdlet di PowerShell di Azure, service principal in esecuzione dell'utilità di pianificazione deve appartenere anche al **Owner** ruolo per la risorsa nello [controllo degli accessi (accessi)](../role-based-access-control/overview.md). 
 
 ## <a name="related-information"></a>Informazioni correlate
 

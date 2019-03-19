@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: f4e1b25133914a65f34e281c145d7db5969b0581
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 9039c1fd94bbc62f48ca5a6869f455aa41b740c9
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208024"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673932"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurare il ripristino di emergenza in Azure per le macchine virtuali Hyper-V tramite PowerShell e Azure Resource Manager
 
@@ -54,15 +54,15 @@ Inoltre, l'esempio specifico descritto in questo articolo presenta i seguenti pr
 
 3. Verificare che la sottoscrizione sia registrata per l'uso dei provider di Azure per Servizi di ripristino e Site Recovery usando i comandi seguenti:
 
-    `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices` `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`
+    `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
 
 4. Verificare che nell'output di questi comandi, **RegistrationState** sia impostato su **Registered** e quindi procedere con il passaggio 2. In caso contrario è necessario registrare il provider mancante nella sottoscrizione, eseguendo questi comandi:
 
-    `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.SiteRecovery` `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
+    `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
 
 5. Verificare che i provider siano stati registrati correttamente usando i comandi seguenti:
 
-    `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices` `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`.
+    `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
 
 ## <a name="step-2-set-up-the-vault"></a>Passaggio 2: Configurare l'insieme di credenziali
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 1/30/2019
 ms.author: yizhon
-ms.openlocfilehash: 0bfba7f923ca394aa29dd907db1b8b1284a605d8
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: e5b075a457c646eb03810b2c51af1a1181ee96ed
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981673"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670258"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Sviluppare per la piattaforma Android Things tramite Azure IoT SDK
 Gli [SDK per l'hub IoT di Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) offrono il supporto di primo livello per piattaforme note come Windows, Linux, OSX, MBED e piattaforme per dispositivi mobili come Android e iOS.  Come parte dell'impegno volto a offrire una più ampia scelta e maggiore flessibilità nelle distribuzioni di IoT, Java SDK supporta anche la piattaforma [Android Things](https://developer.android.com/things/).  Gli sviluppatori possono sfruttare i vantaggi del sistema operativo Android Things sul lato dispositivo e usare l'[hub IoT di Azure](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) come hub di messaggi centrale che garantisce la scalabilità per milioni di dispositivi connessi simultaneamente. 
@@ -69,7 +69,6 @@ Questa esercitazione illustra i passaggi per compilare un'applicazione lato disp
     ```
 4.  In Android Studio aprire il progetto Android in "\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample".
 5.  Aprire il file gradle.properties e sostituire "Device_connection_string" con la stringa di connessione del dispositivo annotata in precedenza.
-    ![Screenshot del ramo master del repository](./media/how-to-android-things/connection-string.png)
 6.  Fare clic su Run - Debug (Esegui - Esegui debug) e selezionare il dispositivo per distribuire il codice nei dispositivi Android Things.
 7.  Se l'applicazione viene avviata correttamente, è possibile osservare un'applicazione in esecuzione nel dispositivo Android Things.  Questa applicazione di esempio invia letture di temperature generate in modo casuale.
 

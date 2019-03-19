@@ -3,7 +3,7 @@ title: Transazioni e modalità di blocco delle raccolte Reliable Collections in 
 description: Transazioni e blocco delle raccolte Reliable Collections e di Reliable State Manager in Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: tylermsft
+author: aljo-microsoft
 manager: timlt
 editor: masnider,rajak
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
-ms.author: twhitney
-ms.openlocfilehash: a7e2bfba736e3b6cee738d5a2b5283f51f60d7c5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.author: aljo
+ms.openlocfilehash: 246606792797afe0e57dbe2e582c4e94df3133d4
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185400"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806437"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transazioni e modalità di blocco delle raccolte Reliable Collections in Azure Service Fabric
 

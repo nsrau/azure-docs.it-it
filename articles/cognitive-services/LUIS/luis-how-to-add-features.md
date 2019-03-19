@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: diberry
-ms.openlocfilehash: f3376b8077302eb6bd9a96710f92d692b641cac4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0723c3730ca0ae6325d828fbb5f41698cb807dd3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866781"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874886"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Usare gli elenchi di frasi in segnali boost dell'elenco di parole
 
@@ -44,7 +44,7 @@ LUIS consente fino a 10 elenchi di frasi per ogni app.
 
 5. Fare clic su **These values are interchangeable** (Questi valori sono intercambiabili) se i valori dell'elenco di frasi aggiunti sono alternative che possono essere usate indifferentemente.
 
-    ![Valori proposti per l'elenco di frasi - Casella per la selezione di valori intercambiabili ](./media/luis-add-features/interchangeable.png)
+    ![Valori proposti per l'elenco di frasi - Casella per la selezione di valori intercambiabili](./media/luis-add-features/interchangeable.png)
 
 6. Fare clic su **Save**. L'elenco di frasi "Città" verrà aggiunto alla pagina **Phrase lists** (Elenchi di frasi).
 

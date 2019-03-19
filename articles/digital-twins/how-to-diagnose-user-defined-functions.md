@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: stefanmsft
 ms.custom: seodec18
-ms.openlocfilehash: ebeed6d2a52937a6e80dfe28574ad854643fa7f2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 6122cd4507ed0883d1b78ca519269c25098e55ff
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119220"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961415"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Come eseguire il debug di funzioni definite dall'utente in Gemelli digitali di Azure
 
@@ -29,10 +29,10 @@ Imparare a eseguire la diagnosi degli eventuali problemi che si verificano all'i
 
 ### <a name="enable-log-analytics-for-your-instance"></a>Abilitare Log Analytics per l'istanza in uso
 
-Le metriche e i log per l'istanza di Gemelli digitali di Azure vengono visualizzati nel Monitoraggio di Azure. In questa documentazione si presuppone che sia stata creata un'area di lavoro di [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) tramite il [portale di Azure](../azure-monitor/learn/quick-create-workspace.md), l'[interfaccia della riga di comando di Azure](../azure-monitor/learn/quick-create-workspace-cli.md) o [PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+Le metriche e i log per l'istanza di Gemelli digitali di Azure vengono visualizzati nel Monitoraggio di Azure. Questa documentazione si presuppone di aver creato un [log di monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md) area di lavoro tramite il [portale di Azure](../azure-monitor/learn/quick-create-workspace.md), tramite [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), o tramite [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 > [!NOTE]
-> Quando si inviano eventi ad Azure Log Analytics per la prima volta, può verificarsi un ritardo di 5 minuti.
+> Quando si inviano eventi nei log di monitoraggio di Azure per la prima volta, si verifichi un ritardo di 5 minuti.
 
 Per configurare il monitoraggio e la registrazione delle risorse di Gemelli digitali di Azure, vedere [Come configurare il monitoraggio in Gemelli digitali di Azure](./how-to-configure-monitoring.md).
 
@@ -43,11 +43,11 @@ Leggere l'articolo [Raccogliere e usare i dati dei log dalle risorse di Azure](.
 
 ### <a name="trace-sensor-telemetry"></a>Tracciare i dati di telemetria del sensore
 
-Per tracciare i dati di telemetria del sensore, verificare che siano abilitate le impostazioni di diagnostica per l'istanza di Gemelli digitali di Azure. Quindi assicurarsi che tutte le categorie di log desiderate siano selezionate. Infine, verificare che i log desiderati vengano inviati ad Azure Log Analytics.
+Per tracciare i dati di telemetria del sensore, verificare che siano abilitate le impostazioni di diagnostica per l'istanza di Gemelli digitali di Azure. Quindi assicurarsi che tutte le categorie di log desiderate siano selezionate. Infine, verificare che i registri desiderati vengano inviati ai log di monitoraggio di Azure.
 
 Per associare un messaggio di telemetria del sensore ai rispettivi log, è possibile specificare un ID di correlazione per i dati dell'evento inviati. A tale scopo, impostare la proprietà `x-ms-client-request-id` su un GUID.
 
-Dopo l'invio dei dati di telemetria, aprire Azure Log Analytics per eseguire una query dei log usando l'ID di correlazione impostato:
+Dopo l'invio di dati di telemetria, aprire analitica di log per eseguire query per i log usando il set di ID di correlazione:
 
 ```Kusto
 AzureDiagnostics
@@ -58,7 +58,7 @@ AzureDiagnostics
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | ID di correlazione specificato per i dati dell'evento |
 
-Se la funzione definita dall'utente viene registrata, questi log vengono visualizzati nell'istanza di Azure Log Analytics con la categoria `UserDefinedFunction`. Per recuperarli, immettere la seguente condizione di query in Azure Log Analytics:
+Se si abilita la registrazione per la funzione definita dall'utente, questi log vengono visualizzati nell'istanza di analitica di log con categoria `UserDefinedFunction`. Per recuperare queste informazioni, immettere la seguente condizione di query in analitica di log:
 
 ```Kusto
 AzureDiagnostics

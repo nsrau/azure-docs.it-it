@@ -5,17 +5,17 @@ description: 'Segreto commerciale della data science: Fare svolgere ad altri il 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/05/2018
-ms.openlocfilehash: 821ee126350d18102ec92de04436a76050734dc4
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: a179efe3c4dcd3b36fa8d86910f10c4ab4cdb0aa
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456827"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817814"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copiare il lavoro di altre persone per l'analisi scientifica dei dati
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Data science per principianti
@@ -92,4 +92,4 @@ Anche gli altri video della serie "Analisi scientifica dei dati per principianti
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [È possibile effettuare il primo esperimento di analisi scientifica dei dati con Azure Machine Learning Studio](create-experiment.md)
-* [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](what-is-machine-learning.md)
+* [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

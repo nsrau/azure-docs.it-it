@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 02/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6307c57f32700c0c2dd2e5da15b98a2a54dbe9c4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: f795571de275453738d23e80885f4d9006ca3a20
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339329"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804451"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Ruoli personalizzati per le risorse di Azure
 
@@ -43,6 +43,7 @@ Di seguito è riportato come viene visualizzato un ruolo personalizzato in forma
     "Microsoft.Compute/virtualMachines/start/action",
     "Microsoft.Compute/virtualMachines/restart/action",
     "Microsoft.Authorization/*/read",
+    "Microsoft.ResourceHealth/availabilityStatuses/read",
     "Microsoft.Resources/subscriptions/resourceGroups/read",
     "Microsoft.Insights/alertRules/*",
     "Microsoft.Insights/diagnosticSettings/*",
@@ -65,16 +66,19 @@ Al termine della creazione, il ruolo personalizzato viene visualizzato nel porta
 
 ## <a name="steps-to-create-a-custom-role"></a>Passaggi per la creazione di un ruolo personalizzato
 
+1. Scegliere come si desidera creare il ruolo personalizzato
+
+    È possibile creare ruoli personalizzati usando [Azure PowerShell](custom-roles-powershell.md), [CLI di Azure](custom-roles-cli.md), o la [REST API](custom-roles-rest.md).
+
 1. Determinare le autorizzazioni necessarie
 
-    Quando si crea un ruolo personalizzato, occorre conoscere le operazioni del provider di risorse disponibili per definire le autorizzazioni. Per visualizzare l'elenco delle operazioni, è possibile usare il comando [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) o [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
-    Per specificare le autorizzazioni per il ruolo personalizzato, occorre aggiungere le operazioni alla proprietà `Actions` o `NotActions` della [definizione del ruolo](role-definitions.md). Se si tratta di operazioni sui dati, aggiungerle alla proprietà `DataActions` o `NotDataActions`.
+    Quando si crea un ruolo personalizzato, occorre conoscere le operazioni del provider di risorse disponibili per definire le autorizzazioni. Per visualizzare l'elenco delle operazioni, vedere la [operazioni di provider di risorse di Azure Resource Manager](resource-provider-operations.md). Si aggiungeranno le operazioni per il `Actions` o `NotActions` proprietà delle [definizione di ruolo](role-definitions.md). Se si dispone di operazioni sui dati, si aggiungerà quelli per il `DataActions` o `NotDataActions` proprietà.
 
-2. Creare il ruolo personalizzato
+1. Creare il ruolo personalizzato
 
-    Per creare il ruolo personalizzato è possibile usare Azure PowerShell o l'interfaccia della riga di comando di Azure. In genere si parte da un ruolo predefinito esistente e lo si modifica in base alle esigenze. Si usa quindi il comando [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) o [az role definition create](/cli/azure/role/definition#az-role-definition-create) per creare il ruolo personalizzato. Per creare un ruolo personalizzato, occorre avere l'autorizzazione `Microsoft.Authorization/roleDefinitions/write` su tutti i `AssignableScopes`, come [Proprietario](built-in-roles.md#owner) o [Amministratore accessi utente](built-in-roles.md#user-access-administrator).
+    In genere si parte da un ruolo predefinito esistente e lo si modifica in base alle esigenze. Si usa quindi il comando [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) o [az role definition create](/cli/azure/role/definition#az-role-definition-create) per creare il ruolo personalizzato. Per creare un ruolo personalizzato, occorre avere l'autorizzazione `Microsoft.Authorization/roleDefinitions/write` su tutti i `AssignableScopes`, come [Proprietario](built-in-roles.md#owner) o [Amministratore accessi utente](built-in-roles.md#user-access-administrator).
 
-3. Testare il ruolo personalizzato
+1. Testare il ruolo personalizzato
 
     Una volta creato il ruolo personalizzato, è necessario testarlo per verificare che funzioni nel modo previsto. Se occorre apportare delle modifiche, è possibile aggiornare il ruolo personalizzato.
 
@@ -84,7 +88,7 @@ Per un'esercitazione dettagliata su come creare un ruolo personalizzato, vedere 
 
 Un ruolo personalizzato ha le proprietà descritte di seguito.
 
-| Proprietà | Obbligatoria | Type | DESCRIZIONE |
+| Proprietà | Obbligatorio | Type | DESCRIZIONE |
 | --- | --- | --- | --- |
 | `Name` | Sì | string | Nome visualizzato del ruolo personalizzato. Mentre una definizione di ruolo è una risorsa a livello di sottoscrizione, una definizione di ruolo può essere usata in più sottoscrizioni che condividono la stessa directory di Azure AD. Il nome visualizzato deve essere univoco nell'ambito della directory di Azure AD. Può includere lettere, numeri, spazi e caratteri speciali. Il numero massimo di caratteri è 128. |
 | `Id` | Sì | string | ID univoco del ruolo personalizzato. Per Azure PowerShell e l'interfaccia della riga di comando di Azure questo ID viene generato automaticamente quando viene creato un nuovo ruolo. |

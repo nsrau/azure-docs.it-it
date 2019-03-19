@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 2b81c23b5cf9ea5d4bfc47d36ae251f762ffad11
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 70469a9e8737a9df18628951a061c97081c74080
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38539691"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735102"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Concedere le autorizzazioni utente per specifici criteri di lab
 ## <a name="overview"></a>Panoramica
@@ -30,12 +30,12 @@ Come descritto nell'articolo [Controllo degli accessi in base al ruolo di Azure]
 
 Nei lab di sviluppo/test un criterio è un tipo di risorsa che abilita l'azione del controllo degli accessi in base al ruolo **Microsoft.DevTestLab/labs/policySets/policies/**. Ogni criterio di lab è una risorsa del tipo di risorsa Criterio e può essere assegnato come ambito a un ruolo del controllo degli accessi in base al ruolo.
 
-Per concedere ad esempio le autorizzazioni di lettura/scrittura agli utenti per il criterio **Allowed VM Sizes**, è possibile creare un ruolo personalizzato da usare con l'azione **Microsoft.DevTestLab/labs/policySets/policies/*** e assegnare gli utenti al ruolo nell'ambito di **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
+Ad esempio, per concedere le autorizzazioni di lettura/scrittura agli utenti per il **Allowed VM Sizes** dei criteri, è possibile creare un ruolo personalizzato che funziona con i **Microsoft.DevTestLab/labs/policySets/policies/** azione e quindi assegnare gli utenti al ruolo nell'ambito del **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
 Per altre informazioni sui ruoli personalizzati in RBAC, vedere il [controllo di accesso ai ruoli personalizzati](../role-based-access-control/custom-roles.md).
 
 ## <a name="creating-a-lab-custom-role-using-powershell"></a>Creazione di un ruolo personalizzato lab tramite PowerShell
-Per iniziare, leggere l'articolo seguente che descrive come installare e configurare i cmdlet PowerShell di Azure: [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre).
+Per iniziare, è necessario [installare Azure PowerShell](/powershell/azure/install-az-ps). 
 
 Dopo aver configurato i cmdlet PowerShell di Azure, è possibile eseguire le attività seguenti:
 
@@ -46,35 +46,35 @@ Dopo aver configurato i cmdlet PowerShell di Azure, è possibile eseguire le att
 Lo script di PowerShell seguente offre alcuni esempi di esecuzione di queste attività:
 
     ‘List all the operations/actions for a resource provider.
-    Get-AzureRmProviderOperation -OperationSearchString "Microsoft.DevTestLab/*"
+    Get-AzProviderOperation -OperationSearchString "Microsoft.DevTestLab/*"
 
     ‘List actions in a particular role.
-    (Get-AzureRmRoleDefinition "DevTest Labs User").Actions
+    (Get-AzRoleDefinition "DevTest Labs User").Actions
 
     ‘Create custom role.
-    $policyRoleDef = (Get-AzureRmRoleDefinition "DevTest Labs User")
+    $policyRoleDef = (Get-AzRoleDefinition "DevTest Labs User")
     $policyRoleDef.Id = $null
     $policyRoleDef.Name = "Policy Contributor"
     $policyRoleDef.IsCustom = $true
     $policyRoleDef.AssignableScopes.Clear()
     $policyRoleDef.AssignableScopes.Add("/subscriptions/<SubscriptionID> ")
     $policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/policySets/policies/*")
-    $policyRoleDef = (New-AzureRmRoleDefinition -Role $policyRoleDef)
+    $policyRoleDef = (New-AzRoleDefinition -Role $policyRoleDef)
 
 ## <a name="assigning-permissions-to-a-user-for-a-specific-policy-using-custom-roles"></a>Assegnazione agli utenti delle autorizzazioni per un criterio specifico tramite ruoli personalizzati
-Dopo aver definito i ruoli personalizzati, è possibile assegnarli agli utenti. Per assegnare un ruolo personalizzato a un utente, è necessario prima ottenere il valore **ObjectId** che rappresenta l'utente. A tale scopo, usare il cmdlet **Get-AzureRmADUser** .
+Dopo aver definito i ruoli personalizzati, è possibile assegnarli agli utenti. Per assegnare un ruolo personalizzato a un utente, è necessario prima ottenere il valore **ObjectId** che rappresenta l'utente. A tale scopo, usare il **Get-AzADUser** cmdlet.
 
 Nell'esempio seguente il valore **ObjectId** dell'utente *SomeUser* è 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3.
 
-    PS C:\>Get-AzureRmADUser -SearchString "SomeUser"
+    PS C:\>Get-AzADUser -SearchString "SomeUser"
 
     DisplayName                    Type                           ObjectId
     -----------                    ----                           --------
     someuser@hotmail.com                                          05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3
 
-Dopo avere ottenuto il valore **ObjectId** dell'utente e il nome di un ruolo personalizzato, è possibile assegnare il ruolo all'utente usando il cmdlet **New-AzureRmRoleAssignment**:
+Dopo aver creato il **ObjectId** per l'utente e un nome di ruolo personalizzate, è possibile assegnare tale ruolo all'utente con il **New-AzRoleAssignment** cmdlet:
 
-    PS C:\>New-AzureRmRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/default/policies/AllowedVmSizesInLab
+    PS C:\>New-AzRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/default/policies/AllowedVmSizesInLab
 
 Nell'esempio precedente viene usato il criterio **AllowedVmSizesInLab** . È possibile usare uno dei seguenti criteri:
 

@@ -1,5 +1,5 @@
 ---
-title: Controllo e creazione di report per un utente di Collaborazione B2B di Azure Active Directory | Microsoft Docs
+title: Il controllo e creazione di report un utente di collaborazione B2B - Azure Active Directory | Microsoft Docs
 description: Le proprietà di un utente guest sono configurabili in Collaborazione B2B di Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fc36128f8f998d78dd2cf9ef112fe5961bbef5b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: dad4872f9bc32a1978de47a52cea23d6bb2742a1
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204611"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673614"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Controllo e creazione di report per un utente di Collaborazione B2B
 Con gli utenti guest, sono disponibili funzionalità di controllo analoghe a quelle degli utenti membri. 

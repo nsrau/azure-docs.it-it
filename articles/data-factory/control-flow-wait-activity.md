@@ -3,23 +3,23 @@ title: Attività Wait in Azure Data Factory | Microsoft Docs
 description: L'attività Wait sospende l'esecuzione della pipeline per il periodo specificato.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: shlo
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 01/12/2018
 ms.author: shlo
-ms.openlocfilehash: 731df55a11f4671670a65dac8a83927d81da454c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 66d79bc1597cd8f3c7e01eb8227eb7c91ba04d1d
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015798"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807814"
 ---
-# <a name="wait-activity-in-azure-data-factory"></a>Attività Wait in Azure Data Factory
+# <a name="execute-wait-activity-in-azure-data-factory"></a>Esecuzione attività wait in Azure Data Factory
 Quando si usa un'attività Wait in una pipeline, la pipeline attende per il periodo di tempo specificato prima di proseguire con l'esecuzione delle attività successive. 
 
 ## <a name="syntax"></a>Sintassi
@@ -37,11 +37,11 @@ Quando si usa un'attività Wait in una pipeline, la pipeline attende per il peri
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
+Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | --------
-name | Nome dell'attività `Wait`. | string | Yes
-type | Deve essere impostata su **Wait**. | string | Yes
-waitTimeInSeconds | Numero di secondi di attesa prima che la pipeline continui con l'elaborazione. | Integer | Yes
+name | Nome dell'attività `Wait`. | string | Sì
+type | Deve essere impostata su **Wait**. | string | Sì
+waitTimeInSeconds | Numero di secondi di attesa prima che la pipeline continui con l'elaborazione. | Integer | Sì
 
 ## <a name="example"></a>Esempio
 

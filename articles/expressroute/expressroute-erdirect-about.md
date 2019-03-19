@@ -1,21 +1,21 @@
 ---
 title: Informazioni su ExpressRoute Direct -Azure | Microsoft Docs
-description: Questa pagina fornisce una panoramica di ExpressRoute Direct (anteprima)
+description: Questa pagina fornisce una panoramica di ExpressRoute Direct
 services: expressroute
-author: mialdrid
+author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 3124e98dd035080c2989849232b978c5d4a563ea
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: fb9dc5116ba23d57c7f2fe543e734759e8bbcc7b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100738"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881601"
 ---
-# <a name="about-expressroute-direct-preview"></a>Informazioni su ExpressRoute Direct (anteprima)
+# <a name="about-expressroute-direct"></a>Informazioni su ExpressRoute Direct
 
 ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete globale di Microsoft in località peer distribuite in modo strategico in tutto il mondo. ExpressRoute Direct fornisce doppia connettività a 100 Gbps che supporta la connettività attivo/attivo su larga scala.
 
@@ -25,14 +25,9 @@ Tra le funzionalità principali di ExpressRoute Direct sono incluse:
 * Isolamento fisico per i settori regolamentati che richiedono una connettività dedicata e isolata, ad esempio banche, enti pubblici e punti vendita al dettaglio
 * Controllo granulare della distribuzione del circuito in base alla business unit
 
-> [!IMPORTANT]
-> ExpressRoute Direct è attualmente in anteprima.
->
-> L'anteprima pubblica viene messa a disposizione senza contratto di servizio e non deve essere usata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate, potrebbero avere funzioni limitate o potrebbero non essere disponibili in tutte le località di Azure. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="onboard-to-expressroute-direct"></a>Eseguire l'onboarding di ExpressRoute Direct
 
-## <a name="enroll-in-the-preview"></a>Registrarsi all'anteprima
-
-Prima di usare ExpressRoute Direct è necessario registrare la sottoscrizione nell'anteprima. Per eseguire la registrazione inviare un messaggio di posta elettronica all'indirizzo <ExpressRouteDirect@microsoft.com> con l'ID della sottoscrizione, includendo i dettagli seguenti:
+Prima di usare ExpressRoute Direct, è innanzitutto necessario registrare la sottoscrizione. Per eseguire la registrazione inviare un messaggio di posta elettronica all'indirizzo <ExpressRouteDirect@microsoft.com> con l'ID della sottoscrizione, includendo i dettagli seguenti:
 
 * Scenari che si intende realizzare con **ExpressRoute Direct**
 * Preferenze di località. Per un elenco completo di tutte le località, vedere [Partner e località peer](expressroute-locations-providers.md)
@@ -70,11 +65,11 @@ ExpressRoute Direct supporta la codifica VLAN QinQ e Dot1Q.
 
 ## <a name="workflow"></a>Flusso di lavoro
 
-[ ![workflow](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
+[![workflow](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
 
 ## <a name="sla"></a>Contratto di servizio
 
-ExpressRoute Direct offre lo stesso contratto di servizio di livello enterprise con connessioni ridondanti attivo/attivo nella rete globale Microsoft. L'infrastruttura di ExpressRoute è ridondante, la connettività alla rete globale Microsoft è ridondante, diversificata e scalabile in base ai requisiti del cliente. Durante l'anteprima, non sono disponibili contratti di servizio ed è da considerarsi solo per carichi di lavoro non di produzione.
+ExpressRoute Direct offre lo stesso contratto di servizio di livello enterprise con connessioni ridondanti attivo/attivo nella rete globale Microsoft. L'infrastruttura di ExpressRoute è ridondante, la connettività alla rete globale Microsoft è ridondante, diversificata e scalabile in base ai requisiti del cliente. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

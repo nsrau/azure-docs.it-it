@@ -1,5 +1,5 @@
 ---
-title: Linee guida sulla Collaborazione B2B di Azure Active Directory | Microsoft Docs
+title: Linee guida sulla - Azure Active Directory collaborazione B2B | Microsoft Docs
 description: La Collaborazione B2B di Azure Active Directory non richiede le licenze di Azure AD a pagamento, ma è anche possibile ottenere le funzionalità a pagamento per gli utenti guest B2B
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0032eb1e6b92abb130521945f64fda3133d9b7fc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7fa01a6bf522061e54e9622cb9201f81c699a8ec
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198882"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56668453"
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Linee guida sulla Collaborazione B2B di Azure Active Directory
 

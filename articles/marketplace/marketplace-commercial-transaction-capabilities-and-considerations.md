@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 867af6de05d1d9ab54cf8a4bf02221acc43a2b28
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: dba2582b29d1fc81a39387f5297852245233b708
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075635"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731090"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Funzionalità e considerazioni sulle transazioni ‎commerciali di Azure Marketplace
 
@@ -186,9 +186,9 @@ Se il cliente effettua un acquisto con un contratto Enterprise Agreement:
 |Data di fatturazione | 15 ott 2018 |
 |Periodo deposito (solo carte di credito, 30 giorni) | n/d |
 |Inizio periodo riscossione | 15 ott 2018 |
-|Fine periodo riscossione (massimo 90 giorni) | 15 gen 2018 |
+|Fine periodo riscossione (massimo 90 giorni) | 15 gen 2019 |
 |Data pagamento cliente | 30 dic 2018 |
-|Data calcolo proventi (il giorno 15 di ogni mese) | 15 gen 2018 |
+|Data calcolo proventi (il giorno 15 di ogni mese) | 15 gen 2019 |
 |Payout Date | 15 feb 2019 |
 
 **Crediti gratuiti e impegno monetario** 
@@ -226,7 +226,7 @@ In questa sezione vengono analizzati i requisiti delle transazioni per i diversi
 
 * Per l'opzione di pubblicazione delle transazioni, sono necessari sia un account Dev Center che un account Microsoft, indipendentemente dal modello di determinazione prezzi dell'offerta.
 * L'account Dev Center contiene tutte le informazioni finanziarie rilevanti necessarie a Microsoft per riscuotere i corrispettivi dal cliente per conto dell'editore e pagare l'editore.
-* Anche se è possibile usare gli stessi dettagli di accesso Microsoft o aziendale in entrambi gli account, Dev Center è un account separato dall'account del portale di pubblicazione cloud. Per usare l'opzione di pubblicazione delle transazioni, l'editore deve completare il processo di iscrizione all'account Dev Center, oltre a eseguire l'iscrizione per l'accesso al portale Cloud Partner.
+* In entrambi gli account, è possibile usare la stessa dell'organizzazione o i dettagli di accesso Microsoft, Dev Center è un account separato dall'account del portale per Cloud Partner. Per usare l'opzione di pubblicazione delle transazioni, l'editore deve completare il processo di iscrizione all'account Dev Center, oltre a eseguire l'iscrizione per l'accesso al portale Cloud Partner.
 
 *Per altre informazioni sulla configurazione di questi account, vedere [Diventare un editore del Marketplace cloud](https://docs.microsoft.com/azure/marketplace/become-publisher).*
 

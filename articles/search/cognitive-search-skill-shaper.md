@@ -8,21 +8,19 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: a1f5a698ee76ebd0561bd19ff1a23d0f04be0771
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: c55783e9b209a1280a21edca34b75e72481f4cb6
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410116"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806996"
 ---
 #   <a name="shaper-cognitive-skill"></a>Competenza cognitiva Shaper
 
-La competenza **Shaper** crea un tipo complesso per supportare i campi compositi (noti anche come campi a più parti). Un campo di tipo complesso è costituito da più parti ma viene considerato come un singolo elemento in un indice di Ricerca di Azure. Esempi di campi consolidati utili negli scenari di ricerca comprendono la possibilità di combinare, all'interno di un singolo campo, nome e cognome, città e stato o nome e data di nascita, per stabilire un'identità univoca.
-
-La competenza **Shaper** consente essenzialmente di creare una struttura, definire il nome dei membri di tale struttura e assegnare valori a ciascun membro.
+Il **Shaper** competenza consolida gli input diversi in un tipo complesso che è possibile fare riferimento in un secondo momento nella pipeline enrichment. La competenza **Shaper** consente essenzialmente di creare una struttura, definire il nome dei membri di tale struttura e assegnare valori a ciascun membro. Esempi di campi consolidati utili negli scenari di ricerca includono la combinazione di un nome e cognome in una singola struttura, città e stato in una singola struttura, o un nome e data di nascita in un'unica struttura per stabilire l'identità univoca.
 
 Per impostazione predefinita, questa tecnica supporta gli oggetti che sono a un livello di profondità. Per oggetti più complessi, è possibile concatenare diversi passaggi **Shaper**.
 
@@ -58,7 +56,7 @@ Nell'esempio seguente vengono forniti i nomi del membro come input. La struttura
   "outputs": [
     {
       "name": "output",
-      "targetName": analyzedText"
+      "targetName": "analyzedText"
     }
   ]
 }
@@ -125,8 +123,8 @@ La definizione della competenza Shaper per questo scenario potrebbe essere simil
     ],
     "outputs": [
         {
-            "output": "titlesAndChapters",
-            "targetName": "analyzedText"
+            "name": "output",
+            "targetName": "titlesAndChapters"
         }
     ]
 }

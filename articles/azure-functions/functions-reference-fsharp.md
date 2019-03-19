@@ -12,12 +12,12 @@ ms.devlang: fsharp
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: 112a986efc11822f6c847511a33be6206b1f00da
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: e7e4e898142d6f9d1a93e91c1f1476ff81fc7d3c
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717485"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734660"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Guida di riferimento per gli sviluppatori di Funzioni di Azure in F#
 
@@ -54,7 +54,7 @@ FunctionsProject
 
 È presente un file [host.json](functions-host-json.md) condiviso che può essere usato per configurare l'app per le funzioni. Ogni funzione ha il proprio file di codice (con estensione fsx) e il file di configurazione delle associazioni (function.json).
 
-Le estensioni di associazione richieste nella [versione 2.x](functions-versions.md) del runtime di Funzioni sono definite nel file `extensions.csproj`, con gli effettivi file di libreria inclusi nella cartella `bin`. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](functions-triggers-bindings.md#local-development-azure-functions-core-tools). Quando si sviluppano funzioni nel portale di Azure, la registrazione viene eseguita automaticamente.
+Le estensioni di associazione richieste nella [versione 2.x](functions-versions.md) del runtime di Funzioni sono definite nel file `extensions.csproj`, con gli effettivi file di libreria inclusi nella cartella `bin`. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](./functions-bindings-register.md#local-development-azure-functions-core-tools). Quando si sviluppano funzioni nel portale di Azure, la registrazione viene eseguita automaticamente.
 
 ## <a name="binding-to-arguments"></a>Associazione agli argomenti
 Ogni associazione supporta set di argomenti, come descritto nei dettagli in [Guida di riferimento per gli sviluppatori di trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md). Ad esempio, una delle associazioni di argomento supportate da un trigger del BLOB è un oggetto POCO, che può essere espresso con un record F#. Ad esempio: 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 877393de20788b0aa1c76084b121a82f12715cd3
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 57850f67b56113036cb6cc37e9f1f2694ba9eb8f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118072"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672730"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Usare il controllo mappa di Mappe di Azure
 
@@ -68,7 +68,7 @@ La libreria JavaScript lato client del controllo mappa consente di eseguire il r
     </body>
     ```
 
-5. Per inizializzare il controllo mappa, definire una nuova sezione nel corpo HTML e creare uno script. Usare la propria chiave dell'account di Mappe di Azure oppure le credenziali di Azure Active Directory (AAD) per autenticare la mappa usando le [opzioni di autenticazione](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.authenticationoptions). Se è necessario creare un account o trovare la chiave, vedere [Come gestire l'account e le chiavi dell'account Mappe di Azure](how-to-manage-account-keys.md). L'opzione **language** specifica la lingua da usare per le etichette e i controlli mappa. Per altre informazioni sulle lingue supportate, vedere [Lingue supportate](supported-languages.md). Se si usa una chiave di sottoscrizione per l'autenticazione:
+5. Per inizializzare il controllo mappa, definire una nuova sezione nel corpo HTML e creare uno script. Usare la propria chiave dell'account di Mappe di Azure oppure le credenziali di Azure Active Directory (AAD) per autenticare la mappa usando le [opzioni di autenticazione](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Se è necessario creare un account o trovare la chiave, vedere [Come gestire l'account e le chiavi dell'account Mappe di Azure](how-to-manage-account-keys.md). L'opzione **language** specifica la lingua da usare per le etichette e i controlli mappa. Per altre informazioni sulle lingue supportate, vedere [Lingue supportate](supported-languages.md). Se si usa una chiave di sottoscrizione per l'autenticazione:
 
     ```html
     <script type='text/javascript'>
@@ -95,13 +95,14 @@ La libreria JavaScript lato client del controllo mappa consente di eseguire il r
             authOptions: {
                 authType: 'aad',
                 clientId: '<Your AAD Client Id>',
-                aadAppId: '<Your AAD App Id',
+                aadAppId: '<Your AAD App Id>',
                 aadTenant: 'msft.ccsctp.net'
             }
         });
     </script>
     ```
 
+    Visualizzare [l'autenticazione con le mappe di Azure](azure-maps-authentication.md) per altri dettagli.
 6. Facoltativamente, può risultare utile aggiungere gli elementi di tag meta seguenti all'inizio della pagina:
 
     ```html

@@ -10,17 +10,18 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: a1ebb1d818c0085a1741245ed236cf511b1db768
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 4db95bdc5e83badef0170bfb3b1c52bb8610c655
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218054"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669874"
 ---
 # <a name="bing-speech-client-samples"></a>Esempi di client di Riconoscimento vocale Bing
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
- 
+
 Riconoscimento vocale Bing offre esempi end-to-end per illustrare diversi casi d'uso, ad esempio per il riconoscimento di comandi, il riconoscimento continuo e il rilevamento finalità. Tutti gli esempi sono disponibili in GitHub e possono essere scaricati dai collegamenti seguenti: Il file README.md in ogni repository e la pagina delle [librerie client](GetStarted/GetStartedClientLibraries.md) contengono informazioni dettagliate su come compilare ed eseguire gli esempi.
 
 - [Esempi di API REST](https://github.com/Azure-Samples/SpeechToText-REST)

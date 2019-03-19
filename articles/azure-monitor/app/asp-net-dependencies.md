@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8bcb00029acbe8c64e29addbc9291a694f1de98b
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 4aa18ae791e5fa573eae76d5bdb9c45b9311e6b5
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267718"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888084"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Impostare Application Insights: rilevamento delle dipendenze
 Una *dipendenza* è un componente esterno chiamato dall'app. In genere è un servizio chiamato con il protocollo HTTP, oppure un database o un file system. [Application Insights](../../azure-monitor/app/app-insights-overview.md) misura per quanto tempo l'applicazione attende le dipendenze e la frequenza con la quale una chiamata alle dipendenze non riesce. È possibile esaminare chiamate specifiche e correlarle a richieste ed eccezioni.
@@ -50,7 +50,7 @@ Informazioni sulle dipendenze parziali vengono raccolte automaticamente da [Appl
 
 ## <a name="where-to-find-dependency-data"></a>Dove trovare i dati sulle dipendenze
 * La [mappa delle applicazioni](#application-map) visualizza le dipendenze tra l'app e i componenti adiacenti.
-* I [pannelli Prestazioni, Browser ed Errori](#performance-and-blades) visualizzano i dati sulle dipendenze del server.
+* I [pannelli Prestazioni, Browser ed Errori](#performance-and-failure-blades) visualizzano i dati sulle dipendenze del server.
 * Il [pannello Browser](#ajax-calls) visualizza le chiamate AJAX dai browser degli utenti.
 * Fare clic sulle richieste lente o non riuscite per controllare le chiamate alle dipendenze.
 * L'[analisi](#analytics) può essere usata per effettuare una query dei dati sulle dipendenze.

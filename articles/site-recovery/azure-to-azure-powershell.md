@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: a37cfb19ab63335f120383a20753bf2b8333bd96
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 9c4576633f98d38da7086711c24def88591ab71f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448926"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869412"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure usando Azure PowerShell
 
@@ -591,4 +591,4 @@ Errors           : {}
 Dopo il failover, quando si vuole tornare all'area di origine, avviare la replica inversa per l'elemento protetto da replica usando il cmdlet Update-AzureRmRecoveryServicesAsrProtectionDirection.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere l'articolo di [riferimento di PowerShell per Azure Site Recovery ](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery) per informazioni su come poter eseguire altre attività, ad esempio la creazione di piani di ripristino e il failover di test di piani di ripristino tramite PowerShell.
+Visualizza i [riferimento di PowerShell per Azure Site Recovery](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery) per informazioni su come è possibile eseguire altre attività, ad esempio la creazione di piani di ripristino e test del failover dei piani di ripristino tramite PowerShell.

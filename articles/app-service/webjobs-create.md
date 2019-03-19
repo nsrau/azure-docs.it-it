@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
 ms.custom: seodec18
-ms.openlocfilehash: 43ec22836cb32c21953b9eb6871b9efe300cbf9e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 0f2053e978b7c890f4e175515ed54f69694950c6
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001171"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749920"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Eseguire attività in background con Processi Web in Servizio app di Azure
 
@@ -47,8 +47,7 @@ La tabella seguente descrive le differenze tra processi Web *continui* e *attiva
 | Viene eseguito in tutte le istanze in cui viene eseguita l'app Web. È facoltativamente possibile limitare il processo Web a una sola istanza. |Viene eseguito in una singola istanza selezionata da Azure per il bilanciamento del carico.|
 | Supporta il debug remoto. | Non supporta il debug remoto.|
 
-> [!NOTE]
-> Un'app Web può raggiungere il timeout dopo 20 minuti di inattività. Solo le richieste all'app Web effettiva comportano la reimpostazione del timer. Se si visualizza la configurazione dell'app nel portale di Azure o si effettuano richieste al sito degli strumenti avanzati (https://<app_name>.scm.azurewebsites.net), il timer non verrà reimpostato. Se l'app esegue processi Web continui o pianificati, abilitare **Sempre online** per assicurarsi che i processi Web vengano eseguiti in modo affidabile. Questa funzionalità è disponibile solo nei [piani tariffari](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Basic, Standard e Premium.
+[!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
 ## <a name="acceptablefiles"></a>Tipi di file supportati per script e programmi
 
@@ -181,10 +180,9 @@ when making changes in one don't forget the other two.
 {
     "schedule": "0 */15 * * * *"
 }
-``` 
+```
 
-> [!NOTE]
-> Quando si distribuisce un processo Web da Visual Studio, contrassegnare le proprietà del file `settings.job` come **Copia se più recente**.
+Per altre informazioni, vedere [pianificazione di un processo Web attivato](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob).
 
 ## <a name="ViewJobHistory"></a> Visualizzare la cronologia processo
 

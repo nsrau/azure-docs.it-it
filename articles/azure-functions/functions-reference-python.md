@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: dadb645067a0f6cac436d638a829ac4c0937bd60
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
-ms.translationtype: HT
+ms.openlocfilehash: 8fa093d629eb7c655ea277b1d57f35193394f722
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304379"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730002"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guida per sviluppatori Python per Funzioni di Azure
 
@@ -109,7 +109,7 @@ Il codice condiviso deve essere mantenuto in una cartella separata. Per fare rif
 from ..SharedCode import myFirstHelperFunction
 ```
 
-Le estensioni di associazione usate nel runtime di Funzioni sono definite nel file `extensions.csproj`, con gli effettivi file di libreria inclusi nella cartella `bin`. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](functions-triggers-bindings.md#local-development-azure-functions-core-tools) con Azure Functions Core Tools. 
+Le estensioni di associazione usate nel runtime di Funzioni sono definite nel file `extensions.csproj`, con gli effettivi file di libreria inclusi nella cartella `bin`. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](./functions-bindings-register.md#local-development-azure-functions-core-tools) con Azure Functions Core Tools. 
 
 Quando si distribuisce un progetto Funzioni a un'app per le funzioni in Azure, occorre includere nel pacchetto l'intero contenuto della cartella FunctionApp, ma non la cartella stessa.
 

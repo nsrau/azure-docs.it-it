@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 9d11a34c499029550de12e8a47f7de0b1beac7b6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 596ac871067886ee3124c0f21beb35cb3b8fe1ae
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235038"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593812"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Usare il supporto di Azure Resource Manager per Azure Load Balancer
 
@@ -30,15 +30,15 @@ Con Resource Manager, Azure Load Balancer contiene le seguenti risorse figlio:
 
 * Configurazione IP front-end: un bilanciamento del carico può includere uno o più indirizzi IP front-end, anche noti come IP virtuali (indirizzi VIP). Questi indirizzi IP vengono usati come ingresso per il traffico.
 * Pool di indirizzi back-end: indirizzi IP associati alla scheda di interfaccia di rete della macchina virtuale a cui viene distribuito il carico.
-* Regole di bilanciamento del carico: una proprietà della regola esegue il mapping di una specifica combinazione di IP e porte front-end a un set di combinazioni di indirizzi IP e porte back-end. Un bilanciamento del carico singolo può avere più regole di bilanciamento del carico. Ogni regola è una combinazione di un IP e una porta front-end e un IP e una porta back-end associata alle VM.
+* Le regole di bilanciamento del carico: una proprietà della regola esegue il mapping a e combinazione di porta a un set di indirizzi IP back-end e combinazione di porta IP front-end specifico. Un bilanciamento del carico singolo può avere più regole di bilanciamento del carico. Ogni regola è una combinazione di un IP front-end e porte back-end IP e porta associata alle VM.
 * Probe: le probe consentono di tenere traccia dell'integrità delle istanze della macchina virtuale. Se un probe di integrità non riesce, l'istanza della macchina virtuale viene esclusa automaticamente dalla rotazione.
-* Regole NAT in ingresso: regole NAT che definiscono il traffico in ingresso che attraversa l'IP front-end e viene distribuito all'IP back-end.
+* Regole NAT in ingresso: NAT regole che definiscono il traffico in ingresso attraversa l'IP front-end e distribuito all'IP back-end.
 
 ![](./media/load-balancer-arm/load-balancer-arm.png)
 
 ## <a name="quickstart-templates"></a>Modelli di Guida introduttiva
 
-Gestione risorse di Azure consente di effettuare il provisioning delle applicazioni usando un modello dichiarativo. In un unico modello, è possibile distribuire più servizi con le relative dipendenze. Si usa lo stesso modello per distribuire più volte l'applicazione durante ogni fase del ciclo di vita dell'applicazione.
+Gestione risorse di Azure consente di effettuare il provisioning delle applicazioni usando un modello dichiarativo. Con un unico modello, puoi distribuire più servizi insieme alle rispettive dipendenze. Si usa lo stesso modello per distribuire più volte l'applicazione durante ogni fase del ciclo di vita dell'applicazione.
 
 I modelli possono includere definizioni per macchine virtuali, reti virtuali, set di disponibilità, interfacce di rete, account di archiviazione, bilanciamenti del carico, gruppi di sicurezza di rete e IP pubblici. Con i modelli è possibile creare tutto il necessario per un'applicazione complessa. Il file modello può essere verificato nel sistema di gestione dei contenuti per il controllo della versione e la collaborazione.
 
@@ -58,7 +58,7 @@ Esempi di modelli:
 
 Introduzione ai cmdlet, agli strumenti da riga di comando e alle API REST di Azure Resource Manager
 
-* [cmdlet di rete di Azure](https://docs.microsoft.com/powershell/module/azurerm.network#networking) possono essere usati per creare un bilanciamento del carico.
+* [cmdlet di rete di Azure](https://docs.microsoft.com/powershell/module/az.network#networking) possono essere usati per creare un bilanciamento del carico.
 * [Come creare un servizio di bilanciamento del carico tramite Gestione risorse di Azure](load-balancer-get-started-ilb-arm-ps.md)
 * [Uso dell'interfaccia della riga di comando di Azure con Gestione risorse di Azure](../xplat-cli-azure-resource-manager.md)
 * [API REST di bilanciamento del carico](https://msdn.microsoft.com/library/azure/mt163651.aspx)

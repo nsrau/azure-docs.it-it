@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: a58ebe14749add30deb229f1b7e30fbb6e9921d7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 9ca1c4a1ed1841f82bc386cff48315dd15ef91bb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814892"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730410"
 ---
 # <a name="test-your-app-in-azure"></a>Testare l'app in Azure 
 Questo articolo illustra i passaggi necessari a testare l'applicazione in Azure con DevTest Labs. In primo luogo, impostare una condivisione file all'interno di un lab e montarlo come unità nel computer di sviluppo locale e come macchina virtuale all'interno di un lab. È quindi possibile utilizzare Visual Studio 2017 per distribuire l'app per la condivisione file in modo che sia possibile eseguirla sulla macchina virtuale nel lab.  
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti 
 1. [Creare una sottoscrizione di Azure](https://azure.microsoft.com/free/) se non se ne possiede già una e accedere al [portale di Azure](https://portal.azure.com).
@@ -56,7 +58,7 @@ Questo articolo illustra i passaggi necessari a testare l'applicazione in Azure 
 
     ![Selezionare il lab della macchina virtuale](media/test-app-in-azure/select-lab-vm.png)
 2. Selezionare **Connetti** sulla barra degli strumenti per connettersi alla macchina virtuale. 
-3. [Installare Azure PowerShell](https://azure.microsoft.com/downloads/) usando il link **Windows install** nella sezione **Strumento da riga di comando**. Per altre modalità di installazione di Azure PowerShell, vedere [questo articolo](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1).
+3. [Installare Azure PowerShell](/powershell/azure/install-az-ps).
 4. Seguire le istruzioni nella sezione Montare la condivisione file. 
 
 ## <a name="publish-your-app-from-visual-studio"></a>Pubblicare l'app Web da Visual Studio
