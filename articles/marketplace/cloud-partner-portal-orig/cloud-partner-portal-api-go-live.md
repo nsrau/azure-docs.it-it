@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c7d643f0c7885e64636a107d22ce332b1ba9371c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: ea3f26d70c4a4ce07c988612890687504a4cf5ac
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807228"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594679"
 ---
 <a name="go-live"></a>Go Live
 =======
@@ -67,9 +67,9 @@ Questa API avvia il processo che consente di inviare un'app alla produzione. Que
 
 ### <a name="response-status-codes"></a>Codici di stato della risposta
 
-| **Codice** |  ** Descrizione**                                                                        |
+| **Codice** |  **Descrizione**                                                                        |
 | -------- |  ----------------                                                                        |
-|  202     | `Accepted` - La richiesta è stata accettata. La risposta contiene un percorso per tenere traccia dello stato dell'operazione. |
+|  202     | `Accepted` - La richiesta è stata accettata correttamente. La risposta contiene un percorso per tenere traccia dello stato dell'operazione. |
 |  400     | `Bad/Malformed request` - Nel corpo della risposta sono presenti informazioni aggiuntive sull'errore. |
-|  404     |  `Not found` - L'entità specificata non esiste.                                       |
+|  404     |  `Not found`: l'entità specificata non esiste.                                       |
 |  |  |

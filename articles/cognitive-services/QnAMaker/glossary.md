@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: c280f6ef99678b77edcb251ead685be88265f825
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bb3b262f3bde0599cb6dea009d0fbbeafb1c529a
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871014"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649442"
 ---
 # <a name="glossary-for-qna-maker-knowledge-base-and-service"></a>Glossario per la knowledge base e il servizio QnA Maker
 
@@ -42,4 +42,4 @@ Una query utente è la domanda che l'utente finale o il tester pone alla Knowled
 Risposta recuperata dalla Knowledge Base, basata sulla migliore corrispondenza per una determinata query dell'utente.
 
 ## <a name="confidence-score"></a>Punteggio di attendibilità
-Il punteggio di attendibilità della risposta è un valore numerico compreso tra 0 e 100, dove 100 indica la corrispondenza esatta tra la query dell'utente e una domanda nella Knowledge Base e che la risposta fornita è la risposta corretta e appropriata per una determinata query dell'utente. Le risposte sono generalmente classificate in base al punteggio di attendibilità e quella con il punteggio più alto viene fornita come risposta predefinita.
+Il punteggio di attendibilità della risposta è un valore numerico compreso tra 0 e 100, dove 100 indica la corrispondenza esatta tra la query dell'utente e una domanda nella Knowledge Base e che la risposta fornita è la risposta corretta e appropriata per una determinata query dell'utente. Le risposte vengono in genere classificate in base al punteggio di confidenza e quello con il punteggio di confidenza superiore verrà resi disponibili come le [risposta predefinita](concepts/confidence-score.md#change-default-answer).

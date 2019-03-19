@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: f0b2e1afdc42d8aaa0ab8d3af76f51fb6ded24e0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bacfb5fed4d72a7be2239ba97a68f15766b3ff59
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857767"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650446"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Ciclo di vita della knowledge base in QnA Maker
 QnA Maker apprende meglio in un ciclo iterativo di modifiche ai modelli, esempi di espressioni, pubblicazione e raccolta dei dati dalle query degli endpoint. 
@@ -27,9 +27,15 @@ QnA Maker apprende meglio in un ciclo iterativo di modifiche ai modelli, esempi 
 L'endpoint della knowledge base (KB) di QnA Maker fornisce una risposta scelta in base alla corrispondenza migliore per una query utente basata sul contenuto della KB. La creazione di una knowledge base è un'operazione occasionale di configurazione di un repository di contenuti con domande, risposte e i metadati associati. È possibile creare una knowledge effettuando una ricerca per indicizzazione nel contenuto pre-esistente, ad esempio pagine di domande frequenti, manuali di prodotti o coppie strutturate di domande e risposte. Leggere le informazioni su come [creare una knowledge base](../How-To/create-knowledge-base.md).
 
 ## <a name="testing-and-updating-the-knowledge-base"></a>Test e aggiornamento della knowledge base
-La knowledge base è pronta per i test dopo essere stata popolata con il contenuto, a livello editoriale o tramite estrazione automatica. I test possono essere eseguiti tramite il pannello **Test** immettendo query utente comuni e verificando che le risposte restituite siano quelle previste e abbiano un punteggio di attendibilità sufficiente. È possibile aggiungere domande alternative per correggere eventuali problemi di punteggio di attendibilità basso. È anche possibile aggiungere nuove risposte quando una query restituisce la risposta predefinita che indica che non è stata trovata nessuna corrispondenza nella KB. Questo ciclo serrato di test-aggiornamento continua finché non si è soddisfatti dei risultati. Leggere le informazioni su come [testare la knowledge base](../How-To/test-knowledge-base.md).
 
-Per KB di grandi dimensioni, i test possono essere automatizzati tramite le API generateAnswer. 
+La knowledge base è pronta per i test dopo essere stata popolata con il contenuto, a livello editoriale o tramite estrazione automatica. Test interattiva possono essere eseguiti nel portale di QnA Maker tramite il **Test** pannello immettendo le query utente comuni e verifica che le risposte restituite con la risposta corretta e il punteggio di confidenza sufficienti. 
+
+* **Per correggere i punteggi di confidenza basso in**: aggiungere domande alternative. 
+* **Quando una query restituisce in modo errato il [risposta predefinita](confidence-score.md#change-default-answer)**: aggiungere nuove risposte per la domanda corretta. 
+
+Questo ciclo serrato di test-aggiornamento continua finché non si è soddisfatti dei risultati. Leggere le informazioni su come [testare la knowledge base](../How-To/test-knowledge-base.md).
+
+Per la Knowledge base di grandi dimensioni, utilizzare test automatici con il [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) e il `isTest=true` parametro della stringa di query le query che il `test` della knowledge base anziché knowledge base pubblicata. 
 
 ## <a name="publish-the-knowledge-base"></a>Pubblicare la knowledge base
 Una volta testata la knowledge base, è possibile pubblicarla. La pubblicazione inserisce la versione più recente della knowledge base testata in un indice di Ricerca di Azure dedicato che rappresenta la knowledge base **pubblicata**. Viene inoltre creato un endpoint che può essere chiamato nell'applicazione o nel chat bot.

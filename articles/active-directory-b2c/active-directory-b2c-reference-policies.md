@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 88ac97c36a9b09b795a3ea792df6711fc1275422
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 67db13c8a36977f2614ba7b0e263919bd0405bc7
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163008"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585594"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Flussi utente in Azure Active Directory B2C
 
@@ -85,6 +85,6 @@ Solo le proprietà **otherMails** e **signInNames** vengono esposte tramite l'AP
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per creare i flussi utente consigliati, seguire le istruzioni riportate in [Esercitazione: Creare un flusso utente](tutorial-create-tenant.md).
+Per creare i flussi utente consigliati, seguire le istruzioni riportate in [Esercitazione: Creare un flusso utente](tutorial-create-user-flows.md).
 
 
