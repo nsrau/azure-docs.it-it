@@ -1,24 +1,19 @@
 ---
 title: Documentazione di Servizi multimediali di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
-description: Informazioni su come riprodurre in streaming in modo sicuro video live o on demand di alta qualità con Servizi multimediali, una piattaforma cloud estendibile. Esercitazioni, informazioni di riferimento sulle API e altro ancora.
+description: 'Informazioni su come riprodurre in streaming in modo sicuro video live o on demand di alta qualità con Servizi multimediali, una piattaforma cloud estendibile. Esercitazioni, informazioni di riferimento sulle API e altro ancora.'
 services: media-services
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: ''
+ms.assetid: null
 ms.service: media-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 02/08/2018
+ms.date: 03/14/2019
 ms.author: carolz
-ms.openlocfilehash: dce69041176840765817d561f61a0d5f3d2b9a66
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998026"
 ---
+
 # <a name="media-services-documentation"></a>Documentazione su Servizi multimediali  
 
 Informazioni su come riprodurre in streaming video di alta qualità con Servizi multimediali, una piattaforma cloud estendibile. Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come fornire in modo sicuro flussi su audio o video live e on demand a milioni di utenti.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e76c8ae671333bcbf50995c4bd9345f8434fbea2
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 14f1a92f701eaedd98b825316ebf213f7c144920
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745963"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959460"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Monitorare l'utilizzo delle risorse e l'attività di query in ricerca di Azure
 
@@ -61,11 +61,11 @@ La tabella seguente confronta le opzioni per l'archiviazione dei log e l'aggiunt
 | Risorsa | Usato per |
 |----------|----------|
 | [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Eventi registrati e le metriche di query, in base uno gli schemi seguenti, correlati a eventi utente nell'app. Questa è l'unica soluzione che tiene conto delle azioni o dei segnali degli utenti, con mapping degli eventi dalla ricerca avviata dall'utente, invece di filtrare le richieste inviate dal codice dell'applicazione. Per usare questo approccio, copiare e incollare il codice di strumentazione nei file di origine per indirizzare le informazioni sulle richieste ad Application Insights. Per altre informazioni, vedere [Analisi del traffico di ricerca](search-traffic-analytics.md). |
-| [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Eventi registrati e metriche di query, in base a uno degli schemi seguenti. Gli eventi vengono registrati in un'area di lavoro di Log Analytics. È possibile eseguire query su un'area di lavoro per restituire informazioni dettagliate dal log. Per altre informazioni, vedere [Introduzione a Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata). |
+| [Log di Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Eventi registrati e metriche di query, in base a uno degli schemi seguenti. Gli eventi vengono registrati per un'area di lavoro di Log Analitica. È possibile eseguire query su un'area di lavoro per restituire informazioni dettagliate dal log. Per altre informazioni, vedere [iniziare con i log di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
 | [Archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Eventi registrati e metriche di query, in base a uno degli schemi seguenti. Gli eventi vengono registrati in un contenitore BLOB e archiviati in file JSON. Usare un editor JSON per visualizzare il contenuto dei file.|
 | [Hub eventi](https://docs.microsoft.com/azure/event-hubs/) | Eventi registrati e metriche di query, basati sugli schemi documentati in questo articolo. Scegliere questa opzione come servizio di raccolta dati alternativo per i log di dimensioni molto grandi. |
 
-Sia Log Analytics che archiviazione BLOB sono disponibili come servizio condiviso gratuito, quindi è possibile provarli gratuitamente per la durata della sottoscrizione di Azure. L'iscrizione e l'uso di Application Insights sono gratuiti purché le dimensioni dei dati dell'applicazione non superino determinati limiti (vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/monitor/) per informazioni dettagliate).
+Sia i log di monitoraggio di Azure e l'archiviazione Blob sono disponibili come un servizio condiviso Free in modo che è possibile provarlo senza alcun addebito per la durata della sottoscrizione di Azure. L'iscrizione e l'uso di Application Insights sono gratuiti purché le dimensioni dei dati dell'applicazione non superino determinati limiti (vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/monitor/) per informazioni dettagliate).
 
 La sezione successiva illustra la procedura per l'abilitazione e l'uso dell'archiviazione BLOB di Azure per raccogliere i dati di log creati dalle operazioni di Ricerca di Azure e accedervi.
 
@@ -81,7 +81,7 @@ In questa sezione si apprenderà come usare l'archiviazione BLOB per archiviare 
 
    ![Abilitare il monitoraggio](./media/search-monitor-usage/enable-monitoring.png "Abilitare il monitoraggio")
 
-3. Scegliere i dati da esportare: log, metriche o entrambi. È possibile copiare i dati in un account di archiviazione, inviarli a un hub eventi o esportarli in Log Analytics.
+3. Scegliere i dati da esportare: log, metriche o entrambi. È possibile copiarlo in un account di archiviazione, inviarlo a un hub eventi o esportarli in Monitoraggio di Azure log.
 
    Per l'opzione di archiviazione BLOB, deve esistere solo l'account di archiviazione. I contenitori e i BLOB verranno creati al momento dell'esportazione dei dati di log.
 

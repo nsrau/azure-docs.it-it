@@ -56,7 +56,7 @@ items:
       href: service-fabric-tutorial-monitoring-wincontainers.md
   - name: Creare un'app contenitore Linux
     items:
-    - name: 1 - Creare immagini del contenitore
+    - name: '1: Creare immagini del contenitore'
       href: service-fabric-tutorial-create-container-images.md
     - name: 2 - Pacchetto e contenitori di distribuzione
       href: service-fabric-tutorial-package-containers.md
@@ -138,9 +138,9 @@ items:
         href: service-fabric-concepts-partitioning.md
       - name: Riconfigurazione dei servizi con stato
         href: service-fabric-concepts-reconfiguration.md
-      - name: Ciclo di vita di Reliable Services - C#
+      - name: 'Ciclo di vita di Reliable Services: C#'
         href: service-fabric-reliable-services-lifecycle.md
-      - name: Ciclo di vita di Reliable Services - Java
+      - name: 'Ciclo di vita di Reliable Services: Java'
         href: service-fabric-reliable-services-lifecycle-java.md
       - name: Ciclo di vita dell'istanza e della replica
         href: service-fabric-concepts-replica-lifecycle.md
@@ -409,9 +409,9 @@ items:
         items:
         - name: Comunicare con Reliable Services
           href: service-fabric-reliable-services-communication.md
-        - name: Servizio remoto - C#
+        - name: 'Servizio remoto: C#'
           href: service-fabric-reliable-services-communication-remoting.md
-        - name: Servizio remoto - Java
+        - name: 'Servizio remoto: Java'
           href: service-fabric-reliable-services-communication-remoting-java.md
         - name: WCF
           href: service-fabric-reliable-services-communication-wcf.md
@@ -714,7 +714,7 @@ items:
       href: service-fabric-reverse-proxy-diagnostics.md
     - name: Risolvere i problemi del cluster locale
       href: service-fabric-troubleshoot-local-cluster-setup.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Azure PowerShell
     href: /powershell/module/azurerm.servicefabric/
@@ -828,7 +828,7 @@ items:
   - name: Attributi comuni della sicurezza
     href: service-fabric-security-attributes.md
   - name: Codice di esempio
-    href: http://aka.ms/servicefabricsamples
+    href: https://aka.ms/servicefabricsamples
   - name: Opzioni di supporto
     href: service-fabric-support.md
   - name: Versioni di Service Fabric
@@ -837,9 +837,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: bceb61a6c5d5105d09d1b2ec94b394fd25402ea6
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 41e92402762d0adc63f374e49ef86d3e7e060fa5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241817"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57873843"

@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 02/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: c2374bd0d67115bdc9fef2b6937f7b087bc581de
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 71e70962a8c55d397b6261571cfef4a126d3e8b4
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076774"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307820"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Esportare i dati di telemetria da Application Insights
 Si vogliono mantenere i dati di telemetria per un periodo più lungo del periodo di mantenimento standard o elaborarli in un modo particolare? A tale scopo, l'esportazione continua è ideale. Gli eventi visualizzati nel portale di Application Insights possono essere esportati nella risorsa di archiviazione di Microsoft Azure in formato JSON. Da qui è possibile scaricare i dati e scrivere qualsiasi tipo di codice necessario per elaborarli.  
@@ -29,9 +29,19 @@ Prima di configurare l'esportazione continua, è necessario prendere in consider
 * [Dati di analisi](../../azure-monitor/app/analytics.md) offre un linguaggio avanzato di query per la telemetria che consente anche di esportare i risultati.
 * Se si vogliono [esplorare i dati in Power BI](../../azure-monitor/app/export-power-bi.md ), non è necessario usare l'esportazione continua.
 * L'[API REST di accesso ai dati](https://dev.applicationinsights.io/) consente di accedere ai dati di telemetria a livello di codice.
-* È inoltre possibile accedere all'installazione dell'[esportazione continua tramite PowerShell](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
+* È inoltre possibile accedere all'installazione dell'[esportazione continua tramite PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
 Con l'esportazione continua i dati vengono copiati nella risorsa di archiviazione, in cui possono rimanere fino a quando si desidera, ma sono ancora disponibili in Application Insights per il [periodo di conservazione](../../azure-monitor/app/data-retention-privacy.md) usuale.
+
+## <a name="continuous-export-advanced-storage-configuration"></a>Configurazione dell'archiviazione avanzata esportazione continua
+
+L'esportazione continua **nepodporuje** la funzionalità di archiviazione di Azure seguente e le configurazioni:
+
+* Sfrutta [firewall di rete virtuale di Azure/archiviazione](https://docs.microsoft.com/azure/storage/common/storage-network-security) in combinazione con archiviazione Blob di Azure.
+
+* [Archiviazione non modificabile](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) per l'archiviazione Blob di Azure.
+
+* [Azure Data Lake Store Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
 
 ## <a name="setup"></a> Creare un'esportazione continua
 1. Nella risorsa di Application Insights per l'app aprire Esportazione continua e scegliere **Aggiungi**:
@@ -140,7 +150,7 @@ Su scala ridotta è possibile scrivere codice per separare i dati, leggerli in u
 Per un esempio di codice più esaustivo, vedere l'articolo relativo all'[uso di un ruolo di lavoro][exportasa].
 
 ## <a name="delete"></a>Eliminare i vecchi dati
-Si noti che si è responsabili della gestione della capacità di archiviazione ed eliminazione di vecchi dati, se necessario.
+Sei deve gestire la capacità di archiviazione ed eliminazione di vecchi dati se necessario.
 
 ## <a name="if-you-regenerate-your-storage-key"></a>Se si rigenera la chiave di archiviazione...
 Se si modifica la chiave per l'archiviazione, l'esportazione continua non funzionerà più. Verrà visualizzata una notifica nell'account Azure.
@@ -177,7 +187,7 @@ Su scala più estesa considerare la possibilità di usare cluster [HDInsight](ht
 * *Quanti BLOB dovrebbero essere visualizzati nella risorsa di archiviazione?*
 
   * Per ogni tipi di dati selezionato per l'esportazione, viene creato un nuovo BLOB ogni minuto, se sono disponibili dati.
-  * Per le applicazioni con traffico elevato, inoltre, vengono allocate unità di partizione aggiuntive. In questo caso ogni unità crea un BLOB ogni minuto.
+  * Per le applicazioni con traffico elevato, inoltre, vengono allocate unità di partizione aggiuntive. In questo caso, ogni unità crea un blob ogni minuto.
 * *La chiave per la risorsa di archiviazione è stata rigenerata o il nome del contenitore è stato modificato, ma l'esportazione non funziona.*
 
     Modificare l'esportazione e aprire il pannello di destinazione dell'esportazione. Lasciare la stessa risorsa di archiviazione selezionata come in precedenza e fare clic su OK per confermare. L'esportazione verrà riavviata. Se la modifica è stata eseguita negli ultimi giorni, non si perderanno i dati.

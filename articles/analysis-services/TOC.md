@@ -43,8 +43,6 @@
 ### [Aggiungere un'entità servizio al ruolo di amministratore del server](analysis-services-addservprinc-admins.md)
 
 ## Modello
-### [Importare un file di Power BI Desktop](analysis-services-import-pbix.md)
-### [Creare un modello nel portale di Azure (anteprima)](analysis-services-create-model-portal.md)
 ### [Eseguire una distribuzione da Visual Studio (SSDT)](analysis-services-deploy.md)
 ### [Eseguire l'aggiornamento con l'API REST](analysis-services-async-refresh.md)
 ### [Modellazione dei dati in Visual Studio - Esercitazione Adventure Works (1400)](tutorials/aas-adventure-works-tutorial.md)
@@ -65,7 +63,7 @@
 #### [Lezione supplementare: Sicurezza dinamica](tutorials/aas-supplemental-lesson-dynamic-security.md)
 #### [Lezione supplementare: Gerarchie incomplete](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
-## Sicurezza
+## Security
 ### [Gestire gli utenti di database](analysis-services-database-users.md)
 ### [Gestire gli amministratori di server](analysis-services-server-admins.md)
 
@@ -97,13 +95,3 @@
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [Video](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
-
-
-
-
-
-
-
-
-
-

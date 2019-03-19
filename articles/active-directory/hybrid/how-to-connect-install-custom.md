@@ -16,12 +16,12 @@ ms.date: 10/04/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91dd25eadd3842cf1a94608a6f0ad9cfcd25039a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b55a7016ec0068234dfc6110d9d4afc04119ccdd
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197233"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194062"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Installazione personalizzata di Azure AD Connect
 **Impostazioni personalizzate** di Azure AD Connect viene usato quando sono necessarie altre opzioni per l'installazione. Viene usato se sono presenti più foreste o per configurare funzionalità facoltative non incluse nell'installazione rapida. Viene usato in tutti i casi in cui l'opzione di [**installazione rapida**](how-to-connect-install-express.md) non soddisfa la distribuzione o la topologia.
@@ -365,7 +365,7 @@ La configurazione viene eseguita in questa pagina.
 
 In modalità di gestione temporanea, è possibile apportare le modifiche necessarie al motore di sincronizzazione ed esaminare gli elementi da esportare. Durante la configurazione sembra essere corretta, eseguire nuovamente l'installazione guidata e disattivare la modalità di gestione temporanea. I dati vengono ora esportati in Azure AD da questo server. Assicurarsi di disabilitare l'altro server allo stesso tempo, in modo che soltanto un server esegua l’esportazione in modo attivo.
 
-Per altre informazioni, vedere [Modalità di gestione temporanea](how-to-connect-sync-operations.md#staging-mode).
+Per altre informazioni, vedere [Modalità di gestione temporanea](how-to-connect-sync-staging-server.md).
 
 ### <a name="verify-your-federation-configuration"></a>Verificare la configurazione della federazione
 Azure AD Connect verifica automaticamente le impostazioni DNS quando si fa clic sul pulsante Verifica.

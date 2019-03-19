@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: c9f0707f6d24ba899c89bf19066994ae860a69d5
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 2aa32d75edbacdfff6428a6526d9898cb6732d6b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620988"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534736"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Attività di avvio comuni del servizio cloud
 Questo articolo fornisce alcuni esempi relativi alle attività di avvio comuni che è possibile eseguire nel servizio cloud. È possibile usare le attività di avvio per eseguire operazioni prima dell'avvio di un ruolo. Le operazioni che si possono eseguire sono l'installazione di un componente, la registrazione dei componenti COM, l'impostazione delle chiavi del Registro di sistema o l'avvio di un processo a esecuzione prolungata. 
@@ -186,7 +186,7 @@ powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP
 
 In questo modo il file batch **startup.cmd** viene eseguito ogni volta che il ruolo Web viene inizializzato, assicurando lo sblocco della sezione **ipSecurity**.
 
-Modificare infine la sezione [system.webServer section](http://www.iis.net/configreference/system.webserver/security/ipsecurity#005) del file **web.config** del ruolo Web in modo da aggiungere un elenco di indirizzi IP a cui viene concesso l'accesso, come illustrato nell'esempio seguente:
+Modificare infine la sezione [system.webServer section](https://www.iis.net/configreference/system.webserver/security/ipsecurity#005) del file **web.config** del ruolo Web in modo da aggiungere un elenco di indirizzi IP a cui viene concesso l'accesso, come illustrato nell'esempio seguente:
 
 Questa configurazione di esempio **consente** l'accesso al server a tutti gli indirizzi IP, a eccezione dei due IP definiti
 

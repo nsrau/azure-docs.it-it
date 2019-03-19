@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: 8c12190e3c34c3294d2735fdd228aafbf6073f12
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: c8b32e1d52768ea8450a2256d92d8cdb09f9fe8b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820114"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445637"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Usare PowerShell per creare una macchina virtuale di Azure con un server di report in modalità nativa
 > [!IMPORTANT] 
@@ -62,7 +62,7 @@ Questo argomento descrive e illustra la distribuzione e la configurazione di un 
 6. Nella pagina **Configurazione macchina virtuale** modificare i campi seguenti:
    
    * Se è presente più di una **DATA DI RILASCIO VERSIONE**, selezionare la versione più recente.
-   * **Nome macchina virtuale**: il nome della macchina virtuale viene usato anche nella pagina di configurazione successiva come nome DNS del servizio cloud predefinito. Il nome DNS deve essere univoco nel servizio Azure. È consigliabile configurare la macchina virtuale con un nome di computer che descriva ciò per cui viene usata la macchina virtuale. Ad esempio, ssrsnativecloud.
+   * **Virtual Machine Name** (Nome macchina virtuale): il nome della macchina virtuale viene usato anche nella pagina di configurazione successiva come nome DNS del servizio cloud predefinito. Il nome DNS deve essere univoco nel servizio Azure. È consigliabile configurare la macchina virtuale con un nome di computer che descriva ciò per cui viene usata la macchina virtuale. Ad esempio, ssrsnativecloud.
    * **Livello**: Standard
    * **Dimensioni: A3** è la dimensione di macchina virtuale consigliata per i carichi di lavoro di SQL Server. Se una macchina virtuale viene usata solo come server di report, è sufficiente la dimensione di macchina virtuale A2, a meno che il server di report non debba supportare un elevato carico di lavoro. Per informazioni sui prezzi delle macchine virtuali, vedere [Macchine virtuali - Prezzi](https://azure.microsoft.com/pricing/details/virtual-machines/).
    * **Nuovo nome utente**: il nome specificato viene creato come amministratore nella macchina virtuale.
@@ -124,8 +124,8 @@ Un certificato autofirmato viene creato nella macchina virtuale quando viene ese
       
        Nella figura seguente, ad esempio, il nome della macchina virtuale è **ssrsnativecloud** e il nome utente è **testuser**.
       
-       ![account di accesso con il nome della macchina virtuale](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
-   2. Eseguire mmc.exe. Per altre informazioni, vedere [Procedura: Visualizzare i certificati con lo snap-in MMC](https://msdn.microsoft.com/library/ms788967.aspx).
+       ![account di accesso include il nome della macchina virtuale](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+   2. Eseguire mmc.exe. Per ulteriori informazioni, consultare [Come Visualizzare i certificati con lo snap-in MMC](https://msdn.microsoft.com/library/ms788967.aspx).
    3. Nel menu **File** dell'applicazione console aggiungere lo snap-in **Certificati**, selezionare **Account computer** quando richiesto e quindi fare clic su **Avanti**.
    4. Selezionare il **computer locale** da gestire e quindi fare clic su **Fine**.
    5. Fare clic su **OK**, espandere i nodi **Certificati - Personale** e quindi fare clic su **Certificati**. Il nome del certificato è costituito dal nome DNS della macchina virtuale e termina con **cloudapp.net**. Fare clic con il pulsante destro del mouse sul nome del certificato e scegliere **Copia**.
@@ -160,7 +160,7 @@ Per usare lo script di Windows PowerShell per configurare il server di report, c
    
     Nella figura seguente, ad esempio, il nome della macchina virtuale è **ssrsnativecloud** e il nome utente è **testuser**.
    
-    ![account di accesso con il nome della macchina virtuale](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![account di accesso include il nome della macchina virtuale](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. Nella macchina virtuale aprire **Windows PowerShell ISE** con privilegi amministrativi. PowerShell ISE è installato per impostazione predefinita in Windows Server 2012. È consigliabile usare ISE anziché una finestra standard di Windows PowerShell in modo da poter incollare lo script in ISE, modificare e quindi eseguire lo script.
 3. In Windows PowerShell ISE scegliere **Mostra riquadro di script** dal menu **Visualizza**.
 4. Copiare lo script seguente e incollarlo nel riquadro di script di Windows PowerShell ISE.
@@ -294,7 +294,7 @@ Per usare Windows PowerShell per configurare il server di report, completare i p
    
     Nella figura seguente, ad esempio, il nome della macchina virtuale è **ssrsnativecloud** e il nome utente è **testuser**.
    
-    ![account di accesso con il nome della macchina virtuale](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![account di accesso include il nome della macchina virtuale](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. Nella macchina virtuale aprire **Windows PowerShell ISE** con privilegi amministrativi. PowerShell ISE è installato per impostazione predefinita in Windows Server 2012. È consigliabile usare ISE anziché una finestra standard di Windows PowerShell in modo da poter incollare lo script in ISE, modificare e quindi eseguire lo script.
 3. Per abilitare l'esecuzione di script, eseguire il comando di Windows PowerShell seguente:
    

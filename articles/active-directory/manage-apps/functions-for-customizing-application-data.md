@@ -1,5 +1,5 @@
 ---
-title: Scrittura di espressioni per il mapping degli attributi in Azure Active Directory | Microsoft Docs
+title: Scrittura di espressioni per il mapping degli attributi in Azure Active Directory | Documentazione Microsoft
 description: Informazioni su come usare i mapping di espressioni per trasformare i valori degli attributi in un formato accettabile durante il provisioning automatizzato di oggetti SaaS in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83a0685f75111a5552645d487589734846b05968
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ed081b32fd8ac464f7ec66f97c6867708a6f8533
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164635"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991481"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Scrittura di espressioni per il mapping degli attributi in Azure Active Directory
 Quando si configura il provisioning in un'applicazione SaaS, come mapping degli attributi è possibile specificare il mapping di espressioni. Per questo tipo di mapping è necessario scrivere un'espressione analoga a uno script, che permette di trasformare i dati utente in formati più idonei all'applicazione SaaS.
@@ -50,8 +50,8 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 | NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
-| **suffix** |Obbligatoria |string |Stringa da aggiungere alla fine del valore di origine. |
+| **source** |Obbligatorio |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **suffix** |Obbligatorio |string |Stringa da aggiungere alla fine del valore di origine. |
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
@@ -63,15 +63,15 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 | NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
-| **inputFormat** |Obbligatoria |string |Formato previsto del valore source. Per informazioni sui formati supportati, vedere [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
-| **outputFormat** |Obbligatoria |string |Formato della data di output. |
+| **source** |Obbligatorio |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **inputFormat** |Obbligatorio |string |Formato previsto del valore source. Per informazioni sui formati supportati, vedere [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **outputFormat** |Obbligatorio |string |Formato della data di output. |
 
 - - -
 ### <a name="join"></a>Join
 **Funzione:**<br>  Join(separator, source1, source2, …)
 
-**Descrizione:**<br> Join() è simile ad Append(), ma può combinare più valori di stringa **source** in una singola stringa e ogni valore sarà separato da una stringa **separator**.
+**Descrizione:**<br> Join() è simile ad Append(), ma può combinare più valori di stringa **source** in un singola stringa e ogni valore sarà separato da una stringa **separator**.
 
 Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i valori dell'attributo, separati dal valore separatore.
 
@@ -79,7 +79,7 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 | NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **separator** |Obbligatoria |string |Stringa usata per separare i valori di origine quando sono concatenati in una stringa. Può essere "" se non sono necessari separatori. |
+| **separator** |Obbligatorio |string |Stringa usata per separare i valori di origine quando sono concatenati in una stringa. Può essere "" se non sono necessari separatori. |
 | **source1 … sourceN** |Obbligatorio per un numero variabile di volte |string |Valori stringa da unire. |
 
 - - -
@@ -92,9 +92,9 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 | NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |string |Corrisponde in genere al nome dell'attributo. |
-| **start** |Obbligatoria |numero intero |Indice nella stringa **source** che indica il punto di inizio della sottostringa. L'indice del primo carattere della stringa sarà pari a 1, quello del secondo carattere a 2 e così via. |
-| **length** |Obbligatoria |numero intero |Lunghezza della sottostringa. Se la lunghezza eccede la stringa **source**, la funzione restituirà una sottostringa dall'indice **start** fino alla fine della stringa **source**. |
+| **source** |Obbligatorio |string |Corrisponde in genere al nome dell'attributo. |
+| **start** |Obbligatorio |numero intero |Indice nella stringa **source** che indica il punto di inizio della sottostringa. L'indice del primo carattere della stringa sarà pari a 1, quello del secondo carattere a 2 e così via. |
+| **length** |Obbligatorio |numero intero |Lunghezza della sottostringa. Se la lunghezza eccede la stringa **source**, la funzione restituirà una sottostringa dall'indice **start** fino alla fine della stringa **source**. |
 
 - - -
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -106,7 +106,7 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 | NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |string | In genere un attributo nome o cognome. |
+| **source** |Obbligatorio |string | In genere un attributo nome o cognome. |
 
 - - -
 ### <a name="not"></a>not
@@ -118,7 +118,7 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 | NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |Stringa booleana |I valori previsti per **source** sono "True" o "False". |
+| **source** |Obbligatorio |Stringa booleana |I valori previsti per **source** sono "True" o "False". |
 
 - - -
 ### <a name="replace"></a>Replace
@@ -145,7 +145,7 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 | NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **source** |Obbligatorio |string |In genere è il nome dell'attributo dell'oggetto di origine. |
 | **oldValue** |Facoltativo |string |Valore da sostituire in **source** o **template**. |
 | **regexPattern** |Facoltativo |string |Criterio di espressione regolare per il valore da sostituire in **source**. Se invece si usa replacementPropertyName, corrisponde al modello usato per estrarre il valore dalla proprietà di sostituzione. |
 | **regexGroupName** |Facoltativo |string |Nome del gruppo in **regexPattern**. Solo se si usa replacementPropertyName, il valore di questo gruppo verrà estratto come replacementValue dalla proprietà di sostituzione. |
@@ -175,13 +175,13 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **Funzione:**<br> SingleAppRoleAssignment([appRoleAssignments])
 
-**Descrizione:**<br> Richiede un argomento stringa. Restituisce la stringa, ma con i caratteri diacritici sostituiti dagli equivalenti caratteri non diacritici.
+**Descrizione:**<br> Restituisce un singolo oggetto appRoleAssignment dall'elenco di tutti gli oggetti appRoleAssignments assegnati a un utente per una determinata applicazione. Questa funzione è necessaria per convertire l'oggetto appRoleAssignments in una singola stringa relativa al nome di un ruolo. Si noti che la procedura consigliata è quella di assicurarsi che un solo oggetto appRoleAssignment venga assegnato a un solo utente alla volta. Se vengono assegnati più ruoli, la stringa di ruolo restituita potrebbe non essere prevedibile. 
 
 **Parametri:**<br> 
 
 | NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **[appRoleAssignments]** |Obbligatoria |string |Oggetto **[appRoleAssignments]**. |
+| **[appRoleAssignments]** |Obbligatorio |string |Oggetto **[appRoleAssignments]**. |
 
 - - -
 ### <a name="split"></a>Split
@@ -193,8 +193,8 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 | NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |string |**source** da aggiornare. |
-| **delimiter** |Obbligatoria |string |Specifica il carattere che verrà usato per dividere la stringa (esempio: ",") |
+| **source** |Obbligatorio |string |**source** da aggiornare. |
+| **delimiter** |Obbligatorio |string |Specifica il carattere che verrà usato per dividere la stringa (esempio: ",") |
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
@@ -206,7 +206,7 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 | NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |string |**source** da aggiornare. |
+| **source** |Obbligatorio |string |**source** da aggiornare. |
 
 - - -
 ### <a name="switch"></a>Switch
@@ -218,10 +218,10 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 | NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |string |**Source** da aggiornare. |
+| **source** |Obbligatorio |string |**Source** da aggiornare. |
 | **defaultValue** |Facoltativo |string |Valore predefinito da usare se l'origine non corrisponde ad alcuna chiave. Può essere una stringa vuota (""). |
-| **key** |Obbligatoria |string |Parametro **key** con cui confrontare il valore di **source**. |
-| **value** |Obbligatoria |string |Valore di sostituzione per il valore **source** corrispondente al parametro key. |
+| **key** |Obbligatorio |string |Parametro **key** con cui confrontare il valore di **source**. |
+| **value** |Obbligatorio |string |Valore di sostituzione per il valore **source** corrispondente al parametro key. |
 
 - - -
 ### <a name="tolower"></a>ToLower
@@ -233,7 +233,7 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 | NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **source** |Obbligatorio |string |In genere è il nome dell'attributo dell'oggetto di origine. |
 | **Impostazioni cultura** |Facoltativo |string |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
 
 - - -
@@ -246,7 +246,7 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 | NOME | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **source** |Obbligatorio |string |In genere è il nome dell'attributo dell'oggetto di origine. |
 | **Impostazioni cultura** |Facoltativo |string |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
 
 ## <a name="examples"></a>Esempi

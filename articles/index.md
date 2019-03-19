@@ -4326,6 +4326,49 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                         </ul>
                     </li>
                     <li>
+                        <a href="#mixed">Realtà mista</a>
+                        <ul id="mixed" class="cardsA">
+                            <li>
+                                <a href="/azure/digital-twins/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/digital_twin.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Gemelli digitali di Azure</h3>
+                                                    <p>Creare soluzioni per intelligenza spaziale IoT di nuova generazione</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/spatial-anchors/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/spatial_anchors.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Ancoraggi nello spazio di Azure</h3>
+                                                    <p>Creare esperienze di realtà mista multiutente e con riconoscimento dello spazio</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
                         <a href="#integration">Integrazione</a>
                         <ul id="integration" class="cardsA">
                             <li>
@@ -5828,49 +5871,6 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                                 <div class="cardText">
                                                     <h3>21Vianet per Microsoft Azure Cina</h3>
                                                     <p>Compilare e ospitare applicazioni in conformità ai criteri e alle normative di gestione dei dati previsti dagli enti pubblici in Cina</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#mixed">Realtà mista</a>
-                        <ul id="mixed" class="cardsA">
-                            <li>
-                                <a href="/azure/digital-twins/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/digital_twin.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Gemelli digitali di Azure</h3>
-                                                    <p>Creare soluzioni per intelligenza spaziale IoT di nuova generazione</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/spatial-anchors/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/spatial_anchors.png" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Ancoraggi nello spazio di Azure</h3>
-                                                    <p>Creare esperienze di realtà mista multiutente e con riconoscimento dello spazio</p>
                                                 </div>
                                             </div>
                                         </div>

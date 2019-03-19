@@ -114,7 +114,7 @@ items:
     href: notification-hubs-push-notification-http2-token-authentification.md
   - name: Risolvere i problemi delle notifiche eliminate
     href: notification-hubs-push-notification-fixer.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: .NET
     href: /dotnet/api/microsoft.azure.notificationhubs
@@ -137,16 +137,16 @@ items:
   - name: Forum MSDN
     href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-notificationhub
+    href: https://stackoverflow.com/questions/tagged/azure-notificationhub
   - name: Richiedere una funzionalità
     href: https://feedback.azure.com/forums/218849-notification-hubs
   - name: Aree di disponibilità
     href: https://azure.microsoft.com/regions/services/
   - name: Opzioni di supporto
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 9035ed7f81639770b1c962e4cf254e18fd3b46bd
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 67ddd379992757c3fe6a0bc2e37c70ef3718559b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311001"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835147"

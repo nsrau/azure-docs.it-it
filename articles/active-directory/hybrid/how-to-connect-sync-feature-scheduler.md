@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a40159a43db6f83029ed6eacd37d2a4eff28aa09
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1d5f4dec48d81b032de293bb6c68ad62ac48d475
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203846"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193059"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Servizio di sincronizzazione Azure AD Connect: Utilità di pianificazione
 Questo argomento illustra l'utilità di pianificazione predefinita nel servizio di sincronizzazione Azure AD Connect, anche detto motore di sincronizzazione.
@@ -55,7 +55,7 @@ Se quando si esegue questo cmdlet viene visualizzato il messaggio **Non è dispo
 * **PurgeRunHistoryInterval**. tempo di conservazione dei log operazioni. È possibile esaminare i log in Synchronization Service Manager. Per impostazione predefinita, i log vengono conservati per 7 giorni.
 * **SyncCycleEnabled**. indica se l'utilità di pianificazione esegue i processi di importazione, sincronizzazione ed esportazione come parte del funzionamento normale.
 * **MaintenanceEnabled**. indica se il processo di manutenzione è abilitato. Aggiorna i certificati o le chiavi e ripulisce i log operazioni.
-* **StagingModeEnabled**. Indica se la [modalità di gestione temporanea](how-to-connect-sync-operations.md#staging-mode) è abilitata. Se questa impostazione è abilitata, impedisce la riesecuzione delle esportazioni, ma esegue ugualmente l'importazione e la sincronizzazione.
+* **StagingModeEnabled**. Indica se la [modalità di gestione temporanea](how-to-connect-sync-staging-server.md) è abilitata. Se questa impostazione è abilitata, impedisce la riesecuzione delle esportazioni, ma esegue ugualmente l'importazione e la sincronizzazione.
 * **SchedulerSuspended**. Impostato da Connect durante un aggiornamento per bloccare temporaneamente l'esecuzione dell'utilità di pianificazione.
 
 Alcune di queste impostazioni possono essere modificate con `Set-ADSyncScheduler`. È possibile modificare i parametri seguenti:

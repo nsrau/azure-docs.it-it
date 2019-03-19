@@ -11,9 +11,9 @@ ms.date: 02/21/2019
 ms.topic: hub-page
 ---
 
+<div id="main" class="v2">
 <h1>Documentazione di Servizi cognitivi di Azure</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Informazioni su come creare algoritmi intelligenti nelle app, nei siti Web e nei bot per vedere, ascoltare, parlare e comprendere le esigenze degli utenti tramite i metodi di comunicazione naturali. Esercitazioni, guide introduttive, informazioni di riferimento sulle API ed esempi illustrano come eseguire queste operazioni.</p>
-
 <ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
         <li>
             <a href="/azure/cognitive-services/welcome/">
@@ -386,3 +386,4 @@ ms.topic: hub-page
         </div>
     </li>
 </ul>
+</div>

@@ -4,14 +4,14 @@ description: Domande frequenti su Avere vFXT per Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 02/28/2019
 ms.author: v-erkell
-ms.openlocfilehash: dbd9eaf531dcad230c23d1b41110036102faf3df
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 1dda3e379a9dcec9dc48d741c107ee352c4f2033
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652668"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404638"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Domande frequenti su Avere vFXT per Azure
 
@@ -63,7 +63,7 @@ Avere vFXT è una cache. Non è specificatamente progettato per archiviare i dat
 
 ### <a name="what-regions-are-supported"></a>Quali aree sono supportate?
 
-Dal 1 novembre 2018, Avere vFXT per Azure è supportato in tutte le aree ad eccezione delle aree sovrane (Cina e Germania) e di quelle per enti pubblici. Assicurarsi che l'area da usare riesca a supportare la quantità elevata di core di calcolo e le istanze di macchina virtuale necessarie per creare il cluster Avere vFXT.
+Avere vFXT per Azure è supportata in tutte le aree ad eccezione delle aree sovrane (Cina e Germania). Assicurarsi che l'area da usare riesca a supportare la quantità elevata di core di calcolo e le istanze di macchina virtuale necessarie per creare il cluster Avere vFXT.
 
 ### <a name="how-do-i-get-help-with-avere-vfxt"></a>Come ottenere assistenza con Avere vFXT?
 
@@ -88,15 +88,17 @@ Avere vFXT è un'appliance di cluster costituita da più macchine virtuali di Az
 
 ### <a name="what-kind-of-azure-virtual-machines-does-avere-vfxt-run-on"></a>Con quali tipi di macchine virtuali di Azure può essere eseguito Avere vFXT?  
 
-Un cluster Avere vFXT per Azure usa le macchine virtuali di Microsoft Azure E32s_v3 o D16s_v3. 
+Un vFXT Avere per cluster di Azure Usa le macchine virtuali di Microsoft Azure E32s_v3. 
 
-### <a name="can-i-mix-and-match-virtual-machine-types-for-my-cluster"></a>È possibile combinare tipi di macchine virtuali diverse per un cluster?
+<!-- ### Can I mix and match virtual machine types for my cluster?
 
-No, è necessario scegliere un tipo specifico di macchina virtuale.
+No, you must choose one virtual machine type or the other.
     
-### <a name="can-i-move-between-virtual-machine-types"></a>È possibile passare da un tipo di macchine virtuali all'altro?
+### Can I move between virtual machine types?
 
-Sì, è disponibile un percorso di migrazione per passare da un tipo di macchine virtuali all'altro. [Aprire un ticket di supporto](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) per saperne di più.
+Yes, there is a migration path to move from one VM type to the other. [Open a support ticket](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) to learn how.
+
+-->
 
 ### <a name="does-the-avere-vfxt-environment-scale"></a>L'ambiente Avere vFXT può essere ridimensionato?
 
@@ -175,7 +177,7 @@ Sì, è possibile creare il sistema Avere vFXT in un'altra rete virtuale. Legger
 
 ### <a name="does-avere-vfxt-require-its-own-subnet"></a>Avere vFXT richiede una subnet propria?
 
-Sì. Avere vFXT viene eseguito esclusivamente come cluster a disponibilità elevata e richiede più indirizzi IP per il funzionamento. Se il cluster è nella propria subnet, si evita il rischio di conflitti di indirizzi IP, che possono causare problemi per l'installazione e il normale funzionamento. La subnet del cluster può essere all'interno della rete virtuale esistente purché non si sovrapponga alcun indirizzo IP.
+Sì. Avere vFXT viene eseguito esclusivamente come un cluster a disponibilità elevata (HA) e richiede più indirizzi IP per il funzionamento. Se il cluster è nella propria subnet, si evita il rischio di conflitti di indirizzi IP, che possono causare problemi per l'installazione e il normale funzionamento. La subnet del cluster può essere all'interno della rete virtuale esistente purché non si sovrapponga alcun indirizzo IP.
 
 ### <a name="can-i-run-avere-vfxt-on-infiniband"></a>È possibile eseguire Avere vFXT con InfiniBand?
 
@@ -214,6 +216,10 @@ In termini generali, Avere vFXT per Azure supporta i sistemi seguenti come core 
 
 * Dell EMC Isilon (OneFS 7.1, 7.2, 8.0 e 8.1) 
 * NetApp ONTAP (modalità Cluster 9.4, 9.3, 9.2, 9.1P1, 8.0-8.3) e (modalità 7 7.*, 8.0-8.3) 
+
+  > [!NOTE] 
+  > File di NetApp Azure attualmente non è supportato. 
+
 * Contenitori BLOB di Azure (solo archiviazione con ridondanza locale) 
 * Bucket di AWS S3 
 * Bucket di Google Cloud

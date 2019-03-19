@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9910155b439b5ee6d0e5abd96d750943605098a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 88839598b3ae11f0041b3451ba5481547c019c9d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211598"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449615"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integrazione di directory tra il server Azure MFA e Active Directory
 
@@ -61,7 +61,7 @@ Azure Multi-Factor Authentication offre le tre opzioni di filtro seguenti:
 * **Filtro utente** : specificare i criteri di filtro usati per qualificare record utenti quando si esegue una ricerca di directory.  Per Active Directory e ADAM, in genere si usa (&(objectClass=user)(objectCategory=person)).  Per altre directory LDAP, usare (objectClass=inetOrgPerson) o un criterio simile, a seconda dello scherma di directory. <br>Note:  se viene lasciato vuoto, per impostazione predefinita viene usato (&(objectCategory=person)(objectClass=user)).
 
 ## <a name="attributes"></a>Attributi
-È possibile personalizzare gli attributi per una directory specifica in base alle necessità.  Questo permette di aggiungere attributi personalizzati e perfezionare la sincronizzazione per limitarla solo agli attributi necessari. Usare il nome dell'attributo definito nello schema di directory per valore di ogni campo attributo. La tabella seguente contiene informazioni aggiuntive su ognuna delle funzionalità.
+È possibile personalizzare gli attributi per una directory specifica in base alle necessità.  Questo permette di aggiungere attributi personalizzati e perfezionare la sincronizzazione per limitarla solo agli attributi necessari. Usare il nome dell'attributo definito nello schema di directory per il valore di ogni campo attributo. La tabella seguente contiene informazioni aggiuntive su ognuna delle funzionalità.
 
 Gli attributi possono essere immessi manualmente e non devono corrispondere necessariamente a un attributo dell'elenco.
 
@@ -71,7 +71,7 @@ Gli attributi possono essere immessi manualmente e non devono corrispondere nece
 | --- | --- |
 | Identificatore univoco |Immettere il nome dell'attributo da usare come identificatore univoco di record contenitori, gruppi di sicurezza e utenti.  In Active Directory si usa in genere objectGUID. In altre implementazioni LDAP è possibile usare entryUUID o un valore simile.  Il valore predefinito è objectGUID. |
 | Tipo di identificatore univoco |Selezionare il tipo di attributo dell'identificatore univoco.  In Active Directory l'attributo objectGUID è di tipo GUID. In altre implementazioni LDAP è possibile usare il tipo Stringa o Matrice di byte ASCII.  Il valore predefinito è GUID. <br><br>È importante impostare correttamente questo tipo, perché il relativo identificatore univoco fa riferimento agli elementi di sincronizzazione. Il tipo identificatore univoco viene usato per trovare direttamente l'oggetto nella directory.  Se si imposta questo tipo su Stringa mentre nella directory il valore viene archiviato come matrice di byte di caratteri ASCII, la sincronizzazione non può funzionare correttamente. |
-| Nome distinto |Immettere il nome dell'attributo che contiene il nome distinto per ogni record.  In Active Directory si usa in genere distinguishedName. In altre implementazioni LDAP è possibile usare entryDN o un valore simile.  Il valore predefinito è distinguishedName. <br><br>Se non esiste un attributo contenente solo il nome distinto, è possibile usare l'attributo adspath.  La parte "LDAP://\<server\>/" del percorso viene automaticamente rimossa lasciando solo il nome distinto dell'oggetto. |
+| Nome distinto |Immettere il nome dell'attributo che contiene il nome distinto per ogni record.  In Active Directory si usa in genere distinguishedName. In altre implementazioni LDAP è possibile usare entryDN o un valore simile.  Il valore predefinito è distinguishedName. <br><br>Se non esiste un attributo contenente solo il nome distinto, l'attributo di percorso annunci può essere utilizzato.  La parte "LDAP://\<server\>/" del percorso viene automaticamente rimossa lasciando solo il nome distinto dell'oggetto. |
 | Nome contenitore |Immettere il nome dell'attributo che contiene il nome in un record contenitore.  Il valore di questo attributo viene visualizzato nella Gerarchia contenitori durante l'importazione da Active Directory o l'aggiunta di elementi di sincronizzazione.  Il valore predefinito è name. <br><br>Se contenitori diversi usano attributi diversi per i relativi nomi, è possibile specificare più attributi del nome contenitore separati da un punto e virgola.  Il primo attributo del nome contenitore trovato in un oggetto contenitore viene usato per visualizzarne il nome. |
 | Nome gruppo di sicurezza |Immettere il nome dell'attributo che contiene il nome in un record gruppo di sicurezza.  Il valore di questo attributo viene visualizzato nell'elenco Gruppo di sicurezza durante l'importazione da Active Directory o l'aggiunta di elementi di sincronizzazione.  Il valore predefinito è name. |
 | Username |Immettere il nome dell'attributo che contiene il nome utente in un record utente.  Il valore di questo attributo viene usato come nome utente del server Multi-Factor Authentication.  È possibile specificare anche un secondo attributo come backup del primo.  Il secondo attributo viene usato solo se il primo non contiene un valore per l'utente.  I valori predefiniti sono userPrincipalName e sAMAccountName. |

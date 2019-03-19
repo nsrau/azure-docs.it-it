@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 2e20623c015f8bc80b61f07e28c49d49df73887b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 534307cfd71551de5427a196902b275a15ad44b5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189439"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436375"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Ottimizzare l'ambiente SQL Server con la soluzione Controllo integrità SQL Server in Log Analytics
 
@@ -63,7 +63,7 @@ Se l'istanza di SQL Server è monitorata da Operations Manager, è necessario co
 Controllo integrità SQL raccoglie i dati dalle origini seguenti usando l'agente abilitato:
 
 * Strumentazione gestione Windows (WMI)
-*  Registro
+* Registro
 * Contatori delle prestazioni
 * Risultati della DMV (Dynamic Management View, vista a gestione dinamica) di SQL Server
 
@@ -186,7 +186,7 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Lo
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-    Ecco lo screenshot che mostra la query di ricerca nei log: <br><br> ![raccomandazioni non riuscite](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
+    Di seguito è riportata una schermata che mostra la query di ricerca Log:<br><br> ![raccomandazioni non riuscite](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
 
 3. Scegliere le raccomandazioni che si vogliono ignorare. Nella procedura successiva verranno usati i valori per ID raccomandazione.
 

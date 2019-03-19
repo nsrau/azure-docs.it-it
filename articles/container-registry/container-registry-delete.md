@@ -1,5 +1,5 @@
 ---
-title: Eliminare le risorse immagine nel registro contenitori di Azure
+title: Eliminare le risorse immagine in Registro Azure Container
 description: Informazioni dettagliate su come gestire in modo efficace le dimensioni del registro eliminando i dati di immagini del contenitore.
 services: container-registry
 author: dlepow
@@ -7,14 +7,14 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
-ms.openlocfilehash: b18638057def03a02024200edb157e5caf08a669
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: f3206da25a3c0727e3f9fe12190580a6c28c81a3
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065172"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983252"
 ---
-# <a name="delete-container-images-in-azure-container-registry"></a>Eliminare le immagini del contenitore nel registro contenitori di Azure
+# <a name="delete-container-images-in-azure-container-registry"></a>Eliminare le immagini del contenitore in Registro Azure Container
 
 Per mantenere le dimensioni del registro contenitori di Azure, è consigliabile eliminare periodicamente i dati di immagini non aggiornati. Alcune immagini di contenitori distribuite in produzione potrebbero richiedere un'archiviazione a lungo termine, mentre altre possono solitamente essere eliminate prima. Ad esempio, in uno scenario di compilazione e test automatici, il registro può riempirsi velocemente di immagini che non verranno mai distribuite, pertanto potrà essere svuotato subito dopo aver compilato la build ed effettuato correttamente i test.
 
@@ -22,7 +22,7 @@ Poiché è possibile eliminare i dati di immagini in modi diversi, è importante
 
 ## <a name="registry"></a> Registro
 
-Un *registro* contenitori è un servizio che archivia e distribuisce immagini del contenitore. Docker Hub è un registro contenitori di Docker pubblico, mentre il registro contenitori di Azure fornisce registri contenitori di Docker privati in Azure.
+Un *registro* contenitori è un servizio che archivia e distribuisce immagini del contenitore. Docker Hub è un registro contenitori di Docker pubblico, mentre Registro Azure Container fornisce registri contenitori di Docker privati in Azure.
 
 ## <a name="repository"></a>Repository
 
@@ -54,7 +54,7 @@ Il *tag* di un'immagine ne specifica la versione. A una singola immagine all'int
 
 Il nome di un'immagine è definito dal repository (o da repository e spazio dei nomi) e da un tag. È possibile eseguire il push e il pull di un'immagine specificandone il nome nella relativa operazione.
 
-In un registro privato, ad esempio il registro contenitori di Azure, il nome dell'immagine include anche il nome completo dell'host del registro. L'host del registro per immagini in Registro Azure Container è nel formato *acrname.azurecr.io*. Ad esempio, il nome completo della prima immagine nello spazio dei nomi "marketing" della sezione precedente è:
+In un registro privato, ad esempio il Registro Azure Container, il nome dell'immagine include anche il nome completo dell'host del registro. L'host del registro per immagini in Registro Azure Container è nel formato *acrname.azurecr.io*. Ad esempio, il nome completo della prima immagine nello spazio dei nomi "marketing" della sezione precedente è:
 
 ```
 myregistry.azurecr.io/marketing/campaign10-18/web:v2
@@ -70,7 +70,7 @@ La condivisione dei livelli ne ottimizza anche la distribuzione ai nodi, in quan
 
 ### <a name="manifest"></a>Manifesto
 
-A ogni immagine del contenitore di cui viene eseguito il push in un registro contenitori viene associato un *manifesto* generato dal registro quando l'immagine viene inserita. Il manifesto identifica in modo univoco l'immagine e ne specifica i livelli. È possibile elencare i manifesti per un repository con il comando dell'interfaccia della riga di comando di Azure [az acr repository show-manifests][az-acr-repository-show-manifests]:
+A ogni immagine del contenitore inserita in un registro contenitori viene associato un *manifesto* generato dal registro quando l'immagine viene inserita. Il manifesto identifica in modo univoco l'immagine e ne specifica i livelli. È possibile elencare i manifesti per un repository con il comando dell'interfaccia della riga di comando di Azure [az acr repository show-manifests][az-acr-repository-show-manifests]:
 
 ```azurecli
 az acr repository show-manifests --name <acrName> --repository <repositoryName>
@@ -245,14 +245,14 @@ Come accennato nella sezione [Hash di manifesto](#manifest-digest), il push di u
    ]
    ```
 
-Come si evince dall'output dell'ultimo passaggio della sequenza, ora è presente un manifesto orfano la cui proprietà `"tags"` è una matrice vuota. Questo manifesto è ancora presente nel registro, insieme a tutti i dati dei livelli univoci a cui fa riferimento. **Per eliminare le immagini orfane e i relativi dati di livelli, è necessario eliminarle tramite l'hash di manifesto**.
+Come può vedere nell'output dell'ultimo passaggio della sequenza, è ora disponibile un orfano manifesto cui `"tags"` proprietà è un elenco vuoto. Questo manifesto è ancora presente nel registro, insieme a tutti i dati dei livelli univoci a cui fa riferimento. **Per eliminare le immagini orfane e i relativi dati di livelli, è necessario eliminarle tramite l'hash di manifesto**.
 
 ### <a name="list-untagged-images"></a>Elencare le immagini senza tag
 
 È possibile elencare tutte le immagini senza tag nel repository usando il comando seguente dell'interfaccia della riga di comando di Azure. Sostituire `<acrName>` e `<repositoryName>` con i valori appropriati all'ambiente.
 
 ```azurecli
-az acr repository show-manifests --name <acrName> --repository <repositoryName> --query "[?!(tags[?'*'])].digest"
+az acr repository show-manifests --name <acrName> --repository <repositoryName> --query "[?tags[0]==null].digest"
 ```
 
 ### <a name="delete-all-untagged-images"></a>Eliminare tutte le immagini senza tag
@@ -283,7 +283,7 @@ REPOSITORY=myrepository
 # Delete all untagged (orphaned) images
 if [ "$ENABLE_DELETE" = true ]
 then
-    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?!(tags[?'*'])].digest" -o tsv \
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?tags[0]==null].digest" -o tsv \
     | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
 else
     echo "No data deleted. Set ENABLE_DELETE=true to enable image deletion."
@@ -310,7 +310,7 @@ $registry = "myregistry"
 $repository = "myrepository"
 
 if ($enableDelete) {
-    az acr repository show-manifests --name $registry --repository $repository --query "[?!(tags[?'*'])].digest" -o tsv `
+    az acr repository show-manifests --name $registry --repository $repository --query "[?tags[0]==null].digest" -o tsv `
     | %{ az acr repository delete --name $registry --image $repository@$_ --yes }
 } else {
     Write-Host "No data deleted. Set `$enableDelete = `$TRUE to enable image deletion."
@@ -319,7 +319,7 @@ if ($enableDelete) {
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'archiviazione delle immagini nel registro contenitori di Azure, vedere [Archiviazione di immagini del contenitore nel registro contenitori di Azure](container-registry-storage.md).
+Per altre informazioni sull'archiviazione delle immagini in Registro Azure Container, vedere [Archiviazione di immagini del contenitore in Registro Azure Container](container-registry-storage.md).
 
 <!-- IMAGES -->
 [manifest-digest]: ./media/container-registry-delete/01-manifest-digest.png

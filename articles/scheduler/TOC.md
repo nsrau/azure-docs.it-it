@@ -32,7 +32,7 @@
 ## [Roadmap per l'Utilità di pianificazione di Azure](https://azure.microsoft.com/updates/?product=scheduler)
 ## [Roadmap per Azure](https://azure.microsoft.com/updates/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-scheduler)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/scheduler/)
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=scheduler)

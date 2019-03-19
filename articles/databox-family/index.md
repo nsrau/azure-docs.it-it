@@ -1,6 +1,6 @@
 ---
 title: Documentazione di Azure Data Box
-description: La famiglia Azure Data Box include prodotti con capacità di archiviazione diverse per supportare l'invio di terabyte di dati ad Azure in modo veloce, conveniente e affidabile. Microsoft velocizza il trasferimento sicuro dei dati tramite la spedizione di dispositivi di archiviazione proprietari che consentono il trasferimento di dati offline o tramite rete.
+description: 'La famiglia Azure Data Box include prodotti con capacità di archiviazione diverse per supportare l''invio di terabyte di dati ad Azure in modo veloce, conveniente e affidabile. Microsoft velocizza il trasferimento sicuro dei dati tramite la spedizione di dispositivi di archiviazione proprietari che consentono il trasferimento di dati offline o tramite rete.'
 services: databox
 author: alkohli
 manager: twooley
@@ -11,16 +11,10 @@ ms.devlang: na
 ms.topic: hub-page
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 09e0debba88ed87ab84b567e797d3ae63ec32a81
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157106"
 ---
+<div id="main" class="v2">
 <h1>Azure Data Box</h1>
 <p>La famiglia Azure Data Box include prodotti con capacità di archiviazione diverse per supportare l'invio di terabyte (TB) di dati ad Azure in modo veloce, conveniente e affidabile. Microsoft velocizza il trasferimento sicuro dei dati tramite la spedizione di dispositivi di archiviazione proprietari che consentono il trasferimento di dati offline o tramite rete.</p>
-
 <h2>Trasferimento dei dati offline</h2>
 <p>Per larghezza di banda di rete limitata o assente</p>
 <ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
@@ -79,7 +73,6 @@ ms.locfileid: "54157106"
         </a>
     </li>
 </ul>
-
 <h2>Trasferimento dei dati online</h2>
 <p>Trasferimento tramite rete</p>
 <ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
@@ -120,3 +113,4 @@ ms.locfileid: "54157106"
         </a>
     </li>
 </ul>
+</div>

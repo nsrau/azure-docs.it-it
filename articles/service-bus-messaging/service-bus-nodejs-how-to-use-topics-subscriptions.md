@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: aschhab
-ms.openlocfilehash: a5d0f457d06bd4e4e655d8f3ebc712f4d6ee7523
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: c2a6acc1ce48a8671af20df6daa89498a81fdb4c
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849907"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587158"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Come usare gli argomenti e le sottoscrizioni del bus di servizio con Node.js
 
@@ -36,6 +36,8 @@ Questa guida descrive come usare gli argomenti e le sottoscrizioni del bus di se
 Per altre informazioni su argomenti e sottoscrizioni, vedere la sezione [Passaggi successivi](#next-steps).
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-nodejs-application"></a>Creare un'applicazione Node.js
 Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web Azure] oppure [Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure][Node.js Cloud Service] con Windows PowerShell o Sito Web con WebMatrix.
@@ -325,7 +327,7 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
 });
 ```
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di servizio, usare i seguenti collegamenti per altre informazioni.
 
 * Vedere [Code, argomenti e sottoscrizioni del bus di servizio][Queues, topics, and subscriptions].
