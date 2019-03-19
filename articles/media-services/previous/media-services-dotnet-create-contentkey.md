@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: af8c2b547e1ce1b15410ee20eb59934559ac41ac
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 148e5b8dad4e204f9cf0ab4288777b65765666e8
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992161"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245676"
 ---
-# <a name="create-contentkeys-with-net-legacy"></a>Creare entità ContentKey mediante .NET (legacy)
+# <a name="create-contentkeys-with-net"></a>Creare entità ContentKey mediante .NET 
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: bd6c592f0d3d073ec2a05c8f4636086df01ddb06
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: b653b0276cedea1e3b45adf7a9dc390b24f0d03f
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450746"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213620"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guida alla pubblicazione dell'offerta di applicazioni SaaS
 
@@ -39,9 +39,9 @@ Le applicazioni SaaS sono disponibili in entrambe le vetrine di Azure. La tabell
 
 | Offerta di app SaaS | Requisiti aziendali | Requisiti tecnici |  
 | --- | --- | --- |  
-| **Contatta** | Yes | No  |  
-| **PowerBI/Dynamics** | Yes | Sì (integrazione di Azure AD) |  
-| **App SaaS**| Yes | Sì (integrazione di Azure AD) |     
+| **Contatta** | Sì | No  |  
+| **PowerBI/Dynamics** | Sì | Sì (integrazione di Azure AD) |  
+| **App SaaS**| Sì | Sì (integrazione di Azure AD) |     
 
 ## <a name="saas-list"></a>Elenco SaaS
 
@@ -143,6 +143,9 @@ Microsoft gestisce la transazione commerciale. Microsoft invia gli addebiti al c
 |Annullamento | L'offerta può essere annullata dal cliente in qualsiasi momento. |  
 |Pagina di destinazione delle transazioni | L'editore ospita una pagina di destinazione delle transazioni di Azure con co-branding in cui gli utenti possono creare e gestire il proprio account per il servizio SaaS. |   
 | API della sottoscrizione | L'editore espone un servizio che può interagire con la sottoscrizione SaaS per creare, aggiornare ed eliminare un account utente e un piano di servizio. Le modifiche critiche all'API devono essere supportate entro 24 ore. Le modifiche non critiche all'API verranno rilasciate periodicamente. |  
+
+>[!Note]
+>Cloud Solution Provider (CSP) partner canale acconsentire esplicitamente a questo punto è disponibile.  Vedi [Cloud Solution Provider](./cloud-solution-providers.md) per altre informazioni sul marketing dell'offerta tramite Microsoft CSP partner canali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se non è già stato fatto,

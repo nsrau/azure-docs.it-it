@@ -3,7 +3,7 @@ title: Eseguire query per gli eventi del cluster usando le API di EventStore nei
 description: Informazioni su come usare le API di EventStore in Azure Service Fabric per eseguire query per eventi della piattaforma
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/29/2018
-ms.author: dekapur
-ms.openlocfilehash: 556b3375a0f5d138255ba4c46b034894b1037da0
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: HT
+ms.date: 02/25/2019
+ms.author: srrengar
+ms.openlocfilehash: 491f113a3f08293b5f978242d27714b576d85d6f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722327"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818800"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>Eseguire query sulle API di EventStore per eventi del cluster
 

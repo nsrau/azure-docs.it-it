@@ -12,18 +12,18 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/23/2018
-ms.author: dekapur
-ms.openlocfilehash: e4537c789bfae0fb485e818bf68e87de27b88720
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.date: 2/25/2019
+ms.author: srrengar
+ms.openlocfilehash: 6aec4e4bbf0abcfb6201da50381b6697a47716fa
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102053"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244588"
 ---
 # <a name="list-of-service-fabric-events"></a>Elenco degli eventi di Service Fabric 
 
-Service Fabric espone un set primario di eventi del cluster, sotto forma di [eventi di Service Fabric](service-fabric-diagnostics-events.md), per offrire informazioni sullo stato del cluster. Questi eventi sono basati sulle azioni eseguite da Service Fabric sui nodi e sul cluster oppure sulle decisioni di gestione prese dal proprietario/operatore del cluster Per accedere a questi eventi, è possibile effettuare la configurazione in diversi modi, ad esempio configurando [Log Analytics con il cluster](service-fabric-diagnostics-oms-setup.md) o eseguendo query su [EventStore](service-fabric-diagnostics-eventstore.md). Nei computer Windows questi eventi vengono inseriti nel registro eventi ed è quindi possibile visualizzare gli eventi di Service Fabric nel Visualizzatore eventi. 
+Service Fabric espone un set primario di eventi del cluster, sotto forma di [eventi di Service Fabric](service-fabric-diagnostics-events.md), per offrire informazioni sullo stato del cluster. Questi eventi sono basati sulle azioni eseguite da Service Fabric sui nodi e sul cluster oppure sulle decisioni di gestione prese dal proprietario/operatore del cluster Questi eventi sono accessibili tramite la configurazione in diversi modi, tra cui la configurazione [log di monitoraggio di Azure con il cluster](service-fabric-diagnostics-oms-setup.md), o l'esecuzione di query il [EventStore](service-fabric-diagnostics-eventstore.md). Nei computer Windows questi eventi vengono inseriti nel registro eventi ed è quindi possibile visualizzare gli eventi di Service Fabric nel Visualizzatore eventi. 
 
 Ecco alcune caratteristiche di questi eventi
 * Ogni evento è associato a un'entità specifica nel cluster, ad esempio applicazione, servizio, nodo, replica.

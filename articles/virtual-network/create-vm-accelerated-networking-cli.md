@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 8c913d618313a72f6fb05ea45847a220f6070d42
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: b06bc6b41081f05a7067f82f46affc37d21f50b1
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765739"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213297"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Creare una macchina virtuale Linux con rete accelerata
 
@@ -55,7 +55,7 @@ Le distribuzioni seguenti sono supportate in modo nativo dalla raccolta di Azure
 ### <a name="supported-vm-instances"></a>Istanze di VM supportate
 La funzionalità Rete accelerata è supportata nella maggior parte delle istanze di utilizzo generico e ottimizzate per il calcolo con 2 o più vCPU.  Queste serie supportate sono D/DSv2 e F/Fs
 
-Nelle istanze che supportano l'hyperthreading, la Rete accelerata è supportata nelle istanze di macchine virtuali con 4 o più vCPU. Le serie supportate sono D/DSv3, E/ESv3, Fsv2 e Ms/Mms.
+Nelle istanze che supportano l'hyperthreading, la Rete accelerata è supportata nelle istanze di macchine virtuali con 4 o più vCPU. Le serie supportate sono D/DSV3, e/esv3, Fsv2, Lsv2, Ms/Mms e Ms/Mmsv2.
 
 Per altre informazioni sulle istanze di VM, vedere [Dimensioni per le macchine virtuali Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -71,9 +71,14 @@ In una dimensione della macchina virtuale supportata in cui la Rete accelerata n
 Le macchine virtuali (classiche) non possono essere distribuite con la funzionalità Rete accelerata.
 
 ## <a name="create-a-linux-vm-with-azure-accelerated-networking"></a>Creare una macchina virtuale Linux con Rete accelerata di Azure
+## <a name="portal-creation"></a>Creazione nel portale
+Questo articolo illustra la procedura per creare una macchina virtuale con rete accelerata tramite l'interfaccia della riga di comando di Azure, ma è anche possibile [creare una macchina virtuale con rete accelerata usando il portale di Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Quando si crea una macchina virtuale nel portale, nel **creare una macchina virtuale** blade, scegliere il **Networking** scheda.  In questa scheda è disponibile un'opzione per **rete accelerata**.  Se si è scelto un [sistema operativo supportato](#supported-operating-systems) e [dimensione di VM](#supported-vm-instances), questa opzione verrà popolato automaticamente su "Sì".  In caso contrario, verrà popolare l'opzione "Disattivato" per la rete accelerata e concedere all'utente un motivo per cui non è possibile abilitato.   
 
-Questo articolo illustra la procedura per creare una macchina virtuale con rete accelerata tramite l'interfaccia della riga di comando di Azure, ma è anche possibile [creare una macchina virtuale con rete accelerata usando il portale di Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Quando si crea una macchina virtuale nel portale, in **Impostazioni** selezionare **Abilitata** in **Rete accelerata**. L'opzione per abilitare la rete accelerata non compare nel portale a meno che non siano stati selezionati un [sistema operativo supportato](#supported-operating-systems) e [le dimensioni delle macchine virtuali](#supported-vm-instances). Dopo aver creato la macchina virtuale, è necessario eseguire le istruzioni riportate nella sezione [Verificare che la rete accelerata sia abilitata](#confirm-that-accelerated-networking-is-enabled).
+* *Nota:* Solo i sistemi operativi supportati può essere abilitati tramite il portale.  Se si usa un'immagine personalizzata e l'immagine supporta la funzionalità rete accelerata, creare la macchina virtuale usando Powershell o CLI. 
 
+Dopo aver creata la macchina virtuale, è possibile verificare la rete accelerata è abilitata, seguire le istruzioni riportate nel [verificare che sia abilitata la funzionalità rete accelerata](#confirm-that-accelerated-networking-is-enabled).
+
+## <a name="cli-creation"></a>Creazione dell'interfaccia della riga
 ### <a name="create-a-virtual-network"></a>Crea rete virtuale
 
 Installare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) e accedere all'account di Azure con il comando [az login](/cli/azure/reference-index). Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myNic* e *myVM*.

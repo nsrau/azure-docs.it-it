@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/21/2019
 ms.author: juliako
-ms.openlocfilehash: d49d056ab84b60389df8bcaf1c75d6224633863d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: cda029dd11e8cb4cb07e9fce7eef95d6d4d78d7e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337859"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960217"
 ---
 # <a name="cloud-upload-and-storage"></a>Caricamento e archiviazione nel cloud
 
@@ -31,14 +31,14 @@ L'account di Servizi multimediali e tutti gli account di archiviazione associati
 
 È consigliabile usare account GPv2, per poter scegliere tra livelli di archiviazione ad accesso frequente e livelli di archiviazione ad accesso sporadico. Per altre informazioni sugli account di archiviazione, vedere la [panoramica degli account di Archiviazione di Azure](../../storage/common/storage-account-overview.md). 
 
+Esistono diversi SKU è possibile scegliere per l'account di archiviazione. Per altre informazioni, vedere [account di archiviazione](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Se si vogliono provare gli account di archiviazione, usare `--sku Standard_LRS`. Tuttavia, quando si sceglie SKU per la produzione, è consigliabile usare `--sku Standard_RAGRS` che offre la replica geografica per la continuità aziendale. 
+
 ## <a name="assets-in-a-storage-account"></a>Asset in un account di archiviazione
 
-In Servizi multimediali v3, le API di archiviazione vengono usate per caricare i file.
+In servizi multimediali v3, le API di archiviazione vengono usate per caricare file nell'asset. Per altre informazioni, vedere [concetto asset](assets-concept.md).
 
 > [!Note]
 > È consigliabile non tentare di modificare il contenuto dei contenitori BLOB generati dall'SDK di Servizi multimediali senza usare le API di Servizi multimediali.
-
-Per informazioni su come usare le API di archiviazione con Servizi multimediali per caricare i file di input, consultare [Create a job input from a local file](job-input-from-local-file-how-to.md) (Creare un input del processo da un file locale). 
  
 ## <a name="next-steps"></a>Passaggi successivi
 

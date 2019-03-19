@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ee1b2a40dbcbd53a758ac71f30401778ef07e872
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: fcb1e4f32608a1c83b653984dfa066da38e7c451
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229758"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960760"
 ---
 # <a name="import-data-wizard-for-azure-search"></a>Procedura guidata Importa dati per Ricerca di Azure
 
@@ -77,7 +77,9 @@ La procedura guidata **Importa dati** crea un oggetto origine dati permanente ch
 * [Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md)
 * [Archiviazione tabelle di Azure](cognitive-search-concept-intro.md) (non supportato per le pipeline di [ricerca cognitiva](search-howto-indexing-azure-tables.md))
 
-Un set di dati bidimensionale è un input obbligatorio. È possibile eseguire l'importazione solo da una singola tabella, di una vista di database o di una struttura dei dati equivalente. È necessario creare la struttura dei dati prima di eseguire la procedura guidata.
+Un set di dati bidimensionale è un input obbligatorio. È possibile eseguire l'importazione solo da una singola tabella, di una vista di database o di una struttura dei dati equivalente. 
+
+È consigliabile creare questa struttura di dati prima di eseguire la procedura guidata e deve contenere il contenuto. Non eseguire la **importare dati** procedura guidata in un'origine dati vuota.
 
 |  Selezione | Descrizione |
 | ---------- | ----------- |
@@ -85,7 +87,7 @@ Un set di dati bidimensionale è un input obbligatorio. È possibile eseguire l'
 | **Esempi**| Ricerca di Azure ospita un database SQL di Azure pubblico gratuito che è possibile usare per apprendere il funzionamento delle richieste di importazione e query in Ricerca di Azure. Vedere [Avvio rapido: Usare gli strumenti predefiniti del portale per importazione, indicizzazione e query in Ricerca di Azure](search-get-started-portal.md) per una procedura dettagliata. |
 | **Database SQL di Azure** |Il nome del servizio, le credenziali per un utente di database con autorizzazione di lettura e un nome di database possono essere specificati nella pagina o tramite una stringa di connessione ADO.NET. Per visualizzare o personalizzare le proprietà, scegliere l'opzione relativa alla stringa di connessione. <br/><br/>È necessario specificare nella pagina la tabella o la vista che fornisce il set di righe. Questa opzione viene visualizzata quando la connessione ha esito positivo, con un elenco a discesa che permette di effettuare una selezione. |
 | **Macchine virtuali SQL Server in Azure** |Specificare un nome completo del servizio, un ID utente, una password e un database come stringa di connessione. Per usare questa origine dati, è necessario avere già installato un certificato nell'archivio locale che esegue la crittografia della connessione. Per istruzioni, vedere [Connessione di una macchina virtuale SQL a Ricerca di Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>È necessario specificare nella pagina la tabella o la vista che fornisce il set di righe. Questa opzione viene visualizzata quando la connessione ha esito positivo, con un elenco a discesa che permette di effettuare una selezione. |
-| **Azure Cosmos DB** |Tra i requisiti: l'account, il database e la raccolta. Tutti i documenti nella raccolta verranno inclusi nell'indice. È possibile definire una query per rendere flat o filtrare il set di righe oppure per rilevare i documenti modificati per operazioni successive di aggiornamento dei dati. |
+| **Cosmos DB** |Tra i requisiti: l'account, il database e la raccolta. Tutti i documenti nella raccolta verranno inclusi nell'indice. È possibile definire una query per rendere flat o filtrare il set di righe o lasciare vuota la query. In questa procedura guidata non è necessaria una query.|
 | **Archiviazione BLOB di Azure** |Tra i requisiti: l'account di archiviazione e un contenitore. Facoltativamente, se i nomi dei BLOB seguono una convenzione di denominazione virtuale a scopo di raggruppamento, è possibile specificare la porzione directory virtuale del nome come una cartella nel contenitore. Per altre informazioni, vedere [Indicizzazione di documenti nell'archivio BLOB di Azure con Ricerca di Azure](search-howto-indexing-azure-blob-storage.md). |
 | **Archiviazione tabelle di Azure** |Tra i requisiti: l'account di archiviazione e un nome di tabella. Facoltativamente, è possibile specificare una query per recuperare un subset delle tabelle. Per altre informazioni, vedere [Indicizzazione nell'archivio tabelle di Azure con Ricerca di Azure](search-howto-indexing-azure-tables.md). |
 

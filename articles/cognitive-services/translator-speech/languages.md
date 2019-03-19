@@ -10,18 +10,19 @@ ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 482968af53694f7d40a7077435d33a83884c8808
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 63592a0afc7e5da0a37c25c226b92b587aa5f886
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873045"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673700"
 ---
 # <a name="languages-supported-by-the-translator-speech-api"></a>Lingue supportate dall'API Traduzione vocale
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
-Di seguito sono elencate le lingue supportate per la traduzione vocale. Se per la traduzione vocale sono supportate entrambe le lingue, sono disponibili i servizi di traduzione da contenuto vocale a contenuto vocale o da contenuto vocale a testo. Se la lingua di destinazione non è supportata per la traduzione vocale, è disponibile solo la traduzione da contenuto vocale a testo. 
+Di seguito sono elencate le lingue supportate per la traduzione vocale. Se per la traduzione vocale sono supportate entrambe le lingue, sono disponibili i servizi di traduzione da contenuto vocale a contenuto vocale o da contenuto vocale a testo. Se la lingua di destinazione non è supportata per la traduzione vocale, è disponibile solo la traduzione da contenuto vocale a testo.
 
 | Lingua per la sintesi vocale    |
 |:----------- |
@@ -34,9 +35,9 @@ Di seguito sono elencate le lingue supportate per la traduzione vocale. Se per l
 | Giapponese      |
 | Portoghese (brasiliano)     |
 | Russo      |
-| Spagnolo      | 
+| Spagnolo      |
 
-L'API Traduzione vocale supporta le lingue seguenti come lingue di destinazione per la traduzione da contenuto vocale a testo. 
+L'API Traduzione vocale supporta le lingue seguenti come lingue di destinazione per la traduzione da contenuto vocale a testo.
 
 | Lingua per il testo    | Codice lingua |
 |:----------- |:-------------:|
@@ -47,7 +48,7 @@ L'API Traduzione vocale supporta le lingue seguenti come lingue di destinazione 
 | Bulgaro      | `bg`          |
 | Cantonese (tradizionale)      | `yue`          |
 | Catalano      | `ca`          |
-| Cinese semplificato      | `zh-Hans`          | 
+| Cinese semplificato      | `zh-Hans`          |
 | Cinese tradizionale      | `zh-Hant`          |
 | Croato      | `hr`          |
 | Ceco      | `cs`          |
@@ -116,4 +117,4 @@ La risorsa Languages restituisce l'elenco di lingue supportate per riconosciment
 
 Per una rapida panoramica delle lingue, il sito Web Microsoft Translator offre l'elenco di tutte le lingue supportate dalle API Traduzione testuale e Traduzione vocale. L'elenco non include informazioni specifiche per sviluppatori, ad esempio i codici delle lingue.
 
-[Visualizzare l'elenco delle lingue](https://www.microsoft.com/translator/languages.aspx) 
+[Visualizzare l'elenco delle lingue](https://www.microsoft.com/translator/languages.aspx)

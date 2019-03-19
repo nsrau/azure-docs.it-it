@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 02/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: da3b09998d163ffcc16bfcbbf9f516467dd3311d
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 5bb52e0547ed9bc18d67370ffb9db35942212aab
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418436"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887591"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gestire runbook in Automazione di Azure
 
-Per aggiungere un runbook ad Automazione di Azure, è possibile [creare un nuovo runbook](#creating-a-new-runbook) oppure importarne uno esistente da un file o dalla [raccolta di runbook](automation-runbook-gallery.md). In questo articolo vengono fornite informazioni sulla creazione e importazione di runbook da un file.  È possibile ottenere tutti i dettagli sull'accesso ai runbook e ai moduli della community in [Raccolte di runbook e moduli per l'automazione di Azure](automation-runbook-gallery.md).
+Per aggiungere un runbook ad Automazione di Azure, è possibile [creare un nuovo runbook](#create-a-runbook) oppure importarne uno esistente da un file o dalla [raccolta di runbook](automation-runbook-gallery.md). In questo articolo vengono fornite informazioni sulla creazione e importazione di runbook da un file.  È possibile ottenere tutti i dettagli sull'accesso ai runbook e ai moduli della community in [Raccolte di runbook e moduli per l'automazione di Azure](automation-runbook-gallery.md).
 
 ## <a name="create-a-runbook"></a>Creare un runbook
 
@@ -65,7 +65,7 @@ New-AzureRmAutomationRunbook -AutomationAccountName MyAccount `
 5. Se il campo **Nome** è abilitato, sarà possibile modificare il nome.  Il nome del runbook deve iniziare con una lettera e può includere lettere, numeri, caratteri di sottolineatura e trattini.
 6. Il [tipo di runbook](automation-runbook-types.md) viene selezionato automaticamente, ma è possibile modificarlo dopo aver valutato le restrizioni applicabili. 
 7. Il nuovo runbook verrà visualizzato nell'elenco dei runbook dell'account di automazione.
-8. È necessario [pubblicare il runbook](#publishing-a-runbook) prima di poterlo eseguire.
+8. È necessario [pubblicare il runbook](#publish-a-runbook) prima di poterlo eseguire.
 
 > [!NOTE]
 > Dopo aver importato un runbook grafico o un runbook grafico del flusso di lavoro PowerShell, è possibile convertirlo in un altro tipo, se necessario. Non è possibile eseguire la conversione verso un runbook in formato di testo.
@@ -89,7 +89,7 @@ Import-AzureRMAutomationRunbook -Name $runbookName -Path $scriptPath `
 
 ## <a name="test-a-runbook"></a>Testare un runbook
 
-Quando si testa un Runbook, viene eseguita la [Versione bozza](#publishing-a-runbook) e le azioni eseguite vengono completate. Non viene creata alcuna cronologia dei processi, ma nel pannello di output del test vengono visualizzati i flussi di [output](automation-runbook-output-and-messages.md#output-stream) e di [avviso ed errore](automation-runbook-output-and-messages.md#message-streams). I messaggi per il [flusso dettagliato](automation-runbook-output-and-messages.md#message-streams) vengono visualizzati solo se nel pannello di output la [variabile $VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) è impostata su Continua.
+Quando si testa un Runbook, viene eseguita la [Versione bozza](#publish-a-runbook) e le azioni eseguite vengono completate. Non viene creata alcuna cronologia dei processi, ma nel pannello di output del test vengono visualizzati i flussi di [output](automation-runbook-output-and-messages.md#output-stream) e di [avviso ed errore](automation-runbook-output-and-messages.md#message-streams). I messaggi per il [flusso dettagliato](automation-runbook-output-and-messages.md#message-streams) vengono visualizzati solo se nel pannello di output la [variabile $VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) è impostata su Continua.
 
 Anche se si esegue la versione bozza, il runbook viene comunque eseguito normalmente ed effettua qualsiasi azione sulle risorse nell'ambiente. Per questo motivo, è necessario testare i runbook solo con risorse non di produzione.
 

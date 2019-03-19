@@ -1,6 +1,6 @@
 ---
-title: Monitorare i messaggi B2B con Log Analytics - App per la logica di Azure | Microsoft Docs
-description: Monitorare i messaggi AS2, X12 ed EDIFACT per gli account di integrazione e App per la logica di Azure e configurare la registrazione diagnostica con Azure Log Analytics
+title: Monitorare i messaggi B2B con i log di monitoraggio di Azure - App per la logica di Azure | Microsoft Docs
+description: Monitorare AS2, X12 ed messaggi EDIFACT per l'account di integrazione e le App per la logica di Azure e configurare la registrazione diagnostica con i log di monitoraggio di Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,25 +9,27 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: e3d2b377df6a3ed8312ca8b2563fe466236c2741
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 12799a308157c3c0e19de1f82c0fe3df44fad37e
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818295"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195167"
 ---
-# <a name="monitor-b2b-messages-with-azure-log-analytics-in-azure-logic-apps"></a>Monitorare i messaggi B2B con Azure Log Analytics in App per la logica di Azure
+# <a name="monitor-b2b-messages-with-azure-monitor-logs-in-azure-logic-apps"></a>Monitorare i messaggi B2B con i log di monitoraggio di Azure nelle App per la logica di Azure
 
-Dopo aver configurato la comunicazione B2B tra partner commerciali nell'account di integrazione, i partner possono scambiare messaggi tra di loro. Per verificare che la comunicazione funziona come previsto, è possibile monitorare i messaggi AS2, X12 ed EDIFACT e impostare la registrazione diagnostica per l'account di integrazione con [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Questo servizio consente di monitorare il cloud e gli ambienti locali, di gestirne la disponibilità e le prestazioni e di raccogliere dettagli ed eventi di runtime per ottimizzare il debug. È anche possibile usare questi dati con altri servizi, come ad esempio Archiviazione di Azure e Hub eventi di Azure.
+Dopo aver configurato la comunicazione B2B tra partner commerciali nell'account di integrazione, i partner possono scambiare messaggi tra di loro. Per verificare che la comunicazione funziona come previsto, è possibile monitorare AS2, X12 ed EDIFACT messaggi e configurare la registrazione diagnostica per l'account di integrazione con [monitoraggio di Azure registra](../log-analytics/log-analytics-overview.md). Questo servizio consente di monitorare il cloud e gli ambienti locali, di gestirne la disponibilità e le prestazioni e di raccogliere dettagli ed eventi di runtime per ottimizzare il debug. È anche possibile usare questi dati con altri servizi, come ad esempio Archiviazione di Azure e Hub eventi di Azure.
 
 > [!NOTE]
 > Questa pagina potrebbe contenere ancora riferimenti a Microsoft Operations Management Suite (OMS), che verrà [ritirato a gennaio 2019](../azure-monitor/platform/oms-portal-transition.md), ma sostituisce quei passaggi con Azure Log Analytics laddove possibile. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un'app per la logica configurata con la registrazione diagnostica. Informazioni su [come creare un'app per la logica](quickstart-create-first-logic-app-workflow.md) e [come configurare la registrazione per tale app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
-* Una volta soddisfatti i requisiti precedenti, è necessaria anche un'area di lavoro di Log Analytics, che verrà usato per il monitoraggio e il rilevamento della comunicazione B2B tramite Log Analytics. Se non si dispone di un'area di lavoro di Log Analytics, vedere [Creare un'area di lavoro di Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
+* Una volta soddisfatti i requisiti precedenti, è necessario anche un'area di lavoro di Log Analitica, utilizzabile per il monitoraggio e rilevamento delle comunicazioni B2B tramite i log di monitoraggio di Azure. Se non si dispone di un'area di lavoro di Log Analytics, vedere [Creare un'area di lavoro di Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 * Un account di integrazione collegato all'app per la logica. Informazioni su [come creare un account di integrazione con un collegamento all'app per la logica](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
@@ -71,9 +73,9 @@ Al termine, scegliere **Aggiungi l'impostazione di diagnostica**.
 
    Ad esempio:  
 
-   ![Impostare Log Analytics in modo da inviare i dati di diagnostica a un log](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
+   ![Configurare i log di monitoraggio di Azure in modo che è possibile inviare i dati di diagnostica in un log](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-1. [Impostare la registrazione per i messaggi B2B in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+1. A questo punto [impostare la registrazione per i messaggi B2B in log di monitoraggio di Azure](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 <a name="azure-monitor-service"></a>
 
@@ -113,13 +115,13 @@ Al termine, scegliere **Aggiungi l'impostazione di diagnostica**.
 
    Ad esempio:  
 
-   ![Impostare Log Analytics in modo da inviare i dati di diagnostica a un log](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
+   ![Configurare i log di monitoraggio di Azure in modo che è possibile inviare i dati di diagnostica in un log](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-1. [Impostare la registrazione per i messaggi B2B in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+1. A questo punto [impostare la registrazione per i messaggi B2B in log di monitoraggio di Azure](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 ## <a name="use-diagnostic-data-with-other-services"></a>Usare i dati di diagnostica con altri servizi
 
-Con Azure Log Analytics, è possibile usare in modo diverso i dati di diagnostica dell'app per la logica con altri servizi di Azure, ad esempio: 
+Insieme ai log di monitoraggio di Azure, è possibile estendere come si usano dati di diagnostica dell'app per la logica con altri servizi di Azure, ad esempio: 
 
 * [Archiviare i log di diagnostica di Azure in Archiviazione di Microsoft Azure](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Trasmettere i log di diagnostica di Azure a Hub eventi di Azure](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
@@ -144,6 +146,6 @@ Azure supporta questi tipi di schemi di rilevamento, che sono tutti fissi ad ecc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Tenere traccia dei messaggi B2B in Azure Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Tenere traccia dei messaggi B2B in Azure Log Analytics")
+* [Tenere traccia dei messaggi B2B in log di monitoraggio di Azure](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "i messaggi di traccia B2B nei log di monitoraggio di Azure")
 * [Altre informazioni su Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack")
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5e40ccc5a11df00b63c99fb606e17fa17e23a2a0
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
-ms.translationtype: HT
+ms.openlocfilehash: 26041bbf392f9b2afaaf5af38f758deb7708b651
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826078"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728047"
 ---
 # <a name="publishing-checklist-for-azure-marketplace"></a>Elenco di controllo per la pubblicazione per Azure Marketplace    
 Controllare i componenti necessari prima di avviare il processo di pubblicazione.  
@@ -38,10 +38,10 @@ Le tabelle seguenti illustrano gli elementi necessari per completare il flusso d
 | Transazione | Macchina virtuale | <table> <tr><th>Vetrine</th></tr> <tr><td>Titolo (50 caratteri)</td></tr> <tr><td>Riepilogo (200 caratteri)</td></tr> <tr><td>Riepilogo lungo (256 caratteri)</td></tr> <tr><td>Descrizione basata su HTML (3.000 caratteri)</td></tr> <tr><td>Logo dell'azienda (40x40, 90x90, 115x115, 255x115, 815x290)</td></tr> </table> <table> <tr><th>SKU</th></tr> <tr><td>Dati del sistema operativo</td></tr> <tr><td>Porte in uso</td></tr> <tr><td>Protocolli in uso</td></tr> <tr><td>Versione del disco per ogni VHD in uso</td></tr> <tr><td>URL SAS per ogni VHD in uso</td></tr> </table> |  
 | Transazione | App di Azure: Modello di soluzione | <table> <tr><th>Vetrine</th></tr> <tr><td>Titolo (50 caratteri)</td></tr> <tr><td>Riepilogo (200 caratteri)</td></tr> <tr><td>Riepilogo lungo (256 caratteri)</td></tr> <tr><td>Descrizione basata su HTML (3.000 caratteri)</td></tr> <tr><td>Logo dell'azienda (40x40, 90x90, 115x115, 255x115, 815x290)</td></tr> </table> <table> <tr><th>SKU</th></tr> <tr><td>Numero di versione</td></tr> <tr><td>File di pacchetto che contiene<ul> <li>tutti i file modello</li> <li>file createUIDefinition</li> </ul> </td></tr> </table> |  
 | Transazione | App di Azure: App gestita | <table> <tr><th>Vetrine</th></tr> <tr><td>Titolo (50 caratteri)</td></tr> <tr><td>Riepilogo (200 caratteri)</td></tr> <tr><td>Riepilogo lungo (256 caratteri)</td></tr> <tr><td>Descrizione basata su HTML (3.000 caratteri)</td></tr> <tr><td>Logo dell'azienda (40x40, 90x90, 115x115, 255x115, 815x290)</td></tr> </table> <table> <tr><th>SKU</th></tr> <tr><td>Numero di versione</td></tr> <tr><td>File di pacchetto che contiene<ul> <li>tutti i file modello</li> <li>file createUIDefinition</li> </ul> </td></tr> </table> |  
-| Transazione | Contenitore | <table> <tr><th>Vetrine</th></tr> <tr><td>Titolo (50 caratteri)</td></tr> <tr><td>Riepilogo (200 caratteri)</td></tr> <tr><td>Riepilogo lungo (256 caratteri)</td></tr> <tr><td>Descrizione basata su HTML (3.000 caratteri)</td></tr> <tr><td>Logo dell'azienda (40x40, 90x90, 115x115, 255x115, 815x290)</td></tr> </table> <table> <tr><th>SKU</th></tr> <tr><td>Dettagli repository di immagi Registro Azure Container: ID sottoscrizione</td></tr> <tr><td>Dettagli repository di immagini ACR: nome gruppo di risorse</td></tr> <tr><td>Dettagli repository di immagini ACR: nome registro di risorse</td></tr> <tr><td>Dettagli repository di immagini ACR: nome repository</td></tr> <tr><td>Dettagli repository di immagini ACR: nome utente</td></tr> <tr><td>Dettagli repository di immagini ACR: password</td></tr> <tr><td>Dettagli repository di immagini ACR: tag immagine (facoltativo)</td></tr> </table> |  
+| Transazione | Contenitore | <table> <tr><th>Vetrine</th></tr> <tr><td>Titolo (50 caratteri)</td></tr> <tr><td>Riepilogo (200 caratteri)</td></tr> <tr><td>Riepilogo lungo (256 caratteri)</td></tr> <tr><td>Descrizione basata su HTML (3.000 caratteri)</td></tr> <tr><td>Logo dell'azienda (40x40, 90x90, 115x115, 255x115, 815x290)</td></tr> </table> <table> <tr><th>SKU</th></tr> <tr><td>Azure, i dettagli del repository immagine contenitore del Registro di sistema (ACR): ID sottoscrizione</td></tr> <tr><td>Dettagli dei repository di immagini di contenitori di AZURE: Nome del gruppo di risorse</td></tr> <tr><td>Dettagli dei repository di immagini di contenitori di AZURE: Nome registro</td></tr> <tr><td>Dettagli dei repository di immagini di contenitori di AZURE: Nome del repository</td></tr> <tr><td>Dettagli dei repository di immagini di contenitori di AZURE: Nome utente</td></tr> <tr><td>Dettagli dei repository di immagini di contenitori di AZURE: Password</td></tr> <tr><td>Dettagli dei repository di immagini di contenitori di AZURE: Tag di immagine (facoltativo)</td></tr> </table> |  
 | Transazione | App SaaS | <table> <tr><th>Vetrine</th></tr> <tr><td>Titolo (50 caratteri)</td></tr> <tr><td>Riepilogo (200 caratteri)</td></tr> <tr><td>Riepilogo lungo (256 caratteri)</td></tr> <tr><td>Descrizione basata su HTML (3.000 caratteri)</td></tr> <tr><td>Logo dell'azienda (40x40, 90x90, 115x115, 255x115, 815x290)</td></tr> </table> |  
 
 ## <a name="next-steps"></a>Passaggi successivi
 *   Visitare la pagina [Guida alla pubblicazione per Azure Marketplace e AppSource](./marketplace-publishers-guide.md).  
  
----  
+---

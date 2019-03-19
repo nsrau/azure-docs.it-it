@@ -7,18 +7,18 @@ ms.service: firewall
 ms.topic: article
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 0698f1dbc491781089ef94eec32f2a427fd3cca4
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: c129c394f3d694b832722287027c1f9e58028a33
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422389"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957692"
 ---
 # <a name="azure-firewall-logs"></a>Log del Firewall di Azure
 
 È possibile monitorare Firewall di Azure con i log del firewall. È possibile usare anche i log attività per controllare le operazioni eseguite sulle risorse di Firewall di Azure.
 
-Alcuni di questi log sono accessibili tramite il portale. I log possono essere inviati a [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Archiviazione e Hub eventi ed essere analizzati in Log Analytics o con strumenti diversi come ad esempio Excel e Power BI.
+Alcuni di questi log sono accessibili tramite il portale. I log possono essere inviati ai [log di Monitoraggio di Azure](../azure-monitor/insights/azure-networking-analytics.md), Archiviazione e Hub eventi ed essere analizzati nei log di Monitoraggio di Azure o con strumenti diversi come ad esempio Excel e Power BI.
 
 ## <a name="diagnostic-logs"></a>Log di diagnostica
 
@@ -26,7 +26,7 @@ Alcuni di questi log sono accessibili tramite il portale. I log possono essere i
 
 * **Log delle regole di applicazione**
 
-   Il log delle regole di applicazione viene salvato in un account di archiviazione, trasmesso all'Hub eventi e/o inviato a Log Analytics solo se è stato abilitato per ogni Firewall di Azure. Ogni nuova connessione che corrisponde a una delle regole di applicazione configurate genera un log per la connessione accettata/negata. I dati vengono registrati in formato JSON, come illustrato nell'esempio seguente:
+   Salvataggio del log di regole di applicazione a un account di archiviazione, trasmessi a hub eventi e/o inviati a log di monitoraggio di Azure solo se è stato abilitato per ogni Firewall di Azure. Ogni nuova connessione che corrisponde a una delle regole di applicazione configurate genera un log per la connessione accettata/negata. I dati vengono registrati in formato JSON, come illustrato nell'esempio seguente:
 
    ```
    Category: application rule logs.
@@ -49,7 +49,7 @@ Alcuni di questi log sono accessibili tramite il portale. I log possono essere i
 
 * **Log delle regole di rete**
 
-   Il log delle regole di rete viene salvato in un account di archiviazione, trasmesso all'Hub eventi e/o inviato a Log Analytics solo se è stato abilitato per ogni Firewall di Azure. Ogni nuova connessione che corrisponde a una delle regole di rete configurate genera un log per la connessione accettata/negata. I dati vengono registrati in formato JSON, come illustrato nell'esempio seguente:
+   Salvataggio del log di regola di rete a un account di archiviazione, trasmessi a hub eventi e/o inviati a log di monitoraggio di Azure solo se è stato abilitato per ogni Firewall di Azure. Ogni nuova connessione che corrisponde a una delle regole di rete configurate genera un log per la connessione accettata/negata. I dati vengono registrati in formato JSON, come illustrato nell'esempio seguente:
 
    ```
    Category: network rule logs.
@@ -73,9 +73,9 @@ Alcuni di questi log sono accessibili tramite il portale. I log possono essere i
 
 Sono disponibili tre opzioni di archiviazione dei log:
 
-* **Account di archiviazione**: ideali quando i log vengono archiviati per un periodo più lungo ed esaminati quando necessario.
-* **Hub eventi**: ottima opzione per l'integrazione con altri strumenti di gestione delle informazioni di sicurezza e degli eventi (SEIM) per ricevere avvisi sulle risorse.
-* **Log Analytics**: soluzione adatta al monitoraggio generale in tempo reale dell'applicazione o all'analisi delle tendenze.
+* **Account di archiviazione**: sono la soluzione ideale per i log quando questi vengono archiviati per un periodo più lungo ed esaminati quando necessario.
+* **Hub eventi**: ottima opzione per l'integrazione con altri strumenti di gestione degli eventi e delle informazioni di sicurezza (SEIM) per ricevere avvisi sulle risorse.
+* **Log di Monitoraggio di Azure**: i log di Monitoraggio di Azure sono ideali per il monitoraggio generale in tempo reale dell'applicazione o per l'analisi delle tendenze.
 
 ## <a name="activity-logs"></a>Log attività
 
@@ -86,4 +86,4 @@ Sono disponibili tre opzioni di archiviazione dei log:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come monitorare log e metriche del Firewall di Azure, vedere [Esercitazione: monitorare i log del Firewall di Azure](tutorial-diagnostics.md).
+Per informazioni su come monitorare le metriche e log del Firewall di Azure, vedere [esercitazione: Monitorare i log di Firewall di Azure](tutorial-diagnostics.md).

@@ -3,7 +3,7 @@ title: Panoramica di Service Fabric e contenitori | Documentazione Microsoft
 description: Panoramica di Service Fabric e dell'uso dei contenitori per la distribuzione di applicazioni di microservizi. Questo articolo offre una panoramica di come possono essere usati i contenitori e delle funzionalità disponibili in Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/8/2018
-ms.author: twhitney, msfussell
-ms.openlocfilehash: 0acbd2d4ccf35c9490a06228eeb1bb465a8ca732
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
-ms.translationtype: HT
+ms.author: aljo, msfussell
+ms.openlocfilehash: 5344f34e0e35d4d47b032b660726a4d70a4f1987
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299975"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807015"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric e contenitori
 
@@ -48,10 +48,10 @@ Vengono eseguiti direttamente sul kernel e hanno una vista isolata del file syst
 
 Rispetto alle macchine virtuali, i contenitori offrono i vantaggi seguenti:
 
-* **Dimensioni ridotte**: i contenitori usano uno spazio di archiviazione singolo e sovrappongono i diversi livelli di versioni e aggiornamenti per aumentare l'efficienza.
-* **Velocità**: i contenitori non devono avviare un intero sistema operativo, pertanto possono essere avviati in modo molto più rapido, normalmente in pochi secondi.
-* **Portabilità**: l'immagine di un'applicazione in contenitore può essere trasferita per essere eseguita nel cloud, in locale, all'interno di macchine virtuali o direttamente in computer fisici.
-* **Governance delle risorse**: è possibile limitare le risorse fisiche utilizzabili da un contenitore nell'host.
+* **Small**: I contenitori usano uno spazio di archiviazione singolo e livelli di versioni e aggiornamenti per aumentare l'efficienza.
+* **Fast**: I contenitori non devono eseguire l'avvio di un intero sistema operativo, in modo che possa avviarsi più velocemente, in genere in pochi secondi.
+* **Portabilità**: Immagine di un'applicazione in contenitore può essere trasferita per essere eseguita nel cloud, in locale, all'interno di macchine virtuali o direttamente su computer fisici.
+* **Governance delle risorse**: Un contenitore può limitare le risorse fisiche utilizzabili da sul relativo host.
 
 ### <a name="container-types-and-supported-environments"></a>Tipi di contenitori e ambienti supportati
 
@@ -76,11 +76,11 @@ La figura seguente illustra i diversi tipi di livelli di virtualizzazione e isol
 
 Ecco alcuni esempi tipici dei casi in cui un contenitore rappresenta una buona scelta:
 
-* **Modalità lift-and-shift IIS**: è possibile includere un'app [ASP.NET MVC](https://www.asp.net/mvc) esistente in un contenitore anziché eseguirne la migrazione ad ASP.NET Core. Queste app ASP.NET MVC dipendono da IIS (Internet Information Services). È possibile creare pacchetti delle applicazioni in immagini contenitore dall'immagine IIS creata in precedenza e distribuirle con Service Fabric. Per informazioni sulla creazione di contenitori Windows, vedere [Immagini contenitore in Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server).
+* **IIS lift- and -shift**: È possibile inserire un oggetto esistente [ASP.NET MVC](https://www.asp.net/mvc) app in un contenitore invece di eseguire la migrazione a ASP.NET Core. Queste app ASP.NET MVC dipendono da IIS (Internet Information Services). È possibile creare pacchetti delle applicazioni in immagini contenitore dall'immagine IIS creata in precedenza e distribuirle con Service Fabric. Per informazioni sulla creazione di contenitori Windows, vedere [Immagini contenitore in Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server).
 
-* **Combinazione di contenitori e microservizi di Service Fabric**: usare un'immagine contenitore esistente per parte dell'applicazione. È ad esempio possibile usare il [contenitore NGINX](https://hub.docker.com/_/nginx/) per il front-end Web dell'applicazione e i servizi con stato per le operazioni di calcolo back-end più intensive.
+* **Combinazione di contenitori e microservizi di Service Fabric**: Usare un'immagine contenitore esistente per parte dell'applicazione. È ad esempio possibile usare il [contenitore NGINX](https://hub.docker.com/_/nginx/) per il front-end Web dell'applicazione e i servizi con stato per le operazioni di calcolo back-end più intensive.
 
-* **Riduzione dell'impatto dei servizi che influiscono negativamente**: è possibile usare la funzionalità di governance delle risorse dei contenitori per limitare le risorse usate da un servizio in un host. Se sono presenti servizi che potrebbero usare un elevato numero di risorse e quindi influire sulle prestazioni degli altri (ad esempio, un'operazione come una query a esecuzione prolungata), può essere opportuno inserire tali servizi in contenitori con governance delle risorse.
+* **Ridurre l'impatto dei servizi "vicini fastidiosi"**: È possibile usare la funzionalità di governance delle risorse dei contenitori per limitare le risorse che usa un servizio in un host. Se sono presenti servizi che potrebbero usare un elevato numero di risorse e quindi influire sulle prestazioni degli altri (ad esempio, un'operazione come una query a esecuzione prolungata), può essere opportuno inserire tali servizi in contenitori con governance delle risorse.
 
 ## <a name="service-fabric-support-for-containers"></a>Supporto di Service Fabric per i contenitori
 

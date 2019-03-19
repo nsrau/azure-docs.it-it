@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2016
 ms.author: v-sharos
-ms.openlocfilehash: a99b3d7336c3dc1a1f249915d6971a49f4b69be6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: bc72da98800ef85ef14be0882ba856fbf01386b9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109219"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872184"
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>Usare Gestione Snapshot StorSimple per amministrare la soluzione di StorSimple
 
@@ -48,7 +48,7 @@ In questo articolo vengono forniti collegamenti alle esercitazioni che descrivon
 
 | SE SI DESIDERA ESEGUIRE QUESTA OPERAZIONE... | UTILIZZARE QUESTA ESERCITAZIONE... |
 |:--- |:--- |
-| Ulteriori informazioni su StorSimple Snapshot Manager |[Che cos’è Gestione snapshot StorSimple? ](storsimple-what-is-snapshot-manager.md) |
+| Ulteriori informazioni su StorSimple Snapshot Manager |[Che cos’è StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md) |
 | Installare Gestione Snapshot StorSimple<br>Reinstallare StorSimple Snapshot Manager<br>rimuovere Gestione Snapshot StorSimple |[Distribuire Gestione snapshot StorSimple](storsimple-snapshot-manager-deployment.md) |
 | Usare Gestione Snapshot StorSimple menu e funzionalità:<ul><li>Barra dei menu</li><li>Barra degli strumenti</li><li>Riquadro Ambito</li><li>Riquadro Risultati</li><li>Riquadro Azioni</li><li>Navigazione da tastiera e tasti di scelta rapida</li></ul> |[Interfaccia utente di gestione Snapshot StorSimple](storsimple-use-snapshot-manager.md) |
 | Utilizzare le funzionalità comuni di MMC incluse in Gestione Snapshot StorSimple:<ul><li>View</li><li>Nuova finestra da qui</li><li>Aggiorna</li><li>Esporta elenco</li><li>Guida</li></ul> |[Utilizzare le azioni del menu MMC di gestione Snapshot StorSimple](storsimple-snapshot-manager-mmc-menu.md) |

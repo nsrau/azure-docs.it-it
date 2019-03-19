@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: a489d1a282c924ec1df658a0244745b225f7123e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: bf010e33a5ef77fcfde2506bfef9760a09667a9d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251266"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867253"
 ---
 # <a name="what-is-automated-machine-learning"></a>Informazioni sulle funzionalità automatizzate di Machine Learning
 
@@ -41,13 +41,13 @@ Il processo di Machine Learning automatizzato consiste nell'acquisire dati di tr
 
 1. Configurare la [destinazione di calcolo](how-to-set-up-training-targets.md) usata per il training del modello.
 
-1. Configurare la configurazione delle funzionalità automatizzate di Machine Learning. In questo modo vengono controllati i parametri usati mentre Azure Machine Learning esegue l'iterazione su modelli diversi, le impostazioni degli iperparametri e le metriche da esaminare per stabilire qual è il modello migliore. 
+1. Configurare la configurazione delle funzionalità automatizzate di Machine Learning. In questo modo vengono controllati i parametri usati mentre Azure Machine Learning esegue l'iterazione su modelli diversi, le impostazioni degli iperparametri e le metriche da esaminare per stabilire qual è il modello migliore.
 
 1. Inviare un'esecuzione di training.
 
 Durante il training, il servizio Azure Machine Learning crea numerose pipeline che tentano di usare i diversi algoritmi e parametri. L'elaborazione viene interrotta quando viene raggiunto il limite di iterazione specificato o il valore di destinazione per la metrica desiderata.
 
-[ ![Funzionalità automatizzate di Machine Learning](./media/how-to-automated-ml/automated-machine-learning.png) ](./media/how-to-automated-ml/automated-machine-learning.png#lightbox)
+[![Apprendimento automatico](./media/how-to-automated-ml/automated-machine-learning.png)](./media/how-to-automated-ml/automated-machine-learning.png#lightbox)
 
 È possibile esaminare le informazioni registrate sull'esecuzione, che contengono le metriche raccolte durante l'esecuzione. L'esecuzione di training genera anche un oggetto Python serializzato (file `.pkl`) che contiene il modello e la pre-elaborazione dei dati.
 
@@ -58,9 +58,13 @@ Un tipico problema del Machine Learning automatizzato è rappresentato dall'impo
 1. Consapevolezza della pipeline di apprendimento automatico e di tutti i passaggi correlati, tra cui la pre-elaborazione dei dati/definizione delle caratteristiche e i valori degli iperparametri.
 1. Comprensione del rapporto esistente tra variabili di input (conosciute anche come "caratteristiche") e output del modello.  Conoscere sia la portata sia la direzione dell'impatto di ogni caratteristica sul valore previsto consente di comprendere e spiegare meglio il modello. Questo aspetto è noto come importanza delle caratteristiche.
 
-È possibile abilitare il post-training on demand dell'importanza delle caratteristiche globali per la pipeline prescelta oppure abilitarlo per tutte le pipeline nell'ambito del training di ML automatizzato.  Questa funzionalità è disponibile in anteprima e in futuro verranno fornite informazioni più dettagliate per consentire una migliore comprensione dei modelli di ML.  
+È possibile abilitare funzionalità globale importanza post on demand di formazione per la pipeline di propria scelta, o abilitare la funzionalità per tutte le pipeline come parte di corsi di formazione automatizzati di machine learning. In settori molto soggetti a normative quali servizi sanitari e banche, questo è fondamentale per conformarsi alle normative e procedure consigliate.  Di seguito sono proposti alcuni scenari reali per illustrare:
 
-Seguire questo [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb) per sperimentare l'uso delle spiegazioni dei modelli in Azure Machine Learning.
+1. Una società di produzione usando machine learning per prevedere un errore di strumentazione future, pertanto possono in modo proattivo eseguire attività di manutenzione. Dopo aver individuato che uno strumento deve avere esito negativo, ciò che è la causa più probabile verranno pertanto possibile eseguire rapidamente l'attività di manutenzione preventiva?
+1. Un'istituzione finanziaria con machine learning per applicazioni di carta di credito o prestito di processo. Come si noto se il modello sta eseguendo la cosa giusta, e se un cliente chiede per altri dettagli sul motivo per cui l'applicazione è stata rifiutata, come risponderà a essi?
+1. Un rivenditore online o un provider di software indipendenti tramite machine learning per prevedere la varianza del cliente. Quali sono i principali collaboratori al cliente di varianza e come può è impedire ai clienti di visitate?
+
+Questa è una funzionalità di anteprima e continueremo a investire nel fornire informazioni più avanzate che consentono di comprendere meglio i modelli di machine learning. Seguire questo [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb) per sperimentare l'uso delle spiegazioni dei modelli in Azure Machine Learning.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

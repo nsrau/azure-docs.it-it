@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: d36f2851f9c4f30725c8f8057d61970b6560009e
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 81ef669b62c822e10d8bf5c45e58dd769c5dbeb9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313212"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888390"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Come amministrare Cache Redis di Azure
 Questo argomento descrive come eseguire attività di amministrazione, ad esempio il [riavvio](#reboot) e la [pianificazione degli aggiornamenti](#schedule-updates) per le istanze di Cache Redis di Azure.
@@ -72,7 +72,7 @@ Sì, se si riavvia la cache tutte le connessioni client vengono annullate. Il ri
 > 
 
 ### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot"></a>Con il riavvio i dati nella cache andranno persi?
-Se si riavviano i nodi **master** e **slave**, vengono persi tutti i dati nella cache o nella partizione specifica se si usa una cache Premium con clustering abilitato. Se è stato configurato il [salvataggio permanente dei dati](cache-how-to-premium-persistence.md), il backup più recente viene ripristinato quando la cache ritorna in linea, ma tutte le scritture nella cache che si sono verificate dopo l'esecuzione del backup andranno perse.
+Se si riavviano le **Master** e **Slave** nodi, tutti i dati nella cache (o in quella partizione se si usa una cache premium con clustering abilitato) potrebbero andare persi, ma non è garantita una. Se è stato configurato il [salvataggio permanente dei dati](cache-how-to-premium-persistence.md), il backup più recente viene ripristinato quando la cache ritorna in linea, ma tutte le scritture nella cache che si sono verificate dopo l'esecuzione del backup andranno perse.
 
 Se si riavvia solo uno dei nodi, in genere i dati non vengono persi, ma è comunque possibile. Per esempio, se il nodo principale viene riavviato durante la scrittura della cache, i dati della scrittura andranno persi. Un altro scenario in cui avviene una perdita di dati si verifica se si riavvia un nodo e l'altro nodo diventa contemporaneamente inattivo basso a causa di un errore. Per altre informazioni sulle possibili cause di una perdita di dati, vedere [What happened to my data in Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)(Cosa è accaduto ai dati in Redis)
 

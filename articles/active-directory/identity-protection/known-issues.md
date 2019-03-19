@@ -17,17 +17,17 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc08710909252c9bcade6177a105684128acc5bf
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: a1cc8a9305103a30fc0ea0fc40c23a522e136d80
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339024"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807185"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Domande frequenti e problemi noti con Identity Protection (procedura aggiornata) in Azure Active Directory
 
 
-## <a name="dismiss-user-risk"></a>Ignora rischio utente
+## <a name="dismiss-user-risk-known-issues"></a>Ignorare il rischio utente problemi noti
 
 **Ignora rischio utente** nella modalità classica di Identity Protection imposta **Azure AD** come attore nella cronologia del rischio dell'utente di Identity Protection (procedura aggiornata).
 
@@ -37,7 +37,7 @@ ms.locfileid: "56339024"
 Un problema noto corrente può causare latenze nel flusso di rimozione dei rischi utente. Se si hanno "criteri di rischio utente", questi criteri smetteranno di venire applicati agli utenti rimossi entro alcuni minuti da quando si fa clic su "Ignora rischio utente". Tuttavia, ci sono ritardi noti nell'esperienza utente di aggiornamento dello "stato del rischio" degli utenti rimossi. Come soluzione alternativa, aggiornare la pagina a livello di browser per visualizzare lo "stato del rischio" più recente per l'utente.
 
 
-## <a name="risky-users-report"></a>Report utenti a rischio
+## <a name="risky-users-report-known-issues"></a>Gli utenti a rischio segnalare i problemi noti
 
 Le query sul campo del **nome utente** fanno distinzione tra maiuscole e minuscole, mentre le query sul campo del **Nome** non fanno distinzione tra maiuscole e minuscole.
 
@@ -45,14 +45,10 @@ Attivando **Visualizza date come** viene nascosta la colonna **ULTIMO AGGIORNAME
 
 **Elimina tutti gli eventi** nella modalità classica di Identity Protection imposta lo stato degli eventi di rischio come **Chiusi (risolti)**.
 
-Se si tenta di accedere al report degli utenti a rischio facendo clic su **Report degli utenti a rischio** all'interno di un record di accesso nel report degli accessi a rischio, in alcuni casi si potrebbe visualizzare **Si è verificato un errore. Riprovare**. Per risolvere questo problema, fare clic su **Applica** o **Reimposta** nella parte superiore della schermata e verranno inseriti i dati degli utenti a rischio.
 
-
-## <a name="risky-sign-ins-report"></a>Report sugli accessi a rischio
+## <a name="risky-sign-ins-report-known-issues"></a>Report accessi a rischio problemi noti
 
 **Risolvi** su un evento di rischio imposta lo stato su **Utenti che hanno superato la MFA secondo i criteri basati sul rischio**.
-
-**Reimposta** nel report degli **Accessi rischiosi** non cancella il valore del **Tipo di evento di rischio**.
 
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
