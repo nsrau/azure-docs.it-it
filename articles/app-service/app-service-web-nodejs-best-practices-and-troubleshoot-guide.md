@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: aad31e72682e15c49fb3d6dce64e7ef46525cb66
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 323de505bc1bfa9747f372033392a9fd6e08462c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051853"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898857"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Procedure consigliate e risoluzione dei problemi per le applicazioni Node nel Servizio app di Azure per Windows
 
@@ -90,7 +90,7 @@ Per lo streaming di applicazioni è inoltre necessario impostare il valore respo
 
 ### <a name="watchedfiles"></a>watchedFiles
 
-Elenco di file con valori separati da punti e virgola che vengono controllati per rilevare le modifiche. Qualsiasi modifica apportata a un file provoca il riciclo da parte dell'applicazione. Ogni voce è costituita da un nome di directory facoltativo e da un nome di file obbligatorio, relativi alla directory in cui si trova il punto di ingresso principale dell'applicazione. I caratteri jolly sono consentiti solo nella parte relativa al nome di file. Il valore predefinito è `*.js;web.config`
+Elenco di file con valori separati da punti e virgola che vengono controllati per rilevare le modifiche. Qualsiasi modifica apportata a un file provoca il riciclo da parte dell'applicazione. Ogni voce è costituita da un nome di directory facoltativo e da un nome di file obbligatorio, relativi alla directory in cui si trova il punto di ingresso principale dell'applicazione. I caratteri jolly sono consentiti solo nella parte relativa al nome di file. Il valore predefinito è `*.js;iisnode.yml`
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 
@@ -118,7 +118,7 @@ Il valore predefinito è False. Se questo valore è impostato su True, iisnode v
 
 ### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled (non abilitare questa impostazione nel sito di produzione live)
 
-Questa impostazione controlla la funzionalità di debug. Iisnode è integrato con node-inspector. Abilitando questa impostazione, si abilita il debug dell'applicazione Node. Dopo l'abilitazione di questa impostazione, iisnode crea i file node-inspector necessari nella directory "debuggerVirtualDir" alla prima richiesta di debug per l'applicazione Node. È possibile caricare node-inspector inviando una richiesta a http://yoursite/server.js/debug. È possibile controllare il segmento dell'URL di debug con l'impostazione 'debuggerPathSegment'. Per impostazione predefinita, debuggerPathSegment='debug'. È possibile impostare `debuggerPathSegment` su un GUID, ad esempio, in modo che non possa essere individuato facilmente da altri utenti.
+Questa impostazione controlla la funzionalità di debug. Iisnode è integrato con node-inspector. Abilitando questa impostazione, si abilita il debug dell'applicazione Node. Dopo l'abilitazione di questa impostazione, iisnode crea i file node-inspector necessari nella directory "debuggerVirtualDir" alla prima richiesta di debug per l'applicazione Node. È possibile caricare node-inspector inviando una richiesta a `http://yoursite/server.js/debug`. È possibile controllare il segmento dell'URL di debug con l'impostazione 'debuggerPathSegment'. Per impostazione predefinita, debuggerPathSegment='debug'. È possibile impostare `debuggerPathSegment` su un GUID, ad esempio, in modo che non possa essere individuato facilmente da altri utenti.
 
 Per altre informazioni sul debug, vedere [Debug node.js applications on Windows](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html) (Eseguire il debug di applicazioni Node.js in Windows).
 
@@ -133,7 +133,7 @@ Il modulo agentkeepalive assicura il riutilizzo dei socket nella macchina virtua
 Configurazione di esempio per [agentKeepALive](https://www.npmjs.com/package/agentkeepalive):
 
 ```nodejs
-var keepaliveAgent = new Agent({
+let keepaliveAgent = new Agent({
     maxSockets: 40,
     maxFreeSockets: 10,
     timeout: 60000,
@@ -155,9 +155,9 @@ Se si ritiene che l'applicazione usi una quantità eccessiva di CPU senza una sp
 Si supponga, ad esempio, che sia disponibile un'app hello world da profilare come illustrato di seguito:
 
 ```nodejs
-var http = require('http');
+const http = require('http');
 function WriteConsoleLog() {
-    for(var i=0;i<99999;++i) {
+    for(let i=0;i<99999;++i) {
         console.log('hello world');
     }
 }
@@ -173,7 +173,7 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-Passare al sito della console di debug all'indirizzo https://yoursite.scm.azurewebsites.net/DebugConsole
+Passare al sito della console di debug all'indirizzo `https://yoursite.scm.azurewebsites.net/DebugConsole`
 
 Passare alla directory site/wwwroot. Verrà visualizzato un prompt dei comandi, come mostrato nell'esempio seguente:
 
@@ -185,12 +185,12 @@ Questo comando installa v8-profiler nella directory \_modules, insieme a tutte l
 Modificare il file server.js per profilare l'applicazione.
 
 ```nodejs
-var http = require('http');
-var profiler = require('v8-profiler');
-var fs = require('fs');
+const http = require('http');
+const profiler = require('v8-profiler');
+const fs = require('fs');
 
 function WriteConsoleLog() {
-    for(var i=0;i<99999;++i) {
+    for(let i=0;i<99999;++i) {
         console.log('hello world');
     }
 }

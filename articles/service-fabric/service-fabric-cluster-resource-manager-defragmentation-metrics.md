@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: e5ebfae5-c8f7-4d6c-9173-3e22a9730552
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: a35ae5933729615d634359e64e31d43536d81431
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 6c15526169a984ffdaee826fec6ac21fc42647e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205077"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086786"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Deframmentazione delle metriche e del carico in Service Fabric
 La strategia predefinita di Cluster Resource Manager di Service Fabric per la gestione delle metriche di carico del cluster è di distribuire il carico. Assicurare che i nodi vengano usati in modo uniforme evita aree sensibili e non sensibili che possono causare conflitti e spreco di risorse. La distribuzione dei carichi di lavoro nel cluster è il modo più sicuro per la sopravvivenza agli errori perché garantisce che qualsiasi anomalia non interessi gran parte di un carico di lavoro. 
@@ -41,6 +41,7 @@ La deframmentazione può aumentare l'impatto degli errori, poiché vengono esegu
 Il diagramma di seguito offre una rappresentazione visiva di due cluster, uno deframmentato e uno non deframmentato. 
 
 <center>
+
 ![Confronto tra cluster bilanciati e deframmentati][Image1]
 </center>
 

@@ -5,20 +5,20 @@ description: Al termine del training, esaminare i test di sistema per analizzare
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: 6cad142c050ca1de7e4c5f9b4415132a82f38c7b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 67ddc7a8e9d79d0eef9c017b315385df62c18e33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215249"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997709"
 ---
 # <a name="view-system-test-results"></a>Visualizzare i risultati dei test di sistema
 
-Al termine del training, esaminare i test di sistema per analizzare i risultati del training. Se si è soddisfatti dei risultati del training, inviare una richiesta di distribuzione per il modello sottoposto a training. 
+Al termine del training, esaminare i test di sistema per analizzare i risultati del training. Se si è soddisfatti dei risultati del training, inviare una richiesta di distribuzione per il modello sottoposto a training.
 
 ## <a name="system-test-results-page"></a>Pagina dei risultati dei test di sistema
 
@@ -26,7 +26,7 @@ Selezionare un progetto, quindi selezionare la scheda Models (Modelli) di quel p
 
 La scheda Test mostra quanto segue:
 
-1.  **System Test Results** (Risultati test di sistema): il risultato del processo di test nei training. Il processo di test produce il punteggio BLEU.
+1.  **Risultati Test di sistema:** Il risultato del processo di test nei corsi di formazione. Il processo di test produce il punteggio BLEU.
 
     **Sentence Count** (Numero di frasi): il numero di frasi parallele utilizzate nel set di test.
 

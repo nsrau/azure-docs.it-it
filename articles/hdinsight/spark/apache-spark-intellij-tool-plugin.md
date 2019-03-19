@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: maxluk
-ms.openlocfilehash: a22dd1114b6ad49695b1ce7cab2ff26f23b7e1be
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 8fa3cd79011ab31349ec44edf52b8fd9048d0d37
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447855"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077973"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Usare Azure Toolkit for IntelliJ per creare applicazioni Apache Spark per un cluster HDInsight
 
@@ -27,7 +27,7 @@ Usare il plug-in Azure Toolkit for IntelliJ per sviluppare applicazioni [Apache 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo dedicato alla [creazione di cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* [Kit di sviluppo di Oracle Java](https://www.azul.com/downloads/azure-only/zulu/).  Questa esercitazione usa Java versione 8.0.202.
+* [Kit di sviluppo di Oracle Java](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).  Questa esercitazione usa Java versione 8.0.202.
 * IntelliJ IDEA. Questo articolo usa [IntelliJ IDEA Community versione  2018.3.4](https://www.jetbrains.com/idea/download/).
 * Azure Toolkit for IntelliJ.  Vedere [Installazione di Azure Toolkit per IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
 * WINUTILS.EXE.  Vedere [Problemi durante l'esecuzione di Hadoop in Windows](https://wiki.apache.org/hadoop/WindowsProblems).
@@ -57,10 +57,10 @@ Per installare il plug-in di Scala, procedere come segue:
 3. Selezionare **Progetto Spark (Scala)** dalla finestra principale.
 
 4. Nell'elenco **Strumento di compilazione** selezionare uno degli strumenti seguenti:
-      * **Maven**, per ottenere supporto per la creazione guidata di un progetto Scala.
-      * **SBT**, per la gestione delle dipendenze e la compilazione per il progetto Scala.
+   * **Maven**, per ottenere supporto per la creazione guidata di un progetto Scala.
+   * **SBT**, per la gestione delle dipendenze e la compilazione per il progetto Scala.
 
-    ![Finestra di dialogo del nuovo progetto](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
+     ![Finestra di dialogo del nuovo progetto](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
 5. Selezionare **Avanti**.
 
@@ -209,7 +209,7 @@ Dopo aver creato un'applicazione Scala, è possibile inviarla al cluster.
     |Cluster Spark (solo Linux)|Selezionare il cluster HDInsight Spark in cui eseguire l'applicazione.|
     |Selezionare un artefatto da inviare|Lasciare l'impostazione predefinita.|
     |Nome classe principale|il valore predefinito è la classe principale del file selezionato. È possibile modificare la classe selezionando i puntini di sospensione (**...**) e scegliendo un'altra classe.|
-    |Configurazioni del processo|È possibile modificare le chiavi predefinite e/o i valori. Per altre informazioni, vedere [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html) (API REST di Apache Livy).|
+    |Configurazioni del processo|È possibile modificare le chiavi predefinite e/o i valori. Per altre informazioni, vedere [Apache Livy REST API](https://livy.incubator.apache.org./docs/latest/rest-api.html) (API REST di Apache Livy).|
     |Argomenti della riga di comando|È possibile immettere gli argomenti divisi da uno spazio per la classe principale, se necessario.|
     |Referenced Jars (file JAR di riferimento) e Referenced Files (file di riferimento)|è possibile immettere i percorsi dei file JAR di riferimento e dei file di riferimento, se presenti. Per altre informazioni: [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) (Configurazione di Apache Spark).  Vedere anche [Come caricare le risorse nel cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
     |Archivio di caricamento del processo|Espandere per visualizzare le opzioni aggiuntive.|

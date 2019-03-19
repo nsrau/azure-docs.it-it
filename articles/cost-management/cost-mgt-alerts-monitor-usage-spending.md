@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: alavital
 ms.custom: ''
-ms.openlocfilehash: 813ec8f74371b6ae76ac306aea2c462f0beea1fb
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: feb7fcdd9005ef131acadfc63defbe4caeaca014
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55772602"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57991922"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Usare gli avvisi per i costi per monitorare l'uso e le spese
 
@@ -23,7 +23,7 @@ Questo articolo illustra come usare gli avvisi di Gestione costi per il monitora
 
 ## <a name="budget-alerts"></a>Avvisi sul budget
 
-Gli avvisi sul budget consentono di ricevere una notifica quando la spesa, in base all'uso o ai costi, raggiunge o supera il valore definito nella [condizione di avviso del budget](tutorial-acm-create-budgets.md). I budget di Gestione costi vengono creati tramite portale di Azure o l'API per il [consumo di Azure](https://docs.microsoft.com/rest/api/consumption). 
+Gli avvisi sul budget consentono di ricevere una notifica quando la spesa, in base all'uso o ai costi, raggiunge o supera il valore definito nella [condizione di avviso del budget](tutorial-acm-create-budgets.md). I budget di Gestione costi vengono creati tramite portale di Azure o l'API per il [consumo di Azure](https://docs.microsoft.com/rest/api/consumption).
 
 Nel portale di Azure i budget vengono definiti in base al costo. Usando l'API per il consumo di Azure, i budget vengono definiti in base al costo o al consumo. Gli avvisi sul budget supportano sia i budget basati sui costi che quelli basati sull'uso. Gli avvisi sul budget sono generati automaticamente ogni volta che vengono soddisfatte le condizioni di avviso del budget. È possibile visualizzare tutti gli avvisi per i costi nel portale di Azure. Ogni volta che viene generato un avviso, è visualizzato negli avvisi per i costi. Viene inoltre inviato un messaggio di posta elettronica alle persone nell'elenco dei destinatari degli avvisi del budget.
 
@@ -35,9 +35,21 @@ Gli avvisi sul credito consentono di ricevere una notifica quando vengono consum
 
 Gli avvisi relativi alla quota di spesa del reparto consentono di ricevere una notifica quando la spesa del reparto raggiunge una soglia fissa della quota. Le quote di spesa sono configurate nel portale EA. Ogni volta che viene raggiunta una soglia, viene generato un messaggio di posta elettronica per i responsabili del reparto e l'evento viene visualizzato negli avvisi per i costi. Ad esempio, al 50% o al 75% della quota.
 
+## <a name="supported-alert-features-by-offer-categories"></a>Avviso funzionalità supportate per le categorie di offerta
+
+Supporto per i tipi di avviso dipende dal tipo di account di Azure che hai (Microsoft) dell'offerta. Nella tabella seguente sono illustrate le funzionalità di avviso supportati da varie offerte di Microsoft. È possibile visualizzare l'elenco completo delle offerte Microsoft al [dati di gestione dei costi comprendere](understand-cost-mgt-data.md).
+
+| Tipo di avviso | Enterprise Agreement | Contratto del cliente Microsoft | Web direct/Pay-As-You-procedere |
+|---|---|---|---|
+| Budget | ✔ | ✔ | ✔ |
+| Riconoscimenti | ✔ |✘ | ✘ |
+| Quota di spesa del reparto | ✔ | ✘ | ✘ |
+
+
+
 ## <a name="view-cost-alerts"></a>Visualizzare gli avvisi per i costi
 
-Nel portale di Azure fare clic su **Gestione dei costi e fatturazione** nell'elenco dei servizi. Quindi nell'elenco in **Gestione costi** selezionare **Avvisi per i costi**.
+Per visualizzare gli avvisi di costo, aprire l'ambito desiderato nel portale di Azure e seleziona **budget** nel menu di scelta. Usare la **ambito** partite per passare a un ambito diverso. Selezionare **costo avvisi** nel menu di scelta. Per altre informazioni sugli ambiti, vedere [comprendere e usare gli ambiti](understand-work-scopes.md).
 
 ![Immagine di esempio degli avvisi visualizzati in Gestione costi](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 

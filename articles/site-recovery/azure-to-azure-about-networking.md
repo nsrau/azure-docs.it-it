@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 49b5ef6b0dca32baaf05959cc29bb2a8024b6d04
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 0e28792e49d588bfec8d1f09dec68ead7e9dfa49
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693990"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001092"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Informazioni sulle reti per la replica da Azure ad Azure
 
@@ -101,7 +101,8 @@ Gli intervalli di indirizzi IP di Site Recovery sono i seguenti:
    Francia meridionale | 52.136.139.227 |52.136.136.62
    Australia centrale| 20.36.34.70 | 20.36.46.142
    Australia centrale 2| 20.36.69.62 | 20.36.74.130
-
+   Sudafrica occidentale | 102.133.72.51 | 102.133.26.128
+   Sudafrica settentrionale | 102.133.160.44 | 102.133.154.128
 ## <a name="example-nsg-configuration"></a>Esempio di configurazione del gruppo di sicurezza di rete
 
 In questo esempio viene illustrato come configurare le regole NSG per una macchina virtuale da replicare.
@@ -163,4 +164,4 @@ Se si usano appliance virtuali di rete per controllare il traffico di rete in us
 ## <a name="next-steps"></a>Passaggi successivi
 - Iniziare a proteggere i carichi di lavoro [eseguendo la replica di macchine virtuali di Azure](site-recovery-azure-to-azure.md).
 - Altre informazioni sul [Mantenimento degli indirizzi IP](site-recovery-retain-ip-azure-vm-failover.md) per il failover delle macchine virtuali di Azure.
-- Altre informazioni sul ripristino di emergenza delle [macchine virtuali di Azure con ExpressRoute ](azure-vm-disaster-recovery-with-expressroute.md).
+- Altre informazioni sul ripristino di emergenza [macchine virtuali di Azure con ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

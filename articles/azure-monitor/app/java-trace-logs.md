@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: d3f8e5ac1f85483d04da99744809f4bc72295024
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: d8344177fc5895451cf876f5aa581baa1fed52e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266195"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001863"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Esplorare i log di traccia Java in Application Insights
 Se si usa Logback o Log4J (v1.2 o v2.0) per la traccia, è possibile inviare automaticamente i log di traccia ad Application Insights dove è possibile esplorarli e eseguirvi ricerche.
@@ -158,7 +158,7 @@ Ora che è stato configurato il progetto per inviare tracce in Application Insig
 
 Le eccezioni inviate tramite logger vengono visualizzate nel portale come telemetria delle eccezioni.
 
-![Nel portale di Application Insights, aprire Ricerca diagnostica](./media/java-trace-logs/10-diagnostics.png)
+![Nel portale di Application Insights, aprire Ricerca diagnostica](./media/java-trace-logs/01-diagnostics.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Ricerca diagnostica][diagnostic]

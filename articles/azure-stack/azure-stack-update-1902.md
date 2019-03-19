@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 03/13/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 66dfdf3a88a4bacdc118fed00d79f02b22da7869
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.lastreviewed: 03/13/2019
+ms.openlocfilehash: cccedaf8664ae504890d519c8b1aa57533592845
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792464"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188289"
 ---
 # <a name="azure-stack-1902-update"></a>Aggiornamento di Azure Stack 1902
 
@@ -57,7 +57,7 @@ Azure Stack hotfix sono applicabili solo ai sistemi integrati di Azure Stack. no
 ## <a name="prerequisites"></a>Prerequisiti
 
 > [!IMPORTANT]
-- Installare il [hotfix più recente di Azure Stack](#azure-stack-hotfixes) per 1901 (se presente) prima di aggiornare a 1902.
+> - Installare il [hotfix più recente di Azure Stack](#azure-stack-hotfixes) per 1901 (se presente) prima di aggiornare a 1902.
 
 - Prima di iniziare l'installazione di questo aggiornamento, eseguire [Test-AzureStack](azure-stack-diagnostic-test.md) con i parametri seguenti per convalidare lo stato di Azure Stack e risolvere eventuali problemi operativi trovati, inclusi tutti gli avvisi e gli errori. Anche gli avvisi attivi rivedere e risolvere gli eventuali che richiedono un'azione:
 
@@ -84,23 +84,49 @@ Azure Stack hotfix sono applicabili solo ai sistemi integrati di Azure Stack. no
 1398818 3685138, 3734779: ECE exception logging, VirtualMachine ConfigurePending should take node name from execution context   PNU
 1381018 [1902] 3610787 - Infra VM creation should fail if the ClusterGroup already exists   PNU
 -->
-- Per migliorare la sicurezza e integrità del pacchetto, nonché una gestione più semplice per l'inserimento non in linea, Microsoft ha modificato il formato del pacchetto di aggiornamento dai file con estensione bin e .exe in un file con estensione zip. Il nuovo formato aggiunge garantire maggiore affidabilità del processo di decompressione che in alcuni casi, possono causare la preparazione dell'aggiornamento bloccato. Lo stesso formato di pacchetto si applica anche per aggiornare i pacchetti da OEM.
-- Per migliorare l'esperienza dell'operatore Azure Stack durante l'esecuzione di Test-AzureStack, gli operatori possono ora è sufficiente usare, "Test-AzureStack-gruppo UpdateReadiness" invece di passare parametri aggiuntivi per dieci dopo un'istruzione di inclusione.
+- Per migliorare l'integrità del pacchetto e sicurezza e gestione più semplice per l'inserimento non in linea, Microsoft ha modificato il formato del pacchetto di aggiornamento dai file con estensione bin e .exe in un file con estensione zip. Il nuovo formato aggiunge garantire maggiore affidabilità per il processo di decompressione che in alcuni casi, possono causare la preparazione dell'aggiornamento bloccato. Lo stesso formato di pacchetto si applica anche per aggiornare i pacchetti da OEM.
+
+- Per migliorare l'esperienza dell'operatore Azure Stack quando si esegue **Test-AzureStack**, operatori ora è possono usare semplicemente `Test-AzureStack -Group UpdateReadiness` invece di passare parametri aggiuntivi per dieci dopo un `include` istruzione. Ad esempio: 
 
   ```powershell
-    Test-AzureStack -Group UpdateReadiness  
-  ```  
-  
-- Per migliorare la disponibilità dei servizi di infrastruttura di base e l'affidabilità complessive durante il processo di aggiornamento, il provider di risorse native di aggiornamento come parte del piano di azione di aggiornamento rileverà e richiamare correzioni globale automatica secondo necessità. I flussi di lavoro di ripristino"correzione globale" includono:
-    - Verifica per le macchine virtuali dell'infrastruttura che sono in uno stato non ottimale e tenta di ripristinarli quando necessario 
-    - Verificare la presenza di problemi del servizio SQL come parte del piano di controllo e tentare di ripristinare tali esigenze
-    - Controllare lo stato del servizio di bilanciamento carico Software (SLB) come parte del Controller di rete (NC) e tentare di ripristinare tali esigenze
-    - Controllare lo stato del servizio di Controller di rete (controller di rete) e tentare il ripristino in base alle esigenze
-    - Controllare lo stato dei nodi di service fabric emergenze ripristino Console del servizio (ERCS) e ripristinarli in base alle esigenze
-    - Controllare lo stato dei nodi XRP service fabric e ripristinarli in base alle esigenze
-    - Controllare lo stato dei nodi di archiviazione coerenti con Azure (ACS) service fabric e ripristinarli in base alle esigenze
+  Test-AzureStack -Group UpdateReadiness  
+  ```
 
+- Per migliorare la disponibilità dei servizi di infrastruttura di base e l'affidabilità complessive durante il processo di aggiornamento, l'oggetto nativo Aggiorna provider di risorse come parte del piano di azione di aggiornamento rileverà e richiamare le correzioni globale automatica in base alle esigenze. I flussi di lavoro di ripristino"correzione globale" includono:
 
+  - Controllare le macchine virtuali di infrastruttura che si trovano nello stato non ottimale e tentare di ripristinare in base alle esigenze.
+  - Verificare la presenza di problemi del servizio SQL come parte del piano di controllo e tentare di ripristinare in base alle esigenze.
+  - Controllare lo stato del servizio di bilanciamento carico Software (SLB) come parte del Controller di rete (NC) e tentare di ripristinare in base alle esigenze.
+  - Controllare lo stato del servizio di Controller di rete (controller di rete) e tentare il ripristino in base alle esigenze.
+  - Controllare lo stato dei nodi di service fabric emergenze ripristino Console del servizio (ERCS) e ripristinarli in base alle esigenze.
+  - Controllare lo stato dei nodi XRP service fabric e ripristinarli in base alle esigenze.
+  - Controllare lo stato dei nodi di archiviazione coerenti con Azure (ACS) service fabric e ripristinarli in base alle esigenze.
+
+<!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
+- Miglioramenti all'affidabilità di espansione della capacità durante l'aggiunta nodo quando si passa lo stato di unità di scala da "Archivio di espansione" in stato di esecuzione.    
+
+<!-- 
+1426690 [SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log   Diagnostics
+1396607 3796092: Move Blob services log from Storage role to ACSBlob role to reduce the log size of Storage Diagnostics
+1404529 3835749: Enable Group Policy Diagnostic Logs    Diagnostics
+1436561 Bug 3949187: [Bug Fix] Remove AzsStorageSvcsSummary test from SecretRotationReadiness Test-AzureStack flag  Diagnostics
+1404512 3849946: Get-AzureStackLog should collect all child folders from c:\Windows\Debug   Diagnostics 
+-->
+- Miglioramenti apportati ad Azure stack di strumenti di diagnostica per migliorare le prestazioni e affidabilità di raccolta log. Registrazione aggiuntiva per i servizi di rete e di identità. 
+
+<!-- 1384958    Adding a Test-AzureStack group for Secret Rotation  Diagnostics -->
+- Miglioramenti all'affidabilità della **Test-AzureStack** per test della conformità rotazione segreta.
+
+<!-- 1404751    3617292: Graph: Remove dependency on ADWS.  Identity -->
+- Miglioramenti per aumentare l'affidabilità di Graph di AD durante la comunicazione con l'ambiente Active Directory del cliente.
+
+<!-- 1391444    [ISE] Telemetry for Hardware Inventory - Fill gap for hardware inventory info   System info -->
+- Miglioramenti all'hardware nella raccolta di inventario **Get-AzureStackStampInformation**.
+
+- Per migliorare l'affidabilità delle operazioni in esecuzione sull'infrastruttura ERCS, la memoria per ogni istanza ERCS aumenta da 8 a 12 GB. In un'installazione di sistemi integrati di Azure Stack, ciò comporta un aumento di 12 GB complessiva.
+
+> [!IMPORTANT]
+> Per assicurarsi che il processo di patch e aggiornamento determina la quantità minima di tempo di inattività di tenant, verificare che l'indicatore di Azure Stack ha più di 12 GB di spazio disponibile nel **capacità** pannello. È possibile visualizzare questa memoria aumenta riflessa nel **capacità** pannello dopo la corretta installazione dell'aggiornamento.
 
 ## <a name="common-vulnerabilities-and-exposures"></a>Esposizione e vulnerabilità comuni
 
@@ -135,7 +161,6 @@ Questo aggiornamento installa gli aggiornamenti di sicurezza seguenti:
 - [CVE-2019-0660](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0660)
 - [CVE-2019-0662](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0662)
 - [CVE-2019-0663](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0663)
-
 
 Per altre informazioni su questi problemi di protezione, fare clic su collegamenti precedenti o vedere gli articoli della Microsoft Knowledge Base [4487006](https://support.microsoft.com/en-us/help/4487006).
 
@@ -195,9 +220,18 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 
 - Una macchina virtuale 18.04 di Ubuntu creata con l'autorizzazione di SSH abilitato non consentirà di usare le chiavi SSH per accedere. Come soluzione alternativa, usare l'accesso della macchina virtuale per l'estensione Linux per implementare le chiavi SSH dopo il provisioning o utilizzano l'autenticazione basata su password.
 
-- Nella compilazione 1902, la memoria necessaria per l'infrastruttura ERCS macchina virtuale è stata aumentata da 8 a 12 GB. In un ASDK, ciò comporta un aumento di 4 GB. In un'installazione di sistemi integrati di Azure Stack, verifica un aumento di 12 GB.
+- Se non è un Host di ciclo di vita dell'Hardware (HLH): Prima della compilazione 1902, era necessario impostare i criteri di gruppo **Configurazione computer\Impostazioni di Windows\Impostazioni sicurezza\Criteri Locali\opzioni di protezione** a **Invia LM e NTLM: usare la sicurezza di sessione NTLMv2 se negoziato**. Da compilazione 1902, è necessario lasciare l'impostazione **non definito** oppure impostare **Invia solo risposta NTLMv2** (ovvero il valore predefinito). In caso contrario, non è possibile stabilire una sessione remota di PowerShell e si riceverà un **l'accesso è negato** errore:
 
-   Per assicurarsi che il processo di patch e aggiornamento determina la quantità minima di tempo di inattività di tenant, verificare che l'indicatore di Azure Stack ha più di 12 GB di spazio disponibile nel **capacità** pannello. È possibile visualizzare questa memoria aumenta riflessa nel **capacità** pannello dopo la corretta installazione dell'aggiornamento.
+   ```shell
+   PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
+   New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
+   about_Remote_Troubleshooting Help topic.
+   At line:1 char:12
+   + $session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
+   +            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:RemoteRunspace) [New-PSSession], PSRemotingTransportException
+      + FullyQualifiedErrorId : AccessDenied,PSSessionOpenFailed
+   ```
 
 ### <a name="networking"></a>Rete  
 
@@ -220,19 +254,7 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 - Gruppi di sicurezza di rete (Nsg) non funzionano nello Stack di Azure nel portale di Azure stesso modo a livello globale. In Azure, è possibile impostare più porte per una regola NSG (usando il portale, PowerShell e i modelli di Resource Manager). In Azure Stack, tuttavia, è possibile impostare più porte su una regola NSG tramite il portale. Per risolvere questo problema, usare un modello di Resource Manager o PowerShell per impostare queste regole aggiuntive.
 
 <!-- 3203799 - IS, ASDK -->
-- Azure Stack non supporta il collegamento più di 4 interfacce di rete (NIC) alle istanze VM oggi stesso, indipendentemente dalle dimensioni delle istanze.
-
-- È stato identificato un problema in cui i pacchetti in 1450 byte per un servizio di bilanciamento di carico interno (ILB) vengono eliminati. Il problema è causato dall'impostazione MTU nell'host in corso di un valore troppo basso per supportare i pacchetti incapsulati VXLAN che passano attraverso il ruolo, che a partire da 1901 è stato spostato in host. Esistono almeno due scenari che possono verificarsi in cui è stato descritto il problema manifestarsi:
-
-  - Query SQL per SQL Always On che è dietro un servizio di bilanciamento di carico interno (ILB) e sono più 660 byte.
-  - Distribuzioni Kubernetes esito negativo se si tenta di abilitare più schemi.  
-
-  Il problema si verifica quando si dispone di comunicazione tra una macchina virtuale e un bilanciamento del carico interno nella stessa rete virtuale, ma in subnet diverse. È possibile risolvere questo problema eseguendo i comandi seguenti in un prompt dei comandi con privilegi elevati nell'host ASDK:
-
-  ```shell
-  netsh interface ipv4 set sub "hostnic" mtu=1660
-  netsh interface ipv4 set sub "management" mtu=1660
-  ```
+- Azure Stack non supporta il collegamento più di 4 interfacce di rete (NIC) a un'istanza di macchina virtuale oggi stesso, indipendentemente dalle dimensioni delle istanze.
 
 <!-- ### SQL and MySQL-->
 

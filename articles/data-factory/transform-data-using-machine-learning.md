@@ -3,20 +3,20 @@ title: Creare pipeline di dati predittive tramite Azure Data Factory | Microsoft
 description: Informazioni su come creare una pipeline predittiva mediante Azure Machine Learning - Attività di esecuzione batch in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: douglasl
-ms.openlocfilehash: a5ba45b8a7bd507552b49b6a18582c393ad07ff5
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: aaf1d72a0c9c56e7d140fb615caf014507ebf263
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446036"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840563"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,7 +30,7 @@ ms.locfileid: "56446036"
 3. **Distribuirlo come servizio Web**. È possibile pubblicare l'esperimento di assegnazione dei punteggi come servizio Web di Azure. È possibile inviare dati al modello tramite l'endpoint di questo servizio Web e ricevere le stime dei risultati dal modello.
 
 ### <a name="data-factory-and-machine-learning-together"></a>Data Factory e Machine Learning
-Azure Data Factory consente di creare facilmente pipeline che usano un servizio Web pubblicato di [Azure Machine Learning][azure-machine-learning] per l'analisi predittiva. Con **Attività di esecuzione batch** in una pipeline di Azure Data Factory è possibile eseguire stime dei dati in batch richiamando un servizio Web di Azure Machine Learning Studio.
+Azure Data Factory consente di creare facilmente pipeline che usano un report pubblicato [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning) per analitica predittiva servizio web. Con **Attività di esecuzione batch** in una pipeline di Azure Data Factory è possibile eseguire stime dei dati in batch richiamando un servizio Web di Azure Machine Learning Studio.
 
 Nel corso del tempo è necessario ripetere il training dei modelli predittivi negli esperimenti di assegnazione dei punteggi di Azure Machine Learning Studio usando nuovi set di dati di input. È possibile ripetere il training di un modello da una pipeline di Data Factory seguendo questa procedura:
 
@@ -124,7 +124,7 @@ Il frammento JSON seguente definisce un'attività di esecuzione batch di Azure M
 }
 ```
 
-| Proprietà          | Descrizione                              | Obbligatoria |
+| Proprietà          | Descrizione                              | Obbligatorio |
 | :---------------- | :--------------------------------------- | :------- |
 | name              | Nome dell'attività nella pipeline     | Sì      |
 | description       | Testo che descrive l'attività.  | No        |

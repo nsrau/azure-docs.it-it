@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4c38230c1d5a4dcad9a10b82d810f82515980076
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 1e403ac0d2fbe9572a44fb3cde9d25e4df9b3db4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245872"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885000"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Eseguire previsioni di batch su set di dati di grandi dimensioni con il servizio Azure Machine Learning
 
@@ -31,7 +31,7 @@ Questa procedura illustra come creare una [pipeline di Machine Learning](concept
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento del servizio Azure Machine Learning](http://aka.ms/AMLFree).
+- Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
 
 - Configurare un ambiente di sviluppo per installare l'SDK di Azure Machine Learning. Per altre informazioni, vedere [Configurare un ambiente di sviluppo per Azure Machine Learning](how-to-configure-environment.md).
 

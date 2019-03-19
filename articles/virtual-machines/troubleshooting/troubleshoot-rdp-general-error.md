@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 25e70b3a685f3b777a74c4cc6bf0e56dd37741a7
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
-ms.translationtype: HT
+ms.openlocfilehash: f290a7e16938c66d45fab9b78086f77bfdfe4839
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821515"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100412"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Risolvere un errore generale RDP in una VM di Azure
 
@@ -65,7 +65,7 @@ Per risolvere questo problema [eseguire il backup del disco del sistema operativ
 
 ### <a name="serial-console"></a>Console seriale
 
-#### <a name="step-1-open-cmd-instance-in-serial-console"></a>Passaggio 1: Aprire un'istanza di CMD nella console seriale
+#### <a name="step-1-open-cmd-instance-in-serial-console"></a>Passaggio 1: Istanza CMD aperta nella console seriale
 
 1. Accedere alla [console seriale](serial-console-windows.md) selezionando **Supporto e risoluzione dei problemi** > **Console seriale (anteprima)**. Se la funzionalità è abilitata nella macchina virtuale, è possibile connettere correttamente la macchina virtuale.
 
@@ -77,7 +77,7 @@ Per risolvere questo problema [eseguire il backup del disco del sistema operativ
    ch -si 1
    ```
 
-#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>Passaggio 2: Verificare i valori delle chiavi del Registro di sistema di RDP:
+#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>Passaggio 2: Controllare i valori delle chiavi del Registro di sistema RDP:
 
 1. Controllare se RDP è disabilitato da criteri.
 
@@ -156,7 +156,7 @@ Per risolvere questo problema [eseguire il backup del disco del sistema operativ
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f
       ```
 
-7. Riavviare la macchina virtuale.
+7. Riavviare la VM.
 
 8. Uscire dall'istanza CMD digitando `exit` e quindi premere **INVIO** due volte.
 
@@ -164,7 +164,7 @@ Per risolvere questo problema [eseguire il backup del disco del sistema operativ
 
 Se il problema persiste, procedere al passaggio 2.
 
-#### <a name="step-2-enable-remote-desktop-services"></a>Passaggio 2: Abilitare i servizi desktop remoto
+#### <a name="step-2-enable-remote-desktop-services"></a>Passaggio 2: Abilitare Servizi desktop remoto
 
 Per altre informazioni vedere [Servizi Desktop remoto non si avvia in una macchina virtuale di Azure](troubleshoot-remote-desktop-services-issues.md).
 
@@ -174,7 +174,7 @@ Per altre informazioni vedere [Remote Desktop disconnects frequently in Azure VM
 
 ### <a name="offline-repair"></a>Riparazione non in linea
 
-#### <a name="step-1-turn-on-remote-desktop"></a>Passaggio 1: Attivare il desktop remoto
+#### <a name="step-1-turn-on-remote-desktop"></a>Passaggio 1: Attivare Desktop remoto
 
 1. [Collegare il disco del sistema operativo alla macchina virtuale di ripristino](../windows/troubleshoot-recovery-disks-portal.md).
 2. Avviare una connessione Desktop remoto alla macchina virtuale di ripristino.
@@ -229,12 +229,12 @@ Per altre informazioni vedere [Remote Desktop disconnects frequently in Azure VM
 
       Definizioni criteri\Componenti di Windows\Servizi Desktop remoto\Host sessione Desktop remoto\Connessioni\Consenti la connessione remota tramite Servizi Desktop remoto
   
-7. Scollegare il disco dalla macchina virtuale di ripristino.
-8. [Creare una nuova macchina virtuale dal disco](../windows/create-vm-specialized.md).
+1. Scollegare il disco dalla macchina virtuale di ripristino.
+1. [Creare una nuova macchina virtuale dal disco](../windows/create-vm-specialized.md).
 
 Se il problema persiste, procedere al passaggio 2.
 
-#### <a name="step-2-enable-remote-desktop-services"></a>Passaggio 2: Abilitare i servizi desktop remoto
+#### <a name="step-2-enable-remote-desktop-services"></a>Passaggio 2: Abilitare Servizi desktop remoto
 
 Per altre informazioni vedere [Servizi Desktop remoto non si avvia in una macchina virtuale di Azure](troubleshoot-remote-desktop-services-issues.md).
 

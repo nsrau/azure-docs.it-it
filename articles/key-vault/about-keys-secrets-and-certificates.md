@@ -3,7 +3,7 @@ title: Informazioni su chiavi, segreti e certificati di Azure Key Vault - Azure 
 description: Panoramica dei dettagli di sviluppo e dell'interfaccia REST di Azure Key Vault per le chiavi, i segreti e i certificati.
 services: key-vault
 documentationcenter: ''
-author: BryanLa
+author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 ms.assetid: abd1b743-1d58-413f-afc1-d08ebf93828a
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
-ms.openlocfilehash: 49879d36937a0f0d7ccf1a82cf8b6ca09453894d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.author: mbaldwin
+ms.openlocfilehash: 01d9f763983da2415aba0f9bae81414017bc2f02
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106974"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842567"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Informazioni su chiavi, segreti e certificati
 
@@ -39,10 +39,10 @@ Le sezioni seguenti forniscono informazioni generali applicabili all'intera impl
 
 Le specifiche di JavaScript Object Notation (JSON) e JavaScript Object Signing and Encryption (JOSE) costituiscono informazioni generiche importanti.  
 
--   [JSON Web Key (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
+-   [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
 -   [JSON Web Encryption (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
 -   [JSON Web Algorithms (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
--   [JSON Web Signature (JWS)](http://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
+-   [JSON Web Signature (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
 
 ### <a name="data-types"></a>Tipi di dati
 
@@ -112,7 +112,7 @@ I moduli crittografici usati da Key Vault, moduli di protezione hardware o softw
 #### <a name="curve-types"></a>Tipi di curva
 
 -   **P-256**: curva NIST P-256, definita in [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
--   **P-256K**: curva SEC SECP256K1, definita in [SEC 2: Recommended Elliptic Curve Domain Parameters](http://www.secg.org/sec2-v2.pdf) (SEC 2: parametri di dominio EC consigliati).
+-   **P-256K**: curva SEC SECP256K1, definita in [SEC 2: Recommended Elliptic Curve Domain Parameters](https://www.secg.org/sec2-v2.pdf) (SEC 2: parametri di dominio EC consigliati).
 -   **P-384**: curva NIST P-384, definita in [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 -   **P-521**: curva NIST P-521, definita in [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 
@@ -166,7 +166,7 @@ Key Vault non supporta le operazioni EXPORT. Una volta effettuato il provisionin
 
 Gli utenti possono limitare le operazioni crittografiche supportate da Key Vault per ciascuna chiave usando la proprietà key_ops dell'oggetto JWK.  
 
-Per ulteriori informazioni sugli oggetti JWK, vedere [JSON Web Key (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).  
+Per ulteriori informazioni sugli oggetti JWK, vedere [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key).  
 
 ###  <a name="key-attributes"></a>Attributi della chiave
 
@@ -189,7 +189,7 @@ Le chiavi non ancora valide e scadute, che non rientrano nella finestra *nbf* / 
 
 Per altre informazioni sui tipi di dati, vedere [Tipi di dati](#data-types).
 
-Per altre informazioni su altri possibili attributi, vedere [JSON Web Key (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).
+Per altre informazioni su altri possibili attributi, vedere [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key).
 
 ### <a name="key-tags"></a>Tag della chiave
 
@@ -409,10 +409,10 @@ I contatti relativi al certificato contengono le informazioni di contatto per in
 
 Se i criteri del certificato sono impostati per il rinnovo automatico, viene inviata una notifica sugli eventi seguenti.  
 
--   Prima del rinnovo del certificato
--   Dopo il rinnovo del certificato, che indica se il certificato è stato rinnovato, o se si è verificato un errore, richiede il rinnovo manuale del certificato.  
+- Prima del rinnovo del certificato
+- Dopo il rinnovo del certificato, che indica se il certificato è stato rinnovato, o se si è verificato un errore, richiede il rinnovo manuale del certificato.  
 
- Se i criteri del certificato sono impostati per il rinnovo manuale (solo posta elettronica), viene inviata una notifica al momento del rinnovo.  
+  Se i criteri del certificato sono impostati per il rinnovo manuale (solo posta elettronica), viene inviata una notifica al momento del rinnovo.  
 
 ### <a name="certificate-access-control"></a>Controllo di accesso per i certificati
 

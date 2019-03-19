@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4d4acecbbb90fff7865902a3371d282f1d402374
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: a1ecc4de9475e735cd17286826c1d8cea05904ab
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662891"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089353"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Eseguire la migrazione di utenti con identità dei social network
 Per eseguire la migrazione del provider di identità ad Azure AD B2C, potrebbe essere necessario eseguire anche la migrazione degli utenti con identità di social networking. L'articolo spiega come eseguire la migrazione di account con identità di social networking esistenti, ad esempio: account di Facebook, LinkedIn, Microsoft e Google per Azure AD B2C. Questo articolo è valido anche per le identità federate, tuttavia queste migrazioni sono meno comuni.
@@ -32,14 +32,14 @@ Questo articolo è una continuazione dell'articolo sulla migrazione degli utenti
 * **Combinare account locali con identità di social networking**. Come accennato, i nomi di accesso degli account locali e le identità di account di social networking vengono archiviati in attributi diversi. `signInNames` viene usato per gli account locali, mentre `userIdentities` viene usato per gli account di social networking. Un singolo account Azure AD B2C può essere solo un account locale, solo un account di social networking oppure combinare un account locale con l'identità di social networking in un singolo record utente. Questo comportamento consente di gestire un singolo account, mentre un utente può accedere con le credenziali dell'account locale o con le identità di social networking.
 
 * Tipo di `UserIdentity` - Contiene informazioni sull'identità di un utente con account di social networking in un tenant di Azure AD B2C:
-    * `issuer` Rappresentazione stringa del provider di identità che ha emesso l'identificatore utente, ad esempio facebook.com.
-    * `issuerUserId` Identificatore utente univoco usato dal provider di identità basato su social network in formato base64.
+  * `issuer` Rappresentazione stringa del provider di identità che ha emesso l'identificatore utente, ad esempio facebook.com.
+  * `issuerUserId` Identificatore utente univoco usato dal provider di identità basato su social network in formato base64.
 
     ```JSON
     "userIdentities": [{
-            "issuer": "Facebook.com",
-            "issuerUserId": "MTIzNDU2Nzg5MA=="
-        }
+          "issuer": "Facebook.com",
+          "issuerUserId": "MTIzNDU2Nzg5MA=="
+      }
     ]
     ```
 
@@ -139,7 +139,7 @@ Il nome dell'emittente, o il nome del provider di identità, è configurato nei 
 1. Accedere con uno degli account di social networking
 2. Dal token JWT copiare il valore `sub`. `sub` contiene in genere l'ID oggetto dell'utente in Azure AD B2C. In alternativa, dal portale di Azure aprire le proprietà dell'utente e copiare l'ID dell'oggetto.
 3. Aprire [Graph Explorer di Azure AD](https://graphexplorer.azurewebsites.net).
-4. Accedere con l'account amministratore. N
+4. Accedere con l'account amministratore.
 5. Eseguire la richiesta GET seguente. Sostituire userObjectId con l'ID utente copiato. **GET** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 6. Individuare l'elemento `userIdentities` all'interno del risultato JSON da Azure AD B2C.
 7. [Facoltativo] È anche possibile che si voglia decodificare il valore `issuerUserId`.

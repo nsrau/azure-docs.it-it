@@ -14,12 +14,12 @@ ms.devlang: php
 ms.topic: article
 ms.author: jowargo
 ms.date: 01/04/2019
-ms.openlocfilehash: 10bc12879ea30f75ee5af3bd9226ff1626b72ae3
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 43a691ff9025cdb39786f965be6a2fca1b33bd3d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962741"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57883577"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Come usare Hub di notifica da Python
 
@@ -374,7 +374,7 @@ viene visualizzato il risultato dettagliato di Hub di notifica, ad esempio:
     ```
 - Se non fosse possibile trovare destinazioni per qualsiasi notifica push, probabilmente nella risposta verrà visualizzato quanto segue, dove viene indicato che non è stata trovata alcuna registrazione per recapitare la notifica perché nelle registrazioni erano presenti alcuni tag non corrispondenti
     ```xml
-    '<NotificationOutcome xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Success>0</Success><Failure>0</Failure><Results i:nil="true"/></NotificationOutcome>'
+    '<NotificationOutcome xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect" xmlns:i="https://www.w3.org/2001/XMLSchema-instance"><Success>0</Success><Failure>0</Failure><Results i:nil="true"/></NotificationOutcome>'
     ```
 
 ### <a name="broadcast-toast-notification-to-windows"></a>Trasmettere notifiche di tipo avviso popup a Windows
@@ -427,7 +427,7 @@ hub.send_template_notification(template_payload)
 
 ![][5]
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Questo articolo ha illustrato come creare un client REST Python per Hub di notifica. A questo punto è possibile:
 
@@ -437,9 +437,9 @@ Questo articolo ha illustrato come creare un client REST Python per Hub di notif
 
 <!-- URLs -->
 [esempio di wrapper REST Python]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
-[esercitazione introduttiva]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[esercitazione sull'invio delle ultime notizie]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
-[esercitazione sull'invio di notizie localizzate]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
+[esercitazione introduttiva]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[esercitazione sull'invio delle ultime notizie]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
+[esercitazione sull'invio di notizie localizzate]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-python-backend-how-to/DetailedLoggingInfo.png

@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 02/20/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 1a15600889a3c5a3c0ca587c78499f32be0ab8ed
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 9a7d83070caad86d7d66b62a9592dbb1e0017f97
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456708"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884240"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Usare Visual Studio Code per sviluppare moduli per Azure IoT Edge ed eseguirne il debug
 
@@ -154,7 +154,7 @@ Per configurare e avviare il simulatore, eseguire il comando **Azure IoT Edge: S
 
 1. Preparare l'ambiente per il debug in base ai requisiti del linguaggio di sviluppo, impostare un punto di interruzione nel modulo e selezionare la configurazione di debug da usare:
    - **C#**
-     - Nel terminale integrato di Visual Studio Code modificare la directory selezionando la cartella ***&lt;nome del modulo&gt;***, quindi eseguire il comando seguente per compilare l'applicazione .Net Core.
+     - Nel terminale integrato di Visual Studio Code, passare alla directory il ***&lt;il nome modulo&gt;*** cartella e quindi eseguire il comando seguente per compilare applicazioni .NET Core.
 
        ```cmd
        dotnet build
@@ -165,7 +165,7 @@ Per configurare e avviare il simulatore, eseguire il comando **Azure IoT Edge: S
      - Passare alla visualizzazione Debug di Visual Studio Code selezionando **Visualizza > Debug**. Selezionare la configurazione di debug ***&lt;nome del modulo&gt;* Debug locale (.NET Core)** dall'elenco a discesa.
 
         > [!NOTE]
-        > Se `TargetFramework` di .NetCore non è coerente con il percorso del programma in `launch.json`, sarà necessario aggiornare manualmente il percorso del programma in `launch.json`, in modo che corrisponda a `TargetFramework` nel file .csproj, così che Visual Studio Code possa avviare correttamente il programma.
+        > Se .NET Core `TargetFramework` non è coerente con il percorso del programma nel `launch.json`, è necessario aggiornare manualmente il percorso del programma in `launch.json` in modo che corrisponda il `TargetFramework` nel file con estensione csproj in modo che Visual Studio Code è stato possibile avviare questo programma.
 
    - **Node.js**
      - Nel terminale integrato di Visual Studio Code modificare la directory selezionando la cartella ***&lt;nome del modulo&gt;***, quindi eseguire il comando seguente per installare i pacchetti Node

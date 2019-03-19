@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: 57891bcce289c30d7dce1cd00c301064aa9b97cc
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: ee64b4cbfd024c91b226736bc8cac0b9b33f964e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955236"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170395"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Uso della rete CDN di Azure con firma di accesso condiviso
 
@@ -48,9 +48,9 @@ Per altre informazioni sull'impostazione dei parametri, vedere [Considerazioni s
 
 ![Impostazioni della firma di accesso condiviso con la rete CDN](./media/cdn-sas-storage-support/cdn-sas-settings.png)
 
-### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>Opzione 1: uso della firma di accesso condiviso con pass-through all'archiviazione BLOB dalla rete CDN di Azure
+### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>Opzione 1: Utilizzo di firma di accesso condiviso con pass-through all'archiviazione blob dalla rete CDN di Azure
 
-È l'opzione più semplice e prevede l'uso di un solo token di firma di accesso condiviso, che viene passato dalla rete CDN di Azure al server di origine. È supportata dai profili della **rete CDN Standard di Azure con tecnologia Verizon** e della **rete CDN Standard di Azure con tecnologia Akamai**. 
+È l'opzione più semplice e prevede l'uso di un solo token di firma di accesso condiviso, che viene passato dalla rete CDN di Azure al server di origine.
  
 1. Selezionare un endpoint, fare clic su **Regole di memorizzazione nella cache**, quindi selezionare **Memorizza nella cache tutti gli URL univoci** dall'elenco **Query string caching** (Memorizzazione nella cache della stringa di query).
 
@@ -67,7 +67,7 @@ Per altre informazioni sull'impostazione dei parametri, vedere [Considerazioni s
    
 3. Specificare la durata della cache tramite le regole di memorizzazione nella cache o aggiungendo intestazioni `Cache-Control` al server di origine. Poiché la rete CDN di Azure considera il token di firma di accesso condiviso come una stringa di query semplice, la procedura consigliata prevede la configurazione della durata della cache con scadenza alla stessa ora di scadenza della firma di acceso condiviso o a un'ora antecedente. In caso contrario, se un file viene memorizzato nella cache per un periodo più lungo di quello in cui la firma di accesso condiviso è attiva, una volta scaduta la firma di accesso condiviso, sarà possibile accedere a tale file dal server di origine della rete CDN di Azure. In questo caso, se si desidera rendere inaccessibile il file memorizzato nella cache, è necessario eseguire un'operazione di ripulitura sul file per cancellarlo dalla cache. Per informazioni sull'impostazione della durata della cache sulla rete CDN di Azure, vedere [Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con regole di memorizzazione nella cache](cdn-caching-rules.md).
 
-### <a name="option-2-hidden-cdn-sas-token-using-a-rewrite-rule"></a>Opzione 2: Token di firma di accesso condiviso della rete CDN nascosto con regola di riscrittura
+### <a name="option-2-hidden-cdn-sas-token-using-a-rewrite-rule"></a>Opzione 2: Nascosto i token SAS di CDN mediante una regola di riscrittura
  
 Questa opzione è disponibile solo per i profili di **rete CDN Premium di Azure fornita da Verizon**. Con questa opzione, è possibile proteggere l'archivio BLOB nel server di origine. È consigliabile usarla se non sono necessarie restrizioni di accesso specifiche per il file, ma si desidera impedire agli utenti di accedere all'origine di archiviazione in maniera diretta per migliorare i tempi di offload della rete CDN di Azure. Il token di firma di accesso condiviso, che non è noto all'utente, è necessario per chiunque acceda ai file nel contenitore specificato del server di origine. Il token di firma di accesso condiviso non è invece necessario nell'endpoint della rete CDN a causa della regola di riscrittura URL.
  
@@ -97,7 +97,7 @@ Questa opzione è disponibile solo per i profili di **rete CDN Premium di Azure 
 
 3. Specificare la durata della cache tramite le regole di memorizzazione nella cache o aggiungendo intestazioni `Cache-Control` al server di origine. Poiché la rete CDN di Azure considera il token di firma di accesso condiviso come una stringa di query semplice, la procedura consigliata prevede la configurazione della durata della cache con scadenza alla stessa ora di scadenza della firma di acceso condiviso o a un'ora antecedente. In caso contrario, se un file viene memorizzato nella cache per un periodo più lungo di quello in cui la firma di accesso condiviso è attiva, una volta scaduta la firma di accesso condiviso, sarà possibile accedere a tale file dal server di origine della rete CDN di Azure. In questo caso, se si desidera rendere inaccessibile il file memorizzato nella cache, è necessario eseguire un'operazione di ripulitura sul file per cancellarlo dalla cache. Per informazioni sull'impostazione della durata della cache sulla rete CDN di Azure, vedere [Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con regole di memorizzazione nella cache](cdn-caching-rules.md).
 
-### <a name="option-3-using-cdn-security-token-authentication-with-a-rewrite-rule"></a>Opzione 3: Uso dell'autenticazione tramite token di sicurezza della rete CDN con una regola di riscrittura
+### <a name="option-3-using-cdn-security-token-authentication-with-a-rewrite-rule"></a>Opzione 3: Usando l'autenticazione basata su token di sicurezza della rete CDN con una regola di riscrittura
 
 Per usare l'autenticazione tramite token di sicurezza della rete CDN di Azure, è necessario disporre di un profilo di **rete CDN Premium di Azure fornita da Verizon**. Questa opzione è la più sicura e personalizzabile. L'accesso del client si basa sui parametri di sicurezza impostati nel token di sicurezza. Dopo che è stato creato e configurato, il token di sicurezza sarà necessario in tutti gli URL di endpoint della rete CDN. Il token di firma di accesso condiviso non è invece necessario nell'endpoint della rete CDN a causa della regola di riscrittura URL. Se il token di firma di accesso condiviso diventa in seguito non valido, la rete CDN di Azure non potrà più riconvalidare i contenuti del server di origine.
 
@@ -144,6 +144,6 @@ Poiché i parametri della firma di accesso condiviso non sono visibili alla rete
 
 Per altre informazioni sulla firma di accesso condiviso, vedere gli articoli seguenti:
 - [Uso delle firme di accesso condiviso](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
-- [Firme di accesso condiviso, parte 2: creare e usare una firma di accesso condiviso con l'archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
+- [Firme di accesso condiviso, parte 2: Creare e usare una firma di accesso condiviso con l'archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
 
 Per altre informazioni sulla configurazione dell'autenticazione basata su token, vedere [Protezione di asset della rete per la distribuzione di contenuti (CDN) di Azure con l'autenticazione basata su token](https://docs.microsoft.com/azure/cdn/cdn-token-auth).

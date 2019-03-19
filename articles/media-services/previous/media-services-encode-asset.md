@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ed4b581cb962c7db706a71ab995963a3c445af55
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: a1b6fe38087975838d99ca4fe45ee0d0638c56c3
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998163"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187745"
 ---
-# <a name="overview-and-comparison-of-azure-on-demand-media-encoders-legacy"></a>Panoramica e confronto dei codificatori multimediali su richiesta di Azure (legacy)
+# <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Panoramica e confronto dei codificatori multimediali su richiesta di Azure 
 
 ## <a name="encoding-overview"></a>Panoramica della codifica
 Servizi multimediali di Azure offre diverse opzioni per la codifica di servizi multimediali nel cloud.
@@ -95,4 +95,4 @@ Se il video di input non contiene i sottotitoli codificati, l'asset di output co
 * [Quote e limitazioni](media-services-quotas-and-limitations.md)
 
 <!--Reference links in article-->
-[1]: http://azure.microsoft.com/pricing/details/media-services/
+[1]: https://azure.microsoft.com/pricing/details/media-services/

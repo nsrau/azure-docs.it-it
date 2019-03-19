@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 40b26429cf4e7f218c2b5a276ae936f60bd6abe4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: d7dc690f719dd9265317b2bba3b87521e9a00d6b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453236"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106577"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Aggiungere un nuovo account tenant di Azure Stack in Azure Active Directory
 
@@ -41,11 +41,11 @@ Per usare il portale di Azure, è necessario disporre di una sottoscrizione di A
 
     ![Aggiunta di un nuovo utente, pagina Utente con le informazioni sull'utente](media/azure-stack-add-new-user-aad/new-user-user.png)
 
-    - **Nome (obbligatorio).** Nome e cognome del nuovo utente. Ad esempio, Mary Parker.
-    - **Nome utente (obbligatorio).** Nome utente del nuovo utente. Ad esempio: mary@contoso.com.
-        La parte relativa al dominio del nome utente deve usare il nome di dominio predefinito iniziale, <_nomedominio_>.onmicrosoft.com o un nome di dominio personalizzato, ad esempio contoso.com. Per altre informazioni su come creare un nome di dominio personalizzato, vedere [Come aggiungere un nome di dominio personalizzato ad Azure Active Directory](../active-directory/fundamentals/add-custom-domain.md).
-    - **Profilo.** Facoltativamente, è possibile aggiungere altre informazioni sull'utente. È anche possibile aggiungere informazioni sull'utente in un secondo momento. Per altre informazioni sull'aggiunta di informazioni sull'utente, vedere [Come aggiungere o modificare informazioni di un profilo utente](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
-    - **Ruolo directory.**  Scegli **utente**.
+   - **Nome (obbligatorio).** Nome e cognome del nuovo utente. Ad esempio, Mary Parker.
+   - **Nome utente (obbligatorio).** Nome utente del nuovo utente. Ad esempio: mary@contoso.com.
+       La parte relativa al dominio del nome utente deve usare il nome di dominio predefinito iniziale, <_nomedominio_>.onmicrosoft.com o un nome di dominio personalizzato, ad esempio contoso.com. Per altre informazioni su come creare un nome di dominio personalizzato, vedere [Come aggiungere un nome di dominio personalizzato ad Azure Active Directory](../active-directory/fundamentals/add-custom-domain.md).
+   - **Profilo.** Facoltativamente, è possibile aggiungere altre informazioni sull'utente. È anche possibile aggiungere informazioni sull'utente in un secondo momento. Per altre informazioni sull'aggiunta di informazioni sull'utente, vedere [Come aggiungere o modificare informazioni di un profilo utente](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
+   - **Ruolo directory.**  Scegli **utente**.
 
 5. Controllare **Show Password** e copiare la password generata automaticamente disponibili nel **Password** casella. Questa password sarà necessaria per il processo di accesso iniziale.
 

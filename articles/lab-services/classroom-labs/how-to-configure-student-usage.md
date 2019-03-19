@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 834674eb63af75088434db0f614b11c7a36e7adf
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: eadbaacd4bb860cd09997775b8d77cbcf0ff17f2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964815"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181623"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configurare le impostazioni e i criteri di utilizzo
 Questo articolo descrive come aggiungere utenti al lab, registrarli al lab, controllare il numero di ore in cui possono usare la macchina virtuale e altro ancora. 
@@ -38,9 +38,22 @@ Se è stata abilitata l'opzione **Limitare l'accesso**, aggiungere gli utenti (i
 
     ![Elenco utenti](../media/how-to-configure-student-usage/users-list-new.png)
 
-## <a name="send-registration-link-to-students"></a>Inviare un collegamento di registrazione agli studenti
-La procedura seguente include i passaggi per inviare un collegamento di registrazione agli utenti. Se l'opzione **Limita l'accesso** è abilitata per il lab, solo gli utenti inclusi nell'elenco di utenti possono usare il collegamento di registrazione per eseguire la registrazione al lab. 
+## <a name="share-registration-link-with-students"></a>Collegamento di iscrizione di condivisione con gli studenti
+Per inviare il collegamento di iscrizione agli studenti, usare uno dei metodi seguenti. Il primo metodo illustra come inviare messaggi di posta elettronica per gli studenti con un messaggio facoltativo e il collegamento di iscrizione. Il secondo metodo viene illustrato come ottenere il collegamento di registrazione che è possibile condividere con altri utenti come che vuoi. 
 
+Se l'opzione **Limita l'accesso** è abilitata per il lab, solo gli utenti inclusi nell'elenco di utenti possono usare il collegamento di registrazione per eseguire la registrazione al lab. Questa opzione è abilitata per impostazione predefinita. 
+
+### <a name="send-email-to-users"></a>Invia messaggio di posta elettronica agli utenti
+1. Passare alla vista **Utenti** se non si è già nella pagina. 
+2. Selezionare specifico o tutti gli utenti nell'elenco. Per selezionare utenti specifici, selezionare le caselle di controllo nella prima colonna dell'elenco. Per selezionare tutti gli utenti, selezionare la casella di controllo davanti il titolo della prima colonna (**nome**) oppure selezionare tutte le caselle di controllo per tutti gli utenti nell'elenco.
+3. Selezionare **Invia invito** sulla barra degli strumenti. È anche possibile posizionare il mouse su un nome di uno studente nell'elenco e inviare l'icona di messaggio di posta elettronica. 
+
+    ![Invia collegamento di iscrizione tramite posta elettronica](../media/tutorial-setup-classroom-lab/send-email.png)
+4. Nel **collegamento di iscrizione di invio tramite posta elettronica** pagina, seguire questa procedura: 
+    1. Tipo di un' **messaggio facoltativo** che si desidera inviare agli studenti. Messaggio di posta elettronica include automaticamente il collegamento di iscrizione. 
+    2. Nel **collegamento di iscrizione di invio tramite posta elettronica** pagina, selezionare **inviare**. 
+
+## <a name="get-registration-link"></a>Ottiene il collegamento di registrazione
 1. Passare alla visualizzazione **Utenti** selezionando **Utenti** nel menu a sinistra. 
 2. Selezionare il riquadro **Get registration link** (Ottieni collegamento registrazione).
 
@@ -49,11 +62,7 @@ La procedura seguente include i passaggi per inviare un collegamento di registra
 
     ![Collegamento di registrazione dello studente](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. Nella finestra di dialogo **User registration** (Registrazione utente) selezionare il pulsante **Chiudi**. 
-4. Condividere il collegamento di registrazione con uno studente in modo che possa eseguire la registrazione alla classe. Se l'opzione **Limita l'accesso** è abilitata e si ha un elenco di utenti, eseguire le operazioni seguenti:
-    1. Selezionare l'**indirizzo e-mail** dell'utente nell'elenco. 
-    2. Sarà visualizzata una finestra del programma di posta elettronica predefinito con l'indirizzo **A** inserito. 
-    3. Incollare l'**URL di registrazione** copiato in precedenza. 
-    4. Inviare il **messaggio**. 
+4. Condividi i **collegamento di iscrizione** con uno studente in modo che gli studenti possono registrarsi per la classe. 
 
 ## <a name="view-users-registered-with-the-lab"></a>Visualizzare gli utenti che hanno eseguito la registrazione per il lab
 

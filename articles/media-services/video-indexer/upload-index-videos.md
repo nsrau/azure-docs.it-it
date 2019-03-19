@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: 4127b6b2b2601b640a6fda4ccb60960d1762ee81
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: e7f39b6298dd950147fea7ac21969c53e1b58e2e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414745"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877871"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
 
@@ -26,15 +26,17 @@ Durante il caricamento di video con l'API Video Indexer, sono disponibili le opz
 
 Questo articolo illustra come usare l'API [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) per caricare e indicizzare i video in base a un URL. L'esempio di codice nell'articolo include il codice impostato come commento che mostra come caricare la matrice di byte. <br/>L'articolo illustra anche alcuni parametri che è possibile impostare per l'API per modificare il processo e l'output dell'API.
 
-Una volta caricato il video, facoltativamente Video Indexer lo codifica (illustrato in questo articolo). Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuita) o un'opzione a pagamento (in cui non si è limitati dalla quota). Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2400 minuti di indicizzazione gratuita per gli utenti di API. Con l'opzione a pagamento, si crea un account di Video Indexer [connesso alla sottoscrizione di Azure e a un account di Servizi multimediali di Azure](connect-to-azure.md). Il pagamento viene effettuato per i minuti di indicizzazione, nonché in base ai costi correlati all'account multimediale. 
+Una volta caricato il video, facoltativamente Video Indexer lo codifica (illustrato in questo articolo). Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuita) o un'opzione a pagamento (in cui non si è limitati dalla quota). Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2400 minuti di indicizzazione gratuita per gli utenti di API. Con l'opzione a pagamento, crei un account Video Indexer [connesso alla sottoscrizione di Azure e un account servizi multimediali di Azure](connect-to-azure.md). Il pagamento viene effettuato per i minuti di indicizzazione, nonché in base ai costi correlati all'account multimediale. 
 
 ## <a name="uploading-considerations"></a>Considerazioni sul caricamento
 
 - Quando si carica il video in base all'URL (scelta preferita), l'endpoint deve essere protetto con il protocollo TLS 1.2 (o versione successiva)
-- Le dimensioni di caricamento con l'opzione URL sono limitate a 25 GB
+- Le dimensioni di caricamento con l'opzione URL sono limitata a 30GB
+- Nella maggior parte dei browser, la lunghezza dell'URL è limitata a 2000 caratteri
 - Le dimensioni di caricamento con l'opzione matrice di byte sono limitate a 2 GB
 - L'opzione di matrice di byte scade dopo 30 minuti
 - L'URL fornito nel parametro `videoURL` deve essere codificato.
+- L'indicizzazione di asset di servizi multimediali ha le stesse limitazioni di indicizzazione dall'URL
 
 > [!Tip]
 > È consigliabile usare .NET framework versione 4.6.2. o versione successiva perché le versioni precedenti di .NET Framework non usano per impostazione predefinita TLS 1.2.
@@ -62,16 +64,16 @@ Un URL che viene usato per notificare al cliente (con una richiesta POST) gli ev
         |state|Lo stato del video|  
     - Esempio: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Persona identificata nel video:
-    - Properties
+  - Properties
     
-        |NOME|DESCRIZIONE|
-        |---|---|
-        |id| L'ID del video|
-        |faceId|L'ID viso che appare nell'indice video|
-        |knownPersonId|L'ID utente univoco all'interno di un modello di viso|
-        |personName|Il nome della persona|
+      |NOME|DESCRIZIONE|
+      |---|---|
+      |id| L'ID del video|
+      |faceId|L'ID viso che appare nell'indice video|
+      |knownPersonId|L'ID utente univoco all'interno di un modello di viso|
+      |personName|Il nome della persona|
         
-     - Esempio: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+    - Esempio: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
 #### <a name="notes"></a>Note
 

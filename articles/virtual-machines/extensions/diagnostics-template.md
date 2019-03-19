@@ -1,6 +1,6 @@
 ---
 title: Aggiungere monitoraggio e diagnostica a una macchina virtuale di Azure | Documentazione Microsoft
-description: Usare un modello di Azure Resource Manager per creare una nuova macchina virtuale Windows con l'estensione Diagnostica di Azure.
+description: Usare un modello di Azure Resource Manager per creare una nuova macchina virtuale Windows con estensione diagnostica di Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: sbtron
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 85e9b49cb8be1a3f53ca0f3b4816e6165b68bde0
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
-ms.translationtype: HT
+ms.openlocfilehash: 00b4a145da9104cab410c5a07f6d7ec5ded5c45d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993111"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893544"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Usare monitoraggio e diagnostica con una macchina virtuale Windows e modelli di Azure Resource Manager
 L'estensione di Diagnostica di Azure offre le funzionalità di monitoraggio e diagnostica in una macchina virtuale di Azure basata su Windows. È possibile abilitare queste funzionalità nella macchina virtuale includendo l'estensione come parte del modello di Azure Resource Manager. Per altre informazioni sull'inclusione di un'estensione come parte di un modello di macchina virtuale, vedere [Creazione di modelli di Gestione risorse di Azure con le estensioni di macchina virtuale](../windows/template-description.md#extensions) . Questo articolo illustra come aggiungere l'estensione Diagnostica di Azure a un modello di macchina virtuale Windows.  
@@ -177,7 +177,7 @@ Ogni tabella WADMetrics include le colonne seguenti:
 * **Numero**: numero totale di valori rilevati per il contatore delle prestazioni.
 * **Average**: valore medio (totale/conteggio) del contatore delle prestazioni nel periodo di aggregazione.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 * Per un modello di esempio completo di macchina virtuale Windows con estensione Diagnostica, vedere [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
 * Distribuire il modello di Azure Resource Manager con [Azure PowerShell](../windows/ps-template.md) o la [riga di comando di Azure](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * Altre informazioni sulla [Creazione di modelli di Gestione risorse di Azure](../../resource-group-authoring-templates.md)

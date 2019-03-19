@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 2a2fafb5da50dbd26786284592cd330df7f5557a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 769e6b9936ad6d3cb963e208cec4c49813f2b6d3
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113697"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188323"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Scalabilità distribuita a livello geografico con ambienti del servizio app
 ## <a name="overview"></a>Panoramica
@@ -46,7 +46,7 @@ Il resto di questo argomento illustra in dettaglio la procedura prevista per con
 ## <a name="planning-the-topology"></a>Pianificazione della topologia
 Prima di compilare il footprint di un'app distribuita, è utile avere anticipatamente alcune informazioni.
 
-* **Dominio personalizzato per l'app:**  definire il nome del dominio personalizzato che i clienti useranno per accedere all'app.  Per l'app di esempio il nome di dominio personalizzato è *www.scalableasedemo.com*
+* **Dominio personalizzato per l'app:**  definire il nome del dominio personalizzato che i clienti useranno per accedere all'app.  Per l'app di esempio è il nome di dominio personalizzato `www.scalableasedemo.com`
 * **Dominio di Gestione traffico:**  quando si crea un profilo di [Gestione traffico di Azure][AzureTrafficManagerProfile] è necessario scegliere un nome di dominio.  Questo nome sarà combinato con il suffisso *trafficmanager.net* per registrare una voce di dominio gestita da Gestione traffico.  Per l'app di esempio il nome scelto è *scalable-ase-demo*.  Il nome di dominio completo gestito da Gestione traffico sarà quindi *scalable-ase-demo.trafficmanager.net*.
 * **Strategia per la scalabilità del footprint dell'app:**  stabilire se il footprint dell'applicazione sarà distribuito tra più ambienti del servizio app in una singola area geografica,  in più aree geografiche  o con una combinazione di entrambi gli approcci.  La decisione dovrà essere basata sulla previsione dell'origine del traffico dei clienti, oltre che sull'efficacia della scalabilità del resto dell'infrastruttura di back-end di supporto di un'app.  Ad esempio, un'applicazione al 100% senza stato può essere considerevolmente ridimensionata usando una combinazione di più ambienti del servizio app per ogni area di Azure, moltiplicati per gli ambienti del servizio app distribuiti tra più aree di Azure.  Con la disponibilità di oltre 15 aree di Azure pubbliche da cui scegliere, i clienti possono veramente creare un footprint dell'applicazione iperscalabile in tutto il mondo.  Per l'app di esempio usata per questo articolo sono stati creati tre ambienti del servizio app in una singola area di Azure (Stati Uniti centro-meridionali).
 * **Convenzione di denominazione per gli ambienti del servizio app:**  ogni ambiente del servizio app richiede un nome univoco.  Oltre a uno o due ambienti del servizio app, è utile avere una convenzione di denominazione per facilitare l'identificazione di ogni ambiente del servizio app.  Per l'app di esempio è stata usata una convenzione di denominazione semplice.  I nomi dei tre ambienti del servizio app sono *fe1ase*, *fe2ase* e *fe3ase*.
@@ -87,7 +87,7 @@ Come si noterà, è presente una chiamata a *Add-AzureTrafficManagerEndpointConf
 Tutti e tre gli endpoint usano lo stesso valore (10) per il parametro *Weight* .  Gestione traffico distribuirà quindi le richieste dei clienti tra tutte e tre le istanze dell'app in modo relativamente uniforme. 
 
 ## <a name="pointing-the-apps-custom-domain-at-the-traffic-manager-domain"></a>Indirizzamento del dominio personalizzato dell'app al dominio di Gestione traffico
-Come passaggio finale è necessario che il dominio personalizzato dell'app punti al dominio di Gestione traffico.  Per l'app di esempio *www.scalableasedemo.com* deve puntare a *scalable-ase-demo.trafficmanager.net*.  Questo passaggio deve essere completato con il registrar che gestisce il dominio personalizzato.  
+Come passaggio finale è necessario che il dominio personalizzato dell'app punti al dominio di Gestione traffico.  Per l'app di esempio ciò significa che puntano `www.scalableasedemo.com` a `scalable-ase-demo.trafficmanager.net`.  Questo passaggio deve essere completato con il registrar che gestisce il dominio personalizzato.  
 
 Usando gli strumenti di gestione del dominio del registrar, è necessario creare un record CNAME che dal dominio personalizzato punti al dominio di Gestione traffico.  L'immagine seguente mostra un esempio di come appare la configurazione di questo CNAME:
 
@@ -95,16 +95,16 @@ Usando gli strumenti di gestione del dominio del registrar, è necessario creare
 
 Anche se questo aspetto non viene trattato in questo argomento, tenere presente che per ogni singola istanza dell'app deve essere registrato anche il dominio personalizzato.  In caso contrario, se una richiesta raggiunge un'istanza dell'app e per l'app non è stato registrato il dominio personalizzato, la richiesta non riuscirà.  
 
-In questo esempio il dominio personalizzato è *www.scalableasedemo.com*e a ogni istanza dell'applicazione è associato il dominio personalizzato.
+In questo esempio il dominio personalizzato è `www.scalableasedemo.com`, e ogni istanza dell'applicazione con il dominio personalizzato associato.
 
 ![Dominio personalizzato][CustomDomain] 
 
 Per un riepilogo della procedura di registrazione di un dominio personalizzato con le app del Servizio app di Azure, vedere l'articolo seguente relativo alla [registrazione di domini personalizzati][RegisterCustomDomain].
 
 ## <a name="trying-out-the-distributed-topology"></a>Prova della topologia distribuita
-Come risultato finale della configurazione di Gestione traffico e del DNS, il flusso delle richieste per *www.scalableasedemo.com* avviene con la sequenza seguente:
+Il risultato finale della configurazione di gestione traffico e DNS è che le richieste per `www.scalableasedemo.com` transiterà attraverso la sequenza seguente:
 
-1. Un browser o un dispositivo esegue una ricerca DNS di *www.scalableasedemo.com*
+1. Un browser o un dispositivo apporterà una ricerca DNS `www.scalableasedemo.com`
 2. La voce CNAME del registrar causa il reindirizzamento della ricerca DNS a Gestione traffico di Azure.
 3. Viene eseguita una ricerca DNS di *scalable-ase-demo.trafficmanager.net* in uno dei server DNS di Gestione traffico di Azure.
 4. In base ai criteri di bilanciamento del carico, ovvero il parametro *TrafficRoutingMethod* usato in precedenza durante la creazione del profilo di Gestione traffico, Gestione traffico sceglierà uno degli endpoint configurati e restituirà l'FQDN dell'endpoint al browser o al dispositivo.

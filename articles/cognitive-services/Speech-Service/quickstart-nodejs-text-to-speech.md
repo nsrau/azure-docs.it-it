@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 7faa69e4adf96af7f7df9724521ee5ee1cacaad1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: eff79b31e926d382d98416b585ca2af54b3e87d0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861647"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872643"
 ---
 # <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Avvio rapido: Eseguire la sintesi vocale con Node.js
 
 In questa guida introduttiva si apprenderà come eseguire la sintesi vocale di testo usando Node.js e l'API REST Sintesi vocale. In questo articolo il corpo della richiesta è strutturato nel formato [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md), che consente di scegliere la voce e la lingua della risposta.
 
-Per questo avvio rapido è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa del servizio Voce. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](get-started.md) per ottenere una chiave di sottoscrizione.
+Questa Guida introduttiva richiede un [account di servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa di servizi di riconoscimento vocale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](get-started.md) per ottenere una chiave di sottoscrizione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -30,15 +30,16 @@ Questa guida introduttiva richiede:
 
 * [Node 8.12.x o versione successiva](https://nodejs.org/en/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) o l'editor di testo preferito
-* Una chiave di sottoscrizione di Azure per il servizio Voce. [È possibile ottenerne una gratuitamente](get-started.md).
+* Una chiave di sottoscrizione di Azure per i servizi di riconoscimento vocale. [È possibile ottenerne una gratuitamente](get-started.md).
 
 ## <a name="create-a-project-and-require-dependencies"></a>Creare un progetto e richiedere le dipendenze
 
 Creare un nuovo progetto Node.js con l'IDE o l'editor preferito. Copiare quindi questo frammento di codice nel progetto all'interno di un file denominato `tts.js`.
 
 ```javascript
-// Requires request for HTTP requests
-const request = require('request');
+// Requires request and request-promise for HTTP requests
+// e.g. npm install request request-promise
+const rp = require('request-promise');
 // Requires fs to write synthesized speech to a file
 const fs = require('fs');
 // Requires readline-sync to read command line inputs
@@ -48,69 +49,38 @@ const xmlbuilder = require('xmlbuilder');
 ```
 
 > [!NOTE]
-> Se non si è mai usato questi moduli, sarà necessario installarli prima di eseguire il programma. Per installare questi pacchetti, eseguire: `npm install request readline-sync`.
-
-## <a name="set-the-subscription-key-and-create-a-prompt-for-tts"></a>Impostare la chiave di sottoscrizione e creare un prompt per la sintesi vocale
-
-Nelle sezioni successive si creeranno le funzioni per gestire l'autorizzazione, chiamare l'API Sintesi vocale e convalidare la risposta. Si inizierà aggiungendo una chiave di sottoscrizione e creando una richiesta di input di testo.
-
-```javascript
-/*
- * These lines will attempt to read your subscription key from an environment
- * variable. If you prefer to hardcode the subscription key for ease of use,
- * replace process.env.SUBSCRIPTION_KEY with your subscription key as a string.  
- */
-const subscriptionKey = process.env.SUBSCRIPTION_KEY;
-if (!subscriptionKey) {
-  throw new Error('Environment variable for your subscription key is not set.')
-};
-
-// Prompts the user to input text.
-let text = readline.question('What would you like to convert to speech? ');
-```
+> Se non si è mai usato questi moduli, sarà necessario installarli prima di eseguire il programma. Per installare questi pacchetti, eseguire: `npm install request request-promise xmlbuilder readline-sync`.
 
 ## <a name="get-an-access-token"></a>Ottenere un token di accesso
 
-L'API REST Sintesi vocale necessita di un token di accesso per l'autenticazione. Per ottenere un token di accesso, è necessario uno scambio. In questo esempio viene scambiata la chiave di sottoscrizione del servizio Voce con un token di accesso usando l'endpoint `issueToken`.
+L'API REST Sintesi vocale necessita di un token di accesso per l'autenticazione. Per ottenere un token di accesso, è necessario uno scambio. Questa funzione lo scambio di chiave di sottoscrizione di servizi di riconoscimento vocale per un token di accesso tramite il `issueToken` endpoint.
 
-Questa funzione accetta due argomenti, la chiave di sottoscrizione dei Servizi di riconoscimento vocale e una funzione di callback. Dopo che la funzione ha ottenuto un token di accesso, passa il valore alla funzione di callback. Nella sezione successiva si creerà la funzione per chiamare l'API di sintesi vocale e salvare la risposta vocale sintetizzata.
-
-L'esempio presuppone che la sottoscrizione del servizio Voce sia nell'area Stati Uniti occidentali. Se si usa un'area diversa, aggiornare il valore per `uri`. Per un elenco completo, vedere [Aree](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+In questo esempio si presuppone che la sottoscrizione di servizi di riconoscimento vocale è nell'area Stati Uniti occidentali. Se si usa un'area diversa, aggiornare il valore per `uri`. Per un elenco completo, vedere [Aree](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Copiare questo codice nel progetto:
 
 ```javascript
-function textToSpeech(subscriptionKey, saveAudio) {
+// Gets an access token.
+function getAccessToken(subscriptionKey) {
     let options = {
         method: 'POST',
         uri: 'https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken',
         headers: {
             'Ocp-Apim-Subscription-Key': subscriptionKey
         }
-    };
-    // This function retrieve the access token and is passed as callback
-    // to request below.
-    function getToken(error, response, body) {
-        console.log("Getting your token...\n")
-        if (!error && response.statusCode == 200) {
-            //This is the callback to our saveAudio function.
-            // It takes a single argument, which is the returned accessToken.
-            saveAudio(body)
-        }
-        else {
-          throw new Error(error);
-        }
     }
-    request(options, getToken)
+    return rp(options);
 }
 ```
 
 > [!NOTE]
 > Per altre informazioni sull'autenticazione, vedere [Eseguire l'autenticazione con un token di autenticazione](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
 
+Nella sezione successiva si creerà la funzione per chiamare l'API di sintesi vocale e salvare la risposta vocale sintetizzata.
+
 ## <a name="make-a-request-and-save-the-response"></a>Eseguire una richiesta e salvare la risposta
 
-In questa sezione si creerà la richiesta all'API di sintesi vocale e si salverà la risposta vocale. Questo esempio presuppone che si usi l'endpoint Stati Uniti occidentali. Se la risorsa è registrata in un'area diversa, assicurarsi di aggiornare il valore di `uri`. Per altre informazioni, vedere [Aree del servizio Voce](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+In questa sezione si creerà la richiesta all'API di sintesi vocale e si salverà la risposta vocale. Questo esempio presuppone che si usi l'endpoint Stati Uniti occidentali. Se la risorsa è registrata in un'area diversa, assicurarsi di aggiornare il valore di `uri`. Per altre informazioni, vedere [aree di servizi di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 È quindi necessario aggiungere le intestazioni obbligatorie per la richiesta. Assicurarsi di aggiornare `User-Agent` con il nome della risorsa, che si trova nel portale di Azure, e impostare `X-Microsoft-OutputFormat` sul formato di output audio preferito. Per un elenco completo dei formati di output, vedere [Output audio](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-outputs).
 
@@ -120,22 +90,22 @@ Creare quindi il corpo della richiesta nel formato SSML (Speech Synthesis Markup
 > Questo esempio usa il carattere voce `JessaRUS`. Per un elenco completo di voci e lingue fornite da Microsoft, vedere [Supporto per le lingue](language-support.md).
 > Se si vuole creare una voce unica, riconoscibile per il proprio marchio, vedere [Creazione di caratteri voce personalizzati](how-to-customize-voice-font.md).
 
-Si creerà infine una richiesta da inviare al servizio. Se la richiesta ha esito positivo e viene restituito il codice di stato 200, la risposta di sintesi vocale viene scritta come `sample.wav`.
+Si creerà infine una richiesta da inviare al servizio. Se la richiesta ha esito positivo e viene restituito il codice di stato 200, la risposta di sintesi vocale viene scritta come `TTSOutput.wav`.
 
 ```javascript
 // Make sure to update User-Agent with the name of your resource.
 // You can also change the voice and output formats. See:
 // https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech
-function saveAudio(accessToken) {
+function textToSpeech(accessToken, text) {
     // Create the SSML request.
     let xml_body = xmlbuilder.create('speak')
-      .att('version', '1.0')
-      .att('xml:lang', 'en-us')
-      .ele('voice')
-      .att('xml:lang', 'en-us')
-      .att('name', 'Microsoft Server Speech Text to Speech Voice (en-US, Guy24KRUS)')
-      .txt(text)
-      .end();
+        .att('version', '1.0')
+        .att('xml:lang', 'en-us')
+        .ele('voice')
+        .att('xml:lang', 'en-us')
+        .att('name', 'Microsoft Server Speech Text to Speech Voice (en-US, Guy24KRUS)')
+        .txt(text)
+        .end();
     // Convert the XML into a string to send in the TTS request.
     let body = xml_body.toString();
 
@@ -151,30 +121,49 @@ function saveAudio(accessToken) {
             'Content-Type': 'application/ssml+xml'
         },
         body: body
-    };
-    // This function makes the request to convert speech to text.
-    // The speech is returned as the response.
-    function convertText(error, response, body){
-      if (!error && response.statusCode == 200) {
-        console.log("Converting text-to-speech. Please hold...\n")
-      }
-      else {
-        throw new Error(error);
-      }
-      console.log("Your file is ready.\n")
     }
-    // Pipe the response to file.
-    request(options, convertText).pipe(fs.createWriteStream('sample.wav'));
+
+    let request = rp(options)
+        .on('response', (response) => {
+            if (response.statusCode === 200) {
+                request.pipe(fs.createWriteStream('TTSOutput.wav'));
+                console.log('\nYour file is ready.\n')
+            }
+        });
+    return request;
 }
 ```
 
 ## <a name="put-it-all-together"></a>Combinare tutti gli elementi
 
-La procedura è quasi terminata. L'ultimo passaggio consiste nel chiamare la funzione `textToSpeech`.
+La procedura è quasi terminata. L'ultimo passaggio consiste nel creare una funzione asincrona. Questa funzione leggerà la chiave di sottoscrizione dalla variabile di ambiente, messaggio di richiesta per il testo, ottenere un token, attendere che la richiesta di completamento, quindi convertire la sintesi vocale e salvare l'audio come un wav.
+
+Se si ha familiarità con le variabili di ambiente o si preferisce testare con la chiave di sottoscrizione hardcoded sotto forma di stringa, sostituire `process.env.SPEECH_SERVICE_KEY` con la chiave di sottoscrizione sotto forma di stringa.
 
 ```javascript
-// Start the sample app.
-textToSpeech(subscriptionKey, saveAudio);
+// Use async and await to get the token before attempting
+// to convert text to speech.
+async function main() {
+    // Reads subscription key from env variable.
+    // You can replace this with a string containing your subscription key. If
+    // you prefer not to read from an env variable.
+    // e.g. const subscriptionKey = "your_key_here";
+    const subscriptionKey = process.env.SPEECH_SERVICE_KEY;
+    if (!subscriptionKey) {
+        throw new Error('Environment variable for your subscription key is not set.')
+    };
+    // Prompts the user to input text.
+    const text = readline.question('What would you like to convert to speech? ');
+
+    try {
+        const accessToken = await getAccessToken(subscriptionKey);
+        await textToSpeech(accessToken, text);
+    } catch (err) {
+        console.log(`Something went wrong: ${err}`);
+    }
+}
+
+main()
 ```
 
 ## <a name="run-the-sample-app"></a>Eseguire l'app di esempio

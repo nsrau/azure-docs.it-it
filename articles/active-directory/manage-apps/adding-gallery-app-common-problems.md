@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89d587a71eeb75f7be567cbc29a4d77ac371e3dc
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: a898b5b235099109fcfeaaa4d647493e54caf57e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237871"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853172"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Errore durante l'aggiunta di un'applicazione della raccolta di Azure AD
 
@@ -38,7 +38,7 @@ In alcuni casi, a causa di problemi temporanei, problemi di rete o un bug, l'agg
 
 Se si verifica un errore quando si fa clic sul pulsante **Aggiungi**, viene visualizzata una **Notifica** con stato **Errore**. Se si desidera visualizzare altri dettagli sull'errore per saperne di più o per effettuarne la condivisione con un tecnico del supporto, è possibile visualizzare altre informazioni sull'errore seguendo i passaggi illustrati nella sezione [Come visualizzare i dettagli di una notifica del portale](#how-to-see-the-details-of-a-portal-notification).
 
- ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Non si sa come configurare l'applicazione dopo averla aggiunta
+## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Non si sa come configurare l'applicazione dopo averla aggiunta
 
 Per informazioni su come configurare le applicazioni, vedere l'articolo [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
 
@@ -73,41 +73,41 @@ Vedere le descrizioni seguenti per altri dettagli sulle notifiche.
 
 ### <a name="essential-notification-items"></a>Elementi essenziali della notifica
 
--   **Titolo**: il titolo descrittivo della notifica
+- **Titolo**: il titolo descrittivo della notifica
 
   * Esempio: **Impostazioni proxy di applicazione**
 
--   **Descrizione**: la descrizione di ciò che si è verificato a seguito dell'operazione
+- **Descrizione**: la descrizione di ciò che si è verificato a seguito dell'operazione
 
-    -   Esempio: **L'URL interno immesso è già usato da un'altra applicazione**
+  -   Esempio: **L'URL interno immesso è già usato da un'altra applicazione**
 
--   **ID notifica**: ID univoco della notifica
+- **ID notifica**: ID univoco della notifica
 
-    -   Esempio: **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
+  -   Esempio: **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **ID richiesta client**: ID specifico della richiesta creato dal browser
+- **ID richiesta client**: ID specifico della richiesta creato dal browser
 
-    -   Esempio: **302fd775-3329-4670-a9f3-bea37004f0bc**
+  -   Esempio: **302fd775-3329-4670-a9f3-bea37004f0bc**
 
--   **Timestamp (UTC)**: il timestamp in cui si è verificata la notifica, basato sul sistema UTC
+- **Timestamp (UTC)**: il timestamp in cui si è verificata la notifica, basato sul sistema UTC
 
-    -   Esempio: **2017-03-23T19:50:43.7583681Z**
+  -   Esempio: **2017-03-23T19:50:43.7583681Z**
 
--   **ID transazione interna**: l'ID interno che è possibile usare per cercare l'errore nei sistemi
+- **ID transazione interna**: l'ID interno che è possibile usare per cercare l'errore nei sistemi
 
-    -   Esempio: **71a2f329-ca29-402f-aa72-bc00a7aca603**
+  -   Esempio: **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
--   **UPN** : l'utente che ha eseguito l'operazione
+- **UPN** : l'utente che ha eseguito l'operazione
 
-    -   Esempio: **tperkins@f128.info**
+  -   Esempio – **tperkins\@f128.info**
 
--   **ID tenant**: ID univoco del tenant di cui è membro l'utente che ha eseguito l'operazione
+- **ID tenant**: ID univoco del tenant di cui è membro l'utente che ha eseguito l'operazione
 
-    -   Esempio: **7918d4b5-0442-4a97-be2d-36f9f9962ece**
+  -   Esempio: **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **ID oggetto utente**: ID univoco dell'utente che ha eseguito l'operazione
+- **ID oggetto utente**: ID univoco dell'utente che ha eseguito l'operazione
 
-    -   Esempio: **17f84be4-51f8-483a-b533-383791227a99**
+  -   Esempio: **17f84be4-51f8-483a-b533-383791227a99**
 
 ### <a name="detailed-notification-items"></a>Elementi della notifica dettagliati
 
@@ -125,7 +125,7 @@ Vedere le descrizioni seguenti per altri dettagli sulle notifiche.
 
 -   **Dettagli**: la descrizione dettagliata di ciò che si è verificato come conseguenza dell'operazione
 
-    -   Esempio: **L'URL interno "https://bing.com/" non è valido perché è già in uso**
+    -   Esempio – **url interno `https://bing.com/` non è valido perché è già in uso**
 
 -   **Copia errore**: fare clic sull'**icona Copia** a destra della casella di testo **Copia errore** per copiare tutti i dettagli della notifica da condividere con un tecnico del supporto o del gruppo di 
 -   engineer

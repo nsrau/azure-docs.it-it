@@ -7,16 +7,16 @@ services: microsoft-genomics
 author: ruchir
 editor: jasonwhowell
 ms.author: ruchir
-ms.service: microsoft-genomics
+ms.service: genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 10/29/2018
-ms.openlocfilehash: 2c10259e4b9fa180d09ceef0359e7ec99e8200b1
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: HT
+ms.openlocfilehash: 78084e6beac7b390b1ea1afe888030c5224856b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239900"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078058"
 ---
 # <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
 
@@ -73,8 +73,8 @@ Esistono tre argomenti obbligatori:
                 Bases Processed : 1,348,613,600 (1 GBase)
         ```
 
- > [!NOTE]
- >  In alternativa, è possibile includere il percorso del file di configurazione invece di immettere direttamente URL e KEY. Se si includono questi argomenti nella riga di comando e nel file di configurazione, gli argomenti della riga di comando avranno priorità.  
+  > [!NOTE]
+  >  In alternativa, è possibile includere il percorso del file di configurazione invece di immettere direttamente URL e KEY. Se si includono questi argomenti nella riga di comando e nel file di configurazione, gli argomenti della riga di comando avranno priorità.  
 
 Per un flusso di lavoro con ID 1001 e un file config.txt presente nello stesso percorso del file eseguibile di msgen, il comando avrà un aspetto simile al seguente:
 
@@ -99,8 +99,8 @@ Questa sezione descrive brevemente gli errori comuni restituiti dal servizio Gen
 
 Il servizio Genomica di Microsoft (msgen) può generare i due tipi di errori seguenti:
 
-1. Errori interni del servizio: gli errori che sono interni al servizio e non possono essere risolti tramite la correzione di parametri o file di input. In alcuni casi, per risolvere questi errori può essere sufficiente inviare nuovamente il flusso di lavoro.
-2. Errori di input: gli errori che possono essere risolti usando gli argomenti corretti o correggendo formati di file.
+1. Errori interni del servizio: Errori che sono interni al servizio, che non può essere risolti tramite la correzione di parametri o i file di input. In alcuni casi, per risolvere questi errori può essere sufficiente inviare nuovamente il flusso di lavoro.
+2. Errori di input: Errori che possono essere risolti usando gli argomenti corretti o correzione dei formati di file.
 
 ### <a name="1-internal-service-errors"></a>1. Errori interni del servizio
 
@@ -116,7 +116,7 @@ Questi errori possono essere corretti dall'utente. A seconda del tipo di file e 
 
 | Tipo di file | Codice di errore | Messaggio di errore                                                                           | Passaggi consigliati per la risoluzione dei problemi                                                                                         |
 |--------------|------------|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| Qualsiasi          | 701        | Read [readId] has [numberOfBases] bases, but the limit is [maxReadLength] (La lettura [idLettura] ha [numeroBasi] basi, ma il limite è [lunghezzaMaxLettura])           | Il motivo più comune di questo errore è dato dal danneggiamento dei file che ha determinato la concatenazione di due operazioni di lettura. Controllare i file di input. |                                |
+| Qualsiasi          | 701        | Read [readId] has [numberOfBases] bases, but the limit is [maxReadLength] (La lettura [idLettura] ha [numeroBasi] basi, ma il limite è [lunghezzaMaxLettura])           | Il motivo più comune di questo errore è dato dal danneggiamento dei file che ha determinato la concatenazione di due operazioni di lettura. Controllare i file di input. |
 | BAM          | 200        |   Unable to read file '[yourFileName]'. (Non è possibile leggere il file '[nomeFile]'.)                                                                                       | Controllare il formato del file BAM. Inviare nuovamente il flusso di lavoro con un file nel formato corretto.                                                                           |
 | BAM          | 201        |  Unable to read BAM file [File_name]. (Non è possibile leggere il file BAM [nome_File].)                                                                                      |Controllare il formato del file BAM.  Inviare il flusso di lavoro con un file nel formato corretto.                                                                            |
 | BAM          | 202        | Unable to read BAM file [File_name]. (Non è possibile leggere il file BAM [nome_File].) File too small and missing header. (Il file ha dimensioni troppo piccole o l'intestazione è mancante.)                                                                                        | Controllare il formato del file BAM.  Inviare il flusso di lavoro con un file nel formato corretto.                                                                            |
@@ -137,7 +137,7 @@ Questi errori possono essere corretti dall'utente. A seconda del tipo di file e 
 | FASTQ        | 308        |  FASTQ read error. Reads of both ends responded differently. Did you choose the correct FASTQ files? (Errore di lettura FASTQ. Le letture di entrambe le estremità hanno risposto in modo diverso. Sono stati scelti i file FASTQ corretti?)                                                                                       | Correggere il formato del file FASTQ e inviare nuovamente il flusso di lavoro.                                                                         |
 |        |       |                                                                                        |                                                                           |
 
-## <a name="step-3-contact-microsoft-genomics-support"></a>Passaggio 3: Contattare il supporto di Genomica di Microsoft
+## <a name="step-3-contact-microsoft-genomics-support"></a>Passaggio 3: Contattare il supporto di genomica di Microsoft
 
 Se i problemi dei processi persistono o se si hanno altre domande, contattare il supporto di Genomica di Microsoft dal portale di Azure. Per altre informazioni su come inviare una richiesta di supporto, vedere [qui](file-support-ticket-genomics.md).
 

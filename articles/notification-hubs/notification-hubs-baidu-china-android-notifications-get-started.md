@@ -9,17 +9,17 @@ editor: spelluru
 ms.assetid: 23bde1ea-f978-43b2-9eeb-bfd7b9edc4c1
 ms.service: notification-hubs
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 3ff0d0db554fe514fdd6be6383b6d1a19f1c39ec
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: c9aadb0dcd5adabed6a6490760282c5201a79000
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451460"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57848678"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Introduzione ad Hub di notifica tramite Baidu
 
@@ -132,8 +132,8 @@ Prendere nota dei valori di `DefaultListenSharedAccessSignature` e `DefaultFullS
 5. Aggiungere quindi le librerie di Hub di notifica di Azure. Nel file `Build.Gradle` relativo all'app aggiungere le righe seguenti alla sezione dependencies.
 
     ```javascript
-    compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
-    compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
+    implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.6@aar'
+    implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
 
     Aggiungere il repository seguente dopo la sezione dependencies.
@@ -141,7 +141,7 @@ Prendere nota dei valori di `DefaultListenSharedAccessSignature` e `DefaultFullS
     ```javascript
     repositories {
         maven {
-            url "http://dl.bintray.com/microsoftazuremobile/SDK"
+            url "https://dl.bintray.com/microsoftazuremobile/SDK"
         }
     }
     ```
@@ -161,7 +161,7 @@ Prendere nota dei valori di `DefaultListenSharedAccessSignature` e `DefaultFullS
         tools:replace="android:allowBackup,icon,theme,label">
     ```
 
-6. Scaricare e decomprimere [Baidu Push Android SDK](http://push.baidu.com/doc/android/api). Copiare il file `pushservice-x.y.z jar` nella cartella libs. Copiare quindi i file `.so` nelle cartelle `src/main/jniLibs` dell'applicazione Android, creando una nuova cartella.
+6. Scaricare e decomprimere [Baidu Push Android SDK](https://push.baidu.com/doc/android/api). Copiare il file `pushservice-x.y.z jar` nella cartella libs. Copiare quindi i file `.so` nelle cartelle `src/main/jniLibs` dell'applicazione Android, creando una nuova cartella.
 
     ![Hub di notifica di Azure: librerie Baidu SDK](./media/notification-hubs-baidu-get-started/BaiduSDKLib.png)
 
@@ -497,7 +497,7 @@ In questa sezione verrà illustrato come inviare notifiche con un'app console .N
     Install-Package Microsoft.Azure.NotificationHubs
     ```
 
-    Questa istruzione aggiunge un riferimento ad Azure Notification Hubs SDK mediante il [pacchetto NuGet Microsoft.Azure.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+    Questa istruzione aggiunge un riferimento ad Azure Notification Hubs SDK mediante il [pacchetto NuGet Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
     ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
@@ -537,6 +537,6 @@ Per inviare una notifica di test, è possibile usare la scheda Debug del [portal
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Baidu Push Android SDK]: http://push.baidu.com/sdk/push_client_sdk_for_android
+[Baidu Push Android SDK]: https://push.baidu.com/sdk/push_client_sdk_for_android
 [Portale di Azure]: https://portal.azure.com/
-[portale di Baidu]: http://www.baidu.com/
+[portale di Baidu]: https://www.baidu.com/

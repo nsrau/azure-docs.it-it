@@ -9,12 +9,12 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 1/17/2019
-ms.openlocfilehash: 45ba049717f2b9874bbac8d6493e13c2afc4b8f2
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: 8c0b40f0e6204d6cff59d3de3f20604d6913b9cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910649"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111634"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Configurare l'ambiente PySpark Interactive per Visual Studio Code
 
@@ -30,8 +30,8 @@ La procedura usa il comando **python/pip** per creare un ambiente virtuale nel p
  
         ![Versione Python pip](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
-    > [!NOTE]
-    > È consigliabile installare manualmente Python invece di usare la versione predefinita di MacOS.
+     > [!NOTE]
+     > È consigliabile installare manualmente Python invece di usare la versione predefinita di MacOS.
 
 
 2. Installare **virtualenv** eseguendo il comando seguente.
@@ -71,4 +71,4 @@ La procedura usa il comando **python/pip** per creare un ambiente virtuale nel p
 * [Usare pacchetti esterni con i notebook Jupyter](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](spark/apache-spark-jupyter-notebook-install-locally.md)
 * [Visualizzare i dati Apache Hive con Microsoft Power BI in Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
-* [Usare Apache Zeppelin per eseguire query Apache Hive in Azure HDInsight](hdinsight-connect-hive-zeppelin.md)
+* [Usare Apache Zeppelin per eseguire query Apache Hive in HDInsight di Azure](hdinsight-connect-hive-zeppelin.md)

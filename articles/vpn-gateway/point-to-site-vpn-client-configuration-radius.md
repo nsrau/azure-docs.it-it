@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 02/27/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8881582eac47e31b20e9eb96effea254b821ba34
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 34d8eb976a2a1e173f234be214799832dae7e9ca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417296"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079606"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Creare e installare i file di configurazione del client VPN per l'autenticazione RADIUS da punto a sito
 
@@ -48,14 +48,27 @@ Quando si configura l'autenticazione con nome utente/password, è possibile crea
 
 ### <a name="usernamefiles"></a> 1. Generare i file di configurazione del client VPN
 
+È possibile generare file di configurazione client VPN usando il portale di Azure o tramite Azure PowerShell.
+
+#### <a name="azure-portal"></a>Portale di Azure
+
+1. Passare al gateway di rete virtuale.
+2. Fare clic su **configurazionePoint-to-Site**.
+3. Fare clic su **Scarica client VPN**.
+4. Selezionare il client e compilare le informazioni richieste.
+5. Fare clic su **scaricare** per generare il file con estensione zip.
+6. Il file zip verrà scaricato, in genere nella cartella download.
+
+#### <a name="azure-powershell"></a>Azure PowerShell
+
 Generare i file di configurazione del client VPN per l'uso con l'autenticazione con nome utente/password. È possibile generare i file di configurazione del client VPN con il comando seguente:
 
-```powershell 
+```azurepowershell-interactive
 New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapMSChapv2"
 ```
- 
+ 
 L'esecuzione del comando restituisce un collegamento. Copiare e incollare il collegamento in un Web browser per scaricare **VpnClientConfiguration.zip**. Decomprimendo il file verranno visualizzate le cartelle seguenti: 
- 
+ 
 * **WindowsAmd64** e **WindowsX86**: contenenti rispettivamente i pacchetti di installazione a 64 e a 32 bit per Windows. 
 * **Generic**: questa cartella contiene le informazioni generali da usare per creare una configurazione del client VPN personalizzata. Non è necessario disporre di questa cartella per le configurazioni di autenticazione con nome utente/password.
 * **Mac**: se durante la creazione del gateway di rete virtuale è stato configurato IKEv2, è presente una cartella denominata **Mac** contenente un file denominato **mobileconfig**. Questo file viene usato per configurare i client Mac.
@@ -64,7 +77,7 @@ Se sono già stati creati file di configurazione del client, è possibile recupe
 
 Per recuperare i file di configurazione client generati in precedenza, usare il comando seguente:
 
-```powershell
+```azurepowershell-interactive
 Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
 
@@ -75,7 +88,7 @@ Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 * [Windows](#adwincli)
 * [Mac (OS X)](#admaccli)
 * [Linux con strongSwan](#adlinuxcli)
- 
+ 
 #### <a name="adwincli"></a>Configurazione di un client VPN Windows
 
 È possibile usare lo stesso pacchetto di configurazione del client VPN in ogni computer client Windows, a condizione che la versione corrisponda all'architettura del client. Per l'elenco dei sistemi operativi client supportati, vedere le [domande frequenti](vpn-gateway-vpn-faq.md#P2S).
@@ -96,7 +109,7 @@ Per configurare il client VPN Windows nativo per l'autenticazione del certificat
 
 3. Passaggio facoltativo - Se si vuole specificare un DNS personalizzato, aggiungere le righe seguenti al file **mobileconfig**:
 
-  ```xml
+   ```xml
     <key>DNS</key>
     <dict>
       <key>ServerAddresses</key>
@@ -108,7 +121,7 @@ Per configurare il client VPN Windows nativo per l'autenticazione del certificat
             <string>TestDomain.com</string>
         </array>
     </dict> 
-  ```
+   ```
 4. Fare doppio clic sul profilo per installarlo e selezionare **Continua**. Il nome del profilo corrisponde al nome della rete virtuale.
 
    ![Messaggio di installazione](./media/point-to-site-vpn-client-configuration-radius/adinstall.png)
@@ -129,10 +142,10 @@ Per configurare il client VPN Windows nativo per l'autenticazione del certificat
    ![Icone in Preferenze di Sistema](./media/point-to-site-vpn-client-configuration-radius/adnetwork.png)
 10. La connessione VPN compare con il nome **IkeV2-VPN**. È possibile modificare il nome aggiornando il file **mobileconfig**.
 
-   ![Dettagli per la connessione VPN](./media/point-to-site-vpn-client-configuration-radius/adconnection.png)
+    ![Dettagli per la connessione VPN](./media/point-to-site-vpn-client-configuration-radius/adconnection.png)
 11. Selezionare **Impostazioni autenticazione**. Selezionare **Nome utente** nell'elenco e immettere le proprie credenziali. Se sono state immesse in precedenza, l'opzione **Nome utente** è selezionata automaticamente nell'elenco e il nome utente e la password sono già inseriti. Scegliere **OK** per salvare le impostazioni.
 
-   ![Authentication settings](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
+    ![Authentication settings](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
 12. Nella finestra di dialogo **Network** selezionare **Applica** per salvare le modifiche. Per avviare la connessione, selezionare **Connetti**.
 
 #### <a name="adlinuxcli"></a>Configurazione di un client VPN Linux tramite strongSwan
@@ -165,7 +178,7 @@ Le istruzioni seguenti sono state create usando strongSwan 5.5.1 in Ubuntu 17.0.
    ![Connessione "Radius VPN" in Network Manager](./media/point-to-site-vpn-client-configuration-radius/ConnectRADIUS.png)
 
 ## <a name="certeap"></a>Autenticazione del certificato
- 
+ 
 È possibile creare i file di configurazione del client VPN per l'autenticazione del certificato RADIUS con il protocollo EAP-TLS. Per l'autenticazione di un utente per una VPN in genere viene usato un certificato rilasciato dalla CA globale (enterprise). Verificare che nei dispositivi di tutti gli utenti che effettuano la connessione sia installato un certificato e che il server RADIUS sia in grado di convalidare il certificato.
 
 >[!NOTE]
@@ -181,8 +194,8 @@ Ogni dispositivo client VPN richiede un certificato client installato. Un dispos
 ### <a name="certfiles"></a>1. Generare i file di configurazione del client VPN
 
 Generare i file di configurazione del client VPN per l'uso con l'autenticazione con certificato. È possibile generare i file di configurazione del client VPN con il comando seguente:
- 
-```powershell
+ 
+```azurepowershell-interactive
 New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root> | fl
 ```
 
@@ -195,10 +208,10 @@ Se sono già stati creati file di configurazione del client, è possibile recupe
 
 Per recuperare i file di configurazione client generati in precedenza, usare il comando seguente:
 
-```powershell
+```azurepowershell-interactive
 Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 ```
- 
+ 
 ### <a name="setupusername"></a> 2. Configurare client VPN
 
 È possibile configurare i client VPN seguenti:
@@ -258,7 +271,7 @@ Per usare un diverso tipo di autenticazione, ad esempio OTP, oppure un diverso p
 1. Usare il cmdlet `Get-AzVpnClientConfiguration` per generare la configurazione del client VPN per EapMSChapv2.
 
 2. Decomprimere il file VpnClientConfiguration.zip e cercare la cartella **GenericDevice**. Ignorare le cartelle contenenti i programmi di installazione Windows per le architetture a 64 e a 32 bit.
- 
+ 
 3. La cartella **GenericDevice** include un file XML denominato **VpnSettings**. che contiene tutte le informazioni necessarie:
 
    * **VpnServer**: FQDN del gateway VPN di Azure. È l'indirizzo a cui si connette il client.

@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: d1d7c5df1b49a1f8c2fe4fbae4d8c8fdbd481e0e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: a0099fa085e21c381b74dc2690ffcf0870345f21
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053909"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992359"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT SDK per dispositivi per C
 
@@ -23,7 +23,7 @@ ms.locfileid: "54053909"
 
 Azure IoT device SDK per C è scritto in ANSI C (C99) per ottimizzare la portabilità. Questa funzionalità rende le librerie particolarmente adatte al funzionamento su più dispositivi e piattaforme, specialmente quando la riduzione del footprint del disco e della memoria costituisce una priorità.
 
-Esiste una vasta gamma di piattaforme in cui è stato testato l'SDK. Per altri dettagli, vedere l'[elenco dei dispositivi Azure Certified per IoT](https://catalog.azureiotsuite.com/). Anche se questo articolo include procedure dettagliate di codice di esempio eseguito su piattaforma Windows, il codice descritto è identico per tutta la gamma di piattaforme supportate.
+Esiste una vasta gamma di piattaforme in cui è stato testato l'SDK. Per altri dettagli, vedere l'[elenco dei dispositivi Azure Certified per IoT](https://catalog.azureiotsolutions.com/). Anche se questo articolo include procedure dettagliate di codice di esempio eseguito su piattaforma Windows, il codice descritto è identico per tutta la gamma di piattaforme supportate.
 
 Il video seguente offre una panoramica di Azure IoT SDK per C:
 
@@ -89,7 +89,7 @@ Se non si ha familiarità con lo strumento Device Explorer, la procedura seguent
 
 1. Durante l'esecuzione del programma, viene visualizzata l'interfaccia seguente:
 
-  ![Screenshot di Device Explorer Twin](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinConfigTab.png)
+   ![Screenshot di Device Explorer Twin](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinConfigTab.png)
 
 1. Immettere la **stringa di connessione all'hub IoT** nel primo campo e fare clic su **Aggiorna**. Questo passaggio configura lo strumento per la comunicazione con l'hub IoT. 
 
@@ -97,21 +97,21 @@ La **stringa di connessione** si trova in **Servizio hub IoT** > **Impostazioni*
 
 1. Dopo la configurazione della stringa di connessione all'hub IoT, fare clic sulla scheda **Management** (Gestione):
 
-  ![Screenshot di Device Explorer Twin / Management](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab.png)
+   ![Screenshot di Device Explorer Twin / Management](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab.png)
 
 In questa scheda si gestiscono i dispositivi registrati nell'hub IoT.
 
 1. Per creare un dispositivo, fare clic sul pulsante **Create** (Crea). Viene visualizzata una finestra di dialogo con un set di chiavi, primaria e secondaria, prepopolato. Immettere un valore in **Device ID** (ID dispositivo) e fare clic su **Create** (Crea).
 
-  ![Screenshot di Create Device](./media/iot-hub-device-sdk-c-intro/CreateDevice.png)
+   ![Screenshot di Create Device](./media/iot-hub-device-sdk-c-intro/CreateDevice.png)
 
 1. Dopo la creazione del dispositivo, l'elenco Devices (Dispositivi) viene aggiornato con tutti i dispositivi registrati, incluso quello appena creato. Facendo clic con il pulsante destro del mouse sul nuovo dispositivo, viene visualizzato questo menu:
 
-  ![Risultato con il pulsante destro del mouse di Device Explorer Twin](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab_RightClick.png)
+   ![Risultato con il pulsante destro del mouse di Device Explorer Twin](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab_RightClick.png)
 
 1. Se si sceglie **Copy connection string for selected device** (Copia stringa di connessione per il dispositivo selezionato), la stringa di connessione del dispositivo viene copiata negli Appunti. Conservare una copia della stringa di connessione del dispositivo. È necessaria quando si eseguono le applicazioni di esempio descritte nelle sezioni seguenti.
 
-Dopo aver completato i passaggi precedenti, si è pronti per iniziare a eseguire il codice. La maggior parte degli esempi ha una costante all'inizio del file di origine principale che consente di immettere una stringa di connessione. Ecco, ad esempio, la stringa di connessione dell'applicazione **iothub\_client\_sample\_mqtt**.
+Dopo aver completato i passaggi precedenti, si è pronti per iniziare a eseguire il codice. La maggior parte degli esempi ha una costante all'inizio del file di origine principale che consente di immettere una stringa di connessione. Ad esempio, la riga corrispondente dal **iothub_client\_campioni\_iothub_convenience_sample** applicazione viene visualizzata come indicato di seguito.
 
 ```c
 static const char* connectionString = "[device connection string]";
@@ -121,7 +121,7 @@ static const char* connectionString = "[device connection string]";
 
 Nella cartella **iothub\_client** del repository [azure-iot-sdk-c](https://github.com/azure/azure-iot-sdk-c) è presente una cartella **samples** che contiene un'applicazione denominata **iothub\_client\_sample\_mqtt**.
 
-La versione per Windows dell'applicazione **iothub\_client\_sample\_mqtt** include la soluzione di Visual Studio seguente:
+La versione di Windows del **iothub_client\_campioni\_iothub_convenience_sample** applicazione include la soluzione di Visual Studio seguente:
 
   ![Esplora soluzioni di Visual Studio](./media/iot-hub-device-sdk-c-intro/iothub-client-sample-mqtt.png)
 
@@ -137,7 +137,7 @@ Questa soluzione contiene un singolo progetto. In questa soluzione sono installa
 
 Il pacchetto **Microsoft.Azure.C.SharedUtility** è sempre necessario quando si usa l'SDK. Questo esempio usa il protocollo MQTT, quindi è necessario includere i pacchetti **Microsoft.Azure.umqtt** e **Microsoft.Azure.IoTHub.MqttTransport**. Sono disponibili pacchetti equivalenti per AMQP e HTTPS. L'esempio usa la libreria **IoTHubClient**, quindi è necessario includere il pacchetto **Microsoft.Azure.IoTHub.IoTHubClient** nella soluzione.
 
-L'implementazione dell'applicazione di esempio si trova nel file di origine **iothub\_client\_sample\_mqtt.c**.
+È possibile trovare l'implementazione per l'applicazione di esempio nel **iothub_client\_campioni\_iothub_convenience_sample** file di origine.
 
 I passaggi seguenti usano questa applicazione di esempio per illustrare i requisiti per l'uso della libreria **IoTHubClient**.
 
@@ -351,7 +351,7 @@ Come con l'esempio precedente, questo include diversi pacchetti NuGet:
 
 La maggior parte di questi pacchetti è stata illustrata nell'esempio precedente, ma **Microsoft.Azure.IoTHub.Serializer** è nuovo. Questo pacchetto è necessario quando si usa la libreria **serializer**.
 
-L'implementazione dell'applicazione di esempio si trova nel file **simplesample\_mqtt.c**.
+È possibile trovare l'implementazione dell'applicazione di esempio nel **iothub_client\_campioni\_iothub_convenience_sample** file.
 
 Le sezioni seguenti illustrano gli elementi chiave di questo esempio.
 
@@ -392,7 +392,7 @@ Chiamare infine la funzione **CREATE\_MODEL\_INSTANCE**. **WeatherStation** è l
 
 ### <a name="define-the-model"></a>Definire il modello
 
-Un modello nella libreria **serializer** definisce i messaggi che il dispositivo può inviare all'hub IoT e i messaggi, chiamati *azioni* nel linguaggio di modellazione, che può ricevere. Per definire un modello, usare un set di macro C come nell'applicazione di esempio **simplesample\_mqtt**:
+Un modello nella libreria **serializer** definisce i messaggi che il dispositivo può inviare all'hub IoT e i messaggi, chiamati *azioni* nel linguaggio di modellazione, che può ricevere. Definire un modello, usando un set di macro C come nel **iothub_client\_campioni\_iothub_convenience_sample** applicazione di esempio:
 
 ```c
 BEGIN_NAMESPACE(WeatherStation);
@@ -574,7 +574,7 @@ serializer_deinit();
 
 Ognuna di queste tre funzioni è allineata con le tre funzioni di inizializzazione descritte in precedenza. Chiamando questi API si assicura che siano liberate le risorse allocate in precedenza.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Questo articolo descrive le nozioni di base relative all'uso delle librerie in **Azure IoT SDK per dispositivi per C**. Fornisce informazioni sufficienti per comprendere il contenuto dell'SDK, la relativa architettura e come iniziare a usare gli esempi per Windows. L'articolo successivo continua la descrizione dell'SDK, fornendo [altre informazioni sulla libreria IoTHubClient](iot-hub-device-sdk-c-iothubclient.md).
 

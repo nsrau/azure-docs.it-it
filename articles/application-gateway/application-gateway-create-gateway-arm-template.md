@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 6a671744944527b64aab9a7b9afe05d6a9f2f27f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 682aac8ec6716ac59c6bdc0710065c916a0c41b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002085"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084930"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Creare un gateway applicazione usando il modello di Gestione risorse di Azure
 
@@ -60,16 +60,16 @@ In questo scenario si apprenderà come:
 1. Aprire il file salvato e visualizzare il contenuto in **parameters** nella riga
 1. La sezione parameters del modello di Gestione risorse di Azure è un segnaposto per i valori che possono essere inseriti durante la distribuzione.
 
-  | Parametro | DESCRIZIONE |
-  | --- | --- |
-  | **subnetPrefix** |Blocco CIDR della subnet del gateway applicazione. |
-  | **applicationGatewaySize** | Dimensione del gateway applicazione.  WAF consente solo gateway di medie e grandi dimensioni. |
-  | **backendIpaddress1** |Indirizzo IP del primo server Web. |
-  | **backendIpaddress2** |Indirizzo IP del secondo server Web. |
-  | **wafEnabled** | Impostazione per determinare se WAF è abilitato.|
-  | **wafMode** | Modalità di web application firewall.  Le opzioni disponibili sono **prevention** (prevenzione) e **detection** (rilevamento).|
-  | **wafRuleSetType** | Tipo di set di regole per WAF.  Attualmente OWASP è l'unica opzione supportata. |
-  | **wafRuleSetVersion** |Versione del set di regole. Attualmente, sono supportate le opzioni OWASP CRS 2.2.9 e 3.0. |
+   | Parametro | DESCRIZIONE |
+   | --- | --- |
+   | **subnetPrefix** |Blocco CIDR della subnet del gateway applicazione. |
+   | **applicationGatewaySize** | Dimensione del gateway applicazione.  WAF consente solo gateway di medie e grandi dimensioni. |
+   | **backendIpaddress1** |Indirizzo IP del primo server Web. |
+   | **backendIpaddress2** |Indirizzo IP del secondo server Web. |
+   | **wafEnabled** | Impostazione per determinare se WAF è abilitato.|
+   | **wafMode** | Modalità di web application firewall.  Le opzioni disponibili sono **prevention** (prevenzione) e **detection** (rilevamento).|
+   | **wafRuleSetType** | Tipo di set di regole per WAF.  Attualmente OWASP è l'unica opzione supportata. |
+   | **wafRuleSetVersion** |Versione del set di regole. Attualmente, sono supportate le opzioni OWASP CRS 2.2.9 e 3.0. |
 
 1. Controllare il contenuto in **resources** e prendere nota delle proprietà seguenti:
 
@@ -82,61 +82,63 @@ In questo scenario si apprenderà come:
 1. Salvare il file in una cartella locale nel computer.
 1. Aprire il file salvato e modificare i valori dei parametri. Usare i valori riportati di seguito per la distribuzione del gateway applicazione descritto in questo scenario.
 
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "addressPrefix": {
-            "value": "10.0.0.0/16"
-            },
-            "subnetPrefix": {
-            "value": "10.0.0.0/28"
-            },
-            "applicationGatewaySize": {
-            "value": "WAF_Medium"
-            },
-            "capacity": {
-            "value": 2
-            },
-            "backendIpAddress1": {
-            "value": "10.0.1.10"
-            },
-            "backendIpAddress2": {
-            "value": "10.0.1.11"
-            },
-            "wafEnabled": {
-            "value": true
-            },
-            "wafMode": {
-            "value": "Detection"
-            },
-            "wafRuleSetType": {
-            "value": "OWASP"
-            },
-            "wafRuleSetVersion": {
-            "value": "3.0"
-            }
-        }
-    }
-    ```
+     ```json
+     {
+         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+         "contentVersion": "1.0.0.0",
+         "parameters": {
+             "addressPrefix": {
+             "value": "10.0.0.0/16"
+             },
+             "subnetPrefix": {
+             "value": "10.0.0.0/28"
+             },
+             "applicationGatewaySize": {
+             "value": "WAF_Medium"
+             },
+             "capacity": {
+             "value": 2
+             },
+             "backendIpAddress1": {
+             "value": "10.0.1.10"
+             },
+             "backendIpAddress2": {
+             "value": "10.0.1.11"
+             },
+             "wafEnabled": {
+             "value": true
+             },
+             "wafMode": {
+             "value": "Detection"
+             },
+             "wafRuleSetType": {
+             "value": "OWASP"
+             },
+             "wafRuleSetVersion": {
+             "value": "3.0"
+             }
+         }
+     }
+     ```
 
 1. Salvare il file. È possibile testare il modello JSON e il modello di parametri usando strumenti online di convalida di JSON come [JSlint.com](https://www.jslint.com/).
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-powershell"></a>Distribuire il modello di Gestione risorse di Azure usando PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Se è la prima volta che si usa Azure PowerShell, vedere: [Come installare e configurare Azure PowerShell](/powershell/azure/overview) e seguire le istruzioni per accedere ad Azure e selezionare la sottoscrizione.
 
 1. Accesso a PowerShell
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
 1. Controllare le sottoscrizioni per l'account.
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
     Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.
@@ -144,19 +146,19 @@ Se è la prima volta che si usa Azure PowerShell, vedere: [Come installare e con
 1. Scegliere quali sottoscrizioni Azure usare.
 
     ```powershell
-    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    Select-AzSubscription -Subscriptionid "GUID of subscription"
     ```
 
 1. Se necessario, creare un gruppo di risorse usando il cmdlet **New-AzureResourceGroup** . Nell'esempio seguente viene creato un nuovo gruppo di risorse denominato AppgatewayRG nella località Stati Uniti orientali.
 
     ```powershell
-    New-AzureRmResourceGroup -Name AppgatewayRG -Location "West US"
+    New-AzResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
-1. Eseguire il cmdlet **New-AzureRmResourceGroupDeployment** per distribuire la nuova rete virtuale usando il modello e i file di parametri scaricati e modificati in precedenza.
+1. Eseguire la **New-AzResourceGroupDeployment** cmdlet per distribuire la nuova rete virtuale usando il modello precedente e il parametro file scaricati e modificati.
     
     ```powershell
-    New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+    New-AzResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
     ```
 
@@ -210,7 +212,7 @@ cert=$( base64 <certificate path and name>.pfx )
 echo $cert
 ```
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 ```powershell
 [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
 ```
@@ -222,7 +224,7 @@ Per eliminare tutte le risorse create durante l'esecuzione dell'esercizio, segui
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Remove-AzureRmResourceGroup -Name appgatewayRG
+Remove-AzResourceGroup -Name appgatewayRG
 ```
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure

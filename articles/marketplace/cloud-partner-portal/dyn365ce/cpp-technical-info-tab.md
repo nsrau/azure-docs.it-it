@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/05/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 214abd64232130dd3fd5fdde510f7545732ac82e
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 1dd488c2eb419b5e210a48d7a94f7d0bb423a2b1
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54082069"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731491"
 ---
 # <a name="dynamics-365-for-customer-engagement-technical-info-tab"></a>Scheda Technical Info (Informazioni tecniche) di Dynamics 365 for Customer Engagement
 
@@ -58,7 +58,7 @@ La tabella seguente descrive i campi.
 |  File name of your package (Nome file del pacchetto)     |  Nome file del pacchetto (ZIP).  Questo nome *non* è pubblico e verrà usato internamente dal team di certificazione di Dynamics 365.  |
 |  Url                          |  URL di un account di archiviazione di Azure che contiene il file del pacchetto caricato. Questo URL deve includere una chiave di firma di accesso condiviso di sola lettura per consentire al team di prelevare il pacchetto per la verifica.  |
 | More than one crm package (Più pacchetti CRM)     | Selezionare Yes (Sì) SOLO se si supportano più versioni di CRM con pacchetti diversi.  Ogni versione avrà un file del pacchetto corrispondente che è necessario creare singolarmente.  |
-| Scenario and use case asset (Risorsa scenario e caso d'uso)   | Abilita il caricamento di un documento di specifica funzionale per l'applicazione, che verrà usato dal team di convalida di Dynamics 365.  Il formato preferito per questa specifica è il [modello di scenario utente E2E](http://download.microsoft.com/download/5/1/8/51812AC9-BCD8-489F-937C-5D439C494EC1/E2E%20User%20Scenario%20Template.docx).  |
+| Scenario and use case asset (Risorsa scenario e caso d'uso)   | Abilita il caricamento di un documento di specifica funzionale per l'applicazione, che verrà usato dal team di convalida di Dynamics 365.  Il formato preferito per questa specifica è il [modello di scenario utente E2E](https://isvdocumentation.blob.core.windows.net/d365documentation/Power%20Platform%20E2E%20document.docx).  |
 |  |  |
 
 

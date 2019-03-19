@@ -16,18 +16,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 663da31985759f47fff77dc5ad0f985d44559385
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: dd60c5d0210ffba373839fd0f194496c5dbcc20d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451581"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999415"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Strumenti di sviluppo nella macchina virtuali per data science
 
 La macchina virtuale per data science offre un ambiente di produzione per lo sviluppo, raggruppando diversi strumenti e IDE comuni. Ecco alcuni strumenti offerti dalla macchina virtuale per data science. 
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017  
+
 |    |           |
 | ------------- | ------------- |
 | Che cos'è?   | IDE di uso generale      |
@@ -38,6 +39,7 @@ La macchina virtuale per data science offre un ambiente di produzione per lo svi
 | Strumenti correlati nella macchina virtuale per data science      |     Visual Studio Code, RStudio, Juno  |
 
 ## <a name="visual-studio-code"></a>Visual Studio Code 
+
 |    |           |
 | ------------- | ------------- |
 | Che cos'è?   | IDE di uso generale      |
@@ -47,6 +49,7 @@ La macchina virtuale per data science offre un ambiente di produzione per lo svi
 | Strumenti correlati nella macchina virtuale per data science      |     Visual Studio 2017, RStudio, Juno  |
 
 ## <a name="rstudio--desktop"></a>RStudio Desktop 
+
 |    |           |
 | ------------- | ------------- |
 | Che cos'è?   | Client IDE per R    |
@@ -56,6 +59,7 @@ La macchina virtuale per data science offre un ambiente di produzione per lo svi
 | Strumenti correlati nella macchina virtuale per data science      |   Visual Studio 2017, Visual Studio Code, Juno      |
 
 ## <a name="rstudio--server"></a>RStudio  Server 
+
 |    |           |
 | ------------- | ------------- |
 | Che cos'è?   | IDE basato sul Web per R    |
@@ -65,6 +69,7 @@ La macchina virtuale per data science offre un ambiente di produzione per lo svi
 | Strumenti correlati nella macchina virtuale per data science      |   Visual Studio 2017, Visual Studio Code, RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 
+
 |    |           |
 | ------------- | ------------- |
 | Che cos'è?   | IDE client per il linguaggio Julia   |
@@ -74,6 +79,7 @@ La macchina virtuale per data science offre un ambiente di produzione per lo svi
 | Strumenti correlati nella macchina virtuale per data science      |   Visual Studio 2017, Visual Studio Code, RStudio      |
 
 ## <a name="pycharm"></a>Pycharm
+
 |    |           |
 | ------------- | ------------- |
 | Che cos'è?   | IDE client per il linguaggio Python    |
@@ -85,6 +91,7 @@ La macchina virtuale per data science offre un ambiente di produzione per lo svi
 
 
 ## <a name="powerbi-desktop"></a>PowerBI Desktop 
+
 |    |           |
 | ------------- | ------------- |
 | Che cos'è?   | Strumento di visualizzazione dei dati interattivo e di BI    |

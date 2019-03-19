@@ -3,23 +3,21 @@ title: Come funziona Gestione traffico di Azure | Microsoft Docs
 description: Questo articolo aiuterà a comprendere come Gestione traffico instrada il traffico per garantire prestazioni e disponibilità elevate delle applicazioni Web
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: KumudD
 manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/25/2018
+ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 26d61c1b263a8fa7ff4f0ff5b2888f1d900e772e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 52469cb2735b2270815191ec0815daee350882a4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567843"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108866"
 ---
 # <a name="how-traffic-manager-works"></a>Funzionamento di Gestione traffico
 
@@ -41,8 +39,8 @@ Contoso Corp ha sviluppato un nuovo portale per i partner. L'URL per questo port
 Per ottenere questa configurazione, si completa la seguente procedura:
 
 1. Distribuire tre istanze del servizio. I nomi DNS di queste distribuzioni sono 'contoso-us.cloudapp.net', 'contoso-eu.cloudapp.net' e 'contoso-asia.cloudapp.net'.
-2. Creare un profilo di Gestione traffico con il nome "contoso.trafficmanager.net", e configurarlo per usare il metodo di routing del traffico "Prestazioni" tra i 3 endpoint.
-* Configurare il nome di dominio personale "partners.contoso.com" in modo che punti a "contoso.trafficmanager.net" tramite il record DNS CNAME.
+1. Creare un profilo di Gestione traffico con il nome "contoso.trafficmanager.net", e configurarlo per usare il metodo di routing del traffico "Prestazioni" tra i 3 endpoint.
+1. Configurare il nome di dominio personale "partners.contoso.com" in modo che punti a "contoso.trafficmanager.net" tramite il record DNS CNAME.
 
 ![Configurazione DNS di Gestione traffico][1]
 

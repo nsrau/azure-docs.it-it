@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: f84341d6d8ac3b5c7febaa4f659da84efcebb780
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e8876306e4ffbd0fa9a8aafc6d5d757fd3c9c614
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473347"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57847366"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Strumenti per machine learning e data science
 Data Science Virtual Machine offre un ampio set di strumenti e librerie per machine learning (ML) disponibili nei linguaggi più diffusi, ad esempio Python, R, Julia. 
@@ -71,7 +71,7 @@ Ecco alcuni strumenti e librerie ML in Data Science Virtual Machine.
 | Edizioni supportate     | Windows, Linux     |
 | Usi tipici      | Strumento Machine Learning generale     |
 | Come usarla o eseguirla      | In Windows cercare Weka nel menu Start. In Linux accedere con X2Go e quindi andare a **Applications** > **Development** > **Weka**. |
-| Collegamenti agli esempi      | [Esempi di Weka](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
+| Collegamenti agli esempi      | [Esempi di Weka](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | Strumenti correlati      |LightGBM, Rattle, XGBoost   |
 
 ## <a name="rattle"></a>Rattle

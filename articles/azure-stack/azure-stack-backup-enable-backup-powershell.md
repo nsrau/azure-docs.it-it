@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 38ab7b80e2f03176c3bedfd98a2d0e20fc02592b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.lastreviewed: 03/14/2019
+ms.openlocfilehash: 773e600577b35019b8a3619c7eec3e93b77a4382
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865893"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085797"
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Abilitare il Backup per Azure Stack con PowerShell
 
@@ -51,9 +51,11 @@ Nella stessa sessione di PowerShell, modificare lo script di PowerShell seguente
 | $sharepath      | Digitare il percorso per il **percorso di archiviazione di Backup**. È necessario usare una stringa di Universal Naming Convention (UNC) per il percorso a una condivisione file ospitata su un dispositivo separato. Una stringa UNC specifica il percorso delle risorse, ad esempio i file condivisi o i dispositivi. Per garantire la disponibilità dei dati di backup, il dispositivo deve trovarsi in una posizione separata. |
 | $frequencyInHours | La frequenza in ore determina ogni quanto vengono creati i backup. Il valore predefinito è 12. Utilità di pianificazione supporta un massimo di 12 e almeno 4.|
 | $retentionPeriodInDays | Periodo di conservazione in giorni determina il numero di giorni di backup viene conservato in una posizione esterna. Il valore predefinito è 7. Utilità di pianificazione supporta un massimo di 14 e un minimo di 2. I backup precedenti al periodo di conservazione vengono eliminati automaticamente dalla posizione esterna.|
-| $encryptioncertpath | Il percorso del certificato di crittografia specifica il percorso file il. File CER con chiave pubblica usata per la crittografia dei dati. |
+| $encryptioncertpath | Si applica a 1901 e altro ancora.  Parametro è disponibile in Azure Stack modulo versione 1.7 e versioni successive. Il percorso del certificato di crittografia specifica il percorso file il. File CER con chiave pubblica usata per la crittografia dei dati. |
+| $encryptionkey | Applicato per compilare 1811 o versioni precedenti. Parametro è disponibile in Azure Stack modulo versione 1.6 o versioni precedenti. La chiave di crittografia utilizzata per la crittografia dei dati. Usare la [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/en-us/powershell/module/azs.backup.admin/new-azsencryptionkeybase64) cmdlet per generare una nuova chiave. |
 |     |     |
 
+### <a name="enable-backup-on-1901-and-beyond-using-certificate"></a>Abilitare il backup in 1901 e versioni successive mediante certificato
 ```powershell
     # Example username:
     $username = "domain\backupadmin"
@@ -80,6 +82,25 @@ Nella stessa sessione di PowerShell, modificare lo script di PowerShell seguente
     # Set the backup settings with the name, password, share, and CER certificate file.
     Set-AzsBackupConfiguration -BackupShare $sharepath -Username $username -Password $password -EncryptionCertPath "c:\temp\cert.cer"
 ```
+### <a name="enable-backup-on-1811-or-earlier-using-certificate"></a>Abilitare il backup in 1811 o in precedenza usando il certificato
+```powershell
+    # Example username:
+    $username = "domain\backupadmin"
+ 
+    # Example share path:
+    $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
+
+    $password = Read-Host -Prompt ("Password for: " + $username) -AsSecureString
+
+    # Create a self-signed certificate using New-SelfSignedCertificate, export the public key portion and save it locally.
+
+    $key = New-AzsEncryptionKeyBase64
+    $Securekey = ConvertTo-SecureString -String ($key) -AsPlainText -Force
+
+    # Set the backup settings with the name, password, share, and CER certificate file.
+    Set-AzsBackupConfiguration -BackupShare $sharepath -Username $username -Password $password -EncryptionKey $Securekey
+```
+
    
 ##  <a name="confirm-backup-settings"></a>Confermare le impostazioni di backup
 
@@ -119,7 +140,7 @@ Il risultato dovrebbe essere simile al seguente esempio:
     BackupRetentionPeriodInDays : 5
    ```
 
-###<a name="azure-stack-powershell"></a>PowerShell per Azure Stack 
+### <a name="azure-stack-powershell"></a>PowerShell per Azure Stack 
 Il cmdlet di PowerShell per configurare il backup dell'infrastruttura è Set-AzsBackupConfiguration. Nelle versioni precedenti, il cmdlet è Set-AzsBackupShare. Questo cmdlet è necessario fornire un certificato. Se il backup dell'infrastruttura è configurato con una chiave di crittografia, è possibile aggiornare la chiave di crittografia o visualizzare le proprietà. Dovrai usare la versione 1.6 di Admin PowerShell. 
 
 Se è stato configurato il backup di infrastruttura prima di aggiornare a 1901 è possibile utilizzare la versione 1.6 dell'Admin PowerShell impostare e visualizzare la chiave di crittografia. Versione 1.6 non consentirà di aggiornare dalla chiave di crittografia in un file di certificato.

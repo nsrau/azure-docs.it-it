@@ -1,19 +1,19 @@
 ---
 title: Informazioni sulla messaggistica da cloud a dispositivo dell'hub IoT di Azure | Microsoft Docs
 description: "Guida per gli sviluppatori: come usare la messaggistica da cloud a dispositivo con l'hub IoT. Include informazioni sul ciclo di vita del messaggio e sulle opzioni di configurazione."
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.author: dobett
-ms.openlocfilehash: 3f137ea80dc67bb075f34846e5563fb72c72b69a
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
-ms.translationtype: HT
+ms.openlocfilehash: c8424743f30ec1bbf8d8096f6630c7451bc910c8
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585646"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010243"
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Inviare messaggi da cloud a dispositivo dall'hub IoT
 
@@ -127,9 +127,9 @@ Ogni hub IoT espone le opzioni di configurazione seguenti per la messaggistica d
 
 | Proprietà                  | DESCRIZIONE | Intervallo e valore predefinito |
 | ------------------------- | ----------- | ----------------- |
-| defaultTtlAsIso8601       | Durata (TTL) predefinita per messaggi da cloud a dispositivo. | Intervallo ISO_8601 fino a 2D (almeno 1 minuto). Predefinito: 1 ora. |
+| defaultTtlAsIso8601       | Durata (TTL) predefinita per messaggi da cloud a dispositivo. | Intervallo ISO_8601 fino a 2D (almeno 1 minuto). Predefinito: 1 ora |
 | maxDeliveryCount          | Numero massimo di recapiti per code da cloud a dispositivo per i singoli dispositivi. | Da 1 a 100. Predefinito: 10. |
-| feedback.ttlAsIso8601     | Conservazione per messaggi con commenti diretti al servizio. | Intervallo ISO_8601 fino a 2D (almeno 1 minuto). Predefinito: 1 ora. |
+| feedback.ttlAsIso8601     | Conservazione per messaggi con commenti diretti al servizio. | Intervallo ISO_8601 fino a 2D (almeno 1 minuto). Predefinito: 1 ora |
 | feedback.maxDeliveryCount |Numero massimo di recapiti per la coda di commenti. | Da 1 a 100. Predefinito: 100. |
 
 Per altre informazioni su come impostare queste opzioni di configurazione, vedere [Creare hub IoT](iot-hub-create-through-portal.md).

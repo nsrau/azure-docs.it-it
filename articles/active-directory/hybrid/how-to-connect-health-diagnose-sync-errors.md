@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: zhiweiw
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e2924a45ae8851095944131b6fb1598775247f2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fbdeef7c591221756ad206bf2f3dd78ac3d26c4f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194003"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885318"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnosticare e correggere gli errori di sincronizzazione di attributi duplicati
 
@@ -33,7 +33,7 @@ Per altre informazioni su Azure AD, vedere [Sincronizzazione delle identità e r
 
 ## <a name="problems"></a>I problemi
 ### <a name="a-common-scenario"></a>Scenario comune
-Quando si verificano gli errori di sincronizzazione **QuarantinedAttributeValueMustBeUnique** e **AttributeValueMustBeUnique**, è frequente che si sia verificato un conflitto di **UserPrincipalName** o **Proxy Addresses** in Azure AD. È possibile risolvere gli errori di sincronizzazione aggiornando l'oggetto di origine in conflitto dal lato locale. L'errore di sincronizzazione verrà risolto dopo la sincronizzazione successiva. Ad esempio, questa immagine indica che due utenti hanno un **UserPrincipalName** in conflitto. Sono entrambi **Joe.J@contoso.com**. Gli oggetti in conflitto vengono messi in quarantena in Azure AD.
+Quando si verificano gli errori di sincronizzazione **QuarantinedAttributeValueMustBeUnique** e **AttributeValueMustBeUnique**, è frequente che si sia verificato un conflitto di **UserPrincipalName** o **Proxy Addresses** in Azure AD. È possibile risolvere gli errori di sincronizzazione aggiornando l'oggetto di origine in conflitto dal lato locale. L'errore di sincronizzazione verrà risolto dopo la sincronizzazione successiva. Ad esempio, questa immagine indica che due utenti hanno un **UserPrincipalName** in conflitto. Sono entrambi **Joe.J\@contoso.com**. Gli oggetti in conflitto vengono messi in quarantena in Azure AD.
 
 ![Diagnosi di uno scenario comune per un errore di sincronizzazione](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 
@@ -66,32 +66,34 @@ Seguire la procedura dal portale di Azure per limitare i dettagli degli errori d
 
 Dal portale di Azure sono sufficienti pochi passaggi per identificare scenari risolvibili specifici:  
 1.  Controllare la colonna **Diagnose status** (Stato diagnosi). Lo stato indica se esiste un modo per correggere un errore di sincronizzazione direttamente da Azure Active Directory. In altre parole, esiste un flusso di risoluzione dei problemi che può identificare il caso di errore e potenzialmente risolverlo.
+
 | Stato | Da cosa dipende il problema? |
 | ------------------ | -----------------|
 | Non avviata | Questo processo di diagnosi non è stato avviato. A seconda del risultato della diagnosi; esiste potenzialmente un modo per correggere l'errore di sincronizzazione direttamente dal portale. |
 | Correzione manuale necessaria | L'errore non rientra nei criteri delle correzioni disponibili dal portale. È possibile che i tipi di oggetto in conflitto non siano utenti oppure la procedura diagnostica è stata eseguita e nessuna risoluzione è disponibile dal portale. Nel secondo caso, una correzione dal lato locale è ancora una delle soluzioni. [Altre informazioni sulle correzioni in locale](https://support.microsoft.com/help/2647098). | 
 | In attesa di sincronizzazione | È stata applicata una correzione. Il portale è in attesa del successivo ciclo di sincronizzazione per cancellare l'errore. |
+
   >[!IMPORTANT]
   > La colonna di stato della diagnostica verrà reimpostata dopo ogni ciclo di sincronizzazione. 
   >
 
-2.  Selezionare il pulsante **Esegui diagnosi** sotto i dettagli dell'errore. Verrà richiesto di rispondere ad alcune domande per identificare i dettagli dell'errore di sincronizzazione. Le risposte alle domande sono utili per identificare un caso di oggetto orfano.
+1. Selezionare il pulsante **Esegui diagnosi** sotto i dettagli dell'errore. Verrà richiesto di rispondere ad alcune domande per identificare i dettagli dell'errore di sincronizzazione. Le risposte alle domande sono utili per identificare un caso di oggetto orfano.
 
-3.  La presenza di un pulsante **Chiudi** al termine della diagnostica indica che non è disponibile una correzione rapida dal portale in base alle risposte fornite. Fare riferimento alla soluzione illustrata nell'ultimo passaggio. Le correzioni in locale sono ancora le soluzioni. Selezionare il pulsante **Chiudi**. Lo stato dell'errore di sincronizzazione corrente diventa **Correzione manuale necessaria**. Lo stato rimane durante il ciclo di sincronizzazione corrente.
+1. La presenza di un pulsante **Chiudi** al termine della diagnostica indica che non è disponibile una correzione rapida dal portale in base alle risposte fornite. Fare riferimento alla soluzione illustrata nell'ultimo passaggio. Le correzioni in locale sono ancora le soluzioni. Selezionare il pulsante **Chiudi**. Lo stato dell'errore di sincronizzazione corrente diventa **Correzione manuale necessaria**. Lo stato rimane durante il ciclo di sincronizzazione corrente.
 
-4.  Dopo avere identificato un caso di oggetto orfano, è possibile correggere gli errori di sincronizzazione relativi agli attributi duplicati direttamente dal portale. Per attivare il processo, selezionare il pulsante **Applica correzione**. Lo stato dell'errore di sincronizzazione corrente diventa **In attesa di sincronizzazione**.
+1. Dopo avere identificato un caso di oggetto orfano, è possibile correggere gli errori di sincronizzazione relativi agli attributi duplicati direttamente dal portale. Per attivare il processo, selezionare il pulsante **Applica correzione**. Lo stato dell'errore di sincronizzazione corrente diventa **In attesa di sincronizzazione**.
 
-5.  Dopo il ciclo di sincronizzazione successivo l'errore dovrebbe essere rimosso dall'elenco.
+1. Dopo il ciclo di sincronizzazione successivo l'errore dovrebbe essere rimosso dall'elenco.
 
 ## <a name="how-to-answer-the-diagnosis-questions"></a>Come rispondere alle domande di diagnosi 
 ### <a name="does-the-user-exist-in-your-on-premises-active-directory"></a>L'utente esiste in Active Directory locale?
 
 Questa domanda tenta di identificare l'oggetto di origine dell'utente esistente da Active Directory locale.  
-1.  Verificare se Azure Active Directory include un oggetto con il valore **UserPrincipalName** specificato. In caso contrario, rispondere **No**.
-2.  In caso affermativo, verificare se l'oggetto è ancora incluso nell'ambito per la sincronizzazione.  
-  - Eseguire una ricerca nello spazio connettore di Azure AD con il nome di dominio.
-  - Se l'oggetto viene trovato con lo stato **Aggiunta in sospeso**, rispondere **No**. Azure AD Connect non è in grado di connettere l'oggetto all'oggetto di Azure AD corretto.
-  - Se l'oggetto non viene trovato, rispondere **Sì**.
+1. Verificare se Azure Active Directory include un oggetto con il valore **UserPrincipalName** specificato. In caso contrario, rispondere **No**.
+2. In caso affermativo, verificare se l'oggetto è ancora incluso nell'ambito per la sincronizzazione.  
+   - Eseguire una ricerca nello spazio connettore di Azure AD con il nome di dominio.
+   - Se l'oggetto viene trovato con lo stato **Aggiunta in sospeso**, rispondere **No**. Azure AD Connect non è in grado di connettere l'oggetto all'oggetto di Azure AD corretto.
+   - Se l'oggetto non viene trovato, rispondere **Sì**.
 
 In questi esempi, la domanda tenta di identificare se **Luca Milano** esiste ancora in Active Directory locale.
 Per lo **scenario comune**, sia **Luca Milanesi** che **Luca Milano** sono presenti in Active Directory locale. Gli oggetti in quarantena sono due utenti diversi.
@@ -104,11 +106,11 @@ Per lo **scenario con oggetto orfano**, solo l'utente singolo **Luca Milanesi** 
 
 ### <a name="do-both-of-these-accounts-belong-to-the-same-user"></a>Entrambi gli account appartengono allo stesso utente?
 La domanda mira a stabilire se l'utente in conflitto in ingresso e l'oggetto utente esistente in Azure AD appartengono allo stesso utente.  
-1.  L'oggetto in conflitto è stato appena sincronizzato in Azure Active Directory. Confrontare gli attributi degli oggetti:  
-  - Nome visualizzato
-  - Nome dell'entità utente
-  - ID oggetto
-2.  Se Azure AD non riesce a confrontarli, assicurarsi che Active Directory includa oggetti con i valori **UserPrincipalName** specificati. Rispondere **No** se vengono trovati entrambi.
+1. L'oggetto in conflitto è stato appena sincronizzato in Azure Active Directory. Confrontare gli attributi degli oggetti:  
+   - Nome visualizzato
+   - Nome dell'entità utente
+   - ID oggetto
+2. Se Azure AD non riesce a confrontarli, assicurarsi che Active Directory includa oggetti con i valori **UserPrincipalName** specificati. Rispondere **No** se vengono trovati entrambi.
 
 Nell'esempio seguente, i due oggetti appartengono allo stesso utente **Luca Milanesi**.
 

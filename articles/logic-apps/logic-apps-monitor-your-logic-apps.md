@@ -10,18 +10,20 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: e06bf20a04c6a57ae5988d4cc334ec7a3cdd4bf1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 80776f9284752e8554486cb458096ccc9319949e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543857"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112314"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorare lo stato, configurare la registrazione diagnostica e attivare gli avvisi per App per la logica di Azure
 
 Dopo avere [creato ed eseguito un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md), è possibile controllarne la cronologia delle esecuzioni, la cronologia dei trigger, lo stato e le prestazioni. Per il monitoraggio degli eventi in tempo reale e il debug avanzato, configurare la [registrazione diagnostica](#azure-diagnostics) per l'app per la logica. In questo modo è possibile [trovare e visualizzare gli eventi](#find-events), ad esempio eventi di attivazione, eventi di esecuzione ed eventi di azione. È anche possibile usare questi [dati diagnostici con altri servizi](#extend-diagnostic-data), ad esempio Archiviazione di Azure e Hub eventi di Azure. 
 
 Per ottenere notifiche sugli errori o su altri possibili problemi, configurare gli [avvisi](#add-azure-alerts). È ad esempio possibile creare un avviso che rileva "quando più di cinque esecuzioni in un'ora hanno esito negativo". È anche possibile configurare il monitoraggio, la verifica e la registrazione a livello di codice usando [impostazioni e proprietà degli eventi di Diagnostica di Azure](#diagnostic-event-properties).
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="view-runs-and-trigger-history-for-your-logic-app"></a>Visualizzare la cronologia di esecuzioni e trigger per l'app per la logica
 
@@ -72,13 +74,13 @@ Per ottenere notifiche sugli errori o su altri possibili problemi, configurare g
 
 ## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>Attivare la registrazione diagnostica per l'app per la logica
 
-Per il debug avanzato con dettagli ed eventi di runtime, è possibile configurare la registrazione diagnostica con [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics è un servizio incluso in Azure che monitora gli ambienti cloud e locali e consente di mantenerne la disponibilità e le prestazioni. 
+Per ottimizzare il debug con i dettagli di runtime e gli eventi, è possibile configurare la registrazione con diagnostica [monitoraggio di Azure registra](../log-analytics/log-analytics-overview.md). Monitoraggio di Azure è un servizio di Azure che consente di monitorare il cloud e negli ambienti che consentono di mantenerne la disponibilità e prestazioni locali. 
 
 Prima di iniziare, è necessario avere un'area di lavoro di Log Analytics. Informazioni su [come creare un'area di lavoro di Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 1. Nel [portale di Azure](https://portal.azure.com) trovare e selezionare l'app per la logica. 
 
-2. Nel menu del pannello dell'app per la logica, in **Monitoraggio** scegliere **Diagnostica** > **Impostazioni di diagnostica**.
+2. Nel menu del pannello app per la logica, sotto **Monitoring**, scegliere **diagnostica** > **le impostazioni di diagnostica**.
 
    ![Andare a Monitoraggio, Diagnostica, Impostazioni di diagnostica](media/logic-apps-monitor-your-logic-apps/logic-app-diagnostics.png)
 
@@ -91,8 +93,8 @@ Prima di iniziare, è necessario avere un'area di lavoro di Log Analytics. Infor
    1. Selezionare **Invia a Log Analytics**. 
    2. In **Log Analytics** scegliere **Configura**. 
    3. In **Aree di lavoro OMS** selezionare l'area di lavoro da usare per la registrazione.
-   > [!NOTE]
-   > Le aree di lavoro OMS sono ora denominate aree di lavoro di Log Analytics.
+      > [!NOTE]
+      > Le aree di lavoro OMS sono ora denominate aree di lavoro di Log Analytics.
    4. In **Log** selezionare la categoria **WorkflowRuntime**.
    5. Scegliere l'intervallo di metrica.
    6. Al termine dell'operazione, scegliere **Salva**.
@@ -125,7 +127,7 @@ Per trovare e visualizzare gli eventi nell'app per la logica, ad esempio eventi 
 
    ![Immettere la stringa di ricerca](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 
-   Altre informazioni su [come trovare i dati in Log Analytics](../log-analytics/log-analytics-log-searches.md).
+   Altre informazioni sulle [come trovare i dati nei log di monitoraggio di Azure](../log-analytics/log-analytics-log-searches.md).
 
 5. Nella barra a sinistra della pagina dei risultati scegliere l'intervallo di tempo che si vuole visualizzare.
 Per affinare la query aggiungendo un filtro, scegliere **+Aggiungi**.
@@ -153,7 +155,7 @@ Per affinare la query aggiungendo un filtro, scegliere **+Aggiungi**.
 
 ## <a name="extend-how-and-where-you-use-diagnostic-data-with-other-services"></a>Estendere l'uso dei dati di diagnostica con altri servizi
 
-Con Azure Log Analytics, è possibile usare in modo diverso i dati di diagnostica dell'app per la logica con altri servizi di Azure, ad esempio: 
+Insieme ai log di monitoraggio di Azure, è possibile estendere come si usano dati di diagnostica dell'app per la logica con altri servizi di Azure, ad esempio: 
 
 * [Archiviare i log di diagnostica di Azure in Archiviazione di Microsoft Azure](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Trasmettere i log di diagnostica di Azure a Hub eventi di Azure](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
@@ -176,7 +178,7 @@ In base alle opzioni che si vuole configurare, assicurarsi prima di tutto di [cr
 
 Per monitorare metriche specifiche o le soglie superate per l'app per la logica, configurare gli [avvisi in Azure](../azure-monitor/platform/alerts-overview.md). Informazioni sulle [metriche in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
 
-Per configurare gli avvisi senza [Azure Log Analytics](../log-analytics/log-analytics-overview.md), seguire questa procedura. Per azioni e criteri di avviso più avanzati, [configurare anche Log Analytics](#azure-diagnostics).
+Impostare gli avvisi senza [monitoraggio di Azure registra](../log-analytics/log-analytics-overview.md), seguire questa procedura. Per le azioni e criteri di avviso più avanzati [configurare i log di monitoraggio di Azure](#azure-diagnostics) troppo.
 
 1. Nel menu del pannello dell'app per la logica, in **Monitoraggio** scegliere **Diagnostica** > **Regole di avviso** > **Aggiungi avviso**, come illustrato qui:
 

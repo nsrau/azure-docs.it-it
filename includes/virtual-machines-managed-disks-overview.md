@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 10afad7f782d1a98dfde5f7d708477375af54597
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 287ae3b8122dd2a1e43c31055ac0ea5b04dddb07
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330967"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58190675"
 ---
 ## <a name="benefits-of-managed-disks"></a>Vantaggi dei dischi gestiti
 
@@ -53,7 +53,7 @@ Questo disco ha una capacità massima di 2,048 GiB.
 
 ### <a name="temporary-disk"></a>Disco temporaneo
 
-Ogni macchina virtuale contiene un disco temporaneo che non è un disco gestito. Il disco temporaneo offre archiviazione a breve termine per applicazioni e processi ed è destinato solo all'archiviazione di dati come file di paging o di scambio. I dati presenti nel disco temporaneo potrebbero andare persi durante un [evento di manutenzione](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) o la ridistribuzione di una VM. Durante un riavvio standard della macchina virtuale, i dati nell'unità temporanea vengono mantenuti. Tuttavia, in alcuni casi i dati potrebbero non essere mantenuti, ad esempio, in caso di spostamento in un nuovo host. Di conseguenza, tutti i dati nell'unità temporanea non devono essere dati fondamentali per il sistema.
+Ogni macchina virtuale contiene un disco temporaneo che non è un disco gestito. Il disco temporaneo offre archiviazione a breve termine per applicazioni e processi ed è destinato solo all'archiviazione di dati come file di paging o di scambio. I dati nel disco temporaneo potrebbero andare persi durante un [evento di manutenzione](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) evento o quando si [ridistribuire una VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Durante un riavvio standard con esito positivo della macchina virtuale, i dati nell'unità temporanea verranno mantenuti. 
 
 ## <a name="managed-disk-snapshots"></a>Snapshot dei dischi gestiti
 

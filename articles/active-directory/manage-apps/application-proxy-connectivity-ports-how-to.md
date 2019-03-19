@@ -16,18 +16,18 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efc8c0f0581878d41eb62cbfbd88aec730ecf789
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d33866fff9ded2d5e844864975e491907637986e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175245"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441238"
 ---
 # <a name="how-to-open-the-firewall-ports-required-for-an-application-proxy-application"></a>Procedura: apertura delle porte del firewall necessarie per un'applicazione Proxy di applicazione
 
 Per visualizzare un elenco completo delle porte necessarie e la funzione di ciascuna porta, vedere la sezione dei prerequisiti della [documentazione del Proxy di applicazione](application-proxy-add-on-premises-application.md). Si noti che il Proxy di applicazione usa solo le porte in uscita.
 
-È inoltre possibile controllare se tutte le porte di cui si dispone sono aperte mediante lo [strumento di test delle porte del connettore](https://aadap-portcheck.connectorporttest.msappproxy.net/) dalla rete locale. La presenza di più segni di spunta verdi indica una maggiore resilienza. 
+È anche possibile verificare se si dispone di tutte le porte necessarie per accedere, aprire il [strumento di Test delle porte connettore](https://aadap-portcheck.connectorporttest.msappproxy.net/) dalla rete locale. La presenza di più segni di spunta verdi indica una maggiore resilienza. 
 
 ## <a name="app-proxy-regions"></a>Aree del proxy dell'applicazione
 
@@ -37,7 +37,7 @@ Per assicurarsi che lo strumento fornisca i risultati corretti, accertarsi di:
 
 -   Aprire lo strumento in un browser dal server in cui è installato il connettore.
 
--   Assicurarsi che qualsiasi proxy o firewall applicabile per il connettore venga applicato anche a questa pagina. Questa operazione può essere eseguita in Internet Explorer selezionando **Impostazioni**  - &gt; **Opzioni Internet**  - &gt; **Connessioni**  - &gt; **Impostazioni Lan**. In questa pagina viene visualizzato il campo "Usa un server di proxy per la rete LAN". Selezionare questa casella e inserire l'indirizzo del proxy nel campo "Indirizzo".
+-   Assicurarsi che qualsiasi proxy o firewall applicabile per il connettore venga applicato anche a questa pagina. Questa operazione può essere eseguita in Internet Explorer selezionando **le impostazioni**  - &gt; **Opzioni Internet**  - &gt; **connessioni**  - &gt; **Impostazioni LAN**. In questa pagina viene visualizzato il campo "Usa un server di proxy per la rete LAN". Selezionare questa casella e inserire l'indirizzo del proxy nel campo "Indirizzo".
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Comprendere i connettori del proxy applicazione di Azure AD](application-proxy-connectors.md)

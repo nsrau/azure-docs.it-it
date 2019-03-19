@@ -11,22 +11,22 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 19a0e7f3317a5c4a87b2622de170b0fc2cc137be
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: a1eb946d3f1b18aaa86735dedcfbaa1fd6a89621
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326824"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089982"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Risolvere gli errori di eliminazione delle risorse di archiviazione
 
 In alcuni casi potrebbe verificarsi uno degli errori seguenti durante il tentativo di eliminare un account di archiviazione, un contenitore o un BLOB di Azure in una distribuzione di Azure Resource Manager:
 
->**Non è stato possibile eliminare l'account di archiviazione 'NomeAccountArchiviazione'. Errore: L'account di archiviazione non può essere eliminato perché ha degli elementi in uso.**
-
->**Non è stato possibile eliminare # di # contenitori:<br>dischi rigidi virtuali: Sul contenitore è ancora attivo un lease. Nessun ID lease è stato specificato nella richiesta.**
-
->**Non è stato possibile eliminare # di # BLOB:<br>BlobName.vhd: Sul BLOB è ancora attivo un lease. Nessun ID lease è stato specificato nella richiesta.**
+> **Non è stato possibile eliminare l'account di archiviazione 'NomeAccountArchiviazione'. Errore: L'account di archiviazione non può essere eliminato perché ha degli elementi in uso.**
+> 
+> **Non è stato possibile eliminare # di # contenitori:<br>dischi rigidi virtuali: Sul contenitore è ancora attivo un lease. Nessun ID lease è stato specificato nella richiesta.**
+> 
+> **Non è stato possibile eliminare # di # BLOB:<br>BlobName.vhd: Sul BLOB è ancora attivo un lease. Nessun ID lease è stato specificato nella richiesta.**
 
 I dischi rigidi virtuali usati in macchine virtuali di Azure sono file con estensione vhd archiviati come BLOB di pagine in un account di archiviazione Standard o Premium in Azure. Per altre informazioni sui dischi di Azure, vedere [Introduzione ai dischi gestiti](../linux/managed-disks-overview.md).
 

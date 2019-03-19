@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 57290971185d1fd64b3b5ca6ac37535070ddab9e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 6a2e022697ced90d968075b7a4abe4163be7a539
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496483"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082807"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Ripristinare un volume StorSimple da un set di backup
 
@@ -110,9 +110,9 @@ I set di backup filtrati vengono quindi catalogati in base ai seguenti attributi
    3. Nell'elenco a discesa, scegliere il volume o il criterio di backup per il backup che si desidera selezionare.
    4. Fare clic su **Applica** per eseguire la query.
 
-    I backup associati al volume selezionato o al criterio di backup dovrebbero essere visualizzati nell'elenco dei set di backup.
+      I backup associati al volume selezionato o al criterio di backup dovrebbero essere visualizzati nell'elenco dei set di backup.
    
-    ![Elenco di set di backup](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)     
+      ![Elenco di set di backup](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)     
      
 3. Espandere il set di backup per visualizzare i volumi associati. Questi volumi devono essere disconnessi nell'host e nel dispositivo prima di poterli ripristinare. Accedere ai volumi nel pannello **Volumi** del dispositivo, quindi attenersi alla procedura descritta in [Disattivare un volume](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline) per disattivarli.
    
@@ -127,9 +127,9 @@ I set di backup filtrati vengono quindi catalogati in base ai seguenti attributi
    
     ![Pagina di conferma](./media/storsimple-8000-restore-from-backup-set-u2/restorebu2.png)
 
-7.  Fare clic su **Ripristina**. In questo modo viene avviato un processo di ripristino che è possibile visualizzare accedendo alla pagina **Processi**.
+7. Fare clic su **Ripristina**. In questo modo viene avviato un processo di ripristino che è possibile visualizzare accedendo alla pagina **Processi**.
 
-    ![Pagina di conferma](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
+   ![Pagina di conferma](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
 
 8. Dopo aver completato il ripristino, verificare che i contenuti dei volumi siano sostituiti dai volumi dal backup.
 

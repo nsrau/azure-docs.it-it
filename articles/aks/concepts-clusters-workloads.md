@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: d4293bf6a375f3e1a26c0c4fb50fcdc7bb5b8e8e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
-ms.translationtype: HT
+ms.openlocfilehash: bf1ff4391e65fea68ac019be8fde8709fb4422b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243857"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181351"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concetti di base di Kubernetes per il servizio Azure Kubernetes
 
@@ -28,7 +28,7 @@ Kubernetes è una piattaforma in rapida evoluzione che gestisce applicazioni bas
 
 In quanto piattaforma aperta, Kubernetes consente di compilare le applicazioni con il linguaggio di programmazione, il sistema operativo, le librerie e il bus di messaggistica preferiti. Gli strumenti esistenti di integrazione continua e recapito continuo (CI/CD) possono integrarsi con Kubernetes per la pianificazione e la distribuzione delle versioni.
 
-Il servizio Azure Kubernetes è un servizio Kubernetes gestito che riduce la complessità delle attività di distribuzione e delle attività principali di gestione, tra cui il coordinamento degli aggiornamenti. I master del cluster di servizio Azure Kubernetes sono gestiti dalla piattaforma Azure e si paga solo per i nodi di servizio Azure Kubernetes che eseguono le applicazioni. AKS si basa sul motore open source del servizio Azure Kubernetes (aks-engine).
+Il servizio Azure Kubernetes è un servizio Kubernetes gestito che riduce la complessità delle attività di distribuzione e delle attività principali di gestione, tra cui il coordinamento degli aggiornamenti. I master del cluster di servizio Azure Kubernetes sono gestiti dalla piattaforma Azure e si paga solo per i nodi di servizio Azure Kubernetes che eseguono le applicazioni. Servizio contenitore di AZURE si basa il motore del servizio Kubernetes Azure open source ([aks-engine][aks-engine]).
 
 ## <a name="kubernetes-cluster-architecture"></a>Architettura del cluster Kubernetes
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: afd5361774af3379dc0d4054509e318e8263dcc5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 3fdb0f566789382a1606b19e4fac179f9ecf40cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250187"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887460"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Visualizzazione e modifica di nomi host
 Per consentire alle istanze di ruolo di essere collegate al nome host, è necessario impostare il valore per il nome host nel file di configurazione del servizio per ogni ruolo. A tale scopo, aggiungere il nome host desiderato all'attributo **vmName** dell'elemento **ruolo**. Il valore dell’attributo **vmName** viene utilizzato come base per il nome host di ogni istanza del ruolo. Ad esempio, se **vmName** è *webrole* e sono presenti tre istanze di tale ruolo, i nomi host delle istanze saranno *webrole0*, *webrole1* e *webrole2*. Non è necessario specificare un nome host per le macchine virtuali nel file di configurazione, poiché il nome host per una macchina virtuale viene formulato in base al nome della macchina virtuale stessa. Per altre informazioni sulla configurazione di un servizio di Microsoft Azure, vedere [Schema di configurazione dei servizi di Azure (file .cscfg)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
@@ -40,9 +40,9 @@ Dopo aver abilitato Desktop remoto (Windows), comunicazione remota di Windows Po
 ### <a name="azure-service-management-rest-api"></a>API REST di gestione dei servizi di Azure
 Da un client REST, seguire queste istruzioni:
 
-1. Assicurarsi di disporre di un certificato client per connettersi al portale di Azure. Per ottenere un certificato client, eseguire la procedura descritta in [Procedura: informazioni sul Download e Importazione delle impostazioni di pubblicazione e Sottoscrizione](https://msdn.microsoft.com/library/dn385850.aspx). 
+1. Assicurarsi di disporre di un certificato client per connettersi al portale di Azure. Per ottenere un certificato client, eseguire la procedura descritta [come: Scaricare e importare le impostazioni e le informazioni sulla sottoscrizione di pubblicazione](https://msdn.microsoft.com/library/dn385850.aspx). 
 2. Impostare una voce di intestazione denominata x-ms-version con un valore di 2013-11-01.
-3. Inviare una richiesta nel formato seguente: https://management.core.windows.net/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
+3. Inviare una richiesta nel formato seguente: https:\//management.core.windows.net/\<id sottoscrizione\>/services/hostedservices/\<nome servizio\>? incorporare-detail = true
 4. Cercare l’elemento **HostName** per ogni elemento **RoleInstance**.
 
 > [!WARNING]

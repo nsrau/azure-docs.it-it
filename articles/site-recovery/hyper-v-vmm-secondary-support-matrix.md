@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 4fa8e28d9ccc16482ca937a220eae83e282da7e9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 2b801df6036566840dd96bde0801ab018d0614b5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210030"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103095"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali Hyper-V in un sito secondario
 
@@ -55,15 +55,15 @@ Windows Server 2012 R2 | Qualsiasi sistema operativo guest [supportato da Hyper-
 
 **Configurazione** | **Supportato**  
 --- | --- 
-Host - Gruppo NIC | Yes 
-Host - VLAN | Yes 
-Host - IPv4 | Yes 
+Host - Gruppo NIC | Sì 
+Host - VLAN | Sì 
+Host - IPv4 | Sì 
 Host - IPv6 | No  
 VM guest - Gruppo NIC | No 
-VM guest - IPv4 | Yes
+VM guest - IPv4 | Sì
 VM guest - IPv6 | No 
-VM guest - Windows/Linux - Indirizzo IP statico | Yes
-VM guest - Più NIC | Yes
+VM guest - Windows/Linux - Indirizzo IP statico | Sì
+VM guest - Più NIC | Sì
 
 
 ## <a name="storage"></a>Archiviazione
@@ -73,9 +73,9 @@ VM guest - Più NIC | Yes
 **Archiviazione (host)** | **Supportato**
 --- | --- 
 NFS | N/D
-SMB 3.0 |  Yes
-SAN (iSCSI) | Yes
-Percorsi multipli (MPIO) | Yes
+SMB 3.0 |  Sì
+SAN (iSCSI) | Sì
+Percorsi multipli (MPIO) | Sì
 
 ### <a name="guest-or-physical-server-storage"></a>Archiviazione su server fisico o guest
 
@@ -83,19 +83,19 @@ Percorsi multipli (MPIO) | Yes
 --- | --- | 
 VMDK |  N/D
 VHD/VHDX | Sì (fino a 16 dischi)
-VM di seconda generazione | Yes
+VM di seconda generazione | Sì
 Disco cluster condiviso | No 
 Disco crittografato | No 
 UEFI| N/D
 NFS | No 
 SMB 3.0 | No 
 RDM | N/D
-Disco superiore a 1 TB | Yes
-Volume con disco con striping superiore a 1 TB<br/><br/> LVM | Yes
-Spazi di archiviazione | Yes
+Disco superiore a 1 TB | Sì
+Volume con disco con striping superiore a 1 TB<br/><br/> LVM | Sì
+Spazi di archiviazione | Sì
 Aggiunta/rimozione a caldo disco | No 
-Esclusione disco | Yes
-Percorsi multipli (MPIO) | Yes
+Esclusione disco | Sì
+Percorsi multipli (MPIO) | Sì
 
 ## <a name="vaults"></a>Insiemi di credenziali
 
@@ -109,7 +109,7 @@ Spostare le risorse di archiviazione, la rete e le VM di Azure tra i gruppi di r
 Il provider coordina le comunicazioni tra server VMM. 
 
 **Più recente** | **Aggiornamenti**
---- | --- | --- | --- | ---
+--- | --- 
 5.1.19 ([disponibile dal portale](https://aka.ms/downloaddra)) | [Funzionalità e correzioni più recenti](https://support.microsoft.com/kb/3155002)
 
 

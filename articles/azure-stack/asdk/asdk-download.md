@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2018
-ms.openlocfilehash: 830a7ef1f25ea52959baf992274b5f7711b646b2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f48c3c9691170df6d460bfe9a6da0e02e4be32c3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165408"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077701"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>Scaricare ed estrarre Azure Stack Development Kit (ASDK)
 Dopo aver verificato che il computer host kit di sviluppo soddisfi i requisiti di base per l'installazione di ASDK, il passaggio successivo è per scaricare ed estrarre il pacchetto di distribuzione ASDK per ottenere il Cloudbuilder.vhdx.
@@ -29,15 +29,15 @@ Dopo aver verificato che il computer host kit di sviluppo soddisfi i requisiti d
 ## <a name="download-the-asdk"></a>Scaricare il ASDK
 1. Prima di avviare il download, assicurarsi che il computer soddisfi i prerequisiti seguenti:
 
-  - Il computer deve avere almeno 60 GB di spazio su disco disponibile in quattro separata, identica unità disco rigido inoltre per il disco del sistema operativo.
-  - [.NET framework 4.6 (o versione successiva)](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net46) deve essere installato.
+   - Il computer deve avere almeno 60 GB di spazio su disco disponibile in quattro separata, identica unità disco rigido inoltre per il disco del sistema operativo.
+   - [.NET framework 4.6 (o versione successiva)](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net46) deve essere installato.
 
 2. [Andare alla pagina di iniziare](https://azure.microsoft.com/overview/azure-stack/try/?v=try) in cui è possibile Scarica Azure Stack Development Kit, fornire i dettagli e quindi fare clic su **Submit**.
 3. Scaricare ed eseguire la [controllo di distribuzione per Azure Stack Development Kit](https://go.microsoft.com/fwlink/?LinkId=828735&clcid=0x409) script di controllo dei prerequisiti. Questo script autonomo sono illustrati i controlli di pre-requisiti eseguiti dal programma di installazione per Azure Stack Development Kit. Fornisce un modo per verificare che vengano soddisfatti i requisiti hardware e software, prima di scaricare il pacchetto di dimensioni maggiori per Azure Stack Development Kit.
 4. Sotto **Download del software**, fare clic su **Azure Stack Development Kit**.
 
-  > [!NOTE]
-  > Il download ASDK (AzureStackDevelopmentKit.exe) è di circa 10GB.
+   > [!NOTE]
+   > Il download ASDK (AzureStackDevelopmentKit.exe) è di circa 10GB.
 
 ## <a name="extract-the-asdk"></a>Estrarre il ASDK
 1. Al termine del download, fare clic su **eseguiti** per avviare il Self-extractor ASDK (AzureStackDevelopmentKit.exe).

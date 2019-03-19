@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: 829d6bc6cb3f8e78d065d7aaca4937634e7349c8
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
-ms.translationtype: HT
+ms.openlocfilehash: f7c52b7ab8aaad917eb03455800df6d8ba4cbc88
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437066"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082705"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Come usare i valori denominati nei criteri di Gestione API di Azure
 I criteri di Gestione API sono una potente funzionalità del sistema che consentono al portale di Azure di modificare il comportamento dell'API tramite la configurazione. I criteri sono una raccolta di istruzioni che vengono eseguite in modo sequenziale sulla richiesta o la risposta di un'API. Le istruzioni dei criteri possono essere costruite usando valori di testo letterali, espressioni di criteri e valori denominati. 
 
 Ogni istanza del servizio Gestione API dispone di una raccolta di proprietà di coppie chiave/valore, chiamate valori denominati, globali per l'istanza del servizio. Questi valori denominati possono essere usati per gestire i valori stringa costanti all'interno dell'intera configurazione e di tutti i criteri delle API. Ogni proprietà può avere gli attributi seguenti:
 
-| Attributo | type | DESCRIZIONE |
+| Attributo | Type | DESCRIZIONE |
 | --- | --- | --- |
 | Nome visualizzato |stringa |Stringa alfanumerica usata per fare riferimento alla proprietà nei criteri. |
 | Valore |stringa |Valore della proprietà. Non può essere vuoto o contenere solo spazi. |
@@ -50,8 +50,8 @@ I valori delle proprietà possono contenere stringhe letterali ed [espressioni d
 2. Selezionare **Valori denominati**.
 3. Premere **+Aggiungi**.
 
-  Nome e Valore sono obbligatori. Se il valore della proprietà è un segreto, selezionare la casella di controllo Questo è un segreto. Immettere uno o più tag facoltativi per organizzare i valori denominati e quindi fare clic su Salva.
-4. Fare clic su **Crea**.
+   Nome e Valore sono obbligatori. Se il valore della proprietà è un segreto, selezionare la casella di controllo Questo è un segreto. Immettere uno o più tag facoltativi per organizzare i valori denominati e quindi fare clic su Salva.
+4. Fare clic su **Create**(Crea).
 
 Dopo aver creato la proprietà, è possibile modificarla facendo clic sulla proprietà. Se si modifica il nome della proprietà, tutti i criteri che fanno riferimento a tale proprietà vengono aggiornati automaticamente con il nuovo nome.
 

@@ -4,16 +4,16 @@ description: Informazioni su come scegliere una soluzione di Azure per il trasfe
 services: storage
 author: alkohli
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: 271be60bc26cf6bc9a64c459d030818d9e493a22
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: ba6d5e20f0d6a004fd85d7e9dc57584547d52ba3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158449"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772858"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Soluzioni per il trasferimento dei dati periodico
  
@@ -58,9 +58,9 @@ La tabella seguente contiene un riepilogo delle differenze principali in termini
 | Hardware                                      | Hypervisor dell'utente            | Fornito da Microsoft    | ND                                                            |
 | Lavoro richiesto per la configurazione iniziale                          | Basso (<30 min.)            | Moderato (~due ore) | Elevato (alcuni giorni)                                                 |
 | Formato dati                                   | BLOB di Azure, file di Azure   | BLOB di Azure, file di Azure | [Supporta più di 70 connettori dati per archivi e formati dati](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
-| Pre-elaborazione dei dati                           | No                          | Sì, tramite il calcolo Edge    | Yes                                                           |
-| Cache locale<br>(per archiviare i dati locali)    | Yes                        | Sì                      | No                                                             |
-| Trasferimento da altri cloud                    | No                          | No                        | Yes                                                           |
+| Pre-elaborazione dei dati                           | No                          | Sì, tramite il calcolo Edge    | Sì                                                           |
+| Cache locale<br>(per archiviare i dati locali)    | Sì                        | Sì                      | No                                                             |
+| Trasferimento da altri cloud                    | No                          | No                        | Sì                                                           |
 | Prezzi                                       | [Prezzi](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Prezzi](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Prezzi](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
 ## <a name="next-steps"></a>Passaggi successivi

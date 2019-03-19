@@ -3,7 +3,7 @@ title: Metodi di creazione dei certificati
 description: Modi per creare un certificato in Key Vault.
 services: key-vault
 documentationcenter: ''
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
-ms.openlocfilehash: 3258683b950b537dd106323fe95105289034f727
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.author: mbaldwin
+ms.openlocfilehash: 53b4d03ac8f5d22595d3a4e840a04583f7ec963d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114859"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995529"
 ---
 # <a name="certificate-creation-methods"></a>Metodi di creazione dei certificati
 
@@ -35,7 +35,7 @@ Le descrizioni seguenti corrispondono ai passaggi contrassegnati con un numero i
 1. Nel diagramma precedente l'applicazione crea un certificato, operazione che internamente inizia con la creazione di una chiave nell'insieme di credenziali delle chiavi.
 2. Key Vault restituisce all'applicazione una richiesta di firma del certificato.
 3. L'applicazione passa la richiesta di firma del certificato alla CA scelta.
-4. La CA prescelta risponde con un certificato X.509.
+4. La prescelta CA risponde con un X509 certificato.
 5. L'applicazione completa la creazione del certificato con l'unione del certificato X.509 della CA.
 
 -   **Creare un certificato con un provider autorità di certificazione noto:** questo metodo richiede un'attività una tantum di creazione di un oggetto autorità di certificazione. Dopo che è stato creato un oggetto autorità di certificazione nell'insieme di credenziali delle chiavi, è possibile fare riferimento al nome di tale oggetto nei criteri del certificato di Key Vault. La richiesta di creazione di tale certificato KV creerà una coppia di chiavi nell'insieme di credenziali e comunicherà con il servizio di provider di autorità di certificazione utilizzando le informazioni nell'oggetto autorità di certificazione a cui si fa riferimento per ottenere un certificato X.509. Il certificato X.509 viene recuperato dal servizio autorità di certificazione e viene unito con la coppia di chiavi per completare la creazione del certificato KV.  
@@ -94,6 +94,6 @@ Si noti che quando viene passato un ordine al provider di autorità di certifica
 
  Authorization: è necessaria l'autorizzazione a creare certificati.
 
- ## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche
  - [Informazioni su chiavi, segreti e certificati](about-keys-secrets-and-certificates.md)
  - [Monitorare e gestire la creazione dei certificati](create-certificate-scenarios.md)

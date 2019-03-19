@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 3f08e2b2fab03ed7f2cccfe251e125033d55b30a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 1dac87ae07fac6a997cfd8e83c1e47ff39a91a83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860627"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096691"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Aggiungere un'entità in espressioni di esempio 
 
@@ -35,21 +35,17 @@ Alcuni tipi di entità, ad esempio le entità predefinite e le entità di espres
 Nella procedura seguente si crea e tagga un'entità personalizzata all'interno dell'espressione seguente nella pagina della finalità:
 
 ```text
-Does John Smith work in Seattle?
+Are there any SQL server jobs?
 ```
 
-1. Selezionare `Seattle` nell'espressione per etichettarla come entità semplice.
+1. Selezionare `SQL server` nell'espressione per etichettarla come entità semplice. Nella casella di riepilogo a discesa dell'entità che viene visualizzata, è possibile selezionare un'entità esistente o aggiungerne una nuova. Per aggiungere una nuova entità, digitarne il nome `Job` nella casella di testo e quindi selezionare **Crea nuova entità**.
 
-    [![Screenshot della selezione del testo nell'espressione per un'entità semplice](./media/luis-how-to-add-example-utterances/hr-create-simple-1.png)](./media/luis-how-to-add-example-utterances/hr-create-simple-1.png)
+    ![Screenshot di immissione del nome dell'entità](./media/luis-how-to-add-example-utterances/create-simple-entity.png)
 
     > [!NOTE]
     > Quando si selezionano le parole da taggare come entità:
     > * Per una parola singola, è sufficiente selezionarla. 
     > * Per una serie di due o più parole, selezionare l'inizio e la fine della serie.
-
-1. Nella casella di riepilogo a discesa dell'entità che viene visualizzata, è possibile selezionare un'entità esistente o aggiungerne una nuova. Per aggiungere una nuova entità, digitarne il nome nella casella di testo, quindi selezionare **Crea una nuova entità**. 
-
-    ![Screenshot di immissione del nome dell'entità](./media/luis-how-to-add-example-utterances/hr-create-simple-2.png)
 
 1. Nella finestra di dialogo popup **What type of entity do you want to create?** (Che tipo di entità vuoi creare?) verificare il nome dell'entità e selezionare il tipo di entità **Semplice**, quindi selezionare **Done** (Chiudi).
 
@@ -57,14 +53,11 @@ Does John Smith work in Seattle?
 
 ## <a name="add-a-list-entity"></a>Aggiungere un'entità elenco
 
-Le entità elenco rappresentano un set (corrispondenze testuali esatte) chiuso e fisso di parole correlate nel sistema. 
+Elenco di entità rappresenta un set di corrispondenze di testo esatta di parole correlate nel sistema. 
 
 Per un elenco dei reparti aziendali è possibile avere valori normalizzati: `Accounting` e `Human Resources`. Ciascun nome normalizzato ha dei sinonimi. I sinonimi vengono indicati in inglese. Per quanto riguarda un reparto, questi sinonimi possono includere qualsiasi acronimo, numero o gergo relativo al reparto. Non è necessario conoscere tutti i valori quando si crea l'entità. È possibile aggiungerne altri dopo aver esaminato le espressioni reali degli utenti con i sinonimi.
 
-1. Nell'elenco di espressioni di esempio per un'espressione specifica selezionare la parola o la frase che si desidera nel nuovo elenco. Immettere il nome dell'elenco nella casella di testo in alto, quindi selezionare **Crea nuova entità**.   
-
-    ![Screenshot di immissione del nome dell'entità elenco](./media/luis-how-to-add-example-utterances/hr-create-list-1.png)
-
+1. In un utterance di esempio nel **Intent** pagina, selezionare la parola o frase che desidera che nel nuovo elenco. Quando viene visualizzato l'elenco a discesa entità, immettere il nome per la nuova entità di elenco nella casella di testo superiore e quindi selezionare **creare una nuova entità**.   
 
 1. Nella casella popup **What type of entity do you want to create?** (Che tipo di entità vuoi creare?) denominare l'entità e selezionare **List** (Elenco) come tipo. Aggiungere i sinonimi di questo elemento elenco, quindi selezionare **Done** (Chiudi). 
 
@@ -76,21 +69,15 @@ Per un elenco dei reparti aziendali è possibile avere valori normalizzati: `Acc
 
 Vengono create entità composite da **entità** esistenti in un'entità padre. 
 
-Ipotizzando l'espressione, `Does John Smith work in Seattle?`, un'espressione composita può restituire informazioni sull'entità del nome del dipendente e la posizione in un singolo oggetto padre. 
+Supponendo che il utterance `Does John Smith work in Seattle?`, un utterance composito può restituire le informazioni sulle entità del nome del dipendente `John Smith`e il percorso `Seattle` in un'entità composta. Le entità figlio devono esistere già nell'app ed essere contrassegnate in utterance l'esempio prima di creare l'entità composta.
 
-Il nome del dipendente, John Smith, è un'entità [personName](luis-reference-prebuilt-person.md) precompilata. La posizione, Seattle, è un'entità personalizzata semplice. Dopo aver creato e taggato le due entità in un'espressione di esempio, tali entità possono essere sottoposte a wrapping in un'entità composita. 
+1. Per eseguire il wrapping di entità figlio in un'entità composta, selezionare la **primo** etichettato entity (all'estrema sinistra) nel utterance per l'entità composta. Viene visualizzato un elenco di riepilogo a discesa per visualizzare le opzioni disponibili per questa selezione.
 
-1. Per eseguire il wrapping di singole entità in una composita, selezionare la **prima** entità con etichetta (la più a sinistra) nell'espressione per l'entità composita. Viene visualizzato un elenco di riepilogo a discesa che mostra le opzioni disponibili per questa selezione.
+1. Selezionare **eseguire il wrapping in entità composta** nell'elenco a discesa. 
 
-1. Selezionare **Wrap in composite entity** (Esegui wrapping nell'entità composita) dall'elenco a discesa. 
-
-    ![Screenshot di selezione "Wrap in composite entity" (Esegui wrapping nell'entità composita)](./media/luis-how-to-add-example-utterances/hr-create-composite-1.png)
-
-1. Selezionare l'ultima parola dell'entità composita (la più a destra). Si noti che una linea verde segue l'entità composita.
+1. Selezionare l'ultima parola dell'entità composita (la più a destra). Si noti che una linea verde segue l'entità composita. Questo è l'indicatore visivo per un'entità composta e deve essere eseguita per tutte le parole nell'entità composta dall'entità figlio a sinistra per l'entità figlio più a destra.
 
 1. Inserire il nome dell'entità composita nell'elenco a discesa.
-
-    ![Screenshot dell'immissione del nome dell'entità composita nell'elenco a discesa](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
 
     Quando si esegue correttamente il wrapping delle entità, una linea verde viene aggiunta sotto l'intera frase.
 
@@ -110,15 +97,11 @@ Nell'emissione `Move John Smith from Seattle to Cairo`, Seattle è l'origine, me
 
 1. Nella pagina delle finalità selezionare `Seattle` nell'espressione, quindi inserire il nome dell'entità `Location` e premere INVIO sulla tastiera.
 
-    ![Screenshot della finestra di dialogo per la creazione di etichette gerarchiche di un'entità](./media/luis-how-to-add-example-utterances/hr-hier-1.png)
-
 1. Nella finestra popup **What type of entity do you want to create?** (Che tipo di entità vuoi creare?) selezionare il _gerarchico_ per **Tipo di entità**, quindi aggiungere `Origin` e `Destination` come elementi figlio e selezionare **Done** (Chiudi).
 
     ![Screenshot della pagina dei dettagli delle finalità, con l'entità ToLocation evidenziata](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
 
-1. La parola nell'espressione viene etichettata con l'entità gerarchica padre. È necessario assegnare la parola a un'entità figlio. Tornare all'espressione nella pagina dei dettagli delle finalità. Selezionare la parola quindi nell'elenco a discesa scegliere il nome dell'entità creata e seguire il menu a destra per scegliere l'entità figlio corretta.
-
-    ![Screenshot della pagina di dettagli delle finalità, dove è necessario assegnare la parola a un'entità figlio](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
+1. La parola nell'espressione viene etichettata con l'entità gerarchica padre. È necessario assegnare la parola a un'entità figlio. Nella pagina di dettaglio preventivi, tornare al utterance. Selezionare la parola quindi nell'elenco a discesa scegliere il nome dell'entità creata e seguire il menu a destra per scegliere l'entità figlio corretta.
 
     >[!CAUTION]
     >I nomi delle entità figlio devono essere univoci per tutte le entità in una singola app. Due diverse entità gerarchiche non possono contenere entità figlio con lo stesso nome. 
@@ -135,7 +118,7 @@ Selezionare le parole sottolineate in rosso nell'espressione.
 
 In caso di discrepanza della previsione la casella dell'entità visualizza un punto esclamativo rosso accanto a **Entity status** (Stato entità). Per visualizzare lo stato dell'entità unitamente alle informazioni sulla differenza tra entità etichettate e previste, selezionare **Entity status** (Stato entità) e quindi l'elemento a destra.
 
-![Screenshot della selezione dell'elemento corretto per correggere la discrepanza nella stima](./media/luis-how-to-add-example-utterances/entity-status.png)
+![Selezione dello stato di screenshot di entità](./media/luis-how-to-add-example-utterances/entity-prediction-error-correction.png)
 
 La linea rossa può essere presente nelle circostanze seguenti:
 
@@ -153,6 +136,9 @@ Le soluzioni seguenti consentono di risolvere la discrepanza nella previsione de
 |Testo correttamente etichettato|entità con evidenziazione blu, sottolineatura rossa|Previsione errata|Fornire più espressioni con l'entità correttamente etichettata in diverse posizioni e ambiti di utilizzo. Le espressioni correnti non sono sufficienti per insegnare a LUIS che questa è l'entità oppure nel contesto sono presenti entità simili. Le entità simili devono essere combinate in un'unica entità in modo da non confondere LUIS. Un'altra soluzione consiste nell'aggiungere un elenco di frasi per migliorare la significatività delle parole. |
 |Testo non correttamente etichettato|entità con evidenziazione blu, sottolineatura rossa|Previsione corretta| Fornire più espressioni con l'entità correttamente etichettata in diverse posizioni e ambiti di utilizzo. 
 
+> [!Note]
+> Una volta una casella rossa intorno lo scopo con etichettato nella riga di utterance l'esempio, un' [errore di previsione preventivo](luis-how-to-add-intents.md#intent-prediction-discrepancy-errors) si è verificato. È necessario correggere l'errore. 
+
 ## <a name="other-actions"></a>Altre azioni
 
 È possibile eseguire azioni su espressioni di esempio come un gruppo selezionato o un singolo elemento. I gruppi di espressioni di esempio selezionati cambiano il menu a comparsa sopra l'elenco. I singoli elementi possono usare sia il menu a comparsa sopra l'elenco sia i singoli puntini di sospensione alla fine di ogni riga di espressione. 
@@ -162,8 +148,6 @@ Le soluzioni seguenti consentono di risolvere la discrepanza nella previsione de
 È possibile rimuovere le etichette di entità con apprendimento automatico da un'espressione nella pagina delle finalità. Se l'entità non è stata appresa automaticamente, non potrà essere rimossa da un'espressione. Se si desidera rimuovere un'entità non appresa automaticamente dall'espressione, sarà necessario eliminare l'entità dall'intera app. 
 
 Per rimuovere l'etichetta di un'entità appresa automaticamente da un'espressione, selezionare l'entità nell'espressione. Quindi selezionare **Rimuovi etichetta** nella casella di riepilogo a discesa dell'entità che viene visualizzata.
-
-![Schermata della pagina dei dettagli delle finalità, con l'opzione Rimuovi etichetta evidenziata](./media/luis-how-to-add-example-utterances/remove-label.png) 
 
 ### <a name="add-prebuilt-entity-label"></a>Aggiungere un'etichetta di un'entità predefinita
 
@@ -181,7 +165,7 @@ Vedi [Aggiungi un criterio da un'espressione esistente nella pagina delle entit�
 
 ### <a name="add-patternany-entity"></a>Aggiungere l'entità pattern.any
 
-Se si aggiungono le entità pattern.any all'app LUIS, non sarà possibile etichettare le espressioni con tali entità. Esse sono valide solo nei modelli. Per altre informazioni sulle entità pattern.any e su come aggiungerle, vedere [Aggiungere entità](luis-how-to-add-entities.md#add-patternany-entities).
+Se si aggiungono le entità pattern.any all'app LUIS, non sarà possibile etichettare le espressioni con tali entità. Esse sono valide solo nei modelli. Per altre informazioni sulle entità pattern.any e su come aggiungerle, vedere [Aggiungere entità](luis-how-to-add-entities.md#add-patternany-entities-to-capture-free-form-entities).
 
 ## <a name="train-your-app-after-changing-model-with-utterances"></a>Eseguire il training dell'app dopo la modifica del modello con le espressioni
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 071054e2ec5fead3ce6181925b3c5f4e99a26736
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7564710b282c7e2ac586980896a28c00bcb2fe80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164227"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872603"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yodeck"></a>Esercitazione: Integrazione di Azure Active Directory con Yodeck
 
@@ -200,7 +200,7 @@ Nel caso di Yodeck, il provisioning è un'attività manuale.
 
     b. Nella casella di testo **Last name** (Cognome) digitare il cognome dell'utente, ad esempio **Simon**.
 
-    c. Nella casella di testo **Email** digitare l'indirizzo di posta elettronica dell'utente, ad esempio **brittasimon@contoso.com**.
+    c. Nel **messaggio di posta elettronica** digitare l'indirizzo di posta elettronica dell'utente, ad esempio di casella di testo **brittasimon\@contoso.com**.
 
     d. Selezionare l'opzione **Account Permissions** (Autorizzazioni account) appropriata in base ai requisiti aziendali.
     

@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 02/06/2019
 ms.author: aschhab
-ms.openlocfilehash: aaa8615c0358b89c02aad8241262320771e426a8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 699581c7ccd3f36da0cd0c1def623607b7c0a13b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818074"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891121"
 ---
 # <a name="partitioned-queues-and-topics"></a>Code e argomenti partizionati
 
@@ -27,9 +27,9 @@ Non è possibile modificare l'opzione di partizionamento su una coda o un argome
 
 ## <a name="how-it-works"></a>Funzionamento
 
-Ogni coda o argomento partizionato è costituito da più frammenti. Ogni frammento viene memorizzato in un archivio di messaggistica differente e gestito da un broker messaggi diverso. Quando un messaggio viene inviato a una coda o a un argomento partizionato, il bus di servizio assegna il messaggio a uno dei frammenti. La selezione viene eseguita in modo casuale dal bus di servizio o tramite una chiave di partizione che può essere specificata dal mittente.
+Ogni coda o argomento partizionato è costituito da più partizioni. Ogni partizione viene archiviato in un archivio di messaggistica differente e gestito da un broker di messaggi diversi. Quando viene inviato un messaggio a una coda o argomento partizionato, il Bus di servizio assegna il messaggio a una delle partizioni. La selezione viene eseguita in modo casuale dal bus di servizio o tramite una chiave di partizione che può essere specificata dal mittente.
 
-Quando un client vuole ricevere un messaggio da una coda partizionata o da una sottoscrizione a un argomento partizionato, il bus di servizio esegue query su tutti i frammenti dei messaggi, quindi restituisce al ricevitore il primo messaggio ottenuto dagli archivi di messaggistica. Il bus di servizio memorizza nella cache gli altri messaggi e li restituisce quando riceve altre richieste. Un client destinatario non è a conoscenza del partizionamento; il comportamento verso il client di una coda o un argomento partizionato (ad esempio lettura, completamento, rinvio, non recapitabilità, prelettura) è identico a quello di un'entità normale.
+Quando un client desidera ricevere un messaggio da una coda partizionata o da una sottoscrizione a un argomento partizionato, il Bus di servizio esegue query tutte le partizioni per i messaggi, quindi restituisce il primo messaggio ottenuto dagli archivi di messaggistica al destinatario. Il bus di servizio memorizza nella cache gli altri messaggi e li restituisce quando riceve altre richieste. Un client destinatario non è a conoscenza del partizionamento; il comportamento verso il client di una coda o un argomento partizionato (ad esempio lettura, completamento, rinvio, non recapitabilità, prelettura) è identico a quello di un'entità normale.
 
 I messaggi a una coda o a un argomento partizionato non presentano costi aggiuntivi, né in invio né in ricezione.
 
@@ -39,11 +39,11 @@ Per usare le code e gli argomenti partizionati con il bus di servizio di Azure, 
 
 ### <a name="standard"></a>Standard
 
-A livello di messaggistica Standard è possibile creare code e argomenti del bus di servizio in dimensioni di 1, 2, 3, 4 o 5 GB (il valore predefinito è 1 GB). Con il partizionamento abilitato, il bus di servizio crea 16 copie (16 partizioni) per ogni GB specificato. Di conseguenza, se si crea una coda con dimensioni pari a 5 GB, con 16 partizioni le dimensioni massime della coda diventano di 80 GB (5 \* 16). È possibile vedere le dimensioni massime della coda o dell'argomento partizionato esaminando la voce corrispondente nel [portale di Azure][Azure portal], nel pannello **Panoramica** relativo all'entità.
+A livello di messaggistica Standard è possibile creare code e argomenti del bus di servizio in dimensioni di 1, 2, 3, 4 o 5 GB (il valore predefinito è 1 GB). Con il partizionamento abilitato, il Bus di servizio crea 16 copie (16 partizioni) dell'entità, ognuna delle stesse dimensioni specificata. Di conseguenza, se si crea una coda con dimensioni pari a 5 GB, con 16 partizioni le dimensioni massime della coda diventano di 80 GB (5 \* 16). È possibile vedere le dimensioni massime della coda o dell'argomento partizionato esaminando la voce corrispondente nel [portale di Azure][Azure portal], nel pannello **Panoramica** relativo all'entità.
 
 ### <a name="premium"></a>Premium
 
-Le entità di partizionamento non sono supportate in uno spazio dei nomi di livello Premium. È tuttavia possibile creare code e argomenti del bus di servizio in dimensioni di 1, 2, 3, 4, 5, 10, 20, 40 o 80 GB (il valore predefinito è 1 GB). È possibile vedere le dimensioni della coda o dell'argomento esaminando la voce corrispondente nel [portale di Azure][Azure portal], nel pannello **Panoramica** relativo all'entità.
+In uno spazio dei nomi livello Premium, entità di partizionamento non sono supportate. È tuttavia possibile creare code e argomenti del bus di servizio in dimensioni di 1, 2, 3, 4, 5, 10, 20, 40 o 80 GB (il valore predefinito è 1 GB). È possibile vedere le dimensioni della coda o dell'argomento esaminando la voce corrispondente nel [portale di Azure][Azure portal], nel pannello **Panoramica** relativo all'entità.
 
 ### <a name="create-a-partitioned-entity"></a>Creare una tabella partizionata
 
@@ -61,11 +61,11 @@ ns.CreateTopic(td);
 
 ## <a name="use-of-partition-keys"></a>Uso delle chiavi di partizione
 
-Quando un messaggio viene accodato in una coda o in un argomento partizionato, il bus di servizio controlla la presenza di una chiave di partizione. Se ne trova una, seleziona il frammento in base a tale chiave. Se invece non trova alcuna chiave di partizione, seleziona il frammento in base a un algoritmo interno.
+Quando un messaggio viene accodato in una coda o in un argomento partizionato, il bus di servizio controlla la presenza di una chiave di partizione. Se ne trova una, seleziona la partizione in base a tale chiave. Se non trova una chiave di partizione, seleziona la partizione in base a un algoritmo interno.
 
 ### <a name="using-a-partition-key"></a>Uso di una chiave di partizione
 
-In alcuni scenari, ad esempio le sessioni o le transazioni, i messaggi devono essere archiviati in un frammento specifico. Tutti questi scenari richiedono l'uso di una chiave di partizione. Tutti i messaggi che usano la stessa chiave di partizione vengono assegnati allo stesso frammento. Se il frammento è temporaneamente non disponibile, il bus di servizio restituisce un errore.
+Alcuni scenari, ad esempio le sessioni o le transazioni, richiedono i messaggi da archiviare in una partizione specifica. Tutti questi scenari richiedono l'uso di una chiave di partizione. Tutti i messaggi che usano la stessa chiave di partizione vengono assegnati alla stessa partizione. Se la partizione è temporaneamente non disponibile, il Bus di servizio restituisce un errore.
 
 In base allo scenario vengono usate come chiave di partizione proprietà dei messaggi diverse:
 
@@ -77,13 +77,13 @@ In base allo scenario vengono usate come chiave di partizione proprietà dei mes
 
 ### <a name="not-using-a-partition-key"></a>Senza l'uso di una chiave di partizione
 
-In assenza di una chiave di partizione, il bus di servizio distribuisce, con un'alternanza di tipo round robin, i messaggi ai frammenti della coda o dell'argomento partizionato. Se il frammento scelto non è disponibile, il bus di servizio assegna il messaggio a un altro frammento. In questo modo, l'operazione di invio viene completata correttamente indipendentemente dalla disponibilità o meno di un archivio di messaggistica. Non si otterrà tuttavia l'ordinamento garantito fornito da una chiave di partizione.
+In assenza di una chiave di partizione, del Bus di servizio distribuisce messaggi in modo round robin per tutte le partizioni della coda partizionata o dell'argomento. Se la partizione selezionata non è disponibile, il Bus di servizio assegna il messaggio a una partizione diversa. In questo modo, l'operazione di invio viene completata correttamente indipendentemente dalla disponibilità o meno di un archivio di messaggistica. Non si otterrà tuttavia l'ordinamento garantito fornito da una chiave di partizione.
 
 Per un'analisi più approfondita del compromesso tra disponibilità (nessuna chiave di partizione) e coerenza (uso di una chiave di partizione), vedere [questo articolo](../event-hubs/event-hubs-availability-and-consistency.md). Queste informazioni si applicano ugualmente alle entità del bus di servizio partizionate.
 
-Per concedere al bus di servizio tempo sufficiente per l'accodamento del messaggio in un frammento diverso, il valore [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) specificato dal client che invia il messaggio deve essere maggiore di 15 secondi. È consigliabile impostare la proprietà [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) sul valore predefinito di 60 secondi.
+Per concedere al Bus di servizio tempo sufficiente per accodare il messaggio in una partizione diversa, il [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) valore specificato dal client che invia il messaggio deve essere maggiore di 15 secondi. È consigliabile impostare la proprietà [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) sul valore predefinito di 60 secondi.
 
-Una chiave di partizione "aggiunge" un messaggio a un frammento specifico. Se l'archivio di messaggistica contenente questo frammento non è disponibile, il bus di servizio restituisce un errore. In assenza di una chiave di partizione, il bus di servizio può scegliere un frammento diverso e l'operazione verrà completata correttamente. È quindi consigliabile non specificare una chiave di partizione, a meno che non sia necessario.
+Una chiave di partizione "associa" un messaggio a una partizione specifica. Se l'archivio di messaggistica che contiene la partizione non è disponibile, il Bus di servizio restituisce un errore. In assenza di una chiave di partizione, del Bus di servizio può scegliere una partizione diversa e l'operazione ha esito positivo. È quindi consigliabile non specificare una chiave di partizione, a meno che non sia necessario.
 
 ## <a name="advanced-topics-use-transactions-with-partitioned-entities"></a>Argomenti avanzati: usare le transazioni con entità partizionate
 
@@ -101,7 +101,7 @@ using (TransactionScope ts = new TransactionScope(committableTransaction))
 committableTransaction.Commit();
 ```
 
-Se le proprietà che fungono da chiave di partizione sono impostate, il bus di servizio aggiunge il messaggio a un frammento specifico. Questo comportamento si verifica indipendentemente dall'uso di una transazione. È consigliabile non specificare una chiave di partizione, a meno che non sia necessario.
+Se le proprietà che servono come chiave di partizione sono impostate, il Bus di servizio aggiunge il messaggio a una partizione specifica. Questo comportamento si verifica indipendentemente dall'uso di una transazione. È consigliabile non specificare una chiave di partizione, a meno che non sia necessario.
 
 ## <a name="using-sessions-with-partitioned-entities"></a>Uso delle sessioni con entità partizionate
 
@@ -126,9 +126,9 @@ committableTransaction.Commit();
 Il bus di servizio supporta l'inoltro automatico dei messaggi da, a o tra entità partizionate. Per abilitare l'inoltro automatico dei messaggi, impostare la proprietà [QueueDescription.ForwardTo][QueueDescription.ForwardTo] nella coda o nella sottoscrizione di origine. Se il messaggio specifica una chiave di partizione ([SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid), [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) o [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid)), questa viene usata per l'entità di destinazione.
 
 ## <a name="considerations-and-guidelines"></a>Considerazioni e indicazioni
-* **Funzionalità a coerenza elevata**: Se un'entità usa funzionalità come le sessioni, il rilevamento dei duplicati o il controllo esplicito della chiave di partizionamento, le operazioni di messaggistica vengono indirizzate sempre a frammenti specifici. In caso di traffico elevato in uno dei frammenti o di stato non integro dell'archivio sottostante, queste operazioni hanno esito negativo e la disponibilità viene ridotta. La coerenza è complessivamente molto più elevata rispetto alle entità non partizionate. I problemi si verificano solo per un sottoinsieme del traffico, invece che per tutto il traffico. Per altre informazioni, vedere la [discussione relativa a disponibilità e coerenza](../event-hubs/event-hubs-availability-and-consistency.md).
-* **Gestione**: Le operazioni di creazione, aggiornamento ed eliminazione devono essere eseguite su tutti i frammenti dell'entità. Se un frammento non è integro, potrebbero verificarsi errori per queste operazioni. Per l'operazione Get è necessario aggregare da tutti i frammenti le informazioni quali il numero di messaggi. Se un frammento non è integro, lo stato di disponibilità dell'entità risulta limitato.
-* **Scenari di messaggi a basso volume**: Per questi scenari, in particolare se si usa il protocollo HTTP, potrebbe essere necessario eseguire più operazioni di ricezione per ottenere tutti i messaggi. Per le richieste di ricezione, il front-end esegue una ricezione su tutti i frammenti e memorizza nella cache tutte le risposte ricevute. Una richiesta di ricezione successiva sulla stessa connessione sarebbe avvantaggiata dalla memorizzazione nella cache e le latenze di ricezione saranno minori. Se tuttavia sono presenti più connessioni o si usa HTTP, ciò crea una nuova connessione per ogni richiesta. Non è quindi possibile assicurare che la richiesta venga ricevuta sullo stesso nodo. Se tutti i messaggi esistenti sono bloccati e memorizzati nella cache in un altro front-end, l'operazione di ricezione restituisce **null**. I messaggi raggiungeranno infine la scadenza e verranno ricevuti di nuovo. È consigliabile usare la connessione keep-alive HTTP.
+* **Funzionalità a coerenza elevata**: Se un'entità Usa funzionalità quali sessioni, il rilevamento dei duplicati o controllo esplicito della chiave di partizionamento, le operazioni di messaggistica vengano sempre indirizzate alla partizione specifica. Se una delle partizioni esperienza traffico elevato o nell'archivio sottostante non è integro, esito negativo di queste operazioni e la disponibilità risulta ridotto. La coerenza è complessivamente molto più elevata rispetto alle entità non partizionate. I problemi si verificano solo per un sottoinsieme del traffico, invece che per tutto il traffico. Per altre informazioni, vedere la [discussione relativa a disponibilità e coerenza](../event-hubs/event-hubs-availability-and-consistency.md).
+* **Gestione**: Operazioni quali la creazione, aggiornamento ed eliminazione devono essere eseguite in tutte le partizioni dell'entità. Se tutte le partizioni non sono integra, potrebbero verificarsi errori per queste operazioni. Per l'operazione Get, informazioni quali il numero di messaggi devono essere aggregate di tutte le partizioni. Se tutte le partizioni non sono integra, lo stato di disponibilità di entità risulta limitato.
+* **Scenari di messaggi a basso volume**: Per questi scenari, in particolare se si usa il protocollo HTTP, potrebbe essere necessario eseguire più operazioni di ricezione per ottenere tutti i messaggi. Per le richieste di ricezione, il front-end esegue un'operazione di ricezione di tutte le partizioni e memorizza nella cache tutte le risposte ricevute. Una richiesta di ricezione successiva sulla stessa connessione sarebbe avvantaggiata dalla memorizzazione nella cache e le latenze di ricezione saranno minori. Se tuttavia sono presenti più connessioni o si usa HTTP, ciò crea una nuova connessione per ogni richiesta. Non è quindi possibile assicurare che la richiesta venga ricevuta sullo stesso nodo. Se tutti i messaggi esistenti sono bloccati e memorizzati nella cache in un altro front-end, l'operazione di ricezione restituisce **null**. I messaggi raggiungeranno infine la scadenza e verranno ricevuti di nuovo. È consigliabile usare la connessione keep-alive HTTP.
 * **Esaminare/visualizzare messaggi**: Disponibile solo nella versione precedente della libreria [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) non restituisce sempre il numero di messaggi specificato nella proprietà [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.messagecount). a causa di due motivi comuni. Il primo motivo consiste nel fatto che le dimensioni aggregate della raccolta di messaggi superano le dimensioni massime pari a 256 kB. L'altro motivo dipende dal fatto che, se la [proprietà EnablePartitioning](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning) della coda o dell'argomento è impostata su **true**, è possibile che una partizione non includa una quantità di messaggi sufficiente per completare il numero di messaggi richiesto. In genere, se un'applicazione vuole ricevere un numero specifico di messaggi, deve chiamare ripetutamente [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) fino a ottenere tale numero di messaggi o fino a quando non siano più presenti messaggi di cui visualizzare l'anteprima. Per altre informazioni, inclusi esempi di codice, vedere la documentazione relativa all'API [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) o [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.peekbatch).
 
 ## <a name="latest-added-features"></a>Funzionalità aggiunte di recente

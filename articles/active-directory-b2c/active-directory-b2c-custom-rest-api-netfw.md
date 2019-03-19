@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5ade3ac7587d4ac5c5a6d8e174e76e76088e4e57
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: bc2e41fd5da4737ea1efe329b70964535daff54a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157942"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105965"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C come convalida dell'input utente
 
@@ -249,10 +249,10 @@ Un provider di attestazioni può avere più profili tecnici per molti motivi, ad
 Il frammento di codice XML seguente contiene un nodo di un provider di attestazioni con due profili tecnici:
 
 * **TechnicalProfile Id="REST-API-SignUp"**: definisce il servizio RESTful.
-   * `Proprietary` viene descritto come protocollo per un provider basato su RESTful.
-   * `InputClaims` definisce le attestazioni che verranno inviate da Azure AD B2C al servizio REST.
+  * `Proprietary` viene descritto come protocollo per un provider basato su RESTful.
+  * `InputClaims` definisce le attestazioni che verranno inviate da Azure AD B2C al servizio REST.
 
-   In questo esempio il contenuto dell'attestazione `givenName` viene inviato al servizio REST come `firstName`, il contenuto dell'attestazione `surname` viene inviato al servizio REST come `lastName` e `email` viene inviato così com'è. L'elemento `OutputClaims` definisce le attestazioni che vengono recuperate dal servizio RESTful e restituite ad Azure AD B2C.
+    In questo esempio il contenuto dell'attestazione `givenName` viene inviato al servizio REST come `firstName`, il contenuto dell'attestazione `surname` viene inviato al servizio REST come `lastName` e `email` viene inviato così com'è. L'elemento `OutputClaims` definisce le attestazioni che vengono recuperate dal servizio RESTful e restituite ad Azure AD B2C.
 
 * **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: aggiunge un profilo tecnico di convalida al profilo tecnico esistente (definito nei criteri di base). Durante la fase di iscrizione il profilo tecnico di convalida richiama il profilo tecnico precedente. Se il servizio RESTful restituisce un errore HTTP 409 (un errore di conflitto), il messaggio di errore viene visualizzato dall'utente.
 

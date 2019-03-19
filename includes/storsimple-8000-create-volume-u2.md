@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: fa433f55839db66bcf8245fe058ac56702af3d6e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 2abfa29671bd804ee75194ef621fe07f06c015e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888643"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125224"
 ---
 #### <a name="to-create-a-volume"></a>Per creare un volume
 1. Nell'elenco tabulare dei dispositivi del pannello **Dispositivi** selezionare il dispositivo. Fare clic su **+ Aggiungi volume**.
@@ -22,7 +22,7 @@ ms.locfileid: "55888643"
 
    2. Nell'elenco a discesa selezionare il contenitore del volume in cui è necessario aggiungere un volume. 
 
-   3.  Digitare un **Nome** per il volume. Non è possibile rinominare un volume dopo che il volume è stato creato.
+   3. Digitare un **Nome** per il volume. Non è possibile rinominare un volume dopo che il volume è stato creato.
 
    4. Nell'elenco a discesa selezionare il **tipo** per il volume. Per carichi di lavoro che richiedono garanzie locali, latenze basse e prestazioni più elevate, selezionare un volume **aggiunto in locale** . Per tutti gli altri dati, selezionare un volume **a livelli** . Se si usa questo volume per dati di archivio, selezionare la casella di controllo **Usare questo volume per i dati di archivio a cui si accede non di frequente**.
       
@@ -36,19 +36,19 @@ ms.locfileid: "55888643"
       
        Se nel dispositivo 8100 si effettua il provisioning di un volume aggiunto in locale di 8,5 TB, ovvero le dimensioni massime consentite, si esaurisce tutto lo spazio locale disponibile nel dispositivo. Non è possibile creare volumi a livelli da quel punto in poi, perché non è disponibile spazio locale sul dispositivo per ospitare il working set del volume a livelli. Anche i volumi a livelli esistenti influiscono sullo spazio disponibile. Ad esempio, se nel dispositivo 8100 sono già presenti volumi a livelli di circa 106 TB, saranno disponibili solo 4 TB di spazio per i volumi aggiunti in locale.
 
-    6. Nel campo **Host connessi** fare clic sulla freccia. 
+      1. Nel campo **Host connessi** fare clic sulla freccia. 
 
-        ![Host connessi](./media/storsimple-8000-create-volume-u2/step5createvol2.png)
+         ![Host connessi](./media/storsimple-8000-create-volume-u2/step5createvol2.png)
 
-    7. Nel pannello **Host connessi** scegliere un record di controllo di accesso esistente o aggiungerne uno nuovo seguendo questa procedura:
+      1. Nel pannello **Host connessi** scegliere un record di controllo di accesso esistente o aggiungerne uno nuovo seguendo questa procedura:
 
-       1. Fornire un **Nome** per l'ACR.
-       2. In **Nome iniziatore iSCSI**, fornire il nome qualificato iSCSI (IQN) dell'host di Windows. Se non si dispone del nome qualificato iSCSI, andare a [Ottenere il nome qualificato iSCSI di un host di Windows Server](#get-the-iqn-of-a-windows-server-host).
+         1. Fornire un **Nome** per l'ACR.
+         2. In **Nome iniziatore iSCSI**, fornire il nome qualificato iSCSI (IQN) dell'host di Windows. Se non si dispone del nome qualificato iSCSI, andare a [Ottenere il nome qualificato iSCSI di un host di Windows Server](#get-the-iqn-of-a-windows-server-host).
 
-    9. Fare clic su **Create**(Crea). Verrà creato un volume con le impostazioni specificate.
+      1. Fare clic su **Create**(Crea). Verrà creato un volume con le impostazioni specificate.
 
-        ![Fare clic su Crea](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
+         ![Fare clic su Crea](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
 
-        > [!NOTE]
-        > Tenere presente che il volume creato non è protetto. Sarà necessario creare e associare criteri di backup a questo volume per eseguire backup pianificati. 
+         > [!NOTE]
+         > Tenere presente che il volume creato non è protetto. Sarà necessario creare e associare criteri di backup a questo volume per eseguire backup pianificati. 
 

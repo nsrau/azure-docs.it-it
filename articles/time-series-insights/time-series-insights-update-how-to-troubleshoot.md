@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: e44a02e2126e7b25f69999de34fe5cf42499a90c
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: eb1c302bf1954492ba2a7a78d16fc697fdf4b687
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556833"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080438"
 ---
 # <a name="diagnose-and-troubleshoot"></a>Diagnosticare e risolvere i problemi
 
@@ -43,16 +43,16 @@ Ecco alcuni motivi per cui i dati potrebbero non essere visualizzati nello [stru
 
 - Alla chiave dell'origine evento manca un'autorizzazione obbligatoria.
 
-    * Per un hub IoT è necessario fornire la chiave con l'autorizzazione di **connessione al servizio**.
+  * Per un hub IoT è necessario fornire la chiave con l'autorizzazione di **connessione al servizio**.
 
     ![Configurazione][3]
 
-    * Come illustrato nell'immagine precedente, entrambi i criteri **iothubowner** e **service** funzionano, in quanto entrambi dispongono dell'autorizzazione di **connessione al servizio**.
-    * Per un hub eventi è necessario fornire la chiave con l'autorizzazione di **ascolto**.
+  * Come illustrato nell'immagine precedente, entrambi i criteri **iothubowner** e **service** funzionano, in quanto entrambi dispongono dell'autorizzazione di **connessione al servizio**.
+  * Per un hub eventi è necessario fornire la chiave con l'autorizzazione di **ascolto**.
   
     ![Autorizzazioni][4]
 
-    * Come illustrato nell'immagine precedente, entrambi i criteri **read** e **manage** funzionano, in quanto entrambi dispongono dell'autorizzazione di **ascolto**.
+  * Come illustrato nell'immagine precedente, entrambi i criteri **read** e **manage** funzionano, in quanto entrambi dispongono dell'autorizzazione di **ascolto**.
 
 - Il gruppo di consumer specificato non è esclusivo di Time Series Insights.
 

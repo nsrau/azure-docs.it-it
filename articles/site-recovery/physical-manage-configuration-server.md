@@ -2,17 +2,17 @@
 title: Gestire il server di configurazione per il ripristino di emergenza di server fisici locali in Azure con Azure Site Recovery | Microsoft Docs
 description: Questo articolo descrive come gestire il server di configurazione di Azure Site Recovery per il ripristino di emergenza di server fisici in Azure.
 services: site-recovery
-author: Rajeswari-Mamilla
+author: mayurigupta13
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
-ms.author: ramamill
-ms.openlocfilehash: d5ce80e44ee1a3a48443b190ea9259fe2dea0dcb
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.date: 02/28/2019
+ms.author: mayg
+ms.openlocfilehash: 11b1b46e29ac9a4147c4dc319753edd0fadce8bc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983220"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088911"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di server fisici
 
@@ -50,7 +50,7 @@ L'ultima versione del file di installazione del server di configurazione è disp
 4. Nella pagina **Add Server** (Aggiungi server) fare clic sul pulsante Download (Scarica) per scaricare la chiave di registrazione. Questa chiave viene usata durante l'installazione del server di configurazione ai fini della registrazione con il servizio Azure Site Recovery.
 5. Fare clic sul collegamento **Download the Microsoft Azure Site Recovery Unified Setup** (Scarica l'installazione unificata di Microsoft Azure Site Recovery) per scaricare la versione più recente del server di configurazione.
 
-  ![Pagina di download](./media/physical-manage-configuration-server/downloadcs.png)
+   ![Pagina di download](./media/physical-manage-configuration-server/downloadcs.png)
 
 
 ## <a name="install-and-register-the-server"></a>Installare e registrare il server
@@ -77,7 +77,7 @@ L'ultima versione del file di installazione del server di configurazione è disp
 9. In **Percorso di installazione** specificare il percorso di installazione dei file binari e di archiviazione della cache. L'unità selezionata deve avere almeno 5 GB di spazio su disco disponibile, ma è consigliabile usare un'unità cache con almeno 600 GB di spazio disponibile.
 
     ![Percorso di installazione](./media/physical-manage-configuration-server/combined-wiz8.png)
-10. In **Network Selection** (Selezione rete) specificare il listener, ovvero la scheda di rete e la porta SSL, in cui il server di configurazione deve inviare e ricevere i dati di replica. La porta 9443 è la porta predefinita per l'invio e la ricezione del traffico di replica, ma è possibile modificare il numero di porta in base ai requisiti dell'ambiente. Oltre alla porta 9443, viene aperta anche la porta 443, che viene usata da un server Web per orchestrare le operazioni di replica. Non usare la porta 443 per inviare o ricevere traffico di replica.
+10. Nelle **Selezione rete**, selezionare prima l'interfaccia di rete utilizzato dal server di elaborazione predefinito per il rilevamento e l'installazione push del servizio mobility nelle macchine di origine e quindi selezionare la scheda di rete utilizzato dal Server di configurazione per la connettività con Azure. La porta 9443 è la porta predefinita per l'invio e la ricezione del traffico di replica, ma è possibile modificare il numero di porta in base ai requisiti dell'ambiente. Oltre alla porta 9443, viene aperta anche la porta 443, che viene usata da un server Web per orchestrare le operazioni di replica. Non usare la porta 443 per inviare o ricevere traffico di replica.
 
     ![Selezione rete](./media/physical-manage-configuration-server/combined-wiz9.png)
 
@@ -108,19 +108,19 @@ Eseguire il file di installazione come segue:
 
 |Nome parametro| Type | DESCRIZIONE| Valori|
 |-|-|-|-|
-| /Modalità server|Obbligatoria|Specifica se devono essere installati i server di configurazione e di elaborazione o solo il server di elaborazione|CS<br>PS|
-|/InstallLocation|Obbligatoria|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|
-|/MySQLCredsFilePath|Obbligatoria|Percorso del file in cui sono archiviate le credenziali del server MySQL|Il file deve essere nel formato specificato di seguito|
-|/VaultCredsFilePath|Obbligatoria|Percorso del file di credenziali dell'insieme di credenziali|Percorso del file valido|
-|/EnvType|Obbligatoria|Tipo di ambiente che si vuole proteggere |VMware<br>NonVMware|
-|/PSIP|Obbligatoria|Indirizzo IP della scheda di interfaccia di rete da utilizzare per il trasferimento di dati di replica| Qualsiasi indirizzo IP valido|
-|/CSIP|Obbligatoria|Indirizzo IP della scheda di interfaccia di rete su cui il server di configurazione è in ascolto| Qualsiasi indirizzo IP valido|
-|/PassphraseFilePath|Obbligatoria|Percorso completo del file della passphrase|Percorso del file valido|
+| /Modalità server|Obbligatorio|Specifica se devono essere installati i server di configurazione e di elaborazione o solo il server di elaborazione|CS<br>PS|
+|/InstallLocation|Obbligatorio|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|
+|/MySQLCredsFilePath|Obbligatorio|Percorso del file in cui sono archiviate le credenziali del server MySQL|Il file deve essere nel formato specificato di seguito|
+|/VaultCredsFilePath|Obbligatorio|Percorso del file di credenziali dell'insieme di credenziali|Percorso del file valido|
+|/EnvType|Obbligatorio|Tipo di ambiente che si vuole proteggere |VMware<br>NonVMware|
+|/PSIP|Obbligatorio|Indirizzo IP della scheda di interfaccia di rete da utilizzare per il trasferimento di dati di replica| Qualsiasi indirizzo IP valido|
+|/CSIP|Obbligatorio|Indirizzo IP della scheda di interfaccia di rete su cui il server di configurazione è in ascolto| Qualsiasi indirizzo IP valido|
+|/PassphraseFilePath|Obbligatorio|Percorso completo del file della passphrase|Percorso del file valido|
 |/BypassProxy|Facoltativo|Specifica che il server di configurazione si connette ad Azure senza un proxy|Per ottenere questo valore da Venu|
 |/ProxySettingsFilePath|Facoltativo|Impostazioni proxy, il proxy predefinito richiede l'autenticazione o un proxy personalizzato|Il file deve essere nel formato specificato di seguito|
 |DataTransferSecurePort|Facoltativo|Numero di porta su PSIP da usare per i dati di replica| Numero di porta valido (il valore predefinito è 9433)|
 |/SkipSpaceCheck|Facoltativo|Ignora la verifica dello spazio per il disco della cache| |
-|/AcceptThirdpartyEULA|Obbligatoria|Il flag implica l'accettazione dell'EULA di terze parti| |
+|/AcceptThirdpartyEULA|Obbligatorio|Il flag implica l'accettazione dell'EULA di terze parti| |
 |/ShowThirdpartyEULA|Facoltativo|Visualizza le condizioni di licenza di terze parti. Se specificato come input, tutti gli altri parametri vengono ignorati| |
 
 
@@ -153,40 +153,40 @@ ProxyPassword="Password"
 3. Fare clic sulla scheda **Vault Registration** (Registrazione dell'insieme di credenziali).
 4. Scaricare un nuovo file di registrazione dell'insieme di credenziali dal portale e fornirlo come input allo strumento.
 
-  ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+   ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Specificare i dettagli del nuovo proxy e fare clic sul pulsante **Register** (Registra).
 6. Aprire una finestra di prompt dei comandi di PowerShell per amministratore.
 7. Eseguire il comando seguente:
 
-  ```PowerShell
-  $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
-  Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
-  net stop obengine
-  net start obengine
-  ```
+   ```PowerShell
+   $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
+   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
+   net stop obengine
+   net start obengine
+   ```
 
-  >[!WARNING]
-  Se sono presenti altri server di elaborazione associati al server di configurazione, è necessario [correggere le impostazioni del proxy in tutti i server di elaborazione con scalabilità orizzontale](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) nella distribuzione.
+   > [!WARNING]
+   > Se sono presenti altri server di elaborazione associati al server di configurazione, è necessario [correggere le impostazioni del proxy in tutti i server di elaborazione con scalabilità orizzontale](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) nella distribuzione.
 
 ## <a name="reregister-a-configuration-server-with-the-same-vault"></a>Registrare di nuovo un server di configurazione con lo stesso insieme di credenziali
-  1. Accedere al server di configurazione.
-  2. Avviare il file cspsconfigtool.exe usando il relativo collegamento sul desktop.
-  3. Fare clic sulla scheda **Vault Registration** (Registrazione dell'insieme di credenziali).
-  4. Scaricare un nuovo file di registrazione dal portale e fornirlo come input allo strumento.
-        ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
-  5. Specificare i dettagli del server proxy e fare clic sul pulsante **Register** (Registra).  
-  6. Aprire una finestra di prompt dei comandi di PowerShell per amministratore.
-  7. Eseguire il comando seguente
+1. Accedere al server di configurazione.
+2. Avviare il file cspsconfigtool.exe usando il relativo collegamento sul desktop.
+3. Fare clic sulla scheda **Vault Registration** (Registrazione dell'insieme di credenziali).
+4. Scaricare un nuovo file di registrazione dal portale e fornirlo come input allo strumento.
+      ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+5. Specificare i dettagli del server proxy e fare clic sul pulsante **Register** (Registra).  
+6. Aprire una finestra di prompt dei comandi di PowerShell per amministratore.
+7. Eseguire il comando seguente
 
-      ```PowerShell
-      $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
-      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
-      net stop obengine
-      net start obengine
-      ```
+    ```PowerShell
+    $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
+    net stop obengine
+    net start obengine
+    ```
 
-  >[!WARNING]
-  Se si hanno più server di elaborazione, è necessario [registrarli nuovamente](vmware-azure-manage-process-server.md#reregister-a-process-server).
+   > [!WARNING]
+   > Se si hanno più server di elaborazione, è necessario [registrarli nuovamente](vmware-azure-manage-process-server.md#reregister-a-process-server).
 
 ## <a name="register-a-configuration-server-with-a-different-vault"></a>Registrare un server di configurazione con un insieme di credenziali diverso
 
@@ -246,22 +246,22 @@ Per aggiornare il server, seguire questa procedura:
 4. Fare clic su **Sì** per confermare l'eliminazione del server.
 
 ### <a name="uninstall-the-configuration-server-and-its-dependencies"></a>Disinstallare il server di configurazione e le relative dipendenze
-  > [!TIP]
-  Se si intende riutilizzare il server di configurazione con Azure Site Recovery, è possibile andare direttamente al passaggio 4
+> [!TIP]
+>   Se si intende riutilizzare il server di configurazione con Azure Site Recovery, è possibile andare direttamente al passaggio 4
 
 1. Accedere al server di configurazione come amministratore.
 2. Scegliere Pannello di controllo > Programma > Disinstallare programmi
 3. Disinstallare i programmi nella sequenza seguente:
-  * Agente di Servizi di ripristino di Microsoft Azure
-  * Servizio Mobility di Microsoft Azure Site Recovery/server di destinazione master
-  * Provider di Microsoft Azure Site Recovery
-  * Server di elaborazione/Server di configurazione di Microsoft Azure Site Recovery
-  * Dipendenze del server di configurazione di Microsoft Azure Site Recovery
-  * MySQL Server 5.5
+   * Agente di Servizi di ripristino di Microsoft Azure
+   * Servizio Mobility di Microsoft Azure Site Recovery/server di destinazione master
+   * Provider di Microsoft Azure Site Recovery
+   * Server di elaborazione/Server di configurazione di Microsoft Azure Site Recovery
+   * Dipendenze del server di configurazione di Microsoft Azure Site Recovery
+   * MySQL Server 5.5
 4. Al prompt dei comandi dell'amministratore, eseguire questo comando:
-  ```
-  reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
-  ```
+   ```
+   reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+   ```
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Eliminare o annullare la registrazione di un server di configurazione (PowerShell)
 

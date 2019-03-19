@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 045f2d12eb6836d14a09ea96c8eca3cad0e5246d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 551d0cd149c4d1555a40ccf0d7baeff97c6809c2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458228"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863299"
 ---
 # <a name="collaborative-coding-with-git"></a>Creazione collaborativa di codice con Git
 
@@ -36,7 +36,7 @@ Fornire le informazioni per il nuovo ramo, ad esempio il nome del ramo, il repos
 
 Una procedura consigliata consiste nel creare un ramo Git per ogni elemento di lavoro della storia. Per ogni elemento di lavoro dell'attività creare un ramo di base sul ramo della storia. Organizzare i rami in questo modo gerarchico, che corrisponde alle relazioni della storia-attività è utile quando si dispone di più persone che lavorano su storie diverse dello stesso progetto, o quando si dispone di più persone che lavorano su attività diverse della stessa storia. I conflitti possono essere ridotti quando ogni membro del team lavora su un ramo diverso e quando ogni membro lavora su diversi codici o su altri elementi quando si condivide un ramo. 
 
-Nella figura seguente viene illustrata la strategia consigliata di creazione di rami per TDSP. Potrebbe non essere necessario disporre di tutti i rami mostrati di seguito, in particolare quando si dispone solamente di una o due persone che lavorano sullo stesso progetto, o di una persona che lavora su tutte le attività di una storia. Tuttavia è sempre consigliabile separare il ramo di sviluppo dal ramo master. Questo può aiutare ad impedire che il rilascio del ramo venga interrotto dalle attività di sviluppo. Una descrizione più completa del modello di ramo Git è reperibile in [A Successful Git Branching Model](http://nvie.com/posts/a-successful-git-branching-model/) (Un modello efficiente per la creazione di un ramo Git).
+Nella figura seguente viene illustrata la strategia consigliata di creazione di rami per TDSP. Potrebbe non essere necessario disporre di tutti i rami mostrati di seguito, in particolare quando si dispone solamente di una o due persone che lavorano sullo stesso progetto, o di una persona che lavora su tutte le attività di una storia. Tuttavia è sempre consigliabile separare il ramo di sviluppo dal ramo master. Questo può aiutare ad impedire che il rilascio del ramo venga interrotto dalle attività di sviluppo. Una descrizione più completa del modello di ramo Git è reperibile in [A Successful Git Branching Model](https://nvie.com/posts/a-successful-git-branching-model/) (Un modello efficiente per la creazione di un ramo Git).
 
 ![3](./media/collaborative-coding-with-git/3-git-branches.png)
 

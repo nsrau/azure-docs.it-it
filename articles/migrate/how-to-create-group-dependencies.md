@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 5c4d16ff85972bc4b608e6ce2006912fb27d49d2
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: a3c0e94e213b861714bfc5f38e20e4d9a1de3a19
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895432"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107917"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Ridefinire un gruppo usando il mapping delle dipendenze del gruppo
 
@@ -21,9 +21,10 @@ In questo articolo viene descritto come ridefinire un gruppo visualizzando le di
 > [!NOTE]
 > I gruppi per i quali si vuole visualizzare le dipendenze non devono includere più di 10 computer. Se il gruppo contiene più di 10 computer, è consigliabile suddividerlo in gruppi più piccoli per sfruttare la funzionalità di visualizzazione delle dipendenze.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prepare-for-dependency-visualization"></a>Prepararsi per la visualizzazione delle dipendenze
-Per abilitare la visualizzazione delle dipendenze dei computer, Azure Migrate usa la soluzione Mapping dei servizi in Log Analytics.
+Azure Migrate Usa mapping dei servizi nei log di monitoraggio di Azure per abilitare la visualizzazione delle dipendenze delle macchine.
 
 > [!NOTE]
 > La funzionalità di visualizzazione delle dipendenze non è disponibile in Azure per enti pubblici.
@@ -93,18 +94,18 @@ Dopo aver installato gli agenti in tutti i computer del gruppo, è possibile vis
 1. Nel progetto di Azure Migrate, in **Gestisci**, fare clic su  **Gruppi** e selezionare il gruppo.
 2. Nella pagina relativa al gruppo fare clic su  **Visualizza dipendenze** per aprire la mappa delle dipendenze del gruppo.
 3. La mappa delle dipendenze del gruppo mostra i dettagli seguenti:
-    - Connessioni TCP in entrata (client) e in uscita (server) a/da tutti i computer che fanno parte del gruppo
-        - I computer dipendenti in cui non sono installati l'agente MMA e l'agente Dependency Agent sono raggruppati in base ai numeri di porta
-        - I computer dipendenti in cui sono installati l'agente MMA e l'agente Dependency Agent sono visualizzati in caselle separate
-    - I processi in esecuzione sul computer: è possibile espandere ogni casella di computer per visualizzare i processi
-    - Proprietà quali: nome di dominio completo, sistema operativo, indirizzo MAC di ogni computer e così via. Fare clic su ogni casella macchina per visualizzare questi dettagli
+   - Connessioni TCP in entrata (client) e in uscita (server) a/da tutti i computer che fanno parte del gruppo
+       - I computer dipendenti in cui non sono installati l'agente MMA e l'agente Dependency Agent sono raggruppati in base ai numeri di porta
+       - I computer dipendenti in cui sono installati l'agente MMA e l'agente Dependency Agent sono visualizzati in caselle separate
+   - I processi in esecuzione sul computer: è possibile espandere ogni casella di computer per visualizzare i processi
+   - Proprietà quali: nome di dominio completo, sistema operativo, indirizzo MAC di ogni computer e così via. Fare clic su ogni casella macchina per visualizzare questi dettagli
 
      ![Visualizzazione delle dipendenze del gruppo](./media/how-to-create-group-dependencies/view-group-dependencies.png)
 
 3. Per visualizzare le dipendenze a un livello più dettagliato, fare clic sull'intervallo di tempo per modificarlo. Per impostazione predefinita, l'intervallo è un'ora. È possibile modificare l'intervallo di tempo oppure specificare le date di inizio e fine e la durata.
 
-    > [!NOTE]
-      Attualmente, l'interfaccia utente di visualizzazione delle dipendenze non supporta la selezione di un intervallo di tempo più lungo di un'ora. Usare Log Analytics per [eseguire query sui dati delle dipendenze](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) per periodi di tempo più lunghi.
+   > [!NOTE]
+   >    Attualmente, l'interfaccia utente di visualizzazione delle dipendenze non supporta la selezione di un intervallo di tempo più lungo di un'ora. Usare monitoraggio di Azure registra [eseguire query sui dati delle dipendenze](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) su periodi di tempo.
 
 4. Verificare i computer dipendenti, i processi in esecuzione in ciascun computer e identificare i computer da aggiungere o rimuovere dal gruppo.
 5. Premere CTRL+clic per selezionare contemporaneamente più computer sulla mappa e aggiungerle o rimuoverle dal gruppo.
@@ -117,19 +118,19 @@ Dopo aver installato gli agenti in tutti i computer del gruppo, è possibile vis
 
 Se si vogliono verificare le dipendenze di un computer specifico che viene visualizzato nella mappa delle dipendenze del gruppo, [configurare il mapping delle dipendenze del computer](how-to-create-group-machine-dependencies.md).
 
-## <a name="query-dependency-data-from-log-analytics"></a>Eseguire query sui dati delle dipendenze da Log Analytics
+## <a name="query-dependency-data-from-azure-monitor-logs"></a>Eseguire query sui dati delle dipendenze dai log di monitoraggio di Azure
 
-I dati sulle dipendenze acquisiti da Mapping dei servizi sono disponibili per l'esecuzione di query nell'area di lavoro di Log Analytics associata al progetto di Azure Migrate. [Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sulle tabelle dati di Mapping dei servizi per l'esecuzione di query in Log Analytics. 
+I dati sulle dipendenze acquisiti da mapping dei servizi sono disponibili per l'esecuzione di query nell'area di lavoro di Log Analitica associato al progetto Azure Migrate. [Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sulle tabelle di dati di mapping dei servizi per eseguire una query in Monitoraggio di Azure Registra. 
 
-Per eseguire query in Log Analytics:
+Per eseguire la query Kusto:
 
 1. Dopo aver installato gli agenti, accedere al portale e fare clic su **Panoramica**.
 2. In **Panoramica** , andare alla sezione **Elementi fondamentali** del progetto e fare clic sul nome dell'area di lavoro accanto a **Spazio di lavoro OMS** .
 3. Nella pagina dell'area di lavoro di Log Analytics, fare clic su **Generale** > **Log**.
-4. Scrivere la query per raccogliere dati sulle dipendenze usando Log Analytics. Query di esempio per la raccolta di dati sulle dipendenze sono disponibili [qui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+4. Scrivere la query per raccogliere dati sulle dipendenze mediante i log di monitoraggio di Azure. Query di esempio per la raccolta di dati sulle dipendenze sono disponibili [qui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
 5. Eseguire la query facendo clic su Esegui. 
 
-[Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) su come scrivere query di Log Analytics. 
+[Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) sulla scrittura di query Kusto. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -8,26 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d7ef018b376b96f967a065857839761fc5822239
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: cb0e079eee78f865d472b55b162fb65b5eadaf44
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876302"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900489"
 ---
 # <a name="about-the-speech-devices-sdk-preview"></a>Informazioni su Speech Devices SDK (anteprima)
 
-Il [servizio Voce](overview.md) è compatibile con una vasta gamma di dispositivi e sorgenti audio. Ora è possibile portare le applicazioni vocali a un livello superiore con hardware e software abbinati. Speech Devices SDK è una libreria pre-ottimizzata abbinata a kit dedicati per lo sviluppo di matrici di microfoni.
+Il [servizi di riconoscimento vocale](overview.md) funzionano con un'ampia gamma di dispositivi e origini audio. Ora è possibile portare le applicazioni vocali a un livello superiore con hardware e software abbinati. Speech Devices SDK è una libreria pre-ottimizzata abbinata a kit dedicati per lo sviluppo di matrici di microfoni.
 
 Speech Devices SDK consente di:
 * Testare rapidamente nuovi scenari vocali.
-* Integrare più facilmente il servizio Voce basato sul cloud nel dispositivo.
+* Integrare più facilmente i servizi di riconoscimento vocale basati sul cloud al dispositivo.
 * Creare un'esperienza utente eccezionale per i clienti.
 
-Speech Devices SDK è integrato con [Speech SDK](speech-sdk.md). Usa Speech SDK per inviare audio elaborato dall'algoritmo di elaborazione audio avanzata dalla matrice di microfoni del dispositivo al [servizio Voce](overview.md). Usa inoltre l'audio multicanale per fornire un servizio più preciso di [riconoscimento vocale](speech-to-text.md) in campo lontano tramite eliminazione del rumore e dell'eco, beamforming e riduzione dell'effetto riverbero.
+Speech Devices SDK è integrato con [Speech SDK](speech-sdk.md). Usa Speech SDK per inviare audio elaborato dal nostro algoritmo di elaborazione audio avanzata dalla matrice di microfono del dispositivo per il [servizi di riconoscimento vocale](overview.md). Usa inoltre l'audio multicanale per fornire un servizio più preciso di [riconoscimento vocale](speech-to-text.md) in campo lontano tramite eliminazione del rumore e dell'eco, beamforming e riduzione dell'effetto riverbero.
 
 Speech Devices SDK consente anche di creare dispositivi per il proprio ambiente con una [parola di attivazione personalizzata](speech-devices-sdk-create-kws.md), in modo da definire una parola chiave esclusiva del proprio marchio per avviare un'interazione utente.
 
@@ -39,7 +39,7 @@ Attualmente sono disponibili questi progetti di sistemi di riferimento end-to-en
 
 |||
 |-|-|
-|[![Logo ROOBO](media/speech-devices-sdk/roobo-logo.png)](http://ddk.roobo.com/)|ROOBO fornisce soluzioni complete di sistemi di intelligenza artificiale per elettrodomestici, automobili, robot, giocattoli e altri settori. I progetti di riferimento di ROOBO riducono notevolmente il time-to-market di sviluppo grazie all'integrazione del servizio Microsoft Speech. [Visitare ROOBO](http://ddk.roobo.com/).|
+|[![Logo ROOBO](media/speech-devices-sdk/roobo-logo.png)](http://ddk.roobo.com/)|ROOBO fornisce soluzioni complete di sistemi di intelligenza artificiale per elettrodomestici, automobili, robot, giocattoli e altri settori. Progetti di riferimento del ROOBO ridurre notevolmente lo sviluppo time-to-market grazie all'integrazione con i servizi di riconoscimento vocale di Azure. [Visitare ROOBO](http://ddk.roobo.com/).|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

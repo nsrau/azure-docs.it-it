@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/05/2019
-ms.openlocfilehash: 09f1bdfa4c9a7a179bddf9473b553924bfb58fb7
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: e4037e79812f0cf548ddfcc277c1b66332e0f1f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768563"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902876"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Funzionalità in anteprima di Analisi di flusso di Azure
 
@@ -22,6 +22,10 @@ Questo articolo riepiloga tutte le funzionalità attualmente in anteprima per An
 ## <a name="public-previews"></a>Anteprime pubbliche
 
 Nell'anteprima pubblica sono disponibili le funzionalità seguenti. È possibile sfruttare queste funzionalità adesso, ma non usarle nell'ambiente di produzione.
+
+### <a name="anomaly-detection"></a>Anomaly Detection
+
+In Analisi di flusso di Azure sono stati introdotti nuovi modelli di apprendimento automatico con il supporto per il rilevamento di *picchi* e *flessioni*, oltre che per il rilevamento di tendenze bidirezionali, positive lente e negative lente. Per altre informazioni, visitare [rilevamento di anomalie in Azure Stream Analitica](stream-analytics-machine-learning-anomaly-detection.md).
 
 ### <a name="sql-database-reference-data"></a>Dati di riferimento del database SQL
 
@@ -47,10 +51,6 @@ Con le funzioni .NET Standard definite dall'utente, è possibile eseguire il cod
 
 Nell'anteprima privata sono disponibili le funzionalità seguenti.
 
-### <a name="anomaly-detection"></a>Anomaly Detection
-
-In Analisi di flusso di Azure sono stati introdotti nuovi modelli di apprendimento automatico con il supporto per il rilevamento di *picchi* e *flessioni*, oltre che per il rilevamento di tendenze bidirezionali, positive lente e negative lente.
-
 ### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge"></a>Deserializzatore personalizzato C# per Analisi di flusso di Azure in IoT Edge
 
 Gli sviluppatori possono ora implementare deserializzatori personalizzati in C# per deserializzare gli eventi ricevuti da Analisi di flusso di Azure. Gli esempi di formati che possono essere deserializzati includono Parquet, Protobuf, XML o qualsiasi altro formato binario.
@@ -61,7 +61,7 @@ Gli sviluppatori possono ora implementare deserializzatori personalizzati in C# 
 
 ### <a name="visual-studio-code-for-azure-stream-analytics"></a>Visual Studio Code per Analisi di flusso di Azure
 
-I processi di Analisi di flusso di Azure possono essere creati in Visual Studio Code.
+I processi di Analisi di flusso di Azure possono essere creati in Visual Studio Code. Per accedere a strumenti dell'anteprima privata delle funzionalità, contattare *ASAToolsfeedback\@microsoft.com*.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

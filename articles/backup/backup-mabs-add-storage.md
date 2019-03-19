@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: cc76b15c3cb108b5181e22330954dfee789b01ba
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: 621d071f98701ff3a949f4172fef1d13819d7192
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251114"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852866"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Aggiungere risorse di archiviazione al server di Backup di Azure
 
@@ -75,7 +75,7 @@ Con l'archiviazione del carico di lavoro, è possibile selezionare i volumi in c
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-È possibile configurare l'archiviazione con riconoscimento del carico di lavoro usando il cmdlet di PowerShell Update-DPMDiskStorage che aggiorna le proprietà di un volume nel pool di archiviazione di un server di Backup di Azure. 
+È possibile impostare backup di archiviazione con riconoscimento del carico di lavoro usando il cmdlet di PowerShell Update-DPMDiskStorage che aggiorna le proprietà di un volume nel pool di archiviazione in un Server di Backup di Azure. 
 
 Sintassi:
 
@@ -100,13 +100,13 @@ L'aggiornamento dei gruppi protezione dati per l'uso di Modern Backup Storage è
 
 1. Nella Console di amministrazione selezionare la funzione **Protezione**. Nell'elenco **Membro del gruppo protezione dati** fare clic con il pulsante destro del mouse sul membro e quindi scegliere **Arresta protezione dati del membro**.
 
-  ![Arresto della protezione del membro](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
+   ![Arresto della protezione del membro](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
 2. Nella finestra di dialogo **Rimuovi da gruppo** esaminare lo spazio su disco utilizzato e lo spazio disponibile per il pool di archiviazione. L'impostazione predefinita è lasciare i punti di recupero sul disco e consentire che scadano in base ai criteri di conservazione associati. Fare clic su **OK**.
 
-  Se si desidera restituire immediatamente lo spazio su disco utilizzato al pool di archiviazione disponibile, selezionare la casella di controllo **Elimina replica su disco** per eliminare i dati di backup (e i punti di recupero) associati a tale membro.
+   Se si desidera restituire immediatamente lo spazio su disco utilizzato al pool di archiviazione disponibile, selezionare la casella di controllo **Elimina replica su disco** per eliminare i dati di backup (e i punti di recupero) associati a tale membro.
 
-  ![Rimozione dalla finestra di dialogo del gruppo](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+   ![Rimozione dalla finestra di dialogo del gruppo](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
 3. Creare un gruppo protezione dati che usa Modern Backup Storage. Includere le origini dati non protette.
 
@@ -118,7 +118,7 @@ Per aggiungere spazio di archiviazione su disco:
 
 1. Nella Console di amministrazione selezionare **Gestione** > **Spazio di archiviazione su disco** > **Aggiungi**.
 
-    ![Finestra di dialogo Aggiungi spazio di archiviazione su disco](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+    ![Finestra di dialogo Aggiungi spazio di archiviazione su disco](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
 4. Nella finestra di dialogo **Aggiungi spazio di archiviazione su disco** selezionare **Aggiungi dischi**.
 

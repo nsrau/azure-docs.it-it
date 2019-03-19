@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7b0ae144cce1213b5476ba1cccc94d994ebeda60
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 7b3b4e0886f561cc66e2c02e4ea354c86b34453c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464127"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904185"
 ---
 # <a name="heading"></a>Elaborazione dei dati della macchina virtuale di SQL Server in Azure
 Questo documento descrive come esplorare i dati e creare funzionalità per i dati archiviati in una VM di SQL Server su Azure. Questa operazione può essere eseguita gestendo i dati tramite SQL o utilizzando un linguaggio di programmazione come Python.
@@ -36,7 +36,7 @@ In questa sezione, vengono descritte le seguenti attività di gestione dei dati 
 Di seguito, sono riportati alcuni script SQL di esempio da utilizzare per esplorare gli archivi dati in SQL Server.
 
 > [!NOTE]
-> Per un esempio pratico, è possibile usare il [set di dati dei taxi di New York City](http://www.andresmh.com/nyctaxitrips/) e fare riferimento all'IPNB sulla [gestione dei dati di New York City tramite IPython Notebook e SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) per una procedura dettagliata end-to-end.
+> Per un esempio pratico, è possibile usare il [set di dati dei taxi di New York City](https://www.andresmh.com/nyctaxitrips/) e fare riferimento all'IPNB sulla [gestione dei dati di New York City tramite IPython Notebook e SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) per una procedura dettagliata end-to-end.
 > 
 > 
 
@@ -82,7 +82,7 @@ L'esempio seguente illustra come generare funzionalità in contenitori, inserend
 ### <a name="sql-featurerollout"></a>Implementazione delle funzionalità da una singola colonna
 In questa sezione viene illustrato come implementare una singola colonna in una tabella per generare funzionalità aggiuntive. In questo esempio si presuppone che nella tabella dalla quale si tenta di creare la funzionalità sia presente una colonna relativa alla latitudine o alla longitudine.
 
-Di seguito è riportata una breve introduzione sui dati di posizione relativi a latitudine e longitudine (risorse assegnate da stackoverflow [Come misurare la precisione di latitudine e longitudine?](http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)). Ciò è utile per acquisire conoscenze prima di creare una funzionalità dal campo sulla posizione:
+Di seguito è riportata una breve introduzione sui dati di posizione relativi a latitudine e longitudine (risorse assegnate da stackoverflow [Come misurare la precisione di latitudine e longitudine?](https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)). Ciò è utile per acquisire conoscenze prima di creare una funzionalità dal campo sulla posizione:
 
 * Il segno indica se l'utente si trova a Nord, Sud, Ovest o Est.
 * Una cifra nell'ordine delle centinaia diversa da zero indica che si sta usando la longitudine invece della latitudine.
@@ -129,7 +129,7 @@ Il seguente formato della stringa di connessione può essere usato per connetter
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-La [libreria Pandas](http://pandas.pydata.org/) in Python fornisce una vasta gamma di strutture di dati e strumenti di analisi dei dati per la manipolazione dei dati nella programmazione in Python. Il codice seguente consente di leggere i risultati restituiti da un database di SQL Server all'interno di un frame di dati di Pandas.
+La [libreria Pandas](https://pandas.pydata.org/) in Python fornisce una vasta gamma di strutture di dati e strumenti di analisi dei dati per la manipolazione dei dati nella programmazione in Python. Il codice seguente consente di leggere i risultati restituiti da un database di SQL Server all'interno di un frame di dati di Pandas.
 
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)

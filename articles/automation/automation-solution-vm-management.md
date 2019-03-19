@@ -1,24 +1,24 @@
 ---
 title: Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività
-description: Questa soluzione di gestione di VM avvia e arresta le macchine virtuali di Azure Resource Manager in base a una pianificazione e le monitora in modo attivo da Log Analytics.
+description: Questa soluzione di gestione di VM avvia e arresta le macchine virtuali di Azure Resource Manager in base alla pianificazione e monitora in modo proattivo dai log di monitoraggio di Azure.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/08/2019
+ms.date: 02/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d6e083c4a7595bb70e77bca860c756abc2eaa18e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 6b5ef0f165433e2dd0685aa0e4f64bd04bf5c823
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979650"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902247"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività in Automazione di Azure
 
-La soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività avvia e arresta le macchine virtuali di Azure in base a pianificazioni definite dall'utente, fornisce informazioni dettagliate tramite Azure Log Analytics e invia messaggi di posta elettronica facoltativi usando [gruppi di azione](../azure-monitor/platform/action-groups.md). Supporta sia Azure Resource Manager che le macchine virtuali classiche per la maggior parte degli scenari.
+Avviare/arrestare VM durante orari di minore attività soluzione avvia e arresta le macchine virtuali di Azure in base a pianificazioni definite dall'utente, fornisce informazioni dettagliate tramite i log di monitoraggio di Azure e invia messaggi di posta elettronica facoltativi usando [gruppi di azioni](../azure-monitor/platform/action-groups.md). Supporta sia Azure Resource Manager che le macchine virtuali classiche per la maggior parte degli scenari.
 
 Questa soluzione fornisce un'opzione di automazione decentralizzata a basso costo per gli utenti che vogliono ottimizzare i costi delle macchine virtuali. Con questa soluzione, è possibile:
 
@@ -36,9 +36,13 @@ La soluzione corrente presenta le limitazioni di seguito:
 >
 > Le sottoscrizioni Cloud Solution Provider di Azure (Azure CSP) supportano solo il modello Azure Resource Manager, i servizi non Azure Resource Manager non sono disponibili nel programma. Quando è in esecuzione la soluzione Avvio/Arresto, è possibile che vengano visualizzati degli errori perché le risorse classiche sono gestite dai cmdlet. Per altre informazioni su CSP, vedere [Servizi disponibili nelle sottoscrizioni CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments). Se si usa una sottoscrizione di CSP, è necessario modificare la variabile [**External_EnableClassicVMs** ](#variables) su **False** dopo la distribuzione.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 I runbook per questa soluzione funzionano con un [account RunAs di Azure](automation-create-runas-account.md). L'account RunAs è il metodo di autenticazione preferito perché usa l'autenticazione del certificato anziché una password, che potrebbe scadere o essere modificata di frequente.
+
+È consigliabile usare un Account di automazione separato per la soluzione avvio/arresto della macchina virtuale. Infatti, le versioni dei moduli di Azure vengono aggiornate frequentemente e potrebbero cambiare i relativi parametri. La soluzione avvio/arresto della macchina virtuale non viene aggiornata la stessa cadenza in modo che potrebbe non funzionare con le versioni più recenti dei cmdlet che lo usa. È consigliabile testare gli aggiornamenti di modulo in un Account di automazione di test prima di importarli nell'Account di automazione di produzione.
 
 ## <a name="deploy-the-solution"></a>Distribuire la soluzione
 
@@ -58,18 +62,18 @@ Seguire questa procedura per aggiungere la soluzione Avvio/Arresto di macchine v
 
    ![Pagina Aggiungi soluzione di Virtual Machine Management](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
-4. Nella pagina **Aggiungi soluzione** selezionare **Area di lavoro**. Selezionare un'area di lavoro di Log Analytics collegata alla stessa sottoscrizione di Azure in cui è incluso l'account di Automazione. Se non è disponibile un'area di lavoro, selezionare **Crea una nuova area di lavoro**. Nella pagina **Area di lavoro di Log Analytics** seguire questa procedura:
-   - Specificare un nome per la nuova **area di lavoro di Log Analytics**, ad esempio "ContosoLAWorkspace".
+4. Nella pagina **Aggiungi soluzione** selezionare **Area di lavoro**. Selezionare un'area di lavoro di Log Analytics collegata alla stessa sottoscrizione di Azure in cui è incluso l'account di Automazione. Se non è disponibile un'area di lavoro, selezionare **Crea una nuova area di lavoro**. Nel **dell'area di lavoro di Log Analitica** seguire i passaggi seguenti:
+   - Specificare un nome per il nuovo **dell'area di lavoro di Log Analitica**, ad esempio "ContosoLAWorkspace".
    - Selezionare una **sottoscrizione** a cui collegarsi. Se la sottoscrizione selezionata per impostazione predefinita non è appropriata, è possibile sceglierne una dall'elenco a discesa.
    - Per il **gruppo di risorse**, è possibile selezionare un gruppo di risorse esistente o crearne uno nuovo.
    - Selezionare un **percorso**. Attualmente le uniche località disponibili sono: **Australia sud-orientale**, **Canada centrale**, **India centrale**, **Stati Uniti orientali**, **Giappone orientale**, **Asia sud-orientale**, **Regno Unito meridionale**, **Europa occidentale** e **Stati Uniti occidentali 2**.
-   - Selezionare un **Piano tariffario**. Scegliere l'opzione **Per GB (autonomo)**. Log Analytics ha aggiornato i [prezzi](https://azure.microsoft.com/pricing/details/log-analytics/) e il livello Per GB è l'unica opzione.
+   - Selezionare un **Piano tariffario**. Scegliere l'opzione **Per GB (autonomo)**. Log di monitoraggio di Azure è aggiornato [prezzi](https://azure.microsoft.com/pricing/details/log-analytics/) e livello Per GB è l'unica opzione.
 
 5. Dopo aver specificato le informazioni necessarie nella pagina **Area di lavoro di Log Analytics**, fare clic su **Crea**. È possibile monitorarne lo stato scegliendo **Notifiche** dal menu. Al termine, si tornerà alla pagina **Aggiungi soluzione**.
 6. Nella pagina **Aggiungi soluzione** selezionare **Account di Automazione**. Se si sta creando una nuova area di lavoro di Log Analytics, è possibile creare un nuovo account di Automazione da associarvi oppure selezionare un Account di automazione esistente che non sia già collegato a un'area di lavoro di Log Analytics. Selezionare un account di Automazione esistente o fare clic su **Crea un account di Automazione** e specificare le informazioni seguenti nella pagina **Aggiungi account di Automazione**:
    - Nel campo **Nome** immettere il nome dell'account di Automazione.
 
-    Tutte le altre opzioni vengono popolate automaticamente in base all'area di lavoro di Log Analytics selezionata. Queste opzioni non possono essere modificate. Il metodo di autenticazione predefinito per i runbook inclusi nella soluzione è un account RunAs di Azure. Dopo aver fatto clic su **OK**, le opzioni di configurazione vengono convalidate e viene creato l'account di Automazione. Per tenere traccia dello stato di avanzamento, è possibile usare la voce **Notifiche** nel menu.
+     Tutte le altre opzioni vengono popolate automaticamente in base all'area di lavoro di Log Analytics selezionata. Queste opzioni non possono essere modificate. Il metodo di autenticazione predefinito per i runbook inclusi nella soluzione è un account RunAs di Azure. Dopo aver fatto clic su **OK**, le opzioni di configurazione vengono convalidate e viene creato l'account di Automazione. Per tenere traccia dello stato di avanzamento, è possibile usare la voce **Notifiche** nel menu.
 
 7. Nella pagina **Aggiungi soluzione** selezionare infine **Configurazione**. Viene visualizzata la pagina **Parametri**.
 
@@ -91,7 +95,7 @@ Seguire questa procedura per aggiungere la soluzione Avvio/Arresto di macchine v
 8. Dopo aver configurato le impostazioni iniziali necessarie per la soluzione, fare clic su **OK** per chiudere la pagina **Parametri** e selezionare **Crea**. Dopo la convalida di tutte le impostazioni, la soluzione viene distribuita nella sottoscrizione. Questo processo può richiedere alcuni secondi. Per tenere traccia dello stato di avanzamento, è possibile usare la voce **Notifiche** nel menu.
 
 > [!NOTE]
-> Se si ha una sottoscrizione di Azure Cloud Solution Provider (Azure CSP), dopo che la distribuzione è stata completata, nell'account di automazione, andare a **Variabili** sotto **Risorse condivise** e impostare la variabile [**External_EnableClassicVMs**](#variables) su **False**. In questo modo, si impedisce alla soluzione di cercare risorse della macchina virtuale classica.
+> Se si ha una sottoscrizione di Azure Cloud Solution Provider (CSP di Azure), dopo la distribuzione è stata completata, nell'Account di automazione, andare al **variabili** sotto **risorse condivise** e impostare il [ **External_EnableClassicVMs** ](#variables) variabile **False**. In questo modo, si impedisce alla soluzione di cercare risorse della macchina virtuale classica.
 
 ## <a name="scenarios"></a>Scenari
 
@@ -174,7 +178,7 @@ Dopo aver creato una pianificazione per arrestare le macchine virtuali in base a
 
 ## <a name="solution-components"></a>Componenti della soluzione
 
-Questa soluzione include runbook preconfigurati, pianificazioni e integrazione con Log Analytics per poter personalizzare l'avvio e l'arresto delle macchine virtuali in base alle esigenze aziendali.
+Questa soluzione include runbook preconfigurati, pianificazioni e integrazione con i log di monitoraggio di Azure in modo che è possibile personalizzare l'avvio e arresto delle macchine virtuali in base alle esigenze aziendali.
 
 ### <a name="runbooks"></a>Runbook
 
@@ -185,7 +189,7 @@ La tabella seguente elenca i runbook distribuiti nell'account di Automazione da 
 
 Tutti i runbook padre includono il parametro _WhatIf_. Se impostato su **True**, _WhatIf_ supporta i dettagli relativi al comportamento esatto del runbook quando viene eseguito senza il parametro _WhatIf_ e verifica che vengano specificate come destinazione le macchine virtuali corrette. Quando il parametro _WhatIf_ è impostato su **False**, un runbook esegue solo le azioni definite.
 
-|Runbook | Parametri | Descrizione|
+|Runbook | Parametri | DESCRIZIONE|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Chiamato dal runbook padre. Questo runbook crea gli avvisi in base alle risorse per lo scenario AutoStop.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: true o false  | Crea o aggiorna le regole di avviso di Azure nelle macchine virtuali nella sottoscrizione o nei gruppi di risorse selezionati. <br> VMList: elenco delimitato da virgole delle macchine virtuali. Ad esempio, _vm1, vm2, vm3_.<br> *WhatIf* convalida la logica del runbook senza eseguirlo.|
@@ -200,7 +204,7 @@ Tutti i runbook padre includono il parametro _WhatIf_. Se impostato su **True**,
 
 La tabella seguente elenca le variabili create nell'account di Automazione. Modificare solo le variabili con il prefisso **External**. La modifica delle variabili con il prefisso **Internal** provoca effetti indesiderati.
 
-|Variabile | Descrizione|
+|Variabile | DESCRIZIONE|
 |---------|------------|
 |External_AutoStop_Condition | Operatore condizionale necessario per configurare la condizione prima che venga attivato un avviso. I valori possibili sono: **GreaterThan**, **GreaterThanOrEqual**, **LessThan** e **LessThanOrEqual**.|
 |External_AutoStop_Description | Avviso per l'arresto della macchina virtuale se la percentuale della CPU supera la soglia di avviso.|
@@ -209,7 +213,7 @@ La tabella seguente elenca le variabili create nell'account di Automazione. Modi
 |External_AutoStop_TimeAggregationOperator | Operatore dell'aggregazione temporale che viene applicato alle dimensioni della finestra selezionata per valutare la condizione. I valori possibili sono: **Average**, **Minimum**, **Maximum**, **Total** e **Last**.|
 |External_AutoStop_TimeWindow | Dimensioni della finestra durante le quali Azure analizza le metriche selezionate per l'attivazione di un avviso. Questo parametro accetta l'input nel formato timespan. I valori possibili sono compresi tra 5 minuti e 6 ore.|
 |External_EnableClassicVMs| Specifica se le macchine virtuali classiche sono considerate come destinazione della soluzione. Il valore predefinito è True. Il valore deve essere impostato su False per le sottoscrizioni CSP.|
-|External_ExcludeVMNames | Immettere i nomi delle macchine virtuali da escludere, separandoli usando una virgola senza spazi. Il limite dell'elenco è 140 macchine virtuali. Se si aggiungono più di 140 macchine virtuali, le macchine virtuali configurate per l'esclusione potrebbero essere inavvertitamente avviate o arrestate.|
+|External_ExcludeVMNames | Immettere i nomi delle macchine virtuali da escludere, separandoli usando una virgola senza spazi. Il limite dell'elenco è 140 macchine virtuali. Se si aggiungono più di 140 macchine virtuali a questo elenco delimitato da virgole, le macchine virtuali configurate per l'esclusione potrebbero essere inavvertitamente avviate o arrestate.|
 |External_Start_ResourceGroupNames | Specifica uno o più gruppi di risorse, separando i valori con una virgola, destinati alle azioni di avvio.|
 |External_Stop_ResourceGroupNames | Specifica uno o più gruppi di risorse, separando i valori con una virgola, destinati alle azioni di arresto.|
 |Internal_AutomationAccountName | Specifica il nome dell'account di Automazione.|
@@ -225,7 +229,7 @@ Nella tabella seguente sono elencate le pianificazioni create nell'account di Au
 
 Non è consigliabile abilitare tutte le pianificazioni, perché potrebbe verificarsi una sovrapposizione delle azioni di pianificazione. È meglio determinare quali ottimizzazioni si vogliono eseguire e apportare le modifiche di conseguenza. Per altre informazioni, vedere gli scenari di esempio nella sezione Panoramica.
 
-|Nome pianificazione | Frequenza | Descrizione|
+|Nome pianificazione | Frequenza | DESCRIZIONE|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | Ogni 8 ore | Esegue il runbook AutoStop_CreateAlert_Parent ogni 8 ore, che a sua volta arresta i valori basati sulla macchina virtuale in External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames ed External_ExcludeVMNames nelle variabili di Automazione di Azure. In alternativa, è possibile specificare un elenco separato da virgole delle macchine virtuali usando il parametro VMList.|
 |Scheduled_StopVM | Definita dall'utente, giornalmente | Esegue il runbook Scheduled_Parent con un parametro _Stop_ ogni giorno all'ora specificata. Arresta automaticamente tutte le macchine virtuali che soddisfano le regole definite dalle variabili di asset. Abilitare la pianificazione correlata, **Scheduled-StartVM**.|
@@ -233,13 +237,13 @@ Non è consigliabile abilitare tutte le pianificazioni, perché potrebbe verific
 |Sequenced-StopVM | 1:00 (UTC), ogni venerdì | Esegue il runbook Sequenced_Parent con un parametro _Stop_ ogni venerdì all'ora specificata. Arresterà in sequenza (crescente) tutte le macchine virtuali con un tag **SequenceStop** definito dalle variabili appropriate. Per altre informazioni sui valori di tag e sulle variabili di asset, vedere la sezione Runbook. Abilitare la pianificazione correlata, **Sequenced-StartVM**.|
 |Sequenced-StartVM | 13:00 (UTC), ogni lunedì | Esegue il runbook Sequenced_Parent con un parametro _Start_ ogni lunedì a una determinata ora. Avvia in sequenza (decrescente) tutte le macchine virtuali con un tag **SequenceStart** definito dalle variabili appropriate. Per altre informazioni sui valori di tag e sulle variabili di asset, vedere la sezione Runbook. Abilitare la pianificazione correlata, **Sequenced-StopVM**.|
 
-## <a name="log-analytics-records"></a>Record di Log Analytics
+## <a name="azure-monitor-logs-records"></a>I record di log di monitoraggio di Azure
 
 Automazione crea due tipi di record nell'area di lavoro di Log Analytics: log di processo e flussi di processo.
 
 ### <a name="job-logs"></a>Log di processo
 
-|Proprietà | Descrizione|
+|Proprietà | DESCRIZIONE|
 |----------|----------|
 |Chiamante |  Chi ha avviato l'operazione. I valori possibili sono un indirizzo di posta elettronica o il sistema per i processi pianificati.|
 |Categoria | La classificazione del tipo di dati. Per Automazione, il valore è JobLogs.|
@@ -260,7 +264,7 @@ Automazione crea due tipi di record nell'area di lavoro di Log Analytics: log di
 
 ### <a name="job-streams"></a>Flussi di processo
 
-|Proprietà | Descrizione|
+|Proprietà | DESCRIZIONE|
 |----------|----------|
 |Chiamante |  Chi ha avviato l'operazione. I valori possibili sono un indirizzo di posta elettronica o il sistema per i processi pianificati.|
 |Categoria | La classificazione del tipo di dati. Per Automazione, il valore è JobStreams.|
@@ -283,20 +287,20 @@ Quando si esegue una ricerca log che restituisce record di categoria di **JobLog
 
 La tabella seguente contiene esempi di ricerche nei log per i record dei processi raccolti da questa soluzione.
 
-|Query | Descrizione|
+|Query | DESCRIZIONE|
 |----------|----------|
-|Trova i processi completati per il runbook ScheduledStartStop_Parent | ```search Category == "JobLogs" | where ( RunbookName_s == "ScheduledStartStop_Parent" ) | where ( ResultType == "Completed" )  | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
-|Trova i processi completati per il runbook SequencedStartStop_Parent | ```search Category == "JobLogs" | where ( RunbookName_s == "SequencedStartStop_Parent" ) | where ( ResultType == "Completed" ) | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
+|Trova i processi completati per il runbook ScheduledStartStop_Parent | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
+|Trova i processi completati per il runbook SequencedStartStop_Parent | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc```|
 
 ## <a name="viewing-the-solution"></a>Visualizzazione della soluzione
 
-Per accedere alla soluzione, passare all'account di Automazione e selezionare **Area di lavoro** in **RISORSE CORRELATE**. Nella pagina Log Analytics selezionare **Soluzioni** in **GENERALE**. Nella pagina **Soluzioni** selezionare la soluzione **Start-Stop-VM[Workspace]** (Avvio-Arresto-VM[Area di lavoro]) dall'elenco.
+Per accedere alla soluzione, passare all'account di Automazione e selezionare **Area di lavoro** in **RISORSE CORRELATE**. Nella pagina log analitica, selezionare **Solutions** sotto **generali**. Nella pagina **Soluzioni** selezionare la soluzione **Start-Stop-VM[Workspace]** (Avvio-Arresto-VM[Area di lavoro]) dall'elenco.
 
 Selezionando la soluzione, viene visualizzata la pagina della soluzione **Start-Stop-VM[workspace]** (Avvio-Arresto-VM[Area di lavoro]), dove è possibile esaminare importanti dettagli, ad esempio il riquadro **StartStopVM** (Avvio e arresto di VM). Come nell'area di lavoro di Log Analytics, questo riquadro mostra un conteggio e una rappresentazione grafica dei processi di runbook della soluzione che sono stati avviati e completati.
 
 ![Pagina della soluzione Gestione aggiornamenti di Automazione](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)
 
-Da qui è possibile eseguire un'analisi aggiuntiva dei record dei processi facendo clic sul riquadro ad anello. Il dashboard della soluzione mostra la cronologia processo e le query di ricerca log predefinite. Passare al portale avanzato di Log Analytics per eseguire una ricerca in base alle query di ricerca.
+Da qui è possibile eseguire un'analisi aggiuntiva dei record dei processi facendo clic sul riquadro ad anello. Il dashboard della soluzione mostra la cronologia processo e le query di ricerca log predefinite. Passare al portale avanzato log analitica per la ricerca basata sulle query di ricerca.
 
 ## <a name="configure-email-notifications"></a>Configurare le notifiche di posta elettronica
 
@@ -364,14 +368,14 @@ Per eliminare la soluzione, attenersi alla procedura seguente:
 
 L'account di Automazione e l'area di lavoro di Log Analytics non vengono eliminati come parte del processo. Se non si vuole conservare l'area di lavoro di Log Analytics, è necessario eliminarla manualmente. Tale operazione può essere eseguita dal portale di Azure:
 
-1. Nella schermata iniziale del portale di Azure selezionare **Log Analytics**.
-1. Nell pagina **Log Analytics** selezionare l'area di lavoro.
+1. Schermata iniziale del portale Azure, selezionare **aree di lavoro di Log Analitica**.
+1. Nel **aree di lavoro di Log Analitica** pagina, selezionare l'area di lavoro.
 1. Scegliere **Elimina** dal menu nella pagina delle impostazioni dell'area di lavoro.
 
 Se non si vogliono mantenere i componenti dell'account di Automazione di Azure, è possibile eliminarli manualmente. Per l'elenco dei runbook, delle variabili e delle pianificazioni create dalla soluzione, vedere [Componenti della soluzione](#solution-components).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni su come creare query di ricerca diverse ed esaminare i log di processo di Automazione con Log Analytics, vedere [Ricerche log in Log Analytics](../log-analytics/log-analytics-log-searches.md).
+- Per altre informazioni su come creare query di ricerca diverse ed esaminare i log dei processi di automazione con log di monitoraggio di Azure, vedere [ricerche nei Log in Monitoraggio di Azure log](../log-analytics/log-analytics-log-searches.md).
 - Per altre informazioni sull'esecuzione dei runbook, su come monitorare i processi dei runbook e su altri dettagli tecnici, vedere [Verifica di un processo di runbook](automation-runbook-execution.md).
-- Per altre informazioni su Log Analytics e sulle origini di raccolta dati, vedere [Panoramica della raccolta di dati di archiviazione di Azure in Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md).
+- Per altre informazioni sui log di monitoraggio di Azure e origini di raccolta dati, vedere [Panoramica del log dei dati di archiviazione la raccolta di Azure in Monitoraggio di Azure](../azure-monitor/platform/collect-azure-metrics-logs.md).

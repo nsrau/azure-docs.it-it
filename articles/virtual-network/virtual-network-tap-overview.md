@@ -13,21 +13,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2019
+ms.date: 03/18/2019
 ms.author: kaanan
-ms.openlocfilehash: dd99e1376eb0589fc8cb8404d557c9ebddd45fd6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 45224b1b0ec4a4b3c93393c178f1f03baa58e10b
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992043"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189139"
 ---
 # <a name="virtual-network-tap"></a>TAP di rete virtuale
 
 Un TAP (Terminal Access Point) di rete virtuale di Azure consente di trasmettere il traffico di rete della macchina virtuale come flusso continuo a un agente di raccolta di pacchetti di rete o a uno strumento di analisi. L'agente di raccolta o lo strumento di analisi viene fornito da un partner [appliance virtuale di rete](https://azure.microsoft.com/solutions/network-appliances/). Per un elenco delle soluzioni dei partner convalidate per l'uso con un TAP di rete virtuale, vedere le [soluzioni dei partner](#virtual-network-tap-partner-solutions).
 
 > [!IMPORTANT]
-> Il TAP di rete virtuale è attualmente disponibile in versione di anteprima per gli sviluppatori nell'area di Azure WestCentralUS. Per usare dispositivo TAP di rete virtuale, è necessario registrare nell'anteprima inviando un messaggio di posta elettronica <azurevnettap@microsoft.com> con l'ID sottoscrizione. Si riceverà un messaggio di posta elettronica dopo la registrazione della sottoscrizione. Non è possibile usare la funzionalità finché non si riceve un messaggio di posta elettronica di conferma. Questa anteprima per sviluppatori viene messa a disposizione senza contratto di servizio e non deve essere usata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate, potrebbero avere funzioni limitate o potrebbero non essere disponibili in tutte le località di Azure. Vedere le [condizioni per l'utilizzo per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per informazioni dettagliate.
+> Rete virtuale scelta è attualmente in anteprima in tutte le aree di Azure. Per usare dispositivo TAP di rete virtuale, è necessario registrare nell'anteprima inviando un messaggio di posta elettronica <azurevnettap@microsoft.com> con l'ID sottoscrizione. Si riceverà un messaggio di posta elettronica dopo la registrazione della sottoscrizione. Non è possibile usare la funzionalità finché non si riceve un messaggio di posta elettronica di conferma. Questa versione di anteprima viene fornito senza un contratto di servizio e non deve essere utilizzata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate, potrebbero avere funzioni limitate o potrebbero non essere disponibili in tutte le località di Azure. Vedere le [condizioni per l'utilizzo per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per informazioni dettagliate.
 
 ## <a name="virtual-network-tap-partner-solutions"></a>Soluzioni dei partner per TAP di rete virtuale
 

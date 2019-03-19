@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a405583503b75a64dda2bf277a4a50be4e926d28
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: f684a9d7bca77a8aa3aa60f5079dda0ce3b58a1c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111289"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121588"
 ---
 # <a name="azure-network-security"></a>Sicurezza di rete di Azure
 
@@ -90,7 +90,7 @@ Le reti virtuali di Azure sono simili alle reti virtuali usate in locale con sol
 
 - **Peering:** consente alle risorse connesse a diverse reti virtuali di Azure nella stessa posizione di Azure di comunicare tra loro. La larghezza di banda e la latenza della rete virtuale sono uguali a quelle che si riscontrerebbero se le risorse fossero connesse alla stessa rete virtuale. Per altre informazioni sul peering, vedere [Peering di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
- ![Peering](media/azure-network-security/azure-network-security-fig-3.png)
+  ![Peering](media/azure-network-security/azure-network-security-fig-3.png)
 
 - **Connessione da rete virtuale a rete virtuale:** abilita le risorse connesse a diverse reti virtuali di Azure nella stessa posizione di Azure o in posizioni diverse. A differenza del peering, la larghezza di banda tra le reti virtuali è limitata perché il traffico deve passare attraverso un gateway VPN di Azure.
 
@@ -318,19 +318,19 @@ Il tunneling forzato in Azure viene configurato tramite route di rete virtuale d
 
 Nella sezione seguente viene elencata la limitazione attuale della tabella di routing e delle route per una rete virtuale di Azure:
 
--   Ciascuna subnet della rete virtuale dispone di una tabella di routing di sistema integrata. La tabella di routing di sistema include i tre gruppi di route seguenti:
+- Ciascuna subnet della rete virtuale dispone di una tabella di routing di sistema integrata. La tabella di routing di sistema include i tre gruppi di route seguenti:
 
- -  **Route della rete virtuale locale:** direttamente alle macchine virtuali di destinazione nella stessa rete virtuale
+  -  **Route della rete virtuale locale:** direttamente alle macchine virtuali di destinazione nella stessa rete virtuale
 
- - **Route locali:** al gateway VPN di Azure
+  - **Route locali:** al gateway VPN di Azure
 
- -  **Route predefinita:** direttamente a Internet. I pacchetti destinati agli indirizzi IP privati che non rientrano nelle due route precedenti vengono eliminati.
+  -  **Route predefinita:** direttamente a Internet. I pacchetti destinati agli indirizzi IP privati che non rientrano nelle due route precedenti vengono eliminati.
 
--   Con il rilascio di route definite dall'utente, è possibile creare una tabella di routing per aggiungere una route predefinita, quindi associare la tabella di routing alla subnet della rete virtuale per abilitare il tunneling forzato su tali subnet.
+- Con il rilascio di route definite dall'utente, è possibile creare una tabella di routing per aggiungere una route predefinita, quindi associare la tabella di routing alla subnet della rete virtuale per abilitare il tunneling forzato su tali subnet.
 
--   È necessario impostare un "sito predefinito" tra i siti locali cross-premise connessi alla rete virtuale.
+- È necessario impostare un "sito predefinito" tra i siti locali cross-premise connessi alla rete virtuale.
 
--   Il tunneling forzato deve essere associato a una rete virtuale che disponga di un gateway VPN (non un gateway statico).
+- Il tunneling forzato deve essere associato a una rete virtuale che disponga di un gateway VPN (non un gateway statico).
 
 - Il tunneling forzato ExpressRoute non viene configurato mediante questo meccanismo, ma è abilitato annunciando una route predefinita tramite le sessioni di peering BGP ExpressRoute.
 
@@ -393,7 +393,7 @@ Il Web application firewall del gateway applicazione permette anche di monitorar
 
 Il log in formato JSON passa direttamente all'account di archiviazione del cliente. L'utente ha il controllo completo sui log e può applicare i propri criteri di conservazione.
 
-È anche possibile inserire i log nel proprio sistema di analisi usando l'[integrazione dei log di Azure](https://aka.ms/AzLog). I log WAF sono anche integrati con [Log Analytics](../log-analytics/log-analytics-overview.md). Questo permette di usare Log Analytics per eseguire query sofisticate con granularità fine.
+È anche possibile inserire i log nel proprio sistema di analisi usando l'[integrazione dei log di Azure](https://aka.ms/AzLog). I log WAF sono anche integrati con [monitoraggio di Azure registra](../log-analytics/log-analytics-overview.md) quindi è possibile usare i log di monitoraggio di Azure per eseguire query sofisticate con granularità fine.
 
 #### <a name="azure-web-application-firewall-waf"></a>Web application firewall (WAF) di Azure
 
@@ -507,7 +507,7 @@ Azure offre diversi strumenti che permettono di monitorare, prevenire, rilevare 
 
 -   Monitoraggio a livello di risorsa di rete
 
--   Log Analytics
+-   Log di Monitoraggio di Azure
 
 ### <a name="network-watcher"></a>Network Watcher
 
@@ -597,17 +597,17 @@ Le metriche sono costituite da contatori e misurazioni delle prestazioni raccolt
 
 #### <a name="diagnostic-logs"></a>Log di diagnostica
 
-Le risorse di rete creano eventi periodici e spontanei, che vengono registrati negli account di archiviazione e inviati a un hub eventi oppure a Log Analytics. Questi log contengono informazioni dettagliate sull'integrità delle singole risorse e possono essere visualizzati con strumenti quali Power BI e Log Analytics. Per informazioni su come visualizzare i log di diagnostica, vedere l'articolo relativo a [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
+Eventi periodici e spontanei, che vengono creati le risorse di rete e registrati negli account di archiviazione, inviate a un Hub eventi o log di monitoraggio di Azure. Questi log contengono informazioni dettagliate sull'integrità delle singole risorse Questi log possono essere visualizzati negli strumenti, ad esempio i log di Power BI e monitoraggio di Azure. Per informazioni su come visualizzare i log di diagnostica, visitare [monitoraggio di Azure registra](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
 
 Sono disponibili log di diagnostica per il [servizio di bilanciamento del carico](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log), i [gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log), le route e il [gateway applicazione](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
 
 Network Watcher offre una visualizzazione dei log di diagnostica contenente tutte le risorse di rete che supportano la registrazione diagnostica. Da questa visualizzazione è possibile abilitare e disabilitare le risorse di rete in modo facile e veloce.
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Log di Monitoraggio di Azure
 
-[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) è un servizio incluso in Azure che monitora gli ambienti cloud e locali per mantenerne la disponibilità e le prestazioni. Raccoglie i dati generati dalle risorse negli ambienti cloud e locali e da altri strumenti di monitoraggio per analizzare più origini.
+[Log di monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) è un servizio di Azure che consente di monitorare il cloud e in ambienti locali per mantenerne la disponibilità e prestazioni. Raccoglie i dati generati dalle risorse negli ambienti cloud e locali e da altri strumenti di monitoraggio per analizzare più origini.
 
-Log Analytics offre le seguenti soluzioni per il monitoraggio delle reti:
+Log di monitoraggio di Azure offre le seguenti soluzioni per il monitoraggio delle reti:
 
 -   Monitoraggio delle prestazioni di rete
 
@@ -627,7 +627,7 @@ Viene usata per monitorare la connettività tra:
 -   subnet che ospita i diversi livelli di un'applicazione a più livelli.
 
 
-#### <a name="azure-application-gateway-analytics-in-log-analytics"></a>Analisi gateway applicazione di Azure in Log Analytics
+#### <a name="azure-application-gateway-analytics-in-azure-monitor-logs"></a>Analitica di gateway applicazione di Azure nei log di monitoraggio di Azure
 
 I log seguenti sono supportati per i gateway applicazione:
 
@@ -641,7 +641,7 @@ Le metriche seguenti sono supportate per i gateway applicazione:
 
 -   Velocità effettiva in cinque minuti
 
-#### <a name="azure-network-security-group-analytics-in-log-analytics"></a>Analisi gruppo di sicurezza di rete di Azure in Log Analytics
+#### <a name="azure-network-security-group-analytics-in-azure-monitor-logs"></a>Analitica di gruppo di sicurezza di rete di Azure nei log di monitoraggio di Azure
 
 I log seguenti sono supportati per i [gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log):
 
@@ -652,7 +652,7 @@ I log seguenti sono supportati per i [gruppi di sicurezza di rete](https://docs.
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla sicurezza, vedere alcuni degli approfondimenti sull'argomento:
 
--   [Log Analytics per i gruppi di sicurezza di rete (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
+-   [Log di monitoraggio di Azure per i gruppi di sicurezza di rete (Nsg)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
 
 -   [Networking innovations that drive the cloud disruption (Innovazioni di rete che determinano l'interruzione del cloud)](https://azure.microsoft.com/blog/networking-innovations-that-drive-the-cloud-disruption/)
 

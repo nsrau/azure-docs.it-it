@@ -1,17 +1,17 @@
 ---
 title: Log del server per Database di Azure per MySQL
 description: Descrive i log disponibili nel Database di Azure per MySQL e i parametri disponibili per l'abilitazione di diversi livelli di registrazione.
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/03/2018
-ms.openlocfilehash: c9f8fc4bee370f287b40275b76fa98d2552d7600
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.date: 02/28/2019
+ms.openlocfilehash: b1b5dffed0a82e3e3c91efd4024bafdc64f0d3d2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545074"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119038"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Log del server nel Database di Azure per MySQL
 Nel Database di Azure per MySQL, il log delle query lente è disponibile per gli utenti. L'accesso al log delle transazioni non è supportato. Il log delle query lente può essere usato per identificare eventuali colli di bottiglia delle prestazioni e procedere alla risoluzione dei problemi. 
@@ -44,16 +44,19 @@ Altri parametri che è possibile modificare includono:
 Per una descrizione completa dei parametri per il log di query lente, vedere la [documentazione sul log di query lente](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) per MySQL.
 
 ## <a name="diagnostic-logs"></a>Log di diagnostica
-Database di Azure per MySQL è integrato con i log di diagnostica di Monitoraggio di Azure. Dopo aver abilitato i log query lente nel server MySQL, è possibile scegliere se inviarli a Log Analytics, Hub eventi o Archiviazione di Azure. Per altre informazioni sull'abilitazione dei log di diagnostica, vedere la sezione sulle procedure della [documentazione sui log di diagnostica](../azure-monitor/platform/diagnostic-logs-overview.md).
+Database di Azure per MySQL è integrato con i log di diagnostica di Monitoraggio di Azure. Dopo aver abilitato i log query lente nel proprio server MySQL, è possibile scegliere in modo che vengano inviati a log di monitoraggio di Azure, hub eventi o archiviazione di Azure. Per altre informazioni sull'abilitazione dei log di diagnostica, vedere la sezione sulle procedure della [documentazione sui log di diagnostica](../azure-monitor/platform/diagnostic-logs-overview.md).
+
+> [!IMPORTANT]
+> Questa funzionalità di diagnostica per i log del server è disponibile solo in utilizzo generico e ottimizzate per la memoria [sui piani tariffari](concepts-pricing-tiers.md).
 
 La tabella seguente descrive il contenuto di ogni log. A seconda del metodo di output, è possibile che i campi inclusi e il relativo ordine di visualizzazione siano differenti.
 
 | **Proprietà** | **Descrizione** |
-|---|---|---|
+|---|---|
 | TenantId | ID del tenant. |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Timestamp in cui il log è stato registrato in formato UTC. |
-| type | Tipo di log. Sempre `AzureDiagnostics` |
+| Type | Tipo di log. Sempre `AzureDiagnostics` |
 | SubscriptionId | GUID per la sottoscrizione a cui appartiene il server. |
 | ResourceGroup | Nome del gruppo di risorse a cui appartiene il server. |
 | ResourceProvider | Nome del provider di risorse. Sempre `MICROSOFT.DBFORMYSQL` |
@@ -76,5 +79,5 @@ La tabella seguente descrive il contenuto di ogni log. A seconda del metodo di o
 | thread_id_s | ID thread |
 | \_ResourceId | URI della risorsa |
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 - [Come configurare e accedere ai log del server usando l'interfaccia della riga di comando di Azure](howto-configure-server-logs-in-cli.md).

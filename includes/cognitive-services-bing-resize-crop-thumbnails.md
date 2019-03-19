@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
-ms.openlocfilehash: b1cf3dc24482da70372f775d0ba63a203df1b285
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+ms.openlocfilehash: f96c3a693ce8fc099374c998b35ce2fa90f4bb3f
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572328"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56753614"
 ---
 Alcune risposte di Bing includono gli URL delle immagini di anteprima servite da Bing. È possibile ridimensionare e ritagliare le immagini di anteprima. 
 
@@ -17,11 +17,11 @@ Alcune risposte di Bing includono gli URL delle immagini di anteprima servite da
 > Verificare che le dimensioni e il ritaglio dell'anteprima forniscano uno scenario di ricerca e rispettino i diritti di terze parti, come richiesto dai requisiti di uso e visualizzazione dell'API di ricerca Bing.
 
 
-Per ridimensionare un'immagine, includere i parametri di query w (larghezza) e h (altezza) nell'URL dell'anteprima. Specificare la larghezza e l'altezza in pixel. Ad esempio:   
+Per ridimensionare un'immagine, includere la query w (larghezza) parametro, h (altezza) eseguire una query, parametri o entrambe nell'URL dell'anteprima. Specificare la larghezza e l'altezza in pixel. Ad esempio:   
   
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=200&h=200`  
   
-Se si ridimensiona l'immagine, le proporzioni vengono mantenute. Per mantenere le proporzioni, potrebbe essere aggiunta una spaziatura interna bianca al bordo dell'immagine. Se ad esempio si ridimensiona un'immagine 480x359 a 200x200 senza ritagliarla, la larghezza completa contiene l'immagine, ma l'altezza contiene 25 pixel di spaziatura interna bianca nella parte superiore e inferiore dell'immagine. Sarà lo stesso se l'immagine è 359x480, ma saranno i bordi sinistro e destro a contenere la spaziatura interna bianca. Se si ritaglia l'immagine, la spaziatura interna bianca non viene aggiunta.  
+Se si specifica solo la larghezza o solo il parametro di query altezza, Bing mantiene le proporzioni dell'immagine. Se si specifica sia la larghezza e altezza e non si mantengono le proporzioni originali dell'immagine, Bing aggiunge spaziatura interna bianca al bordo dell'immagine. Se ad esempio si ridimensiona un'immagine 480x359 a 200x200 senza ritagliarla, la larghezza completa contiene l'immagine, ma l'altezza contiene 25 pixel di spaziatura interna bianca nella parte superiore e inferiore dell'immagine. Sarà lo stesso se l'immagine è 359x480, ma saranno i bordi sinistro e destro a contenere la spaziatura interna bianca. Se si ritaglia l'immagine, la spaziatura interna bianca non viene aggiunta.  
 
  
 La figura seguente illustra le dimensioni originali di un'immagine di anteprima (480x300).  

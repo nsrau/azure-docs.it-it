@@ -10,22 +10,33 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 2/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 08dcb75fabc109a8869151402d3a448333beb556
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: fe676cbba89a99a3dbd29609f181274062b37d86
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247528"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000279"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Caricare e leggere dati con Azure Machine Learning
 
-Questo articolo illustra i diversi metodi di caricamento dei dati con [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk). L'SDK supporta più funzionalità di inserimento dati, tra cui:
+In questo articolo descrive diversi metodi di caricamento dei dati usando il SDK di Azure Machine Learning Data Prep. Per visualizzare la documentazione di riferimento per il SDK, vedere la [Panoramica](https://aka.ms/data-prep-sdk). L'SDK supporta più funzionalità di inserimento dati, tra cui:
 
 * Caricamento da numerosi tipi di file con inferenza dei parametri di analisi (codifica, separatore, intestazioni)
 * Conversione del tipo mediante l'inferenza durante il caricamento dei file
 * Supporto delle connessioni per Microsoft SQL Server e Azure Data Lake Storage
+
+Nella tabella seguente mostra una selezione delle funzioni utilizzate per il caricamento dei dati da tipi di file comuni.
+
+| Tipo file | Funzione | Collegamento di riferimento |
+|-------|-------|-------|
+|Qualsiasi|`auto_read_file()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#auto-read-file-path--filepath--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
+|Text|`read_lines()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#read-lines-path--filepath--header--azureml-dataprep-api-engineapi-typedefinitions-promoteheadersmode----promoteheadersmode-none--0---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---skip-rows--int---0--skip-mode--azureml-dataprep-api-engineapi-typedefinitions-skipmode----skipmode-none--0---comment--str---none--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
+|CSV|`read_csv()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#read-csv-path--filepath--separator--str--------header--azureml-dataprep-api-engineapi-typedefinitions-promoteheadersmode----promoteheadersmode-constantgrouped--3---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---quoting--bool---false--inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--skip-mode--azureml-dataprep-api-engineapi-typedefinitions-skipmode----skipmode-none--0---comment--str---none--include-path--bool---false--archive-options--azureml-dataprep-api--archiveoption-archiveoptions---none-----azureml-dataprep-api-dataflow-dataflow)|
+|Excel|`read_excel()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#read-excel-path--filepath--sheet-name--str---none--use-column-headers--bool---false--inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
+|Larghezza fissa|`read_fwf()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#read-fwf-path--filepath--offsets--typing-list-int---header--azureml-dataprep-api-engineapi-typedefinitions-promoteheadersmode----promoteheadersmode-constantgrouped--3---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--skip-mode--azureml-dataprep-api-engineapi-typedefinitions-skipmode----skipmode-none--0---include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
+|JSON|`read_json()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#read-json-path--filepath--encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---flatten-nested-arrays--bool---false--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
 
 ## <a name="load-data-automatically"></a>Caricare automaticamente i dati
 
@@ -34,7 +45,7 @@ Per caricare automaticamente i dati senza specificare il tipo di file, usare la 
 ```python
 import azureml.dataprep as dprep
 
-dataflow = dprep.auto_read_file(path='./data/any-file.txt')
+dflow = dprep.auto_read_file(path='./data/any-file.txt')
 ```
 
 Questa funzione è utile per rilevare automaticamente il tipo di file, la codifica e altri argomenti di analisi, tutto da un unico comodo punto di ingresso. La funzione, inoltre, esegue automaticamente i seguenti passaggi comunemente eseguiti quando si caricano dati delimitati:
@@ -43,15 +54,15 @@ Questa funzione è utile per rilevare automaticamente il tipo di file, la codifi
 * Ignorare le righe vuote nella parte superiore del file
 * Derivare e impostare la riga di intestazione
 
-In alternativa, se si conosce il tipo di file è possibile digitare anticipatamente e si vuole controllare in modo esplicito la modalità con cui viene analizzato, proseguire a leggere questo articolo per visualizzare le funzioni specializzate offerte da SDK.
+In alternativa, se si conosce il file digitare anticipatamente e si vuole controllare in che modo che viene analizzato in modo esplicito, usare le funzioni specifiche del file.
 
 ## <a name="load-text-line-data"></a>Caricamento di dati di righe di testo
 
 Per leggere dati di testo semplice in un flusso di dati, usare `read_lines()` senza specificare parametri facoltativi.
 
 ```python
-dataflow = dprep.read_lines(path='./data/text_lines.txt')
-dataflow.head(5)
+dflow = dprep.read_lines(path='./data/text_lines.txt')
+dflow.head(5)
 ```
 
 ||Grafico a linee|
@@ -59,13 +70,12 @@ dataflow.head(5)
 |0|Data \| \|  Temperatura minima \| \|  Temperatura massima|
 |1|01-07-2015 \|\|  -4,1 \|\|  10,0|
 |2|02-07-2015 \|\|  -0,8 \|\|  10,8|
-|3|03-07-2015 \|\|  -7,0 \|\|  10,5|
-|4|04-07-2015 \|\|  -5,5 \|\|  9,3|
+
 
 Dopo l'inserimento dei dati, eseguire il codice seguente per convertire l'oggetto flusso di dati in un dataframe Pandas.
 
 ```python
-pandas_df = dataflow.to_pandas_dataframe()
+pandas_df = dflow.to_pandas_dataframe()
 ```
 
 ## <a name="load-csv-data"></a>Caricare dati CSV
@@ -73,67 +83,65 @@ pandas_df = dataflow.to_pandas_dataframe()
 Durante la lettura di file delimitati, il runtime sottostante può dedurre i parametri di analisi, ad esempio il separatore, la codifica, l'uso o meno di intestazioni e così via. Eseguire il codice seguente per tentare di leggere un file specificandone solo la posizione.
 
 ```python
-# SAS expires June 16th, 2019
-dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv?st=2018-06-15T23%3A01%3A42Z&se=2019-06-16T23%3A01%3A00Z&sp=r&sv=2017-04-17&sr=b&sig=ugQQCmeC2eBamm6ynM7wnI%2BI3TTDTM6z9RPKj4a%2FU6g%3D')
-dataflow.head(5)
+dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv?st=2018-06-15T23%3A01%3A42Z&se=2019-06-16T23%3A01%3A00Z&sp=r&sv=2017-04-17&sr=b&sig=ugQQCmeC2eBamm6ynM7wnI%2BI3TTDTM6z9RPKj4a%2FU6g%3D')
+dflow.head(5)
 ```
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|-----|
-|0||stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
+|0|stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |1|ALABAMA|1|101710|Contea Hale|10171002158| |
 |2|ALABAMA|1|101710|Contea Hale|10171002162| |
-|3|ALABAMA|1|101710|Contea Hale|10171002156| |
-|4|ALABAMA|1|101710|Contea Hale|10171000588|2|
+
 
 Per escludere righe durante il caricamento, definire il parametro `skip_rows`. Questo parametro non caricherà le righe specificate nel file CSV (usando un indice in base uno).
 
 ```python
-dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
+dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
                           skip_rows=1)
-dataflow.head(5)
+dflow.head(5)
 ```
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
-|-----|-------|---------| -------|------|-----|------|-----|
+|-----|-------|---------| -------|------|-----|------|
 |0|ALABAMA|1|101710|Contea Hale|10171002158|29|
 |1|ALABAMA|1|101710|Contea Hale|10171002162|40 |
-|2|ALABAMA|1|101710|Contea Hale|10171002156| 43|
-|3|ALABAMA|1|101710|Contea Hale|10171000588|2|
-|4|ALABAMA|1|101710|Contea Hale|10171000589|23 |
 
 Eseguire il codice seguente per visualizzare i tipi di dati delle colonne.
 
 ```python
-dataflow.head(1).dtypes
-
-stnam                     object
-fipst                     object
-leaid                     object
-leanm10                   object
-ncessch                   object
-schnam10                  object
-MAM_MTH00numvalid_1011    object
-dtype: object
+dflow.dtypes
 ```
+Output:
+
+    stnam                     object
+    fipst                     object
+    leaid                     object
+    leanm10                   object
+    ncessch                   object
+    schnam10                  object
+    MAM_MTH00numvalid_1011    object
+    dtype: object
 
 Per impostazione predefinita, Azure Machine Learning Data Prep SDK non modifica il tipo di dati. L'origine dati da cui si sta leggendo è un file di testo, pertanto l'SDK legge tutti i valori come stringhe. Per questo esempio le colonne numeriche devono essere analizzate come numeri. Impostare il parametro `inference_arguments` su `InferenceArguments.current_culture()` per dedurre e convertire automaticamente i tipi di colonna durante la lettura del file.
 
 ```
-dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
+dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
                           skip_rows=1,
                           inference_arguments=dprep.InferenceArguments.current_culture())
-dataflow.head(1).dtypes
-
-stnam                      object
-fipst                     float64
-leaid                     float64
-leanm10                    object
-ncessch                   float64
-schnam10                   object
-ALL_MTH00numvalid_1011    float64
-dtype: object
+dflow.dtypes
 ```
+Output:
+
+    stnam                      object
+    fipst                     float64
+    leaid                     float64
+    leanm10                    object
+    ncessch                   float64
+    schnam10                   object
+    ALL_MTH00numvalid_1011    float64
+    dtype: object
+
 
 Molte delle colonne sono state rilevate correttamente come numeriche e il relativo tipo è impostato su `float64`.
 
@@ -142,53 +150,48 @@ Molte delle colonne sono state rilevate correttamente come numeriche e il relati
 L'SDK include una funzione `read_excel()` per il caricamento dei file di Excel. Per impostazione predefinita, la funzione carica il primo foglio della cartella di lavoro. Per definire un foglio specifico da caricare, definire il parametro `sheet_name` con il valore di stringa del nome del foglio.
 
 ```python
-dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2')
-dataflow.head(5)
+dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2')
+dflow.head(5)
 ```
 
-||Colonna1|Colonna2|Colonna3|Colonna4|Colonna5|Colonna6|Colonna7|Colonna8|
-|------|------|------|-----|------|-----|-------|----|-----|
-|0|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|
-|1|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|
-|2|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|
-|3|RANK|Title|Studio|In tutto il mondo|Nazionale / %|Colonna1|Oltremare / %|Colonna2|Anno^|
+| |Colonna1|Colonna2|Colonna3|Colonna4|Colonna5|Colonna6|Colonna7|Colonna8| | |
+|-|-------|-------|-------|-------|-------|-------|-------|-------|-|-|
+|0|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna| |
+|1|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna| |
+|2|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna|Nessuna| |
+|3|RANK|Title|Studio|In tutto il mondo|Nazionale / %|Colonna1|Oltremare / %|Colonna2|Anno^| |
 |4|1|Avatar|Fox|2788|760,5|0,273|2027,5|0,727|2009^|5|
 
 L'output mostra che i dati nel secondo foglio contenevano tre righe vuote prima delle intestazioni. La funzione `read_excel()` contiene parametri facoltativi che indicano di ignorare le righe e usare le intestazioni. Eseguire il codice seguente per ignorare le prime tre righe e usare la quarta riga come riga di intestazioni.
 
 ```python
-dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_column_headers=True, skip_rows=3)
+dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_column_headers=True, skip_rows=3)
 ```
 
 ||RANK|Title|Studio|In tutto il mondo|Nazionale / %|Colonna1|Oltremare / %|Colonna2|Anno^|
 |------|------|------|-----|------|-----|-------|----|-----|-----|
 |0|1|Avatar|Fox|2788|760,5|0,273|2027,5|0,727|2009^|
 |1|2|Titanic|Par.|2186,8|658,7|0,301|1528,1|0,699|1997^|
-|2|3|Gli Avengers di Marvel|BV|1518,6|623,4|0,41|895,2|0,59|2012|
-|3|4|Harry Potter e i Doni della Morte parte 2|WB|1341,5|381|0,284|960,5|0,716|2011|
-|4|5|Frozen|BV|1274,2|400,7|0,314|873,5|0,686|2013|
 
 ## <a name="load-fixed-width-data-files"></a>Caricare file di dati a larghezza fissa
 
-Per caricare file di dati a larghezza fissa occorre specificare un elenco di offset di caratteri. Si presuppone sempre che la prima colonna inizi all'offset zero.
+Per caricare i file a larghezza fissa, si specifica un elenco degli offset di carattere. Si presuppone sempre che la prima colonna inizi all'offset zero.
 
 ```python
-dataflow = dprep.read_fwf('./data/fixed_width_file.txt', offsets=[7, 13, 43, 46, 52, 58, 65, 73])
-dataflow.head(5)
+dflow = dprep.read_fwf('./data/fixed_width_file.txt', offsets=[7, 13, 43, 46, 52, 58, 65, 73])
+dflow.head(5)
 ```
 
 ||010000|99999|BOGUS NORWAY|NO|NO_1|ENRS|Colonna7|Colonna8|Colonna9|
 |------|------|------|-----|------|-----|-------|----|-----|----|
 |0|010003|99999|BOGUS NORWAY|NO|NO|ENSO||||
 |1|010010|99999|JAN MAYEN|NO|JN|ENJA|+70933|-008667|+00090|
-|2|010013|99999|ROST|NO|NO|||||
-|3|010014|99999|SOERSTOKKEN|NO|NO|ENSO|+59783|+005350|+00500|
-|4|010015|99999|BRINGELAND|NO|NO|ENBL|+61383|+005867|+03270|
+
 
 Per evitare il rilevamento delle intestazioni e analizzare i dati corretti, passare `PromoteHeadersMode.NONE` al parametro `header`.
 
 ```python
-dataflow = dprep.read_fwf('./data/fixed_width_file.txt',
+dflow = dprep.read_fwf('./data/fixed_width_file.txt',
                           offsets=[7, 13, 43, 46, 52, 58, 65, 73],
                           header=dprep.PromoteHeadersMode.NONE)
 ```
@@ -197,14 +200,11 @@ dataflow = dprep.read_fwf('./data/fixed_width_file.txt',
 |------|------|------|-----|------|-----|-------|----|-----|----|
 |0|010000|99999|BOGUS NORWAY|NO|NO_1|ENRS|Colonna7|Colonna8|Colonna9|
 |1|010003|99999|BOGUS NORWAY|NO|NO|ENSO||||
-|2|010010|99999|JAN MAYEN|NO|JN|ENJA|+70933|-008667|+00090|
-|3|010013|99999|ROST|NO|NO|||||
-|4|010014|99999|SOERSTOKKEN|NO|NO|ENSO|+59783|+005350|+00500|
-|5|010015|99999|BRINGELAND|NO|NO|ENBL|+61383|+005867|+03270|
+
 
 ## <a name="load-sql-data"></a>Caricare dati SQL
 
-L'SDK può caricare anche i dati di un'origine SQL. Attualmente, è supportato solo Microsoft SQL Server. Per leggere i dati da un server SQL, creare un oggetto `MSSQLDataSource` che contiene i parametri di connessione. Il parametro della password di `MSSQLDataSource` accetta un oggetto `Secret`. È possibile compilare un oggetto segreto in due modi:
+L'SDK può caricare anche i dati di un'origine SQL. Attualmente, è supportato solo Microsoft SQL Server. Per leggere i dati da un server SQL, creare un [ `MSSQLDataSource` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.mssqldatasource?view=azure-dataprep-py) oggetto che contiene i parametri di connessione. Il parametro della password di `MSSQLDataSource` accetta un [ `Secret` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#register-secret-value--str--id--str---none-----azureml-dataprep-api-engineapi-typedefinitions-secret) oggetto. È possibile compilare un oggetto segreto in due modi:
 
 * Registrare il segreto e il relativo valore con il motore di esecuzione.
 * Creare il segreto con solo un `id` (se il valore del segreto è già registrato nell'ambiente di esecuzione) usando `dprep.create_secret("[SECRET-ID]")`.
@@ -221,17 +221,16 @@ ds = dprep.MSSQLDataSource(server_name="[SERVER-NAME]",
 Dopo aver creato un oggetto origine dati, è possibile leggere i dati dall'output della query.
 
 ```python
-dataflow = dprep.read_sql(ds, "SELECT top 100 * FROM [SalesLT].[Product]")
-dataflow.head(5)
+dflow = dprep.read_sql(ds, "SELECT top 100 * FROM [SalesLT].[Product]")
+dflow.head(5)
 ```
 
-||ProductID|NOME|ProductNumber|Colore|StandardCost|ListPrice|Dimensione|Peso|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|rowguid|ModifiedDate|
-|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+| |ProductID|NOME|ProductNumber|Colore|StandardCost|ListPrice|Dimensione|Peso|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|rowguid|ModifiedDate| |
+|-|---------|----|-------------|-----|------------|---------|----|------|-----------------|--------------|-------------|-----------|----------------|--------------|----------------------|-------|------------|-|
 |0|680|HL Road Frame - Nero, 58|FR-R92B-58|Nero|1059,3100|1431,50|58|1016,04|18|6|01-06-2002 00:00:00+00:00|Nessuna|Nessuna|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|43dd68d6-14a4-461F-9069-55309d90ea7e|11-03-2008 |0:01:36.827000 + 00:00|
 |1|706|HL Road Frame - Rosso, 58|FR-R92R-58|Rosso|1059,3100|1431,50|58|1016,04|18|6|01-06-2002 00:00:00+00:00|Nessuna|Nessuna|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|9540ff17-2712-4c90-a3d1-8ce5568b2462|11-03-2008 |10:01:36.827000 + 00:00|
 |2|707|Sport-100 Casco, Rosso|HL-U509-R|Rosso|13,0863|34,99|Nessuna|Nessuna|35|33|01-07-2005 00:00:00+00:00|Nessuna|Nessuna|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|2e1ef41a-c08a-4ff6-8ada-bde58b64a712|11-03-2008 |10:01:36.827000 + 00:00|
-|3|708|Sport-100 Casco, Nero|HL U509|Nero|13,0863|34,99|Nessuna|Nessuna|35|33|01-07-2005 00:00:00+00:00|Nessuna|Nessuna|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|a25a44fb-c2de-4268-958f-110b8d7621e2|11-03-2008 |10:01:36.827000 + 00:00|
-|4|709|Calzini da mountain bike, M|SO-B909-M|Bianco|3,3963|9,50|M|Nessuna|27|18|01-07-2005 00:00:00+00:00|30-06-2006 00:00:00+00:00|Nessuna|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|18f95f47-1540-4e02-8F1F-cc1bcb6828d0|11-03-2008 |10:01:36.827000 + 00:00|
+
 
 ## <a name="use-azure-data-lake-storage"></a>Usare Azure Data Lake Storage
 
@@ -247,7 +246,7 @@ Nel computer locale eseguire il comando seguente.
 ```azurecli
 az login
 az account show --query tenantId
-dataflow = read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', tenant='microsoft.onmicrosoft.com')) head = dataflow.head(5) head
+dflow = read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', tenant='microsoft.onmicrosoft.com')) head = dflow.head(5) head
 ```
 
 > [!NOTE]
@@ -300,14 +299,19 @@ from azureml.dataprep.api.datasources import DataLakeDataSource
 
 ctx = adal.AuthenticationContext('https://login.microsoftonline.com/microsoft.onmicrosoft.com')
 token = ctx.acquire_token_with_client_certificate('https://datalake.azure.net/', servicePrincipalAppId, certificate, certThumbprint)
-dataflow = dprep.read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', accessToken=token['accessToken']))
-dataflow.to_pandas_dataframe().head()
+dflow = dprep.read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', accessToken=token['accessToken']))
+dflow.to_pandas_dataframe().head()
 ```
 
 ||FMID|MarketName|Website|street|city|Contea|
 |----|------|-----|----|----|----|----|
 |0|1012063|Caledonia Farmers Market Association - Danville|https://sites.google.com/site/caledoniafarmers... ||Danville|Caledonia|
 |1|1011871|Stearns Homestead Farmers' Market|http://Stearnshomestead.com |6975 Ridge Road|Parma|Cuyahoga|
-|2|1011878|100 Mile Market|http://www.pfcmarkets.com |507 Harrison St|Kalamazoo|Kalamazoo|
+|2|1011878|100 Mile Market|https://www.pfcmarkets.com |507 Harrison St|Kalamazoo|Kalamazoo|
 |3|1009364|106 S. Main Street Farmers Market|http://thetownofsixmile.wordpress.com/ |106 S. Main Street|Six Mile|||
 |4|1010691|10th Street Community Farmers Market|https://agrimissouri.com/... |10th Street e Poplar|Lamar|Barton|
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* Vedere il SDK [Panoramica](https://aka.ms/data-prep-sdk) per esempi di utilizzo e i modelli di progettazione
+* Vedere il SDK di Azure Machine Learning Data Prep [esercitazione](tutorial-data-prep.md) per un esempio di risoluzione di uno scenario specifico

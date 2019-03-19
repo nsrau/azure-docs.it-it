@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8009f50643121f1def184485aa383fe3ce8033dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 13b0c03f03012058616dba21536cfc3f292fff4b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184942"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091512"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Scelta del tipo di applicazione al momento dell'aggiunta di un'applicazione in Azure Active Directory
 Informazioni sui quattro tipi di applicazioni che è possibile aggiungere ad Azure Active Directory (Azure AD). Quando si aggiunge un'applicazione in Azure Active Directory, viene chiesto di scegliere uno tra quattro tipi disponibili. 
@@ -67,32 +67,32 @@ La tabella seguente descrive le modalità Single Sign-On e di provisioning suppo
 
 Le modalità **Single Sign-On** supportate per le applicazioni Azure AD sono elencate di seguito.
 
--   **Single Sign-On di Azure AD disabilitato**: scegliere la **modalità Single Sign-On di Azure AD disabilitato** se non si è ancora pronti per integrare questa applicazione con Single Sign-On con Azure AD o semplicemente testandola
+- **Single Sign-On di Azure AD disabilitato**: scegliere la **modalità Single Sign-On di Azure AD disabilitato** se non si è ancora pronti per integrare questa applicazione con Single Sign-On con Azure AD o semplicemente testandola
 
--   **Accesso collegato**: scegliere la **modalità Single Sing-On**[Accesso collegato](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) se si dispone di un'applicazione che è già connessa con una soluzione Single Sign-On esistente o se si desidera pubblicare un semplice collegamento per gli utenti nel [Pannello di accesso dell'applicazione](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) o nell'[utilità di avvio applicazioni di Office 365](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none)
+- **Accesso collegato**: scegliere la **modalità Single Sing-On**[Accesso collegato](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) se si dispone di un'applicazione che è già connessa con una soluzione Single Sign-On esistente o se si desidera pubblicare un semplice collegamento per gli utenti nel [Pannello di accesso dell'applicazione](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) o nell'[utilità di avvio applicazioni di Office 365](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none)
 
--   **Accesso basato su password**: scegliere la **modalità Single Sign-On** [Accesso basato su password](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) se l'applicazione esegue il rendering di un campo di nome utente e password HTML e si desidera archiviare il nome utente e la password in modo sicuro per essere riprodotti all'applicazione in un secondo momento
+- **Accesso basato su password**: scegliere la **modalità Single Sign-On** [Accesso basato su password](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) se l'applicazione esegue il rendering di un campo di nome utente e password HTML e si desidera archiviare il nome utente e la password in modo sicuro per essere riprodotti all'applicazione in un secondo momento
 
--   **Accesso basato su SAML**: scegliere la modalità Single Sign-On [Accesso basato su SAML](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) se l'applicazione supporta i protocolli SAML oppure OpenID Connect o se si desidera poter eseguire il mapping degli utenti a ruoli specifici dell'applicazione in base alle regole definite nelle attestazioni SAML *
+- **Accesso basato su SAML**: scegliere la modalità Single Sign-On [Accesso basato su SAML](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) se l'applicazione supporta i protocolli SAML oppure OpenID Connect o se si desidera poter eseguire il mapping degli utenti a ruoli specifici dell'applicazione in base alle regole definite nelle attestazioni SAML *
 
-   >[!NOTE]
-   >Questa opzione non è disponibile quando il proxy dell'applicazione è configurato per un'applicazione.
-   >
-   >
+  >[!NOTE]
+  >Questa opzione non è disponibile quando il proxy dell'applicazione è configurato per un'applicazione.
+  >
+  >
 
--   **Accesso basato su intestazione**: scegliere la modalità Single Sign-On [Accesso basato su intestazione](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) se si dispone di un'applicazione che usa PingAccess che supporta l'autenticazione basata sull'intestazione HTTP per la quale si vuole eseguire l'accesso Single Sign-On 
+- **Accesso basato su intestazione**: scegliere la modalità Single Sign-On [Accesso basato su intestazione](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) se si dispone di un'applicazione che usa PingAccess che supporta l'autenticazione basata sull'intestazione HTTP per la quale si vuole eseguire l'accesso Single Sign-On 
 
-   >[!NOTE]
-   >Questa opzione è disponibile solo quando il proxy dell'applicazione e PingAccess sono configurati per un'applicazione.
-   >
-   >
+  >[!NOTE]
+  >Questa opzione è disponibile solo quando il proxy dell'applicazione e PingAccess sono configurati per un'applicazione.
+  >
+  >
 
--   **Autenticazione integrata di Windows**: scegliere la modalità Single Sign-On [Autenticazione integrata di Windows](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) quando si espone un'applicazione WIA locale per la quale si desidera eseguire l'accesso Single Sign-On 
+- **Autenticazione integrata di Windows**: scegliere la modalità Single Sign-On [Autenticazione integrata di Windows](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) quando si espone un'applicazione WIA locale per la quale si desidera eseguire l'accesso Single Sign-On 
 
-   >[!NOTE]
-   >Questa opzione è disponibile solo quando il proxy dell'applicazione è configurato per un'applicazione.
-   >
-   >
+  >[!NOTE]
+  >Questa opzione è disponibile solo quando il proxy dell'applicazione è configurato per un'applicazione.
+  >
+  >
 
 ## <a name="single-sign-on-modes-for-custom-developed-applications"></a>Modalità Single Sign-On per le applicazioni personalizzate
 
@@ -112,39 +112,39 @@ Leggere [Guida per gli sviluppatori di Azure Active Directory](https://docs.micr
 
 Per impostare la modalità **Single Sign-On** di un'applicazione, seguire queste istruzioni:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
+2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
+4. Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
 
-5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-  * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 
-6.  Selezionare l'applicazione per cui si desidera configurare l'accesso Single Sign-on.
+6. Selezionare l'applicazione per cui si desidera configurare l'accesso Single Sign-on.
 
-7.  Dopo il caricamento dell'applicazione, fare clic su **Single Sign-On** nel menu di spostamento di sinistra dell'applicazione.
+7. Dopo il caricamento dell'applicazione, fare clic su **Single Sign-On** nel menu di spostamento di sinistra dell'applicazione.
 
 ## <a name="how-to-choose-a-provisioning-mode"></a>Come scegliere una modalità di provisioning
 
--   **Provisioning manuale**: scegliere la modalità di provisioning [manuale](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#provisioning-modes) se si dispone di account esistenti o si desidera gestire gli account per l'applicazione all'esterno di Azure AD.
+- **Provisioning manuale**: scegliere la modalità di provisioning [manuale](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#provisioning-modes) se si dispone di account esistenti o si desidera gestire gli account per l'applicazione all'esterno di Azure AD.
 
--   **Provisioning automatico**: scegliere la **modalità di provisioning** [automatica](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#configuring-automatic-user-account-provisioning)se si desidera abilitare il provisioning automatico basato su API e/o il deprovisioning degli account utente per questa applicazione 
+- **Provisioning automatico**: scegliere la **modalità di provisioning** [automatica](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#configuring-automatic-user-account-provisioning)se si desidera abilitare il provisioning automatico basato su API e/o il deprovisioning degli account utente per questa applicazione 
 
-   >[!NOTE]
-   >Questa opzione è disponibile solo per le applicazioni all'interno della categoria **in primo piano** della [Raccolta di applicazioni di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal).
-   >
-   >
+  >[!NOTE]
+  >Questa opzione è disponibile solo per le applicazioni all'interno della categoria **in primo piano** della [Raccolta di applicazioni di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal).
+  >
+  >
 
--   **Provisioning automatico basato su SCIM**: usare il [provisioning automatico basato su SCIM](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) se un'applicazione supporta il protocollo SCIM per il rilevamento di modifiche a utenti e gruppi, emessi automaticamente per le modifiche a tutte le applicazioni integrate in Azure AD 
+- **Provisioning automatico basato su SCIM**: usare il [provisioning automatico basato su SCIM](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) se un'applicazione supporta il protocollo SCIM per il rilevamento di modifiche a utenti e gruppi, emessi automaticamente per le modifiche a tutte le applicazioni integrate in Azure AD 
 
-   >[!NOTE]
-   >Questa opzione non è elencata come una modalità specifica di provisioning, ma è abilitata per impostazione predefinita per tutte le applicazioni integrate in Azure AD.
-   >
-   >
+  >[!NOTE]
+  >Questa opzione non è elencata come una modalità specifica di provisioning, ma è abilitata per impostazione predefinita per tutte le applicazioni integrate in Azure AD.
+  >
+  >
 
 ## <a name="how-to-set-an-applications-provisioning-mode"></a>Come impostare la modalità di provisioning di un'applicazione
 
@@ -152,21 +152,21 @@ Per impostare la modalità di **provisioning** di un'applicazione, seguire quest
 
 Per impostare la modalità **Single Sign-On** di un'applicazione, seguire queste istruzioni:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
+2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
+4. Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
 
-5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-  * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 
-6.  Selezionare l'applicazione per cui si desidera configurare il provisioning.
+6. Selezionare l'applicazione per cui si desidera configurare il provisioning.
 
-7.  Dopo il caricamento dell'applicazione, fare clic su **Provisioning** nel menu di spostamento di sinistra dell'applicazione.
+7. Dopo il caricamento dell'applicazione, fare clic su **Provisioning** nel menu di spostamento di sinistra dell'applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Gestione di applicazioni con Azure Active Directory](what-is-application-management.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: banders
-ms.openlocfilehash: d3da7e73569d7860c7e4328b11ecc3f20cf648fc
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: a3bacdb19dfe16a63cf1f89ef6fb162d08cb4d32
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903622"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57883781"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Informazioni sull'utilizzo della prenotazione di Azure per la sottoscrizione con pagamento in base al consumo
 
@@ -107,6 +107,6 @@ Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 

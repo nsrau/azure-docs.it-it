@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: 884775fc2783256d9fff43e8bc6b26cc4f638648
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: d0c425bcb9961fde9fb319991148c18c6a9ff57b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998621"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120551"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Panoramica del monitoraggio dell'integrità del gateway applicazione
 
@@ -22,6 +22,8 @@ Per impostazione predefinita, il gateway applicazione di Azure monitora l'integr
 ![Esempio di probe del gateway applicazione][1]
 
 Oltre al monitoraggio del probe di integrità predefinito, è anche possibile personalizzare il probe di integrità in base ai requisiti dell'applicazione. In questo articolo vengono illustrati i probe di integrità predefiniti e personalizzati.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="default-health-probe"></a>Probe di integrità predefinito
 
@@ -33,20 +35,20 @@ Se il controllo probe predefinito non riesce per il server A, il gateway applica
 
 ### <a name="probe-matching"></a>Criteri di corrispondenza dei probe
 
-Per impostazione predefinita, una risposta HTTP(S) con codice di stato 200 viene considerata integra. I probe di integrità personalizzati supportano anche due criteri di corrispondenza. Questi criteri possono essere usati per modificare l'interpretazione predefinita di ciò che costituisce una risposta integra.
+Per impostazione predefinita, una risposta HTTP (S) con codice di stato compreso tra 200 e 399 viene considerata integra. I probe di integrità personalizzati supportano anche due criteri di corrispondenza. Questi criteri possono essere usati per modificare l'interpretazione predefinita di ciò che costituisce una risposta integra.
 
 I criteri di corrispondenza sono i seguenti: 
 
 - **Corrispondenza del codice di stato della risposta HTTP**: il criterio adottato da un probe per accettare il codice di risposta o l'intervallo di codici di risposta HTTP specificato dall'utente. Sono supportati singoli codici di stato della risposta, delimitati da virgole, o un intervallo di codici di stato.
 - **Corrispondenza del corpo della risposta HTTP**: il criterio adottato dal probe in base al quale viene esaminato il corpo della risposta HTTP e viene stabilita una corrispondenza con una stringa specificata dall'utente. La corrispondenza verifica solo la presenza della stringa specificata dall'utente nel corpo della risposta e non è una corrispondenza completa basata su espressione regolare.
 
-I criteri di corrispondenza possono essere specificati tramite il cmdlet `New-AzureRmApplicationGatewayProbeHealthResponseMatch`.
+I criteri di corrispondenza possono essere specificati tramite il cmdlet `New-AzApplicationGatewayProbeHealthResponseMatch`.
 
 Ad esempio: 
 
-```powershell
-$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
-$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
+```azurepowershell
+$match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
+$match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```
 Una volta specificati, i criteri di corrispondenza possono essere associati alla configurazione del probe tramite un parametro `-Match` in PowerShell.
 
@@ -62,7 +64,7 @@ Una volta specificati, i criteri di corrispondenza possono essere associati alla
 > [!NOTE]
 > La porta è la stessa delle impostazioni HTTP del back-end.
 
-Il probe predefinito esamina solo http://127.0.0.1:\<port\> per determinare lo stato di integrità. Se si deve configurare il probe di integrità per passare a un URL personalizzato o modificare altre impostazioni, è necessario usare probe personalizzati.
+Il probe predefinito esamina solo http:\//127.0.0.1:\<porta\> per determinare lo stato di integrità. Se si deve configurare il probe di integrità per passare a un URL personalizzato o modificare altre impostazioni, è necessario usare probe personalizzati.
 
 ### <a name="probe-intervals"></a>Intervalli probe
 

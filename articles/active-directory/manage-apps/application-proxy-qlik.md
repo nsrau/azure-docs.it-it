@@ -14,12 +14,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 855cf81dbf24b0662048f69061ca85b72ff5f670
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 12e36c49d8c4db60302d4b72dfa81ea4aceec77b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171248"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107390"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Application Proxy e Qlik Sense 
 Azure Active Directory Application Proxy e Qlik Sense hanno collaborato assieme per permettere di usare con facilità l'Application Proxy e fornire l'accesso remoto alla distribuzione Qlik Sense.  
@@ -41,13 +41,13 @@ Seguire questi passaggi per pubblicare l'app. Per una descrizione più dettaglia
 2. Selezionare **Azure Active Directory** > **Applicazioni aziendali**. 
 3. Selezionare **Aggiungi** nella parte superiore del pannello. 
 4. Selezionare **Applicazione locale**. 
-5.       Compilare i campi obbligatori con le informazioni della nuova app. Usare le seguenti linee guida per le impostazioni: 
-    - **URL interno**: questa applicazione deve avere un URL interno, che corrisponde all'URL Qlik Sense stesso. Ad esempio, **https&#58;//demo.qlikemm.com:4244** 
-    - **Metodo di autenticazione preliminare**: Azure Active Directory (consigliato ma non obbligatorio) 
-1.       Selezionare **Aggiungi** nella parte inferiore del pannello. L'applicazione viene aggiunta e si apre il menu di avvio rapido. 
-2.       Nel menu di avvio rapido selezionare **Assegna utente per il test** e aggiungere almeno un utente all'applicazione. Assicurarsi che questo account di test abbia accesso all'applicazione locale. 
-3.       Selezionare **Assegna** per salvare l'assegnazione dell'utente di test. 
-4.       (Facoltativo) Nel pannello di gestione dell'app selezionare Single Sign-On. Scegliere **Delega vincolata Kerberos** dal menu a discesa e compilare i campi obbligatori in base alla configurazione Qlik. Selezionare **Salva**. 
+5. Compilare i campi obbligatori con le informazioni della nuova app. Usare le seguenti linee guida per le impostazioni: 
+   - **URL interno**: questa applicazione deve avere un URL interno, che corrisponde all'URL Qlik Sense stesso. Ad esempio, **https&#58;//demo.qlikemm.com:4244** 
+   - **Metodo di autenticazione preliminare**: Azure Active Directory (consigliato ma non obbligatorio) 
+1. Selezionare **Aggiungi** nella parte inferiore del pannello. L'applicazione viene aggiunta e si apre il menu di avvio rapido. 
+2. Nel menu di avvio rapido selezionare **Assegna utente per il test** e aggiungere almeno un utente all'applicazione. Assicurarsi che questo account di test abbia accesso all'applicazione locale. 
+3. Selezionare **Assegna** per salvare l'assegnazione dell'utente di test. 
+4. (Facoltativo) Nel pannello di gestione dell'app selezionare Single Sign-On. Scegliere **Delega vincolata Kerberos** dal menu a discesa e compilare i campi obbligatori in base alla configurazione Qlik. Selezionare **Salva**. 
 
 ### <a name="application-2"></a>Applicazione n°2: 
 Seguire gli stessi passaggi usati per l'applicazione n°1, con le eccezioni seguenti: 

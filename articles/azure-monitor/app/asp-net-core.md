@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 24132fdb23ff89045f2b497327997d95e4ceecac
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 7f3b8101b633c977201b6c413ad12e4bbe55e9a7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054844"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011789"
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights per ASP.NET Core
 
@@ -88,15 +88,15 @@ Selezionare **Visualizza** > **Team Explorer** (CTRL+\, CTRL+M) > **Progetto** >
 
 - Viene creato un nuovo file:
 
-  -  _ConnectedService.json_
+  - _ConnectedService.json_
 
     ```json
     {
-      "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
-      "Version": "8.12.10405.1",
-      "GettingStartedDocument": {
-        "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
-      }
+     "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
+     "Version": "8.12.10405.1",
+     "GettingStartedDocument": {
+       "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
+     }
     }
     ```
 
@@ -180,6 +180,10 @@ Selezionare **Visualizza** > **Team Explorer** (CTRL+\, CTRL+M) > **Progetto** >
           }
       }
       ```
+
+## <a name="send-ilogger-logs-to-application-insights"></a>Inviare i log di ILogger ad Application Insights
+
+Application Insights supporta i log di acquisizione inviati tramite ILogger. Per configurare gli esempi di codice di registrazione estrazione [qui](https://docs.microsoft.com/azure/azure-monitor/app/ilogger).
 
 ## <a name="synthetic-transactions-with-powershell"></a>Transazioni sintetiche con PowerShell
 
@@ -338,7 +342,7 @@ Questa funzionalità è possibile in parte perché il pacchetto NuGet _Microsoft
 
 ![Screenshot del grafico dipendenze NuGet per Microsoft.AspNETCore.all](./media/asp-net-core/013-dependency.png)
 
-Se esternamente a Visual Studio è stato modificato il progetto ASP.NET Core in VSCode o un altro editor, questi assembly non verranno caricati automaticamente durante il debug se Application Insights non è stato aggiunto in modo esplicito al progetto.
+Esternamente a Visual Studio, se si stava modificando un progetto ASP.NET Core in Visual Studio code o un altro editor, questi assembly non caricherebbero automaticamente durante il debug se è stato aggiunto Application Insights in modo esplicito al progetto.
 
 Tuttavia, in Visual Studio l'attivazione delle funzionalità di Application Insights locali da assembly esterni avviene tramite l'[interfaccia IHostingStartup](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup?view=aspnetcore-2.1). L'interfaccia aggiunge dinamicamente Application Insights durante il debug.
 

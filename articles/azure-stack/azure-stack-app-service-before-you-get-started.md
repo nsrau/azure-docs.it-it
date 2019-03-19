@@ -16,12 +16,12 @@ ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: e39904378edd9583cd7802d0a75f2f365a35d2b6
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 58be7b6dc9eeeadd69fe82f1dc03d959aa94f9c8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791954"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088435"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Prima di iniziare con il servizio App in Azure Stack
 
@@ -304,10 +304,10 @@ Per scopi di disponibilità elevata e di produzione, è necessario utilizzare un
 
 L'istanza di SQL Server per il servizio App di Azure in Azure Stack deve essere accessibile da tutti i ruoli del servizio App. È possibile distribuire SQL Server all'interno della sottoscrizione di Provider predefinito in Azure Stack. È possibile impostare o usare l'infrastruttura esistente all'interno dell'organizzazione (purché sia presente la connettività ad Azure Stack). Se si usa un'immagine di Marketplace di Azure, ricordarsi di configurare il firewall di conseguenza.
 
->[!NOTE]
+> [!NOTE]
 > Un numero di immagini di macchine virtuali IaaS di SQL è disponibile tramite la funzionalità di gestione di Marketplace. Assicurarsi sempre di scaricare la versione più recente dell'estensione SQL IaaS prima di distribuire una macchina virtuale usando un elemento del Marketplace. Le immagini SQL sono le stesse macchine virtuali di SQL disponibili in Azure. Per le macchine virtuali SQL creati da queste immagini, l'estensione IaaS e miglioramenti del portale corrispondenti offrono funzionalità quali l'applicazione automatica delle patch e funzionalità di backup.
->
-Per uno dei ruoli di SQL Server, è possibile usare un'istanza predefinita o un'istanza denominata. Se si usa un'istanza denominata, assicurarsi di avviare il servizio SQL Server Browser e aprire la porta 1434 manualmente.
+> 
+> Per uno dei ruoli di SQL Server, è possibile usare un'istanza predefinita o un'istanza denominata. Se si usa un'istanza denominata, assicurarsi di avviare il servizio SQL Server Browser e aprire la porta 1434 manualmente.
 
 Il programma di installazione del servizio App verrà verificare che SQL Server disponga di indipendenza del database abilitata. Per abilitare l'indipendenza del database in SQL Server che ospiterà i database di servizio App, eseguire questi comandi SQL:
 

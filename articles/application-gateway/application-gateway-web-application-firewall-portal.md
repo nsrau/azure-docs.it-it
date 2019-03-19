@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 7a090a068984a71c917cf5c33761dd78ac1ad2c8
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 510a243b9133fe0ef0fe33b4dccce97f9d65e301
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453257"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074965"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Creare un gateway applicazione con un web application firewall tramite il portale di Azure
 
@@ -31,6 +31,8 @@ In questo articolo viene spiegato come:
 
 ![Esempio di web application firewall](./media/application-gateway-web-application-firewall-portal/scenario-waf.png)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com)
@@ -43,21 +45,21 @@ Per le comunicazioni tra le risorse create è necessaria una rete virtuale. In q
 2. Selezionare **Rete** e quindi **Gateway applicazione** nell'elenco In primo piano.
 3. Immettere i valori seguenti per il gateway applicazione:
 
-    - *myAppGateway* come nome del gateway applicazione.
-    - *myResourceGroupAG* come nuovo gruppo di risorse.
-    - Selezionare *WAF* come livello del gateway applicazione.
+   - *myAppGateway* come nome del gateway applicazione.
+   - *myResourceGroupAG* come nuovo gruppo di risorse.
+   - Selezionare *WAF* come livello del gateway applicazione.
 
-    ![Creare il nuovo gateway applicazione](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
+     ![Creare il nuovo gateway applicazione](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
 
 4. Accettare i valori predefiniti per le altre impostazioni e quindi fare clic su **OK**.
 5. Fare clic su **Scegliere una rete virtuale**, **Crea nuova** e quindi immettere i valori seguenti per la rete virtuale:
 
-    - *myVNet* come nome della rete virtuale.
-    - *10.0.0.0/16* come spazio indirizzi della rete virtuale.
-    - *myAGSubnet* come nome della subnet.
-    - *10.0.0.0/24* come spazio indirizzi della subnet.
+   - *myVNet* come nome della rete virtuale.
+   - *10.0.0.0/16* come spazio indirizzi della rete virtuale.
+   - *myAGSubnet* come nome della subnet.
+   - *10.0.0.0/24* come spazio indirizzi della subnet.
 
-    ![Creare una rete virtuale](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
+     ![Creare una rete virtuale](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
 
 6. Fare clic su **OK** per creare la rete virtuale e la subnet.
 7. Fare clic su **Scegliere un indirizzo IP pubblico**, **Crea nuovo** e quindi immettere il nome dell'indirizzo IP pubblico. In questo esempio il nome dell'indirizzo IP pubblico è *myAGPublicIPAddress*. Accettare i valori predefiniti per le altre impostazioni e quindi fare clic su **OK**.
@@ -103,7 +105,7 @@ In questo esempio, vengono create due macchine virtuali da usare come server bac
 2. Eseguire questo comando per installare IIS nella macchina virtuale: 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -114,7 +116,7 @@ In questo esempio, vengono create due macchine virtuali da usare come server bac
       -Location EastUS
     ```
 
-3. Creare una seconda macchina virtuale e installare IIS seguendo la procedura appena completata. Immettere *myVM2* per il nome e per VMName in Set-AzureRmVMExtension.
+3. Creare una seconda macchina virtuale e installare IIS seguendo la procedura appena completata. Immettere *myVM2* per il nome e per VMName in Set-AzVMExtension.
 
 ### <a name="add-backend-servers"></a>Aggiungere i server back-end
 

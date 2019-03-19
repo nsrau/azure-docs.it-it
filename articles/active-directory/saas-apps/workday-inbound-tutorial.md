@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e209fe0486b72c14912fd0af1b29c878e4b4545
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 73e5b081e85726a1fc78d92996846faa18ce616a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340111"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897623"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workday per il provisioning utenti automatico
 
@@ -257,13 +257,13 @@ In questo passaggio si creerà un gruppo di sicurezza del sistema di integrazion
     ![Creare un gruppo di sicurezza](./media/workday-inbound-tutorial/wd_isu_03.png "Creare un gruppo di sicurezza")
 2. Completare l'attività **Creare un gruppo di sicurezza**. 
 
-  * Esistono due tipi di gruppi di sicurezza in Workday:
-    * **Non vincolato:** tutti i membri del gruppo di sicurezza possono accedere a tutte le istanze di dati protette dal gruppo di sicurezza.
-    * **Vincolato:** tutti i membri del gruppo di sicurezza hanno accesso contestuale a un subset delle istanze di dati (righe) a cui può accedere il gruppo di sicurezza.
-  * Verificare il partner di integrazione di Workday per selezionare il tipo di gruppo di sicurezza appropriato per l'integrazione.
-  * Una volta appurato il tipo di gruppo, selezionare **Integration System Security Group (Unconstrained)** (Gruppo di sicurezza del sistema di integrazione - Non vincolato) o **Integration System Security Group (Constrained)** (Gruppo di sicurezza del sistema di integrazione - Vincolato) dall'elenco a discesa **Type of Tenanted Security Group** (Tipo di gruppo di sicurezza con tenant).
+   * Esistono due tipi di gruppi di sicurezza in Workday:
+     * **Non vincolato:** tutti i membri del gruppo di sicurezza possono accedere a tutte le istanze di dati protette dal gruppo di sicurezza.
+     * **Vincolato:** tutti i membri del gruppo di sicurezza hanno accesso contestuale a un subset delle istanze di dati (righe) a cui può accedere il gruppo di sicurezza.
+   * Verificare il partner di integrazione di Workday per selezionare il tipo di gruppo di sicurezza appropriato per l'integrazione.
+   * Una volta appurato il tipo di gruppo, selezionare **Integration System Security Group (Unconstrained)** (Gruppo di sicurezza del sistema di integrazione - Non vincolato) o **Integration System Security Group (Constrained)** (Gruppo di sicurezza del sistema di integrazione - Vincolato) dall'elenco a discesa **Type of Tenanted Security Group** (Tipo di gruppo di sicurezza con tenant).
 
-    ![Creare un gruppo di sicurezza](./media/workday-inbound-tutorial/wd_isu_04.png "Creare un gruppo di sicurezza")
+     ![Creare un gruppo di sicurezza](./media/workday-inbound-tutorial/wd_isu_04.png "Creare un gruppo di sicurezza")
 
 3. Dopo aver creato il gruppo di sicurezza, verrà visualizzata una pagina in cui sarà possibile assegnare membri al gruppo. Aggiungere il nuovo utente di sistema di integrazione creato nel passaggio precedente per questo gruppo di sicurezza. Se si usa il gruppo di sicurezza *vincolato*, è necessario anche selezionare l'ambito dell'organizzazione appropriato.
 
@@ -286,11 +286,11 @@ In questo passaggio si concedono al gruppo di sicurezza le autorizzazioni dei cr
    * *Worker Data: Current Staffing Information* (Dati ruolo di lavoro: informazioni correnti del personale)
    * *Worker Data: Business Title on Worker Profile* (Dati ruolo di lavoro: qualifica riportata sul profilo)
 
-    ![Criteri di sicurezza di dominio](./media/workday-inbound-tutorial/wd_isu_07.png "Criteri di sicurezza di dominio")  
+     ![Criteri di sicurezza di dominio](./media/workday-inbound-tutorial/wd_isu_07.png "Criteri di sicurezza di dominio")  
 
-    ![Criteri di sicurezza di dominio](./media/workday-inbound-tutorial/wd_isu_08.png "Criteri di sicurezza di dominio") 
+     ![Criteri di sicurezza di dominio](./media/workday-inbound-tutorial/wd_isu_08.png "Criteri di sicurezza di dominio") 
 
-    Fare clic su **OK**.
+     Fare clic su **OK**.
 
 3. Nel report che viene visualizzato selezionare i puntini di sospensione (...) visualizzati accanto a **External Account Provisioning** (Provisioning account esterno) e fare clic sulla voce di menu **Domain -> Edit Security Policy Permissions** (Dominio -> Modifica autorizzazioni criteri di sicurezza)
 
@@ -428,7 +428,7 @@ Dopo aver distribuito .NET 4.7.1 o versioni successive, sarà possibile scaricar
 
 8. Completare la sezione **Credenziali amministratore** come segue:
 
-   * **Nome utente dell'amministratore**: immettere il nome utente dell'account del sistema di integrazione Workday, aggiungendo il nome di dominio del tenant. Dovrebbe essere simile a: **username@tenant_name**
+   * **Nome utente dell'amministratore**: immettere il nome utente dell'account del sistema di integrazione Workday, aggiungendo il nome di dominio del tenant. È simile, ad esempio: **username\@nome_tenant**
 
    * **Password dell'amministratore:** immettere la password dell'account del sistema di integrazione Workday
 
@@ -438,8 +438,8 @@ Dopo aver distribuito .NET 4.7.1 o versioni successive, sarà possibile scaricar
 
    * **Contenitore di Active Directory:** immettere il nome distinto del contenitore in cui l'agente deve creare gli account utente per impostazione predefinita.
         Esempio: *OU=Standard Users,OU=Users,DC=contoso,DC=test*
-> [!NOTE]
-> Questa impostazione deve essere usata per la creazione degli account utente solo se l'attributo *parentDistinguishedName* non è configurato nel mapping degli attributi. Questa impostazione non viene usata per la ricerca di utenti o per le operazioni di aggiornamento. L'intero sottoalbero del dominio rientra nell'ambito dell'operazione di ricerca.
+     > [!NOTE]
+     > Questa impostazione deve essere usata per la creazione degli account utente solo se l'attributo *parentDistinguishedName* non è configurato nel mapping degli attributi. Questa impostazione non viene usata per la ricerca di utenti o per le operazioni di aggiornamento. L'intero sottoalbero del dominio rientra nell'ambito dell'operazione di ricerca.
 
    * **Indirizzo di posta elettronica per le notifiche:** immettere l'indirizzo di posta elettronica e selezionare la casella di controllo per inviare una notifica di posta elettronica in caso di errore.
 
@@ -477,11 +477,11 @@ In questa sezione verrà configurato il flusso dei dati utente da Workday in Act
 > [!TIP]
 > Quando si configura l'app di provisioning per la prima volta, è necessario testare e verificare i mapping degli attributi e le espressioni per assicurarsi che restituisca il risultato desiderato. Microsoft consiglia di usare i filtri di ambito in **Source Object Scope** (Ambito dell'oggetto di origine) per testare il mapping con alcuni utenti test da Workday. Dopo avere verificato che i mapping funzionino è possibile rimuovere il filtro o espanderlo gradualmente in modo da includere altri utenti.
 
-3. Nel campo **Target Object Actions** (Azioni oggetto di destinazione) è possibile applicare un filtro a livello globale per le azioni che vengono eseguite in Active Directory. **Creazione** e **Aggiornamento** sono le più comuni.
+1. Nel campo **Target Object Actions** (Azioni oggetto di destinazione) è possibile applicare un filtro a livello globale per le azioni che vengono eseguite in Active Directory. **Creazione** e **Aggiornamento** sono le più comuni.
 
-4. Nella sezione **Mapping attributi** è possibile definire il mapping dei singoli attributi di Workday agli attributi di Active Directory.
+1. Nella sezione **Mapping attributi** è possibile definire il mapping dei singoli attributi di Workday agli attributi di Active Directory.
 
-5. Fare clic su un mapping di attributi esistente per aggiornarlo oppure fare clic su **Aggiungi nuovo mapping** nella parte inferiore della schermata per aggiungere nuovi mapping. Il mapping di un singolo attributo supporta queste proprietà:
+1. Fare clic su un mapping di attributi esistente per aggiornarlo oppure fare clic su **Aggiungi nuovo mapping** nella parte inferiore della schermata per aggiungere nuovi mapping. Il mapping di un singolo attributo supporta queste proprietà:
 
       * **Tipo di mapping**
 
@@ -508,7 +508,7 @@ In questa sezione verrà configurato il flusso dei dati utente da Workday in Act
 
          * **Only during creation** (Solo durante la creazione): applica il mapping solo alle azioni di creazione dell'utente
 
-6. Per salvare i mapping, fare clic su **Save**, Salva, nella parte superiore della sezione Attribute-Mapping, Mapping attributi.
+1. Per salvare i mapping, fare clic su **Save**, Salva, nella parte superiore della sezione Attribute-Mapping, Mapping attributi.
 
    ![Portale di Azure](./media/workday-inbound-tutorial/wd_2.png)
 
@@ -524,8 +524,8 @@ In questa sezione verrà configurato il flusso dei dati utente da Workday in Act
 | ---------- | ---------- | ---------- | ---------- |
 | **WorkerID**  |  EmployeeID | **Sì** | Scritto solo al momento della creazione |
 | **PreferredNameData**    |  cn    |   |   Scritto solo al momento della creazione |
-| **SelectUniqueValue( Join("@", Join(".",  \[FirstName\], \[LastName\]), "contoso.com"), Join("@", Join(".",  Mid(\[FirstName\], 1, 1), \[LastName\]), "contoso.com"), Join("@", Join(".",  Mid(\[FirstName\], 1, 2), \[LastName\]), "contoso.com"))**   | userPrincipalName     |     | Scritto solo al momento della creazione 
-| **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Scritto solo al momento della creazione |
+| **SelectUniqueValue (Join ("\@", Join (".", \[FirstName\], \[LastName\]), "contoso.com"), Join ("\@", Join (".", Mid (\[FirstName\], 1, 1 (), \[LastName\]), "contoso.com"), Join ("\@", Join (".", Mid (\[FirstName\], 1 o 2), \[LastName\]), "contoso.com"))**   | userPrincipalName     |     | Scritto solo al momento della creazione 
+| **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Scritto solo al momento della creazione |
 | **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | Creazione e aggiornamento |
 | **FirstName**   | givenName       |     |    Creazione e aggiornamento |
 | **LastName**   |   sn   |     |  Creazione e aggiornamento |
@@ -677,7 +677,7 @@ Seguire queste istruzioni per configurare il writeback degli indirizzi di posta 
 
 8. Completare la sezione **Credenziali amministratore** come segue:
 
-   * **Nome utente amministratore**: immettere il nome utente dell'account del sistema di integrazione Workday, aggiungendo il nome di dominio del tenant. Dovrebbe essere simile a: *username@contoso4*
+   * **Nome utente amministratore**: immettere il nome utente dell'account del sistema di integrazione Workday, aggiungendo il nome di dominio del tenant. Dovrebbe essere simile a: *username\@contoso4*
 
    * **Password dell'amministratore:** immettere la password dell'account del sistema di integrazione Workday
 
@@ -853,12 +853,12 @@ Sostituire le variabili [server proxy] e [proxy-port] con il nome del server pro
 
 #### <a name="how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent"></a>Come garantire che l'agente di provisioning sia in grado di comunicare con il tenant di Azure AD e che nessun firewall blocchi le porte richieste dall'agente?
 
-È inoltre possibile controllare se tutte le porte di cui si dispone sono aperte mediante lo [strumento di test delle porte del connettore](https://aadap-portcheck.connectorporttest.msappproxy.net/) dalla rete locale. La presenza di più segni di spunta verdi indica una maggiore resilienza.
+È anche possibile verificare se si dispone di tutte le porte necessarie per accedere, aprire il [strumento di Test delle porte connettore](https://aadap-portcheck.connectorporttest.msappproxy.net/) dalla rete locale. La presenza di più segni di spunta verdi indica una maggiore resilienza.
 
 Per assicurarsi che lo strumento fornisca i risultati corretti, accertarsi di:
 
 * Aprire lo strumento in un browser dal server in cui è installato l'agente di provisioning.
-* Assicurarsi che qualsiasi proxy o firewall applicabile all'agente di provisioning venga applicato anche a questa pagina. Questa operazione può essere eseguita in Internet Explorer selezionando **Impostazioni -> Opzioni Internet -> Connessioni -> Impostazioni Lan**. In questa pagina viene visualizzato il campo "Usa un server di proxy per la rete LAN". Selezionare questa casella e inserire l'indirizzo del proxy nel campo "Indirizzo".
+* Assicurarsi che qualsiasi proxy o firewall applicabile all'agente di provisioning venga applicato anche a questa pagina. Questa operazione può essere eseguita in Internet Explorer selezionando **Impostazioni -> Opzioni Internet -> connessioni -> Impostazioni LAN**. In questa pagina viene visualizzato il campo "Usa un server di proxy per la rete LAN". Selezionare questa casella e inserire l'indirizzo del proxy nel campo "Indirizzo".
 
 #### <a name="can-one-provisioning-agent-be-configured-to-provision-multiple-ad-domains"></a>Un agente di provisioning può essere configurato per effettuare il provisioning di più domini di Active Directory?
 
@@ -1064,7 +1064,7 @@ Questa sezione contiene gli aspetti della risoluzione problemi seguenti:
 
 Quando viene rilevata una nuova assunzione in Workday (si supponga con ID dipendente *21023*), il servizio di provisioning di Azure AD tenta di creare un nuovo account utente di AD per il ruolo di lavoro e crea nel processo 4 record di log di controllo come descritto di seguito:
 
-  [ ![Log di controllo creano operazioni](media/workday-inbound-tutorial/wd_audit_logs_02.png) ](media/workday-inbound-tutorial/wd_audit_logs_02.png#lightbox)
+  [![Log di controllo creare ops](media/workday-inbound-tutorial/wd_audit_logs_02.png)](media/workday-inbound-tutorial/wd_audit_logs_02.png#lightbox)
 
 Quando si fa clic su uno dei record relativi a log di controllo, verrà visualizzata la pagina **Activity Details** (Dettagli attività). Ecco ciò che mostra la pagina **Activity Details** (Dettagli attività) per ogni tipo di record di log.
 
@@ -1132,7 +1132,7 @@ Quando si fa clic su uno dei record relativi a log di controllo, verrà visualiz
 
 L'attributo manager è un attributo di riferimento in AD. Il servizio di provisioning non imposta l'attributo manager durante l'operazione di creazione dell'utente. Piuttosto l'attributo manager viene impostato come parte di un'operazione di *aggiornamento* dopo la creazione di account di AD per l'utente. Estendendo l'esempio precedente, si supponga che una nuova assunzione con ID dipendente "21451" venga attivata in Workday e che il manager del nuovo assunto (*21023*) abbia già un account AD. In questo scenario, la ricerca del log di controllo per l'utente 21451 mostra 5 voci.
 
-  [ ![Aggiornamento manager](media/workday-inbound-tutorial/wd_audit_logs_03.png) ](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
+  [![Gestione aggiornamenti](media/workday-inbound-tutorial/wd_audit_logs_03.png)](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
 
 I primi 4 record sono come quelli descritti come parte della creazione dell'utente. Il 5° record è l'esportazione associata aggiornamento dell'attributo manager. Il record del log mostra il risultato dell'operazione di aggiornamento manager dell'account AD, che viene eseguita usando l'attributo manager *objectGuid*.
 
@@ -1226,7 +1226,7 @@ A tale scopo, è necessario usare [Workday Studio](https://community.workday.com
 
 7. Impostare **Operation** (Operazione) su **Get_Workers**
 
-8.  Fare clic sul piccolo collegamento **configure** (configura) sotto i riquadri relativi a richiesta e risposta per impostare le credenziali di Workday. Selezionare **Authentication** (Autenticazione) e quindi immettere nome utente e password per l'account di sistema di integrazione di Workday. Assicurarsi di formattare il nome utente come name@tenant, lasciando l'opzione **WS-Security UsernameToken** (Oggetto UsernameToken WS-Security) selezionata.
+8.  Fare clic sul piccolo collegamento **configure** (configura) sotto i riquadri relativi a richiesta e risposta per impostare le credenziali di Workday. Selezionare **Authentication** (Autenticazione) e quindi immettere nome utente e password per l'account di sistema di integrazione di Workday. Assicurarsi di formattare il nome utente come nome\@del tenant e lasciare il **WS-Security UsernameToken** opzione selezionata.
 
     ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
 

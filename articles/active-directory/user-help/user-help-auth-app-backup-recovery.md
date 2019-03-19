@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3fc8ae7eac8d54e332d43925ede6ad690ae1dde
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9634e2578ea256d1dec71389f676ee53627e6272
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167831"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077769"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Eseguire il backup e il ripristino delle credenziali dell'account con l'app Microsoft Authenticator
 
@@ -27,8 +27,10 @@ ms.locfileid: "56167831"
 
 L'app Microsoft Authenticator esegue il backup delle credenziali dell'account e delle impostazioni delle app correlate, ad esempio l'ordine degli account, nel cloud. Al termine del backup, è anche possibile usare l'app per ripristinare le informazioni in un nuovo dispositivo, evitando potenzialmente di rimanere bloccati senza accesso al dispositivo o di dover ricreare gli account.
 
->[!IMPORTANT]
-> Sono necessari un account Microsoft personale e un account iCloud per ogni posizione di archiviazione di backup. All'interno di tale posizione di archiviazione, è però possibile eseguire il backup di vari account. Ad esempio, è possibile avere un account personale, un account dell'istituto di istruzione e un account di terze parti come Facebook, Google e così via.<br><br>Vengono archiviate solo le credenziali degli account personali e di terze parti, che includono il nome utente e il codice di verifica dell'account richiesto per dimostrare la propria identità. Non vengono archiviate altre informazioni associate agli account, inclusi messaggi di posta elettronica o file. Gli account non vengono inoltre associati o condivisi in alcun modo o con qualsiasi altro prodotto o servizio. Infine, l'amministratore IT non otterrà alcuna informazione riguardo a questi account.
+> [!IMPORTANT]
+> Sono necessari un account Microsoft personale e un account iCloud per ogni posizione di archiviazione di backup. All'interno di tale posizione di archiviazione, è però possibile eseguire il backup di vari account. Ad esempio, è possibile avere un account personale, un account dell'istituto di istruzione e un account di terze parti come Facebook, Google e così via.
+> 
+> Vengono archiviate solo le credenziali degli account personali e di terze parti, che includono il nome utente e il codice di verifica dell'account richiesto per dimostrare la propria identità. Non vengono archiviate altre informazioni associate agli account, inclusi messaggi di posta elettronica o file. Gli account non vengono inoltre associati o condivisi in alcun modo o con qualsiasi altro prodotto o servizio. Infine, l'amministratore IT non otterrà alcuna informazione riguardo a questi account.
 
 ## <a name="back-up-your-account-credentials"></a>Eseguire il backup delle credenziali dell'account
 Prima di poter eseguire il backup delle proprie credenziali, è necessario avare:
@@ -84,7 +86,7 @@ Per gli account Microsoft personali, è possibile provare la propria identità i
     ![App Microsoft Authenticator che consente di eseguire la scansione del codice a matrice](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >Per altre informazioni su come ottenere un codice a matrice, vedere [Introduzione all'app Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) o [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app), a seconda che l'amministratore abbia attivato o meno le informazioni di sicurezza.
+    >Per altre informazioni su come ottenere un codice a matrice, vedere [Introduzione all'app Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) o [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app), a seconda che l'amministratore abbia attivato o meno le informazioni di sicurezza.
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>Risoluzione dei problemi di backup e ripristino
 Esistono diversi motivi per cui il backup potrebbe non essere disponibile:
@@ -98,10 +100,12 @@ Esistono diversi motivi per cui il backup potrebbe non essere disponibile:
 -   **Account Microsoft Authenticator esistenti.** Se sono già stati configurati account nell'app Microsoft Authenticator, l'app non sarà in grado di recuperare gli account di backup. Impedendo il ripristino ci si assicura che i dettagli dell'account non vengano sovrascritti con informazioni non aggiornate. In questo caso, è necessario rimuovere eventuali informazioni sugli account esistenti dagli account esistenti configurati nell'app Authenticator prima di poter ripristinare il backup.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver eseguito il backup e il ripristino delle credenziali dell'account nel nuovo dispositivo, è possibile continuare a usare l'app Microsoft Authenticator per verificare l'identità.
+Dopo aver eseguito il backup e il ripristino delle credenziali dell'account nel nuovo dispositivo, è possibile continuare a usare l'app Microsoft Authenticator per verificare l'identità. Per altre informazioni, vedere [accedere agli account con l'app Microsoft Authenticator](user-help-sign-in.md).
 
 ## <a name="related-topics"></a>Argomenti correlati
-- [Introduzione all'app Microsoft Authenticator](user-help-auth-app-download-install.md)  
+
+- [Che cos'è l'app Microsoft Authenticator?](user-help-auth-app-overview.md)
+
 - [Domande frequenti sull'app Microsoft Authenticator](user-help-auth-app-faq.md)
 
 - [Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)

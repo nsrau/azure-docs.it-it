@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: adb9fb649d934d08ea546759bcf4733a1c6d9080
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: f78275af5faaf19a4993a5ae4414b0163f9a4d9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822749"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124151"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Elaborare set di dati su larga scala con Data Factory e Batch
 > [!NOTE]
@@ -26,9 +26,12 @@ ms.locfileid: "55822749"
 
 Questo articolo descrive l'architettura di una soluzione di esempio che sposta ed elabora set di dati su larga scala in modo automatico e pianificato. Viene descritta anche una procedura dettagliata end-to-end per implementare la soluzione tramite Data Factory e Azure Batch.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Questo articolo è più lungo dei nostri soliti articoli perché contiene la procedura dettagliata per un'intera soluzione di esempio. Se non si ha familiarità con Batch e Data Factory, sarà possibile ottenere altre informazioni su questi servizi e su come interagiscono. Se invece si conoscono già questi servizi e si sta progettando o creando una soluzione, è possibile concentrarsi sulla sezione relativa all'architettura dell'articolo. Se si sta sviluppando un prototipo o una soluzione, è possibile provare a seguire le istruzioni della procedura dettagliata. Microsoft invita gli utenti a inviare i loro commenti su questo contenuto e sulle relative modalità di impiego.
 
 In primo luogo si vedrà in che modo i servizi Data Factory e Batch possono essere utili per elaborare grandi set di dati nel cloud.     
+
 
 ## <a name="why-azure-batch"></a>Perché Azure Batch?
  Si può usare Batch per eseguire in modo efficiente applicazioni parallele e HPC (High Performance Computing) su larga scala nel cloud. Batch è un servizio di piattaforma che consente di pianificare il lavoro a elevato uso di calcolo da eseguire su una raccolta gestita di macchine virtuali. È possibile ridimensionare automaticamente le risorse di calcolo per soddisfare le esigenze dei processi.
@@ -40,7 +43,7 @@ Il servizio Batch consente di definire le risorse di calcolo di Azure per esegui
 * [Nozioni di base di Batch](../../batch/batch-technical-overview.md)
 * [Panoramica delle funzionalità Batch](../../batch/batch-api-basics.md)
 
-Facoltativamente, per altre informazioni su Batch, vedere [la documentazione di Batch](https://docs.microsoft.com/azure/batch/).
+Facoltativamente, per altre informazioni su Batch, vedere [documentazione di Batch](https://docs.microsoft.com/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>Perché Azure Data Factory?
 Data factory è un servizio di integrazione delle informazioni basato sul cloud che permette di automatizzare lo spostamento e la trasformazione dei dati. È possibile usare Data Factory per creare pipeline di dati gestiti che spostino i dati da archivi locali e su cloud a un archivio dati centralizzato. Un esempio è l'archivio BLOB di Azure. È possibile usare Data Factory per elaborare o trasformare dati tramite servizi come Azure HDInsight e Azure Machine Learning. È anche possibile pianificare le pipeline di dati per eseguire operazioni in modo pianificato (ad esempio con intervalli orari, giornalieri e settimanali). È possibile monitorare e gestire le pipeline in modo immediato per identificare i problemi e definire gli interventi necessari.
@@ -93,7 +96,7 @@ Se non si dispone di una sottoscrizione di Azure, è possibile creare un account
 Usare un account di archiviazione per archiviare i dati di questa esercitazione. Se non si dispone di un account di archiviazione, vedere [Create a storage account (Creare un account di archiviazione)](../../storage/common/storage-quickstart-create-account.md). La soluzione di esempio usa l'archivio BLOB.
 
 #### <a name="azure-batch-account"></a>Account Azure Batch
-Creare un account di Batch usando il [portale di Azure](http://portal.azure.com/). Per altre informazioni, vedere [Creare e gestire un account di Batch](../../batch/batch-account-create-portal.md). Annotare il nome dell'account di Batch e della relativa chiave. È possibile anche usare il cmdlet [New-AzureRmBatchAccount](https://docs.microsoft.com/powershell/module/azurerm.batch/new-azurermbatchaccount) per creare un account di Batch. Per istruzioni dettagliate sull'uso del cmdlet, vedere [Guida introduttiva ai cmdlet PowerShell di Batch](../../batch/batch-powershell-cmdlets-get-started.md).
+Creare un account di Batch usando il [portale di Azure](https://portal.azure.com/). Per altre informazioni, vedere [Creare e gestire un account di Batch](../../batch/batch-account-create-portal.md). Annotare il nome dell'account di Batch e della relativa chiave. È anche possibile usare la [New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) cmdlet per creare un account Batch. Per istruzioni dettagliate sull'uso del cmdlet, vedere [Guida introduttiva ai cmdlet PowerShell di Batch](../../batch/batch-powershell-cmdlets-get-started.md).
 
 Per elaborare i dati in modalità parallela in un pool di nodi di calcolo, ovvero una raccolta gestita di macchine virtuali, la soluzione di esempio usa Batch indirettamente tramite una pipeline di data factory.
 
@@ -201,7 +204,7 @@ public IDictionary<string, string> Execute(
 1. Importare nel progetto il pacchetto NuGet di **Archiviazione di Azure**. Questo pacchetto è necessario perché in questo esempio si usa l'API dell'archivio BLOB:
 
     ```powershell
-    Install-Package Azure.Storage
+    Install-Package Az.Storage
     ```
 1. Aggiungere le direttive seguenti al file di origine nel progetto:
 
@@ -799,8 +802,8 @@ In questo passaggio si crea una pipeline con un'attività, ovvero l'attività pe
    * La proprietà **linkedServiceName** dell'attività personalizzata punta ad **AzureBatchLinkedService** per indicare a Data Factory che l'attività personalizzata deve essere eseguita in Batch.
    * L'impostazione **concurrency** è importante. Se si usa il valore predefinito 1, le sezioni vengono elaborate una dopo l'altra, anche se sono disponibili 2 o più nodi di calcolo nel pool di Batch. In questo modo non si sfrutta la funzionalità di elaborazione parallela di Batch. Se si imposta **concurrency** su un valore superiore, ad esempio 2, potranno essere elaborate contemporaneamente due sezioni (corrispondenti a due attività in Batch). In questo caso vengono usate entrambe le macchine virtuali nel pool di Batch. Impostare quindi correttamente la proprietà concurrency.
    * Per impostazione predefinita, viene eseguita solo un'attività (sezione) in una VM in qualsiasi momento. Per impostazione predefinita, **Numero massimo attività per ogni macchina virtuale** è impostato su 1 per un pool di Batch. Come parte dei prerequisiti, è stato creato un pool con questa proprietà impostata su 2. Di conseguenza, sono eseguibili le sezioni di due data factory in una macchina virtuale nello stesso momento.
-    - La proprietà **isPaused** è impostata su false per impostazione predefinita. In questo esempio la pipeline viene eseguita immediatamente perché le sezioni hanno inizio nel passato. È possibile impostare questa proprietà su **true** per sospendere la pipeline e reimpostarla su **false** per riavviarla.
-    -   I tempi di **inizio** e **fine** sono distanti cinque ore. Le sezioni vengono generate ogni ora, in modo che la pipeline generi cinque sezioni.
+     - La proprietà **isPaused** è impostata su false per impostazione predefinita. In questo esempio la pipeline viene eseguita immediatamente perché le sezioni hanno inizio nel passato. È possibile impostare questa proprietà su **true** per sospendere la pipeline e reimpostarla su **false** per riavviarla.
+     -   I tempi di **inizio** e **fine** sono distanti cinque ore. Le sezioni vengono generate ogni ora, in modo che la pipeline generi cinque sezioni.
 
 1. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire la pipeline.
 
@@ -977,4 +980,4 @@ Dopo l'elaborazione dei dati, è possibile usarli con strumenti online come Powe
   * [Introduzione alla libreria client di Batch per .NET](../../batch/quick-run-dotnet.md)
 
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
-[batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
+[batch-explorer-walkthrough]: https://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx

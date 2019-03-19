@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 29050be7587f88ce7a1f5370f50dcfa1ecd68306
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: f26c8e670855513995463ffaaf7e49a8e00e35fa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990446"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57873792"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log tramite Monitoraggio di Azure
 
@@ -47,29 +47,29 @@ Di seguito è riportata una Guida dettagliata all'uso degli avvisi del log trami
 
 1. Definire la condizione dell'avviso tramite il collegamento **Seleziona risorsa** e specificare la destinazione selezionando una risorsa. Filtrare scegliendo la _Sottoscrizione_, il _Tipo di risorsa_ e infine la _Risorsa_ necessaria.
 
-    >[!NOTE]
-
-    > Prima di procedere, per creare un avviso relativo ai log verificare che il segnale di **log** sia disponibile per la risorsa selezionata.
-    ![Selezionare una risorsa](media/alerts-log/Alert-SelectResourceLog.png)
+   > [!NOTE]
+   > 
+   > Prima di procedere, per creare un avviso relativo ai log verificare che il segnale di **log** sia disponibile per la risorsa selezionata.
+   >  ![Selezionare una risorsa](media/alerts-log/Alert-SelectResourceLog.png)
 
 1. *Avvisi relativi ai log*: verificare che **Tipo di risorsa** sia un'origine dati di analisi come *Log Analytics* o *Application Insights* e un tipo di segnale **Log** quindi, dopo aver selezionato la **risorsa** appropriata, fare clic su *Operazione completata*. Usare quindi il pulsante **Aggiungi criteri** per visualizzare l'elenco delle opzioni di segnale disponibili per la risorsa e nell'elenco dei segnali selezionare l'opzione di **ricerca log personalizzata** per il servizio di monitoraggio del log scelto, ad esempio *Log Analytics* o *Application Insights*.
 
    ![Selezionare una risorsa - ricerca log personalizzata](media/alerts-log/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
-
+   > 
    > Avvisi può importare query di Analytics come tipo di segnale **Log (query salvata)**, come illustrato nella figura precedente. Gli utenti possono quindi perfezionare la query in Analytics e salvarla per uso futuri in Avvisi. Altri dettagli sull'uso del salvataggio di query sono disponibili in [Usare la ricerca log in Log Analytics](../../azure-monitor/log-query/log-query-overview.md) o in [Query condivisa in Analytics in Application Insights](../../azure-monitor/log-query/log-query-overview.md).
 
 1. *Avvisi relativi ai log*: una volta selezionata, la query per gli avvisi può essere immessa nel campo **Query di ricerca**. Se la sintassi della query non è corretta, nel campo viene visualizzato un errore in ROSSO. Se la sintassi della query è corretta, i dati cronologici della query specificata vengono visualizzati sotto forma di grafico come riferimento con un'opzione per modificare l'intervallo di tempo dalle ultime sei ore alla settimana precedente.
 
     ![Configurare una regola di avviso](media/alerts-log/AlertsPreviewAlertLog.png)
 
-    > [!NOTE]
-    
-    > La visualizzazione dei dati cronologici è possibile solo se i risultati della query includono dettagli temporali. Se la query restituisce dati di riepilogo o specifici valori di colonna, questi dati vengono visualizzati come tracciato singolo.
-    > Per il tipo di avvisi di log Unità di misura della metrica in cui viene usato Application Insights o [la nuova API](alerts-log-api-switch.md), è possibile indicare la variabile specifica per raggruppare i dati con l'opzione **Aggrega in base a**, come illustrato di seguito:
-    >
-    > ![opzione aggrega in base a](media/alerts-log/aggregate-on.png)
+   > [!NOTE]
+   > 
+   > La visualizzazione dei dati cronologici è possibile solo se i risultati della query includono dettagli temporali. Se la query restituisce dati di riepilogo o specifici valori di colonna, questi dati vengono visualizzati come tracciato singolo.
+   > Per il tipo di avvisi di log Unità di misura della metrica in cui viene usato Application Insights o [la nuova API](alerts-log-api-switch.md), è possibile indicare la variabile specifica per raggruppare i dati con l'opzione **Aggrega in base a**, come illustrato di seguito:
+   > 
+   > ![opzione aggrega in base a](media/alerts-log/aggregate-on.png)
 
 1. *Avvisi relativi ai log*: Con la visualizzazione impostata, è possibile selezionare **Logica avvisi** dalle opzioni visualizzate: Condizione, Aggregazione e infine Soglia. Specificare l'ora in cui valutare la condizione specificata nella logica tramite l'opzione **Periodo**. Specificare la frequenza con cui l'avviso deve essere eseguito selezionando **Frequenza**. Gli **avvisi di log** possono basarsi su:
     - [Numero di record](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules): viene creato un avviso se il numero di record restituiti dalla query è maggiore o minore del valore specificato.
@@ -102,9 +102,9 @@ Di seguito è riportata una Guida dettagliata all'uso degli avvisi del log trami
 
 1. Se tutti i campi sono validi e hanno un segno di spunta verde, il pulsante **Crea regola di avviso** può essere selezionato e viene creato un avviso in Monitoraggio di Azure - Avvisi. Tutti gli avvisi possono essere visualizzati nella dashboard di Avvisi.
 
-    ![Creazione di regole](media/alerts-log/AlertsPreviewCreate.png)
+     ![Creazione di regole](media/alerts-log/AlertsPreviewCreate.png)
 
-    Dopo pochi minuti l'avviso è funzionante e si attiva come descritto in precedenza.
+     Dopo pochi minuti l'avviso è funzionante e si attiva come descritto in precedenza.
 
 Gli utenti possono anche finalizzare le query di analisi in [Log Analytics](../log-query/portals.md) e quindi eseguirne il push per creare un avviso tramite il pulsante "Imposta avviso", quindi seguendo le istruzioni dal passaggio 6 nell'esercitazione precedente.
 
@@ -205,7 +205,7 @@ Di seguito viene riportata la struttura per la [creazione di regole di query pia
 ```
 
 > [!IMPORTANT]
-> Il campo di tag con il collegamento nascosto alla risorsa di destinazione è obbligatorio se si usa la chiamata API per le [regole di query pianificate](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) o il modello di risorse.
+> Il campo tag con nascosto collegamento a risorsa di destinazione è obbligatorio in uso del [regole di Query pianificata](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) modello di chiamata o la risorsa API.
 
 Per usare il codice JSON di esempio in questa procedura dettagliata, è possibile salvarlo con il nome sampleScheduledQueryRule.json. Può essere distribuito usando [Azure Resource Manager nel portale di Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
@@ -217,7 +217,7 @@ Di seguito viene riportata la struttura per la [creazione di regole di query pia
 ```json
 
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
     },
@@ -304,34 +304,35 @@ Di seguito viene riportata la struttura per la [creazione di regole di query pia
 ```
 
 > [!IMPORTANT]
-> Il campo di tag con il collegamento nascosto alla risorsa di destinazione è obbligatorio se si usa la chiamata API per le [regole di query pianificate](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) o il modello di risorse. Quando si usano query tra risorse in un avviso di log, l'uso di [authorizedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) è obbligatorio e l'utente deve avere accesso all'elenco delle risorse indicate.
+> Il campo tag con nascosto collegamento a risorsa di destinazione è obbligatorio in uso del [regole di Query pianificata](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) modello di chiamata o la risorsa API. Quando si usano query tra risorse in un avviso di log, l'uso di [authorizedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) è obbligatorio e l'utente deve avere accesso all'elenco delle risorse indicate.
 
 Per usare il codice JSON di esempio in questa procedura dettagliata, è possibile salvarlo con il nome sampleScheduledQueryRule.json. Può essere distribuito usando [Azure Resource Manager nel portale di Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
 ## <a name="managing-log-alerts-using-powershell-cli-or-api"></a>Gestione degli avvisi del log tramite PowerShell, CLI o API
 
-L'[API delle regole di query pianificate in Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) è un'API REST completamente compatibile con l'API REST di Azure Resource Manager. Può pertanto essere usata con il cmdlet di Resource Manager tramite Powershell e l'interfaccia della riga di comando di Azure.
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+L'API Regole di query pianificate in Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) è un'API REST completamente compatibile con l'API REST di Azure Resource Manager. Può pertanto essere usata con il cmdlet di Resource Manager tramite Powershell e l'interfaccia della riga di comando di Azure.
+
 
 > [!NOTE]
 > Gli avvisi dei log per Log Analytics possono essere gestiti anche usando l'[API degli avvisi di Log Analytics](../../azure-monitor/platform/api-alerts.md) legacy e i modelli legacy di [avvisi e di ricerche salvate di Log Analytics](../../azure-monitor/insights/solutions-resources-searches-alerts.md). Per altre informazioni sull'uso della nuova API ScheduledQueryRules illustrata qui in dettaglio per impostazione predefinita, vedere [Passare alla nuova API per gli avvisi di Log Analytics](alerts-log-api-switch.md).
 
+Gli avvisi del log attualmente non sono disponibili i comandi di PowerShell o CLI dedicati attualmente; ma come illustrato di seguito può essere usato tramite cmdlet di PowerShell per Azure Resource Manager di esempio di modello di risorse indicato in precedenza (sampleScheduledQueryRule.json) nella sezione del modello di risorsa:
 
-Gli avvisi dei log non hanno attualmente comandi di PowerShell o dell'interfaccia della riga di comando dedicati, ma, come illustrato di seguito, possono essere usati tramite il cmdlet di Azure Resource Manager in PowerShell per il modello di risorsa di esempio riportato in precedenza (sampleScheduledQueryRule.json) nella sezione Modello di risorsa:
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
+New-AzResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
 ```
 
 Di seguito viene illustrato l'utilizzo tramite il comando di Azure Resource Manager nell'interfaccia della riga di comando di Azure per il modello di risorsa di esempio riportato in precedenza (sampleScheduledQueryRule.json) nella sezione Modello di risorsa:
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json
-```
+On successful operation, 201 will be returned to state new alert rule creation or 200 will be returned if an existing alert rule was modified.
 
-Se l'operazione è stata eseguita correttamente, sarà restituito il valore 201 a indicare la creazione della nuova regola di avviso. Se invece è stata modificata una regola di avviso esistente, sarà restituito il valore 200.
+## Next steps
 
-## <a name="next-steps"></a>Passaggi successivi
-
-* Informazioni sugli [avvisi del log in Avvisi di Azure](../../azure-monitor/platform/alerts-unified-log.md)
-* Comprendere le [azioni webhook per gli avvisi del log](../../azure-monitor/platform/alerts-log-webhook.md)
-* Altre informazioni su [Application Insights](../../azure-monitor/app/analytics.md)
-* Altre informazioni su [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+* Learn about [Log Alerts in Azure Alerts](../../azure-monitor/platform/alerts-unified-log.md)
+* Understand [Webhook actions for log alerts](../../azure-monitor/platform/alerts-log-webhook.md)
+* Learn more about [Application Insights](../../azure-monitor/app/analytics.md)
+* Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).

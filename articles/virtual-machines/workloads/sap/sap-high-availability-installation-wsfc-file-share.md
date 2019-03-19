@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2fa9cebe092f726b2df3dec99cee1bb97ccc92dc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 4f9628be1d1f1d146ed0dbc5ebd9579f0512aeac
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658656"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997372"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Installare la disponibilità elevata di SAP NetWeaver in un cluster di failover Windows e condivisione file per le istanze di SAP ASCS/SCS in Azure
 
@@ -48,7 +48,7 @@ ms.locfileid: "34658656"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -203,7 +203,7 @@ Questo articolo descrive la procedura di installazione e configurazione di un si
 
 Prima di iniziare l'installazione, esaminare gli articoli seguenti:
 
-* [Architecture guide: Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a file share][sap-high-availability-guide-wsfc-file-share](Guida all'architettura: clustering di un'istanza di SAP ASCS/SCS in un cluster di failover Windows che usa una condivisione file)
+* [Guida all'architettura: Clustering di un'istanza di SAP ASCS/SCS in un cluster di failover Windows tramite condivisione file][sap-high-availability-guide-wsfc-file-share]
 
 * [Preparare l'infrastruttura di Azure per la disponibilità elevata di SAP usando un cluster di failover Windows e condivisione file per le istanze di SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-file-share]
 
@@ -211,7 +211,7 @@ Sono necessari i seguenti file eseguibili e DLL di SAP:
 * Strumento di installazione SAP Software Provisioning Manager (SWPM), versione SPS21 o versione successiva.
 * Scaricare l'archivio NTCLUST.SAR più recente con la nuova DLL della risorsa cluster di SAP. La nuova DLL del cluster SAP supporta la disponibilità elevata di SAP ASCS/SCS con la condivisione file in Windows Server Failover Cluster.
 
-  Per altre informazioni sulla nuova DLL della risorsa cluster SAP vedere questo blog: [New SAP cluster resource DLL is available][sap-blog-new-sap-cluster-resource-dll] (È disponibile la nuova DLL della risorsa cluster di SAP.)
+  Per altre informazioni sulla risorsa cluster SAP nuova DLL, vedere questo blog: [Nuova risorsa di cluster SAP DLL è disponibile. ][sap-blog-new-sap-cluster-resource-dll].
 
 La configurazione del sistema Database Management System (DBMS) non viene descritta perché varia a seconda del sistema DBMS usato. Si presuppone tuttavia che i problemi di disponibilità elevata del sistema DBMS vengano risolti con le funzionalità supportate dai diversi fornitori di sistemi DBMS per Azure, ad esempio Gruppi di disponibilità AlwaysOn o mirroring del database per SQL Server e Oracle Data Guard per database Oracle. Nello scenario usato in questo articolo, non sono state aggiunte altre funzionalità di protezione per il sistema DBMS.
 
@@ -425,9 +425,9 @@ Import-Module C:\tmp\SAPScripts.psm1
 Update-SAPASCSSCSProfile -PathToAscsScsInstanceProfile \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_ascs-1 -NewASCSHostName pr1-ascs -NewSAPGlobalHostName sapglobal -Verbose  
 ```
 
-![Figura 1: output di SAPScripts.psm1][sap-ha-guide-figure-8012]
+![Figura 1: Output di SAPScripts.psm1][sap-ha-guide-figure-8012]
 
-_**Figura 1**: output di SAPScripts.psm1_
+_**Figura 1**: Output di SAPScripts.psm1_
 
 ## <a name="update-the-sidadm-user-environment-variable"></a>Aggiornare la variabile di ambiente dell'utente \<sid>adm
 

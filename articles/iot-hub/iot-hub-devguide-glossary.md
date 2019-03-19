@@ -1,19 +1,19 @@
 ---
 title: Glossario dei termini dell'hub IoT di Azure | Documentazione Microsoft
 description: Guida per sviluppatori - Glossario dei termini comuni relativi all'hub IoT di Azure.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.author: dobett
-ms.openlocfilehash: d815f980a0583058957b7d87b6c99df59e9a4821
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: ac7043d2967fcf3f083c09622c39f4649f04f6e7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817382"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551671"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossario dei termini relativi all'hub IoT
 Questo articolo elenca alcuni dei termini comuni usati negli articoli su Hub IoT.
@@ -97,7 +97,7 @@ Nell'ambito di un [dispositivo gemello](iot-hub-devguide-device-twins.md), le pr
 Si riferisce ai messaggi inviati da un dispositivo connesso a [Hub IoT](#iot-hub). Questi messaggi potrebbero essere di [punto dati](#data-point-message) o [interattivi](#interactive-message). Per altre informazioni, vedere [Inviare e ricevere messaggi con l'hub IoT](iot-hub-devguide-messaging.md).
 
 ## <a name="device"></a>Dispositivo
-Nel contesto di IoT, un dispositivo è in genere un dispositivo di elaborazione autonomo e su scala ridotta, che potrebbe raccogliere dati o controllare altri dispositivi. Ad esempio, un dispositivo potrebbe essere un sistema di monitoraggio ambientale o un controller per i sistemi di irrigazione e ventilazione in una serra. Il [catalogo dei dispositivi](https://catalog.azureiotsuite.com/) contiene un elenco di dispositivi hardware certificati da usare con [hub IoT](#iot-hub).
+Nel contesto di IoT, un dispositivo è in genere un dispositivo di elaborazione autonomo e su scala ridotta, che potrebbe raccogliere dati o controllare altri dispositivi. Ad esempio, un dispositivo potrebbe essere un sistema di monitoraggio ambientale o un controller per i sistemi di irrigazione e ventilazione in una serra. Il [catalogo dei dispositivi](https://catalog.azureiotsolutions.com/) contiene un elenco di dispositivi hardware certificati da usare con [hub IoT](#iot-hub).
 
 ## <a name="device-app"></a>App per dispositivi
 Un'app per dispositivi viene eseguita nel [dispositivo](#device) e gestisce la comunicazione con l'[hub IoT](#iot-hub). In genere si usa uno degli [Azure IoT SDK per dispositivi](#azure-iot-device-sdks) quando si implementa un'app per dispositivi. In diverse esercitazioni su IoT si usa un [dispositivo simulato](#simulated-device) per praticità.
@@ -191,7 +191,7 @@ L'identità del modulo è l'identificatore univoco assegnato a ogni modulo appar
 Simile a un dispositivo gemello, un modulo gemello è un documento JSON nel quale vengono archiviate informazioni sullo stato dei moduli, ad esempio metadati, configurazioni e condizioni. L'hub IoT rende persistente un modulo gemello per ogni identità di modulo di cui si esegue il provisioning in un'identità di dispositivo nell'hub IoT. I moduli gemelli consentono di sincronizzare le configurazioni e le condizioni del modulo tra il modulo stesso e il back-end della soluzione. È possibile effettuare una query sui moduli gemelli per individuare moduli specifici ed effettuare query sullo stato delle operazioni a esecuzione prolungata.
 
 ## <a name="mqtt"></a>MQTT
-[MQTT](http://mqtt.org/) è uno dei protocolli di messaggistica supportati da [Hub IoT](#iot-hub) per la comunicazione con i dispositivi. Per altre informazioni sui protocolli di messaggistica supportati dall'hub IoT, vedere [Inviare e ricevere messaggi con l'hub IoT](iot-hub-devguide-messaging.md).
+[MQTT](https://mqtt.org/) è uno dei protocolli di messaggistica supportati da [Hub IoT](#iot-hub) per la comunicazione con i dispositivi. Per altre informazioni sui protocolli di messaggistica supportati dall'hub IoT, vedere [Inviare e ricevere messaggi con l'hub IoT](iot-hub-devguide-messaging.md).
 
 ## <a name="operations-monitoring"></a>Monitoraggio delle operazioni
 Il [monitoraggio delle operazioni](iot-hub-operations-monitoring.md) di Hub IoT consente di monitorare lo stato delle operazioni nel proprio hub IoT in tempo reale. L'[hub IoT](#iot-hub) tiene traccia degli eventi nelle diverse categorie di operazioni. È possibile scegliere di impostare l'invio di eventi da una o più categorie a un endpoint di Hub IoT per l'elaborazione. È possibile monitorare i dati per individuare gli errori o configurare un'elaborazione più complessa in base ai modelli di dati.

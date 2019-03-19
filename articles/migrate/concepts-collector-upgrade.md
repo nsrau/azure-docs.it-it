@@ -4,15 +4,15 @@ description: L'articolo contiene informazioni sugli aggiornamenti per l'applianc
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 03/13/2019
 ms.author: hamusa
 services: azure-migrate
-ms.openlocfilehash: f29556c8f2a5aa727ce80632eaccf5e1ed6d7c1a
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: d7a9a6cb8683116b9e0c432c2aede2b8df3ddc68
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415545"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895621"
 ---
 # <a name="collector-update-release-history"></a>Cronologia delle versioni di aggiornamento dell'agente di raccolta
 
@@ -22,7 +22,17 @@ Agente di raccolta di Azure Migrate è un'appliance leggera usata per individuar
 
 ## <a name="continuous-discovery-upgrade-versions"></a>Individuazione continua: Versioni di aggiornamento
 
-Non è ancora disponibile alcun aggiornamento per l'appliance di individuazione continua.
+### <a name="version-101012-released-on-03132019"></a>Versione 1.0.10.12 (rilasciato 03/13/2019)
+
+Contiene correzioni per problemi in Azure selezionando il nell'appliance cloud.
+
+Hash di valori per l'aggiornamento [1.0.10.12 del pacchetto](https://aka.ms/migrate/col/upgrade_10_12)
+
+**Algoritmo** | **Valore hash**
+--- | ---
+MD5 | 27704154082344c058238000dff9ae44
+SHA1 | 41e9e2fb71a8dac14d64f91f0fd780e0d606785e
+SHA256 | c6e7504fcda46908b636bfe25b8c73f067e3465b748f77e50027e66f2727c2a9
 
 ## <a name="one-time-discovery-deprecated-now-previous-upgrade-versions"></a>Individuazione una tantum (ora deprecata): Versioni di aggiornamento precedenti
 

@@ -12,26 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 02/18/2019
 ms.author: celested
-ms.reviewer: asteen
+ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45c6c217da21ff0d1b1168f61c7920328295c5d1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 225676b144d042c51a97fe14a20a5a78f0a77244
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217973"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013083"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemi di accesso a un'applicazione della raccolta configurata per il Single Sign-On federato
 
-Per risolvere il problema, è necessario verificare la configurazione dell'applicazione in Azure AD come segue:
+Per risolvere i problemi di accesso riportato di seguito, è consigliabile che seguire questi suggerimenti per ottenere una diagnosi migliore e automatizzare i passaggi di risoluzione:
 
--   Assicurarsi di aver seguito tutti i passaggi di configurazione per l'applicazione nella raccolta di AD Azure.
+- Installare il [My App Secure Browser Extension](access-panel-extension-problem-installing.md) per Azure Active Directory (Azure AD) per fornire diagnosi migliore e le soluzioni quando si usa il test di esperienza nel portale di Azure.
+- Riprodurre l'errore usando l'esperienza di test nella pagina di configurazione di app nel portale di Azure. Altre informazioni, vedere [basato su SAML con il Debug di applicazioni single sign-on](../develop/howto-v1-debug-saml-sso-issues.md)
 
--   Controllare che l'identificatore e l'URL di risposta configurati in AAD corrispondano ai valori previsti nell'applicazione
-
--   Verificare che siano stati assegnati utenti all'applicazione
 
 ## <a name="application-not-found-in-directory"></a>Applicazione non trovata nella directory
 
@@ -39,68 +37,63 @@ Per risolvere il problema, è necessario verificare la configurazione dell'appli
 
 **Causa possibile**
 
-L'attributo Issuer inviato dall'applicazione ad Azure AD nella richiesta SAML non corrisponde al valore di identificatore configurato nell'applicazione di Azure AD.
+Il `Issuer` attributo inviata dall'applicazione ad Azure AD nella richiesta SAML non corrisponde al valore di identificatore configurato per l'applicazione in Azure AD.
 
 **Risoluzione**
 
-Assicurarsi che l'attributo Issuer nella richiesta SAML corrisponda al valore di identificatore configurato in Azure AD:
+Verificare che il `Issuer` attributo nella richiesta SAML corrisponde al valore di identificatore configurato in Azure AD. Se si usa la [esperienza di test](../develop/howto-v1-debug-saml-sso-issues.md) nel portale di Azure con l'estensione di App di Secure Browser personali, non è necessario eseguire manualmente la procedura.
 
 1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
+1.  Aprire il **estensione Azure Active Directory** selezionando **tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+1.  Tipo di **"Azure Active Directory"** nella casella di ricerca filtro e selezionare il **Azure Active Directory** elemento.
 
-4.  Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
+1.  Selezionare **applicazioni aziendali** dal menu di navigazione a sinistra di Azure Active Directory.
 
-5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+1.  Selezionare **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-  * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+    Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 
-6.  Selezionare l'applicazione per cui si vuole configurare un accesso Single Sign-On
+1.  Selezionare l'applicazione che si vuole configurare con l'accesso Single Sign-On.
 
-7.  Dopo il caricamento dell'applicazione, fare clic su **Single Sign-On** nel menu di spostamento di sinistra dell'applicazione.
+1.  Dopo aver caricato l'applicazione, aprire **configurazione SAML base**. Verificare che il valore nella casella di testo identificatore corrisponde al valore per il valore dell'identificatore visualizzato nel messaggio di errore.
 
-8.  Passare alla sezione **URL e dominio**. Verificare che il valore nella casella di testo dell'identificatore corrisponda al valore dell'identificatore visualizzato nel messaggio di errore.
 
-Dopo aver aggiornato il valore dell'identificatore in Azure AD in modo che corrisponda al valore inviato dall'applicazione nella richiesta SAML, dovrebbe essere possibile accedere all'applicazione.
 
-## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>L'indirizzo di risposta non corrisponde agli indirizzi di risposta configurati per l'applicazione.
+## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>L'indirizzo per la risposta non corrisponde agli indirizzi per le risposte configurati per l'applicazione
 
 *Error AADSTS50011: The reply address ‘https://contoso.com’ does not match the reply addresses configured for the application* (Errore AADSTS50011: l'indirizzo di risposta "https://contoso.com" non corrisponde agli indirizzi di risposta configurati per l'applicazione)
 
 **Causa possibile**
 
-Il valore AssertionConsumerServiceURL nella richiesta SAML non corrisponde al valore o al modello dell'URL di risposta configurato in Azure AD. Il valore AssertionConsumerServiceURL nella richiesta SAML è l'URL visualizzato nel messaggio di errore.
+Il `AssertionConsumerServiceURL` valore nella richiesta SAML non corrisponde il valore URL di risposta o il modello configurato in Azure AD. Il `AssertionConsumerServiceURL` valore nella richiesta SAML è l'URL che viene visualizzato l'errore.
 
 **Risoluzione**
 
-Assicurare che il valore AssertionConsumerServiceURL nella richiesta SAML corrisponda al valore dell'URL di risposta configurato in Azure AD.
+Verificare che il `AssertionConsumerServiceURL` valore nella richiesta SAML corrisponde al valore di URL di risposta configurato in Azure AD. Se si usa la [esperienza di test](../develop/howto-v1-debug-saml-sso-issues.md) nel portale di Azure con l'estensione di App di Secure Browser personali, non è necessario eseguire manualmente la procedura.
 
 1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
+1.  Aprire il **estensione Azure Active Directory** selezionando **tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+1.  Tipo di **"Azure Active Directory"** nella casella di ricerca filtro e selezionare il **Azure Active Directory** elemento.
 
-4.  Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
+1.  Selezionare **applicazioni aziendali** dal menu di navigazione a sinistra di Azure Active Directory.
 
-5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+1.  Selezionare **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-  * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+    Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 
-6.  Selezionare l'applicazione per cui si vuole configurare un accesso Single Sign-On
+1.  Selezionare l'applicazione che si vuole configurare con l'accesso Single Sign-On.
 
-7.  Dopo il caricamento dell'applicazione, fare clic su **Single Sign-On** nel menu di spostamento di sinistra dell'applicazione.
-
-8.  Passare alla sezione **URL e dominio**. Verificare o aggiornare il valore nella casella di testo URL di risposta in modo che corrisponda al valore AssertionConsumerServiceURL nella richiesta SAML.  
-    * Se non viene visualizzata la casella di testo URL di risposta, selezionare la casella **Mostra impostazioni URL avanzate**.
-
-Dopo aver aggiornato il valore dell'URL di risposta in Azure AD in modo che corrisponda al valore inviato dall'applicazione nella richiesta SAML, dovrebbe essere possibile accedere all'applicazione.
+1.  Dopo aver caricato l'applicazione, aprire **configurazione SAML base**. Verificare o aggiornare il valore nella casella di testo URL di risposta in modo che corrisponda il `AssertionConsumerServiceURL` valore nella richiesta SAML.    
+    
+Dopo avere aggiornato il valore URL di risposta di Azure AD e corrisponde al valore inviato dall'applicazione nella richiesta SAML, è necessario essere in grado di accedere all'applicazione.
 
 ## <a name="user-not-assigned-a-role"></a>All'utente non è stato assegnato un ruolo
 
-*Error AADSTS50105: The signed in user 'brian@contoso.com' is not assigned to a role for the application* (Errore AADSTS50105: nessun ruolo assegnato all'utente che ha eseguito l'accesso "brian@contoso.com" per l'applicazione).
+*Error AADSTS50105: L'utente connesso ' brian\@contoso.com' non è assegnato a un ruolo per l'applicazione*.
 
 **Causa possibile**
 
@@ -108,124 +101,93 @@ L'utente non ha ottenuto l'accesso all'applicazione in Azure AD.
 
 **Risoluzione**
 
-Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa procedura:
+Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa procedura. Se si usa la [esperienza di test](../develop/howto-v1-debug-saml-sso-issues.md) nel portale di Azure con l'estensione di App di Secure Browser personali, non è necessario eseguire manualmente la procedura.
 
 1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
 
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
+1.  Aprire il **estensione Azure Active Directory** selezionando **tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+1.  Tipo di **"Azure Active Directory**" nella casella di ricerca filtro e selezionare il **Azure Active Directory** elemento.
 
-4.  Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
+1.  Selezionare **applicazioni aziendali** dal menu di navigazione a sinistra di Azure Active Directory.
 
-5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+1.  Selezionare **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-  * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+    Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 
-6.  Selezionare nell'elenco l'applicazione che si vuole assegnare a un utente.
+1.  Dall'elenco delle applicazioni, selezionare quella che si desidera assegnare a un utente.
 
-7.  Dopo il caricamento dell'applicazione, fare clic su **Utenti e gruppi** nel menu di spostamento di sinistra dell'applicazione.
+1.  Dopo il caricamento dell'applicazione, selezionare **utenti e gruppi** dal menu di navigazione a sinistra dell'applicazione.
 
-8.  Fare clic sul pulsante **Aggiungi** nella parte superiore dell'elenco **Utenti e gruppi** per aprire il riquadro **Aggiungi assegnazione**.
+1.  Fare clic sul pulsante **Aggiungi** nella parte superiore dell'elenco **Utenti e gruppi** per aprire il riquadro **Aggiungi assegnazione**.
 
-9.  Fare clic sul selettore **Utenti e gruppi** nel riquadro **Aggiungi assegnazione**.
+1.  Fare clic sul selettore **Utenti e gruppi** nel riquadro **Aggiungi assegnazione**.
 
-10. Nella casella di ricerca **Cerca per nome o indirizzo di posta** digitare il **nome completo**  o l'**indirizzo di posta elettronica** dell'utente oggetto dell'assegnazione.
+1. Nel **Cerca per nome o indirizzo di posta** casella di ricerca, digitare il nome completo o posta elettronica dell'utente che si desidera aggiungere.
 
-11. Passare il puntatore sull'**utente** nell'elenco per visualizzare una **casella di controllo**. Fare clic sulla casella di controllo accanto alla foto o al logo del profilo dell'utente per aggiungere l'utente all'elenco **Selezionato**.
+1. Passare il puntatore sull'**utente** nell'elenco per visualizzare una **casella di controllo**. Selezionare la casella di controllo accanto alla foto del profilo dell'utente o il logo per aggiungere l'utente per il **Selected** elenco.
 
-12. **Facoltativo:** se si vuole **aggiungere più di un utente**, digitare un altro **nome completo** o **indirizzo di posta elettronica** nella casella di ricerca **Cerca per nome o indirizzo di posta** e fare clic sulla casella di controllo per aggiungere l'utente all'elenco **Selezionati**.
+1. **Facoltativo:** Se si vuole **aggiungere più di un utente**, digitare un altro nome completo o nell'indirizzo di posta elettronica il **Cerca per nome o indirizzo di posta** casella di ricerca e fare clic sulla casella di controllo per aggiungere l'utente di **selezionati**  elenco.
 
-13. Dopo avere selezionato gli utenti, fare clic sul pulsante **Seleziona** per aggiungerli all'elenco di utenti e gruppi da assegnare all'applicazione.
+1. Al termine della selezione utenti, scegliere il **seleziona** sul pulsante per aggiungerli all'elenco di utenti e gruppi da assegnare all'applicazione.
 
-14. **Facoltativo:** fare clic sul selettore **Seleziona ruolo** nel riquadro **Aggiungi assegnazione** per scegliere un ruolo da assegnare agli utenti selezionati.
+1. **Facoltativo:** Fare clic sui **selezionare il ruolo** selettore nel **Aggiungi assegnazione** riquadro per selezionare un ruolo da assegnare agli utenti selezionati.
 
-15. Fare clic sul pulsante **Assegna** per assegnare l'applicazione agli utenti selezionati.
+1. Fare clic sul pulsante **Assegna** per assegnare l'applicazione agli utenti selezionati.
 
 Dopo un breve periodo di tempo, gli utenti selezionati potranno avviare queste applicazioni usando i metodi illustrati nella sezione Descrizione della soluzione.
 
-## <a name="not-a-valid-saml-request"></a>La richiesta non è un messaggio SAML valido
+## <a name="not-a-valid-saml-request"></a>Richiesta SAML non valido
 
 *Error AADSTS75005: The request is not a valid Saml2 protocol message.* (Errore AADSTS75005: la richiesta non è un messaggio del protocollo Saml2 valido.)
 
 **Causa possibile**
 
-Azure AD non supporta la richiesta di SAML inviata dall'applicazione per il Single Sign-On. Alcuni problemi comuni sono:
+Azure AD non supporta la richiesta SAML inviata dall'applicazione per l'accesso single sign-on. Alcuni problemi comuni sono:
 
 -   Campi obbligatori mancanti nella richiesta SAML
-
 -   Metodo codificato della richiesta SAML
 
 **Risoluzione**
 
-1.  Acquisire la richiesta SAML. Per informazioni su come acquisire la richiesta SAML, seguire l'esercitazione [Come eseguire il debug di single sign-on basato su SAML per applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging).
+1. Acquisire la richiesta SAML. Seguire l'esercitazione [come eseguire il debug basato su SAML single sign-on alle applicazioni in Azure AD](../develop/howto-v1-debug-saml-sso-issues.md) per informazioni su come acquisire la richiesta SAML.
 
-2.  Contattare il fornitore dell'applicazione e condividere:
+1. Contattare il fornitore dell'applicazione e condividere le informazioni seguenti:
 
    -   Richiesta SAML
 
-   -   [Requisiti del protocollo SAML per Single Sign-On di Azure](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference)
+   -   [Requisiti del protocollo SAML per Single Sign-On di Azure](../develop/single-sign-on-saml-protocol.md)
 
-Il fornitore dovrebbe confermare di supportare l'implementazione del protocollo SAML di Azure AD SAML per il Single Sign-on.
+Il fornitore dell'applicazione deve convalidare che supportano l'implementazione di Azure AD SAML per single sign-on.
 
-## <a name="no-resource-in-requiredresourceaccess-list"></a>Nessuna risorsa nell'elenco requiredResourceAccess
+## <a name="misconfigured-application"></a>Applicazione non configurato correttamente
 
-*Error AADSTS65005:The client application has requested access to resource '00000002-0000-0000-c000-000000000000'. This request has failed because the client has not specified this resource in its requiredResourceAccess list. (Errore: l'applicazione client ha richiesto l'accesso alla risorsa '00000002-0000-0000-c000-000000000000'. La richiesta ha avuto esito negativo perché il client non ha specificato questa risorsa nell'elenco requiredResourceAccess)*.
+*Errore AADSTS650056: Applicazione non configurato correttamente. L'inconveniente potrebbe essere causato da uno dei motivi seguenti: Il client non è elencate tutte le autorizzazioni per 'Ad AAD Graph' le autorizzazioni necessarie nella registrazione dell'applicazione del client. In alternativa, l'amministratore non ha concesso il consenso nel tenant. In alternativa, selezionare l'identificatore dell'applicazione nella richiesta per garantire che corrisponde all'identificatore di applicazione client configurato. Contattare l'amministratore per correggere la configurazione o fornire il consenso per conto del tenant.* .
 
 **Causa possibile**
 
-L'oggetto applicazione è danneggiato.
+Il `Issuer` attributo inviata dall'applicazione ad Azure AD nella richiesta SAML non corrisponde al valore di identificatore configurato per l'applicazione in Azure AD.
 
-**Risoluzione: opzione 1**
+**Risoluzione**
 
-Per risolvere il problema, aggiungere il valore dell'identificatore univoco nella configurazione di Azure AD. Per aggiungere un valore dell'identificatore, seguire questa procedura:
-
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
-
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
-
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
-
-4.  Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
-
-5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
-
-  * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
-
-6.  Selezionare l'applicazione per cui è stato configurato l'accesso Single Sign-On.
-
-7.  Dopo il caricamento dell'applicazione, fare clic su **Single Sign-On** nel menu di spostamento di sinistra dell'applicazione.
-
-8.  Nella sezione **URL e dominio** controllare **Mostra impostazioni URL avanzate**.
-
-9.  Nel casella di testo **Identificatore** digitare un identificatore univoco per l'applicazione.
-
-10. **Salvare** la configurazione.
-
-
-**Risoluzione: opzione 2**
-
-Se l'opzione 1 precedente non risolve il problema, provare a rimuovere l'applicazione dalla directory. e quindi aggiungerla e riconfigurarla seguendo questa procedura:
+Verificare che il `Issuer` attributo nella richiesta SAML corrisponde al valore di identificatore configurato in Azure AD. Se si usa la [esperienza di test](../develop/howto-v1-debug-saml-sso-issues.md) nel portale di Azure con l'estensione di App di Secure Browser personali, non è necessario eseguire manualmente questi passaggi:
 
 1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
+1.  Aprire il **estensione Azure Active Directory** selezionando **tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+1.  Tipo di **"Azure Active Directory"** nella casella di ricerca filtro e selezionare il **Azure Active Directory** elemento.
 
-4.  Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
+1.  Selezionare **applicazioni aziendali** dal menu di navigazione a sinistra di Azure Active Directory.
 
-5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+1.  Selezionare **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-  * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+    Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 
-6.  Selezionare l'applicazione per cui si vuole configurare un accesso Single Sign-On
+1.  Selezionare l'applicazione che si vuole configurare con l'accesso Single Sign-On.
 
-7.  Fare clic su **Elimina** in alto a sinistra del riquadro **Panoramica** dell'applicazione.
+1.  Dopo aver caricato l'applicazione, aprire **configurazione SAML base**. Verificare che il valore nella casella di testo identificatore corrisponde al valore per il valore dell'identificatore visualizzato nel messaggio di errore.
 
-8.  Aggiornare Azure AD, aggiungere l'applicazione dalla raccolta di Azure AD e quindi configurarla.
-
-<span id="_Hlk477190176" class="anchor"></span>Dopo la riconfigurazione dell'applicazione, dovrebbe essere possibile accedere all'applicazione.
 
 ## <a name="certificate-or-key-not-configured"></a>Chiave o certificato non configurato
 
@@ -239,29 +201,29 @@ L'oggetto applicazione è danneggiato e Azure AD non riconosce il certificato co
 
 Per eliminare e creare un nuovo certificato, seguire questa procedura:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
+1. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+1. Tipo di **"Azure Active Directory"** nella casella di ricerca filtro e selezionare il **Azure Active Directory** elemento.
 
-4.  Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
+1. Selezionare **applicazioni aziendali** dal menu di navigazione a sinistra di Azure Active Directory.
 
-5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+1. Selezionare **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
- * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+    Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 
-6.  Selezionare l'applicazione per cui si vuole configurare un accesso Single Sign-On
+1. Selezionare l'applicazione per cui si vuole configurare un accesso Single Sign-On
 
-7.  Dopo il caricamento dell'applicazione, fare clic su **Single Sign-On** nel menu di spostamento di sinistra dell'applicazione.
+1. Dopo il caricamento dell'applicazione, fare clic su **Single Sign-On** nel menu di spostamento di sinistra dell'applicazione.
 
-8.  Nella sezione **Certificato di firma SAML** fare clic su **Crea nuovo certificato**.
+1. Selezionare **Crea nuovo certificato** sotto il **certificato di firma SAML** sezione.
 
-9.  Selezionare la data di scadenza. Fare quindi clic su **Salva**.
+1. Selezionare la data di scadenza e quindi fare clic su **salvare**.
 
-10. Selezionare l'opzione per **attivare il nuovo certificato** in modo da sostituire il certificato attivo. Fare quindi clic su **Salva** nella parte superiore del riquadro e accettare di attivare il certificato di rollover.
+1. Selezionare l'opzione per **attivare il nuovo certificato** in modo da sostituire il certificato attivo. Fare quindi clic su **Salva** nella parte superiore del riquadro e accettare di attivare il certificato di rollover.
 
-11. Nella sezione **Certificato di firma SAML** selezionare **Rimuovi** per rimuovere il certificato **Inutilizzato**.
+1. Nella sezione **Certificato di firma SAML** selezionare **Rimuovi** per rimuovere il certificato **Inutilizzato**.
 
 ## <a name="saml-request-not-present-in-the-request"></a>Richiesta SAML non presente nella richiesta
 
@@ -269,16 +231,44 @@ Per eliminare e creare un nuovo certificato, seguire questa procedura:
 
 **Causa possibile**
 
-Azure AD non è riuscito a identificare la richiesta SAML entro i parametri dell'URL nella richiesta HTTP. È possibile che questo problema si verifichi se l'applicazione non usa il binding Reindirizzamento HTTP per l'invio della richiesta SAML ad Azure AD.
+Azure AD non è riuscito a identificare la richiesta SAML entro i parametri dell'URL nella richiesta HTTP. Questa situazione può verificarsi se l'applicazione non utilizza reindirizzamento HTTP binding durante l'invio della richiesta SAML ad Azure AD.
 
 **Risoluzione**
 
-L'applicazione deve inviare la richiesta SAML codificata nell'intestazione della posizione mediante il binding Reindirizzamento HTTP. Per altre informazioni sull'implementazione di questo approccio, leggere la sezione sul binding Reindirizzamento HTTP nel [documento di specifiche del protocollo SAML](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
+L'applicazione deve inviare la richiesta SAML con codifica nell'intestazione della posizione Usa HTTP reindirizzare l'associazione. Per altre informazioni sull'implementazione di questo approccio, leggere la sezione sul binding Reindirizzamento HTTP nel [documento di specifiche del protocollo SAML](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
 
+## <a name="azure-ad-is-sending-the-token-to-an-incorrect-endpoint"></a>Azure AD invia il token a un endpoint errato
+
+**Causa possibile**
+
+Durante l'accesso single sign-on, se la richiesta di accesso non contiene un URL di risposta esplicita (Assertion Consumer Service URL), quindi AD Azure selezionerà uno qualsiasi dei configurato si basano gli URL per l'applicazione. Anche se l'applicazione ha un URL di risposta esplicita configurato, l'utente potrebbe essere reindirizzato https://127.0.0.1:444. 
+
+Quando l'applicazione è stata aggiunta come un'app non inclusa nella raccolta, Azure Active Directory ha creato questo URL di risposta come valore predefinito. Questo comportamento è cambiato e Azure Active Directory non aggiunge più l'URL per impostazione predefinita. 
+
+**Risoluzione**
+
+Eliminare gli URL di risposta inutilizzati configurati per l'applicazione.
+
+1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
+
+2.  Aprire il **estensione Azure Active Directory** selezionando **tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
+
+3.  Tipo di **"Azure Active Directory"** nella casella di ricerca filtro e selezionare il **Azure Active Directory** elemento.
+
+4.  Selezionare **applicazioni aziendali** dal menu di navigazione a sinistra di Azure Active Directory.
+
+5.  Selezionare **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+
+    Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+
+6.  Selezionare l'applicazione che si vuole configurare con l'accesso Single Sign-On.
+
+7.  Dopo aver caricato l'applicazione, aprire **configurazione SAML base**. Nel **Reply URL (Assertion Consumer Service URL)**, delete inutilizzati o gli URL di risposta predefinito creato dal sistema. Ad esempio: `https://127.0.0.1:444/applications/default.aspx`.
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problema di personalizzazione delle attestazioni SAML inviate a un'applicazione
 
-Per informazioni su come personalizzare le attestazioni degli attributi SAML inviate all'applicazione, vedere [Claims mapping in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) (Mapping di attestazioni in Azure Active Directory).
+Per informazioni su come personalizzare le attestazioni degli attributi SAML inviate all'applicazione, vedere [mapping delle attestazioni in Azure Active Directory](../develop/active-directory-claims-mapping.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Come eseguire il debug di single sign-on basato su SAML per applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
+
+[Come eseguire il debug di single sign-on basato su SAML per applicazioni in Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md)

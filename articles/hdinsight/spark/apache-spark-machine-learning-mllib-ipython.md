@@ -8,21 +8,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 02/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2a566312e70e0c1d5f85a540f30ecdf0adc0e7e7
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: bf29fd8d9b707636fb5965669ad800517a6cf58f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653714"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075562"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Usare MLlib Apache Spark per compilare un'applicazione di Machine Learning e analizzare un set di dati
 
 Informazioni su come usare [MLlib](https://spark.apache.org/mllib/) Apache Spark per creare un'applicazione di Machine Learning che effettui analisi predittive semplici su un set di dati aperto. Dalle librerie di Machine Learning integrate di Spark, questo esempio usa la *classificazione* tramite la regressione logistica. 
-
-> [!TIP]  
-> Questo esempio è disponibile anche come [Jupyter Notebook](https://jupyter.org/) su un cluster Spark (Linux) creato in HDInsight. L'esperienza offerta dal notebook consente di eseguire i frammenti di codice Python dal notebook stesso. Per seguire l'esercitazione da un notebook, creare un cluster Spark e avviare un notebook Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`). Eseguire quindi il notebook **Spark Machine Learning - Predictive analysis on food inspection data using MLlib.ipynb** nella cartella **Python**.
 
 MLlib è una libreria Spark di base che fornisce diverse utilità che agevolano le attività di Machine Learning, incluse utilità adatte a:
 
@@ -49,7 +46,7 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
 
 1. Creare un notebook di Jupyter usando il kernel PySpark. Per le istruzioni, vedere [Creare un notebook Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-2. Importare i tipi richiesti per l'applicazione. Copiare e incollare il codice seguente in una cella vuota e quindi premere **MAIUSC+INVIO**.
+2. Importare i tipi richiesti per l'applicazione. Copiare e incollare il codice seguente in una cella vuota e quindi premere **MAIUSC + INVIO**.
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -173,7 +170,7 @@ Ora si determinerà il contenuto del set di dati.
 
     ```PySpark
     %%sql -o countResultsdf
-    SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
+    SELECT COUNT(results) AS cnt, results FROM CountResults GROUP BY results
     ```
 
     Il comando speciale `%%sql` seguito da `-o countResultsdf` assicura che l'output della query venga mantenuto in locale nel server Jupyter, di solito il nodo head del cluster. L'output viene conservato come frame di dati [Pandas](https://pandas.pydata.org/) con il nome specificato **countResultsdf**. Per altre informazioni sul comando Magic `%%sql` e sugli altri comandi Magic disponibili con il kernel PySpark, vedere [Kernel disponibili per i notebook di Jupyter con cluster Apache Spark HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
@@ -201,26 +198,18 @@ Ora si determinerà il contenuto del set di dati.
 
     ![Output dell'applicazione Machine Learning in Spark: grafico a torta con cinque risultati di controllo differenti](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Output del risultato di Machine Learning in Spark")
 
-    Un controllo può portare a 5 risultati distinti:
-
-    - Business not located
-    - Fail
-    - Pass
-    - Pass w/ conditions
-    - Out of Business
-
     Per stimare il risultato di un controllo di prodotti alimentari, è necessario sviluppare un modello basato sulle violazioni. Dato che la regressione logistica è un metodo di classificazione binaria, è consigliabile raggruppare i dati dei risultati in due categorie: **Fail** e **Pass**:
 
-    - Pass
-        - Pass
-        - Pass w/ conditions
-    - Fail
-        - Fail
-    - Discard
-        - Business not located
-        - Out of Business
+   - Pass
+       - Pass
+       - Pass w/ conditions
+   - Fail
+       - Fail
+   - Discard
+       - Business not located
+       - Out of Business
 
-    I dati con gli altri risultati ("Business Not Located" o "Out of Business") non sono utili e rappresentano comunque una piccola percentuale dei risultati.
+     I dati con gli altri risultati ("Business Not Located" o "Out of Business") non sono utili e rappresentano comunque una piccola percentuale dei risultati.
 
 4. Eseguire il codice seguente per convertire il frame di dati esistente (`df`) in un nuovo frame di dati in cui ogni controllo è rappresentato come coppia etichetta-violazioni. In questo caso, un'etichetta `0.0` rappresenta un controllo non superato, un'etichetta `1.0` rappresenta un controllo superato e un'etichetta `-1.0` rappresenta altri risultati. 
 
@@ -272,7 +261,7 @@ model = pipeline.fit(labeledData)
 1. Eseguire il codice seguente per creare un nuovo frame di dati, **predictionsDf** contenente la stima generata dal modello. Il frammento di codice crea anche la tabella temporanea **Predictions** basata sul dataframe.
 
     ```PySpark
-    testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+    testData = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
                 .map(csvParse) \
                 .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
     testDf = spark.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
@@ -284,10 +273,6 @@ model = pipeline.fit(labeledData)
     Verrà visualizzato un output simile al seguente:
 
     ```
-    # -----------------
-    # THIS IS AN OUTPUT
-    # -----------------
-
     ['id',
         'name',
         'results',
@@ -321,10 +306,6 @@ model = pipeline.fit(labeledData)
     L'output è simile al seguente:
 
     ```
-    # -----------------
-    # THIS IS AN OUTPUT
-    # -----------------
-
     There were 9315 inspections and there were 8087 successful predictions
     This is a 86.8169618894% success rate
     ```
@@ -377,7 +358,7 @@ model = pipeline.fit(labeledData)
     In questo grafico un risultato positivo indica il controllo degli alimenti non superato, mentre un risultato negativo indica un controllo superato.
 
 ## <a name="shut-down-the-notebook"></a>Arrestare il notebook
-Al termine dell'esecuzione dell'applicazione, è necessario arrestare il notebook per rilasciare le risorse. A tale scopo, dal menu **File** del notebook fare clic su **Close and Halt** (Chiudi e interrompi). Il notebook viene chiuso.
+Al termine dell'esecuzione dell'applicazione, è necessario arrestare il notebook per rilasciare le risorse. Per fare ciò, dal menu **File** del notebook fare clic su **Close and Halt** (Chiudi e interrompi). Il notebook viene chiuso.
 
 ## <a name="seealso"></a>Vedere anche
 * [Panoramica: Apache Spark in Azure HDInsight](apache-spark-overview.md)

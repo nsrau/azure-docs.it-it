@@ -11,24 +11,24 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2019
+ms.date: 03/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 9a4c31df51f804d4738e3a2eb4ce904e793c3f1b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: f7a0300619d82f760c0e307601efbd3987eb6067
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004996"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004598"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>Descrizione di Monitoraggio di Azure per le macchine virtuali (anteprima)
 
-Monitoraggio di Azure per le macchine virtuali consente di monitorare le macchine virtuali di Azure e i set di scalabilità di macchine virtuali su larga scala. Il servizio analizza le prestazioni e l'integrità delle macchine virtuali Windows e Linux, monitorando i processi e le relative dipendenze da altre risorse e processi esterni. 
+Monitoraggio di Azure per le macchine virtuali consente di monitorare le macchine virtuali di Azure e i set di scalabilità di macchine virtuali su larga scala. Analizza le prestazioni e integrità delle macchine virtuali Linux e Windows e consente di monitorare i processi e dipendenze da altre risorse e processi esterni. 
 
 La soluzione Monitoraggio di Azure per le macchine virtuali include il supporto per il monitoraggio delle prestazioni e delle dipendenze delle applicazioni per le macchine virtuali ospitate in locale o in un altro provider di servizi cloud. Tre funzionalità chiave offrono informazioni dettagliate:
 
 * **Componenti logici di macchine virtuali di Azure che eseguono Windows e Linux**: vengono misurati in base ai criteri di integrità preconfigurati e vengono generati avvisi quando viene soddisfatta la condizione valutata.  
 
-* **Grafici di tendenza delle prestazioni predefiniti**: mostrano le metriche delle prestazioni principali del sistema operativo della macchina virtuale guest.
+* **Predefiniti i grafici delle tendenze delle prestazioni**: mostrano le metriche delle prestazioni principali del sistema operativo della macchina virtuale guest.
 
 * **Mappa delle dipendenze**: mostra i componenti interconnessi con la macchina virtuale da più gruppi di risorse e sottoscrizioni.  
 
@@ -39,7 +39,7 @@ Le funzionalità sono organizzate in tre prospettive:
 * Mappa
 
 >[!NOTE]
->Attualmente, la funzionalità Integrità è offerta solo per le macchine virtuali e i set di scalabilità di macchine virtuali di Azure. Le funzionalità Prestazioni e Mappa supportano sia le macchine virtuali di Azure che le macchine virtuali ospitate nell'ambiente o in un altro provider di servizi cloud.
+>Attualmente, la funzionalità Integrità è offerta solo per le macchine virtuali e i set di scalabilità di macchine virtuali di Azure. Prestazioni e funzionalità della mappa supportano le macchine virtuali di Azure e macchine virtuali ospitate nell'ambiente o altro provider cloud.
 
 L'integrazione con i log di Monitoraggio di Azure offre efficaci caratteristiche di aggregazione e filtro e la possibilità di eseguire analisi delle tendenze dei dati nel tempo. Un monitoraggio così completo dei carichi di lavoro non può essere realizzato solo con Monitoraggio di Azure o Mapping dei servizi.  
 
@@ -54,13 +54,14 @@ Monitoraggio di Azure per le macchine virtuali è in grado di offrire disponibil
 
 ## <a name="data-usage"></a>Utilizzo dei dati 
 
-Quando si distribuisce Monitoraggio di Azure per le macchine virtuali, i dati raccolti dalle macchine virtuali vengono inseriti e archiviati in Monitoraggio di Azure. Sulla base delle tariffe pubblicate nella [pagina dei prezzi di Monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/), la fatturazione di Monitoraggio di Azure per le macchine virtuali viene effettuata per:
+Quando si distribuisce Monitoraggio di Azure per le macchine virtuali, i dati raccolti dalle macchine virtuali vengono inseriti e archiviati in Monitoraggio di Azure. Le metriche di criteri di integrità vengono archiviate in Monitoraggio di Azure in un database di serie temporali, prestazioni e delle dipendenze dei dati raccolti vengono archiviati in un'area di lavoro di Log Analitica. Sulla base delle tariffe pubblicate nella [pagina dei prezzi di Monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/), la fatturazione di Monitoraggio di Azure per le macchine virtuali viene effettuata per:
+
 * Dati inseriti e archiviati.
 * Numero di serie temporali delle metriche di criteri di integrità monitorate.
 * Regole di avviso create.
 * Notifiche inviate. 
 
-Le dimensioni del log variano in base alle lunghezze delle stringhe dei contatori e possono aumentare con il numero di dischi logici e schede di rete. Se è già disponibile un'area di lavoro ed è in corso la raccolta di questi contatori, non vengono applicati addebiti doppi. Se si usa già Mapping dei servizi, l'unico cambiamento riguarderà i dati di connessione aggiuntivi inviati a Monitoraggio di Azure.
+Le dimensioni del log variano a seconda le lunghezze di stringa dei contatori delle prestazioni e aumenta con il numero di dischi logici e schede di rete allocate alla macchina virtuale. Se è già disponibile un'area di lavoro ed è in corso la raccolta di questi contatori, non vengono applicati addebiti doppi. Se si usa già Mapping dei servizi, l'unico cambiamento riguarderà i dati di connessione aggiuntivi inviati a Monitoraggio di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni sui requisiti e i metodi per il monitoraggio delle macchine virtuali, vedere [Distribuire Monitoraggio di Azure per le macchine virtuali](vminsights-onboard.md).

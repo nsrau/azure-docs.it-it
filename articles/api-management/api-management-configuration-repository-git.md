@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: e2f0fb6333f3786b29c2a7516e46a4599d6e89ed
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 36b60b3784739a884b887a29f3dd53c61c44cd6f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961010"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57851347"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Come salvare e configurare la configurazione del servizio Gestione API tramite Git
 
@@ -53,9 +53,9 @@ Per visualizzare e configurare le impostazioni di configurazione di Git, è poss
 ![Abilitare GIT][api-management-enable-git]
 
 > [!IMPORTANT]
-> Eventuali segreti non definiti come proprietà verranno archiviati nel repository e rimarranno nella cronologia di questo finché non si disabilita e riabilita l'accesso a Git. Le proprietà rappresentano un luogo sicuro per gestire i valori stringa costanti, segreti inclusi, attraverso tutte le configurazioni e tutti i criteri per le API. Non è quindi necessario archiviarli direttamente nelle istruzioni dei criteri. Per altre informazioni, vedere [Come usare le proprietà nei criteri di Gestione API di Azure](api-management-howto-properties.md).
-> 
-> 
+> Eventuali segreti non definiti come valori denominati verranno archiviati nel repository e rimarranno nella cronologia fino a disabilitarla e riabilitare l'accesso a Git. Valori denominati rappresentano un luogo sicuro per gestire i valori stringa costanti, segreti inclusi, attraverso tutte le configurazione dell'API e criteri, quindi non è necessario archiviarli direttamente nelle istruzioni dei criteri. Per altre informazioni, vedere [come usare i valori denominati nei criteri di gestione API di Azure](api-management-howto-properties.md).
+>
+>
 
 Per informazioni sull'abilitazione o la disabilitazione dell'accesso a Git mediante l'API REST, vedere la [pagina relativa a questo argomento](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
 
@@ -73,13 +73,13 @@ Per informazioni sull'esecuzione di questa operazione tramite l'API REST, vedere
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>Per clonare il repository nel computer locale
 
-Per clonare un repository, sono necessari l'URL del repository, un nome utente e una password. Per ottenere il nome utente e altre credenziali, fare clic su **Access credentials** (Credenziali di accesso) nella parte superiore della pagina.  
- 
+Per clonare un repository, sono necessari l'URL del repository, un nome utente e una password. Per ottenere il nome utente e altre credenziali, fare clic su **Access credentials** (Credenziali di accesso) nella parte superiore della pagina.
+
 Per generare una password, verificare prima di tutto che il campo **Expiry** (Scadenza) sia impostato sulla data e sull'ora di scadenza desiderate e quindi fare clic su **Generate** (Genera).
 
 > [!IMPORTANT]
 > Prendere nota della password. Una volta chiusa questa pagina, la password non verrà più visualizzata.
-> 
+>
 
 Gli esempi seguenti usano lo strumento Git Bash di [Git per Windows](https://www.git-scm.com/downloads) ma è possibile usare qualsiasi strumento Git con cui si abbia familiarità.
 
@@ -172,12 +172,12 @@ Questi file possono essere creati, eliminati, modificati e gestiti nel file syst
 
 > [!NOTE]
 > Le entità seguenti non sono contenute nel repository Git e non possono essere configurate tramite Git.
-> 
-> * Utenti
-> * Sottoscrizioni
-> * Properties
+>
+> * [Utenti](https://docs.microsoft.com/en-us/rest/api/apimanagement/user)
+> * [Sottoscrizioni](https://docs.microsoft.com/en-us/rest/api/apimanagement/subscription)
+> * [Valori denominati](https://docs.microsoft.com/en-us/rest/api/apimanagement/property)
 > * Entità del portale per sviluppatori diverse dagli stili
-> 
+>
 
 ### <a name="root-api-management-folder"></a>Cartella api-management radice
 La cartella `api-management` radice contiene un file `configuration.json` che a propria volta contiene informazioni di livello superiore relative all'istanza del servizio nel formato seguente.
@@ -223,7 +223,7 @@ L'impostazione finale, `$ref-policy`, esegue il mapping al file di istruzioni de
 ### <a name="apis-folder"></a>Cartella apis
 La cartella `apis` contiene, per ogni API nell'istanza del servizio, una cartella contenente a sua volta gli elementi seguenti.
 
-* `apis\<api name>\configuration.json`: configurazione dell'API. Contiene informazioni relative all'URL del servizio back-end e alle operazioni. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario [ottenere un'API specifica](https://docs.microsoft.com/rest/api/apimanagement/api/get) con `export=true` nel formato `application/json`.
+* `apis\<api name>\configuration.json`: configurazione dell'API. Contiene informazioni relative all'URL del servizio back-end e alle operazioni. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario [ottenere un'API specifica](https://docs.microsoft.com/rest/api/apimanagement/apis/get) con `export=true` nel formato `application/json`.
 * `apis\<api name>\api.description.html`: descrizione dell'API. Corrisponde alla proprietà `description` dell'[entità relativa all'API](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
 * `apis\<api name>\operations\`: questa cartella contiene i file `<operation name>.description.html` mappati alle operazioni nell'API. Ogni file contiene la descrizione di una singola operazione dell'API che esegue il mapping alla proprietà `description` dell'[entità relativa all'operazione](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) nell'API REST.
 

@@ -5,15 +5,15 @@ services: storage
 author: kuhussai
 ms.service: storage
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/06/2019
 ms.author: kuhussai
 ms.subservice: blobs
-ms.openlocfilehash: 3e89f5de247cf18abdb710577ce55c6e2cb5765e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: ec024f8f1cd411455a6cbb2a0b12e7b4751af5fe
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251895"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405335"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Risorsa di archiviazione BLOB di Azure: livelli di archiviazione Premium (anteprima), ad accesso frequente, ad accesso sporadico e archivio
 
@@ -57,15 +57,7 @@ Gli account di archiviazione BLOB e per utilizzo generico v2 espongono l'attribu
 
 Questo livello è ideale per i carichi di lavoro che richiedono tempi di risposta rapidi e coerenti. I dati destinati agli utenti finali, ad esempio la modifica di video interattivi, il contenuto Web statico, le transazioni online e simili, sono candidati ottimali per il livello di accesso Premium. Questo livello è progettato appositamente per i carichi di lavoro che eseguono molte piccole transazioni, come acquisizione dei dati di telemetria, messaggistica e trasformazione dei dati.
 
-Per usare questo livello, effettuare il provisioning di un nuovo account di archiviazione BLOB in blocchi e avviare la creazione di contenitori e BLOB con l'[API REST del servizio BLOB](/rest/api/storageservices/blob-service-rest-api), [AzCopy](/azure/storage/common/storage-use-azcopy) o [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
-
-Durante l'anteprima, il livello di accesso Premium:
-
-- È disponibile come risorsa di archiviazione con ridondanza locale
-- È disponibile solo nelle regioni seguenti: Stati Uniti orientali 2, Stati Uniti centrali e Stati Uniti occidentali
-- Non supporta la suddivisione in livelli automatizzata o a livello di oggetto con la gestione del ciclo di vita dei dati
-
-Per informazioni su come registrarsi per l'anteprima del livello di accesso Premium, vedere [Introducing Azure Premium Blob Storage](https://aka.ms/premiumblob) (Presentazione dell'archiviazione BLOB Premium di Azure).
+Per altre informazioni sull'anteprima, vedere [versione di anteprima pubblica di archiviazione Blob di Azure Premium](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/).
 
 ## <a name="hot-access-tier"></a>Livello di accesso frequente
 

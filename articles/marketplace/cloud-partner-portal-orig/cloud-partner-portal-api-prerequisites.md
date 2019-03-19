@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e6e25424981118363070d42b2fb057b18fdb91a9
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 0d743d89c344ce9cb6eec116ed9c3e0cbe56f86e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809005"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878648"
 ---
 <a name="api-prerequisites"></a>Prerequisiti per API
 ================
@@ -55,7 +55,7 @@ Usare la procedura seguente per aggiungere l'entità servizio:
 
      ![Aggiungere un'app gestita al portale](./media/cloud-partner-portal-api-prerequisites/managedapp.png)
 
-4. Fare clic su **Aggiungi** per aggiungere l'entità servizio all'account.
+1. Fare clic su **Aggiungi** per aggiungere l'entità servizio all'account.
 
    ![Aggiungere un'entità servizio](./media/cloud-partner-portal-api-prerequisites/add-service-principal.jpg)
 
@@ -66,7 +66,7 @@ Usare la procedura seguente per aggiungere l'entità servizio:
 Le API del portale Cloud Partner usano le risorse e i protocolli seguenti durante l'autenticazione:
 
 - Un bearer token Web JSON (JWT) per richiedere l'accesso alle risorse
-- Il protocollo[OpenID Connect](http://openid.net/connect/) (OIDC) per verificare l'identità
+- Il protocollo[OpenID Connect](https://openid.net/connect/) (OIDC) per verificare l'identità
 - [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) come autorità di identità
 
 Esistono due principali approcci per l'acquisizione a livello di codice di un token JWT:

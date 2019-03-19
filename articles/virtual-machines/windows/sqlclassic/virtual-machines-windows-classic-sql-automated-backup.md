@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3aba118354c51285d714bb127e6f5984f8a50057
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: aeb97d661d330ed6afb3ca5e5e1eb924dacc4024
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329753"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096300"
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Backup automatico per SQL Server in macchine virtuali di Azure (distribuzione classica)
 > [!div class="op_single_selector"]
@@ -73,7 +73,8 @@ Nella seguente tabella sono descritte le opzioni che possono essere configurate 
 | **Periodo di conservazione** |1-30 giorni (30 giorni) |Numero di giorni di conservazione di un backup. |
 | **Storage Account** |Account di archiviazione di Azure (account di archiviazione creato per la macchina virtuale specificata) |Account di archiviazione di Azure da usare per archiviare i file del backup automatico nell'archiviazione BLOB. In questa posizione viene creato un contenitore per archiviare tutti i file di backup. La convenzione di denominazione dei file di backup include la data, l'ora e il nome del computer. |
 | **Crittografia** |Enable/Disable (disabilitato) |Abilita o disabilita la crittografia. Quando è abilitata la crittografia, i certificati usati per ripristinare il backup sono contenuti nell'account di archiviazione specificato, nello stesso contenitore automaticbackup con la stessa convenzione di denominazione Se la password viene modificata, viene generato un nuovo certificato con tale password, ma il certificato precedente viene mantenuto per ripristinare i backup precedenti. |
-| **Password** |Testo della password (nessuno) |Password per le chiavi di crittografia. Questa impostazione è necessaria solo se la crittografia è abilitata. Per ripristinare un backup crittografato, è necessario disporre della password corretta e del certificato correlato usato al momento dell'esecuzione del backup. | **Backup system databases** (Backup dei database di sistema) | Enable/Disable (disabilitato) | Eseguire backup completi di database master, modello e MSDB |
+| **Password** |Testo della password (nessuno) |Password per le chiavi di crittografia. Questa impostazione è necessaria solo se la crittografia è abilitata. Per ripristinare un backup crittografato, è necessario disporre della password corretta e del certificato correlato usato al momento dell'esecuzione del backup. |
+| **Backup system databases** (Backup dei database di sistema) | Enable/Disable (disabilitato) | Eseguire backup completi di database master, modello e MSDB |
 | **Configure backup schedule** (Configura la pianificazione dei backup) | Manual/Automated (Automated) (Manuale/Automatizzato - Automatizzato) | Selezionare **Automated** (Automatizzato) per eseguire automaticamente backup completi e di log basati sull'aumento delle dimensioni del log. Selezionare **Manual** (Manuale) per specificare la pianificazione per backup completi e di log. |
 
 ## <a name="configuration-with-powershell"></a>Configurazione con PowerShell
