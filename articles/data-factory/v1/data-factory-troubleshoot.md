@@ -13,18 +13,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: c41f03494720c9283bb3ce91fda6e3981f305084
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 5b9e0a30658e1cb8fe0f83d55c04f120637babaf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023023"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549205"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Risolvere i problemi di Data factory
 > [!NOTE]
 > Le informazioni di questo articolo sono valide per la versione 1 di Azure Data Factory. 
 
 Questo articolo contiene suggerimenti per la risoluzione dei problemi correlati all'uso di Azure Data Factory. L'articolo non elenca tutti i problemi che si possono verificare usando il servizio, ma suggerisce come individuare e risolvere alcuni di essi.   
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="troubleshooting-tips"></a>Suggerimenti per la risoluzione dei problemi
 ### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>Errore: La sottoscrizione non è registrata per l'uso dello spazio dei nomi 'Microsoft.DataFactory'
@@ -34,20 +36,20 @@ Se viene visualizzato questo errore, il provider di risorse di Azure Data Factor
 2. Accedere al proprio account di Azure usando il comando seguente.
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 3. Eseguire il comando seguente per registrare il provider di Azure Data Factory.
 
     ```powershell        
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problema: errore di mancata autorizzazione quando si esegue un cmdlet di Data Factory
 È probabile che non si stia usando l'account o la sottoscrizione di Azure corretta con Azure PowerShell. Usare i cmdlet seguenti per selezionare l'account e la sottoscrizione di Azure corretti per Azure PowerShell.
 
-1. Connect-AzureRmAccount: usare l'ID utente e la password corretti
-2. Get-AzureRmSubscription: visualizza tutte le sottoscrizioni per l'account.
-3. Select-AzureRmSubscription &lt;nome della sottoscrizione&gt;: selezionare la sottoscrizione corretta. Usare la stessa sottoscrizione selezionata per creare un Data Factory nel portale di Azure.
+1. Connect-AzAccount - usare l'ID utente e password
+2. Get-AzSubscription - visualizzare tutte le sottoscrizioni per l'account.
+3. Selezionare AzSubscription &lt;nome della sottoscrizione&gt; -seleziona la sottoscrizione corretta. Usare la stessa sottoscrizione selezionata per creare un Data Factory nel portale di Azure.
 
 ### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Problema: impossibile avviare l'installazione rapida del Gateway di gestione dati dal portale di Azure
 L'installazione rapida del Gateway di gestione dati richiede Internet Explorer o un Web browser compatibile con Microsoft ClickOnce. Se non è possibile avviare l'installazione rapida, eseguire una di queste operazioni:
@@ -128,9 +130,9 @@ Per informazioni su come monitorare le pipeline di Data Factory con Azure PowerS
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[json-scripting-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
+[developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
+[json-scripting-reference]: https://go.microsoft.com/fwlink/?LinkId=516971
 
 [azure-portal]: https://portal.azure.com/
 

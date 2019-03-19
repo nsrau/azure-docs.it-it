@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ff5b998222f9a7320384edea1ed69e7a65e9139
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 46fc0a49ebae86a715685e1073b4eb7cc10e6032
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171299"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533409"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trovare i report attività nel portale di Azure
 
@@ -48,15 +48,46 @@ Il report dei log di controllo consente di consolidare i report seguenti:
 
 ### <a name="filtering-on-audit-logs"></a>Filtro dei log di controllo
 
-È possibile usare filtri avanzati nel report di controllo per accedere a una categoria specifica di dati di controllo, impostando la modalità di filtro desiderata nel filtro **Activity category** (Categoria attività). Ad esempio, per visualizzare tutte le attività relative alla reimpostazione password self-service, selezionare la categoria **Self-service Password Management** (Gestione delle password self-service). 
+È possibile usare filtri avanzati nel report di controllo per accedere a una categoria di dati di controllo, impostandolo nel **categoria** filtro. Ad esempio, per visualizzare tutte le attività relative agli utenti, selezionare la **Gestione utente** categoria. 
 
-Le categorie delle attività includono:
+Le categorie includono:
 
+- Tutti
+- AdministrativeUnit
+- ApplicationManagement
+- Authentication
+- Authorization
+- Contatto
+- Dispositivo
+- DeviceConfiguration
+- DirectoryManagement
+- EntitlementManagement
+- GroupManagement
+- Altri
+- Policy
+- Gestione
+- RoleManagement
+- Gestione utente
+
+È anche possibile filtrare in un servizio specifico tramite il **servizio** filtro elenco a discesa. Ad esempio, per ottenere tutti gli eventi di controllo correlati alla gestione delle password self-service, selezionare la **Self-Service Password Management** filtro.
+
+I servizi includono:
+
+- Tutti
+- Verifiche di accesso
+- Provisioning degli account 
+- Applicazione SSO
+- Metodi di autenticazione
+- B2C
+- Accesso condizionale
 - Directory principale
-- Gestione delle password self-service
+- Gestione entitlement
+- Identity Protection
+- Utenti invitati
+- PIM
 - Gestione gruppi self-service
-- Provisioning degli account
-
+- Gestione self-service Passord
+- Condizioni per l'utilizzo
 
 ## <a name="sign-ins-report"></a>Report sugli accessi 
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 197762255a1a693821b8416227b4abf52755eb31
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 083770c24a6c8939f8d1ff9f0efd5d18aff9dcb0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015747"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539616"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory: considerazioni sulla sicurezza dello spostamento dei dati
 
@@ -46,6 +46,8 @@ In questo articolo vengono prese in esame le considerazioni sulla sicurezza nei 
 - **Scenario cloud**: in questo scenario, l'origine e la destinazione sono accessibili pubblicamente tramite internet. Sono inclusi i servizi di archiviazione cloud gestiti come Archiviazione di Azure, Azure SQL Data Warehouse, Database SQL di Azure, Azure Data Lake Store, Amazon S3, Amazon Redshift, i servizi SaaS come Salesforce e i protocolli Web, ad esempio FTP e OData. L'elenco completo delle origini dati supportate è disponibile [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
 - **Scenario ibrido**: in questo scenario l'origine e la destinazione sono entrambe protette da un firewall o all'interno di una rete aziendale locale, oppure l'archivio dati è in una rete privata/virtuale (più spesso l'origine) e non vi si può accedere pubblicamente. Anche i server di database ospitati nelle macchine virtuali rientrano in questo scenario.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="cloud-scenarios"></a>Scenari cloud
 ### <a name="securing-data-store-credentials"></a>Proteggere le credenziali dell'archivio dati
 Azure Data Factory protegge le credenziali dell'archivio dati **crittografandoli** con i **certificati gestiti da Microsoft**. Questi certificati ruotano ogni **due anni** (in questo arco temporale è compreso il rinnovo del certificato e la migrazione delle credenziali). Queste credenziali crittografate vengono archiviate in modo sicuro all'interno di un'**Archiviazione di Azure gestita dai servizi di gestione di Azure Data Factory**. Per altre informazioni sulla sicurezza di Archiviazione di Azure, vedere [Panoramica sulla sicurezza di Archiviazione di Azure](../../security/security-storage-overview.md).
@@ -72,10 +74,10 @@ Azure Data Lake Store offre anche la possibilità di crittografare i dati archiv
 Archiviazione BLOB di Azure e Archiviazione tabelle di Azure supportano la crittografia del servizio di archiviazione, che crittografa automaticamente i dati prima di renderli persistenti nella risorsa di archiviazione e li decrittografa prima di recuperarli. Per altre informazioni, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](../../storage/common/storage-service-encryption.md).
 
 #### <a name="amazon-s3"></a>Amazon S3
-Amazon S3 supporta la crittografia client e server dei dati inattivi. Per altre informazioni, vedere [Protezione dei dati mediante la crittografia](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html). Attualmente, Data Factory non supporta Amazon S3 all'interno di un cloud privato virtuale (VPC).
+Amazon S3 supporta la crittografia client e server dei dati inattivi. Per altre informazioni, vedere [Protezione dei dati mediante la crittografia](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html). Attualmente, Data Factory non supporta Amazon S3 all'interno di un cloud privato virtuale (VPC).
 
 #### <a name="amazon-redshift"></a>Amazon Redshift
-Amazon Redshift supporta la crittografia cluster per i dati inattivi. Per altre informazioni, vedere [Amazon Redshift Database Encryption](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html) (Crittografia database Amazon Redshift). Attualmente, Data Factory non supporta Amazon Redshift all'interno di un cloud privato virtuale (VPC). 
+Amazon Redshift supporta la crittografia cluster per i dati inattivi. Per altre informazioni, vedere [Amazon Redshift Database Encryption](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html) (Crittografia database Amazon Redshift). Attualmente, Data Factory non supporta Amazon Redshift all'interno di un cloud privato virtuale (VPC). 
 
 #### <a name="salesforce"></a>Salesforce
 Salesforce supporta il servizio Shield Platform Encryption, che consente la crittografia di tutti i file, gli allegati e i campi personalizzati. Per altre informazioni, vedere [Understanding the Web Server OAuth Authentication Flow](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm) (Comprendere il flusso di autenticazione OAuth per il server Web).  
@@ -93,7 +95,7 @@ Le credenziali per gli archivi dati locali vengono salvate in locale (non nel cl
 - Usando **testo normale** (meno sicuro) tramite HTTPS dal portale di Azure/Copia guidata. Le credenziali vengono trasferite al gateway locale in testo normale.
 - Usando la **libreria JavaScript per la crittografia da Copia guidata**.
 - Usando l'**app di gestione delle credenziali basata su un solo clic**. L'applicazione con un solo clic viene eseguita nel computer locale che ha accesso al gateway e imposta le credenziali per l'archivio dati. Questa opzione e la successiva sono le opzioni più sicure. Per impostazione predefinita, l'app di gestione delle credenziali usa la porta 8050 nella macchina con il gateway per la comunicazione sicura.  
-- Usare il cmdlet di PowerShell [New-AzureRmDataFactoryEncryptValue](/powershell/module/azurerm.datafactories/New-AzureRmDataFactoryEncryptValue) per crittografare le credenziali. Questo cmdlet consente di crittografare le credenziali mediante il certificato usato dal gateway. È possibile usare le credenziali crittografate restituite da questo cmdlet e aggiungerle all'elemento **EncryptedCredential** di **connectionString** nel file JSON che si usa con il cmdlet [New-AzureRmDataFactoryLinkedService](/powershell/module/azurerm.datafactories/new-azurermdatafactorylinkedservice) o nel frammento di codice JSON nell'editor di Data Factory nel portale. Questa opzione e l'applicazione con un clic sono le opzioni più sicure. 
+- Uso [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) cmdlet di PowerShell per crittografare le credenziali. Questo cmdlet consente di crittografare le credenziali mediante il certificato usato dal gateway. È possibile usare le credenziali crittografate restituite da questo cmdlet e aggiungerlo al **EncryptedCredential** elemento delle **connectionString** nel file JSON che si usa con la [ Nuovo AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) cmdlet o nel frammento di codice JSON nell'Editor di Data Factory nel portale. Questa opzione e l'applicazione con un clic sono le opzioni più sicure. 
 
 #### <a name="javascript-cryptography-library-based-encryption"></a>Crittografia basata sulla libreria JavaScript per la crittografia
 È possibile crittografare le credenziali di archivio dati usando la [libreria JavaScript per la crittografia](https://www.microsoft.com/download/details.aspx?id=52439) da [Copia guidata](data-factory-copy-wizard.md). Quando si seleziona questa opzione, Copia guidata recupera la chiave pubblica del gateway e la usa per crittografare le credenziali dell'archivio dati. Le credenziali vengono decrittografate dal computer del gateway e protetta da Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx).
@@ -125,7 +127,7 @@ La rete virtuale è una rappresentazione logica della propria rete nel cloud. È
 
 La tabella seguente riassume i consigli di configurazione di rete e del gateway in base alle diverse combinazioni di percorsi di origine e destinazione per lo spostamento dei dati ibridi.
 
-| Sorgente | Destination | Configurazione di rete | Configurazione del gateway |
+| Source (Sorgente) | Destination | Configurazione di rete | Configurazione del gateway |
 | ------ | ----------- | --------------------- | ------------- | 
 | Locale | Servizi cloud e macchine virtuali distribuiti nelle reti virtuali | VPN IPSec (da punto a sito o da sito a sito) | Il gateway può essere installato in locale o in una VM di Azure nella VNet | 
 | Locale | Servizi cloud e macchine virtuali distribuiti nelle reti virtuali | ExpressRoute (peering privato) | Il gateway può essere installato in locale o in una macchina virtuale di Azure nella VNet | 
@@ -176,7 +178,7 @@ Gli archivi dati cloud seguenti richiedono l'inserimento nell'elenco elementi co
 - [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
-- [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
+- [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
