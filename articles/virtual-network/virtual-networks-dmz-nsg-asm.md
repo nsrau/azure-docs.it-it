@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: ed172d552e1e4c9ee27c58abcd7ad2d98df21579
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: HT
+ms.openlocfilehash: 115a459c6a9e4ea96931c89272a49396f0656258
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23125499"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993333"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>Esempio 1: creare una semplice rete perimetrale usando un NSG con PowerShell classico
 [Tornare alla pagina relativa alle procedure consigliate sui limiti di sicurezza][HOME]
@@ -37,7 +37,7 @@ Questo esempio descrive come creare una rete perimetrale primitiva con quattro s
 ## <a name="environment-description"></a>Descrizione dell'ambiente
 Una sottoscrizione in questo esempio include le risorse seguenti:
 
-* Due servizi cloud, "FrontEnd001" e "BackEnd001"
+* Due servizi cloud: "FrontEnd001" e "BackEnd001"
 * Una rete virtuale, "CorpNetwork", con due subnet, "FrontEnd" e "BackEnd"
 * Un gruppo di sicurezza di rete applicato a entrambe le subnet
 * Un server Windows che rappresenta un server Web applicazioni ("IIS01")
@@ -98,15 +98,15 @@ Nel seguito le singole regole vengono descritte in modo più dettagliato. **Nota
    * "Priority" consente di impostare l'ordine in base al quale viene valutato un flusso di traffico. Più è basso il numero, maggiore sarà la priorità. Quando un flusso di traffico specifico è applicabile a una determinata regola, non vengono elaborate altre regole. Se quindi una regola con priorità 1 consente il traffico e una regola con priorità 2 lo blocca ed entrambe le regole sono applicabili, il passaggio del traffico viene consentito perché viene applicata la regola 1 con priorità più alta e non vengono considerate altre regole.
    * "Action" indica se il traffico a cui si applica la regola viene bloccato o consentito.
 
-    ```PowerShell    
-    Get-AzureNetworkSecurityGroup -Name $NSGName | `
+     ```PowerShell    
+     Get-AzureNetworkSecurityGroup -Name $NSGName | `
         Set-AzureNetworkSecurityRule -Name "Enable Internal DNS" `
         -Type Inbound -Priority 100 -Action Allow `
         -SourceAddressPrefix VIRTUAL_NETWORK -SourcePortRange '*' `
         -DestinationAddressPrefix $VMIP[4] `
         -DestinationPortRange '53' `
         -Protocol *
-    ```
+     ```
 
 3. Questa regola consente il flusso del traffico RDP da Internet alla porta RDP su qualsiasi server della subnet associata. La regola usa due tipi speciali di prefissi per l'indirizzo: "VIRTUAL_NETWORK" e "INTERNET", pertanto consente di gestire più facilmente una categoria più ampia di prefissi dell'indirizzo.
 
@@ -544,7 +544,7 @@ Else { Write-Host "Validation passed, now building the environment." -Foreground
 Salvare questo file XML con il percorso aggiornato e aggiungere il collegamento a questo file nella variabile $NetworkConfigFile dello script precedente.
 
 ```XML
-<NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+<NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
   <VirtualNetworkConfiguration>
     <Dns>
       <DnsServers>
@@ -576,7 +576,7 @@ Salvare questo file XML con il percorso aggiornato e aggiungere il collegamento 
 ```
 
 #### <a name="sample-application-scripts"></a>Script di applicazione di esempio
-Se si vuole installare un'applicazione di esempio per questo e altri esempi di rete perimetrale, è possibile trovarne una in [Script di applicazione di esempio][SampleApp]
+Per installare un'applicazione di esempio per questo e altri esempi di rete perimetrale, è possibile trovarne una in: [Script di applicazione di esempio][SampleApp]
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Aggiornare e salvare il file XML

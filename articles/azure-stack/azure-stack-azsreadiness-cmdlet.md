@@ -16,12 +16,12 @@ ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 63de39fa97850c1df72bdcd964ed670e4e8b0608
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0b75085754a66fabf07076282c977acd7f10a556
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767193"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992326"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Riferimento ai cmdlet Start-AzsReadinessChecker
 
@@ -299,6 +299,7 @@ In questo esempio, il team di supporto o distribuzione riceve il report di confo
 > -RegionName
 
 Specifica il nome di area di distribuzione Azure Stack.
+
 |  |  |
 |----------------------------|--------------|
 |Digitare:                        |string        |
@@ -310,6 +311,7 @@ Specifica il nome di area di distribuzione Azure Stack.
 > -FQDN
 
 Specifica il FQDN esterno della distribuzione di Azure Stack, anche un alias come ExternalFQDN ed ExternalDomainName.
+
 |  |  |
 |----------------------------|--------------|
 |Digitare:                        |string        |
@@ -321,6 +323,7 @@ Specifica il FQDN esterno della distribuzione di Azure Stack, anche un alias com
 > -IdentitySystem
 
 Specifica sistema di identità i valori validi della distribuzione di Azure Stack, AAD o ADFS, rispettivamente per Azure Active Directory e Active Directory Federated Services.
+
 |  |  |
 |----------------------------|--------------|
 |Digitare:                        |string        |
@@ -333,6 +336,7 @@ Specifica sistema di identità i valori validi della distribuzione di Azure Stac
 > -PfxPassword
 
 Specifica la password associata ai file di certificato PFX.
+
 |  |  |
 |----------------------------|---------|
 |Digitare:                        |SecureString |
@@ -344,6 +348,7 @@ Specifica la password associata ai file di certificato PFX.
 > -PaaSCertificates
 
 Specifica la tabella hash che contiene i percorsi e le password per i certificati di PaaS.
+
 |  |  |
 |----------------------------|---------|
 |Digitare:                        |Tabella hash |
@@ -355,6 +360,7 @@ Specifica la tabella hash che contiene i percorsi e le password per i certificat
 > -DeploymentDataJSONPath
 
 Specifica il file di configurazione di Azure Stack deployment dati JSON. Questo file viene generato per la distribuzione.
+
 |  |  |
 |----------------------------|---------|
 |Digitare:                        |string   |
@@ -366,6 +372,7 @@ Specifica il file di configurazione di Azure Stack deployment dati JSON. Questo 
 > -PfxPath
 
 Specifica il percorso di un certificato problematico che richiede l'importazione/esportazione di routine da risolvere, come indicato dalla convalida del certificato in questo strumento.
+
 |  |  |
 |----------------------------|---------|
 |Digitare:                        |string   |
@@ -377,6 +384,7 @@ Specifica il percorso di un certificato problematico che richiede l'importazione
 > -ExportPFXPath  
 
 Specifica il percorso di destinazione per il file PFX risultante dall'importazione/esportazione di routine.  
+
 |  |  |
 |----------------------------|---------|
 |Digitare:                        |string   |
@@ -388,6 +396,7 @@ Specifica il percorso di destinazione per il file PFX risultante dall'importazio
 > -Oggetto
 
 Specifica un dizionario ordinato del soggetto per la generazione di richiesta di certificato.
+
 |  |  |
 |----------------------------|---------|
 |Digitare:                        |OrderedDictionary   |
@@ -415,6 +424,7 @@ Specifica il tipo di SAN della richiesta di certificato. Valori validi MultipleC
 > -OutputRequestPath
 
 Specifica il percorso di destinazione per i file di richiesta di certificato, directory deve esistere già.
+
 |  |  |
 |----------------------------|---------|
 |Digitare:                        |string   |
@@ -426,6 +436,7 @@ Specifica il percorso di destinazione per i file di richiesta di certificato, di
 > -AADServiceAdministrator
 
 Specifica l'amministratore del servizio di Azure Active Directory da utilizzare per la distribuzione di Azure Stack.
+
 |  |  |
 |----------------------------|---------|
 |Digitare:                        |PSCredential   |
@@ -437,6 +448,7 @@ Specifica l'amministratore del servizio di Azure Active Directory da utilizzare 
 > -AADDirectoryTenantName
 
 Specifica il nome di Azure Active Directory da utilizzare per la distribuzione di Azure Stack.
+
 |  |  |
 |----------------------------|---------|
 |Digitare:                        |string   |
@@ -448,6 +460,7 @@ Specifica il nome di Azure Active Directory da utilizzare per la distribuzione d
 > -AzureEnvironment
 
 Specifica l'istanza di servizi di Azure che contiene l'account, le directory e le sottoscrizioni da usare per la registrazione e distribuzione di Azure Stack.
+
 |  |  |
 |----------------------------|---------|
 |Digitare:                        |string   |
@@ -460,6 +473,7 @@ Specifica l'istanza di servizi di Azure che contiene l'account, le directory e l
 > -RegistrationAccount
 
 Specifica l'Account di registrazione da utilizzare per la registrazione di Azure Stack.
+
 |  |  |
 |----------------------------|---------|
 |Digitare:                        |string   |
@@ -471,6 +485,7 @@ Specifica l'Account di registrazione da utilizzare per la registrazione di Azure
 > -RegistrationSubscriptionID
 
 Specifica l'ID sottoscrizione di registrazione da utilizzare per la registrazione di Azure Stack.
+
 |  |  |
 |----------------------------|---------|
 |Digitare:                        |Guid     |
@@ -482,6 +497,7 @@ Specifica l'ID sottoscrizione di registrazione da utilizzare per la registrazion
 > -ReportPath
 
 Specifica percorso di Report di conformità, per impostazione predefinita al nome di report predefinito e directory corrente.
+
 |  |  |
 |----------------------------|---------|
 |Digitare:                        |string   |
@@ -527,6 +543,7 @@ Specifica se i servizi PaaS o nomi host devono essere aggiunte per le richieste 
 > -ReportSections
 
 Specifica se per mostrare solo informazioni di riepilogo del report vengono omessi dettaglio.
+
 |  |  |
 |----------------------------|---------|
 |Digitare:                        |string   |
@@ -539,6 +556,7 @@ Specifica se per mostrare solo informazioni di riepilogo del report vengono omes
 > -Riepilogo
 
 Specifica se per mostrare solo informazioni di riepilogo del report vengono omessi dettaglio.
+
 |  |  |
 |----------------------------|------------------|
 |Digitare:                        |SwitchParameter   |
@@ -550,6 +568,7 @@ Specifica se per mostrare solo informazioni di riepilogo del report vengono omes
 > -CleanReport
 
 Rimuove la cronologia precedente di esecuzione e convalida e scrive le convalide di un nuovo report.
+
 |  |  |
 |----------------------------|------------------|
 |Digitare:                        |SwitchParameter   |
@@ -574,6 +593,7 @@ Specifica un percorso personalizzato per salvare i report di conformità JSON e 
 > -Confirm
 
 Richiede la conferma dell'utente prima di eseguire il cmdlet.
+
 |  |  |
 |----------------------------|------------------|
 |Digitare:                        |SwitchParameter   |
@@ -586,6 +606,7 @@ Richiede la conferma dell'utente prima di eseguire il cmdlet.
 > -WhatIf
 
 Mostra l'esito in caso di esecuzione del cmdlet. Il cmdlet non viene eseguito.
+
 |  |  |
 |----------------------------|------------------|
 |Digitare:                        |SwitchParameter   |
@@ -594,3 +615,4 @@ Mostra l'esito in caso di esecuzione del cmdlet. Il cmdlet non viene eseguito.
 |Valore predefinito:              |False             |
 |Input pipeline accettato:      |False             |
 |Accettare caratteri jolly: |False             |
+

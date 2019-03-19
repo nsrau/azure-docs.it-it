@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: bce00300e62b3ea04331530bbda2c16f0ddd2ab3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 840445b2c1a28d294027c7fbfda9e6bf6e431f14
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759373"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990702"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gestire gli account di archiviazione in Azure Stack
 
@@ -45,7 +45,7 @@ Se si è interessati a un account di archiviazione specifico è possibile **filt
 **Per filtrare per gli account:**
 
 1. Selezionare **filtro** nella parte superiore del riquadro.
-2. Nel riquadro di filtro consente di specificare **nome dell'account**, * * ID sottoscrizione, o **stato** per ottimizzare l'elenco degli account di archiviazione da visualizzare. Usarli come appropriato.
+2. Nel riquadro di filtro consente di specificare **nome dell'account**, **ID sottoscrizione**, o **stato** per ottimizzare l'elenco degli account di archiviazione da visualizzare. Usarli come appropriato.
 3. Selezionare **Aggiorna**. L'elenco è necessario aggiornare di conseguenza.
    
     ![](media/azure-stack-manage-storage-accounts/image5.png)

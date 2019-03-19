@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/25/2018
+ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: 01273ca241769c5e3bb7b7222355d32b29fd51b9
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 4c395a062b1132710f888cc5a315529db082a805
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308503"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850027"
 ---
 # <a name="export-or-delete-user-data-in-custom-vision"></a>Esportare o eliminare i dati in Visione personalizzata
 
-Visione personalizzata raccoglie i dati dell'utente per il funzionamento del servizio, ma i clienti hanno il controllo completo sulla visualizzazione, l'esportazione e l'eliminazione dei propri dati mediante l'[API Training](https://go.microsoft.com/fwlink/?linkid=865446) del Servizio visione artificiale personalizzato.
+Servizio visione artificiale personalizzato raccoglie i dati utente per il funzionamento del servizio, ma i clienti hanno pieno controllo sulle visualizzazione, esportazione e l'eliminazione di dati tramite la visione artificiale personalizzato [API Training](https://go.microsoft.com/fwlink/?linkid=865446).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-Per altre informazioni su come esportare ed eliminare i dati utente in Visione personalizzata, vedere la tabella seguente.
+Per informazioni su come esportare ed eliminare i dati utente in visione artificiale personalizzato, vedere la tabella seguente.
 
 | Dati | Operazione di esportazione | Operazione di eliminazione |
 | ---- | ---------------- | ---------------- |
@@ -34,4 +34,4 @@ Per altre informazioni su come esportare ed eliminare i dati utente in Visione p
 | Progetti e dettagli dei progetti | [GetProject](https://go.microsoft.com/fwlink/?linkid=865446) e [GetProjects](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteProject](https://go.microsoft.com/fwlink/?linkid=865446) | 
 | Tag immagine | [GetTag](https://go.microsoft.com/fwlink/?linkid=865446) e [GetTags](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteTag](https://go.microsoft.com/fwlink/?linkid=865446) | 
 | Immagini | [GetTaggedImages](https://go.microsoft.com/fwlink/?linkid=865446) (fornisce l'URI per il download di immagini) e [GetUntaggedImages](https://go.microsoft.com/fwlink/?linkid=865446) (fornisce l'URI per il download di immagini) | [DeleteImages](https://go.microsoft.com/fwlink/?linkid=865446) | 
-| Modelli esportati | [GetExports](https://go.microsoft.com/fwlink/?linkid=865446) | Eliminati con l'eliminazione dell'account | 
+| Modelli esportati | [GetExports](https://go.microsoft.com/fwlink/?linkid=865446) | Eliminati con l'eliminazione dell'account |

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 03/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 24b08bb843b4f1a0eb9f2471cb17b81f2c8ac4d0
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 76323ab00a3562cae10520b18008d030e40043fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417534"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864674"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Informazioni sulle impostazioni di configurazione del gateway VPN
 
@@ -43,7 +43,7 @@ Un gateway VPN richiede il valore `-GatewayType` *Vpn* per.
 
 Esempio:
 
-```powershell
+```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
 -VpnType RouteBased
@@ -63,7 +63,7 @@ Se si usa il portale di Azure per creare un gateway di rete virtuale di Resource
 
 L'esempio seguente di PowerShell specifica `-GatewaySku` come VpnGw1. Quando si usa PowerShell per creare un gateway, è prima necessario creare la configurazione IP e quindi usare una variabile per farvi riferimento. In questo esempio la variabile di configurazione è $gwipconfig.
 
-```powershell
+```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -Location 'US East' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
 -GatewayType Vpn -VpnType RouteBased
@@ -77,7 +77,7 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 ###  <a name="resizechange"></a>Ridimensionare o modificare uno SKU
 
-Se è disponibile un gateway VPN e si vuole usare un diverso SKU del gateway, le opzioni disponibili sono ridimensionare lo SKU del gateway oppure passare a un altro SKU. Quando si usa un altro SKU del gateway, eliminare completamente il gateway esistente e compilarne uno nuovo. Per completare questa operazione possono essere necessari fino a 45 minuti. In confronto, quando si ridimensiona uno SKU del gateway, si verificherà un tempo di inattività ridotto poiché non è necessario eliminare e ricreare il gateway. Se si ha la possibilità di ridimensionare lo SKU del gateway, anziché modificarlo, è opportuno preferire tale prima opzione. Esistono tuttavia alcune regole relative al ridimensionamento:
+Se è disponibile un gateway VPN e si vuole usare un diverso SKU del gateway, le opzioni disponibili sono ridimensionare lo SKU del gateway oppure passare a un altro SKU. Quando si usa un altro SKU del gateway, eliminare completamente il gateway esistente e compilarne uno nuovo. Un gateway può richiedere fino a 45 minuti. In confronto, quando si ridimensiona un SKU del gateway, non c'è molto tempo di inattività perché non è necessario eliminare e ricreare il gateway. Se si ha la possibilità di ridimensionare lo SKU del gateway, anziché modificarlo, è opportuno preferire tale prima opzione. Esistono tuttavia alcune regole relative al ridimensionamento:
 
 1. È possibile eseguire il ridimensionamento tra gli SKU VpnGw1, VpnGw2 e VpnGw3.
 2. Quando si usano SKU del gateway di versione precedente, è possibile eseguire il ridimensionamento tra gli SKU Basic, Standard e HighPerformance.
@@ -102,7 +102,7 @@ Nel modello di distribuzione Resource Manager ogni configurazione richiede un ti
 
 L'esempio PowerShell seguente crea una connessione S2S che richiede il tipo di connessione *IPsec*.
 
-```powershell
+```azurepowershell-interactive
 New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
 -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
 -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
@@ -120,7 +120,7 @@ Dopo avere creato un gateway di rete virtuale, non è possibile modificare il ti
 
 Nel seguente esempio di PowerShell `-VpnType` viene specificato come *RouteBased*. Quando si crea un gateway, è necessario assicurarsi che -VpnType sia corretto per la configurazione.
 
-```powershell
+```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig `
 -GatewayType Vpn -VpnType RouteBased
@@ -132,7 +132,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ## <a name="gwsub"></a>Subnet del gateway
 
-Prima di creare un gateway VPN, è necessario creare una subnet del gateway. La subnet del gateway contiene gli indirizzi IP usati dalle VM e dai servizi del gateway di rete virtuale. Quando si crea il gateway di rete virtuale, le VM del gateway vengono distribuite nella subnet del gateway e configurate con le impostazioni del gateway VPN necessarie. Non si deve mai distribuire altro (ad esempio, VM aggiuntive) nella subnet del gateway. Per poter funzionare correttamente, la subnet del gateway deve essere denominata "GatewaySubnet". Denominando la subnet del gateway 'GatewaySubnet', Azure riconosce questa subnet come quella in cui distribuire i servizi e le VM del gateway di rete virtuale.
+Prima di creare un gateway VPN, è necessario creare una subnet del gateway. La subnet del gateway contiene gli indirizzi IP usati dalle VM e dai servizi del gateway di rete virtuale. Quando si crea il gateway di rete virtuale, le VM del gateway vengono distribuite nella subnet del gateway e configurate con le impostazioni del gateway VPN necessarie. Mai distribuire altro (ad esempio, VM aggiuntive) alla subnet del gateway. Per poter funzionare correttamente, la subnet del gateway deve essere denominata "GatewaySubnet". Denominando la subnet del gateway 'GatewaySubnet', Azure riconosce questa subnet come quella in cui distribuire i servizi e le VM del gateway di rete virtuale.
 
 >[!NOTE]
 >[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
@@ -142,7 +142,7 @@ Quando si crea la subnet del gateway, si specifica il numero di indirizzi IP inc
 
 L'esempio seguente di PowerShell Resource Manager illustra una subnet del gateway denominata GatewaySubnet. La notazione CIDR specifica /27. Questa dimensione ammette un numero di indirizzi IP sufficiente per la maggior parte delle configurazioni attualmente esistenti.
 
-```powershell
+```azurepowershell-interactive
 Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 ```
 
@@ -156,7 +156,7 @@ Assegnare un nome e l'indirizzo IP pubblico del dispositivo VPN locale al gatewa
 
 L'esempio seguente di PowerShell consente di creare un nuovo gateway di rete locale:
 
-```powershell
+```azurepowershell-interactive
 New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```

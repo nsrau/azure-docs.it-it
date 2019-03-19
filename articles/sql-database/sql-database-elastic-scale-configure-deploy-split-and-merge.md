@@ -12,19 +12,19 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 7939de5cf45535dc911c25ae8fa8c914a214fa3c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 5aff7e93dcfaa5320be0d6f7d427abcdc88c69e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458058"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995831"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Distribuire un servizio di divisione e unione per spostare i dati tra database partizionati
 
 Lo strumento di divisione e unione sposta i dati tra database partizionati. Vedere [Spostamento di dati tra database cloud con numero maggiore di istanze](sql-database-elastic-scale-overview-split-and-merge.md)
 
 ## <a name="download-the-split-merge-packages"></a>Scaricare i pacchetti di divisione e unione
-1. Scaricare la versione più recente di NuGet dal sito Web [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
+1. Scaricare la versione più recente di NuGet dal sito Web [NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
 2. Aprire un prompt dei comandi e passare alla directory in cui si è scaricato il file nuget.exe. Il download comprende comandi di PowerShell.
 3. Scaricare il pacchetto di divisione e unione più recente nella directory corrente usando il seguente comando:
    ```

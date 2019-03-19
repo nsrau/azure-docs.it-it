@@ -13,12 +13,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/14/2018
-ms.openlocfilehash: 8c19022f168577cf65180357f280afd5a0e03073
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
-ms.translationtype: HT
+ms.openlocfilehash: 7d07b0a098aad472b1b4f0b9810e5b63ac3c48a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634159"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007455"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Gestione dei problemi di connessione e degli errori temporanei del database SQL
 
@@ -109,7 +109,7 @@ Per semplificare il test, disconnettere il computer dalla rete prima di avviare 
 Il programma può intenzionalmente digitare in modo errato il nome utente prima del primo tentativo di connessione. L'errore è:
 
 - **SqlException.Number** = 18456
-- Messaggio: "Accesso non riuscito per l'utente 'WRONG_MyUserName'."
+- Messaggio: "Accesso non riuscito per l'utente 'WRONG_MyUserName'".
 
 Come parte del primo tentativo, il programma può correggere l'errore di digitazione e quindi provare a connettersi.
 
@@ -125,7 +125,7 @@ Per semplificare il test, il programma riconosce un parametro di runtime che ha 
 
 ## <a name="net-sqlconnection-parameters-for-connection-retry"></a>Parametri di SqlConnection di .NET per nuovi tentativi di connessione
 
-Se il programma client si connette al database SQL usando la classe .NET Framework **System.Data.SqlClient.SqlConnection**, è necessario usare .NET 4.6.1 o versioni successive (o .NET Core) per poterne sfruttare la funzionalità di ripetizione dei tentativi di connessione. Per altre informazioni sulla caratteristica, vedere [questa pagina Web](https://go.microsoft.com/fwlink/?linkid=393996).
+Se il programma client si connette al database SQL usando la classe .NET Framework **System.Data.SqlClient.SqlConnection**, è necessario usare .NET 4.6.1 o versioni successive (o .NET Core) per poterne sfruttare la funzionalità di ripetizione dei tentativi di connessione. Per altre informazioni sulla caratteristica, vedere [questa pagina Web](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
@@ -137,9 +137,9 @@ Quando si crea la [stringa di connessione](https://msdn.microsoft.com/library/Sy
 - **ConnectRetryInterval**:&nbsp;&nbsp;Il valore predefinito è 1 secondo. L'intervallo consentito è tra 1 e 60.
 - **Timeout di connessione**:&nbsp;&nbsp;Il valore predefinito è 15 secondi. L'intervallo consentito è tra 0 e 2147483647.
 
-In particolare, i valori scelti devono rendere vera l'uguaglianza seguente: Timeout di connessione = ConnectRetryCount * ConnectionRetryInterval
+In particolare, i valori scelti devono rendere vera l'eguaglianza seguente: Timeout di connessione = ConnectRetryCount * ConnectionRetryInterval
 
-Ad esempio, se il numero = 3 e l'intervallo = 10 secondi, un timeout di soli 29 secondi non garantisce al sistema il tempo sufficiente per il terzo tentativo e il tentativo di connessione finale: 29 < 3 * 10.
+Ad esempio, se il numero = 3 e l'intervallo = 10 secondi, un timeout di soli 29 secondi non garantisce al sistema il tempo sufficiente per il terzo e ultimo tentativo di connessione: 29 < 3 * 10.
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -162,7 +162,7 @@ Si supponga che l'applicazione disponga di una logica di ripetizione dei tentati
 
 <a id="c-connection-string" name="c-connection-string"></a>
 
-### <a name="connection-connection-string"></a>Connessione: stringa di connessione
+### <a name="connection-connection-string"></a>Connessione: Stringa di connessione
 
 La stringa di connessione necessaria per connettersi al database SQL è leggermente diversa rispetto alla stringa usata per connettersi a SQL Server. È possibile copiare la stringa di connessione per il database dal [portale di Azure](https://portal.azure.com/).
 
@@ -170,7 +170,7 @@ La stringa di connessione necessaria per connettersi al database SQL è leggerme
 
 <a id="b-connection-ip-address" name="b-connection-ip-address"></a>
 
-### <a name="connection-ip-address"></a>Connessione: indirizzo IP
+### <a name="connection-ip-address"></a>Connessione: Indirizzo IP
 
 È necessario configurare il server di database SQL in modo che accetti le comunicazioni dall'indirizzo IP del computer che ospita il programma client. Per impostare questa configurazione, modificare le impostazioni del firewall tramite il [portale di Azure](https://portal.azure.com/).
 
@@ -181,7 +181,7 @@ Se si dimentica di configurare l'indirizzo IP, il programma restituirà un messa
 Per altre informazioni, vedere [Configurare le impostazioni del firewall nel database SQL](sql-database-configure-firewall-settings.md).
 <a id="c-connection-ports" name="c-connection-ports"></a>
 
-### <a name="connection-ports"></a>Connessione: porte
+### <a name="connection-ports"></a>Connessione: Porte
 
 In genere è sufficiente assicurarsi che soltanto la porta 1433 sia aperta per le comunicazioni in uscita sul computer che ospita il programma client.
 
@@ -211,7 +211,7 @@ Se il programma usa classi ADO.NET come **System.Data.SqlClient.SqlConnection** 
 
 Quando si usa un oggetto connessione da un pool di connessioni, è consigliabile che il programma chiuda temporaneamente la connessione se questa non deve essere usata immediatamente. Riaprire una connessione non ha alcun costo, a differenza della creazione di una nuova connessione.
 
-Se si usa ADO.NET 4.0 o versioni precedenti, è consigliabile eseguire l'aggiornamento alla versione più recente di ADO.NET. A partire da agosto 2018, è possibile [scaricare ADO.NET 4.6.2](https://blogs.msdn.microsoft.com/dotnet/2018/04/30/announcing-the-net-framework-4-7-2/).
+Se si usa ADO.NET 4.0 o versioni precedenti, è consigliabile eseguire l'aggiornamento alla versione più recente di ADO.NET. A partire da agosto 2018, è possibile [scaricare ADO.NET 4.6.2](https://blogs.msdn.microsoft.com/dotnet/20../../announcing-the-net-framework-4-7-2/).
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 
@@ -219,7 +219,7 @@ Se si usa ADO.NET 4.0 o versioni precedenti, è consigliabile eseguire l'aggiorn
 
 <a id="d-test-whether-utilities-can-connect" name="d-test-whether-utilities-can-connect"></a>
 
-### <a name="diagnostics-test-whether-utilities-can-connect"></a>Diagnostica: verificare se le utilità si possono connettere
+### <a name="diagnostics-test-whether-utilities-can-connect"></a>Diagnostica: Verificare se possono connettersi le utilità
 
 Se il programma non riesce a connettersi al database SQL, un'opzione di diagnostica consente di provare a connettersi mediante un programma di utilità. Idealmente l'utilità si connette mediante la stessa libreria usata dal programma.
 
@@ -232,14 +232,14 @@ Dopo la connessione del programma, verificare il funzionamento di una breve quer
 
 <a id="f-diagnostics-check-open-ports" name="f-diagnostics-check-open-ports"></a>
 
-### <a name="diagnostics-check-the-open-ports"></a>Diagnostica: verificare le porte aperte
+### <a name="diagnostics-check-the-open-ports"></a>Diagnostica: Verificare le porte aperte
 
 Se si ritiene che i tentativi di connessione abbiano esito negativo a causa di problemi di porta, è possibile eseguire sul computer un'utilità che segnala le configurazioni delle porte.
 
 In Linux possono risultare utili le utilità seguenti:
 
 - `netstat -nap`
-- `nmap -sS -O 127.0.0.1`: modificare il valore di esempio con il proprio indirizzo IP.
+- `nmap -sS -O 127.0.0.1`: Modificare il valore di esempio con il proprio indirizzo IP.
 
 In Windows è possibile usare l'utilità [PortQry.exe](https://www.microsoft.com/download/details.aspx?id=17148). Ecco un'esecuzione di esempio che ha eseguito una query relativa alla situazione delle porte in un server di database SQL e che è stata eseguita in un computer portatile:
 
@@ -261,17 +261,17 @@ TCP port 1433 (ms-sql-s service): LISTENING
 
 <a id="g-diagnostics-log-your-errors" name="g-diagnostics-log-your-errors"></a>
 
-### <a name="diagnostics-log-your-errors"></a>Diagnostica: registrare gli errori
+### <a name="diagnostics-log-your-errors"></a>Diagnostica: Registrare gli errori
 
 La diagnosi di un problema intermittente è spesso agevolata dal rilevamento di uno schema generale nel corso di giorni o settimane.
 
 Il client può supportare l'analisi tramite la registrazione di tutti gli errori rilevati. È possibile che si riesca a correlare le voci del log con i dati di errore registrati internamente dal database SQL.
 
-Enterprise Library 6 (EntLib60) offre classi .NET gestite per semplificare la registrazione. Per altre informazioni, vedere [5 - Più facile che mai: uso del blocco applicazione di registrazione](https://msdn.microsoft.com/library/dn440731.aspx).
+Enterprise Library 6 (EntLib60) offre classi .NET gestite per semplificare la registrazione. Per altre informazioni, vedere [5 - più facile che mai un log: Usare il blocco applicazione per la registrazione](https://msdn.microsoft.com/library/dn440731.aspx).
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
-### <a name="diagnostics-examine-system-logs-for-errors"></a>Diagnostica: cercare errori nei log di sistema
+### <a name="diagnostics-examine-system-logs-for-errors"></a>Diagnostica: Esaminare i registri di sistema per gli errori
 
 Ecco alcune istruzioni Transact-SQL SELECT che eseguono query nei log degli errori e alla ricerca di altre informazioni.
 
@@ -282,7 +282,7 @@ Ecco alcune istruzioni Transact-SQL SELECT che eseguono query nei log degli erro
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
-### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>Diagnostica: cercare eventi relativi a problemi nel log del database SQL
+### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>Diagnostica: Cercare agli eventi problematici nel log del Database SQL
 
 È possibile cercare voci relative agli eventi problematici nel log del database SQL. Provare a eseguire l'istruzione Transact-SQL SELECT seguente nel database *master* :
 
@@ -327,7 +327,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 
 Enterprise Library 6 (EntLib60) è un framework di classi .NET che semplifica l'implementazione di client affidabili dei servizi cloud, ad esempio il servizio database SQL. Gli argomenti dedicati a ogni area per cui EntLib60 può risultare utile sono disponibili in [Enterprise Library 6 - Aprile 2013](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx).
 
-Logica di ripetizione dei tentativi per la gestione degli errori temporanei è un'area in cui EntLib60 può essere utile. Per altre informazioni, vedere [4 - Perseveranza, il segreto di tutti i successi: uso del Blocco di applicazioni per la gestione degli errori temporanei](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
+Logica di ripetizione dei tentativi per la gestione degli errori temporanei è un'area in cui EntLib60 può essere utile. Per altre informazioni, vedere [4 - Perseveranza, segreto di tutti i successi: Usare il blocco applicazione di gestione degli errori temporanei](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
 
 > [!NOTE]
 > Il codice sorgente per EntLib60 è disponibile per il download pubblico nell'[Area download](https://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft non prevede di fornire altre funzionalità o aggiornamenti di manutenzione per EntLib.
@@ -354,13 +354,13 @@ Nello spazio dei nomi **Microsoft.Practices.EnterpriseLibrary.TransientFaultHand
 
 Ecco alcuni collegamenti alle informazioni relative a EntLib60:
 
-- Download gratuito dell'eBook [Guida per sviluppatori di Microsoft Enterprise Library, seconda edizione](https://www.microsoft.com/download/details.aspx?id=41145).
-- Procedure consigliate: [Indicazioni generali per la ripetizione di tentativi](../best-practices-retry-general.md) offre un'eccellente discussione approfondita della logica di ripetizione dei tentativi.
-- Download NuGet di [Enterprise Library - Blocco applicazione per la gestione di errori temporanei 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
+- Download gratuito dell'eBook: [Guida per sviluppatori di Microsoft Enterprise Library, 2nd edition](https://www.microsoft.com/download/details.aspx?id=41145).
+- Procedure consigliate: [Indicazioni generali ripetizione di tentativi](../best-practices-retry-general.md) è un'eccellente discussione approfondita della logica di ripetizione dei tentativi.
+- Download di NuGet: [Libreria Enterprise - blocco applicazione per la gestione degli errori temporanei 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 
-### <a name="entlib60-the-logging-block"></a>EntLib60: il blocco di registrazione
+### <a name="entlib60-the-logging-block"></a>EntLib60: Il blocco di registrazione
 
 - Il blocco di registrazione è una soluzione a flessibilità e configurabilità elevata che consente di:
   - Creare e archiviare messaggi di log in diverse posizioni.
@@ -368,7 +368,7 @@ Ecco alcuni collegamenti alle informazioni relative a EntLib60:
   - Raccogliere informazioni contestuali utili per il debug e la traccia, oltre che per i requisiti di controllo e di registrazione generale.
 - Il blocco di registrazione astrae la funzionalità di registrazione dalla destinazione di registrazione, in modo che il codice applicazione sia coerente, indipendentemente dalla posizione e dal tipo di archivio di registrazione di destinazione.
 
-Per altre informazioni, vedere [5 - Più facile che mai: uso del blocco applicazione di registrazione](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx).
+Per altre informazioni, vedere [5 - più facile che mai un log: Usare il blocco applicazione per la registrazione](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx).
 
 <a id="entlib60-istransient-method-source-code" name="entlib60-istransient-method-source-code"></a>
 
@@ -447,7 +447,7 @@ public bool IsTransient(Exception ex)
 - Per altre informazioni sulla risoluzione dei problemi di connessione del database SQL, vedere [Risoluzione dei problemi di connessione al database SQL di Azure](sql-database-troubleshoot-common-connection-issues.md).
 - [Raccolte di connessioni per database SQL e Server SQL](sql-database-libraries.md)
 - [Pool di connessioni di SQL Server (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
-- [*Retrying* è una libreria generica Apache 2.0 di ripetizione dei tentativi scritta in Python](https://pypi.python.org/pypi/retrying) per semplificare l'attività di aggiunta del comportamento di ripetizione dei tentativi a qualsiasi codice.
+- [*Retrying* è una libreria generica, scritta in Python, con licenza Apache 2.0](https://pypi.python.org/pypi/retrying) per semplificare l'aggiunta di un comportamento di tipo "ritenta" a quasi qualsiasi azione.
 
 <!-- Link references. -->
 

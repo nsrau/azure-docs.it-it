@@ -16,12 +16,12 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cec018eec6e298e27329c03964dccf5809c1791
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 79549c1b8ed578319e43fc1c4354c7cd76f71589
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190637"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004239"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>Estendere o rinnovare le assegnazioni dei ruoli delle risorse di Azure in PIM
 
@@ -49,7 +49,7 @@ I membri di un'assegnazione di ruolo possono estendere le assegnazioni di ruolo 
 
 Quando la data/ora di fine dell'assegnazione è entro 14 giorni, il pulsante **Estendi** diventa un collegamento attivo nell'interfaccia utente. Nell'esempio seguente, si suppone che la data corrente sia il 27 marzo.
 
-![Il pulsante "Estendi"](media/azure-pim-resource-rbac/aadpim_rbac_extend_within_14.png)
+![Estendere pulsante](media/azure-pim-resource-rbac/aadpim_rbac_extend_within_14.png)
 
 Per richiedere un'estensione di questa assegnazione di ruolo, selezionare **Estendi** per aprire il modulo di richiesta.
 
@@ -64,11 +64,11 @@ Espandere **Dettagli dell'assegnazione** per visualizzare le informazioni sull'a
 
 In pochi istanti, gli amministratori delle risorse riceveranno una notifica tramite posta elettronica con la richiesta di revisione della richiesta di estensione. Se è già stata inviata una richiesta di estensione, verrà visualizzata una notifica di tipo avviso popup nella parte superiore del portale di Azure che spiega l'errore.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_failed_existing_request.png)
+![Notifica che spiega errore](media/azure-pim-resource-rbac/aadpim_rbac_extend_failed_existing_request.png)
 
 Passare alla scheda **Richieste in sospeso** nel riquadro a sinistra per visualizzare lo stato o annullare la richiesta.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_cancel_request.png)
+![Richieste in sospeso](media/azure-pim-resource-rbac/aadpim_rbac_extend_cancel_request.png)
 
 ### <a name="admin-approve"></a>Approvazione degli amministratori
 
@@ -80,7 +80,7 @@ Oltre a seguire il collegamento dal messaggio di posta elettronica, gli amminist
 
 Quando un amministratore seleziona **Approva** o **Rifiuta**, vengono visualizzati i dettagli della richiesta insieme a un campo per fornire una giustificazione per i log di controllo.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_blade.png)
+![Approva la richiesta di assegnazione di ruolo](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_blade.png)
 
 Quando approvano una richiesta di estensione di un'assegnazione di ruolo, gli amministratori delle risorse possono scegliere una nuova data di inizio e di fine e un tipo di assegnazione. La modifica del tipo di assegnazione potrebbe essere necessaria se l'amministratore vuole fornire accesso limitato per completare un'attività specifica (un giorno, ad esempio). In questo esempio, l'amministratore può modificare l'assegnazione da **Idonea** ad **Attiva**. Ciò significa che possono fornire l'accesso al richiedente senza necessità di attivazione.
 
@@ -100,7 +100,7 @@ Anche se concettualmente simile alla richiesta di estensione, il processo di rin
 
 I membri che non possono più accedere alle risorse possono accedere alla cronologia di assegnazione scaduti fino a 30 giorni. A tale scopo, passare a **Ruoli personali** nel riquadro sinistro e quindi selezionare la scheda **Ruoli scaduti** nella sezione dei ruoli delle risorse di Azure.
 
-![Sceda "Ruoli scaduti"](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_myroles.png)
+![Scheda ruoli scaduti](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_myroles.png)
 
 L'elenco dei ruoli visualizzati include le impostazioni predefinite per i **Ruoli idonei**. Usare il menu a discesa per alternare i ruoli assegnati Idonea e Attiva.
 
