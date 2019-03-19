@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 038d41ae299076754a2f778ec67aac04e630d476
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 72a3bead4ba8670187c35856f9cd4e4f4b975a30
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270182"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311696"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedure consigliate per una knowledge base di QnA Maker
 Il [ciclo di vita di sviluppo della knowledge base](../Concepts/development-lifecycle-knowledge-base.md) fornisce informazioni sulla gestione della KB dall'inizio alla fine. Usare queste procedure consigliate per migliorare la knowledge base e fornire risultati migliori per gli utenti finali dell'applicazione/chat bot.
@@ -78,7 +78,7 @@ Le [domande alternative](../How-To/edit-knowledge-base.md) aumentano la probabil
 |È disponibile il parcheggio?|Si dispone di parcheggio?|struttura della frase|
  |Ciao|Ehi<br>Salve!|stile delle parole o gergo|
 
-<a name="#use-metadata-filters"></a>
+<a name="use-metadata-filters"></a>
 
 ### <a name="use-metadata-tags-to-filter-questions-and-answers"></a>Usare i tag di metadati per filtrare domande e risposte
 
@@ -108,7 +108,7 @@ QnA Maker permette agli utenti di [collaborare](../How-to/collaborate-knowledge-
 
 ## <a name="active-learning"></a>Apprendimento attivo
 
-[Apprendimento attivo](../How-to/improve-knowledge-base.md) garantisce migliori prestazioni nel suggerimento di domande alternative se è disponibile un'ampia gamma, in termini di qualità e quantità, di query basate sull'utente. È importante consentire alle query degli utenti delle applicazioni client di entrare nel ciclo di feedback relativo all'apprendimento attivo senza alcuna limitazione.
+[Apprendimento attivo](../How-to/improve-knowledge-base.md) garantisce migliori prestazioni nel suggerimento di domande alternative se è disponibile un'ampia gamma, in termini di qualità e quantità, di query basate sull'utente. È importante consentire alle query degli utenti delle applicazioni client di entrare nel ciclo di feedback relativo all'apprendimento attivo senza alcuna limitazione. Una volta domande vengono suggerite nel portale di QnA Maker, è necessario rivedere e accettare o rifiutare tali suggerimenti. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

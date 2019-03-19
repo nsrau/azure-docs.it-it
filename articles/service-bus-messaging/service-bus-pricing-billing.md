@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 5b9aae979a25a1f175b3d5a5e24960d6f392b9b4
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 859add6c9310cf5f18ed7090c8e93d4896b59a0b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852933"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433383"
 ---
 # <a name="service-bus-pricing-and-billing"></a>Informazioni sul prezzo e la fatturazione del Bus di servizio
 
@@ -74,7 +74,7 @@ Il livello Standard rimuove il limite di connessioni negoziate per spazio dei no
 <br />
 
 > [!NOTE]
-> La fatturazione si basa sul numero massimo di connessioni simultanee e viene ripartita per ogni ora in base a 744 ore al mese.
+> La fatturazione si basa sul numero massimo di connessioni simultanee ed è ripartita proporzionalmente su base oraria 730 ore al mese.
 >
 >
 
@@ -91,12 +91,12 @@ Una connessione negoziata è definita in uno dei seguenti modi:
 1. Connessione AMQP da un client a un argomento/sottoscrizione o una coda del bus di servizio.
 2. Una chiamata HTTP per ricevere un messaggio da una coda o un argomento del bus di servizio con un valore di timeout della ricezione maggiore di zero.
 
-I costi del Bus di servizio per il numero massimo di connessioni simultanee negoziate che superano la quantità inclusa (1.000 nel livello Standard). I picchi vengono misurati su base oraria, ripartiti dividendo per 744 ore in un mese e sommati nel periodo di fatturazione mensile. La quantità inclusa (1.000 connessioni negoziate al mese) viene applicata alla fine del periodo di fatturazione con la somma dei picchi orari ripartiti.
+I costi del Bus di servizio per il numero massimo di connessioni simultanee negoziate che superano la quantità inclusa (1.000 nel livello Standard). I picchi vengono misurati su base oraria, ripartiti proporzionalmente dividendoli per 730 ore al mese e sommati nel periodo di fatturazione mensile. La quantità inclusa (1.000 connessioni negoziate al mese) viene applicata alla fine del periodo di fatturazione con la somma dei picchi orari ripartiti.
 
 Ad esempio: 
 
-1. Ognuno dei 10.000 dispositivi si connette tramite una singola connessione AMQP e riceve i comandi da un argomento del bus di servizio. I dispositivi inviano eventi di telemetria per un Hub di eventi. Se tutti i dispositivi si connettono per 12 ore al giorno, si applicano i costi di connessione seguenti (oltre a eventuali altri costi per l'argomento del bus di servizio): 10.000 connessioni x 12 ore x 31 giorni/744 = 5.000 connessioni negoziate. Dopo l'indennità mensile di 1.000 connessioni negoziate, ci sarà l'addebito per 4.000 connessioni negoziate, alla tariffa di $0,03 per ogni connessione negoziata, per un totale di $120.
-2. 10.000 dispositivi ricevono messaggi da una coda del Bus di servizio tramite HTTP, specificando un timeout diverso da zero. Se tutti i dispositivi si connettono per 12 ore al giorno, questi saranno i costi di connessione (oltre a eventuali altri costi del bus di servizio): 10.000 connessioni di ricezione HTTP x 12 ore al giorno x 31 giorni/744 ore = 5.000 connessioni negoziate.
+1. Ognuno dei 10.000 dispositivi si connette tramite una singola connessione AMQP e riceve i comandi da un argomento del bus di servizio. I dispositivi inviano eventi di telemetria per un Hub di eventi. Se tutti i dispositivi si connettono per 12 ore al giorno, si applicano i costi di connessione seguenti (oltre a eventuali altri costi per l'argomento del bus di servizio): 10.000 connessioni * 12 ore * 30 giorni 730 = 4,931 connessioni negoziate. Dopo l'indennità mensile di 1.000 connessioni negoziate, ci sarà l'addebito per 4.000 connessioni negoziate, alla tariffa di $0,03 per ogni connessione negoziata, per un totale di $120.
+2. 10.000 dispositivi ricevono messaggi da una coda del Bus di servizio tramite HTTP, specificando un timeout diverso da zero. Se tutti i dispositivi si connettono per 12 ore al giorno, questi saranno i costi di connessione (oltre a eventuali altri costi del bus di servizio): 10.000 connessioni di ricezione HTTP * 12 ore al giorno * 30 giorni / 730 ore = 4,931 connessioni negoziate.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>I costi delle connessioni negoziate si applicano a code e argomenti/sottoscrizioni?
 

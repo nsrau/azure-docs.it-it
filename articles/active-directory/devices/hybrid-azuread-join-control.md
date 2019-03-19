@@ -17,12 +17,12 @@ ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6b1e1c103c37874365f7e8d0b893985c9a6469c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8b113dd3e354e778d2cf16182665afff5440d2e5
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171078"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408531"
 ---
 # <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>Controllare l'aggiunta dei dispositivi ad Azure AD ibrido
 
@@ -82,7 +82,7 @@ Per impostare l'oggetto Criteri di gruppo:
 8.  Fare clic con il pulsante destro del mouse su **Registra i computer aggiunti a un dominio come dispositivi** e quindi scegliere **Modifica**.
 
     > [!NOTE] 
-    > Questo modello di Criteri di gruppo è stato rinominato dalle versioni precedenti della console Gestione Criteri di gruppo. Se si usa una versione precedente della console, accedere a **Configurazione computer** > **Criteri** > **Modelli amministrativi** > **Componenti di Windows** > **Aggiunta all'area di lavoro** > **Automatically workplace join client computers (Aggiunta automatica di computer client all'area di lavoro)**. 
+    > Questo modello di Criteri di gruppo è stato rinominato dalle versioni precedenti della console Gestione Criteri di gruppo. Se si usa una versione precedente della console, passare a **configurazione Computer** > **criteri** > **modelli amministrativi**  >  **i componenti di Windows** > **servizio registrazione dispositivo** > **Register dominio aggiunto al computer come dispositivo**. 
 
 9.  Selezionare una delle impostazioni seguenti e quindi selezionare **Applica**:
 
@@ -99,16 +99,16 @@ Per impostare l'oggetto Criteri di gruppo:
 
 Per configurare l'impostazione client:
 
-1.  Aprire **Gestione configurazione** e quindi andare a **Servizi cloud**.
+1.  Aprire **Configuration Manager**, selezionare **amministrazione**, quindi passare a **impostazioni Client**.
 
-2.  In **Impostazioni del dispositivo** selezionare una delle impostazioni seguenti per **Registra automaticamente i nuovi dispositivi Windows 10 aggiunti al dominio con Azure Active Directory**:
+2.  Aprire le proprietà per **impostazioni Client predefinite** e selezionare **servizi Cloud**.
+
+3.  In **Impostazioni del dispositivo** selezionare una delle impostazioni seguenti per **Registra automaticamente i nuovi dispositivi Windows 10 aggiunti al dominio con Azure Active Directory**:
 
     - **No**: per impedire la registrazione automatica dei dispositivi.
     - **Sì**: per abilitare la registrazione automatica dei dispositivi.
 
-
-3.  Selezionare **OK**.
-    
+4.  Selezionare **OK**.
 
 È necessario collegare questa impostazione client a una posizione di propria scelta. Ad esempio, per configurare questa impostazione client per tutti i dispositivi correnti di Windows nell'organizzazione, collegare l'impostazione client al dominio. Per eseguire una distribuzione controllata, è possibile configurare questa impostazione client sui dispositivi correnti di Windows aggiunti a un dominio che appartengono a un'unità organizzativa o a un gruppo di sicurezza.
 

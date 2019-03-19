@@ -7,19 +7,19 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.assetid: 5281462e-f480-4e5e-9c19-022f36dce76d
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a72df28fbaed89076976f567774bd5fdb15bc2f9
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: 1c9b13f44dae068597cb82a0aa803283ad5e67bc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229490"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763607"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Aggiunta di risorse di Automazione di Azure a una soluzione di gestione (anteprima)
 > [!NOTE]
@@ -29,7 +29,7 @@ ms.locfileid: "54229490"
 Le [soluzioni di gestione]( solutions.md) contengono in genere runbook in Automazione di Azure per automatizzare i processi, ad esempio la raccolta e l'elaborazione dei dati di monitoraggio.  Oltre ai runbook, gli account di Automazione includono asset come le variabili e le pianificazioni che supportano i runbook usati nella soluzione.  Questo articolo descrive come includere i runbook e le risorse correlate in una soluzione.
 
 > [!NOTE]
-> Gli esempi in questo articolo usano parametri e variabili che sono obbligatori o comuni nelle soluzioni di gestione e che sono descritti in [Progettare e creare una soluzione di gestione in Azure]( solutions-creating.md). 
+> Gli esempi in questo articolo usano parametri e variabili che sono richiesti o comuni nelle soluzioni di gestione e che sono descritti in [Progettare e creare una soluzione di gestione in Azure]( solutions-creating.md) 
 
 
 ## <a name="prerequisites"></a>Prerequisiti

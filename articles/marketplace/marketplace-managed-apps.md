@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: ae50562a9354b9c1e5b2711e5bbeec7b1e0fbbb8
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 15c559bb8b357b7776c101f88db8316b05edb677
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078797"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213161"
 ---
 # <a name="azure-applications-managed-application-offer-publishing-guide"></a>Applicazioni Azure: Guida alla pubblicazione dell'offerta di applicazione gestita
 
@@ -46,6 +46,8 @@ Nel caso di Bring Your Own License, mentre Microsoft addebiterà i costi di infr
 >[!NOTE]
 > Le app gestite devono essere distribuibili tramite il Marketplace. Se la comunicazione con il cliente rappresenta un problema, contattare i clienti interessati dopo aver attivato la condivisione dei clienti potenziali.  
 
+>[!Note]
+>Cloud Solution Provider (CSP) partner canale acconsentire esplicitamente a questo punto è disponibile.  Vedi [Cloud Solution Provider](./cloud-solution-providers.md) per altre informazioni sul marketing dell'offerta tramite Microsoft CSP partner canali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se non è già stato fatto, 

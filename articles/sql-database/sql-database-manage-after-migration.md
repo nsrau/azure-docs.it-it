@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 148dff16d56755755f71e24e658e29c116ac5df1
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 2b8c35450ab4586f619993aeb9a578c83cafc0c6
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417636"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216935"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nuovo DBA nel cloud - Gestione dei database singoli e in pool nel database SQL di Azure
 
@@ -261,9 +261,9 @@ Da questo grafico è anche possibile configurare avvisi per risorsa. Questi avvi
 
 ![Informazioni dettagliate prestazioni query](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-#### <a name="azure-sql-analytics-preview-in-log-analytics"></a>Analisi SQL di Azure (anteprima) in Log Analytics
+#### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>I log Analitica di SQL Azure (anteprima) in Monitoraggio di Azure
 
-[Azure Log Analytics](../azure-monitor/insights/azure-sql.md) consente di raccogliere e visualizzare le metriche di prestazioni chiave SQL di Azure, supportando fino a 150.000 database SQL e 5.000 pool elastici di SQL per area di lavoro. È possibile usare il servizio per monitorare e ricevere notifiche. È possibile monitorare le metriche del database SQL e dei pool elastici in più sottoscrizioni e pool elastici di Azure e usarle per identificare problemi a ogni livello dello stack di applicazioni.
+[Log di monitoraggio di Azure](../azure-monitor/insights/azure-sql.md) consente di raccogliere e visualizzare le metriche delle prestazioni chiave Azure SQL Azure, supportando fino a 150.000 database SQL e 5.000 pool elastici SQL per area di lavoro. È possibile usare il servizio per monitorare e ricevere notifiche. È possibile monitorare le metriche del database SQL e dei pool elastici in più sottoscrizioni e pool elastici di Azure e usarle per identificare problemi a ogni livello dello stack di applicazioni.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Si riscontrano problemi di prestazioni. In che modo la metodologia di risoluzione dei problemi del database SQL differisce da SQL Server
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 8f4b39141a9509990525769833e2cd193419752c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 3d187851fda9054bbfbae245ef34440b66ad017e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469373"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309316"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Trasmettere i log di diagnostica di Azure a Log Analytics
 
@@ -65,10 +65,13 @@ L'area di lavoro di Log Analytics non deve trovarsi nella stessa sottoscrizione 
 Dopo qualche istante, la nuova impostazione viene visualizzata nell'elenco delle impostazioni per questa risorsa e vengono trasmessi i log di diagnostica a tale area di lavoro non appena vengono generati nuovi dati di eventi. Si noti che potrebbero passare fino a quindici minuti tra l'emissione di un evento e la sua apparizione in Log Analytics.
 
 ### <a name="via-powershell-cmdlets"></a>Tramite i cmdlet di PowerShell
-Per abilitare la trasmissione tramite i [cmdlet di Azure PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md), è possibile usare il cmdlet `Set-AzureRmDiagnosticSetting` con i parametri seguenti:
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Per abilitare la trasmissione tramite i [cmdlet di Azure PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md), è possibile usare il cmdlet `Set-AzDiagnosticSetting` con i parametri seguenti:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resource ID of the Log Analytics workspace] -Categories [list of log categories] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resource ID of the Log Analytics workspace] -Categories [list of log categories] -Enabled $true
 ```
 
 Si noti che la proprietà ID dell'area di lavoro assume l'intero ID della risorsa Azure dell'area di lavoro e non l'ID/chiave dell'area di lavoro visualizzata nel portale Log Analytics.

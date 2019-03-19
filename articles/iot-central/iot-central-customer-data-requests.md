@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: bb5e263b0332f957b4e7f4a928ccd53f639bcd9c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 2952008ca788a620f2b558d5997aeebd59196b7a
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629406"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314569"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dati dei clienti
 
@@ -33,7 +33,7 @@ Quando si usano i servizi enterprise di Microsoft, Microsoft genera alcune infor
 
 ## <a name="deleting-customer-data"></a>Eliminazione dei dati del cliente
 
-La possibilità di eliminare i dati utente viene fornita solo tramite la pagina di amministrazione di IoT Central. Gli amministratori dell'applicazione possono selezionare l'utente da eliminare, fare clic su **Delete** (Elimina) nell'angolo superiore destro dell'applicazione per eliminare il record. Gli amministratori dell'applicazione possono anche rimuovere singoli account che non sono più associati all'applicazione in questione.
+La possibilità di eliminare i dati utente viene fornita solo tramite la pagina di amministrazione di IoT Central. Gli amministratori delle applicazioni selezionare l'utente da eliminare e selezionare **eliminare** nell'angolo superiore destro dell'applicazione per eliminare il record. Gli amministratori dell'applicazione possono anche rimuovere singoli account che non sono più associati all'applicazione in questione.
 
 Dopo l'eliminazione di un utente, non gli vengono più inviati avvisi tramite posta elettronica. Tuttavia, l'indirizzo di posta elettronica deve essere rimosso singolarmente da ogni avviso configurato.
 

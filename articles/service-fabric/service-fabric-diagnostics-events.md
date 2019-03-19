@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 936a47593b9db6e4989c30b2df37dfd82c286c59
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
-ms.translationtype: HT
+ms.openlocfilehash: c4ce8e01b1dc819453610f68d044cc268e27eed7
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290519"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242752"
 ---
 # <a name="service-fabric-events"></a>Eventi di Service Fabric 
 
@@ -40,12 +40,12 @@ Di seguito sono riportati alcuni esempi di scenari per cui è possibile visualiz
 * Distribuzione/eliminazione di applicazioni o servizi: sono presenti eventi per ogni applicazione, servizio e contenitore creati o eliminati. Utili in caso di riduzione o aumento, ad esempio del numero di repliche
 * Movimenti di partizione (riconfigurazione): ogni volta che una partizione con stato subisce una riconfigurazione (una modifica del set di repliche), viene registrato un evento. Ciò è utile per comprendere la frequenza di modifica o di failover del set di repliche di partizione o per tenere traccia del nodo in cui era in esecuzione la replica primaria in qualsiasi momento specifico.
 * Eventi CHAOS: quando si usa il servizio [CHAOS](service-fabric-controlled-chaos.md) di Service Fabric, si vedranno eventi ogni volta che il servizio viene avviato o arrestato o quando provoca un errore nel sistema.
-* Eventi di integrità: Service Fabric espone eventi di integrità ogni volta che viene creato un report di integrità di tipo Avviso o Errore, oppure quando un'entità viene reimpostata a uno stato di integrità OK o alla scadenza di un report di integrità. Questi eventi sono molto utili per tenere traccia delle statistiche cronologiche di integrità di un'entità. 
+* Eventi di integrità: Service Fabric espone gli eventi di integrità ogni volta che viene creato un avviso o un rapporto di stato di errore, un'entità viene reimpostato su uno stato di integrità OK o alla scadenza di un report sull'integrità. Questi eventi sono molto utili per tenere traccia delle statistiche cronologiche di integrità di un'entità. 
 
 ## <a name="how-to-access-events"></a>Come accedere agli eventi
 
 Esistono diversi modi tramite cui è possibile accedere agli eventi di Service Fabric:
-* Gli eventi vengono registrati tramite canali standard, ad esempio registri eventi ETW/Windows, e possono essere visualizzati in qualsiasi strumento di monitoraggio che li supporti, ad esempio Log Analytics. Per impostazione predefinita, per i cluster creati nel portale la diagnostica è attivata. L'agente di diagnostica di Microsoft Azure invia gli eventi all'archiviazione tabelle di Azure, ma è comunque necessario integrare questa funzionalità con la risorsa Log Analytics. Altre informazioni sulla configurazione dell'[agente di Diagnostica di Azure](service-fabric-diagnostics-event-aggregation-wad.md) per modificare la configurazione della diagnostica del cluster in modo da prelevare un numero maggiore di log o contatori delle prestazioni e sull'[integrazione di Log Analytics](service-fabric-diagnostics-event-analysis-oms.md)
+* Gli eventi vengono registrati tramite i canali standard, ad esempio registri eventi ETW/Windows e possono essere visualizzati nello strumento di monitoraggio supportati, ad esempio i log di monitoraggio di Azure. Per impostazione predefinita, i cluster creati nel portale di sono attivata l'estensione diagnostica e l'agente di diagnostica di Azure l'invio di eventi all'archiviazione tabelle di Azure, ma è comunque necessario integrare questa funzionalità con la risorsa di analitica di log. Altre informazioni sulla configurazione di [agente di diagnostica di Azure](service-fabric-diagnostics-event-aggregation-wad.md) per modificare la configurazione di diagnostica del cluster per prelevare più log o contatori delle prestazioni e la [integrazione log di monitoraggio di Azure](service-fabric-diagnostics-event-analysis-oms.md)
 * API Rest del servizio EventStore che consentono di eseguire query del cluster, direttamente o tramite la libreria client di Service Fabric. Vedere [Eseguire query sulle API di EventStore per eventi del cluster](service-fabric-diagnostics-eventstore-query.md).
 
 ## <a name="next-steps"></a>Passaggi successivi

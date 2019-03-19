@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fda3cb2b8d8edd4567440be627a58f576aebcca0
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: dbfcab7900a1552a46341ec71b8b0ea4b41b0bce
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458288"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339165"
 ---
 # <a name="view-your-privacy-related-info-from-the-my-profile-preview-portal"></a>Visualizzare le informazioni sulla privacy nel portale Profilo personale (anteprima)
 È possibile controllare il modo in cui l'organizzazione usa i dati dell'utente nella pagina **Privacy** del portale **Profilo personale**.
@@ -29,7 +29,7 @@ ms.locfileid: "56458288"
 
 2. Selezionare **Privacy** nel riquadro di spostamento sinistro oppure selezionare il collegamento **Verifica la privacy** nel blocco **Privacy**.
 
-    ![Pagina Profilo personale con il collegamento Privacy evidenziato](media/myprofile-portal/myprofile-portal-privacy-links.png)
+    ![Pagina Profilo personale con il collegamento Privacy evidenziato](media/myprofile-portal/myprofile-portal-privacy.png)
 
 3. Esaminare le informazioni, tra cui:
 
@@ -39,4 +39,4 @@ ms.locfileid: "56458288"
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Dopo aver visualizzato le attività di accesso recenti, è possibile scegliere di visualizzare o gestire le [informazioni di sicurezza](user-help-security-info-overview.md), le [attività di accesso recenti](myprofile-portal-recent-activity-page.md) e i [dispositivi](myprofile-portal-devices-page.md) o le [organizzazioni](myprofile-portal-organizations-page.md) connesse.
+- Dopo aver visualizzato i dati di utilizzo dell'organizzazione, è possibile selezionare per visualizzare o gestire le [info di sicurezza](user-help-security-info-overview.md), connessa [dispositivi](myprofile-portal-devices-page.md), o le [organizzazioni](myprofile-portal-organizations-page.md).

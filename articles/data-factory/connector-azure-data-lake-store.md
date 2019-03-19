@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 02/22/2019
 ms.author: jingwang
-ms.openlocfilehash: d148b43750b4e57ff650f8e96bfda1fb5c57dd4b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 433824c4e375cf1ce7d7a6fe16730044628ccab1
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657332"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405573"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Copiare dati da e in Azure Data Lake Storage di 1° generazione usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -76,10 +76,11 @@ Per usare l'autenticazione basata su entità servizio, registrare un'entità app
 >Per elencare le cartelle a partire dalla radice, è necessario impostare l'autorizzazione dell'entità servizio concessa sul **livello di radice con autorizzazione "Esecuzione"**. Ciò vale quando si usano gli strumenti seguenti:
 >- **Strumento Copia dati** per creare la pipeline di copia.
 >- **Interfaccia utente di Data Factory** per testare la connessione e passare alle cartelle durante la creazione.
+>Nel caso di problema per concedere l'autorizzazione a livello radice, è possibile ignorare test della connessione e il percorso di input manualmente durante la creazione. Attività di copia continuerà a funzionare fino a quando l'entità servizio viene concesso con l'autorizzazione appropriata i file da copiare.
 
 Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | servicePrincipalId | Specificare l'ID client dell'applicazione. | Sì |
 | servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come `SecureString` per archiviarlo in modo sicuro in Data Factory oppure [riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
@@ -113,22 +114,23 @@ Sono supportate le proprietà seguenti:
 
 ### <a name="managed-identity"></a> Usare le entità gestite per l'autenticazione delle risorse di Azure
 
-Una data factory può essere associata a un'[identità gestita per le risorse di Azure](data-factory-service-identity.md), che rappresenta la data factory specifica. È possibile usare direttamente questa identità del servizio per l'autenticazione con Data Lake Store, analogamente a come si usa l'entità servizio. Consente alla factory designata di accedere e copiare i dati da e verso Data Lake Store.
+Una data factory può essere associata a un'[identità gestita per le risorse di Azure](data-factory-service-identity.md), che rappresenta la data factory specifica. È possibile usare direttamente questa identità gestita per l'autenticazione con Data Lake Store, analogamente all'uso dell'entità del servizio. Consente alla factory designata di accedere e copiare i dati da e verso Data Lake Store.
 
 Per usare l'autenticazione basata sulle identità gestite per le risorse di Azure:
 
-1. [Recuperare l'identità del servizio Data Factory](data-factory-service-identity.md#retrieve-service-identity) copiando il valore di "Service Identity Application ID" generato con la factory.
-2. Concedere all'identità del servizio l'accesso a Data Lake Store usando la stessa procedura valida per l'entità servizio attenendosi a queste note.
+1. [Recuperare le informazioni sull'identità di data factory gestiti](data-factory-service-identity.md#retrieve-managed-identity) copiando il valore del "Service Identity Application ID" generato con la factory.
+2. Concedere l'accesso identità gestita per Data Lake Store, la stessa procedura valida per l'entità servizio, seguendo queste note.
 
 >[!IMPORTANT]
-> Assicurarsi di concedere all'identità del servizio Data factory un'autorizzazione appropriata in Azure Data Lake Store:
+> Assicurarsi di che concedere l'autorizzazione appropriata di identità gestita factory i dati in Data Lake Store:
 >- **Come origine**: In **Esplora dati** > **Accesso** concedere almeno l'autorizzazione **Lettura + Esecuzione** per elencare e copiare i file in cartelle e sottocartelle. In alternativa, è possibile concedere l'autorizzazione **lettura** per copiare un singolo file. È possibile scegliere di aggiungere a **Questa cartella e tutti gli elementi figlio** come ricorsiva, e aggiungere come **una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Non è presente alcun requisito per il controllo di accesso a livello di account (IAM).
 >- **Come sink**: In **Esplora dati** > **Accesso** concedere almeno l'autorizzazione **Scrittura + Esecuzione** per creare elementi figlio nella cartella. È possibile scegliere di aggiungere a **Questa cartella e tutti gli elementi figlio** come ricorsiva, e aggiungere come **una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Se si usa il runtime di integrazione di Azure per copiare (sia l'origine che il sink si trovano nel cloud), in IAM concedere almeno il ruolo **Lettore** per consentire a Data Factory di rilevare l'area di Data Lake Store. Se si vuole evitare questo ruolo IAM, [creare un runtime di integrazione di Azure](create-azure-integration-runtime.md#create-azure-ir) in modo esplicito con la posizione di Data Lake Store. Effettuare l'associazione nel servizio collegato di Data Lake Store come nell'esempio seguente.
 
 >[!NOTE]
->Per elencare le cartelle a partire dalla radice, è necessario impostare l'autorizzazione dell'entità servizio concessa sul **livello di radice con autorizzazione "Esecuzione"**. Ciò vale quando si usano gli strumenti seguenti:
+>Elenco cartelle a partire dalla radice, è necessario impostare l'autorizzazione di identità gestite concessa al **a livello di radice con autorizzazione "Execute"**. Ciò vale quando si usano gli strumenti seguenti:
 >- **Strumento Copia dati** per creare la pipeline di copia.
 >- **Interfaccia utente di Data Factory** per testare la connessione e passare alle cartelle durante la creazione.
+>Nel caso di problema per concedere l'autorizzazione a livello radice, è possibile ignorare test della connessione e il percorso di input manualmente durante la creazione. Attività di copia continuerà a funzionare, purché l'identità gestita viene concesso con l'autorizzazione appropriata i file da copiare.
 
 In Azure Data Factory non è necessario specificare alcuna proprietà oltre alle informazioni generali di Data Lake Store nel servizio collegato.
 
@@ -159,8 +161,10 @@ Per copiare dati da e verso Azure Data Lake Store, impostare la proprietà`type`
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su: **AzureDataLakeStoreFile** |Sì |
-| folderPath | Percorso della cartella in Data Lake Store. Se il valore non è specificato, punta alla radice. <br/><br/>I filtri con caratteri jolly sono supportati, i caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo). Usare`^` per applicare una sequenza di escape se il nome effettivo della cartella include caratteri jolly o tale carattere di escape. <br/><br/>Esempi: cartellaradice/sottocartella/. Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). |No  |
+| folderPath | Percorso della cartella in Data Lake Store. Se il valore non è specificato, punta alla radice. <br/><br/>I filtri con caratteri jolly sono supportati, i caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo). Usare `^` per applicare una sequenza di escape se il nome effettivo della cartella include caratteri jolly o tale carattere di escape. <br/><br/>Esempi: cartellaradice/sottocartella/. Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). |No  |
 | fileName | **Filtro con nome o carattere jolly** per i file nell'elemento "folderPath" specificato. Se non si specifica alcun valore per questa proprietà, il set di dati punta a tutti i file nella cartella. <br/><br/>Per un filtro, i caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo).<br/>- Esempio 1: `"fileName": "*.csv"`<br/>- Esempio 2: `"fileName": "???20180427.txt"`<br/>Usare `^` per il carattere escape se il nome effettivo del file include caratteri jolly o escape.<br/><br/>Se non si specifica fileName per un set di dati di output e non si specifica **preserveHierarchy** nel sink dell'attività, l'attività di copia genera automaticamente il nome del file con il criterio seguente: "*Data.[GUID ID esecuzione attività].[GUID se FlattenHierarchy].[formato se configurato].[compressione se configurata]*". Un esempio è "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". Se si copia da un'origine tabulare usando il nome tabella anziché la query, il criterio del nome è "*[nome tabella].[formato].[compressione se configurata]*", ad esempio "MyTable.csv". |No  |
+| modifiedDatetimeStart | Filtro di file basato sull'attributo: Ultima modifica. I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata con il fuso orario UTC e il formato "2018-12-01T05:00:00Z". <br/><br/> Le proprietà possono essere NULL, a indicare che al set di dati non viene applicato alcun filtro di attributo di file.  Quando `modifiedDatetimeStart` ha un valore datetime ma `modifiedDatetimeEnd` è NULL, vengono selezionati i file il cui ultimo attributo modificato è maggiore o uguale al valore datetime.  Quando `modifiedDatetimeEnd` ha un valore datetime ma `modifiedDatetimeStart` è NULL vengono selezionati i file il cui ultimo attributo modificato è minore del valore datetime.| No  |
+| modifiedDatetimeEnd | Filtro di file basato sull'attributo: Ultima modifica. I file vengono selezionati se l'ora dell'ultima modifica è inclusa nell'intervallo di tempo tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata con il fuso orario UTC e il formato "2018-12-01T05:00:00Z". <br/><br/> Le proprietà possono essere NULL, a indicare che al set di dati non viene applicato alcun filtro di attributo di file.  Quando `modifiedDatetimeStart` ha un valore datetime ma `modifiedDatetimeEnd` è NULL, vengono selezionati i file il cui ultimo attributo modificato è maggiore o uguale al valore datetime.  Quando `modifiedDatetimeEnd` ha un valore datetime ma `modifiedDatetimeStart` è NULL vengono selezionati i file il cui ultimo attributo modificato è minore del valore datetime.| No  |
 | format | Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output.<br/><br/>Se si vuole analizzare o generare file con un formato specifico, sono supportati i tipi di formato file seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](supported-file-formats-and-compression-codecs.md#text-format), [JsonFormat](supported-file-formats-and-compression-codecs.md#json-format), [AvroFormat](supported-file-formats-and-compression-codecs.md#avro-format), [OrcFormat](supported-file-formats-and-compression-codecs.md#orc-format) e [ParquetFormat](supported-file-formats-and-compression-codecs.md#parquet-format). |No (solo per uno scenario di copia binaria) |
 | compressione | Specificare il tipo e il livello di compressione dei dati. Per altre informazioni, vedere l'articolo sui [formati di file supportati e i codec di compressione](supported-file-formats-and-compression-codecs.md#compression-support).<br/>I tipi supportati sono: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**.<br/>I livelli supportati sono: **Optimal** (Ottimale) e **Fastest** (Più veloce). |No  |
 
@@ -181,7 +185,9 @@ Per copiare dati da e verso Azure Data Lake Store, impostare la proprietà`type`
         },
         "typeProperties": {
             "folderPath": "datalake/myfolder/",
-            "fileName": "myfile.csv.gz",
+            "fileName": "*",
+            "modifiedDatetimeStart": "2018-12-01T05:00:00Z",
+            "modifiedDatetimeEnd": "2018-12-01T06:00:00Z",
             "format": {
                 "type": "TextFormat",
                 "columnDelimiter": ",",

@@ -1,6 +1,6 @@
 ---
-title: Connettere computer usando il gateway di Log Analytics | Microsoft Docs
-description: Per inviare dati al servizio Automazione di Azure e Log Analytics quando non è disponibile l'accesso a Internet, connettere i dispositivi e i computer monitorati da Operations Manager al gateway di Log Analytics.
+title: Connettere computer usando il gateway Log Analitica | Microsoft Docs
+description: Connettere i dispositivi e i computer monitorati da Operations Manager tramite il gateway Log Analitica per inviare dati al servizio di Log Analitica e di automazione di Azure quando non hanno accesso a internet.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,62 +11,69 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 03/04/2019
 ms.author: magoedte
-ms.openlocfilehash: e1c225eb77a76015520690916db0399487ffe9e7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: a497662ac7a885b53e69bb8c86a646045bd2eef7
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822613"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314671"
 ---
-# <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Connettere computer senza accesso a Internet tramite il gateway di Log Analytics
+# <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway"></a>Connettere computer senza accesso a internet usando il gateway Log Analitica
 
 >[!NOTE]
->In conformità alla transizione in corso da Microsoft Operations Management Suite (OMS) a Monitoraggio di Azure, il gateway OMS verrà denominato gateway di Log Analytics. 
+>Come Microsoft Operations Management Suite (OMS) esegue la transizione a monitoraggio di Microsoft Azure, in fase di modifica della terminologia. Questo articolo si riferisce al Gateway OMS come il gateway di Azure Log Analitica. 
 >
 
-Questo documento descrive come configurare la comunicazione con Automazione di Azure e Log Analytics usando il gateway di Log Analytics quando i computer connessi direttamente o monitorati con Operations Manager non hanno accesso a Internet.  Il gateway di Log Analytics, ovvero un proxy di inoltro HTTP che supporta il tunneling HTTP con il comando HTTP CONNECT, può raccogliere dati e inviarli ad Automazione di Azure e a Log Analytics per conto dei computer.  
+Questo articolo descrive come configurare la comunicazione con automazione di Azure e Log Analitica tramite il gateway Log Analitica quando i computer che sono direttamente connessi o che sono monitorati da Operations Manager non dispone di alcun accesso a internet. 
+
+Il gateway Log Analitica è un proxy di inoltro HTTP che supporta il tunneling HTTP tramite il comando HTTP CONNECT. Questo gateway è possibile raccogliere dati e inviarli all'automazione di Azure e Log Analitica per conto dei computer che non sono connessi a internet.  
 
 Il gateway di Log Analytics gli elementi seguenti:
 
-* Invio di informazioni alle stesse quattro aree di lavoro di Log Analytics con cui sono configurati gli agenti dietro il gateway  
-* Funzionalità Hybrid Runbook Workers di Automazione di Azure  
-* Computer Windows con Microsoft Monitoring Agent direttamente connesso a un'area di lavoro di Log Analytics
-* Computer Linux con l'agente di Log Analytics per Linux direttamente connesso a un'area di lavoro di Log Analytics  
-* System Center Operations Manager 2012 SP1 con UR7, Operations Manager 2012 R2 con UR3, Operations Manager 2016 o gruppo di gestione successivo integrato con Log Analytics.  
+* Creazione di report un massimo di Analitica Log quattro stesso agenti dell'area di lavoro che sono sottostante e che sono configurati con Hybrid Runbook Workers di automazione di Azure.  
+* Computer Windows in cui Microsoft Monitoring Agent è direttamente connesso a un'area di lavoro di Log Analitica.
+* Computer Linux in cui un agente di Log Analitica per Linux è direttamente connesso a un'area di lavoro di Log Analitica.  
+* System Center Operations Manager 2012 SP1 con UR7, Operations Manager 2012 R2 con UR3 o un gruppo di gestione in Operations Manager 2016 o versione successiva che viene integrato con Log Analitica.  
 
-Se i criteri di sicurezza IT non consentono ai computer della rete di connettersi a Internet, ad esempio dispositivi POS o server che supportano servizi IT, ma è necessario connetterli ad Automazione di Azure o Log Analytics per gestirli e monitorarli, è possibile configurarli in modo che comunichino direttamente con il gateway di Log Analytics per ricevere la configurazione e inoltrare i dati per conto dei computer.  Se tali computer sono configurati con l'agente di Log Analytics in modo che si connettano direttamente a un'area di lavoro di Log Analytics, tutti i computer comunicheranno invece con il gateway di Log Analytics.  Il gateway trasferisce i dati dagli agenti direttamente al servizio senza analizzare i dati in transito.
+Alcuni criteri di sicurezza IT non consentono la connessione internet per i computer di rete. Questi computer non connessi possibile punto di vendita (POS) dispositivi o i server che supportano servizi IT, ad esempio. Per connettere questi dispositivi per automazione di Azure o Log Analitica in modo da gestire e monitorare, configurarle per comunicare direttamente con il gateway Log Analitica. Il gateway Log Analitica può ricevere le informazioni di configurazione e inoltrare i dati per loro conto. Se i computer sono configurati con l'agente di Log Analitica per connettersi direttamente a un'area di lavoro di Log Analitica, i computer comunicheranno invece con il gateway Log Analitica.  
 
-Quando un gruppo di gestione di Operations Manager viene integrato con Log Analytics, i server di gestione possono essere configurati in modo che si connettano al gateway di Log Analytics per ricevere informazioni di configurazione e inviare i dati raccolti a seconda della soluzione abilitata.  Gli agenti di Operations Manager inviano alcuni dati, ad esempio avvisi di Operations Manager, valutazioni della configurazione, spazi dell'istanza e dati sulla capacità, al server di gestione. Altri dati con volumi elevati, ad esempio quelli relativi a log, prestazioni ed eventi di sicurezza di IIS, vengono inviati direttamente al gateway di Log Analytics.  Se uno o più server gateway di Operations Manager sono stati distribuiti in una rete perimetrale o in un'altra rete isolata per monitorare i sistemi non attendibili, tali server non possono comunicare con un gateway di Log Analytics.  I server gateway di Operations Manager possono fare riferimento solo a un server di gestione.  Quando un gruppo di gestione di Operations Manager viene configurato per la comunicazione con il gateway di Log Analytics, le informazioni di configurazione del proxy vengono automaticamente distribuite a ogni computer gestito tramite agente configurato per la raccolta dei dati per Log Analytics, anche se l'impostazione non è configurata.    
+Il Log Analitica gateway trasferisce i dati dagli agenti al servizio direttamente. Senza analizzare i dati in transito.
 
-Per offrire disponibilità elevata per i gruppi connessi diretti o di Operations Management che comunicano con Log Analytics tramite il gateway, è possibile usare il bilanciamento del carico di rete per reindirizzare e distribuire il traffico tra più server gateway.  Se un server gateway si arresta, il traffico viene reindirizzato a un altro nodo disponibile.  
+Quando un gruppo di gestione di Operations Manager è integrato con Log Analitica, i server di gestione possono essere configurati per la connessione al gateway Log Analitica per ricevere informazioni di configurazione e inviare i dati raccolti, a seconda della soluzione che è stata abilitata .  Agenti di Operations Manager inviano alcuni dati al server di gestione. Gli agenti, ad esempio, potrebbero inviare avvisi di Operations Manager, i dati di valutazione della configurazione, i dati dello spazio dell'istanza e dati sulla capacità. Altri dati con volumi elevati, ad esempio Internet Information Services (IIS) log i dati sulle prestazioni e gli eventi di sicurezza, viene inviati direttamente al gateway Log Analitica. 
 
-L'agente di Log Analytics per Windows deve essere installato nel computer che esegue il gateway di Log Analytics per consentire al gateway non solo di identificare gli endpoint di servizio con cui deve comunicare, ma anche di inviare informazioni alle stesse aree di lavoro con cui sono configurati gli agenti o il gruppo di gestione di Operations Manager dietro il gateway. Ciò è necessario affinché il gateway consenta loro di comunicare con l'area di lavoro assegnata. Un gateway può essere configurato in modalità multihomed con un massimo di quattro aree di lavoro, poiché questo è il numero totale di aree di lavoro supportate da un agente Windows.  
+Se uno o più server Gateway di Operations Manager vengono distribuiti per monitorare i sistemi non attendibili in una rete perimetrale o in una rete isolata, tali server non possono comunicare con un gateway Log Analitica.  Server Gateway di gestione Operations possono fare riferimento solo a un server di gestione.  Quando un gruppo di gestione di Operations Manager viene configurato per la comunicazione con il gateway di Log Analytics, le informazioni di configurazione del proxy vengono automaticamente distribuite a ogni computer gestito tramite agente configurato per la raccolta dei dati per Log Analytics, anche se l'impostazione non è configurata.    
 
-Ogni agente deve disporre di connettività di rete al gateway in modo che gli agenti possano trasferire automaticamente i dati da e verso il gateway. Non è consigliabile installare il gateway in un controller di dominio.
+Per garantire un'elevata disponibilità per direttamente connessi o i gruppi di Operations Management che comunicano con Log Analitica tramite il gateway, usare il bilanciamento carico (NLB) per reindirizzare e distribuire il traffico tra più server gateway. In questo modo, se un server gateway si arresta, il traffico viene reindirizzato a un altro nodo disponibile.  
 
-Il diagramma seguente illustra il flusso di dati dagli agenti diretti ad Automazione di Azure e Log Analytics tramite il server gateway. La configurazione del proxy degli agenti deve corrispondere alla stessa porta con cui è configurato il gateway di Log Analytics.  
+Il computer che esegue il gateway Log Analitica richiede l'agente di Log Analitica Windows identificare gli endpoint servizio che deve comunicare con il gateway. È anche l'agente indirizzare il gateway per segnalare le stesse aree di lavoro che gli agenti o il gruppo di gestione di Operations Manager dietro il gateway vengono configurati con. Questa configurazione consente il gateway e l'agente per comunicare con l'area di lavoro assegnato.
+
+Un gateway può essere multihomed per fino a quattro aree di lavoro. Questo è il numero totale di aree di lavoro che supporta un agente di Windows.  
+
+Ogni agente deve disporre di connettività di rete al gateway in modo che gli agenti possano trasferire automaticamente dati da e verso il gateway. Evitare di installare il gateway in un controller di dominio.
+
+Il diagramma seguente mostra i dati provenienti dagli agenti diretti, tramite il gateway per automazione di Azure e Log Analitica. La configurazione del proxy dell'agente deve corrispondere alla porta configurata con il gateway Log Analitica.  
 
 ![Diagramma della comunicazione degli agenti diretti con i servizi](./media/gateway/oms-omsgateway-agentdirectconnect.png)
 
 Il diagramma seguente illustra il flusso di dati da un gruppo di gestione di Operations Manager a Log Analytics.   
 
-![Diagramma della comunicazione di Operations Manager con Log Analytics](./media/gateway/log-analytics-agent-opsmgrconnect.png)
+![Diagramma della comunicazione di Operations Manager con Log Analitica](./media/gateway/log-analytics-agent-opsmgrconnect.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="set-up-your-system"></a>Configura il sistema
 
-Quando si designa un computer per l'esecuzione del gateway di Log Analytics, il computer deve soddisfare i requisiti seguenti:
+I computer designati per l'esecuzione del gateway di Analitica di Log devono avere la configurazione seguente:
 
-* Windows 10, Windows 8.1, Windows 7
-* Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
-* .NET Framework 4.5
+* Windows 10, Windows 8.1 o Windows 7
+* Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 o Windows Server 2008
+* Microsoft .NET Framework 4.5
 * Almeno un processore a 4 core e 8 GB di memoria 
-* L'[agente di Log Analytics per Windows](agent-windows.md) viene installato e configurato in modo da inviare informazioni alla stessa area di lavoro degli agenti che comunicano tramite il gateway.  
+* Oggetto [agente di Log Analitica per Windows](agent-windows.md) configurata per il report alla stessa area di lavoro come gli agenti che comunicano tramite il gateway
 
 ### <a name="language-availability"></a>Lingue disponibili
 
-Il gateway di Log Analytics è disponibile per lingue seguenti:
+Il gateway di Analitica di Log è disponibile nelle seguenti lingue:
 
 - Cinese (semplificato)
 - Cinese (tradizionale)
@@ -86,139 +93,190 @@ Il gateway di Log Analytics è disponibile per lingue seguenti:
 - Spagnolo (internazionale)
 
 ### <a name="supported-encryption-protocols"></a>Protocolli di crittografia supportati
-Il gateway di Log Analytics supporta solo il protocollo TLS (Transport Layer Security) versioni 1.0, 1.1 e 1.2.  Non supporta SSL (Secure Sockets Layer).  Per garantire la sicurezza dei dati in transito verso Log Analytics, è consigliabile configurare il gateway in modo da usare almeno il protocollo Transport Layer Security (TLS) 1.2. Le versioni precedenti di TLS/Secure Sockets Layer (SSL) sono state considerate vulnerabili. Nonostante siano ancora attualmente in uso per questioni di compatibilità con le versioni precedenti, **non sono consigliate**.  Per altre informazioni, vedere [Invio dei dati in modo sicuro tramite TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
+Il gateway Log Analitica supporta solo Transport Layer Security (TLS) 1.0, 1.1 e 1.2.  Non supporta Secure Sockets Layer (SSL).  Per garantire la sicurezza dei dati in transito verso Log Analitica, configurare il gateway per usare almeno TLS 1.2. Le versioni precedenti di TLS o SSL sono vulnerabili. Anche se attualmente consentono di garantire la compatibilità, evitare di usarle.  
+
+Per altre informazioni, vedere [Invio dei dati in modo sicuro tramite TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
 
 ### <a name="supported-number-of-agent-connections"></a>Numero di connessioni dell'agente supportate
-La tabella seguente indica il numero supportato di agenti che comunicano con un server gateway.  Questo supporto è basato su agenti che caricano circa 200 kB di dati ogni 6 secondi. Il volume di dati per agente testato è di circa 2,7 GB al giorno.
+La tabella seguente mostra approssimativamente quante gli agenti possano comunicare con un server gateway. Il supporto è basato su agenti che caricano circa 200 KB di dati ogni 6 secondi. Per ogni agente di test, volume di dati è circa 2,7 GB al giorno.
 
-|Gateway |Numero approssimativo di agenti supportati|  
+|Gateway |Agenti supportati (approssimativa)|  
 |--------|----------------------------------|  
-|- CPU: Intel XEON CPU E5-2660 v3 da 2,6 GHz a 2 core<br> - Memoria: 4 GB<br> - Larghezza di banda della rete: 1 Gbps| 600|  
-|- CPU: Intel XEON CPU E5-2660 v3 da 2,6 GHz a 4 core<br> - Memoria: 8 GB<br> - Larghezza di banda della rete: 1 Gbps| 1000|  
+|CPU: Intel Xeon v3 E5 2660 processore \@ core da 2,6 GHz 2<br> Memoria: 4 GB<br> Larghezza di banda di rete: 1 Gbps| 600|  
+|CPU: Intel Xeon v3 E5 2660 processore \@ core da 2,6 GHz 4<br> Memoria: 8 GB<br> Larghezza di banda di rete: 1 Gbps| 1000|  
 
 ## <a name="download-the-log-analytics-gateway"></a>Scaricare il gateway di Log Analytics
 
-Per ottenere la versione più recente del file di configurazione del gateway di Log Analytics, sono disponibili due modi diversi.
+Ottenere la versione più recente del file di installazione di gateway Log Analitica dalla [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=54443) o il portale di Azure.
 
-1. Download dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=54443).
+Per ottenere il gateway di Analitica di Log dal portale di Azure, seguire questa procedura:
 
-1. Download dal portale di Azure.  Dopo l'accesso al portale di Azure:  
-
-   1. Esplorare l'elenco dei servizi e quindi selezionare **Log Analytics**.  
-   1. Selezionare un'area di lavoro.
-   1. Nel pannello dell'area di lavoro, in **General** fare clic su **Avvio rapido**.
-   1. In **Choose a data source to connect to the workspace** (Scegliere un'origine dati per connettersi all'area di lavoro) fare clic su **Computer**.
-   1. Nel pannello **Agente diretto** fare clic su **Download Log Analytics gateway** (Scarica gateway Log Analytics).<br><br> ![Download gateway Log Analytics](./media/gateway/download-gateway.png)
+1. Esplorare l'elenco dei servizi e quindi selezionare **Log Analytics**. 
+1. Selezionare un'area di lavoro.
+1. Nel pannello dell'area di lavoro in **Generale** selezionare **Avvio rapido**. 
+1. In **Scegliere un'origine dati da connettere all'area di lavoro** selezionare **Computer**.
+1. Nel **degli agenti diretti** pannello, seleziona **gateway di scaricare Log Analitica**.
+ 
+   ![Screenshot dei passaggi per scaricare il gateway Log Analitica](./media/gateway/download-gateway.png)
 
 oppure 
 
-   1. Nel pannello dell'area di lavoro sotto **Impostazioni** fare clic su **Impostazioni avanzate**.
-   1. Passare a **Origini connesse** > **Server Windows** e quindi fare clic su **Download Log Analytics gateway** (Scarica gateway Log Analytics).
+1. Nel pannello dell'area di lavoro in **Impostazioni** selezionare **Impostazioni avanzate**.
+1. Passare a **Connected Sources** > **Windows Server** e selezionare **gateway scaricare Log Analitica**.
 
 ## <a name="install-the-log-analytics-gateway"></a>Installare il gateway di Log Analytics
 
-Per installare un gateway, eseguire questa procedura.  Se è installata una versione precedente, chiamata *Server d'inoltro di Log Analytics*, verrà aggiornata a questa versione.  
+Per installare un gateway, seguire questa procedura.  (Se è installata una versione precedente denominata utilità di inoltro di Log Analitica, verrà aggiornata a questa versione.)
 
 1. Nella cartelle di destinazione fare doppio clic su **Log Analytics gateway.msi**.
-1. Nella pagina di **benvenuto** fare clic su **Avanti**.<br><br> ![Configurazione guidata gateway](./media/gateway/gateway-wizard01.png)<br> 
-1. Nella pagina **Contratto di licenza** selezionare **Accetto i termini del contratto di licenza** per accettare le condizioni di licenza e quindi fare clic su **Avanti**.
+1. Nella pagina di **benvenuto** selezionare **Avanti**.
+
+   ![Schermata di paginainiziale della procedura guidata configurazione del Gateway](./media/gateway/gateway-wizard01.png)
+
+1. Nel **contratto di licenza** pagina, selezionare **accetto i termini del contratto di licenza** per accettare le condizioni di licenza Software Microsoft e quindi selezionare **Next**.
 1. Nella pagina **Port and proxy address** (Indirizzo porta e proxy):
-   1. Digitare il numero di porta TCP da usare per il gateway. Viene configurata una regola in ingresso con questo numero di porta in Windows Firewall.  Il valore predefinito è 8080.
-      L'intervallo valido del numero di porta è 1-65535. Se l'input non è compreso in questo intervallo, viene visualizzato un messaggio di errore.
-   1. In alternativa, se il server in cui è installato il gateway deve comunicare tramite un proxy, digitare l'indirizzo del proxy in cui il gateway deve connettersi. Ad esempio: `http://myorgname.corp.contoso.com:80`.  Se vuoto, il gateway tenterà di connettersi direttamente a Internet.  Se il server proxy richiede l'autenticazione, immettere un nome utente e una password.<br><br> ![Configurazione guidata del proxy del gateway](./media/gateway/gateway-wizard02.png)<br>   
-   1. Fare clic su **Avanti**.
-1. Se Microsoft Update non è abilitato, viene visualizzata la pagina di Microsoft Update in cui è possibile scegliere di abilitarlo. Effettuare una selezione e quindi fare clic su **Avanti**. In caso contrario, continuare con il passaggio successivo.
-1. Nella pagina **Cartella di destinazione** lasciare la cartella predefinita C:\Programmi\OMS Gateway oppure digitare il percorso in cui si vuole installare il gateway e quindi fare clic su **Avanti**.
-1. Nella pagina **Pronto per l'installazione** fare clic su **Installa**. È possibile che venga visualizzato Controllo account utente per la richiesta dell'autorizzazione all'installazione. In questo caso fare clic su **Sì**.
-1. Al termine dell'installazione fare clic su **Fine**. È possibile verificare se il servizio è in esecuzione aprendo lo snap-in services.msc e verificare che il **gateway OMS** venga visualizzato nell'elenco dei servizi e che lo stato sia **In esecuzione**.<br><br> ![Servizi - Gateway di Log Analytics](./media/gateway/gateway-service.png)  
+
+   a. Immettere il numero di porta TCP da utilizzare per il gateway. Il programma di installazione Usa questo numero di porta per configurare una regola in ingresso nel Firewall di Windows.  Il valore predefinito è 8080.
+      L'intervallo valido del numero di porta è 1 e 65535. Se l'input non è compreso in questo intervallo, viene visualizzato un messaggio di errore.
+
+   b. Se il server in cui è installato il gateway deve comunicare tramite un proxy, immettere l'indirizzo del proxy in cui il gateway deve connettersi. Ad esempio, immettere `http://myorgname.corp.contoso.com:80`.  Se si lascia vuoto questo campo, il gateway tenterà di connettersi direttamente a internet.  Se il server proxy richiede l'autenticazione, immettere un nome utente e una password.
+
+   c. Selezionare **Avanti**.
+
+   ![Screenshot della configurazione per il proxy del gateway](./media/gateway/gateway-wizard02.png)
+
+1. Se non è abilitato Microsoft Update, verrà visualizzata la pagina di Microsoft Update e si può scegliere di abilitarlo. Effettuare una selezione e quindi selezionare **successivo**. In caso contrario, continuare con il passaggio successivo.
+1. Nel **cartella di destinazione** pagina, è possibile lasciare la cartella predefinita c:\programmi\oms Gateway c:\Programmi\Microsoft oppure immettere il percorso in cui si desidera installare il gateway. Quindi selezionare **Avanti**.
+1. Nella pagina **Pronto per l'installazione** selezionare **Installa**. Se controllo dell'Account utente richiede l'autorizzazione per installare, selezionare **Sì**.
+1. Al termine dell'installazione, selezionare **fine**. Per verificare che il servizio sia in esecuzione, aprire lo snap-in Services. msc e verificare che **Gateway OMS** viene visualizzato nell'elenco dei servizi e che il suo stato sia **esecuzione**.
+
+   ![Screenshot dei servizi locali, che mostra che il Gateway OMS è in esecuzione](./media/gateway/gateway-service.png)
 
 
 ## <a name="configure-network-load-balancing"></a>Configurare il bilanciamento del carico di rete 
-È possibile configurare il gateway per la disponibilità elevata con il bilanciamento del carico di rete tramite Bilanciamento carico di rete Microsoft o servizi di bilanciamento del carico basati su hardware.  Il servizio di bilanciamento del carico gestisce il traffico reindirizzando le connessioni richieste dagli agenti di Log Analytics o dai server di gestione di Operations Manager nei nodi relativi. Se un server gateway si arresta, il traffico viene reindirizzato ad altri nodi.
+È possibile configurare il gateway per la disponibilità elevata con bilanciamento carico di rete (NLB) tramite Microsoft [carico bilanciamento rete (NLB)](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), o servizi di bilanciamento del carico basato su hardware. Il servizio di bilanciamento del carico gestisce il traffico reindirizzando le connessioni richieste dagli agenti di Log Analytics o dai server di gestione di Operations Manager nei nodi relativi. Se un server gateway si arresta, il traffico viene reindirizzato ad altri nodi.
 
-Per informazioni su come progettare e distribuire un cluster di bilanciamento del carico di rete di Windows Server 2016, vedere [Bilanciamento carico di rete](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  La procedura seguente illustra come configurare un cluster di bilanciamento del carico di rete Microsoft.  
+### <a name="microsoft-network-load-balancing"></a>Bilanciamento carico di rete Microsoft
+Per informazioni su come progettare e distribuire un cluster di bilanciamento del carico di rete di Windows Server 2016, vedere [Bilanciamento carico di rete](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing). La procedura seguente illustra come configurare un cluster di bilanciamento del carico di rete Microsoft.  
 
 1. Accedere al server Windows membro del cluster di bilanciamento del carico di rete con un account amministrativo.  
-1. Aprire Gestione bilanciamento carico di rete in Server Manager, fare clic su **Strumenti** e quindi su **Gestione bilanciamento carico di rete**.
-1. Per connettere un server gateway di Log Analytics all'istanza di Microsoft Monitoring Agent installata, fare clic con il pulsante destro del mouse sull'indirizzo IP del cluster e quindi fare clic su **Aggiungi host al cluster**.<br><br> ![Gestione del bilanciamento del carico di rete – Aggiungi host al cluster](./media/gateway/nlb02.png)<br> 
-1. Immettere l'indirizzo IP del server gateway che si vuole connettere.<br><br> ![Gestione bilanciamento carico di rete - Aggiunta dell'host al cluster: Connettere](./media/gateway/nlb03.png) 
-    
-## <a name="configure-log-analytics-agent-and-operations-manager-management-group"></a>Configurare l'agente di Log Analytics e il gruppo di gestione di Operations Manager
-La sezione seguente include i passaggi per configurare gli agenti di Log Analytics connessi direttamente, un gruppo di gestione di Operations Manager o i ruoli di lavoro ibridi per runbook di Automazione di Azure con il gateway di Log Analytics per comunicare con Automazione di Azure o Log Analytics.  
+2. Aprire Gestione bilanciamento carico di rete in Server Manager, fare clic su **Strumenti** e quindi su **Gestione bilanciamento carico di rete**.
+3. Per connettere un server gateway di Log Analytics all'istanza di Microsoft Monitoring Agent installata, fare clic con il pulsante destro del mouse sull'indirizzo IP del cluster e quindi fare clic su **Aggiungi host al cluster**. 
 
-### <a name="configure-standalone-log-analytics-agent"></a>Configurare l'agente di Log Analytics autonomo
-Per conoscere i requisiti e la procedura di installazione dell'agente di Log Analytics nel gateway e nei computer Windows che si connettono direttamente a Log Analytics, vedere [Connettere computer Windows a Log Analytics](agent-windows.md) o, per i computer Linux, vedere [Connettere computer Linux a Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md). Anziché specificare un server proxy durante la configurazione dell'agente, sostituire tale valore con l'indirizzo IP e il numero di porta del server gateway di Log Analytics. Se sono stati distribuiti più server gateway dietro un servizio di bilanciamento del carico di rete, la configurazione del proxy dell'agente di Log Analytics corrisponde all'indirizzo IP virtuale del servizio di bilanciamento del carico di rete.  
+    ![Carico di rete Gestione bilanciamento – Aggiungi Host al Cluster](./media/gateway/nlb02.png)
+ 
+4. Immettere l'indirizzo IP del server gateway che si vuole connettere. 
 
-Dopo aver installato l'agente nel server gateway, è possibile configurarlo in modo da inviare informazioni agli agenti delle aree di lavoro che comunicano con il gateway. Se l'agente di Log Analytics per Windows non è installato nel gateway, nel **log del gateway OMS** viene scritto l'evento 300 per segnalare che è necessaria l'installazione. Se l'agente è installato ma non è configurato per inviare informazioni alla stessa area di lavoro degli agenti che comunicano attraverso di esso, nello stesso registro eventi viene scritto l'evento 105 per indicare che l'agente nel gateway deve essere configurato in modo da inviare informazioni alla stessa area di lavoro degli agenti che comunicano con il gateway.
+    ![Gestione bilanciamento carico di rete - Aggiunta dell'host al cluster: Connettere](./media/gateway/nlb03.png) 
 
-Al termine della configurazione, è necessario riavviare il servizio **Gateway OMS** per rendere effettive le modifiche. In caso contrario, il gateway rifiuterà gli agenti che provano a comunicare con Log Analytics e segnalerà l'ID evento 105 nel log eventi **Log del gateway OMS**. Questo vale anche quando si aggiunge o si rimuove un'area di lavoro nel file di configurazione dell'agente nel server gateway.   
-
-Per informazioni correlate per il ruolo di lavoro ibrido per runbook di Automazione, vedere [Distribuire il ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbook-worker.md).
-
-### <a name="configure-operations-manager---all-agents-use-the-same-proxy-server"></a>Configurare Operations Manager: tutti gli agenti usano lo stesso server proxy
-Configurare Operations Manager per aggiungere il server gateway.  La configurazione del proxy di Operations Manager viene applicata automaticamente a tutti gli agenti che creano report in Operations Manager, anche se l'impostazione è vuota.  
-
-Per usare il gateway per il supporto di Operations Manager, è necessario avere:
-
-* Microsoft Monitoring Agent (versione dell'agente **8.0.10900.0** o successiva) installato nel server gateway e configurato con le stesse aree di lavoro di Log Analytics definite nella configurazione del gruppo di gestione per l'invio di informazioni.
-* Il gateway deve disporre di connettività Internet o essere connesso a un server proxy che dispone di tale connettività.
+### <a name="azure-load-balancer"></a>Azure Load Balancer
+Per informazioni su come progettare e distribuire un servizio di bilanciamento del carico di Azure, vedere [What ' s Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). Per distribuire un servizio di bilanciamento del carico di base, seguire i passaggi descritti in questo [quickstart](../../load-balancer/quickstart-create-basic-load-balancer-portal.md) esclusi i passaggi descritti nella sezione **crea server back-end**.   
 
 > [!NOTE]
-> Se non si specifica un valore per il gateway, viene effettuato il push di valori vuoti a tutti gli agenti.
+> Configurazione di bilanciamento del carico di Azure tramite il **SKU Basic**, richiede che le macchine virtuali di Azure appartengono a un Set di disponibilità. Per altre informazioni sui set di disponibilità, vedere [gestire la disponibilità delle macchine virtuali Windows in Azure](../../virtual-machines/windows/manage-availability.md). Per aggiungere le macchine virtuali esistenti a un set di disponibilità, consultare [Set Azure Resource Manager VM Set di disponibilità](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
 > 
 
-Se è la prima volta che il gruppo di gestione di Operations Manager si registra in un'area di lavoro di Log Analytics, l'opzione per specificare la configurazione del proxy per il gruppo di gestione non è disponibile nella console operatore.  Il gruppo di gestione deve essere registrato correttamente con il servizio prima che questa opzione sia disponibile.  Aggiornare la configurazione del proxy di sistema tramite Netsh nel sistema da cui si esegue la console operatore per configurare l'integrazione e tutti i server di gestione nel gruppo di gestione.  
+Dopo aver creato il servizio di bilanciamento del carico, un pool back-end deve essere creato, che distribuisce il traffico a uno o più server gateway. Seguire i passaggi descritti nella sezione dell'articolo Guida introduttiva [creare le risorse di bilanciamento del carico](../../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-resources-for-the-load-balancer).  
 
-1. Aprire un prompt dei comandi con privilegi elevati.
+>[!NOTE]
+>Quando si configura il probe di integrità deve essere configurato per usare la porta TCP del server gateway. Il probe di integrità in modo dinamico aggiunge o rimuove il server gateway dalla rotazione del bilanciamento del carico in base alla loro risposta ai controlli di integrità. 
+>
 
-    a. Passare a **Start** e digitare **cmd**.  
-    b. Fare clic con il pulsante destro del mouse su **Prompt dei comandi** e selezionare **Esegui come amministratore**.  
+## <a name="configure-the-log-analytics-agent-and-operations-manager-management-group"></a>Configurare l'agente di Log Analitica e gruppo di gestione di Operations Manager
+In questa sezione verrà illustrato come configurare gli agenti, un gruppo di gestione di Operations Manager o Azure Automation Hybrid Runbook Workers Log Analitica connesse direttamente con il gateway Log Analitica per comunicare con automazione di Azure o Log Analitica.  
 
-1. Immettere il comando seguente e premere **INVIO**:
+### <a name="configure-a-standalone-log-analytics-agent"></a>Configurare un agente di Log Analitica autonomo
+Quando si configura l'agente di Log Analitica, sostituire il valore del server proxy con l'indirizzo IP del server gateway Log Analitica e il numero di porta. Se sono stati distribuiti più server gateway dietro un bilanciamento del carico, la configurazione di proxy dell'agente di Log Analitica è l'indirizzo IP virtuale del bilanciamento del carico.  
 
-    `netsh winhttp set proxy <proxy>:<port>`
+>[!NOTE]
+>Per installare l'agente di Log Analitica nei computer Windows che si connettono direttamente a Log Analitica e gateway, vedere [i computer Windows di connettersi al servizio in Azure Log Analitica](agent-windows.md). Per connettere i computer Linux, vedere [configurare un agente di Log Analitica per i computer Linux in un ambiente ibrido](../../azure-monitor/learn/quick-collect-linux-computer.md). 
+>
 
-Dopo aver completato l'integrazione con Log Analytics, è possibile rimuovere la modifica eseguendo `netsh winhttp reset proxy` e quindi usare l'opzione **Configura server proxy** nella console operatore per specificare il server gateway di Log Analytics. 
+Dopo aver installato l'agente nel server gateway, configurarlo per segnalare all'area di lavoro o gli agenti dell'area di lavoro che comunicano con il gateway. Se l'agente di Log Analitica Windows non è installato sul gateway, evento 300 viene scritto nel registro eventi di Gateway di OMS, che indica che l'agente deve essere installato. Se l'agente è installato ma non configurato per inviare report alla stessa area di lavoro come gli agenti che comunicano attraverso di esso, l'evento 105 viene scritto per lo stesso log, che indica che l'agente nel gateway deve essere configurato per inviare report alla stessa area di lavoro come gli agenti che co mmunicate con il gateway.
 
-1. Aprire la console di Operations Manager e in **Operations Management Suite** fare clic su **Connessione** e quindi su **Configura server proxy**.<br><br> ![Operations Manager – Configurare il server proxy](./media/gateway/scom01.png)<br> 
-1. Selezionare **Usa un server proxy per accedere a Operations Management Suite** e quindi digitare l'indirizzo IP del server gateway di Log Analytics o l'indirizzo IP virtuale del servizio di bilanciamento del carico di rete. Assicurarsi di iniziare con il prefisso `http://`.<br><br> ![Operations Manager – Indirizzo del server proxy](./media/gateway/scom02.png)<br> 
-1. Fare clic su **Fine**. Il gruppo di gestione di Operations Manager è ora configurato per comunicare tramite il server gateway con il servizio Log Analytics.
+Dopo aver completato di configurazione, riavviare il servizio Gateway OMS per applicare le modifiche. In caso contrario, il gateway rifiuterà gli agenti che tentano di comunicare con Log Analitica e verranno segnalato l'evento 105 nel registro eventi del Gateway OMS. Questo si verifica anche quando si aggiungono o rimuove un'area di lavoro dalla configurazione dell'agente nel server gateway.   
 
-### <a name="configure-operations-manager---specific-agents-use-proxy-server"></a>Configurare Operations Manager: agenti specifici usano il server proxy
-È possibile che in ambienti complessi o di grandi dimensioni solo specifici server (o gruppi) debbano usare il server gateway di Log Analytics.  Per questi server, non è possibile aggiornare direttamente l'agente Operations Manager perché questo valore viene sovrascritto dal valore globale del gruppo di gestione.  È invece necessario eseguire l'override della regola usata per effettuare il push di questi valori.  
+Per informazioni correlate a di Hybrid Runbook Workers di automazione, vedere [automatizzare le risorse nel Data Center o cloud con Hybrid Runbook Workers](../../automation/automation-hybrid-runbook-worker.md).
+
+### <a name="configure-operations-manager-where-all-agents-use-the-same-proxy-server"></a>Configurare Operations Manager, in cui tutti gli agenti usano lo stesso server proxy
+La configurazione del proxy di Operations Manager viene applicata automaticamente a tutti gli agenti che creano report in Operations Manager, anche se l'impostazione è vuota.  
+
+Per usare il Gateway OMS per supportare Operations Manager, è necessario disporre di:
+
+* Microsoft Monitoring Agent (versione 8.0.10900.0 o versione successiva) installato nel server Gateway OMS e configurato con le stesse aree di lavoro di Log Analitica che il gruppo di gestione sia configurato per inviare report a.
+* Connettività Internet. In alternativa, il Gateway di OMS deve essere connesso a un server proxy che è connesso a internet.
+
+> [!NOTE]
+> Se non si specifica alcun valore per il gateway, a tutti gli agenti vengono inseriti i valori vuoti.
+>
+
+Se il gruppo di gestione di Operations Manager è la registrazione con un'area di lavoro di Log Analitica per la prima volta, si non verrà visualizzata l'opzione per specificare la configurazione del proxy per il gruppo di gestione nella console operatore. Questa opzione è disponibile solo se il gruppo di gestione è stato registrato con il servizio.  
+
+Per configurare l'integrazione, aggiornare la configurazione del proxy del sistema tramite Netsh nel sistema in cui si esegue la console operatore e in tutti i server di gestione nel gruppo di gestione. A tale scopo, seguire questa procedura:
+
+1. Aprire un prompt dei comandi con privilegi elevati:
+
+   a. Selezionare **avviare** e immettere **cmd**.  
+
+   b. Fare doppio clic su **prompt dei comandi** e selezionare **Esegui come amministratore**.  
+
+1. Immettere il comando seguente:
+
+   `netsh winhttp set proxy <proxy>:<port>`
+
+Dopo aver completato l'integrazione con Log Analitica, rimuovere la modifica eseguendo `netsh winhttp reset proxy`. Quindi, nella console operatore, usare il **Configura server proxy** opzione per specificare il server gateway Log Analitica. 
+
+1. Nella console di Operations Manager, sotto **Operations Management Suite**, selezionare **connessione**, quindi selezionare **configura Server Proxy**.
+
+   ![Schermata di Operations Manager, che mostra la selezione di configura Server Proxy](./media/gateway/scom01.png)
+
+1. Selezionare **usare un server proxy per accedere a Operations Management Suite** e quindi immettere l'indirizzo IP del server gateway Log Analitica o indirizzo IP virtuale del servizio di bilanciamento del carico. Prestare attenzione a iniziare con il prefisso `http://`.
+
+   ![Schermata di Operations Manager, che mostra il proxy di indirizzo del server](./media/gateway/scom02.png)
+
+1. Selezionare **Fine**. Il gruppo di gestione di Operations Manager è ora configurato per comunicare tramite il server gateway con il servizio Log Analytics.
+
+### <a name="configure-operations-manager-where-specific-agents-use-a-proxy-server"></a>Configurare Operations Manager, in cui agenti specifici usano un server proxy
+Per gli ambienti di grandi dimensioni o complessi, è possibile solo specifici server (o gruppi) usino il server gateway Log Analitica.  Per questi server, è possibile aggiornare l'agente Operations Manager direttamente perché questo valore viene sovrascritto dal valore globale per il gruppo di gestione.  In alternativa, sostituire la regola usata per il push di questi valori.  
 
 > [!NOTE] 
-> Questa stessa tecnica di configurazione può essere usata per consentire l'uso di più server gateway di Log Analytics nell'ambiente in uso.  È possibile ad esempi fare in modo che vengano specificati determinati server gateway di Log Analytics per ogni area.
->  
+> Usare questa tecnica di configurazione se si vuole consentire per più server gateway Log Analitica nell'ambiente in uso.  Ad esempio, è possibile richiedere determinati server gateway Log Analitica per essere specificato in base a livello di area.
+>
+
+Per configurare il server specifici o gruppi di utilizzare il server gateway Log Analitica: 
 
 1. Aprire la console di Operations Manager e selezionare l'area di lavoro **Creazione**.  
-1. Nell'area di lavoro Creazione selezionare **Regole** e fare clic sul pulsante **Ambito** sulla barra degli strumenti di Operations Manager. Se questo pulsante non è disponibile, verificare che nel riquadro Monitoraggio sia selezionato un oggetto e non una cartella. La finestra di dialogo **Crea ambito oggetti Management Pack** visualizza un elenco di classi, gruppi o oggetti di destinazione comuni. 
-1. Digitare **Servizio integrità** nel campo **Cerca** e selezionarlo dall'elenco.  Fare clic su **OK**.  
-1. Cercare la regola **Advisor Proxy Setting Rule** (Regola di impostazione proxy di Advisor) e nella barra degli strumenti della console operatore fare clic su **Override** e quindi scegliere**Sostituisci regola\Oggetto specifico della classe: Servizio integrità** e selezionare un oggetto specifico dall'elenco.  Facoltativamente, è possibile creare un gruppo personalizzato contenente l'oggetto Servizio integrità dei server a cui si vuole applicare questo override e quindi applicare l'override a tale gruppo.
-1. Nella finestra di dialogo **Proprietà di sostituzione** fare clic per inserire un segno di spunta nella colonna **Override** accanto al parametro **WebProxyAddress**.  Nel campo **Valore di sostituzione** immettere l'URL del server gateway di Log Analytics per assicurarsi di iniziare con il prefisso `http://`.  
+1. Nell'area di lavoro Creazione selezionare **Regole**. 
+1. Sulla barra degli strumenti di Operations Manager, selezionare la **ambito** pulsante. Se questo pulsante non è disponibile, verificare che è stato selezionato un oggetto, non una cartella nel **Monitoring** riquadro. La finestra di dialogo **Crea ambito oggetti Management Pack** visualizza un elenco di classi, gruppi o oggetti di destinazione comuni. 
+1. Nel **ricercare** immettere **servizio integrità** e selezionarlo dall'elenco. Selezionare **OK**.  
+1. Cercare **regola di impostazione Proxy di Advisor**. 
+1. Sulla barra degli strumenti di Operations Manager, selezionare **esegue l'override** e quindi **eseguire l'Override di regola\oggetto specifico della classe: Servizio integrità** e selezionare un oggetto dall'elenco.  Oppure creare un gruppo personalizzato che contiene l'oggetto servizio di integrità dei server di cui di che si desidera applicare questa sostituzione consente. Applicare quindi la sostituzione al gruppo personalizzato.
+1. Nel **proprietà di sostituzione** finestra di dialogo, aggiungere un segno di spunta nel **eseguire l'Override** accanto alla colonna il **WebProxyAddress** parametro.  Nel **valore di sostituzione** immettere l'URL del server gateway Log Analitica. Prestare attenzione a iniziare con il prefisso `http://`.  
 
     >[!NOTE]
-    > Non è necessario abilitare la regola perché viene già automaticamente gestita con un override contenuto nel Management Pack Microsoft System Center Advisor Secure Reference Override che specifica come destinazione Microsoft System Center Advisor Monitoring Server Group (Gruppo di server di monitoraggio di Microsoft System Center Advisor).
-    >   
+    > Non è necessario attivare la regola. È già gestita automaticamente con una sostituzione nel management pack di Microsoft System Center Advisor Secure Reference Override che fa riferimento a Microsoft System Center Advisor Monitoring Server Group.
+    > 
 
-1. Selezionare un Management Pack dall'elenco **Seleziona Management Pack di destinazione** o creare un nuovo Management Pack non bloccato facendo clic su **Nuovo**. 
-1. Dopo avere completato le modifiche, fare clic su **OK**. 
+1. Selezionare un management pack dal **seleziona management pack di destinazione** elencare o creare un nuovo management pack non bloccato selezionando **New**. 
+1. Al termine, selezionare **OK**. 
 
-### <a name="configure-for-automation-hybrid-workers"></a>Configurare per i ruoli di lavoro ibridi di automazione
-Se nell'ambiente sono disponibili ruoli di lavoro ibridi per runbook di Automazione, i passaggi seguenti offrono soluzioni alternative manuali e temporanee per configurare il supporto tramite il gateway.
+### <a name="configure-for-automation-hybrid-runbook-workers"></a>Configurare per Hybrid Runbook Workers di automazione
+Se si dispone di Hybrid Runbook Workers di automazione nell'ambiente in uso, seguire questi passaggi per le soluzioni alternative manuali e temporanee configurare il Gateway OMS per supportare i ruoli di lavoro.
 
-Nei passaggi seguenti, è necessario conoscere l'area di Azure in cui risiede l'account di Automazione. Per individuare la località:
+Per seguire la procedura descritta in questa sezione, è necessario conoscere l'area di Azure in cui si trova l'account di automazione. Per trovare tale posizione:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 1. Selezionare il servizio Automazione di Azure.
 1. Selezionare l'account appropriato di Automazione di Azure.
-1. Visualizzarne l'area in **Località**.<br><br> ![Portale di Azure – Località dell'account di Automazione](./media/gateway/location.png)  
+1. Visualizzarne l'area in **Località**.
 
-Usare le tabelle seguenti per identificare l'URL di ogni località:
+   ![Screenshot della posizione dell'account di automazione nel portale di Azure](./media/gateway/location.png)
 
-**URL del servizio dati del processo di runtime**
+Usare le tabelle seguenti per identificare l'URL per ogni posizione.
 
-| **location** | **URL** |
+**URL del servizio dati di Runtime del processo**
+
+| **Posizione** | **URL** |
 | --- | --- |
 | Stati Uniti centro-settentrionali |ncus-jobruntimedata-prod-su1.azure-automation.net |
 | Europa occidentale |we-jobruntimedata-prod-su1.azure-automation.net |
@@ -233,7 +291,7 @@ Usare le tabelle seguenti per identificare l'URL di ogni località:
 
 **URL del servizio agente**
 
-| **location** | **URL** |
+| **Posizione** | **URL** |
 | --- | --- |
 | Stati Uniti centro-settentrionali |ncus-agentservice-prod-1.azure-automation.net |
 | Europa occidentale |we-agentservice-prod-1.azure-automation.net |
@@ -246,12 +304,12 @@ Usare le tabelle seguenti per identificare l'URL di ogni località:
 | Giappone |jpe-agentservice-prod-1.azure-automation.net |
 | Australia |ase-agentservice-prod-1.azure-automation.net |
 
-Se il computer è registrato come ruolo di lavoro ibrido per runbook automaticamente, per l'applicazione di patch tramite la soluzione di gestione degli aggiornamenti, seguire questa procedura:
+Se il computer viene registrato automaticamente come ruolo di lavoro Runbook ibridi, usare la soluzione gestione aggiornamenti per gestire la patch. A tale scopo, seguire questa procedura:
 
 1. Aggiungere gli URL del servizio dati del processo di runtime all'elenco di host consentiti nel gateway di Log Analytics. Ad esempio: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 1. Riavviare il servizio gateway di Log Analytics usando il cmdlet di PowerShell seguente: `Restart-Service OMSGatewayService`
 
-Se il computer viene caricato in Automazione di Azure usando il cmdlet di registrazione del ruolo di lavoro ibrido per runbook, seguire questa procedura:
+Se il computer è unito in automazione di Azure usando il cmdlet di registrazione di lavoro ibrido per Runbook, seguire questa procedura:
 
 1. Aggiungere l'URL di registrazione del servizio agente all'elenco di host consentiti nel gateway di Log Analytics. Ad esempio: `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
 1. Aggiungere gli URL del servizio dati del processo di runtime all'elenco di host consentiti nel gateway di Log Analytics. Ad esempio: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
@@ -259,15 +317,15 @@ Se il computer viene caricato in Automazione di Azure usando il cmdlet di regist
     `Restart-Service OMSGatewayService`
 
 ## <a name="useful-powershell-cmdlets"></a>Cmdlet PowerShell utili
-I cmdlet consentono di completare le attività necessarie per aggiornare le impostazioni di configurazione del gateway di Log Analytics. Prima di usarli, assicurarsi di:
+È possibile usare i cmdlet per completare le attività per aggiornare le impostazioni di configurazione del gateway Log Analitica. Prima di usare i cmdlet, assicurarsi di:
 
-1. Installare il gateway di Log Analytics (MSI).
+1. Installare il gateway di Log Analitica (programma di installazione di Microsoft Windows).
 1. Aprire una finestra della console di PowerShell.
-1. Per importare il modulo, digitare il comando `Import-Module OMSGateway`.
-1. Se non si verifica alcun errore nel passaggio precedente, il modulo è stato importato ed è possibile usare i cmdlet. Digitare `Get-Module OMSGateway`.
-1. Dopo aver apportato le modifiche usando i cmdlet, assicurarsi di riavviare il servizio del gateway.
+1. Importare il modulo digitando questo comando: `Import-Module OMSGateway`
+1. Se non si verifica alcun errore nel passaggio precedente, il modulo è stato importato ed è possibile usare i cmdlet. Immettere `Get-Module OMSGateway`
+1. Dopo aver usato il cmdlet per apportare modifiche, riavviare il servizio Gateway OMS.
 
-Se si verifica un errore nel passaggio 3, il modulo non è stato importato. L'errore può verificarsi quando PowerShell non riesce a trovare il modulo. È possibile trovarlo nel percorso di installazione del gateway: *C:\Programmi\Microsoft OMS Gateway\PowerShell\OmsGateway*.
+Un errore nel passaggio 3 indica che il modulo non è stato importato. L'errore può verificarsi quando PowerShell non è possibile trovare il modulo. È possibile trovare il modulo nel percorso di installazione di Gateway OMS: *C:\Programmi\Microsoft OMS Gateway\PowerShell\OmsGateway*.
 
 | **Cmdlet** | **Parametri** | **Descrizione** | **Esempio** |
 | --- | --- | --- | --- |  
@@ -275,39 +333,41 @@ Se si verifica un errore nel passaggio 3, il modulo non è stato importato. L'er
 | `Set-OMSGatewayConfig` |Chiave (obbligatorio) <br> Valore |Modifica la configurazione del servizio |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Ottiene l'indirizzo del proxy di inoltro (upstream) |`Get-OMSGatewayRelayProxy` |  
 | `Set-OMSGatewayRelayProxy` |Indirizzo<br> Username<br> Password |Imposta l'indirizzo (e le credenziali) del proxy di inoltro (upstream) |1. Impostare un proxy di inoltro e le credenziali:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Impostare un proxy di inoltro che non richiede autenticazione: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Deselezionare l'impostazione del proxy di inoltro:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
-| `Get-OMSGatewayAllowedHost` | |Ottiene gli host attualmente consentiti (solo gli host consentiti configurati localmente, non include gli host consentiti scaricati automaticamente) |`Get-OMSGatewayAllowedHost` | 
+| `Get-OMSGatewayAllowedHost` | |Ottiene gli host attualmente consentiti (solo gli host consentiti configurati localmente, non automaticamente scaricati consentito host) |`Get-OMSGatewayAllowedHost` | 
 | `Add-OMSGatewayAllowedHost` |Host (obbligatorio) |Aggiunge l'host all'elenco dei valori consentiti |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
 | `Remove-OMSGatewayAllowedHost` |Host (obbligatorio) |Rimuove l'host dall'elenco dei valori consentiti |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  
 | `Add-OMSGatewayAllowedClientCertificate` |Oggetto (obbligatorio) |Aggiunge l'oggetto del certificato client all'elenco dei valori consentiti |`Add-OMSGatewayAllowed`<br>`ClientCertificate` <br> `-Subject mycert` |  
 | `Remove-OMSGatewayAllowedClientCertificate` |Oggetto (obbligatorio) |Rimuove l'oggetto del certificato client dall'elenco dei valori consentiti |`Remove-OMSGatewayAllowed` <br> `ClientCertificate` <br> `-Subject mycert` |  
-| `Get-OMSGatewayAllowedClientCertificate` | |Ottiene gli oggetti del certificato client attualmente consentiti (solo gli oggetti consentiti configurati localmente, non include gli oggetti consentiti scaricati automaticamente) |`Get-`<br>`OMSGatewayAllowed`<br>`ClientCertificate` |  
+| `Get-OMSGatewayAllowedClientCertificate` | |Ottiene oggetti del certificato client attualmente consentiti (solo oggetti consentiti di oggetti consentiti configurati localmente, scaricati automaticamente) |`Get-`<br>`OMSGatewayAllowed`<br>`ClientCertificate` |  
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
-Per raccogliere gli eventi registrati dal gateway, è necessario che sia installato anche l'agente di Log Analytics.<br><br> ![Visualizzatore eventi - Log gateway di Log Analytics](./media/gateway/event-viewer.png)
+Per raccogliere gli eventi registrati dal gateway, si deve avere installato l'agente di Log Analitica.
 
-**ID evento e descrizioni del gateway di Log Analytics**
+![Screenshot dell'elenco di Visualizzatore eventi nel log di gateway Log Analitica](./media/gateway/event-viewer.png)
 
-La tabella seguente illustra gli ID e le descrizioni degli eventi di log del gateway di Log Analytics.
+### <a name="log-analytics-gateway-event-ids-and-descriptions"></a>ID evento gateway Analitica di log e descrizioni
+
+La tabella seguente illustra gli ID evento e le descrizioni degli eventi di log di Log Analitica gateway.
 
 | **ID** | **Descrizione** |
 | --- | --- |
-| 400 |Qualsiasi errore dell'applicazione che non dispone di un ID specifico |
-| 401 |Configurazione errata. Ad esempio: listenPort = "text" anziché un intero |
-| 402 |Eccezione durante l'analisi dei messaggi di handshake TLS |
-| 403 |Errore di rete. Ad esempio: non è possibile connettersi al server di destinazione |
-| 100 |Informazioni generali |
-| 101 |Servizio avviato |
-| 102 |Servizio arrestato |
-| 103 |Ricevuto un comando HTTP CONNECT dal client |
-| 104 |Non è stato ricevuto un comando HTTP CONNECT |
-| 105 |Il server di destinazione non è presente nell'elenco dei valori consentiti o la porta di destinazione non è sicura (443) <br> <br> Assicurarsi che l'agente MMA sul server gateway e gli agenti che comunicano con il gateway siano connessi alla stessa area di lavoro di Log Analytics. |
-| 105 |ERRORE TcpConnection – Certificato client non valido: CN=Gateway <br><br> Assicurarsi che: <br>    <br> &#149; Si usi un gateway con il numero di versione 1.0.395.0 o successiva. <br> &#149; L'agente MMA sul server gateway e gli agenti che comunicano con il gateway siano connessi alla stessa area di lavoro di Log Analytics. |
-| 106 |Il gateway di Log Analytics supporta solo il protocollo TLS 1.0, TLS 1.1 e 1.2.  Non supporta SSL. Per qualsiasi versione del protocollo TLS/SSL non supportata, il gateway di Log Analytics genera l'ID evento 106.|
-| 107 |La sessione TLS è stata verificata |
+| 400 |Qualsiasi errore dell'applicazione che non dispone di alcun ID specifico. |
+| 401 |Configurazione errata. Ad esempio, listenPort = "text" anziché un numero intero. |
+| 402 |Eccezione durante l'analisi dei messaggi di handshake TLS. |
+| 403 |Errore di rete. Ad esempio, non è possibile connettersi al server di destinazione. |
+| 100 |Informazioni generali. |
+| 101 |Il servizio è stato avviato. |
+| 102 |Il servizio è stato arrestato. |
+| 103 |È stato ricevuto un comando HTTP CONNECT dal client. |
+| 104 |Non è stato ricevuto un comando HTTP CONNECT. |
+| 105 |Server di destinazione non è presente nell'elenco elementi consentiti o porta di destinazione non è sicura (443). <br> <br> Assicurarsi che l'agente MMA sul server Gateway OMS e gli agenti che comunicano con OMS Gateway siano connessi alla stessa area di lavoro di Log Analitica. |
+| 105 |ERRORE TcpConnection – Certificato client non valido: CN = Gateway. <br><br> Assicurarsi di usare il Gateway OMS versione 1.0.395.0 o versione successiva. Assicurarsi anche che l'agente MMA sul server Gateway OMS e gli agenti che comunicano con OMS Gateway siano connessi alla stessa area di lavoro di Log Analitica. |
+| 106 |Versione del protocollo TLS/SSL non supportata.<br><br> Il gateway Log Analitica supporta solo TLS 1.0, TLS 1.1 e 1.2. Non supporta SSL.|
+| 107 |La sessione TLS è stata verificata. |
 
-**Contatori delle prestazioni da raccogliere**
+### <a name="performance-counters-to-collect"></a>Contatori delle prestazioni da raccogliere
 
-La tabella seguente mostra i contatori delle prestazioni disponibili per il gateway di Log Analytics. È possibile aggiungere i contatori usando il monitor di prestazioni.
+La tabella seguente mostra i contatori delle prestazioni disponibili per il gateway di Log Analytics. Utilizzare Performance Monitor per aggiungere i contatori.
 
 | **Nome** | **Descrizione** |
 | --- | --- |
@@ -316,13 +376,13 @@ La tabella seguente mostra i contatori delle prestazioni disponibili per il gate
 | Gateway di Log Analytics/Client connesso |Numero di client connessi |
 | Gateway di Log Analytics/Numero di rifiuti |Numero di rifiuti a causa di errori di convalida TLS |
 
-![Contatore delle prestazioni del gateway di Log Analytics](./media/gateway/counters.png)
+![Interfaccia a gateway Analitica di schermata del Log che mostra i contatori delle prestazioni](./media/gateway/counters.png)
 
-## <a name="get-assistance"></a>Ottenere supporto
-Dopo aver eseguito l'accesso al portale di Azure, è possibile creare una richiesta di supporto con il gateway di Log Analytics o qualsiasi altro servizio di Azure o funzionalità di un servizio.
-Per richiedere supporto, fare clic sul simbolo del punto interrogativo nell'angolo superiore destro del portale e quindi fare clic su **Nuova richiesta di supporto**. Completare quindi il nuovo modulo di richiesta di supporto.
+## <a name="assistance"></a>Assistenza
+Quando è connessi al portale di Azure, è possibile ottenere supporto con il gateway Log Analitica o qualsiasi altro servizio di Azure o funzionalità.
+Per ottenere assistenza, selezionare l'icona punto interrogativo nell'angolo superiore sinistro del portale e selezionare **nuova richiesta di supporto**. Completare quindi il nuovo modulo di richiesta di supporto.
 
-![Nuova richiesta di supporto](./media/gateway/support.png)
+![Screenshot di una nuova richiesta di supporto](./media/gateway/support.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Aggiungi origini dati](../../azure-monitor/platform/agent-data-sources.md) per raccoglie i dati dalle origini connesse e archiviarli nell'area di lavoro di Log Analytics.
+[Aggiungere le origini dati](../../azure-monitor/platform/agent-data-sources.md) per raccogliere i dati da origini connesse e archiviare i dati nell'area di lavoro di Log Analitica.

@@ -1,5 +1,5 @@
 ---
-title: Configurare le informazioni di sicurezza (anteprima) per l'uso di un SMS - Azure Active Directory | Microsoft Docs
+title: Impostare le tue info di sicurezza (anteprima) per usare la messaggistica di testo - Azure Active Directory | Microsoft Docs
 description: Come configurare le informazioni di sicurezza per verificare la propria identità usando l'invio di SMS e il dispositivo mobile.
 services: active-directory
 author: eross-msft
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a130113c7e6052befdc61927589c1151a062bdb9
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: ea9e4ae21ecc6538b33aed1566c10ddcd22b86c7
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456096"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341035"
 ---
 # <a name="set-up-security-info-preview-to-use-text-messaging"></a>Configurare le informazioni di sicurezza (anteprima) per l'uso di SMS
-È possibile seguire questi passaggi per aggiungere i metodi di verifica a due fattori e di reimpostazione della password. Dopo averle configurate per la prima volta, è possibile tornare alla pagina **Info di sicurezza** per aggiungere, aggiornare o eliminare le informazioni di sicurezza.
+È possibile seguire questi passaggi per aggiungere i metodi di verifica a due fattori e di reimpostazione della password. Dopo averle configurate per la prima volta, è possibile tornare alla pagina **Informazioni di sicurezza** per aggiungere, aggiornare o eliminare le informazioni di sicurezza.
 
 Se viene chiesto di configurarle subito dopo aver effettuato l'accesso all'account aziendale o dell'istituto di istruzione, vedere la procedura dettagliata nell'articolo [Configurare le informazioni di sicurezza dal prompt della pagina di accesso](security-info-setup-signin.md).
 
@@ -39,13 +39,13 @@ A seconda delle impostazioni dell'organizzazione, potrebbe essere possibile usar
 
 1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina https://myprofile.microsoft.com/.
 
-    ![Pagina Profilo personale, con i collegamenti Info di sicurezza evidenziati](media/security-info/securityinfo-myprofile.png)
+    ![Pagina Profilo personale con i collegamenti evidenziati delle Informazioni di sicurezza](media/security-info/securityinfo-myprofile-page.png)
 
-2. Selezionare **Info di sicurezza** dal riquadro di spostamento a sinistra o dal collegamento nel blocco **Info di sicurezza** e quindi selezionare **Aggiungi metodo** dalla pagina **Info di sicurezza**.
+2. Selezionare **Informazioni di sicurezza** dal riquadro di spostamento a sinistra o dal collegamento nel blocco **Informazioni di sicurezza**, quindi selezionare **Aggiungi metodo** dalla pagina **Informazioni di sicurezza**.
 
-    ![Pagina Info di sicurezza con l'opzione Aggiungi metodo evidenziata](media/security-info/securityinfo-myprofile-addmethod.png)
+    ![Pagina Informazioni di sicurezza con l'opzione Aggiungi metodo evidenziata](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
-3. Nella pagina **Aggiungi un metodo** selezionare **Telefono** dall'elenco a discesa e quindi selezionare **Aggiungi**.
+3. Nella pagina **Aggiungi un metodo** selezionare **Telefono** dall'elenco a discesa e selezionare **Aggiungi**.
 
     ![Finestra di dialogo Aggiungi un metodo, con Telefono selezionato](media/security-info/securityinfo-myprofile-addphonetext.png)
 
@@ -75,14 +75,14 @@ Per non usare più gli SMS come metodo di gestione delle informazioni di sicurez
 
     ![Collegamento per eliminare il metodo basato sul telefono e l'invio di SMS dalle informazioni di sicurezza](media/security-info/securityinfo-myprofile-phonetext-delete.png)
 
-2. Selezionare **Sì** nella finestra di dialogo di conferma per eliminare il numero di **telefono**. Il numero di telefono, dopo essere stato eliminato, viene rimosso dalle informazioni di sicurezza e non viene più visualizzato nella pagina **Info di sicurezza**. Se **Telefono** è il metodo predefinito, verrà sostituito con un altro metodo disponibile.
+2. Selezionare **Sì** nella finestra di dialogo di conferma per eliminare il numero di **telefono**. Il numero di telefono, dopo essere stato eliminato, viene rimosso dalle informazioni di sicurezza e non viene più visualizzato nella pagina **Informazioni di sicurezza**. Se **Telefono** è il metodo predefinito, verrà sostituito con un altro metodo disponibile.
 
 ## <a name="change-your-default-security-info-method"></a>Cambiare il metodo di gestione delle informazioni di sicurezza predefinito
 Per impostare l'invio di SMS come metodo predefinito da usare quando si accede all'account aziendale o dell'istituto di istruzione con la verifica a due fattori o per le richieste di reimpostazione della password, è possibile impostarlo dalla pagina **Info di sicurezza**.
 
 ### <a name="to-change-your-default-security-info-method"></a>Per cambiare il metodo di gestione delle informazioni di sicurezza predefinito
 
-1. Nella pagina **Info di sicurezza** selezionare il collegamento **Cambia** accanto alle informazioni **Metodo di accesso predefinito**.
+1. Nella pagina **Informazioni di sicurezza** selezionare il collegamento **Modifica** accanto alle informazioni **Metodo di accesso predefinito**.
 
     ![Collegamento Cambia per il metodo di accesso predefinito](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 

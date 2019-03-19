@@ -1,5 +1,5 @@
 ---
-title: Aggiungere utenti di Collaborazione B2B ad Azure Active Directory senza invito | Microsoft Docs
+title: Aggiungere utenti di collaborazione B2B senza un collegamento di invito o un messaggio di posta elettronica - Azure Active Directory | Microsoft Docs
 description: È possibile consentire a un utente guest di aggiungere altri utenti guest ad Azure Active Directory senza riscattare un invito in Collaborazione B2B di Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -12,14 +12,14 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90e156f1d1d7bbbb6c4f65a4762977d28a5a0b89
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8c33d9a3755f2fb5397dd013c88ab542e727e125
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182596"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337669"
 ---
-# <a name="add-b2b-collaboration-guest-users-without-an-invitation"></a>Aggiungere utenti guest di Collaborazione B2B senza un invito
+# <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Aggiungere utenti guest di collaborazione B2B senza un collegamento di invito o un messaggio di posta elettronica
 
 È adesso possibile invitare un utente guest inviando un collegamento diretto a un'app condivisa. Tramite questo metodo, gli utenti guest non necessitano più del messaggio di posta elettronica di invito, se non in alcuni casi speciali. Un utente guest fa clic sul collegamento app, esamina e accetta le condizioni sulla privacy e quindi accede con facilità all'app. Per altre informazioni, vedere [Riscatto dell'invito di Collaborazione B2B](redemption-experience.md).   
 
