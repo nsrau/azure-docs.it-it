@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 ms.author: celested
 ms.reviewer: dadobali
-ms.date: 09/24/2018
+ms.date: 02/28/2019
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2be77cdc4a5ad38a7d8c125fd95256e77cd92019
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c02f094def3828d0839025f4b7dea48ee64adcc8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202945"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543187"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Linee guida per gli sviluppatori per l'accesso condizionale di Azure Active Directory
 
@@ -44,7 +44,6 @@ Nella maggior parte dei casi, l'accesso condizionale non modifica il comportamen
 
 In particolare, gli scenari seguenti richiedono che il codice gestisca le richieste di accesso condizionale:
 
-* App che accedono a Microsoft Graph
 * App che eseguono il flusso on-behalf-of
 * App che accedono a più servizi o risorse
 * App a pagina singola che usano ADAL.js
@@ -58,15 +57,28 @@ A seconda dello scenario, un cliente aziendale può applicare e rimuovere i crit
 
 Alcuni scenari richiedono modifiche al codice per la gestione dell'accesso condizionale, mentre altri funzionano senza modifiche. Ecco alcuni scenari in cui l'accesso condizionale viene usato per l'autenticazione a più fattori e che aiutano a comprendere la differenza.
 
-* Si sta creando un'app iOS a tenant singolo e si applicano criteri di accesso condizionale. L'app consente l'accesso di un utente e non richiede l'accesso a un'API. Quando l'utente accede, i criteri vengono richiamati automaticamente e l'utente deve eseguire l'autenticazione a più fattori (MFA).
-* Si sta creando un'app Web multi-tenant che usa Microsoft Graph per accedere a Exchange, tra gli altri servizi. Un cliente aziendale che usa questa app imposta i criteri in Exchange. Quando l'app Web richiede un token per Microsoft Graph, non verrà visualizzata una richiesta di conformarsi ai criteri. L'accesso dell'utente finale viene eseguito con token validi. Quando l'app tenta di usare questo token con Microsoft Graph per accedere ai dati di Exchange, viene restituita una richiesta di autenticazione claims all'app Web tramite l'intestazione ```WWW-Authenticate```. L'app può quindi usare ```claims``` in una nuova richiesta e all'utente finale verrà richiesto di conformarsi alle condizioni.
+* Si sta creando un'app iOS a tenant singolo e si applicano criteri di accesso condizionale. L'app consente l'accesso di un utente e non richiede l'accesso a un'API. Quando l'utente accede, i criteri vengono richiamati automaticamente e l'utente deve eseguire l'autenticazione a più fattori (MFA). 
 * Si sta creando un'app nativa che usa un servizio di livello intermedio per accedere a un'API downstream. Un cliente aziendale in azienda che usa questa app applica i criteri all'API downstream. Quando un utente finale esegue l'accesso, l'app nativa richiede l'accesso al livello intermedio e invia il token. Il livello intermedio esegue il flusso on-behalf-of per richiedere l'accesso all'API downstream. A questo punto, viene presentata una richiesta di attestazioni al livello intermedio. Il livello intermedio invia la richiesta di nuovo all'app nativa, che deve rispettare i criteri di accesso condizionale.
+
+#### <a name="microsoft-graph"></a>Microsoft Graph
+
+Microsoft Graph contiene considerazioni speciali durante la compilazione di App in ambienti di accesso condizionale. In generale, i meccanismi di accesso condizionale si comportano allo stesso, ma i criteri visualizzati utenti si baseranno sui dati sottostanti che dal grafico richiesto dall'app. 
+
+In particolare, tutti gli ambiti di Microsoft Graph rappresentano alcuni set di dati che possono avere singolarmente i criteri applicati. Poiché i criteri di accesso condizionale vengono assegnati i set di dati specifico, Azure AD verrà applicare i criteri di accesso condizionale in base ai dati protetti da Graph - anziché del grafico stesso.
+
+Ad esempio, se un'app richiede i seguenti ambiti di Microsoft Graph,
+
+```
+scopes="Bookings.Read.All Mail.Read"
+```
+
+Un'app può prevedere agli utenti di soddisfare tutti i criteri impostati in Bookings ed Exchange. Alcuni ambiti possono eseguire il mapping a più set di dati se concede l'accesso. 
 
 ### <a name="complying-with-a-conditional-access-policy"></a>Conformità ai criteri di accesso condizionale
 
 Per diverse topologie di app, i criteri di accesso condizionale vengono valutati quando viene stabilita la sessione. Poiché i criteri di accesso condizionale operano a livello di app e servizi, il punto in corrispondenza del quale vengono richiamati dipende principalmente dallo scenario specifico.
 
-Quando l'app tenta di accedere a un servizio con criteri di accesso condizionale, potrebbe riscontrare una richiesta di accesso condizionale. La richiesta è codificata nel parametro `claims` fornito in una risposta da Azure AD o Microsoft Graph. Ecco un esempio del parametro della richiesta:
+Quando l'app tenta di accedere a un servizio con criteri di accesso condizionale, potrebbe riscontrare una richiesta di accesso condizionale. La richiesta è codificata nel `claims` parametro che viene ricevuta una risposta da Azure AD. Ecco un esempio del parametro della richiesta: 
 
 ```
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
@@ -84,70 +96,15 @@ L'accesso condizionale di Azure AD è una funzionalità inclusa in [Azure AD Pre
 
 Le informazioni seguenti si applicano solo a questi scenari di accesso condizionale:
 
-* App che accedono a Microsoft Graph
 * App che eseguono il flusso on-behalf-of
 * App che accedono a più servizi o risorse
 * App a pagina singola che usano ADAL.js
 
-Le sezioni seguenti illustrano scenari comuni più complessi. Il concetto principale in relazione al funzionamento è che i criteri di accesso condizionale vengono valutati nel momento in cui viene richiesto il token per il servizio a cui i criteri sono applicati, a meno che l'accesso non avvenga tramite Microsoft Graph.
-
-## <a name="scenario-app-accessing-microsoft-graph"></a>Scenario: App che accede a Microsoft Graph
-
-Questo scenario illustra il caso in cui un'app Web richiede l'accesso a Microsoft Graph. In questo caso i criteri di accesso condizionale potrebbero essere assegnati a SharePoint, Exchange o qualche altro servizio a cui viene eseguito l'accesso per il carico di lavoro tramite Microsoft Graph. In questo esempio si presuppone che i criteri di accesso condizionale siano applicati a SharePoint Online.
-
-![Diagramma di flusso per le app che accedono a Microsoft Graph](./media/conditional-access-dev-guide/app-accessing-microsoft-graph-scenario.png)
-
-L'app richiede prima di tutto l'autorizzazione per Microsoft Graph, che richiede l'accesso a un carico di lavoro downstream senza accesso condizionale. La richiesta ha esito positivo senza richiamare alcun criterio e l'applicazione riceve i token per Microsoft Graph. A questo punto, l'app può usare il token di accesso in una richiesta di bearer token per l'endpoint necessario. L'app deve quindi accedere all'endpoint SharePoint Online di Microsoft Graph, ad esempio: `https://graph.microsoft.com/v1.0/me/mySite`
-
-L'app ha già un token valido per Microsoft Graph, quindi può eseguire la nuova richiesta senza che venga emesso un nuovo token. Questa richiesta non riesce e viene generata una richiesta di attestazioni da Microsoft Graph sotto forma di risposta HTTP 403 - accesso negato con una richiesta ```WWW-Authenticate```.
-
-Ecco un esempio di risposta:
-
-```
-HTTP 403; Forbidden
-error=insufficient_claims
-www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/common/oauth2/authorize", client_id="<GUID>", error=insufficient_claims, claims={"access_token":{"polids":{"essential":true,"values":["<GUID>"]}}}"
-```
-
-La richiesta di attestazioni si trova all'interno dell'intestazione ```WWW-Authenticate```, che può essere analizzata per estrarre il parametro claims per la richiesta successiva. Dopo l'aggiunta alla nuova richiesta, Azure AD è in grado di valutare i criteri di accesso condizionale al momento dell'accesso dell'utente e l'app è ora conforme ai criteri di accesso condizionale. Una nuova richiesta all'endpoint SharePoint Online avrà esito positivo.
-
-L'intestazione ```WWW-Authenticate``` presenta una struttura univoca e non è semplice da analizzare per estrarre i valori. Di seguito è riportato un metodo rapido.
-
-```csharp
-        /// <summary>
-        /// This method extracts the claims value from the 403 error response from MS Graph.
-        /// </summary>
-        /// <param name="wwwAuthHeader"></param>
-        /// <returns>Value of the claims entry. This should be considered an opaque string.
-        /// Returns null if the wwwAuthheader does not contain the claims value. </returns>
-        private String extractClaims(String wwwAuthHeader)
-        {
-            String ClaimsKey = "claims=";
-            String ClaimsSubstring = "";
-            if (wwwAuthHeader.Contains(ClaimsKey))
-            {
-                int Index = wwwAuthHeader.IndexOf(ClaimsKey);
-                ClaimsSubstring = wwwAuthHeader.Substring(Index, wwwAuthHeader.Length - Index);
-                string ClaimsChallenge;
-                if (Regex.Match(ClaimsSubstring, @"}$").Success)
-                {
-                    ClaimsChallenge = ClaimsSubstring.Split('=')[1];
-                }
-                else
-                {
-                    ClaimsChallenge = ClaimsSubstring.Substring(0, ClaimsSubstring.IndexOf("},") + 1);
-                }
-                return ClaimsChallenge;
-            }
-            return null;
-        }
-```
-
-Per esempi di codice che illustrano come gestire la richiesta di autenticazione claims, vedere l'[esempio di codice on-behalf-of](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca) per ADAL .NET.
+Le sezioni seguenti illustrano scenari comuni più complessi. Il concetto principale funzionamento principio è l'accesso condizionale i criteri vengono valutati al momento che viene richiesto il token per il servizio di cui è applicato un criterio di accesso condizionale.
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Scenario: App che esegue il flusso on-behalf-of
 
-In questo scenario viene illustrato il caso in cui un'app nativa chiama un'API o un servizio Web. A sua volta, il servizio esegue il flusso "on-behalf-of" per chiamare un servizio downstream. In questo caso sono stati applicati criteri di accesso condizionale al servizio downstream (API Web 2) e viene usata un'app nativa invece di un'app demon/server.
+In questo scenario viene illustrato il caso in cui un'app nativa chiama un'API o un servizio Web. A sua volta, il servizio esegue il flusso "on-behalf-of" per chiamare un servizio downstream. In questo caso sono stati applicati criteri di accesso condizionale al servizio downstream (API Web 2) e viene usata un'app nativa invece di un'app demon/server. 
 
 ![Diagramma per le app che eseguono il flusso on-behalf-of](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -217,7 +174,6 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 L'app deve intercettare l'errore `error=interaction_required`. L'applicazione può quindi usare `acquireTokenPopup()` o `acquireTokenRedirect()` sulla stessa risorsa. L'utente deve eseguire l'autenticazione a più fattori. Dopo che l'utente ha completato l'autenticazione a più fattori, viene emesso un nuovo token di accesso per l'app per la risorsa richiesta.
 
 Per provare questo scenario, vedere l'[esempio di codice on-behalf-of JS SPA](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca). Questo esempio di codice usa i criteri di accesso condizionale e l'API Web registrata in precedenza con JS SPA per illustrare questo scenario. Mostra come gestire correttamente la richiesta di attestazioni e ottenere un token di accesso che può essere usato per l'API Web. In alternativa, vedere l'[esempio di codice Angular.js](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) generale, per informazioni su Angular SPA
-
 
 ## <a name="see-also"></a>Vedere anche 
 

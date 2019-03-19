@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: b05a8bfd46800c5b0b0126adcf2acb4852bb6683
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 9057245c108e4a1b9af2549bc87f98258da50535
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339757"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240168"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Rilevare e risolvere i problemi di disconnessione per l'hub IoT di Azure
 
@@ -54,7 +54,7 @@ Per altre informazioni, vedere [Cosa sono gli avvisi classici in Microsoft Azure
 
 ## <a name="resolve-connectivity-errors"></a>Risolvere gli errori di connettività
 
-Quando si attivano i log di diagnostica e gli avvisi per i dispositivi connessi, si ricevono avvisi in caso di problemi. In questa sezione viene descritto come risolvere i problemi comuni quando si riceve un avviso. La procedura seguente presuppone che sia stato configurato Azure Log Analytics per i log di diagnostica.
+Quando si attivano i log di diagnostica e gli avvisi per i dispositivi connessi, si ricevono avvisi in caso di problemi. In questa sezione viene descritto come risolvere i problemi comuni quando si riceve un avviso. La procedura seguente presuppone di che aver configurato i log di monitoraggio di Azure per i log di diagnostica.
 
 1. Passare all'area di lavoro di **Log Analytics** nel portale di Azure.
 1. Selezionare **Ricerca log**.

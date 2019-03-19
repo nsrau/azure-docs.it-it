@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 403e126795a877be018cf4f4eb42581dee080e9c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 59524a9a08b16100598b7713cb0507646245d90b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163161"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445824"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -33,12 +33,12 @@ Per includere l'elenco di funzioni di trasformazione delle attestazioni che poss
 </ClaimsTransformations>
 ```
 
-L'elemento **ClaimsTransformation** contiene gli attributi seguenti:
+Il **ClaimsTransformation** elemento contiene gli attributi seguenti:
 
-| Attributo |Obbligatoria | DESCRIZIONE |
+| Attributo |Obbligatorio | DESCRIZIONE |
 | --------- |-------- | ----------- |
-| ID |Yes | Identificatore usato per identificare in modo univoco la trasformazione delle attestazioni. Viene fatto riferimento all'identificatore da altri elementi XML nei criteri. |
-| TransformationMethod | Yes | Il metodo di trasformazione da usare nella trasformazione delle attestazioni. Ogni trasformazione delle attestazioni ha i propri valori. Vedere i [riferimenti delle trasformazioni di attestazioni](#Claims-transformations-reference) per un elenco completo dei valori disponibili. |
+| ID |Sì | Identificatore usato per identificare in modo univoco la trasformazione delle attestazioni. Viene fatto riferimento all'identificatore da altri elementi XML nei criteri. |
+| TransformationMethod | Sì | Il metodo di trasformazione da usare nella trasformazione delle attestazioni. Ogni trasformazione delle attestazioni ha i propri valori. Vedere i [riferimenti delle trasformazioni di attestazioni](#Claims-transformations-reference) per un elenco completo dei valori disponibili. |
 
 ## <a name="claimstransformation"></a>ClaimsTransformation
 
@@ -77,10 +77,10 @@ L'elemento **InputClaims** contiene l'elemento seguente:
 
 L'elemento **InputClaim** contiene gli attributi seguenti:
 
-| Attributo |Obbligatoria | DESCRIZIONE |
+| Attributo |Obbligatorio | DESCRIZIONE |
 | --------- | ----------- | ----------- |
-| ClaimTypeReferenceId |Yes | Un riferimento a un ClaimType già definito nella sezione ClaimsSchema nei criteri. |
-| TransformationClaimType |Yes | Un identificatore per fare riferimento a un tipo di attestazione di trasformazione. Ogni trasformazione delle attestazioni ha i propri valori. Vedere i [riferimenti delle trasformazioni di attestazioni](#Claims-transformations-reference) per un elenco completo dei valori disponibili. |
+| ClaimTypeReferenceId |Sì | Un riferimento a un ClaimType già definito nella sezione ClaimsSchema nei criteri. |
+| TransformationClaimType |Sì | Un identificatore per fare riferimento a un tipo di attestazione di trasformazione. Ogni trasformazione delle attestazioni ha i propri valori. Vedere i [riferimenti delle trasformazioni di attestazioni](#Claims-transformations-reference) per un elenco completo dei valori disponibili. |
 
 ### <a name="inputparameters"></a>InputParameters
 
@@ -92,11 +92,11 @@ L'elemento **InputParameters** contiene l'elemento seguente:
 
 #### <a name="inputparameter"></a>InputParameter
 
-| Attributo | Obbligatoria |DESCRIZIONE |
+| Attributo | Obbligatorio |DESCRIZIONE |
 | --------- | ----------- |----------- |
-| ID | Yes | Un identificatore che rappresenta un riferimento a un parametro del metodo di trasformazione delle attestazioni. Ogni metodo di trasformazione delle attestazioni ha i propri valori. Vedere la tabella delle trasformazioni delle attestazioni per un elenco completo dei valori disponibili. |
-| DataType | Yes | Il tipo di dati del parametro, ad esempio String, Boolean, Int o DateTime in base all'enumerazione DataType nello schema XML dei criteri personalizzati. Questo tipo viene usato per eseguire operazioni aritmetiche in modo corretto. Ogni trasformazione delle attestazioni ha i propri valori. Vedere i [riferimenti delle trasformazioni di attestazioni](#Claims-transformations-reference) per un elenco completo dei valori disponibili. |
-| Valore | Yes | Un valore che viene passato letteralmente alla trasformazione. Alcuni valori sono arbitrari, altri vengono selezionati dal metodo di trasformazione delle attestazioni. |
+| ID | Sì | Un identificatore che rappresenta un riferimento a un parametro del metodo di trasformazione delle attestazioni. Ogni metodo di trasformazione delle attestazioni ha i propri valori. Vedere la tabella delle trasformazioni delle attestazioni per un elenco completo dei valori disponibili. |
+| DataType | Sì | Il tipo di dati del parametro, ad esempio String, Boolean, Int o DateTime in base all'enumerazione DataType nello schema XML dei criteri personalizzati. Questo tipo viene usato per eseguire operazioni aritmetiche in modo corretto. Ogni trasformazione delle attestazioni ha i propri valori. Vedere i [riferimenti delle trasformazioni di attestazioni](#Claims-transformations-reference) per un elenco completo dei valori disponibili. |
+| Valore | Sì | Un valore che viene passato letteralmente alla trasformazione. Alcuni valori sono arbitrari, altri vengono selezionati dal metodo di trasformazione delle attestazioni. |
 
 ### <a name="outputclaims"></a>OutputClaims
 
@@ -110,10 +110,10 @@ L'elemento **OutputClaims** contiene l'elemento seguente:
 
 L'elemento **OutputClaim** contiene gli attributi seguenti:
 
-| Attributo |Obbligatoria | DESCRIZIONE |
+| Attributo |Obbligatorio | DESCRIZIONE |
 | --------- | ----------- |----------- |
-| ClaimTypeReferenceId | Yes | Un riferimento a un ClaimType già definito nella sezione ClaimsSchema nei criteri.
-| TransformationClaimType | Yes | Un identificatore per fare riferimento a un tipo di attestazione di trasformazione. Ogni trasformazione delle attestazioni ha i propri valori. Vedere i [riferimenti delle trasformazioni di attestazioni](#Claims-transformations-reference) per un elenco completo dei valori disponibili. |
+| ClaimTypeReferenceId | Sì | Un riferimento a un ClaimType già definito nella sezione ClaimsSchema nei criteri.
+| TransformationClaimType | Sì | Un identificatore per fare riferimento a un tipo di attestazione di trasformazione. Ogni trasformazione delle attestazioni ha i propri valori. Vedere i [riferimenti delle trasformazioni di attestazioni](#Claims-transformations-reference) per un elenco completo dei valori disponibili. |
  
 Se l'attestazione di input e l'attestazione di output sono dello stesso tipo (stringa o booleano), è possibile usare la stessa attestazione di input come attestazione di output. In questo caso, la trasformazione delle attestazioni modifica l'attestazione di input con il valore di output.
 

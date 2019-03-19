@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcf0e421572a9a698bcc68af47d8950795ac8791
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 55dfab0c60e77b86157a005db34c37917a5e08d2
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456810"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341103"
 ---
 # <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Gestire le password delle app dalla pagina Info di sicurezza (anteprima)
 Alcune app, come Outlook 2010, non supportano la verifica in due passaggi. L'assenza di supporto significa che se si usa la verifica in due passaggi nell'organizzazione, l'app non funzionerà. Per ovviare a questo problema, è possibile creare una password generata automaticamente da usare con ogni app non basata su browser, diversa dalla password normale.
@@ -47,11 +47,11 @@ Se si usa la verifica in due passaggi con l'account aziendale o dell'istituto di
 ### <a name="to-create-a-new-app-password"></a>Per creare una nuova password per l'app
 1. Accedere all'account aziendale o dell'istituto di istruzione e quindi passare alla pagina https://myprofile.microsoft.com/.
 
-    ![Pagina Profilo personale, con i collegamenti Info di sicurezza evidenziati](media/security-info/securityinfo-myprofile.png)
+    ![Pagina Profilo personale con i collegamenti evidenziati delle Informazioni di sicurezza](media/security-info/securityinfo-myprofile-page.png)
 
-2. Selezionare **Info di sicurezza** dal riquadro di spostamento a sinistra o dal collegamento nel blocco **Info di sicurezza** e quindi selezionare **Aggiungi metodo** dalla pagina **Info di sicurezza**.
+2. Selezionare **Informazioni di sicurezza** dal riquadro di spostamento a sinistra o dal collegamento nel blocco **Informazioni di sicurezza**, quindi selezionare **Aggiungi metodo** dalla pagina **Informazioni di sicurezza**.
 
-    ![Pagina Info di sicurezza con l'opzione Aggiungi metodo evidenziata](media/security-info/securityinfo-myprofile-addmethod.png)
+    ![Pagina Info di sicurezza con l'opzione Aggiungi metodo evidenziata](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. Nella pagina **Aggiungi un metodo** selezionare **Password dell'app** dall'elenco a discesa e quindi selezionare **Aggiungi**.
 

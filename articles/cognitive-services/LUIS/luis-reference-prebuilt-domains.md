@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: f03efe13cdc31381cd67317879b7bd936fc35e8f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: e1e579233a5ad1af1ef8ee84019cd995959d3b2b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868957"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433774"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Informazioni di riferimento sui domini predefiniti per l'app LUIS
 Queste informazioni di riferimento descrivono i [domini predefiniti](luis-how-to-use-prebuilt-domains.md) che sono raccolte predefinite delle finalità ed delle entità offerte da LUIS.
@@ -62,7 +62,7 @@ Il dominio Calendar (Calendario) offre finalità ed entità correlate alle voci 
 | Add | Aggiungere una voce singola al calendario.| Prendi un appuntamento con Lisa per le 14.00 di domenica <br/><br/>Voglio pianificare una riunione<br/><br/>Ho bisogno di organizzare una riunione|
 | CheckAvailability | Cercare la disponibilità per un appuntamento o una riunione nel calendario dell'utente o di un altro utente.| Quando è possibile incontrare Jim? <br/><br/>Mostra quando Carol è disponibile domani<br/><br/>Chris è libero sabato?|
 | Delete | Richiedere di eliminare una voce del calendario.| Annulla l'appuntamento con Carol. <br/><br/>Cancella la riunione delle 9.00<br/>|
-| Modificare | Richiedere di modificare una riunione o una voce del calendario esistente.| Sposta la riunione delle 9.00 alle 10.00.<br/><br/>Voglio aggiornare la mia pianificazione.<br/><br/>Ripianificare la riunione con Ryan.|
+| Modificare | Richiedere di modificare una riunione o una voce del calendario esistente.| Sposta la riunione delle 9.00 alle 10.00.<br/><br/>Voglio aggiornare la mia pianificazione.<br/><br/>Modificare la pianificazione della riunione con Ryan.|
 | Find | Visualizzare il calendario settimanale personale.| Trova l'appuntamento di controllo dal dentista. <br/><br/>Mostra il mio calendario<br/>|
 
 ### <a name="entities"></a>Entità
@@ -106,7 +106,7 @@ Il dominio Communication (Comunicazione) offre le finalità e le entità correla
 | Confirm| Confermare un'azione.|Sì<br/>OK<br/>Va bene<br/>Confermo di voler inviare questo messaggio di posta elettronica.<br/>|
 | Dial| Effettuare una chiamata telefonica.|Chiama Jim<br/>Componi 311<br/>|
 | FindContact| Trovare le informazioni sul contatto in base al nome.|Trova il numero di Carol<br/>Mostra il numero di Carol<br/>|
-| FindSpeedDial| Trovare il numero rapido impostato per un numero telefonico e viceversa.|A quale numero corrisponde il numero 5?<br/>È impostato il numero rapido?<br/>Qual è il numero rapido per 941-5555-333?|
+| FindSpeedDial| Trovare il numero di connessioni velocità che un numero di telefono è impostato sulla e viceversa.|A quale numero corrisponde il numero 5?<br/>È impostato il numero rapido?<br/>Qual è il numero rapido per 941-5555-333?|
 | GetForwardingsStatus| Ottenere lo stato corrente dell'inoltro di chiamata.|L'inoltro di chiamata è attivato?<br/>Dimmi se lo stato della chiamata è attivo o inattivo<br/>|
 | Goback| Tornare al passaggio precedente.|Torna a Twitter<br/>Torna indietro di un passaggio<br/>Tornare alla schermata precedente|
 | Ignora| Ignorare una chiamata in arrivo.|Non rispondere<br/>Ignora la chiamata|
@@ -252,7 +252,7 @@ Il dominio MovieTickets (Biglietti cinema) offre le finalità e le entità corre
 ### <a name="intents"></a>Finalità
 | Nome della finalità | DESCRIZIONE | Esempi |
 | ---------------- |-----------------------|----|
-| Book | Acquistare biglietti del cinema.|Prenota due biglietti per I tre moschettieri<br/>Voglio acquistare un biglietto per il film di domani<br/>Voglio un biglietto per I tre moschettieri per mercoledì prossimo|
+| Book | Acquistare biglietti del cinema.|Prenota due biglietti per I tre moschettieri<br/>Voglio acquistare un biglietto per il film di domani<br/>Desidera che un ticket per Captain Omar parte 2 mercoledì successivo|
 |GetShowTime| Ottenere gli orari di programmazione di un film.|A che ora è I tre moschettieri?|
 
 
@@ -412,7 +412,7 @@ Il dominio Places (Luoghi) offre le finalità per la gestione di query correlate
 |GetMenu|Chiedere informazioni sul menu di un ristorante.|Zucca serve alimenti vegani?<br/>Cosa c'è nel menu di Sizzler<br/>Mostra menu di Applebee|
 |GetPhoneNumber| Chiedere il numero di telefono di un luogo.|Qual è il numero di telefono dello Starbucks più vicino?<br/>Dammi il numero di Home Depot| 
 |GetPriceRange| Chiedere informazioni sui prezzi di un luogo.|È economico Zucca?<br/>Cineplex è a metà prezzo il mercoledì?<br/>Quanto costa una cena completa a base di aragosta al Sizzler?|
-|GetReviews|Chiedere le recensioni di un luogo.|Mostra recensioni di Cheesecase Factory<br/>Leggi recensioni di Cineplex in Yelp|
+|GetReviews|Chiedere le recensioni di un luogo.|Visualizza le revisioni per Cheesecake Factory<br/>Leggi recensioni di Cineplex in Yelp|
 |GetRoute|Chiedere le indicazioni per un luogo.|Come andare a piedi a Bellevue Square<br/>Mostra percorso più breve per l'ottava e la 59esima strada da qui<br/>Dammi indicazioni per Mountain View CA|
 |GetStarRating|Richiedere la classificazione a stelle di un luogo.|Qual è la classificazione di Zucca su Yelp?<br/>Quante stelle ha French Laundry?<br/>È bello l'acquario di Monterrey?|
 |GetTransportationSchedule|Ottenere gli orari di un autobus per un luogo.|A che ora è il prossimo autobus per il centro?<br/>Mostra autobus in King County|

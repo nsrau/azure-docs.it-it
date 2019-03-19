@@ -4,19 +4,19 @@ titleSuffix: Azure
 description: Il punteggio di attendibilità indica la probabilità che la risposta corrisponda perfettamente alla query dell'utente specificata.
 services: cognitive-services
 author: tulasim88
-manager: pchoudh
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 757ef07c1268cbf159ce98dfb8ba1980616e4a3a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: bf254d661f7819114d34631359aaecb97e9d0e0d
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245134"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403737"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Punteggio di attendibilità di una knowledge base di QnA Maker
 Quando una query dell'utente viene confrontata con una knowledge base, QnA Maker restituisce le risposte pertinenti insieme a un punteggio di attendibilità. Questo punteggio indica la probabilità che la risposta corrisponda perfettamente alla query dell'utente specificata. 
@@ -72,9 +72,9 @@ Se si dispone di una Knowledge Base in aree diverse, ogni area usa il proprio in
 
 
 ## <a name="no-match-found"></a>Nessuna corrispondenza trovata
-Se lo strumento di classificazione non trova corrispondenze soddisfacenti, viene restituito il punteggio di attendibilità di 0.0 oppure "None" (Nessuno) e la risposta predefinita è "No good match found in the KB" (Nessuna buona corrispondenza trovata nella Knowledge Base). È possibile sovrascrivere questa risposta predefinita nel codice del bot o dell'applicazione che chiama l'endpoint. In alternativa è anche possibile impostare la risposta sostitutiva in Azure, modificando così la risposta predefinita per tutte le Knowledge Base distribuite in un particolare servizio QnA Maker.
+Se lo strumento di classificazione non trova corrispondenze soddisfacenti, viene restituito il punteggio di attendibilità di 0.0 oppure "None" (Nessuno) e la risposta predefinita è "No good match found in the KB" (Nessuna buona corrispondenza trovata nella Knowledge Base). È possibile eseguire l'override di questo [risposta predefinita](#change-default-answer) nel codice dell'applicazione o bot chiamare l'endpoint. In alternativa è anche possibile impostare la risposta sostitutiva in Azure, modificando così la risposta predefinita per tutte le Knowledge Base distribuite in un particolare servizio QnA Maker.
 
-### <a name="change-default-answer"></a>Modificare la risposta predefinita
+## <a name="change-default-answer"></a>Modificare la risposta predefinita
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e passare al gruppo di risorse che rappresenta il servizio QnA Maker creato.
 
@@ -94,5 +94,4 @@ Se lo strumento di classificazione non trova corrispondenze soddisfacenti, viene
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
 > [Origini dati supportate](./data-sources-supported.md)
-## <a name="see-also"></a>Vedere anche  
-[Panoramica di QnA Maker](../Overview/overview.md)
+

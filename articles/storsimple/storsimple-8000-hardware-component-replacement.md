@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 6de50c5031db59176bdf17ecc69b934559220f6a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108449"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433655"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Sostituire un componente hardware sul dispositivo StorSimple serie 8000
 
@@ -88,7 +88,7 @@ Lo chassis principale e lo chassis EBOD sono diversi nei moduli I/O. Inoltre, i 
 
 I moduli plug-in nel dispositivo sono evidenziati nei seguenti diagrammi anteriori e posteriori. È possibile utilizzare questi diagrammi per determinare la posizione dei diversi moduli plug-in se è necessaria una sostituzione. Il diagramma anteriore mostra le unità disco e i diagrammi posteriori dello chassis EBOD e dello chassis principale mostrano i moduli plug-in.
 
-![Piano anteriore del dispositivo con unità disco](./media/storsimple-hardware-component-replacement/IC741028.png)
+![Pannello anteriore del dispositivo con unità disco](./media/storsimple-hardware-component-replacement/IC741028.png)
 
 **Figura 1** Parte anteriore del dispositivo
 

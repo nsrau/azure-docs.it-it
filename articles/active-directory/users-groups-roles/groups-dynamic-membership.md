@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8d5ecd33f0bc67b6e0ec2e559a8475da490369e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 10a78df5169741371c122971afa47cb53ecc5a64
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210663"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450669"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regole di appartenenza dinamica per i gruppi in Azure Active Directory
 
@@ -137,7 +137,7 @@ Per confrontare il valore di un attributo utente con una serie di valori diversi
  Nell'esempio seguente l'espressione restituisce true se il valore di user.department è uguale a uno dei valori nell'elenco:
 
 ```
-   user.department -in ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
+   user.department -in ["50001","50002","50003","50005","50006","50007","50008","50016","50020","50024","50038","50039","51100"]
 ```
 
 
@@ -283,7 +283,7 @@ La regola per i dipendenti diretti viene costruita usando la sintassi seguente:
 Direct Reports for "{objectID_of_manager}"
 ```
 
-Ecco un esempio di regola valida, dove "62e19b97-8b3d-4d4a-a106-4ce66896a863" è il valore di objectID del manager:
+Di seguito è riportato un esempio di una regola valida in cui "62e19b97-8b3d-4d4a-a106-4ce66896a863" è il valore objectID del manager:
 
 ```
 Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
@@ -300,17 +300,17 @@ I suggerimenti seguenti sono utili per usare la regola in modo appropriato.
 
 È possibile creare un gruppo contenente tutti gli utenti di un tenant usando una regola di appartenenza. Quando in futuro gli utenti vengono aggiunti o rimossi dal tenant, l'appartenenza al gruppo viene modificata automaticamente.
 
-La regola "Tutti gli utenti" viene costruita usando una singola espressione con l'operatore -ne e il valore null. Questa regola consente di aggiungere al gruppo sia gli utenti guest B2B che gli utenti membri.
+La regola "All users" viene costruita usando una singola espressione utilizzando l'operatore - ne e il valore null. Questa regola consente di aggiungere al gruppo sia gli utenti guest B2B che gli utenti membri.
 
 ```
 user.objectid -ne null
 ```
 
-### <a name="create-an-all-devices-rule"></a>Creare una regola "Tutti i dispositivi"
+### <a name="create-an-all-devices-rule"></a>Creare una regola di "Tutti i dispositivi"
 
 È possibile creare un gruppo contenente tutti i dispositivi di un tenant usando una regola di appartenenza. Quando in futuro i dispositivi vengono aggiunti o rimossi dal tenant, l'appartenenza al gruppo viene modificata automaticamente.
 
-La regola "Tutti i dispositivi" viene costruita usando una singola espressione con l'operatore -ne e il valore null:
+La regola di "Tutti i dispositivi" viene costruita usando una singola espressione utilizzando l'operatore - ne e il valore null:
 
 ```
 device.objectid -ne null
@@ -318,7 +318,7 @@ device.objectid -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Proprietà di estensione e proprietà di estensione personalizzate
 
-Gli attributi di estensione e le proprietà di estensione personalizzate sono supportati come proprietà delle stringhe nelle regole di appartenenza dinamica. Gli attributi di estensione vengono sincronizzati dall'istanza locale di Window Server AD e hanno il formato "ExtensionAttributeX", dove X equivale a 1 - 15. Ecco un esempio di regola che usa un attributo di estensione come proprietà:
+Gli attributi di estensione e le proprietà di estensione personalizzati sono supportate come le proprietà della stringa nelle regole di appartenenza dinamica. Gli attributi di estensione vengono sincronizzati dall'istanza locale di Window Server AD e hanno il formato "ExtensionAttributeX", dove X equivale a 1 - 15. Ecco un esempio di regola che usa un attributo di estensione come proprietà:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
@@ -359,7 +359,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
  managementType | MDM (per i dispositivi mobili)<br>PC (per i computer gestiti dall'agente di PC Intune) | (device.managementType -eq "MDM")
  deviceId | ID dispositivo di Azure AD valido | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | ID oggetto di Azure AD valido |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
- systemLabels | qualsiasi stringa corrispondente alla proprietà del dispositivo Intune per contrassegnare i dispositivi dell'area di lavoro moderna | (device.systemLabels -contains “M365Managed”)
+ systemLabels | qualsiasi stringa corrispondente alla proprietà del dispositivo Intune per contrassegnare i dispositivi dell'area di lavoro moderna | (device.systemLabels-contiene "M365Managed")
 
 > [!Note]  
 > Per deviceOwnership durante la creazione di gruppi dinamici per i dispositivi, è necessario impostare il valore uguale a "Company". In Intune la proprietà del dispositivo viene invece rappresentata come aziendale. Fare riferimento a [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes) per altri dettagli. 

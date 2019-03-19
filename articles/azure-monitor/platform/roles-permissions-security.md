@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 4ca5803ca410e3250e025eb60b5c1ff9fc7216b1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 591b30d0147e427e8a0dbc2d25276bdcd3b54be6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465242"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445484"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introduzione a ruoli, autorizzazioni e sicurezza con il monitoraggio di Azure
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Molti team hanno bisogno di regolare rigorosamente l'accesso ai dati e alle impostazioni di monitoraggio. Ad esempio, se si dispone di membri del team che lavorano esclusivamente sul monitoraggio (tecnici del supporto, tecnici DevOps) o si usa un provider di servizi gestiti, si consiglia di concedere loro l'accesso ai dati di monitoraggio solo limitandone la possibilità di creare, modificare o eliminare le risorse. In questo articolo viene illustrato come applicare rapidamente un ruolo di monitoraggio predefinito nel Controllo degli accessi in base al ruolo a un utente in Azure o creare il proprio ruolo personalizzato per un utente che ha bisogno di autorizzazioni di monitoraggio limitate. Vengono poi esposte alcune considerazioni sulla sicurezza per le risorse legate al monitoraggio di Azure e viene illustrato come è possibile limitare l'accesso ai dati che contengono.
 
 ## <a name="built-in-monitoring-roles"></a>Ruoli di monitoraggio predefiniti
@@ -49,8 +52,8 @@ Le persone a cui è assegnato il ruolo di lettore di monitoraggio possono visual
 Le persone a cui è assegnato il ruolo di collaboratore al monitoraggio possono visualizzare tutti i dati di monitoraggio in una sottoscrizione e creare o modificare le impostazioni, ma non possono modificare altre risorse. Questo ruolo è un soprainsieme del ruolo di lettore di monitoraggio ed è adatto ai membri del team di monitoraggio di un'organizzazione o ai fornitori di servizi gestiti che, oltre alle autorizzazioni di cui sopra, devono essere in grado di:
 
 * Pubblicare dashboard di monitoraggio come dashboard condivisi.
-* Configurare le [impostazioni di diagnostica](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) per una risorsa.*
-* Impostare il [profilo di registro](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) per una sottoscrizione.*
+* Impostare [le impostazioni di diagnostica](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) per una risorsa.\*
+* Impostare il [profilo di log](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) per una sottoscrizione.\*
 * Configurare le attività e le impostazioni delle regole di avviso tramite [Avvisi di Azure](../../azure-monitor/platform/alerts-overview.md).
 * Creare componenti e test Web di Application Insights.
 * Elencare le chiavi condivise dell'area di lavoro di Log Analytics.
@@ -58,7 +61,7 @@ Le persone a cui è assegnato il ruolo di collaboratore al monitoraggio possono 
 * Creare ed eliminare poi eseguire le ricerche salvate di Log Analytics.
 * Creare ed eliminare la configurazione di archiviazione di Log Analytics.
 
-*per configurare un profilo di registro o un'impostazione di diagnostica, è necessario che all'utente sia concessa separatamente anche l'autorizzazione ListKeys nella risorsa di destinazione (account di archiviazione o spazio dei nomi dell'hub eventi).
+\*utente deve sia concessa separatamente anche l'autorizzazione ListKeys nella risorsa di destinazione (archiviazione account o un evento dell'hub dello spazio dei nomi) per impostare un profilo di log o l'impostazione di diagnostica.
 
 > [!NOTE]
 > Questo ruolo non concede l'accesso in lettura ai dati del registro che sono stati trasmessi a un hub eventi o archiviati in un account di archiviazione. [vedere di seguito](#security-considerations-for-monitoring-data) .
@@ -98,7 +101,7 @@ Se i precedenti ruoli predefiniti non soddisfano le esigenze esatte del team, è
 Ad esempio, usando la tabella sopra è possibile creare un ruolo personalizzato nel Controllo degli accessi in base al ruolo per un "lettore di registro attività" come il seguente:
 
 ```powershell
-$role = Get-AzureRmRoleDefinition "Reader"
+$role = Get-AzRoleDefinition "Reader"
 $role.Id = $null
 $role.Name = "Activity Log Reader"
 $role.Description = "Can view activity logs."
@@ -106,7 +109,7 @@ $role.Actions.Clear()
 $role.Actions.Add("Microsoft.Insights/eventtypes/*")
 $role.AssignableScopes.Clear()
 $role.AssignableScopes.Add("/subscriptions/mySubscription")
-New-AzureRmRoleDefinition -Role $role 
+New-AzRoleDefinition -Role $role 
 ```
 
 ## <a name="security-considerations-for-monitoring-data"></a>Considerazioni sulla sicurezza per i dati sul monitoraggio
@@ -127,8 +130,8 @@ Tutti e tre questi tipi di dati possono essere archiviati in un account di archi
 Quando un utente o un'applicazione richiede l'accesso ai dati di monitoraggio in un account di archiviazione, è necessario [generare una firma di accesso condiviso per l'account](https://msdn.microsoft.com/library/azure/mt584140.aspx) nell'account di archiviazione che contiene i dati di monitoraggio con accesso in sola lettura a livello di servizio all'archivio BLOB. In PowerShell, potrebbe avere un aspetto simile al seguente:
 
 ```powershell
-$context = New-AzureStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
-$token = New-AzureStorageAccountSASToken -ResourceType Service -Service Blob -Permission "rl" -Context $context
+$context = New-AzStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
+$token = New-AzStorageAccountSASToken -ResourceType Service -Service Blob -Permission "rl" -Context $context
 ```
 
 A questo punto è possibile fornire il token all'entità che ha bisogno di leggere da quell'account di archiviazione; tale token può elencare e leggere da tutti i BLOB nell'account di archiviazione.
@@ -136,7 +139,7 @@ A questo punto è possibile fornire il token all'entità che ha bisogno di legge
 In alternativa, se è necessario verificare l'autorizzazione con il Controllo degli accessi in base al ruolo, è possibile concedere a tale entità l'autorizzazione Microsoft.Storage/storageAccounts/listkeys/action su quel particolare account di archiviazione. Questo è necessario per gli utenti che devono essere in grado di configurare un'impostazione di diagnostica o un profilo di registro per l'archiviazione in un account di archiviazione. Ad esempio, è possibile creare il seguente ruolo personalizzato nel Controllo degli accessi in base al ruolo per un utente o un'applicazione che deve solo leggere da un account di archiviazione:
 
 ```powershell
-$role = Get-AzureRmRoleDefinition "Reader"
+$role = Get-AzRoleDefinition "Reader"
 $role.Id = $null
 $role.Name = "Monitoring Storage Account Reader"
 $role.Description = "Can get the storage account keys for a monitoring storage account."
@@ -145,7 +148,7 @@ $role.Actions.Add("Microsoft.Storage/storageAccounts/listkeys/action")
 $role.Actions.Add("Microsoft.Storage/storageAccounts/Read")
 $role.AssignableScopes.Clear()
 $role.AssignableScopes.Add("/subscriptions/mySubscription/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myMonitoringStorageAccount")
-New-AzureRmRoleDefinition -Role $role 
+New-AzRoleDefinition -Role $role 
 ```
 
 > [!WARNING]
@@ -157,10 +160,10 @@ New-AzureRmRoleDefinition -Role $role
 Un modello simile può essere seguito con gli hub eventi, tuttavia è innanzitutto necessario creare una regola di autorizzazione di ascolto dedicata. Se si desidera concedere l'accesso a un'applicazione che ha bisogno solo di ascoltare gli hub eventi relativi al monitoraggio, procedere come segue:
 
 1. Creare un criterio di accesso condiviso negli hub eventi creati per trasmettere i dati di monitoraggio solo con attestazioni di ascolto. Questa operazione può essere eseguita nel portale. Ad esempio, è possibile chiamarlo "monitoringReadOnly". Se possibile, si dovrà fornire la chiave direttamente al consumatore e ignorare il passaggio successivo.
-2. Se il consumatore deve essere in grado di ottenere la chiave ad hoc, concedere all'utente l'azione ListKeys per l'hub eventi. Questo è necessario anche per gli utenti che devono essere in grado di configurare un'impostazione di diagnostica o un profilo di registro per trasmettere agli hub eventi. Ad esempio, è possibile creare una regola nel Controllo degli accessi in base al ruolo:
+2. Se il consumer deve essere in grado di ottenere la chiave ad hoc, concedere all'utente l'azione ListKeys per l'hub eventi. Questo è necessario anche per gli utenti che devono essere in grado di configurare un'impostazione di diagnostica o un profilo di registro per trasmettere agli hub eventi. Ad esempio, è possibile creare una regola nel Controllo degli accessi in base al ruolo:
    
    ```powershell
-   $role = Get-AzureRmRoleDefinition "Reader"
+   $role = Get-AzRoleDefinition "Reader"
    $role.Id = $null
    $role.Name = "Monitoring Event Hub Listener"
    $role.Description = "Can get the key to listen to an event hub streaming monitoring data."
@@ -169,7 +172,7 @@ Un modello simile può essere seguito con gli hub eventi, tuttavia è innanzitut
    $role.Actions.Add("Microsoft.ServiceBus/namespaces/Read")
    $role.AssignableScopes.Clear()
    $role.AssignableScopes.Add("/subscriptions/mySubscription/resourceGroups/myResourceGroup/providers/Microsoft.ServiceBus/namespaces/mySBNameSpace")
-   New-AzureRmRoleDefinition -Role $role 
+   New-AzRoleDefinition -Role $role 
    ```
 
 ## <a name="monitoring-within-a-secured-virtual-network"></a>Monitoraggio all'interno di una rete virtuale protetta

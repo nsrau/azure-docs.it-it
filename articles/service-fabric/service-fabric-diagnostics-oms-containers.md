@@ -1,9 +1,9 @@
 ---
-title: Monitorare i contenitori in Azure Service Fabric con Log Analytics | Microsoft Docs
-description: Usare Log Analytics per monitorare i contenitori in esecuzione all'interno di cluster di Azure Service Fabric.
+title: Monitorare i contenitori in Azure Service Fabric con log di monitoraggio di Azure | Microsoft Docs
+description: Usare i log di monitoraggio di Azure per monitorare i contenitori in esecuzione nei cluster Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,27 +12,29 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/1/2017
-ms.author: dekapur
-ms.openlocfilehash: d5fd55ec93ce07e30e4c6f123f9be8492581053c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.date: 02/25/2019
+ms.author: srrengar
+ms.openlocfilehash: d5840db718191c9b67a8b28a2efccd55146ae510
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972253"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246934"
 ---
-# <a name="monitor-containers-with-log-analytics"></a>Monitorare i contenitori con Log Analytics
+# <a name="monitor-containers-with-azure-monitor-logs"></a>Monitorare i contenitori con log di monitoraggio di Azure
  
-In questo articolo vengono illustrati i passaggi necessari per configurare la soluzione di monitoraggio del contenitore di Azure Log Analytics per visualizzare gli eventi del contenitore. Per configurare il cluster per raccogliere gli eventi del contenitore, vedere questa [esercitazione dettagliata](service-fabric-tutorial-monitoring-wincontainers.md). 
+Questo articolo illustra i passaggi necessari per configurare la soluzione monitoraggio contenitori di monitoraggio di Azure i log per visualizzare gli eventi del contenitore. Per configurare il cluster per raccogliere gli eventi del contenitore, vedere questa [esercitazione dettagliata](service-fabric-tutorial-monitoring-wincontainers.md). 
 
 [!INCLUDE [log-analytics-agent-note.md](../../includes/log-analytics-agent-note.md)]
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="set-up-the-container-monitoring-solution"></a>Configurazione della soluzione di monitoraggio dei contenitori
 
 > [!NOTE]
-> È necessario configurare Log Analytics per i cluster e distribuire l'agente di Log Analytics nei nodi. In caso contrario, eseguire prima i passaggi in [Configurare Log Analytics](service-fabric-diagnostics-oms-setup.md) e [Add the Log Analytics agent to a cluster](service-fabric-diagnostics-oms-agent.md) (Aggiungere l'agente di Log Analytics a un cluster).
+> È necessario disporre delle monitoraggio di Azure, i log impostato per il cluster, nonché distribuire nei nodi l'agente di Log Analitica. Se si non, seguono i passaggi descritti in [configurare i log di monitoraggio di Azure](service-fabric-diagnostics-oms-setup.md) e [aggiungere l'agente di Log Analitica per un cluster](service-fabric-diagnostics-oms-agent.md) prima.
 
-1. Dopo aver configurato il cluster con Log Analytics e l'agente di Log Analytics, distribuire i contenitori. Attendere il completamento della distribuzione dei contenitori prima di passare al passaggio successivo.
+1. Dopo aver configurato il cluster con i log di monitoraggio di Azure e l'agente di Log Analitica, distribuire i contenitori. Attendere il completamento della distribuzione dei contenitori prima di passare al passaggio successivo.
 
 2. In Azure Marketplace cercare *Soluzione Monitoraggio contenitori* e fare clic sulla risorsa **Soluzione Monitoraggio contenitori** visualizzata nella categoria Monitoraggio e gestione.
 
@@ -42,7 +44,7 @@ In questo articolo vengono illustrati i passaggi necessari per configurare la so
 
     ![Dashboard di base di Log Analytics](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
 
-L'agente consente la raccolta di diversi log specifici per il contenitore che possono essere sottoposti a query in Log Analytics o usati per gli indicatori di prestazioni visualizzati. I tipi di log raccolti sono:
+L'agente consente la raccolta di diversi log specifici per il contenitore che può essere eseguita una query nei log di monitoraggio di Azure o utilizzato per visualizzare gli indicatori di prestazioni. I tipi di log raccolti sono:
 
 * ContainerInventory: informazioni su posizione, nome e immagini dei contenitori
 * ContainerImageInventory: informazioni sulle immagini distribuite, inclusi ID o dimensioni
@@ -53,7 +55,7 @@ L'agente consente la raccolta di diversi log specifici per il contenitore che po
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Altre informazioni sulla [soluzione Monitoraggio contenitori di Log Analytics](../azure-monitor/insights/containers.md).
+* Altre informazioni sulle [monitoraggio di Azure registra soluzione contenitori](../azure-monitor/insights/containers.md).
 * Per altre info sull'orchestrazione dei contenitori in Service Fabric, vedere [Service Fabric e contenitori](service-fabric-containers-overview.md)
-* Acquisire familiarità con le funzionalità di [ricerca log e query](../log-analytics/log-analytics-log-searches.md) incluse in Log Analytics
-* Configurare Log Analytics per configurare regole per gli [avvisi automatizzati](../log-analytics/log-analytics-alerts.md), semplificando il rilevamento e la diagnostica
+* Acquisire familiarità con le [ricerca log e l'esecuzione di query](../log-analytics/log-analytics-log-searches.md) funzionalità fornite come parte dei log di monitoraggio di Azure
+* Configurare i log di monitoraggio di Azure per configurare [avvisi automatizzati](../log-analytics/log-analytics-alerts.md) regole per semplificare il rilevamento e la diagnostica

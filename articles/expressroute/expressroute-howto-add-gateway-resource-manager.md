@@ -5,15 +5,15 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 02/21/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 8f8d021adae1cb25198c53e486fdb50e42ac211b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 3c91fd6140b460d29b33e7d9b1fabafbbcf99422
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097914"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406219"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Configurare un gateway di rete virtuale per ExpressRoute usando PowerShell
 > [!div class="op_single_selector"]
@@ -24,14 +24,19 @@ ms.locfileid: "53097914"
 > 
 > 
 
-Questo articolo consente di aggiungere, ridimensionare e rimuovere un gateway di rete virtuale per una rete virtuale già esistente. I passaggi di questa configurazione sono specifici per le reti virtuali create usando il modello di distribuzione di Resource Manager che viene usato in una configurazione ExpressRoute. Per altre informazioni sui gateway di rete virtuale e sulle impostazioni di configurazione dei gateway per ExpressRoute, vedere [Informazioni sui gateway di rete virtuale per ExpressRoute](expressroute-about-virtual-network-gateways.md). 
-
+Questo articolo consente di aggiungere, ridimensionare e rimuovere un gateway di rete virtuale per una rete virtuale già esistente. I passaggi di questa configurazione si applicano alle reti virtuali create usando il modello di distribuzione Resource Manager per una configurazione ExpressRoute. Per altre informazioni, vedere [Informazioni sui gateway di rete virtuale per ExpressRoute](expressroute-about-virtual-network-gateways.md).
 
 ## <a name="before-beginning"></a>Prima di iniziare
-Assicurarsi che sia installata la versione più recente dei cmdlet Azure PowerShell. Se i cmdlet più recenti non sono stati installati, è necessario eseguire l'operazione prima di iniziare i passaggi di configurazione. Per altre informazioni, vedere [Installare e configurare Azure PowerShell](/powershell/azure/overview).
+
+### <a name="working-with-powershell"></a>Utilizzo di PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+[!INCLUDE [working with cloud shell](../../includes/expressroute-cloud-shell-powershell-about.md)]
+
+### <a name="configuration-reference-list"></a>Elenco di riferimento configurazione
 
 [!INCLUDE [expressroute-gateway-rm-ps](../../includes/expressroute-gateway-rm-ps-include.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo avere creato il gateway VNet, è possibile collegare la rete virtuale a un circuito ExpressRoute. Vedere [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md).
-

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: aaaec6e02c9280801fbf7e3b5a8eaa1ae4a1ff43
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 3d4c1029315e754410f31b13042d1d6acb105da1
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429770"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309690"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Trasmettere il log attività di Azure a Hub eventi
 È possibile trasmettere il [log attività di Azure](../../azure-monitor/platform/activity-logs-overview.md) quasi in tempo reale a qualsiasi applicazione:
@@ -58,21 +58,24 @@ Per aggiornare il profilo del log attività e includere la trasmissione, l'utent
 6. Se si hanno più sottoscrizioni, ripetere questa operazione e inviare tutti i dati allo stesso hub eventi.
 
 ### <a name="via-powershell-cmdlets"></a>Tramite i cmdlet di PowerShell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Se esiste già un profilo di log, è innanzitutto necessario rimuovere il profilo di log esistente e quindi crearne uno nuovo.
 
-1. Usare `Get-AzureRmLogProfile` per determinare se esiste già un profilo di log.  Se esiste un profilo di log, individuare la proprietà *name*.
-2. Usare `Remove-AzureRmLogProfile` per rimuovere il profilo di log usando il valore della proprietà *name*.
+1. Usare `Get-AzLogProfile` per determinare se esiste già un profilo di log.  Se esiste un profilo di log, individuare la proprietà *name*.
+2. Usare `Remove-AzLogProfile` per rimuovere il profilo di log usando il valore della proprietà *name*.
 
     ```powershell
     # For example, if the log profile name is 'default'
-    Remove-AzureRmLogProfile -Name "default"
+    Remove-AzLogProfile -Name "default"
     ```
-3. Usare `Add-AzureRmLogProfile` per creare un nuovo profilo di log:
+3. Usare `Add-AzLogProfile` per creare un nuovo profilo di log:
 
    ```powershell
    # Settings needed for the new log profile
    $logProfileName = "default"
-   $locations = (Get-AzureRmLocation).Location
+   $locations = (Get-AzLocation).Location
    $locations += "global"
    $subscriptionId = "<your Azure subscription Id>"
    $resourceGroupName = "<resource group name your event hub belongs to>"
@@ -81,7 +84,7 @@ Se esiste già un profilo di log, è innanzitutto necessario rimuovere il profil
    # Build the service bus rule Id from the settings above
    $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespace/authorizationrules/RootManageSharedAccessKey"
 
-   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
+   Add-AzLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
    ```
 
 ### <a name="via-azure-cli"></a>Tramite l'interfaccia della riga di comando di Azure

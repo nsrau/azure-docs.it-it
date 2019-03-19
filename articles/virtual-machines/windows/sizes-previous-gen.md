@@ -1,6 +1,6 @@
 ---
 title: 'Dimensioni delle macchine virtuali Windows in Azure: generazioni precedenti | Microsoft Docs'
-description: Elenca le generazioni di dimensioni precedenti disponibili per le macchine virtuali Windows in Azure. Elenca informazioni sul numero di vCPU, dei dischi dati e delle schede di rete, nonché sulla velocità effettiva di archiviazione e sulla larghezza di banda della rete per le dimensioni di queste serie.
+description: Elenca le generazioni di dimensioni precedenti disponibili per le macchine virtuali Windows in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
@@ -8,19 +8,19 @@ manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
-ms.service: windows-machines-windows
+ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: 4f0397acaa39ca91280285d9bd5135b0f0d3cf7c
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
-ms.translationtype: HT
+ms.openlocfilehash: c39a744a5ef57efa6486460ab84998d6600e7bc5
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902561"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405599"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Generazioni precedenti delle dimensioni delle macchine virtuali
 

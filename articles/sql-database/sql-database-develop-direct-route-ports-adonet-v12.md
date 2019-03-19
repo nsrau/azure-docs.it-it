@@ -12,16 +12,16 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: b6fbb71a827c90abd1fac58d7975ab2f7b2a5674
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 96b6b4866b17e15f544a10124d07e651d747b58b
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560890"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306443"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Porte successive alla 1433 per ADO.NET 4.5
 
-In questo argomento viene descritto il comportamento di connessione del database SQL di Azure per i client che utilizzano ADO.NET 4.5 o versione successiva. 
+In questo argomento viene descritto il comportamento di connessione del database SQL di Azure per i client che utilizzano ADO.NET 4.5 o versione successiva.
 
 > [!IMPORTANT]
 > Per informazioni sull'architettura di connettività, vedere [Architettura della connettività del database SQL di Azure](sql-database-connectivity-architecture.md).
@@ -31,18 +31,18 @@ In questo argomento viene descritto il comportamento di connessione del database
 
 Per le connessioni al database SQL di Azure, è necessario prima chiedere se il programma client viene eseguito *all'esterno* o *all'interno* del limite del cloud di Azure. Nelle sottosezioni vengono illustrati due scenari comuni.
 
-#### <a name="outside-client-runs-on-your-desktop-computer"></a>*Esterno:* il client è in esecuzione nel computer desktop
+### <a name="outside-client-runs-on-your-desktop-computer"></a>*Esterno:* il client è in esecuzione nel computer desktop
 
 La porta 1433 è l'unica porta da aprire nel computer desktop che ospita l'applicazione client del database SQL.
 
-#### <a name="inside-client-runs-on-azure"></a>*Interno:* il client è in esecuzione in Azure
+### <a name="inside-client-runs-on-azure"></a>*Interno:* il client è in esecuzione in Azure
 
 Quando il client viene eseguito all'interno del limite del cloud di Azure, viene utilizzato ciò che possiamo definire un *percorso diretto* per interagire con il server del database SQL. Una volta stabilita una connessione, altre interazioni tra il client e il database non coinvolgono alcun gateway di database SQL di Azure.
 
 La sequenza è la seguente:
 
 1. ADO.NET 4.5 (o versione successiva) avvia una breve interazione con il cloud di Azure e riceve un numero di porta identificato in modo dinamico.
-   
+
    * Il numero di porta identificato in modo dinamico è compreso nell'intervallo tra 11000-11999 o 14000-14999.
 2. ADO.NET quindi si connette direttamente al server del database SQL, senza alcun middleware intermedio.
 3. Le query vengono inviate direttamente al database e i risultati vengono restituiti direttamente al client.
@@ -55,27 +55,31 @@ Assicurarsi che l'intervallo di porte 11000-11999 e 14000-14999 nel computer cli
   * È possibile usare l'[interfaccia utente del firewall](https://msdn.microsoft.com/library/cc646023.aspx) per aggiungere una regola per cui si specifica il protocollo**TCP** con un intervallo di porte con la sintassi **11000-11999**.
 
 ## <a name="version-clarifications"></a>Chiarimenti sulla versione
+
 In questa sezione vengono spiegati i moniker che fanno riferimento a versioni precedenti del prodotto. Sono inoltre indicate alcune associazioni di versioni tra prodotti.
 
-#### <a name="adonet"></a>ADO.NET
+### <a name="adonet"></a>ADO.NET
+
 * ADO.NET 4.0 supporta il protocollo TDS 7.3, ma non 7.4.
 * ADO.NET 4.5 e versioni successive supportano il protocollo TDS 7.4.
 
-#### <a name="odbc"></a>ODBC
+### <a name="odbc"></a>ODBC
+
 * Microsoft SQL Server ODBC 11 o versione successiva
 
-#### <a name="jdbc"></a>JDBC
+### <a name="jdbc"></a>JDBC
+
 * Microsoft SQL Server JDBC 4.2 o versione successiva. JDBC 4.0 supporta TDS 7.4 ma non implementa il reindirizzamento
 
-
 ## <a name="related-links"></a>Collegamenti correlati
-* ADO.NET 4.6 è stato rilasciato il 20 luglio 2015. È disponibile un annuncio di blog del team .NET [qui](https://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
-* ADO.NET 4.5 è stato rilasciato il 15 agosto 2012. È disponibile un annuncio di blog del team .NET [qui](https://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx). 
-  * È disponibile un post di blog su ADO.NET 4.5.1 [qui](https://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
+
+* ADO.NET 4.6 è stato rilasciato il 20 luglio 2015. È disponibile un annuncio di blog del team .NET [qui](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-net-framework-4-6.aspx).
+* ADO.NET 4.5 è stato rilasciato il 15 agosto 2012. È disponibile un annuncio di blog del team .NET [qui](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
+  * È disponibile un post di blog su ADO.NET 4.5.1 [qui](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-net-framework-4-5-1-preview.aspx).
 
 * Microsoft® ODBC Driver 17 for SQL Server® - Windows, Linux e macOS https://www.microsoft.com/download/details.aspx?id=56567
 
-* Connect to Azure SQL Database V12 via Redirection https://blogs.msdn.microsoft.com/sqlcat/2016/09/08/connect-to-azure-sql-database-v12-via-redirection/ (Connettersi al database SQL di Azure versione 12 tramite reindirizzamento)
+* Connect to Azure SQL Database V12 via Redirection https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362 (Connettersi al database SQL di Azure versione 12 tramite reindirizzamento)
 
 * [Elenco versioni del protocollo TDS](http://www.freetds.org/userguide/tdshistory.htm)
 * [Panoramica dello sviluppo di database SQL](sql-database-develop-overview.md)
