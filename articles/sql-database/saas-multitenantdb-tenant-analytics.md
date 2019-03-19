@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 5de707f3f2e6a82d880363eea91fb8ce644fb3aa
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
-ms.translationtype: HT
+ms.openlocfilehash: 340c08841b7bedc9f2453617aeff111beb810961
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055046"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888179"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Analisi su più tenant con dati estratti in un'app multi-tenant
  
@@ -94,7 +94,7 @@ Nei passaggi seguenti si distribuiscono l'archivio di analisi, denominato **tena
     - Per usare un database SQL con columnstore, impostare **$DemoScenario** = **3**  
 3. Premere **F5** per eseguire lo script dimostrativo che chiama lo script *Deploy-TenantAnalytics<XX>.ps1* e crea l'archivio di analisi dei tenant. 
 
-Dopo aver distribuito l'applicazione e avervi inserito i dati dei tenant a cui si è interessati, usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettersi ai server **tenants1-mt-\<Utente\>** e **catalog-mt-\<Utente\>** con l'account di accesso *developer* e la password *P@ssword1*.
+Dopo aver distribuito l'applicazione e avervi inserito i dati tenant interessanti, usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) connettersi **tenants1-mt -\<utente\>**  e **catalog-mt -\<utente\>**  server usando l'account di accesso = *developer*, Password = *P\@ssword1*.
 
 ![architectureOverView](media/saas-multitenantdb-tenant-analytics/ssmsSignIn.png)
 
@@ -170,13 +170,13 @@ I dati nella tabella dello schema star includono tutti i dati relativi alle vend
 Seguire questa procedura per connettersi a Power BI e importare le viste create in precedenza:
 
 1. Avviare Power BI Desktop.
-2. Nella barra multifunzione Home selezionare **Recupera dati** e scegliere **Altro** dal menu.
+2. Nella barra multifunzione Home selezionare **Recupera dati** e scegliere **Altro**  dal menu.
 3. Nella finestra **Recupera dati** selezionare il database SQL di Azure.
 4. Nella finestra di accesso al database immettere il nome del server, ossia catalog-mt-\<Utente\>.database.windows.net. Selezionare **Importa** come **Modalità Connettività dati** e quindi fare clic su OK. 
 
     ![powerBISignIn](media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
-5. Selezionare **Database** nel riquadro sinistro e quindi immettere il nome utente *developer* e la password *P@ssword1*. Fare clic su **Connetti**.  
+5. Selezionare **Database** nel riquadro sinistro, quindi immettere nome utente = *developer*, quindi immettere la password = *P\@ssword1*. Fare clic su **Connetti**.  
 
     ![DatabaseSignIn](media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 
