@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
 ms.date: 01/27/2017
-ms.openlocfilehash: 6c4144d26042729684e507b1afaa5e3006d8a34e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: 180d90450497b38f107f3601944385a003f50282
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125931"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193518"
 ---
 # <a name="create-schemas-for-tracking-as2-messages-and-mdns-in-integration-accounts-for-azure-logic-apps"></a>Creare schemi per il rilevamento di messaggi AS2 e notifiche sulla ricezione del messaggio negli account di integrazione per App per la logica di Azure
 
@@ -56,7 +56,7 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 }
 ```
 
-| Proprietà | Tipo | Descrizione |
+| Proprietà | Type | DESCRIZIONE |
 | --- | --- | --- |
 | senderPartnerName | string | Nome partner del mittente del messaggio AS2. Facoltativa |
 | receiverPartnerName | string | Nome partner del destinatario del messaggio AS2. Facoltativa |
@@ -67,14 +67,14 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 | messageId | string | ID del messaggio AS2, dalle intestazioni del messaggio AS2. Facoltativa |
 | dispositionType |string | Valore del tipo di notifica sulla ricezione del messaggio (MDN). Facoltativa |
 | fileName | string | Nome di file, dall'intestazione del messaggio AS2. Facoltativa |
-| isMessageFailed |boolean | Se il messaggio AS2 non è riuscito. Obbligatoria |
-| isMessageSigned | boolean | Se il messaggio AS2 era firmato. Obbligatoria |
-| isMessageEncrypted | boolean | Se il messaggio AS2 era crittografato. Obbligatoria |
-| isMessageCompressed |boolean | Se il messaggio AS2 era compresso. Obbligatoria |
+| isMessageFailed |Boolean | Se il messaggio AS2 non è riuscito. Obbligatoria |
+| isMessageSigned | Boolean | Se il messaggio AS2 era firmato. Obbligatoria |
+| isMessageEncrypted | Boolean | Se il messaggio AS2 era crittografato. Obbligatoria |
+| isMessageCompressed |Boolean | Se il messaggio AS2 era compresso. Obbligatoria |
 | correlationMessageId | string | ID del messaggio AS2 per la correlazione dei messaggi con le notifiche MDN. Facoltativa |
 | incomingHeaders |Dizionario di JToken | Dettagli dell'intestazione del messaggio AS2 in arrivo. Facoltativa |
 | outgoingHeaders |Dizionario di JToken | Dettagli dell'intestazione del messaggio AS2 in uscita. Facoltativa |
-| isNrrEnabled | boolean | Usare il valore predefinito se questo valore è sconosciuto. Obbligatoria |
+| isNrrEnabled | Boolean | Usare il valore predefinito se questo valore è sconosciuto. Obbligatoria |
 | isMdnExpected | Boolean | Usare il valore predefinito se questo valore è sconosciuto. Obbligatoria |
 | mdnType | Enum | I valori consentiti sono **NotConfigured**, **Sync** e **Async**. Obbligatoria |
 ||||
@@ -109,7 +109,7 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 }
 ```
 
-| Proprietà | type | Descrizione |
+| Proprietà | Type | DESCRIZIONE |
 | --- | --- | --- |
 | senderPartnerName | string | Nome partner del mittente del messaggio AS2. Facoltativa |
 | receiverPartnerName | string | Nome partner del destinatario del messaggio AS2. Facoltativa |
@@ -120,9 +120,9 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 | messageId | string | ID del messaggio AS2. Facoltativa |
 | originalMessageId |string | ID del messaggio originale AS2. Facoltativa |
 | dispositionType | string | Valore del tipo di gestione MDN. Facoltativa |
-| isMessageFailed |boolean | Se il messaggio AS2 non è riuscito. Obbligatoria |
-| isMessageSigned |boolean | Se il messaggio AS2 era firmato. Obbligatoria |
-| isNrrEnabled | boolean | Usare il valore predefinito se questo valore è sconosciuto. Obbligatoria |
+| isMessageFailed |Boolean | Se il messaggio AS2 non è riuscito. Obbligatoria |
+| isMessageSigned |Boolean | Se il messaggio AS2 era firmato. Obbligatoria |
+| isNrrEnabled | Boolean | Usare il valore predefinito se questo valore è sconosciuto. Obbligatoria |
 | statusCode | Enum | I valori consentiti sono **Accepted**, **Rejected** e **AcceptedWithErrors**. Obbligatoria |
 | micVerificationStatus | Enum | I valori consentiti sono **NotApplicable**, **Succeeded** e **Failed**. Obbligatoria |
 | correlationMessageId | string | ID correlazione. ID del messaggio originale, ovvero ID del messaggio per cui è configurata la notifica MDN. Facoltativa |
@@ -140,4 +140,4 @@ Per informazioni sugli schemi di rilevamento per il protocollo B2B, vedere:
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni sul [monitoraggio dei messaggi B2B](logic-apps-monitor-b2b-message.md)
-* Informazioni sul [rilevamento dei messaggi B2B in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)
+* Informazioni su [rilevamento dei messaggi B2B in log di monitoraggio di Azure](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)

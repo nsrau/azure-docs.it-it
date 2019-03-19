@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: cce3ea06ebd7d3469dad14e491124f81567610ea
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: c4be56b3ee32a5177c66353ba45c6b3647c732f2
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894055"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240083"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventi live e output live
 
@@ -42,7 +42,7 @@ Un [evento live](https://docs.microsoft.com/rest/api/media/liveevents) può esse
 
 ### <a name="pass-through"></a>Pass-through
 
-![pass-through](./media/live-streaming/pass-through.png)
+![pass-through](./media/live-streaming/pass-through.svg)
 
 Quando si usa l'**evento live** pass-through, al codificatore live locale è affidata la generazione di un flusso video con velocità in bit multipla e l'invio come feed di contributi all'evento live (tramite il protocollo RTMP o MP4 frammentato). L'evento live esegue quindi i flussi video in ingresso senza ulteriori elaborazioni. Questo tipo di LiveEvent pass-through è ottimizzato per eventi in tempo reale di lunga durata o per lo streaming live lineare 24/7. Quando si crea questo tipo di evento live, specificare None (LiveEventEncodingType.None).
 
@@ -56,11 +56,16 @@ Per un esempio di codice .NET, vedere [MediaV3LiveApp](https://github.com/Azure-
 
 ### <a name="live-encoding"></a>Codifica live  
 
-![codifica live](./media/live-streaming/live-encoding.png)
+![codifica live](./media/live-streaming/live-encoding.svg)
 
 Quando si usa la codifica live con Servizi multimediali, è possibile configurare il codificatore live locale per l'invio di un video a bitrate singolo come feed di contributi all'evento live (tramite il protocollo RTMP o Mp4 frammentato). L'evento live codifica tale flusso a bitrate singolo in ingresso in un [flusso video con velocità in bit multipla](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) e lo rende disponibile per la distribuzione e la riproduzione in dispositivi tramite protocolli come MPEG-DASH, HLS e Smooth Streaming. Quando si crea questo tipo di evento live, specificare il tipo di codifica **Standard** (LiveEventEncodingType.Standard).
 
 È possibile inviare il feed di contributi a risoluzioni fino a 1080p e a una frequenza pari a 30 fotogrammi al secondo, con codec video H.264/AVC e codec audio AAC (AAC-LC, HE-AACv1 o HE-AACv2). Vedere l'articolo [Confronto tra tipi di eventi live](live-event-types-comparison.md) per altri dettagli.
+
+Quando si usa la codifica live (evento Live impostato sullo **Standard**), il set di impostazioni di codifica definisce come viene codificato il flusso in ingresso a più velocità in bit o livelli. Per informazioni, vedere [predefiniti di sistema](live-event-types-comparison.md#system-presets).
+
+> [!NOTE]
+> Attualmente, l'unico set di impostazioni valore consentito per il tipo di evento in tempo reale Standard è *Default720p*. Se è necessario usare impostazioni codifica live personalizzato, contattare il amshelp@microsoft.com. È necessario specificare la tabella desiderata di risoluzione e velocità in bit. Verificare che vi sia un solo a 720p e al massimo 6 livelli.
 
 ## <a name="live-event-creation-options"></a>Opzioni di creazione di eventi live
 

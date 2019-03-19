@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 34f994bfca8bdeaffde6732572f47aeaa86b2ac5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: cc62a6b9f03bdd6dc8671a6cf96113a2234fc092
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818932"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247155"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Risoluzione dei problemi di Analisi di flusso di Azure mediante i log di diagnostica
 
@@ -29,7 +29,9 @@ Analisi di flusso offre due tipi di log:
 * I [Log di diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (configurabili) forniscono informazioni più complete su tutto ciò che accade con un processo. I log di diagnostica vengono avviati quando viene creato il processo e terminati quando il processo viene eliminato. Comprendono gli eventi di quando il processo viene aggiornato e di quando è in fase di esecuzione.
 
 > [!NOTE]
-> Per analizzare i dati non conformi è possibile usare servizi come Archiviazione di Azure, Hub eventi di Azure e Azure Log Analytics. Gli addebiti avvengono in base al modello di determinazione dei prezzi per questi servizi.
+> È possibile usare servizi come archiviazione di Azure, hub eventi di Azure e log di monitoraggio di Azure per analizzare i dati non conformi. Gli addebiti avvengono in base al modello di determinazione dei prezzi per questi servizi.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="debugging-using-activity-logs"></a>Debug con l'uso dei log attività
 
@@ -51,11 +53,11 @@ I log attività sono attivati per impostazione predefinita e forniscono informaz
 
 5. Si possono eseguire azioni correttive in base al messaggio di errore in JSON. In questo esempio, controlla che il valore di latitudine sia compreso tra -90 gradi e 90 gradi devono essere aggiunti alla query.
 
-6. Se il messaggio di errore nei Log attività non è utile per identificare la causa radice, abilitare i log di diagnostica e usare Log Analytics.
+6. Se il messaggio di errore nei log attività non è utile per identificare causa radice, abilitare i log di diagnostica e usare i log di monitoraggio di Azure.
 
-## <a name="send-diagnostics-to-log-analytics"></a>Invio della diagnostica a Log Analytics
+## <a name="send-diagnostics-to-azure-monitor-logs"></a>Invio della diagnostica a log di monitoraggio di Azure
 
-È altamente consigliabile attivare i log di diagnostica e inviarli a Log Analytics. I log di diagnostica sono **disattivati** per impostazione predefinita. Per attivare i log di diagnostica, completare questi passaggi:
+È altamente consigliabile attivando i log di diagnostica e li invia al log di monitoraggio di Azure. I log di diagnostica sono **disattivati** per impostazione predefinita. Per attivare i log di diagnostica, completare questi passaggi:
 
 1.  Accedere al portale di Azure e andare al processo di Analisi di flusso. In **Monitoraggio**selezionare **Log di diagnostica**. Selezionare quindi **Attiva diagnostica**.
 
@@ -67,7 +69,7 @@ I log attività sono attivati per impostazione predefinita e forniscono informaz
 
 3. Quando viene avviato il processo di Analisi di flusso, i log di diagnostica vengono indirizzati all'area di lavoro di Log Analytics. Passare all'area di lavoro di Log Analytics e scegliere **Log** all'interno della sezione **Generale**.
 
-   ![Log Analytics registra nella sezione generale](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
+   ![Log di monitoraggio di Azure nella sezione generale](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
 
 4. È possibile [digitare la propria query](../azure-monitor/log-query/get-started-portal.md) per cercare termini, identificare le tendenze, analizzare i modelli e ottenere informazioni dettagliate basate sui dati. Ad esempio, è possibile scrivere una query per filtrare solo i log di diagnostica con il messaggio "Processo di streaming non riuscito". I log di diagnostica da Analisi di flusso di Azure vengono archiviati nella tabella **AzureDiagnostics**.
 
@@ -118,7 +120,7 @@ NOME | DESCRIZIONE
 ------- | -------
 Source (Sorgente) | Nome dell'input o dell'output del processo in cui si è verificato l'errore.
 Message | Messaggio associato all'errore.
-type | Tipo di errore. Ad esempio **DataConversionError**, **CsvParserError** o **ServiceBusPropertyColumnMissingError**.
+Type | Tipo di errore. Ad esempio **DataConversionError**, **CsvParserError** o **ServiceBusPropertyColumnMissingError**.
 Dati | Dati utili per individuare con precisione l'origine dell'errore. Sono soggetti a troncamento in base alle dimensioni.
 
 In base al valore **operationName**, lo schema degli errori nei dati è il seguente:
@@ -135,7 +137,7 @@ NOME | DESCRIZIONE
 -------- | --------
 Tipi di errore | (facoltativo) Informazioni sugli errori. In genere, quando disponibili, si tratta di informazioni sulle eccezioni.
 Message| Messaggio del log.
-type | Tipo di messaggio. Esegue il mapping alla categorizzazione interna degli errori. Ad esempio **JobValidationError** o **BlobOutputAdapterInitializationFailure**.
+Type | Tipo di messaggio. Esegue il mapping alla categorizzazione interna degli errori. Ad esempio **JobValidationError** o **BlobOutputAdapterInitializationFailure**.
 ID correlazione | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) che identifica in modo univoco l'esecuzione del processo. Tutte le voci del log di esecuzione dal momento dell'avvio del processo fino a quando il processo viene interrotto hanno lo stesso valore **ID correlazione**.
 
 ## <a name="next-steps"></a>Passaggi successivi

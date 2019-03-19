@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2775ceb3cf27b6feedfd73cd43855204490ebc31
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d55d8f8f945e30402cb772c7e26b234e3e460698
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471199"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217870"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Criteri di tenancy di database delle applicazioni SaaS multi-tenant
 
@@ -99,7 +99,7 @@ Quando vengono distribuiti nello stesso gruppo di risorse, i database possono es
 
 ![Progettazione di app multi-tenant con database per tenant mediante pool elastico.][image-mt-app-db-per-tenant-pool-153p]
 
-Il database SQL di Azure fornisce gli strumenti necessari per configurare, monitorare e gestire la condivisione.  Nel portale di Azure e in Log Analytics sono disponibili le metriche delle prestazioni a livello di pool e di database.  Le metriche possono fornire dettagli sulle prestazioni aggregate e specifiche del tenant.  I singoli database possono essere spostati tra i pool per fornire risorse riservate a un tenant specifico.  Questi strumenti garantiscono prestazioni ottimali in modo conveniente.
+Il database SQL di Azure fornisce gli strumenti necessari per configurare, monitorare e gestire la condivisione.  Entrambe le metriche delle prestazioni a livello di pool e a livello di database sono disponibili nel portale di Azure e tramite i log di monitoraggio di Azure.  Le metriche possono fornire dettagli sulle prestazioni aggregate e specifiche del tenant.  I singoli database possono essere spostati tra i pool per fornire risorse riservate a un tenant specifico.  Questi strumenti garantiscono prestazioni ottimali in modo conveniente.
 
 #### <a name="operations-scale-for-database-per-tenant"></a>Scalabilità delle operazioni per la funzione di database per tenant
 
