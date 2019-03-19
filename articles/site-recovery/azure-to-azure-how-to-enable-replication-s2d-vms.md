@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: asgang
-ms.openlocfilehash: 0b3094abfe1642cb65043729489f3aaed0732df9
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 6c639d4503b170660abed5767e3571c8a2bf24b9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568992"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112773"
 ---
 # <a name="replicate-azure-virtual-machines-using-storage-spaces-direct-to-another-azure-region"></a>Replicare macchine virtuali di Azure con Spazi di archiviazione diretta in un'altra area di Azure
 
@@ -23,10 +23,10 @@ Questo articolo descrive come abilitare il ripristino di emergenza di macchine v
 >Per i cluster di Spazi di archiviazione diretta sono supportati solo i punti di ripristino coerenti con l'arresto anomalo del sistema.
 >
 
-##<a name="introduction"></a>Introduzione 
+## <a name="introduction"></a>Introduzione 
 [Spazi di archiviazione diretta (S2D)](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) è una risorsa di archiviazione software-defined che offre un modo per creare [cluster guest](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure) in Azure.  Un cluster guest in Microsoft Azure è un cluster di failover costituito da macchine virtuali IaaS. Consente di eseguire il failover dei carichi di lavoro delle macchine virtuali ospitate nei cluster guest, ottenendo così un contratto di servizio con una disponibilità superiore per le applicazioni rispetto a quanto sarebbe possibile per una singola macchina virtuale di Azure. È utile negli scenari in cui la macchina virtuale ospita un'applicazione critica, come SQL, File server di scalabilità orizzontale e così via.
 
-##<a name="disaster-recovery-of-azure-virtual-machines-using-storage-spaces-direct"></a>Ripristino di emergenza di macchine virtuali di Azure con Spazi di archiviazione diretta
+## <a name="disaster-recovery-of-azure-virtual-machines-using-storage-spaces-direct"></a>Ripristino di emergenza di macchine virtuali di Azure con Spazi di archiviazione diretta
 In uno scenario tipico si può avere un cluster guest di macchine virtuali in Azure per una resilienza superiore dell'applicazione, ad esempio File server di scalabilità orizzontale. Anche se questo fornisce all'applicazione una disponibilità più elevata, si vogliono proteggere le applicazioni usando Site Recovery per qualsiasi errore a livello di area. Site Recovery replica i dati da un'area di Azure a un'altra e attiva il cluster nell'area di ripristino di emergenza in caso di failover.
 
 Il diagramma seguente mostra la rappresentazione visiva del failover di macchine virtuali di Azure con Spazi di archiviazione diretta.
@@ -45,7 +45,7 @@ Il diagramma seguente mostra la rappresentazione visiva del failover di macchine
 2. Se si intende eseguire il failover delle macchine virtuali in una subnet situata in un'area di ripristino di emergenza diversa dall'area di origine, dopo il failover occorre modificare l'indirizzo IP del cluster.  Per modificare l'indirizzo IP del cluster è necessario usare lo [script del piano di ripristino](https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation) ASR.</br>
 [Script di esempio](https://github.com/krnese/azure-quickstart-templates/blob/master/asr-automation-recovery/scripts/ASR-Wordpress-ChangeMysqlConfig.ps1) per eseguire il comando all'interno della macchina virtuale usando l'estensione script personalizzata 
 
-###<a name="enabling-site-recovery-for-s2d-cluster"></a>Abilitazione di Site Recovery per il cluster S2D:
+### <a name="enabling-site-recovery-for-s2d-cluster"></a>Abilitazione di Site Recovery per il cluster S2D:
 
 1. All'interno dell'insieme di credenziali dei servizi di ripristino fare clic su "+ replica"
 1. Selezionare tutti i nodi nel cluster e renderli parte di un [gruppo di coerenza tra più macchine virtuali](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-common-questions#multi-vm-consistency)
@@ -72,7 +72,7 @@ Un piano di ripristino supporta la sequenziazione di vari livelli in un'applicaz
 Per far sì che le applicazioni funzionino correttamente, potrebbe essere necessario eseguire alcune operazioni nelle macchine virtuali di Azure dopo il failover o durante un failover di test. È possibile automatizzare alcune operazioni successive al failover. Ad esempio, qui viene collegato un servizio di bilanciamento del carico e modificato l'IP del cluster.
 
 
-###<a name="failover-of-the-virtual-machines"></a>Failover delle macchine virtuali 
+### <a name="failover-of-the-virtual-machines"></a>Failover delle macchine virtuali 
 Entrambi i nodi delle macchine virtuali devono essere sottoposti a failover usando il [piano di ripristino ASR](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans) 
 
 ![Protezione di Spazi di archiviazione diretta](./media/azure-to-azure-how-to-enable-replication-s2d-vms/recoveryplan.PNG)

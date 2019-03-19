@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 53a1f50647e05b71afe6accb85f8a90cd8b7e253
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 7f05665f4bcc5449c1a81fa24582b333b0a944e0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470402"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58173754"
 ---
 # <a name="event-grid-sdks-for-management-and-publishing"></a>SDK Griglia di eventi per la gestione e la pubblicazione
 
@@ -46,4 +46,4 @@ Gli SDK del piano dati consentono di pubblicare eventi sugli argomenti occupando
 * Per le applicazioni di esempio, vedere gli [esempi di codice di Griglia di eventi](https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid).
 * Per un'introduzione a Griglia di eventi, vedere [Informazioni su Griglia di eventi](overview.md)
 * Per i comandi Griglia di eventi nell'interfaccia della riga di comando di Azure di rete, vedere [Interfaccia della riga di comando di Azure](/cli/azure/eventgrid).
-* Per i comandi Griglia di eventi in PowerShell, vedere [PowerShell](/powershell/module/azurerm.eventgrid).
+* Per i comandi Griglia di eventi in PowerShell, vedere [PowerShell](/powershell/module/az.eventgrid).

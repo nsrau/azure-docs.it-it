@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ef0dfafce33837a80ec00ba58e6be99784e652a2
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 969e0c2582ce8f72592059fbf1d58e3ebe9faa5d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418421"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117201"
 ---
 # <a name="runbook-input-parameters"></a>Parametri di input dei runbook
 
@@ -338,10 +338,10 @@ Eseguire i comandi di PowerShell seguenti:
    Connect-AzureRmAccount
    ```
 
-  Viene richiesto di immettere le credenziali di Azure.
+   Viene richiesto di immettere le credenziali di Azure.
 
-  > [!IMPORTANT]
-  > **Add-AzureRmAccount** è ora un alias per **Connect-AzureRMAccount**. Quando si esegue la ricerca tra gli elementi della libreria, se **Connect-AzureRMAccount** non viene visualizzato, è possibile usare **Add-AzureRmAccount** oppure aggiornare i moduli nell'account di Automazione.
+   > [!IMPORTANT]
+   > **Add-AzureRmAccount** è ora un alias per **Connect-AzureRMAccount**. Quando si esegue la ricerca tra gli elementi della libreria, se **Connect-AzureRMAccount** non viene visualizzato, è possibile usare **Add-AzureRmAccount** oppure aggiornare i moduli nell'account di Automazione.
 
 1. Ottenere il contenuto del file JSON e convertirlo in una stringa:
 

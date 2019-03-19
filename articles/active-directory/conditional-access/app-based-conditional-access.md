@@ -18,12 +18,12 @@ ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3521ea7599aecd20784bd925492649b86921c567
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 57b7f540ccf80c6d25a7dfcfcad1ba7ca6698167
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182307"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113232"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Procedura: Richiedere app client approvate per l'accesso alle app cloud con l'accesso condizionale 
 
@@ -97,7 +97,7 @@ Questo scenario presuppone che un utente:
 
 - Sia in grado di accedere alla posta elettronica
 
-I criteri di protezione delle app di Intune vengono attivati al momento dell'accesso ai dati aziendali e possono richiedere all'utente di riavviare l'applicazione, usare un PIN aggiuntivo e altro ancora, se configurato per l'applicazione e la piattaforma.
+Eventuali criteri di protezione app di Intune vengono attivati al momento l'accesso ai dati aziendali e possono richiedere all'utente di riavviare l'applicazione, usare un aggiuntive e così via PIN (se configurato per la piattaforma e applicazione).
 
 ### <a name="configuration"></a>Configurazione 
 
@@ -292,13 +292,13 @@ Per i criteri di accesso condizionale in questo passaggio, è necessario configu
 
 5. Come **Controlli di accesso** è necessario che siano selezionate le opzioni seguenti:
 
-    - **Richiedi che i dispositivi siano contrassegnati come conformi**
+   - **Richiedi che i dispositivi siano contrassegnati come conformi**
 
-    - **Richiedi app client approvata (anteprima)**
+   - **Richiedi app client approvata (anteprima)**
 
-    - **Richiedi uno dei controlli selezionati**   
+   - **Richiedi uno dei controlli selezionati**   
  
-    ![Accesso condizionale](./media/app-based-conditional-access/11.png)
+     ![Accesso condizionale](./media/app-based-conditional-access/11.png)
 
 
 
@@ -388,13 +388,13 @@ Per i criteri di accesso condizionale in questo passaggio, è necessario configu
 
 5. Come **Controlli di accesso** è necessario che siano selezionate le opzioni seguenti:
 
-    - **Richiedi che i dispositivi siano contrassegnati come conformi**
+   - **Richiedi che i dispositivi siano contrassegnati come conformi**
 
-    - **Richiedi app client approvata (anteprima)**
+   - **Richiedi app client approvata (anteprima)**
 
-    - **Richiedi tutti i controlli selezionati**   
+   - **Richiedi tutti i controlli selezionati**   
  
-    ![Accesso condizionale](./media/app-based-conditional-access/13.png)
+     ![Accesso condizionale](./media/app-based-conditional-access/13.png)
 
 
 
@@ -420,13 +420,13 @@ Per i criteri di accesso condizionale in questo passaggio, è necessario configu
 
 5. Come **Controlli di accesso** è necessario che siano selezionate le opzioni seguenti:
 
-    - **Richiedi che i dispositivi siano contrassegnati come conformi**
+   - **Richiedi che i dispositivi siano contrassegnati come conformi**
 
-    - **Richiedi app client approvata (anteprima)**
+   - **Richiedi app client approvata (anteprima)**
 
-    - **Richiedi tutti i controlli selezionati**   
+   - **Richiedi tutti i controlli selezionati**   
  
-    ![Accesso condizionale](./media/app-based-conditional-access/64.png)
+     ![Accesso condizionale](./media/app-based-conditional-access/64.png)
 
 
 

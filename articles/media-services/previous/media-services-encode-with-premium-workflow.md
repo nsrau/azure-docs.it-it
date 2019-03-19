@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 7b91f63057fa8b781fdfab17e0837a9f5547c1eb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: d28d6836189bb9cca3eefb328310405550c4f94c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55988035"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120160"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Codifica avanzata con il flusso di lavoro Premium del codificatore multimediale
 > [!NOTE]
@@ -62,12 +62,12 @@ Vengono eseguiti questi passaggi:
     Nella maggior parte dei casi, la stringa di configurazione per l'attività è vuota (come nell'esempio seguente). Esistono alcuni scenari avanzati in cui è necessario impostare dinamicamente le proprietà di runtime. In questo caso, specificare una stringa XML nell'attività di codifica. Esempi di tali scenari sono: creazione di un overlay, unione sequenziale o parallela di supporti e aggiunta di sottotitoli.
 5. Aggiungere due asset di input all'attività.
 
-    1. In primo luogo, l'asset del flusso di lavoro.
-    2. In secondo luogo, l'asset video.
+   1. In primo luogo, l'asset del flusso di lavoro.
+   2. In secondo luogo, l'asset video.
 
-    >[!NOTE]
-    >La risorsa del flusso di lavoro deve essere aggiunta all'attività prima della risorsa del file multimediale.
-   La stringa di configurazione per questa attività deve essere vuota.
+      >[!NOTE]
+      >La risorsa del flusso di lavoro deve essere aggiunta all'attività prima della risorsa del file multimediale.
+      La stringa di configurazione per questa attività deve essere vuota.
    
 6. Inviare il processo di codifica.
 

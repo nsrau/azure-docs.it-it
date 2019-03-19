@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 997727acd1bbaf17577160bb996aad7e21d49c86
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 2a425e607ea7dac394ab90a3fed4d4026056bbc1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807538"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118579"
 ---
 <a name="get-customer-leads"></a>Ottenere lead
 ==================
@@ -39,13 +39,13 @@ I lead sono clienti interessati o che stanno distribuendo i prodotti dal [Micros
 
 <!-- -->
 
-2.  Il cliente accetta di condividere le informazioni dopo aver selezionato "Scarica adesso". Questo è un lead di **interesse iniziale**, in cui si condividono le informazioni su un cliente che ha espresso interesse nel ricevere il prodotto. Il lead si trova al vertice del grafico a imbuto relativo all'acquisizione dei clienti.
+1. Il cliente accetta di condividere le informazioni dopo aver selezionato "Scarica adesso". Questo è un lead di **interesse iniziale**, in cui si condividono le informazioni su un cliente che ha espresso interesse nel ricevere il prodotto. Il lead si trova al vertice del grafico a imbuto relativo all'acquisizione dei clienti.
 
-    ![Opzione "Scarica adesso"](./media/cloud-partner-portal-get-customer-leads/get-it-now-button.png)
+   ![Opzione "Scarica adesso"](./media/cloud-partner-portal-get-customer-leads/get-it-now-button.png)
 
-3.  Il cliente seleziona "Acquisto" nel [portale di Azure](https://portal.azure.com/) per ottenere il prodotto. Questo è un lead **attivo**, in cui si condividono le informazioni relative a un cliente che ha iniziato a distribuire un prodotto.
+1. Il cliente seleziona "Acquisto" nel [portale di Azure](https://portal.azure.com/) per ottenere il prodotto. Questo è un lead **attivo**, in cui si condividono le informazioni relative a un cliente che ha iniziato a distribuire un prodotto.
 
-    ![Opzione "Acquisto"](./media/cloud-partner-portal-get-customer-leads/purchase-button.png)
+   ![Opzione "Acquisto"](./media/cloud-partner-portal-get-customer-leads/purchase-button.png)
 
 
 ### <a name="appsource"></a>AppSource
@@ -72,7 +72,7 @@ Ogni lead ricevuto durante il processo di acquisizione del cliente presenta dati
 
 Il formato per un'origine lead è **Origine**-**Azione** |  **Offerta**
 
-**Origini**: "AzureMarketplace", "AzurePortal", "TestDrive" e "AppSource (SPZA)"
+**Origini**: "AzureMarketplace", "AzurePortal", "Versione di test Explorer" e "AppSource (SPZA)"
 
 **Azioni**:
 - "INS": Installazione. Questa azione si trova in Azure Marketplace o AppSource quando un cliente acquista il prodotto.
@@ -83,19 +83,19 @@ Il formato per un'origine lead è **Origine**-**Azione** |  **Offerta**
 
 **Offerte**
 
-Gli esempi seguenti mostrano identificatori univoci assegnati a un server di pubblicazione e a un'offerta specifica: checkpoint.check-point-r77-10sg-byol, bitnami.openedxcypress, and docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a.
+Gli esempi seguenti illustrano gli identificatori univoci che vengono assegnati a un server di pubblicazione e una specifica offerta: checkpoint.check-punto-r77-10sg-byol, bitnami.openedxcypress e 56-91e6-3ed0b622145a docusign.3701c77e-1cfa - 4c.
 
 
 ### <a name="customer-info"></a>Informazioni sui clienti
 
 I campi nell'esempio seguente mostrano le informazioni sul cliente contenute in un lead.
-- Nome: John
+- FirstName: John
 - Cognome: Smith
 - E-mail: jsmith\@microsoft.com
-- Telefono: 1234567890
+- Telefono: 123-456-7890
 - Paese: Stati Uniti
-- Azienda: Microsoft
-- Posizione: CTO
+- Aziendale: Microsoft
+- Titolo: CTO
 
 >[!Note]
 >Non tutti i dati dell'esempio precedente sono sempre disponibili per ogni lead.

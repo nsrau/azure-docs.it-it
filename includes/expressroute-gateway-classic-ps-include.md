@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2457ef2843b0d16359b7e47fc54c58e2ef5e6034
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 70ac106995324c758bde942d12191a01e3457e6e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53429983"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58115071"
 ---
 > [!NOTE]
 > Questi esempi non sono validi per la configurazione di connessioni con coesistenza S2S/ExpressRoute.
@@ -28,8 +28,8 @@ Quando si aggiunge un gateway a una rete virtuale usando il modello di risorsa c
 1. Scaricare il file di configurazione di rete tramite la procedura descritta nell'articolo [File di configurazione di rete](../articles/virtual-network/virtual-networks-using-network-configuration-file.md). Aprire il file in un editor di testo.
 2. Aggiungere al file un sito di rete locale. È possibile usare qualsiasi prefisso di indirizzo valido. È possibile aggiungere qualsiasi indirizzo IP valido per il gateway VPN. I valori di indirizzo riportati in questa sezione non vengono usati per le operazioni di ExpressRoute, ma sono necessari per la convalida dei file. Nell'esempio, "branch1" è il nome del sito. È possibile usare un nome diverso, ma è necessario assicurarsi che venga usato lo stesso valore nella sezione Gateway del file.
 
-  ```
-  <VirtualNetworkConfiguration>
+   ```
+   <VirtualNetworkConfiguration>
     <Dns />
     <LocalNetworkSites>
       <LocalNetworkSite name="branch1">
@@ -38,15 +38,15 @@ Quando si aggiunge un gateway a una rete virtuale usando il modello di risorsa c
         </AddressSpace>
         <VPNGatewayAddress>3.2.1.4</VPNGatewayAddress>
     </LocalNetworkSite>
-  ```
+   ```
 3. Passare a VirtualNetworkSites e modificare i campi.
 
-  * Verificare che per la rete virtuale sia presente la subnet del gateway. In caso contrario, è possibile aggiungerne una in questa fase. Il nome deve essere "GatewaySubnet".
-  * Verificare che esista la sezione Gateway del file. In caso contrario, aggiungerla. Questa operazione è necessaria per associare la rete virtuale al sito di rete locale (che rappresenta la rete a cui ci si connette).
-  * Verificare che il tipo di connessione sia impostato su Dedicated. Questa impostazione è obbligatoria per le connessioni ExpressRoute.
+   * Verificare che per la rete virtuale sia presente la subnet del gateway. In caso contrario, è possibile aggiungerne una in questa fase. Il nome deve essere "GatewaySubnet".
+   * Verificare che esista la sezione Gateway del file. In caso contrario, aggiungerla. Questa operazione è necessaria per associare la rete virtuale al sito di rete locale (che rappresenta la rete a cui ci si connette).
+   * Verificare che il tipo di connessione sia impostato su Dedicated. Questa impostazione è obbligatoria per le connessioni ExpressRoute.
 
-  ```
-  </LocalNetworkSites>
+   ```
+   </LocalNetworkSites>
     <VirtualNetworkSites>
       <VirtualNetworkSite name="myAzureVNET" Location="East US">
         <AddressSpace>
@@ -69,9 +69,9 @@ Quando si aggiunge un gateway a una rete virtuale usando il modello di risorsa c
         </Gateway>
       </VirtualNetworkSite>
     </VirtualNetworkSites>
-  </VirtualNetworkConfiguration>
-  </NetworkConfiguration>
-  ```
+   </VirtualNetworkConfiguration>
+   </NetworkConfiguration>
+   ```
 4. Salvare il file e caricarlo in Azure.
 
 ### <a name="create-the-gateway"></a>Creare il gateway

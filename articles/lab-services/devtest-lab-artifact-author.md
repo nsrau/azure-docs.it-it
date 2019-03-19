@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 05abc61da7af02c56dacd632175d6fbfa64cb9e1
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 0d1e269a1818f013bc14842bc541216d7f31bc84
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098562"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116827"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Creare elementi personalizzati per la macchina virtuale di DevTest Labs
 
@@ -56,12 +56,12 @@ L'esempio seguente illustra le sezioni che compongono la struttura di base di un
 | Nome dell'elemento | Obbligatorio? | DESCRIZIONE |
 | --- | --- | --- |
 | $schema |No  |Posizione del file di schema JSON. Il file di schema JSON aiuta a testare la validità del file di definizione. |
-| title |Yes |Nome dell'elemento visualizzato nel lab. |
-| description |Yes |Descrizione dell'elemento visualizzato nel lab. |
+| title |Sì |Nome dell'elemento visualizzato nel lab. |
+| description |Sì |Descrizione dell'elemento visualizzato nel lab. |
 | iconUri |No  |URI dell'icona visualizzata nel lab. |
-| targetOsType |Yes |Sistema operativo della macchina virtuale in cui è installato l'elemento. Le opzioni supportate sono Windows e Linux. |
+| targetOsType |Sì |Sistema operativo della macchina virtuale in cui è installato l'elemento. Le opzioni supportate sono Windows e Linux. |
 | Parametri |No  |Valori forniti quando viene eseguito il comando di installazione dell'elemento in un computer. Questi valori consentono di personalizzare l'elemento. |
-| runCommand |Yes |Il comando di installazione dell’elemento che viene eseguito in una macchina virtuale. |
+| runCommand |Sì |Il comando di installazione dell’elemento che viene eseguito in una macchina virtuale. |
 
 ### <a name="artifact-parameters"></a>Parametri dell'elemento
 Nella sezione dei parametri del file di definizione è possibile specificare i valori che un utente può immettere quando installa un elemento. È possibile fare riferimento a questi valori nel comando di installazione dell'elemento.
@@ -78,9 +78,9 @@ Per definire i parametri, usare la struttura seguente:
 
 | Nome dell'elemento | Obbligatorio? | DESCRIZIONE |
 | --- | --- | --- |
-| type |Yes |Tipo di valore del parametro. Vedere l'elenco seguente per informazioni sui tipi consentiti. |
-| displayName |Yes |Nome del parametro che viene visualizzato a un utente nel lab. | |
-| description |Yes |Descrizione del parametro che viene visualizzato nel lab. |
+| type |Sì |Tipo di valore del parametro. Vedere l'elenco seguente per informazioni sui tipi consentiti. |
+| displayName |Sì |Nome del parametro che viene visualizzato a un utente nel lab. |
+| description |Sì |Descrizione del parametro che viene visualizzato nel lab. |
 
 I tipi consentiti sono:
 
@@ -126,7 +126,7 @@ L'esempio seguente mostra come usare espressioni e funzioni per costruire un val
 
 ## <a name="related-articles"></a>Articoli correlati
 * [Come diagnosticare gli errori di elemento in DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
-* [Join a VM to an existing Active Directory domain by using a Resource Manager template in DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (Aggiungere una macchina virtuale a un dominio di Active Directory esistente usando un modello di Resource Manager in DevTest Labs)
+* [Join a VM to an existing Active Directory domain by using a Resource Manager template in DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (Aggiungere una macchina virtuale a un dominio di Active Directory esistente usando un modello di Resource Manager in DevTest Labs)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [Aggiungere un archivio elementi Git a un lab](devtest-lab-add-artifact-repo.md).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: f0d3641800d8ec2f9fd403b006e81af04444c143
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: abbd26779cefaf52c6f2247a5d27db25f280c930
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813127"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118051"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connettere Azure agli strumenti di Gestione dei servizi IT usando Connettore di Gestione dei servizi IT
 
@@ -52,24 +52,24 @@ Con Connettore di Gestione dei servizi IT, è possibile
 
 Prima di creare una connessione, è necessario aggiungere la soluzione Connettore di Gestione dei servizi IT.
 
-1.  Nel portale di Azure fare clic sull'icona **+ Nuovo**.
+1. Nel portale di Azure fare clic sull'icona **+ Nuovo**.
 
-    ![Nuova risorsa di Azure](media/itsmc-overview/azure-add-new-resource.png)
+   ![Nuova risorsa di Azure](media/itsmc-overview/azure-add-new-resource.png)
 
-2.  Cercare **Connettore di Gestione dei servizi IT** nel Marketplace e fare clic su **Crea**.
+2. Cercare **Connettore di Gestione dei servizi IT** nel Marketplace e fare clic su **Crea**.
 
-    ![Aggiungere la soluzione Connettore di Gestione dei servizi IT](media/itsmc-overview/add-itsmc-solution.png)
+   ![Aggiungere la soluzione Connettore di Gestione dei servizi IT](media/itsmc-overview/add-itsmc-solution.png)
 
-3.  Nella sezione **Area di lavoro di OMS** selezionare l'area di lavoro di Azure Log Analytics dove si vuole installare la soluzione.
+3. Nella sezione **Area di lavoro di OMS** selezionare l'area di lavoro di Azure Log Analytics dove si vuole installare la soluzione.
    >[!NOTE]
    >In conformità alla transizione in corso da Microsoft Operations Management Suite (OMS) a Monitoraggio di Azure, le aree di lavoro di OMS sono ora denominate aree di lavoro di Log Analytics.
-4.  Nella sezione **Impostazioni dell'area di lavoro OMS** selezionare il gruppo di risorse in cui si vuole creare la risorsa soluzione.
+4. Nella sezione **Impostazioni dell'area di lavoro OMS** selezionare il gruppo di risorse in cui si vuole creare la risorsa soluzione.
 
-    ![Area di lavoro di Connettore di Gestione dei servizi IT](media/itsmc-overview/itsmc-solution-workspace.png)
-    >[!NOTE]
-    >In conformità alla transizione in corso da Microsoft Operations Management Suite (OMS) a Monitoraggio di Azure, le aree di lavoro di OMS sono ora denominate aree di lavoro di Log Analytics.
+   ![Area di lavoro di Connettore di Gestione dei servizi IT](media/itsmc-overview/itsmc-solution-workspace.png)
+   >[!NOTE]
+   >In conformità alla transizione in corso da Microsoft Operations Management Suite (OMS) a Monitoraggio di Azure, le aree di lavoro di OMS sono ora denominate aree di lavoro di Log Analytics.
 
-5.  Fare clic su **Create**(Crea).
+5. Fare clic su **Create**(Crea).
 
 Quando la risorsa soluzione viene distribuita, viene visualizzata una notifica nella parte superiore destra della finestra.
 
@@ -89,22 +89,22 @@ A seconda del prodotto di Gestione dei servizi IT a cui si connette, attenersi a
 
 Una volta preparati gli strumenti di Gestione dei servizi IT, seguire la procedura seguente per creare una connessione:
 
-1.  Passare a **Tutte le risorse** e cercare **ServiceDesk(NomeAreaDiLavoro)**.
-2.  In **ORIGINI DATI DELL'AREA DI LAVORO** nel riquadro a sinistra fare clic su **Connessioni di Gestione dei servizi IT**.
-    ![Connessioni di Gestione dei servizi IT](media/itsmc-overview/itsm-connections.png)
+1. Passare a **Tutte le risorse** e cercare **ServiceDesk(NomeAreaDiLavoro)**.
+2. In **ORIGINI DATI DELL'AREA DI LAVORO** nel riquadro a sinistra fare clic su **Connessioni di Gestione dei servizi IT**.
+   ![Connessioni di Gestione dei servizi IT](media/itsmc-overview/itsm-connections.png)
 
-    Questa pagina mostra l'elenco di connessioni.
-3.  Fare clic su **Aggiungi connessione**.
+   Questa pagina mostra l'elenco di connessioni.
+3. Fare clic su **Aggiungi connessione**.
 
-    ![Aggiungere una connessione di Gestione dei servizi IT](media/itsmc-overview/add-new-itsm-connection.png)
+   ![Aggiungere una connessione di Gestione dei servizi IT](media/itsmc-overview/add-new-itsm-connection.png)
 
-4.  Specificare le impostazioni di connessione come descritto nell'articolo [Configurazione della connessione di Connettore di Gestione dei servizi IT con i prodotti e i servizi di Gestione dei servizi IT](../../azure-monitor/platform/itsmc-connections.md).
+4. Specificare le impostazioni di connessione come descritto nell'articolo [Configurazione della connessione di Connettore di Gestione dei servizi IT con i prodotti e i servizi di Gestione dei servizi IT](../../azure-monitor/platform/itsmc-connections.md).
 
-    > [!NOTE]
+   > [!NOTE]
+   > 
+   > Per impostazione predefinita, Connettore di Gestione dei servizi IT aggiorna i dati di configurazione della connessione ogni 24 ore. Per aggiornare i dati della connessione immediatamente in caso di eventuali modifiche o aggiornamenti del modello, fare clic sul pulsante **Sincronizza** nel pannello della connessione.
 
-    > Per impostazione predefinita, Connettore di Gestione dei servizi IT aggiorna i dati di configurazione della connessione ogni 24 ore. Per aggiornare i dati della connessione immediatamente in caso di eventuali modifiche o aggiornamenti del modello, fare clic sul pulsante **Sincronizza** nel pannello della connessione.
-
-    ![Aggiornamento della connessione](media/itsmc-overview/itsmc-connections-refresh.png)
+   ![Aggiornamento della connessione](media/itsmc-overview/itsmc-connections-refresh.png)
 
 
 ## <a name="using-the-solution"></a>Uso della soluzione
@@ -138,8 +138,8 @@ Utilizzare la procedura seguente:
 
 Quando si crea/modifica una regola di avviso di Azure, usare un gruppo di azioni con un'azione Gestione dei servizi IT. Quando l'avviso viene attivato, nello strumento di Gestione dei servizi IT viene creato o aggiornato un elemento di lavoro.
 
->[!NOTE]
-
+> [!NOTE]
+> 
 > Per informazioni sui prezzi delle azioni di Gestione dei servizi IT, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/monitor/) per i gruppi di azioni.
 
 
@@ -172,7 +172,7 @@ Gli eventi imprevisti e le richieste di modifica vengono sincronizzati dal prodo
 Le informazioni seguenti mostrano esempi di dati raccolti da Connettore di Gestione dei servizi IT:
 
 > [!NOTE]
-
+> 
 > A seconda del tipo di elemento di lavoro importato in Log Analytics, **ServiceDesk_CL** contiene i campi seguenti:
 
 **Elemento di lavoro:** **Eventi imprevisti**  
@@ -284,17 +284,17 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 
 ## <a name="troubleshoot-itsm-connections"></a>Risolvere i problemi delle connessioni di Gestione dei servizi IT
-1.  Se si verifica un errore di connessione nell'interfaccia utente dell'origine connessa con un messaggio **Errore durante il salvataggio della connessione**, seguire questa procedura:
- - Per le connessioni ServiceNow, Cherwell e Provance,  
-    - assicurarsi di immettere correttamente il nome utente, la password, l'ID client e il segreto client per ognuna delle connessioni.  
-    - controllare se si hanno privilegi sufficienti nel prodotto ITSM corrispondente per stabilire la connessione.  
- - Per le connessioni Service Manager,  
-    - verificare che l'app Web sia stata distribuita correttamente e che la connessione ibrida sia stata creata. Per verificare che la connessione sia stata stabilita con il computer Service Manager on-premises, visitare l'URL dell'app Web come descritto nella documentazione per la creazione della [connessione ibrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
+1. Se si verifica un errore di connessione nell'interfaccia utente dell'origine connessa con un messaggio **Errore durante il salvataggio della connessione**, seguire questa procedura:
+   - Per le connessioni ServiceNow, Cherwell e Provance,  
+   - assicurarsi di immettere correttamente il nome utente, la password, l'ID client e il segreto client per ognuna delle connessioni.  
+   - controllare se si hanno privilegi sufficienti nel prodotto ITSM corrispondente per stabilire la connessione.  
+   - Per le connessioni Service Manager,  
+   - verificare che l'app Web sia stata distribuita correttamente e che la connessione ibrida sia stata creata. Per verificare la connessione è stata stabilita con la macchina di Service Manager on premises, visitare l'URL dell'app Web come descritto in dettaglio nella documentazione per la creazione di [connessione ibrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
 
-2.  Se i dati provenienti da ServiceNow non vengono sincronizzati con Log Analytics, assicurarsi che l'istanza del servizio ServiceNow non sia sospesa. Le istanze di sviluppo di ServiceNow a volte vanno in sospensione se rimangono inattive a lungo. In caso contrario, segnalare il problema.
-3.  Se vengono generati avvisi di Log Analytics, ma gli elementi di lavoro non vengono creati nel prodotto di Gestione dei servizi IT o gli elementi di configurazione non vengono creati o collegati a elementi di lavoro o per qualsiasi altra informazione generica, fare riferimento a quanto segue:
- -  Gestione dei servizi IT: la soluzione mostra un riepilogo delle connessioni/elementi di lavoro/computer e così via. Fare clic sul riquadro contenente **Stato connettore** per passare a **Ricerca log** con la query pertinente. Esaminare i record di log con ERROR LogType_S per altre informazioni.
- - Pagina **Ricerca log**: consente di visualizzare gli errori o le informazioni correlate direttamente usando la query `*`ServiceDeskLog_CL`*`.
+2. Se i dati provenienti da ServiceNow non vengono sincronizzati con Log Analytics, assicurarsi che l'istanza del servizio ServiceNow non sia sospesa. Le istanze di sviluppo di ServiceNow a volte vanno in sospensione se rimangono inattive a lungo. In caso contrario, segnalare il problema.
+3. Se vengono generati avvisi di Log Analytics, ma gli elementi di lavoro non vengono creati nel prodotto di Gestione dei servizi IT o gli elementi di configurazione non vengono creati o collegati a elementi di lavoro o per qualsiasi altra informazione generica, fare riferimento a quanto segue:
+   -  Gestione dei servizi IT: la soluzione mostra un riepilogo delle connessioni/elementi di lavoro/computer e così via. Fare clic sul riquadro contenente **Stato connettore** per passare a **Ricerca log** con la query pertinente. Esaminare i record di log con ERROR LogType_S per altre informazioni.
+   - Pagina **Ricerca log**: consente di visualizzare gli errori o le informazioni correlate direttamente usando la query `*`ServiceDeskLog_CL`*`.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Risolvere i problemi di distribuzione dell’app Web Service Manager
 1.  In caso di problemi con la distribuzione dell'app Web, assicurarsi di disporre di autorizzazioni sufficienti nella sottoscrizione indicata per creare/distribuire risorse.
