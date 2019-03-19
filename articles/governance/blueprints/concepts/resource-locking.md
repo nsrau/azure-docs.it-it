@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2e281896d45ada8010f24a1f18265a8cdd523d31
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 799e496fd9dd8a405e5fc356e13cf6c05883e1ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696985"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855408"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendere il blocco risorse di Azure Blueprint
 
-La creazione di ambienti coerenti su larga scala è davvero efficace solo se esiste un meccanismo che mantenga tale coerenza. Questo articolo spiega il funzionamento del blocco risorse di Azure Blueprint.
+La creazione di ambienti coerenti su larga scala è davvero efficace solo se esiste un meccanismo che mantenga tale coerenza. Questo articolo spiega il funzionamento del blocco risorse di Azure Blueprint. Per vedere un esempio di blocco delle risorse e applicazione dei _negare le assegnazioni_, vedere la [proteggono le risorse nuove](../tutorials/protect-new-resources.md) esercitazione.
 
 ## <a name="locking-modes-and-states"></a>Modalità di blocco e stati
 
@@ -27,7 +27,7 @@ Le modalità di blocco non possono tuttavia essere modificate al di fuori di Blu
 
 Le risorse create dagli artefatti nell'assegnazione di un progetto hanno quattro stati: **Non bloccato**, **Sola lettura**, **Impossibile modificare/eliminare** e **Impossibile eliminare**. Ciascun tipo di artefatto può essere in stato **Non bloccato**. La tabella seguente può essere usata per determinare lo stato di una risorsa:
 
-|Modalità|Tipo di risorsa artefatto|Stato|DESCRIZIONE|
+|Mode|Tipo di risorsa artefatto|Stato|DESCRIZIONE|
 |-|-|-|-|
 |Non bloccare|*|Non bloccato|Le risorse non sono protette da Blueprints. Questo stato viene usato anche per le risorse aggiunte a un artefatto del gruppo di risorse **Sola lettura** o **Non eliminare** all'esterno dell'assegnazione di un progetto.|
 |Sola lettura|Gruppo di risorse|Impossibile modificare/eliminare|Il gruppo di risorse è di sola lettura e i relativi tag non possono essere modificati. Le risorse con stato **Non bloccato** possono essere aggiunte, spostate, modificate o eliminate da questo gruppo.|
@@ -58,8 +58,9 @@ In virtù del controllo degli accessi in base al ruolo, alle risorse artefatto v
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sul [ciclo di vita del progetto](lifecycle.md)
-- Informazioni su come usare [parametri statici e dinamici](parameters.md)
-- Informazioni sulla personalizzazione della [sequenziazione di progetto](sequencing-order.md)
-- Informazioni su come [aggiornare le assegnazioni esistenti](../how-to/update-existing-assignments.md)
-- Risolvere i problemi durante l'assegnazione di un progetto con la [risoluzione generale dei problemi](../troubleshoot/general.md)
+- Seguire le [proteggere le nuove risorse](../tutorials/protect-new-resources.md) esercitazione.
+- Scopri le [ciclo di vita del progetto](lifecycle.md).
+- Informazioni su come usare [parametri statici e dinamici](parameters.md).
+- Informazioni su come personalizzare il [blueprint ordine sequenziazione](sequencing-order.md).
+- Informazioni su come [aggiornare le assegnazioni esistenti](../how-to/update-existing-assignments.md).
+- Risolvere i problemi durante l'assegnazione di un progetto con [risoluzione dei problemi generali](../troubleshoot/general.md).

@@ -1,5 +1,5 @@
 ---
-title: Cluster Resource Manager di Service Fabric - Costo dello spostamento | Microsoft Docs
+title: Cluster Resource Manager di Service Fabric Il costo dello spostamento | Microsoft Docs
 description: Panoramica del costo di spostamento per i servizi di Service Fabric
 services: service-fabric
 documentationcenter: .net
@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: f022f258-7bc0-4db4-aa85-8c6c8344da32
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 74b61967a796fca22ab86918235f1def27a22f91
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: a4431f1d2e9a63ee7797100cc1092244d9a8b880
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204924"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101517"
 ---
 # <a name="service-movement-cost"></a>Costo di spostamento dei servizi
 Un fattore preso in considerazione da Cluster Resource Manager di Service Fabric nel tentativo di determinare le modifiche da apportare a un cluster è il costo di tali modifiche. Il concetto di "costo" viene compensato sulla base di quanto il cluster può essere migliorato. Il factoring del costo avviene durante lo spostamento di servizi di bilanciamento del carico, la deframmentazione e altri requisiti. L'obiettivo è soddisfare i requisiti nel modo meno problematico o costoso. 
@@ -76,10 +76,11 @@ this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
 
 ## <a name="impact-of-move-cost"></a>Impatto del costo di spostamento
-MoveCost ha quattro livelli: Zero, Low, Medium e High. Ad eccezione del livello Zero, tali livelli sono correlati. Se un costo di spostamento è di livello Zero, significa che lo spostamento è gratuito e non deve influire sul punteggio della soluzione. L'impostazione del costo di spostamento su High *non* garantisce che la replica rimanga in un'unica posizione.
+MoveCost ha quattro livelli: Zero, Low, Medium e alta. Ad eccezione del livello Zero, tali livelli sono correlati. Se un costo di spostamento è di livello Zero, significa che lo spostamento è gratuito e non deve influire sul punteggio della soluzione. L'impostazione del costo di spostamento su High *non* garantisce che la replica rimanga in un'unica posizione.
 
 <center>
-![Costo di spostamento come fattore da considerare per la selezione delle repliche da spostare][Image1]
+
+![Costo di spostamento come fattore nella selezione delle repliche per lo spostamento dei][Image1]
 </center>
 
 MoveCost consente di trovare le soluzioni che causano un'interruzione complessivamente minima e che sono più facili da realizzare garantendo allo stesso tempo un bilanciamento equivalente. Il concetto di costo di un servizio può essere correlato a molti aspetti. I fattori più comuni per il calcolo del costo di spostamento sono:

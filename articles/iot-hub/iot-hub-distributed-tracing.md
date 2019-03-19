@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: d97171003507ea0d7412c0706f9deea02fe06c0d
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 0553bd904cfaabaefce4e6ab3f7fbf5d356922d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418411"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100361"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Tracciare i messaggi da un dispositivo al cloud di Azure IoT con la traccia distribuita (anteprima)
 
@@ -151,7 +151,7 @@ Queste istruzioni sono relative alla compilazione dell'esempio in Windows. Per a
 
     [!code-c[](~/samples-iot-distributed-tracing/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c?name=snippet_sleep&highlight=8)]
 
-### <a name="compile-and-run"></a>Compilare ed eseguire
+### <a name="compile-and-run"></a>Compila ed esegui
 
 1. Passare alla directory di progetto *iothub_ll_telemetry_sample* dalla directory di CMake (`azure-iot-sdk-c/cmake`) creata in precedenza e compilare l'esempio:
 
@@ -190,7 +190,7 @@ Per modificare la percentuale di messaggi da tracciare dal cloud, è necessario 
 
 1. Per **Velocità di campionamento** scegliere un valore compreso tra 0% e 100%.
 
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
 1. Attendere alcuni secondi e selezionare **Aggiorna**. In caso di riconoscimento da parte del dispositivo, verrà visualizzata un'icona di sincronizzazione con un segno di spunta.
 
@@ -214,7 +214,7 @@ Per modificare la percentuale di messaggi da tracciare dal cloud, è necessario 
 
     ![Aggiornare la modalità di campionamento](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-2.png)
 
-    ![Aggiornare la velocità di campionamento ](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-3.png)
+    ![Aggiornare la velocità di campionamento](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-3.png)
 
 ### <a name="bulk-update-for-multiple-devices"></a>Eseguire l'aggiornamento in blocco per più dispositivi
 
@@ -233,7 +233,7 @@ Per aggiornare la configurazione di campionamento della traccia distribuita per 
 }
 ```
 
-| Nome dell'elemento | Obbligatorio | Tipo | DESCRIZIONE |
+| Nome dell'elemento | Obbligatoria | Type | DESCRIZIONE |
 |-----------------|----------|---------|-----------------------------------------------------|
 | `sampling_mode` | Sì | Integer | Sono attualmente supportati i valori di due modalità per attivare e disattivare il campionamento. `1` per attivare e `2` per disattivare. |
 | `sampling_rate` | Sì | Integer | Questo valore indica una percentuale. Sono consentiti solo valori compresi tra `0` e `100` (estremi inclusi).  |
@@ -256,11 +256,11 @@ AzureDiagnostics
 
 Log di esempio mostrati da Log Analytics:
 
-| TimeGenerated | OperationName | Category | Level | CorrelationId | DurationMs | Properties |
+| TimeGenerated | OperationName | Categoria | Level | CorrelationId | DurationMs | Properties |
 |--------------------------|---------------|--------------------|---------------|---------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | Informational | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
-| 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | Informational | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |
-| 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | Informational | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType":"EventHub","endpointName":"myEventHub", "parentSpanId":"0144d2590aacd909"} |
+| 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | Informazioni | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
+| 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | Informazioni | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |
+| 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | Informazioni | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType":"EventHub","endpointName":"myEventHub", "parentSpanId":"0144d2590aacd909"} |
 
 Per informazioni sui diversi tipi di log, vedere [Log di diagnostica dell'hub IoT di Azure](iot-hub-monitor-resource-health.md#distributed-tracing-preview).
 
@@ -269,7 +269,7 @@ Per informazioni sui diversi tipi di log, vedere [Log di diagnostica dell'hub Io
 Per visualizzare il flusso dei messaggi IoT, configurare l'app di esempio di Mappa delle applicazioni. L'app di esempio invia i log della traccia distribuita a [Mappa delle applicazioni](../application-insights/app-insights-app-map.md) usando una funzione di Azure e un hub eventi.
 
 > [!div class="button"]
-<a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Ottenere l'esempio in GitHub</a>
+> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Ottenere l'esempio in GitHub</a>
 
 L'immagine seguente mostra la traccia distribuita in Mappa delle applicazioni con tre endpoint di routing:
 
@@ -277,7 +277,7 @@ L'immagine seguente mostra la traccia distribuita in Mappa delle applicazioni co
 
 ## <a name="understand-azure-iot-distributed-tracing"></a>Informazioni sulla traccia distribuita di Azure IoT
 
-### <a name="context"></a>Contesto
+### <a name="context"></a>Context
 
 Molte soluzioni IoT, inclusa l'[architettura di riferimento](https://aka.ms/iotrefarchitecture) (solo in inglese), in genere seguono una variante dell'[architettura di microservizi](https://docs.microsoft.com/azure/architecture/microservices/). Man mano che una soluzione IoT diventa più complessa, si accumula una dozzina o più di microservizi, non tutti necessariamente di Azure. L'individuazione delle posizioni in cui i messaggi IoT vengono eliminati o rallentano può risultare complicata. Si supponga ad esempio di disporre di una soluzione IoT che usa cinque diversi servizi di Azure e 1500 dispositivi attivi. Ogni dispositivo invia 10 messaggi da dispositivo a cloud al secondo (per un totale di 15.000 messaggi al secondo), ma si nota che la propria applicazione Web rileva solo 10.000 messaggi al secondo. Dove è il problema? Come è possibile individuarne la causa?
 

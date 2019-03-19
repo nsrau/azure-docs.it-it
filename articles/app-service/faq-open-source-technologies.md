@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 07912dab52cb0569428d070282551eebbdb1c7bc
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 7831e5e989835b2c9432dbd61a242584a7b6244d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191446"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082943"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Domande frequenti sulle tecnologie open source per App Web in Azure
 
@@ -44,10 +44,10 @@ Per attivare la registrazione PHP:
 9. Selezionare **Salva**.
 10. Selezionare l'icona della matita accanto a **wp-config.php**.
 11. Modificare il testo specificando il codice seguente:
-   ```php
-   //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
-   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Suppress PHP errors to screenini_set('display_errors', 0);
-   ```
+    ```php
+    //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
+    //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Suppress PHP errors to screenini_set('display_errors', 0);
+    ```
 12. Nel portale di Azure riavviare l'app Web dal menu corrispondente.
 
 Per altre informazioni, vedere [Enable WordPress error logs](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/) (Abilitare i log degli errori di WordPress).
@@ -59,31 +59,31 @@ Per altre informazioni, vedere [Enable WordPress error logs](https://blogs.msdn.
 
 Per cambiare la versione dell'applicazione Node.js, è possibile usare una delle opzioni seguenti:
 
-*   Nel portale di Azure usare **Impostazioni dell'applicazione**.
-    1. Nel portale di Azure passare all'app Web.
-    2. Nel pannello **Impostazioni** selezionare **Impostazioni dell'applicazione**.
-    3. In **Impostazioni dell'applicazione** è possibile includere WEBSITE_NODE_DEFAULT_VERSION come chiave e la versione di Node.js da usare come valore.
-    4. Passare alla [console Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
-    5. Per verificare la versione di Node.js, immettere il comando seguente:  
-   ```
-   node -v
-   ```
-*   Modificare il file iisnode.yml. La modifica della versione di Node.js nel file iisnode.yml consente solo di configurare l'ambiente di runtime usato da iisnode. Kudu CMD e altre applicazioni usano ancora la versione Node.js specificata in **Impostazioni dell'applicazione** nel portale di Azure.
+* Nel portale di Azure usare **Impostazioni dell'applicazione**.
+  1. Nel portale di Azure passare all'app Web.
+  2. Nel pannello **Impostazioni** selezionare **Impostazioni dell'applicazione**.
+  3. In **Impostazioni dell'applicazione** è possibile includere WEBSITE_NODE_DEFAULT_VERSION come chiave e la versione di Node.js da usare come valore.
+  4. Passare alla [console Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
+  5. Per verificare la versione di Node.js, immettere il comando seguente:  
+     ```
+     node -v
+     ```
+* Modificare il file iisnode.yml. La modifica della versione di Node.js nel file iisnode.yml consente solo di configurare l'ambiente di runtime usato da iisnode. Kudu CMD e altre applicazioni usano ancora la versione Node.js specificata in **Impostazioni dell'applicazione** nel portale di Azure.
 
-    Per configurare manualmente iisnode.yml, creare un file iisnode.yml nella cartella radice dell'app. Nel file includere la riga seguente:
-   ```yml
-   nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
-   ```
+  Per configurare manualmente iisnode.yml, creare un file iisnode.yml nella cartella radice dell'app. Nel file includere la riga seguente:
+  ```yml
+  nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
+  ```
    
-*   Configurare il file iisnode.yml usando package.json durante la distribuzione del controllo del codice sorgente.
-    Il processo di distribuzione del controllo del codice sorgente di Azure prevede la procedura seguente:
-    1. Spostamento del contenuto nell'app Web di Azure.
-    2. Creazione di uno script di distribuzione predefinito, se non è già presente (file deploy.cmd, file con estensione deployment), nella cartella radice dell'app Web.
-    3. Esecuzione di uno script di distribuzione in cui viene creato un file iisnode.yml file se si indica la versione di Node.js nel file package.json > motore `"engines": {"node": "5.9.1","npm": "3.7.3"}`
-    4. Il file iisnode.yml include la riga di codice seguente:
-        ```yml
-        nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
-        ```
+* Configurare il file iisnode.yml usando package.json durante la distribuzione del controllo del codice sorgente.
+  Il processo di distribuzione del controllo del codice sorgente di Azure prevede la procedura seguente:
+  1. Spostamento del contenuto nell'app Web di Azure.
+  2. Creazione di uno script di distribuzione predefinito, se non è già presente (file deploy.cmd, file con estensione deployment), nella cartella radice dell'app Web.
+  3. Esecuzione di uno script di distribuzione in cui viene creato un file iisnode.yml file se si indica la versione di Node.js nel file package.json > motore `"engines": {"node": "5.9.1","npm": "3.7.3"}`
+  4. Il file iisnode.yml include la riga di codice seguente:
+      ```yml
+      nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
+      ```
 
 ## <a name="i-see-the-message-error-establishing-a-database-connection-in-my-wordpress-app-thats-hosted-in-app-service-how-do-i-troubleshoot-this"></a>Viene visualizzato il messaggio "Errore di connessione al database" nell'app WordPress ospitata nel servizio app. Come si risolve il problema?
 

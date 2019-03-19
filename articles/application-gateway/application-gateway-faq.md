@@ -6,16 +6,18 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 1/11/2019
+ms.date: 3/13/2019
 ms.author: victorh
-ms.openlocfilehash: 040aeda10410cc164c3f68b6615ebfb12d45541e
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 96bd9e679e1766e87a0bb807204df744bb3cca95
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453488"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897708"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Domande frequenti sul gateway applicazione
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general"></a>Generale
 
@@ -41,10 +43,10 @@ Il supporto del protocollo HTTP/2 è disponibile per i client che si connettono 
 
 Per impostazione predefinita, il supporto di HTTP/2 è disabilitato. Il frammento di codice di esempio seguente, di Azure PowerShell, illustra come abilitarlo:
 
-```powershell
-$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+```azurepowershell
+$gw = Get-AzApplicationGateway -Name test -ResourceGroupName hm
 $gw.EnableHttp2 = $true
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
 ### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>Quali risorse sono supportate oggi nell'ambito del pool back-end?
@@ -71,6 +73,10 @@ I listener vengono elaborati nell'ordine in cui sono visualizzati. Per tale moti
 
 Quando si usa un indirizzo IP pubblico come endpoint, queste informazioni sono reperibili nella risorsa dell'indirizzo IP pubblico o nella pagina Panoramica del gateway applicazione nel portale. Per gli indirizzi IP interni, queste informazioni si trovano nella pagina Panoramica.
 
+### <a name="what-is-keep-alive-timeout-and-tcp-idle-timeout-setting-on-application-gateway"></a>Che cos'è il timeout di Keep-Alive e impostazione di timeout di inattività TCP nel Gateway applicazione?
+
+Timeout Keep-Alive sullo SKU v1 è 120 sec. timeout Keep-Alive sullo SKU v2 è timeout di inattività TCP di 75 secondi. valore predefinito di 4-min nel front-end di indirizzo VIP del Gateway applicazione.
+
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>L'IP o il nome DNS cambia durante il ciclo di vita del gateway applicazione?
 
 L'indirizzo VIP può cambiare se il gateway applicazione viene arrestato e avviato. Il nome DNS associato al gateway applicazione non cambia durante il ciclo di vita del gateway. Per questo motivo è consigliabile usare un alias CNAME che punti all'indirizzo DNS del gateway applicazione.
@@ -87,6 +93,8 @@ Un gateway applicazione supporta un solo indirizzo IP pubblico.
 
 Il gateway applicazione utilizza un indirizzo IP privato per ogni istanza, oltre a un altro indirizzo IP privato in presenza di una configurazione degli indirizzi IP front-end privati. Inoltre, Azure riserva i primi quattro e l'ultimo indirizzo IP in ogni subnet per uso interno.
 Se ad esempio il gateway applicazione è impostato su tre istanze e nessun IP front-end privato, le dimensioni necessarie per la subnet sono pari a /29 o superiori. In questo caso, il gateway applicazione usa tre indirizzi IP. Se si hanno tre istanze e un indirizzo IP per la configurazione degli indirizzi IP front-end privati, le dimensioni della subnet devono essere pari a /28 o superiori, perché sono necessari quattro indirizzi IP.
+
+Come procedura consigliata, usare almeno/28 le dimensioni della subnet. In questo modo si 11 indirizzi utilizzabili. Se il carico dell'applicazione richiede più di 10 istanze, è necessario considerare/27 o/26 le dimensioni della subnet.
 
 ### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>D: È possibile distribuire più di una risorsa di gateway applicazione a una singola subnet?
 
@@ -126,7 +134,7 @@ I gruppi di sicurezza di rete (NSG) sono supportati nella subnet del gateway app
 
 * Devono essere inserite eccezioni per il traffico in ingresso sulle porte 65503-65534 per lo SKU versione 1 del gateway applicazione e sulle porte 65200-65535 per lo SKU versione 2. Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure. Sono protette (bloccate) dai certificati di Azure. Senza certificati appropriati, le entità esterne, compresi i clienti di questi gateway, non saranno in grado di avviare alcuna modifica su tali endpoint.
 
-* La connettività Internet in uscita non può essere bloccata.
+* La connettività Internet in uscita non può essere bloccata. Le regole in uscita predefinite in sicurezza di rete già consentono la connettività internet. Si consiglia di non rimuovere le regole in uscita predefinite e che non è possibile creare altre regole in uscita che nega la connettività internet in uscita.
 
 * È necessario consentire il traffico dal tag AzureLoadBalancer.
 
@@ -220,7 +228,7 @@ Sì, Azure distribuisce le istanze nei domini di errore e di aggiornamento per i
 
 ### <a name="what-certificates-are-supported-on-application-gateway"></a>Quali certificati sono supportati dal gateway applicazione?
 
-Sono supportati certificati autofirmati, certificati della CA e certificati con caratteri jolly. I certificati di convalida estesa non sono supportati.
+I certificati autofirmati, certificati di autorità di certificazione, EV certificati e i certificati con caratteri jolly sono supportati.
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-application-gateway"></a>Quali sono i pacchetti di crittografia attualmente supportati dal gateway applicazione?
 
@@ -342,7 +350,7 @@ Sono disponibili tre log con il gateway applicazione. Per altre informazioni su 
 
 ### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>Come è possibile sapere se i membri del pool back-end sono integri?
 
-È possibile usare il cmdlet `Get-AzureRmApplicationGatewayBackendHealth` di PowerShell o verificare l'integrità tramite il portale. Vedere la [diagnostica del gateway applicazione](application-gateway-diagnostics.md).
+È possibile usare il cmdlet `Get-AzApplicationGatewayBackendHealth` di PowerShell o verificare l'integrità tramite il portale. Vedere la [diagnostica del gateway applicazione](application-gateway-diagnostics.md).
 
 ### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>Che cos'è il criterio di conservazione per i log di diagnostica?
 
@@ -350,7 +358,7 @@ I log di diagnostica vengono inseriti nell'account di archiviazione dei clienti,
 
 ### <a name="how-do-i-get-audit-logs-for-application-gateway"></a>Come si ottengono i log di controllo per il gateway applicazione?
 
-Sono disponibili log di controllo per il gateway applicazione. Nel portale fare clic su **Log attività** nel pannello del menu di un gateway applicazione per accedere al log di controllo. 
+Sono disponibili log di controllo per il gateway applicazione. Nel portale, fare clic su **Log attività** nel pannello del menu di scelta di un gateway applicazione per il log di controllo di accesso. 
 
 ### <a name="can-i-set-alerts-with-application-gateway"></a>È possibile impostare avvisi con il gateway applicazione?
 
@@ -366,6 +374,6 @@ Sì, il gateway applicazione supporta gli avvisi. Gli avvisi vengono configurati
 
 Nella maggior parte dei casi, l'accesso al back-end è bloccato da un gruppo di sicurezza di rete o da un DNS personalizzato. Vedere [Integrità back-end, log di diagnostica e metriche per il gateway applicazione](application-gateway-diagnostics.md) per altre informazioni.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Per altre informazioni sul gateway applicazione, vedere [Cos'è il gateway applicazione di Azure?](overview.md)

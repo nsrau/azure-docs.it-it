@@ -10,18 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 372275740b7d4fd757e97a3966e4e87c9d2de940
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 807a6b38b9f2cbe2a3c8787fe09c2ea14106a942
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105390"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864899"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copiare dati da un endpoint REST tramite Azure Data Factory
 
-Questo articolo descrive come usare l'attività di copia in Azure Data Factory per copiare dati da un endpoint REST. È basato sull'articolo [Attività di copia in Azure Data Factory](copy-activity-overview.md), che presenta una panoramica generale dell'attività di copia.
+Questo articolo descrive come usare l'attività di copia in Azure Data Factory per copiare dati da un endpoint REST. L'articolo è basato su [Attività di copia in Azure Data Factory](copy-activity-overview.md), dove viene presentata una panoramica generale dell'attività di copia.
 
 La differenza tra questo connettore REST, il [connettore HTTP](connector-http.md) e il [connettore Tabella Web](connector-web-table.md) è la seguente:
 
@@ -53,22 +53,22 @@ Le sezioni seguenti offrono informazioni dettagliate sulle proprietà che è pos
 
 Per il servizio collegato REST sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** deve essere impostata su **HttpServer**. | Yes |
-| URL | URL di base del servizio REST. | Yes |
+| type | La proprietà **type** deve essere impostata su **HttpServer**. | Sì |
+| URL | URL di base del servizio REST. | Sì |
 | enableServerCertificateValidation | Specifica se convalidare il certificato SSL sul lato server durante la connessione all'endpoint. | No <br /> (il valore predefinito è **true**) |
-| authenticationType | Tipo di autenticazione usato per connettersi al servizio REST. I valori consentiti sono **Anonymous**, **Basic**, **AadServicePrincipal** e **ManagedServiceIdentity**. Per altre proprietà ed esempi su ogni valore, vedere le sezioni corrispondenti di seguito. | Yes |
+| authenticationType | Tipo di autenticazione usato per connettersi al servizio REST. I valori consentiti sono **Anonymous**, **Basic**, **AadServicePrincipal** e **ManagedServiceIdentity**. Per altre proprietà ed esempi su ogni valore, vedere le sezioni corrispondenti di seguito. | Sì |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare Azure Integration Runtime o un runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non è specificata, questa proprietà usa il tipo Azure Integration Runtime predefinito. |No  |
 
 ### <a name="use-basic-authentication"></a>Usare l'autenticazione di base
 
 Impostare la proprietà **authenticationType** su **Basic**. Oltre alle proprietà generiche descritte nella sezione precedente, specificare le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| userName | Nome utente da usare per accedere all'endpoint REST. | Yes |
-| password | Password per l'utente (valore di **userName**). Contrassegnare questo campo come tipo **SecureString** per archiviare la password in modo sicuro in Data Factory. È anche possibile [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| userName | Nome utente da usare per accedere all'endpoint REST. | Sì |
+| password | Password per l'utente (valore di **userName**). Contrassegnare questo campo come tipo **SecureString** per archiviare la password in modo sicuro in Data Factory. È anche possibile [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 
 **Esempio**
 
@@ -98,12 +98,12 @@ Impostare la proprietà **authenticationType** su **Basic**. Oltre alle propriet
 
 Impostare la proprietà **authenticationType** su **AadServicePrincipal**. Oltre alle proprietà generiche descritte nella sezione precedente, specificare le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| servicePrincipalId | Specificare l'ID client. dell'applicazione Azure Active Directory. | Yes |
-| servicePrincipalKey | Specificare la chiave dell'applicazione Azure Active Directory. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Recuperarle passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Yes |
-| aadResourceId | Specificare la risorsa AAD per cui si sta richiedendo l'autorizzazione, ad esempio `https://management.core.windows.net`.| Yes |
+| servicePrincipalId | Specificare l'ID client. dell'applicazione Azure Active Directory. | Sì |
+| servicePrincipalKey | Specificare la chiave dell'applicazione Azure Active Directory. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Recuperarle passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì |
+| aadResourceId | Specificare la risorsa AAD per cui si sta richiedendo l'autorizzazione, ad esempio `https://management.core.windows.net`.| Sì |
 
 **Esempio**
 
@@ -135,9 +135,9 @@ Impostare la proprietà **authenticationType** su **AadServicePrincipal**. Oltre
 
 Impostare la proprietà **authenticationType** su **ManagedServiceIdentity**. Oltre alle proprietà generiche descritte nella sezione precedente, specificare le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| aadResourceId | Specificare la risorsa AAD per cui si sta richiedendo l'autorizzazione, ad esempio `https://management.core.windows.net`.| Yes |
+| aadResourceId | Specificare la risorsa AAD per cui si sta richiedendo l'autorizzazione, ad esempio `https://management.core.windows.net`.| Sì |
 
 **Esempio**
 
@@ -159,7 +159,7 @@ Impostare la proprietà **authenticationType** su **ManagedServiceIdentity**. Ol
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Questa sezione contiene un elenco delle proprietà supportate dal set di dati REST. 
 
@@ -167,9 +167,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da REST, sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** del set di dati deve essere impostata su **RestResource**. | Yes |
+| type | La proprietà **type** del set di dati deve essere impostata su **RestResource**. | Sì |
 | relativeUrl | URL relativo della risorsa che contiene i dati. Quando questa proprietà non è specificata, viene usato solo l'URL indicato nella definizione del servizio collegato. | No  |
 | requestMethod | Metodo HTTP. I valori consentiti sono **Get** (predefinito) e **Post**. | No  |
 | additionalHeaders | Intestazioni richiesta HTTP aggiuntive. | No  |
@@ -224,15 +224,15 @@ Per copiare dati da REST, sono supportate le proprietà seguenti:
 
 Questa sezione contiene un elenco delle proprietà supportate dall'origine REST.
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere [Pipelines](concepts-pipelines-activities.md) (Pipeline). 
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere [Pipeline](concepts-pipelines-activities.md). 
 
 ### <a name="rest-as-source"></a>REST come origine
 
 Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **RestSource**. | Yes |
+| type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **RestSource**. | Sì |
 | httpRequestTimeout | Timeout (valore di **TimeSpan**) durante il quale la richiesta HTTP attende una risposta. Si tratta del timeout per ottenere una risposta, non per leggere i dati della risposta. Il valore predefinito è **00:01:40**.  | No  |
 | requestInterval | Periodo di attesa prima di inviare la richiesta per la pagina successiva. Il valore predefinito è **00:00:01** |  No  |
 
@@ -274,8 +274,8 @@ Normalmente l'API REST limita le dimensioni del payload della risposta di una si
 
 Questo connettore REST generico supporta i modelli di paginazione seguenti: 
 
-* URL assoluto della richiesta successiva = valore della proprietà nel corpo della risposta corrente
-* URL assoluto della richiesta successiva = valore dell'intestazione nelle intestazioni della risposta corrente
+* URL assoluto o relativo della richiesta successiva = valore della proprietà nel corpo della risposta corrente
+* URL assoluto o relativo della richiesta successiva = valore di intestazione nelle intestazioni di risposta corrente
 * Parametro di query della richiesta successiva = valore della proprietà nel corpo della risposta corrente
 * Parametro di query della richiesta successiva = valore dell'intestazione nelle intestazioni della risposta corrente
 * Intestazione della richiesta successiva = valore della proprietà nel corpo della risposta corrente
@@ -287,7 +287,7 @@ Le **regole di paginazione** sono definite come un dizionario nel set di dati ch
 
 | Chiave | DESCRIZIONE |
 |:--- |:--- |
-| AbsoluteUrl | Indica l'URL per l'invio della richiesta successiva. |
+| AbsoluteUrl | Indica l'URL per l'invio della richiesta successiva. Può essere **URL assoluto o relativo URL**. |
 | QueryParameters.*parametro_query_richiesta* o QueryParameters['parametro_query_richiesta'] | Il valore di "parametro_query_richiesta" è definito dall'utente e fa riferimento al nome di un parametro di query nell'URL della richiesta HTTP successiva. |
 | Headers.*intestazione_richiesta* o Headers['intestazione_richiesta'] | Il valore di "intestazione_richiesta" è definito dall'utente e fa riferimento a un nome di intestazione nella richiesta HTTP successiva. |
 

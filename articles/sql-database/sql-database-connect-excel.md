@@ -12,12 +12,12 @@ ms.author: craigg
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: c456954c3bf68fd87e51162ea6aab1d0a54b86ad
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: e1cd0d8462c31c8b843f7962f923accc6b63ae00
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237013"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103401"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Connettere Excel a un database singolo in database SQL di Azure e creare un report
 
@@ -43,10 +43,10 @@ Sarà necessaria anche una copia di Excel. In questa esercitazione viene usato [
 
 4. Nella finestra di dialogo **Database SQL Server** selezionare **Database** sul lato sinistro e quindi immettere il **nome utente** e la **password** per il server di database SQL a cui ci si vuole connettere. Selezionare **Connetti** per aprire lo **Strumento di navigazione**. 
 
-  ![Digitare il nome del server e le credenziali di accesso](./media/sql-database-connect-excel/connect-to-server.png)
+   ![Digitare il nome del server e le credenziali di accesso](./media/sql-database-connect-excel/connect-to-server.png)
 
-  > [!TIP]
-  > A seconda dell'ambiente di rete, è possibile che non si riesca a connettersi o che si perda la connessione se il server di database SQL non consente il traffico dall'indirizzo IP client dell'utente. Accedere al [portale di Azure](https://portal.azure.com/), fare clic su SQL Server, fare clic sul server, selezionare il firewall nelle impostazioni e aggiungere l'indirizzo IP del client. Per altre informazioni, vedere [Procedura: Configurare le impostazioni del firewall nel database SQL](sql-database-configure-firewall-settings.md) .
+   > [!TIP]
+   > A seconda dell'ambiente di rete, è possibile che non si riesca a connettersi o che si perda la connessione se il server di database SQL non consente il traffico dall'indirizzo IP client dell'utente. Accedere al [portale di Azure](https://portal.azure.com/), fare clic su SQL Server, fare clic sul server, selezionare il firewall nelle impostazioni e aggiungere l'indirizzo IP del client. Per altre informazioni, vedere [Procedura: Configurare le impostazioni del firewall nel database SQL](sql-database-configure-firewall-settings.md) .
 
 5. Nello **Strumento di navigazione** selezionare il database che si vuole usare dall'elenco, selezionare le tabelle o le viste desiderate (in questo esempio **vGetAllCategories**), quindi selezionare **Carica** per spostare i dati dal database al foglio di calcolo di Excel.
 
@@ -75,17 +75,17 @@ Ora che è stata stabilita la connessione, è possibile caricare i dati in diver
 Per salvare i dettagli della connessione in modo permanente, è possibile creare un file con estensione odc e impostare questa connessione come opzione selezionabile nella finestra di dialogo **Connessioni esistenti**. 
 
 1. Sulla barra dei menu nella parte superiore della pagina selezionare la scheda **Dati** e quindi selezionare **Connessioni esistenti** per aprire la finestra di dialogo **Connessioni esistenti**. 
-    1. Selezionare **Sfoglia** per aprire la finestra di dialogo **Seleziona origine dati**.   
-    2. Selezionare il file **+NewSqlServerConnection.odc** e quindi scegliere **Apri** per aprire la **Connessione guidata dati**.
+   1. Selezionare **Sfoglia** per aprire la finestra di dialogo **Seleziona origine dati**.   
+   2. Selezionare il file **+NewSqlServerConnection.odc** e quindi scegliere **Apri** per aprire la **Connessione guidata dati**.
 
-    ![Nuova connessione](media/sql-database-connect-excel/new-connection.png)
+      ![Nuova connessione](media/sql-database-connect-excel/new-connection.png)
 
 2. In **Connessione guidata dati** digitare il nome del server e le credenziali del database SQL. Selezionare **Avanti**. 
-    1. Nell'elenco a discesa selezionare il database che contiene i dati. 
-    2. Selezionare la tabella o la vista desiderata. In questo esempio abbiamo selezionato vGetAllCategories.
-    3. Selezionare **Avanti**. 
+   1. Nell'elenco a discesa selezionare il database che contiene i dati. 
+   2. Selezionare la tabella o la vista desiderata. In questo esempio abbiamo selezionato vGetAllCategories.
+   3. Selezionare **Avanti**. 
 
-    ![Connessione guidata dati](media/sql-database-connect-excel/data-connection-wizard.png) 
+      ![Connessione guidata dati](media/sql-database-connect-excel/data-connection-wizard.png) 
 
 3. Nella schermata successiva della Connessione guidata dati selezionare il percorso del file, il **nome file** e il **nome descrittivo**. Si può anche scegliere di salvare la password nel file, ma in questo modo si potrebbero esporre i dati ad accessi indesiderati. Al termine scegliere **Fine**. 
 

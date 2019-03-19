@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6e2fafa398b09d0822c4582e196345b812e6fc52
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
-ms.translationtype: HT
+ms.openlocfilehash: 93935aa36c53e1d5de1bba215826d0754ee83b8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54392502"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902842"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Distribuire l'acceleratore di soluzioni di monitoraggio remoto localmente - Visual Studio Code
 
@@ -32,9 +32,9 @@ Se non si dispone di un account, è possibile creare un account di valutazione g
 Per completare la distribuzione in locale, è necessario che nel computer di sviluppo locale siano installati gli strumenti seguenti:
 
 * [Git](https://git-scm.com/)
-* [.Net Core](https://dotnet.microsoft.com/download)
+* [.NET Core](https://dotnet.microsoft.com/download)
 * [Docker](https://www.docker.com)
-* [Nginx](http://nginx.org/en/download.html)
+* [Nginx](https://nginx.org/en/download.html)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Estensione C# di VS Code](https://code.visualstudio.com/docs/languages/csharp)
 * [Node.js v8](https://nodejs.org/) - Questo software è un prerequisito per l'interfaccia della riga di comando di PCS usata dagli script per creare le risorse di Azure. Non usare Node.js v10.
@@ -79,7 +79,7 @@ npm install
 npm start
 ```
 
-Una volta completato l'avvio, il browser visualizza la pagina **http://localhost:3000/dashboard**. Gli errori in questa pagina sono previsti. Per visualizzare l'applicazione senza errori, completare il passaggio seguente.
+Una volta completato l'avvio, il browser visualizza la pagina **http://localhost:3000/dashboard**. Gli errori in questa pagina sono previsti. Per visualizzare l'applicazione senza errori, completare la procedura seguente.
 
 ### <a name="configure-and-run-nginx"></a>Configurare ed eseguire NGINX
 
@@ -88,7 +88,7 @@ Configurare un server proxy inverso per collegare l'applicazione Web e i microse
 * Copiare il file **nginx.conf** dalla cartella **webui\scripts\localhost** locale nella directory di installazione **nginx\conf**.
 * Eseguire **nginx**.
 
-Per altre informazioni sull'esecuzione **nginx**, vedere [nginx per Windows](http://nginx.org/en/docs/windows.html).
+Per altre informazioni sull'esecuzione **nginx**, vedere [nginx per Windows](https://nginx.org/en/docs/windows.html).
 
 ### <a name="connect-to-the-dashboard"></a>Connettersi al dashboard
 

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 07b709b965cf34a687e0cb39f490f62d05919b5c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 1e4efa5e06525194bfdc7d1932fcfec5ec9f8c6b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883118"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093821"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Moderare le immagini dalla console dell'API
 
@@ -24,55 +24,55 @@ Usare l'[API di moderazione di immagini](https://westus.dev.cognitive.microsoft.
 ## <a name="use-the-api-console"></a>Usare la console dell'API
 Prima di poter eseguire il test drive dell'API nella console online, è necessario avere la chiave di sottoscrizione. Questa si trova nella casella **Ocp-Apim-Subscription-Key** della scheda **Settings** (Impostazioni). Per altre informazioni, vedere la [panoramica](overview.md).
 
-1.  Passare alle [informazioni di riferimento sull'API di moderazione immagine](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
+1. Passare alle [informazioni di riferimento sull'API di moderazione immagine](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
 
-  Verrà aperta la pagina di moderazione immagine **Image - Evaluate** (Immagine - Valutazione).
+   Verrà aperta la pagina di moderazione immagine **Image - Evaluate** (Immagine - Valutazione).
 
 2. Per **Open API testing console** (Apri console di test dell'API) selezionare l'area che identifica con maggiore precisione la propria posizione. 
 
-  ![Selezione dell'area nella pagina Try Image - Evaluate (Prova immagine - Valutazione)](images/test-drive-region.png)
+   ![Selezione dell'area nella pagina Try Image - Evaluate (Prova immagine - Valutazione)](images/test-drive-region.png)
   
-  Viene visualizzata la console dell'API **Image - Evaluate** (Immagine - Valutazione).
+   Viene visualizzata la console dell'API **Image - Evaluate** (Immagine - Valutazione).
 
 3. Nella casella **Ocp-Apim-Subscription-Key** immettere la chiave di sottoscrizione.
 
-  ![Chiave di sottoscrizione nella console Image - Evaluate (Immagine - Valutazione)](images/try-image-api-1.PNG)
+   ![Chiave di sottoscrizione nella console Image - Evaluate (Immagine - Valutazione)](images/try-image-api-1.PNG)
 
 4. Nella casella **Request body** (Corpo della richiesta) usare l'immagine di esempio predefinita o specificare un'immagine da analizzare. È possibile inviare l'immagine come dati bit binari o specificare un URL accessibile pubblicamente per un'immagine. 
 
-  Per questo esempio, usare il percorso fornito nella casella **Request body** (Corpo della richiesta) e quindi selezionare **Send** (Invia). 
+   Per questo esempio, usare il percorso fornito nella casella **Request body** (Corpo della richiesta) e quindi selezionare **Send** (Invia). 
 
    ![Corpo della richiesta nella console Try Image - Evaluate (Prova immagine - Valutazione)](images/try-image-api-2.PNG)
 
-  Questa è l'immagine di tale URL:
+   Questa è l'immagine di tale URL:
 
-  ![Immagine di esempio nella console Try Image - Evaluate (Prova immagine - Valutazione)](images/sample-image.jpg) 
+   ![Immagine di esempio nella console Try Image - Evaluate (Prova immagine - Valutazione)](images/sample-image.jpg) 
 
 5. Selezionare **Send** (Invia).
 
 6. L'API restituisce un punteggio di probabilità per ogni classificazione. Determina anche se l'immagine soddisfa le condizioni (**true** o **false**). 
 
-  ![Punteggio di probabilità e determinazione delle condizioni nella console Try Image - Evaluate (Prova immagine - Valutazione)](images/try-image-api-3.PNG)
+   ![Punteggio di probabilità e determinazione delle condizioni nella console Try Image - Evaluate (Prova immagine - Valutazione)](images/try-image-api-3.PNG)
 
 ## <a name="face-detection"></a>Rilevamento del viso
 
 È possibile usare l'API di moderazione immagini per individuare i visi in un'immagine. Questa opzione può essere utile quando si hanno problemi di privacy e si vuole impedire che un viso specifico venga pubblicato sulla piattaforma. 
 
-1.  Nelle [informazioni di riferimento sull'API di moderazione immagini](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), nel menu a sinistra, in **Image** (Immagine) selezionare **Find Faces** (Trova visi). 
+1. Nelle [informazioni di riferimento sull'API di moderazione immagini](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), nel menu a sinistra, in **Image** (Immagine) selezionare **Find Faces** (Trova visi). 
 
-  Verrà aperta la pagina **Image - Find Faces** (Immagine - Ricerca visi).
+   Verrà aperta la pagina **Image - Find Faces** (Immagine - Ricerca visi).
 
-2.  Per **Open API testing console** (Apri console di test dell'API) selezionare l'area che identifica con maggiore precisione la propria posizione. 
+2. Per **Open API testing console** (Apri console di test dell'API) selezionare l'area che identifica con maggiore precisione la propria posizione. 
 
-  ![Selezione dell'area nella pagina Try Image - Find Faces (Prova immagine - Ricerca visi)](images/test-drive-region.png)
+   ![Selezione dell'area nella pagina Try Image - Find Faces (Prova immagine - Ricerca visi)](images/test-drive-region.png)
 
-  Verrà aperta la console dell'API **Image - Find Faces** (Immagine - Ricerca visi).
+   Verrà aperta la console dell'API **Image - Find Faces** (Immagine - Ricerca visi).
 
 3. Specificare un'immagine da analizzare. È possibile inviare l'immagine come dati bit binari o specificare un URL accessibile pubblicamente per un'immagine. Questo esempio include un collegamento a un'immagine usata in una notizia della CNN.
 
-  ![Immagine di esempio in Try Image - Find Faces (Prova immagine - Ricerca visi)](images/try-image-api-face-image.jpg)
+   ![Immagine di esempio in Try Image - Find Faces (Prova immagine - Ricerca visi)](images/try-image-api-face-image.jpg)
 
-  ![Richiesta di esempio in Try Image - Find Faces (Prova immagine - Ricerca visi)](images/try-image-api-face-request.png)
+   ![Richiesta di esempio in Try Image - Find Faces (Prova immagine - Ricerca visi)](images/try-image-api-face-request.png)
 
 4. Selezionare **Send** (Invia). In questo esempio l'API trova due visi e ne restituisce le coordinate nell'immagine.
 
@@ -84,13 +84,13 @@ Prima di poter eseguire il test drive dell'API nella console online, è necessar
 
 1. Nelle [informazioni di riferimento sull'API di moderazione immagini](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), nel menu a sinistra, in **Image** (Immagine) selezionare **OCR**. 
 
-  Verrà aperta la pagina **Image - OCR** (Immagine - OCR).
+   Verrà aperta la pagina **Image - OCR** (Immagine - OCR).
 
 2. Per **Open API testing console** (Apri console di test dell'API) selezionare l'area che identifica con maggiore precisione la propria posizione. 
 
-  ![Selezione dell'area nella pagina Image - OCR (Immagine - OCR)](images/test-drive-region.png)
+   ![Selezione dell'area nella pagina Image - OCR (Immagine - OCR)](images/test-drive-region.png)
 
-  Viene visualizzata la console dell'API **Image - OCR** (Immagine - OCR).
+   Viene visualizzata la console dell'API **Image - OCR** (Immagine - OCR).
 
 3. Nella casella **Ocp-Apim-Subscription-Key** immettere la chiave di sottoscrizione.
 
@@ -98,7 +98,7 @@ Prima di poter eseguire il test drive dell'API nella console online, è necessar
 
 5. Selezionare **Send** (Invia). Il testo estratto viene visualizzato in JSON:
 
-  ![Casella Response content (Contenuto della risposta) di esempio in Image - OCR (Immagine - OCR)](images/try-image-api-ocr.PNG)
+   ![Casella Response content (Contenuto della risposta) di esempio in Image - OCR (Immagine - OCR)](images/try-image-api-ocr.PNG)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

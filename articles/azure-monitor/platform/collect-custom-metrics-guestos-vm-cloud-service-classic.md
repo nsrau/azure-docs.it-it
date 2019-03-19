@@ -4,18 +4,20 @@ description: Inviare le metriche del sistema operativo guest ai Servizi cloud de
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 1e322c9bd6f78c4801c14e9982cc170b3af1971a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 6523c2b26a0340fa5347d8224ac8bf6c5e285926
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893579"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759050"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Inviare le metriche del sistema operativo guest ai Servizi cloud classici dell'archivio delle metriche di Monitoraggio di Azure 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 L'[estensione Diagnostica](diagnostics-extension-overview.md) di Monitoraggio di Azure consente di raccogliere le metriche e i log dal sistema operativo guest eseguito come parte di un cluster di macchine virtuali, di un servizio cloud o di un cluster di Service Fabric. L'estensione può inviare i dati di telemetria a [molti percorsi diversi](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
 
@@ -31,7 +33,7 @@ Il processo illustrato in questo articolo funziona solo per i contatori delle pr
 
 - La sottoscrizione deve essere registrata con [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- È necessario aver installato [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) oppure [Azure CloudShell](https://docs.microsoft.com/azure/cloud-shell/overview).
+- È necessario aver installato [Azure PowerShell](/powershell/azure) oppure [Azure CloudShell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 ## <a name="provision-a-cloud-service-and-storage-account"></a>Eseguire il provisioning del servizio cloud e dell'account di archiviazione 
 
@@ -141,7 +143,7 @@ Salvare questo file di diagnostica in locale.
 Avviare PowerShell e accedere ad Azure. 
 
 ```PowerShell
-Login-AzureRmAccount 
+Login-AzAccount 
 ```
 
 Usare i comandi seguenti per archiviare i dettagli dell'account di archiviazione creato in precedenza. 

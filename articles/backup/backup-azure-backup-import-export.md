@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: 94931546f3b8ddb18a5381de3baa31d66376badb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: b6f0ce1939b2a78ca191d2feb0140506d130b9b0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810721"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107458"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flusso di lavoro del backup offline in Backup di Azure
 In Backup di Azure sono incorporate diverse funzionalità che consentono di ridurre in modo efficiente i costi di archiviazione e di rete durante i backup completi iniziali dei dati in Azure. I backup completi iniziali comportano in genere il trasferimento di grandi quantità di dati e richiedono una larghezza di banda di rete superiore rispetto ai backup successivi con cui vengono trasferiti solo backup differenziali/incrementali. Con il processo di seeding offline, Backup di Azure può usare i dischi per caricare in Azure i dati di backup offline.
@@ -73,7 +73,7 @@ Questa sezione descrive il flusso di lavoro di backup offline in modo che i dati
 
     ![Schermata di importazione](./media/backup-azure-backup-import-export/offlinebackup_inputs.png)
 
-  Di seguito è riportata la descrizione degli input.
+   Di seguito è riportata la descrizione degli input.
 
     * **Posizione per la gestione temporanea**: posizione di archiviazione temporanea in cui viene scritta la copia di backup iniziale. Il percorso di gestione temporanea può trovarsi in una condivisione di rete o in un computer locale. Se il computer di copia e il computer di origine sono diversi, è consigliabile specificare il percorso di rete completo per la gestione temporanea.
     * **Account di archiviazione di Azure Resource Manager**: nome dell'account di archiviazione di tipo Resource Manager in una sottoscrizione di Azure.
@@ -81,7 +81,7 @@ Questa sezione descrive il flusso di lavoro di backup offline in modo che i dati
     * **ID sottoscrizione di Azure**: ID della sottoscrizione di Azure in cui viene creato l'account di Archiviazione di Azure.
     * **Nome del processo di importazione di Azure**: nome univoco con cui il servizio di importazione di Azure e Backup di Azure tengono traccia del trasferimento dei dati inviati in Azure usando dischi. 
   
-  Specificare gli input sullo schermo, quindi fare clic su **Avanti**. Salvare i valori di *Percorso di gestione temporanea* e *Nome del processo di importazione di Azure* specificati perché sono necessari per preparare i dischi.
+   Specificare gli input sullo schermo, quindi fare clic su **Avanti**. Salvare i valori di *Percorso di gestione temporanea* e *Nome del processo di importazione di Azure* specificati perché sono necessari per preparare i dischi.
 
 2. Quando verrà richiesto, accedere alla sottoscrizione di Azure. È necessario accedere in modo che Backup di Azure possa creare l'applicazione di Azure Active Directory e dare le autorizzazioni necessarie per accedere al servizio Importazione di Azure.
 
@@ -106,14 +106,14 @@ L'utilità *AzureOfflineBackupDiskPrep* prepara le unità SATA da inviare al dat
 
 1. Passare alla directory e copiare la directory **AzureOfflineBackupDiskPrep** in un altro computer in cui sono collegate le unità SATA. Nel computer con le unità SATA collegate assicurarsi che:
 
-    * Il percorso di gestione temporanea specificato per il flusso di lavoro del seeding offline è accessibile dal computer di copia usando lo stesso percorso di rete specificato durante il flusso di lavoro di **avvio del backup offline** .
-    * Nel computer di copia è abilitato BitLocker.
-    * Azure PowerShell 3.7.0 è installato.
-    * Siano installate le versioni più recenti dei browser compatibili, ovvero Microsoft Edge o Internet Explorer 11, e JavaScript sia abilitato. 
-    * Il computer di copia può accedere al portale di Azure. Se necessario, il computer di copia può coincidere con il computer di origine.
+   * Il percorso di gestione temporanea specificato per il flusso di lavoro del seeding offline è accessibile dal computer di copia usando lo stesso percorso di rete specificato durante il flusso di lavoro di **avvio del backup offline** .
+   * Nel computer di copia è abilitato BitLocker.
+   * Azure PowerShell 3.7.0 è installato.
+   * Siano installate le versioni più recenti dei browser compatibili, ovvero Microsoft Edge o Internet Explorer 11, e JavaScript sia abilitato. 
+   * Il computer di copia può accedere al portale di Azure. Se necessario, il computer di copia può coincidere con il computer di origine.
     
-    > [!IMPORTANT] 
-    > Se il computer di origine è una macchina virtuale, usare un server fisico diverso o un computer client come computer di copia del computer di origine.
+     > [!IMPORTANT] 
+     > Se il computer di origine è una macchina virtuale, usare un server fisico diverso o un computer client come computer di copia del computer di origine.
 
 2. Aprire un prompt dei comandi con privilegi elevati nel computer di copia con la directory dell'utilità *AzureOfflineBackupDiskPrep* come directory corrente ed eseguire il comando seguente:
 
@@ -137,11 +137,11 @@ L'utilità *AzureOfflineBackupDiskPrep* prepara le unità SATA da inviare al dat
     Lo strumento inizia quindi a preparare il disco e a copiare i dati di backup. Potrebbe essere necessario collegare dischi aggiuntivi quando richiesto dallo strumento, nel caso in cui lo spazio sul disco specificato non sia sufficiente a contenere i dati di backup. <br/>
 
     Dopo aver eseguito correttamente lo strumento, il prompt dei comandi presenta tre tipi di informazioni:
-    1. Uno o più dischi indicati sono stati preparati per la spedizione in Azure. 
-    2. Si riceve la conferma della creazione del processo di importazione. Il processo di importazione usa il nome specificato.
-    3. Lo strumento consente di visualizzare l'indirizzo di spedizione per il data center di Azure.
+   1. Uno o più dischi indicati sono stati preparati per la spedizione in Azure. 
+   2. Si riceve la conferma della creazione del processo di importazione. Il processo di importazione usa il nome specificato.
+   3. Lo strumento consente di visualizzare l'indirizzo di spedizione per il data center di Azure.
 
-    ![Preparazione dischi di Azure completata](./media/backup-azure-backup-import-export/console2.png)<br/>
+      ![Preparazione dischi di Azure completata](./media/backup-azure-backup-import-export/console2.png)<br/>
 
 6. Al termine dell'esecuzione del comando, è possibile aggiornare le informazioni di spedizione.
 

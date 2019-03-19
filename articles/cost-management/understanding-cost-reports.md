@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 10a8d434df376749b76e2cf90212d872f705b209
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 92ce35e88cc73c16e3d3670e07ff8b996192b825
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103422"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109815"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Informazioni sui report di gestione dei costi Cloudyn
 
@@ -41,7 +41,7 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
       - Asset Management (Gestione degli asset)
       - Ottimizzazione
 
-  Digitare un nome di filtro e quindi fare clic su **Save** (Salva).
+   Digitare un nome di filtro e quindi fare clic su **Save** (Salva).
 
 3. **Tag**
 
@@ -71,55 +71,55 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
       - Tag di entità di costo Cloudyn
       - Tag di sottoscrizione a scopo di allocazione costi
 
-  Ecco alcuni esempi:
-     - Centro di costo
-     - department
-     - Applicazione
-     - Environment
-     - Codice di costo
+   Ecco alcuni esempi:
+   - Centro di costo
+   - department
+   - Applicazione
+   - Environment
+   - Codice di costo
 
-    Di seguito è riportato un elenco dei gruppi predefiniti disponibili nei report:
+     Di seguito è riportato un elenco dei gruppi predefiniti disponibili nei report:
 
-    - **Cost Type** (Tipo di costo)
-      - Selezionare un tipo di costo o più tipi di costo oppure selezionarli tutti. I tipi di costo includono:
-        - One-Time Fee (Tariffa una tantum)
-        - Supporto
-        - Usage Cost (Costo di utilizzo)
-    - **Cliente**
-        - Selezionare un cliente specifico, più clienti oppure selezionarli tutti.
-    - **Account Name** (Nome account)
-        - Nome dell'account o della sottoscrizione. In Azure si tratta del nome della sottoscrizione di Azure.
-    - **Account No** (N. account)
-        - Selezionare un account, più account o tutti gli account. In Azure si tratta del GUID della sottoscrizione di Azure.
-    - **Parent Account** (Account padre)
-        - Selezionare l'account padre, più account oppure selezionarli tutti.
-    - **Servizio**
-        - Selezionare un servizio, più servizi o tutti i servizi.
-    - **Provider**
-        - Provider cloud in cui sono associati asset e spese.
-    - **Area**
-        - Area in cui la risorsa è ospitata.
-    - **Availability Zone** (Zona di disponibilità)
-        - Località isolate AWS all'interno di un'area.
-    - **Tipo di risorsa**
-        - Tipo di risorsa in uso.
-    - **Sub-Type** (Sottotipo)
-        - Selezionare il sottotipo.
-    - **operazione**
-        - Selezionare l'operazione o **Show all** (Mostra tutto).
-    - **Price Model** (Modello di prezzo)
-        - All Upfront (Tutto anticipato)
-        - No Upfront (Nessun anticipo)
-        - Partial Upfront (Anticipo parziale)
-        - On Demand (Su richiesta)
-        - Reservation
-        - Spot (Contante)
-    - **Charge Type** (Tipo di addebito)
-        - Selezionare l'addebito di tipo Negative (Negativo), Positive (Positivo) o entrambi.
-    - **Tenancy**
-        - Indica se un computer è in esecuzione come computer dedicato.
-    -   **Usage Type** (Tipo di utilizzo)
-          - Il tipo di utilizzo può essere impostato su tariffe una tantum o tariffe ricorrenti.
+     - **Cost Type** (Tipo di costo)
+     - Selezionare un tipo di costo o più tipi di costo oppure selezionarli tutti. I tipi di costo includono:
+       - One-Time Fee (Tariffa una tantum)
+       - Supporto
+       - Usage Cost (Costo di utilizzo)
+     - **Cliente**
+       - Selezionare un cliente specifico, più clienti oppure selezionarli tutti.
+     - **Account Name** (Nome account)
+       - Nome dell'account o della sottoscrizione. In Azure si tratta del nome della sottoscrizione di Azure.
+     - **Account No** (N. account)
+       - Selezionare un account, più account o tutti gli account. In Azure si tratta del GUID della sottoscrizione di Azure.
+     - **Parent Account** (Account padre)
+       - Selezionare l'account padre, più account oppure selezionarli tutti.
+     - **Servizio**
+       - Selezionare un servizio, più servizi o tutti i servizi.
+     - **Provider**
+       - Provider cloud in cui sono associati asset e spese.
+     - **Area**
+       - Area in cui la risorsa è ospitata.
+     - **Availability Zone** (Zona di disponibilità)
+       - Località isolate AWS all'interno di un'area.
+     - **Tipo di risorsa**
+       - Tipo di risorsa in uso.
+     - **Sub-Type** (Sottotipo)
+       - Selezionare il sottotipo.
+     - **operazione**
+       - Selezionare l'operazione o **Show all** (Mostra tutto).
+     - **Price Model** (Modello di prezzo)
+       - All Upfront (Tutto anticipato)
+       - No Upfront (Nessun anticipo)
+       - Partial Upfront (Anticipo parziale)
+       - On Demand (Su richiesta)
+       - Reservation
+       - Spot (Contante)
+     - **Charge Type** (Tipo di addebito)
+       - Selezionare l'addebito di tipo Negative (Negativo), Positive (Positivo) o entrambi.
+     - **Tenancy**
+       - Indica se un computer è in esecuzione come computer dedicato.
+     - **Usage Type** (Tipo di utilizzo)
+       - Il tipo di utilizzo può essere impostato su tariffe una tantum o tariffe ricorrenti.
 
 5. **Filtri**
 
@@ -139,7 +139,7 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
     - Spese per l'acquisto di istanze riservate
     - Alcuni elementi di Azure Marketplace
 
-  In Amortization (Ammortamento) selezionare **Amortized cost** (Costo ammortizzato) o **Actual Cost** (Costo effettivo).
+   In Amortization (Ammortamento) selezionare **Amortized cost** (Costo ammortizzato) o **Actual Cost** (Costo effettivo).
 
 8. **Risoluzione**
 
@@ -162,7 +162,7 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
 
     Questa opzione non ha alcun effetto sui report.
 
-12.   **Formati di visualizzazione**
+12. **Formati di visualizzazione**
 
     Usare le icone dei formati di visualizzazione per selezionare varie visualizzazioni di grafici o tabelle.
 

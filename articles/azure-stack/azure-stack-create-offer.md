@@ -15,12 +15,12 @@ ms.date: 03/07/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 42336205726823dd04e0412f29c3e7a23d134d39
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 59c69477e120facec1fbf132ce7017ca21aa8748
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763994"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092617"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Creare un'offerta in Azure Stack
 
@@ -54,12 +54,12 @@ ms.locfileid: "57763994"
 
 Dopo aver creato l'offerta, è possibile modificare il relativo stato. Le offerte devono essere apportate **pubblica** agli utenti di ottenere una visione completa quando hanno eseguito la sottoscrizione. Possono essere offerte:
 
-   - **Public**: Visibile agli utenti.
-   - **Privato**: Visibili solo agli amministratori di cloud. Questa impostazione è utile durante la progettazione del piano o offerta, o se l'amministratore cloud desidera [creare tutte le sottoscrizioni per gli utenti](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
-   - **Rimuovere le autorizzazioni**: Chiusi ai nuovi sottoscrittori. L'amministratore del cloud è possibile rimuovere le autorizzazioni offerte per evitare future sottoscrizioni, ma lasciare inalterate sottoscrittori correnti.
+- **Public**: Visibile agli utenti.
+- **Privato**: Visibili solo agli amministratori di cloud. Questa impostazione è utile durante la progettazione del piano o offerta, o se l'amministratore cloud desidera [creare tutte le sottoscrizioni per gli utenti](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
+- **Rimuovere le autorizzazioni**: Chiusi ai nuovi sottoscrittori. L'amministratore del cloud è possibile rimuovere le autorizzazioni offerte per evitare future sottoscrizioni, ma lasciare inalterate sottoscrittori correnti.
 
-   > [!TIP]  
-   > Modifiche all'offerta non sono immediatamente visibili all'utente. Per visualizzare le modifiche, gli utenti potrebbero essere necessario disconnettersi e accedere nuovamente al portale utenti per visualizzare la nuova offerta.
+  > [!TIP]  
+  > Modifiche all'offerta non sono immediatamente visibili all'utente. Per visualizzare le modifiche, gli utenti potrebbero essere necessario disconnettersi e accedere nuovamente al portale utenti per visualizzare la nuova offerta.
 
 Esistono due modi per modificare lo stato di un'offerta:
 

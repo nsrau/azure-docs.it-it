@@ -1,5 +1,5 @@
 ---
-title: Elementi del messaggio di posta elettronica di invito di Collaborazione B2B - Azure Active Directory | Microsoft Docs
+title: Gli elementi di posta elettronica di invito B2B - Azure Active Directory | Microsoft Docs
 description: Modello di messaggio di posta elettronica di invito per la collaborazione B2B di Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -9,14 +9,15 @@ ms.date: 02/06/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eaab50360269ac1231db2696ba095b6d8841f74
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 43fa8148fff1389982d967b2e69f4a9425841c91
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163003"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014910"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementi del messaggio di posta elettronica di invito di Collaborazione B2B - Azure Active Directory
 
@@ -31,7 +32,7 @@ Per sfruttare al meglio le potenzialità del messaggio di posta elettronica, di 
 L'oggetto del messaggio di posta elettronica segue il modello seguente: Ti invitiamo all'organizzazione &lt;nometenant&gt;
 
 ### <a name="from-address"></a>Indirizzo del mittente.
-Per l'indirizzo del mittente si userà un modello simile a quello LinkedIn.  È consigliabile chiarire chi è il mittente dell'invito e a quale azienda appartiene, oltre a mettere in evidenza che il messaggio proviene da un indirizzo di posta elettronica Microsoft. Il formato è: &lt;nome visualizzato del mittente dell'invito&gt; da &lt;nometenant&gt; (tramite Microsoft) <invites@microsoft.com>
+Per l'indirizzo del mittente si userà un modello simile a quello LinkedIn.  È consigliabile chiarire chi è il mittente dell'invito e a quale azienda appartiene, oltre a mettere in evidenza che il messaggio proviene da un indirizzo di posta elettronica Microsoft. Il formato è: Microsoft Invitations <invites@microsoft.com> oppure &lt;il nome visualizzato del mittente dell'invito&gt; dalla &lt;nometenant&gt; (tramite Microsoft) <invites@microsoft.com>.
 
 ### <a name="reply-to"></a>Rispondi a
 Se disponibile, viene impostato l'indirizzo di posta elettronica del mittente dell'invito. Un'eventuale risposta all'invito viene quindi inviata al mittente.
@@ -55,8 +56,12 @@ Se non è ancora stata impostata un'immagine del profilo, al posto dell'immagine
 ### <a name="body"></a>Corpo
 Il corpo contiene il messaggio digitato dal mittente dell'invito quando [viene invitato un utente guest alla directory, al gruppo o all'app](add-users-administrator.md) oppure [usando l'API di invito](customize-invitation-api.md). Si tratta di un'area di testo, che quindi non supporta l'elaborazione dei tag HTML per motivi di sicurezza.
 
+  ![immagine del corpo del messaggio di posta elettronica](media/invitation-email-elements/invitation-email-body.png)
+
 ### <a name="footer-section"></a>Sezione piè di pagina
-Il piè di pagina contiene il marchio aziendale di Microsoft e indica al destinatario se il messaggio di posta elettronica è stato inviato da un alias non monitorato. Casi speciali:
+Il piè di pagina contiene il marchio aziendale di Microsoft e indica al destinatario se il messaggio di posta elettronica è stato inviato da un alias non monitorato. 
+
+Casi speciali:
 
 - Il mittente dell'invito non dispone di un indirizzo di posta elettronica nella tenancy di invito
 

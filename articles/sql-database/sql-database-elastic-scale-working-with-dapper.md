@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 8de155eb0c53a07c88d996e2545be9da3159653f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: c6ca7637c8e251fa29781503ffc18227c51bb4da
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565582"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002284"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Utilizzo della libreria client dei database elastici con Dapper
 Questo documento è rivolto agli sviluppatori che si basano su Dapper per creare applicazioni, ma desiderano avvalersi degli [strumenti dei database elastici](sql-database-elastic-scale-introduction.md) per creare applicazioni che implementano il partizionamento per la scalabilità orizzontale del livello dati.  Questo documento illustra le modifiche da apportare nelle applicazioni basate su Dapper per l'integrazione con gli strumenti dei database elastici. L'obiettivo è comporre la gestione delle partizioni dei database elastici e il routing dipendente dai dati con Dapper. 
@@ -35,7 +35,7 @@ Quando si usa DapperExtensions, non è più necessario fornire le istruzioni SQL
 
 Un altro vantaggio offerto da Dapper e anche da DapperExtensions è il controllo della creazione della connessione di database da parte dell'applicazione. Ciò consente di interagire con la libreria client dei database elastici che negozia le connessioni di database in base al mapping tra shardlet e database.
 
-Per ottenere gli assembly Dapper, vedere la pagina relativa a [Dapper dot net](http://www.nuget.org/packages/Dapper/). Per le estensioni Dapper, vedere la pagina relativa a [DapperExtensions](http://www.nuget.org/packages/DapperExtensions).
+Per ottenere gli assembly Dapper, vedere la pagina relativa a [Dapper dot net](https://www.nuget.org/packages/Dapper/). Per le estensioni Dapper, vedere la pagina relativa a [DapperExtensions](https://www.nuget.org/packages/DapperExtensions).
 
 ## <a name="a-quick-look-at-the-elastic-database-client-library"></a>Panoramica della libreria client dei database elastici
 Con libreria client dei database elastici è possibile definire partizioni di dati di applicazione denominate *shardlet*, eseguirne il mapping con i database e identificarli in base a *chiavi di partizionamento orizzontale*. È possibile disporre di tutti i database desiderati e distribuire gli shardlet su tali database. Il mapping dei valori delle chiavi di partizionamento orizzontale ai database è archiviato in una mappa partizioni fornita dalle API della libreria. Questa funzionalità è denominata **gestione mappe partizioni**. La mappa partizioni funge anche da gestore delle connessioni di database per le richieste che contengono una chiave di partizionamento orizzontale. Questa funzionalità è indicata come **routing dipendente dai dati**.
@@ -64,8 +64,8 @@ Queste osservazioni semplificano l'utilizzo delle connessioni negoziate dalla li
 Questo esempio di codice (dall'esempio di accompagnamento) illustra il metodo in cui la chiave di partizionamento viene fornita dall'applicazione alla libreria per negoziare la connessione al partizionamento corretto.   
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                     key: tenantId1, 
-                     connectionString: connStrBldr.ConnectionString, 
+                     key: tenantId1,
+                     connectionString: connStrBldr.ConnectionString,
                      options: ConnectionOptions.Validate))
     {
         var blog = new Blog { Name = name };
@@ -87,13 +87,13 @@ L'oggetto mappa partizioni crea una connessione alla partizione che contiene lo 
 Le query funzionano in modo molto simile: si apre innanzitutto la connessione usando [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) dall'API client. Si usano quindi i normali metodi di estensione Dapper per il mapping tra i risultati della query SQL negli oggetti .NET:
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                    key: tenantId1, 
-                    connectionString: connStrBldr.ConnectionString, 
+                    key: tenantId1,
+                    connectionString: connStrBldr.ConnectionString,
                     options: ConnectionOptions.Validate ))
-    {    
+    {
            // Display all Blogs for tenant 1
            IEnumerable<Blog> result = sqlconn.Query<Blog>(@"
-                                SELECT * 
+                                SELECT *
                                 FROM Blog
                                 ORDER BY Name");
 
@@ -112,8 +112,8 @@ Dapper viene fornito con un ecosistema di estensioni aggiuntive che garantiscono
 L'uso di DapperExtensions nell'applicazione non comporta la modifica della modalità di creazione e gestione delle connessioni di database. È comunque responsabilità dell'applicazione aprire le connessioni e sono previsti normali oggetti di connessione client SQL dai metodi di estensione. È possibile basarsi sul metodo [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) come illustrato in precedenza. Come mostrato nei seguenti esempi di codice, come unica differenza non è necessario scrivere le istruzioni T-SQL:
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                    key: tenantId2, 
-                    connectionString: connStrBldr.ConnectionString, 
+                    key: tenantId2,
+                    connectionString: connStrBldr.ConnectionString,
                     options: ConnectionOptions.Validate))
     {
            var blog = new Blog { Name = name2 };
@@ -123,8 +123,8 @@ L'uso di DapperExtensions nell'applicazione non comporta la modifica della modal
 Questo è l'esempio di codice per la query: 
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                    key: tenantId2, 
-                    connectionString: connStrBldr.ConnectionString, 
+                    key: tenantId2,
+                    connectionString: connStrBldr.ConnectionString,
                     options: ConnectionOptions.Validate))
     {
            // Display all Blogs for tenant 2
@@ -143,7 +143,7 @@ L'esempio di codice si basa sulla libreria di errori temporanei per proteggersi 
 
     SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
     {
-       using (SqlConnection sqlconn = 
+       using (SqlConnection sqlconn =
           shardingLayer.ShardMap.OpenConnectionForKey(tenantId2, connStrBldr.ConnectionString, ConnectionOptions.Validate))
           {
               var blog = new Blog { Name = name2 };

@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: c936d7946398183f0b0aac025503bb172bc147af
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 0d5508fe6b07bd5664bd0708960559537d8f6be1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101006"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098492"
 ---
 # <a name="monitor-and-tune"></a>Monitorare e ottimizzare
 Il monitoraggio dei dati relativi ai server facilita la risoluzione dei problemi e l'ottimizzazione in relazione al carico di lavoro. Database di Azure per PostgreSQL offre varie opzioni di monitoraggio che consentono di ottenere informazioni dettagliate sul comportamento del server.
@@ -23,7 +23,7 @@ Database di Azure per PostgreSQL offre varie metriche che consentono di ottenere
 Per Database di Azure per PostgreSQL sono disponibili le metriche seguenti:
 
 |Metrica|Nome visualizzato per la metrica|Unità|DESCRIZIONE|
-|---|---|---|---|---|
+|---|---|---|---|
 |cpu_percent|Percentuale CPU|Percentuale|Percentuale di CPU in uso.|
 |memory_percent|Percentuale memoria|Percentuale|Percentuale di memoria in uso.|
 |io_consumption_percent|IO percent (Percentuale IO)|Percentuale|Percentuale di I/O in uso.|
@@ -40,7 +40,7 @@ Per Database di Azure per PostgreSQL sono disponibili le metriche seguenti:
 |backup_storage_used|Risorse di backup in uso|Byte|Quantità di risorse dell'archivio di backup usate.|
 
 ## <a name="server-logs"></a>Log del server
-È possibile abilitare l'accesso al server. Questi log sono disponibili anche tramite i log di diagnostica di Azure in [Log Analytics](../azure-monitor/log-query/log-query-overview.md), Hub eventi e nell'account di archiviazione. Per altre informazioni sull'accesso, visitare la pagina dei [log del server](concepts-server-logs.md).
+È possibile abilitare l'accesso al server. Questi log sono disponibili anche tramite i log di diagnostica di Azure in [monitoraggio di Azure registra](../azure-monitor/log-query/log-query-overview.md), hub eventi e Account di archiviazione. Per altre informazioni sull'accesso, visitare la pagina dei [log del server](concepts-server-logs.md).
 
 ## <a name="query-store"></a>Archivio query
 [Query Store](concepts-query-store.md) è una funzionalità di anteprima pubblica che tiene traccia delle prestazioni di query nel tempo, incluse informazioni su statistiche dei runtime di query ed eventi di attesa. La funzionalità salva in modo permanente le informazioni sulle prestazioni dei runtime di query in un database di sistema denominato **azure_sys** nello schema query_store. È possibile controllare la raccolta e l'archiviazione dei dati tramite vari controlli di configurazione.

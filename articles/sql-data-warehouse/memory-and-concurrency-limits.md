@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 10/04/2018
+ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 802408f6ccd0a1cc0ed4f4d87d54a11760cd70fe
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 141112b8b6b44706a750d8a97780e018d96a5006
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473443"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890791"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Limiti di memoria e concorrenza per Azure SQL Data Warehouse
 Visualizzare i limiti di memoria e concorrenza allocati ai livelli di prestazione e alle classi di risorse in Azure SQL Data Warehouse. Per altre informazioni e per applicare queste funzionalità al piano di gestione del carico di lavoro, vedere [Classi di risorse per la gestione del carico di lavoro](resource-classes-for-workload-management.md). 
@@ -70,7 +70,7 @@ I livelli di servizio per la Prima generazione sono compresi tra DW100 e DW6000.
 | DW6000            | 60            | 1                              | 1.440                           |
 
 ## <a name="concurrency-maximums"></a>Valori massimi di concorrenza
-Affinché ogni query abbia risorse sufficienti per operare in modo efficace, SQL Data Warehouse tiene traccia dell'uso delle risorse assegnando slot di concorrenza a ogni query. Il sistema inserisce le query in una coda dove rimangono in attesa fino a quando non sono disponibili [slot di concorrenza](resource-classes-for-workload-management.md#concurrency-slots) sufficienti. Gli slot di concorrenza determinano anche la priorità della CPU. Per altre informazioni, vedere [Analyze your workload](analyze-your-workload.md) (Analisi del carico di lavoro)
+Affinché ogni query abbia risorse sufficienti per operare in modo efficace, SQL Data Warehouse tiene traccia dell'uso delle risorse assegnando slot di concorrenza a ogni query. Il sistema inserisce le query in una coda in base a importanza e slot di concorrenza. Le query in attesa nella coda fino a quando non sono disponibili slot di concorrenza sufficienti. [Importanza](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) e slot di concorrenza determinano priorità della CPU. Per altre informazioni, vedere [Analyze your workload](analyze-your-workload.md) (Analisi del carico di lavoro)
 
 ### <a name="gen2"></a>Seconda generazione
  
@@ -78,7 +78,7 @@ Affinché ogni query abbia risorse sufficienti per operare in modo efficace, SQL
 
 La tabella seguente illustra il numero massimo di query simultanee e di slot di concorrenza per ogni [classe di risorse statica](resource-classes-for-workload-management.md).  
 
-| Contratto | Numero massimo di query simultanee | Slot di concorrenza disponibili |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| Contratto | Numero massimo di query simultanee | Slot di concorrenza disponibili | Slot utilizzati da staticrc10 | Slot utilizzati da staticrc20 | Slot utilizzati da staticrc30 | Slot utilizzati da staticrc40 | Slot utilizzati da staticrc50 | Slot utilizzati da staticrc60 | Slot utilizzati da staticrc70 | Slot utilizzati da staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
 | DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
@@ -133,7 +133,7 @@ Classi di risorse statiche
 
 La tabella seguente illustra il numero massimo di query simultanee e di slot di concorrenza per ogni [classe di risorse statica](resource-classes-for-workload-management.md) nella **Prima generazione**.
 
-| Livello di servizio | Numero massimo di query simultanee | Numero massimo di slot di concorrenza |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| Livello di servizio | Numero massimo di query simultanee | Numero massimo di slot di concorrenza | Slot utilizzati da staticrc10 | Slot utilizzati da staticrc20 | Slot utilizzati da staticrc30 | Slot utilizzati da staticrc40 | Slot utilizzati da staticrc50 | Slot utilizzati da staticrc60 | Slot utilizzati da staticrc70 | Slot utilizzati da staticrc80 |
 |:-------------:|:--------------------------:|:-------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100         | 4                          |   4                       | 1         | 2          | 4          | 4          |  4         |  4         |  4         |   4        |
 | DW200         | 8                          |   8                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
@@ -156,7 +156,7 @@ Classi di risorse dinamiche
 
 La tabella seguente illustra il numero massimo di query simultanee e di slot di concorrenza per ogni [classe di risorse dinamica](resource-classes-for-workload-management.md) nella **Prima generazione**.
 
-| Livello di servizio | Numero massimo di query simultanee | Slot di concorrenza disponibili | smallrc | mediumrc | largerc | xlargerc |
+| Livello di servizio | Numero massimo di query simultanee | Slot di concorrenza disponibili | Slot utilizzati da smallrc | Slot utilizzati da mediumrc | Slot utilizzati da largerc | Slot utilizzati da xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:-------:|:--------:|:-------:|:--------:|
 | DW100         |  4                         |   4                         | 1       |  1       |  2      |   4      |
 | DW200         |  8                         |   8                         | 1       |  2       |  4      |   8      |

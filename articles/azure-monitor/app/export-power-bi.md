@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 17c493568953265ac12ebccc680652ed5da6ae4d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 13156b3419d961850c8e4e408a9cf565a5f957ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312992"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086395"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed di Power BI da Application Insights
 [Power BI](https://www.powerbi.com/) è un insieme di strumenti aziendali che consente di analizzare i dati e condividere informazioni dettagliate e significative. Dashboard completi sono disponibili in tutti i dispositivi. È possibile combinare dati provenienti da diverse origini, incluse le query di Analytics di [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -96,7 +96,7 @@ Questo errore può verificarsi se il token di aggiornamento non è stato aggiorn
 1. Accedere al portale di Azure e verificare di poter accedere alla risorsa.
 2. Provare ad aggiornare le credenziali per il dashboard.
 
- Se si ha accesso e non è possibile aggiornare le credenziali, aprire un ticket di supporto.
+   Se si ha accesso e non è possibile aggiornare le credenziali, aprire un ticket di supporto.
 
 ### <a name="bad-gateway-502"></a>Gateway non valido (502)
 Questo errore è in genere causato da una query di Analisi che restituisce troppi dati. Provare a usare un intervallo di tempo più breve per la query. 

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.custom: seodec18
-ms.openlocfilehash: a14f568e2485e59cb3e567eb9ee5c5eb20b02afc
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: f5cc06ba1a326d262c1437a941306b4d4a648260
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198423"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101228"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Creare un set di dati di riferimento per l'ambiente Time Series Insights usando il portale di Azure
 
@@ -82,19 +82,19 @@ Non viene creato un join dei dati di riferimento in maniera retroattiva. Questo 
  
 13. Assegnare un nome al set di dati specificandolo nel campo **Nome del set di dati** sopra la griglia dei dati.
 
-   ![Assegnare un nome al set di dati.](media/add-reference-data-set/name_reference_dataset.png)
+    ![Assegnare un nome al set di dati.](media/add-reference-data-set/name_reference_dataset.png)
 
 14. Specificare la colonna **Chiave primaria** nel set di dati, selezionandola dall'elenco a discesa sopra la griglia dei dati.
 
-   ![Selezionare la colonna o le colonne chiave.](media/add-reference-data-set/set_primary_key.png)
+    ![Selezionare la colonna o le colonne chiave.](media/add-reference-data-set/set_primary_key.png)
 
-   Facoltativamente, selezionare il pulsante **+** per aggiungere una colonna chiave secondaria, come una chiave primaria composta. Se occorre annullare la selezione, selezionare il valore vuoto nell'elenco a discesa per rimuovere la chiave secondaria.
+    Facoltativamente, selezionare il pulsante **+** per aggiungere una colonna chiave secondaria, come una chiave primaria composta. Se occorre annullare la selezione, selezionare il valore vuoto nell'elenco a discesa per rimuovere la chiave secondaria.
 
-15.  Per caricare i dati, selezionare il pulsante **Carica righe**.
+15. Per caricare i dati, selezionare il pulsante **Carica righe**.
 
-   ![Caricamento](media/add-reference-data-set/upload_rows.png)
+    ![Caricamento](media/add-reference-data-set/upload_rows.png)
 
-   La pagina conferma il completamento del caricamento e visualizza il messaggio **Il set di dati è stato caricato**.
+    La pagina conferma il completamento del caricamento e visualizza il messaggio **Il set di dati è stato caricato**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Gestire i dati di riferimento](time-series-insights-manage-reference-data-csharp.md) a livello di codice.

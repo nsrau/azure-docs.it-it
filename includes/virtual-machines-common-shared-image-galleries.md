@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/09/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: f8122f35ac6d604908fc31dcece7dfb53dd50286
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 8c7da8d04b456642b158dda77d9c745891aa18e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985445"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58051790"
 ---
 Raccolta di immagini condivise è un servizio che consente di compilare la struttura e l'organizzazione per le immagini di macchine virtuali gestite e personalizzate. Usando una raccolta di immagini condivise è possibile condividere le immagini con utenti diversi, entità servizio o gruppi di Active Directory all'interno dell'organizzazione. Le immagini condivise possono essere replicate in più aree, per un ridimensionamento più rapido delle distribuzioni.
 
@@ -128,18 +128,18 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
  
  R. Per elencare tutte le risorse di Raccolta di immagini condivise tra le sottoscrizioni a cui si ha accesso nel portale di Azure, seguire questa procedura:
 
- 1. Aprire il [portale di Azure](https://portal.azure.com).
- 1. Passare a **Tutte le risorse**.
- 1. Selezionare tutte le sottoscrizioni in cui si desidera elencare tutte le risorse.
- 1. Identificare le risorse di tipo **Raccolta privata**.
+1. Aprire il [portale di Azure](https://portal.azure.com).
+1. Passare a **Tutte le risorse**.
+1. Selezionare tutte le sottoscrizioni in cui si desidera elencare tutte le risorse.
+1. Identificare le risorse di tipo **Raccolta privata**.
  
- Per visualizzare le definizioni di immagini e le versioni di immagini, è necessario selezionare anche **Mostra tipi nascosti**.
+   Per visualizzare le definizioni di immagini e le versioni di immagini, è necessario selezionare anche **Mostra tipi nascosti**.
  
- Per elencare tutte le risorse della raccolta di immagini condivise tra le sottoscrizioni a cui si ha accesso, usare il seguente comando nell'interfaccia della riga di comando di Azure:
+   Per elencare tutte le risorse della raccolta di immagini condivise tra le sottoscrizioni a cui si ha accesso, usare il seguente comando nell'interfaccia della riga di comando di Azure:
 
- ```bash
- az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
- ```
+   ```bash
+   az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
+   ```
 
 
 **D.** Come si condividono immagini personali tra sottoscrizioni?
@@ -155,9 +155,9 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 
  Scenario 2: se si dispone di un'immagine generalizzata non gestita, è possibile creare un'immagine gestita da quest'ultima e quindi creare una definizione di immagine e la versione dell'immagine da essa. 
 
- Scenario 3: se si dispone di un disco rigido virtuale nel file system locale, è necessario caricare il disco rigido virtuale e creare un'immagine gestita; quindi è possibile creare una definizione di immagine e una versione dell'immagine da quest'ultima. 
-    - Se il disco rigido virtuale è di una macchina virtuale Windows, vedere [Caricare un disco rigido virtuale generalizzato](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
-    - Se il disco rigido virtuale è per una macchina virtuale Linux, vedere [Caricare un disco rigido virtuale](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
+ Scenario 3: se si dispone di un disco rigido virtuale nel file system locale, è necessario caricare il disco rigido virtuale e creare un'immagine gestita; quindi è possibile creare una definizione di immagine e una versione dell'immagine da quest'ultima.
+- Se il disco rigido virtuale è di una macchina virtuale Windows, vedere [Caricare un disco rigido virtuale generalizzato](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
+- Se il disco rigido virtuale è per una macchina virtuale Linux, vedere [Caricare un disco rigido virtuale](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
 
 
 **D.** È possibile creare una versione di immagine da un disco specializzato?

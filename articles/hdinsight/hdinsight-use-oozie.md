@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5048a4ab4db6d4cb168d2a643a412f89273658b4
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 961103b787cf42170fc3022fc33d8eb218b7a4bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984257"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998344"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Usare Apache Oozie con Apache Hadoop per definire ed eseguire un flusso di lavoro in HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -126,7 +126,7 @@ RunHiveScript è caratterizzato da diverse variabili. I valori vengono passati q
 |Variabili del flusso di lavoro|DESCRIZIONE|
 |---|---|
 |${jobTracker}|Specifica l'URL dell'utilità di analisi dei processi Hadoop. In HDInsight versione 3.0 o 2.1 usare **jobtrackerhost: 9010**.|
-|${nameNode}|Specifica l'URL del nodo dei nomi di Hadoop. Usare l'indirizzo del file system predefinito, ad esempio *wasb://&lt;nomecontenitore&gt;@&lt;nomeaccountarchiviazione&gt;.blob.core.windows.net*.|
+|${nameNode}|Specifica l'URL del nodo dei nomi di Hadoop. Usare l'indirizzo del file system predefinito, ad esempio *wasb://&lt;nomecontenitore&gt;\@&lt;nomeaccountarchiviazione&gt;.blob.core.windows.net*.|
 |${queueName}|Specifica il nome della coda alla quale viene inviato il processo. Usare il nome **predefinito**.|
 
 |Variabile azione Hive|DESCRIZIONE|

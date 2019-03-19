@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6194ed8ffa5732c9f187679e934aad306293d46
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: dcb825a193071d263d800dafdd6296246eb74aec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186370"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878194"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Domande frequenti sulla gestione delle password
 
@@ -98,12 +98,10 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
 * **D:  Quanto tempo deve passare prima di ricevere un messaggio di posta elettronica, un SMS o una telefonata dopo la reimpostazione della password?**
 
   > **R:** Messaggi di posta elettronica, SMS e telefonate dovrebbero arrivare dopo meno di un minuto. L'intervallo normale è da 5 a 20 secondi.
-    >Se non si riceve la notifica entro questo periodo di tempo:
-        > * Controllare la cartella della posta indesiderata.
-        > * Controllare che il numero o l'indirizzo di posta elettronica contattato sia quello previsto.
-        > * Controllare che i dati di autenticazione nella directory siano nel formato corretto, ad esempio +1 4255551234 o *user@contoso.com*. 
-  >
-  >
+  > Se non si riceve la notifica entro questo periodo di tempo:
+  > * Controllare la cartella della posta indesiderata.
+  > * Controllare che il numero o l'indirizzo di posta elettronica contattato sia quello previsto.
+  > * Verificare che i dati di autenticazione nella directory siano correttamente formattato, ad esempio + 1 4255551234 o *utente\@contoso.com*. 
 * **D:  Quali lingue sono supportate per la reimpostazione della password?**
 
   > **R:** L'interfaccia utente, gli SMS e le chiamate vocali per la reimpostazione della password sono localizzati nelle stesse lingue supportate in Office 365.

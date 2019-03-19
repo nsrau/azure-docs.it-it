@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 653d3e357e3a02659a225b4e26c386ca54b6288f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 52ad40a2521f21efee3b9f98b46c2e2e6343b656
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715427"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098305"
 ---
 # <a name="run-apache-pig-jobs-with-apache-hadoop-on-hdinsight-by-using-rest"></a>Eseguire processi Apache Pig con Apache Hadoop in HDInsight tramite REST
 
@@ -58,8 +58,8 @@ Informazioni su come eseguire processi Apache Pig Latin inviando richieste REST 
 
     I parametri usati in questo comando sono i seguenti:
 
-    * **-u**: Il nome utente e la password usati per autenticare la richiesta
-    * **-G**: Indica che è una richiesta GET
+   * **-u**: Il nome utente e la password usati per autenticare la richiesta
+   * **-G**: Indica che è una richiesta GET
 
      La parte iniziale dell'URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, è uguale per tutte le richieste. Il percorso, **/status**, indica che la richiesta deve restituire lo stato di WebHCat, noto anche come Templeton, per il server.
 
@@ -71,18 +71,18 @@ Informazioni su come eseguire processi Apache Pig Latin inviando richieste REST 
 
     I parametri usati in questo comando sono i seguenti:
 
-    * **-d**: Dato che `-G` non viene usato, la richiesta userà il metodo POST per impostazione predefinita. `-d` specifica i valori di dati che vengono inviati con la richiesta.
+   * **-d**: Dato che `-G` non viene usato, la richiesta userà il metodo POST per impostazione predefinita. `-d` specifica i valori di dati che vengono inviati con la richiesta.
 
-    * **user.name**: L'utente che esegue il comando
-    * **eseguire**: Le istruzioni Pig Latin da eseguire
-    * **statusdir**: La directory in cui è scritto lo stato del processo
+   * **user.name**: L'utente che esegue il comando
+   * **eseguire**: Le istruzioni Pig Latin da eseguire
+   * **statusdir**: La directory in cui è scritto lo stato del processo
 
-    > [!NOTE]  
-    > Si noti che gli spazi tra le istruzioni Pig Latin vengono sostituiti dal carattere `+` se è in uso Curl.
+     > [!NOTE]  
+     > Si noti che gli spazi tra le istruzioni Pig Latin vengono sostituiti dal carattere `+` se è in uso Curl.
 
-    Questo comando dovrebbe restituire un ID processo utilizzabile per verificare lo stato del processo, ad esempio:
+     Questo comando dovrebbe restituire un ID processo utilizzabile per verificare lo stato del processo, ad esempio:
 
-        {"id":"job_1415651640909_0026"}
+       {"id":"job_1415651640909_0026"}
 
 3. Per verificare lo stato del processo, usare il comando seguente:
 

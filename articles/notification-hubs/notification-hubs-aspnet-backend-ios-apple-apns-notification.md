@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 23c532f6c344f8be37c3bf3d77f30effa4ec17e8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 9b6c0715cb85e245aba94adfb8b33d0d07ece9a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227710"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084413"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Esercitazione: Eseguire il push di notifiche a utenti specifici con Hub di notifica di Azure
 
@@ -54,7 +54,7 @@ Se si desidera usare le app per dispositivi mobili come servizio back-end, veder
 
 2. Nel file `Main.storyboard` aggiungere i componenti illustrati nello screenshot dalla libreria di oggetti.
 
-    ![Modificare lo storybard nello strumento di creazione delle interfacce di Xcode][1]
+    ![Modifica dello storyboard di interface builder Xcode][1]
 
    * **Nome utente**: oggetto UITextField con testo segnaposto, *Enter Username*, immediatamente sotto l'etichetta per l'invio dei risultati e limitato dai margini sinistro e destro.
    * **Password**: oggetto UITextField con testo segnaposto, *Enter Password*, immediatamente sotto il campo di testo del nome utente e limitato dai margini sinistro e destro. Selezionare l'opzione **Secure Text Entry** in Attribute Inspector sotto *Return Key*.
@@ -64,7 +64,7 @@ Se si desidera usare le app per dispositivi mobili come servizio back-end, veder
    * **APNS**: etichetta e opzione per consentire l'invio della notifica al servizio di notifica della piattaforma di Apple.
    * **Nome utente del destinatario**: oggetto UITextField con testo segnaposto, *Recipient username tag*, immediatamente sotto l'etichetta GCM e limitato dai margini sinistro e destro.
 
-    Alcuni componenti sono stati aggiunti nell'esercitazione [Introduzione ad Hub di notifica (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) esercitazione.
+     Alcuni componenti sono stati aggiunti nell'esercitazione [Introduzione ad Hub di notifica (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) esercitazione.
 
 3. Premere **CTRL** e trascinarlo dai componenti alla visualizzazione a `ViewController.h` e aggiungere questi nuovi outlet.
 

@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: 5234f5c82e98fcb402cadf9a8a469a15bbb7ac6d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 3f3a649308449a8ba4e1dbaebd4db4afbf731c5b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250816"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105761"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Introduzione all'archiviazione code di Azure e ai servizi connessi di Visual Studio (ASP.NET)
 
@@ -62,7 +62,7 @@ Questa esercitazione illustra come scrivere codice ASP.NET per alcuni scenari co
     using Microsoft.WindowsAzure.Storage.Auth;
     using Microsoft.WindowsAzure.Storage.Queue;
     ```
-## <a name="create-a-queue"></a>Creare una coda
+   ## <a name="create-a-queue"></a>Creare una coda
 
 I passaggi seguenti illustrano come creare una coda:
 
@@ -83,7 +83,7 @@ I passaggi seguenti illustrano come creare una coda:
     }
     ```
 
-1. Nel metodo **CreateQueue** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: sostituire *&lt;nome account di archiviazione>* con il nome dell'account di archiviazione Azure a cui si sta accedendo.
+1. Nel metodo **CreateQueue** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: Cambiare *&lt;storage-account-name>* con il nome dell'account di archiviazione di Azure a cui si sta eseguendo l'accesso.
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -164,7 +164,7 @@ Dopo aver [creato una coda](#create-a-queue) è possibile aggiungervi dei messag
     }
     ```
  
-1. Nel metodo **AddMessage** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: sostituire *&lt;nome account di archiviazione>* con il nome dell'account di archiviazione Azure a cui si sta accedendo.
+1. Nel metodo **AddMessage** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: Cambiare *&lt;storage-account-name>* con il nome dell'account di archiviazione di Azure a cui si sta eseguendo l'accesso.
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -253,7 +253,7 @@ Questa sezione illustra come visualizzare un messaggio in coda (leggere il primo
     }
     ```
  
-1. Nel metodo **PeekMessage** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: sostituire *&lt;nome account di archiviazione>* con il nome dell'account di archiviazione Azure a cui si sta accedendo.
+1. Nel metodo **PeekMessage** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: Cambiare *&lt;storage-account-name>* con il nome dell'account di archiviazione di Azure a cui si sta eseguendo l'accesso.
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -278,7 +278,7 @@ Questa sezione illustra come visualizzare un messaggio in coda (leggere il primo
     CloudQueueMessage message = queue.PeekMessage();
     ```
 
-1. Aggiornare **ViewBag** con due valori: il nome della coda e il messaggio letto. L'oggetto **CloudQueueMessage** espone due proprietà per ottenerne il valore: **CloudQueueMessage.AsBytes** e **CloudQueueMessage.AsString**. **AsString** (usata in questo esempio) restituisce una stringa, mentre **AsBytes** restituisce una matrice di byte.
+1. Aggiornare **ViewBag** con due valori: il nome della coda e il messaggio letto. Il **CloudQueueMessage** espone due proprietà per ottenere il valore dell'oggetto: **CloudQueueMessage. Asbytes** e **AsString**. **AsString** (usata in questo esempio) restituisce una stringa, mentre **AsBytes** restituisce una matrice di byte.
 
     ```csharp
     ViewBag.QueueName = queue.Name; 
@@ -337,7 +337,7 @@ In questa sezione viene illustrato come leggere e rimuovere un messaggio da una 
     }
     ```
  
-1. Nel metodo **ReadMessage** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: sostituire *&lt;nome account di archiviazione>* con il nome dell'account di archiviazione Azure a cui si sta accedendo.
+1. Nel metodo **ReadMessage** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: Cambiare *&lt;storage-account-name>* con il nome dell'account di archiviazione di Azure a cui si sta eseguendo l'accesso.
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -403,7 +403,7 @@ In questa sezione viene illustrato come leggere e rimuovere un messaggio da una 
     <li>@Html.ActionLink("Read/Delete message", "ReadMessage", "Queues")</li>
     ```
 
-1. Eseguire l'applicazione e selezionare **Read/Delete message** (Leggi/Elimina messaggio) per visualizzare risultati simili allo screenshot seguente:
+1. Eseguire l'applicazione e selezionare **Read/Delete messaggio** per visualizzare risultati simili allo screenshot seguente:
   
     ![Read/Delete message (Leggi/Elimina messaggio)](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
 
@@ -428,7 +428,7 @@ In questa sezione viene illustrato come ottenere la lunghezza della coda (numero
     }
     ```
  
-1. Nel metodo **ReadMessage** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: sostituire *&lt;nome account di archiviazione>* con il nome dell'account di archiviazione Azure a cui si sta accedendo.
+1. Nel metodo **ReadMessage** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: Cambiare *&lt;storage-account-name>* con il nome dell'account di archiviazione di Azure a cui si sta eseguendo l'accesso.
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -490,7 +490,7 @@ In questa sezione viene illustrato come ottenere la lunghezza della coda (numero
     <li>@Html.ActionLink("Get queue length", "GetQueueLength", "Queues")</li>
     ```
 
-1. Eseguire l'applicazione e selezionare **Get queue length** (Ottieni lunghezza coda) per visualizzare risultati simili allo screenshot seguente:
+1. Eseguire l'applicazione e selezionare **Ottieni lunghezza coda** per visualizzare risultati simili allo screenshot seguente:
   
     ![Recuperare la lunghezza della coda](./media/vs-storage-aspnet-getting-started-queues/get-queue-length-results.png)
 
@@ -515,7 +515,7 @@ Questa sezione illustra come eliminare una coda.
     }
     ```
  
-1. Nel metodo **DeleteQueue** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: sostituire *&lt;nome account di archiviazione>* con il nome dell'account di archiviazione Azure a cui si sta accedendo.
+1. Nel metodo **DeleteQueue** recuperare un oggetto **CloudStorageAccount** che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure: Cambiare *&lt;storage-account-name>* con il nome dell'account di archiviazione di Azure a cui si sta eseguendo l'accesso.
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -570,7 +570,7 @@ Questa sezione illustra come eliminare una coda.
     <li>@Html.ActionLink("Delete queue", "DeleteQueue", "Queues")</li>
     ```
 
-1. Eseguire l'applicazione e selezionare **Get queue length** (Ottieni lunghezza coda) per visualizzare risultati simili allo screenshot seguente:
+1. Eseguire l'applicazione e selezionare **Ottieni lunghezza coda** per visualizzare risultati simili allo screenshot seguente:
   
     ![Elimina coda](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 

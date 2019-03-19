@@ -8,21 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8881a0c5e809dc75d1b9f4b6f6bd3af7142333cb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: cea8522a9f3eb8fa98821c1cb08d92a9524d5ce4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884631"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876800"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Generazione di anteprime con ritaglio intelligente con Visione artificiale
 
 Un'immagine di anteprima è una rappresentazione di dimensioni ridotte di un'immagine. Le anteprime vengono usate per rappresentare le immagini e altri dati in modo più conveniente e con un layout più facile. L'API Visione artificiale usa il ritaglio intelligente, insieme al ridimensionamento dell'immagine, per creare anteprime intuitive per una determinata immagine.
 
 L'algoritmo di generazione di anteprime di Visione artificiale funziona nel modo seguente:
+
 1. Vengono rimossi gli elementi di distrazione dall'immagine e viene identificata l'_area di interesse_&mdash;l'area dell'immagine in cui compare l'oggetto principale.
 1. L'immagine viene ritagliata in base all'_area di interesse_ identificata.
 1. Le proporzioni vengono modificate per adattare le dimensioni all'anteprima di destinazione.

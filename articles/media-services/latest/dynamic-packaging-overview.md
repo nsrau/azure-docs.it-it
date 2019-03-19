@@ -11,43 +11,160 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 02/26/2019
 ms.author: juliako
-ms.openlocfilehash: d1d07402bca5f01cf63d0b039c085e46bb0f0d62
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: d9c59bdb2e8a7b115761554f70ebedeecaf5d04e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447923"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901731"
 ---
 # <a name="dynamic-packaging"></a>creazione dinamica dei pacchetti
 
-Servizi multimediali di Microsoft Azure può essere usato per distribuire molti formati di file di origine multimediali, formati di streaming multimediali e formati di protezione del contenuto a un'ampia gamma di tecnologie client, ad esempio iOS e Xbox. Questi client supportano tuttavia protocolli diversi. iOS, ad esempio, richiede un formato HTTP Live Streaming (HLS), mentre Xbox richiede Smooth Streaming. Se è presente un set di file MP4 a velocità in bit adattiva, ovvero più velocità in bit, (ISO Base Media 14496-12) o di un set di file Smooth Streaming a velocità in bit adattiva e si vuole renderli disponibili per i client che supportano contenuto HLS, MPEG DASH o Smooth Streaming, è possibile usare la funzionalità di creazione dinamica dei pacchetti di Servizi multimediali.
+Servizi multimediali di Microsoft Azure può essere usato per distribuire molti formati di file di origine multimediali, formati di streaming multimediali e formati di protezione del contenuto a un'ampia gamma di tecnologie client, ad esempio iOS e Xbox. Questi client supportano tuttavia protocolli diversi. iOS, ad esempio, richiede un formato HTTP Live Streaming (HLS), mentre Xbox richiede Smooth Streaming. Se si dispone di un set di velocità in bit adattiva (più velocità in bit) MP4 file (ISO Base Media 14496-12) o un set di file Smooth Streaming a bitrate adattivo che si vuole renderli disponibili ai client che supportano HLS, MPEG DASH o Smooth Streaming, è possibile sfruttare dinamico Creazione di pacchetti. La creazione di pacchetti è indipendente dalla risoluzione video, sono supportati SD/HD/UHD - 4K.
 
-Con la creazione dinamica dei pacchetti è sufficiente creare un asset che contenga un set di file MP4 a velocità in bit adattiva. In base al formato specificato nella richiesta del manifesto o del frammento, il server di streaming on demand garantirà che il flusso sia ricevuto nel protocollo scelto. Di conseguenza, si archiviano e si pagano solo i file in un singolo formato di archiviazione e il servizio Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client.
+[Gli endpoint di streaming](streaming-endpoint-concept.md) è il servizio di creazione dinamica dei pacchetti di servizi multimediali consente di recapitare contenuto multimediale agli assegnatari di client. Creazione dinamica dei pacchetti è una funzionalità che include standard su tutti **gli endpoint di Streaming** (Standard o Premium). Non è senza elementi aggiuntivi costo associato a questa funzionalità in servizi multimediali v3. 
 
-Il diagramma seguente mostra il flusso di lavoro tradizionale di codifica e creazione statica dei pacchetti.
+Per poter sfruttare **creazione dinamica dei pacchetti**, è necessario avere un' **Asset** con un set di file MP4 a bitrate adattivo e streaming i file di configurazione necessari da Media Services creazione dinamica dei pacchetti. Un modo per ottenere i file consiste nel codificare il file mezzanine (di origine) con servizi multimediali. Per rendere i video nell'Asset codificato disponibile ai client per la riproduzione, è necessario creare un **localizzatore di Streaming** e creare URL di streaming. Quindi, in base al formato specificato nel manifesto client di streaming (HLS, DASH o Smooth), il flusso sia ricevuto nel protocollo scelto.
 
-![Codifica statica](./media/dynamic-packaging-overview/media-services-static-packaging.png)
+Di conseguenza, si archiviano e si pagano solo i file in un singolo formato di archiviazione e il servizio Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client. 
 
-Il diagramma seguente mostra il flusso di lavoro di creazione dinamica dei pacchetti.
+In servizi multimediali di creazione dinamica dei pacchetti viene usato se si utilizza il flusso live o on demand. Il diagramma seguente illustra lo streaming on demand con flusso di lavoro di creazione dinamica dei pacchetti.
 
-![Codifica dinamica](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
+![Creazione dinamica dei pacchetti](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
-## <a name="dynamic-packaging-workflow"></a>Flusso di lavoro per la creazione dinamica di pacchetti
+## <a name="common-video-on-demand-workflow"></a>Flusso di lavoro on demand video comune
+
+Di seguito è un comune del flusso di lavoro di streaming in cui viene usato creazione dinamica dei pacchetti di servizi multimediali.
 
 1. Caricare un file di input (detto file in formato intermedio). Ad esempio, H.264, MP4 o WMV (per l'elenco dei formati supportati, vedere [Formati e codec Media Encoder Standard](media-encoder-standard-formats.md)).
 2. Codificare il file in formato intermedio in set MP4 a velocità in bit adattiva H.264.
-3. Pubblicare l'asset contenente il set MP4 a bitrate adattivo.
-4. Creare gli URL di streaming per accedere e al contenuto e trasmetterlo in streaming.
+3. Pubblicare l'asset contenente il set MP4 a bitrate adattivo. Pubblicazione tramite la creazione di un **localizzatore di Streaming**.
+4. Creare URL che usano formati diversi (HLS, Dash e Smooth Streaming). Il **Endpoint di Streaming** occuparsi di servire il manifesto corretto e le richieste per tutti questi formati diversi.
+
+## <a name="encode-to-adaptive-bitrate-mp4s"></a>Codifica con velocità in bit adattiva MP4s
+
+Per informazioni sulle [come codificare un video con servizi multimediali](encoding-concept.md), vedere gli esempi seguenti:
+
+* [Eseguire la codifica da un URL HTTPS usando i set di impostazioni predefinite](job-input-from-http-how-to.md)
+* [Codificare un file locale usando i set di impostazioni predefinite](job-input-from-local-file-how-to.md)
+* [Creare un set di impostazioni per i requisiti specifici di uno scenario o un dispositivo di destinazione personalizzato](customize-encoder-presets-how-to.md)
+
+Per un elenco dei codec e formati di Media Encoder Standard, vedere [codec e formati](media-encoder-standard-formats.md)
+
+## <a name="delivery-protocols"></a>Protocolli di distribuzione
+
+|Protocollo|Esempio|
+|---|---|
+|HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
+|HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
+|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`|
+|MPEG DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
+|MPEG DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
+|Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
+
+## <a name="video-codecs-supported-by-dynamic-packaging"></a>Codec video supportati dalla creazione dinamica dei pacchetti
+
+Creazione dinamica dei pacchetti supporta file MP4 contenenti video codificati [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC o AVC1), [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1 o hvc1).
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>Codec audio supportati dalla creazione dinamica dei pacchetti
 
-La creazione dinamica dei pacchetti supporta i file MP4 contenenti audio codificato con [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (Enhanced AC-3 o E-AC3) o [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express, DTS LBR, DTS HD, DTS HD Lossless).
+Creazione dinamica dei pacchetti supporta i file MP4, che contengono audio codificato con [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (Enhanced AC-3 o E-AC3), o [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express, LBR DTS, DTS HD, HD DTS senza perdita di dati).
 
 > [!NOTE]
 > La creazione dinamica dei pacchetti non supporta file contenenti audio [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) perché si tratta di un codec legacy codec.
 
+## <a name="manifests"></a>Manifesti 
+ 
+Servizi multimediali supporta i protocolli Smooth Streaming, HLS, MPEG DASH. Come parte della **creazione dinamica dei pacchetti**, i manifesti client streaming (Master HLS Playlist, DASH Media Presentation Description (MPD) e Smooth Streaming) vengono generati dinamicamente in base il selettore di formato nell'URL. Vedere i protocolli di recapito [in questa sezione](#delivery-protocols). 
+
+Un file manifesto include metadati, ad esempio di streaming: tenere traccia di tipo (audio, video o testo), Tieni traccia del nome, ora di inizio e fine, a velocità in bit (qualità), lingue della traccia, la finestra di presentazione (finestra temporale scorrevole di durata fissa) e un codec video (FourCC). Indica inoltre al lettore come recuperare il frammento successivo fornendo informazioni sui successivi frammenti video riproducibili disponibili e il relativo percorso. I frammenti (o segmenti) sono i "blocchi" effettivi di un contenuto video.
+
+### <a name="hls-master-playlist"></a>Playlist HLS Master
+
+Di seguito è riportato un esempio di file manifesto HLS: 
+
+```
+#EXTM3U
+#EXT-X-VERSION:4
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio",NAME="aac_eng_2_128041_2_1",LANGUAGE="eng",DEFAULT=YES,AUTOSELECT=YES,URI="QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)"
+#EXT-X-STREAM-INF:BANDWIDTH=536608,RESOLUTION=320x180,CODECS="avc1.64000d,mp4a.40.2",AUDIO="audio"
+QualityLevels(381048)/Manifest(video,format=m3u8-aapl)
+#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=536608,RESOLUTION=320x180,CODECS="avc1.64000d",URI="QualityLevels(381048)/Manifest(video,format=m3u8-aapl,type=keyframes)"
+#EXT-X-STREAM-INF:BANDWIDTH=884544,RESOLUTION=480x270,CODECS="avc1.640015,mp4a.40.2",AUDIO="audio"
+QualityLevels(721495)/Manifest(video,format=m3u8-aapl)
+#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=884544,RESOLUTION=480x270,CODECS="avc1.640015",URI="QualityLevels(721495)/Manifest(video,format=m3u8-aapl,type=keyframes)"
+#EXT-X-STREAM-INF:BANDWIDTH=1327398,RESOLUTION=640x360,CODECS="avc1.64001e,mp4a.40.2",AUDIO="audio"
+QualityLevels(1154816)/Manifest(video,format=m3u8-aapl)
+#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=1327398,RESOLUTION=640x360,CODECS="avc1.64001e",URI="QualityLevels(1154816)/Manifest(video,format=m3u8-aapl,type=keyframes)"
+#EXT-X-STREAM-INF:BANDWIDTH=2413312,RESOLUTION=960x540,CODECS="avc1.64001f,mp4a.40.2",AUDIO="audio"
+QualityLevels(2217354)/Manifest(video,format=m3u8-aapl)
+#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=2413312,RESOLUTION=960x540,CODECS="avc1.64001f",URI="QualityLevels(2217354)/Manifest(video,format=m3u8-aapl,type=keyframes)"
+#EXT-X-STREAM-INF:BANDWIDTH=3805760,RESOLUTION=1280x720,CODECS="avc1.640020,mp4a.40.2",AUDIO="audio"
+QualityLevels(3579827)/Manifest(video,format=m3u8-aapl)
+#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=3805760,RESOLUTION=1280x720,CODECS="avc1.640020",URI="QualityLevels(3579827)/Manifest(video,format=m3u8-aapl,type=keyframes)"
+#EXT-X-STREAM-INF:BANDWIDTH=139017,CODECS="mp4a.40.2",AUDIO="audio"
+QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
+```
+
+### <a name="dash-media-presentation-description-mpd"></a>DASH Media Presentation Description (MPD)
+
+Di seguito è riportato un esempio di un manifesto DASH:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<MPD xmlns="urn:mpeg:dash:schema:mpd:2011" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" profiles="urn:mpeg:dash:profile:isoff-live:2011" type="static" mediaPresentationDuration="PT1M10.315S" minBufferTime="PT7S">
+   <Period>
+      <AdaptationSet id="1" group="5" profiles="ccff" bitstreamSwitching="false" segmentAlignment="true" contentType="audio" mimeType="audio/mp4" codecs="mp4a.40.2" lang="en">
+         <SegmentTemplate timescale="10000000" media="QualityLevels($Bandwidth$)/Fragments(aac_eng_2_128041_2_1=$Time$,format=mpd-time-csf)" initialization="QualityLevels($Bandwidth$)/Fragments(aac_eng_2_128041_2_1=i,format=mpd-time-csf)">
+            <SegmentTimeline>
+               <S d="60160000" r="10" />
+               <S d="41386666" />
+            </SegmentTimeline>
+         </SegmentTemplate>
+         <Representation id="5_A_aac_eng_2_128041_2_1_1" bandwidth="128041" audioSamplingRate="48000" />
+      </AdaptationSet>
+      <AdaptationSet id="2" group="1" profiles="ccff" bitstreamSwitching="false" segmentAlignment="true" contentType="video" mimeType="video/mp4" codecs="avc1.640020" maxWidth="1280" maxHeight="720" startWithSAP="1">
+         <SegmentTemplate timescale="10000000" media="QualityLevels($Bandwidth$)/Fragments(video=$Time$,format=mpd-time-csf)" initialization="QualityLevels($Bandwidth$)/Fragments(video=i,format=mpd-time-csf)">
+            <SegmentTimeline>
+               <S d="60060000" r="10" />
+               <S d="42375666" />
+            </SegmentTimeline>
+         </SegmentTemplate>
+         <Representation id="1_V_video_1" bandwidth="3579827" width="1280" height="720" />
+         <Representation id="1_V_video_2" bandwidth="2217354" codecs="avc1.64001F" width="960" height="540" />
+         <Representation id="1_V_video_3" bandwidth="1154816" codecs="avc1.64001E" width="640" height="360" />
+         <Representation id="1_V_video_4" bandwidth="721495" codecs="avc1.640015" width="480" height="270" />
+         <Representation id="1_V_video_5" bandwidth="381048" codecs="avc1.64000D" width="320" height="180" />
+      </AdaptationSet>
+   </Period>
+</MPD>
+```
+### <a name="smooth-streaming"></a>Smooth Streaming
+
+Di seguito è riportato un esempio di un manifesto Smooth Streaming:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SmoothStreamingMedia MajorVersion="2" MinorVersion="2" Duration="703146666" TimeScale="10000000">
+   <StreamIndex Chunks="12" Type="audio" Url="QualityLevels({bitrate})/Fragments(aac_eng_2_128041_2_1={start time})" QualityLevels="1" Language="eng" Name="aac_eng_2_128041_2_1">
+      <QualityLevel AudioTag="255" Index="0" BitsPerSample="16" Bitrate="128041" FourCC="AACL" CodecPrivateData="1190" Channels="2" PacketSize="4" SamplingRate="48000" />
+      <c t="0" d="60160000" r="11" />
+      <c d="41386666" />
+   </StreamIndex>
+   <StreamIndex Chunks="12" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="5">
+      <QualityLevel Index="0" Bitrate="3579827" FourCC="H264" MaxWidth="1280" MaxHeight="720" CodecPrivateData="0000000167640020ACD9405005BB011000003E90000EA600F18319600000000168EBECB22C" />
+      <QualityLevel Index="1" Bitrate="2217354" FourCC="H264" MaxWidth="960" MaxHeight="540" CodecPrivateData="000000016764001FACD940F0117EF01100000303E90000EA600F1831960000000168EBECB22C" />
+      <QualityLevel Index="2" Bitrate="1154816" FourCC="H264" MaxWidth="640" MaxHeight="360" CodecPrivateData="000000016764001EACD940A02FF9701100000303E90000EA600F162D960000000168EBECB22C" />
+      <QualityLevel Index="3" Bitrate="721495" FourCC="H264" MaxWidth="480" MaxHeight="270" CodecPrivateData="0000000167640015ACD941E08FEB011000003E90000EA600F162D9600000000168EBECB22C" />
+      <QualityLevel Index="4" Bitrate="381048" FourCC="H264" MaxWidth="320" MaxHeight="180" CodecPrivateData="000000016764000DACD941419F9F011000003E90000EA600F14299600000000168EBECB22C" />
+      <c t="0" d="60060000" r="11" />
+      <c d="42375666" />
+   </StreamIndex>
+</SmoothStreamingMedia>
+```
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Caricare, codificare ed eseguire lo streaming dei video](stream-files-tutorial-with-api.md)
+

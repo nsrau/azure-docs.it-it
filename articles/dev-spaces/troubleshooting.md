@@ -1,21 +1,20 @@
 ---
-title: Risoluzione dei problemi | Documentazione Microsoft
+title: risoluzione dei problemi
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 09/11/2018
-ms.topic: article
+ms.topic: conceptual
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
-keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, contenitori
-ms.openlocfilehash: 5be6f99067f1209fcd131dfc33c46995b2a537f8
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+keywords: 'Docker, Kubernetes, Azure, servizio contenitore di AZURE, Azure Kubernetes Service, contenitori, Helm, rete mesh di servizi, routing mesh del servizio, kubectl, k8s '
+ms.openlocfilehash: 1ccb96bc8682ad505bc4b21e90951ea25c4c9954
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498302"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898083"
 ---
 # <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
 
@@ -146,8 +145,8 @@ Questo errore viene visualizzato in Visual Studio Code se sono presenti una vers
 
 Scaricare e installare l'ultima versione dell'interfaccia della riga di comando di Azure Dev Spaces:
 
-* [Windows](http://aka.ms/get-azds-windows)
-* [Mac](http://aka.ms/get-azds-mac)
+* [Windows](https://aka.ms/get-azds-windows)
+* [Mac](https://aka.ms/get-azds-mac)
 * [Linux](https://aka.ms/get-azds-linux)
 
 ## <a name="error-azds-is-not-recognized-as-an-internal-or-external-command-operable-program-or-batch-file"></a>Errore 'azds' non riconosciuto come comando interno o esterno, programma eseguibile o file batch
@@ -210,7 +209,7 @@ L'avvio del debugger di VS Code può talvolta generare questo errore.
 L'esecuzione del debugger di VS Code genera l'errore: `Failed to find debugger extension for type:coreclr.`
 
 ### <a name="reason"></a>Motivo
-Nel computer di sviluppo non è installata l'estensione VS Code per C#. L'estensione C# include il supporto per il debug di .Net Core (CoreCLR).
+Nel computer di sviluppo non è installata l'estensione VS Code per C#. Il C# estensione include il supporto per .NET Core (CoreCLR) del debug.
 
 ### <a name="try"></a>Soluzione:
 Installare l'[estensione di Visual Studio Code per C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 4c01cf93fe3bb66f9bce73acb3c2f100764d1f46
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 114e0b951b2bfe83e8b989646bd07a5fd75b3ee6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872544"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894411"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Introduzione a Speech Devices SDK
 
@@ -37,20 +37,20 @@ Prima di iniziare a usare Speech Devices SDK per sviluppare, raccogliere le info
 
 * Ottenere la versione più recente di Speech Devices SDK, che include un'app Android di esempio, dal [sito di download di Speech Devices SDK](https://shares.datatransfer.microsoft.com/). Decomprimere il file ZIP in una cartella locale, ad esempio C:\SDSDK.
 
-* Installare [Android Studio](https://developer.android.com/studio/) e [Vysor](http://vysor.io/download/) nel PC.
+* Installare [Android Studio](https://developer.android.com/studio/) e [Vysor](https://vysor.io/download/) nel PC.
 
-* Ottenere una [chiave di sottoscrizione al servizio Voce](get-started.md). Dal dashboard di Azure è possibile ottenere una versione di valutazione gratuita di 30 giorni oppure una chiave.
+* Ottenere un [chiave di sottoscrizione di servizi di riconoscimento vocale](get-started.md). Dal dashboard di Azure è possibile ottenere una versione di valutazione gratuita di 30 giorni oppure una chiave.
 
-* Se si vuole usare la funzionalità Riconoscimento finalità del servizio Voce, eseguire la sottoscrizione al [servizio Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) e [ottenere una chiave di sottoscrizione](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription).
+* Se si desidera utilizzare riconoscimento delle intenzioni tramite sintesi vocale servizi, sottoscrivere il [servizio Language Understanding Intelligent Service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) e [ottenere una chiave di sottoscrizione](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription).
 
     È possibile [creare un modello LUIS semplice](https://docs.microsoft.com/azure/cognitive-services/luis/) oppure usare il modello LUIS di esempio, ovvero LUIS-example.json. Il modello LUIS di esempio è disponibile nel [sito di download di Speech Devices SDK](https://shares.datatransfer.microsoft.com/). Per caricare il file JSON del modello nel [portale LUIS](https://www.luis.ai/home), selezionare **Import new app** (Importa nuova app) e quindi selezionare il file JSON.
 
 ## <a name="set-up-the-development-kit"></a>Configurare il kit di sviluppo
-    
+
 1. Il kit di sviluppo ha due connettori Micro-USB. Il connettore di sinistra alimenta il kit di sviluppo ed è contrassegnato con Power nell'immagine seguente. Il connettore di destra ha la funzione di controllare il kit ed è contrassegnato con Debug nell'immagine.
 
     ![Connessione del kit di sviluppo](media/speech-devices-sdk/qsg-1.png)
-       
+
 1. Alimentare il kit di sviluppo usando un cavo Micro-USB per collegare la porta di alimentazione a un PC o a una presa di alimentazione. Sotto il ripiano superiore si illuminerà la spia verde di accensione.
 
 1. Per controllare il kit di sviluppo, collegare la porta di debug a un computer tramite un secondo cavo Micro-USB. È fondamentale usare un cavo di alta qualità per garantire comunicazioni affidabili.
@@ -114,92 +114,68 @@ Prima di iniziare a usare Speech Devices SDK per sviluppare, raccogliere le info
 
 Per eseguire i test di ROOBO e convalidare la configurazione del kit di sviluppo, compilare e installare l'applicazione di esempio:
 
-1.  Avviare Android Studio.
+1. Avviare Android Studio.
 
-1.  Selezionare **Open an existing Android Studio project** (Apri un progetto di Android Studio esistente).
+1. Selezionare **Open an existing Android Studio project** (Apri un progetto di Android Studio esistente).
 
-    ![Android Studio: apertura di un progetto esistente](media/speech-devices-sdk/qsg-5.png)
+   ![Android Studio: apertura di un progetto esistente](media/speech-devices-sdk/qsg-5.png)
 
-1.  Passare a C:\SDSDK\Android-Sample-Release\example. Fare clic su **OK** per aprire il progetto di esempio.
+1. Passare a C:\SDSDK\Android-Sample-Release\example. Fare clic su **OK** per aprire il progetto di esempio.
 
-1.  Aggiungere la chiave di sottoscrizione del Servizio di riconoscimento vocale al codice sorgente. Se si vuole provare la funzionalità Riconoscimento finalità, aggiungere anche la chiave di sottoscrizione e l'ID applicazione del [servizio Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+1. Aggiungere la chiave di sottoscrizione del Servizio di riconoscimento vocale al codice sorgente. Se si vuole provare la funzionalità Riconoscimento finalità, aggiungere anche la chiave di sottoscrizione e l'ID applicazione del [servizio Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
-    Le chiavi e le informazioni relative all'applicazione devono essere inserite nelle righe seguenti del file di origine MainActivity.java:
+   Le chiavi e le informazioni relative all'applicazione devono essere inserite nelle righe seguenti del file di origine MainActivity.java:
 
-    ```java
-    // Subscription
-    private static final String SpeechSubscriptionKey = "[your speech key]";
-    private static final String SpeechRegion = "westus";
-    private static final String LuisSubscriptionKey = "[your LUIS key]";
-    private static final String LuisRegion = "westus2.api.cognitive.microsoft.com";
-    private static final String LuisAppId = "[your LUIS app ID]"
-    ```
+   ```java
+   // Subscription
+   private static final String SpeechSubscriptionKey = "[your speech key]";
+   private static final String SpeechRegion = "westus";
+   private static final String LuisSubscriptionKey = "[your LUIS key]";
+   private static final String LuisRegion = "westus2.api.cognitive.microsoft.com";
+   private static final String LuisAppId = "[your LUIS app ID]"
+   ```
 
 1. La parola di attivazione (parola chiave) predefinita è "Computer". È anche possibile provare una delle altre parole di attivazione disponibili, come "Machine" o "Assistant". I file di risorse per queste parole di attivazione alternative sono disponibili nella cartella keyword di Speech Devices SDK. La cartella C:\SDSDK\Android-Sample-Release\keyword\Computer contiene ad esempio i file usati per la parola di attivazione "Computer".
 
     È anche possibile [creare una parola di attivazione personalizzata](speech-devices-sdk-create-kws.md).
 
-    Per installare la parola di attivazione che si vuole usare:
+    Per usare un nuovo termine di riattivazione, aggiornare le seguenti due righe di mainactivity. Java e copiare il pacchetto di word riattivazione all'app. Per utilizzare la funzionalità di riattivazione, ad esempio word 'Machine' dal kws pacchetti di riattivazione word-machine.zip:
 
-    * Creare una cartella keyword nella cartella data del dispositivo eseguendo i comandi seguenti in una finestra del prompt dei comandi:
+   * Copiare il pacchetto di word di riattivazione nella cartella "C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\".
+   * Aggiornare il mainactivity. Java con la parola chiave e il nome del pacchetto: 
+    
+     ```java
+     private static final String Keyword = "Machine";
+     private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
+     ```
 
-        ```
-        adb shell
-        cd /data
-        mkdir keyword
-        exit
-        ```
+1. Aggiornare le righe seguenti, che contengono le impostazioni per la geometria dell'array di microfoni:
 
-    * Copiare i file kws.table, kws_k.fst e words_kw.txt nella cartella \data\keyword del dispositivo. Eseguire i comandi seguenti in una finestra del prompt dei comandi. Se è stata creata una [parola di attivazione personalizzata](speech-devices-sdk-create-kws.md), il file kws.table generato dal Web si trova nella stessa directory dei file kws.table, kws_k.fst e words_kw.txt. Per una parola di attivazione personalizzata usare il comando `adb push C:\SDSDK\Android-Sample-Release\keyword\[wake_word_name]\kws.table /data/keyword` per eseguire il push del file kws.table nel kit di sviluppo:
+   ```java
+   private static final String DeviceGeometry = "Circular6+1";
+   private static final String SelectedGeometry = "Circular6+1";
+   ```
+   La tabella seguente descrive i valori disponibili:
 
-        ```
-        adb push C:\SDSDK\Android-Sample-Release\keyword\kws.table /data/keyword
-        adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\kws_k.fst /data/keyword
-        adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\words_kw.txt /data/keyword
-        ```
-
-    * Fare riferimento a questi file nell'applicazione di esempio. Individuare le righe seguenti in MainActivity.java. Assicurarsi che la parola chiave specificata sia quella usata e che il percorso punti al file `kws.table` di cui è stato eseguito il push nel dispositivo.
-
-        ```java
-        private static final String Keyword = "Computer";
-        private static final String KeywordModel = "/data/keyword/kws.table";
-        ```
-
-        > [!NOTE]
-        > Nel proprio codice è possibile usare il file kws.table per creare un'istanza del modello di parola chiave e avviare il riconoscimento:
-        >
-        > ```java
-        > KeywordRecognitionModel km = KeywordRecognitionModel.fromFile(KeywordModel);
-        > final Task<?> task = reco.startKeywordRecognitionAsync(km);
-        > ```
-
-1.  Aggiornare le righe seguenti, che contengono le impostazioni per la geometria dell'array di microfoni:
-
-    ```java
-    private static final String DeviceGeometry = "Circular6+1";
-    private static final String SelectedGeometry = "Circular6+1";
-    ```
-    La tabella seguente descrive i valori disponibili:
-
-    |Variabile|Significato|Valori disponibili|
-    |--------|-------|----------------|
-    |`DeviceGeometry`|Configurazione microfoni fisica|Per un kit di sviluppo circolare: `Circular6+1` |
-    |||Per un kit di sviluppo lineare: `Linear4`|
-    |`SelectedGeometry`|Configurazione microfoni software|Per un kit di sviluppo circolare che usa tutti i microfoni: `Circular6+1`|
-    |||Per un kit di sviluppo circolare che usa quattro microfoni: `Circular3+1`|
-    |||Per un kit di sviluppo lineare che usa tutti i microfoni: `Linear4`|
-    |||Per un kit di sviluppo lineare che usa due microfoni: `Linear2`|
+   |Variabile|Significato|Valori disponibili|
+   |--------|-------|----------------|
+   |`DeviceGeometry`|Configurazione microfoni fisica|Per un kit di sviluppo circolare: `Circular6+1` |
+   |||Per un kit di sviluppo lineare: `Linear4`|
+   |`SelectedGeometry`|Configurazione microfoni software|Per un kit di sviluppo circolare che usa tutti i microfoni: `Circular6+1`|
+   |||Per un kit di sviluppo circolare che usa quattro microfoni: `Circular3+1`|
+   |||Per un kit di sviluppo lineare che usa tutti i microfoni: `Linear4`|
+   |||Per un kit di sviluppo lineare che usa due microfoni: `Linear2`|
 
 
-1.  Per compilare l'applicazione, nel menu **Run** (Esegui) selezionare **Run 'app'** (Esegui 'app'). Viene visualizzata la finestra di dialogo **Select Deployment Target** (Seleziona destinazione di distribuzione).
+1. Per compilare l'applicazione, nel menu **Run** (Esegui) selezionare **Run 'app'** (Esegui 'app'). Viene visualizzata la finestra di dialogo **Select Deployment Target** (Seleziona destinazione di distribuzione).
 
 1. Selezionare il dispositivo e quindi fare clic su **OK** per distribuire l'applicazione nel dispositivo.
 
     ![Finestra di dialogo Select Deployment Target (Seleziona destinazione di distribuzione)](media/speech-devices-sdk/qsg-7.png)
 
-1.  L'applicazione di esempio di Speech Devices SDK viene avviata e visualizza le opzioni seguenti:
+1. L'applicazione di esempio di Speech Devices SDK viene avviata e visualizza le opzioni seguenti:
 
-    ![Applicazione di esempio di Speech Devices SDK e opzioni](media/speech-devices-sdk/qsg-8.png)
+   ![Applicazione di esempio di Speech Devices SDK e opzioni](media/speech-devices-sdk/qsg-8.png)
 
 1. A questo punto, non resta che sperimentare.
 
@@ -207,7 +183,7 @@ Per eseguire i test di ROOBO e convalidare la configurazione del kit di sviluppo
 
 ### <a name="certificate-failures"></a>Errori di certificato
 
-Se quando si usa il servizio Voce vengono visualizzati errori di certificato, assicurarsi che la data e l'ora del dispositivo siano corretti:
+Se si verificano errori del certificato quando si usano i servizi di riconoscimento vocale, assicurarsi che il dispositivo abbia corretti di data e ora:
 
 1. Passare a **Impostazioni**. In **System** (Sistema) selezionare **Date & time** (Data e ora).
 

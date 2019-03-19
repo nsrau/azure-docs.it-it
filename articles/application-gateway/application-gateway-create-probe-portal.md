@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
-ms.openlocfilehash: 45737c1c378ec56a5e2bedec8c1f7b7bc7ba6225
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
-ms.translationtype: HT
+ms.openlocfilehash: 8e98b50e936ba97881e2937a50eb474d57a24a05
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33203913"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107764"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Creare un probe personalizzato per un gateway applicazione con il portale
 
@@ -45,22 +45,22 @@ I probe vengono configurati con un processo in due passaggi nel portale. Il prim
 
 1. Fare clic su **Probe** e quindi su **Aggiungi** per aggiungere un probe.
 
-  ![Pannello Aggiungi probe con informazioni inserite][1]
+   ![Pannello Aggiungi probe con informazioni inserite][1]
 
 1. Nel pannello **Aggiungi probe integrità** specificare le informazioni necessarie per il probe e al termine fare clic su **OK**.
 
-  |**Impostazione** | **Valore** | **Dettagli**|
-  |---|---|---|
-  |**Nome**|customProbe|Nome descrittivo del probe accessibile nel portale.|
-  |**Protocollo**|HTTP o HTTPS | Protocollo usato per il probe di integrità.|
-  |**Host**|vale a dire contoso.com|Nome host usato per il probe. Applicabile solo quando vengono configurati più siti nel gateway applicazione. In caso contrario, usare "127.0.0.1". Questo valore è diverso dal nome host della VM.|
-  |**Percorso**|/ o un altro percorso|Parte restante dell'URL completo per il probe personalizzato. Un percorso valido inizia con "/". Per il percorso predefinito di http://contoso.com è sufficiente usare '/' |
-  |**Intervallo (sec)**|30|Frequenza con cui viene eseguito il probe per controllare l'integrità. Non è consigliabile impostare un valore inferiore a 30 secondi.|
-  |**Timeout (secondi)**|30|Durata dell'attesa prima che si verifichi il timeout del probe. L'intervallo di timeout deve essere abbastanza elevato da poter effettuare una chiamata http per assicurarsi che la pagina relativa all'integrità del back-end sia disponibile.|
-  |**Soglia non integra**|3|Numero di tentativi non riusciti prima che venga stabilito uno stato di non integrità. Se la soglia è 0 significa che, se un controllo integrità ha esito negativo, il back-end verrà immediatamente considerato non integro.|
+   |**Impostazione** | **Valore** | **Dettagli**|
+   |---|---|---|
+   |**Nome**|customProbe|Nome descrittivo del probe accessibile nel portale.|
+   |**Protocollo**|HTTP o HTTPS | Protocollo usato per il probe di integrità.|
+   |**Host**|vale a dire contoso.com|Nome host usato per il probe. Applicabile solo quando vengono configurati più siti nel gateway applicazione. In caso contrario, usare "127.0.0.1". Questo valore è diverso dal nome host della VM.|
+   |**Percorso**|/ o un altro percorso|Parte restante dell'URL completo per il probe personalizzato. Un percorso valido inizia con "/". Per il percorso predefinito di http://contoso.com è sufficiente usare '/' |
+   |**Intervallo (sec)**|30|Frequenza con cui viene eseguito il probe per controllare l'integrità. Non è consigliabile impostare un valore inferiore a 30 secondi.|
+   |**Timeout (secondi)**|30|Durata dell'attesa prima che si verifichi il timeout del probe. L'intervallo di timeout deve essere abbastanza elevato da poter effettuare una chiamata http per assicurarsi che la pagina relativa all'integrità del back-end sia disponibile.|
+   |**Soglia non integra**|3|Numero di tentativi non riusciti prima che venga stabilito uno stato di non integrità. Se la soglia è 0 significa che, se un controllo integrità ha esito negativo, il back-end verrà immediatamente considerato non integro.|
 
-  > [!IMPORTANT]
-  > Il nome host non è uguale al nome del server. Questo valore è il nome dell'host virtuale in esecuzione nel server applicazioni. Il probe viene inviato a http://(name host):(porta da impostazioni HTTP)/percorsoURL
+   > [!IMPORTANT]
+   > Il nome host non è uguale al nome del server. Questo valore è il nome dell'host virtuale in esecuzione nel server applicazioni. Il probe viene inviato a http://(name host):(porta da impostazioni HTTP)/percorsoURL
 
 ## <a name="add-probe-to-the-gateway"></a>Aggiungere il probe al gateway
 
@@ -68,10 +68,10 @@ Ora che il probe è stato creato, deve essere aggiunto al gateway. Le impostazio
 
 1. Fare clic su **Impostazioni HTTP** nel gateway applicazione e quindi fare clic sulle impostazioni HTTP back-end correnti presenti nella finestra per visualizzare il pannello di configurazione.
 
-  ![Finestra delle impostazioni HTTP][2]
+   ![Finestra delle impostazioni HTTP][2]
 
 1. Nel pannello delle impostazioni **appGatewayBackEndHttpSettings** selezionare la casella di controllo **Usa probe personalizzato** e scegliere il probe creato nella sezione [Creare il probe](#createprobe) nell'elenco a discesa **Probe personalizzato**.
-Al termine fare clic su **Salva** per applicare le impostazioni.
+   Al termine fare clic su **Salva** per applicare le impostazioni.
 
 Il probe predefinito controlla l'accesso predefinito all'applicazione Web. Ora che è stato creato un probe personalizzato, il gateway applicazione usa il percorso personalizzato definito per monitorare l'integrità per i server back-end. In base ai criteri definiti, il gateway applicazione controlla il percorso specificato nel probe. Se la chiamata a host:Porta/percorso non restituisce una risposta di stato HTTP 200-399, dopo che è stata raggiunta la soglia di non integrità il server viene escluso dalla rotazione. Il probe continua a essere eseguito sull'istanza non integra per determinare quando risulterà di nuovo integra. Quando l'istanza viene nuovamente aggiunta al pool di server integri, il flusso del traffico verso l'istanza riprenderà e il relativo probe verrà eseguito all'intervallo normale specificato dall'utente.
 

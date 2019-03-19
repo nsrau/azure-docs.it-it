@@ -16,12 +16,12 @@ ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 9dc2facbcae5ced1328d5488e533239a6a5627cf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a4f41f5cf4e2775e3c300a2e83794e35d7328965
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776479"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104234"
 ---
 # <a name="validate-azure-registration"></a>Convalidare la registrazione di Azure
  
@@ -67,8 +67,8 @@ Sono necessari i prerequisiti seguenti:
    ```powershell
    $registrationCredential = Get-Credential subscriptionowner@contoso.onmicrosoft.com -Message "Enter Credentials for Subscription Owner"
    ```
-> [!NOTE]
-  > Come CSP, quando si usa una sottoscrizione di servizi condivisi o IUR, è necessario fornire le credenziali di un utente da tale AAD corrispondente. In genere sarà simile a `subscriptionowner@iurcontoso.onmicrosoft.com`. Tale utente deve avere le credenziali appropriate, come descritto in precedenza.
+   > [!NOTE]
+   > Come CSP, quando si usa una sottoscrizione di servizi condivisi o IUR, è necessario fornire le credenziali di un utente da tale AAD corrispondente. In genere sarà simile a `subscriptionowner@iurcontoso.onmicrosoft.com`. Tale utente deve avere le credenziali appropriate, come descritto in precedenza.
 
 3. Al prompt di PowerShell, eseguire il comando seguente per impostare `$subscriptionID` si utilizzerà la sottoscrizione di Azure. Sostituire `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` con il proprio ID sottoscrizione:
    ```powershell

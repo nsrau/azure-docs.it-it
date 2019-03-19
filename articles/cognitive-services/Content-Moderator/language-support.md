@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: cd3bea5cca741f03d292a685f85cad2be247cfbf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: cf1dc352068747ab2f77beec8802407d15699d17
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865883"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102704"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Supporto per le lingue dell'API Content Moderator
 
@@ -25,119 +25,119 @@ ms.locfileid: "55865883"
 > Per rilevare i **termini volgari** usare il [codice ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) delle lingue supportate elencate in questo articolo o lasciare il campo vuoto.
 
 
-| Rilevamento della lingua | Contenuto volgare   | OCR    | Correzione automatica     |
-| -------------------- |-------------|--------|---------------------|
-| Arabo (Romanizzato)   | Afrikaans   | Arabo   | Arabo
-| Balinese | Albanese | Cinese (semplificato)    | Danese
-| Bengalese | Amharico | Cinese (tradizionale)     | Olandese
-| Buginese | Arabo | Ceco                     | Inglese
-| Buhid: | Armeno | Danese                     | Finlandese
-| Caria | Assamese | Olandese                     | Francese
-| Cinese (semplificato) | Azerbaigiano | Inglese  | Greco, moderno
-| Cinese (tradizionale) | Bangla - Bangladesh | Finlandese  | Italiano
-| Churc (Slavo) | Bangla - India | Francese     | Coreano
-| Copto | Basco | Tedesco                      | Norvegese
-| Ceco |  Bielorusso | Greco, moderno         | Polacco
-| Dhivehi | Bosniaco (alfabeto cirillico) | Ungherese      | Portoghese
-| Olandese | Bosniaco (alfabeto latino) | Italiano             | Rumeno
-| Inglese | (Creolo) | Bretone [non GeoPol] | Giapponese  | Russo
-| Farsi | Bulgaro | Coreano                        | Slovacco
-| Francese | Catalano | Norvegese                        | Spagnolo
-| Tedesco | Curdo sorani | Polacco        | Turco
-| Greco | Cherokee | Portoghese
-| Haitiano | Cinese (semplificato) | Rumeno
-| Ebraico | Cinese (tradizionale) - Hong Kong | Russo
-| Hindi | Cinese (tradizionale) - Taiwan | Serbo (alfabeto cirillico)
-| Hmong | Croato | Serbo (alfabeto latino)
-| Ungherese | Ceco | Slovacco
-| Italiano | Danese | Spagnolo
-| Giapponese | Dari | Svedese
-| Coreano | Olandese | Turco
-| Curdo (paesi arabi) | Inglese
-| Curdo (Latino) | Estone
-| Lepcha | Filippino
-| Limbu | Finlandese
-| LU | Francese
-| Lycian | Galiziano
-| Lydian | Georgiano
-| Miceneo (Greco) | Tedesco
-| Nko | Greco
-| Norvegese (Bokmål) | Gujarati
-| Norvegese (Nynorsk) |  Hausa
-| Persiano antico | Ebraico
-| Pashto | Hindi
-| Polacco | Ungherese
-| Portoghese | Islandese
-| Punjabi | Igbo
-| Rejang | Indonesiano
-| Russo | Inuktitut
-| Santali | Irlandese
-| Sasak | isiXhosa
-| Saurashtra | isiZulu
-| Serbo (alfabeto cirillico) | Italiano
-| Serbo (alfabeto latino) | Giapponese
-| Sinhala | Kannada
-| Sloveno | Kazako
-| Spagnolo | Khmer
-| Svedese | Quiché
-| Sylheti | Kinyarwanda
-| Siriaco | Kiswahili
-| Tagbanwa | Konkani
-| Tai (Nua) | Coreano
-| Tamashek | kirghiso
-| Turco | Lao
-| Ugaritico | Lettone
-| Uzbeco (alfabeto cirillico) | Lituano
-| Uzbeco (alfabeto latino) | Lussemburghese
-| Vai | Macedone
-| Yi | Malese
-| Zhuang, Chuang | Malayalam
-| | Maltese
-| | Maori
-| | Marathi
-| | Mongolo
-| | Nepalese
-| | Norvegese (Bokmål)
-| | Norvegese (Nynorsk)
-| | Odia
-| | Pashto
-| | Persiano
-| | Polacco
-| | Portoghese (Brasile)
-| | Portoghese (Portogallo)
-| | Pulaar
-| | Punjabi
-| | Punjabi (Pakistan)
-| | Quechua (Peru)
-| | Rumeno
-| | Russo
-| | Scozzese Gaelico
-| | Serbo (alfabeto cirillico)
-| | Serbo (alfabeto cirillico, Bosnia ed Erzegovina)
-| | Serbo (alfabeto latino)
-| | Sotho del sud
-| | Sotho del nord
-| | Setswana
-| | Sindhi
-| | Sinhala
-| | Slovacco
-| | Sloveno
-| | Spagnolo
-| | Svedese
-| | Tagico
-| | Tamil
-| | Tatar
-| | Telugu
-| | Thai
-| | Tigrinya
-| | Turco
-| | Turkmeno
-| | Ucraino
-| | Urdu
-| | Uiguro
-| | Uzbeco
-| | Catalano
-| | Vietnamita
-| | Gallese
-| | Wolof
-| | Yoruba
+| Rilevamento della lingua | Contenuto volgare   | OCR    | Correzione automatica     | |
+| -------------------- |-------------|--------|---------------------|---|
+| Arabo (Romanizzato)   | Afrikaans   | Arabo   | Arabo | |
+| Balinese | Albanese | Cinese (semplificato)    | Danese | |
+| Bengalese | Amharico | Cinese (tradizionale)     | Olandese | |
+| Buginese | Arabo | Ceco                     | Inglese | |
+| Buhid: | Armeno | Danese                     | Finlandese | |
+| Caria | Assamese | Olandese                     | Francese | |
+| Cinese (semplificato) | Azerbaigiano | Inglese  | Greco, moderno | |
+| Cinese (tradizionale) | Bangla - Bangladesh | Finlandese  | Italiano | |
+| Churc (Slavo) | Bangla - India | Francese     | Coreano | |
+| Copto | Basco | Tedesco                      | Norvegese | |
+| Ceco |  Bielorusso | Greco, moderno         | Polacco | |
+| Dhivehi | Bosniaco (alfabeto cirillico) | Ungherese      | Portoghese | |
+| Olandese | Bosniaco (alfabeto latino) | Italiano             | Rumeno | |
+| Inglese | (Creolo) | Bretone [non GeoPol] | Giapponese  | Russo |
+| Farsi | Bulgaro | Coreano                        | Slovacco | |
+| Francese | Catalano | Norvegese                        | Spagnolo ||
+| Tedesco | Curdo sorani | Polacco        | Turco | |
+| Greco | Cherokee | Portoghese | | |
+| Haitiano | Cinese (semplificato) | Rumeno | | |
+| Ebraico | Cinese (tradizionale) - Hong Kong | Russo | | |
+| Hindi | Cinese (tradizionale) - Taiwan | Serbo (alfabeto cirillico) | | |
+| Hmong | Croato | Serbo (alfabeto latino) | | |
+| Ungherese | Ceco | Slovacco | | |
+| Italiano | Danese | Spagnolo | | |
+| Giapponese | Dari | Svedese | | |
+| Coreano | Olandese | Turco | | |
+| Curdo (paesi arabi) | Inglese | | | |
+| Curdo (Latino) | Estone | | | |
+| Lepcha | Filippino | | | |
+| Limbu | Finlandese | | | |
+| LU | Francese | | | |
+| Lycian | Galiziano | | | |
+| Lydian | Georgiano | | | |
+| Miceneo (Greco) | Tedesco | | | |
+| Nko | Greco | | | |
+| Norvegese (Bokmål) | Gujarati | | | |
+| Norvegese (Nynorsk) |  Hausa | | | |
+| Persiano antico | Ebraico | | | |
+| Pashto | Hindi | | | |
+| Polacco | Ungherese | | | |
+| Portoghese | Islandese | | | |
+| Punjabi | Igbo | | | |
+| Rejang | Indonesiano | | | |
+| Russo | Inuktitut | | | |
+| Santali | Irlandese | | | |
+| Sasak | isiXhosa | | | |
+| Saurashtra | isiZulu | | | |
+| Serbo (alfabeto cirillico) | Italiano | | | |
+| Serbo (alfabeto latino) | Giapponese | | | |
+| Sinhala | Kannada | | | |
+| Sloveno | Kazako | | | |
+| Spagnolo | Khmer | | | |
+| Svedese | Quiché | | | |
+| Sylheti | Kinyarwanda | | | |
+| Siriaco | Kiswahili | | | |
+| Tagbanwa | Konkani | | | |
+| Tai (Nua) | Coreano | | | |
+| Tamashek | kirghiso | | | |
+| Turco | Lao | | | |
+| Ugaritico | Lettone | | | |
+| Uzbeco (alfabeto cirillico) | Lituano | | | |
+| Uzbeco (alfabeto latino) | Lussemburghese | | | |
+| Vai | Macedone | | | |
+| Yi | Malese | | | |
+| Zhuang, Chuang | Malayalam | | | |
+| | Maltese | | | |
+| | Maori | | | |
+| | Marathi | | | |
+| | Mongolo | | | |
+| | Nepalese | | | |
+| | Norvegese (Bokmål) | | | |
+| | Norvegese (Nynorsk) | | | |
+| | Odia | | | |
+| | Pashto | | | |
+| | Persiano | | | |
+| | Polacco | | | |
+| | Portoghese (Brasile) | | | |
+| | Portoghese (Portogallo) | | | |
+| | Pulaar | | | |
+| | Punjabi | | | |
+| | Punjabi (Pakistan) | | | |
+| | Quechua (Peru) | | | |
+| | Rumeno | | | |
+| | Russo | | | |
+| | Scozzese Gaelico | | | |
+| | Serbo (alfabeto cirillico) | | | |
+| | Serbo (alfabeto cirillico, Bosnia ed Erzegovina) | | | |
+| | Serbo (alfabeto latino) | | | |
+| | Sotho del sud | | | |
+| | Sotho del nord | | | |
+| | Setswana | | | |
+| | Sindhi | | | |
+| | Sinhala | | | |
+| | Slovacco | | | |
+| | Sloveno | | | |
+| | Spagnolo | | | |
+| | Svedese | | | |
+| | Tagico | | | |
+| | Tamil | | | |
+| | Tatar | | | |
+| | Telugu | | | |
+| | Thai | | | |
+| | Tigrinya | | | |
+| | Turco | | | |
+| | Turkmeno | | | |
+| | Ucraino | | | |
+| | Urdu | | | |
+| | Uiguro | | | |
+| | Uzbeco | | | |
+| | Catalano | | | |
+| | Vietnamita | | | |
+| | Gallese | | | |
+| | Wolof | | | |
+| | Yoruba | | | |

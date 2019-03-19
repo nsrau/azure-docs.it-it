@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 714bf5f915cb588a99552a8bbbc5ffa76aa16846
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 3a1fd81f890e304c6bda75fad609cc8c98cd634d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426132"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880382"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Asset di tipo certificato in Automazione di Azure
 
@@ -28,11 +28,12 @@ Per AzureRM, per creare e gestire asset di credenziali di automazione con Window
 
 |Cmdlets|DESCRIZIONE|
 |:---|:---|
-|[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate)|Recupera le informazioni su un certificato da usare in un runbook o in una configurazione DSC. È possibile recuperare solo il certificato stesso dall'attività Get-AutomationCertificate.|
-|[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate)|Crea un nuovo certificato in Automazione di Azure.|
-[Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate)|Rimuove un certificato da Automazione di Azure.|Crea un nuovo certificato in Automazione di Azure.
+|[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate)|Recupera le informazioni su un certificato da usare in un runbook o in una configurazione DSC. È possibile recuperare solo il certificato stesso dall'attività Get-AutomationCertificate.| 
+|[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate)|Crea un nuovo certificato in Automazione di Azure.| 
+[Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate)|Rimuove un certificato da Automazione di Azure.|
 |[Set-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate)|Imposta le proprietà per un certificato esistente, inclusi il caricamento del file del certificato e l'impostazione della password per un file con estensione pfx.|
 |[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Carica un certificato di servizio per il servizio cloud specificato.|
+
 
 ## <a name="activities"></a>attività
 Le attività incluse nella tabella seguente vengono usate per accedere ai certificati in un runbook e nelle configurazioni DSC.
@@ -62,11 +63,11 @@ Quando si crea un nuovo certificato, si carica un file con estensione cer o pfx 
 ### <a name="to-create-a-new-certificate-with-the-azure-portal"></a>Per creare un nuovo certificato con il portale di Azure
 
 1. Dall'account di automazione fare clic sul riquadro **Asset** per aprire il pannello **Asset**.
-1. Fare clic sul riquadro **Certificati** per aprire il pannello **Certificati**.
-1. Fare clic su **Aggiungi certificato** nella parte superiore del pannello.
-1. Digitare un nome per il certificato nella casella **Nome** .
-1. Per cercare un file con estensione cer o pfx, fare clic su **Selezionare un file** in **Caricare un file di certificato**. Se si seleziona un file con estensione pfx, specificare una password e indicare se ne è consentita l'esportazione.
-1. Fare clic su **Crea** per salvare il nuovo asset di certificato.
+2. Fare clic sul riquadro **Certificati** per aprire il pannello **Certificati**.
+3. Fare clic su **Aggiungi certificato** nella parte superiore del pannello.
+4. Digitare un nome per il certificato nella casella **Nome** .
+5. Per cercare un file con estensione cer o pfx, fare clic su **Selezionare un file** in **Caricare un file di certificato**. Se si seleziona un file con estensione pfx, specificare una password e indicare se ne è consentita l'esportazione.
+6. Fare clic su **Crea** per salvare il nuovo asset di certificato.
 
 ### <a name="to-create-a-new-certificate-with-windows-powershell"></a>Per creare un nuovo certificato con Windows PowerShell
 
@@ -105,7 +106,7 @@ Per aggiungere un'attività **Get-AutomationCertificate** a un runbook grafico, 
 
 La figura seguente mostra un esempio dell'uso di un certificato in un runbook grafico. Si tratta dello stesso esempio illustrato in precedenza per l'aggiunta di un certificato a un servizio cloud da un runbook testuale.
 
-![Esempio di creazione grafica ](media/automation-certificates/graphical-runbook-add-certificate.png)
+![Esempio di creazione grafica](media/automation-certificates/graphical-runbook-add-certificate.png)
 
 ### <a name="python2-sample"></a>Esempio Python2
 L'esempio seguente illustra come accedere ai certificati nei runbook Python2.

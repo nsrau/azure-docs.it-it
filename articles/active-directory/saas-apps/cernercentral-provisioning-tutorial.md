@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9c6b1e77b6fce8bedb8f035fcb18acb8c56ad5a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: dda84d30124eca1526f227ffec134f48451c9cb0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200726"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102568"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Esercitazione: Configurare Cerner Central per il provisioning utenti automatico
 
@@ -60,7 +60,7 @@ Prima di configurare e abilitare il servizio di provisioning, è necessario stab
 Questa sezione illustra la connessione di Azure AD all'elenco di utenti di Cerner Central tramite l'API per il provisioning degli account utente SCIM di Cerner e la configurazione del servizio di provisioning per la creazione, l'aggiornamento e la disabilitazione degli account utente assegnati in Cerner Central in base all'assegnazione di utenti e gruppi in Azure AD.
 
 > [!TIP]
-> Si può anche scegliere di abilitare l'accesso Single Sign-On basato su SAML per Cerner Central, seguendo le istruzioni disponibili nel [portale di Azure (https://portal.azure.com))]. L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning automatico, nonostante queste due funzionalità siano complementari. Per altre informazioni, vedere l'[esercitazione sull'accesso Single Sign-On di Cerner Central](cernercentral-tutorial.md).
+> Si può anche scegliere di abilitare basato su SAML Single Sign-On di Cerner Central, seguendo le istruzioni disponibili nel [portale di Azure](https://portal.azure.com). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning automatico, nonostante queste due funzionalità siano complementari. Per altre informazioni, vedere l'[esercitazione sull'accesso Single Sign-On di Cerner Central](cernercentral-tutorial.md).
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>Per configurare il provisioning automatico degli account utente in Cerner Central con Azure AD:
@@ -68,13 +68,13 @@ Questa sezione illustra la connessione di Azure AD all'elenco di utenti di Cerne
 
 Per effettuare il provisioning degli account utente in Cerner Central, è necessario richiedere un account di sistema di Cerner Central e generare un token di connessione OAuth che possa essere usato da Azure AD per la connessione all'endpoint SCIM di Cerner. È consigliabile anche eseguire l'integrazione in un ambiente sandbox Cerner prima della distribuzione in produzione.
 
-1.  Il primo passaggio consiste nel garantire che le persone che gestiscono l'integrazione di Cerner e Azure AD abbiano un account CernerCare, obbligatorio per accedere alla documentazione necessaria per completare le istruzioni. Se necessario, usare gli URL riportati di seguito per creare account CernerCare in ogni ambiente applicabile.
+1. Il primo passaggio consiste nel garantire che le persone che gestiscono l'integrazione di Cerner e Azure AD abbiano un account CernerCare, obbligatorio per accedere alla documentazione necessaria per completare le istruzioni. Se necessario, usare gli URL riportati di seguito per creare account CernerCare in ogni ambiente applicabile.
 
    * Sandbox: https://sandboxcernercare.com/accounts/create
 
    * Produzione: https://cernercare.com/accounts/create  
 
-2.  È quindi necessario creare un account di sistema per Azure AD. Usare le istruzioni di seguito per richiedere un account di sistema per gli ambienti sandbox e di produzione.
+2. È quindi necessario creare un account di sistema per Azure AD. Usare le istruzioni di seguito per richiedere un account di sistema per gli ambienti sandbox e di produzione.
 
    * Istruzioni: https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
 
@@ -82,7 +82,7 @@ Per effettuare il provisioning degli account utente in Cerner Central, è necess
 
    * Produzione: https://cernercentral.com/system-accounts/
 
-3.  Generare quindi un token di connessione OAuth per ogni account di sistema. A questo scopo, seguire queste istruzioni.
+3. Generare quindi un token di connessione OAuth per ogni account di sistema. A questo scopo, seguire queste istruzioni.
 
    * Istruzioni: https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
 
@@ -96,33 +96,33 @@ Per effettuare il provisioning degli account utente in Cerner Central, è necess
 
 6. Se si è già configurato Cerner Central per l'accesso Single Sign-On, cercare l'istanza di Cerner Central usando il campo di ricerca. In caso contrario, selezionare **Aggiungi** e cercare **Cerner Central** nella raccolta di applicazioni. Selezionare Cerner Central nei risultati della ricerca e aggiungerlo all'elenco delle applicazioni.
 
-7.  Selezionare l'istanza di Cerner Central e quindi la scheda **Provisioning**.
+7. Selezionare l'istanza di Cerner Central e quindi la scheda **Provisioning**.
 
-8.  Impostare **Modalità di provisioning** su **Automatico**.
+8. Impostare **Modalità di provisioning** su **Automatico**.
 
    ![Provisioning in Cerner Central](./media/cernercentral-provisioning-tutorial/Cerner.PNG)
 
-9.  Compilare i campi seguenti in **Credenziali amministratore**:
+9. Compilare i campi seguenti in **Credenziali amministratore**:
 
    * Nel campo **URL tenant** immettere un URL nel formato seguente, sostituendo "ID-Area-Autenticazione-Roster-Utenti" con l'ID area autenticazione acquisito nel passaggio 4.
 
 > Sandbox: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
-
+> 
 > Produzione: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
    * Nel campo **Token segreto** immettere il token di connessione OAuth generato nel passaggio 3 e fare clic su **Test connessione**.
 
    * Nel lato superiore destro del portale verrà visualizzata una notifica di esito positivo.
 
-10. Immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **Messaggio di posta elettronica di notifica** e selezionare la casella di controllo seguente.
+1. Immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **Messaggio di posta elettronica di notifica** e selezionare la casella di controllo seguente.
 
-11. Fare clic su **Save**. 
+1. Fare clic su **Save**. 
 
-12. Nella sezione **Mapping attributi** esaminare gli attributi di utenti e gruppi che verranno sincronizzati da Azure AD a Cerner Central. Gli attributi selezionati come proprietà **corrispondenti** verranno usati per trovare le corrispondenze con gli account utente e i gruppi in Cerner Central per le operazioni di aggiornamento. Selezionare il pulsante Salva per eseguire il commit delle modifiche.
+1. Nella sezione **Mapping attributi** esaminare gli attributi di utenti e gruppi che verranno sincronizzati da Azure AD a Cerner Central. Gli attributi selezionati come proprietà **corrispondenti** verranno usati per trovare le corrispondenze con gli account utente e i gruppi in Cerner Central per le operazioni di aggiornamento. Selezionare il pulsante Salva per eseguire il commit delle modifiche.
 
-13. Per abilitare il servizio di provisioning di Azure AD per Cerner Central, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**.
+1. Per abilitare il servizio di provisioning di Azure AD per Cerner Central, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**.
 
-14. Fare clic su **Save**. 
+1. Fare clic su **Save**. 
 
 Verrà avviata la sincronizzazione iniziale di tutti gli utenti e/o i gruppi assegnati a Cerner Central nella sezione Utenti e gruppi. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai log delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning sull'app Cerner Central.
 

@@ -15,12 +15,12 @@ ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 8073dff6dbd8bbceb16d7fdcf8d39012233c32d6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 24c500251c8e91b7542c5c9d3e77676205c88c1f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240455"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090968"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Unità nodo azioni di ridimensionamento in Azure Stack
 
@@ -42,15 +42,15 @@ Per visualizzare lo stato di un'unità di scala:
 3. Nei risultati, selezionare l'unità di scala.
 4. A sinistra, sotto **generali**, selezionare **nodi**.
 
-  Visualizzare le informazioni seguenti:
+   Visualizzare le informazioni seguenti:
 
-  - L'elenco dei singoli nodi
-  - Stato operativo (vedere l'elenco riportato di seguito)
-  - Stato di alimentazione (in esecuzione o arrestato)
-  - modello di server
-  - Indirizzo IP del baseboard management controller (BMC)
-  - Numero totale di core
-  - quantità totale di memoria
+   - L'elenco dei singoli nodi
+   - Stato operativo (vedere l'elenco riportato di seguito)
+   - Stato di alimentazione (in esecuzione o arrestato)
+   - modello di server
+   - Indirizzo IP del baseboard management controller (BMC)
+   - Numero totale di core
+   - quantità totale di memoria
 
 ![stato di un'unità di scala](media/azure-stack-node-actions/multinodeactions.png)
 

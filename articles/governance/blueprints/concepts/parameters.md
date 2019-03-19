@@ -4,17 +4,17 @@ description: Informazioni sui parametri statici e dinamici e su come usarli per 
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9166d5d552df4854a4d00c2211a273a06198877a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 42a70f7ea21a58f40f7786d6c6f1a51093923f83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567486"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838018"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creazione di progetti dinamici tramite parametri
 
@@ -41,8 +41,13 @@ Questa misura di sicurezza impedisce la rischiosa prassi di archiviare i segreti
 - Nome del segreto dell'insieme di credenziali delle chiavi
 - Versione del segreto dell'insieme di credenziali delle chiavi
 
-L'insieme di credenziali delle chiavi a cui si fa riferimento deve esistere nella stessa sottoscrizione a cui viene assegnato il progetto.
-Inoltre, deve avere l'opzione **Abilita l'accesso ad Azure Resource Manager per la distribuzione dei modelli** configurata nella pagina **Criteri di accesso** di Key Vault. Per istruzioni su come abilitare questa funzionalità, vedere [Key Vault - Abilitare la distribuzione di modelli](../../../managed-applications/key-vault-access.md#enable-template-deployment). Per altre informazioni sull'insieme di credenziali di Azure, vedere [Panoramica di Key Vault](../../../key-vault/key-vault-overview.md).
+Se l'assegnazione di progetto usa un **identità assegnata dal sistema gestito**, il riferimento Key Vault _deve_ esiste nella stessa sottoscrizione la definizione di progetto viene assegnata a.
+
+Se l'assegnazione di progetto usa un **identità assegnata dall'utente gestito**, il riferimento Key Vault _potrebbe_ esistenti in una sottoscrizione centralizzata. L'identità gestita deve disporre dei diritti appropriati in Key Vault prima dell'assegnazione progetto.
+
+In entrambi i casi, è necessario disporre di Key Vault **abilitare l'accesso ad Azure Resource Manager per la distribuzione dei modelli** configurato nel **criteri di accesso** pagina. Per istruzioni su come abilitare questa funzionalità, vedere [Key Vault - Abilitare la distribuzione di modelli](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+
+Per altre informazioni sull'insieme di credenziali di Azure, vedere [Panoramica di Key Vault](../../../key-vault/key-vault-overview.md).
 
 ## <a name="parameter-types"></a>Tipi di parametro
 
@@ -52,11 +57,11 @@ Un valore di parametro definito nella definizione di un progetto viene chiamato 
 
 #### <a name="setting-static-parameters-in-the-portal"></a>Impostazione dei parametri statici nel portale
 
-1. Fare clic su **Tutti i servizi** e quindi cercare e selezionare **Criteri** nel riquadro sinistro. Nella pagina **Criteri** fare clic su **Progetti**.
+1. Selezionare **Tutti i servizi** nel riquadro a sinistra. Cercare e selezionare **Progetti**.
 
 1. Selezionare **Definizioni di progetto** nella pagina a sinistra.
 
-1. Fare clic su un progetto esistente e quindi fare clic su **Modifica progetto** OPPURE fare clic su **+ Crea progetto** e immettere le informazioni nella scheda **Generale**.
+1. Fare clic su un progetto esistente e quindi fare clic su **linee guida per la modifica** oppure fare clic su **+ crea blueprint** e immettere le informazioni sul **nozioni di base** scheda.
 
 1. Fare clic su **Avanti: Artefatti** oppure fare clic sulla scheda **Artefatti**.
 
@@ -169,13 +174,13 @@ L'opposto di un parametro statico è un **parametro dinamico**. Questo parametro
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Impostazione dei parametri dinamici nel portale
 
-1. Fare clic su **Tutti i servizi** e quindi cercare e selezionare **Criteri** nel riquadro sinistro. Nella pagina **Criteri** fare clic su **Progetti**.
+1. Selezionare **Tutti i servizi** nel riquadro a sinistra. Cercare e selezionare **Progetti**.
 
 1. Selezionare **Definizioni di progetto** nella pagina a sinistra.
 
-1. Fare clic con il tasto destro del mouse sul progetto che si desidera assegnare. Selezionare **Assegna progetto** OPPURE fare clic sul progetto da assegnare e quindi fare clic sul pulsante **Assegna progetto**.
+1. Fare clic con il tasto destro del mouse sul progetto che si desidera assegnare. Selezionare **blueprint assegnare** o fa clic sul progetto che si desidera assegnare e quindi il **Assign blueprint** pulsante.
 
-1. Nella pagina **Assegna progetto** trovare la sezione **Parametri artefatto**. Ogni artefatto con almeno un **parametro dinamico** mostra l'artefatto e le opzioni di configurazione. Immettere i valori richiesti per i parametri prima di assegnare il progetto. Nell'esempio seguente, _Nome_ è un **parametro dinamico** che deve essere definito per completare l'assegnazione del progetto.
+1. Nel **Assign blueprint** pagina, trovare il **parametri dell'elemento** sezione. Ogni artefatto con almeno un **parametro dinamico** mostra l'artefatto e le opzioni di configurazione. Immettere i valori richiesti per i parametri prima di assegnare il progetto. Nell'esempio seguente, _Nome_ è un **parametro dinamico** che deve essere definito per completare l'assegnazione del progetto.
 
    ![Parametro dinamico del progetto](../media/parameters/dynamic-parameter.png)
 
@@ -236,8 +241,8 @@ Gli artefatti per un gruppo di risorse sono definiti con un nome di modello e le
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sul [ciclo di vita del progetto](lifecycle.md)
-- Informazioni sulla personalizzazione della [sequenziazione di progetto](sequencing-order.md)
-- Scoprire come usare in modo ottimale il [blocco delle risorse del progetto](resource-locking.md)
-- Informazioni su come [aggiornare assegnazioni esistenti](../how-to/update-existing-assignments.md)
-- Risolvere i problemi durante l'assegnazione di un progetto con la [risoluzione generale dei problemi](../troubleshoot/general.md)
+- Scopri le [ciclo di vita del progetto](lifecycle.md).
+- Informazioni su come personalizzare il [blueprint ordine sequenziazione](sequencing-order.md).
+- Scopri come rendere sfrutta [blueprint blocco delle risorse](resource-locking.md).
+- Informazioni su come [aggiornare le assegnazioni esistenti](../how-to/update-existing-assignments.md).
+- Risolvere i problemi durante l'assegnazione di un progetto con [risoluzione dei problemi generali](../troubleshoot/general.md).

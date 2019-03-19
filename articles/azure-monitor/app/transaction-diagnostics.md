@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: b7ad21bd3185e5e6ba4774cdc5780b0594033f14
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: ba72f273724bb45418b104b1245648419ababbf0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54027453"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903624"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnostica unificata delle transazioni tra componenti
 
@@ -50,7 +50,7 @@ Questo grafico offre una sequenza temporale con barre orizzontali per la durata 
 * Selezionare una riga qualsiasi per visualizzarne i relativi [dettagli a destra](#details-of-the-selected-telemetry). 
 
 > [!NOTE]
-Le chiamate ad altri componenti hanno due righe: una riga rappresenta la chiamata in uscita (dipendenza) dal componente chiamante e l'altra riga corrisponde alla richiesta in ingresso al componente chiamato. L'icona iniziale e lo stile diverso delle barre della durata consentono di distinguere le chiamate tra loro.
+> Le chiamate ad altri componenti hanno due righe: una riga rappresenta la chiamata in uscita (dipendenza) dal componente chiamante e l'altra riga corrisponde alla richiesta in ingresso al componente chiamato. L'icona iniziale e lo stile diverso delle barre della durata consentono di distinguere le chiamate tra loro.
 
 ## <a name="all-telemetry-with-this-operation-id"></a>Tutti i dati di telemetria per questo ID operazione
 
@@ -74,9 +74,9 @@ Questo riquadro comprimibile mostra altri risultati che soddisfano i criteri del
 
 [Application Insights Profiler](../../azure-monitor/app/profiler.md) o [Snapshot Debugger](snapshot-debugger.md) consentono di eseguire la diagnostica a livello di codice dei problemi di prestazioni e degli errori. Grazie a questa esperienza è possibile visualizzare le tracce del profiler o gli snapshot di un componente con un solo clic.
 
-Per eventuali problemi relativi al funzionamento di Profiler, contattare **serviceprofilerhelp@microsoft.com**.
+Se non si è stato possibile ottenere Profiler funziona, contattare **serviceprofilerhelp\@microsoft.com**
 
-Per eventuali problemi relativi al funzionamento di Snapshot Debugger, contattare **snapshothelp@microsoft.com**.
+Se non si è stato possibile ottenere lavoro Snapshot Debugger, contattare **snapshothelp\@microsoft.com**
 
 ![Integrazione profiler](media/transaction-diagnostics/profilerTraces.png)
 

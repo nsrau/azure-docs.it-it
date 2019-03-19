@@ -6,15 +6,15 @@ keywords: clip;clip secondaria;codifica;multimediale
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 585cb88ca853954b23369c8e097583e7e8656355
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: f0dc6879ccbb22dbebd57de98e4610cd593318db
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002140"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012131"
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Inviare processi di ritaglio da Azure Media Clipper 
 

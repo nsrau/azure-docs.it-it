@@ -10,18 +10,18 @@ ms.reviewer: klam, stepsic, LADocs
 ms.topic: article
 ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.date: 05/26/2017
-ms.openlocfilehash: e95b20a12fafa9d1dbcbd641ce1c9f2674314489
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: a9049ba1fbd7d3bdce061d277f6a7a02d9b1e4b7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606436"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880065"
 ---
 # <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Distribuire e chiamare API personalizzate da flussi di lavoro in App per la logica
 
 Dopo aver [creato API personalizzate](./logic-apps-create-api-app.md) da usare in flussi di lavoro di app per la logica, è necessario distribuire le API prima di poterle chiamare. È possibile distribuire le API come [app Web](../app-service/overview.md), ma è consigliabile distribuirle come [app per le API](../app-service/app-service-web-tutorial-rest-api.md), in modo da semplificare le attività durante la compilazione, l'hosting e l'uso delle API nel cloud e in locale. Non è necessario modificare alcuna parte di codice nelle API, ma è sufficiente distribuire il codice in un'app per le API. È possibile ospitare le API in [Servizio app di Azure](../app-service/overview.md), una soluzione PaaS (Platform-as-a-Service, piattaforma distribuita come servizio) che offre hosting di API semplice e altamente scalabile.
 
-Benché sia possibile chiamare qualsiasi API da un'app per la logica, per un'esperienza ottimale aggiungere [metadati OpenAPI (in precedenza Swagger)](http://swagger.io/specification/) che descrivano le operazioni e i parametri dell'API. Il file OpenAPI semplifica l'integrazione dell'API e funziona meglio con le app per la logica.
+Benché sia possibile chiamare qualsiasi API da un'app per la logica, per un'esperienza ottimale aggiungere [metadati OpenAPI (in precedenza Swagger)](https://swagger.io/specification/) che descrivano le operazioni e i parametri dell'API. Il file OpenAPI semplifica l'integrazione dell'API e funziona meglio con le app per la logica.
 
 ## <a name="deploy-your-api-as-a-web-app-or-api-app"></a>Distribuire l'API come app Web o app per le API
 

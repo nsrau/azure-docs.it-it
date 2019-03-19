@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8316e571e97fce65b3f8308709d3300bc585663f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: edc38296374538fd708a74f575d5b0c77770c005
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434870"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901543"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Integrazione del controllo del codice sorgente in Automazione di Azure - Legacy
 
@@ -66,22 +66,22 @@ Se si ha già un account GitHub e un repository che si vuole collegare ad Automa
      | **Parametro** | **Valore** |
      |:--- |:--- |
      | NOME |Microsoft.Azure.Automation.SourceControl.Connection |
-     | type |string |
+     | Type |string |
      | Valore |{"Branch":\<*Nome del ramo*>,"RunbookFolderPath":\<*Percorso della cartella del runbook*>,"ProviderType":\< *con valore 1 per GitHub*>,"Repository":\<*Nome del repository*>,"Username":\<*Nome utente di GitHub*>} |
 
-    * La variabile **Microsoft.Azure.Automation.SourceControl.OAuthToken**contiene il valore sicuro crittografato di OAuthToken.  
+     * La variabile **Microsoft.Azure.Automation.SourceControl.OAuthToken**contiene il valore sicuro crittografato di OAuthToken.  
 
-    |**Parametro**            |**Valore** |
-    |:---|:---|
-    | NOME  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
-    | type | Unknown(Encrypted) |
-    | Valore | <*OAuthToken crittografato*> |  
+     |**Parametro**            |**Valore** |
+     |:---|:---|
+     | NOME  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
+     | Type | Unknown(Encrypted) |
+     | Valore | <*OAuthToken crittografato*> |  
 
-    ![variables](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
+     ![variables](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
 
-    * **Controllo del codice sorgente di automazione** come applicazione autorizzata. Per visualizzare l'applicazione: dalla home page di GitHub passare al proprio **profilo** > **Impostazioni** > **Applicazioni**. Questa applicazione consente ad Automazione di Azure di sincronizzare il repository GitHub con un account di automazione.  
+     * **Controllo del codice sorgente di automazione** come applicazione autorizzata. Per visualizzare l'applicazione: dalla home page di GitHub passare al proprio **profilo** > **Impostazioni** > **Applicazioni**. Questa applicazione consente ad Automazione di Azure di sincronizzare il repository GitHub con un account di automazione.  
 
-    ![Applicazione Git](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
+     ![Applicazione Git](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
 
 
 ## <a name="using-source-control-in-automation"></a>Uso del controllo del codice sorgente in Automazione
@@ -124,10 +124,6 @@ Il pulsante di sincronizzazione nella pagina Sincronizzazione repository consent
 
     > [!NOTE] 
     > Una sincronizzazione del controllo del codice sorgente sovrascrive la versione bozza dei runbook attualmente presenti nell'account di automazione per **TUTTI** i runbook attualmente nel controllo del codice sorgente. L'istruzione della riga di comando GIT equivalente per la sincronizzazione è **git pull**
-
-
-## <a name="troubleshooting-source-control-problems"></a>Risoluzione dei problemi di controllo del codice sorgente
-In caso di errori per un processo di archiviazione o sincronizzazione, il relativo stato dovrebbe essere sospeso e si possono visualizzare altri dettagli sull'errore nella pagina del processo.  La parte **Tutti i log** mostra tutti i flussi di PowerShell associati a quel processo. In questo modo vengono forniti i dettagli necessari per risolvere gli eventuali problemi relativi all'archiviazione o alla sincronizzazione. Viene anche mostrata la sequenza di azioni che si è verificata durante la sincronizzazione o l'archiviazione di un runbook.  
 
 ![Immagine AllLogs](media/automation-source-control-integration-legacy/automation_13_AllLogs.png)
 

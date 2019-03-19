@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 3ca3222f47b6a728905f895007269e3c22acd66d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: cefde79cf8c544a6900b1efa5dbcefbc43638d40
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789943"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009960"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Preparare il mapping di rete per il ripristino di emergenza della macchina virtuale Hyper-V in Azure
 
@@ -24,8 +24,8 @@ Questo articolo fornisce informazioni utili per la comprensione e la pianificazi
 ## <a name="prepare-network-mapping-for-replication-to-azure"></a>Preparare il mapping di rete per la replica in Azure
 
 Quando si esegue la replica in Azure, il mapping di rete esegue il mapping tra reti VM in un server VMM e reti virtuali di Azure di destinazione. Il mapping esegue queste operazioni:
-    -  **Connessione di rete**: assicura che le VM di Azure replicate vengano connesse alla rete mappata. Tutte le macchine virtuali che eseguono il failover nella stessa rete possono connettersi tra loro, anche se hanno eseguito il failover in piani di ripristino diversi.
-    - **Gateway di rete**: se nella rete di Azure di destinazione è configurato un gateway di rete, le macchine virtuali possono connettersi ad altre macchine virtuali locali.
+-  **Connessione di rete**: assicura che le VM di Azure replicate vengano connesse alla rete mappata. Tutte le macchine virtuali che eseguono il failover nella stessa rete possono connettersi tra loro, anche se hanno eseguito il failover in piani di ripristino diversi.
+- **Gateway di rete**: se nella rete di Azure di destinazione è configurato un gateway di rete, le macchine virtuali possono connettersi ad altre macchine virtuali locali.
 
 Il mapping di rete funziona nel modo seguente:
 

@@ -6,17 +6,17 @@ documentationcenter: na
 author: sumeetmittal
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 6e5748f5a76ade9cc1bb91902eb0fddcec2a6daa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 619b9b68a5c4e897642e1f84c25c2822d8291400
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812345"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104489"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Criteri degli endpoint di servizio di rete virtuale (anteprima)
 
@@ -158,11 +158,11 @@ Non sono disponibili funzionalità di registrazione centralizzata per i criteri 
 - Accesso negato per gli account specificati nei criteri degli endpoint
   - L'accesso potrebbe essere bloccato da gruppi di sicurezza di rete o filtro del firewall
   - Se la rimozione e la nuova applicazione dei criteri comporta la perdita di connettività:
-   - Verificare se il servizio di Azure è configurato per consentire l'accesso dalla rete virtuale, tramite gli endpoint, o verificare che i criteri predefiniti per la risorsa siano impostati su *Consenti tutto*.
+    - Verificare se il servizio di Azure è configurato per consentire l'accesso dalla rete virtuale, tramite gli endpoint, o verificare che i criteri predefiniti per la risorsa siano impostati su *Consenti tutto*.
       > [!NOTE]      
       > Non è necessario che le risorse dei servizi siano associate alle reti virtuali per ottenere l'accesso tramite i criteri degli endpoint. Tuttavia, come procedura consigliata per la sicurezza, è consigliabile che le risorse dei servizi siano associate alle reti attendibili, ad esempio le reti virtuali di Azure, tramite gli endpoint di servizio e in locale tramite un firewall IP.
   
-   - Verificare che la diagnostica del servizio mostri il traffico sugli endpoint.
+    - Verificare che la diagnostica del servizio mostri il traffico sugli endpoint.
     - Controllare se i log di flusso del gruppo di sicurezza di rete mostrano l'accesso e controllare che i log di archiviazione mostrino l'accesso, come previsto, sugli endpoint di servizio.
     - Contattare il supporto tecnico di Azure.
 - Accesso negato per gli account non specificati nei criteri degli endpoint di servizio
@@ -188,7 +188,7 @@ Per i criteri degli endpoint di servizio vengono applicati i limiti seguenti:
  |ServiceEndpintPoliciesPerSubnet|100 |
  |ServiceResourcesPerServiceEndpointPolicyDefinition|200 |
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 - Leggere [come configurare i criteri degli endpoint di servizio di rete virtuale](virtual-network-service-endpoint-policies-portal.md)
 - Leggere altre informazioni sugli [endpoint di servizio di rete virtuale](virtual-network-service-endpoints-overview.md)

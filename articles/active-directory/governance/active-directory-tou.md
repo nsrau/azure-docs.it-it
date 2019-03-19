@@ -15,12 +15,12 @@ ms.subservice: compliance
 ms.date: 02/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 987b2b1ca028b816ed6909781f56c0b5174541bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8f2de9274e1b6c996e75148d1a1f018d73a721bb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163768"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443454"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funzionalità Condizioni per l'utilizzo di Azure Active Directory
 Condizioni per l'utilizzo di Azure Active Directory offre un sistema semplice che le organizzazioni possono usare per presentare le informazioni agli utenti finali. In questo modo si garantisce che gli utenti vedano le dichiarazioni rilevanti di non responsabilità che si riferiscono ai requisiti legali o di conformità. Questo articolo descrive come iniziare con Condizioni per l'utilizzo.
@@ -315,7 +315,7 @@ I criteri di accesso condizionale diventano effettivi immediatamente. In questo 
 
 La maggior parte delle organizzazioni prevede un processo per i propri dipendenti volto a fornire il consenso alle Condizioni per l'utilizzo e alle informative sulla privacy della propria organizzazione. Ma come è possibile applicare gli stessi consensi per i guest di Azure AD business-to-business (B2B) quando vengono aggiunti tramite SharePoint o i team? Tramite l'accesso condizionale e le Condizioni per l'utilizzo, è possibile applicare un criterio direttamente nei confronti degli utenti guest B2B. Durante il flusso di riscatto dell'invito, all'utente vengono presentate le Condizioni per l'utilizzo. Questo supporto è attualmente disponibile in versione di anteprima.
 
-Le Condizioni per l'utilizzo verranno visualizzate solo quando l'utente dispone di un account guest in Azure AD. SharePoint Online è attualmente un'[esperienza del destinatario della condivisione esterna ad-hoc](/sharepoint/what-s-new-in-sharing-in-targeted-release) per condividere un documento o una cartella che non richiede all'utente di disporre di un account guest. In questo caso, le Condizioni per l'utilizzo non vengono visualizzate.
+Le Condizioni per l'utilizzo verranno visualizzate solo quando l'utente dispone di un account guest in Azure AD. SharePoint Online è attualmente un' [esperienza di destinatario condivisione esterna ad hoc](/sharepoint/what-s-new-in-sharing-in-targeted-release) per condividere un documento o una cartella che non richiede all'utente di disporre di un account guest. In questo caso, le Condizioni per l'utilizzo non vengono visualizzate.
 
 ![Tutti gli utenti guest](./media/active-directory-tou/b2b-guests.png)
 

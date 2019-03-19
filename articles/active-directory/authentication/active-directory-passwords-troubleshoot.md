@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4af7c5721458e36a1efa27c9696feaa3dbf043e4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3621bbce0128fbd173120ae2a327065ee2e84e33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186993"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57878449"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Risolvere i problemi di reimpostazione della password self-service
 
@@ -101,7 +101,7 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
 | Codice | Nome o messaggio | DESCRIZIONE |
 | --- | --- | --- |
 | 6329 | BAIL: MMS(4924) 0x80230619: "Una restrizione impedisce la modifica della password in quella corrente specificata." | Questo evento si verifica quando il servizio di writeback delle password cerca di impostare una password nella directory locale che non soddisfa i requisiti di validità, cronologia, complessità o filtro del dominio. <br> <br> Se è prevista una validità minima della password e di recente la password è stata modificata in tale intervallo di tempo, non sarà possibile modificarla di nuovo finché non si raggiunge il periodo di validità specificato nel dominio. A scopo di test, è consigliabile impostare la validità minima su 0. <br> <br> Se sono abilitati i requisiti per la cronologia delle password, sarà necessario selezionare una password che non sia stata usata nelle ultime *N* volte, dove *N* è l'impostazione relativa alla cronologia delle password. Se si seleziona una password che è stata usata nelle ultime *N* volte, si verifica un errore. A scopo di test, è consigliabile impostare la cronologia delle password su 0. <br> <br> Se abilitati, tutti i requisiti di complessità della password vengono applicati quando l'utente tenta di modificare o reimpostare la password. <br> <br> Se sono abilitati i filtri delle password e un utente sceglie una password che non soddisfa i criteri di filtro, l'operazione di reimpostazione o di modifica non riuscirà. |
-| 6329 | MMS(3040): admaexport.cpp(2837): Il server non contiene il controllo dei criteri della password LDAP. | Questo problema si verifica se il controllo LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) non è abilitato nei controller di dominio. Per usare la funzionalità di writeback delle password, è necessario abilitare il controllo. A tale scopo, i controller di dominio devono essere in Windows Server 2008 (con Service Pack più recente) o versioni successive. Se i controller di dominio sono nella versione 2008, precedente a R2, è necessario applicare anche l'[hotfix KB2386717](https://support.microsoft.com/kb/2386717). |
+| 6329 | MMS(3040): admaexport.cpp(2837): Il server non contiene il controllo dei criteri della password LDAP. | Questo problema si verifica se il controllo LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) non è abilitato nei controller di dominio. Per usare la funzionalità di writeback delle password, è necessario abilitare il controllo. A tale scopo, i controller di dominio deve essere in Windows Server 2008 R2 o versioni successive. |
 | HR 8023042 | Il motore di sincronizzazione ha restituito un errore hr = 80230402, messaggio = Tentativo di ottenere un oggetto non riuscito. Sono presenti voci duplicate con lo stesso ancoraggio. | Questo errore si verifica quando lo stesso ID utente è abilitato in più domini. Ad esempio, se si esegue la sincronizzazione di foreste di risorse e account e lo stesso ID utente è presente e abilitato in ogni foresta. <br> <br> Questo errore può verificarsi anche se si usa un attributo di ancoraggio non univoco (come un alias o UPN) e due utenti condividono lo stesso attributo di ancoraggio. <br> <br> Per risolvere questo problema, assicurarsi che non ci siano utenti duplicati nei domini e di usare un attributo di ancoraggio univoco per ogni utente. |
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Se l'origine dell'evento è PasswordResetService
@@ -179,10 +179,10 @@ Per altre informazioni, vedere i prerequisiti di connettività nell'articolo [Pr
 
 Per risolvere i problemi di connettività o altri problemi temporanei, riavviare il servizio di sincronizzazione Azure AD Connect:
 
-   1. Con un account amministratore selezionare **Start** nel server che esegue Azure AD Connect.
-   1. Immettere **services.msc** nel campo di ricerca e premere **INVIO**.
-   1. Cercare la voce **Microsoft Azure AD Sync**.
-   1. Fare clic con il pulsante destro del mouse sulla voce relativa al servizio, scegliere **Riavvia** e attendere il completamento dell'operazione.
+1. Con un account amministratore selezionare **Start** nel server che esegue Azure AD Connect.
+1. Immettere **services.msc** nel campo di ricerca e premere **INVIO**.
+1. Cercare la voce **Microsoft Azure AD Sync**.
+1. Fare clic con il pulsante destro del mouse sulla voce relativa al servizio, scegliere **Riavvia** e attendere il completamento dell'operazione.
 
    ![Riavviare il servizio Azure AD Sync][Service restart]
 
@@ -272,13 +272,13 @@ Per garantire un supporto adeguato, verrà richiesto il maggior numero di dettag
 * **Descrizione generale dell'errore**: indicare il tipo di errore, il comportamento notato, e le modalità in cui è possibile riprodurre l'errore. Fornire il maggior numero di dettagli possibili.
 * **Pagina**: indicare la pagina che si stava consultando quando è stato visualizzato l'errore. Includere l'URL, se possibile, e uno screenshot della pagina.
 * **Codice di supporto**: indicare il codice di supporto generato quando è stato visualizzato l'errore.
-    * Per trovare questo codice, riprodurre l'errore, quindi fare clic sul collegamento **Codice di supporto** nella parte inferiore della schermo e inviare al personale del supporto tecnico il GUID risultante.
+  * Per trovare questo codice, riprodurre l'errore, quindi fare clic sul collegamento **Codice di supporto** nella parte inferiore della schermo e inviare al personale del supporto tecnico il GUID risultante.
 
     ![Trovare il codice di supporto nella parte inferiore della schermata][Support code]
 
-    * Se è visualizzata una pagina senza un codice di supporto nella parte inferiore, premere F12 ed eseguire una ricerca di SID e CID, quindi inviare i due risultati al personale del supporto tecnico.
+  * Se è visualizzata una pagina senza un codice di supporto nella parte inferiore, premere F12 ed eseguire una ricerca di SID e CID, quindi inviare i due risultati al personale del supporto tecnico.
 * **Data, ora e fuso orario**: includere la data e l'ora precise *con il fuso orario* di quando si è verificato l'errore.
-* **ID utente**: indicare l'ID dell'utente che ha visualizzato l'errore. Ad esempio, *user@contoso.com*.
+* **ID utente**: indicare l'ID dell'utente che ha visualizzato l'errore. Ad esempio *utente\@contoso.com*.
     * Indicare se si tratta di un utente federato,
     * Si tratta di un utente con autenticazione pass-through?
     * Si tratta di un utente con sincronizzazione di hash della password?
