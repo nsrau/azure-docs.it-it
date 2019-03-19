@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: ff5890dcaf642d51c53b054e986689290be773ca
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 21ddeb9cb0621f0f11ca23a7b12a82df0b7aa8ca
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699245"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546673"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Piani tariffari di Database di Azure per MySQL
 
@@ -42,35 +42,38 @@ Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logic
 
 > [!IMPORTANT]
 > A partire dal 12 dicembre 2018 i nuovi clienti non possono effettuare il provisioning di server di calcolo di quarta generazione in Brasile meridionale, Canada centrale, Canada orientale, Asia orientale, Stati Uniti orientali 2, India centrale, India occidentale, Giappone occidentale, Stati Uniti centro-settentrionali e Stati Uniti occidentali. Verrà eseguita la migrazione dei server di servizi di calcolo di quarta generazione creati in precedenza ai server di servizi di calcolo di quinta generazione a partire dal 1° febbraio 2019 in queste aree.
+>
+> [!IMPORTANT]
+> A partire dal 15 febbraio 2019, i nuovi clienti non sarà in grado di effettuare il provisioning di server di generazione 4 di calcolo in Stati Uniti centrali, Stati Uniti orientali, Giappone orientale, Europa settentrionale, meridionali, Asia sud-orientale, Europa occidentale. Creato in precedenza la generazione di calcolo e 4 i server verranno migrati per generazione 5 il 1 aprile 2019 a partire da queste aree di calcolo.
 
 | **Area di Azure** | **Generazione 4** | **Generazione 5** |
 |:---|:----------:|:--------------------:|
 | Stati Uniti centrali |  | X |
 | Stati Uniti orientali |  | X |
-| Stati Uniti orientali 2 | X | X |
-| Stati Uniti centro-settentrionali | X | X |
+| Stati Uniti orientali 2 |  | X |
+| Stati Uniti centro-settentrionali |  | X |
 | Stati Uniti centro-meridionali | X | X |
-| Stati Uniti occidentali | X | X |
+| Stati Uniti occidentali |  | X |
 | Stati Uniti occidentali 2 |  | X |
-| Brasile meridionale | X | X |
-| Canada centrale | X | X |
-| Canada orientale | X | X |
+| Brasile meridionale |  | X |
+| Canada centrale |  | X |
+| Canada orientale |  | X |
 | Europa settentrionale | X | X |
 | Europa occidentale |  | X |
 | Francia centrale |  | X |
 | Regno Unito meridionale |  | X |
 | Regno Unito occidentale |  | X |
-| Asia orientale | X | X |
+| Asia orientale |  | X |
 | Asia sud-orientale | X | X |
 | Australia orientale |  | X |
 | Australia centrale |  | X |
 | Australia centrale 2 |  | X |
 | Australia sud-orientale |  | X |
-| India centrale | X | X |
+| India centrale |  | X |
 | India meridionale |  | X |
-| India occidentale | X | X |
+| India occidentale |  | X |
 | Giappone orientale | X | X |
-| Giappone occidentale | X | X |
+| Giappone occidentale |  | X |
 | Corea del Sud centrale |  | X |
 | Corea del Sud meridionale |  | X |
 | Cina orientale 1 | X |  |

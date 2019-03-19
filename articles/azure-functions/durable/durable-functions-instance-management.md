@@ -10,25 +10,31 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a71e11e4f42cd5dc365a1ccad0a8292d47342c99
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: ee96bc5e17051ab37be34eecbb8e4fe35599cd5d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301962"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547313"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Gestire le istanze in Durable Functions in Azure
 
-Le istanze di orchestrazione di [Funzioni permanenti](durable-functions-overview.md) possono essere avviate e terminate, è possibile eseguire query su esse e inviare a esse eventi di notifica. La gestione delle istanza viene eseguita usando l'[associazione del client di orchestrazione](durable-functions-bindings.md). Questo articolo riporta informazioni dettagliate su ogni operazione di gestione delle istanze.
+Se si usa la [funzioni permanenti](durable-functions-overview.md) estensione per funzioni di Azure, o si vuole avviare in questo modo, assicurarsi di ottenere il miglior utilizzo esplicitamente. Per altre informazioni su come gestirli, è possibile ottimizzare le istanze di orchestrazione di funzioni permanenti. Questo articolo riporta informazioni dettagliate su ogni operazione di gestione delle istanze.
 
-## <a name="starting-instances"></a>Avvio di istanze
+È possibile iniziare e terminare le istanze, ad esempio, ed è possibile eseguire query di istanze, inclusa la possibilità di eseguire query di tutte le istanze e le istanze di query con filtri. Inoltre, si può inviare eventi alle istanze, attendere il completamento dell'orchestrazione e recuperare gli URL di webhook HTTP management. Questo articolo descrive altre operazioni di gestione, troppo, tra cui riavvolgimento istanze eliminazione cronologia istanze e l'eliminazione di un hub attività.
 
-Il metodo [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) della classe[ DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) o `startNew` di `DurableOrchestrationClient` (JavaScript) avvia una nuova istanza della funzione dell'agente di orchestrazione. Le istanze di questa classe possono essere acquisite tramite l'associazione `orchestrationClient`. Internamente, questo metodo accoda un messaggio nella coda di controllo, che poi attiva l'avvio di una funzione con il nome specificato che usa l'associazione del trigger `orchestrationTrigger`.
+In funzioni permanenti, sono disponibili opzioni per la modalità implementare ognuna di queste operazioni di gestione. Questo articolo fornisce esempi che usano il [Azure Functions Core Tools](../functions-run-local.md) entrambi per.NET (C#) e JavaScript.
 
-Questa operazione asincrona viene completata quando il processo di orchestrazione viene pianificato correttamente. Il processo di orchestrazione dovrebbe essere avviato entro 30 secondi. Se l'avvio richiede più tempo, viene generata un'eccezione`TimeoutException`.
+## <a name="start-instances"></a>Avviare le istanze
+
+È importante essere in grado di avviare un'istanza di orchestrazione. Questa operazione viene in genere eseguita quando si utilizza un'associazione di funzioni permanenti nel trigger della funzione.
+
+Il [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) metodo sulle [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) o `startNew` sul `DurableOrchestrationClient` (JavaScript) avvia una nuova istanza. Acquisire le istanze di questa classe usando la `orchestrationClient` associazione. Internamente, questo metodo accoda un messaggio nella coda di controllo, che poi attiva l'avvio di una funzione con il nome specificato che usa l'associazione del trigger `orchestrationTrigger`.
+
+Questa operazione asincrona viene completata quando il processo di orchestrazione viene pianificato correttamente. Il processo di orchestrazione dovrebbe essere avviato entro 30 secondi. Se richiede più tempo, si noterà un `TimeoutException`.
 
 > [!WARNING]
-> Quando si sviluppa in locale con JavaScript, è necessario impostare la variabile di ambiente `WEBSITE_HOSTNAME` su `localhost:<port>`, ad esempio `localhost:7071` per usare i metodi su `DurableOrchestrationClient`. Per altre informazioni su questo requisito, vedere il [problema di GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
+> Quando si sviluppa in locale in JavaScript, impostare la variabile di ambiente `WEBSITE_HOSTNAME` al `localhost:<port>` (ad esempio `localhost:7071`) per utilizzare i metodi `DurableOrchestrationClient`. Per altre informazioni su questo requisito, vedere il [problema descritto in GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
 ### <a name="net"></a>.NET
 
@@ -36,7 +42,7 @@ I parametri per [StartNewAsync](https://azure.github.io/azure-functions-durable-
 
 * **Name**: nome della funzione dell'agente di orchestrazione da pianificare.
 * **Input**: dati serializzabili in JSON che devono essere passati come input alla funzione dell'agente di orchestrazione.
-* **InstanceId**: (facoltativo) ID univoco dell'istanza. Se non è specificato, viene generato un ID istanza casuale.
+* **InstanceId**: (facoltativo) ID univoco dell'istanza. Se non si specifica questo parametro, il metodo Usa un ID casuale.
 
 Di seguito è riportato un semplice esempio in C#:
 
@@ -57,7 +63,7 @@ public static async Task Run(
 I parametri per `startNew` sono i seguenti:
 
 * **Name**: nome della funzione dell'agente di orchestrazione da pianificare.
-* **InstanceId**: (facoltativo) ID univoco dell'istanza. Se non è specificato, viene generato un ID istanza casuale.
+* **InstanceId**: (facoltativo) ID univoco dell'istanza. Se non si specifica questo parametro, il metodo Usa un ID casuale.
 * **Input**: (facoltativo) dati serializzabili in JSON che devono essere passati come input alla funzione dell'agente di orchestrazione.
 
 Ecco un semplice esempio di JavaScript:
@@ -73,37 +79,39 @@ module.exports = async function(context, input) {
 };
 ```
 
-> [!NOTE]
-> Usare un identificatore casuale per l'ID istanza. Questo contribuisce a garantire una distribuzione del carico equa quando si ridimensionano le funzioni dell'agente di orchestrazione tra più VM. Il momento opportuno per usare ID istanza non casuali è quando l'ID deve provenire da un'origine esterna o quando si implementa il modello [agente di orchestrazione singleton](durable-functions-singletons.md).
+> [!TIP]
+> Usare un identificatore casuale per l'ID istanza. Ciò consente di garantire una distribuzione del carico equa quando si eseguono il ridimensionamento le funzioni di orchestrazione tra più macchine virtuali. Il momento opportuno per usare gli ID istanza non casuali è quando l'ID deve provenire da un'origine esterna o quando si implementa il [agente di orchestrazione singleton](durable-functions-singletons.md) pattern.
 
-### <a name="using-core-tools"></a>Utilizzo degli strumenti di base
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-È anche possibile avviare un'istanza direttamente tramite il comando [Strumenti di base di Funzioni di Azure](../functions-run-local.md) `durable start-new`. È necessario specificare i seguenti parametri:
+È anche possibile avviare un'istanza direttamente utilizzando il [Azure Functions Core Tools](../functions-run-local.md) `durable start-new` comando. È necessario specificare i seguenti parametri:
 
-* **`function-name` (obbligatorio)**: nome della funzione da avviare
-* **`input` (facoltativo)**: input alla funzione, in linea o tramite un file JSON. Per i file, aggiungere al percorso del file il prefisso `@`, ad esempio `@path/to/file.json`.
-* **`id` (facoltativo)**: ID dell'istanza di orchestrazione. Se non specificato, viene generato un GUID casuale.
+* **`function-name` (obbligatorio)**: Nome della funzione da avviare.
+* **`input` (facoltativo)**: Input alla funzione inline o tramite un file JSON. Per i file, aggiungere un prefisso per il percorso del file con `@`, ad esempio `@path/to/file.json`.
+* **`id` (facoltativo)**: ID dell'istanza di orchestrazione. Se non si specifica questo parametro, il comando Usa un GUID casuale.
 * **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è AzureWebJobsStorage.
-* **`task-hub-name` (facoltativo)**: nome dell'hub attività permanenti da usare. Il valore predefinito è DurableFunctionsHub. È possibile impostarlo anche in [host.json](durable-functions-bindings.md#host-json) tramite durableTask:HubName.
+* **`task-hub-name` (facoltativo)**: Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è DurableFunctionsHub. È possibile impostarla anche nella [host. JSON](durable-functions-bindings.md#host-json) usando durableTask:HubName.
 
 > [!NOTE]
-> I comandi degli strumenti di base presuppongono che vengano eseguiti dalla directory radice di un'app per le funzioni. Se `connection-string-setting` e `task-hub-name` vengono fornite in modo esplicito, i comandi possono essere eseguiti da qualsiasi directory. Anche se questi comandi possono essere eseguiti senza un host di app per le funzione in esecuzione, alcuni effetti potrebbero non essere osservati, a meno che l'host non sia in esecuzione. Ad esempio, il comando `start-new` accoderà un messaggio di avvio nell'hub attività di destinazione, ma l'orchestrazione non verrà effettivamente eseguita a meno che non sia presente un processo host di app per le funzioni in esecuzione in grado di elaborare il messaggio.
+> Comandi di strumenti di base presuppongono che siano in esecuzione dalla directory radice dell'app per le funzioni. Se si specifica in modo esplicito il `connection-string-setting` e `task-hub-name` parametri, è possibile eseguire i comandi da qualsiasi directory. Sebbene sia possibile eseguire questi comandi senza un host di app di funzione in esecuzione, si noterà che è non è possibile osservare alcuni effetti, a meno che l'host è in esecuzione. Ad esempio, il `start-new` comando Accoda un messaggio di avvio in hub di attività di destinazione, ma l'orchestrazione non viene effettivamente eseguito a meno che non è presente un processo di host di app di funzione in esecuzione che può elaborare il messaggio.
 
-Il comando seguente avvia la funzione denominata HelloWorld e passa il contenuto del file "counter-data.json":
+Il comando seguente avvia la funzione denominata HelloWorld e passa il contenuto del file `counter-data.json` ad esso:
 
 ```bash
 func durable start-new --function-name HelloWorld --input @counter-data.json --task-hub-name TestTaskHub
 ```
 
-## <a name="querying-instances"></a>Esecuzione di query sulle istanze
+## <a name="query-instances"></a>Istanze di query
+
+Come parte dei propri sforzi per la gestione delle orchestrazioni, è necessario molto probabilmente raccogliere informazioni sullo stato di un'istanza di orchestrazione (ad esempio, se ha in genere completata o non è riuscita).
 
 Il metodo [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) della classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) o il metodo `getStatus` della classe `DurableOrchestrationClient` (JavaScript) esegue una query sullo stato dell'istanza di orchestrazione.
 
 Accetta `instanceId` (obbligatorio), `showHistory` (facoltativo), `showHistoryOutput` (facoltativo) e `showInput` (facoltativo, solo .NET) come parametri.
 
-* **`showHistory`**: se impostato su `true`, la risposta contiene la cronologia dell'esecuzione.
-* **`showHistoryOutput`**: se impostato su `true`, la cronologia dell'esecuzione contiene gli output delle attività.
-* **`showInput`**: se impostato su `false`, la risposta non contiene l'input della funzione. Il valore predefinito è `true`. (Solo .NET)
+* **`showHistory`**: Se impostato su `true`, la risposta contiene la cronologia di esecuzione.
+* **`showHistoryOutput`**: Se impostato su `true`, la cronologia di esecuzione contiene gli output di attività.
+* **`showInput`**: Se impostato su `false`, la risposta non includerà l'input della funzione. Il valore predefinito è `true`. (Solo .NET)
 
 Il metodo restituisce un oggetto JSON con le proprietà seguenti:
 
@@ -113,7 +121,7 @@ Il metodo restituisce un oggetto JSON con le proprietà seguenti:
 * **LastUpdatedTime**: ora in cui l'orchestrazione ha eseguito l'ultimo checkpoint.
 * **Input**: input della funzione come valore JSON. Questo campo non viene popolato se `showInput` è false.
 * **CustomStatus**: stato personalizzato dell'orchestrazione in formato JSON.
-* **Output**: output della funzione come valore JSON (se la funzione è stata completata). Se l'esecuzione della funzione dell'agente di orchestrazione non è riuscita, questa proprietà include i dettagli dell'errore. Se la funzione dell'agente di orchestrazione è stata terminata, questa proprietà include il motivo dell'interruzione (se presente).
+* **Output**: output della funzione come valore JSON (se la funzione è stata completata). Se la funzione di orchestrazione non è riuscita, questa proprietà include i dettagli dell'errore. Se la funzione di orchestrazione è terminata, questa proprietà include il motivo della chiusura (se presente).
 * **RuntimeStatus**: Uno dei valori seguenti:
   * **Pending**: l'istanza è stata pianificata ma non è ancora avviata l'esecuzione.
   * **Running**: l'istanza ha iniziato l'esecuzione.
@@ -151,35 +159,37 @@ module.exports = async function(context, instanceId) {
 }
 ```
 
-### <a name="using-core-tools"></a>Utilizzo degli strumenti di base
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-È anche possibile ottenere lo stato di un'istanza di orchestrazione direttamente tramite il comando [Strumenti di base di Funzioni di Azure](../functions-run-local.md) `durable get-runtime-status`. È necessario specificare i seguenti parametri:
+È anche possibile ottenere lo stato di un'istanza di orchestrazione, direttamente tramite il [Azure Functions Core Tools](../functions-run-local.md) `durable get-runtime-status` comando. È necessario specificare i seguenti parametri:
 
 * **`id` (obbligatorio)**: ID dell'istanza di orchestrazione.
-* **`show-input` (facoltativo)**: se impostato su `true`, la risposta contiene l'input della funzione. Il valore predefinito è `false`.
-* **`show-output` (facoltativo)**: se impostato su `true`, la risposta contiene l'output della funzione. Il valore predefinito è `false`.
-* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è AzureWebJobsStorage.
-* **`task-hub-name` (facoltativo)**: nome dell'hub attività permanenti da usare. Il valore predefinito è DurableFunctionsHub. È possibile impostarlo anche in [host.json](durable-functions-bindings.md#host-json) tramite durableTask:HubName.
+* **`show-input` (facoltativo)**: Se impostato su `true`, la risposta contiene l'input della funzione. Il valore predefinito è `false`.
+* **`show-output` (facoltativo)**: Se impostato su `true`, la risposta contiene l'output della funzione. Il valore predefinito è `false`.
+* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
+* **`task-hub-name` (facoltativo)**: Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. È possibile impostarla anche [host. JSON](durable-functions-bindings.md#host-json), usando durableTask:HubName.
 
-Il comando seguente recupera lo stato (inclusi input e output) di un'istanza con un ID istanza di orchestrazione di 0ab8c55a66644d68a3a8b220b12d209c. Si presuppone che il comando `func` venga eseguito dalla directory radice dell'app per le funzioni:
+Il comando seguente recupera lo stato (inclusi input e output) di un'istanza con un ID istanza orchestrazione 0ab8c55a66644d68a3a8b220b12d209c. Si presuppone che sia in esecuzione il `func` comando dalla directory radice dell'app per le funzioni:
 
 ```bash
 func durable get-runtime-status --id 0ab8c55a66644d68a3a8b220b12d209c --show-input true --show-output true
 ```
 
-Il comando `durable get-history` può essere utilizzato per recuperare la cronologia di un'istanza di orchestrazione. È necessario specificare i seguenti parametri:
+È possibile usare il `durable get-history` comando per recuperare la cronologia di un'istanza di orchestrazione. È necessario specificare i seguenti parametri:
 
 * **`id` (obbligatorio)**: ID dell'istanza di orchestrazione.
-* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è AzureWebJobsStorage.
-* **`task-hub-name` (facoltativo)**: nome dell'hub attività permanenti da usare. Il valore predefinito è DurableFunctionsHub. È possibile impostarlo anche in host.json tramite durableTask:HubName.
+* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
+* **`task-hub-name` (facoltativo)**: Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. Si può anche essere impostato nell'host. JSON, con durableTask:HubName.
 
 ```bash
 func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
 ```
 
-## <a name="querying-all-instances"></a>Esecuzione di query su tutte le istanze
+## <a name="query-all-instances"></a>Tutte le istanze di query
 
-È possibile usare il metodo `GetStatusAsync` (.NET) o il metodo `getStatusAll` (JavaScript) per eseguire query sugli stati delle istanze di orchestrazione. In .NET è possibile passare un oggetto `CancellationToken` nel caso lo si volesse cancellare. Il metodo restituisce oggetti con le stesse proprietà del metodo `GetStatusAsync` con parametri.
+Invece di query un'istanza dell'orchestrazione alla volta, può risultare più efficiente per tutti gli elementi di query in una sola volta.
+
+È possibile usare il metodo `GetStatusAsync` (.NET) o il metodo `getStatusAll` (JavaScript) per eseguire query sugli stati delle istanze di orchestrazione. In .NET, è possibile passare un `CancellationToken` dell'oggetto nel caso in cui si vuole annullare l'operazione. Il metodo restituisce oggetti con le stesse proprietà del metodo `GetStatusAsync` con parametri.
 
 ### <a name="c"></a>C#
 
@@ -213,22 +223,24 @@ module.exports = async function(context, req) {
 };
 ```
 
-### <a name="using-core-tools"></a>Utilizzo degli strumenti di base
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-È anche possibile eseguire query delle istanze direttamente tramite il comando [Strumenti di base di Funzioni di Azure](../functions-run-local.md) `durable get-instances`. È necessario specificare i seguenti parametri:
+È anche possibile per le istanze di query direttamente, usando il [Azure Functions Core Tools](../functions-run-local.md) `durable get-instances` comando. È necessario specificare i seguenti parametri:
 
 * **`top` (facoltativo)**: questo comando supporta il paging. Questo parametro corrisponde al numero di istanze recuperate per ogni richiesta. Il valore predefinito è 10.
-* **`continuation-token` (facoltativo)**: token per indicare quale pagina o sezione di istanze deve essere recuperata. Ogni esecuzione `get-instances` restituisce un token per il set successivo di istanze.
-* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è AzureWebJobsStorage.
-* **`task-hub-name` (facoltativo)**: nome dell'hub attività permanenti da usare. Il valore predefinito è DurableFunctionsHub. È possibile impostarlo anche in [host.json](durable-functions-bindings.md#host-json) tramite durableTask:HubName.
+* **`continuation-token` (facoltativo)**: Un token per indicare la pagina o sezione di istanze da recuperare. Ogni esecuzione `get-instances` restituisce un token per il set successivo di istanze.
+* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
+* **`task-hub-name` (facoltativo)**: Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. È possibile impostarla anche [host. JSON](durable-functions-bindings.md#host-json), usando durableTask:HubName.
 
 ```bash
 func durable get-instances
 ```
 
-## <a name="querying-instances-with-filters"></a>Esecuzione di query sulle istanze con i filtri
+## <a name="query-instances-with-filters"></a>Istanze di query con filtri
 
-È anche possibile usare il metodo `GetStatusAsync` (.NET) o il metodo `getStatusBy` (JavaScript) per ottenere un elenco di istanze di orchestrazione che corrispondono a un set di filtri predefiniti. Le opzioni di filtro possibili includono l'ora di creazione e lo stato di runtime dell'orchestrazione.
+Cosa accade se non è strettamente necessario tutte le informazioni che può fornire una query di istanze standard? Ad esempio, cosa accade se si sta semplicemente cercando l'ora di creazione di orchestrazioni o lo stato di runtime dell'orchestrazione? È possibile limitare la query applicando filtri.
+
+Usare la `GetStatusAsync` (.NET) o `getStatusBy` (metodo) (JavaScript) per ottenere un elenco di istanze di orchestrazione che corrispondono a un set di filtri predefiniti.
 
 ### <a name="c"></a>C#
 
@@ -278,27 +290,29 @@ module.exports = async function(context, req) {
 };
 ```
 
-### <a name="using-the-functions-core-tools"></a>Uso degli strumenti di base di Funzioni di Azure
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-Il comando `durable get-instances` può essere utilizzato anche con i filtri. Oltre ai parametri citati in precedenza `top`, `continuation-token`, `connection-string-setting`, e `task-hub-name`, possono essere utilizzati tre parametri di filtro (`created-after`, `created-before`, e `runtime-status`).
+In Azure Functions Core Tools, è anche possibile usare il `durable get-instances` comando con i filtri. Oltre a citato in precedenza `top`, `continuation-token`, `connection-string-setting`, e `task-hub-name` parametri, è possibile utilizzare tre parametri di filtro (`created-after`, `created-before`, e `runtime-status`).
 
 * **`created-after` (facoltativo)**: consente di recuperare le istanze create dopo questa data/ora (UTC). Datetime in formato ISO 8601 accettati.
 * **`created-before` (facoltativo)**: consente di recuperare le istanze create prima di questa data/ora (UTC). Datetime in formato ISO 8601 accettati.
-* **`runtime-status` (facoltativo)**: consente di recuperare le istanze il cui stato corrisponde ai valori seguenti ("in esecuzione", "completato" e così via). Può fornire più stati (separati da spazi).
+* **`runtime-status` (facoltativo)**: Recuperare le istanze con uno stato specifico (ad esempio, in esecuzione o completato). Può fornire più stati (separati da spazi).
 * **`top` (facoltativo)**: numero di istanze recuperate per ogni richiesta. Il valore predefinito è 10.
-* **`continuation-token` (facoltativo)**: token per indicare quale pagina o sezione di istanze deve essere recuperata. Ogni esecuzione `get-instances` restituisce un token per il set successivo di istanze.
-* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è AzureWebJobsStorage.
-* **`task-hub-name` (facoltativo)**: nome dell'hub attività permanenti da usare. Il valore predefinito è DurableFunctionsHub. È possibile impostarlo anche in [host.json](durable-functions-bindings.md#host-json) tramite durableTask:HubName.
+* **`continuation-token` (facoltativo)**: Un token per indicare la pagina o sezione di istanze da recuperare. Ogni esecuzione `get-instances` restituisce un token per il set successivo di istanze.
+* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
+* **`task-hub-name` (facoltativo)**: Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. È possibile impostarla anche [host. JSON](durable-functions-bindings.md#host-json), usando durableTask:HubName.
 
-Se non viene specificato nessun filtro (`created-after`, `created-before` o `runtime-status`), allora le istanze `top` verranno recuperate senza considerare lo stato o la data di creazione di runtime.
+Se non si forniscono tutti i filtri (`created-after`, `created-before`, o `runtime-status`), il comando recupera semplicemente `top` istanze, senza considerare lo stato o la creazione di runtime di integrazione.
 
 ```bash
 func durable get-instances --created-after 2018-03-10T13:57:31Z --created-before  2018-03-10T23:59Z --top 15
 ```
 
-## <a name="terminating-instances"></a>Terminazione delle istanze
+## <a name="terminate-instances"></a>Terminare le istanze
 
-Un'istanza di orchestrazione in esecuzione può essere terminata usando il metodo [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) della classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) o il metodo `terminate` della classe `DurableOrchestrationClient` (JavaScript). I due parametri sono un `instanceId` e una stringa `reason` che saranno scritte nei log e nello stato dell'istanza. Un'istanza terminata arresta l'esecuzione non appena raggiunge il successivo punto `await` (.NET) o `yield` (JavaScript) oppure termina immediatamente se è già in un `await` (.NET) o `yield` (JavaScript).
+Se si dispone di un'istanza di orchestrazione che sta richiedendo troppo tempo per l'esecuzione o è sufficiente arrestarla prima che venga completato per qualsiasi motivo, si ha la possibilità di terminare l'operazione.
+
+È possibile usare il [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) metodo per il [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) classi (.NET), o il `terminate` metodo del `DurableOrchestrationClient` classe (JavaScript). I due parametri sono un' `instanceId` e un `reason` stringa, che vengono scritti nei log e nello stato dell'istanza. Arresta un'istanza terminata, non appena raggiunge il successivo `await` (.NET) o `yield` punto (JavaScript) oppure verrà interrotta immediatamente se è già un `await` o `yield`.
 
 ### <a name="c"></a>C#
 
@@ -327,26 +341,28 @@ module.exports = async function(context, instanceId) {
 ```
 
 > [!NOTE]
-> Al momento, la terminazione delle istanze non viene propagata. Le funzioni di attività e le orchestrazioni secondarie verranno eseguite fino al completamento anche se l'istanza di orchestrazione che le ha chiamate è stata terminata.
+> Attualmente non propaga terminazione delle istanze. Le orchestrazioni secondarie e le funzioni di attività eseguite fino al completamento, indipendentemente dal fatto se è stata terminata l'istanza di orchestrazione che sono state richiamate.
 
-### <a name="using-core-tools"></a>Utilizzo degli strumenti di base
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-È anche possibile terminare un'istanza di orchestrazione direttamente tramite il comando [Strumenti di base di Funzioni di Azure](../functions-run-local.md) `durable terminate`. È necessario specificare i seguenti parametri:
+È anche possibile terminare un'istanza di orchestrazione a direttamente, usando il [Azure Functions Core Tools](../functions-run-local.md) `durable terminate` comando. È necessario specificare i seguenti parametri:
 
-* **`id` (obbligatorio)**: ID dell'istanza di orchestrazione da terminare.
-* **`reason` (facoltativo)**: Motivo dell'interruzione.
-* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è AzureWebJobsStorage.
-* **`task-hub-name` (facoltativo)**: nome dell'hub attività permanenti da usare. Il valore predefinito è DurableFunctionsHub. È possibile impostarlo anche in [host.json](durable-functions-bindings.md#host-json) tramite durableTask:HubName.
+* **`id` (obbligatorio)**: ID dell'istanza di orchestrazione per terminare.
+* **`reason` (facoltativo)**: Motivo della terminazione.
+* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
+* **`task-hub-name` (facoltativo)**: Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. È possibile impostarla anche [host. JSON](durable-functions-bindings.md#host-json), usando durableTask:HubName.
 
-Un'istanza di orchestrazione con l'ID di 0ab8c55a66644d68a3a8b220b12d209c interrompe il comando seguente:
+Il comando seguente consente di terminare un'istanza di orchestrazione con l'ID di 0ab8c55a66644d68a3a8b220b12d209c:
 
 ```bash
 func durable terminate --id 0ab8c55a66644d68a3a8b220b12d209c --reason "It was time to be done."
 ```
 
-## <a name="sending-events-to-instances"></a>Invio di eventi alle istanze
+## <a name="send-events-to-instances"></a>Inviare eventi alle istanze
 
-È possibile inviare notifiche di eventi alle istanze in esecuzione usando il metodo [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) della classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) o il metodo `raiseEvent` della classe `DurableOrchestrationClient` (JavaScript). Le istanze che possono gestire questi eventi sono quelle in attesa di una chiamata a [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.NET) o `waitForExternalEvent` (JavaScript).
+In alcuni scenari, è importante per le funzioni dell'agente di orchestrazione essere in grado di attendere e restare in ascolto di eventi esterni. Sono inclusi [monitorare funzioni](durable-functions-concepts.md#monitoring) e le funzioni che sono in attesa [interazione umana](durable-functions-concepts.md#human).
+
+Inviare le notifiche degli eventi alle istanze in esecuzione usando il [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) metodo il [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) classi (.NET) o il `raiseEvent` metodo del `DurableOrchestrationClient` classe ( JavaScript). Le istanze che possono gestire questi eventi sono quelle in attesa di una chiamata a [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.NET) o `waitForExternalEvent` (JavaScript).
 
 I parametri per [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) (.NET) e `raiseEvent` (JavaScript) sono i seguenti:
 
@@ -380,18 +396,18 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
-> [!WARNING]
-> Se non è presente un'istanza di orchestrazione con l'*ID istanza* specificato o se l'istanza non è in attesa del *nome evento* specificato, il messaggio dell'evento viene eliminato. Per altre informazioni su questo comportamento, vedere il [problema GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).
+> [!IMPORTANT]
+> Se non esiste alcuna istanza di orchestrazione con l'ID istanza specificato oppure se l'istanza non è in attesa sul nome dell'evento specificato, il messaggio di evento viene eliminato. Per altre informazioni su questo comportamento, vedere il [problema GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).
 
-### <a name="using-core-tools"></a>Utilizzo degli strumenti di base
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-È anche possibile generare un evento di un'istanza di orchestrazione direttamente tramite il comando [Strumenti di base](../functions-run-local.md) `durable raise-event`. È necessario specificare i seguenti parametri:
+È inoltre possibile generare un evento a un'istanza di orchestrazione a direttamente, usando il [Azure Functions Core Tools](../functions-run-local.md) `durable raise-event` comando. È necessario specificare i seguenti parametri:
 
 * **`id` (obbligatorio)**: ID dell'istanza di orchestrazione.
-* **`event-name` (facoltativo)**: nome dell'evento da generare. Il valore predefinito è `$"Event_{RandomGUID}"`
-* **`event-data` (facoltativo)**: dati da inviare all'istanza di orchestrazione. Può essere il percorso di un file JSON o i dati possono essere forniti direttamente nella riga di comando
-* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è AzureWebJobsStorage.
-* **`task-hub-name` (facoltativo)**: nome dell'hub attività permanenti da usare. Il valore predefinito è DurableFunctionsHub. È possibile impostarlo anche in [host.json](durable-functions-bindings.md#host-json) tramite durableTask:HubName.
+* **`event-name` (facoltativo)**: nome dell'evento da generare. Il valore predefinito è `$"Event_{RandomGUID}"`.
+* **`event-data` (facoltativo)**: dati da inviare all'istanza di orchestrazione. Ciò può essere il percorso di un file JSON, o è possibile fornire i dati direttamente nella riga di comando.
+* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
+* **`task-hub-name` (facoltativo)**: Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. È possibile impostarla anche [host. JSON](durable-functions-bindings.md#host-json), usando durableTask:HubName.
 
 ```bash
 func durable raise-event --id 0ab8c55a66644d68a3a8b220b12d209c --event-name MyEvent --event-data @eventdata.json
@@ -403,7 +419,9 @@ func durable raise-event --id 1234567 --event-name MyOtherEvent --event-data 3
 
 ## <a name="wait-for-orchestration-completion"></a>Attendere il completamento dell'orchestrazione
 
-La classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) espone un'API [WaitForCompletionOrCreateCheckStatusResponseAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_WaitForCompletionOrCreateCheckStatusResponseAsync_) in .NET che può essere usata per ottenere in modo sincrono l'output effettivo da un'istanza di orchestrazione. In JavaScript la classe `DurableOrchestrationClient` espone un'API `waitForCompletionOrCreateCheckStatusResponse` per lo stesso scopo. I metodi usano un valore predefinito di 10 secondi per `timeout` e 1 secondo per `retryInterval` quando non sono impostati.  
+In orchestrazioni a esecuzione prolungata, è possibile attendere e ottenere i risultati di un'orchestrazione. In questi casi, è anche utile essere in grado di definire un periodo di timeout nell'orchestrazione. Se il timeout viene superato, lo stato dell'orchestrazione deve essere restituito anziché i risultati.
+
+Il [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) classe espone un [WaitForCompletionOrCreateCheckStatusResponseAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_WaitForCompletionOrCreateCheckStatusResponseAsync_) API in .NET. È possibile usare questa API per ottenere l'output effettivo da un'istanza di orchestrazione in modo sincrono. In JavaScript la classe `DurableOrchestrationClient` espone un'API `waitForCompletionOrCreateCheckStatusResponse` per lo stesso scopo. Quando non sono impostati, i metodi usano un valore predefinito di 10 secondi `timeout`e di 1 secondo per `retryInterval`.  
 
 Di seguito è riportato un esempio di funzione trigger HTTP che illustra come usare questa API:
 
@@ -411,7 +429,7 @@ Di seguito è riportato un esempio di funzione trigger HTTP che illustra come us
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpSyncStart/index.js)]
 
-La funzione può essere chiamata con la riga seguente usando un timeout di 2 secondi e un intervallo tra tentativi di 0,5 secondi:
+Chiamare la funzione con la riga seguente. Utilizzare 2 secondi per il timeout e 0,5 secondi per l'intervallo tra tentativi:
 
 ```bash
     http POST http://localhost:7071/orchestrators/E1_HelloSequence/wait?timeout=2&retryInterval=0.5
@@ -419,7 +437,7 @@ La funzione può essere chiamata con la riga seguente usando un timeout di 2 sec
 
 A seconda del tempo necessario per ottenere la risposta dall'istanza di orchestrazione, si verificano due casi:
 
-* Le istanze di orchestrazione vengono completate entro il timeout definito (in questo caso, 2 secondi) e la risposta è l'output effettivo delle istanze di orchestrazione recapitato in modo sincrono:
+* Le istanze di orchestrazione completate entro il timeout definito (in questo caso, 2 secondi) e la risposta è l'output di istanza di orchestrazione effettiva, recapitato in modo sincrono:
 
     ```http
         HTTP/1.1 200 OK
@@ -435,7 +453,7 @@ A seconda del tempo necessario per ottenere la risposta dall'istanza di orchestr
         ]
     ```
 
-* Le istanze di orchestrazione non possono essere completate entro il timeout definito (in questo caso, 2 secondi) e la risposta è quella predefinita illustrata in **Rilevamento dell'URL di API HTTP**:
+* Le istanze di orchestrazione non sono completata entro il timeout definito e la risposta è quella predefinita illustrata nel [rilevamento dell'URL di API HTTP](durable-functions-http-api.md):
 
     ```http
         HTTP/1.1 202 Accepted
@@ -456,17 +474,17 @@ A seconda del tempo necessario per ottenere la risposta dall'istanza di orchestr
     ```
 
 > [!NOTE]
-> Il formato degli URL webhook può variare in base alla versione dell'host di Funzioni di Azure in esecuzione. L'esempio precedente riguarda l'host di Funzioni di Azure 2.
+> Il formato dell'URL webhook possono essere diverse, a seconda di quale versione dell'host di funzioni di Azure in esecuzione. L'esempio precedente riguarda l'host di Funzioni di Azure 2.
 
-## <a name="retrieving-http-management-webhook-urls"></a>Recupero di URL di webhook di gestione HTTP
+## <a name="retrieve-http-management-webhook-urls"></a>Recuperare gli URL di webhook HTTP management
 
-I sistemi esterni possono comunicare con Funzioni permanenti tramite gli URL dei webhook che fanno parte della risposta predefinita descritta in [Individuazione degli URL delle API HTTP](durable-functions-http-api.md). È tuttavia possibile accedere agli URL dei webhook anche a livello di codice nel client di orchestrazione o in una funzione di attività tramite il metodo [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) della classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) o il metodo `createHttpManagementPayload` della classe `DurableOrchestrationClient` (JavaScript).
+Eseguire il monitoraggio o generare eventi a un'orchestrazione, è possibile usare un sistema esterno. I sistemi esterni possono comunicare con funzioni permanenti tramite gli URL di webhook che fanno parte della risposta predefinito descritto nella [rilevamento dell'URL di API HTTP](durable-functions-http-api.md). Tuttavia, gli URL di webhook inoltre sono accessibili a livello di codice nel client di orchestrazione o in una funzione di attività. Eseguire questa operazione usando il [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) metodo del [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) classi (.NET), o la `createHttpManagementPayload` metodo del `DurableOrchestrationClient` classe (JavaScript).
 
 Le classi [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) e `createHttpManagementPayload` dispongono di un unico parametro:
 
 * **instanceId**: ID univoco dell'istanza.
 
-I metodi restituiscono un'istanza di [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) (.NET) o un oggetto (JavaScript) con le seguenti proprietà stringa:
+I metodi restituiscono un'istanza di [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) (.NET) o un oggetto (JavaScript), con le proprietà di stringa seguenti:
 
 * **Id**: ID istanza dell'orchestrazione (deve essere lo stesso dell'input `InstanceId`).
 * **StatusQueryGetUri**: URL di stato dell'istanza di orchestrazione.
@@ -513,17 +531,19 @@ modules.exports = async function(context, ctx) {
 };
 ```
 
-## <a name="rewinding-instances-preview"></a>Istanze di ripristino (anteprima)
+## <a name="rewind-instances-preview"></a>Rewind istanze (anteprima)
 
-Un'istanza di orchestrazione non riuscita può essere *riportata* a uno stato di integrità precedente usando l'API [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_) (.NET) o `rewindAsync` (JavaScript). A questo scopo, l'orchestrazione viene ripristinata allo stato *In esecuzione* e vengono nuovamente eseguiti l'attività e/o gli errori di esecuzione dell'orchestrazione secondaria che hanno causato l'errore di orchestrazione.
-
-> [!NOTE]
-> Questa API non deve sostituire una corretta gestione degli errori e i criteri di ripetizione dei tentativi, ma deve essere usata solo nei casi in cui le istanze di orchestrazione hanno esito negativo per motivi non previsti. Per altre informazioni sulla gestione degli errori e sui criteri di ripetizione dei tentativi, vedere l'argomento [Gestione degli errori](durable-functions-error-handling.md).
-
-Un esempio di caso d'uso di *ripristino* è un flusso di lavoro che prevede una serie di [approvazioni umane](durable-functions-concepts.md#human). Si supponga che esista una serie di funzioni di attività in cui un utente viene informato che è necessaria la sua approvazione e che si attenda la risposta in tempo reale. Dopo che tutte le attività di approvazione hanno ricevuto le risposte o sono scadute, un'altra attività ha esito negativo a causa di un errore di configurazione dell'applicazione (come una stringa di connessione del database non valida). Ne consegue un errore di orchestrazione nel flusso di lavoro. Con l'API `RewindAsync` (.NET) o `rewindAsync` (JavaScript), un amministratore dell'applicazione può correggere l'errore di configurazione e *riportare* l'orchestrazione non riuscita allo stato immediatamente precedente all'errore. Nessuna delle operazioni che prevedono l'interazione umana deve essere nuovamente approvata e l'orchestrazione può essere ora completata.
+Se si dispone di un errore di orchestrazione per un motivo non previsto, è possibile *rewind* l'istanza da uno stato integro in precedenza usando un'API creata per tale scopo.
 
 > [!NOTE]
-> La funzionalità di *ripristino* non supporta istanze di ripristino dell'orchestrazione in cui siano usati timer permanenti.
+> Questa API non deve sostituire una corretta gestione degli errori e i criteri di ripetizione dei tentativi, ma deve essere usata solo nei casi in cui le istanze di orchestrazione hanno esito negativo per motivi non previsti. Per altre informazioni sui criteri di ripetizione dei tentativi e la gestione degli errori, vedere la [gestione degli errori](durable-functions-error-handling.md) argomento.
+
+Usare la [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_) (.NET) o `rewindAsync` API (JavaScript) per inserire l'orchestrazione allo stato del *in esecuzione* dello stato. Eseguire di nuovo gli errori di esecuzione di attività o suborchestration che ha causato l'errore di orchestrazione.
+
+Ad esempio, si supponga che comportano una serie di un flusso di lavoro [approvazioni umane](durable-functions-concepts.md#human). Si supponga che esistono una serie di funzioni di attività che inviano una notifica di un utente che è necessaria l'approvazione e attendere la risposta in tempo reale. Dopotutto delle attività di approvazione volta ricevute le risposte o timeout, si supponga che un'altra attività ha esito negativo a causa di un errore di configurazione dell'applicazione, ad esempio una stringa di connessione di database non è valida. Ne consegue un errore di orchestrazione nel flusso di lavoro. Con il `RewindAsync` (.NET) o `rewindAsync` API, un'applicazione (JavaScript) amministratore può risolvere l'errore di configurazione e rewind l'orchestrazione non riuscita di stato immediatamente prima dell'errore. Nessuna delle operazioni di interazione tra uomo dovranno essere nuovamente approvato e l'orchestrazione può essere completata correttamente.
+
+> [!NOTE]
+> Il *rewind* funzionalità non supporta riavvolgimento le istanze di orchestrazione che usano i timer permanenti.
 
 ### <a name="c"></a>C#
 
@@ -551,25 +571,27 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
-### <a name="using-core-tools"></a>Utilizzo degli strumenti di base
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-È anche possibile riavvolgere un'istanza di orchestrazione direttamente tramite il comando [Strumenti di base](../functions-run-local.md) `durable rewind`. È necessario specificare i seguenti parametri:
+È anche possibile tornare indietro un'istanza di orchestrazione direttamente tramite il [Azure Functions Core Tools](../functions-run-local.md) `durable rewind` comando. È necessario specificare i seguenti parametri:
 
 * **`id` (obbligatorio)**: ID dell'istanza di orchestrazione.
-* **`reason` (facoltativo)**: motivo del ripristino dell'istanza di orchestrazione.
-* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è AzureWebJobsStorage.
-* **`task-hub-name` (facoltativo)**: nome dell'hub attività permanenti da usare. Il valore predefinito è DurableFunctionsHub. È possibile impostarlo anche in [host.json](durable-functions-bindings.md#host-json) tramite durableTask:HubName.
+* **`reason` (facoltativo)**: Motivo per l'istanza di orchestrazione riavvolgimento.
+* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
+* **`task-hub-name` (facoltativo)**: Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. È possibile impostarla anche [host. JSON](durable-functions-bindings.md#host-json), usando durableTask:HubName.
 
 ```bash
 func durable rewind --id 0ab8c55a66644d68a3a8b220b12d209c --reason "Orchestrator failed and needs to be revived."
 ```
 
-## <a name="purge-instance-history"></a>Ripulire la cronologia di istanza
+## <a name="purge-instance-history"></a>Eliminare la cronologia di istanza
+
+Per rimuovere tutti i dati associati a un'orchestrazione, è possibile eliminare la cronologia di istanza. Ad esempio, è possibile eliminare le righe della tabella di Azure e BLOB di messaggi di grandi dimensioni, se esistono. A tale scopo, usare il [PurgeInstanceHistoryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_PurgeInstanceHistoryAsync_) API.
 
 > [!NOTE]
-> L'API `PurgeInstanceHistoryAsync` è attualmente disponibile solo per C#. Verrà aggiunta a JavaScript in una versione futura.
+> L'API `PurgeInstanceHistoryAsync` è attualmente disponibile solo per C#.
 
-La cronologia di orchestrazione può essere ripulita utilizzando [PurgeInstanceHistoryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_PurgeInstanceHistoryAsync_). La funzionalità rimuoverà tutti i dati associati a un'orchestrazione, le righe della tabella di Azure e BLOB di messaggi di grandi dimensioni, se presenti. Il metodo presenta due overload. Il primo ripulisce la cronologia dall'ID dell'istanza di orchestrazione:
+ Il metodo presenta due overload. Il primo Cancella cronologia dall'ID dell'istanza di orchestrazione:
 
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
@@ -581,7 +603,7 @@ public static Task Run(
 }
 ```
 
-Nel secondo esempio viene illustrata una funzione attivata tramite timer che ripulisce la cronologia per tutte le istanze di orchestrazione completate dopo l'intervallo di tempo specificato. In questo caso, rimuoverà i dati per tutte le istanze completate 30 o più giorni fa. È programmata per essere eseguita una volta al giorno alle 12 del mattino:
+Nel secondo esempio viene illustrata una funzione attivata tramite timer che ripulisce la cronologia per tutte le istanze di orchestrazione completate dopo l'intervallo di tempo specificato. In questo caso, rimuove i dati per tutte le istanze completate 30 o più giorni fa. Viene pianificata per eseguire una volta al giorno, alle ore 12:
 
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
@@ -600,32 +622,32 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> L'overload *PurgeInstanceHistory* che accetta il periodo di tempo come parametro elaborerà solo le istanze di orchestrazione in uno degli stati del runtime: Completato, Terminato o Non riuscito.
+> Per il processo della funzione attivata dalla fase abbia esito positivo, lo stato di runtime deve essere **Completed**, **Terminated**, o **Failed**.
 
-### <a name="using-core-tools"></a>Utilizzo degli strumenti di base
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-È possibile ripulire una cronologia dell'istanza di orchestrazione utilizzando il comando [Strumenti di base](../functions-run-local.md) `durable purge-history`. Simile al secondo esempio C# precedente, ripulisce la cronologia per tutte le istanze di orchestrazione create durante un intervallo di tempo specificato. Le istanze eliminate possono essere ulteriormente filtrate in base allo stato di runtime. Il comando ha diversi parametri:
+Si possono eliminare la cronologia dell'istanza di un'orchestrazione utilizzando la [Azure Functions Core Tools](../functions-run-local.md) `durable purge-history` comando. Simile al secondo C# esempio nella sezione precedente, Elimina la cronologia per tutte le istanze di orchestrazione create durante un intervallo di tempo specificato. È possibile filtrare ulteriormente le istanze eliminate in base allo stato di runtime. Il comando ha diversi parametri:
 
 * **`created-after` (facoltativo)**: consente di ripulire la cronologia delle istanze create dopo questa data/ora (UTC). Datetime in formato ISO 8601 accettati.
 * **`created-before` (facoltativo)**: consente di ripulire la cronologia delle istanze create prima di questa data/ora (UTC). Datetime in formato ISO 8601 accettati.
-* **`runtime-status` (facoltativo)**: consente di ripulire la cronologia delle istanze il cui stato corrisponde ai valori seguenti ("in esecuzione, "completato" e così via). Può fornire più stati (separati da spazi).
-* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è AzureWebJobsStorage.
-* **`task-hub-name` (facoltativo)**: nome dell'hub attività permanenti da usare. Il valore predefinito è DurableFunctionsHub. È possibile impostarlo anche in [host.json](durable-functions-bindings.md#host-json) tramite durableTask:HubName.
+* **`runtime-status` (facoltativo)**: Eliminare la cronologia delle istanze con un determinato stato (ad esempio, in esecuzione o completato). Può fornire più stati (separati da spazi).
+* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
+* **`task-hub-name` (facoltativo)**: Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. È possibile impostarla anche [host. JSON](durable-functions-bindings.md#host-json), usando durableTask:HubName.
 
-Il comando seguente eliminerebbe la cronologia di tutte le istanze non riuscite create prima del 14 novembre 2018 alle 19:35 (UTC).
+Il comando seguente elimina la cronologia di tutte le istanze non riuscite creato prima del 14 novembre 2018 7:35 PM (UTC).
 
 ```bash
 func durable purge-history --created-before 2018-11-14T19:35:00.0000000Z --runtime-status failed
 ```
 
-## <a name="deleting-a-task-hub"></a>Eliminazione di un hub attività
+## <a name="delete-a-task-hub"></a>Eliminare un hub attività
 
-Usando il comando [Strumenti di base](../functions-run-local.md) `durable delete-task-hub`, è possibile eliminare tutti gli artefatti di archiviazione associati a un hub attività particolare. Sono inclusi i BLOB, le code e le tabelle di archiviazione di Azure. Il comando presenta due parametri:
+Usando il [Azure Functions Core Tools](../functions-run-local.md) `durable delete-task-hub` comando, è possibile eliminare tutti gli elementi di archiviazione associati a un hub attività particolare. Sono inclusi i BLOB, le code e le tabelle di archiviazione di Azure. Il comando presenta due parametri:
 
-* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è AzureWebJobsStorage.
-* **`task-hub-name` (facoltativo)**: nome dell'hub attività permanenti da usare. Il valore predefinito è DurableFunctionsHub. È possibile impostarlo anche in [host.json](durable-functions-bindings.md#host-json) tramite durableTask:HubName.
+* **`connection-string-setting` (facoltativo)**: nome dell'impostazione dell'applicazione che contiene la stringa di connessione di archiviazione da usare. Il valore predefinito è `AzureWebJobsStorage`.
+* **`task-hub-name` (facoltativo)**: Nome dell'hub attività funzioni durevoli da usare. Il valore predefinito è `DurableFunctionsHub`. È possibile impostarla anche [host. JSON](durable-functions-bindings.md#host-json), usando durableTask:HubName.
 
-Il comando seguente eliminerebbe tutti i dati associati all'hub attività "UserTest" della risorsa di archiviazione di Azure.
+Il seguente comando Elimina tutti i dati di archiviazione di Azure associati il `UserTest` hub attività.
 
 ```bash
 func durable delete-task-hub --task-hub-name UserTest

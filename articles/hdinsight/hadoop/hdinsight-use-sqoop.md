@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: a6c17ad8d4af568d910597da4b44f09676d1c36a
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 0a03bfe61da6a1de073401fca9c61f3212b9d0bb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652491"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440098"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Usare Apache Sqoop con Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -82,9 +82,9 @@ Se si preferisce usare Azure PowerShell per creare il cluster e il database SQL,
     - **Nome di accesso e password del cluster**: Il nome di accesso predefinito è admin.
     - **Nome utente e password SSH**.
     - **SQL database server login name and password**(Nome utente e password di accesso al server di database SQL).
-    - **_artifacts Location** (_Posizione elementi): usare il valore predefinito, a meno che non si voglia usare un file BACPAC in una posizione diversa.
+    - **_artifacts Location** (_Posizione elementi): Usare il valore predefinito a meno che non si vuole usare un file bacpac in un percorso diverso.
     - **_artifacts Location Sas Token** (_Token di firma di accesso condiviso posizione elementi): Lasciare vuoto.
-    - **Bacpac File Name** (Nome file BACPAC): usare il valore predefinito, a meno che non si voglia usare un proprio file BACPAC.
+    - **Bacpac File Name** (Nome file BACPAC): Usare il valore predefinito a meno che non si vuole usare un file bacpac.
      
         I valori seguenti sono hardcoded nella sezione relativa alle variabili:
         
@@ -146,7 +146,7 @@ HDInsight è in grado di eseguire processi Sqoop in vari modi. Usare la tabella 
 |:--- |:---:|:---:|:--- |:--- |
 | [SSH](apache-hadoop-use-sqoop-mac-linux.md) |? |? |Linux |Linux, Unix, Mac OS X o Windows |
 | [.NET SDK per Hadoop](apache-hadoop-use-sqoop-dotnet-sdk.md) |&nbsp; |? |Linux o Windows |Windows (per ora) |
-| [Azure PowerShell](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |? |Linux o Windows | Windows |
+| [Azure PowerShell](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |? |Linux o Windows |Windows |
 
 ## <a name="limitations"></a>Limitazioni
 * Esportazione di massa: con HDInsight basato su Linux, attualmente il connettore Sqoop, usato per esportare dati in Microsoft SQL Server o nel database SQL di Azure, non supporta inserimenti di massa.
@@ -163,7 +163,7 @@ In questa esercitazione si è appreso come usare Sqoop. Per altre informazioni, 
 L'esempio di PowerShell esegue questa procedura:
 
 1. Connettersi ad Azure.
-2. Creare un gruppo di risorse di Azure. Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../../azure-resource-manager/powershell-azure-resource-manager.md)
+2. Creare un gruppo di risorse di Azure. Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../../azure-resource-manager/manage-resource-groups-powershell.md)
 3. Creare un server di Database SQL di Azure, un database SQL Azure e due tabelle. 
    
     Se invece si utilizza SQL Server, utilizzare le istruzioni seguenti per creare le tabelle:

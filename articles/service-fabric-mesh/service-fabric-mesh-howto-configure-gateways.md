@@ -4,7 +4,7 @@ description: Informazioni su come configurare il gateway che gestisce il traffic
 services: service-fabric-mesh
 documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
+manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/28/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 928ba5074577fda05162dd4f113572fa66d7847f
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 1c75d781c8a83b54ac9474c83388cf02b5d03e3c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52893121"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532083"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Configurare una risorsa del Gateway per indirizzare le richieste
 
@@ -49,7 +49,7 @@ Ecco cosa accade in un modello di distribuzione Azure Resource Manager (JSON):
   "name": "myGateway",
   "type": "Microsoft.ServiceFabricMesh/gateways",
   "location": "[parameters('location')]",
-  "dependsOn": [  
+  "dependsOn": [
     "Microsoft.ServiceFabricMesh/networks/myNetwork"
   ],
   "properties": {
@@ -166,53 +166,53 @@ Di seguito un esempio di regola di routing HTTP esempio che si applicherebbe all
 Ecco come appare una configurazione completa della risorsa Gateway (adattato dall'esempio in ingresso disponibile nel [repository di esempi di Mesh](https://github.com/Azure-Samples/service-fabric-mesh/blob/2018-09-01-preview/templates/ingress/meshingress.linux.json)):
 
 ```json
-{  
+{
   "apiVersion": "2018-09-01-preview",
   "name": "ingressGatewayLinux",
   "type": "Microsoft.ServiceFabricMesh/gateways",
   "location": "[parameters('location')]",
-  "dependsOn": [  
+  "dependsOn": [
     "Microsoft.ServiceFabricMesh/networks/meshNetworkLinux"
   ],
-  "properties": {  
+  "properties": {
     "description": "Service Fabric Mesh Gateway for Linux mesh samples.",
-    "sourceNetwork": {  
+    "sourceNetwork": {
       "name": "Open"
     },
-    "destinationNetwork": {  
+    "destinationNetwork": {
       "name": "[resourceId('Microsoft.ServiceFabricMesh/networks', 'meshNetworkLinux')]"
     },
-    "http": [  
-      {  
+    "http": [
+      {
         "name": "web",
         "port": 80,
-        "hosts": [  
-          {  
+        "hosts": [
+          {
             "name": "*",
-            "routes": [  
-              {  
-                "match": {  
-                  "path": {  
+            "routes": [
+              {
+                "match": {
+                  "path": {
                     "value": "/hello",
                     "rewrite": "/",
                     "type": "Prefix"
                   }
                 },
-                "destination": {  
+                "destination": {
                   "applicationName": "meshAppLinux",
                   "serviceName": "helloWorldService",
                   "endpointName": "helloWorldListener"
                 }
               },
-              {  
-                "match": {  
-                  "path": {  
+              {
+                "match": {
+                  "path": {
                     "value": "/counter",
                     "rewrite": "/",
                     "type": "Prefix"
                   }
                 },
-                "destination": {  
+                "destination": {
                   "applicationName": "meshAppLinux",
                   "serviceName": "counterService",
                   "endpointName": "counterServiceListener"

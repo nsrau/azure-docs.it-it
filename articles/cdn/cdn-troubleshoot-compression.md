@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 14d50cb7cac77af75dd4b7293812154d1f24e47c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 2a41316eadb43145628d6c625935c751bfbc6ad6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765525"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531527"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Risoluzione dei problemi della compressione dei file CDN
 Questo articolo consente di risolvere i problemi relativi alla [compressione dei file CDN](cdn-improve-performance.md).
@@ -30,7 +30,7 @@ Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possi
 La compressione per l'endpoint è abilitata, ma i file vengono restituiti non compressi.
 
 > [!TIP]
-> Per verificare se i file restituiti sono compressi, è necessario usare uno strumento come[Fiddler](http://www.telerik.com/fiddler) o gli [strumenti di sviluppo](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) del browser.  Verificare le intestazioni della risposta HTTP restituite con il contenuto della rete CDN memorizzato nella cache.  Se è presente un'intestazione denominata `Content-Encoding` con un valore **gzip**, **bzip2** o **deflate**, il contenuto è compresso.
+> Per verificare se i file restituiti sono compressi, è necessario usare uno strumento come[Fiddler](https://www.telerik.com/fiddler) o gli [strumenti di sviluppo](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) del browser.  Verificare le intestazioni della risposta HTTP restituite con il contenuto della rete CDN memorizzato nella cache.  Se è presente un'intestazione denominata `Content-Encoding` con un valore **gzip**, **bzip2** o **deflate**, il contenuto è compresso.
 > 
 > ![Intestazione Content-Encoding](./media/cdn-troubleshoot-compression/cdn-content-header.png)
 > 
@@ -116,6 +116,6 @@ Per essere idoneo per la compressione, un file deve avere le dimensioni seguenti
 ### <a name="check-the-request-at-the-origin-server-for-a-via-header"></a>Cercare nelle richieste nel server di origine un'intestazione **Via**
 L'intestazione HTPP **Via** indica al server Web che la richiesta viene passata da un server proxy.  Per impostazione predefinita, i server Web Microsoft IIS non comprimono le risposte quando la richiesta contiene un'intestazione **Via** .  Per eseguire l'override di questo comportamento, eseguire queste operazioni:
 
-* **IIS 6**: [Impostare HcNoCompressionForProxies="FALSE" nelle proprietà della metabase di IIS](https://msdn.microsoft.com/library/ms525390.aspx)
-* **IIS 7 e versioni successive**: [Impostare sia **noCompressionForHttp10** che **noCompressionForProxies** su False nella configurazione del server](http://www.iis.net/configreference/system.webserver/httpcompression)
+* **IIS 6**: [Impostare HcNoCompressionForProxies = "FALSE" nelle proprietà della Metabase di IIS](https://msdn.microsoft.com/library/ms525390.aspx)
+* **IIS 7 e successive**: [Impostare entrambe **noCompressionForHttp10** e **noCompressionForProxies** su False nella configurazione del server](http://www.iis.net/configreference/system.webserver/httpcompression)
 

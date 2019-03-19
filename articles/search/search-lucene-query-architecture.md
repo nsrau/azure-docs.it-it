@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: dedfc7db6aef6d55fd50c94a217bdc489b9615f3
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: d504635121c5153367cd0b89ce593b093bb3cd39
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633862"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537233"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Funzionamento della ricerca full-text in Ricerca di Azure
 
@@ -55,14 +55,14 @@ L'esempio seguente è una richiesta di ricerca che è possibile inviare a Ricerc
 
 ~~~~
 POST /indexes/hotels/docs/search?api-version=2017-11-11 
-{  
-    "search": "Spacious, air-condition* +\"Ocean view\"",  
-    "searchFields": "description, title",  
+{
+    "search": "Spacious, air-condition* +\"Ocean view\"",
+    "searchFields": "description, title",
     "searchMode": "any",
-    "filter": "price ge 60 and price lt 300",  
+    "filter": "price ge 60 and price lt 300",
     "orderby": "geo.distance(location, geography'POINT(-159.476235 22.227659)')", 
     "queryType": "full" 
- } 
+}
 ~~~~
 
 Per questa richiesta, il motore di ricerca esegue le operazioni seguenti:
@@ -117,7 +117,7 @@ Per impostazione predefinita (`searchMode=any`), il motore di ricerca assume l'i
 Si supponga che abbiamo ora impostato `searchMode=all`. In questo caso, lo spazio viene interpretato come un'operazione "and". Ciascuno dei termini rimanenti deve essere presente nel documento per essere considerato come corrispondenza. La query di esempio risultante verrebbe interpretata nel modo seguente: 
 
 ~~~~
-+Spacious,+air-condition*+"Ocean view"  
++Spacious,+air-condition*+"Ocean view"
 ~~~~
 
 Un albero di query modificato per questa query sarà come segue, se un documento corrispondente è l'intersezione di tutte e tre le sottoquery: 
@@ -155,7 +155,7 @@ Quando l'analizzatore predefinito elabora il termine, renderà con lettere minus
 Il comportamento di un analizzatore può essere testato usando l'[API Analyze](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). Fornire il testo da analizzare per vedere quali termini specificati saranno generati dall'analizzatore. Ad esempio, per visualizzare il modo in cui l'analizzatore standard elabora il testo "aria condizionata", è possibile eseguire la richiesta seguente:
 
 ~~~~
-{ 
+{
     "text": "air-condition",
     "analyzer": "standard"
 }
@@ -164,7 +164,7 @@ Il comportamento di un analizzatore può essere testato usando l'[API Analyze](h
 L'analizzatore standard suddivide il testo di input nei due token seguenti, annotandoli con attributi quali offset iniziale e finale (usati per l'evidenziazione dei risultati), nonché con la loro posizione (usata per la corrispondenza di una frase):
 
 ~~~~
-{  
+{
   "tokens": [
     {
       "token": "air",
@@ -195,11 +195,11 @@ L'analisi lessicale si applica solo ai tipi di query che richiedono termini comp
 Il recupero dei documenti fa riferimento alla ricerca di documenti con termini corrispondenti all'indice. Questa fase viene spiegata meglio attraverso un esempio. Iniziamo con un indice degli hotel che presenta il seguente schema semplice: 
 
 ~~~~
-{   
-    "name": "hotels",     
-    "fields": [     
-        { "name": "id", "type": "Edm.String", "key": true, "searchable": false },     
-        { "name": "title", "type": "Edm.String", "searchable": true },     
+{
+    "name": "hotels",
+    "fields": [
+        { "name": "id", "type": "Edm.String", "key": true, "searchable": false },
+        { "name": "title", "type": "Edm.String", "searchable": true },
         { "name": "description", "type": "Edm.String", "searchable": true }
     ] 
 } 
@@ -208,28 +208,28 @@ Il recupero dei documenti fa riferimento alla ricerca di documenti con termini c
 Si supponga anche che l'indice contenga i seguenti quattro documenti: 
 
 ~~~~
-{ 
+{
     "value": [
-        {         
-            "id": "1",         
-            "title": "Hotel Atman",         
-            "description": "Spacious rooms, ocean view, walking distance to the beach."   
-        },       
-        {         
-            "id": "2",         
-            "title": "Beach Resort",        
-            "description": "Located on the north shore of the island of Kauaʻi. Ocean view."     
-        },       
-        {         
-            "id": "3",         
-            "title": "Playa Hotel",         
+        {
+            "id": "1",
+            "title": "Hotel Atman",
+            "description": "Spacious rooms, ocean view, walking distance to the beach."
+        },
+        {
+            "id": "2",
+            "title": "Beach Resort",
+            "description": "Located on the north shore of the island of Kauaʻi. Ocean view."
+        },
+        {
+            "id": "3",
+            "title": "Playa Hotel",
             "description": "Comfortable, air-conditioned rooms with ocean view."
-        },       
-        {         
-            "id": "4",         
-            "title": "Ocean Retreat",         
+        },
+        {
+            "id": "4",
+            "title": "Ocean Retreat",
             "description": "Quiet and secluded"
-        }    
+        }
     ]
 }
 ~~~~
@@ -327,7 +327,7 @@ Richiamare i tre documenti che corrispondono alla query di esempio:
 search=Spacious, air-condition* +"Ocean view"  
 ~~~~
 ~~~~
-{  
+{
   "value": [
     {
       "@search.score": 0.25610128,

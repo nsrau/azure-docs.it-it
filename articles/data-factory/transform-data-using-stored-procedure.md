@@ -3,20 +3,19 @@ title: Trasformare dati tramite l'attività stored procedure in Azure Data Facto
 description: Illustra l'uso dell'attività stored procedure di SQL Server per richiamare una stored procedure in un database SQL di Azure o in Data Warehouse da una pipeline di Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: douglasl
-ms.openlocfilehash: a56e9c2a7cceed8012f35c9d02e9c3bc5703b31f
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: 806654b7586895b62b014a49b8b3a00fb18f008f
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353210"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575892"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Trasformare dati tramite l'attività stored procedure di SQL Server in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,13 +65,13 @@ Di seguito è riportato il formato JSON per la definizione di un'attività di St
 
 La tabella seguente illustra queste proprietà JSON:
 
-| Proprietà                  | DESCRIZIONE                              | Obbligatoria |
+| Proprietà                  | Descrizione                              | Obbligatorio |
 | ------------------------- | ---------------------------------------- | -------- |
-| name                      | Nome dell'attività                     | Yes      |
+| name                      | Nome dell'attività                     | Sì      |
 | description               | Testo descrittivo per lo scopo dell'attività | No        |
-| type                      | Per l'attività stored procedure, il tipo di attività corrisponde a **SqlServerStoredProcedure** | Yes      |
-| linkedServiceName         | Riferimento al **database SQL di Azure**, ad **Azure SQL Data Warehouse** o a **SQL Server** registrato come servizio collegato in Data Factory. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | Yes      |
-| storedProcedureName       | Specificare il nome della stored procedure da richiamare. | Yes      |
+| type                      | Per l'attività stored procedure, il tipo di attività corrisponde a **SqlServerStoredProcedure** | Sì      |
+| linkedServiceName         | Riferimento al **database SQL di Azure**, ad **Azure SQL Data Warehouse** o a **SQL Server** registrato come servizio collegato in Data Factory. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | Sì      |
+| storedProcedureName       | Specificare il nome della stored procedure da richiamare. | Sì      |
 | storedProcedureParameters | Specificare i valori dei parametri della stored procedure. Usare `"param1": { "value": "param1Value","type":"param1Type" }` per passare i valori dei parametri e i tipi nativi corrispondenti supportati dall'origine dati. Se per un parametro è necessario passare Null, usare `"param1": { "value": null }` (tutte lettere minuscole). | No        |
 
 ## <a name="error-info"></a>Informazioni sull'errore

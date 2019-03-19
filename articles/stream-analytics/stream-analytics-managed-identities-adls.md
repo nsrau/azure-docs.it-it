@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 194f43a0005f17a22b3a60d6decd049444e56c20
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 43947413f061ec8b366392b676e848ebf5e6484e
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745777"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570114"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Usare le identità gestite per autenticare Analisi di flusso in Azure Data Lake Storage Gen1
 
@@ -23,13 +23,15 @@ Per registrarsi per questa anteprima e scoprire di più sulle nuove funzionalit�
 
 Questo articolo illustra tre metodi per abilitare l'identità gestita per un processo di Analisi di flusso di Azure che invia l'output ad Azure Data Lake Storage Gen1 tramite il portale di Azure, la distribuzione dei modelli di Azure Resource Manager e gli strumenti di Analisi di flusso di Azure per Visual Studio.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="azure-portal"></a>Portale di Azure
 
 1. Per iniziare, creare un nuovo processo di Analisi di flusso o aprire un processo esistente nel portale di Azure. Nella barra dei menu sul lato sinistro della schermata selezionare **Identità gestita (anteprima)** in **Configura**.
 
    ![Configurare l'identità gestita (anteprima) di Analisi di flusso](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
 
-2. Selezionare **Use System-assigned Managed Identity (preview)** (Usa identità gestita assegnata dal sistema - anteprima) dalla finestra visualizzata sulla destra. Fare clic su **Salva** per creare un'entità servizio per l'identità del processo di Analisi di flusso in Azure Active Directory. Il ciclo di vita dell'identità creata sarà gestito da Azure. Quando si elimina il processo di Analisi di flusso, l'identità associata (ovvero, l'entità servizio) viene eliminata automaticamente da Azure.
+2. Selezionare **Use System-assigned Managed Identity (preview)** (Usa identità gestita assegnata dal sistema - anteprima) dalla finestra visualizzata sulla destra. Fare clic su **salvare** a un'entità servizio per l'identità del processo di Stream Analitica in Azure Active Directory. Il ciclo di vita dell'identità creata sarà gestito da Azure. Quando si elimina il processo di Analisi di flusso, l'identità associata (ovvero, l'entità servizio) viene eliminata automaticamente da Azure.
 
    Al momento del salvataggio della configurazione, l'ID oggetto (OID) dell'entità servizio viene indicato come ID dell'entità, come illustrato di seguito:
 
@@ -91,62 +93,61 @@ Questo articolo illustra tre metodi per abilitare l'identità gestita per un pro
 
 1. È possibile creare una risorsa *Microsoft.StreamAnalytics/streamingjobs* con un'identità gestita, includendo la proprietà seguente nella sezione delle risorse del modello di Resource Manager:
 
-   ```json
-   "Identity": {
-   "Type": "SystemAssigned",
-   },
-   ```
+    ```json
+    "Identity": {
+      "Type": "SystemAssigned",
+    },
+    ```
 
    Questa proprietà indica ad Azure Resource Manager di creare e gestire l'identità per il processo di Analisi di flusso di Azure.
 
    **Processo di esempio**
 
-   ```json
-   { 
-   "Name": "AsaJobWithIdentity", 
-   "Type": "Microsoft.StreamAnalytics/streamingjobs", 
-   "Location": "West US",
-   "Identity": {
-     "Type": "SystemAssigned", 
-     }, 
-   "properties": {
-      "sku": {
-       "name": "standard"
-       },
-   "outputs": [
-         {
-           "name": "string",
-           "properties":{
-             "datasource": {        
-               "type": "Microsoft.DataLake/Accounts",
-               "properties": {
-                 "accountName": “myDataLakeAccountName",
-                 "filePathPrefix": “cluster1/logs/{date}/{time}",
-                 "dateFormat": "YYYY/MM/DD",
-                 "timeFormat": "HH",
-                 "authenticationMode": "Msi"
-                 }
-                 
-   }
+    ```json
+    {
+      "Name": "AsaJobWithIdentity",
+      "Type": "Microsoft.StreamAnalytics/streamingjobs",
+      "Location": "West US",
+      "Identity": {
+        "Type": "SystemAssigned",
+      },
+      "properties": {
+        "sku": {
+          "name": "standard"
+        },
+        "outputs": [
+          {
+            "name": "string",
+            "properties":{
+              "datasource": {
+                "type": "Microsoft.DataLake/Accounts",
+                "properties": {
+                  "accountName": "myDataLakeAccountName",
+                  "filePathPrefix": "cluster1/logs/{date}/{time}",
+                  "dateFormat": "YYYY/MM/DD",
+                  "timeFormat": "HH",
+                  "authenticationMode": "Msi"
+                }
+              }
    ```
   
    **Risposta del processo di esempio**
 
    ```json
-   { 
-   "Name": "mySAJob", 
-   "Type": "Microsoft.StreamAnalytics/streamingjobs", 
-   "Location": "West US",
-   "Identity": {
-   "Type": "SystemAssigned",
-    "principalId": "GUID", 
-    "tenantId": "GUID", 
-   }, 
-   "properties": {
-           "sku": {
-             "name": "standard"
-           },
-   }
+   {
+    "Name": "mySAJob",
+    "Type": "Microsoft.StreamAnalytics/streamingjobs",
+    "Location": "West US",
+    "Identity": {
+      "Type": "SystemAssigned",
+        "principalId": "GUID",
+        "tenantId": "GUID",
+      },
+      "properties": {
+        "sku": {
+          "name": "standard"
+        },
+      }
    ```
 
    Prendere nota dell'ID entità della risposta del processo per concedere l'accesso alla risorsa di ADLS richiesta.
@@ -158,7 +159,7 @@ Questo articolo illustra tre metodi per abilitare l'identità gestita per un pro
 2. Fornire l'accesso all'entità servizio tramite PowerShell. Per concedere l'accesso all'entità servizio tramite PowerShell, eseguire il comando seguente:
 
    ```powershell
-   Set-AzureRmDataLakeStoreItemAclEntry -AccountName <accountName> -Path <Path> -AceType User -Id <PrinicpalId> -Permissions <Permissions>
+   Set-AzDataLakeStoreItemAclEntry -AccountName <accountName> -Path <Path> -AceType User -Id <PrinicpalId> -Permissions <Permissions>
    ```
 
    **PrincipalId** è l'ID oggetto dell'entità servizio ed è elencato nella schermata del portale dopo aver creato l'entità servizio. Se il processo è stato creato usando la distribuzione di un modello di Resource Manager, l'ID oggetto è elencato nella proprietà Identity della risposta del processo.
@@ -166,11 +167,19 @@ Questo articolo illustra tre metodi per abilitare l'identità gestita per un pro
    **Esempio**
 
    ```powershell
-   PS > Set-AzureRmDataLakeStoreItemAclEntry -AccountName "adlsmsidemo" -Path / -AceType
+   PS > Set-AzDataLakeStoreItemAclEntry -AccountName "adlsmsidemo" -Path / -AceType
    User -Id 14c6fd67-d9f5-4680-a394-cd7df1f9bacf -Permissions WriteExecute
    ```
 
-   Per altre informazioni sul precedente comando di PowerShell, vedere la documentazione di [Set-AzureRmDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/azurerm.datalakestore/set-azurermdatalakestoreitemaclentry?view=azurermps-6.8.1&viewFallbackFrom=azurermps-4.2.0#optional-parameters).
+   Per altre informazioni sul precedente comando di PowerShell, vedere la [Set-AzDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) documentazione.
+
+## <a name="limitations"></a>Limitazioni
+Questa funzionalità non supporta le operazioni seguenti:
+
+1.  **L'accesso multi-tenant**: L'entità servizio creata per un determinato processo di Stream Analitica si troverà nel tenant di Azure Active Directory in cui è stato creato il processo e non può essere utilizzato in una risorsa che risiede in un altro tenant di Azure Active Directory. Pertanto, è possibile usare solo MSI sulle risorse di Azure Data Lake Store generazione 1 che sono nello stesso tenant di Azure Active Directory del processo di Azure Stream Analitica. 
+
+2.  **[Identità utente assegnata](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**: non è supportato questo significa che l'utente non è in grado di immettere le proprie entità di servizio da utilizzare per svolgere il proprio lavoro Stream Analitica. L'entità servizio viene generato da Azure Stream Analitica. 
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

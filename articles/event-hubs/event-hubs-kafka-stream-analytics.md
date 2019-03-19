@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 7612e9d6444b61210da5d642530d99423220c0a4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: b6bba4ed45530ba66a1adde274022a80091cd199
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076841"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539158"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Elaborare gli eventi di Apache Kafka per Hub eventi mediante Analisi di flusso 
 Questo articolo illustra come trasmettere i dati in Hub eventi abilitati per Kafka ed elaborarli con Analisi di flusso di Azure. L'articolo include le istruzioni dettagliate per le operazioni seguenti: 
@@ -36,7 +36,7 @@ Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti s
 
 * Una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks).
-* [Scaricare](http://maven.apache.org/download.cgi) e [installare](http://maven.apache.org/install.html) un archivio binario Maven.
+* [Scaricare](https://maven.apache.org/download.cgi) e [installare](https://maven.apache.org/install.html) un archivio binario Maven.
 * [Git](https://www.git-scm.com/)
 * Un **account di archiviazione di Azure**. Se non è disponibile, [crearne uno](../storage/common/storage-quickstart-create-account.md) prima di procedere. Il processo di Analisi di flusso in questa procedura archivia i dati di output in un archivio BLOB di Azure. 
 
@@ -133,7 +133,7 @@ La query nel processo di Analisi di flusso di Azure attraversa i dati senza eseg
 
 ### <a name="configure-job-input"></a>Configurare l'input del processo
 
-1. Nel messaggio di notifica, selezionare **Vai alla risorsa** per vedere la pagina **Processo di Analisi di flusso**. 
+1. Nel messaggio di notifica, selezionare **Vai alla risorsa** per visualizzare i **processo di Stream Analitica** pagina. 
 2. Selezionare **Input** nella sezione **TOPOLOGIA PROCESSO** nel menu di sinistra.
 3. Selezionare **Aggiungi input del flusso** e selezionare **Hub eventi**. 
 

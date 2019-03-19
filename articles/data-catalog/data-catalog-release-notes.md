@@ -8,12 +8,12 @@ ms.assetid: 3aca9c49-45a4-4352-92e6-bd25ee3eacf7
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 12b8161cc5845bca749c34188835cef1d92b299a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.openlocfilehash: 60c5b7b55e417a5703010ea34cf75dcb20146c37
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404552"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531680"
 ---
 # <a name="azure-data-catalog-release-notes"></a>Note sulla versione del Catalogo dati di Azure
 ## <a name="notes-for-the-november-20-2015-release-of-azure-data-catalog"></a>Note per la versione del 20 novembre 2015 del Catalogo dati di Azure
@@ -29,7 +29,7 @@ Per ogni situazione, il problema può essere risolto scaricando e installando la
 ### <a name="registering-and-connecting-to-teradata"></a>Registrazione e connessione a Teradata
 Per la connessione alle origini dati di Teradata, gli utenti devono installare i driver Teradata ODBC corretti che corrispondono al numero di bit (32 bit o 64 bit) del software in uso.
 
-A questa data di rilascio di ADC, il più recente [driver Teradata ODBC per windows (versione 15.10)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) è compatibile con Office 2013, ma non con Office 2016.
+A questa data di rilascio di ADC, il più recente [driver Teradata ODBC per windows (versione 15.10)](https://downloads.teradata.com/download/connectivity/odbc-driver/windows) è compatibile con Office 2013, ma non con Office 2016.
 
 ## <a name="notes-for-the-july-13-2015-release-of-azure-data-catalog"></a>Note per la versione del 13 luglio 2015 del Catalogo dati di Azure
 ### <a name="registering-and-connecting-to-oracle-database"></a>Registrazione e connessione al database Oracle
@@ -53,13 +53,13 @@ Per altre informazioni, vedere [Attivazione o disattivazione degli avvisi di pro
 
 Le possibili cause di questo comportamento problematico sono due:
 
-**Causa 1: la configurazione di Active Directory Federation Services** Lo strumento di registrazione dell'origine dati usa l'autenticazione basata su form per convalidare gli accessi degli utenti in Active Directory. Per accedere, l'autenticazione basata su form deve essere abilitata nei criteri di autenticazione globali da un amministratore di Active Directory.
+**Causa 1: Configurazione di Active Directory Federation Services** lo strumento di registrazione origine dati Usa l'autenticazione basata su form per convalidare gli accessi degli utenti in Active Directory. Per accedere, l'autenticazione basata su form deve essere abilitata nei criteri di autenticazione globali da un amministratore di Active Directory.
 
 In alcune situazioni, questo errore si verifica solo quando l'utente è nella rete aziendale o si connette dall'esterno della rete aziendale. I criteri di autenticazione globali consentono di abilitare i metodi di autenticazione separatamente per le connessioni Extranet e Intranet. Se l'autenticazione basata su form non è abilitata per la rete da cui l'utente si connette, è possibile che si verifichino errori di accesso.
 
 Per altre informazioni, vedere [Configurare i criteri di autenticazione](https://technet.microsoft.com/library/dn486781.aspx).
 
-**Causa 2: la configurazione del proxy di rete** Se la rete aziendale usa un server proxy, lo strumento di registrazione potrebbe non essere in grado di connettersi ad Azure Active Directory tramite il proxy. Gli utenti possono abilitare lo strumento di registrazione modificando il file di configurazione dello strumento e aggiungendo questa sezione al file:
+**Causa 2: Configurazione del proxy di rete** se alla rete aziendale usa un server proxy, lo strumento di registrazione potrebbe non essere in grado di connettersi ad Azure Active Directory tramite il proxy. Gli utenti possono abilitare lo strumento di registrazione modificando il file di configurazione dello strumento e aggiungendo questa sezione al file:
 
       <system.net>
         <defaultProxy useDefaultCredentials="true" enabled="true">

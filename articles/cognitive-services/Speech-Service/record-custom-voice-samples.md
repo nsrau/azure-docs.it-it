@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0ca82da43ea53aed3fbcf858b34a3ad94d712661
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d5d3d7031f9795db0ae04bc707bd9e7707137210
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864945"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530740"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Esempi di campioni vocali per la creazione di una voce personalizzata
 
@@ -150,7 +150,7 @@ I livelli devono essere impostati in modo che la maggior parte dell'intervallo d
 
 In questo caso viene usata la maggior parte dell'intervallo (altezza), ma i picchi più alti del segnale non raggiungono la parte superiore o inferiore dell'intervallo stesso. È anche possibile vedere che il silenzio nella registrazione è approssimabile a una linea orizzontale sottile, che indica un basso livello di rumore. Questa registrazione è caratterizzata da un intervallo dinamico e da un rapporto segnale/rumore accettabili.
 
-Registrare direttamente nel computer usando un'interfaccia audio di alta qualità o una porta USB, a seconda del microfono in uso. Se si usa un dispositivo analogico, mantenere semplice la catena audio: microfono, preamplificatore, interfaccia audio, computer. È possibile assegnare mensilmente licenze a entrambe [Avid Pro Tools](http://www.avid.com/en/pro-tools) e [Adobe Audition](https://www.adobe.com/products/audition.html) a un costo ragionevole. Se il budget è estremamente ridotto, provare l'utilità gratuita [Audacity](https://www.audacityteam.org/).
+Registrare direttamente nel computer usando un'interfaccia audio di alta qualità o una porta USB, a seconda del microfono in uso. Se si usa un dispositivo analogico, mantenere semplice la catena audio: microfono, preamplificatore, interfaccia audio, computer. È possibile assegnare mensilmente licenze a entrambe [Avid Pro Tools](https://www.avid.com/en/pro-tools) e [Adobe Audition](https://www.adobe.com/products/audition.html) a un costo ragionevole. Se il budget è estremamente ridotto, provare l'utilità gratuita [Audacity](https://www.audacityteam.org/).
 
 Registrare a una qualità monofonica di 44,1 KHz 16 bit (qualità CD) o superiore. Lo standard attuale è di 48 KHz 24 bit, se l'apparecchiatura in uso lo supporta. Sarà possibile ricampionare l'audio a 16 KHz 16 bit prima di inviarlo al portale per la voce personalizzata. Sottolineiamo che è importante disporre di una registrazione originale di qualità elevata nel caso in cui sia necessario apportare modifiche.
 
@@ -204,7 +204,7 @@ Gli studi di registrazione moderni si avvalgono dell'uso dei computer. Al termin
 
 Il portale per la voce personalizzata richiede che ogni espressione si trovi nel proprio file. Ogni file audio fornito dallo studio contiene più espressioni. L'attività di post-produzione primaria, di conseguenza, consiste nel suddividere le registrazioni e prepararle per l'invio. Il tecnico di registrazione potrebbe aver posizionato i marcatori nel file (oppure aver fornito un foglio separato) per indicare dove inizia ogni espressione.
 
-Usare le note per trovare i take esatti desiderati, quindi usare un'utilità di modifica del suono, ad esempio [Avid Pro Tools](http://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html) o l'[Audacity](https://www.audacityteam.org/) gratuita per copiare ogni espressione in un nuovo file.
+Usare le note per trovare i take esatti desiderati, quindi usare un'utilità di modifica del suono, ad esempio [Avid Pro Tools](https://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html) o l'[Audacity](https://www.audacityteam.org/) gratuita per copiare ogni espressione in un nuovo file.
 
 Lasciare solo circa 0,2 secondi di silenzio all'inizio e alla fine di ogni clip, ad eccezione del primo. Tale file deve iniziare con cinque secondi completi di silenzio. Non usare l'editor audio per azzerare le parti silenziose del file. L'inclusione del rumore di fondo della stanza consente agli algoritmi per la voce personalizzata di compensare eventuali rumori di sfondo residui.
 

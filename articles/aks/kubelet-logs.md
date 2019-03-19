@@ -1,22 +1,28 @@
 ---
 title: Visualizzare i log di kubelet nel servizio Azure Kubernetes
-description: Visualizzare le informazioni sulla risoluzione dei problemi nei log di kubelet da nodi del servizio Azure Kubernetes
+description: Informazioni su come visualizzare le informazioni sulla risoluzione dei problemi nei log di kubelet da nodi di Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 03/05/2019
 ms.author: iainfou
-ms.openlocfilehash: aeab24685f3663ba2c50205344d33db3d34676c2
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
-ms.translationtype: HT
+ms.openlocfilehash: b381145fef7e6fb399fac3387ab01fdc9a51b154
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42441949"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534021"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Ottenere i log di kubelet dai nodi del cluster del servizio Azure Kubernetes
 
-A volte potrebbe essere necessario recuperare i log di *kubelet* da un nodo del servizio Azure Kubernetes per operazioni di risoluzione dei problemi. Questo articolo illustra come è possibile usare `journalctl` per visualizzare i log di *kubelet*.
+Come parte del funzionamento di un cluster AKS, potrebbe essere necessario esaminare i registri per risolvere un problema. Integrate nel portale di Azure è la possibilità di visualizzare i log per il [AKS master componenti] [ aks-master-logs] oppure [contenitori in un cluster AKS][azure-container-logs]. In alcuni casi, potrebbe essere necessario ottenere *kubelet* log da un nodo AKS per la risoluzione dei problemi.
+
+Questo articolo illustra come è possibile usare `journalctl` per visualizzare il *kubelet* registra in un nodo del servizio contenitore di AZURE.
+
+## <a name="before-you-begin"></a>Prima di iniziare
+
+Questo articolo presuppone che si disponga di un cluster AKS esistente. Se è necessario un cluster servizio Azure Kubernetes, vedere la Guida introduttiva su servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
 ## <a name="create-an-ssh-connection"></a>Creare una connessione SSH
 
@@ -58,8 +64,12 @@ I0508 12:28:58.344656    8672 kubelet_node_status.go:497] Using Node Hostname fr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se sono necessarie informazioni aggiuntive sulla risoluzione dei problemi dallo schema di Kubernetes, vedere [Visualizzare i log di nodi nello schema di servizio Azure Kubernetes][aks-master-logs].
+Se sono necessarie informazioni aggiuntive sulla risoluzione dei problemi dallo schema di Kubernetes, vedere [Visualizzare i log di nodi nello schema di servizio Kubernetes di Azure][aks-master-logs].
 
 <!-- LINKS - internal -->
 [aks-ssh]: ssh.md
 [aks-master-logs]: view-master-logs.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-master-logs]: view-master-logs.md
+[azure-container-logs]: ../azure-monitor/insights/container-insights-overview.md

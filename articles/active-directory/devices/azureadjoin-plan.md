@@ -17,12 +17,12 @@ ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a299c5cf59a3c5b7a994303c9d85783ecfbb424
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7b681915eb3ad9960f335d46508b857fa6ec2e20
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201891"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551773"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure AD
 
@@ -40,7 +40,7 @@ Questo articolo presuppone che l'utente abbia familiarità con quanto descritto 
 
 ## <a name="plan-your-implementation"></a>Pianificare l'implementazione
 
-Per pianificare l'implementazione di Azure AD ibrido, è necessario acquisire familiarità con:
+Per pianificare l'implementazione di join Azure AD, è consigliabile acquisire familiarità con:
 
 |   |   |
 |---|---|

@@ -10,17 +10,17 @@ ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: f17bc3c0588476fdc4f8414fb020b16718bf1d90
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bba257c61509d862bb3161625750f05a86af8770
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854796"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532168"
 ---
 # <a name="data-format"></a>Formato dati
 
 Il file di dati descrive l'elenco di oggetti da indicizzare.
-Ogni riga nel file specifica i valori attributo di un oggetto in [formato JSON](http://json.org/) con la codifica UTF-8.
+Ogni riga nel file specifica i valori attributo di un oggetto in [formato JSON](https://json.org/) con la codifica UTF-8.
 Oltre agli attributi definiti nello [schema](SchemaFormat.md), ogni oggetto ha un attributo "logprob" facoltativo che specifica la probabilità logaritmica relativa tra gli oggetti.
 Quando il servizio restituisce gli oggetti in ordine di probabilità decrescente, è possibile usare "logprob" per indicare l'ordine in cui vengono restituiti gli oggetti corrispondenti.
 Dato un valore di probabilità *p* compreso tra 0 e 1, la probabilità logaritmica corrispondente può essere calcolata come log(*p*), dove log() è la funzione logaritmo naturale.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 293c2325f57f04c3a77b0b2b8ec2ef30e8c912b8
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: a620b592a33f9de11de53d623d257f203da2157b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156239"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547702"
 ---
 # <a name="door-monitor"></a>Monitoraggio della porta          
 
@@ -66,13 +66,13 @@ Verrà visualizzato il modulo di iscrizione di SendGrid.
 
 Completare il modulo di iscrizione:
 
-   * **Gruppo di risorse**: creare un gruppo di risorse per ospitare il servizio SendGrid o usarne uno esistente. Vedere [Uso di Gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/resource-group-portal.md).
+   * **Gruppo di risorse**: creare un gruppo di risorse per ospitare il servizio SendGrid o usarne uno esistente. Vedere [Uso di Gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/manage-resource-groups-portal.md).
 
    * **Nome**: nome del servizio SendGrid. Scegliere un nome univoco, diverso da quello di altri servizi già presenti.
 
    * **Password**: il servizio richiede una password, che non verrà usata per tutti gli elementi di questo progetto.
 
-   * **Posta elettronica**: il servizio SendGrid invierà la verifica a questo indirizzo di posta elettronica.
+   * **Messaggio di posta elettronica**: il servizio SendGrid invierà la verifica a questo indirizzo di posta elettronica.
 
 Selezionare l'opzione **Aggiungi al dashboard** per trovare più facilmente questa applicazione in futuro, quindi fare clic su **Acquista** per inviare il modulo di accesso.
  
@@ -106,7 +106,7 @@ Viene visualizzato il modulo di iscrizione.
 
 Compilare i campi nel modulo di iscrizione.
 
-   * **Gruppo di risorse**: creare un gruppo di risorse per ospitare il servizio SendGrid o usarne uno esistente. Vedere [Uso di Gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/resource-group-portal.md).
+   * **Gruppo di risorse**: creare un gruppo di risorse per ospitare il servizio SendGrid o usarne uno esistente. Vedere [Uso di Gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/manage-resource-groups-portal.md).
 
    * **Nome hub IoT**: il nome dell'hub IoT. Scegliere un nome univoco, diverso da quello di altri servizi già presenti.
 
@@ -154,7 +154,7 @@ Nel terminale di VS Code una riga di comando interattiva guiderà nel processo d
 
 Caricare ora il codice per il dispositivo.
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 1. Usare `Ctrl+P` per eseguire `task device-upload`.
 
@@ -193,7 +193,7 @@ Dopo l'inizializzazione, il messaggio `Door closed` viene visualizzato sullo sch
 
 In caso di problemi, vedere le [domande frequenti di IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) o mettersi in contatto usando i canali seguenti:
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Passaggi successivi

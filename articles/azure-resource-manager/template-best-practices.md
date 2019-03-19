@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 03/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9b136c73afc08e05694aed99d57139f77466788d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: bcc529b02505359e6e4e320d4991a082797c5261
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490380"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440473"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Procedure consigliate per i modelli di Azure Resource Manager
 
@@ -26,10 +26,28 @@ Per indicazioni su come gestire le sottoscrizioni di Azure, vedere [Scaffold Azu
 
 Per indicazioni su come compilare modelli funzionanti in tutti gli ambienti cloud di Azure, vedere [Sviluppare modelli di Azure Resource Manager per la coerenza del cloud](templates-cloud-consistency.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="template-limits"></a>Limiti del modello
+
+Limitare le dimensioni del modello a 1 MB e ogni file di parametri a 64 KB. Il limite di 1 MB si applica allo stato finale del modello dopo che è stato espanso con le definizioni delle risorse iterative e i valori di variabili e parametri. 
+
+Esistono anche i limiti seguenti:
+
+* 256 parametri
+* 256 variabili
+* 800 risorse (incluso il conteggio copie)
+* 64 valori di output
+* 24.576 caratteri in un'espressione di modello
+
+È possibile superare alcuni limiti del modello usando un modello annidato. Per altre informazioni, vedere [Uso di modelli collegati nella distribuzione di risorse di Azure](resource-group-linked-templates.md). Per ridurre il numero di parametri, variabili o output, è possibile combinare più valori in un oggetto. Per altre informazioni, vedere [Oggetti come parametri](resource-manager-objects-as-parameters.md).
+
+## <a name="resource-group"></a>Gruppo di risorse
+
+Quando si distribuiscono le risorse in un gruppo di risorse, il gruppo di risorse archivia i metadati sulle risorse. I metadati vengono archiviati nel percorso del gruppo di risorse.
+
+Se l'area del gruppo di risorse è temporaneamente non disponibile, è possibile aggiornare le risorse nel gruppo di risorse perché i metadati non sono disponibili. Le risorse in altre aree continueranno a funzionare come previsto, ma è possibile aggiornarli. Per ridurre il rischio, individuare il gruppo di risorse e le risorse nella stessa area.
 
 ## <a name="parameters"></a>Parametri
-Le informazioni di questa sezione possono essere utili quando si usano i [parametri](resource-manager-templates-parameters.md).
+Le informazioni di questa sezione possono essere utili quando si usano i [parametri](resource-group-authoring-templates.md#parameters).
 
 ### <a name="general-recommendations-for-parameters"></a>Raccomandazioni generali per i parametri
 
@@ -131,7 +149,7 @@ Le informazioni di questa sezione possono essere utili quando si usano i [parame
 
 ## <a name="variables"></a>variables
 
-Le informazioni seguenti possono essere utili quando si usano le [variabili](resource-manager-templates-variables.md):
+Le informazioni seguenti possono essere utili quando si usano le [variabili](resource-group-authoring-templates.md#variables):
 
 * Usare le variabili per i valori da usare più volte in un modello. Se un valore viene usato una sola volta, un valore hardcoded facilita la lettura del modello.
 
@@ -155,7 +173,7 @@ Quando si decidono le [dipendenze](resource-group-define-dependencies.md) da imp
 
 * Impostare una risorsa figlio come dipendente dalla risorsa padre.
 
-* Le risorse con l'[elemento condition](resource-manager-templates-resources.md#condition) impostato su false vengono automaticamente rimosse dall'ordine di dipendenza. Impostare le dipendenze come se la risorsa venisse sempre distribuita.
+* Le risorse con l'[elemento condition](resource-group-authoring-templates.md#condition) impostato su false vengono automaticamente rimosse dall'ordine di dipendenza. Impostare le dipendenze come se la risorsa venisse sempre distribuita.
 
 * Consentire la propagazione a catena delle dipendenze senza impostarle esplicitamente. Ad esempio, una macchina virtuale dipende da un'interfaccia di rete virtuale e tale interfaccia dipende da una rete virtuale e indirizzi IP pubblici. La macchina virtuale viene quindi distribuita dopo tutte e tre le risorse, ma non deve essere impostata esplicitamente come dipendente da tutte e tre. Questo approccio offre chiarezza nell'ordine delle dipendenze e semplifica la successiva modifica del modello.
 
@@ -163,7 +181,7 @@ Quando si decidono le [dipendenze](resource-group-define-dependencies.md) da imp
 
 ## <a name="resources"></a>Risorse
 
-Le informazioni seguenti possono essere utili quando si usano le [risorse](resource-manager-templates-resources.md):
+Le informazioni seguenti possono essere utili quando si usano le [risorse](resource-group-authoring-templates.md#resources):
 
 * Specificare **comments** per ogni risorsa nel modello per consentire ad altri collaboratori di comprendere lo scopo della risorsa:
    
@@ -277,7 +295,7 @@ Le informazioni seguenti possono essere utili quando si usano le [risorse](resou
 
 ## <a name="outputs"></a>Output
 
-Se viene usato un modello per creare indirizzi IP pubblici, deve includere una [sezione outputs](resource-manager-templates-outputs.md) che restituisca i dettagli dell'indirizzo IP e del nome di dominio completo (FQDN). Questi valori di output consentiranno di recuperare facilmente i dettagli sugli indirizzi IP pubblici e sugli FQDN dopo la distribuzione.
+Se viene usato un modello per creare indirizzi IP pubblici, deve includere una [sezione outputs](resource-group-authoring-templates.md#outputs) che restituisca i dettagli dell'indirizzo IP e del nome di dominio completo (FQDN). Questi valori di output consentiranno di recuperare facilmente i dettagli sugli indirizzi IP pubblici e sugli FQDN dopo la distribuzione.
 
 ```json
 "outputs": {

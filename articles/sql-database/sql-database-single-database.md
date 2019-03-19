@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: e8af73c955305c54efc478290608e627acb431ea
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: ad164e150b22af7d5a0c91fa0a8a80156952cfd0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099327"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431116"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Informazioni sull'opzione database singolo del database SQL di Azure
 
@@ -28,7 +28,7 @@ L'opzione di distribuzione database singolo crea un database nel database SQL di
 > [!NOTE]
 > Per un glossario di termini relativi al database SQL di Azure, vedere [Glossario dei termini relativi al database SQL](sql-database-glossary-terms.md)
 
-## <a name="dynamic-scalabilty"></a>Scalabilità dinamica
+## <a name="dynamic-scalability"></a>Scalabilità dinamica
 
 È possibile creare la prima app in un database singolo di piccole dimensioni a un costo mensile contenuto nel livello di servizio prezzo/prestazioni basso e quindi [modificare il livello di servizio manualmente o a livello di codice](sql-database-single-database-scale.md) in qualsiasi momento passando al livello di servizio prezzo/prestazioni più alto per soddisfare le esigenze della propria soluzione. È possibile regolare le prestazioni senza tempi di inattività per l'app o per i clienti. La scalabilità dinamica consente al database di rispettare i requisiti in continua evoluzione relativi alle risorse e di pagare solo le risorse necessarie quando necessario.
 
@@ -42,7 +42,7 @@ Usare gli strumenti di [monitoraggio delle prestazioni](sql-database-performance
 
 ## <a name="availability-capabilities"></a>Funzionalità per la disponibilità
 
-I database singoli, i pool elastici e le istanze gestite forniscono molte caratteristiche di disponibilità. Per informazioni, vedere [Caratteristiche di disponibilità](sql-database-technical-overview.md#availability-capabilities).
+I database singoli, i pool elastici e tutte le istanze gestite forniscono molte caratteristiche di disponibilità. Per informazioni, vedere [Caratteristiche di disponibilità](sql-database-technical-overview.md#availability-capabilities).
 
 ## <a name="transact-sql-differences"></a>Differenze di Transact-SQL
 

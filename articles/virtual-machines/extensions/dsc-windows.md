@@ -14,12 +14,12 @@ ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: 1d65238115ca57a3fcc8047a27c8161aaa144ce4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
-ms.translationtype: HT
+ms.openlocfilehash: 9f81e2b7537a5ecc6778baa93a1bab23dd30ff8a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407708"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451910"
 ---
 # <a name="powershell-dsc-extension"></a>Estensione DSC di PowerShell
 
@@ -33,11 +33,11 @@ L'estensione DSC di PowerShell per Windows è pubblicata e supportata da Microso
 
 L'estensione DSC supporta i seguenti sistemi operativi
 
-Windows Server 2016, Windows Server 2012R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1
+Windows Server 2019, Windows Server 2016, Windows Server 2012R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1/10
 
 ### <a name="internet-connectivity"></a>Connettività Internet
 
-Per distribuire l'estensione DSC per Windows, è necessario che la macchina virtuale di destinazione sia connessa a Internet. 
+L'estensione DSC per Windows richiede che la macchina virtuale di destinazione è in grado di comunicare con Azure e il percorso del pacchetto di configurazione (file con estensione zip) archiviata in una posizione di fuori di Azure. 
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 
@@ -47,12 +47,12 @@ Il JSON seguente illustra lo schema per la sezione delle impostazioni dell'esten
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "Microsoft.Powershell.DSC",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-10-01",
   "location": "<location>",
   "properties": {
     "publisher": "Microsoft.Powershell",
     "type": "DSC",
-    "typeHandlerVersion": "2.73",
+    "typeHandlerVersion": "2.77",
     "autoUpgradeMinorVersion": true,
     "settings": {
         "wmfVersion": "latest",
@@ -100,10 +100,10 @@ Il JSON seguente illustra lo schema per la sezione delle impostazioni dell'esten
 
 | NOME | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2018-10-01 | date |
 | publisher | Microsoft.Powershell.DSC | stringa |
 | type | DSC | stringa |
-| typeHandlerVersion | 2.73 | int |
+| typeHandlerVersion | 2.77 | int |
 
 ### <a name="settings-property-values"></a>Valori delle proprietà delle impostazioni
 
@@ -116,7 +116,7 @@ Il JSON seguente illustra lo schema per la sezione delle impostazioni dell'esten
 | settings.configurationArguments | Raccolta | Definisce i parametri da passare alla configurazione DSC. Questa proprietà non verrà crittografata.
 | settings.configurationData.url | stringa | Specifica l'URL da cui scaricare il file di dati di configurazione con estensione pds1 da usare come input per la configurazione DSC. Se l'URL specificato richiede un token di firma di accesso condiviso per accedere, sarà necessario impostare la proprietà protectedSettings.configurationDataUrlSasToken sul valore del token di firma di accesso condiviso.
 | settings.privacy.dataEnabled | stringa | Abilita o disabilita la raccolta di dati di telemetria. Gli unici valori possibili per questa proprietà sono "Abilita", "Disabilita", '' o $null. Lasciando questa proprietà vuota o con valore null verrà abilitata la raccolta di dati di telemetria.
-| settings.advancedOptions.forcePullAndApply | Booleano | Abilita l'estensione DSC per aggiornare e applicare le configurazioni DSC quando la modalità di aggiornamento è su Pull.
+| settings.advancedOptions.forcePullAndApply | Bool | Questa impostazione è progettata per migliorare l'esperienza di utilizzo con l'estensione per registrare i nodi con DSC di automazione di Azure.  Se il valore è `$true`, attenderà l'estensione per la prima esecuzione della configurazione dal servizio di pull prima della restituzione di esito positivo o negativo.  Se il valore è impostato su $false false per, lo stato restituito dall'estensione farà riferimento solo a se il nodo è stato registrato con configurazione dello stato di automazione di Azure e la configurazione del nodo non verrà eseguita durante la registrazione.
 | settings.advancedOptions.downloadMappings | Raccolta | Definisce posizioni alternative per scaricare le dipendenze, ad esempio WMF e .NET
 
 ### <a name="protected-settings-property-values"></a>Valori di proprietà delle impostazioni protette
@@ -130,26 +130,9 @@ Il JSON seguente illustra lo schema per la sezione delle impostazioni dell'esten
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 
-Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. I modelli rappresentano la scelta migliore quando si distribuiscono una o più macchine virtuali per cui è necessaria una configurazione post-distribuzione. Un esempio di modello di Resource Manager che include l'estensione macchina virtuale dell'agente di Log Analytics è disponibile nella [raccolta di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm). 
-
-La configurazione JSON per un'estensione macchina virtuale può essere annidata nella risorsa della macchina virtuale o posizionata nel livello radice o nel livello superiore di un modello JSON di Gestione risorse. Il posizionamento della configurazione JSON influisce sul valore del nome e del tipo di risorsa. 
-
-Quando la risorsa di estensione viene nidificata, JSON viene inserito nell'oggetto `"resources": []` della macchina virtuale. Quando si posiziona l'estensione JSON nella radice del modello, il nome della risorsa include un riferimento alla macchina virtuale padre e il tipo riflette la configurazione annidata.  
-
-
-## <a name="azure-cli-deployment"></a>Distribuzione dell'interfaccia della riga di comando di Azure
-
-È possibile usare l'interfaccia della riga di comando di Azure per distribuire l'estensione macchina virtuale dell'agente di Log Analytics in una macchina virtuale esistente. Sostituire la chiave di Log Analytics e l'ID Log Analytics con quelli dell'area di lavoro di Log Analytics. 
-
-```azurecli
-az vm extension set \
-  --resource-group myResourceGroup \
-  --vm-name myVM \
-  --name Microsoft.Powershell.DSC \
-  --publisher Microsoft.Powershell \
-  --version 2.73 --protected-settings '{}' \
-  --settings '{}'
-```
+Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager.
+I modelli rappresentano la scelta migliore quando si distribuiscono una o più macchine virtuali per cui è necessaria una configurazione post-distribuzione.
+Un modello di Resource Manager di esempio che include l'estensione DSC per Windows è reperibile nel [raccolta di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91).
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
@@ -166,7 +149,7 @@ Il pacchetto di estensione viene scaricato e distribuito in questa posizione nel
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}
 ```
 
-Il file di stato dell'estensione contiene lo stato secondario e i codici di esito positivo/di errore dello stato insieme all'errore dettagliato e alla descrizione per ogni esecuzione dell'estensione.
+File di stato dell'estensione contiene la stato secondario e i codici di esito positivo/errore di stato con l'errore dettagliato e una descrizione per ogni estensione per eseguire.
 ```
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}\Status\{0}.Status  -> {0} being the sequence number
 ```

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 40bff35c1136d55e968a287d259f2304252f5248
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
-ms.translationtype: HT
+ms.openlocfilehash: bb5ef610e55495c372a47ff78e3252c9d8ec7055
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078781"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435917"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Studio del modello di soluzione Cortana Intelligence per la previsione della domanda di energia
 ## <a name="executive-summary"></a>Sunto
@@ -187,7 +187,7 @@ Il ciclo è illustrato nel diagramma seguente:
 
 Di seguito viene descritto questo processo in quattro fasi:
 
-1. **Raccolta dei dati**: qualsiasi soluzione basata sull'analisi avanzata si fonda sui dati. Vedere in proposito la sezione **Informazioni sui dati**. In particolare, la previsione e l'analisi predittiva si basano su un flusso di dati dinamico e continuo. Per la previsione della domanda di energia, questi dati possono derivare direttamente da contatori intelligenti o essere già aggregati in un database locale. È possibile basarsi anche su altre origini dati esterne, ad esempio le condizioni meteorologiche e la temperatura. Questo flusso di dati continuo deve essere orchestrato, pianificato e archiviato. [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) è lo strumento principale per eseguire questa attività.
+1. **Raccolta dei dati**: qualsiasi soluzione basata sull'analisi avanzata si fonda sui dati. Vedere in proposito la sezione **Informazioni sui dati**. In particolare, la previsione e l'analisi predittiva si basano su un flusso di dati dinamico e continuo. Nel caso di previsione della domanda di energia, questi dati possono derivare direttamente da contatori intelligenti o essere già aggregati in un database locale. È possibile basarsi anche su altre origini dati esterne, ad esempio le condizioni meteorologiche e la temperatura. Questo flusso di dati continuo deve essere orchestrato, pianificato e archiviato. [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) è lo strumento principale per eseguire questa attività.
 2. **Modellazione** : per ottenere previsioni energetiche accurate e affidabili è necessario sviluppare, eseguire il training, e gestire un modello per l'uso dei dati storici e l'estrazione di schemi significativi e predittivi dai dati. L'area di Machine Learning (ML) sta crescendo rapidamente grazie al continuo sviluppo di algoritmi sempre più avanzati. Azure ML Studio offre un'esperienza utente eccezionale che permette di usare gli algoritmi di apprendimento automatico più avanzati all'interno di un flusso di lavoro completo. Il flusso di lavoro, illustrato di seguito in un diagramma di flusso intuitivo, include la preparazione dei dati, l'estrazione delle funzionalità, la modellazione e la valutazione del modello. L'utente può inserire centinaia di modelli diversi inclusi in questo ambiente. Al termine di questa fase, un data scientist avrà a disposizione un modello di lavoro interamente valutato e pronto per la distribuzione.
 
    Il diagramma seguente illustra un flusso di lavoro tipico:

@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 79ba32f85c608d98b29b235bf1417e74f7e2a4d4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 5382c565e5afc42d65a3198d797b51d1b1a9dde6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313484"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550771"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuire le istanze di contenitore in una rete virtuale di Azure
 
@@ -40,19 +40,13 @@ Quando si distribuiscono gruppi di contenitori in una rete virtuale, si applican
 
 ## <a name="preview-limitations"></a>Limiti di anteprima
 
-Se la funzionalità è disponibile in anteprima, quando si distribuiscono istanze di contenitore in una rete virtuale si applicano le limitazioni seguenti. 
+Quando questa funzionalità è disponibile in anteprima, le limitazioni seguenti si applicano quando si distribuiscono gruppi di contenitori a una rete virtuale. 
 
-**Aree supportate e limiti delle risorse**
-
-| Località | OS | CPU | Memoria (GB) |
-| -------- | :---: | :---: | :-----------: |
-| Europa occidentale | Linux | 4 | 14 |
-| Stati Uniti orientali, Stati Uniti occidentali | Linux | 2 | 3,5 |
-| Australia orientale, Europa settentrionale | Linux | 1 | 1,5 |
+[!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 I limiti delle risorse del contenitore possono differire dai limiti delle istanze contenitore non in rete in queste aree. Attualmente sono supportati i contenitori Linux per questa funzionalità. È previsto il supporto per la versione Windows.
 
-**Risorse di rete e funzionalità non supportate**
+### <a name="unsupported-network-resources-and-features"></a>Funzionalità e le risorse di rete non supportata
 
 * Azure Load Balancer
 * Peering di rete virtuale

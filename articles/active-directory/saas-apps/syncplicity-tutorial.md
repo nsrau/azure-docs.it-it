@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3df48fd42ca998e2a64f2fbe685047da16a8bae7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5f6fcc4d2920841c730ef179497f9184b1f6649d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193484"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451953"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-syncplicity"></a>Esercitazione: Integrazione di Azure Active Directory con Syncplicity
 
@@ -206,7 +206,7 @@ Per essere in grado di effettuare l’accesso, è necessario effettuare il provi
    
     ![Gestione utenti](./media/syncplicity-tutorial/ic769764.png "Gestione utenti")
 
-1. Digitare gli **indirizzi di posta elettronica** di un account AAD di cui si vuole effettuare il provisioning, selezionare **User** (Utente) come **Role** (Ruolo) e quindi fare clic su **NEXT** (Avanti).
+1. Tipo di **indirizzi di posta elettronica** di un account AAD vuole effettuare il provisioning, selezionare **utente** come **ruolo**, quindi fare clic su **Avanti**.
    
     ![Informazioni sull'account](./media/syncplicity-tutorial/ic769765.png "Informazioni sull'account")
    

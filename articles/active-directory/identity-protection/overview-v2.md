@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e60804e6bdf37607a08b6c530fd900e0f481a45b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2c3543b217339c39ad79c2125afdef8f087a70b3
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204509"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57336687"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Cos'è Azure Active Directory Identity Protection (aggiornato)?
 
@@ -58,6 +58,7 @@ Per rispondere a queste minacce, Azure AD Identity Protection consente di:
 
 Azure AD Identity Protection è una funzionalità di Azure Active Directory Premium P2 che consente di configurare i criteri per rispondere automaticamente quando viene compromessa l'identità di un utente o quando un utente diverso dal proprietario dell'account sta tentando di accedere usando l’identità di quest’ultimo. Questi criteri, con altri controlli di accesso condizionale forniti da Azure AD, possono eseguire il blocco automatico dell’accesso o avviare azioni di mitigazione, come la reimpostazione della password o l'applicazione dell'autenticazione a più fattori. Inoltre, Identity Protection offre funzionalità di monitoraggio e creazione di report per ottenere informazioni più approfondite sui rischi e sulle potenziali compromissioni all'interno dell'organizzazione. 
 
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWsS6Q]
 
 
 ## <a name="risk-events"></a>Eventi di rischio
