@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32c326ff7bef98f9d8f4f20664889109d291a6ea
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 74b1ed79e04bcca05dcb5308b844622e4dd413ce
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328844"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410299"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurazioni e operazioni dell'infrastruttura SAP HANA in Azure
 Questa guida contiene le indicazioni necessarie per configurare l'infrastruttura di Azure e gestire i sistemi SAP HANA distribuiti in macchine virtuali native di Azure. Il documento include anche informazioni sulla configurazione per lo scale-out di SAP HANA per lo SKU di VM M128s. Questo documento non deve sostituire la documentazione standard di SAP, che include:
@@ -442,7 +442,7 @@ Come per lo scale-out di SAP HANA, la directory /hana/shared deve essere condivi
 ### <a name="links-to-dt-20-documentation"></a>Collegamenti alla documentazione di DT 2.0 
 
 - [SAP HANA Dynamic Tiering installation and update guide](https://help.sap.com/viewer/88f82e0d010e4da1bc8963f18346f46e/2.0.03/en-US) (Guida all'installazione e all'aggiornamento di SAP HANA Dynamic Tiering)
-- [SAP HANA Dynamic Tiering tutorials and resources](https://www.sap.com/developer/topics/hana-dynamic-tiering.html) (Esercitazioni e risorse di SAP HANA Dynamic Tiering)
+- [SAP HANA Dynamic Tiering tutorials and resources](https://help.sap.com/viewer/fb9c3779f9d1412b8de6dd0788fa167b/2.0.03/en-US) (Esercitazioni e risorse di SAP HANA Dynamic Tiering)
 - [SAP HANA Dynamic Tiering PoC](https://blogs.sap.com/2017/12/08/sap-hana-dynamic-tiering-delivering-on-low-tco-with-impressive-performance/) (PoC di SAP HANA Dynamic Tiering)
 - [SAP HANA 2.0 SPS 02 dynamic tiering enhancements](https://blogs.sap.com/2017/07/31/sap-hana-2.0-sps-02-dynamic-tiering-enhancements/) (Miglioramenti di SAP HANA 2.0 SPS 02 Dynamic Tiering)
 
