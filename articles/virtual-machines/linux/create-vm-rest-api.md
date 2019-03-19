@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 22a800e65c0f64dfa897433d1ea983006ed62250
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412190"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447847"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Creare una macchina virtuale Linux che usa l'autenticazione SSH con l'API REST
 
@@ -63,7 +63,7 @@ Per informazioni generali sul lavoro con le operazioni con API REST, vedere [Com
 
 Per compilare un corpo della richiesta vengono usate le definizioni comuni seguenti:
 
-| NOME                       | Obbligatoria | type                                                                                | DESCRIZIONE  |
+| NOME                       | Obbligatorio | Type                                                                                | DESCRIZIONE  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | location                   | True      | stringa                                                                              | Percorso della risorsa. |
 | name                       |          | stringa                                                                              | Nome della macchina virtuale. |
@@ -127,7 +127,7 @@ Un esempio di corpo di richiesta è riportato di seguito. Assicurarsi di specifi
 }
 ```
 
-Per un elenco completo delle definizioni disponibili nel corpo della richiesta, vedere le [definizioni per il corpo della richiesta di creazione o aggiornamento macchine virtuali](/rest/api/compute/virtualmachines/createorupdate#definitions).
+Per un elenco completo delle definizioni disponibili nel corpo della richiesta, vedere [macchine virtuali creare o aggiornare le definizioni dei corpi di richiesta](/rest/api/compute/virtualmachines/createorupdate#definitions).
 
 ## <a name="sending-the-request"></a>Invio della richiesta
 
@@ -137,7 +137,7 @@ Per un elenco completo delle definizioni disponibili nel corpo della richiesta, 
 
 Esistono due risposte che indicano l'esito positivo dell'operazione di creazione o aggiornamento di una macchina virtuale:
 
-| NOME        | type                                                                              | DESCRIZIONE |
+| NOME        | Type                                                                              | DESCRIZIONE |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 - OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Creato | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Data di creazione     |

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 799348c14bba80909d6e443f09d232e5a4783f25
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 52f96b8fc2a1288c652169817a3a73d7b26caac9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015152"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431496"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Attività IfCondition in Azure Data Factory
 L'attività IfCondition svolge la stessa funzione dell'istruzione If nei linguaggi di programmazione. Valuta un set di attività se la condizione restituisce `true` e un altro set di attività se la condizione restituisce `false`. 
@@ -64,13 +64,13 @@ L'attività IfCondition svolge la stessa funzione dell'istruzione If nei linguag
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
+Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | --------
-name | Nome dell'attività if-condition. | string | Yes
-type | Deve essere impostata su **IfCondition** | string | Yes
-expression | Espressione che deve restituire true o false | Espressione con tipo di risultato booleano | Yes
-ifTrueActivities | Set di attività che vengono eseguite quando l'espressione restituisce `true`. | Array | Yes
-ifFalseActivities | Set di attività che vengono eseguite quando l'espressione restituisce `false`. | Array | Yes
+name | Nome dell'attività if-condition. | string | Sì
+type | Deve essere impostata su **IfCondition** | string | Sì
+expression | Espressione che deve restituire true o false | Espressione con tipo di risultato booleano | Sì
+ifTrueActivities | Set di attività che vengono eseguite quando l'espressione restituisce `true`. | Array | Sì
+ifFalseActivities | Set di attività che vengono eseguite quando l'espressione restituisce `false`. | Array | Sì
 
 ## <a name="example"></a>Esempio
 La pipeline in questo esempio copia i dati da una cartella di input a una cartella di output. La cartella di output è determinata dal valore del parametro di pipeline routeSelection. Se il valore di routeSelection è true, i dati vengono copiati in outputPath1. E se il valore di routeSelection è false, i dati vengono copiati in outputPath2. 
@@ -245,24 +245,27 @@ La pipeline imposta **folderPath** sul valore del parametro **outputPath1** o **
 ```
 
 ### <a name="powershell-commands"></a>Comandi di PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Questi comandi presuppongono che i file JSON siano stati salvati nella cartella C:\ADF. 
 
 ```powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription "<Your subscription name>"
+Connect-AzAccount
+Select-AzSubscription "<Your subscription name>"
 
 $resourceGroupName = "<Resource Group Name>"
 $dataFactoryName = "<Data Factory Name. Must be globally unique>";
-Remove-AzureRmDataFactoryV2 $dataFactoryName -ResourceGroupName $resourceGroupName -force
+Remove-AzDataFactoryV2 $dataFactoryName -ResourceGroupName $resourceGroupName -force
 
 
-Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName
-Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -DefinitionFile "C:\ADF\AzureStorageLinkedService.json"
-Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "BlobDataset" -DefinitionFile "C:\ADF\BlobDataset.json"
-Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "Adfv2QuickStartPipeline" -DefinitionFile "C:\ADF\Adfv2QuickStartPipeline.json"
-$runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName "Adfv2QuickStartPipeline" -ParameterFile C:\ADF\PipelineParameters.json
+Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName
+Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -DefinitionFile "C:\ADF\AzureStorageLinkedService.json"
+Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "BlobDataset" -DefinitionFile "C:\ADF\BlobDataset.json"
+Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "Adfv2QuickStartPipeline" -DefinitionFile "C:\ADF\Adfv2QuickStartPipeline.json"
+$runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName "Adfv2QuickStartPipeline" -ParameterFile C:\ADF\PipelineParameters.json
 while ($True) {
-    $run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
+    $run = Get-AzDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
 
     if ($run) {
         if ($run.Status -ne 'InProgress') {
@@ -276,7 +279,7 @@ while ($True) {
     Start-Sleep -Seconds 30
 }
 Write-Host "Activity run details:" -foregroundcolor "Yellow"
-$result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+$result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 $result
 
 Write-Host "Activity 'Output' section:" -foregroundcolor "Yellow"
