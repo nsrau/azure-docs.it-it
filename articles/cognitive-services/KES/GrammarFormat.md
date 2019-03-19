@@ -10,16 +10,16 @@ ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 72dec3effe5e350818c01cf65c9140e778effd17
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 844bd9a88c52fd398fc66c71e59da513c0d7d90d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860287"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544325"
 ---
 # <a name="grammar-format"></a>Formato della grammatica
 
-La grammatica è un file XML che specifica il set pesato di query in linguaggio naturale che il servizio può interpretare, nonché il modo in cui queste query in linguaggio naturale vengono convertite in espressioni di query semantiche.  La sintassi della grammatica è basata su [SRGS](http://www.w3.org/TR/speech-grammar/), uno standard W3C per le grammatiche di riconoscimento vocale, con estensioni per supportare l'integrazione di indici dei dati e funzioni semantiche.
+La grammatica è un file XML che specifica il set pesato di query in linguaggio naturale che il servizio può interpretare, nonché il modo in cui queste query in linguaggio naturale vengono convertite in espressioni di query semantiche.  La sintassi della grammatica è basata su [SRGS](https://www.w3.org/TR/speech-grammar/), uno standard W3C per le grammatiche di riconoscimento vocale, con estensioni per supportare l'integrazione di indici dei dati e funzioni semantiche.
 
 Di seguito vengono descritti tutti gli elementi sintattici che possono essere usati in una grammatica.  Vedere [questo esempio](#example) per una grammatica completa che dimostra l'uso di questi elementi nel contesto.
 

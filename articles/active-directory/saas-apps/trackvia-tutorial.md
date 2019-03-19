@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e4c90b6f9fd8b968ceb0e241649ddbcf1c2e1cb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a15284b0176b7148055812ce5a642ec38e67d53b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189116"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449428"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trackvia"></a>Esercitazione: Integrazione di Azure Active Directory con TrackVia
 
@@ -120,7 +120,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://companyname.trackvia.com`
      
     > [!NOTE] 
-    > Poiché questo non è un valore reale, è necessario aggiornare questo valore con l'URL di accesso Sign-On effettivo. Per ottenere questi valori, contattare il [team di supporto clienti di TrackVia](mailto:support@trackvia.com).
+    > Poiché questo non è un valore reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere questi valori, contattare il [team di supporto clienti di TrackVia](mailto:support@trackvia.com).
 
 1. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
@@ -136,7 +136,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
 1. In un'altra finestra del browser, accedere al sito aziendale di TrackVia come amministratore.
 
-1. Fare clic sulle impostazioni dell'**Account personale** di Trackvia e quindi selezionare la scheda **Single Sign-On**, procedere come segue:
+1. Fare clic sulla traccia tramite **My Account** le impostazioni e quindi selezionare **Single Sign-On** scheda, procedere come segue:
 
     ![Configurazione di TrackVia](./media/trackvia-tutorial/configure1.png)
 
@@ -144,7 +144,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     b. Selezione **Scegli file** per caricare il file di metadati scaricato dal portale di Azure.
 
-    c. Fare clic su **Save**
+    c. Fare clic su **Save** (Salva).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 

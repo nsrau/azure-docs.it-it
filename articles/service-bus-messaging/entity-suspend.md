@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 8feee92e9105259bddf45114ac48a54347266cd7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 5d1b2718b360a55d9b1510bcfcb2ddb6492e2830
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846000"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436749"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Sospendere e riattivare le entità di messaggistica (disabilitazione)
 
@@ -28,7 +28,7 @@ La sospensione di un'entità viene in genere eseguita per motivi amministrativi 
 
 Una sospensione o una riattivazione può essere eseguita dall'utente o dal sistema. Il sistema sospende le entità solo per gravi motivi amministrativi, ad esempio per il raggiungimento del limite di spesa della sottoscrizione. Le entità disabilitate dal sistema non possono essere riattivate dall'utente, ma vengono ripristinate dopo che la causa della sospensione è stata risolta.
 
-Nel portale, la sezione **Proprietà** per l'entità corrispondente consente di modificare lo stato. Lo screenshot seguente mostra l'interruttore per una coda:
+Nel portale, il **proprietà** sezione per l'entità corrispondente consente la modifica dello stato, lo screenshot seguente illustra l'elemento toggle per una coda:
 
 ![][1]
 

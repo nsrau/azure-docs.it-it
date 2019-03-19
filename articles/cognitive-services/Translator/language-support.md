@@ -7,19 +7,19 @@ author: Jann-Skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.topic: article
-ms.date: 09/25/2018
+ms.topic: reference
+ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: d0ab683ac59c17cbae1e0947cd2acd785b0365d3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: aed3d08f96265736889deccf51d427a6631e1ea9
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884979"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241574"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Supporto lingua e area geografica per l'API Traduzione testuale
 
-L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo a testo. La traduzione automatica neurale è il nuovo standard per traduzioni automatiche di alta qualità supportate dall'intelligenza artificiale ed è disponibile per impostazione predefinita quando si usa la versione V3 dell'API Traduzione testuale, se è disponibile un sistema neurale. 
+L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo a testo. La traduzione automatica neurale è il nuovo standard per traduzioni automatiche di alta qualità supportate dall'intelligenza artificiale ed è disponibile per impostazione predefinita quando si usa la versione V3 dell'API Traduzione testuale, se è disponibile un sistema neurale.
 
 [Altre informazioni sull'uso della traduzione automatica](https://www.microsoft.com/translator/mt.aspx)
 
@@ -33,7 +33,7 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 * Sistema neurale come predefinito: il sistema neurale è il sistema di traduzione predefinito. Usare il parametro `category=smt` per accedere al sistema statistico per l'uso con l'Hub di Microsoft Translator.
 * Solo sistema neurale: è disponibile solo la traduzione neurale.
 
-**API Traduzione V3** l'API Traduzione V3 è neurale per impostazione predefinita e i sistemi statistici sono disponibili solo quando non è presente alcun sistema neurale. Il traduttore personalizzato è utilizzabile solo con i linguaggi neurali. 
+**API Traduzione V3** l'API Traduzione V3 è neurale per impostazione predefinita e i sistemi statistici sono disponibili solo quando non è presente alcun sistema neurale. Il traduttore personalizzato è utilizzabile solo con i linguaggi neurali. [Visualizzare le lingue attualmente disponibili in Microsoft Translator Custom](#customization).
 
 |Linguaggio|  Codice lingua|  API V2| API V3|
 |:-----|:-----:|:-----|:-----|
@@ -268,7 +268,7 @@ Il metodo Detect supporta le lingue seguenti. Detect può identificare lingue ch
 
 ## <a name="customization"></a>Personalizzazione
 
-Le lingue seguenti sono disponibili per la personalizzazione mediante il [traduttore personalizzato](http://aka.ms/CustomTranslator).
+I linguaggi seguenti sono disponibili per la personalizzazione da e verso tramite in lingua inglese [convertitore personalizzato](http://aka.ms/CustomTranslator).
 
 | Linguaggio    | Codice lingua |
 |:----------- |:-------------:|

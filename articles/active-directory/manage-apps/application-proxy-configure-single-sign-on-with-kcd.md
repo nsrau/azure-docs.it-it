@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19ea76f28995dfa7f7dd5a6f280f8319f5b4ca26
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b82f32477efb2e45eb95651dd21ccd2ae3095e7c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180762"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431310"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delega vincolata Kerberos per l'accesso Single Sign-On alle app con il proxy di applicazione
 
@@ -30,15 +30,15 @@ ms.locfileid: "56180762"
 È possibile abilitare l'accesso Single Sign-On alle applicazioni tramite l'autenticazione integrata di Windows (IWA) concedendo ai connettori proxy dell'applicazione l'autorizzazione per rappresentare gli utenti in Active Directory. I connettori usano questa autorizzazione per inviare e ricevere token per loro conto.
 
 ## <a name="how-single-sign-on-with-kcd-works"></a>Funzionamento di Single Sign-On con KCD
-Questo diagramma illustra il flusso quando un utente tenta di accedere a un'applicazione locale che usa l'autenticazione integrata di Windows.
+Questo diagramma illustra il flusso quando un utente prova ad accedere a un'applicazione locale che usa l'autenticazione integrata di Windows.
 
 ![Diagramma del flusso di autenticazione di Microsoft AAD](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
-1. L'utente immette l'URL per accedere all'applicazione locale tramite il proxy di applicazione.
+1. L'utente immette l'URL di accesso l'applicazione locale tramite il Proxy di applicazione.
 2. Il proxy di applicazione reindirizza la richiesta ai servizi di autenticazione di Azure AD per la preautenticazione. A questo punto, Azure AD applica gli eventuali criteri di autenticazione e autorizzazione appropriati, ad esempio l'autenticazione a più fattori. Se l'utente viene convalidato, Azure AD crea un token e lo invia all'utente.
 3. L'utente passa il token al proxy di applicazione.
 4. Il proxy di applicazione convalida il token e recupera il nome dell'entità utente (UPN) da esso e invia la richiesta, il nome dell'entità utente e il nome dell'entità servizio (SPN) al connettore tramite un canale sicuro con doppia autenticazione.
-5. Il connettore esegue la negoziazione della delega vincolata Kerberos con l'istanza di Active Directory locale, rappresentando l'utente per ottenere un token Kerberos per l'applicazione.
+5. Il connettore esegue la negoziazione della delega vincolata Kerberos (KCD) con Active Directory, rappresentando l'utente per ottenere un token Kerberos per l'applicazione locale.
 6. Active Directory invia il token Kerberos per l'applicazione al connettore.
 7. Il connettore invia la richiesta originale al server dell'applicazione, usando il token Kerberos ricevuto da Active Directory.
 8. L'applicazione invia la risposta al connettore, che viene quindi restituita al servizio proxy di applicazione e infine all'utente.
@@ -118,7 +118,7 @@ Questa funzionalità consente a molte organizzazioni con diverse identità local
 * Hanno più domini internamente (joe@us.contoso.com, joe@eu.contoso.com) e un singolo dominio nel cloud (joe@contoso.com).
 * Hanno un nome di dominio non instradabile internamente (joe@contoso.usa) e un dominio valido nel cloud.
 * Non usano nomi di dominio internamente (joe).
-* Usano diversi alias locali e nel cloud. Ad esempio, joe-johns@contoso.com e joej@contoso.com  
+* Utilizzare alias diversi in locale e nel cloud. Ad esempio, joe-johns@contoso.com e joej@contoso.com  
 
 Con il proxy di applicazione è possibile selezionare l'identità da usare per ottenere il ticket Kerberos. Questa impostazione viene configurata per ogni applicazione. Alcune di queste opzioni sono appropriate per i sistemi che non accettano il formato di indirizzo di posta elettronica, altre sono concepite per l'accesso alternativo.
 

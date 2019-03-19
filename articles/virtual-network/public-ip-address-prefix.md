@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 95fb889da564d6e40e25dfb9ee64a8665a954652
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 5496be93a5241621cd4dc5e873e4386f8ed6c992
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700741"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195218"
 ---
 # <a name="public-ip-address-prefix"></a>Prefisso dell'indirizzo IP pubblico
 
 Un prefisso di indirizzo IP pubblico è un intervallo riservato di indirizzi IP per gli endpoint pubblici in Azure. Azure consente di allocare un intervallo contiguo di indirizzi alla sottoscrizione in base al numero specificato. Se non si ha familiarità con gli indirizzi pubblici, consultare [Indirizzi IP pubblici.](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
 
-Gli indirizzi IP pubblici vengono assegnati da un pool di indirizzi assegnati a ogni area di Azure. È possibile [scaricare](https://www.microsoft.com/download/details.aspx?id=41653) l'elenco degli intervalli di Azure usati per ogni area. Ad esempio, 40.121.0.0/16 è uno degli oltre 100 intervalli che usa Azure nell'area degli Stati Uniti orientali. L'intervallo include gli indirizzi utilizzabili dei 40.121.0.1 - 40.121.255.254.
+Gli indirizzi IP pubblici vengono assegnati da un pool di indirizzi assegnati a ogni area di Azure. È possibile [scaricare](https://www.microsoft.com/download/details.aspx?id=56519) l'elenco degli intervalli di Azure usati per ogni area. Ad esempio, 40.121.0.0/16 è uno degli oltre 100 intervalli che usa Azure nell'area degli Stati Uniti orientali. L'intervallo include gli indirizzi utilizzabili dei 40.121.0.1 - 40.121.255.254.
 
 È possibile creare un prefisso di indirizzo IP pubblico in un'area di Azure e una sottoscrizione, specificando un nome e il numero di indirizzi che si desiderano includere nel prefisso. Ad esempio, se si crea un prefisso di indirizzo IP pubblico di /28, Azure alloca 16 indirizzi da uno dei relativi intervalli per l'utente. Non si conosce l'intervallo che Azure assegnerà fino a quando non lo si crea, ma gli indirizzi sono contigui. I prefissi di indirizzi IP pubblici prevedono il pagamento di un corrispettivo. Per informazioni dettagliate, consultare [prezzi degli indirizzi IP pubblici](https://azure.microsoft.com/pricing/details/ip-addresses).
 
