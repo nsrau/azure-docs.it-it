@@ -3,21 +3,21 @@ title: Trasformare i dati con le attività JAR di Databricks - Azure | Microsoft
 description: Informazioni su come elaborare o trasformare i dati eseguendo un'attività JAR di Databricks.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.assetid: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.author: douglasl
-ms.openlocfilehash: 8a271359f09ca63e1a0c3a143994739ee7db8aab
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: d299a785d50657ef40c0c49cb2dce33b8939fd02
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014183"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575869"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Trasformare i dati eseguendo un'attività JAR in Azure Databricks
 
@@ -56,13 +56,13 @@ Ecco la definizione JSON di esempio di un'attività JAR di Databricks:
 
 La tabella seguente fornisce le descrizioni delle proprietà JSON usate nella definizione JSON:
 
-|Proprietà|DESCRIZIONE|Obbligatoria|
+|Proprietà|Descrizione|Obbligatorio|
 |:--|---|:-:|
-|name|Nome dell'attività nella pipeline.|Yes|
+|name|Nome dell'attività nella pipeline.|Sì|
 |description|Testo che descrive l'attività.|No |
-|type|Per l'attività JAR di Databricks il tipo di attività è DatabricksSparkJar.|Yes|
-|linkedServiceName|Nome del servizio collegato Databricks su cui è in esecuzione l'attività JAR. Per informazioni su questo servizio collegato, vedere l'articolo  [Servizi collegati di calcolo](compute-linked-services.md) .|Yes|
-|mainClassName|Il nome completo della classe che contiene il metodo Main deve essere eseguito. Questa classe deve essere contenuta in un file JAR fornito come libreria.|Yes|
+|type|Per l'attività JAR di Databricks il tipo di attività è DatabricksSparkJar.|Sì|
+|linkedServiceName|Nome del servizio collegato Databricks su cui è in esecuzione l'attività JAR. Per informazioni su questo servizio collegato, vedere l'articolo  [Servizi collegati di calcolo](compute-linked-services.md) .|Sì|
+|mainClassName|Il nome completo della classe che contiene il metodo Main deve essere eseguito. Questa classe deve essere contenuta in un file JAR fornito come libreria.|Sì|
 |Parametri|Parametri che verranno passati al metodo Main.  È una matrice di stringhe.|No |
 |libraries|Un elenco di librerie da installare nel cluster che eseguirà il processo. Può essere una matrice di <stringa, oggetto>|Sì (almeno una che contiene il metodo mainClassName)|
 
@@ -94,7 +94,7 @@ Nella definizione dell'attività di Databricks precedente si specificano questi 
         {
             "cran": {
                 "package": "ada",
-                "repo": "http://cran.us.r-project.org"
+                "repo": "https://cran.us.r-project.org"
             }
         }
     ]

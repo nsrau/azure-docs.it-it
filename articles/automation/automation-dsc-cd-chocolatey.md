@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3eb68c4394afeb4719d92fb56d3ae9028d8566c9
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: b53cb65ec99637dadb16ed9d97c495571be956d7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456113"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451196"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Esempio di utilizzo: distribuzione continua in Macchine virtuali tramite Configurazione stato di Automazione e Chocolatey
 
@@ -51,7 +51,7 @@ Una funzionalità chiave di un modello di Resource Manager è la capacità di in
 ## <a name="quick-trip-around-the-diagram"></a>Descrizione rapida del diagramma
 
 A partire dall'alto, si scrive il codice, si compila e si eseguono i test e quindi si crea un pacchetto di installazione.
-Chocolatey può gestire diversi tipi di pacchetti di installazione, ad esempio MSI, MSU, ZIP. Se le funzionalità native di Chocolatey non sono del tutto soddisfacenti, si può sempre ricorrere alle potenzialità complete di PowerShell per eseguire l'installazione effettiva. Inserire il pacchetto in una posizione raggiungibile, come un repository di pacchetti. Questo esempio di utilizzo usa una cartella pubblica in un account di archiviazione BLOB di Azure, ma può trovarsi anche in un'altra posizione. Chocolatey funziona in modalità nativa con i server NuGet e alcuni altri per la gestione dei metadati dei pacchetti. [Questo articolo](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) descrive le opzioni. Questo esempio di utilizzo usa NuGet. Nuspec sono i metadati relativi ai pacchetti. I Nuspec vengono "compilati" in NuPkg e archiviati in un server NuGet. Quando la configurazione richiede un pacchetto in base al nome e fa riferimento a un server NuGet, la risorsa DSC di Chocolatey, che ora si trova nella VM, estrae il pacchetto e lo installa automaticamente. È anche possibile richiedere una versione specifica di un pacchetto.
+Chocolatey può gestire diversi tipi di pacchetti di installazione, ad esempio MSI, MSU, ZIP. Se le funzionalità native di Chocolatey non sono del tutto soddisfacenti, si può sempre ricorrere alle potenzialità complete di PowerShell per eseguire l'installazione effettiva. Inserire il pacchetto in un' posizione raggiungibile, un repository di pacchetti. Questo esempio di utilizzo usa una cartella pubblica in un account di archiviazione BLOB di Azure, ma può trovarsi anche in un'altra posizione. Chocolatey funziona in modalità nativa con i server NuGet e alcuni altri per la gestione dei metadati dei pacchetti. [Questo articolo](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) descrive le opzioni. Questo esempio di utilizzo usa NuGet. Nuspec sono i metadati relativi ai pacchetti. I Nuspec vengono "compilati" in NuPkg e archiviati in un server NuGet. Quando la configurazione richiede un pacchetto in base al nome e fa riferimento a un server NuGet, la risorsa DSC di Chocolatey, che ora si trova nella VM, estrae il pacchetto e lo installa automaticamente. È anche possibile richiedere una versione specifica di un pacchetto.
 
 Nella parte in basso dell'immagine è presente un modello di Resource Manager di Azure. In questo esempio di utilizzo, l'estensione VM registra la macchina virtuale con il server di pull di Automation DSC per Azure come nodo. La configurazione viene archiviata nel server di pull.
 In realtà viene archiviata due volte, cioè una volta come testo normale e una volta compilata come file MOF, un'indicazione per coloro che hanno familiarità con questi elementi. Nel portale il file MOF è una "configurazione di nodi", invece di una semplice "configurazione". Poiché l'artefatto è associato a un nodo, quest'ultimo riconoscerà la propria configurazione. I dettagli che seguono illustrano come assegnare la configurazione di nodi al nodo.

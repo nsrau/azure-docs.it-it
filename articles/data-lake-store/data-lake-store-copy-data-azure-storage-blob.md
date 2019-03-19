@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 7e218cea543b48371647531cf6d62d8c10a07978
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5049e280b65a9f223ea577ee4fde973657682b4c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230751"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544641"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Copiare i dati da BLOB di Archiviazione di Azure ad Azure Data Lake Storage Gen1
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 * **BLOB di Archiviazione di Azure** con alcuni dati.
 * **Un account Azure Data Lake Storage Gen1**. Per istruzioni su come crearne uno, consultare [Introduzione ad Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Un account di Azure Data Lake Analytics (facoltativo)**. Per istruzioni su come creare un account di Data Lake Analytics, vedere [Introduzione ad Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
-* **Lo strumento AdlCopy**. Installare lo strumento AdlCopy da [http://aka.ms/downloadadlcopy](https://aka.ms/downloadadlcopy).
+* **Lo strumento AdlCopy**. Installare lo strumento AdlCopy da [https://aka.ms/downloadadlcopy](https://aka.ms/downloadadlcopy).
 
 ## <a name="syntax-of-the-adlcopy-tool"></a>Sintassi dello strumento AdlCopy
 Usare la sintassi seguente per usare lo strumento AdlCopy
@@ -54,7 +54,7 @@ I parametri nella sintassi sono descritti di seguito:
 
 | Opzione | DESCRIZIONE |
 | --- | --- |
-| Sorgente |Specifica il percorso dei dati di origine nel BLOB di Archiviazione di Azure. L'origine può essere un contenitore BLOB, un BLOB o un altro account Data Lake Storage Gen1. |
+| Source (Sorgente) |Specifica il percorso dei dati di origine nel BLOB di Archiviazione di Azure. L'origine può essere un contenitore BLOB, un BLOB o un altro account Data Lake Storage Gen1. |
 | Dest |Specifica la destinazione di Data Lake Storage Gen1 in cui eseguire la copia. |
 | SourceKey |Specifica la chiave di accesso alle risorse di archiviazione per l'origine BLOB di Archiviazione di Azure. La chiave è necessaria solo se l'origine è un contenitore BLOB o un BLOB. |
 | Account |**Facoltativo**. Scegliere questa opzione se si vuole usare l'account di Analisi Azure Data Lake per eseguire il processo di copia. Se si usa l'opzione /Account nella sintassi ma non si specifica un account di Analisi Data Lake, AdlCopy usa un account predefinito per eseguire il processo. Inoltre, se si sceglie questa opzione, è necessario aggiungere l'origine (BLOB di Archiviazione di Azure) e la destinazione (Azure Data Lake Storage Gen1) come origini dati per l'account di Data Lake Analytics. |

@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c70c3cc1818e85c03c78524d1e8571af6d686218
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 4fb14b49e573770aaef13d6b5d47c265337c408c
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429061"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57568924"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Competenza cognitiva di Analisi delle immagini
 
@@ -37,7 +37,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 | Nome parametro     | DESCRIZIONE |
 |--------------------|-------------|
 | defaultLanguageCode   |  Stringa che indica la lingua di restituzione. Il servizio restituisce i risultati di riconoscimento nella lingua specificata. Se questo parametro non è specificato, il valore predefinito è "en". <br/><br/>Le lingue supportate sono: <br/>*en* - Inglese (predefinito) <br/> *zh* - Cinese semplificato|
-|visualFeatures |   Matrice di stringhe che indica i tipi di caratteristiche visive da restituire. I tipi di caratteristiche visive valide comprendono:  <ul><li> *categorie* - suddivide l'immagine in categorie in base a una tassonomia definita nella [documentazione](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) Servizi cognitivi.</li><li> *tag* - contrassegna l'immagine con un elenco dettagliato delle parole correlate con il contenuto dell'immagine.</li><li>*Descrizione* - descrive il contenuto dell'immagine con una frase in lingua inglese completa.</li><li>*Visi* - rileva se sono presenti visi. Se presenti, genera le coordinate, il genere e l'età.</li><li> *ImageType* - rileva se l'immagine è clipart o un disegno.</li><li>   *Colore* - determina il colore principale, il colore dominante e se un'immagine è in bianco e nero.</li><li>*Adulti* - rileva se l'immagine è di natura pornografica (raffigura un'immagine di nudo o un atto sessuale). Viene rilevato anche il contenuto che presenta riferimenti sessuali.</li></ul> I nomi delle caratteristiche visive fanno distinzione tra maiuscole e minuscole.|
+|visualFeatures |   Matrice di stringhe che indica i tipi di caratteristiche visive da restituire. I tipi di caratteristiche visive valide comprendono:  <ul><li> *categorie* - suddivide l'immagine in categorie in base a una tassonomia definita nella [documentazione](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) Servizi cognitivi.</li><li> *tag* - contrassegna l'immagine con un elenco dettagliato delle parole correlate con il contenuto dell'immagine.</li><li>*Descrizione* - descrive il contenuto dell'immagine con una frase in lingua inglese completa.</li><li>*Visi* - rileva se sono presenti visi. Se presenti, genera le coordinate, il genere e l'età.</li><li> *ImageType* -rileva se l'immagine è ClipArt o un disegno di linee.</li><li>  *Colore* - determina il colore principale, il colore dominante e se un'immagine è in bianco e nero.</li><li>*Adulti* - rileva se l'immagine è di natura pornografica (raffigura un'immagine di nudo o un atto sessuale). Viene rilevato anche il contenuto che presenta riferimenti sessuali.</li></ul> I nomi delle caratteristiche visive fanno distinzione tra maiuscole e minuscole.|
 | informazioni dettagliate   | Matrice di stringhe che indica quali dettagli specifici del dominio restituire. I tipi di caratteristiche visive valide comprendono: <ul><li>*Personaggi famosi* - identifica eventuali personaggi famosi rilevati nell'immagine.</li><li>*Luoghi di interesse* - identifica eventuali luoghi di interesse rilevati nell'immagine.</li></ul>
  |
 
@@ -110,16 +110,16 @@ I parametri fanno distinzione tra maiuscole e minuscole.
     "values": [
         {
             "recordId": "1",
-            "data": {                
-                "image":  {
-                               "data": "BASE64 ENCODED STRING OF A JPEG IMAGE",
-                               "width": 500,
-                               "height": 300,
-                               "originalWidth": 5000,  
-                               "originalHeight": 3000,
-                               "rotationFromOriginal": 90,
-                               "contentOffset": 500  
-                           }
+            "data": {
+                "image": {
+                    "data": "BASE64 ENCODED STRING OF A JPEG IMAGE",
+                    "width": 500,
+                    "height": 300,
+                    "originalWidth": 5000,
+                    "originalHeight": 3000,
+                    "rotationFromOriginal": 90,
+                    "contentOffset": 500
+                }
             }
         }
     ]
@@ -132,18 +132,18 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 ```json
 {
     "values": [
-      {
-        "recordId": "1",
+        {
+            "recordId": "1",
             "data": {
                 "categories": [
-           {
+                    {
                         "name": "abstract_",
                         "score": 0.00390625
                     },
                     {
-                "name": "people_",
+                        "name": "people_",
                         "score": 0.83984375,
-                "detail": {
+                        "detail": {
                             "celebrities": [
                                 {
                                     "name": "Satya Nadella",
@@ -214,7 +214,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
                     {
                         "age": 44,
                         "gender": "Male",
-                    "faceBoundingBox": {
+                        "faceBoundingBox": {
                             "left": 593,
                             "top": 160,
                             "width": 250,
@@ -236,8 +236,8 @@ I parametri fanno distinzione tra maiuscole e minuscole.
                     "clipArtType": 0,
                     "lineDrawingType": 0
                 }
-           }
-      }
+            }
+        }
     ]
 }
 ```

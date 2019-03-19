@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97e294a8b0e34e1fac24d0cbe01791e2eb290a43
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 334f5fa2309c44bebe8583f497fdaa3c7578e5ae
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162579"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433417"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Esercitazione: Integrazione di Azure Active Directory con T&E Express
 
@@ -134,7 +134,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On](./media/tyeexpress-tutorial/tye-SAML.png)
 
-1. Spostare il selettore dell'opzione **Activar** (Attivare) da **NO** a **SI**. Nella casella di testo **Identity Provider Metadata** (Metadati provider di identità) incollare il file XML dei metadati scaricato in precedenza dal portale di Azure.
+1. Spostare il selettore dell'opzione **Activar** (Attivare) da **NO** a **SI**. Nel **Identity Provider Metadata** nella casella di testo, incollare i metadati XML scaricato dal portale di Azure.
 
     ![Configure Single Sign-On](./media/tyeexpress-tutorial/tyeAdmin.png)
 

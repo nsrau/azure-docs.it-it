@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: dab0a6a5eee8893f28a221b44d57afe255841fa0
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 9267360394568f0f9259a3c818b21f4e585fd958
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329746"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543730"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Generatore di espressioni dei flussi di dati di mapping
 
@@ -51,7 +51,7 @@ Aggiungere commenti per le espressioni che usano sintassi dei commenti su una ri
 
 ## <a name="regular-expressions"></a>Espressioni regolari
 
-Linguaggio delle espressioni del flusso di dati di Azure Data Factory, [documentazione di riferimento completa qui](http://aka.ms/dataflowexpressions), abilita le funzioni che includono sintassi delle espressioni regolari. Quando si usano funzioni di espressione regolare, il Generatore di espressioni tenterà di interpretare la barra rovesciata (\) come una sequenza di caratteri di escape. Quando si usano le barre rovesciate nell'espressione regolare, racchiudere l'espressione regolare intera espressa in tick ` ` oppure usare una doppia barra rovesciata.
+Linguaggio delle espressioni del flusso di dati di Azure Data Factory, [documentazione di riferimento completa qui](https://aka.ms/dataflowexpressions), abilita le funzioni che includono sintassi delle espressioni regolari. Quando si usano funzioni di espressione regolare, il Generatore di espressioni tenterà di interpretare la barra rovesciata (\) come una sequenza di caratteri di escape. Quando si usano le barre rovesciate nell'espressione regolare, racchiudere l'espressione regolare intera espressa in tick ` ` oppure usare una doppia barra rovesciata.
 
 Esempio di utilizzo di tick
 
@@ -65,8 +65,17 @@ o della barra doppia
 regex_replace('100 and 200', '(\\d+)', 'digits')
 ```
 
-## <a name="addressing-array-indexes"></a>Indirizzamento degli indici di matrice
+## <a name="addressing-array-indexes"></a>Indirizzamento di indici di matrice
 
 Con funzioni per le espressioni che restituiscono matrici, usare le parentesi quadre [] per indicare indici specifici all'interno di tale oggetto di restituzione della matrice. La matrice è basata sulle unità.
 
 ![Matrice del Generatore di espressioni](media/data-flow/expb2.png "Anteprima dei dati dell'espressione")
+
+## <a name="handling-names-with-special-characters"></a>La gestione di nomi con caratteri speciali
+
+Quando si dispone di nomi delle colonne che includono spazi o caratteri speciali, racchiudere il nome tra parentesi graffe.
+* ```{[dbo].this_is my complex name$$$}```
+
+## <a name="next-steps"></a>Passaggi successivi
+
+[Iniziare a compilare le espressioni di trasformazione dei dati](data-flow-expression-functions.md)

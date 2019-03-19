@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 86404f4eb2eb2de4243c6bb725f4292e7b560d18
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 5548a62218aaac2e4da3853e8e5d43a584922bc0
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56271259"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569893"
 ---
 # <a name="azure-data-factory-mapping-data-flow-pivot-transformation"></a>Trasformazione Pivot per il flusso di dati di mapping di Azure Data Factory
 
@@ -42,7 +42,7 @@ Infine, si sceglierà l'aggregazione che si desidera usare per i valori trasform
 
 (Facoltativo) È possibile impostare un criterio di denominazione con prefisso, valore intermedio e suffisso da aggiungere a ogni nuovo nome di colonna dai valori di riga.
 
-Ad esempio, se si trasforma tramite Pivot "Vendite" in base ad "Area" verrebbero generati valori di colonna da ogni valore delle vendite, ad esempio "25", "50", "1000" e così via. Tuttavia, se si imposta un valore di prefisso "Vendite", ai valori verrà aggiunto il prefisso "Vendite". 
+Ad esempio, se si trasforma tramite Pivot "Vendite" in base ad "Area" verrebbero generati valori di colonna da ogni valore delle vendite, ad esempio "25", "50", "1000" e così via. Tuttavia, se si imposta un valore di prefisso "Vendite-", ogni valore di colonna aggiungerebbe "Vendite-" all'inizio del valore.
 
 ![Opzioni di Pivot](media/data-flow/pivot5.png "Pivot 5")
 
@@ -56,4 +56,8 @@ Usare il linguaggio per le espressioni del flusso dei dati di Azure Data Factory
 
 ### <a name="how-to-rejoin-original-fields"></a>Come unire di nuovo in join i campi originali
 > [!NOTE]
-> La trasformazione Pivot proietterà solo le colonne usate nelle azioni di aggregazione, raggruppamento e Pivot. Per includere le altre colonne dal passaggio precedente nel flusso, usare una trasformazione Nuovo ramo dal passaggio precedente e usare il modello di self join per connettere il flusso ai metadati originali.
+> La trasformazione Pivot proietterà solo le colonne usate nelle azioni di aggregazione, raggruppamento e Pivot. Se si desidera includere altre colonne nel passaggio precedente nel flusso, usare un nuovo ramo nel passaggio precedente e usare il modello di self join per connettere il flusso con i metadati originali.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Provare il [trasformazione unpivot](data-flow-unpivot.md) per trasformare i valori delle colonne in valori di riga. 

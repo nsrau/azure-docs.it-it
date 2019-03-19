@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: e40d8e7c05213e99fc2ef65f5dc05f17ba0d185e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 1a878b5a9f0502ff9acd411359895d7431fb76f4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890536"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437243"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Recupero delle informazioni sullo stato per un processo di Importazione/Esportazione di Azure
 È possibile chiamare l'operazione [Get Job](/rest/api/storageimportexport/jobs) per recuperare informazioni su entrambi i processi: importazione ed esportazione. Le informazioni restituite includono:
@@ -45,7 +45,7 @@ La tabella seguente descrive ogni stato in cui può trovarsi un processo.
 |`Completed`|Dopo che tutte le unità sono state rispedite al cliente, se il processo è stato completato senza errori, il processo verrà impostato sullo stato `Completed`. Il processo verrà eliminato automaticamente dopo 90 giorni in cui si trova nello stato `Completed`.|
 |`Closed`|Dopo che tutte le unità sono state rispedite al cliente, se si sono verificati errori durante l'elaborazione del processo, il processo verrà impostato sullo stato `Closed`. Il processo verrà eliminato automaticamente dopo 90 giorni in cui si trova nello stato `Closed`.|
 
-È possibile annullare un processo solo in determinati stati. Un processo annullato ignora il passaggio di copia dei dati, ma in caso contrario segue le stesse transizioni di stato di un processo non annullato.
+È possibile annullare un processo solo in determinati stati. Un processo annullato ignora il passaggio copia dei dati, ma in caso contrario segue le stesse transizioni di stato come un processo che non è stata annullata.
 
 La tabella seguente descrive gli errori che possono verificarsi per ogni stato del processo e l'impatto sul processo in caso di errore.
 

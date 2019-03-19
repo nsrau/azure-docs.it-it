@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 9d009847856936d14a182b234910fb717c084d11
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 853c138c8cf73b41b0cebb6c1d349865e18eab6a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248062"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550106"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Creare un'immagine personalizzata da un file VHD
 
@@ -60,9 +60,9 @@ La procedura seguente illustra come creare un'immagine personalizzata da un file
 
 1. È anche possibile immettere un nome, un'offerta e un editore relativi al piano, se l'immagine usata per creare l'immagine personalizzata non è un'immagine con licenza (pubblicata da Microsoft).
 
-   - **Nome del piano:** immettere il nome dell'immagine del Marketplace (SKU) a partire dalla quale viene creata l'immagine personalizzata 
-   - **Offerta del piano:** immettere il prodotto (offerta) dell'immagine del Marketplace a partire dalla quale viene creata l'immagine personalizzata 
-   - **Editore del piano:** immettere l'editore dell'immagine del Marketplace a partire dalla quale viene creata l'immagine personalizzata
+   - **Nome del piano:** Immettere il nome dell'immagine del Marketplace (SKU) da cui è stata creata questa immagine personalizzata 
+   - **Offerta del piano:** Immettere il prodotto (offerta) dell'immagine del Marketplace da cui viene creata l'immagine personalizzata 
+   - **Editore del piano:** Immettere l'editore dell'immagine del Marketplace da cui viene creata l'immagine personalizzata
 
    > [!NOTE]
    > Se l'immagine che si usa per creare un'immagine personalizzata **non** è un'immagine con licenza, questi campi sono vuoti e possono essere compilati facoltativamente. Se l'immagine **è** un'immagine con licenza, i campi vengono compilati automaticamente con le informazioni del piano. Se in questo caso si tenta di modificare queste informazioni, viene visualizzato un messaggio di avviso.
@@ -81,7 +81,7 @@ Dopo alcuni minuti, l'immagine personalizzata viene creata e archiviata nell'acc
 ## <a name="related-blog-posts"></a>Post di blog correlati
 
 - [Custom images or formulas? (Immagini personalizzate o formule?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
-- [Copying Custom Images between Azure DevTest Labs (Copia di immagini personalizzate tra istanze di Azure DevTest Labs)](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
+- [Copying Custom Images between Azure DevTest Labs (Copia di immagini personalizzate tra istanze di Azure DevTest Labs)](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

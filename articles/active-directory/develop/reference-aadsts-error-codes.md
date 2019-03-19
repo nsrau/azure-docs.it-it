@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4ad41992b2ac0dfc98303601060ed299e75ddfc
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 16f7dc81d8174e3d8da39d3af95b945f8034cecd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234289"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452015"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Codici di errore di autenticazione e autorizzazione
 
@@ -68,7 +68,7 @@ Se sono necessarie informazioni sui codici di errore AADSTS restituiti dal servi
 | AADSTS50032 | WeakRsaKey: indica il tentativo errato dell'utente di usare una chiave RSA vulnerabile. |
 | AADSTS50033 | RetryableError: indica un errore temporaneo non correlato alle operazioni del database. |
 | AADSTS50034 | UserAccountNotFound: per accedere all'applicazione, l'account deve essere aggiunto alla directory. |
-| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt: il valore salt richiesto per generare un identificatore pairwise non è presente nell'entità di sicurezza. Contattare l'amministratore del tenant. |
+| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt - il valore salt obbligatorio per generare un identificatore pairwise non è presente in linea di principio. Contattare l'amministratore del tenant. |
 | AADSTS50043 | UnableToGeneratePairwiseIdentifierWithMultipleSalts |
 | AADSTS50048 | SubjectMismatchesIssuer: il soggetto non corrisponde all'attestazione dell'autorità di certificazione nell'asserzione client. Contattare l'amministratore del tenant. |
 | AADSTS50049 | NoSuchInstanceForDiscovery: istanza sconosciuta o non valida. |
@@ -140,7 +140,7 @@ Se sono necessarie informazioni sui codici di errore AADSTS restituiti dal servi
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist: l'utente o l'amministratore non ha acconsentito all'uso dell'applicazione con ID X. Inviare una richiesta di autorizzazione interattiva per questo utente e questa risorsa. |
 | AADSTS65004 | UserDeclinedConsent: l'utente ha rifiutato il consenso per l'accesso all'app. Chiedere all'utente di riprovare ad accedere e fornire il consenso per l'app.|
-| AADSTS65005 | MisconfiguredApplication: l'elenco di accesso alle risorse necessarie per l'applicazione non contiene app individuabili dalla risorsa, l'app client ha richiesto l'accesso a una risorsa non specificata nell'elenco di accesso alle risorse necessarie oppure il servizio Graph ha restituito una risposta di richiesta non valida o di risorsa non trovata. Se l'app supporta SAML, potrebbe essere stata configurata con l'identificatore errato (entità). Provare la soluzione indicata per SAML usando il collegamento seguente: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list) |
+| AADSTS65005 | MisconfiguredApplication: l'elenco di accesso alle risorse necessarie per l'applicazione non contiene app individuabili dalla risorsa, l'app client ha richiesto l'accesso a una risorsa non specificata nell'elenco di accesso alle risorse necessarie oppure il servizio Graph ha restituito una risposta di richiesta non valida o di risorsa non trovata. Se l'app supporta SAML, potrebbe essere stata configurata con l'identificatore errato (entità). Provare la soluzione indicata per SAML usando il collegamento seguente: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant: autenticazione non riuscita. Il token di aggiornamento non è valido. Errore dovuto ai motivi seguenti:<ul><li>L'intestazione di associazione di token è vuota</li><li>L'hash di associazione di token non corrisponde</li></ul> |
 | AADSTS70001 | UnauthorizedClient: l'applicazione è disabilitata. |
@@ -255,6 +255,7 @@ Se sono necessarie informazioni sui codici di errore AADSTS restituiti dal servi
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource: la risorsa non è configurata per accettare token solo dispositivo. |
 | AADSTS240001 | BulkAADJTokenUnauthorized: l'utente non è autorizzato a registrare i dispositivi in Azure AD. |
 | AADSTS240002 | RequiredClaimIsMissing: non è possibile usare id_token come concessione `urn:ietf:params:oauth:grant-type:jwt-bearer`.|
+| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy - amministratore del tenant ha configurato un criterio di sicurezza che blocca la richiesta. Controllare i criteri di sicurezza definiti a livello di tenant per determinare se la richiesta soddisfa i requisiti dei criteri. |
 | AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest: l'applicazione non è stata trovata nella directory o nel tenant. Questa situazione può verificarsi se l'applicazione non è stata installata dall'amministratore del tenant o non è consentita da uno degli utenti nel tenant. È possibile che il valore dell'identificatore per l'applicazione sia stato configurato in modo errato o che la richiesta di autenticazione sia stata inviata al tenant sbagliato. |
 | AADSTS700020 | InteractionRequired: la concessione dell'accesso richiede l'interazione. |
 | AADSTS700022 | InvalidMultipleResourcesScope: il valore specificato per l'ambito del parametro di input non è valido perché contiene più di una risorsa. |

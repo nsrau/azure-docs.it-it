@@ -10,12 +10,12 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: slivkins
-ms.openlocfilehash: 2feaa6fa87b6e788683ad543bfb7780b0e517506
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: be9966f5d8e8d94aa3f49aac91b35b105195b108
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867342"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552062"
 ---
 # <a name="api"></a>API
 
@@ -44,7 +44,7 @@ Inserire questo frammento di codice nell'intestazione HTML della pagina riepilog
 > La funzione di callback deve essere definita prima della chiamata all'API classificazione.
 
 > [!TIP]
-> Per migliorare la latenza, l'API classificazione viene esposta tramite HTTP invece di HTTPS, come in `http://ds.microsoft.com/api/v2/<appId>/rank/*`.
+> Per migliorare la latenza, l'API classificazione viene esposta tramite HTTP invece di HTTPS, come in `https://ds.microsoft.com/api/v2/<appId>/rank/*`.
 > Occorre comunque usare un endpoint HTTPS se la pagina riepilogativa viene presentata tramite HTTPS.
 
 Quando non vengono impostati i parametri, la risposta HTTP dell'API classificazione è una stringa in formato JSONP:

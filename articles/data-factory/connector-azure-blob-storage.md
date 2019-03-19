@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 02/22/2019
 ms.author: jingwang
-ms.openlocfilehash: bc7fdbe964269521a049fba8fcb8c37194d60f7c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 115a02c7f8abee18c226c127fb84b4bb34250cd0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664200"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456313"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copiare dati da e in Archiviazione BLOB di Azure usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -24,6 +24,8 @@ ms.locfileid: "55664200"
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati in e da Archiviazione BLOB di Azure. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta informazioni generali sull'attività di copia.
 
 Per altre informazioni su Azure Data Factory, vedere l'[articolo introduttivo](introduction.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
@@ -37,7 +39,7 @@ In particolare, il connettore di Archiviazione BLOB supporta:
 - La copia di BLOB così come sono o l'analisi o generazione di BLOB con i [formati di file e i codec di compressione supportati](supported-file-formats-and-compression-codecs.md).
 
 >[!NOTE]
->Se si abilita l'opzione _"Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione"_ nelle impostazioni del firewall di Archiviazione di Azure, l'uso di Azure Integration Runtime per la connessione all'archiviazione BLOB non riesce a causa di un errore di operazione non consentita, perché Azure Data Factory non viene trattato come servizio Microsoft attendibile. Usare invece il runtime di integrazione self-hosted per la connessione.
+>Se si abilita il _"Consenti attendibili i servizi Microsoft per accedere a questo account di archiviazione"_ opzione impostazioni firewall archiviazione di Azure, tramite Azure Integration Runtime per connettersi all'archiviazione Blob avrà esito negativo con un errore non consentito, perché non è Azure Data factory considerato come un servizio Microsoft attendibile. Connettersi tramite un Runtime di integrazione Self-Hosted invece.
 
 ## <a name="get-started"></a>Attività iniziali
 
@@ -130,15 +132,15 @@ Una firma di accesso condiviso fornisce accesso delegato controllato alle risors
 
 > [!TIP]
 > Per generare una firma di accesso condiviso del servizio per l'account di archiviazione, è possibile eseguire i comandi di PowerShell seguenti. Sostituire i segnaposto e concedere l'autorizzazione necessaria.
-> `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
-> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
+> `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 Per usare l'autenticazione basata sulla firma di accesso condiviso, sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà tipo deve essere impostata su **AzureBlobStorage** (consigliato) o **AzureStorage** (vedere le note sottostanti). |Sì |
-| sasUri | Specificare l'URI della firma di accesso condiviso per le risorse di archiviazione come BLOB o contenitore. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire il token di firma di accesso condiviso in Azure Key Vault per sfruttare la rotazione automatica e rimuovere la parte del token. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. |Sì |
+| sasUri | Specificare l'URI della firma di accesso condiviso per le risorse di archiviazione come BLOB o contenitore. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire il token di firma di accesso condiviso in Azure Key Vault per sfruttare rotazione automatica e rimuovere la parte del token. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. |Sì |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare Azure Integration Runtime o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
 
 >[!NOTE]
@@ -257,13 +259,11 @@ Per un servizio collegato ad Archiviazione BLOB di Azure sono supportate queste 
 
 ### <a name="managed-identity"></a>Autenticazione di identità gestite per le risorse di Azure
 
-Una data factory può essere associata a un'[identità gestita per le risorse di Azure](data-factory-service-identity.md), che rappresenta la data factory specifica. È possibile usare direttamente questa identità del servizio per l'autenticazione con archiviazione BLOB, analogamente all'uso dell'entità servizio. Consente alla factory designata di accedere e copiare i dati da/nella risorsa di archiviazione BLOB.
+Una data factory può essere associata a un'[identità gestita per le risorse di Azure](data-factory-service-identity.md), che rappresenta la data factory specifica. È possibile usare direttamente questa identità gestita per l'autenticazione di archiviazione Blob simile all'uso dell'entità del servizio. Consente alla factory designata di accedere e copiare i dati da/nella risorsa di archiviazione BLOB.
 
-Per l'autenticazione con identità del servizio gestita di archiviazione di Azure in generale, vedere [Autenticare l'accesso ad Archiviazione di Azure con Azure Active Directory](../storage/common/storage-auth-aad.md).
+Fare riferimento a [autenticare l'accesso all'archiviazione di Azure con Azure Active Directory](../storage/common/storage-auth-aad.md) per l'autenticazione di archiviazione di Azure in generale. Per usare l'autenticazione di identità gestite per le risorse di Azure, seguire questa procedura:
 
-Per usare l'autenticazione di identità gestite per le risorse di Azure, seguire questa procedura:
-
-1. [Recuperare l'identità del servizio Data Factory](data-factory-service-identity.md#retrieve-service-identity) copiando il valore di "SERVICE IDENTITY APPLICATION ID" generato con la factory.
+1. [Recuperare informazioni di identità di data factory gestiti](data-factory-service-identity.md#retrieve-managed-identity) copiando il valore di "SERVICE IDENTITY APPLICATION ID" generato con la factory.
 
 2. Concedere l'autorizzazione appropriata per l'identità gestita in Archiviazione BLOB di Azure. Fare riferimento a [Gestire i diritti di accesso ai dati di Archiviazione di Azure con RBAC](../storage/common/storage-auth-aad-rbac.md) per altri dettagli sui ruoli.
 
@@ -331,6 +331,7 @@ Per copiare dati in e da Archiviazione BLOB, impostare la proprietà type del se
         },
         "typeProperties": {
             "folderPath": "mycontainer/myfolder",
+            "fileName": "*",
             "modifiedDatetimeStart": "2018-12-01T05:00:00Z",
             "modifiedDatetimeEnd": "2018-12-01T06:00:00Z",
             "format": {
