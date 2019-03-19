@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.subservice: autoscale
-ms.openlocfilehash: ae1828210345eb35f9d22664285a0d348ea50d48
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 05f20aec536ebdb702caea37051a65af9bbc659f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478332"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085644"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Panoramica del ridimensionamento automatico in Macchine virtuali di Microsoft Azure, Servizi cloud e App Web
 Questo articolo descrive il ridimensionamento automatico di Microsoft Azure e come iniziare a usarlo.  
@@ -66,15 +66,15 @@ Per il ridimensionamento automatico vengono usate la terminologia e la struttura
 
 - Un' **impostazione di ridimensionamento automatico** viene letta dal motore di ridimensionamento automatico per determinare se aumentare o ridurre le prestazioni. Contiene uno o più profili, informazioni sulla risorsa di destinazione e impostazioni di notifica.
 
-    - Un **profilo di scalabilità automatica** è una combinazione di:
+  - Un **profilo di scalabilità automatica** è una combinazione di:
 
-        - **impostazione di capacità**, che indica i valori minimo, massimo e predefinito per il numero di istanze.
-        - **set di regole**, ognuna delle quali include un trigger (ora o metrica) e un'azione di scalabilità (verso l'alto o verso il basso).
-        - **ricorrenza**, che indica quando il ridimensionamento automatico renderà effettivo il profilo.
+    - **impostazione di capacità**, che indica i valori minimo, massimo e predefinito per il numero di istanze.
+    - **set di regole**, ognuna delle quali include un trigger (ora o metrica) e un'azione di scalabilità (verso l'alto o verso il basso).
+    - **ricorrenza**, che indica quando il ridimensionamento automatico renderà effettivo il profilo.
 
-        È possibile avere più profili per gestire diversi requisiti sovrapposti. È ad esempio possibile avere profili di ridimensionamento automatico per diverse ore del giorno o diversi giorni della settimana.
+      È possibile avere più profili per gestire diversi requisiti sovrapposti. È ad esempio possibile avere profili di ridimensionamento automatico per diverse ore del giorno o diversi giorni della settimana.
 
-    - Un' **impostazione di notifica** definisce le notifiche da creare quando si verifica un evento di ridimensionamento automatico in base ai criteri di uno dei profili di impostazioni di ridimensionamento automatico. Possono essere inviate notifiche a uno o più indirizzi di posta elettronica oppure possono essere effettuate chiamate a uno o più webhook.
+  - Un' **impostazione di notifica** definisce le notifiche da creare quando si verifica un evento di ridimensionamento automatico in base ai criteri di uno dei profili di impostazioni di ridimensionamento automatico. Possono essere inviate notifiche a uno o più indirizzi di posta elettronica oppure possono essere effettuate chiamate a uno o più webhook.
 
 
 ![Struttura delle impostazioni, dei profili e delle regole di ridimensionamento automatico in Azure](./media/autoscale-overview/AzureResourceManagerRuleStructure3.png)

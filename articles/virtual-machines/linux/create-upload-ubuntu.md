@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 70aa49cf15b095697eb00cc2a0b8e6dfd2e07546
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 7776e0005facb57d223a1ba1e73d1efa30edec49
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240478"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004889"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Preparare una macchina virtuale Ubuntu per Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="official-ubuntu-cloud-images"></a>Immagini di Ubuntu Cloud ufficiali
-Ubuntu attualmente pubblica dischi rigidi virtuali di Azure ufficiali per il download all'indirizzo [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/). Se si deve creare un'immagine Ubuntu specializzata per Azure, piuttosto che seguire la procedura manuale riportata sotto si consiglia di iniziare con questi noti VHD funzionanti e personalizzarli in base alle esigenze. Le ultime versioni delle immagini sono sempre disponibili nei seguenti percorsi:
+Ubuntu attualmente pubblica dischi rigidi virtuali di Azure ufficiali per il download all'indirizzo [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/). Se si deve creare un'immagine Ubuntu specializzata per Azure, piuttosto che seguire la procedura manuale riportata sotto si consiglia di iniziare con questi noti VHD funzionanti e personalizzarli in base alle esigenze. Le ultime versioni delle immagini sono sempre disponibili nei seguenti percorsi:
 
 * Ubuntu 12.04/Precise: [ubuntu-12.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/precise/current/precise-server-cloudimg-amd64-disk1.vhd.zip)
-* Ubuntu 14.04/Trusty: [ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/trusty/release/ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip)
-* Ubuntu 16.04/Xenial: [ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip)
-* Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64.vhd.zip](http://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vhd.zip)
-* Ubuntu 18.10/Cosmic: [cosmic-server-cloudimg-amd64.vhd.zip](http://cloud-images.ubuntu.com/cosmic/current/cosmic-server-cloudimg-amd64.vhd.zip)
+* Ubuntu 14.04/Trusty: [ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/releases/trusty/release/ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip)
+* Ubuntu 16.04/Xenial: [ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip)
+* Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64.vhd.zip](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vhd.zip)
+* Ubuntu 18.10/Cosmic: [cosmic-server-cloudimg-amd64.vhd.zip](https://cloud-images.ubuntu.com/cosmic/current/cosmic-server-cloudimg-amd64.vhd.zip)
 
 ## <a name="prerequisites"></a>Prerequisiti
 In questo articolo si presuppone che l'utente abbia già installato un sistema operativo Ubuntu Linux in un disco rigido virtuale. Sono disponibili vari strumenti per creare file con estensione vhd, ad esempio una soluzione di virtualizzazione come Hyper-V. Per istruzioni, vedere [Installare il ruolo Hyper-V e configurare una macchina virtuale](https://technet.microsoft.com/library/hh846766.aspx).
@@ -47,7 +47,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 ## <a name="manual-steps"></a>Passaggi manuali
 > [!NOTE]
-> Prima di provare a creare un'immagine personalizzata di Ubuntu per Azure, valutare in alternativa la possibilità di usare le immagini predefinite e testate di [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/).
+> Prima di provare a creare un'immagine personalizzata di Ubuntu per Azure, valutare in alternativa la possibilità di usare le immagini predefinite e testate di [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/).
 > 
 > 
 
@@ -122,23 +122,30 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
         # sudo apt-get update
         # sudo apt-get install walinuxagent
 
-    >[!Note]
-    Il pacchetto `walinuxagent` potrebbe rimuovere i pacchetti `NetworkManager` e `NetworkManager-gnome`, se installati.
+   > [!Note]
+   >  Il pacchetto `walinuxagent` potrebbe rimuovere i pacchetti `NetworkManager` e `NetworkManager-gnome`, se installati.
 
-8. Eseguire i comandi seguenti per effettuare il deprovisioning della macchina virtuale e prepararla per il provisioning in Azure:
+Per Ubuntu 18.04/18.10, aggiornare l'origine dati di Azure, modificare questa opzione: /etc/cloud/cloud.cfg.d/90-azure.cfg, aggiungere questo codice alla fine del file:
+
+**Importante: il codice deve essere aggiunto esattamente come indicato, inclusi gli spazi.**
+
+```bash
+datasource:
+   Azure:
+     agent_command: [service, walinuxagent, start]
+```
+
+1. Eseguire i comandi seguenti per effettuare il deprovisioning della macchina virtuale e prepararla per il provisioning in Azure:
    
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
 
-9. Fare clic su **Azione -> Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
+1. Fare clic su **Azione -> Arresta** nella console di gestione di Hyper-V. Il file VHD Linux è ora pronto per il caricamento in Azure.
 
 ## <a name="references"></a>Riferimenti
 [Kernel di attivazione hardware di Ubuntu (HWE)](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)
 
 ## <a name="next-steps"></a>Passaggi successivi
 È ora possibile usare il disco rigido virtuale Ubuntu Linux per creare nuove macchine virtuali in Azure. Se è la prima volta che si carica il file VHD in Azure, vedere [Creare una macchina virtuale Linux da un disco personalizzato](upload-vhd.md#option-1-upload-a-vhd).
-
-
-
 

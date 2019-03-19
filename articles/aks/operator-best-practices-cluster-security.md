@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: d9ce2661fbdca0a28f917e27e27a3e3f954a9999
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: b0d6afbe2db4c95460aef96a9d918219bd4240e2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488384"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769881"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la sicurezza e gli aggiornamenti dei cluster nel servizio Azure Kubernetes
 
@@ -188,7 +188,7 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 È quindi possibile aggiornare il cluster AKS tramite il comando [az aks upgrade][az-aks-upgrade]. Il processo di aggiornamento isola e svuota un nodo alla volta, pianifica i pod sui nodi rimanenti e quindi distribuisce un nuovo nodo che esegue le versioni più recenti del sistema operativo e di Kubernetes.
 
 ```azurecli-interactive
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.11.3
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.11.8
 ```
 
 Per altre informazioni sugli aggiornamenti nel servizio Azure Container, vedere [Versioni Kubernetes supportate nel servizio Kubernetes di Azure][aks-supported-versions] e [Aggiornare un cluster di Azure Kubernetes Service (AKS)][aks-upgrade].

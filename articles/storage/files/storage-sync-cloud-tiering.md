@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: sikoo
 ms.subservice: files
-ms.openlocfilehash: e73a11d7849d6e304be0844a55ddad46e6966f6e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: fe363bd6d16d7beea1c8f1e6ec17710975a80924
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470451"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652561"
 ---
 # <a name="cloud-tiering-overview"></a>Panoramica della suddivisione in livelli nel cloud
 La suddivisione in livelli nel cloud è una funzionalità facoltativa di Sincronizzazione file di Azure in base alla quale i file a cui si accede di frequente vengono memorizzati nella cache locale del server, mentre tutti gli altri file vengono archiviati a livelli in File di Azure in base alle impostazioni dei criteri. Quando un file è archiviato a livelli, il filtro del file system di Sincronizzazione file di Azure (StorageSync.sys) sostituisce il file in locale con un puntatore, o punto di analisi. Il punto di analisi rappresenta un URL del file in File di Azure. Un file archiviato a livelli include sia l'attributo "offline" sia l'attributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS impostato in NTFS, in modo che le applicazioni di terze parti possano identificare in modo sicuro questo tipo di file.
@@ -21,9 +21,12 @@ La suddivisione in livelli nel cloud è una funzionalità facoltativa di Sincron
 Quando un utente apre un file archiviato a livelli, Sincronizzazione file di Azure richiama facilmente i dati del file da File di Azure senza che l'utente debba sapere se il file è effettivamente archiviato in Azure. 
  
  > [!Important]  
-    > Importante: la suddivisione in livelli nel cloud non è supportata per gli endpoint server nei volumi di sistema di Windows. Inoltre, è possibile archiviare a livelli in File di Azure solo i file con dimensione maggiore di 64 KiB.
+ > la suddivisione in livelli nel cloud non è supportata per gli endpoint server nei volumi di sistema di Windows. Inoltre, è possibile archiviare a livelli in File di Azure solo i file con dimensione maggiore di 64 KiB.
     
 Sincronizzazione file di Azure non supporta la suddivisione in livelli di file con dimensioni inferiori a 64 KiB perché il sovraccarico delle prestazioni prodotto dalla suddivisione in livelli e dal richiamo di questi piccoli file potrebbe superare il risparmio di spazio.
+
+ > [!Important]  
+ > Per richiamare i file che sono stati suddivisi in livelli, la larghezza di banda di rete deve essere almeno 1 Mbps. Se la larghezza di banda di rete è minore di 1 Mbps, i file potrebbero non riuscire a richiamare con un errore di timeout.
 
 ## <a name="cloud-tiering-faq"></a>Domande frequenti sulla suddivisione in livelli nel cloud
 
@@ -116,5 +119,5 @@ Quando la funzionalità di suddivisione in livelli nel cloud è abilitata, i fil
     Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
     ```
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 * [Planning for an Azure File Sync Deployment](storage-sync-files-planning.md) (Pianificazione della distribuzione di Sincronizzazione file di Azure)

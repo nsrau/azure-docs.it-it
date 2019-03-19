@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: fc594a660efe1bf90daeffa79826057a8e66c60c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 512417a228ed99a2f5b516f14084a5785bc0c1dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245168"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096742"
 ---
 # <a name="how-to-find-endpoints-and-access-keys-for-the-text-analytics-cognitive-service"></a>Come trovare gli endpoint e le chiavi di accesso per il servizio cognitivo Analisi del testo
 
@@ -33,7 +33,7 @@ Per richiedere assistenza durante la ricerca della chiave o per determinare se l
 
 4. Fare clic sul collegamento per aprire il pannello del servizio. È ora possibile ottenere una chiave da **Risorse > Chiavi** oppure facendo clic su **Mostra chiavi di accesso** nel riquadro Informazioni di base. Nel riquadro Informazioni di base è visibile anche l'endpoint.
 
- ![Pagina del portale con endpoint e chiavi](../media/portal-keys-endpoint.png)
+   ![Pagina del portale con endpoint e chiavi](../media/portal-keys-endpoint.png)
 
 ## <a name="see-also"></a>Vedere anche  
 

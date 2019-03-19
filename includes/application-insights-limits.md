@@ -8,25 +8,25 @@ ms.topic: include
 ms.date: 06/21/2018
 ms.author: mbullwin
 ms.custom: include file
-ms.openlocfilehash: 6b9b40c457766573be0d72cb7f4ebe2328a070f5
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: d253ed7c5aa971f2fd767a6943eb0117c457fc45
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026265"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554567"
 ---
-Esistono alcuni limiti sul numero di metriche e eventi per applicazione (ovvero, per ogni chiave di strumentazione). I limiti dipendono dal [piano tariffario](https://azure.microsoft.com/pricing/details/application-insights/) scelto.
+Vi sono alcuni limiti sul numero di metriche ed eventi per ogni applicazione, vale a dire, per ogni chiave di strumentazione. I limiti dipendono dal [piano tariffario](https://azure.microsoft.com/pricing/details/application-insights/) scelto.
 
 | Risorsa | Limite predefinito | Note
 | --- | --- | --- |
-| Totale dati al giorno | 100 GB | È possibile ridurre i dati impostando un limite. Se sono necessari più dati, è possibile aumentare il limite nel portale fino a 1.000 GB. Per capacità superiori a 1.000 GB, inviare un messaggio di posta elettronica a AIDataCap@microsoft.com.
+| Totale dati al giorno | 100 GB | È possibile ridurre i dati impostando un limite. Se sono necessari più dati, è possibile aumentare il limite nel portale fino a 1.000 GB. Per capacità superiori a 1.000 GB, inviare posta elettronica a AIDataCap@microsoft.com.
 | Limitazione | 32.000 eventi/secondo | Il limite viene misurato nell'arco di un minuto.
 | Conservazione dei dati | 90 giorni | Questa risorsa è destinata a [Ricerca](../articles/azure-monitor/app/diagnostic-search.md), [Analisi](../articles/azure-monitor/app/analytics.md) e [Esplora metriche](../articles/azure-monitor/app/metrics-explorer.md).
 | Conservazione dei risultati dettagliati di [test di disponibilità in più passi](../articles/azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) | 90 giorni | Questa risorsa fornisce risultati dettagliati per ogni passaggio.
-| Dimensioni massime dell'evento | 64 K | 
+| Dimensioni massime dell'evento | 64.000 | 
 | Lunghezza nomi di proprietà e metriche | 150 | Vedere gli [schemi per tipo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/).
-| Lunghezza stringa valore di proprietà | 8.192 | Vedere gli [schemi per tipo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/).
-| Lunghezza messaggio di traccia e di eccezione | 10 K | Vedere gli [schemi per tipo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/).
+| Lunghezza stringa valore di proprietà | 8,192 | Vedere gli [schemi per tipo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/).
+| Lunghezza messaggio di traccia e di eccezione | 10,000 | Vedere gli [schemi per tipo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/).
 | Numero di [test di disponibilità](../articles/azure-monitor/app/monitor-web-app-availability.md) per app | 100 |
 | Conservazione dati [profiler](../articles/azure-monitor/app/profiler.md) | 5 giorni |
 | Dati [profiler](../articles/azure-monitor/app/profiler.md) inviati al giorno | 10 GB |

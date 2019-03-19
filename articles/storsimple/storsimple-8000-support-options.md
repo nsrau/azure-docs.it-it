@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 9137e52af16f63efe7f0b8169f2693a354564968
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
-ms.translationtype: HT
+ms.openlocfilehash: c83326212dc84348a04d54f04348a6c4c7699bde
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "36264439"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57875890"
 ---
 # <a name="storsimple-solution-support"></a>Supporto della soluzione StorSimple
 
@@ -42,7 +42,7 @@ Microsoft offre opzioni di supporto flessibili per i clienti delle risorse di ar
 | Invio di ticket del portale Azure                                                                          | ✓                                                                               | ✓                                                                              |
 | Accesso al portale di supporto online                                                                            | ✓                                                                               | ✓                                                                              |
 | Provisioning e gestione di avvisi                                                                       | ✓                                                                               | ✓                                                                              |
-| Tempo di risposta iniziale del supporto tecnico 24x7 dopo l'invio di ticket di supporto <br> Tempo di risposta iniziale in base alla Gravità <sup>2 | Gravità A: entro 2 ore <br> Gravità B: entro 4 ore <br> Gravità C: entro 8 ore | Gravità A: entro 60 minuti <br> Gravità B: entro 2 ore <br> Gravità C: entro 4 ore |
+| Tempo di risposta iniziale del supporto tecnico 24x7 dopo l'invio di ticket di supporto <br> Tempo di risposta iniziale in base alla Gravità <sup>2 | Gravità a: Entro 2 ore <br> Gravità b: Entro 4 ore <br> Gravità c: Entro 8 ore | Gravità a: Entro 60 minuti <br> Gravità b: Entro 2 ore <br> Gravità c: Entro 4 ore |
 | Supporto telefonico (funzione di richiamata)                                                                               | ✓                                                                               | ✓                                                                              |
 | Sostituzione parti avanzata (solo serie StorSimple 8000) <sup>3</sup>                                              | Giorno lavorativo successivo <sup>4                                                              | Entro 4 ore                                                                 |
 | Tecnico dei servizi in loco (solo StorSimple serie 8000) <sup>3</sup>                                         | Non disponibile                                                                   | Entro 4 ore                                                                 |
@@ -60,13 +60,13 @@ Microsoft offre opzioni di supporto flessibili per i clienti delle risorse di ar
 
 <sup>2</sup> La Gravità è definita come segue: 
 
-* Gravità A: Perdita o riduzione significativa delle prestazioni dei servizi
+* Gravità a: Perdita o riduzione delle prestazioni dei servizi
 
 
-* Gravità B: Perdita o riduzione moderata ma il lavoro può continuare in modo notevolmente ridotto
+* Gravità b: Modera perdita o riduzione delle prestazioni ma il lavoro può continuare in modo notevolmente ridotto
 
 
-* Gravità C: Sostanzialmente funzionate, impedimenti lievi o inesistenti per la funzionalità del sistema
+* Gravità c: Funziona in modo sostanziale o nessun impedimenti alle funzionalità del sistema
 
     Microsoft può ridurre il livello di gravità di un caso di Gravità A se il cliente non è in grado di fornire risposte o risorse adeguate per permettere a Microsoft di procedere con la risoluzione dei problemi. Tempo di risposta previsto in base al supporto 24x7 in inglese per il livello di gravità A, orario di ufficio locale per i livelli di gravità B e C. 
 
@@ -81,7 +81,7 @@ Microsoft offre opzioni di supporto flessibili per i clienti delle risorse di ar
 Se il contratto di supporto è scaduto bisogna considerare da quanto tempo è scaduto. La procedura di rinnovo può richiedere fino a tre settimane e deve essere completata prima di poter recapitare una parte. Infatti, il magazzino locale usato per il contratto non avrà disponibili le parti di ricambio per i dispositivi che non hanno un contratto attivo.
 
 ## <a name="local-language-support"></a>Supporto nella lingua locale
-Durante l'orario lavorativo, oltre all'inglese è fornito il supporto nelle lingue locali seguenti: giapponese, coreano, taiwanese e cinese tradizionale.
+Oltre all'inglese, viene fornito supporto nella lingua locale nelle lingue seguenti durante le ore lavorative: Cinese giapponese, coreano, Taiwanese e tradizionali.
 
 ## <a name="support-scope"></a>Ambito del supporto 
 Il supporto per problemi correlati a fatturazione e gestione delle sottoscrizioni è disponibile a tutti i livelli. Per ricevere supporto per StorSimple, i clienti devono essere registrati attivamente per i piani di supporto di StorSimple Standard o Premium. Il team di supporto di StorSimple sarà responsabile di risolvere tutti i problemi che influiscono sulla soluzione StorSimple. Per ricevere supporto per problemi riguardanti Azure che non sono direttamente correlati con StorSimple, il cliente deve essere registrato in un piano di supporto di Azure appropriato. Per informazioni dettagliate, fare riferimento [ qui](https://azure.microsoft.com/support/plans/). Il team di supporto riferisce i casi di supporto non-StorSimple al team di Azure per il completamento in base ai diritti del cliente per il supporto di Azure. 
@@ -95,7 +95,7 @@ Il supporto per problemi correlati a fatturazione e gestione delle sottoscrizion
  
 <sup>1 </sup> Microsoft può ridurre il livello di gravità di un caso di Gravità A se il cliente non è in grado di fornire risposte o risorse adeguate per permettere a Microsoft di procedere con i tentativi di risoluzione dei problemi.
 
-<sup>2</sup> I tempi di risposta sono basati sul supporto 24x7 in inglese per il livello di gravità A e negli orari di ufficio locali per i livelli di gravità B e C; e negli orari di ufficio locali il supporto per le lingue rimanenti: giapponese, taiwanese, cinese tradizionale e coreano.
+<sup>2</sup> tempi di risposta si basano sul 24x7 supporto in inglese per livello di gravità A e orari di ufficio locali per i livelli di gravità B e C, e orari di ufficio locali il supporto nelle lingue rimanenti: Giapponese, Taiwanese, cinese tradizionale e coreano.
 
 ## <a name="cancellation-policy"></a>Politica di annullamento
 Per ricevere supporto di StorSimple, il cliente deve acquistare piani di supporto Standard o Premium per la durata del periodo di sottoscrizione. In caso di annullamento non vengono effettuati rimborsi ripartiti per il periodo rimanente. I piani di supporto di StorSimple sono suscettibili di riduzione in occasione dell'anniversario dell'EA. Tuttavia, Microsoft non è in grado di fornire supporto ai clienti di StorSimple senza contratti di supporto validi.
@@ -119,7 +119,7 @@ Il supporto degli array di archiviazione StorSimple 8000 Series vengono forniti 
 
 
 
-*<text> * La copertura di Premium non è disponibile in tutte le posizioni. Contattare il team di Microsoft al SSSupOps@microsoft.comper la copertura geografica prima di acquistare il supporto di StorSimple Premium.*
+*<text> * La copertura di Premium non è disponibile in tutte le posizioni. Contattare Microsoft all'indirizzo SSSupOps\@microsoft.com per la copertura geografica prima di acquistare il supporto di StorSimple Premium.*
 
 ***Il dispositivo StorSimple deve essere distribuito in un'area in cui il cliente sia coperto dal supporto Premier per essere idoneo per un aggiornamento gratuito al supporto di StorSimple premium.*
 

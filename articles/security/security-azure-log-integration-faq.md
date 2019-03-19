@@ -4,7 +4,7 @@ description: Questo articolo contiene le risponde alle domande sull'integrazione
 services: security
 documentationcenter: na
 author: TomShinder
-manager: barbkess
+manager: MBaldwin
 editor: TerryLanfear
 ms.assetid: d06d1ac5-5c3b-49de-800e-4d54b3064c64
 ms.service: security
@@ -15,12 +15,12 @@ ms.workload8: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: f1b809e52cc532d13be85776f73aba4465fa2140
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 4f6a724fe6c1e8668084f1c1cefbaa01cffba181
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114927"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005844"
 ---
 # <a name="azure-log-integration-faq"></a>Domande frequenti sull'integrazione dei log di Azure
 
@@ -32,6 +32,8 @@ Questo articolo contiene le risponde alle domande frequenti sull'integrazione de
 L'integrazione dei log di Azure è un servizio del sistema operativo Windows che consente di integrare log non elaborati delle risorse di Azure nei sistemi di gestione di informazioni ed eventi di sicurezza (SIEM) locali. Questa integrazione fornisce un dashboard unificato per tutti gli asset locali o nel cloud. È possibile aggregare, correlare, analizzare e inviare avvisi per gli eventi di sicurezza associati alle applicazioni.
 
 Il metodo preferito per l'integrazione dei log di Azure consiste nell'usare un connettore per Monitoraggio di Azure del fornitore SIEM e seguire queste [istruzioni](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). Tuttavia, se il fornitore SIEM non offre un connettore per Monitoraggio di Azure, è possibile usare Integrazione log di Azure come soluzione temporanea (se SIEM è supportato da Integrazione log di Azure) fino a quando non sia disponibile un connettore di questo tipo.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="is-the-azure-log-integration-software-free"></a>Il software di integrazione dei log di Azure è gratuito?
 
@@ -97,7 +99,7 @@ Il comando **azlog createazureid** tenta di creare un'entità servizio in tutti 
 
 Errore:
 
-  *Avviso durante la creazione dell'assegnazione del ruolo - Autorizzazione non riuscita: il client janedo@microsoft.com con ID oggetto 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' non dispone dell'autorizzazione per eseguire l'azione 'Microsoft.Authorization/roleAssignments/write' rispetto all'ambito '/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000'.*
+  *Avviso durante la creazione dell'assegnazione del ruolo - Autorizzazione non riuscita: Il client janedo\@microsoft.com' con oggetto id 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' non è autorizzato a eseguire l'azione 'Microsoft.Authorization/roleAssignments/write' sull'ambito ' /subscriptions/ d 70 95299-d689-4c 97-b971-0d8ff0000000'.*
 
 Il comando **azlog authorize** assegna il ruolo di Lettore all'entità servizio di Azure AD (creata con **azlog createazureid**) per le sottoscrizioni fornite. Se l'account di accesso di Azure non è un coamministratore o un proprietario della sottoscrizione, l'operazione ha esito negativo con il messaggio di errore "Autorizzazione non riuscita". Per completare l'azione è necessario il controllo degli accessi in base al ruolo di coamministratore o proprietario.
 
@@ -118,8 +120,8 @@ Per informazioni dettagliate su come ottenere, modificare e impostare la configu
 
 L'esempio seguente ottiene la configurazione di Diagnostica di Azure:
 
-    -AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
-    $publicsettings = (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient).PublicSettings
+    Get-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
+    $publicsettings = (Get-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient).PublicSettings
     $encodedconfig = (ConvertFrom-Json -InputObject $publicsettings).xmlCfg
     $xmlconfig = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encodedconfig))
     Write-Host $xmlconfig
@@ -136,7 +138,7 @@ L'esempio seguente modifica la configurazione di Diagnostica di Azure: In questa
 L'esempio seguente imposta la configurazione di Diagnostica di Azure:
 
     $diagnosticsconfig_path = "d:\WADConfig.xml"
-    Set-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName log3121 -StorageAccountKey <storage key>
+    Set-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName log3121 -StorageAccountKey <storage key>
 
 Dopo aver apportato modifiche, verificare l'account di archiviazione per assicurarsi che vengano raccolti gli eventi corretti.
 

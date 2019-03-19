@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 46791468e094ffb17a6dc9993b2cf8623a72b9b3
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 474048bc9f31e4630110ea099f3e0b375ad74e51
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53968809"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087585"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Introduzione all'uso di ML Services in HDInsight
 
@@ -79,16 +79,16 @@ Se si sceglie di installare RStudio Server Community Edition come parte del clus
         https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
 * **Opzione 2**: usare il portale di Azure.
-Dal portale:
+  Dal portale:
   1. Selezionare **Tutti i servizi** dal menu a sinistra.
   2. In **Analisi** selezionare **Cluster HDInsight**.
   3. Selezionare il nome del cluster nella pagina **Cluster HDInsight**.
   4. In **Dashboard di ML Services** selezionare **Server di R Studio**. 
 
-    ![Configurare le impostazioni dell'account di archiviazione per HDInsight](./media/r-server-get-started/r-studio-server-dashboard.png)
+     ![Configurare le impostazioni dell'account di archiviazione per HDInsight](./media/r-server-get-started/r-studio-server-dashboard.png)
 
-   > [!IMPORTANT]  
-   > Indipendentemente dal metodo usato, al primo accesso è necessario eseguire l'autenticazione due volte.  Al primo prompt di autenticazione specificare l'*ID utente* e la *password amministratore del cluster*. Al secondo prompt di autenticazione specificare l'*ID utente* e la *password SSH*. Per gli accessi successivi saranno necessarie solo le credenziali SSH.
+     > [!IMPORTANT]  
+     > Indipendentemente dal metodo usato, al primo accesso è necessario eseguire l'autenticazione due volte.  Al primo prompt di autenticazione specificare l'*ID utente* e la *password amministratore del cluster*. Al secondo prompt di autenticazione specificare l'*ID utente* e la *password SSH*. Gli accessi successivi richiedono solo le credenziali SSH.
 
 Una volta connessi, la schermata dovrebbe avere un aspetto simile allo screenshot seguente:
 

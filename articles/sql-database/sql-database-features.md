@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: c2a1cbd75bb3ff0b936d8dd801572e5783ab5260
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: a7f247ba0e13d75c6556508fb432b59c3e4ecdef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100918"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881300"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Confronto delle funzionalità: Database SQL di Azure e SQL Server
 
@@ -32,10 +32,10 @@ Microsoft introduce costantemente nuove funzionalità per il database SQL di Azu
 
 La tabella seguente elenca le principali funzionalità di SQL Server. Per ogni funzionalità viene specificato se questa è parzialmente o completamente supportata e viene riportato un collegamento ad altre informazioni.
 
-| **Funzionalità di SQL** | **Supportato in database singoli e pool elastici** | **Supportata nel database SQL di Azure/istanza gestita** |
+| **Funzionalità di SQL** | **Supportate per i database singoli e pool elastici** | **È supportata dalle istanze gestite** |
 | --- | --- | --- |
-| [Replica geografica attiva](sql-database-active-geo-replication.md) | Sì, solo livelli di servizio Utilizzo generico e Business Critical| No, vedere i [Gruppi di failover automatico](sql-database-auto-failover-group.md) |
-| [Gruppi di failover automatico](sql-database-auto-failover-group.md) | Sì, solo livelli di servizio Utilizzo generico e Business Critical| Sì, in [anteprima pubblica](sql-database-auto-failover-group.md)|
+| [Replica geografica attiva](sql-database-active-geo-replication.md) | Sì - tutti i livelli diversi da con iperscalabilità di servizio | No, vedere i [Gruppi di failover automatico](sql-database-auto-failover-group.md) |
+| [Gruppi di failover automatico](sql-database-auto-failover-group.md) | Sì - tutti i livelli diversi da con iperscalabilità di servizio | Sì, in [anteprima pubblica](sql-database-auto-failover-group.md)|
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Sì. Vedere [Archivio certificati](sql-database-always-encrypted.md) e [Insieme di credenziali delle chiavi](sql-database-always-encrypted-azure-key-vault.md) | Sì. Vedere [Archivio certificati](sql-database-always-encrypted.md) e [Insieme di credenziali delle chiavi](sql-database-always-encrypted-azure-key-vault.md) |
 | [Gruppi di disponibilità AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | La [disponibilità elevata](sql-database-high-availability.md) è inclusa in ogni database. Il ripristino di emergenza è trattato in [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md) | La [disponibilità elevata](sql-database-high-availability.md) è inclusa in ogni database. Il ripristino di emergenza è trattato in [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md) |
 | [Collegamento di un database](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | No  | No  |
@@ -55,11 +55,11 @@ La tabella seguente elenca le principali funzionalità di SQL Server. Per ogni f
 | [Regole di confronto - server/istanza](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | No  | Sì, in [anteprima pubblica](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)|
 | [Indici columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Sì, [livello Premium, livello Standard; S3 e versioni successive, livello Utilizzo generico e livelli Business Critical](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Sì |
 | [Common Language Runtime (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | No  | Sì, vedere le [differenze relative a CLR](sql-database-managed-instance-transact-sql-information.md#clr) |
-| [Database indipendenti](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Sì | Sì |
+| [Database indipendenti](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Sì | No [a causa di un difetto di ripristino compreso il ripristino temporizzato in](sql-database-managed-instance-transact-sql-information.md#cannot-restore-contained-database) |
 | [Utenti indipendenti](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Sì | Sì |
 | [Parole chiave degli elementi del linguaggio per il controllo di flusso](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | Sì | Sì |
 | [Query tra database](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | No, vedere [Query elastiche](sql-database-elastic-query-overview.md) | Sì, oltre a [Query elastiche](sql-database-elastic-query-overview.md) |
-| [Transazioni tra database](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | No  | Sì, vedere [Linked server differences](sql-database-managed-instance-transact-sql-information.md#linked-servers) (Differenze dei server collegati) |
+| [Transazioni tra database](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | No  | Sì, all'interno dell'istanza. Visualizzare [collegata differenze tra server](sql-database-managed-instance-transact-sql-information.md#linked-servers) per le query tra istanze. |
 | [Cursori](https://docs.microsoft.com/sql/t-sql/language-elements/cursors-transact-sql) | Sì |Sì |
 | [Compressione dei dati](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression) | Sì |Sì |
 | [Posta elettronica database](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | No  | Sì |
@@ -73,7 +73,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server. Per ogni f
 | [Istruzioni DDL](https://docs.microsoft.com/sql/t-sql/statements/statements) | Supportate per la maggior parte. Vedere le singole istruzioni | Sì, vedere le [differenze relative a T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Trigger DDL](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) | Solo database |  Sì |
 | [Viste partizionate distribuite](https://docs.microsoft.com/sql/t-sql/statements/create-view-transact-sql#partitioned-views) | No  | Sì |
-| [Transazioni distribuite - MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | No. Vedere [Transazioni elastiche](sql-database-elastic-transactions-overview.md) |  No. Vedere [Transazioni elastiche](sql-database-elastic-transactions-overview.md) |
+| [Transazioni distribuite - MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | No. Vedere [Transazioni elastiche](sql-database-elastic-transactions-overview.md) |  No. vedere [collegata differenze tra server](sql-database-managed-instance-transact-sql-information.md#linked-servers) |
 | [Istruzioni DML](https://docs.microsoft.com/sql/t-sql/queries/queries) | Sì | Sì |
 | [Trigger DML](https://docs.microsoft.com/sql/relational-databases/triggers/create-dml-triggers) | Supportate per la maggior parte. Vedere le singole istruzioni |  Sì |
 | [Viste a gestione dinamica](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Supportate nella maggior parte dei casi, vedere singole viste a gestione dinamica |  Sì, vedere le [differenze relative a T-SQL](sql-database-managed-instance-transact-sql-information.md) |
@@ -87,7 +87,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server. Per ogni f
 | [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | No  | No  |
 | [Ricerca full-text](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  I word breaker di terze parti non sono supportati |I word breaker di terze parti non sono supportati |
 | [Funzioni](https://docs.microsoft.com/sql/t-sql/functions/functions) | Supportate per la maggior parte. Vedere le singole funzioni | Sì, vedere le [differenze relative a stored procedure, funzioni e trigger](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
-| [Ripristino geografico](sql-database-recovery-using-backups.md#geo-restore) | Sì, solo livelli di servizio Utilizzo generico e Business Critical | No, è possibile ripristinare i backup completi COPY_ONLY eseguiti periodicamente, vedere le [differenze relative al backup](sql-database-managed-instance-transact-sql-information.md#backup) e le [differenze relative al ripristino](sql-database-managed-instance-transact-sql-information.md#restore-statement). |
+| [Ripristino geografico](sql-database-recovery-using-backups.md#geo-restore) | Sì - tutti i livelli diversi da con iperscalabilità di servizio | No, è possibile ripristinare i backup completi COPY_ONLY eseguiti periodicamente, vedere le [differenze relative al backup](sql-database-managed-instance-transact-sql-information.md#backup) e le [differenze relative al ripristino](sql-database-managed-instance-transact-sql-information.md#restore-statement). |
 | [Elaborazione del grafico](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Sì | Sì |
 | [Ottimizzazione in memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Sì, [solo livelli Premium e Business critical](sql-database-in-memory.md) | Sì - [solo livello Business Critical](sql-database-managed-instance.md) |
 | [Supporto di dati JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Sì](sql-database-json-features.md) | [Sì](sql-database-json-features.md) |
@@ -105,11 +105,12 @@ La tabella seguente elenca le principali funzionalità di SQL Server. Per ogni f
 | [OPENXML](https://docs.microsoft.com/sql/t-sql/functions/openxml-transact-sql)|Sì|Sì|
 | [Operatori](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql) | Supportati per la maggior parte. Vedere i singoli operatori |Sì, vedere le [differenze relative a T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Partizionamento](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes) | Sì | Sì |
-| [Ripristino temporizzato di un database](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Sì, solo livelli di servizio Utilizzo generico e Business Critical - vedere [Ripristino di un database SQL](sql-database-recovery-using-backups.md#point-in-time-restore) | Sì. Vedere [Ripristino di un database SQL](sql-database-recovery-using-backups.md#point-in-time-restore) |
+| [Ripristino temporizzato di un database](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Sì, tutti i piani di servizio diversi da quello con iperscalabilità - vedere [ripristino del Database SQL](sql-database-recovery-using-backups.md#point-in-time-restore) | Sì. Vedere [Ripristino di un database SQL](sql-database-recovery-using-backups.md#point-in-time-restore) |
 | [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | No  | No  |
 | [Gestione basata su criteri](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | No  | No  |
 | [Predicati](https://docs.microsoft.com/sql/t-sql/queries/predicates) | Sì | Sì |
 | [Notifiche della query](https://docs.microsoft.com/sql/relational-databases/native-client/features/working-with-query-notifications) | No  | Sì |
+| [Analisi delle prestazioni della query](sql-database-query-performance.md) | Sì | No  |
 | [Servizi R](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Sì, in [anteprima pubblica](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | No  |
 | [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | No  | Sì |
 | [Istruzioni RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | No  | Sì, vedere le [differenze relative al ripristino](sql-database-managed-instance-transact-sql-information.md#restore-statement) |
@@ -122,6 +123,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server. Per ogni f
 | [Istruzioni SET](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | Supportate per la maggior parte. Vedere le singole istruzioni | Sì, vedere le [differenze relative a T-SQL](sql-database-managed-instance-transact-sql-information.md)|
 | [SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | Sì | Sì |
 | [Spatial](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) | Sì | Sì |
+| [SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Sì | Sì |
 | [Sincronizzazione dati SQL](sql-database-get-started-sql-data-sync.md) | Sì | No  |
 | [Agente SQL Server](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | No. Vedere [Processi elastici](sql-database-elastic-jobs-getting-started.md) | Sì, vedere le [differenze relative a SQL Server Agent](sql-database-managed-instance-transact-sql-information.md#sql-server-agent) |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | No, vedere [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) | No. Vedere [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |

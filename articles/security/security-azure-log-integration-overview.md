@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: 7b06d7bb85e7445f50956a003e46542062b09165
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: c644d81b647fc1151b10a94fb636e3eeaba1ce5c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118276"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245047"
 ---
 # <a name="introduction-to-azure-log-integration"></a>Introduzione a Integrazione log di Azure
 
@@ -61,7 +61,7 @@ Se non sono disponibili altre opzioni, è consigliabile usare Integrazione log d
 |---------|--------------------------|-------------------------------------------|
 |**Splunk** | Iniziare passando al [componente aggiuntivo di Monitoraggio di Azure per Splunk](https://splunkbase.splunk.com/app/3534/). | Usare il [connettore Splunk](https://splunkbase.splunk.com/app/3534/). |
 |**QRadar** | Eseguire la migrazione al connettore QRadar o iniziare a usarlo. Il connettore è documentato nell'ultima sezione di [Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). | Usare il connettore QRadar documentato nell'ultima sezione di [Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). |
-|**ArcSight** | Continuare a usare Integrazione log di Azure fino a quando non è disponibile un connettore e quindi eseguire la migrazione alla soluzione basata sul connettore.  | In alternativa, si considera di usare Azure Log Analytics. Evitare di usare Integrazione log di Azure, in modo da non dover affrontare il processo di migrazione quando il connettore sarà disponibile. |
+|**ArcSight** | Continuare a usare Integrazione log di Azure fino a quando non è disponibile un connettore e quindi eseguire la migrazione alla soluzione basata sul connettore.  | È consigliabile usare i log di monitoraggio di Azure come alternativa. Evitare di usare Integrazione log di Azure, in modo da non dover affrontare il processo di migrazione quando il connettore sarà disponibile. |
 
 > [!NOTE]
 > Integrazione log di Azure è una soluzione gratuita, ma ci sono costi di archiviazione di Azure derivanti dall'archiviazione di informazioni nei file di log.

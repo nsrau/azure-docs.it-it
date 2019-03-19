@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: a8d29e7cae20c37adfeccaef01e1625b6ab3e0d0
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 52475a3976ef8897ffed07c499eb06e7476c0156
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852679"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136294"
 ---
 # <a name="use-firewall-rules"></a>Uso delle regole del firewall
 
@@ -60,7 +60,7 @@ Le regole del filtro IP vengono applicate in ordine e la prima regola corrispond
 ### <a name="creating-a-virtual-network-and-firewall-rule-with-azure-resource-manager-templates"></a>Creazione di una regola di rete virtuale e di una regola del firewall con i modelli di Azure Resource Manager
 
 > [!IMPORTANT]
-> Le reti virtuali sono supportate solo nel **livello Premium** del bus di servizio di Microsoft Azure.
+> Firewall e reti virtuali sono supportate solo nel **premium** livello del Bus di servizio.
 
 Il modello di Resource Manager seguente consente di aggiungere una regola di rete virtuale a uno spazio dei nomi esistente del bus di servizio.
 

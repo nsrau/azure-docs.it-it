@@ -9,12 +9,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: kasparks
-ms.openlocfilehash: aabb316cf564520e6ea5e8689f1c18c98b94ab3c
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: a7e82fffdd9c865de6040c05ec28bc8bd2dced61
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488476"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111396"
 ---
 # <a name="get-started-with-azure-advisor"></a>Introduzione ad Azure Advisor
 
@@ -35,7 +35,7 @@ Informazioni su come accedere ad Advisor tramite il portale di Azure, ricevere e
 
 1. Per ottenere consigli relativi a una categoria specifica, fare clic su una delle schede: **Disponibilità elevata**, **Sicurezza**, **Prestazioni**, oppure **Costo**. 
 
-  ![Dashboard di Azure Advisor](./media/advisor-overview/advisor-dashboard.png)
+   ![Dashboard di Azure Advisor](./media/advisor-overview/advisor-dashboard.png)
 
 ## <a name="get-recommendation-details-and-implement-a-solution"></a>Ottenere i dettagli dei consigli e implementare una soluzione
 

@@ -2,19 +2,19 @@
 title: Risoluzione dei problemi relativi a Istanze di Azure Container
 description: Informazioni su come risolvere i problemi relativi a Istanze di Azure Container
 services: container-instances
-author: seanmck
+author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/08/2019
-ms.author: seanmck
+ms.date: 02/15/2019
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 609d52f9f2c5dce1bbfd668e94db25aca3d52f69
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: c90041f54fc9b4b57885083ec94843b596f48b79
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119051"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123267"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Risolvere i problemi comuni in Istanze di Azure Container
 
@@ -25,7 +25,7 @@ Questo articolo mostra come risolvere i problemi comuni per la gestione o la dis
 Quando si definisce la specifica del contenitore, determinati parametri devono essere conformi a limitazioni di denominazione. Nella tabella seguente sono disponibili i requisiti specifici per le proprietà dei gruppi di contenitori. Per altre informazioni sulle convenzioni di denominazione di Azure, vedere [Regole di denominazione e restrizioni][azure-name-restrictions] nel Centro architettura di Azure.
 
 | Scope | Length | Maiuscole/minuscole | Caratteri validi | Schema consigliato | Esempio |
-| --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | Nome del gruppo di contenitori | 1-64 |Non fa distinzione tra maiuscole e minuscole |Carattere alfanumerico e trattino in un punto qualsiasi, tranne il primo o l'ultimo carattere |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Nome contenitore | 1-64 |Non fa distinzione tra maiuscole e minuscole |Carattere alfanumerico e trattino in un punto qualsiasi, tranne il primo o l'ultimo carattere |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Porte del contenitore | Tra 1 e 65535 |Integer |Numero intero compreso tra 1 e 65535 |`<port-number>` |`443` |
@@ -66,7 +66,7 @@ Se il pull dell'immagine non può essere eseguito, vengono visualizzati eventi s
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:19+00:00",
     "lastTimestamp": "2017-12-21T22:57:00+00:00",
-    "message": "pulling image \"microsoft/aci-hellowrld\"",
+    "message": "pulling image \"microsoft/aci-helloworld\"",
     "name": "Pulling",
     "type": "Normal"
   },
@@ -74,7 +74,7 @@ Se il pull dell'immagine non può essere eseguito, vengono visualizzati eventi s
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:19+00:00",
     "lastTimestamp": "2017-12-21T22:57:00+00:00",
-    "message": "Failed to pull image \"microsoft/aci-hellowrld\": rpc error: code 2 desc Error: image t/aci-hellowrld:latest not found",
+    "message": "Failed to pull image \"microsoft/aci-helloworld\": rpc error: code 2 desc Error: image t/aci-hellowrld:latest not found",
     "name": "Failed",
     "type": "Warning"
   },
@@ -82,7 +82,7 @@ Se il pull dell'immagine non può essere eseguito, vengono visualizzati eventi s
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:20+00:00",
     "lastTimestamp": "2017-12-21T22:57:16+00:00",
-    "message": "Back-off pulling image \"microsoft/aci-hellowrld\"",
+    "message": "Back-off pulling image \"microsoft/aci-helloworld\"",
     "name": "BackOff",
     "type": "Normal"
   }
@@ -178,11 +178,11 @@ Un altro modo per ridurre l'impatto del pull dell'immagine sul tempo di avvio de
 
 ### <a name="cached-windows-images"></a>Immagini di Windows memorizzate nella cache
 
-Istanze di Azure Container usa un meccanismo di memorizzazione nella cache per velocizzare il tempo di avvio dei contenitori per le immagini basate su determinate immagini Windows.
+Istanze di contenitore di Azure Usa un meccanismo di memorizzazione nella cache per ridurre il tempo di avvio di contenitore per le immagini basate su immagini di Windows e Linux comuni. Per un elenco dettagliato delle immagini memorizzate nella cache e tag, usare il [elencare le immagini memorizzate nella cache] [ list-cached-images] API.
 
 Per garantire il tempo di avvio dei contenitori Windows più veloce, usare una delle **tre più recenti** versioni delle **due immagini** seguenti come immagine di base:
 
-* [Windows Server 2016][docker-hub-windows-core] (solo LTS)
+* [Componenti di base di Windows Server 2016] [ docker-hub-windows-core] (termine LTSC solo)
 * [Windows Server 2016 Nano Server][docker-hub-windows-nano]
 
 ### <a name="windows-containers-slow-network-readiness"></a>La rete diventa disponibile lentamente per i contenitori Windows
@@ -197,7 +197,7 @@ A causa del carico variabile delle risorse delle aree in Azure, quando si cerca 
 
 Questo errore indica che a causa di un carico elevato nell'area in cui si sta cercando di eseguire la distribuzione, le risorse specificate per il contenitore non possono essere al momento allocate. Usare uno o più dei passaggi seguenti per mitigare il problema.
 
-* Verificare che le impostazioni di distribuzione del contenitore rientrino nei parametri definiti in [Quote e aree disponibili per Istanze di Azure Container](container-instances-quotas.md#region-availability)
+* Verificare che le impostazioni di distribuzione del contenitore rientrino nei parametri definiti in [Disponibilità a livello di area per Istanze di Azure Container](container-instances-region-availability.md)
 * Specificare impostazioni di memoria e CPU inferiori per il contenitore
 * Eseguire la distribuzione in un'area di Azure diversa
 * Eseguire la distribuzione in un secondo momento
@@ -207,10 +207,12 @@ Questo errore indica che a causa di un carico elevato nell'area in cui si sta ce
 Istanze di Azure Container non espone l'accesso diretto all'infrastruttura sottostante che ospita i gruppi di contenitori. È incluso l'accesso all'API Docker in esecuzione nell'host del contenitore e che esegue contenitori con privilegi. Se è necessaria l'interazione con Docker, vedere la [documentazione di riferimento su REST](https://aka.ms/aci/rest) per vedere cosa è supportato dall'API di Istanze di contenitore di Azure. Se mancano informazioni, inviare una richiesta al [forum di commenti e suggerimenti per Istanze di contenitore di Azure](https://aka.ms/aci/feedback).
 
 ## <a name="ips-may-not-be-accessible-due-to-mismatched-ports"></a>Gli indirizzi IP potrebbero non essere accessibili a causa di porte non corrispondenti
+
 Istanze di Azure Container non supporta attualmente il mapping delle porte, come con la configurazione docker normale, tuttavia questa correzione è prevista nella roadmap. Se gli indirizzi IP risultano non accessibili quando si ritiene che dovrebbero esserlo, assicurarsi di aver configurato l'immagine del contenitore per l'ascolto sulle stesse porte esposte nel gruppo di contenitori con la proprietà `ports`.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Informazioni su come [recuperare log ed eventi dei contenitori](container-instances-get-logs.md) per facilitare il debug dei contenitori.
+
+Informazioni su come [recuperare i log dei contenitori e gli eventi](container-instances-get-logs.md) per facilitare il debug dei contenitori.
 
 <!-- LINKS - External -->
 [azure-name-restrictions]: https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions
@@ -221,3 +223,4 @@ Informazioni su come [recuperare log ed eventi dei contenitori](container-instan
 
 <!-- LINKS - Internal -->
 [az-container-show]: /cli/azure/container#az-container-show
+[list-cached-images]: /rest/api/container-instances/listcachedimages

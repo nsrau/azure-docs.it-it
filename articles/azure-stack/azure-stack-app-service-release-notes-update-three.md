@@ -16,12 +16,12 @@ ms.date: 08/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: 2432c30ca98904c2e6789f4b15468f905096bbf7
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 765701188de6375a5dfe0c9a6c04afe1ee9f6740
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962792"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886440"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>Servizio App in note sulla versione update 3 di Azure Stack
 
@@ -59,7 +59,7 @@ Servizio App di Azure in Azure Stack Update 3 include le correzioni e i migliora
 - Aggiornamenti al servizio di base per migliorare l'affidabilità e messaggistica abilitazione più semplice diagnosi dei problemi comuni degli errori.
 
 - **Gli aggiornamenti per gli strumenti e Framework di applicazione seguenti**:
-  - Added ASP.Net Core 2.1.2
+  - Aggiunta di ASP.NET Core 2.1.2
   - NodeJS aggiunto 10.0.0
   - Added Zulu OpenJDK 8.30.0.1
   - Aggiunta di Tomcat 8.5.31 e 9.0.8
@@ -185,13 +185,13 @@ Convalida
 - I ruoli di lavoro sono in grado di raggiungere il server di file quando il servizio App viene distribuito in una rete virtuale esistente e il file server è disponibile nella rete privata solo.  Questo è l'acronimo di nel servizio App di Azure nella documentazione relativa alla distribuzione di Azure Stack.
 
 Se si sceglie di distribuire in una rete virtuale esistente e un indirizzo IP interno per la connessione al file server, è necessario aggiungere una regola di sicurezza in uscita, consentendo il traffico tra la subnet del ruolo di lavoro e il file server SMB. A tale scopo, passare a WorkersNsg nel portale di amministrazione e aggiungere una regola di sicurezza in uscita con le proprietà seguenti:
- * Origine: Any
+ * Origine: Qualsiasi
  * Intervallo di porte di origine: *
  * Destinazione: Indirizzi IP
  * Intervallo di indirizzi IP di destinazione: Intervallo di indirizzi IP per il file server
  * Intervallo di porte di destinazione: 445
  * Protocollo: TCP
- * Azione: Consentire
+ * Azione: CONSENTI
  * Priorità: 700
  * Nome: Outbound_Allow_SMB445
 

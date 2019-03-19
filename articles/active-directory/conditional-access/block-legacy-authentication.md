@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/01/2019
+ms.date: 03/11/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 644a2279f555af05d711e1455923795b5271e159
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 97e5976603ee1574e8410702069b97a9f0ef6198
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191623"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768750"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedura: Bloccare l’autenticazione legacy per Azure AD con accesso condizionale   
 
@@ -114,6 +114,8 @@ Per altre informazioni, vedere [Come distribuire un nuovo criterio](best-practic
 
 
 ## <a name="what-you-should-know"></a>Informazioni utili
+
+Blocca l'accesso usando **altri client** blocca anche PowerShell per Exchange Online usando l'autenticazione di base.
 
 La configurazione di un criterio per **Altri client** blocca l'intera organizzazione per determinati client come SPConnect. Questo blocco si verifica perché l'autenticazione di client meno recenti avviene in modo imprevisto. Questo problema non si applica alle principali applicazioni di Office, come i client di Office meno recenti.
 

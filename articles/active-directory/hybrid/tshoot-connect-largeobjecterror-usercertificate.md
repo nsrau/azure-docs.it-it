@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 776e3f7047e2f6b43063e085a8ae7a8d29835a75
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c851b5ef024e6584e6f8c93995208b08a91fbb60
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217354"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096674"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Servizio di sincronizzazione Azure AD Connect: gestione degli errori LargeObject causati dall'attributo userCertificate
 
@@ -79,9 +79,9 @@ Verificare che non venga eseguita alcuna sincronizzazione durante l'implementazi
 > [!Note]
 > I passaggi precedenti sono applicabili solo alle versioni più recenti (1.1.xxx.x) di Azure AD Connect con l'utilità di pianificazione integrata. Se si usano versioni precedenti (1.0.xxx.x) di Azure AD Connect che usano il servizio Utilità di pianificazione di Windows o se si usa l'utilità di pianificazione personalizzata, non comune, per attivare la sincronizzazione periodica, è necessario disabilitarle di conseguenza.
 
-3. Avviare **Synchronization Service Manager** passando ad AVVIA → Servizio di sincronizzazione.
+1. Avviare **Synchronization Service Manager** passando ad AVVIA → Servizio di sincronizzazione.
 
-4. Andare nella scheda **Operazioni** e verificare che nessuna operazione presenti lo stato *"in corso"*.
+1. Andare nella scheda **Operazioni** e verificare che nessuna operazione presenti lo stato *"in corso"*.
 
 ### <a name="step-2-find-the-existing-outbound-sync-rule-for-usercertificate-attribute"></a>Passaggio 2. Trovare la regola di sincronizzazione in uscita esistente per l'attributo userCertificate
 Una regola di sincronizzazione esistente dovrebbe essere abilitata e configurata per l'esportazione dell'attributo userCertificate per gli oggetti Utente in Azure AD. Individuare questa regola di sincronizzazione per scoprirne la configurazione **precedente** e il **filtro ambito**:

@@ -4,12 +4,12 @@ ms.service: service-bus-messaging
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: spelluru
-ms.openlocfilehash: ef6d5d22f70d5fff38f90b457a7c945ab59fc67c
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.openlocfilehash: 7b05f3d8bcca5f26161f4c362078fa134518cafd
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331129"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588654"
 ---
 ## <a name="what-are-service-bus-topics-and-subscriptions"></a>Cosa sono gli argomenti e le sottoscrizioni del bus di servizio?
 Gli argomenti e le sottoscrizioni del bus di servizio supportano un modello di comunicazione con messaggistica di *pubblicazione-sottoscrizione* . Quando si usano gli argomenti e le sottoscrizioni, i componenti di un'applicazione distribuita non comunicano direttamente l'uno con l'altro, ma scambiano messaggi tramite un argomento, che agisce da intermediario.
@@ -21,32 +21,6 @@ Diversamente dalle code del bus di servizio, in cui ogni messaggio viene elabora
 La sottoscrizione a un argomento è simile a una coda virtuale che riceve copie dei messaggi che sono stati inviati all'argomento. È possibile registrare regole di filtro per un argomento in base alla sottoscrizione. Le regole di filtro consentono di filtrare o limitare quali messaggi relativi a un argomento vengono ricevuti dalle diverse sottoscrizioni dell'argomento.
 
 Gli argomenti e le sottoscrizioni del bus di servizio consentono la scalabilità e l'elaborazione di grandi quantità di messaggi tra un numero elevato di utenti e applicazioni.
-
-## <a name="create-a-namespace"></a>Creare uno spazio dei nomi
-Per iniziare a usare gli argomenti e le sottoscrizioni del bus di servizio in Azure, è necessario creare prima di tutto uno *spazio dei nomi del servizio*. Uno spazio dei nomi fornisce un contenitore di ambito per fare riferimento alle risorse del bus di servizio all'interno dell'applicazione.
-
-Per creare uno spazio dei nomi:
-
-1. Accedere al [portale di Azure][Azure portal].
-2. Nel riquadro di spostamento sinistro del portale fare clic su **Crea una risorsa**, quindi su **Enterprise Integration** e infine su **Bus di servizio**.
-3. Nella finestra di dialogo **Crea spazio dei nomi** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
-4. Dopo aver verificato che il nome dello spazio dei nomi sia disponibile, scegliere il piano tariffario, ovvero Basic, Standard o Premium.
-5. Nel campo **Sottoscrizione** scegliere una sottoscrizione di Azure in cui creare lo spazio dei nomi.
-6. Nel campo **Gruppo di risorse** scegliere un gruppo di risorse esistente nel quale risiede lo spazio dei nomi oppure crearne uno nuovo.      
-7. In **Località**scegliere il paese o l'area in cui deve essere ospitato lo spazio dei nomi.
-   
-    ![Crea spazio dei nomi][create-namespace]
-8. Fare clic sul pulsante **Create** (Crea). A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
-
-### <a name="obtain-the-credentials"></a>Ottenere le credenziali
-1. Nell'elenco degli spazi dei nomi fare clic sul nome dello spazio dei nomi appena creato.
-2. Nel riquadro **Spazio dei nomi del bus di servizio** fare clic su **Criteri di accesso condiviso**.
-3. Nel riquadro **Criteri di accesso condivisi** fare clic su **RootManageSharedAccessKey**.
-   
-    ![connection-info][connection-info]
-4. Nel riquadro **Criteri: RootManageSharedAccessKey** fare clic sul pulsante Copia accanto a **Stringa di connessione - chiave primaria** per copiare la stringa di connessione negli Appunti e usarla in un secondo momento.
-   
-    ![connection-string][connection-string]
 
 [Azure portal]: https://portal.azure.com
 [create-namespace]: ./media/howto-service-bus-topics/create-namespace.png

@@ -1,5 +1,5 @@
 ---
-title: Soluzione Integrità agente in Azure | Microsoft Docs
+title: Soluzione integrità agente in Monitoraggio di Azure | Microsoft Docs
 description: L'obiettivo di questo articolo è spiegare come usare questa soluzione per monitorare l'integrità degli agenti che inviano report direttamente a Log Analytics o System Center Operations Manager.
 services: operations-management-suite
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 203a37071637a7e0e44b65240be4c4cae974d95f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: cca234340526b732067adac3c6725f8aa5acc47c
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53335959"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983381"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Soluzione Integrità agente in Azure
-La soluzione Integrità agente in Azure consente di individuare gli agenti che non rispondono e quelli che inviano dati operativi tra tutti gli agenti che inviano report direttamente all'area di lavoro di Log Analytics o a un gruppo di gestione di System Center Operations Manager connesso a Log Analytics.  È anche possibile tenere traccia del numero di agenti distribuiti, della rispettiva ubicazione ed eseguire altre query per rimanere aggiornati sulla distribuzione degli agenti distribuiti in Azure, in altri ambienti cloud o in locale.    
+La soluzione integrità agente in Azure consente di comprendere, per tutti gli agenti che fanno riferimento direttamente per l'area di lavoro di Log Analitica o di un gruppo di gestione di System Center Operations Manager connesso a monitoraggio di Azure, ovvero che non risponde e l'invio di operativa dati.  È anche possibile tenere traccia del numero di agenti distribuiti, della rispettiva ubicazione ed eseguire altre query per rimanere aggiornati sulla distribuzione degli agenti distribuiti in Azure, in altri ambienti cloud o in locale.    
 
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di distribuire questa soluzione, assicurarsi che sia attualmente supportato l'invio di report da parte degli [agenti di Windows](../../log-analytics/log-analytics-windows-agent.md) all'area di lavoro di Log Analytics o a un [gruppo di gestione di Operations Manager](../../azure-monitor/platform/om-agents.md) integrato con l'area di lavoro.    
+Prima di distribuire questa soluzione, assicurarsi che sia attualmente supportato l'invio di report da parte degli [agenti di Windows](../../log-analytics/log-analytics-windows-agent.md) all'area di lavoro di Log Analytics o a un [gruppo di gestione di Operations Manager](../../azure-monitor/platform/om-agents.md) integrato con l'area di lavoro.
 
 ## <a name="solution-components"></a>Componenti della soluzione
 Questa soluzione è costituita dalle risorse seguenti che vengono aggiunte all'area di lavoro e agli agenti direttamente connessi o al gruppo di gestione connesso di Operations Manager.
@@ -47,8 +47,8 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 
 | Origine connessa | Supportato | DESCRIZIONE |
 | --- | --- | --- |
-| Agenti di Windows | Yes | Gli eventi di heartbeat vengono raccolti dagli agenti di Windows diretti.|
-| Gruppo di gestione di System Center Operations Manager | Yes | Gli eventi di heartbeat dagli agenti che inviano report al gruppo di gestione vengono raccolti ogni 60 secondi e vengono quindi inoltrati a Log Analytics. Non è necessaria una connessione diretta dall'agente Operations Manager a Log Analytics. I dati degli eventi di heartbeat vengono inoltrati dal gruppo di gestione al repository di Log Analytics.|
+| Agenti di Windows | Sì | Gli eventi di heartbeat vengono raccolti dagli agenti di Windows diretti.|
+| Gruppo di gestione di System Center Operations Manager | Sì | Gli eventi di heartbeat vengono raccolti da agenti che fanno riferimento al gruppo di gestione ogni 60 secondi e quindi inoltrati a monitoraggio di Azure. Non è necessaria una connessione diretta dall'agente Operations Manager a monitoraggio di Azure. I dati dell'evento heartbeat vengono inoltrati dal gruppo di gestione all'area di lavoro di Log Analitica.|
 
 ## <a name="using-the-solution"></a>Uso della soluzione
 Quando si aggiunge la soluzione Integrità agente all'area di lavoro di Log Analytics, il riquadro **Integrità agente** viene aggiunto al dashboard. Questo riquadro mostra il numero totale di agenti e il numero di agenti che non rispondono nelle ultime 24 ore.<br><br> ![Riquadro della soluzione Integrità agente nel dashboard](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
@@ -68,7 +68,7 @@ Fare clic sul riquadro **Integrità agente** per aprire il dashboard di **Integr
 
 ![Esempio di dashboard della soluzione Integrità agente](./media/solution-agenthealth/agenthealth-solution-dashboard.png)  
 
-## <a name="log-analytics-records"></a>Record di Log Analytics
+## <a name="azure-monitor-log-records"></a>Record di log di Monitoraggio di Azure
 La soluzione crea un tipo di record nell'area di lavoro di Log Analytics.  
 
 ### <a name="heartbeat-records"></a>Record di heartbeat
@@ -76,13 +76,13 @@ Viene creato un record di tipo **Heartbeat**.  Questi record includono le propri
 
 | Proprietà | DESCRIZIONE |
 | --- | --- |
-| type | *Heartbeat*|
+| Type | *Heartbeat*|
 | Categoria | Il valore è *Agente diretto*, *SCOM Agent* (Agente SCOM) o *SCOM Management Server* (Server di gestione SCOM).|
 | Computer | Nome del computer.|
 | OSType | Sistema operativo Windows o Linux.|
 | OSMajorVersion | Versione principale del sistema operativo.|
 | OSMinorVersion | Versione secondaria del sistema operativo.|
-| Version | Versione dell'agente di Log Analytics o dell'agente di Operations Manager.|
+| Versione | Versione dell'agente di Log Analytics o dell'agente di Operations Manager.|
 | SCAgentChannel | Il valore è *Direct* e/o *SCManagementServer*.|
 | IsGatewayInstalled | Se il gateway Log Analytics è installato, il valore è *true*. In caso contrario, il valore è *false*.|
 | ComputerIP | Indirizzo IP del computer.|
@@ -92,7 +92,7 @@ Viene creato un record di tipo **Heartbeat**.  Questi record includono le propri
 | RemoteIPLongitude | Longitudine della posizione geografica del computer.|
 | RemoteIPLatitude | Latitudine della posizione geografica del computer.|
 
-Ogni agente che invia report a un server di gestione di Operations Manager invierà due heartbeat e il valore della proprietà SCAgentChannel includerà **Direct** e **SCManagementServer**, in base alle origini dati e alle soluzioni di Log Analytics abilitate nella sottoscrizione. Come si può ricordare, i dati delle soluzioni vengono inviati direttamente da un server di gestione di Operations Manager a Log Analytics oppure, a causa del volume dei dati raccolti nell'agente, vengono inviati direttamente dall'agente a Log Analytics. Per gli eventi di heartbeat con valore **SCManagementServer**, il valore ComputerIP è l'indirizzo IP del server di gestione, perché i dati vengono effettivamente caricati da tale server.  Per gli heartbeat il cui valore SCAgentChannel è impostato su **Direct**, corrisponde all'indirizzo IP pubblico dell'agente.  
+Ogni agente che invia report a un server di gestione di Operations Manager invierà due heartbeat e il valore della proprietà SCAgentChannel includerà entrambe **diretto** e **SCManagementServer** a seconda di ciò che origini dati e soluzioni di monitoraggio è stata abilitata nella sottoscrizione. Si ricorderà, i dati di soluzioni viene inviato direttamente da un server di gestione di Operations Manager a monitoraggio di Azure o a causa del volume di dati raccolti nell'agente, vengono inviati direttamente dall'agente di monitoraggio di Azure. Per gli eventi di heartbeat con valore **SCManagementServer**, il valore ComputerIP è l'indirizzo IP del server di gestione, perché i dati vengono effettivamente caricati da tale server.  Per gli heartbeat il cui valore SCAgentChannel è impostato su **Direct**, corrisponde all'indirizzo IP pubblico dell'agente.  
 
 ## <a name="sample-log-searches"></a>Ricerche di log di esempio
 La tabella seguente contiene esempi di ricerche nei log per i record raccolti da questa soluzione.
@@ -117,4 +117,4 @@ La tabella seguente contiene esempi di ricerche nei log per i record raccolti da
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Leggere l'articolo [Avvisi in Log Analytics](../../azure-monitor/platform/alerts-overview.md) per informazioni dettagliate sulla generazione di avvisi di Log Analytics. 
+* Scopri [gli avvisi in Monitoraggio di Azure](../platform/alerts-overview.md) per informazioni dettagliate sulla generazione di avvisi di Log Analitica. 

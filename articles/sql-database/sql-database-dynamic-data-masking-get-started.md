@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 7ca54117b014cb093b63e265864b0b0efa787865
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.date: 03/04/2019
+ms.openlocfilehash: 2be1f7bb6417834196da03b7cba22387744f8c19
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461220"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876545"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>Maschera dati dinamica del database SQL
 
@@ -55,10 +55,10 @@ Il mascheramento dei dati dinamici può essere configurato dai ruoli Amministrat
 
 Il motore di raccomandazioni DDM evidenzia determinati campi del database come potenzialmente sensibili e quindi come ottimi candidati per l'applicazione della maschera. Nel pannello Maschera dati dinamica nel portale saranno visibili le colonne consigliate per il proprio database. È sufficiente fare clic su **Aggiungi maschera** per una o più colonne e quindi su **Salva** per applicare una maschera a questi campi.
 
-## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Configurare il mascheramento dei dati dinamici per il database usando i cmdlet di PowerShell.
+## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Configurare per il database usando i cmdlet di PowerShell di maschera dati dinamica
 
-Vedere [Cmdlet del database SQL di Azure](https://docs.microsoft.com/powershell/module/azurerm.sql).
+Vedere [Cmdlet del database SQL di Azure](https://docs.microsoft.com/powershell/module/az.sql).
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>Configurare il mascheramento dei dati dinamici per il database usando l'API REST
 
-Vedere [Operations for Azure SQL Database](https://msdn.microsoft.com/library/dn505719.aspx) (Operazioni per i database SQL di Azure).
+Vedere [Operations for Azure SQL Database](https://docs.microsoft.com/rest/api/sql/) (Operazioni per i database SQL di Azure).

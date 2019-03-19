@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 6d8cf874032449e362a35d106bba3b430a80ea48
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: aafff208b9de2ae485fb84be428cf77f237e022e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467612"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087449"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Configurazione dello strumento Importazione/Esportazione di Azure
 Lo strumento Importazione/Esportazione di Microsoft Azure è lo strumento di preparazione e ripristino delle unità che è possibile usare con il servizio Importazione/Esportazione di Microsoft Azure. È possibile usare lo strumento per svolgere le funzioni seguenti:  
@@ -45,36 +45,36 @@ Se si intende preparare delle unità per un processo di importazione, è necessa
   
 Se si tenta di recuperare un'importazione parzialmente non riuscita, è necessario disporre dei seguenti elementi:  
   
--   I file di log di copia  
+- I file di log di copia  
   
--   La chiave dell'account di archiviazione  
+- La chiave dell'account di archiviazione  
   
   Se si tenta di recuperare un'esportazione parzialmente non riuscita, è necessario disporre dei seguenti elementi:  
   
--   I file di log di copia  
+- I file di log di copia  
   
--   I file manifesto (facoltativi)  
+- I file manifesto (facoltativi)  
   
--   La chiave dell'account di archiviazione  
+- La chiave dell'account di archiviazione  
   
 ## <a name="installing-the-azure-importexport-tool"></a>Installazione dello strumento di importazione/esportazione di Azure  
  Lo strumento Importazione/Esportazione di Azure è costituito dai file indicati di seguito:  
   
--   WAImportExport.exe  
+- WAImportExport.exe  
   
--   WAImportExport.exe.config  
+- WAImportExport.exe.config  
   
--   WAImportExportCore.dll  
+- WAImportExportCore.dll  
   
--   WAImportExportRepair.dll  
+- WAImportExportRepair.dll  
   
--   Microsoft.WindowsAzure.Storage.dll  
+- Microsoft.WindowsAzure.Storage.dll  
   
--   Hddid.dll  
+- Hddid.dll  
   
- Copiare questi file in una directory di lavoro, ad esempio `c:\WAImportExport`. Successivamente, aprire una finestra della riga di comando in modalità amministratore e impostare la suddetta directory come directory corrente.  
+  Copiare questi file in una directory di lavoro, ad esempio `c:\WAImportExport`. Successivamente, aprire una finestra della riga di comando in modalità amministratore e impostare la suddetta directory come directory corrente.  
   
- Per visualizzare la Guida per il comando, eseguire lo strumento senza parametri:  
+  Per visualizzare la Guida per il comando, eseguire lo strumento senza parametri:  
   
 ```  
 WAImportExport, a client tool for Microsoft Azure Import/Export service. Microsoft (c) 2013, 2014  

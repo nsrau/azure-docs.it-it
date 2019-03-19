@@ -13,15 +13,15 @@ ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68655efaf9d6020489b7bc05ed1855ac181cd22f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6ee05c117fb45cbd96a82ede524db7a6b098830f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211938"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854756"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Aggiungere un nome di dominio personalizzato usando il portale di Azure Active Directory
-Ogni nuovo tenant di Azure AD include un nome di dominio iniziale, *nomedominio*.onmicrosoft.com. Non è possibile modificare o eliminare il nome di dominio iniziale, ma è possibile aggiungere i nomi dell'organizzazione all'elenco. L'aggiunta di nome di dominio personalizzati consente di creare nomi familiari per gli utenti, ad esempio *alain@contoso.com*.
+Ogni nuovo tenant di Azure AD include un nome di dominio iniziale, *nomedominio*.onmicrosoft.com. Non è possibile modificare o eliminare il nome di dominio iniziale, ma è possibile aggiungere i nomi dell'organizzazione all'elenco. Aggiunta di nomi di dominio personalizzato consente di creare nomi utente familiari agli utenti, ad esempio *alain\@contoso.com*.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Prima di poter aggiungere un nome di dominio personalizzato, è necessario crearlo con un registrar. Per un registrar accreditato, vedere [ICANN-Accredited Registrars](https://www.icann.org/registrar-reports/accredited-list.html) (Registrar accreditati da ICANN).
@@ -87,9 +87,9 @@ Dopo aver registrato il nome di dominio personalizzato, è necessario verificare
 
 ## <a name="common-verification-issues"></a>Problemi comuni di verifica
 - Se Azure AD non riesce a verificare un nome di dominio personalizzato, provare a mettere in pratica i suggerimenti seguenti:
-    - **Attendere almeno un'ora e riprovare**. I record DNS devono essere propagati prima che Azure AD possa verificare il dominio e questo processo può richiedere un'ora o più.
+  - **Attendere almeno un'ora e riprovare**. I record DNS devono essere propagati prima che Azure AD possa verificare il dominio e questo processo può richiedere un'ora o più.
 
-    - **Verificare che il record DNS sia corretto.** Tornare al sito del registrar e verificare che la voce sia presente e che corrisponda alle informazioni relative alla voce DNS fornite da Azure AD.
+  - **Verificare che il record DNS sia corretto.** Tornare al sito del registrar e verificare che la voce sia presente e che corrisponda alle informazioni relative alla voce DNS fornite da Azure AD.
 
     Se non è possibile aggiornare il record nel sito del registrar, è necessario condividere la voce con un utente che abbia le autorizzazioni appropriate per aggiungere la voce e verificare che sia corretta.
 

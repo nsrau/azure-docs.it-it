@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: ec1727926f6dbfeead9932004715a8bb1dfbb0cd
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
-ms.translationtype: HT
+ms.openlocfilehash: 7679bbc450e5fa0761860aedbb37ed02b27ec828
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36964536"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58114339"
 ---
 ## <a name="os-config"></a>Aggiungere indirizzi IP a un sistema operativo VM
 
@@ -23,15 +23,15 @@ Connettersi e accedere alla VM creata con più indirizzi IP privati. È necessar
 
 1. Da un prompt dei comandi digitare *ipconfig /all*.  Viene visualizzato solo l'indirizzo IP privato *Primary* , tramite DHCP.
 2. Digitare *ncpa.cpl* nel prompt dei comandi per aprire la finestra **Connessioni di rete**.
-3. Visualizzare le proprietà per la scheda appropriata: **Connessione alla rete locale (LAN)**.
+3. Aprire le proprietà per la scheda appropriata: **Connessione alla rete locale**.
 4. Fare doppio clic su Protocollo Intenret versione 4 (IPv4).
 5. Selezionare **Utilizza il seguente indirizzo IP** e immettere i valori seguenti:
 
-    * **Indirizzo IP**: immettere l'indirizzo IP privato *Primary* .
-    * **Subnet mask**: configurare questo valore in base alla subnet. Se, ad esempio, la subnet è di tipo /24, la subnet mask è 255.255.255.0.
-    * **Gateway predefinito**: primo indirizzo IP nella subnet. Se la subnet è 10.0.0.0/24, l'indirizzo IP del gateway è 10.0.0.1.
+    * **Indirizzo IP**: Immettere il *primaria* indirizzo IP privato
+    * **La subnet mask**: Impostati in base alla subnet. Se, ad esempio, la subnet è di tipo /24, la subnet mask è 255.255.255.0.
+    * **Gateway predefinito**: Il primo indirizzo IP nella subnet. Se la subnet è 10.0.0.0/24, l'indirizzo IP del gateway è 10.0.0.1.
     * Selezionare **Utilizza i seguenti indirizzi server DNS** e immettere i valori seguenti:
-        * **Server DNS preferito**: immettere 168.63.129.16 se non si usa il proprio server DNS.  Se si usa il proprio server DNS, immettere il relativo indirizzo IP.
+        * **Server DNS preferito**: Se non si usa il proprio server DNS, immettere 168.63.129.16.  Se si usa il proprio server DNS, immettere il relativo indirizzo IP.
     * Selezionare il pulsante **Avanzate** e aggiungere altri indirizzi IP. Aggiungere tutti gli indirizzi IP secondari, aggiunti all'interfaccia di rete di Azure in un passaggio precedente, all'interfaccia di rete di Windows assegnata all'indirizzo IP primario assegnato all'interfaccia di rete di Azure.
 
         Non assegnare mai manualmente l'indirizzo IP pubblico assegnato a una macchina virtuale di Azure all'interno del sistema operativo della macchina virtuale. Quando si imposta manualmente l'indirizzo IP privato all'interno del sistema operativo, assicurarsi che sia uguale all'indirizzo IP privato assegnato all'[interfaccia di rete](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings) di Azure. In caso contrario, si può perdere la connettività alla macchina virtuale. Altre informazioni sulle impostazioni dell'[indirizzo IP privato](../articles/virtual-network/virtual-network-network-interface-addresses.md#private). L'assegnazione di un indirizzo IP pubblico di Azure all'interno del sistema operativo è un'operazione sempre sconsigliata.
@@ -62,15 +62,15 @@ ping -S 10.0.0.5 hotmail.com
 
 3. Aggiornare il file di configurazione dell'interfaccia di rete, presupponendo 'eth0'.
 
-    * Mantenere la voce esistente per dhcp. L'indirizzo IP primario conserva la configurazione precedente.
-    * Aggiungere una configurazione per un indirizzo IP statico aggiuntivo con i comandi seguenti:
+   * Mantenere la voce esistente per dhcp. L'indirizzo IP primario conserva la configurazione precedente.
+   * Aggiungere una configurazione per un indirizzo IP statico aggiuntivo con i comandi seguenti:
 
-        ```bash
-        cd /etc/network/interfaces.d/
-        ls
-        ```
+       ```bash
+       cd /etc/network/interfaces.d/
+       ls
+       ```
 
-    Dovrebbe essere visualizzato un file con estensione cfg.
+     Dovrebbe essere visualizzato un file con estensione cfg.
 4. Open the file. Dovrebbero essere visualizzate le righe seguenti alla fine del file:
 
     ```bash

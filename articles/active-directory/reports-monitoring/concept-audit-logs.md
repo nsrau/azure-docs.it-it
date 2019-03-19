@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7f221b815b6800f635c07525fdbd332ac508786
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 65bc0c0ee1ccc1e1f3da5e364582534dfbc0d425
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171537"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530706"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di controllo nel portale di Azure Active Directory 
 
@@ -41,7 +41,7 @@ Questo articolo fornisce una panoramica del report di controllo.
  
 ## <a name="who-can-access-the-data"></a>Chi può accedere ai dati?
 
-* Utenti con il ruolo di **Amministratore della sicurezza** o **Amministratore globale** oppure con un **ruolo con autorizzazioni di lettura per la sicurezza**
+* Gli utenti nel **amministratore sicurezza**, **lettura per la sicurezza**, **lettore del Report** oppure **amministratore globale** ruoli
 * Inoltre, tutti gli utenti (non amministratori) possono visualizzare le proprie attività di controllo
 
 ## <a name="audit-logs"></a>Log di controllo
@@ -53,38 +53,93 @@ I log di controllo di Azure AD forniscono i record delle attività di sistema pe
 Un log di controllo è una visualizzazione elenco predefinita che include:
 
 - Data e ora dell'occorrenza.
-- Iniziatore o attore di un'attività (*chi*) 
-- Attività (*cosa*) 
+- il servizio che ha registrato l'occorrenza
+- la categoria e il nome dell'attività (*cosa*) 
+- lo stato dell'attività (esito positivo o negativo)
 - Destinazione
+- Iniziatore/attore di un'attività (chi)
 
-![Log di controllo](./media/concept-audit-logs/18.png "Log di controllo")
+![Log di controllo](./media/concept-audit-logs/listview.png "Log di controllo")
 
 Per personalizzare la visualizzazione elenco, fare clic su **Colonne** nella barra degli strumenti.
 
-![Log di controllo](./media/concept-audit-logs/19.png "Log di controllo")
+![Log di controllo](./media/concept-audit-logs/columns.png "Log di controllo")
 
 In questo modo è possibile visualizzare campi aggiuntivi o rimuovere campi già visualizzati.
 
-![Log di controllo](./media/concept-audit-logs/21.png "Log di controllo")
+![Log di controllo](./media/concept-audit-logs/columnselect.png "Log di controllo")
 
 Selezionare un elemento nella visualizzazione elenco per ottenere maggiori informazioni dettagliate.
 
-![Log di controllo](./media/concept-audit-logs/22.png "Log di controllo")
+![Log di controllo](./media/concept-audit-logs/details.png "Log di controllo")
 
 
 ## <a name="filtering-audit-logs"></a>Filtro dei log di controllo
 
 È possibile filtrare i dati di controllo in base ai campi seguenti:
 
-- Intervallo di date
-- Azione avviata da (attore)
+- Service
 - Categoria
-- Activity resource type (Tipo di risorsa dell'attività)
 - Attività
+- Stato
+- Destinazione
+- Azione avviata da (attore)
+- Intervallo di date
 
-![Log di controllo](./media/concept-audit-logs/23.png "Log di controllo")
+![Log di controllo](./media/concept-audit-logs/filter.png "Log di controllo")
 
-Il filtro **Intervallo di date** permette di definire un intervallo di tempo per i dati restituiti.  
+Il **servizio** filtro consente di selezionare da un elenco a discesa dei servizi seguenti:
+
+- Tutti
+- Verifiche di accesso
+- Provisioning degli account 
+- Applicazione SSO
+- Metodi di autenticazione
+- B2C
+- Accesso condizionale
+- Directory principale
+- Gestione entitlement
+- Identity Protection
+- Utenti invitati
+- PIM
+- Gestione gruppi self-service
+- Gestione self-service Passord
+- Condizioni per l'utilizzo
+
+Il **categoria** filtro consente di selezionare uno dei filtri indicati di seguito:
+
+- Tutti
+- AdministrativeUnit
+- ApplicationManagement
+- Authentication
+- Authorization
+- Contatto
+- Dispositivo
+- DeviceConfiguration
+- DirectoryManagement
+- EntitlementManagement
+- GroupManagement
+- Altri
+- Policy
+- Gestione
+- RoleManagement
+- Gestione utente
+
+Il **attività** filtro è basato sulla categoria e attività risorsa tipo selezione effettuata. È possibile selezionare un'attività specifica da visualizzare o selezionarle tutte. 
+
+È possibile ottenere l'elenco di tutte le attività di controllo usando l'API Graph https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, dove $tenantdomain è il nome del dominio. In alternativa, vedere l'articolo relativo agli [eventi del report di controllo](reference-audit-activities.md).
+
+Il **stato** filtro consente di filtrare in base allo stato di un'operazione di controllo. Lo stato può essere uno dei seguenti:
+
+- Tutti
+- Success
+- Esito negativo
+
+Il **destinazione** filtro consente di cercare una determinata destinazione dal nome o il nome dell'entità utente (UPN). Il nome di destinazione e il nome UPN di maiuscole e minuscole. 
+
+Il **avviate da** filtro consente di definire il nome di un attore o un nome universale principale (UPN). Il nome e l'UPN di maiuscole e minuscole.
+
+Il **intervallo di Date** filtro permette di definire un intervallo di tempo per i dati restituiti.  
 I valori possibili sono:
 
 - 1 mese
@@ -94,41 +149,9 @@ I valori possibili sono:
 
 Quando si seleziona un intervallo di tempo personalizzato, è possibile configurare un'ora di inizio e un'ora di fine.
 
-Il filtro **Avviato da** permette di definire un nome di attore o un nome UPN (Universal Principal Name).
+È anche possibile scegliere di scaricare i dati filtrati, record di dimensioni fino a 250.000, selezionando il **scaricare** pulsante. È possibile scegliere di scaricare i log in formato CSV o JSON. Il numero di record che è possibile scaricare è limitato dai [criteri di conservazione dei report di Azure Active Directory](reference-reports-data-retention.md).
 
-Il filtro **Categoria** permette di selezionare uno dei filtri seguenti:
-
-- Tutti
-- Categoria principale
-- Directory principale
-- Gestione delle password self-service
-- Gestione di gruppi self-service
-- Provisioning degli account e rollover automatizzato delle password
-- Utenti invitati
-- Servizio MIM
-- Identity Protection
-- B2C
-
-Il filtro **Tipo di risorsa attività** permette di selezionare uno dei filtri seguenti:
-
-- Tutti 
-- Gruppo
-- Directory
-- Utente
-- Applicazione
-- Policy
-- Dispositivo
-- Altri
-
-Quando si seleziona **Gruppo** come **Tipo di risorsa attività**, si ottiene una categoria di filtro aggiuntiva che permette di specificare anche un'**Origine**:
-
-- Azure AD
-- O365
-
-
-Il filtro **Attività** si basa sulla categoria e sul tipo di risorsa attività selezionati. È possibile selezionare un'attività specifica da visualizzare o selezionarle tutte. 
-
-È possibile ottenere l'elenco di tutte le attività di controllo usando l'API Graph https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, dove $tenantdomain è il nome del dominio. In alternativa, vedere l'articolo relativo agli [eventi del report di controllo](reference-audit-activities.md).
+![Log di controllo](./media/concept-audit-logs/download.png "Log di controllo")
 
 ## <a name="audit-logs-shortcuts"></a>Collegamenti ai log di controllo
 
@@ -157,9 +180,13 @@ Con i report di controllo basati su utenti e gruppi, è possibile ottenere rispo
 
 - Quali licenze sono state assegnate a un gruppo o a un utente?
 
-Per esaminare semplicemente i dati di controllo relativi a utenti e gruppi, è disponibile una visualizzazione filtrata in **Log di controllo** nella sezione **Attività** di **Utenti e gruppi**. Per questo punto di ingresso, **Tipo di risorsa attività** preselezionato è **Utenti e gruppi**.
+Se si desidera solo esaminare i dati di controllo sono correlati agli utenti, è possibile trovare una visualizzazione filtrata in **log di controllo** nel **attività** sezione del **utenti** scheda. In questo punto di ingresso **Gestione utente** categoria preselezionate.
 
-![Log di controllo](./media/concept-audit-logs/93.png "Log di controllo")
+![Log di controllo](./media/concept-audit-logs/users.png "Log di controllo")
+
+Se si desidera solo esaminare i dati di controllo sono correlati ai gruppi, è possibile trovare una visualizzazione filtrata in **log di controllo** nel **attività** sezione del **gruppi** scheda. In questo punto di ingresso **GroupManagement** categoria preselezionate.
+
+![Log di controllo](./media/concept-audit-logs/groups.png "Log di controllo")
 
 ### <a name="enterprise-applications-audit-logs"></a>Log di controllo di applicazioni aziendali
 
@@ -171,13 +198,9 @@ Con i report di controllo basati sulle applicazioni, è possibile ottenere rispo
 * I nomi delle applicazioni sono stati modificati?
 * Chi ha dato il consenso a un'applicazione?
 
-Per esaminare i dati di controllo relativi alle applicazioni, è disponibile una visualizzazione filtrata in **Log di controllo** nella sezione **Attività** del pannello **Applicazioni aziendali**. Per **Tipo di risorsa attività** per questo punto di ingresso è preselezionato il valore **Applicazioni aziendali**.
+Per esaminare i dati di controllo relativi alle applicazioni, è disponibile una visualizzazione filtrata in **Log di controllo** nella sezione **Attività** del pannello **Applicazioni aziendali**. In questo punto di ingresso **applicazioni aziendali** preselezionate come le **tipo di applicazione**.
 
-![Log di controllo](./media/concept-audit-logs/134.png "Log di controllo")
-
-È possibile filtrare ulteriormente questa visualizzazione per vedere i **gruppi** o gli **utenti**.
-
-![Log di controllo](./media/concept-audit-logs/25.png "Log di controllo")
+![Log di controllo](./media/concept-audit-logs/enterpriseapplications.png "Log di controllo")
 
 ## <a name="office-365-activity-logs"></a>Log attività di Office 365
 

@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 2fc09ccdf68605e444ed4b196162df6205557272
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fb3ed970b7f92e1cc06a9d1023e01f5888915e94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002106"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088673"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorare l'attività di sottoscrizione con il log attività di Azure
 
 Il **log attività di Azure** è un log delle sottoscrizioni che fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Ciò include un intervallo di dati che vanno dai dati operativi di Azure Resource Manager agli aggiornamenti sugli eventi di integrità del servizio. Il log attività era noto in precedenza come "log di controllo" o "log operativo", perché la categoria amministrativa segnala eventi del piano di controllo per le sottoscrizioni. L'uso del log attività permette di acquisire informazioni dettagliate su qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita sulle risorse nella sottoscrizione. Consente inoltre di comprendere lo stato dell'operazione e altre proprietà specifiche. Il log attività non include le operazioni di lettura (GET) o quelle per le risorse che usano il modello classico/"RDFE".
 
-![Log attività o altri tipi di log ](./media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
+![Log attività o altri tipi di log](./media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
 
 Figura 1: Log attività o altri tipi di log
 
@@ -118,29 +118,31 @@ Queste impostazioni possono essere configurate tramite l'opzione "Esporta" nel p
 
     ![Pulsante Esporta nel portale](./media/activity-logs-overview/activity-logs-portal-export-v2.png)
 3. Nel pannello visualizzato è possibile selezionare:  
-  * aree per cui esportare gli eventi
-  * account di archiviazione in cui salvare gli eventi
-  * numero di giorni di conservazione degli eventi nella risorsa di archiviazione (se si impostano 0 giorni, i log vengono conservati all'infinito)
-  * spazio dei nomi del bus di servizio in cui creare un hub eventi per la trasmissione di questi eventi.
+   * aree per cui esportare gli eventi
+   * account di archiviazione in cui salvare gli eventi
+   * numero di giorni di conservazione degli eventi nella risorsa di archiviazione (se si impostano 0 giorni, i log vengono conservati all'infinito)
+   * spazio dei nomi del bus di servizio in cui creare un hub eventi per la trasmissione di questi eventi.
 
      ![Pannello Esporta log di controllo](./media/activity-logs-overview/activity-logs-portal-export-blade.png)
 4. Fare clic su **Salva** per salvare le impostazioni. Le impostazioni vengono applicate immediatamente alla sottoscrizione.
 
 ### <a name="configure-log-profiles-using-the-azure-powershell-cmdlets"></a>Configurare i profili di log tramite i cmdlet di Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 #### <a name="get-existing-log-profile"></a>Ottenere un profilo di log esistente
 
 ```
-Get-AzureRmLogProfile
+Get-AzLogProfile
 ```
 
 #### <a name="add-a-log-profile"></a>Aggiungere un profilo di log
 
 ```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
+Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
 ```
 
-| Proprietà | Obbligatoria | DESCRIZIONE |
+| Proprietà | Obbligatorio | DESCRIZIONE |
 | --- | --- | --- |
 | Name |Sì |Nome del profilo di log. |
 | StorageAccountId |No  |ID risorsa dell'account di archiviazione in cui salvare il log attività. |
@@ -151,7 +153,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 
 #### <a name="remove-a-log-profile"></a>Rimozione di un profilo di log
 ```
-Remove-AzureRmLogProfile -name my_log_profile
+Remove-AzLogProfile -name my_log_profile
 ```
 
 ### <a name="configure-log-profiles-using-the-azure-cli"></a>Configurare i profili di log tramite l'interfaccia della riga di comando di Azure
@@ -182,7 +184,7 @@ Per la documentazione completa relativa alla creazione di un profilo di monitora
 az monitor log-profiles delete --name <profile name>
 ```
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 * [Altre informazioni sul log attività (in precedenza, log di controllo)](../../azure-resource-manager/resource-group-audit.md)
 * [Trasmettere il log attività di Azure a Hub eventi](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
 

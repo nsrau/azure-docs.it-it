@@ -1,6 +1,6 @@
 ---
-title: Convertire l'archiviazione di Azure Managed Disks da Standard a Premium e viceversa | Microsoft Docs
-description: Come convertire l'archiviazione di Azure Managed Disks da Standard a Premium e viceversa usando l'interfaccia della riga di comando di Azure.
+title: Convertire Azure managed archiviazione su disco da Standard a Premium a Standard o Premium | Microsoft Docs
+description: Come convertire Azure managed archiviazione su disco da Standard a Premium a Standard o Premium tramite la CLI di Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -16,28 +16,28 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 10dc7a2c7e4de44979ec72b1d292c69866e1faae
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 18730f662f36000e1efc826c35bebde79dbf0e79
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326409"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013620"
 ---
-# <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Convertire l'archiviazione di Azure Managed Disks da Standard a Premium e viceversa
+# <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>Convertire Azure managed archiviazione su disco da Standard a Premium a Standard o Premium
 
-Managed Disks offre quattro opzioni per il [tipo di disco](disks-types.md): unità SSD Ultra, SSD Premium, SSD Standard e unità disco rigido (HDD) standard. È possibile passare facilmente tra le opzioni con un tempo di inattività minimo a seconda delle esigenze di prestazioni. Non è supportato per dischi non gestiti. È possibile eseguire facilmente la [conversione a Managed Disks](convert-unmanaged-to-managed-disks.md) per passare facilmente tra i tipi di dischi.
+Sono disponibili quattro [tipi di dischi](disks-types.md) per Azure managed disks: Archiviazione su disco extra Azure Premium SSD, unità SSD Standard e Standard HDD. È possibile passare facilmente tra unità SSD Premium Standard unità SSD e unità disco rigido Standard in base alle esigenze di prestazioni con tempi di inattività minimo. Questa funzionalità non è supportata per i dischi non gestiti o extra di archiviazione su disco. È possibile eseguire facilmente [convert non gestiti a managed disks](convert-unmanaged-to-managed-disks.md) sia in grado di passare tra i tipi di disco.
 
-Questo articolo illustra come convertire la versione di Managed Disks da Standard a Premium e viceversa usando l'interfaccia della riga di comando di Azure. Se è necessario installarla o aggiornarla, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
+Questo articolo viene illustrato come convertire i dischi gestiti da Standard a Premium o Premium a Standard utilizzando il comando di Azure. Per installare o aggiornare lo strumento, vedere [installare CLI Azure](/cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-* La conversione richiede un riavvio della VM, quindi pianificare la migrazione dell'archiviazione su dischi durante una finestra di manutenzione preesistente. 
-* Se si usano dischi non gestiti, prima di tutto eseguire la [conversione a Managed Disks](convert-unmanaged-to-managed-disks.md) per passare tra un'opzione di archiviazione e l'altra, come indicato in questo articolo.
+* La conversione dei dischi richiede un riavvio della macchina virtuale (VM), quindi pianificare la migrazione delle risorse di archiviazione del disco durante una finestra di manutenzione preesistente.
+* Per i dischi non gestiti, primo [conversione a managed disks](convert-unmanaged-to-managed-disks.md) in modo che è possibile spostarsi tra le opzioni di archiviazione.
 
 
-## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium-and-vice-versa"></a>Convertire tutte le istanze di Managed Disks di una VM da Standard a Premium e viceversa
+## <a name="switch-all-managed-disks-of-a-vm-between-premium-and-standard"></a>Passa tutti i dischi gestiti di una macchina virtuale tra Standard e Premium
 
-L'esempio seguente illustra come passare dall'archiviazione Standard all'archiviazione Premium per tutti i dischi di una macchina virtuale. Per usare i dischi gestiti Premium, la VM deve avere [dimensioni tali](sizes.md) da supportare l'archiviazione Premium. In questo esempio si passa anche a una dimensione che supporta l'archiviazione Premium.
+In questo esempio viene illustrato come convertire tutti i dischi della VM da Standard ad archiviazione Premium o Premium per archiviazione Standard. Per usare i dischi gestiti Premium, la macchina virtuale deve avere [dimensioni tali](sizes.md) da supportare l'archiviazione Premium. In questo esempio passa anche a una dimensione che supporta archiviazione Premium.
 
  ```azurecli
 
@@ -48,7 +48,7 @@ rgName='yourResourceGroup'
 vmName='yourVM'
 
 #Premium capable size 
-#Required only if converting from standard to premium
+#Required only if converting from Standard to Premium
 size='Standard_DS2_v2'
 
 #Choose between Standard_LRS and Premium_LRS based on your scenario
@@ -57,24 +57,24 @@ sku='Premium_LRS'
 #Deallocate the VM before changing the size of the VM
 az vm deallocate --name $vmName --resource-group $rgName
 
-#Change the VM size to a size that supports premium storage 
-#Skip this step if converting storage from premium to standard
+#Change the VM size to a size that supports Premium storage 
+#Skip this step if converting storage from Premium to Standard
 az vm resize --resource-group $rgName --name $vmName --size $size
 
-#Update the sku of all the data disks 
+#Update the SKU of all the data disks 
 az vm show -n $vmName -g $rgName --query storageProfile.dataDisks[*].managedDisk -o tsv \
  | awk -v sku=$sku '{system("az disk update --sku "sku" --ids "$1)}'
 
-#Update the sku of the OS disk
+#Update the SKU of the OS disk
 az vm show -n $vmName -g $rgName --query storageProfile.osDisk.managedDisk -o tsv \
 | awk -v sku=$sku '{system("az disk update --sku "sku" --ids "$1)}'
 
 az vm start --name $vmName --resource-group $rgName
 
 ```
-## <a name="convert-a-managed-disk-from-standard-to-premium-and-vice-versa"></a>Convertire un disco gestito da Standard a Premium e viceversa
+## <a name="switch-individual-managed-disks-between-standard-and-premium"></a>Passa i singoli dischi gestiti tra Standard e Premium
 
-Per il carico di lavoro di sviluppo/test, potrebbe essere necessaria una combinazione di dischi Standard e Premium, per ridurre i costi. A tale scopo, è possibile eseguire l'aggiornamento ad Archiviazione Premium solo per i dischi che richiedono prestazioni migliori. L'esempio seguente illustra come passare dall'archiviazione Standard all'archiviazione Premium e viceversa per un singolo disco di una macchina virtuale. Per usare i dischi gestiti Premium, la VM deve avere [dimensioni tali](sizes.md) da supportare l'archiviazione Premium. In questo esempio si passa anche a una dimensione che supporta l'archiviazione Premium.
+Per il carico di lavoro di sviluppo/test, è consigliabile avere una combinazione di dischi Standard e Premium per ridurre i costi. È possibile scegliere di aggiornare solo i dischi che richiedono prestazioni migliori. In questo esempio viene illustrato come convertire un singolo disco della macchina virtuale standard all'archiviazione Premium o Premium in archiviazione Standard di. Per usare i dischi gestiti Premium, la macchina virtuale deve avere [dimensioni tali](sizes.md) da supportare l'archiviazione Premium. In questo esempio passa anche a una dimensione che supporta archiviazione Premium.
 
  ```azurecli
 
@@ -85,7 +85,7 @@ rgName='yourResourceGroup'
 diskName='yourManagedDiskName'
 
 #Premium capable size 
-#Required only if converting from standard to premium
+#Required only if converting from Standard to Premium
 size='Standard_DS2_v2'
 
 #Choose between Standard_LRS and Premium_LRS based on your scenario
@@ -97,19 +97,19 @@ vmId=$(az disk show --name $diskName --resource-group $rgName --query managedBy 
 #Deallocate the VM before changing the size of the VM
 az vm deallocate --ids $vmId 
 
-#Change the VM size to a size that supports premium storage 
-#Skip this step if converting storage from premium to standard
+#Change the VM size to a size that supports Premium storage 
+#Skip this step if converting storage from Premium to Standard
 az vm resize --ids $vmId --size $size
 
-# Update the sku
+# Update the SKU
 az disk update --sku $sku --name $diskName --resource-group $rgName 
 
 az vm start --ids $vmId 
 ```
 
-## <a name="convert-a-managed-disk-from-standard-hdd-to-standard-ssd-and-vice-versa"></a>Convertire un disco gestito da Standard HDD a Standard SSD e viceversa
+## <a name="switch-managed-disks-between-standard-hdd-and-standard-ssd"></a>Cambiare i dischi gestiti tra Standard HDD e SSD Standard
 
-L'esempio seguente illustra come passare da Standard HDD a Standard SSD per un singolo disco di una macchina virtuale.
+In questo esempio viene illustrato come convertire un singolo disco della macchina virtuale da Standard HDD a unità SSD Standard o da Standard SSD alle unità disco rigido Standard.
 
  ```azurecli
 
@@ -122,31 +122,33 @@ diskName='yourManagedDiskName'
 #Choose between Standard_LRS and StandardSSD_LRS based on your scenario
 sku='StandardSSD_LRS'
 
-#Get the parent VM Id 
+#Get the parent VM ID 
 vmId=$(az disk show --name $diskName --resource-group $rgName --query managedBy --output tsv)
 
 #Deallocate the VM before changing the disk type
 az vm deallocate --ids $vmId 
 
-# Update the sku
+# Update the SKU
 az disk update --sku $sku --name $diskName --resource-group $rgName 
 
 az vm start --ids $vmId 
 ```
 
-## <a name="convert-using-the-azure-portal"></a>Eseguire la conversione usando il portale di Azure
+## <a name="switch-managed-disks-between-standard-and-premium-in-azure-portal"></a>Cambiare i dischi gestiti tra Standard e Premium nel portale di Azure
 
-È anche possibile convertire i dischi non gestiti in dischi gestiti usando il portale di Azure.
+A tale scopo, seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Selezionare la macchina virtuale dall'elenco di macchine virtuali nel portale.
-3. Nel pannello della macchina virtuale selezionare **Dischi** dal menu.
-4. Nella parte superiore del pannello **Dischi** selezionare **Eseguire la migrazione a Managed Disks**.
-5. Se la macchina virtuale è in un set di disponibilità, nel pannello **Eseguire la migrazione a Managed Disks** apparirà un avviso che indica che è necessario prima convertire il set di disponibilità. L'avviso deve avere un collegamento su cui si può fare clic per convertire il set di disponibilità. Dopo avere convertito il set di disponibilità o se la macchina virtuale non è in un set di disponibilità, fare clic su **Esegui la migrazione** per avviare il processo di migrazione dei dischi ai dischi gestiti. 
+2. Selezionare la macchina virtuale dall'elenco dei **macchine virtuali**.
+3. Se non viene arrestata la macchina virtuale, selezionare **arrestare** nella parte superiore della VM **Panoramica** riquadro e attesa arrestare la macchina virtuale.
+4. Nel riquadro per la macchina virtuale, selezionare **dischi** dal menu di scelta.
+5. Selezionare il disco che si desidera convertire.
+6. Selezionare **configurazione** dal menu di scelta.
+7. Modifica il **tipo di Account** da **Standard HDD** al **unità SSD Premium** o da **unità SSD Premium** a **Standard HDD**.
+8. Selezionare **salvare**e chiudere il riquadro del disco.
 
-La macchina virtuale verrà arrestata e riavviata al termine della migrazione.
+L'aggiornamento del tipo di disco è istantanea. È possibile riavviare la macchina virtuale dopo la conversione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Eseguire una copia di sola lettura di una VM usando [snapshot](snapshot-copy-managed-disk.md).
-
+Creare una copia di sola lettura di una macchina virtuale usando [snapshot](snapshot-copy-managed-disk.md).

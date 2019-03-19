@@ -1,6 +1,6 @@
 ---
 title: Tutti gli argomenti per il servizio SQL Server Stretch Database | Microsoft Docs
-description: Tabella di tutti gli argomenti per il servizio di Azure denominato SQL Server Stretch Database presenti in http://azure.microsoft.com/documentation/articles/, titolo e descrizione.
+description: Tabella di tutti gli argomenti per il servizio di Azure denominato SQL Server Stretch Database presenti in https://azure.microsoft.com/documentation/articles/, titolo e descrizione.
 services: sql-server-stretch-database
 documentationcenter: ''
 author: DouglasL
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: DouglasL
-ms.openlocfilehash: 82a8e6e6660bd7ee31a78ccc458d105d393610f4
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.openlocfilehash: 02089d69ec8e049b2d0d0daf1c76875a9ebab403
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742712"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992551"
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Tutti gli argomenti per il servizio Azure SQL Server Stretch Database
 In questo argomento vengono elencati tutti gli argomenti che si applicano direttamente al servizio **SQL Server Stretch Database** di Azure. È possibile cercare la pagina Web per le parole chiave utilizzando **Ctrl+F**, per trovare gli argomenti di interesse corrente.
@@ -46,7 +46,7 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 | 10 |[Monitoraggio e risoluzione dei problemi di migrazione dei dati (Stretch Database)](sql-server-stretch-database-monitor.md) |Informazioni su come monitorare lo stato della migrazione dei dati. |
 | 11 |[Sospendere e riprendere la migrazione dei dati (Stretch Database)](sql-server-stretch-database-pause.md) |Informazioni su come sospendere o riprendere la migrazione dei dati in Azure. |
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 | &nbsp; | Title | DESCRIZIONE |
 | ---:|:--- |:--- |
 | 12 |[Abilitare Transparent Data Encryption (TDE) per Stretch Database su Azure](sql-server-stretch-database-encryption-tde.md) |Abilitare Transparent Data Encryption (TDE) per SQL Server Stretch Database in Azure |

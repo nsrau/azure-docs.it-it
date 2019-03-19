@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 93402f9124a5c2f6a251cb0e3b3dab21386fa5ff
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 9632bd339956aff7558461ed391cdd21c92f06ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965257"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995172"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Esempio 3: Creare una rete perimetrale per proteggere le reti con un firewall, routing definito dall'utente e un gruppo di sicurezza di rete
 [Tornare alla pagina relativa alle procedure consigliate sui limiti di sicurezza][HOME]
@@ -356,7 +356,7 @@ Le specifiche di ogni regola necessaria per completare questo esempio sono descr
   
     La regola Pass consente a qualsiasi server IIS sulla subnet front-end di raggiungere il server AppVM01, con l'indirizzo IP 10.0.2.5, su qualsiasi porta, usando qualsiasi protocollo per accedere ai dati richiesti dall'applicazione Web.
   
-    In questa schermata viene usato "\<explicit-dest\>" nel campo Destination per indicare 10.0.2.5 come destinazione. Può essere una destinazione esplicita, come illustrato, o un oggetto di rete denominato, come è stato fatto nei prerequisiti del server DNS. La scelta del metodo da usare spetta all'amministratore del firewall. Per aggiungere 10.0.2.5 come destinazione esplicita, fare doppio clic sulla prima riga vuota sotto \<explicit-dest\> e immettere l'indirizzo nella finestra visualizzata.
+    In questo screenshot un "\<explicit-dest\>" viene utilizzato nel campo Destination per indicare 10.0.2.5 come destinazione. Può essere una destinazione esplicita, come illustrato, o un oggetto di rete denominato, come è stato fatto nei prerequisiti del server DNS. La scelta del metodo da usare spetta all'amministratore del firewall. Per aggiungere 10.0.2.5 come destinazione esplicita, fare doppio clic sulla prima riga vuota sotto \<explicit-dest\> e immettere l'indirizzo nella finestra visualizzata.
   
     Con questa regola Pass non è necessario usare NAT, perché si tratta di traffico interno, quindi si può impostare Connection Method su "No SNAT".
   
@@ -381,7 +381,7 @@ Le specifiche di ogni regola necessaria per completare questo esempio sono descr
   
     ![Regola firewall DNS][15]
   
-    **Nota**: in questa schermata è inclusa l'impostazione Connection Method. Poiché questa regola riguarda il traffico da indirizzo IP interno a indirizzo IP interno, non è richiesto alcun processo NAT e per questa regola Pass l'opzione Connection Method è impostata su "No SNAT".
+    **Nota**: In questa schermata è incluso il metodo di connessione. Poiché questa regola riguarda il traffico da indirizzo IP interno a indirizzo IP interno, non è richiesto alcun processo NAT e per questa regola Pass l'opzione Connection Method è impostata su "No SNAT".
 * **Regola da subnet a subnet**: questa regola Pass è una regola predefinita attivata e modificata per consentire a qualsiasi server sulla subnet back-end di connettersi a qualsiasi server sulla subnet front-end. Questa regola riguarda tutto il traffico interno, quindi è possibile impostare Connection Method su No SNAT.
   
     ![Regola firewall Intra-VNet][16]
@@ -486,7 +486,7 @@ Tenere anche presente che per il traffico Internet in ingresso sulle subnet fron
 11. AppVM01 richiede il nome utente e la password.
 
 #### <a name="allowed-web-server-dns-lookup-on-dns-server"></a>(Consentito) Ricerca DNS del server Web sul server DNS
-1. Il server Web, IIS01, richiede un feed di dati all'indirizzo www.data.gov, ma deve risolvere l'indirizzo.
+1. Web Server, IIS01, necessita di feed di dati all'indirizzo www\.data.gov, ma deve risolvere l'indirizzo.
 2. La configurazione di rete per la rete virtuale elenca DNS01 (10.0.2.4 sulla subnet back-end) come server DNS primario, IIS01 invia la richiesta DNS a DNS01.
 3. Il routing definito dall'utente instrada il traffico in uscita al firewall come hop successivo.
 4. Non sono presenti regole del gruppo di sicurezza di rete associate alla subnet front-end, il traffico è consentito.
@@ -945,7 +945,7 @@ Questo script di PowerShell deve essere eseguito localmente in un server o un PC
 Salvare questo file XML con il percorso aggiornato e aggiungere il collegamento a questo file nella variabile $NetworkConfigFile dello script precedente.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

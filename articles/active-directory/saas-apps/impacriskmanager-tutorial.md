@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec119c9e11b21828b1b056fb97598ca7434cfc68
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9f987c6803f6ca538f4ae7470caaff597c9596c2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197710"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900744"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Esercitazione: Integrazione di Azure Active Directory con IMPAC Risk Manager
 
@@ -114,6 +114,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     a. Nella casella di testo **Identificatore** digitare un valore fornito da IMPAC.
 
     b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente:
+
     | Environment | Modello URL |
     | ---------------|--------------- |    
     | Per la produzione |`https://www.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
@@ -127,6 +128,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di IMPAC Risk Manager](./media/impacriskmanager-tutorial/tutorial_impacriskmanager_url1_new.png)
 
     Nella casella di testo **URL di accesso** digitare un URL usando il criterio seguente:
+    
     | Environment | Modello URL |
     | ---------------|--------------- |    
     | Per la produzione |`https://www.riskmanager.co.nz/SSOv2/<ClientSuffix>`|

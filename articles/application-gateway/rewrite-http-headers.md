@@ -7,27 +7,29 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 2babb6ff7b93ad9cf7c93565cadce9453a3b96ca
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: aedd81af8b5821b1f8032faad1896790804df2a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103429"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119293"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Riscrivere le intestazioni HTTP con il gateway applicazione (anteprima pubblica)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Le intestazioni HTTP consentono al client e al server di passare informazioni aggiuntive insieme alla richiesta o alla risposta. Riscrivere le intestazioni HTTP consente di affrontare diversi scenari importanti, ad esempio l'aggiunta di campi di intestazione correlati come HSTS/X-XSS-Protection o la rimozione di campi di intestazione di risposta, che potrebbero rivelare informazioni riservate come il nome del server back-end.
 
 Il gateway applicazione supporta ora la possibilità di riscrivere le intestazioni delle richieste HTTP in ingresso e in uscita. Sarà possibile aggiungere, rimuovere o aggiornare le intestazioni di richiesta e risposta HTTP, mentre i pacchetti di richiesta/risposta si spostano tra client e pool di back-end. È possibile riscrivere sia i campi di intestazione standard che quelli non standard.
 
-> [!NOTE] 
->
+> [!NOTE]
+> 
 > Il supporto alla riscrittura dell'intestazione HTTP è disponibile solo per il [nuovo SKU [Standard_V2\]](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 
 Il supporto per la riscrittura dell'intestazione del gateway applicazione offre:
 
 - **Riscrittura dell'intestazione globale**: è possibile riscrivere intestazioni specifiche per tutte le richieste e risposte relative al sito.
-- **Riscrittura dell'intestazione basata sul percorso**: questo tipo di riscrittura consente di riscrivere l'intestazione solo per le richieste e le risposte riguardanti una specifica area del sito, ad esempio un'area del carrello acquisti indicata da /cart/*.
+- **Intestazione in base al percorso di riscrittura**: questo tipo di riscrittura consente riscrittura intestazione solo per le richieste e risposte che riguardano solo in un'area specifica del sito, ad esempio un'area del carrello acquisti indicata da /cart/\*.
 
 Con questa modifica, è necessario:
 
@@ -48,7 +50,7 @@ Con questa modifica, è necessario:
   *Esempio:* 
 
   ```azurepowershell-interactive
-  $responseHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Strict-Transport-Security" -  HeaderValue "max-age=31536000")
+  $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Strict-Transport-Security" -  HeaderValue "max-age=31536000")
   ```
 
 - Valore da un'altra intestazione. 
@@ -56,7 +58,7 @@ Con questa modifica, è necessario:
   *Esempio 1:* 
 
   ```azurepowershell-interactive
-  $requestHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-RequestHeader" -HeaderValue {http_req_oldHeader}
+  $requestHeaderConfiguration= New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-RequestHeader" -HeaderValue {http_req_oldHeader}
   ```
 
   > [!Note] 
@@ -65,7 +67,7 @@ Con questa modifica, è necessario:
   *Esempio 2:*
 
   ```azurepowershell-interactive
-  $responseHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-ResponseHeader" -HeaderValue {http_resp_oldHeader}
+  $responseHeaderConfiguration= New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-ResponseHeader" -HeaderValue {http_resp_oldHeader}
   ```
 
   > [!Note] 
@@ -76,7 +78,7 @@ Con questa modifica, è necessario:
   *Esempio:* 
 
   ```azurepowershell-interactive
-  $requestHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Ciphers-Used" -HeaderValue "{var_ciphers_used}"
+  $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Ciphers-Used" -HeaderValue "{var_ciphers_used}"
   ```
 
   > [!Note] 

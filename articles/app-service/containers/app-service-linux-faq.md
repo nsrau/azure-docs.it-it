@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: a12d3708cdb547cc036b249bebf901d2ec5121c3
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 4c2ed5fa65528a690d618e45c118d2433820ddc6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729320"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871494"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Domande frequenti sul Servizio app di Azure in Linux
 
@@ -35,9 +35,17 @@ In caso di domande, inviare commenti su questo articolo.
 
 È possibile trovare tutti i file Docker su [GitHub](https://github.com/azure-app-service). È possibile trovare tutti i contenitori Docker nell'[hub Docker](https://hub.docker.com/u/appsvc/).
 
+<a id="#startup-file"></a>
+
 **Quali sono i valori previsti per la sezione relativa al file di avvio quando si configura lo stack di runtime?**
 
-Per Node.js specificare il file di configurazione PM2 o il file script. Per .NET Core specificare il nome del file DLL compilato come `dotnet <myapp>.dll`. Per Ruby è possibile specificare uno script Ruby da usare per l'inizializzazione dell'app.
+| Stack     | Valore previsto                                                                |
+|-----------|-------------------------------------------------------------------------------|
+| Java SE   | un comando per avviare il `.jar` applicazione                                    |
+| Tomcat    | il percorso di uno script per eseguire qualsiasi configruations necessari per l'app |
+| Node.js   | il file di configurazione PM2 o il file script                                |          
+| .Net Core | il nome della DLL compilato come `dotnet <myapp>.dll`                                 |
+| Ruby      | lo script Ruby che si desidera inizializzazione dell'app                     
 
 ## <a name="management"></a>Gestione
 
@@ -75,7 +83,7 @@ Sì, è necessario impostare `WEBSITE_WEBDEPLOY_USE_SCM` nell'app su *false*.
 
 Se la distribuzione in GIT non riesce per l'app Web di Linux, scegliere una delle opzioni seguenti per distribuire il codice dell'applicazione:
 
-- Usare la funzionalità Recapito continuo (anteprima): è possibile archiviare il codice sorgente dell'app in un repository Git di Azure DevOps o un repository di GitHub per usare Recapito continuo di Azure. Per altre informazioni, vedere [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/) (Come configurare Recapito continuo per app Web in Linux).
+- Usare la funzionalità Recapito continuo (anteprima): È possibile archiviare il codice sorgente dell'app in un repository Git di DevOps di Azure o un repository di GitHub usare recapito continuo di Azure. Per altre informazioni, vedere [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/) (Come configurare Recapito continuo per app Web in Linux).
 
 - Usare la [l'API per la distribuzione ZIP](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): per usare questa API, attivare una connessione [SSH nell'app Web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) e passare alla cartella in cui si vuole distribuire il codice. Eseguire il codice seguente:
 
@@ -92,7 +100,7 @@ Se la distribuzione in GIT non riesce per l'app Web di Linux, scegliere una dell
 Sì, disabilitare `perMessageDeflate` nel codice Node.js sul lato server. Ad esempio, per socket.io usare il codice seguente:
 
 ```nodejs
-var io = require('socket.io')(server,{
+const io = require('socket.io')(server,{
   perMessageDeflate :false
 });
 ```

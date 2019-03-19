@@ -2,21 +2,21 @@
 title: Uso del Servizio Migrazione del database di Azure per monitorare l'attività di migrazione | Microsoft Docs
 description: Informazioni sull'uso del Servizio Migrazione del database di Azure per monitorare l'attività di migrazione.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/14/2018
-ms.openlocfilehash: a7fc48c149d488ab7860513b617b8a5806b1feb6
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 325bbee3f3d5ad5097f710cb56fe03baff97388a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721156"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58173856"
 ---
 # <a name="monitor-migration-activity"></a>Monitorare l'attività di migrazione
 Questo articolo illustra come monitorare lo stato di avanzamento di una migrazione sia a livello di database sia a livello di tabella.
@@ -134,7 +134,7 @@ La tabella seguente descrive i campi visualizzati nello stato di avanzamento del
 | **Stato - Sincronizzazione**      | Sincronizzazione continua in esecuzione. |
 | **Inserimento**      | Numero di inserimenti CDC nelle righe applicati alla destinazione.      |
 | **Aggiornamento** | Numero di aggiornamenti CDC nelle righe applicati alla destinazione.      |
-| **Eliminazione**      | Numero di eliminazioni CDC nelle righe applicate alla destinazione. |
+| **Elimina**      | Numero di eliminazioni CDC nelle righe applicate alla destinazione. |
 | **Totale applicato**      | Totale di aggiornamenti, inserimenti ed eliminazioni CDC nelle righe applicati alla destinazione. |
 | **Errori di dati** | Numero di errori di dati che si sono verificati nella tabella. Di seguito sono riportati alcuni esempi di errori. *511: Impossibile creare una riga con dimensione %d, perché tale valore è maggiore della dimensione di riga massima consentita %d. 8114: Errore durante la conversione dei dati di tipo da %ls a %ls.*  Per visualizzare i dettagli dell'errore, è necessario eseguire una query dalla tabella dms_apply_exceptions nella destinazione di Azure.    |
 

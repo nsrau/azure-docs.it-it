@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8716d018756d1e6eadcd6ebeeaf4f67ad0bc4741
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 97f375c6f48d3dc497eb59e76f19fc64cf906b56
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211156"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886508"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Esercitazione: integrazione di Azure Active Directory con Workspot Control
 
@@ -179,7 +179,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel **nome utente** tipo di campo **brittasimon\@yourcompanydomain.extension**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare **Proprietà**, selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
@@ -206,7 +206,7 @@ Per consentire agli utenti di Azure AD di accedere a Workspot Control, è necess
 
     b. Nella casella di testo **Last name** (Cognome) immettere il cognome dell'utente, ad esempio **Simon**.
 
-    c. Nella casella di testo **Email** (Posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio **Brittasimon@contoso.com**.
+    c. Nelle **messaggio di posta elettronica** testo immettere l'indirizzo di posta elettronica dell'utente, ad esempio **Brittasimon\@contoso.com**.
 
     d. Selezionare il ruolo utente appropriato nell'elenco a discesa **Role** (Ruolo).
 

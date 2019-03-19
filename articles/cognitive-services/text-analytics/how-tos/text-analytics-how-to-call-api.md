@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 52c5cb640bfb861fb2da52ee711fe3955a169bcf
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 9d0a803f8a397d3c24f083188b6186acf4dde809
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244029"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122876"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Come chiamare l'API REST Analisi del testo
 
@@ -42,8 +42,8 @@ Attualmente è possibile inviare gli stessi documenti per tutte le operazioni di
 
 | Elemento | Valori validi | Obbligatorio? | Uso |
 |---------|--------------|-----------|-------|
-|`id` |Il tipo di dati è stringa, ma in pratica gli ID documento tendono a essere numeri interi. | Obbligatoria | Il sistema usa gli ID immessi per strutturare l'output. Per ogni ID della richiesta vengono generati codici di lingua, frasi chiave e punteggi di sentiment.|
-|`text` | Testo non elaborato e non strutturato fino a 5.000 caratteri. | Obbligatoria | Per il rilevamento della lingua, il testo può essere espresso in qualsiasi lingua. Per l'analisi del sentiment, l'estrazione delle frasi chiave e l'identificazione delle entità, il testo deve essere in una [lingua supportata](../text-analytics-supported-languages.md). |
+|`id` |Il tipo di dati è stringa, ma in pratica gli ID documento tendono a essere numeri interi. | Obbligatorio | Il sistema usa gli ID immessi per strutturare l'output. Per ogni ID della richiesta vengono generati codici di lingua, frasi chiave e punteggi di sentiment.|
+|`text` | Dati non strutturato testo non elaborato, un massimo di 5.120 caratteri. | Obbligatorio | Per il rilevamento della lingua, il testo può essere espresso in qualsiasi lingua. Per l'analisi del sentiment, l'estrazione delle frasi chiave e l'identificazione delle entità, il testo deve essere in una [lingua supportata](../text-analytics-supported-languages.md). |
 |`language` | Codice [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) di 2 caratteri per una [lingua supportata](../text-analytics-supported-languages.md) | Variabile | Richiesto per l'analisi del sentiment, l'estrazione delle frasi chiave e il collegamento delle entità; facoltativo per il rilevamento della lingua. Se lo si omette non si verifica nessun errore ma l'analisi risulta più debole. Il codice della lingua deve corrispondere al `text` fornito. |
 
 Per altre informazioni sui limiti, vedere [Panoramica di Analisi del testo > Limiti relativi ai dati](../overview.md#data-limits). 
@@ -58,7 +58,7 @@ Il servizio accetta richieste fino alla dimensione di 1 MB. Se si usa Postman o 
    + Incollare l'endpoint che è stato copiato dalla pagina del portale.
    + Accodare una risorsa.
 
-  Gli endpoint di risorsa sono i seguenti (l'area può variare):
+   Gli endpoint di risorsa sono i seguenti (l'area può variare):
 
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
@@ -71,7 +71,7 @@ Il servizio accetta richieste fino alla dimensione di 1 MB. Se si usa Postman o 
    + `Content-Type`: applicazione/json.
    + `Accept`: applicazione/json.
 
-  La richiesta dovrebbe essere simile allo screenshot seguente, presupponendo che la risorsa sia **/keyPhrases**.
+   La richiesta dovrebbe essere simile allo screenshot seguente, presupponendo che la risorsa sia **/keyPhrases**.
 
    ![Screenshot di richiesta con l'endpoint e intestazioni](../media/postman-request-keyphrase-1.png)
 
@@ -81,15 +81,15 @@ Il servizio accetta richieste fino alla dimensione di 1 MB. Se si usa Postman o 
 
 5. Incollare alcuni documenti JSON in un formato valido per l'analisi desiderata. Per altre informazioni su una determinata analisi, vedere gli argomenti seguenti:
 
-  + [Rilevamento della lingua](text-analytics-how-to-language-detection.md)  
-  + [Estrazione delle frasi chiave](text-analytics-how-to-keyword-extraction.md)  
-  + [Analisi del sentiment](text-analytics-how-to-sentiment-analysis.md)  
-  + [Riconoscimento delle entità (anteprima)](text-analytics-how-to-entity-linking.md)  
+   + [Rilevamento della lingua](text-analytics-how-to-language-detection.md)  
+   + [Estrazione delle frasi chiave](text-analytics-how-to-keyword-extraction.md)  
+   + [Analisi del sentiment](text-analytics-how-to-sentiment-analysis.md)  
+   + [Riconoscimento delle entità (anteprima)](text-analytics-how-to-entity-linking.md)  
 
 
 6. Fare clic su **Send** (Invia) per inviare la richiesta. È possibile inviare fino a 100 richieste al minuto. 
 
-  In Postman la risposta è visualizzata nella finestra successiva in basso, come singolo documento JSON, con un elemento per ogni ID documento specificato nella richiesta.
+   In Postman la risposta è visualizzata nella finestra successiva in basso, come singolo documento JSON, con un elemento per ogni ID documento specificato nella richiesta.
 
 ## <a name="see-also"></a>Vedere anche  
 

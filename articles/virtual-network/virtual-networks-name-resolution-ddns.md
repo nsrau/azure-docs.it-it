@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: subsarma
-ms.openlocfilehash: bbbce45b7c321fd4934374c76f2a4421b125d46f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: c2ef842fd62ef060f06536d66387c3facd0627b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31600955"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994697"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Usare DNS dinamico per registrare i nomi host nel proprio server DNS
 
@@ -63,7 +63,7 @@ fi
 
 Si può anche usare il comando `nsupdate` per eseguire gli aggiornamenti di DDNS sicuro. Ad esempio, quando si usa un server DNS con Bind, viene [generata](http://linux.yyz.us/nsupdate/)una coppia di chiavi pubblica/privata. Il server DNS è [configurato](http://linux.yyz.us/dns/ddns-server.html) con la parte pubblica della chiave, che consente di verificare la firma della richiesta. Per fornire la coppia di chiavi a `nsupdate`, usare l'opzione `-k` per la richiesta di aggiornamento DDNS da firmare.
 
-Quando si usa un server DNS Windows, si può usare l'autenticazione Kerberos con il parametro `-g` in `nsupdate`, ma non è disponibile nella versione Windows di `nsupdate`. Per usare Kerberos, caricare le credenziali con `kinit`. Ad esempio, è possibile caricare le credenziali da un [file keytab](http://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html), quindi `nsupdate -g` preleva le credenziali dalla cache.
+Quando si usa un server DNS Windows, si può usare l'autenticazione Kerberos con il parametro `-g` in `nsupdate`, ma non è disponibile nella versione Windows di `nsupdate`. Per usare Kerberos, caricare le credenziali con `kinit`. Ad esempio, è possibile caricare le credenziali da un [file keytab](https://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html), quindi `nsupdate -g` preleva le credenziali dalla cache.
 
 Se necessario, aggiungere un suffisso di ricerca DNS alle VM. Il suffisso DNS è specificato nel file */etc/resolv.conf* . La maggior parte delle distribuzioni Linux gestiscono automaticamente il contenuto di questo file, quindi solitamente non può essere modificato. Tuttavia si può ignorare il suffisso usando il comando `supersede` del client DHCP. Per ignorare il suffisso, aggiungere la seguente riga al file */etc/dhcp/dhclient.conf*:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 45e5c43cf5eb8df1df5b26ffae50d2881bb086e4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: ac1384827ceede0f66fd08c6c08fa8e934b1ae42
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115199"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076157"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Creare una tabella di route dell'hub virtuale per indirizzare il traffico a un'appliance virtuale di rete
 
@@ -32,6 +32,8 @@ In questo articolo viene spiegato come:
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Verificare di aver soddisfatto i criteri seguenti:
 
 1. Disporre di un'appliance virtuale di rete (NVA), un software di terze parti di propria scelta, in genere con provisioning da Azure Marketplace (collegamento) in una rete virtuale.
@@ -43,54 +45,54 @@ Verificare di aver soddisfatto i criteri seguenti:
 
 ## <a name="signin"></a>1. Accesso
 
-Assicurarsi di installare la versione più recente dei cmdlet di PowerShell per Resource Manager. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/azurerm/overview). Questo elemento è importante perché le versioni precedenti dei cmdlet non contengono i valori correnti necessari per questo esercizio. I moduli nei tre esempi seguenti sono Azure RM. Questo articolo verrà aggiornato ad Azure Az in futuro.
+Assicurarsi di installare la versione più recente dei cmdlet di PowerShell per Resource Manager. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Questo elemento è importante perché le versioni precedenti dei cmdlet non contengono i valori correnti necessari per questo esercizio.
 
 1. Aprire la console di PowerShell con privilegi elevati e accedere al proprio account Azure. Il cmdlet richiederà le credenziali di accesso. Dopo l'accesso vengono scaricate le impostazioni dell'account in modo che siano disponibili per Azure PowerShell.
 
-  ```powershell
-  Connect-AzureRmAccount
-  ```
+   ```powershell
+   Connect-AzAccount
+   ```
 2. Ottenere un elenco delle sottoscrizioni di Azure.
 
-  ```powershell
-  Get-AzureRmSubscription
-  ```
+   ```powershell
+   Get-AzSubscription
+   ```
 3. Specificare la sottoscrizione da usare.
 
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Name of subscription"
-  ```
+   ```powershell
+   Select-AzSubscription -SubscriptionName "Name of subscription"
+   ```
 
 ## <a name="rg"></a>2. Creare le risorse
 
 1. Creare un gruppo di risorse.
 
-  ```powershell
-  New-AzureRmResourceGroup -Location "West US" -Name "testRG"
-  ```
+   ```powershell
+   New-AzResourceGroup -Location "West US" -Name "testRG"
+   ```
 2. Creare una rete WAN virtuale.
 
-  ```powershell
-  $virtualWan = New-AzureRmVirtualWan -ResourceGroupName "testRG" -Name "myVirtualWAN" -Location "West US"
-  ```
+   ```powershell
+   $virtualWan = New-AzVirtualWan -ResourceGroupName "testRG" -Name "myVirtualWAN" -Location "West US"
+   ```
 3. Creare un hub virtuale.
 
-  ```powershell
-  New-AzureRmVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testRG" -Name "westushub" -AddressPrefix "10.0.1.0/24"
-  ```
+   ```powershell
+   New-AzVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testRG" -Name "westushub" -AddressPrefix "10.0.1.0/24"
+   ```
 
 ## <a name="connections"></a>3. Creare le connessioni
 
 Creare le connessioni dell'hub di rete virtuale dalla rete virtuale spoke indiretta e dalla rete virtuale di rete perimetrale all'hub virtuale.
 
   ```powershell
-  $remoteVirtualNetwork1= Get-AzureRmVirtualNetwork -Name “indirectspoke1” -ResourceGroupName “testRG”
-  $remoteVirtualNetwork2= Get-AzureRmVirtualNetwork -Name “indirectspoke2” -ResourceGroupName “testRG”
-  $remoteVirtualNetwork3= Get-AzureRmVirtualNetwork -Name “dmzvnet” -ResourceGroupName “testRG”
+  $remoteVirtualNetwork1= Get-AzVirtualNetwork -Name "indirectspoke1" -ResourceGroupName "testRG"
+  $remoteVirtualNetwork2= Get-AzVirtualNetwork -Name "indirectspoke2" -ResourceGroupName "testRG"
+  $remoteVirtualNetwork3= Get-AzVirtualNetwork -Name "dmzvnet" -ResourceGroupName "testRG"
 
-  New-AzureRmVirtualHubVnetConnection -ResourceGroupName “testRG” -VirtualHubName “westushub” -Name  “testvnetconnection1” -RemoteVirtualNetwork $remoteVirtualNetwork1
-  New-AzureRmVirtualHubVnetConnection -ResourceGroupName “testRG” -VirtualHubName “westushub” -Name  “testvnetconnection2” -RemoteVirtualNetwork $remoteVirtualNetwork2
-  New-AzureRmVirtualHubVnetConnection -ResourceGroupName “testRG” -VirtualHubName “westushub” -Name  “testvnetconnection3” -RemoteVirtualNetwork $remoteVirtualNetwork3
+  New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "westushub" -Name  "testvnetconnection1" -RemoteVirtualNetwork $remoteVirtualNetwork1
+  New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "westushub" -Name  "testvnetconnection2" -RemoteVirtualNetwork $remoteVirtualNetwork2
+  New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "westushub" -Name  "testvnetconnection3" -RemoteVirtualNetwork $remoteVirtualNetwork3
   ```
 
 ## <a name="route"></a>4. Creare una route dell'hub virtuale
@@ -98,7 +100,7 @@ Creare le connessioni dell'hub di rete virtuale dalla rete virtuale spoke indire
 Per questo articolo, gli spazi di indirizzi della rete virtuale spoke indiretta sono 10.0.2.0/24 e 10.0.3.0/24 e l'indirizzo IP privato dell'interfaccia di rete della rete virtuale della rete perimetrale è 10.0.4.5.
 
 ```powershell
-$route1 = New-AzureRmVirtualHubRoute -AddressPrefix @("10.0.2.0/24", "10.0.3.0/24") -NextHopIpAddress "10.0.4.5"
+$route1 = New-AzVirtualHubRoute -AddressPrefix @("10.0.2.0/24", "10.0.3.0/24") -NextHopIpAddress "10.0.4.5"
 ```
 
 ## <a name="applyroute"></a>5. Creare una tabella di route dell'hub virtuale
@@ -106,7 +108,7 @@ $route1 = New-AzureRmVirtualHubRoute -AddressPrefix @("10.0.2.0/24", "10.0.3.0/2
 Creare una tabella di route dell'hub virtuale, quindi applicarvi la route creata.
  
 ```powershell
-$routeTable = New-AzureRmVirtualHubRouteTable -Route @($route1)
+$routeTable = New-AzVirtualHubRouteTable -Route @($route1)
 ```
 
 ## <a name="commit"></a>6. Eseguire il commit delle modifiche
@@ -114,15 +116,15 @@ $routeTable = New-AzureRmVirtualHubRouteTable -Route @($route1)
 Eseguire il commit delle modifiche nell'hub virtuale.
 
 ```powershell
-Update-AzureRmVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Name "westushub” -RouteTable $routeTable
+Update-AzVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Name "westushub" -RouteTable $routeTable
 ```
 
 ## <a name="cleanup"></a>Pulire le risorse
 
-Quando queste risorse non sono più necessarie, è possibile usare [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) per rimuovere il gruppo di risorse e tutte le risorse in esso contenute. Sostituire "myResourceGroup" con il nome del gruppo di risorse specifico ed eseguire il comando di PowerShell seguente:
+Quando non è più necessario queste risorse, è possibile usare [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuovere il gruppo di risorse e tutte le risorse in esso contenute. Sostituire "myResourceGroup" con il nome del gruppo di risorse specifico ed eseguire il comando di PowerShell seguente:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

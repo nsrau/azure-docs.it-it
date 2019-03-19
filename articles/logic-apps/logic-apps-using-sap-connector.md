@@ -10,18 +10,18 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 09/14/2018
 tags: connectors
-ms.openlocfilehash: 27da87c11ca35be72690965a2359ff6ff6b9f999
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
-ms.translationtype: HT
+ms.openlocfilehash: 468e73c64037a76da612cba8d6c2e9507dd3ac87
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391272"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887086"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Connettersi a sistemi SAP con App per la logica di Azure
 
-Questo articolo illustra come accedere alle risorse SAP locali all'interno di un'app per la logica mediante il connettore SAP ERP Central Component (ECC). Il connettore SAP ECC supporta l'integrazione di messaggi o dati da e verso i sistemi basati su SAP Netweaver tramite Intermediate Document (IDoc) o Business Application Programming Interface (BAPI) o Remote Function Call (RFC).
+Questo articolo illustra come accedere alle risorse SAP locali all'interno di un'app per la logica mediante il connettore SAP ERP Central Component (ECC). Il connettore funziona con i sistemi sia ECC e S/4 HANA in locale. Il connettore SAP ECC supporta l'integrazione di messaggi o dati da e verso i sistemi basati su SAP Netweaver tramite Intermediate Document (IDoc) o Business Application Programming Interface (BAPI) o Remote Function Call (RFC).
 
-Il connettore SAP ECC usa la <a href="https://support.sap.com/en/product/connectors/msnet.html">libreria SAP .Net Connector (NCo)</a> e fornisce le seguenti operazioni o azioni:
+Il connettore SAP ECC Usa la <a href="https://support.sap.com/en/product/connectors/msnet.html">libreria del connettore SAP .NET (NCo)</a> e fornisce le operazioni o azioni:
 
 - **Inviare a SAP**: inviare IDoc o chiamare funzioni BAPI su tRFC nei sistemi SAP.
 - **Ricevere da SAP**: ricevere IDoc o chiamate di funzioni BAPI su tRFC provenienti da sistemi SAP.

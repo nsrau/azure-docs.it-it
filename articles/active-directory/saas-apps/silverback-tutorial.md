@@ -4,186 +4,200 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 32cfc96f-2137-49ff-818b-67feadcd73b7
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/17/2018
+ms.topic: tutorial
+ms.date: 03/07/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5614c061586c39e44f04f3542285e55e07f14d9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1a104da9ecb28d2109e82056995ef7a8048eafe2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172711"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838749"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Esercitazione: integrazione di Azure Active Directory con Silverback
 
 Questa esercitazione descrive come integrare Silverback con Azure Active Directory (Azure AD).
-
 L'integrazione di Silverback con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD chi può accedere a Silverback.
-- È possibile abilitare gli utenti per l'accesso automatico a Silverback (Single Sign-On) con gli account Azure AD personali.
-- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
+* È possibile controllare in Azure AD chi può accedere a Silverback.
+* È possibile abilitare gli utenti di essere automaticamente connesso a Silverback (Single Sign-On) con i propri account Azure AD.
+* È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Silverback, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD
-- Sottoscrizione attiva di Silverback
-
-> [!NOTE]
-> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
-
-A questo scopo, è consigliabile seguire le indicazioni seguenti:
-
-- Non usare l'ambiente di produzione a meno che non sia necessario.
-- Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
+* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
+* Sottoscrizione abilitata per SilverBack single sign-on
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
-1. Aggiunta di Silverback dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
+
+* Supporta SilverBack **SP** SSO avviato dal
 
 ## <a name="adding-silverback-from-the-gallery"></a>Aggiunta di Silverback dalla raccolta
+
 Per configurare l'integrazione di Silverback in Azure AD, è necessario aggiungere Silverback dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Silverback dalla raccolta, seguire questa procedura:**
 
-1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
-    ![Pulsante Azure Active Directory][1]
+    ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
 
-    ![Pannello Applicazioni aziendali][2]
-    
+    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
+
 3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-    ![Pulsante Nuova applicazione][3]
+    ![Pulsante Nuova applicazione](common/add-new-app.png)
 
 4. Nella casella di ricerca digitare **Silverback**, selezionare **Silverback** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-    ![Silverback nell'elenco risultati](./media/silverback-tutorial/tutorial_silverback_addfromgallery.png)
+     ![Silverback nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Silverback usando un utente di test di nome "Britta Simon".
-
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere l'utente controparte di Silverback che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Silverback.
+In questa sezione viene configurato e testato single sign-on di Azure con basato su un utente test di nome Silverback **Britta Simon**.
+Per single sign-on funzioni, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Silverback.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Silverback, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creare un utente di test di Silverback](#create-a-silverback-test-user)**: per avere una controparte di Britta Simon in Silverback collegata alla rappresentazione dell'utente in Azure AD.
+2. **[Configurare Silverback Single Sign-On](#configure-silverback-single-sign-on)**  : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
+5. **[Creare l'utente di test Silverback](#create-silverback-test-user)**  : per avere una controparte di Britta Simon in Silverback collegata alla rappresentazione in Azure AD dell'utente.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Silverback.
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-**Per configurare l'accesso Single Sign-On di Azure AD con Silverback, seguire questa procedura:**
+Per configurare single sign-on di Azure con Silverback, procedere come segue:
 
-1. Nella pagina di integrazione dell'applicazione **Silverback** del portale di Azure fare clic su **Single Sign-On**.
+1. Nel [portale di Azure](https://portal.azure.com/)via le **Silverback** pagina di integrazione dell'applicazione, seleziona **l'accesso Single sign-on**.
 
-    ![Collegamento Configura accesso Single Sign-On][4]
+    ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
- 
-    ![Finestra di dialogo Single Sign-On](./media/silverback-tutorial/tutorial_silverback_samlbase.png)
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
 
-3. Nella sezione **URL e dominio Silverback** seguire questa procedura:
+    ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Silverback](./media/silverback-tutorial/tutorial_silverback_url.png)
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<YOURSILVERBACKURL>.com/ssp`
+    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-    b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `<YOURSILVERBACKURL>.com`
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
+
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Silverback](common/sp-identifier-reply.png)
+
+    a. Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<YOURSILVERBACKURL>.com/ssp`
+
+    b. Nella casella di testo **Identificatore** digitare un URL usando il modello seguente: `<YOURSILVERBACKURL>.com`
 
     c. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<YOURSILVERBACKURL>.com/sts/authorize/login`
 
-    > [!NOTE] 
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto di Silverback](mailto:helpdesk@matrix42.com). 
+    > [!NOTE]
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto di Silverback](mailto:helpdesk@matrix42.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-4. Nella sezione **Certificato di firma SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e incollarlo nel Blocco note.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer in uso.
 
-    ![Collegamento di download del certificato](./media/silverback-tutorial/tutorial_silverback_certificate.png) 
+    ![Collegamento di download del certificato](common/copy-metadataurl.png)
 
-5. Fare clic sul pulsante **Salva** .
+### <a name="configure-silverback-single-sign-on"></a>Configurare Silverback Single Sign-On
 
-    ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/silverback-tutorial/tutorial_general_400.png)
+1. In un browser web diverso, accedere al Server Silverback come amministratore.
 
-6.  Accedere al server di Silverback come amministratore e seguire questa procedura:
+2. Passare a **Admin** (Amministratore)  > **Authentication Provider** (Provider di autenticazione).
 
-    a.  Passare a **Admin** (Amministratore)  > **Authentication Provider** (Provider di autenticazione).
+3. Nella pagina **Authentication Provider Settings** (Impostazioni del provider di autenticazione) seguire questa procedura:
 
-    b. Nella pagina **Authentication Provider Settings** (Impostazioni del provider di autenticazione) seguire questa procedura:
+    ![L'amministratore](./media/silverback-tutorial/tutorial_silverback_admin.png)
 
-    ![L'amministratore ](./media/silverback-tutorial/tutorial_silverback_admin.png)
+    a.  Fare clic su **Import from URL** (Importa dall'URL).
 
-    c.  Fare clic su **Import from URL** (Importa dall'URL).
-    
-    d.  Incollare l'URL dei metadati copiato e fare clic su **OK**.
-    
-    e.  Confermare con **OK** per impostare i valori automaticamente.
-    
-    f.  Abilitare **Show on Login Page** (Mostra nella pagina di accesso).
-    
-    g.  Abilitare **Dynamic User Creation** (Creazione utenti dinamica) se si vuole che Azure AD aggiunga automaticamente gli utenti autorizzati. Questa impostazione è facoltativa.
-    
-    h.  Creare un **titolo** per il pulsante sul portale Self-service.
+    b.  Incollare l'URL dei metadati copiato e fare clic su **OK**.
 
-    i.  Caricare un'**icona** facendo clic su **Choose File** (Scegli file).
-    
-    j.  Selezionare il **colore** di sfondo per il pulsante.
-    
-    k.  Fare clic su **Save**.
+    c.  Confermare con **OK** per impostare i valori automaticamente.
+
+    d.  Abilitare **Show on Login Page** (Mostra nella pagina di accesso).
+
+    e.  Abilitare **Dynamic User Creation** (Creazione utenti dinamica) se si vuole che Azure AD aggiunga automaticamente gli utenti autorizzati. Questa impostazione è facoltativa.
+
+    f.  Creare un **titolo** per il pulsante sul portale Self-service.
+
+    g.  Caricare un'**icona** facendo clic su **Choose File** (Scegli file).
+
+    h.  Selezionare il **colore** di sfondo per il pulsante.
+
+    i.  Fare clic su **Save**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-   ![Creare un utente test di Azure AD][100]
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
-**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
+    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
-1. Nel portale di Azure fare clic sul pulsante **Azure Active Directory** nel riquadro sinistro.
+2. Selezionare **Nuovo utente** in alto nella schermata.
 
-    ![Pulsante Azure Active Directory](./media/silverback-tutorial/create_aaduser_01.png)
+    ![Pulsante Nuovo utente](common/new-user.png)
 
-2. Per visualizzare l'elenco di utenti, passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
+3. In Proprietà utente seguire questa procedura.
 
-    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](./media/silverback-tutorial/create_aaduser_02.png)
+    ![Finestra di dialogo Utente](common/user-properties.png)
 
-3. Per aprire la finestra di dialogo **Utente** fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
+    a. Nel campo **Nome** immettere **BrittaSimon**.
+  
+    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    Ad esempio: BrittaSimon@contoso.com
 
-    ![Pulsante Aggiungi](./media/silverback-tutorial/create_aaduser_03.png)
-
-4. Nella finestra di dialogo **Utente** seguire questa procedura:
-
-    ![Finestra di dialogo Utente](./media/silverback-tutorial/create_aaduser_04.png)
-
-    a. Nella casella **Nome** digitare **BrittaSimon**.
-
-    b. Nella casella **Nome utente** digitare l'indirizzo di posta elettronica dell'utente Britta Simon.
-
-    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
+    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Create**(Crea).
- 
-### <a name="create-a-silverback-test-user"></a>Creare un utente di test di Silverback
+
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Silverback.
+
+1. Nel portale di Azure, selezionare **applicazioni aziendali**, selezionare **tutte le applicazioni**, quindi selezionare **Silverback**.
+
+    ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
+
+2. Nell'elenco delle applicazioni selezionare **Silverback**.
+
+    ![Collegamento di Silverback nell'elenco delle applicazioni](common/all-applications.png)
+
+3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+
+    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
+
+4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+
+    ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
+
+5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
+
+6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
+
+7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+
+### <a name="create-silverback-test-user"></a>Creare l'utente di test Silverback
 
 Per consentire agli utenti di Azure AD di accedere a Silverback, è necessario effettuarne il provisioning in Silverback. Nel caso di Silverback il provisioning è un'attività manuale.
 
@@ -195,7 +209,7 @@ Per consentire agli utenti di Azure AD di accedere a Silverback, è necessario e
 
 3. Nella pagina **Basic** (Informazioni di base) seguire questa procedura:
 
-    ![Utente ](./media/silverback-tutorial/tutorial_silverback_user.png)
+    ![Utente](./media/silverback-tutorial/tutorial_silverback_user.png)
 
     a. Nella casella di testo **Username** (Nome utente) digitare il nome dell'utente, ad esempio **Britta**.
 
@@ -206,69 +220,25 @@ Per consentire agli utenti di Azure AD di accedere a Silverback, è necessario e
     d. Nella casella di testo **Email address** (Indirizzo di posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio **Brittasimon@contoso.com**.
 
     e. Nella casella di testo **Password** immettere la password.
-    
+
     f. Nella casella di testo **Confirm Password** (Conferma password) immettere nuovamente la password e confermare.
 
     g. Fare clic su **Save**.
 
->[!NOTE]
->Se non si vuole creare ogni utente manualmente, abilitare la casella di controllo **Dynamic User Creation** (Creazione utenti dinamica) in **Admin** (Amministratore)  > **Authentication Provider** (Provider di autenticazione).
+> [!NOTE]
+> Se non si vuole creare ogni utente manualmente, abilitare la casella di controllo **Dynamic User Creation** (Creazione utenti dinamica) in **Admin** (Amministratore)  > **Authentication Provider** (Provider di autenticazione).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
-
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Silverback.
-
-![Assegnare il ruolo utente][200] 
-
-**Per assegnare Britta Simon a Silverback, seguire questa procedura:**
-
-1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
-
-    ![Assegna utente][201] 
-
-2. Nell'elenco delle applicazioni selezionare **Silverback**.
-
-    ![Collegamento di Silverback nell'elenco delle applicazioni](./media/silverback-tutorial/tutorial_silverback_app.png)  
-
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
-
-    ![Collegamento "Utenti e gruppi"][202]
-
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
-
-    ![Riquadro Aggiungi assegnazione][203]
-
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
-
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
-
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
-    
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Silverback nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Silverback.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Quando si fa clic sul riquadro Silverback nel Pannello di accesso, si dovrebbe automaticamente accedere per il Silverback per il quale configurare SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/silverback-tutorial/tutorial_general_01.png
-[2]: ./media/silverback-tutorial/tutorial_general_02.png
-[3]: ./media/silverback-tutorial/tutorial_general_03.png
-[4]: ./media/silverback-tutorial/tutorial_general_04.png
-
-[100]: ./media/silverback-tutorial/tutorial_general_100.png
-
-[200]: ./media/silverback-tutorial/tutorial_general_200.png
-[201]: ./media/silverback-tutorial/tutorial_general_201.png
-[202]: ./media/silverback-tutorial/tutorial_general_202.png
-[203]: ./media/silverback-tutorial/tutorial_general_203.png
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

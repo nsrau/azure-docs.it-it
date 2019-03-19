@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/10/2017
 ms.author: alkohli
-ms.openlocfilehash: 297282c03b842a095dba88f14b81df34b9c6d54f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e09ff4bcbc141b1a1f80bc278918a291639c1885
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247569"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005416"
 ---
 # <a name="install-update-05-on-your-storsimple-virtual-array"></a>Installare l'aggiornamento 0.5 nell'array virtuale StorSimple
 
@@ -57,7 +57,7 @@ Eseguire i passaggi seguenti per scaricare l'aggiornamento del software da Micro
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Per scaricare l'aggiornamento o l'hotfix
 
-1. Avviare Internet Explorer e passare a [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
+1. Avviare Internet Explorer e passare a [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
 
 2. Se si usa Microsoft Update Catalog nel computer per la prima volta, fare clic su **Installa** quando viene richiesto di installare il componente aggiuntivo Microsoft Update Catalog.
 

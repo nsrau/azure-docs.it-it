@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 1d6c0a8ca04949216e6410ff81b15f79c7067522
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: d6601f57d87b518b2061df64174818432b822755
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217289"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076191"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Protocollo WebSocket di Riconoscimento vocale Bing
 
@@ -91,7 +92,7 @@ I client *devono* supportare i cookie HTTP come specificato in [RFC 6265](https:
 
 ### <a name="http-redirection"></a>Reindirizzamento HTTP
 
-I client *devono* supportare i meccanismi di reindirizzamento standard definiti dalla [specifica del protocollo HTTP](http://www.w3.org/Protocols/rfc2616/rfc2616.html).
+I client *devono* supportare i meccanismi di reindirizzamento standard definiti dalla [specifica del protocollo HTTP](https://www.w3.org/Protocols/rfc2616/rfc2616.html).
 
 ### <a name="speech-endpoints"></a>Endpoint del riconoscimento vocale
 
@@ -99,9 +100,9 @@ I client *devono* usare un endpoint appropriato del Servizio di riconoscimento v
 
 | Mode | path | URI del servizio |
 | -----|-----|-----|
-| Interattività | /speech/recognition/interactive/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| Conversazione | /speech/recognition/conversation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
-| Dettatura | /speech/recognition/dictation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
+| Interattività | /speech/recognition/interactive/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
+| Conversazione | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
+| Dettatura | /speech/recognition/dictation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
 
 Per altre informazioni, vedere [URI del servizio](../GetStarted/GetStartedREST.md#service-uri).
 
@@ -131,13 +132,13 @@ I messaggi WebSocket di testo devono specificare un percorso nell'intestazione *
 
 ### <a name="binary-websocket-messages"></a>Messaggi WebSocket binari
 
-I messaggi WebSocket binari trasportano un payload di dati binari. Nel protocollo del Servizio di riconoscimento vocale, l'audio viene trasmesso e ricevuto dal servizio tramite messaggi WebSocket binari. Tutti gli altri messaggi sono di tipo WebSocket di testo. 
+I messaggi WebSocket binari trasportano un payload di dati binari. Nel protocollo del Servizio di riconoscimento vocale, l'audio viene trasmesso e ricevuto dal servizio tramite messaggi WebSocket binari. Tutti gli altri messaggi sono di tipo WebSocket di testo.
 
 Come quelli di testo, i messaggi WebSocket binari sono costituiti da un'intestazione e da un corpo. I primi 2 byte del messaggio WebSocket binario specificano, in ordine [big-endian](https://en.wikipedia.org/wiki/Endianness), la dimensione in integer a 16 bit della sezione di intestazione. La dimensione minima della sezione di intestazione è di 0 byte. La dimensione massima è pari a 8192 byte. Per il testo nelle intestazioni dei messaggi WebSocket binari *deve* essere usata la codifica [US-ASCII](https://tools.ietf.org/html/rfc20).
 
 Le intestazioni in un messaggio WebSocket binario vengono codificate nello stesso formato usato per i messaggi WebSocket di testo. Il formato *nome:valore* è separato da una coppia di simboli di nuova riga e singolo ritorno a capo. I messaggi WebSocket binari devono specificare un percorso nell'intestazione *Path*. Il valore di questa intestazione deve corrispondere a uno dei tipi di messaggio del protocollo di riconoscimento vocale definiti più avanti in questo documento.
 
-Nel protocollo del Servizio di riconoscimento vocale vengono usati entrambi i tipi di messaggi WebSocket di testo e binari. 
+Nel protocollo del Servizio di riconoscimento vocale vengono usati entrambi i tipi di messaggi WebSocket di testo e binari.
 
 ## <a name="client-originated-messages"></a>Messaggi generati dal client
 
@@ -187,7 +188,7 @@ I client *devono* inviare un messaggio `speech.config` immediatamente dopo aver 
 Come per tutti i messaggi generati dal client nel protocollo del Servizio di riconoscimento vocale, il messaggio `speech.config` *deve* includere un'intestazione *X-Timestamp* che registra l'ora UTC dell'orologio del client in cui il messaggio è stato inviato al servizio. Il messaggio `speech.config` *non* richiede un'intestazione *X-RequestId* perché non è associato a una particolare richiesta di riconoscimento vocale.
 
 #### <a name="message-payload"></a>Payload del messaggio
-Il payload del messaggio `speech.config` è costituito da una struttura JSON che contiene informazioni sull'applicazione. L'esempio seguente illustra queste informazioni. Le informazioni sul contesto del client e del dispositivo sono incluse nell'elemento *context* della struttura JSON. 
+Il payload del messaggio `speech.config` è costituito da una struttura JSON che contiene informazioni sull'applicazione. L'esempio seguente illustra queste informazioni. Le informazioni sul contesto del client e del dispositivo sono incluse nell'elemento *context* della struttura JSON.
 
 ```JSON
 {
@@ -218,17 +219,17 @@ L'elemento system.version del messaggio `speech.config` contiene la versione del
 
 | Campo | DESCRIZIONE | Uso |
 |-|-|-|
-| os.platform | Piattaforma del sistema operativo che ospita l'applicazione, ad esempio Windows, Android, iOS o Linux |Obbligatoria |
-| os.name | Nome del sistema operativo, ad esempio Debian o Windows 10 | Obbligatoria |
-| os.version | Versione del sistema operativo nel formato *major.minor.build.branch* | Obbligatoria |
+| os.platform | Piattaforma del sistema operativo che ospita l'applicazione, ad esempio Windows, Android, iOS o Linux |Obbligatorio |
+| os.name | Nome del sistema operativo, ad esempio Debian o Windows 10 | Obbligatorio |
+| os.version | Versione del sistema operativo nel formato *major.minor.build.branch* | Obbligatorio |
 
 ##### <a name="device-element"></a>Elemento device
 
 | Campo | DESCRIZIONE | Uso |
 |-|-|-|
-| device.manufacturer | Produttore dell'hardware del dispositivo | Obbligatoria |
-| device.model | Modello del dispositivo | Obbligatoria |
-| device.version | Versione del software del dispositivo definita dal produttore. Questo valore specifica una versione del dispositivo di cui può tenere traccia il produttore. | Obbligatoria |
+| device.manufacturer | Produttore dell'hardware del dispositivo | Obbligatorio |
+| device.model | Modello del dispositivo | Obbligatorio |
+| device.version | Versione del software del dispositivo definita dal produttore. Questo valore specifica una versione del dispositivo di cui può tenere traccia il produttore. | Obbligatorio |
 
 ### <a name="message-audio"></a>Messaggio `audio`
 
@@ -507,10 +508,10 @@ La metrica `Connection` specifica i dettagli relativi ai tentativi di connession
 
 | Campo | DESCRIZIONE | Uso |
 | ----- | ----------- | ----- |
-| NOME | `Connection` | Obbligatoria |
-| ID | Valore dell'identificatore di connessione che è stato usato nell'intestazione *X-ConnectionId* per la richiesta di connessione | Obbligatoria |
-| Inizia | Data e ora in cui il client ha inviato la richiesta di connessione | Obbligatoria |
-| End | Data e ora in cui il client ha ricevuto la notifica che la connessione è stata stabilita correttamente o, in caso di errore, è stata respinta o rifiutata oppure non è riuscita | Obbligatoria |
+| NOME | `Connection` | Obbligatorio |
+| ID | Valore dell'identificatore di connessione che è stato usato nell'intestazione *X-ConnectionId* per la richiesta di connessione | Obbligatorio |
+| Inizia | Data e ora in cui il client ha inviato la richiesta di connessione | Obbligatorio |
+| End | Data e ora in cui il client ha ricevuto la notifica che la connessione è stata stabilita correttamente o, in caso di errore, è stata respinta o rifiutata oppure non è riuscita | Obbligatorio |
 | Tipi di errore | Descrizione dell'eventuale errore. Se la connessione ha avuto esito positivo, i client devono omettere questo campo. Il campo può contenere al massimo 50 caratteri. | Obbligatorio in caso di errore, altrimenti omesso |
 
 La descrizione dell'errore deve includere al massimo 50 caratteri e dovrebbe preferibilmente specificare uno dei valori elencati nella tabella seguente. Se la condizione di errore non corrisponde a uno di questi valori, i client possono usare una breve descrizione della condizione di errore usando la notazione [camelCase](https://en.wikipedia.org/wiki/Camel_case) senza spazi vuoti. Per l'invio di un messaggio di *telemetria* è necessario che sia attiva la connessione al servizio. Nel messaggio di *telemetria* possono pertanto essere segnalate solo condizioni di errore transitorie o temporanee. Le condizioni di errore che causano il blocco *permanente* della connessione del client al servizio impediscono al client di inviare messaggi al servizio, inclusi quelli di *telemetria*.
@@ -527,7 +528,7 @@ La descrizione dell'errore deve includere al massimo 50 caratteri e dovrebbe pre
 | ServerUnavailable | Il client non è riuscito a connettersi al servizio perché quest'ultimo ha restituito un codice di stato HTTP `503 Server Unavailable` nella richiesta di aggiornamento a WebSocket. |
 | ServerError | Il client non è riuscito a connettersi al servizio perché quest'ultimo ha restituito un codice di stato di errore interno `HTTP 500` nella richiesta di aggiornamento a WebSocket. |
 | Timeout | Si è verificato il timeout della richiesta di connessione del client senza una risposta proveniente dal servizio. Il campo *End* contiene la data e l'ora in cui si è verificato il timeout del client o è stata interrotta l'attesa della connessione. |
-| ClientError | Il client ha terminato la connessione a causa di alcuni errori interni del client. | 
+| ClientError | Il client ha terminato la connessione a causa di alcuni errori interni del client. |
 
 ### <a name="metric-microphone"></a>Metrica `Microphone`
 
@@ -547,9 +548,9 @@ Il valore temporale *End* per la metrica `Microphone` registra il momento in cui
 
 | Campo | DESCRIZIONE | Uso |
 | ----- | ----------- | ----- |
-| NOME | Microphone | Obbligatoria |
-| Inizia | Data e ora in cui il client ha iniziato a usare l'input audio proveniente dal microfono o un altro flusso audio oppure ha ricevuto un trigger dal rilevatore di parole chiave | Obbligatoria |
-| End | Data e ora in cui il client ha arrestato l'uso del microfono o del flusso audio | Obbligatoria |
+| NOME | Microphone | Obbligatorio |
+| Inizia | Data e ora in cui il client ha iniziato a usare l'input audio proveniente dal microfono o un altro flusso audio oppure ha ricevuto un trigger dal rilevatore di parole chiave | Obbligatorio |
+| End | Data e ora in cui il client ha arrestato l'uso del microfono o del flusso audio | Obbligatorio |
 | Tipi di errore | Descrizione dell'eventuale errore. Se le operazioni del microfono sono state eseguite correttamente, i client devono omettere questo campo. Il campo può contenere al massimo 50 caratteri. | Obbligatorio in caso di errore, altrimenti omesso |
 
 ### <a name="metric-listeningtrigger"></a>Metrica `ListeningTrigger`
@@ -568,8 +569,8 @@ Usare gli esempi seguenti come linee guida per la registrazione dei valori tempo
 | Campo | DESCRIZIONE | Uso |
 | ----- | ----------- | ----- |
 | NOME | ListeningTrigger | Facoltativo |
-| Inizia | Data e ora in cui il trigger di ascolto del client è iniziato | Obbligatoria |
-| End | Data e ora in cui il trigger di ascolto del client è terminato | Obbligatoria |
+| Inizia | Data e ora in cui il trigger di ascolto del client è iniziato | Obbligatorio |
+| End | Data e ora in cui il trigger di ascolto del client è terminato | Obbligatorio |
 | Tipi di errore | Descrizione dell'eventuale errore. Se l'operazione di trigger è stata eseguita correttamente, i client devono omettere questo campo. Il campo può contenere al massimo 50 caratteri. | Obbligatorio in caso di errore, altrimenti omesso |
 
 #### <a name="sample-message"></a>Messaggio di esempio
@@ -636,7 +637,7 @@ Se il Servizio di riconoscimento vocale rileva eventuali violazioni del protocol
 
 #### <a name="incorrect-message-format"></a>Formato del messaggio non corretto
 
-Se un client invia al servizio un messaggio di testo o binario che non è codificato nel formato corretto definito in questa specifica, il servizio chiude la connessione con un codice di stato *1007 - Dati di payload non validi*. 
+Se un client invia al servizio un messaggio di testo o binario che non è codificato nel formato corretto definito in questa specifica, il servizio chiude la connessione con un codice di stato *1007 - Dati di payload non validi*.
 
 Questo codice di stato viene restituito per vari motivi, come illustrato negli esempi di messaggio seguenti:
 

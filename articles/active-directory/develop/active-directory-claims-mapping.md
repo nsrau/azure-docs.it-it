@@ -13,12 +13,12 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aad699df2de8b745058784790e672f5b8c6e98e9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: af00c311b406a0bae285a00f0d537ce9bae3aa7e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209745"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102111"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedura: Personalizzare le attestazioni generate nei token per un'app specifica in un tenant (anteprima)
 
@@ -109,13 +109,13 @@ Alcuni set di attestazioni definiscono come e quando vengono usate nei token.
 |hasgroups|
 |hash_alg|
 |home_oid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/expired|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`|
 |iat|
 |identityprovider|
 |idp|
@@ -189,52 +189,52 @@ Alcuni set di attestazioni definiscono come e quando vengono usate nei token.
 
 |Tipo di attestazione (URI)|
 | ----- |
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/expired|
-|http://schemas.microsoft.com/identity/claims/accesstoken|
-|http://schemas.microsoft.com/identity/claims/openid2_id|
-|http://schemas.microsoft.com/identity/claims/identityprovider|
-|http://schemas.microsoft.com/identity/claims/objectidentifier|
-|http://schemas.microsoft.com/identity/claims/puid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1] |
-|http://schemas.microsoft.com/identity/claims/tenantid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod|
-|http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/groups|
-|http://schemas.microsoft.com/claims/groups.link|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/role|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/wids|
-|http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant|
-|http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown|
-|http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged|
-|http://schemas.microsoft.com/2014/03/psso|
-|http://schemas.microsoft.com/claims/authnmethodsreferences|
-|http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/samlissuername|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/confirmationkey|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authorizationdecision|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlywindowsdevicegroup|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdeviceclaim|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsfqbnversion|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowssubauthority|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsuserclaim|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/ispersistent|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier|
-|http://schemas.microsoft.com/identity/claims/scope|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
+|`http://schemas.microsoft.com/identity/claims/accesstoken`|
+|`http://schemas.microsoft.com/identity/claims/openid2_id`|
+|`http://schemas.microsoft.com/identity/claims/identityprovider`|
+|`http://schemas.microsoft.com/identity/claims/objectidentifier`|
+|`http://schemas.microsoft.com/identity/claims/puid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1] `|
+|`http://schemas.microsoft.com/identity/claims/tenantid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
+|`http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`|
+|`http://schemas.microsoft.com/claims/groups.link`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/role`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/wids`|
+|`http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant`|
+|`http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown`|
+|`http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged`|
+|`http://schemas.microsoft.com/2014/03/psso`|
+|`http://schemas.microsoft.com/claims/authnmethodsreferences`|
+|`http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/samlissuername`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/confirmationkey`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authorizationdecision`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlywindowsdevicegroup`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdeviceclaim`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsfqbnversion`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowssubauthority`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsuserclaim`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/ispersistent`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier`|
+|`http://schemas.microsoft.com/identity/claims/scope`|
 
 ## <a name="claims-mapping-policy-properties"></a>Proprietà di criteri di mapping di attestazioni
 
@@ -448,72 +448,72 @@ Per iniziare, seguire questa procedura:
         Get-AzureADPolicy
     
     ```
-#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Esempio: Creare e assegnare un criterio per omettere le attestazioni di base dai token emessi per un'entità servizio.
-In questo esempio si creano criteri che rimuovono il set di attestazioni di base dai token emessi per le entità servizio collegate.
+   #### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Esempio: Creare e assegnare un criterio per omettere le attestazioni di base dai token emessi per un'entità servizio.
+   In questo esempio si creano criteri che rimuovono il set di attestazioni di base dai token emessi per le entità servizio collegate.
 
 1. Creare i criteri di mapping delle attestazioni. Questi criteri, che vengono collegati a specifiche entità servizio, rimuovono il set di attestazioni di base dai token.
-    1. Per creare i criteri, eseguire questo comando: 
+   1. Per creare i criteri, eseguire questo comando: 
     
-     ``` powershell
-    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims" -Type "ClaimsMappingPolicy"
-    ```
-    2. Per visualizzare il nuovo criterio e ottenere il relativo ObjectId, eseguire questo comando:
+      ``` powershell
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims" -Type "ClaimsMappingPolicy"
+      ```
+   2. Per visualizzare il nuovo criterio e ottenere il relativo ObjectId, eseguire questo comando:
     
-     ``` powershell
-    Get-AzureADPolicy
-    ```
+      ``` powershell
+      Get-AzureADPolicy
+      ```
 1. Assegnare i criteri all'entità servizio. È necessario ottenere anche l'ObjectId dell'entità servizio. 
-    1.  Per visualizzare tutte le entità servizio dell'organizzazione, è possibile eseguire query in Microsoft Graph. In alternativa, eseguire l'accesso all'account Azure AD dallo strumento Graph Explorer di Azure AD.
-    2.  Dopo aver ottenuto l'ObjectId dell'entità servizio, eseguire questo comando:  
+   1. Per visualizzare tutte le entità servizio dell'organizzazione, è possibile eseguire query in Microsoft Graph. In alternativa, eseguire l'accesso all'account Azure AD dallo strumento Graph Explorer di Azure AD.
+   2. Dopo aver ottenuto l'ObjectId dell'entità servizio, eseguire questo comando:  
      
-     ``` powershell
-    Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-    ```
+      ``` powershell
+      Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+      ```
 
 #### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Esempio: Creare e assegnare un criterio per includere EmployeeID e TenantCountry come attestazioni nei token emessi per un'entità servizio
 
 In questo esempio si creano criteri che aggiungono EmployeeID e TenantCountry ai token emessi per le entità servizio collegate. EmployeeID viene emesso come tipo di attestazione nome sia nei token SAML sia nei token JWT. TenantCountry viene emesso come tipo di attestazione paese sia nei token SAML sia nei token JWT. In questo esempio si continua a includere il set di attestazioni di base nei token.
 
 1. Creare i criteri di mapping delle attestazioni. Questi criteri, che vengono collegati a specifiche entità servizio, aggiungono le attestazioni EmployeeID e TenantCountry ai token.
-    1. Per creare i criteri, eseguire questo comando:  
+   1. Per creare i criteri, eseguire questo comando:  
      
-     ``` powershell
-    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
-    ```
+      ``` powershell
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
+      ```
     
-    2. Per visualizzare il nuovo criterio e ottenere il relativo ObjectId, eseguire questo comando:
+   2. Per visualizzare il nuovo criterio e ottenere il relativo ObjectId, eseguire questo comando:
      
-     ``` powershell  
-    Get-AzureADPolicy
-    ```
+      ``` powershell  
+      Get-AzureADPolicy
+      ```
 1. Assegnare i criteri all'entità servizio. È necessario ottenere anche l'ObjectId dell'entità servizio. 
-    1.  Per visualizzare tutte le entità servizio dell'organizzazione, è possibile eseguire query in Microsoft Graph. In alternativa, eseguire l'accesso all'account Azure AD dallo strumento Graph Explorer di Azure AD.
-    2.  Dopo aver ottenuto l'ObjectId dell'entità servizio, eseguire questo comando:  
+   1. Per visualizzare tutte le entità servizio dell'organizzazione, è possibile eseguire query in Microsoft Graph. In alternativa, eseguire l'accesso all'account Azure AD dallo strumento Graph Explorer di Azure AD.
+   2. Dopo aver ottenuto l'ObjectId dell'entità servizio, eseguire questo comando:  
      
-     ``` powershell
-    Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-    ```
+      ``` powershell
+      Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+      ```
 
 #### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Esempio: Creare e assegnare i criteri con una trasformazione di attestazioni in token emessi per un'entità servizio
 
 In questo esempio si creano i criteri che generano un'attestazione personalizzata "JoinedData" nei token JWT emessi per le entità servizio collegate. Questa attestazione contiene un valore creato aggiungendo i dati archiviati nell'attributo extensionattribute1 all'oggetto utente con ".sandbox". In questo esempio si esclude il set di attestazioni di base nei token.
 
 1. Creare i criteri di mapping delle attestazioni. Questi criteri, che vengono collegati a specifiche entità servizio, aggiungono le attestazioni EmployeeID e TenantCountry ai token.
-    1. Per creare i criteri, eseguire questo comando: 
+   1. Per creare i criteri, eseguire questo comando: 
      
-     ``` powershell
-    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy" 
-    ```
+      ``` powershell
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy" 
+      ```
     
-    2. Per visualizzare il nuovo criterio e ottenere il relativo ObjectId, eseguire questo comando: 
+   2. Per visualizzare il nuovo criterio e ottenere il relativo ObjectId, eseguire questo comando: 
      
-     ``` powershell
-    Get-AzureADPolicy
-    ```
+      ``` powershell
+      Get-AzureADPolicy
+      ```
 1. Assegnare i criteri all'entità servizio. È necessario ottenere anche l'ObjectId dell'entità servizio. 
-    1.  Per visualizzare tutte le entità servizio dell'organizzazione, è possibile eseguire query in Microsoft Graph. In alternativa, eseguire l'accesso all'account Azure AD dallo strumento Graph Explorer di Azure AD.
-    2.  Dopo aver ottenuto l'ObjectId dell'entità servizio, eseguire questo comando: 
+   1. Per visualizzare tutte le entità servizio dell'organizzazione, è possibile eseguire query in Microsoft Graph. In alternativa, eseguire l'accesso all'account Azure AD dallo strumento Graph Explorer di Azure AD.
+   2. Dopo aver ottenuto l'ObjectId dell'entità servizio, eseguire questo comando: 
      
-     ``` powershell
-    Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-    ```
+      ``` powershell
+      Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+      ```

@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: aschhab
-ms.openlocfilehash: c320e06881c73feb228b9d5f49243d7e1d321f52
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 9915392f7bb12b31dce6e141383a48b69c6f70a9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847562"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842771"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>Come usare le code del bus di servizio con PHP
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -28,11 +28,13 @@ Questa guida illustra come usare le code del bus di servizio. Gli esempi sono sc
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
 ## <a name="create-a-php-application"></a>Creare un'applicazione PHP
 Per creare un'applicazione PHP che acceda al servizio BLOB di Azure, è sufficiente fare riferimento alle classi in [Azure SDK per PHP](../php-download-sdk.md) dall'interno del codice. Per creare l'applicazione, è possibile usare qualsiasi strumento di sviluppo o il Blocco note.
 
 > [!NOTE]
-> L'installazione di PHP deve avere anche l'[estensione OpenSSL](http://php.net/openssl) installata e abilitata.
+> L'installazione di PHP deve avere anche l'[estensione OpenSSL](https://php.net/openssl) installata e abilitata.
 > 
 > 
 
@@ -223,6 +225,6 @@ Per altre informazioni, vedere anche il [Centro per sviluppatori PHP](https://az
 
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[require_once]: http://php.net/require_once
+[require_once]: https://php.net/require_once
 
 

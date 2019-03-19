@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 88dcc7110acaf42243d0ebb3c1ae25aa6d0bca46
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: 8df587db7655e2aafd876d80581f3296c8c99fbf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257973"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004101"
 ---
 # <a name="dependency-visualization"></a>Visualizzazione delle dipendenze
 
@@ -26,7 +26,7 @@ La visualizzazione delle dipendenze in Azure Migrate consente di creare gruppi c
 
 ## <a name="how-does-it-work"></a>Come funziona?
 
-Per visualizzare le dipendenze, Azure Migrate usa la soluzione [Elenco dei servizi](../operations-management-suite/operations-management-suite-service-map.md) in [Log Analytics](../log-analytics/log-analytics-overview.md).
+Azure Migrate Usa la [Service Map](../operations-management-suite/operations-management-suite-service-map.md) soluzioni in [monitoraggio di Azure registra](../log-analytics/log-analytics-overview.md) per visualizzare le dipendenze.
 - Per sfruttare i vantaggi della visualizzazione delle dipendenze è possibile associare un'area di lavoro di Log Analytics, nuova o esistente, a un progetto di Azure Migrate.
 - È possibile creare o collegare solo un'area di lavoro nella stessa sottoscrizione in cui viene creato il progetto di migrazione.
 - Per collegare un'area di lavoro di Log Analytics a un progetto, passare alla sezione **Essentials** della pagina **Panoramica** del progetto e fare clic su **Configurazione richiesta**
@@ -34,8 +34,8 @@ Per visualizzare le dipendenze, Azure Migrate usa la soluzione [Elenco dei servi
     ![Associare un'area di lavoro di Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
 
 - Durante l'associazione di un'area di lavoro si avrà la possibilità di creare una nuova area di lavoro o di collegarne una esistente:
-      - Quando si crea una nuova area di lavoro è necessario specificare un nome per essa. L'area di lavoro viene quindi creata in una regione della stessa [area geografica di Azure](https://azure.microsoft.com/global-infrastructure/geographies/) come progetto di migrazione.
-      - Quando si collega un'area di lavoro esistente, è possibile sceglierla tra tutte le aree di lavoro disponibili nella stessa sottoscrizione del progetto di migrazione. Sono elencate solo le aree di lavoro create in un'area geografica in cui [è supportato il mapping dei servizi](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). Per poter collegare un'area di lavoro è necessario avere l'accesso in lettura all'area di lavoro.
+  - Quando si crea una nuova area di lavoro è necessario specificare un nome per essa. L'area di lavoro viene quindi creata in una regione della stessa [area geografica di Azure](https://azure.microsoft.com/global-infrastructure/geographies/) come progetto di migrazione.
+  - Quando si collega un'area di lavoro esistente, è possibile sceglierla tra tutte le aree di lavoro disponibili nella stessa sottoscrizione del progetto di migrazione. Sono elencate solo le aree di lavoro create in un'area geografica in cui [è supportato il mapping dei servizi](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). Per poter collegare un'area di lavoro è necessario avere l'accesso in lettura all'area di lavoro.
 
   > [!NOTE]
   > Dopo aver collegato un'area di lavoro a un progetto, non è più possibile modificarla.

@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 13042a25a0bf106dd579e7d5e8cf8553a79c8f00
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: bf2f2db57f33645389fd751c8c00f9f135416c50
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002090"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864134"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Modalità offline dello streaming Widevine per Android  
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Versione 3](../latest/offline-widevine-for-android.md)
+> * [Versione 2](offline-widevine-for-android.md)
 
 Oltre a proteggere il contenuto per lo streaming online, i servizi di sottoscrizione e noleggio di contenuti multimediali offrono la possibilità di scaricare contenuto utilizzabile anche quando non si è connessi a Internet. Può ad esempio essere necessario scaricare contenuto sullo smartphone o sul tablet per la riproduzione in modalità aereo quando si è disconnessi dalla rete durante il volo. Il download di contenuto può essere utile anche in altri scenari, come nei casi seguenti:
 

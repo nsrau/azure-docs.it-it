@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 71a69a8c299d4469c151102b0dbd5cdb70c296ec
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: 3b2a34a5ed2c6b57bfce0b9a4cf35cdf14cff9c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980230"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900081"
 ---
 # <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>Creare una nuova offerta di un contenitore nel portale Cloud Partner
 
@@ -34,7 +34,7 @@ Questo articolo descrive come creare e pubblicare una voce di offerta di un cont
 
 ## <a name="new-offer-form"></a>Modulo Nuova offerta 
 
-Accedere al [portale Cloud Partner](http://cloudpartner.azure.com/) e quindi selezionare **+ Nuova offerta** nella barra dei menu a sinistra. Nel menu Nuova offerta selezionare **Contenitori** per visualizzare il modulo **Nuova offerta** e avviare il processo di definizione degli asset per la nuova offerta del contenitore.
+Accedere al [portale Cloud Partner](https://cloudpartner.azure.com/) e quindi selezionare **+ Nuova offerta** nella barra dei menu a sinistra. Nel menu Nuova offerta selezionare **Contenitori** per visualizzare il modulo **Nuova offerta** e avviare il processo di definizione degli asset per la nuova offerta del contenitore.
 
 ![Selezionare l'opzione Contenitori per la nuova offerta](./media/azure-container-offer.png)
 

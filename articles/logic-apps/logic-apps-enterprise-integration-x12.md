@@ -1,5 +1,5 @@
 ---
-title: Messaggi X12 per l'integrazione aziendale B2B - App per la logica di Azure | Microsoft Docs
+title: Messaggi X12 per l'integrazione aziendale B2B - App per la logica di Azure | Documentazione Microsoft
 description: Scambiare messaggi X12 in formato EDI per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.date: 01/31/2017
-ms.openlocfilehash: c4ee56f4ddcccb1fc4ddd84aa1c1b16dea9754d9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: 6665ea8bc4016c9d64005f9c742115cf785ed5ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123958"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842141"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Scambiare messaggi X12 per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
 
@@ -36,9 +36,10 @@ Dopo aver [creato un account di integrazione](../logic-apps/logic-apps-enterpris
 
 ## <a name="create-an-x12-agreement"></a>Creare un contratto X12
 
-1. Accedere al [Portale di Azure](http://portal.azure.com "Portale di Azure"). 
+1. Accedere al [Portale di Azure](https://portal.azure.com "Portale di Azure"). 
 
-2. Nel menu principale di Azure selezionare **Tutti i servizi**. Nella casella di ricerca immettere "integrazione" e quindi selezionare **Account di integrazione**.  
+2. Nel menu principale di Azure selezionare **Tutti i servizi**. 
+   Nella casella di ricerca immettere "integrazione" e quindi selezionare **Account di integrazione**.  
 
    ![Trovare l'account di integrazione](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
@@ -49,7 +50,8 @@ Dopo aver [creato un account di integrazione](../logic-apps/logic-apps-enterpris
 
    ![Selezionare l'account di integrazione in cui si vuole creare il contratto](./media/logic-apps-enterprise-integration-x12/account-3.png)
 
-4. Selezionare **Panoramica**, quindi selezionare il riquadro **Contratti**. Se non è presente il riquadro dei contratti, aggiungerlo. 
+4. Selezionare **Panoramica**, quindi selezionare il riquadro **Contratti**. 
+   Se non è presente il riquadro dei contratti, aggiungerlo. 
 
    ![Selezionare il riquadro "Contratti"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
@@ -57,7 +59,10 @@ Dopo aver [creato un account di integrazione](../logic-apps/logic-apps-enterpris
 
    ![Selezionare "Aggiungi"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
-6. In **Aggiungi**, digitare un **nome** per il contratto. Come tipo di contratto selezionare **X12**. Selezionare il **Partner host**, l'**Identità host**, il **Partner guest**, e l'**Identità guest** per il contratto. Per altre informazioni sulla proprietà, vedere la tabella seguente.
+6. In **Aggiungi**, digitare un **nome** per il contratto. 
+   Come tipo di contratto selezionare **X12**. 
+   Selezionare il **Partner host**, l'**Identità host**, il **Partner guest**, e l'**Identità guest** per il contratto. 
+   Per altre informazioni sulla proprietà, vedere la tabella seguente.
 
     ![Fornire i dettagli relativi al contratto](./media/logic-apps-enterprise-integration-x12/x12-1.png)  
 
@@ -72,8 +77,8 @@ Dopo aver [creato un account di integrazione](../logic-apps/logic-apps-enterpris
     | Receive Settings (Impostazioni di ricezione) |Queste proprietà si applicano a tutti i messaggi ricevuti da un contratto. |
     | Send Settings (Impostazioni di invio) |Queste proprietà si applicano a tutti i messaggi inviati da un contratto. |  
 
-  > [!NOTE]
-  > La risoluzione del contratto X12 dipende dall'associazione del qualificatore e dell'identificatore del mittente con il qualificatore e l'identificatore del ricevente definita nel messaggio del partner in arrivo. Se per il partner vengono modificati questi valori, è necessario aggiornare anche il contratto.
+   > [!NOTE]
+   > La risoluzione del contratto X12 dipende dall'associazione del qualificatore e dell'identificatore del mittente con il qualificatore e l'identificatore del ricevente definita nel messaggio del partner in arrivo. Se per il partner vengono modificati questi valori, è necessario aggiornare anche il contratto.
 
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>Configurare il modo in cui il contratto riceve i messaggi
 
@@ -82,7 +87,7 @@ Dopo aver impostato le proprietà del contratto, è possibile configurare il mod
 1.  In **Aggiungi**, selezionare **Impostazioni di ricezione**.
 Configurare queste proprietà in base al contratto con il partner con cui si scambiano i messaggi. Per le descrizioni delle proprietà, vedere le tabelle in questa sezione.
 
-    Il controllo **Impostazioni di ricezione** è suddiviso nelle sezioni seguenti: Identificatori, Riconoscimento, Schemi, Buste, Numeri di controllo, Convalide e Impostazioni interne.
+    **Impostazioni di ricezione** è suddiviso nelle sezioni seguenti: Gli identificatori, Acknowledgment, schemi, buste, numeri di controllo, convalide e impostazioni interne.
 
 2. Al termine, assicurarsi di salvare le impostazioni selezionando **OK**.
 
@@ -117,7 +122,7 @@ Scegliere uno schema per ogni tipo di transazione (ST1) e di applicazione mitten
 
 | Proprietà | DESCRIZIONE |
 | --- | --- |
-| Version |Selezionare la versione X12 |
+| Versione |Selezionare la versione X12 |
 | Tipo di transazione (ST01) |Selezionare il tipo di transazione |
 | Sender Application (GS02) (Applicazione mittente (GS02)) |Selezionare l'applicazione del mittente |
 | SCHEMA |Selezionare il file di schema che si vuole usare. Gli schemi vengono aggiunti all'account di integrazione. |
@@ -178,7 +183,7 @@ Dopo aver completato ogni riga di convalida, ne viene aggiunta automaticamente u
 1.  In **Aggiungi**, selezionare **Impostazioni di avvio**.
 Configurare queste proprietà in base al contratto con il partner con cui si scambiano i messaggi. Per le descrizioni delle proprietà, vedere le tabelle in questa sezione.
 
-    Il controllo **Impostazioni di invio** è suddiviso nelle sezioni seguenti: Identificatori, Riconoscimento, Schemi, Buste, Set di caratteri e separatori, Numeri di controllo e Convalida.
+    **Impostazioni di invio** è suddiviso nelle sezioni seguenti: Gli identificatori, Acknowledgment, schemi, buste, set di caratteri e separatori, numeri di controllo e convalida.
 
 2. Al termine, assicurarsi di salvare le impostazioni selezionando **OK**.
 
@@ -211,7 +216,7 @@ Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazio
 
 | Proprietà | DESCRIZIONE |
 | --- | --- |
-| Version |Selezionare la versione X12 |
+| Versione |Selezionare la versione X12 |
 | Tipo di transazione (ST01) |Selezionare il tipo di transazione |
 | Schema |Selezionare lo schema da usare. Gli schemi si trovano nell'account di integrazione. Se si seleziona prima lo schema, viene automaticamente configurata la versione e il tipo di transizione  |
 

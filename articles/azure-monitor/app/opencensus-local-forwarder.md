@@ -1,5 +1,5 @@
 ---
-title: Servizio d'inoltro per tracce distribuite OpenCensus per Azure Application Insights | Microsoft Docs
+title: Azure Application Insights OpenCensus distributed traccia utilità di inoltro locali (anteprima) | Documentazione Microsoft
 description: Inoltrare intervalli e tracce distribuite OpenCensus da linguaggi come Python e Go in Azure Application Insights
 services: application-insights
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: f5f42ae5068440c3a90bf3b374238e18781b9770
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.openlocfilehash: a7efe663a75fa29a31e7157c5eab24c2973a3758
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004682"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002815"
 ---
-# <a name="local-forwarder"></a>Server d'inoltro locale
+# <a name="local-forwarder-preview"></a>Utilità di inoltro locali (anteprima)
 
 Il servizio d'inoltro locale è un agente che raccoglie dati di telemetria di Application Insights o [OpenCensus](https://opencensus.io/) da un'ampia gamma di SDK e li instrada ad Application Insights. Può essere eseguito sia in Windows sia in Linux. Può essere eseguito anche in macOS, ma al momento non è ufficialmente supportato.
 
@@ -27,7 +27,7 @@ Il servizio d'inoltro locale è un agente che raccoglie dati di telemetria di Ap
 
 Il servizio d'inoltro locale è un [progetto open source su GitHub](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases). Esistono diversi modi per eseguire il servizio d'inoltro locale su più piattaforme.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 #### <a name="windows-service"></a>Servizio Windows
 
@@ -79,14 +79,14 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
 
 In determinati casi d'uso può essere utile eseguire un server d'inoltro locale come applicazione console. Questa versione include le seguenti versioni eseguibili dell'host della console:
 * un file binario di .NET Core dipendente dal framework */ConsoleHost/publish/Microsoft.LocalForwarder.ConsoleHost.dll*. Per eseguire questo file binario è necessario che sia installato un runtime di .NET Core; per informazioni dettagliate, fare riferimento a questa [pagina](https://www.microsoft.com/net/download/dotnet-core/2.1) di download.
-```batchfile
-E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
-```
+  ```batchfile
+  E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
+  ```
 * un set completo di file binari di .NET Core per piattaforme x86 e x64. Per questi file non è necessario che venga eseguito un runtime di .NET Core. */ConsoleHost/win-x86/publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/win-x64/publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
-```batchfile
-E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
-E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
-```
+  ```batchfile
+  E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
+  E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
+  ```
 
 ### <a name="linux"></a>Linux
 

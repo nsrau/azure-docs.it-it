@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 3/12/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: cb70dd30d2c3218ac0ad6ef4bd7b71108845f8cb
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 11fd6a2c58671cc5d0bcf0593239eb9e62aca834
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476445"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109492"
 ---
 # <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Limitazione della frequenza per chiamata vocale, SMS, messaggi di posta elettronica, notifiche push dell'app Azure e post Webhook
 La limitazione della frequenza è una sospensione delle notifiche che si verifica quando un numero eccessivo di notifiche viene inviato a un particolare numero telefonico, indirizzo di posta elettronica o dispositivo. La limitazione assicura che gli avvisi siano gestibili ed eseguibili.
 
 I limiti della soglia di frequenza sono:
 
- - **SMS**: non più di 1 ogni 5 minuti.
- - **Chiamata vocale**: non più di 1 ogni 5 minuti.
- - **Messaggio di posta elettronica**: non più di 100 messaggi di posta elettronica in un'ora.
+- **SMS**: non più di 1 ogni 5 minuti.
+- **Chiamata vocale**: non più di 1 ogni 5 minuti.
+- **Messaggio di posta elettronica**: non più di 100 messaggi di posta elettronica in un'ora.
  
- Per le altre azioni non ci sono limiti di frequenza.
+  Per le altre azioni non ci sono limiti di frequenza.
 
 ## <a name="rate-limit-rules"></a>Regole dei limiti di frequenza
 - Vengono messi i limiti di frequenza per uno specifico numero di telefono o un indirizzo di posta elettronica quando si ricevono più avvisi rispetto alla soglia di frequenza.

@@ -10,12 +10,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8988035d2ef28dfe4da632baca2e11205bc88340
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9a1b8abf15233c06e8ff9e507b315cc8a3703970
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218109"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443335"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect:  Informazioni di riferimento su PowerShell ADSyncTools
 La documentazione seguente fornisce informazioni di riferimento sul modulo di PowerShell ADSyncTools.psm1 incluso in Azure AD Connect.
@@ -859,7 +859,7 @@ Accept wildcard characters: False
 ## <a name="restore-adsynctoolsexpiredcertificates"></a>Restore-ADSyncToolsExpiredCertificates
 
 ### <a name="synopsis"></a>RIEPILOGO
-(DA FARE) Ripristina l'attributo UserCertificate AD da un file di certificato
+(PER ESEGUIRE) Ripristina l'attributo AD UserCertificate da un file di certificato
 
 ### <a name="syntax"></a>SINTASSI
 

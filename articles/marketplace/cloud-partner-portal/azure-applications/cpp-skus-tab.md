@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a963db0b0b1a20c110f90bacdae092846f7bdd8b
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 7bf7e341a83727e21e9225c384829c05b7230579
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342542"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095994"
 ---
 # <a name="azure-application-skus-tab"></a>Scheda SKU per un'applicazione Azure
 
 Questo articolo descrive come usare la scheda SKU per creare gli SKU per l'applicazione Azure. 
 
->[!IMPORTANT] 
-La procedura per la configurazione di uno SKU è diversa per un'offerta di applicazione gestita e un'offerta di modello di soluzione. Queste differenze sono documentate in questo articolo. 
+> [!IMPORTANT]
+> La procedura per la configurazione di uno SKU è diversa per un'offerta di applicazione gestita e un'offerta di modello di soluzione. Queste differenze sono documentate in questo articolo. 
 
 ## <a name="configure-azure-application-skus"></a>Configurare gli SKU per l'applicazione Azure
 

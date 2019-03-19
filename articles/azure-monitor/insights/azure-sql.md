@@ -3,7 +3,6 @@ title: Soluzione Azure SQL Analytics in Log Analytics | Microsoft Docs
 description: La soluzione Analisi SQL di Azure consente di gestire i database SQL di Azure
 services: log-analytics
 ms.service: log-analytics
-ms.subservice: performance
 ms.custom: ''
 ms.topic: conceptual
 author: danimir
@@ -11,12 +10,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 02832ee84e02251239ab4364aac9ad0894c681b9
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 66ab1fa9779aa378c4153adc0da81b3d172e1320
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884782"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170225"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorare il database SQL di Azure usando Analisi SQL di Azure (anteprima)
 
@@ -67,9 +66,13 @@ La pagina sopra indicata include anche le istruzioni per abilitare il supporto p
 
 ## <a name="using-the-solution"></a>Uso della soluzione
 
-Quando si aggiunge la soluzione all'area di lavoro, il riquadro Azure SQL Analytics viene aggiunto all'area di lavoro e visualizzato in Panoramica. Il riquadro mostra il numero di database SQL di Azure, pool elastici, istanze gestite e database in istanze gestite da cui la soluzione riceve dati di telemetria di diagnostica.
+Quando si aggiunge la soluzione all'area di lavoro, il riquadro Azure SQL Analytics viene aggiunto all'area di lavoro e visualizzato in Panoramica. Selezionare il collegamento Visualizza il riepilogo per caricare il contenuto del riquadro.
 
-![Riquadro Azure SQL Analytics](./media/azure-sql/azure-sql-sol-tile.png)
+![Riquadro Riepilogo Analitica SQL Azure](./media/azure-sql/azure-sql-sol-tile-01.png)
+
+Una volta caricato, il riquadro mostra il numero di database SQL di Azure, i pool elastici, le istanze gestite e i database nelle istanze gestite che la soluzione riceve i dati di telemetria di diagnostica da.
+
+![Riquadro Azure SQL Analytics](./media/azure-sql/azure-sql-sol-tile-02.png)
 
 La soluzione offre due visualizzazioni distinte: una per il monitoraggio dei database SQL di Azure e dei pool elastici e l'altra per il monitoraggio delle istanze gestite e dei database in istanze gestite.
 
@@ -111,14 +114,14 @@ La tabella seguente descrive le prospettive supportate per due versioni del dash
 
 | Prospettiva | DESCRIZIONE | Supporto per il database SQL e i pool elastici | Supporto per Istanza gestita |
 | --- | ------- | ----- | ----- |
-| Risorsa per tipo | Prospettiva che conta tutte le risorse monitorate. | Yes | Yes |
-| Informazioni dettagliate | Fornisce il drill-down gerarchico per Intelligent Insights per le prestazioni. | Yes | Yes |
-| Errors | Fornisce il drill-down gerarchico per gli errori SQL verificatisi nei database. | Yes | Yes |
-| Timeout | Fornisce il drill-down gerarchico per i timeout SQL verificatisi nei database. | Yes | No  |
-| Blocchi | Fornisce il drill-down gerarchico per i blocchi SQL verificatisi nei database. | Yes | No  |
-| Attese del database | Fornisce il drill-down gerarchico per le statistiche di attesa SQL a livello di database. Include il riepilogo del tempo di attesa totale e del tempo di attesa per tipo di attesa. |Yes | Yes |
-| Durata delle query | Fornisce il drill-down gerarchico per le statistiche di esecuzione delle query, ad esempio la durata della query, l'utilizzo della CPU, l'utilizzo dei dati di I/O e l'utilizzo dei log di I/O. | Yes | Yes |
-| Attese query | Fornisce il drill-down gerarchico per le statistiche di attesa delle query per categoria di attesa. | Yes | Yes |
+| Risorsa per tipo | Prospettiva che conta tutte le risorse monitorate. | Sì | Sì |
+| Informazioni dettagliate | Fornisce il drill-down gerarchico per Intelligent Insights per le prestazioni. | Sì | Sì |
+| Errors | Fornisce il drill-down gerarchico per gli errori SQL verificatisi nei database. | Sì | Sì |
+| Timeout | Fornisce il drill-down gerarchico per i timeout SQL verificatisi nei database. | Sì | No  |
+| Blocchi | Fornisce il drill-down gerarchico per i blocchi SQL verificatisi nei database. | Sì | No  |
+| Attese del database | Fornisce il drill-down gerarchico per le statistiche di attesa SQL a livello di database. Include il riepilogo del tempo di attesa totale e del tempo di attesa per tipo di attesa. |Sì | Sì |
+| Durata delle query | Fornisce il drill-down gerarchico per le statistiche di esecuzione delle query, ad esempio la durata della query, l'utilizzo della CPU, l'utilizzo dei dati di I/O e l'utilizzo dei log di I/O. | Sì | Sì |
+| Attese query | Fornisce il drill-down gerarchico per le statistiche di attesa delle query per categoria di attesa. | Sì | Sì |
 
 ### <a name="intelligent-insights-report"></a>Report di Intelligent Insights
 
@@ -146,14 +149,16 @@ Per usare Analisi SQL di Azure, agli utenti devono essere concesse almeno le aut
 
 ### <a name="creating-a-custom-role-in-portal"></a>Creazione di un ruolo personalizzato nel portale
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Alcune organizzazioni applicano controlli severi sulle autorizzazioni in Azure. Lo script di PowerShell seguente consente di creare un ruolo personalizzato "Operatore di monitoraggio Analisi SQL" nel portale di Azure con le autorizzazioni minime di lettura e scrittura per usare Analisi SQL di Azure nella sua completezza.
 
 Sostituire "{SubscriptionId}" nello script seguente con l'ID della sottoscrizione di Azure ed eseguire lo script dopo aver eseguito l'accesso ad Azure con il ruolo di Proprietario o di Collaboratore.
 
    ```powershell
-    Connect-AzureRmAccount
-    Select-AzureRmSubscription {SubscriptionId}
-    $role = Get-AzureRmRoleDefinition -Name Reader
+    Connect-AzAccount
+    Select-AzSubscription {SubscriptionId}
+    $role = Get-AzRoleDefinition -Name Reader
     $role.Name = "SQL Analytics Monitoring Operator"
     $role.Description = "Lets you monitor database performance with Azure SQL Analytics as a reader. Does not allow change of resources."
     $role.IsCustom = $true
@@ -172,7 +177,7 @@ Sostituire "{SubscriptionId}" nello script seguente con l'ID della sottoscrizion
     $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/write");
     $role.Actions.Add("Microsoft.Resources/deployments/write");
     $role.AssignableScopes = "/subscriptions/{SubscriptionId}"
-    New-AzureRmRoleDefinition $role
+    New-AzRoleDefinition $role
    ```
 
 Dopo aver creato il nuovo ruolo, assegnarlo a ogni utente a cui è necessario concedere autorizzazioni personalizzate per l'utilizzo di Analisi SQL di Azure.

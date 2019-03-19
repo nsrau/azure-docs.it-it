@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09151dee2d458e2ff4fae8a8a3bc93fa466e4efc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8b5eb46b845bebbb81dce6aadb9d97af08955df3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167797"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096946"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Usare un provider di identità (IdP) SAML 2.0 per l'accesso Single Sign-On
 
@@ -30,16 +30,16 @@ Questo documento contiene informazioni sull'uso di un provider di identità basa
 
 Microsoft supporta questa esperienza di accesso come integrazione di un servizio cloud Microsoft, ad esempio Office 365, con l'IdP basato sul profilo SAML 2.0 correttamente configurato. Poiché i provider di identità SAML 2.0 sono prodotti di terze parti, Microsoft non fornisce alcun supporto per la distribuzione, la configurazione, la risoluzione dei problemi e le procedure consigliate. Una volta eseguita correttamente la configurazione, è possibile testare la corretta configurazione dell'integrazione con il provider di identità SAML 2.0 usando Microsoft Connectivity Analyzer Tool, descritto in dettaglio più avanti. Per altre informazioni sul provider di identità basato sul profilo SP-Lite SAML 2.0, rivolgersi all'organizzazione da cui è stato fornito.
 
->[!IMPORTANT]
->In questo scenario di accesso con i provider di identità SAML 2.0 è disponibile solo un set limitato di client, tra cui:
-
->- Client basati sul Web, ad esempio Outlook Web Access e SharePoint Online
-- Rich client di posta elettronica che usano l'autenticazione di base e un metodo di accesso di Exchange supportato come IMAP, POP, Active Sync, MAPI e così via (è necessario che sia distribuito l'endpoint ECP (Enhanced Client Protocol)), tra cui:
-    - Microsoft Outlook 2010/Outlook 2013/Outlook 2016, Apple iPhone (diverse versioni di iOS)
-    - Diversi dispositivi Google Android
-    - Windows Phone 7, Windows Phone 7.8 e Windows Phone 8.0
-    - Client di posta elettronica di Windows 8 e Windows 8.1
-    - Client di posta elettronica di Windows 10
+> [!IMPORTANT]
+> In questo scenario di accesso con i provider di identità SAML 2.0 è disponibile solo un set limitato di client, tra cui:
+> 
+> - Client basati sul Web, ad esempio Outlook Web Access e SharePoint Online
+> - Rich client di posta elettronica che usano l'autenticazione di base e un metodo di accesso di Exchange supportato come IMAP, POP, Active Sync, MAPI e così via (è necessario che sia distribuito l'endpoint ECP (Enhanced Client Protocol)), tra cui:
+>     - Microsoft Outlook 2010/Outlook 2013/Outlook 2016, Apple iPhone (diverse versioni di iOS)
+>     - Diversi dispositivi Google Android
+>     - Windows Phone 7, Windows Phone 7.8 e Windows Phone 8.0
+>     - Client di posta elettronica di Windows 8 e Windows 8.1
+>     - Client di posta elettronica di Windows 10
 
 Tutti gli altri client non sono disponibili in questo scenario di accesso con il provider di identità SAML 2.0. Il client desktop Lync 2010 non può ad esempio accedere al servizio con il provider di identità SAML 2.0 configurato per l'accesso Single Sign-On.
 
@@ -194,9 +194,9 @@ La procedura seguente illustra i passaggi per la conversione di un dominio stand
 Per altre informazioni su "Set-MsolDomainAuthentication", vedere: [https://technet.microsoft.com/library/dn194112.aspx](https://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
->È necessario eseguire $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" solo se si configura un'estensione ECP per il provider di identità. I client di Exchange Online, ad eccezione di Outlook Web Application (OWA), usano un endpoint attivo basato su POST. Se il servizio token di sicurezza SAML 2.0 implementa un endpoint attivo simile all'implementazione ECP di Shibboleth di un endpoint attivo, potrebbe essere possibile per questi rich client interagire con il servizio Exchange Online.
+>È necessario eseguire `$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"` solo se si configura un'estensione ECP per il provider di identità. I client di Exchange Online, ad eccezione di Outlook Web Application (OWA), usano un endpoint attivo basato su POST. Se il servizio token di sicurezza SAML 2.0 implementa un endpoint attivo simile all'implementazione ECP di Shibboleth di un endpoint attivo, potrebbe essere possibile per questi rich client interagire con il servizio Exchange Online.
 
-Dopo aver configurato la federazione, è possibile tornare alla modalità non federata (o gestita), ma questa modifica richiede fino a due ore, oltre che l'assegnazione di nuove password casuali per l'accesso basato su cloud per ogni utente. La reimpostazione della modalità gestita potrebbe essere necessaria in alcuni scenari per correggere un errore nelle impostazioni. Per altre informazioni sulla conversione dei domini, vedere: [https://msdn.microsoft.com/library/windowsazure/dn194122.aspx](httpss://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
+Dopo aver configurato la federazione, è possibile tornare alla modalità non federata (o gestita), ma questa modifica richiede fino a due ore, oltre che l'assegnazione di nuove password casuali per l'accesso basato su cloud per ogni utente. La reimpostazione della modalità gestita potrebbe essere necessaria in alcuni scenari per correggere un errore nelle impostazioni. Per altre informazioni sulla conversione dei domini, vedere: [https://msdn.microsoft.com/library/windowsazure/dn194122.aspx](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 
 ## <a name="provision-user-principals-to-azure-ad--office-365"></a>Effettuare il provisioning di entità utente in Azure AD/Office 365
 Per poter autenticare gli utenti in Office 365, è necessario effettuare il provisioning in Azure AD di entità utente corrispondenti all'asserzione nell'attestazione SAML 2.0. Se queste entità utente non sono note in anticipo ad Azure AD, non possono essere usate per l'accesso federato. Per il provisioning delle entità utente è possibile usare Azure AD Connect o Windows PowerShell.
@@ -272,7 +272,7 @@ Per verificare che l'accesso Single Sign-On sia stato configurato correttamente,
 2.  Fare clic all'interno della casella della password. Se l'accesso Single Sign-On è configurato, la casella della password sarà ombreggiata e verrà visualizzato il messaggio seguente: "È necessario effettuare l'accesso all'&lt;azienda&gt;".
 3.  Fare clic su Accedi nel collegamento dell'&lt;azienda&gt;. Se è possibile eseguire l'accesso, la configurazione di Single Sign-On è corretta.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 
 - [Gestione e personalizzazione di Active Directory Federation Services con Azure AD Connect](how-to-connect-fed-management.md)

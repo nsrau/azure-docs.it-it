@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: c8043064ac1df40eaa31ae56e9ec31c0152e0130
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: f9e0582a1338bcae7b330c7ece7c3d8cc8593cfa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888431"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004507"
 ---
 # <a name="how-to-install-mysql-on-azure"></a>Come installare MySQL in Azure
 In questo articolo verrà illustrato come installare e configurare MySQL in una macchina virtuale Azure che esegue Linux.
@@ -51,9 +51,9 @@ Di seguito si utilizzerà una VM Linux con Ubuntu da Azure.
             #[root@mysqlnode ~]# apt-get update
             #[root@mysqlnode ~]# apt-get -y install mysql-server-5.6
   
-    Durante l'installazione, verrà visualizzata una finestra di dialogo pop up in cui viene chiesto di impostare la password radice di MySQL riportata di seguito ed è necessario impostare la password.
+    Durante l'installazione, verrà visualizzata una finestra di dialogo per chiedere di impostare la password radice di MySQL riportata di seguito, ed è necessario impostare la password qui.
   
-    ![immagine](./media/mysql-install/virtual-machines-linux-install-mysql-p1.png)
+    ![image](./media/mysql-install/virtual-machines-linux-install-mysql-p1.png)
 
     Immettere la password per confermare.
 
@@ -92,7 +92,7 @@ In questo caso si utilizzerà la VM Linux con CentOS oppure Oracle Linux.
   
     Scaricare e installare il pacchetto di rilascio di MySQL:
   
-            #[root@mysqlnode ~]# wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
+            #[root@mysqlnode ~]# wget https://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
             #[root@mysqlnode ~]# yum localinstall -y mysql-community-release-el6-5.noarch.rpm
 * Passaggio 2: Modificare il file per abilitare il repository MySQL per il download del pacchetto MySQL5.6.
   

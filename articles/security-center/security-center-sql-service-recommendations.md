@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: d6121a0255b809deccb3c70d56585bab76935900
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 86d50092ccffd5ab958df5d54ea49cd56d815e2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110354"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082161"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Protezione del servizio SQL di Azure e dei dati nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza lo stato di sicurezza delle risorse di Azure. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari.  Le raccomandazioni sono applicabili a diversi tipi di risorse di Azure, ovvero macchine virtuali, risorse di rete, SQL, dati e applicazioni.
@@ -65,7 +65,7 @@ Per abilitare il controllo, selezionare semplicemente **SÌ** nell'opzione **Con
 |SQL|30|Risolvi le vulnerabilità nei database SQL|La funzionalità di valutazione della vulnerabilità di SQL analizza il database per individuare vulnerabilità a livello di sicurezza ed espone eventuali scostamenti dalle procedure consigliate, ad esempio configurazioni errate, autorizzazioni eccessive e dati sensibili non protetti. La risoluzione delle vulnerabilità rilevate può migliorare significativamente il livello di sicurezza del database.|
 |SQL|20|Effettua il provisioning di un amministratore di Azure AD per SQL Server|Effettuare il provisioning di un amministratore di Azure AD per il server SQL per abilitare l'autenticazione di Azure AD. Questo tipo di autenticazione consente una gestione semplificata delle autorizzazioni e una gestione centralizzata delle identità degli utenti di database e di altri servizi Microsoft.|
 |Account di archiviazione|15|Disabilita l'accesso alla rete senza restrizioni per gli account di archiviazione|Controllare l'accesso alla rete senza restrizioni nelle impostazioni del firewall dell'account di archiviazione. Configurare invece regole di rete in modo che l'account di archiviazione sia accessibile solo alle applicazioni provenienti da reti consentite. Per consentire connessioni da specifici client Internet o locali, è possibile concedere l'accesso al traffico proveniente da determinate reti virtuali di Azure o diretto verso intervalli di indirizzi IP Internet pubblici.|
-|Account di archiviazione|1||Esegui la migrazione degli account di archiviazione alle nuove risorse di Azure Resource Manager|Usare la nuova versione di Azure Resource Manager (v2) per gli account di archiviazione per fornire funzionalità di sicurezza migliorate quali controllo degli accessi (RBAC) più avanzato, controllo migliore, distribuzione e governance basate su Azure Resource Manager, accesso alle identità gestite, accesso all'insieme di credenziali delle chiavi per i segreti, autenticazione basata su Azure AD e supporto di tag e gruppi di risorse per una gestione della sicurezza semplificata.|
+|Account di archiviazione|1|Esegui la migrazione degli account di archiviazione alle nuove risorse di Azure Resource Manager|Usare nuova v2 di Azure Resource Manager, per gli account di archiviazione fornire miglioramenti della sicurezza, ad esempio: controllo di accesso più avanzato (RBAC), il controllo migliore, distribuzione basata su Resource Manager e governance, accedere alle identità gestita, l'accesso a key vault per i segreti, l'autenticazione basata su Active Directory di Azure e il supporto per i tag e i gruppi di risorse per facilitare la gestione di sicurezza.|
 
 
 

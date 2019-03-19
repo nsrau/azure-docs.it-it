@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 9a76ad219e538874af04a72c9aa64e87a35bc53d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: c1618d3402b37e91b3cf17365d6ccbf1285f4847
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434886"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993780"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gestire i log per un cluster HDInsight
 
@@ -38,7 +38,7 @@ Il primo passaggio per creare una strategia di gestione dei registri cluster di 
 
 I dettagli dei cluster seguenti sono utili per raccogliere informazioni nell'ambito della strategia di gestione dei log. Raccogliere tali informazioni da tutti i cluster HDInsight creati in un determinato account Azure.
 
-* Nome del cluster
+* Nome cluster
 * Area del cluster e zona di disponibilità di Azure
 * Stato del cluster, inclusi i dettagli dell'ultima modifica dello stato
 * Tipo e numero di istanze di HDInsight specificate per i nodi master, principali e attività
@@ -77,7 +77,7 @@ Un tipico cluster HDInsight usa diversi servizi e pacchetti software open source
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Visualizzare le impostazioni di configurazione cluster con l'interfaccia utente di Ambari
 
-Apache Ambari semplifica la gestione, la configurazione e il monitoraggio di un cluster HDInsight grazie a un'interfaccia utente Web e a un'API REST. Ambari è incluso nei cluster HDInsight basati su Linux. Selezionare il riquadro **Dashboard cluster** nella pagina HDInsight del portale di Azure per aprire la pagina di collegamento **Dashboard cluster**.  Selezionare quindi il riquadro **Dashboard cluster HDInsight** per aprire l'interfaccia utente di Ambari.  Vengono chieste le credenziali di accesso del cluster.
+Apache Ambari semplifica la gestione, la configurazione e il monitoraggio di un cluster HDInsight grazie a un'interfaccia utente Web e a un'API REST. Ambari è incluso nei cluster HDInsight basati su Linux. Selezionare il **Dashboard Cluster** riquadro nella pagina HDInsight del portale Azure per aprire il**dashboard Cluster** pagina di collegamento.  Selezionare quindi il riquadro **Dashboard cluster HDInsight** per aprire l'interfaccia utente di Ambari.  Vengono chieste le credenziali di accesso del cluster.
 
 Per aprire un elenco di visualizzazioni di servizi, selezionare il riquadro **Visualizzazioni di Ambari** nella pagina del portale di Azure per HDInsight.  Questo elenco varia a seconda delle librerie installate.  È ad esempio possibile visualizzare YARN Queue Manager, Hive View e Tez View.  Selezionare un collegamento al servizio per visualizzare le informazioni sulla configurazione e sul servizio.  La pagina **Stack and Version** (Stack e versione) dell'interfaccia utente di Ambari contiene informazioni sulla configurazione dei servizi cluster e la cronologia delle versioni dei servizi. Per passare a questa sezione dell'interfaccia utente di Ambari, scegliere **Stacks and Versions** (Stack e versioni) dal menu **Admin** (Amministratore).  Selezionare la scheda **Versions** (Versioni) per visualizzare le informazioni sulle versioni dei servizi.
 

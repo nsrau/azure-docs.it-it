@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 09/24/2018
 ms.author: panarasi
-ms.openlocfilehash: e3e8c843437558c6d5d3a3c39bed1e647f852b18
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: HT
+ms.openlocfilehash: 1bbd481218128c482769cd6a28910e135c1ce16d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27593399"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001042"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Aggiungere l'autenticazione all'app Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "27593399"
 ## <a name="overview"></a>Panoramica
 Questo argomento descrive come autenticare gli utenti di un'app mobile del servizio app dall'applicazione client. In questa esercitazione verrà aggiunta l'autenticazione al progetto di guida introduttiva Xamarin.Forms tramite un provider di identità supportato dal servizio app. Dopo l'autenticazione e l'autorizzazione da parte dell'app per dispositivi mobili, viene visualizzato il valore dell'ID utente e si potrà accedere ai dati della tabella con restrizioni.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per ottenere risultati ottimali con questa esercitazione, è consigliabile completare prima di tutto l'esercitazione [Creare un'app Xamarin.Forms][1]. Al termine di questa esercitazione, sarà disponibile un progetto Xamarin.Forms che corrisponde a un'app TodoList multipiattaforma.
 
 Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiungere il pacchetto di estensione di autenticazione al progetto. Per altre informazioni sui pacchetti di estensione server, vedere l'articolo [Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure][2].
@@ -132,7 +132,7 @@ Questa sezione illustra come implementare l'interfaccia **IAuthenticate** nel pr
         public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity, IAuthenticate
 5. Aggiornare la classe **MainActivity** aggiungendo un campo **MobileServiceUser** e un metodo **Authenticate**, necessario per l'interfaccia **IAuthenticate**, come illustrato di seguito:
 
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
 
         public async Task<bool> Authenticate()
@@ -188,6 +188,12 @@ Questa sezione illustra come implementare l'interfaccia **IAuthenticate** nel pr
     Questo codice fa in modo che l'autenticatore venga inizializzato prima del caricamento dell'app.
 8. Ricompilare l'app, eseguirla, quindi accedere con il provider di autenticazione selezionato e verificare se è possibile accedere ai dati come utente autenticato.
 
+### <a name="troubleshooting"></a>risoluzione dei problemi
+
+**Si è verificato l'arresto anomalo dell'applicazione `Java.Lang.NoSuchMethodError: No static method startActivity`**
+
+In alcuni casi, i conflitti nei pacchetti di supporto vengono visualizzati semplicemente con un avviso in Visual Studio, ma si verifica un arresto anomalo dell'applicazione con questa eccezione in fase di esecuzione. In questo caso è necessario verificare che tutti i pacchetti di supporto referenziati nel progetto abbiano la stessa versione. Il [pacchetto NuGet di App per dispositivi mobili di Azure](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) presenta la dipendenza `Xamarin.Android.Support.CustomTabs` per la piattaforma Android, perciò se il progetto usa pacchetti di supporto più recenti è necessario installare questo pacchetto direttamente con la versione richiesta per evitare conflitti.
+
 ## <a name="add-authentication-to-the-ios-app"></a>Aggiungere l'autenticazione all'app iOS
 Questa sezione illustra come implementare l'interfaccia **IAuthenticate** nel progetto di app iOS. Se i dispositivi iOS non sono supportati, ignorare questa sezione.
 
@@ -202,7 +208,7 @@ Questa sezione illustra come implementare l'interfaccia **IAuthenticate** nel pr
         public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IAuthenticate
 5. Aggiornare la classe **AppDelegate** aggiungendo un campo **MobileServiceUser** e un metodo **Authenticate**, necessario per l'interfaccia **IAuthenticate**, come illustrato di seguito:
 
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
 
         public async Task<bool> Authenticate()
@@ -273,7 +279,7 @@ Questa sezione illustra come implementare l'interfaccia **IAuthenticate** nei pr
         public sealed partial class MainPage : IAuthenticate
 5. Aggiornare la classe **MainPage** aggiungendo un campo **MobileServiceUser** e un metodo **Authenticate**, necessario per l'interfaccia **IAuthenticate**, come illustrato di seguito:
 
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
 
         public async Task<bool> Authenticate()

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: yushwang, cherylmc
-ms.openlocfilehash: d1c5ea0ae60894e810d2f4eb0edff2126171a220
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 4c5a7a138a2b491867c5c4ba7234415036c8ba0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417109"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100837"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configurare connessioni di rete privata virtuale da sito a sito active-active con gateway VPN di Azure
 
@@ -36,10 +36,8 @@ Se si ha già un gateway VPN, è possibile:
 
 > [!IMPORTANT]
 > La modalità attivo-attivo usa solo gli SKU seguenti: 
-  * VpnGw1, VpnGw2, VpnGw3
-  * HighPerformance (per SKU precedenti legacy)
-> 
-> 
+>   * VpnGw1, VpnGw2, VpnGw3
+>   * HighPerformance (per SKU precedenti legacy)
 
 ## <a name ="aagateway"></a>Parte 1: creare e configurare gateway VPN active-active
 Con i seguenti passaggi si configurerà il gateway VPN di Azure in modalità active-active. Le differenze principali tra i gateway active-active e active-standby sono:

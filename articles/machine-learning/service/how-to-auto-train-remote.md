@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 95c495bf3a8ad7b82c42d4071899d045cb49f27b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 4784ca08366d833d02372393e0e12f0fefe8c5cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247545"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112450"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Eseguire il training di modelli di apprendimento automatico nel cloud
 
@@ -80,8 +80,8 @@ Come destinazione di calcolo è anche possibile collegare una DSVM Linux esisten
 
 > [!NOTE]
 >
-> Il codice seguente usa la classe di destinazione `RemoteCompute` per collegare una macchina virtuale esistente come destinazione di calcolo.
-> La classe `DsvmCompute` sarà deprecata nelle versioni future a favore di questo modello di progettazione.
+> Il codice seguente usa il [RemoteCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.remote.remotecompute?view=azure-ml-py) classe collegare una macchina virtuale esistente come destinazione di calcolo di destinazione.
+> Il [DsvmCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.dsvmcompute?view=azure-ml-py) classe sarà deprecata nelle versioni future a favore di questo modello di progettazione.
 
 Eseguire il codice seguente per creare la destinazione di calcolo da una DSVM Linux già esistente.
 
@@ -107,7 +107,7 @@ Fornire l'accesso alla risorsa remota per i dati di training. Per esperimenti au
 
 Per fornire l'accesso, è necessario:
 + Creare un file get_data.py contenente una funzione `get_data()` 
-* Inserire tale file in una directory accessibile come percorso assoluto 
++ Inserire tale file in una directory accessibile come percorso assoluto 
 
 È possibile incapsulare il codice per leggere i dati da un archivio blob o un disco locale nel file get_data.py. Nell'esempio di codice seguente, i dati provengono dal pacchetto sklearn.
 

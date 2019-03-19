@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 953f2cdac41dcd610afbde39a318c0237b0b9099
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: c9d707d1a76b3b5913d66745767df8e84362a192
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114740"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890853"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processo di analisi scientifica dei dati per i team in azione: uso di SQL Server
-Questa esercitazione illustra la procedura dettagliata di costruzione e distribuzione di un modello di Machine Learning usando SQL Server e un set di dati disponibili pubblicamente: il set di dati [Corse dei taxi di New York](http://www.andresmh.com/nyctaxitrips/) . La procedura segue un flusso di lavoro di analisi scientifica dei dati standard: acquisizione ed esplorazione dei dati, funzionalità ingegneristiche per facilitare l'apprendimento e quindi compilazione e distribuzione di un modello.
+Questa esercitazione illustra la procedura dettagliata di costruzione e distribuzione di un modello di Machine Learning usando SQL Server e un set di dati disponibili pubblicamente: il set di dati [Corse dei taxi di New York](https://www.andresmh.com/nyctaxitrips/) . La procedura segue un flusso di lavoro di analisi scientifica dei dati standard: acquisizione ed esplorazione dei dati, funzionalità ingegneristiche per facilitare l'apprendimento e quindi compilazione e distribuzione di un modello.
 
 ## <a name="dataset"></a>Descrizione del set di dati relativo alle corse dei taxi di New York
 I dati relativi alle corse dei taxi a NYC hanno dimensioni di circa 20 GB sotto forma di file CSV compressi(circa 48 GB senza compressione), e includono oltre 173 milioni di corse singole nonché le tariffe pagate per ciascuna corsa. Il record di ogni corsa include la località e l'orario di partenza e di arrivo, il numero di patente anonimo (del tassista) e il numero di licenza (ID univoco del taxi). I dati sono relativi a tutte le corse per l'anno 2013 e vengono forniti nei due set di dati seguenti per ciascun mese:
@@ -82,7 +82,7 @@ Per configurare l'ambiente di analisi scientifica dei dati di Azure:
 In base alle dimensioni del set di dati, alla posizione dell'origine dati e all'ambiente di destinazione di Azure selezionato, questo scenario è simile allo [Scenario \#5: Set di dati di grandi dimensioni in file locali, con SQL Server in una macchina virtuale di Azure come destinazione](plan-sample-scenarios.md#largelocaltodb).
 
 ## <a name="getdata"></a>Acquisizione dei dati da un'origine pubblica
-Per visualizzare il set di dati [Corse dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/) dal relativo percorso pubblico, è possibile usare uno qualsiasi dei metodi descritti in [Spostamento dei dati da e verso l'archivio BLOB di Azure](move-azure-blob.md) e copiare i dati nella nuova macchina virtuale.
+Per visualizzare il set di dati [Corse dei taxi di NYC](https://www.andresmh.com/nyctaxitrips/) dal relativo percorso pubblico, è possibile usare uno qualsiasi dei metodi descritti in [Spostamento dei dati da e verso l'archivio BLOB di Azure](move-azure-blob.md) e copiare i dati nella nuova macchina virtuale.
 
 Per copiare i dati usando AzCopy:
 
@@ -622,8 +622,8 @@ Ricapitolando, in questa esercitazione dettagliata è stato creato un ambiente d
 Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPython che la accompagnano sono condivisi da Microsoft nella licenza MIT. Selezionare il file LICENSE.txt nella directory del codice di esempio in GitHub per altre informazioni.
 
 ### <a name="references"></a>Riferimenti
-•    [Pagina di Andrés Monroy per scaricare i dati sulle corse dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/)  
-•    [Complemento dai dati sulle corse dei taxi di NYC di Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+•    [Pagina di Andrés Monroy per scaricare i dati sulle corse dei taxi di NYC](https://www.andresmh.com/nyctaxitrips/)  
+•    [Complemento dai dati sulle corse dei taxi di NYC di Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
 •    [Ricerche e statistiche su NYC Taxi and Limousine Commission](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sql-walkthrough/sql-walkthrough_26_1.png

@@ -8,29 +8,29 @@ ms.topic: include
 ms.date: 06/12/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c681e5f68299c03685dd7722f8dc671e49026f78
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
-ms.translationtype: HT
+ms.openlocfilehash: fa448975a5275e5aab4dc82b75433d188422e507
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43303846"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553724"
 ---
 #### <a name="expressroute-limits"></a>Limiti di ExpressRoute
-Le seguenti limitazioni si applicano alle risorse di ExpressRoute per ogni sottoscrizione.
+I limiti seguenti si applicano alle risorse di Azure ExpressRoute per ogni sottoscrizione.
 
-| Risorsa | Limite predefinito |
+| Risorsa | Limite predefinito o massimo |
 | --- | --- |
 | Circuiti ExpressRoute per ogni sottoscrizione |10 |
-| Circuiti ExpressRoute per ogni area per sottoscrizione (Azure Resource Manager) |10 |
+| Circuiti ExpressRoute per area per sottoscrizione, con Azure Resource Manager |10 |
 | Numero massimo di route per il peering privato di Azure con ExpressRoute Standard |4.000 |
-| Numero massimo di route per il peering privato di Azure con l’estensione ExpressRoute Premium |10.000 |
+| Numero massimo di route per il peering privato di Azure con il componente aggiuntivo ExpressRoute Premium |10,000 |
 | Numero massimo di route per il peering di Microsoft Azure con ExpressRoute Standard |200 |
 | Numero massimo di route per il peering di Microsoft Azure con il componente aggiuntivo ExpressRoute Premium |200 |
 | Numero massimo di circuiti ExpressRoute collegati alla stessa rete virtuale in diverse posizioni di peering |4 |
-| Numero di collegamenti alla rete virtuale consentiti per ogni circuito ExpressRoute |vedere la tabella seguente |
+| Numero di collegamenti alla rete virtuale consentiti per ogni circuito ExpressRoute |Vedere la tabella seguente. |
 
-#### <a name="number-of-virtual-networks-per-expressroute-circuit"></a>Numero di reti virtuali per circuito ExpressRoute
-| **Dimensioni circuito** | **Numero di collegamenti VNet per il livello standard** | **Numero di collegamenti VNet con il componente aggiuntivo Premium** |
+#### <a name="number-of-virtual-networks-per-expressroute-circuit"></a>Numero di reti virtuali per ogni circuito ExpressRoute
+| **Dimensioni circuito** | **Numero di collegamenti di rete virtuale per il livello Standard** | **Numero di collegamenti di rete virtuale con il componente aggiuntivo Premium** |
 | --- | --- | --- |
 | 50 Mbps |10 |20 |
 | 100 Mbps |10 |25 |

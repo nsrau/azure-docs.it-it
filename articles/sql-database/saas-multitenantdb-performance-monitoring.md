@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5be6acc28932cb3c7f0481b18cbcffae27c3ce13
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: be7dbe35800bbe911bc56d1883462534a16499a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002375"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083182"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorare e gestire le prestazioni di un database SQL di Azure multi-tenant partizionato in un'app SaaS multi-tenant
 
@@ -28,7 +28,7 @@ L'app SaaS di database multi-tenant Wingtip Tickets usa un modello di dati multi
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-
+> 
 > * Simulare l'utilizzo in un database multi-tenant partizionato tramite un generatore di carico specificato
 > * Monitorare il database mentre risponde all'aumento del carico
 > * Aumentare le prestazioni del database in risposta al carico maggiore
@@ -52,7 +52,7 @@ La gestione delle prestazioni dei database comprende la compilazione e l'analisi
 
 Il [portale di Azure](https://portal.azure.com) include funzionalità di monitoraggio e avviso predefinite per la maggior parte delle risorse. Per il database SQL, le funzionalità di monitoraggio e avviso sono disponibili sui database. Le funzionalità di monitoraggio e avviso predefinite sono specifiche delle risorse, quindi è comodo usarle per un numero limitato di risorse, mentre non sono utili quando si usano molte risorse.
 
-Per gli scenari con volumi elevati, in cui si lavora con molte risorse, è possibile usare [Log Analytics](https://azure.microsoft.com/services/log-analytics/). Si tratta di un servizio di Azure separato che fornisce funzionalità di analisi per log di diagnostica e dati di telemetria raccolti in un'area di lavoro di Log Analytics. Log Analytics consente di raccogliere dati di telemetria da molti servizi e supporta l'esecuzione di query e l'impostazione di avvisi.
+Per scenari con volumi elevati, in cui si lavora con molte risorse, [monitoraggio di Azure registra](https://azure.microsoft.com/services/log-analytics/) può essere utilizzato. Si tratta di un servizio di Azure separato che fornisce funzionalità analitica di log di diagnostica e dati di telemetria raccolti in un'area di lavoro di Log Analitica. Log di monitoraggio di Azure può raccogliere i dati di telemetria da molti servizi e consente di eseguire query e impostare gli avvisi.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Ottenere gli script e il codice sorgente dell'applicazione SaaS di database multi-tenant Wingtip Tickets
 
@@ -78,10 +78,10 @@ Per simulare l'esecuzione di un carico di lavoro sul database multi-tenant è di
 
 | Demo | Scenario |
 |:--|:--|
-| 2 | Generare un carico di normale intensità (circa 30 DTU) |
+| 2 | Generare un carico di intensità normale (circa 30 DTU) |
 | 3 | Generare un carico con picchi di maggiore durata per ogni tenant|
-| 4 | Generare un carico con picchi di DTU di maggiore intensità per ogni tenant (circa 70 DTU)|
-| 5 | Generare un carico ad alta intensità (circa 90 DTU) su un tenant singolo e un carico di normale intensità su tutti gli altri tenant |
+| 4 | Generare un carico con picchi DTU maggiori per ogni tenant (circa 70 DTU)|
+| 5 | Generare un'ad alta intensità (circa 90 DTU) su un singolo tenant e un carico di normale intensità su tutti gli altri tenant |
 
 Il generatore di carico applica un carico di solo CPU *sintetico* a ogni database tenant. Il generatore avvia un processo per ogni database tenant, che chiama periodicamente una stored procedure che genera il carico. I livelli di carico, espressi in DTU, la durata e gli intervalli sono diversi per i vari database, in modo da simulare un'attività imprevedibile dei tenant.
 
@@ -168,7 +168,7 @@ Se un tenant singolo all'interno di un database multi-tenant è sottoposto a un 
 Questo esercizio simula l'effetto di un carico elevato per Salix Salsa in concomitanza con l'inizio della vendita dei biglietti per un evento di grande richiamo.
 
 1. Aprire lo script …\\*Demo-PerformanceMonitoringAndManagement.ps1*.
-1. Impostare **$DemoScenario = 5**, _Generare un carico normale e un carico elevato in un tenant singolo (circa 90 DTU)_.
+1. Impostare **$DemoScenario = 5**, _generare un carico normale e un carico elevato in un singolo tenant (circa 90 DTU)._
 1. Impostare **$SingleTenantName = Salix Salsa**.
 1. Eseguire lo script con **F5**.
 

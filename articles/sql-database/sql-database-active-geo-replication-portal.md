@@ -12,16 +12,16 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 4ddeef417490b5b928f46dce428acc3e5febe159
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 2e63c44db2391f63078f0945caa69a43c0c464cf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245984"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001358"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurare la replica geografica attiva per il database SQL di Azure nel portale di Azure e avviare il failover
 
-Questo articolo mostra come configurare la [replica geografica attiva per database singoli e in pool](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) nel database SQL di Azure usando il [portale di Azure](http://portal.azure.com) e avviare il failover.
+Questo articolo mostra come configurare la [replica geografica attiva per database singoli e in pool](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) nel database SQL di Azure usando il [portale di Azure](https://portal.azure.com) e avviare il failover.
 
 Per informazioni sui gruppi di failover automatico con database singoli e in pool, vedere [Procedure consigliate per l'uso di gruppi di failover con database singoli e in pool](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Per informazioni sui gruppi di failover automatico con Istanze gestite (anteprima), vedere [Procedure consigliate per l'uso di gruppi di failover con Istanze gestite](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
@@ -32,7 +32,7 @@ Per configurare la replica geografica attiva tramite il portale di Azure, è nec
 * Un database SQL di Azure: il database primario che si vuole replicare in una area geografica diversa.
 
 > [!Note]
-Con il portale di Azure è possibile creare solo un database secondario nella stessa sottoscrizione del database primario. Se il database secondario deve trovarsi in una sottoscrizione diversa, usare [Create Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) (Creare database API REST) oppure [ALTER DATABASE Transact-SQL API](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
+> Con il portale di Azure è possibile creare solo un database secondario nella stessa sottoscrizione del database primario. Se il database secondario deve trovarsi in una sottoscrizione diversa, usare [Create Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) (Creare database API REST) oppure [ALTER DATABASE Transact-SQL API](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
 
 ## <a name="add-a-secondary-database"></a>Aggiungere un database secondario
 
@@ -46,7 +46,7 @@ Dopo aver creato ed eseguito il seeding del database secondario, inizia la repli
 > [!NOTE]
 > Se il database partner esiste già, ad esempio come risultato della terminazione di una precedente relazione di replica geografica, il comando non riesce.
 
-1. Nel [portale di Azure](http://portal.azure.com) passare al database per cui si vuole installare la replica geografica.
+1. Nel [portale di Azure](https://portal.azure.com) passare al database per cui si vuole installare la replica geografica.
 2. Nella pagina del database SQL selezionare **Replica geografica** e quindi selezionare l'area per creare il database secondario. Sebbene sia possibile selezionare qualsiasi area diversa dall'area che ospita il database primario, si consiglia di scegliere l'[area abbinata](../best-practices-availability-paired-regions.md).
 
     ![Configurare la replica geografica](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
@@ -66,7 +66,7 @@ Dopo aver creato ed eseguito il seeding del database secondario, inizia la repli
 
 Il database secondario può diventare il database primario.  
 
-1. Nel [portale di Azure](http://portal.azure.com) passare al database primario nella relazione di replica geografica.
+1. Nel [portale di Azure](https://portal.azure.com) passare al database primario nella relazione di replica geografica.
 2. Nel pannello del database SQL selezionare **Tutte le impostazioni** > **Replica geografica**.
 3. Nell'elenco **SECONDARI** selezionare il database che si vuole usare come nuovo database primario e fare clic su **Failover**.
 
@@ -84,7 +84,7 @@ Per un breve periodo, da 0 a 25 secondi, entrambi i database non sono disponibil
 
 Questa operazione interrompe in modo permanente la replica al database secondario e modifica il ruolo del database secondario in un database di lettura/scrittura normale. Se la connettività al database secondario viene interrotta il comando ha esito positivo ma il database secondario non diventa un database di lettura-scrittura fino a quando la connettività non verrà ripristinata.  
 
-1. Nel [portale di Azure](http://portal.azure.com) passare al database primario nella relazione di replica geografica.
+1. Nel [portale di Azure](https://portal.azure.com) passare al database primario nella relazione di replica geografica.
 2. Nella pagina del database SQL selezionare **Replica geografica**.
 3. Nell'elenco **SECONDARI** passare al database da rimuovere dalla relazione di replica geografica.
 4. Fare clic su **Arresta replica**.

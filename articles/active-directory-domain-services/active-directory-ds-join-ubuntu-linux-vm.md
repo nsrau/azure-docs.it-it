@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: f9c8273e82d46c34c36533605c08200c308815af
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 8699585a7f8e5cdfc81a40b94fbe10fa677a0030
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154271"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120993"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Aggiungere una macchina virtuale Ubuntu a un dominio gestito in Azure
 Questo articolo illustra come aggiungere una macchina virtuale Ubuntu Linux a un dominio gestito di Azure AD Domain Services.
@@ -125,10 +125,9 @@ Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività s
 
    > [!NOTE]
    > **Risoluzione dei problemi:** Se *realm discover* non riesce a trovare il dominio gestito:
-     * Verificare che il dominio sia raggiungibile dalla macchina virtuale (provare a effettuare il ping).
-     * Verificare che la macchina virtuale sia stata effettivamente distribuita nella stessa rete virtuale in cui è disponibile il dominio gestito.
-     * Verificare che le impostazioni del server DNS per la rete virtuale siano state aggiornate affinché puntino ai controller di dominio del dominio gestito.
-   >
+   >   * Verificare che il dominio sia raggiungibile dalla macchina virtuale (provare a effettuare il ping).
+   >   * Verificare che la macchina virtuale sia stata effettivamente distribuita nella stessa rete virtuale in cui è disponibile il dominio gestito.
+   >   * Verificare che le impostazioni del server DNS per la rete virtuale siano state aggiornate affinché puntino ai controller di dominio del dominio gestito.
 
 2. Inizializzare Kerberos. Nel terminale SSH digitare il comando seguente:
 

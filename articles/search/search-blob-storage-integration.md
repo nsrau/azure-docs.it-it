@@ -4,17 +4,17 @@ description: Contenuto di testo di ricerca per indicizzazione nell'archiviazione
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 7bd7bcf66f0d91a87519a5d5bff7df7c73e2603f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: b7e7ecd2a82a8d64967288def9c6ede7a292f72a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310879"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759392"
 ---
 # <a name="searching-blob-storage-with-azure-search"></a>Ricerca nell'archiviazione BLOB tramite Ricerca di Azure
 
@@ -38,7 +38,7 @@ Uno scenario comune che semplifica l'ordinamento nei BLOB di qualsiasi tipo di c
 ## <a name="image-search"></a>Ricerca di immagini
 Le funzionalità di ricerca full-text, esplorazione in base a facet e ordinamento di Ricerca di Azure possono ora essere applicate ai metadati delle immagini archiviate in BLOB.
 
-Se queste immagini vengono pre-elaborate con l'[API Visione artificiale](https://www.microsoft.com/cognitive-services/computer-vision-api) di Servizi cognitivi di Microsoft, è possibile indicizzare il contenuto visivo di ogni immagine, anche con OCR e riconoscimento della grafia. Microsoft sta lavorando all'aggiunta di OCR e di altre funzionalità di elaborazione delle immagini direttamente a Ricerca di Azure. Chiunque sia interessato a queste funzionalità può immettere una richiesta in [UserVoice](https://aka.ms/azsuv) o inviare un [messaggio di posta elettronica](mailto:azscustquestions@microsoft.com).
+Ricerca cognitiva include capacità di elaborazione di immagini, ad esempio [riconoscimento ottico dei caratteri (OCR)](cognitive-search-skill-ocr.md) e l'identificazione dei [funzionalità visive](cognitive-search-skill-image-analysis.md) che consentono di indicizzare il contenuto visivo presente in ogni immagine.
 
 ## <a name="index-and-search-through-json-blobs"></a>Indicizzare e cercare contenuto in BLOB JSON
 È possibile configurare Ricerca di Azure in modo da estrarre il contenuto strutturato dei BLOB che contengono JSON. Ricerca di Azure può leggere BLOB JSON e analizzare il contenuto strutturato nei campi appropriati di un documento di Ricerca di Azure. Ricerca di Azure può anche usare BLOB che contengono una matrice di oggetti JSON ed eseguire il mapping di ogni elemento a un documento di Ricerca di Azure separato.
@@ -52,5 +52,5 @@ L'analisi JSON non è attualmente configurabile tramite il portale. [Altre infor
 
 Fare clic su **Aggiungi Ricerca di Azure** per avviare un flusso in cui è possibile selezionare un servizio di Ricerca di Azure esistente oppure crearne uno nuovo. Se si crea un nuovo servizio, si viene disconnessi dal portale dell'account di archiviazione. È possibile tornare alla pagina del portale dell'archiviazione e riselezionare l'opzione **Aggiungi Ricerca di Azure**, in cui è possibile selezionare il servizio esistente.
 
-### <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Altre informazioni sull'indicizzatore BLOB di Ricerca di Azure sono disponibili nella [documentazione](https://aka.ms/azsblobindexer) completa.

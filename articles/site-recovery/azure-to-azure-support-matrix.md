@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: 4c58d053412b8f90b6423454fcda814e8cf6da75
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: dbee223e6c8e878d017026531dd06301fe6aaf84
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329014"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093872"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matrice di supporto per la replica da un'area di Azure a un'altra
 
@@ -33,7 +33,7 @@ Questo articolo riepiloga le configurazioni e i componenti supportati quando si 
 ## <a name="resource-support"></a>Supporto delle risorse
 
 **Azione risorsa** | **Dettagli**
---- | --- | ---
+--- | --- 
 **Spostamento insieme di credenziali tra gruppi di risorse** | Non supportate
 **Spostamento di risorse di calcolo, archiviazione e rete tra gruppi di risorse** | Non supportati.<br/><br/> Se si sposta una macchina virtuale o componenti associati come archiviazione o rete dopo la replica della VM, è necessario disabilitare la replica e riabilitarla per la VM.
 **Replica di macchine virtuali di Azure da una sottoscrizione a un'altra per il ripristino di emergenza** | Supportate nello stesso tenant di Azure Active Directory.
@@ -79,10 +79,11 @@ Firewall di Archiviazione di Azure per reti virtuali  | Supportato | Se si usano
 
 Site Recovery supporta la replica di macchine virtuali di Azure che eseguono i sistemi operativi elencati in questa sezione.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 **Sistema operativo** | **Dettagli**
 --- | ---
+Windows Server 2019 |
 Windows Server 2016  | Server Core, Server con Esperienza Desktop
 Windows Server 2012 R2 |
 Windows Server 2012 |
@@ -194,7 +195,7 @@ Crittografia per dati inattivi (SSE) | Supportato | La crittografia per dati ina
 Crittografia dischi di Azure (ADE) per sistema operativo Windows | Le macchine virtuali abilitate per [la crittografia con l'app di Azure AD](https://aka.ms/ade-aad-app) sono supportate |
 Crittografia dischi di Azure (ADE) per sistema operativo Linux | Non supportate |
 Aggiunta/rimozione a caldo disco | Non supportate | Se si aggiungono o rimuovono dischi dati dalla macchina virtuale, è necessario disabilitare la replica e abilitarla nuovamente per la macchina virtuale.
-Esclusione disco | [supportato tramite powershell](https://review.docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell?branch=pr-en-us-66458#replicate-azure-virtual-machine) |  Il disco temporaneo è escluso per impostazione predefinita.
+Esclusione disco | [supportato tramite powershell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine) |   Il disco temporaneo è escluso per impostazione predefinita.
 Spazi di archiviazione diretta  | Supportato per i punti di ripristino coerenti con l'arresto anomalo. I punti di ripristino coerenti con l'applicazione non sono supportati. |
 File server di scalabilità orizzontale  | Supportato per i punti di ripristino coerenti con l'arresto anomalo. I punti di ripristino coerenti con l'applicazione non sono supportati. |
 Archiviazione con ridondanza locale | Supportato |

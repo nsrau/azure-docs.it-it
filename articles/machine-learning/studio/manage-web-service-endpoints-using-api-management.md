@@ -1,31 +1,28 @@
 ---
-title: Gestire i servizi Web di Machine Learning Studio con Gestione API
+title: Gestire i servizi web con gestione API
 titleSuffix: Azure Machine Learning Studio
 description: Guida che mostra come gestire i servizi Web di AzureML con Gestione API. Gestire gli endpoint dell'API REST definendo l'accesso utente, la limitazione all'utilizzo e il monitoraggio del dashboard.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 915b972774fb418a454d8a3acd2a61f25af7a6aa
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 0d79bc167ea0416218a4d4822bcd6221699643ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488510"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852884"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Gestire i servizi Web di Azure Machine Learning Studio con Gestione API
 ## <a name="overview"></a>Panoramica
 Questa guida illustra le procedure per iniziare subito a usare Gestione API per gestire i servizi Web di Azure Machine Learning Studio.
 
 ## <a name="what-is-azure-api-management"></a>Cos'è Gestione API di Azure?
-Gestione API di Azure è un servizio di Azure che consente di gestire gli endpoint dell'API REST definendo l'accesso utente, la limitazione all'utilizzo e il monitoraggio del dashboard. Per informazioni dettagliate su Gestione API di Azure, fare clic [qui](https://azure.microsoft.com/services/api-management/) . Per una guida introduttiva a Gestione API di Azure, fare clic [qui](../../api-management/api-management-get-started.md) . L'altra guida, su cui è basata questa, tratta più argomenti, tra cui le configurazioni delle notifiche, il livello di prezzo, la gestione delle risposte, l'autenticazione utente, la creazione di prodotti, le sottoscrizioni per sviluppatori e il dashboarding dell'uso.
-
-## <a name="what-is-azureml"></a>Informazioni su AzureML
-AzureML è un servizio di Azure basato su Machine Learning che consente di compilare, distribuire e condividere facilmente soluzioni di analisi avanzate. Per informazioni dettagliate su AzureML, fare clic [qui](https://azure.microsoft.com/services/machine-learning/) .
+Gestione API di Azure è un servizio di Azure che consente di gestire gli endpoint dell'API REST definendo l'accesso utente, la limitazione all'utilizzo e il monitoraggio del dashboard. Per informazioni dettagliate su Gestione API di Azure, fare clic [qui](https://azure.microsoft.com/services/api-management/) . Per una guida introduttiva a Gestione API di Azure, fare clic [qui](/azure/api-management/import-and-publish) . L'altra guida, su cui è basata questa, tratta più argomenti, tra cui le configurazioni delle notifiche, il livello di prezzo, la gestione delle risposte, l'autenticazione utente, la creazione di prodotti, le sottoscrizioni per sviluppatori e il dashboarding dell'uso.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa guida, è necessario:
@@ -185,11 +182,11 @@ Rinominarlo **SimpleFeatureHashingExperiment**. Espandere **Saved Datasets** (Se
 
 Espandere **Data Transformation** (Trasformazioni di dati) e **Manipulation** (Manipolazione), quindi trascinare **Select Columns in Dataset** (Seleziona colonne in set di dati) sull'esperimento. Connettere **Book Reviews from Amazon** (Recensioni sul libro da Amazon) a **Select Columns in Dataset** (Seleziona colonne in set di dati).
 
-![select-columns](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
+![Connettere il modulo di set di dati di revisioni del libro a un modulo di Project Columns](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
 
 Fare clic su **Select Columns in Dataset** (Seleziona colonne in set di dati), quindi fare clic su **Launch column selector** (Avvia selettore di colonna) e selezionare **Col2**. Fare clic sul segno di spunta per applicare queste modifiche.
 
-![select-columns](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
+![Selezionare le colonne con nomi di colonna](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
 
 Espandere **Text Analytics** (Analisi testo) e trascinare **Feature Hashing** sull'esperimento. Connettere **Select Columns in Dataset** (Seleziona colonne in set di dati) a **Feature Hashing**.
 

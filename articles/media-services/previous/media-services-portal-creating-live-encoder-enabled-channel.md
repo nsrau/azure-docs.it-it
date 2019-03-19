@@ -11,17 +11,17 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 28210c06892097abb831f3f6f27b8c68652a8957
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: b09c80e08689768ab3e9646b7d6f60f72c33f764
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003994"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077786"
 ---
-# <a name="how-to-perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-the-azure-portal-legacy"></a>Come eseguire lo streaming live con Servizi multimediali di Azure per creare flussi a bitrate multipli con il portale di Azure (legacy)
+# <a name="how-to-perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Come eseguire lo streaming live con servizi multimediali per creare flussi a bitrate multipli con il portale di Azure  
 > [!div class="op_single_selector"]
 > * [Portale](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -41,18 +41,16 @@ Di seguito sono descritti i passaggi generali relativi alla creazione di applica
 
 > [!NOTE]
 > Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per una durata superiore, contattare amslived@microsoft.com.
-> 
-> 
 
 1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a bitrate singolo in uno dei protocolli seguenti: RTMP o Smooth Streaming. Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](https://go.microsoft.com/fwlink/?LinkId=532824).
-   
+
     Questa operazione può essere eseguita anche dopo la creazione del canale.
 2. Creare e avviare un canale. 
 3. Recuperare l'URL di inserimento del canale. 
-   
+
     L'URL di inserimento viene usato dal codificatore live per inviare il flusso al canale.
 4. Recuperare l'URL di anteprima del canale. 
-   
+
     Usare questo URL per verificare che il canale riceva correttamente il flusso live.
 5. Creare un evento o un programma, l'operazione creerà anche un asset. 
 6. Pubblicare l'evento. L'operazione creerà un localizzatore OnDemand per l'asset associato.    
@@ -83,31 +81,31 @@ Per completare l'esercitazione è necessario quanto segue.
 1. Nel [portale di Azure](https://portal.azure.com/) selezionare Servizi multimediali e fare clic sul nome dell'account Servizi multimediali.
 2. Selezionare **Streaming live**.
 3. Selezionare **Creazione personalizzata**. Questa opzione permette di creare un canale abilitato per la codifica live.
-   
+
     ![Creare un CANALE](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
 4. Fare clic su **Impostazioni**.
-   
+
    1. Scegliere il tipo di canale **Codifica live** . Questo tipo specifica che si vuole creare un canale abilitato per la codifica live. Ciò significa che il flusso in ingresso a velocità in bit singola viene inviato al canale e codificato in un flusso a più velocità in bit usando le impostazioni del codificatore live specificato. Per altre informazioni, vedere [Streaming live con Servizi multimediali di Azure per creare flussi a bitrate multipli](media-services-manage-live-encoder-enabled-channels.md). Fare clic su OK.
    2. Specificare il nome di un canale.
    3. Fare clic su OK nella parte inferiore della schermata.
 5. Selezionare la scheda **Inserisci** .
-   
+
    1. In questa pagina è possibile selezionare un protocollo di streaming. Per il tipo di canale **Codifica live** , le opzioni del protocollo valide sono le seguenti:
-      
+
       * MP4 frammentato (Smooth Streaming) a velocità in bit singola
       * RTMP a velocità in bit singola
-        
+
         Per una descrizione dettagliata di ogni protocollo, vedere [Streaming live con Servizi multimediali di Azure per creare flussi a bitrate multipli](media-services-manage-live-encoder-enabled-channels.md).
-        
+
         Non è possibile modificare l'opzione relativa al protocollo durante l'esecuzione del canale o dei relativi eventi o programmi associati. Se sono necessari protocolli diversi, è necessario creare canali separati per ciascun protocollo di streaming.  
    2. È possibile applicare la restrizione IP all'inserimento. 
-      
+
        È possibile definire gli indirizzi IP autorizzati a inserire video in questo canale. Gli indirizzi IP consentiti possono essere specificati come un singolo indirizzo IP, ad esempio '10.0.0.1', come un intervallo IP usando un indirizzo IP e una subnet mask CIDR, ad esempio '10.0.0.1/22' o come un intervallo IP usando un indirizzo IP e una subnet mask decimale puntata, ad esempio '10.0.0.1(255.255.252.0)'.
-      
+
        Se non viene specificato alcun indirizzo IP e non è presente una definizione della regola, non sarà consentito alcun indirizzo IP. Per consentire qualsiasi indirizzo IP, creare una regola e impostare 0.0.0.0/0.
 6. Nella scheda **Anteprima** applicare la restrizione IP sull'anteprima.
 7. Nella scheda **Codifica** specificare il set di impostazioni di codifica. 
-   
+
     Attualmente, l'unica impostazione predefinita di sistema che è possibile selezionare è **720p (valore predefinito)**. Per specificare un set di impostazioni personalizzato, aprire un ticket di supporto Microsoft. Quindi, immettere il nome del set di impostazioni creato automaticamente. 
 
 > [!NOTE]
@@ -153,18 +151,18 @@ Dopo l'avvio del flusso nel canale, è possibile iniziare l'evento di streaming 
 Per avviare l'evento è possibile procedere in due modi: 
 
 1. Nella pagina **Canale** fare clic su **Evento live** per aggiungere un nuovo evento.
-   
+
     Specificare il nome dell'evento, il nome dell'asset, l'intervallo di archiviazione e l'opzione di crittografia.
-   
+
     ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
-   
+
     Se l'opzione **Pubblica subito questo evento live** è stata lasciata selezionata, verranno creati gli URL di pubblicazione dell'evento.
-   
+
     Per avviare lo streaming dell'evento, fare clic su **Avvia**.
-   
+
     Dopo aver avviato l'evento, è possibile fare clic su **Guarda** per avviare la riproduzione del contenuto.
 2. In alternativa, è possibile usare un collegamento e fare clic sul pulsante **Go Live** nella pagina **Canale**. In questo modo verrà creato un localizzatore predefinito di asset, programma e streaming.
-   
+
     L'evento è denominato **default** e l'intervallo di archiviazione è impostato su otto ore.
 
 Per guardare l'evento pubblicato è possibile usare la pagina **Evento live** . 

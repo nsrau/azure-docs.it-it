@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 957652a63768d25e6b180feb826551ec340b9bf0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 97570a16c7d87a3c8182909b61c04fde30b3fe9b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453672"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000214"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Distribuire ed esplorare un'app SaaS multi-tenant che usa il modello di database per tenant con il database SQL
 
@@ -56,7 +56,7 @@ Scegliere ora i nomi e annotarli.
 
 1. Per aprire il modello di distribuzione dell'applicazione SaaS di database per tenant Wingtip Tickets nel portale di Azure, fare clic sul pulsante **Distribuisci in Azure**.
 
-   <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 1. Nel modello immettere i valori per i parametri obbligatori.
 
@@ -127,7 +127,7 @@ L'applicazione Wingtip usa  [*Gestione traffico di Azure*](../traffic-manager/t
 
     Le parti del formato precedente sono illustrate nella tabella seguente.
 
-    | Parte URL        | Descrizione       |
+    | Parte URL        | DESCRIZIONE       |
     | :-------------- | :---------------- |
     | http://events.wingtip-dpt | Le parti degli eventi dell'app Wingtip.<br /><br /> *-dpt* distingue l'implementazione di *database per tenant* dell'app Wingtip Tickets dalle altre implementazioni, ad esempio quelle di app per tenant *singole* (*-sa*) o di *database multi-tenant* (*-mt*). |
     | .*&lt;user&gt;* | *af1* nell'esempio. |
@@ -186,9 +186,9 @@ Per controllare e monitorare i processi in background, usare i cmdlet seguenti:
 
 4. Se `$OneTime = $false`, il generatore di carico avvia i processi in background e quindi prosegue l'esecuzione. Ogni 10 secondi, esegue il monitoraggio di eventuali nuovi tenant di cui viene effettuato il provisioning. Se si imposta `$OneTime = $true`, il generatore di carico avvia i processi in background e quindi arresta l'esecuzione in primo piano. Per questa esercitazione lasciare `$OneTime = $false`.
 
-  Usare CTRL+C o CTRL+INTERR per arrestare o riavviare il generatore di carico.
+   Usare CTRL+C o CTRL+INTERR per arrestare o riavviare il generatore di carico.
 
-  Se si lascia il generatore di carico in esecuzione in primo piano, usare un'altra istanza di PowerShell ISE per eseguire altri script di PowerShell.
+   Se si lascia il generatore di carico in esecuzione in primo piano, usare un'altra istanza di PowerShell ISE per eseguire altri script di PowerShell.
 
 &nbsp;
 
@@ -221,7 +221,7 @@ Aggiornare la pagina Events Hub per includere il nuovo tenant nell'elenco.
 
 Dopo aver avviato l'esecuzione di un carico sulla raccolta di tenant, è possibile esaminare alcune delle risorse distribuite.
 
-1. Nel  [portale di Azure](http://portal.azure.com) passare all'elenco di server SQL. Aprire quindi il server  **catalog-dpt-&lt;UTENTE&gt;** .
+1. Nel  [portale di Azure](https://portal.azure.com) passare all'elenco di server SQL. Aprire quindi il server  **catalog-dpt-&lt;UTENTE&gt;** .
     - Il server di catalogo contiene due database, **tenantcatalog** e **basetenantdb**, un database modello che viene copiato per creare nuovi tenant.
 
    ![Database](./media/saas-dbpertenant-get-started-deploy/databases.png)

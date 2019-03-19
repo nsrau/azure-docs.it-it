@@ -1,24 +1,24 @@
 ---
 title: Integrazione di Elenco dei servizi con System Center Operations Manager | Microsoft Docs
 description: Service Map è una soluzione di Azure che rileva automaticamente i componenti delle applicazioni nei sistemi Windows e Linux e mappa la comunicazione tra i servizi. Questo articolo illustra l'uso di Elenco dei servizi per creare automaticamente diagrammi applicazioni distribuite in Operations Manager.
-services: monitoring
+services: azure-monitor
 documentationcenter: ''
-author: daveirwin1
-manager: jwhit
+author: mgoedtel
+manager: carmonm
 editor: tysonn
 ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
-ms.author: bwren
-ms.openlocfilehash: 73e27044fc8cc79b2c95471e30bca558bd14d473
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.author: magoedte
+ms.openlocfilehash: 40e6d6ff6ea8748b525642e5507c80590b322b7a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818754"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110104"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Integrazione di Elenco dei servizi con System Center Operations Manager
 
@@ -67,11 +67,11 @@ Per configurare l'integrazione di Elenco dei servizi, eseguire le operazioni seg
 
     Perché l'integrazione crei un diagramma applicazioni distribuite per un server, quest'ultimo deve essere:
 
-    * Gestito da Operations Manager
-    * Gestito da Mapping dei servizi
-    * Elencato nel gruppo di server di Mapping dei servizi
+   * Gestito da Operations Manager
+   * Gestito da Mapping dei servizi
+   * Elencato nel gruppo di server di Mapping dei servizi
 
-    ![Gruppo di configurazione di Operations Manager](media/service-map-scom/scom-config-group.png)
+     ![Gruppo di configurazione di Operations Manager](media/service-map-scom/scom-config-group.png)
 
 6. Facoltativo: selezionare il pool di risorse del server di gestione per comunicare con Log Analytics e fare clic su **Aggiungi area di lavoro**.
 

@@ -7,12 +7,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 1a7f58960111b3fba6283830b262a9b901b8e2fd
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: a78167e9b143a4c8d424947b489043dd45dfe2db
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546234"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886423"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql"></a>Risolvere i problemi di connessione a Database di Azure per PostgreSQL
 
@@ -48,7 +48,7 @@ Se l'applicazione continua a non riuscire a connettersi a Database di Azure per 
 
 * Configurazione firewall del server: Assicurarsi che il firewall del server Database di Azure per PostgreSQL sia configurato per consentire le connessioni dal client, inclusi i server proxy e i gateway.
 * Configurazione del firewall client: Il firewall nel client deve consentire le connessioni al server di database. È necessario consentire gli indirizzi IP e le porte del server, nonché i nomi di applicazioni, ad esempio PostgreSQL, in alcuni firewall.
-* Errore utente: digitazione errata dei parametri di connessione, come il nome del server nella stringa di connessione o la mancanza del suffisso *@servername* nel nome utente.
+* Errore utente: Si potrebbe essere stato digitato erroneamente parametri di connessione, ad esempio il nome del server nella stringa di connessione o la mancanza di un  *\@servername* suffisso nel nome utente.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Passaggi per risolvere problemi di connettività permanenti
 

@@ -5,26 +5,26 @@ description: La scheda Models (Modelli) in qualsiasi progetto illustra i dettagl
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: d82d41a254164c635f4488db63766b39d922f002
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 13f3d88ad69d2acc64b9a6469415eceaf22fa491
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219112"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764389"
 ---
 # <a name="view-model-details"></a>Visualizzare i dettagli del modello
 
 La scheda Models (Modelli) nel progetto illustra tutti i modelli del progetto. Tutti i modelli sottoposti a training per tale progetto sono elencati in questa scheda.
 
-Per ogni modello nel progetto, vengono visualizzati i dettagli del modello seguenti.
+Per ogni modello nel progetto, questi dettagli vengono visualizzati.
 
 1.  Nome del modello: indica il nome di un modello specificato.
 
-2.  Stato: indica lo stato di un modello specificato. I nuovi elementi sottoposti a training avranno lo stato Submitted (Inviato) fino a quando non vengono accettati. Lo stato verrà modificato in Data processing (Elaborazione dati) durante la valutazione del contenuto dei documenti da parte del servizio. Al termine della valutazione dei documenti lo stato verrà modificato in Running (In esecuzione) e sarà possibile visualizzare il numero di frasi che fanno parte del training, tra cui i set di ottimizzazione e test creati automaticamente. Di seguito è riportato un elenco, con relativa descrizione, degli stati del modello.
+2.  stato: indica lo stato di un modello specificato. I nuovi elementi sottoposti a training avranno lo stato Submitted (Inviato) fino a quando non vengono accettati. Lo stato verrà modificato in Data processing (Elaborazione dati) durante la valutazione del contenuto dei documenti da parte del servizio. Al termine della valutazione dei documenti lo stato verrà modificato in Running (In esecuzione) e sarà possibile visualizzare il numero di frasi che fanno parte del training, tra cui i set di ottimizzazione e test creati automaticamente. Di seguito è riportato un elenco, con relativa descrizione, degli stati del modello.
 
     -  Submitted (Inviato): specifica che il back-end sta elaborando i documenti per il modello.
 

@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1f2dcb43878359d20d737cef6ceb492eb79b7f4c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: ac87ce2198296b82ef5655d7d75443a0bd49df3c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468326"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875139"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Monitoraggio e ottimizzazione delle prestazioni
 
@@ -41,7 +41,7 @@ Per il monitoraggio e la risoluzione dei problemi di prestazioni del database so
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Monitorare i database tramite il portale di Azure
 
-Nel [portale di Azure](https://portal.azure.com/) è possibile monitorare l'utilizzo di un database singolo selezionandolo e facendo clic sul grafico **Monitoraggio**. Verrà visualizzata una finestra della **metrica** in cui è possibile apportare modifiche facendo clic su l pulsante **Modifica grafico**. Aggiungere le metriche seguenti
+Nel [portale di Azure](https://portal.azure.com/), è possibile monitorare un utilizzo di singoli database s selezionandolo e scegliendo il **monitoraggio** grafico. Verrà visualizzata una finestra della **metrica** in cui è possibile apportare modifiche facendo clic su l pulsante **Modifica grafico**. Aggiungere le metriche seguenti
 
 - Percentuale CPU
 - Percentuale di DTU
@@ -102,10 +102,10 @@ Esistono diverse soluzioni alternative per attenuare i problemi, ognuna delle qu
 
 Per altre informazioni sulla risoluzione di questi tipi di problemi, vedere:
 
-- Post di blog sull'[analisi di un parametro](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/)
-- Post di blog sul [problema di analisi dei parametri e soluzioni alternative](https://blogs.msdn.microsoft.com/turgays/2013/09/10/parameter-sniffing-problem-and-possible-workarounds/)
+- Post di blog sull'[analisi di un parametro](https://blogs.msdn.microsoft.com/queryoptteam/20../../i-smell-a-parameter/)
+- Post di blog sul [problema di analisi dei parametri e soluzioni alternative](https://blogs.msdn.microsoft.com/turgays/20../../parameter-sniffing-problem-and-possible-workarounds/)
 - Post di blog [sull'analisi dei parametri per il problema dell'elefante e del topo](https://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/)
-- Post di blog su [SQL dinamico e la qualità del piano per le query con parametri](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)
+- Post di blog su [SQL dinamico e la qualità del piano per le query con parametri](https://blogs.msdn.microsoft.com/conor_cunningham_msft/20../../conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)
 
 ### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>Risoluzione dei problemi relativi all'attività di compilazione a causa della parametrizzazione non corretta
 
@@ -175,7 +175,7 @@ Non è sempre facile concludere che è una modifica del volume del carico di lav
 
 Una volta che si è certi di non essere in presenza di un problema di prestazioni correlato all'esecuzione per l'uso elevato della CPU, si dovrà considerare un problema di prestazioni correlato all'attesa. In particolare, le risorse della CPU non sono usate in modo efficiente perché la CPU è in attesa di un'altra risorsa. In questo caso, il passaggio successivo consiste nell'identificare di cosa sono in attesa le risorse della CPU. I metodi più comuni per la mostrare le tre prime categorie dei tipi di attesa sono:
 
-- Il [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) fornisce le statistiche di attesa per ogni query nel tempo. In Query Store, i pi di attesa vengono combinati in categorie di attesa. Il mapping delle categorie di attesa ai tipi di attesa è disponibile in [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql?view=sql-server-2017#wait-categories-mapping-table).
+- Il [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) fornisce le statistiche di attesa per ogni query nel tempo. In Query Store, i pi di attesa vengono combinati in categorie di attesa. Il mapping delle categorie di attesa ai tipi di attesa è disponibile in [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
 - [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) restituisce informazioni su tutte le attese incontrate dai thread eseguiti durante l'operazione. È possibile utilizzare questa visualizzazione aggregata per diagnosticare i problemi di prestazioni con il database SQL di Azure e anche con query e batch specifici.
 - [DM os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) restituisce informazioni relative alla coda di attesa dell'attività in attesa su alcune risorse.
 

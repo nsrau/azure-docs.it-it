@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 94baa1235388ce99d013f8267f8410dcc206a51d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 336552c142e504ae7296314512f00688e30d032e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998349"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894360"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Progettazione di un sistema di protezione del contenuto con il controllo di accesso tramite Servizi multimediali di Azure 
 
@@ -28,7 +28,7 @@ La progettazione e la creazione di un sottosistema DRM (Digital Right Management
 
 Questo documento è destinato agli ingegneri che utilizzano i sottosistemi DRM di soluzioni multischermo e di streaming online o OTT, ma anche a chiunque sia interessato ai sottosistemi DRM. Il presupposto è che i lettori abbiano familiarità con almeno una delle tecnologie DRM presenti sul mercato, ad esempio PlayReady, Widevine, FairPlay o Adobe Access.
 
-L'articolo illustra inoltre la crittografia comune (CENC) con DRM multiplo. Una tendenza diffusa nel settore delle soluzioni di streaming online e OTT è rappresentata dall'uso della crittografia CENC con DRM nativo multiplo su varie piattaforme client. Tale tendenza si discosta da quella precedente, che usava una tecnologia DRM singola e il relativo SDK client su varie piattaforme client. Quando si usa la crittografia CENC con DRM nativo multiplo, PlayReady e Widevine vengono crittografati in base alla specifica [Common Encryption (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/).
+L'articolo illustra inoltre la crittografia comune (CENC) con DRM multiplo. Una tendenza diffusa nel settore delle soluzioni di streaming online e OTT è rappresentata dall'uso della crittografia CENC con DRM nativo multiplo su varie piattaforme client. Tale tendenza si discosta da quella precedente, che usava una tecnologia DRM singola e il relativo SDK client su varie piattaforme client. Quando si usa la crittografia CENC con DRM nativo multiplo, PlayReady e Widevine vengono crittografati in base alla specifica [Common Encryption (ISO/IEC 23001-7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/).
 
 Di seguito sono elencati i vantaggi dell'uso della crittografia CENC con DRM multiplo:
 
@@ -156,7 +156,7 @@ La tabella seguente illustra il mapping:
 | **Gestione delle chiavi** |Non necessaria per l'implementazione di riferimento |
 | **Gestione dei contenuti** |Applicazione console in C# |
 
-In altri termini, con Azure AD vengono usati sia IdP che STS. L'[API di Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/) viene usata per il lettore. Sia Servizi multimediali che Media Player supportano DASH e CENC con DRM multiplo.
+In altri termini, con Azure AD vengono usati sia IdP che STS. L'[API di Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/) viene usata per il lettore. Sia Servizi multimediali che Media Player supportano DASH e CENC con DRM multiplo.
 
 Il diagramma seguente illustra la struttura e il flusso generali con il mapping alla tecnologia precedente:
 
@@ -208,7 +208,7 @@ L'implementazione è costituita dai passaggi seguenti:
    * Install-Package Microsoft.Owin.Host.SystemWeb
    * Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
-8. Creare un lettore usando l'[API di Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/). Usare l'[API ProtectionInfo di Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/) per specificare la tecnologia DRM da usare in varie piattaforme DRM.
+8. Creare un lettore usando l'[API di Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/). Usare l'[API ProtectionInfo di Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/) per specificare la tecnologia DRM da usare in varie piattaforme DRM.
 
 9. La tabella seguente illustra la matrice di test:
 

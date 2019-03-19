@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: ac4095d19904db10d4d60364dd2c739e8105c171
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 4465488dc02568932e839d3234bdb672d59e6804
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863620"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089846"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Accesso utente endpoint e in creazione
 L'accesso in creazione è disponibile ai proprietari e ai collaboratori. Per un'app privata, l'accesso endpoint è disponibile ai proprietari e ai collaboratori. Per un'app pubblica, l'accesso endpoint è disponibile a chiunque disponga di un proprio account LUIS e dell'ID dell'app pubblica. 
@@ -53,7 +53,7 @@ L'accesso per eseguire una query sull'endpoint è controllato da un'impostazione
 L'endpoint di un'app privata è disponibile a:
 
 |Chiave e utente|Spiegazione|
-|--|--|--|
+|--|--|
 |Chiave di creazione del proprietario| Fino a 1000 accessi endpoint|
 |Chiavi di creazione dei collaboratori| Fino a 1000 accessi endpoint|
 |Qualsiasi chiave assegnata a LUIS da un autore o un collaboratore|Basato sul livello di uso della chiave|

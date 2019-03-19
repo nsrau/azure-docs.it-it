@@ -4,12 +4,12 @@ ms.service: cloud-shell
 ms.topic: persist-storage
 ms.date: 9/7/2018
 ms.author: juluk
-ms.openlocfilehash: e175f603e97ccf51e1e13d9c2fc42ba7ed1a475f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: c28441b6fe25b3480a55b79682d5067b19e3023a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246952"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58052166"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Rendere persistenti i file in Azure Cloud Shell
 Cloud Shell utilizza l'archiviazione dei file di Azure per mantenere i file in più sessioni. Al primo avvio Cloud Shell richiede di associare una condivisione file nuova o esistente per mantenere i file in più sessioni.
@@ -48,6 +48,7 @@ Al prompt di impostazione dell'archiviazione, selezionare **Mostra impostazioni 
 Gli account di archiviazione di Azure associati devono risiedere nella stessa area del computer Cloud Shell in cui vengono montati. Per trovare l'area corrente, è possibile eseguire `env` in Bash e individuare la variabile `ACC_LOCATION`. Le condivisioni file ricevono un'immagine da 5 GB creata automaticamente per mantenere persistente la directory `$Home`.
 
 I computer Cloud Shell esistono nelle aree seguenti:
+
 |Area|Region|
 |---|---|
 |Americhe|Stati Uniti orientali, Stati Uniti centro-meridionali, Stati Uniti occidentali|

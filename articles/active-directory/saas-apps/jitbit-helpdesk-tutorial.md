@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb752a6b598c9fe7f146cd6ce96182405fc0dc6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 86148d428bc526e071f095233b0692a6f3775a7d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167678"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880647"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Esercitazione: Integrazione di Azure Active Directory con Jitbit Helpdesk
 
@@ -114,6 +114,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![Configure Single Sign-On](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_url.png)
 
     a. Nella casella di testo **URL di accesso** digitare l'URL adottando il modello seguente: 
+    
     | |     
     | ----------------------------------------|
     | `https://<hostname>/helpdesk/User/Login`|
@@ -121,7 +122,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     | |
     
     > [!NOTE] 
-    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso Sign-On effettivo. Per ottenere tale valore, contattare il [team di supporto clienti di Jitbit Helpdesk](https://www.jitbit.com/support/). 
+    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere tale valore, contattare il [team di supporto clienti di Jitbit Helpdesk](https://www.jitbit.com/support/). 
     
     b.  Nella casella di testo **Identificatore** digitare un URL come di seguito: `https://www.jitbit.com/web-helpdesk/`
 
@@ -224,7 +225,7 @@ Per consentire agli utenti di Azure AD di accedere a Jitbit Helpdesk, è necessa
    
    a. Nella casella di testo **Username** (Nome utente) digitare **Britta Simon**, il nome utente come nel portale di Azure.
 
-   b. Nella casella di testo **Email** (Indirizzo di posta elettronica) digitare l'indirizzo di posta elettronica dell'utente, ad esempio **BrittaSimon@contoso.com**.
+   b. Nel **messaggio di posta elettronica** tipo messaggio di posta elettronica dell'utente, ad esempio di casella di testo **BrittaSimon\@contoso.com**.
 
    c. Digitare il nome dell'utente, ad esempio **Britta**, nella casella di testo **First Name** (Nome).
 

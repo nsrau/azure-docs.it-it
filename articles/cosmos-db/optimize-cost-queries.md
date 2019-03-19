@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: cb85d09a1d5dee6cb54254baac4698cdad093785
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 80c9cd91efd14e3d4b4214bde089f73692568f76
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457667"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840189"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Ottimizzare il costo delle query in Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Le query che leggono i dati da una o più partizioni comportano una latenza magg
 
 Dopo che sono stati memorizzati alcuni dati nei contenitori di Azure Cosmos, è possibile usare Esplora dati nel portale di Azure per creare ed eseguire le query. È anche possibile ottenere il costo delle query usando Esplora dati. Questo metodo offre un'idea dei costi effettivi coinvolti con le query e le operazioni tipiche che il sistema supporta.
 
-È anche possibile ottenere il costo delle query a livello programmatico tramite gli SDK. Per misurare l'overhead di qualunque operazione, ad esempio creazione, aggiornamento o eliminazione, ispezionare l'intestazione `x-ms-request-charge` quando si usa l'API REST. Se si usa l'SDK .net o Java, la proprietà `RequestCharge` è la proprietà equivalente per ottenere il costo della richiesta ed è presente all'interno di ResourceResponse o FeedResponse.
+È anche possibile ottenere il costo delle query a livello programmatico tramite gli SDK. Per misurare l'overhead di qualunque operazione, ad esempio creazione, aggiornamento o eliminazione, ispezionare l'intestazione `x-ms-request-charge` quando si usa l'API REST. Se si usa .NET o Java SDK, il `RequestCharge` è la proprietà equivalente per ottenere l'addebito richiesta e questa proprietà è presente all'interno della ResourceResponse o FeedResponse.
 
 ```csharp
 // Measure the performance (request units) of writes 
@@ -53,13 +53,13 @@ while (queryable.HasMoreResults)
 
 ## <a name="factors-influencing-request-unit-charge-for-a-query"></a>Fattori che incidono sul costo delle unità richiesta per una query
 
-Le unità richiesta per le query dipendono da numerosi fattori. Ad esempio, il numero di elementi di Azure Cosmos caricati/restituiti, il numero di ricerche in base all'indice, il tempo di compilazione di query e così via. Azure Cosmos DB assicura che la stessa query, se eseguita sugli stessi dati, consumi sempre lo stesso numero di UR, anche con esecuzioni ripetute. Il profilo di query mediante le metriche di esecuzione di query offre una buona idea di come vengano impiegate le unità richiesta.  
+Le unità richiesta per le query dipendono da numerosi fattori. Ad esempio, il numero di ricerche di indice, la compilazione delle query il numero di elementi di Azure Cosmos caricato/restituiti, ora i dettagli e così via. Azure Cosmos DB assicura che la stessa query, se eseguita sugli stessi dati, consumi sempre lo stesso numero di UR, anche con esecuzioni ripetute. Il profilo di query mediante le metriche di esecuzione di query offre una buona idea di come vengano impiegate le unità richiesta.  
 
 In alcuni casi è possibile visualizzare una sequenza di 200 e 429 risposte e unità di richiesta di variabili in un'esecuzione di paging di query, poiché le query verranno eseguite il più velocemente possibile in base alle unità richiesta disponibili. È possibile che l'esecuzione di query venga suddivisa in più pagine/round trip tra client e server. Ad esempio, 10.000 elementi possono essere restituiti come più pagine e addebitati in base al calcolo eseguito per la rispettiva pagina. Quando si esegue la somma tra queste pagine, si otterrà lo stesso numero di unità richiesta dell'intera query.  
 
 ## <a name="metrics-for-troubleshooting"></a>Metriche per la risoluzione dei problemi
 
-Le prestazioni e la velocità effettiva usata principalmente dalle query e dalle funzioni definite dall'utente (UDF) dipende dal corpo della funzione. Il modo più semplice per scoprire quanto tempo viene impiegato dall'esecuzione della query per la funzione definita dall'utente e il numero di unità richiesta consumate, consiste nell'abilitare le metriche di query. Se si usa l'SDK .net, ecco le metriche di query di esempio restituite dall'SDK:
+Le prestazioni e la velocità effettiva usata principalmente dalle query e dalle funzioni definite dall'utente (UDF) dipende dal corpo della funzione. Il modo più semplice per scoprire quanto tempo viene impiegato dall'esecuzione della query per la funzione definita dall'utente e il numero di unità richiesta consumate, consiste nell'abilitare le metriche di query. Se si usa .NET SDK, ecco le metriche di query di esempio restituite da SDK:
 
 ```bash
 Retrieved Document Count                 :               1              

@@ -1,6 +1,6 @@
 ---
 title: Installare SAP HANA su SAP HANA in Azure (istanze di grandi dimensioni) | Documentazione Microsoft
-description: Come installare SAP HANA in SAP HANA in Azure (istanze Large).
+description: Come installare SAP HANA in un database SAP HANA in Azure (istanze Large).
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
+ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc63eb792e58d960ae67138b5e58e6b705945030
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 5b6c636366d494901a34078100290084298de686
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446393"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999831"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Come installare e configurare SAP HANA (istanze Large) in Azure
 
@@ -28,7 +28,7 @@ Prima di leggere questo articolo, acquisire familiarità con [termini comuni di 
 L'installazione di SAP HANA è responsabilità dell'utente. È possibile avviare l'installazione di un nuovo SAP HANA in Azure dopo aver stabilito la connettività tra reti virtuali di Azure e le unità di istanze Large di HANA. 
 
 > [!Note]
-> In base ai criteri SAP, l'installazione di SAP HANA deve essere eseguita da una persona che ha superato l'esame Certified SAP Technology Associate o l'esame di certificazione per l'installazione di SAP HANA oppure da un integratore di sistemi con certificazione SAP.
+> Base ai criteri SAP, l'installazione di SAP HANA deve essere eseguita da una persona che ha superato l'esame Certified SAP Technology Associate, l'esame di certificazione di SAP HANA Installation, o un integratore di sistemi con certificazione SAP (SI).
 
 Quando si prevede di installare HANA 2.0, vedere [SAP support note #2235581 - SAP HANA: Supported operating systems](https://launchpad.support.sap.com/#/notes/2235581/E) (Nota di supporto SAP n. 2235581 - SAP HANA: sistemi operativi supportati) per verificare che il sistema operativo sia supportato con la versione di SAP HANA da installare. Il sistema operativo supportato per HANA 2.0 ha più restrizioni di quello supportato per HANA 1.0. 
 
@@ -50,7 +50,7 @@ Il **primo passaggio** dopo aver ricevuto l'istanza Large di HANA e aver stabili
 
 L'unità di istanze Large di HANA può connettersi a questa istanza SMT. Per altre informazioni, vedere [Configurazione del server SMT per SUSE Linux](hana-setup-smt.md). In alternativa, è necessario registrare il sistema operativo Red Hat con la gestione sottoscrizione di RedHat a cui eseguire la connessione. Per altre informazioni, vedere la sezione Osservazioni in [What is SAP HANA on Azure (Large Instances)?](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Informazioni su SAP HANA in Azure - istanze Large). 
 
-Questo passaggio è necessario anche per l'applicazione di patch al sistema operativo, attività di responsabilità del cliente. Per quanto riguarda SUSE, la documentazione relativa all'installazione e alla configurazione di SMT è disponibile in questa pagina sull'[installazione di SMT](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
+Questo passaggio è necessario per l'applicazione di patch del sistema operativo, è responsabilità del cliente. Per quanto riguarda SUSE, la documentazione relativa all'installazione e alla configurazione di SMT è disponibile in questa pagina sull'[installazione di SMT](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
 
 Il **secondo passaggio** consiste nel verificare la presenza di nuove patch e consente di correggere le versioni del sistema operativo specifiche. Verificare che il livello di patch dell'istanza Large di HANA sia nello stato più recente. In alcuni casi le patch più recenti non sono incluse. Dopo aver acquisito un'unità di istanze Large di HANA, è obbligatorio verificare se sono presenti patch da applicare.
 
@@ -80,6 +80,7 @@ Se si ordinano più istanze nel tenant, è necessario adattare il fuso orario de
 
 Il **quinto passaggio** consiste nel controllare etc/hosts. Al momento della consegna, ai pannelli sono assegnati indirizzi IP diversi per scopi differenti. Controllare il file etc/hosts. Quando le unità vengono aggiunte a un tenant esistente, non è prevista che etc/hosts dei nuovi sistemi distribuiti venga mantenuto correttamente con gli indirizzi IP dei sistemi distribuiti in precedenza. È compito del cliente quindi verificare che una nuova istanza distribuita possa interagire e risolvere i nomi delle unità distribuite in precedenza nel tenant. 
 
+
 ## <a name="operating-system"></a>Sistema operativo
 
 > [!IMPORTANT] 
@@ -95,17 +96,17 @@ Collegamenti aggiuntivi utili correlati a SAP in SUSE:
 
 - [Sito relativo a SAP HANA in SUSE Linux](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE)
 - [Procedure consigliate per SAP: Replica di accodamento e SAP NetWeaver in SUSE Linux Enterprise 12](https://www.suse.com/docrepcontent/container.jsp?containerId=9113)
-- [ClamSAP: SLES Virus Protection for SAP](http://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap) (ClamSAP: protezione da virus SLES per SAP), incluso SLES 12 for SAP Applications
+- [ClamSAP: SLES Virus Protection for SAP](https://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap) (ClamSAP: protezione da virus SLES per SAP), incluso SLES 12 for SAP Applications
 
 Note di supporto SAP applicabili all'implementazione di SAP HANA su SLES 12:
 
-- [SAP support note #1944799 – SAP HANA guidelines for SLES operating system installation](http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html) (Nota di supporto SAP n. 1944799: linee guida di SAP HANA per l'installazione del sistema operativo SLES)
+- [SAP support note #1944799 – SAP HANA guidelines for SLES operating system installation](https://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html) (Nota di supporto SAP n. 1944799: linee guida di SAP HANA per l'installazione del sistema operativo SLES)
 - [SAP Support Note #2205917 – SAP HANA DB Recommended OS Settings for SLES 12 for SAP Applications](https://launchpad.support.sap.com/#/notes/2205917/E) (Nota di supporto SAP n. 2205917: impostazioni del sistema operativo consigliate per il database di SAP HANA per SLES 12 for SAP Applications)
 - [SAP support note #1984787 – SUSE Linux Enterprise Server 12:  installation notes](https://launchpad.support.sap.com/#/notes/1984787) (Nota di supporto SAP n. 1984787: note di installazione per SUSE Linux Enterprise Server 12)
 - [SAP Support Note #171356 – SAP Software on Linux:  General Information](https://launchpad.support.sap.com/#/notes/1984787) (Nota di supporto SAP n. 171356: informazioni generali sul software SAP in Linux)
 - [SAP Support Note #1391070 – Linux UUID Solutions](https://launchpad.support.sap.com/#/notes/1391070) (Nota di supporto SAP n. 1391070: soluzioni UUID Linux)
 
-[Red Hat Enterprise Linux for SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) è un'altra offerta per l'esecuzione di SAP HANA in istanze di grandi dimensioni di HANA. Sono disponibili le versioni RHEL 6.7 e 7.2. Si noti che, diversamente dalle macchine virtuali Azure native, che supportano solo RHEL 7.2 e le versioni più recenti, le istanze Large HANA supportano anche RHEL 6.7. È consigliabile tuttavia usare una versione RHEL 7.x.
+[Red Hat Enterprise Linux for SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) è un'altra offerta per l'esecuzione di SAP HANA in istanze di grandi dimensioni di HANA. Sono disponibili le versioni RHEL 6.7 e 7.2. Si noti che vengono mantenuti macchine virtuali native di Azure in cui sono supportate solo RHEL 7.2 e le versioni più recenti, istanze Large di HANA supportano anche RHEL 6.7. È consigliabile tuttavia usare una versione RHEL 7.x.
 
 Collegamenti aggiuntivi utili correlati a SAP in Red Hat:
 - [Sito SAP HANA su Red Hat Linux](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+Red+Hat).
@@ -142,7 +143,7 @@ Per altre informazioni sui dettagli Ethernet per l'architettura, vedere [Scenari
 
 ## <a name="storage"></a>Archiviazione
 
-Il layout delle risorse di archiviazione per SAP HANA in Azure (istanze Large) viene configurato da SAP HANA nella gestione del servizio Azure con le indicazioni consigliate di SAP, come illustrato nel white paper [SAP HANA storage requirements](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) (Requisiti per le risorse di archiviazione di SAP HANA). 
+Il layout delle risorse di archiviazione per SAP HANA in Azure (istanze Large) viene configurato da SAP HANA nella gestione del servizio Azure con le indicazioni consigliate di SAP, come illustrato nel white paper [SAP HANA storage requirements](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) (Requisiti per le risorse di archiviazione di SAP HANA). 
 
 Le dimensioni approssimative dei diversi volumi delle diverse SKU di istanze Large di HANA sono illustrate in [SAP HANA in Azure (istanze Large)](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -200,6 +201,17 @@ Per ottimizzare SAP HANA per la memoria sottostante, è necessario impostare anc
 Per le versioni 1.0 di SAP HANA fino a SPS12, questi parametri possono essere impostati durante l'installazione del database SAP HANA, come descritto in [SAP Note #2267798 - Configuration of the SAP HANA Database](https://launchpad.support.sap.com/#/notes/2267798) (Nota SAP n. 2267798 - Configurazione del database SAP HANA)
 
 È anche possibile configurare i parametri dopo l'installazione del database SAP HANA tramite il framework hdbparam. 
+
+Lo spazio di archiviazione utilizzato in istanze Large di HANA ha un limite di dimensioni del file. Il [limitazione delle dimensioni è pari a 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) per ogni file. A differenza delle limitazioni di dimensione file nei file System EXT3, HANA non riconosce in modo implicito le limitazioni di archiviazione applicate dalla risorsa di archiviazione di istanze Large di HANA. Di conseguenza HANA non creerà automaticamente un nuovo file di dati quando viene raggiunta la dimensione massima di 16TB. Tentativo di HANA di aumento delle dimensioni file oltre 16 TB, HANA segnalerà gli errori e il server di indicizzazione si arresteranno alla fine.
+
+> [!IMPORTANT]
+> Per evitare che il tentativo di aumento delle dimensioni file di dati oltre il limite di dimensioni file 16 TB di spazio di archiviazione di HANA in istanze Large di HANA, è necessario impostare i parametri seguenti nel file di configurazione di SAP HANA Global
+> 
+> - datavolume_striping=true
+> - datavolume_striping_size_gb = 15000
+> - Vedere anche SAP nota [2400005 #](https://launchpad.support.sap.com/#/notes/2400005)
+> - Tenere presente la nota SAP [2631285 #](https://launchpad.support.sap.com/#/notes/2631285)
+
 
 Con SAP HANA 2.0, il framework hdbparam è stato deprecato. I parametri devono pertanto essere impostati tramite i comandi SQL. Per altre informazioni, vedere la [nota SAP n. 2399079: Eliminazione di hdbparam in HANA 2](https://launchpad.support.sap.com/#/notes/2399079).
 

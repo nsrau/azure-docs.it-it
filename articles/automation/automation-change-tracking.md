@@ -6,22 +6,22 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/19/2019
+ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 07fd8c41e7817e232513ed9a260c3722a1fdac11
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 74b099c648fa4dd1c735cc76c82efbc102d9843c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429265"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443046"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche
 
 Questo articolo spiega come usare la soluzione Rilevamento modifiche per identificare facilmente le modifiche nell'ambiente. La soluzione rileva le modifiche apportate al software Windows e Linux, ai file di Windows e Linux, alle chiavi del Registro di sistema di Windows, ai servizi di Windows e ai daemon Linux. Rilevando le modifiche alla configurazione è possibile localizzare eventuali problemi operativi.
 
-Le modifiche al software installato, ai servizi di Windows, ai file e al Registro di sistema di Windows e ai daemon Linux nei server monitorati vengono inviate al servizio Log Analytics nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud. Usando le informazioni nel dashboard Change Tracking, è possibile visualizzare facilmente le modifiche apportate all'infrastruttura del server.
+Le modifiche al software installato, i servizi Windows, del Registro di sistema di Windows e i file e ai daemon Linux nei server monitorati vengono inviate al servizio di monitoraggio di Azure nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud. Usando le informazioni nel dashboard Change Tracking, è possibile visualizzare facilmente le modifiche apportate all'infrastruttura del server.
 
 ## <a name="supported-windows-operating-systems"></a>Sistemi operativi Windows supportati
 
@@ -155,6 +155,7 @@ Altre limitazioni:
 La soluzione Rilevamento modifiche sta riscontrando attualmente i problemi seguenti:
 
 * Gli aggiornamenti rapidi non vengono raccolti nei computer Windows Server 2016 Core RS3.
+* Daemon Linux può visualizzare lo stato modificato, anche se è non stata apportata alcuna modifica. Ciò è dovuto al modo in cui `SvcRunLevels` campo viene acquisito.
 
 ## <a name="change-tracking-data-collection-details"></a>Informazioni dettagliate sulla raccolta dei dati di Change Tracking
 
@@ -261,7 +262,7 @@ Facendo clic su una modifica o su un evento vengono visualizzate informazioni de
 
 ## <a name="search-logs"></a>Eseguire ricerche nei log
 
-Oltre ai dettagli forniti nel portale, è possibile eseguire ricerche nei log. Con la pagina **Rilevamento modifiche** aperta, fare clic su **Log Analytics**. Verrà visualizzata la pagina **Ricerca log**.
+Oltre ai dettagli forniti nel portale, è possibile eseguire ricerche nei log. Con il **Change Tracking** pagina, fare clic sulla **Log Analitica**, viene visualizzata la **log** pagina.
 
 ### <a name="sample-queries"></a>Query di esempio
 
@@ -314,5 +315,5 @@ Vedere l'esercitazione su Rilevamento modifiche per altre informazioni sull'uso 
 > [!div class="nextstepaction"]
 > [Risolvere i problemi delle modifiche nell'ambiente](automation-tutorial-troubleshoot-changes.md)
 
-* Per visualizzare dati dettagliati di monitoraggio delle modifiche, usare [Ricerche nei log in Log Analytics](../log-analytics/log-analytics-log-searches.md).
+* Uso [ricerche nei Log in Monitoraggio di Azure log](../log-analytics/log-analytics-log-searches.md) per visualizzare i dati di rilevamento delle modifiche dettagliato.
 

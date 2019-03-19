@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 0d8bb451c821a4883c81e0e51c5d98e146e3008e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 2d59235b067d9571bc8b64c33799431be6489502
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243539"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087211"
 ---
 # <a name="restore-azure-sql-data-warehouse-portal"></a>Ripristinare Azure SQL Data Warehouse (portale)
 > [!div class="op_single_selector"]
@@ -23,9 +23,9 @@ ms.locfileid: "55243539"
 > * [Portale][Portal]
 > * [PowerShell][PowerShell]
 > * [REST][REST]
->
->
-Questo articolo illustra come ripristinare Azure SQL Data Warehouse usando il portale di Azure.
+> 
+> 
+> Questo articolo illustra come ripristinare Azure SQL Data Warehouse usando il portale di Azure.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 **Verificare la capacità in DTU.** Ogni istanza di SQL Data Warehouse è ospitata in un server SQL (ad esempio mioserver.database.windows.net), che ha una quota di unità elaborate di dati (DTU) predefinita. Per poter ripristinare SQL Data Warehouse, verificare che la quota DTU rimanente nel server SQL sia sufficiente per il database da ripristinare. Per informazioni su come calcolare la quota DTU o per richiedere altre DTU, vedere [Richiedere una modifica della quota DTU][Request a DTU quota change].

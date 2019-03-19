@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b2be42e4984ac7000cfb31ce6575c529b752db2d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b6f0d25f621768f79e8262f38617152e91692a23
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471148"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838851"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Ripristino di emergenza per un'applicazione SaaS multi-tenant con la replica geografica del database
 
@@ -25,14 +25,14 @@ In questa esercitazione si esamina uno scenario completo di ripristino di emerge
 
 Questa esercitazione illustra il flusso di lavoro sia di failover che di failback. Si apprenderà come:
 > [!div class="checklist"]
-
->* Sincronizzare le informazioni di configurazione dei database e dei pool elastici nel catalogo del tenant
->* Configurare un ambiente di ripristino in un'area alternativa, che include applicazione, server e pool
->* Usare la _replica geografica_ per replicare i database di catalogo e tenant nell'area di ripristino
->* Effettuare il failover dell'applicazione e dei database di catalogo e tenant nell'area di ripristino 
->* Successivamente, effettuare il failover dell'applicazione e dei database di catalogo e tenant di nuovo nell'area originale, dopo che l'interruzione è stata risolta
->* Aggiornare il catalogo man mano che viene effettuato il failover di ogni database tenant per tenere traccia della località primaria di ogni database tenant.
->* Verificare che l'applicazione e il database tenant primario si trovino sempre nella stessa area di Azure, per ridurre la latenza  
+> 
+> * Sincronizzare le informazioni di configurazione dei database e dei pool elastici nel catalogo del tenant
+> * Configurare un ambiente di ripristino in un'area alternativa, che include applicazione, server e pool
+> * Usare la _replica geografica_ per replicare i database di catalogo e tenant nell'area di ripristino
+> * Effettuare il failover dell'applicazione e dei database di catalogo e tenant nell'area di ripristino 
+> * Successivamente, effettuare il failover dell'applicazione e dei database di catalogo e tenant di nuovo nell'area originale, dopo che l'interruzione è stata risolta
+> * Aggiornare il catalogo man mano che viene effettuato il failover di ogni database tenant per tenere traccia della località primaria di ogni database tenant.
+> * Verificare che l'applicazione e il database tenant primario si trovino sempre nella stessa area di Azure, per ridurre la latenza  
  
 
 Prima di iniziare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
@@ -106,7 +106,7 @@ Prima di iniziare il processo di ripristino, esaminare il normale stato di integ
 In questa attività si avvia un processo che sincronizza la configurazione di server, pool elastici e database nel catalogo del tenant. Questo processo mantiene le informazioni aggiornate nel catalogo.  Il processo funziona con il catalogo attivo, nell'area originale o nell'area di ripristino. Le informazioni di configurazione vengono usate nel processo di ripristino per garantire che l'ambiente di ripristino sia coerente con l'ambiente originale e quindi in un secondo momento durante il ricollocamento per garantire che l'area originale sia stata resa coerente con eventuali modifiche apportate nell'ambiente di ripristino. Il catalogo viene anche usato per tenere traccia dello stato di ripristino delle risorse del tenant
 
 > [!IMPORTANT]
-> Per semplicità, il processo di sincronizzazione e gli altri processi di ripristino e ricollocamento a esecuzione prolungata vengono implementati in queste esercitazioni come processi di PowerShell locali o sessioni in esecuzione con l'account di accesso utente client. I token di autenticazione rilasciati al momento dell'accesso scadono dopo alcune ore e i processi avranno quindi esito negativo. In uno scenario di produzione i processi a esecuzione prolungata devono essere implementati come servizi di Azure affidabili di un determinato tipo, in esecuzione in un'entità servizio. Vedere [Usare Azure PowerShell per creare un'entità servizio con un certificato](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> Per semplicità, il processo di sincronizzazione e altri processi ripristino e ricollocamento a esecuzione prolungata vengono implementati in queste esercitazioni come processi di PowerShell locali o sessioni che vengono eseguite con l'account di accesso client utente. I token di autenticazione rilasciati al momento dell'accesso scadono dopo alcune ore e i processi avranno quindi esito negativo. In uno scenario di produzione i processi a esecuzione prolungata devono essere implementati come servizi di Azure affidabili di un determinato tipo, in esecuzione in un'entità servizio. Vedere [Usare Azure PowerShell per creare un'entità servizio con un certificato](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
 
 1. In _PowerShell ISE_ aprire il file ...\Learning Modules\UserConfig.psm1. Sostituire `<resourcegroup>` e `<user>` alle righe 10 e 11 con il valore usato al momento della distribuzione dell'app.  Salvare il file.
 
@@ -199,15 +199,15 @@ Si supponga ora che si verifichi un'interruzione nell'area in cui l'applicazione
 Mentre l'endpoint applicazione è disabilitato in Gestione traffico, l'applicazione non è disponibile. Dopo il failover del catalogo nell'area del ripristino e dopo che tutti i tenant sono stati contrassegnati come offline, l'applicazione viene riportata online. Anche se l'applicazione è disponibile, ogni tenant appare offline nell'hub eventi fino a quando non viene effettuato il failover del relativo database. È importante progettare l'applicazione per gestire i database tenant offline.
 
 1. Immediatamente dopo il ripristino del database di catalogo, aggiornare l'hub eventi di Wingtip Tickets nel Web browser.
-    * Nella parte inferiore della pagina osservare che il nome del server di catalogo include ora un suffisso _-recovery_ e si trova nell'area di ripristino.
-    * Si noti che i tenant che non sono stati ancora ripristinati sono contrassegnati come offline e non sono selezionabili.  
+   * Nella parte inferiore della pagina osservare che il nome del server di catalogo include ora un suffisso _-recovery_ e si trova nell'area di ripristino.
+   * Si noti che i tenant che non sono stati ancora ripristinati sono contrassegnati come offline e non sono selezionabili.  
 
-    > [!Note]
-    > Se ci sono solo pochi database da ripristinare, potrebbe non essere possibile aggiornare il browser prima del completamento del ripristino e quindi si potrebbero non vedere i tenant mentre sono offline. 
+     > [!Note]
+     > Se ci sono solo pochi database da ripristinare, potrebbe non essere possibile aggiornare il browser prima del completamento del ripristino e quindi si potrebbero non vedere i tenant mentre sono offline. 
  
-    ![Hub eventi offline](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
+     ![Hub eventi offline](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
 
-    * Se si apre direttamente la pagina degli eventi di un tenant offline, viene visualizza una notifica che indica che il tenant è offline. Se, ad esempio, Contoso Concert Hall è offline, provare ad aprire http://events.wingtip-dpt.&lt;utente&gt;.trafficmanager.net/contosoconcerthall ![Pagina Contoso offline](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
+   * Se si apre direttamente la pagina degli eventi di un tenant offline, viene visualizza una notifica che indica che il tenant è offline. Se, ad esempio, Contoso Concert Hall è offline, provare ad aprire http://events.wingtip-dpt.&lt;utente&gt;.trafficmanager.net/contosoconcerthall ![Pagina Contoso offline](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
 
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>Effettuare il provisioning di un nuovo tenant nell'area di ripristino
 Ancora prima del completamento del failover di tutti i database tenant esistenti, è possibile effettuare il provisioning di nuovi tenant nell'area di ripristino.  
@@ -236,12 +236,12 @@ Al termine del processo di ripristino, l'applicazione e tutti i tenant sono perf
     * Osservare il gruppo di risorse distribuito, oltre al gruppo di risorse di ripristino, con il suffisso _-recovery_.  Il gruppo di risorse di ripristino contiene tutte le risorse create durante il processo di ripristino, oltre alle nuove risorse create durante l'interruzione.  
 
 3. Aprire il gruppo di risorse di ripristino e osservare gli elementi seguenti:
-    * Le versioni di ripristino dei server di catalogo e tenants1, con il suffisso _-recovery_.  Tutti i database di catalogo e tenant ripristinati in questi server hanno i nomi usati nell'area di origine.
+   * Le versioni di ripristino dei server di catalogo e tenants1, con il suffisso _-recovery_.  Tutti i database di catalogo e tenant ripristinati in questi server hanno i nomi usati nell'area di origine.
 
-    * Il server SQL _tenants2-dpt-&lt;utente&gt;-recovery_.  Questo server viene usato per il provisioning di nuovi tenant durante l'interruzione.
-    *   Il servizio app denominato _events-wingtip-dpt-&lt;arearipristino&gt;-&lt;utente&gt;_, che rappresenta l'istanza di ripristino dell'app relativa agli eventi. 
+   * Il server SQL _tenants2-dpt-&lt;utente&gt;-recovery_.  Questo server viene usato per il provisioning di nuovi tenant durante l'interruzione.
+   * Il servizio app denominato _events-wingtip-dpt-&lt;arearipristino&gt;-&lt;utente&gt;_, che rappresenta l'istanza di ripristino dell'app relativa agli eventi. 
 
-    ![Risorse di ripristino di Azure ](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png)    
+     ![Risorse di ripristino di Azure](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png) 
     
 4. Aprire il server SQL _tenants2-dpt-&lt;utente&gt;-recovery_.  Osservare che contiene il database _hawthornhall_ e il pool elastico _Pool1_.  Il database _hawthornhall_ è configurato come database elastico nel pool elastico _Pool1_.
 
@@ -305,12 +305,12 @@ Per un certo intervallo di tempo durante il ricollocamento, i database tenant po
 
 In questa esercitazione si è appreso come:
 > [!div class="checklist"]
-
->* Sincronizzare le informazioni di configurazione dei database e dei pool elastici nel catalogo del tenant
->* Configurare un ambiente di ripristino in un'area alternativa, che include applicazione, server e pool
->* Usare la _replica geografica_ per replicare i database di catalogo e tenant nell'area di ripristino
->* Effettuare il failover dell'applicazione e dei database di catalogo e tenant nell'area di ripristino 
->* Effettuare il failback dell'applicazione e dei database di catalogo e tenant nell'area originale, dopo che l'interruzione è stata risolta
+> 
+> * Sincronizzare le informazioni di configurazione dei database e dei pool elastici nel catalogo del tenant
+> * Configurare un ambiente di ripristino in un'area alternativa, che include applicazione, server e pool
+> * Usare la _replica geografica_ per replicare i database di catalogo e tenant nell'area di ripristino
+> * Effettuare il failover dell'applicazione e dei database di catalogo e tenant nell'area di ripristino 
+> * Effettuare il failback dell'applicazione e dei database di catalogo e tenant nell'area originale, dopo che l'interruzione è stata risolta
 
 Per altre informazioni sulle tecnologie che il database SQL di Azure offre per consentire la continuità aziendale, vedere [Panoramica della continuità aziendale](sql-database-business-continuity.md).
 

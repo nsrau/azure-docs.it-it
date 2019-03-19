@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 39ab31cd06707dbd488914da248941ab6d174c29
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
-ms.translationtype: HT
+ms.openlocfilehash: 632fa14bd96eaee2ca58b59dd855584c1fd961e8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388765"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010101"
 ---
 # <a name="app-service-environment-management-addresses"></a>Indirizzi di gestione dell'Ambiente del servizio app
 
@@ -40,7 +40,7 @@ Gli indirizzi indicati di seguito possono essere configurati in una tabella di r
 
 ## <a name="configuring-a-network-security-group"></a>Configurazione di un gruppo di sicurezza di rete
 
-Con i gruppi di sicurezza di rete non è necessario preoccuparsi di singoli indirizzi o mantenere la propria configurazione. È presente un tag di servizio IP denominato AppServiceManagement che viene mantenuto aggiornato con tutti gli indirizzi. Per usare questo tag di servizio IP nel gruppo di sicurezza di rete, passare al portale, aprire l'interfaccia utente Gruppi di sicurezza di rete e selezionare le regole di sicurezza in ingresso. Se si dispone di una regola preesistente per il traffico di gestione in ingresso, modificarla. Se il gruppo di sicurezza di rete non è stato creato con l'ambiente del servizio app o se è completamente nuovo, selezionare **Aggiungi**. Nell'elenco a discesa Origine selezionare **Service Tag** (Tag di servizio).  Nel tag di servizio di origine selezionare **AppServiceManagement**. Impostare gli intervalli di porte di origine su \*, la destinazione su **Qualsiasi**, gli intervalli di porte di destinazione su **454-455**, il protocollo su **TCP** e l'azione su **Consenti** . Se si sta creando la regola, è necessario impostare la priorità. 
+Con i gruppi di sicurezza di rete non è necessario preoccuparsi di singoli indirizzi o mantenere la propria configurazione. È presente un tag di servizio IP denominato AppServiceManagement che viene mantenuto aggiornato con tutti gli indirizzi. Per usare questo tag di servizio IP nel gruppo di sicurezza di rete, passare al portale, aprire l'interfaccia utente Gruppi di sicurezza di rete e selezionare le regole di sicurezza in ingresso. Se si dispone di una regola preesistente per il traffico di gestione in ingresso, modificarla. Se il gruppo di sicurezza di rete non è stato creato con l'ambiente del servizio app o se è completamente nuovo, selezionare **Aggiungi**. Nell'elenco a discesa Origine selezionare **Service Tag** (Tag di servizio).  Sotto il tag di servizio di origine, selezionare **AppServiceManagement**. Impostare gli intervalli di porte di origine su \*, la destinazione su **Qualsiasi**, gli intervalli di porte di destinazione su **454-455**, il protocollo su **TCP** e l'azione su **Consenti** . Se si sta creando la regola, è necessario impostare la priorità. 
 
 ![creazione di un gruppo di sicurezza di rete con il tag di servizio][1]
 

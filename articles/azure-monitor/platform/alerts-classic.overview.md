@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: robb
-ms.openlocfilehash: 596b7eb53d82f8eee7da439314994fd0951c7e64
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 3b6ddd99d7b198cdc5274b2944a723e68864bd4f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661718"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993031"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Cosa sono gli avvisi classici in Microsoft Azure?
 
@@ -80,10 +80,10 @@ Non usano invece i gruppi di azioni gli avvisi delle metriche precedenti. È com
 - Richiamare un webhook, che consente di avviare altre azioni di automazione.
 
 I webhook consentono l'automazione e la correzione, ad esempio, usando:
-    - Runbook di Automazione di Azure
-    - Funzione di Azure
-    - App per la logica di Azure
-    - un servizio di terze parti
+- Runbook di Automazione di Azure
+- Funzione di Azure
+- App per la logica di Azure
+- un servizio di terze parti
 
 ## <a name="next-steps"></a>Passaggi successivi
 Ottenere informazioni sulle regole degli avvisi e sulla relativa configurazione usando:

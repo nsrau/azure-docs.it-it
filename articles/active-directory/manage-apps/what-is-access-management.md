@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14957a94dbe8330553a4090e22d80d6cc2ee06eb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 70513675d09a663c65c6f5b3e18059467a8ba388
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217327"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109325"
 ---
 # <a name="managing-access-to-apps"></a>Gestione dell'accesso alle app
 La gestione dell'accesso, la valutazione dell'utilizzo e la creazione di report durante l'utilizzo continuano a rappresentare una sfida dopo l'integrazione di un'app nel sistema di identità dell'organizzazione. Nella maggior parte dei casi, gli amministratori IT o l'helpdesk devono assumere un ruolo attivo nella gestione dell'accesso alle app. In alcuni casi, l'assegnazione viene eseguita da un team IT generale o di reparto. Spesso, la decisione di assegnazione deve essere delegata al responsabile aziendale, di cui è richiesta l'approvazione prima che l'IT esegua l'assegnazione.  Altre organizzazioni investono nell'integrazione mediante sistemi automatizzati esistenti di gestione dell'accesso e dell'identità, quali il controllo degli accessi in base al ruolo (RBAC) o il controllo degli accessi in base all'attributo (ABAC). Lo sviluppo mediante integrazione e regole tende a essere specializzato e costoso. Il monitoraggio o la creazione di report in entrambi gli approcci di gestione è di per sé un investimento isolato, complesso e costoso.
@@ -29,7 +29,7 @@ La gestione dell'accesso, la valutazione dell'utilizzo e la creazione di report 
 
 * [Aggiunta di applicazioni nuove o esistenti](configure-single-sign-on-portal.md)
 
- L’assegnazione dell’applicazione di Azure AD riguarda due modalità di assegnazione primaria:
+  L’assegnazione dell’applicazione di Azure AD riguarda due modalità di assegnazione primaria:
 
 * **Singola assegnazione** : un amministratore IT con autorizzazioni di amministratore globale di directory può selezionare singoli account utente e concedere loro l'accesso all'applicazione.
 * **Assegnazione basata su gruppo (con solo il pagamento di Azure AD)** : un amministratore IT con autorizzazioni di amministratore globale di directory può assegnare un gruppo all'applicazione. L'accesso utente specifico è determinato dall'appartenenza al gruppo dell'utente nel momento in cui tenta di accedere all'applicazione. In altri termini, un amministratore può in pratica creare una regola di assegnazione che indica che tutti i membri del gruppo assegnato hanno accesso all'applicazione. Con questa opzione di assegnazione, gli amministratori possono sfruttare le opzioni di gestione dei gruppi di Azure AD, tra cui [gruppi dinamici basati sugli attributi](../fundamentals/active-directory-groups-create-azure-portal.md), gruppi di sistema esterno (ad esempio, Active Directory locale o Workday), gruppi gestiti dall'amministratore o in modalità self-service. Un singolo gruppo può essere facilmente assegnato a più app, garantendo che le applicazioni con affinità di assegnazione condividano le regole di assegnazione, riducendo la complessità generale della gestione. Si noti che al momento le appartenenze ai gruppi annidati non sono supportate per l'assegnazione alle applicazioni in base al gruppo.

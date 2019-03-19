@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.author: sogup
-ms.openlocfilehash: 0ab626bffa3520af0ea23314cbaed118d66e280f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 0eb19ba8278df2d77466e5be13731723557e85a8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007509"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082076"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Spostare un insieme di credenziali di Servizi di ripristino tra sottoscrizioni di Azure e gruppi di risorse (anteprima pubblica limitata)
 
@@ -37,10 +37,8 @@ Questo articolo illustra come spostare un insieme di credenziali di Servizi di r
 -   Se si sposta un insieme di credenziali contenente i dati di backup di macchine virtuali tra sottoscrizioni diverse, è necessario spostare le macchine virtuali nella stessa sottoscrizione e usare lo stesso gruppo di risorse di destinazione per continuare l'esecuzione dei backup.<br>
 
 > [!NOTE]
->
-Gli insiemi di credenziali di Servizi di ripristino configurati per l'uso con **Azure Site Recovery** non possono ancora essere spostati. Se sono state configurate macchine virtuali (Azure IaaS, Hyper-V, VMware) o computer fisici per il ripristino di emergenza con **Azure Site Recovery**, l'operazione di spostamento verrà bloccata. La funzionalità di spostamento di risorse per il servizio Site Recovery non è ancora disponibile.
->
->
+> 
+> Gli insiemi di credenziali di Servizi di ripristino configurati per l'uso con **Azure Site Recovery** non possono ancora essere spostati. Se sono state configurate macchine virtuali (Azure IaaS, Hyper-V, VMware) o computer fisici per il ripristino di emergenza con **Azure Site Recovery**, l'operazione di spostamento verrà bloccata. La funzionalità di spostamento di risorse per il servizio Site Recovery non è ancora disponibile.
 
 ## <a name="register-the-source-subscription-to-move-your-recovery-services-vault"></a>Registrare la sottoscrizione di origine per spostare l'insieme di credenziali di Servizi di ripristino
 
@@ -48,26 +46,26 @@ Per registrare la sottoscrizione di origine per **spostare** l'insieme di creden
 
 1. Accedere con l'account Azure
 
-  ```
-  Connect-AzureRmAccount
-  ```
+   ```
+   Connect-AzureRmAccount
+   ```
 
-2.  Selezionare la sottoscrizione da registrare
+2. Selezionare la sottoscrizione da registrare
 
-    ```
-    Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-    ```
-3.  Registrare questa sottoscrizione
+   ```
+   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+   ```
+3. Registrare questa sottoscrizione
 
-  ```
-  Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
-  ```
+   ```
+   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
+   ```
 
 4. Eseguire il comando
 
-  ```
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-  ```
+   ```
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+   ```
 
 Prima di iniziare con l'operazione di spostamento tramite il portale di Azure o PowerShell, attendere che la sottoscrizione venga inserita nell'elenco elementi consentiti (30 minuti).
 
@@ -78,27 +76,27 @@ Per spostare un insieme di credenziali di Servizi di ripristino e le risorse ass
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Aprire l'elenco **Insiemi di credenziali dei servizi di ripristino** e selezionare l'insieme di credenziali che si vuole spostare. Quando il dashboard dell'insieme di credenziali viene aperto, viene visualizzato come illustrato nell'immagine seguente.
 
-  ![Insieme di credenziali di Servizi di ripristino aperto](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
+   ![Insieme di credenziali di Servizi di ripristino aperto](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
-  Se le **Informazioni di base** per l'insieme di credenziali non sono visualizzate, fare clic sulla freccia verso il basso. Le informazioni di base dovrebbero ora essere visualizzate.
+   Se le **Informazioni di base** per l'insieme di credenziali non sono visualizzate, fare clic sulla freccia verso il basso. Le informazioni di base dovrebbero ora essere visualizzate.
 
-  ![Scheda delle informazioni di base](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
+   ![Scheda delle informazioni di base](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
 3. Nel menu Panoramica dell'insieme di credenziali fare clic su **cambia** accanto a **Gruppo di risorse**, per aprire il pannello **Sposta risorse**.
 
-  ![Cambiare il gruppo di risorse](./media/backup-azure-move-recovery-services/change-resource-group.png)
+   ![Cambiare il gruppo di risorse](./media/backup-azure-move-recovery-services/change-resource-group.png)
 
 4. Nel pannello **Sposta risorse** per l'insieme di credenziali selezionato è consigliabile spostare le risorse correlate facoltative selezionando la casella di controllo, come illustrato nell'immagine seguente.
 
-  ![Spostare la sottoscrizione](./media/backup-azure-move-recovery-services/move-resource.png)
+   ![Spostare la sottoscrizione](./media/backup-azure-move-recovery-services/move-resource.png)
 
 5. Per aggiungere il gruppo di risorse di destinazione, nell'elenco a discesa **Gruppo di risorse** selezionare un gruppo di risorse esistente o fare clic sull'opzione **Crea un nuovo gruppo**.
 
-  ![Creare la risorsa](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
+   ![Creare la risorsa](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
 
 6. Dopo aver aggiunto il gruppo di risorse, confermare l'opzione **Dichiaro di aver compreso che gli strumenti e gli script associati alle risorse spostate non funzioneranno fino a quando non li aggiornerò con i nuovi ID di risorsa** e quindi fare clic su **OK** per completare lo spostamento dell'insieme di credenziali.
 
-  ![Messaggio di conferma](./media/backup-azure-move-recovery-services/confirmation-message.png)
+   ![Messaggio di conferma](./media/backup-azure-move-recovery-services/confirmation-message.png)
 
 
 ## <a name="use-azure-portal-to-move-a-recovery-services-vault-to-a-different-subscription"></a>Usare il portale di Azure per spostare un insieme di credenziali di Servizi di ripristino in una sottoscrizione diversa
@@ -116,16 +114,16 @@ Per spostare un insieme di credenziali di Servizi di ripristino e le risorse ass
 
 3. Nel menu Panoramica dell'insieme di credenziali fare clic su **cambia** accanto a **Sottoscrizione**, per aprire il pannello **Sposta risorse**.
 
-  ![Cambiare la sottoscrizione](./media/backup-azure-move-recovery-services/change-resource-subscription.png)
+   ![Cambiare la sottoscrizione](./media/backup-azure-move-recovery-services/change-resource-subscription.png)
 
 4. Selezionare le risorse da spostare. In questo caso, è consigliabile usare l'opzione **Seleziona tutto** per selezionare tutte le risorse facoltative elencate.
 
-  ![Spostare la risorsa](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
+   ![Spostare la risorsa](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
 
 5. Dall'elenco a discesa **Sottoscrizione**  selezionare la sottoscrizione di destinazione in cui si vuole spostare l'insieme di credenziali.
 6. Per aggiungere il gruppo di risorse di destinazione, nell'elenco a discesa **Gruppo di risorse** selezionare un gruppo di risorse esistente o fare clic sull'opzione **Crea un nuovo gruppo**.
 
-  ![Aggiungere la sottoscrizione](./media/backup-azure-move-recovery-services/add-subscription.png)
+   ![Aggiungere la sottoscrizione](./media/backup-azure-move-recovery-services/add-subscription.png)
 
 7. Fare clic sull'opzione **Dichiaro di aver compreso che gli strumenti e gli script associati alle risorse spostate non funzioneranno fino a quando non li aggiornerò con i nuovi ID di risorsa** per confermare e quindi fare clic su **OK**.
 

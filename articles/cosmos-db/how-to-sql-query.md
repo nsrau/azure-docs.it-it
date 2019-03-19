@@ -1,17 +1,17 @@
 ---
 title: Query SQL per Azure Cosmos DB
-description: Informazioni sulla sintassi SQL, sui concetti relativi ai database e sulle query SQL per Cosmos DB. SQL può essere usato come linguaggio di query JSON in Cosmos DB.
+description: Informazioni sulla sintassi SQL, sui concetti relativi ai database e sulle query SQL per Cosmos DB. SQL può essere usato come linguaggio di query JSON in Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 185ff9c7f50fa08ba952f1519bf406d9017982e0
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 822c4631c08da27ef7b92af2df5e5e0d04f063b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455960"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013890"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Esempi di query SQL per Azure Cosmos DB
 
@@ -160,7 +160,7 @@ Ecco alcuni aspetti del linguaggio di query di Cosmos DB attraverso gli esempi v
 
 * Il linguaggio strutturato di interrogazione funziona con dati senza schema. perciò il sistema di tipi deve essere associato in modo dinamico. La stessa espressione potrebbe produrre tipi differenti per elementi differenti. Il risultato di una query è un valore JSON valido, ma non è garantito che appartenga a uno schema fisso.  
 
-* Cosmos DB supporta solo gli elementi JSON completi. Ciò significa che il sistema di tipi e le espressioni sono limitati all'interazione esclusiva con i tipi JSON. Per altri dettagli, vedere le [specifiche JSON](http://www.json.org/).  
+* Cosmos DB supporta solo gli elementi JSON completi. Ciò significa che il sistema di tipi e le espressioni sono limitati all'interazione esclusiva con i tipi JSON. Per altri dettagli, vedere le [specifiche JSON](https://www.json.org/).  
 
 * Un contenitore Cosmos DB è una raccolta senza schema degli elementi JSON. Le relazioni nelle entità di dati all'interno e tra gli elementi in un contenitore vengono implicitamente acquisite dal contenitore e non dalle relazioni chiave primaria e chiave esterna. È un aspetto importante da sottolineare alla luce dei join tra elementi, descritti più avanti in questo articolo.
 
@@ -2113,9 +2113,9 @@ Il secondo esempio mostra una query più complessa che restituisce più risultat
 
 Se il numero di risultati di una query supera le dimensioni di una singola pagina, l'API REST restituisce un token di continuazione attraverso l'intestazione di risposta `x-ms-continuation-token` . I client possono impaginare i risultati includendo l'intestazione nei risultati successivi. È possibile controllare il numero di risultati per pagina anche attraverso l'intestazione di numero `x-ms-max-item-count` . Se la query specificata include una funzione di aggregazione come `COUNT`, la pagina di query può restituire un valore parzialmente aggregato nella pagina dei risultati. I client devono eseguire un'aggregazione di secondo livello su questi risultati per ottenere i risultati finali, ad esempio sommare i conteggi restituiti nelle singole pagine per ottenere il conteggio totale.
 
-Per gestire i criteri di coerenza dei dati per le query, usare l'intestazione `x-ms-consistency-level` come tutte le richieste dell'API REST. Ai fini della coerenza della sessione, è necessario anche ripetere l'ultima intestazione cookie `x-ms-session-token` nella richiesta di query. I criteri di indicizzazione del contenitore sulla quale è stata eseguita la query possono influenzare anche la coerenza dei risultati della query. Con le impostazioni predefinite dei criteri di indicizzazione, per i contenitori l'indice è sempre aggiornato con il contenuto dell'elemento e i risultati della query corrispondono alla coerenza scelta per i dati. Se i criteri di indicizzazione vengono ridotti alla modalità differita, le query possono restituire risultati obsoleti. Per altre informazioni, vedere [Livelli di coerenza di Azure Cosmos DB][consistency-levels].
+Per gestire i criteri di coerenza dei dati per le query, usare l'intestazione `x-ms-consistency-level` come tutte le richieste dell'API REST. Ai fini della coerenza della sessione, è necessario anche ripetere l'ultima intestazione cookie `x-ms-session-token` nella richiesta di query. I criteri di indicizzazione del contenitore sulla quale è stata eseguita la query possono influenzare anche la coerenza dei risultati della query. Con le impostazioni predefinite dei criteri di indicizzazione, per i contenitori l'indice è sempre aggiornato con il contenuto dell'elemento e i risultati della query corrispondono alla coerenza scelta per i dati. Per altre informazioni, vedere [Livelli di coerenza di Azure Cosmos DB][consistency-levels].
 
-Se i criteri di indicizzazione configurati per il contenitore non possono supportare la query specificata, il server di Azure Cosmos DB restituisce il codice di errore 400 (Richiesta non valida). Questo messaggio di errore viene restituito per le query di intervallo per ricerche hash (uguaglianza) e per i percorsi esplicitamente esclusi dall'indicizzazione. È possibile specificare l'intestazione `x-ms-documentdb-query-enable-scan` per consentire alla query di eseguire una scansione quando non è disponibile un indice.
+Se i criteri di indicizzazione configurati per il contenitore non possono supportare la query specificata, il server di Azure Cosmos DB restituisce il codice di errore 400 (Richiesta non valida). Questo messaggio di errore viene restituito per le query con i percorsi esplicitamente esclusi dall'indicizzazione. È possibile specificare l'intestazione `x-ms-documentdb-query-enable-scan` per consentire alla query di eseguire una scansione quando non è disponibile un indice.
 
 È possibile ottenere metriche dettagliate sull'esecuzione di query impostando l'intestazione `x-ms-documentdb-populatequerymetrics` su `True`. Per altre informazioni, vedere [metriche di query SQL per Azure Cosmos DB](sql-api-query-metrics.md).
 

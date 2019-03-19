@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 02/27/2019
 ms.author: juliako
-ms.openlocfilehash: 3a496aa5dc08ac59fb51f8bf3010bd1edf1e605d
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 57007674e11271e6a3d5bdf660531d01b1eff82c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447940"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861435"
 ---
 # <a name="dynamic-manifests"></a>Manifesti dinamici
 
@@ -28,10 +28,9 @@ Nella tabella seguente sono disponibili alcuni esempi di URL con filtri:
 
 |Protocollo|Esempio|
 |---|---|
-|HLS|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl,filter=myAccountFilter)`|
-|MPEG DASH|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Smooth Streaming|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=myAssetFilter)`|
-
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 > [!NOTE]
 > I manifesti dinamici non modificano l'asset e il relativo manifesto predefinito. È possibile decidere di richiedere un flusso con o senza filtri. 
@@ -39,32 +38,9 @@ Nella tabella seguente sono disponibili alcuni esempi di URL con filtri:
 
 Questo argomento illustra i concetti relativi ai **manifesti dinamici** e fornisce alcuni esempi di scenari in cui è possibile usare questa funzionalità.
 
-## <a name="manifest-files-overview"></a>Panoramica dei file manifesto
+## <a name="manifests-overview"></a>Filtri e manifesti
 
-Quando si codifica un asset per lo streaming a velocità in bit adattiva, viene creato un file (playlist) **manifesto** , ovvero un file basato su testo o XML. Il file **manifesto** include alcuni metadati di streaming, tra cui il tipo di traccia (audio, video o testo), il nome della traccia, l'ora di inizio e di fine, la velocità in bit (qualità), le lingue della traccia, la finestra di presentazione (finestra scorrevole di durata fissa) e un codec video (FourCC). Indica inoltre al lettore come recuperare il frammento successivo fornendo informazioni sui successivi frammenti video riproducibili disponibili e il relativo percorso. I frammenti (o segmenti) sono i "blocchi" effettivi di un contenuto video.
-
-Di seguito è riportato un esempio di file manifesto HLS: 
-
-```
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio",NAME="aac_eng_2_128041_2_1",LANGUAGE="eng",DEFAULT=YES,AUTOSELECT=YES,URI="QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)"
-#EXT-X-STREAM-INF:BANDWIDTH=536209,RESOLUTION=320x180,CODECS="avc1.64000d,mp4a.40.2",AUDIO="audio"
-QualityLevels(380658)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=536209,RESOLUTION=320x180,CODECS="avc1.64000d",URI="QualityLevels(380658)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=884474,RESOLUTION=480x270,CODECS="avc1.640015,mp4a.40.2",AUDIO="audio"
-QualityLevels(721426)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=884474,RESOLUTION=480x270,CODECS="avc1.640015",URI="QualityLevels(721426)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=1327838,RESOLUTION=640x360,CODECS="avc1.64001e,mp4a.40.2",AUDIO="audio"
-QualityLevels(1155246)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=1327838,RESOLUTION=640x360,CODECS="avc1.64001e",URI="QualityLevels(1155246)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=2414544,RESOLUTION=960x540,CODECS="avc1.64001f,mp4a.40.2",AUDIO="audio"
-QualityLevels(2218559)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=2414544,RESOLUTION=960x540,CODECS="avc1.64001f",URI="QualityLevels(2218559)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=3805301,RESOLUTION=1280x720,CODECS="avc1.640020,mp4a.40.2",AUDIO="audio"
-QualityLevels(3579378)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=3805301,RESOLUTION=1280x720,CODECS="avc1.640020",URI="QualityLevels(3579378)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=139017,CODECS="mp4a.40.2",AUDIO="audio"
-QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
-```
+Servizi multimediali supporta i protocolli Smooth Streaming, HLS, MPEG DASH. Come parte della [creazione dinamica dei pacchetti](dynamic-packaging-overview.md), i manifesti client streaming (Master HLS Playlist, DASH Media Presentation Description (MPD) e Smooth Streaming) vengono generati dinamicamente in base il selettore di formato nell'URL. Vedere i protocolli di recapito [in questa sezione](dynamic-packaging-overview.md#delivery-protocols). 
 
 ### <a name="get-and-examine-manifest-files"></a>Ottenere ed esaminare i file manifesto
 
@@ -76,7 +52,7 @@ Per l'esempio REST, vedere [Caricare, codificare ed eseguire lo streaming dei fi
 
 ### <a name="monitor-the-bitrate-of-a-video-stream"></a>Monitorare la velocità in bit di un flusso video
 
-È possibile usare la [pagina di prova di Azure Media Player](http://aka.ms/amp) per monitorare la velocità in bit di un flusso video. La pagina di prova mostra le informazioni di diagnostica nella scheda **Diagnostica**:
+È possibile usare la [pagina di prova di Azure Media Player](https://aka.ms/amp) per monitorare la velocità in bit di un flusso video. La pagina di prova mostra le informazioni di diagnostica nella scheda **Diagnostica**:
 
 ![Diagnostica di Azure Media Player][amp_diagnostics]
 

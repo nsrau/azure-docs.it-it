@@ -6,12 +6,12 @@ ms.date: 11/27/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: f7b546e8a0ca52fd2037e471f01787bb64db032d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: aefb0684ea065841824ad27d1105ef309418c6b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842748"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090747"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Mantenere gli indirizzi IP durante il failover
 
@@ -62,10 +62,10 @@ Se si verifica un'interruzione nell'area di origine, la società A può effettua
 
 - Con gli indirizzi IP di destinazione già in uso prima del failover, la società A può orchestrare il failover e stabilire automaticamente le connessioni dopo il failover tra la **rete virtuale di ripristino** e la **rete virtuale di Azure**. Il ciclo è illustrato nel diagramma seguente:
 - A seconda dei requisiti delle app, le connessioni tra le due reti virtuali (**rete virtuale di ripristino** e **rete virtuale di Azure**) nell'area di destinazione possono essere stabilite prima, durante (come passaggio intermedio) o dopo il failover.
-    - La società può usare [piani di ripristino](site-recovery-create-recovery-plans.md) per specificare quando verranno stabilite connessioni.
-    - Possono connettere le reti virtuali tramite peering di reti virtuali o VPN da sito a sito.
-        - Il peering di reti virtuali non usa alcun gateway VPN e presenta vincoli diversi.
-        - I [prezzi](https://azure.microsoft.com/pricing/details/virtual-network) per il peering di reti virtuali viene calcolato in modo diverso rispetto ai [prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway) per il gateway VPN tra reti virtuali. Per i failover, è in genere consigliabile usare lo stesso metodo di connettività delle reti di origine, incluso il tipo di connessione, per ridurre al minimo gli eventi di rete imprevisti.
+  - La società può usare [piani di ripristino](site-recovery-create-recovery-plans.md) per specificare quando verranno stabilite connessioni.
+  - Possono connettere le reti virtuali tramite peering di reti virtuali o VPN da sito a sito.
+      - Il peering di reti virtuali non usa alcun gateway VPN e presenta vincoli diversi.
+      - I [prezzi](https://azure.microsoft.com/pricing/details/virtual-network) per il peering di reti virtuali viene calcolato in modo diverso rispetto ai [prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway) per il gateway VPN tra reti virtuali. Per i failover, è in genere consigliabile usare lo stesso metodo di connettività delle reti di origine, incluso il tipo di connessione, per ridurre al minimo gli eventi di rete imprevisti.
 
     ![Risorse in Azure: failover completo](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
 
@@ -128,13 +128,13 @@ In questo scenario la **società B** adotta un approccio ibrido, con parte dell'
 Di seguito viene indicato l'aspetto dell'architettura di rete prima del failover.
 
 - Le macchine virtuali dell'applicazione sono ospitate nell'area Asia orientale di Azure.
--  Asia orientale dispone di una rete virtuale (**Rete virtuale di origine**) con spazio degli indirizzi 10.1.0.0/16.
-    - Nell'area Asia orientale i carichi di lavoro sono suddivisi tra tre subnet nella **rete virtuale di origine**:
-        - **Subnet 1**: 10.1.1.0/24
-        - **Subnet 2**: 10.1.2.0/24,
-        - **Subnet 3**: 10.1.3.0/24 con uso di una rete virtuale di Azure con spazio degli indirizzi 10.1.0.0/16. Questa rete virtuale è denominata **Rete virtuale di origine**
- - L'area secondaria (destinazione) è Asia sud-orientale di Azure:
-    - Asia sud-orientale dispone di una rete virtuale di ripristino (**Rete virtuale di ripristino**) identica alla **Rete virtuale di origine**.
+- Asia orientale dispone di una rete virtuale (**Rete virtuale di origine**) con spazio degli indirizzi 10.1.0.0/16.
+  - Nell'area Asia orientale i carichi di lavoro sono suddivisi tra tre subnet nella **rete virtuale di origine**:
+    - **Subnet 1**: 10.1.1.0/24
+    - **Subnet 2**: 10.1.2.0/24,
+    - **Subnet 3**: 10.1.3.0/24 con uso di una rete virtuale di Azure con spazio degli indirizzi 10.1.0.0/16. Questa rete virtuale è denominata **Rete virtuale di origine**
+      - L'area secondaria (destinazione) è Asia sud-orientale di Azure:
+  - Asia sud-orientale dispone di una rete virtuale di ripristino (**Rete virtuale di ripristino**) identica alla **Rete virtuale di origine**.
 - Le macchine virtuali nell'area Asia orientale vengono connesse a un data center locali con Azure ExpressRoute o VPN da sito-a-sito.
 - Per ridurre l'obiettivo del tempo di ripristino (RTO), la società B effettua il provisioning del gateway nella rete virtuale di ripristino nell'area Asia sud-orientale di Azure prima del failover.
 - La società B assegna/verifica gli indirizzi IP di destinazione per le macchine virtuali replicate. L'indirizzo IP di destinazione è lo stesso indirizzo IP di origine per ogni macchina virtuale.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: a243ac45ce29ae824c8f38036d4387da3b1cff8f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 165df03ec06081fe9b2e1ab84ffe7579ac457758
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453213"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855487"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Strumenti per la visualizzazione e l'esplorazione dei dati nella macchina virtuale per data science
 
@@ -43,7 +43,7 @@ Un passaggio fondamentale del data science consiste nel comprendere i dati. Gli 
 | Edizioni supportate della macchina virtuale per data science     | Windows, Linux     |
 | Usi tipici      | Strumento ML generale     |
 | Come usarla o eseguirla?      | In Windows cercare Weka nel menu Start. In Linux accedere con X2Go, quindi passare ad Applications (Applicazioni) -> Development (Sviluppo) -> Weka. |
-| Collegamenti agli esempi      | [Esempi di Weka](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
+| Collegamenti agli esempi      | [Esempi di Weka](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | Strumenti correlati nella macchina virtuale per data science      |LightGBM, Rattle, Xgboost   |
 
 ## <a name="rattle"></a>Rattle

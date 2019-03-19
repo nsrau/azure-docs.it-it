@@ -10,23 +10,25 @@ ms.subservice: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: cae02627c539e543d27ea188d521605f187ea8a0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 672bfee600f19661c6bc68535a68fff4a0ccc43f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475347"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835368"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Novità di Azure SQL Data Warehouse Giugno 2018
 Azure SQL Data Warehouse riceve continuamente miglioramenti. Questo articolo illustra le nuove funzionalità e le modifiche introdotte nel mese di giugno 2018. 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="user-defined-restore-points"></a>Punti di ripristino definiti dall'utente
 SQL Data Warehouse acquisisce automaticamente gli snapshot del data warehouse ogni 8 ore garantendo un obiettivo del punto di ripristino (RPO) di otto ore. Sebbene questi snapshot automatizzati facilitino gli oneri di gestione dell'esecuzione del data warehouse, è necessario creare snapshot nei momenti critici in base alle esigenze aziendali. Ad esempio, l'esecuzione di uno snapshot subito prima della distribuzione di nuovi script o un carico di dati significativi nel data warehouse per abilitare un punto di ripristino subito prima dell'operazione. 
 
-SQL Data Warehouse ora supporta [punti di ripristino definiti dall'utente](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) tramite il cmdlet [New-AzureRmSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint).
+SQL Data Warehouse ora supporta [punti di ripristino definita dall'utente](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) tramite il [New-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint) cmdlet.
 
 ```PowerShell
-New-AzureRmSqlDatabaseRestorePoint
+New-AzSqlDatabaseRestorePoint
     -ResourceGroupName $ResourceGroupName
     -ServerName $ServerName
     -DatabaseName $DatabaseName
@@ -124,7 +126,7 @@ Dopo aver appreso alcune informazioni su SQL Data Warehouse, vedere come [creare
 [Blog Customer Advisory Team]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Casi di successo dei clienti]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Richieste di funzionalità]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Forum su Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Forum su Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Video]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md

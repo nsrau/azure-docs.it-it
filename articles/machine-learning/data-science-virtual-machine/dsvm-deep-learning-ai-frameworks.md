@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 610b140fd6049842b993c17fd53bebf799f83f5c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 59f88d54d3542738f1a500c8c476995eb1535ecf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453145"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006490"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Apprendimento avanzato e framework AI
 La [macchina virtuale per data science](https://aka.ms/dsvm) e la [macchina virtuale per l'apprendimento avanzato](https://aka.ms/dsvm/deeplearning) supportano diversi framework per consentire la creazione delle applicazioni di Intelligenza artificiale con analisi predittiva e funzionalità cognitive come comprensione delle immagini e del linguaggio.
@@ -218,8 +218,7 @@ L'avvio del servizio richiede circa un minuto. Aprire un Web browser e passare a
 | Come viene configurata o installata sulla macchina virtuale per data science?  | PyTorch viene installato in [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition).  |
 | Collegamenti agli esempi      | Sono inclusi notebook di Jupyter di esempio e altri esempi sono disponibili in /dsvm/samples/pytorch.      |
 | Strumenti correlati nella macchina virtuale per data science      | Torch      |
-| Come usarla o eseguirla? |
-* In un terminale: attivare l'ambiente corretto, quindi eseguire Python. <br/> * In Jupyter: connettersi a [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), quindi aprire la directory di PyTorch per gli esempi.  |
+| Come usarla o eseguirla? |* In un terminale: attivare l'ambiente corretto, quindi eseguire Python. <br/> * In Jupyter: connettersi a [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), quindi aprire la directory di PyTorch per gli esempi.  |
 
 ## <a name="mxnet-model-server"></a>MXNet Model Server
 

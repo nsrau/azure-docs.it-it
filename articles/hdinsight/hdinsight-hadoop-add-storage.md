@@ -8,17 +8,16 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: a86a965a746ed659b73c359ee44fb9be250aae97
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 5f46e7846a5b0cd9479f19d475d4604f37bead4f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714284"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168742"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Aggiungere altri account di archiviazione a HDInsight
 
-Informazioni su come usare le azioni script per aggiungere altri account di archiviazione di Azure in HDInsight. Nella procedura descritta in questo documento viene aggiunto un account di archiviazione a un cluster HDInsight basato su Linux esistente.
+Informazioni su come usare le azioni script per aggiungere altri account di archiviazione di Azure in HDInsight. Nella procedura descritta in questo documento viene aggiunto un account di archiviazione a un cluster HDInsight basato su Linux esistente. Questo articolo si applica a [archiviazione di Azure](hdinsight-hadoop-use-blob-storage.md) e solo gli account di archiviazione aggiuntivo (non cluster account di archiviazione predefinito). Questo articolo non si applica a [Azure Data Lake archiviazione Gen1](hdinsight-hadoop-use-data-lake-store.md) e [Gen2 di archiviazione di Azure Data Lake](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 > [!IMPORTANT]  
 > Le informazioni in questo documento illustrano come aggiungere altre risorse di archiviazione a un cluster dopo la creazione. Per informazioni sull'aggiunta di account di archiviazione durante la creazione del cluster, vedere [Configurare cluster in HDInsight con Apache Hadoop, Apache Spark, Apache Kafka e altro](hdinsight-hadoop-provision-linux-clusters.md).

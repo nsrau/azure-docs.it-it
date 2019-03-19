@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
-ms.openlocfilehash: e6d16c31b8975036202fe77906e2d729391b5c59
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: c7b62f66830e17fd8f6607e0a629307a9ab6fc78
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038076"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983592"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Ottimizzazione delle prestazioni delle query con Azure Cosmos DB
 
@@ -215,6 +215,8 @@ La sezione sulle metriche di esecuzione delle query descrive come recuperare la 
 
 ### <a name="indexing-policy"></a>Criterio di indicizzazione
 Per informazioni su percorsi, tipi e modalità di indicizzazione e sul relativo impatto sull'esecuzione delle query, vedere [Configurazione dei criteri di indicizzazione](index-policy.md). Per impostazione predefinita, i criteri di indicizzazione usano l'indicizzazione hash per le stringhe, che è efficace per le query di uguaglianza, ma non per le query di intervallo o orderby. Se sono necessarie query di intervallo per le stringhe, è consigliabile specificare il tipo di indice di intervallo per tutte le stringhe. 
+
+Per impostazione predefinita, Azure Cosmos DB verrà applicata l'indicizzazione automatica di tutti i dati. Per prestazioni elevate inserire gli scenari, considerare l'esclusione percorsi come ciò riduce il costo in unità richiesta per ogni operazione di inserimento. 
 
 ## <a name="query-execution-metrics"></a>Metriche di esecuzione delle query
 È possibile ottenere metriche dettagliate sull'esecuzione delle query passando l'intestazione facoltativa `x-ms-documentdb-populatequerymetrics` (`FeedOptions.PopulateQueryMetrics` in .NET SDK). Il valore restituito in `x-ms-documentdb-query-metrics` contiene le seguenti coppie chiave-valore, pensate per risoluzione dei problemi più avanzati di esecuzione delle query. 

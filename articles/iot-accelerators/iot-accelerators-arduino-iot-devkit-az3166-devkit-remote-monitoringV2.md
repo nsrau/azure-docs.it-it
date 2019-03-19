@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: eb2a6692c0b00dc4419c601228453a8cfc44c02a
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 3551d088c1d02715bf9ace09d7eb0048bc10111e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156783"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105251"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Connettere un dispositivo IoT DevKit all'acceleratore della soluzione di monitoraggio remoto
 
@@ -40,7 +40,7 @@ Per aprire l'esempio della soluzione di monitoraggio remoto in VS Code:
 
 1. Trovare **Remote Monitoring** (Monitoraggio remoto) e fare clic su **Open Sample** (Apri esempio). Si apre una nuova finestra di Visual Studio Code che visualizza la cartella del progetto:
 
-  ![IoT Workbench, selezionare l'esempio della soluzione di monitoraggio remoto](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-example.png)
+   ![IoT Workbench, selezionare l'esempio della soluzione di monitoraggio remoto](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-example.png)
 
 ## <a name="configure-the-device"></a>Configurare il dispositivo
 
@@ -79,7 +79,7 @@ Per verificare che l'applicazione di esempio caricata nel dispositivo DevKit fun
 
 Quando viene eseguita l'app di esempio, il dispositivo DevKit invia le informazioni di telemetria dai dati raccolti dai sensori all'acceleratore della soluzione tramite Wi-Fi. Per visualizzare le informazioni di telemetria:
 
-1. Passare al dashboard della soluzione e fare clic su **Dispositivi**.
+1. Passare al dashboard della soluzione e fare clic su **Device Explorer**.
 
 1. Fare clic sul nome del dispositivo DevKit. Nella scheda a destra è possibile visualizzare i dati di telemetria dal DevKit in tempo reale:
 
@@ -87,7 +87,7 @@ Quando viene eseguita l'app di esempio, il dispositivo DevKit invia le informazi
 
 ### <a name="control-the-devkit-device"></a>Controllare il dispositivo DevKit
 
-L'acceleratore della soluzione di monitoraggio remoto consente di controllare il dispositivo in remoto. Il codice di esempio implementa tre metodi che è possibile visualizzare nella sezione **Metodo** quando si seleziona il dispositivo nella pagina **Dispositivi**:
+L'acceleratore della soluzione di monitoraggio remoto consente di controllare il dispositivo in remoto. Il codice di esempio implementa tre metodi che è possibile visualizzare nel **metodo** sezione quando si seleziona il dispositivo nel **Device Explorer** pagina:
 
 ![Metodi di IoT DevKit](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-methods.png)
 
@@ -99,11 +99,11 @@ Per cambiare il colore di uno dei LED del dispositivo DevKit, usare il metodo **
 
 1. Configurare i processi con i valori seguenti e fare clic su **Applica**:
 
-    * Seleziona processo: **Metodo Run**
-    * Nome metodo: **LedColor**
-    * Nome processo: **ChangeLedColor**
+   * Seleziona processo: **Metodo Run**
+   * Nome metodo: **LedColor**
+   * Nome processo: **ChangeLedColor**
 
-    ![Impostazioni del processo](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-change-color.png)
+     ![Impostazioni del processo](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-change-color.png)
 
 1. Dopo qualche secondo, il DevKit cambierà il colore del LED RGB (sotto il pulsante A):
 

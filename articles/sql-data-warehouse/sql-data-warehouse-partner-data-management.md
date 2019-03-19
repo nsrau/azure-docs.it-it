@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 6e58fa83bfdce5e5363ef61d1e3deaa61397301a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: f8692bac271c2b0a51fef358d2fc73d6cfc8fe97
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461934"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004404"
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>Partner di gestione di dati di SQL Data Warehouse
 Per creare una soluzione di data warehouse, è possibile scegliere tra una vasta gamma di strumenti leader nel settore. Questo articolo evidenzia società partner di Microsoft che offrono strumenti e soluzioni per la gestione dati che supportano Azure SQL Data Warehouse.
@@ -30,7 +30,7 @@ Per creare una soluzione di data warehouse, è possibile scegliere tra una vasta
 | ![Redpoint Global][4] |**RedPoint Data Management**<br>RedPoint Data Management consente agli esperti di mercati di applicare tutti i dati disponibili per coinvolgere i clienti su diversi canali, eseguendo al tempo stesso la gestione strutturata e non strutturata dei dati. Grazie ad Azure SQL Data Warehouse e RedPoint è possibile massimizzare il valore di tutti i dati strutturati e non strutturati per offrire le interazioni iper-personalizzate e contestuali necessarie per coinvolgere i clienti moderni, attivi su tutti i canali di comunicazione. L'interfaccia di trascinamento semplifica la progettazione e l'esecuzione dei processi di gestione dati. |[Marketplace][redpoint_dm_marketplace]<br>[Sito Web][redpoint_dm_website]<br>[Comunicato stampa][redpoint_press]<br>[Foglio dati][redpoint_dm_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] |[![video di redpoint dm](./media/sql-data-warehouse-partner-data-management/redpoint_dm_video.jpg)](https://www.youtube.com/watch?v=o3DtXRpiEg0) |
 | ![Sentry One][5] |**DW Sentry**<br>Grazie al dashboard di spostamento dei dati intelligente e al calendario eventi, è possibile conoscere esattamente i fattori che influiscono sul carico di lavoro. Gli strumenti sono progettati per consentire all'utente di avere visibilità su query e processi in esecuzione per caricare, eseguire il backup o ripristinare i dati, al fine di sfruttare al meglio le risorse di Azure. |[Marketplace][sql_sentry_marketplace]<br>[Sito Web][sql_sentry_website]<br>[Comunicato stampa][sql_sentry_press]<br>[Twitter][sql_sentry_twitter]<br>[YouTube][sql_sentry_youtube] | |
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Per altre informazioni su altri partner, vedere [Partner di business intelligence][bi_partners] e [Partner di integrazione di dati][di_partners].
 
 <!--Image references-->
@@ -49,7 +49,7 @@ Per altre informazioni su altri partner, vedere [Partner di business intelligenc
 
 <!--Website links -->
 
-[coffing_website]:http://www.coffingdw.com/software/nexus/
+[coffing_website]:https://www.coffingdw.com/software/nexus/
 [inbrein_website]:http://microerd.com/
 [infolibrarian_website]:http://www.infolibcorp.com/metadata-management/software-tools
 [redpoint_it_website]:http://www.redpoint.net/products/customer-interaction-management/
@@ -84,7 +84,7 @@ Per altre informazioni su altri partner, vedere [Partner di business intelligenc
 
 <!--Press links-->
 
-[coffing_press]:http://www.coffingdw.com/press-release-nexus-tuned-for-azure-sql-data-warehouse/
+[coffing_press]:https://www.coffingdw.com/press-release-nexus-tuned-for-azure-sql-data-warehouse/
 
 <!--[inbrein_press]:-->
 

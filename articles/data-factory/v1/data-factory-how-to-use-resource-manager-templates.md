@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9fb63ae141665dbeb64ee7046427098d4482aa55
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: ca8b3930b9d9f708d83dc760be3ee89737b074dc
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111323"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541588"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Usare modelli per creare entità di Azure Data Factory
 > [!NOTE]
@@ -28,7 +28,7 @@ ms.locfileid: "56111323"
 ## <a name="overview"></a>Panoramica
 Durante l'uso di Azure Data Factory per le esigenze di integrazione dei dati, può essere necessario riusare lo stesso modello in ambienti diversi o implementare ripetutamente la stessa attività all'interno di una soluzione. I modelli consentono di implementare e gestire questi scenari in modo semplificato. I modelli di Azure Data Factory rappresentano la soluzione ideale per gli scenari che implicano riusabilità e ripetizione.
 
-Si consideri la situazione in cui un'organizzazione ha 10 impianti di produzione a livello globale. I log provenienti da ogni impianto vengono archiviati in un database SQL Server locale separato. La società vuole compilare un unico data warehouse nel cloud per l'analisi ad hoc. Vuole inoltre sfruttare la stessa logica, ma configurazioni diverse per gli ambienti di sviluppo, test e produzione.
+Si consideri la situazione in cui un'organizzazione ha 10 impianti di produzione a livello globale. I log provenienti da ogni impianto vengono archiviati in un database SQL Server locale separato. La società vuole compilare un unico data warehouse nel cloud per analitica ad hoc. Vuole inoltre sfruttare la stessa logica, ma configurazioni diverse per gli ambienti di sviluppo, test e produzione.
 
 In questo caso, è necessario ripetere un'attività all'interno dello stesso ambiente, ma con valori diversi nelle 10 data factory per ogni impianto di produzione. In effetti, l'elemento della **ripetizione** è presente. La creazione di modelli consente l'astrazione di questo flusso generico (ovvero di pipeline con le stesse attività in ogni data factory), ma usa un file dei parametri separato per ogni impianto di produzione.
 
@@ -59,7 +59,7 @@ Le sezioni seguenti includono informazioni dettagliate sulla definizione delle r
 Il modello principale per la definizione di una data factory è il seguente:
 
 ```JSON
-"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
 "contentVersion": "1.0.0.0",
 "parameters": { ...
 },

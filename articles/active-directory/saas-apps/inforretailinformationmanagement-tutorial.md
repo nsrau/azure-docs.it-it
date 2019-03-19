@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 928fe956dbdc5020f273e59f4aaf3e4b690384f9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b7c4ac61caae371ebce7c273a4b48244a45c3519
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202316"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57837672"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>Esercitazione: Integrazione di Azure Active Directory con Infor Retail – Information Management
 
@@ -112,6 +112,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Infor Retail – Information Management per IDP](./media/inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_url.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL usando i criteri seguenti: 
+    
     |   |
     | -- |
     | `https://<company name>.mingle.infor.com` |

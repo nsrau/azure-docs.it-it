@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 9ea236718b7fd9b808a5092dddec9574f6b93b48
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 6d78e310ffd5b473c3d7e44b4edbf9caaff7655f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167156"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077667"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Aggiungere una macchina virtuale CentOS Linux a un dominio gestito
 Questo articolo illustra come aggiungere una macchina virtuale CentOS Linux a un dominio gestito di Azure AD Domain Services.
@@ -86,12 +86,11 @@ Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività s
     sudo realm discover CONTOSO100.COM
     ```
 
-    > [!NOTE]
-    > **Risoluzione dei problemi:** Se *realm discover* non riesce a trovare il dominio gestito:  
-      * Verificare che il dominio sia raggiungibile dalla macchina virtuale (provare a effettuare il ping).  
-      * Verificare che la macchina virtuale sia stata effettivamente distribuita nella stessa rete virtuale in cui è disponibile il dominio gestito.
-      * Verificare che le impostazioni del server DNS per la rete virtuale siano state aggiornate affinché puntino ai controller di dominio del dominio gestito.  
-      >
+   > [!NOTE]
+   > **Risoluzione dei problemi:** Se *realm discover* non riesce a trovare il dominio gestito:  
+   >    * Verificare che il dominio sia raggiungibile dalla macchina virtuale (provare a effettuare il ping).  
+   >    * Verificare che la macchina virtuale sia stata effettivamente distribuita nella stessa rete virtuale in cui è disponibile il dominio gestito.
+   >    * Verificare che le impostazioni del server DNS per la rete virtuale siano state aggiornate affinché puntino ai controller di dominio del dominio gestito.  
 
 2. Inizializzare Kerberos. Nel terminale SSH digitare il comando seguente:
 

@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 396e8a487feb2f7a7cb45f3713e641b5ebc6abcd
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 8abb2e3ac4f62a3ea51cc686bbf23260fccc4077
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565242"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441373"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Gestione dei database cloud con scalabilità orizzontale
 
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
 
-**Processi di database elastico** è un servizio cloud di Azure ospitato dal cliente che consente l'esecuzione di attività amministrative ad hoc e pianificate, dette **processi**. Con i processi è possibile gestire facilmente e in modo affidabile gruppi estesi di database SQL di Azure tramite l'esecuzione di script Transact-SQL per eseguire operazioni amministrative.
+**Processi di Database elastici** è un servizio Cloud Azure ospitato dal cliente che consente l'esecuzione di ad hoc e pianificate attività amministrative, che vengono chiamati **processi**. Con i processi è possibile gestire facilmente e in modo affidabile gruppi estesi di database SQL di Azure tramite l'esecuzione di script Transact-SQL per eseguire operazioni amministrative.
 
 Per la gestione dei database cloud con scalabilità orizzontale, la funzionalità **Processi di database elastico** (in anteprima) consente di eseguire uno script Transact-SQL (T-SQL) in modo affidabile, ad esempio:
 

@@ -16,12 +16,12 @@ ms.date: 09/20/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b683abbba2013fef47f648c11a52d7767d7cdf08
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5a68a4caf3d32aa88a61a8e1639bdd08d67599d4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206328"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083301"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>È in corso il provisioning di un set errato di utenti per un'applicazione della raccolta di Azure AD
 
@@ -33,25 +33,25 @@ Usare le risorse seguenti per informazioni su come verificare quali utenti e gru
 
 Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa procedura:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
 
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
+2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
+4. Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
 
-5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-  * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 
-6.  Selezionare nell'elenco l'applicazione che si vuole assegnare a un utente.
+6. Selezionare nell'elenco l'applicazione che si vuole assegnare a un utente.
 
-7.  Dopo il caricamento dell'applicazione, fare clic su **Utenti e gruppi** nel menu di spostamento di sinistra dell'applicazione.
+7. Dopo il caricamento dell'applicazione, fare clic su **Utenti e gruppi** nel menu di spostamento di sinistra dell'applicazione.
 
-8.  Per aprire il riquadro **Aggiungi assegnazione**, fare clic sul pulsante **Aggiungi** nella parte superiore dell'elenco **Utenti e gruppi**.
+8. Per aprire il riquadro **Aggiungi assegnazione**, fare clic sul pulsante **Aggiungi** nella parte superiore dell'elenco **Utenti e gruppi**.
 
-9.  Fare clic sul selettore **Utenti e gruppi** nel riquadro **Aggiungi assegnazione**.
+9. Fare clic sul selettore **Utenti e gruppi** nel riquadro **Aggiungi assegnazione**.
 
 10. Nella casella di ricerca **Cerca per nome o indirizzo di posta** digitare il **nome completo**  o l'**indirizzo di posta elettronica** dell'utente oggetto dell'assegnazione.
 
@@ -71,25 +71,25 @@ Se il provisioning è configurato e già in esecuzione per un'app, il provisioni
 
 Per assegnare uno o più gruppi direttamente a un'applicazione, seguire questa procedura:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
 
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
+2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
+4. Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
 
-5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-  * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 
-6.  Selezionare nell'elenco l'applicazione che si vuole assegnare a un utente.
+6. Selezionare nell'elenco l'applicazione che si vuole assegnare a un utente.
 
-7.  Dopo il caricamento dell'applicazione, fare clic su **Utenti e gruppi** nel menu di spostamento di sinistra dell'applicazione.
+7. Dopo il caricamento dell'applicazione, fare clic su **Utenti e gruppi** nel menu di spostamento di sinistra dell'applicazione.
 
-8.  Per aprire il riquadro **Aggiungi assegnazione**, fare clic sul pulsante **Aggiungi** nella parte superiore dell'elenco **Utenti e gruppi**.
+8. Per aprire il riquadro **Aggiungi assegnazione**, fare clic sul pulsante **Aggiungi** nella parte superiore dell'elenco **Utenti e gruppi**.
 
-9.  Fare clic sul selettore **Utenti e gruppi** nel riquadro **Aggiungi assegnazione**.
+9. Fare clic sul selettore **Utenti e gruppi** nel riquadro **Aggiungi assegnazione**.
 
 10. Nella casella di ricerca **Cerca per nome o indirizzo di posta** digitare il **nome completo del gruppo** a cui si vuole eseguire l'assegnazione.
 

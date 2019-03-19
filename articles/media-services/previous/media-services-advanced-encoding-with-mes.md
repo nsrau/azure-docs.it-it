@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: f2be733fc0f127288a86372adf54a547983285db
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: aa29b1e2d0e80b3134be69d17ed5be454f8a51c3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998706"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850361"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Eseguire attività di codifica avanzata personalizzando i set di impostazioni di Media Encoder Standard 
 
@@ -160,7 +160,7 @@ Assicurarsi di esaminare la sezione [Considerazioni](#considerations) .
 
 ### <a id="xml"></a>Set di impostazioni XML
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
         <H264Video>
           <KeyFrameInterval>00:00:02</KeyFrameInterval>
@@ -235,8 +235,8 @@ Assicurarsi di esaminare la sezione [Considerazioni](#considerations) .
 
 Si applicano le considerazioni seguenti:
 
-* L'utilizzo di timestamp espliciti per Start/Step/Range presuppone che l'origine dell'input duri almeno 1 minuto.
-* Gli elementi Jpg/Png/BmpImage hanno gli attributi stringa Start, Step e Range, che possono essere interpretati come:
+* L'utilizzo di timestamp espliciti per Inizio/Passaggio/Intervallo presuppone che l'origine dell'input duri almeno 1 minuto.
+* Gli elementi Jpg/Png/BmpImage hanno gli attributi inizio, passaggio e intervallo della stringa, che possono essere interpretati come:
 
   * Numero di frame se sono numeri interi non negativi, ad esempio "Start": "120",
   * Relativi alla durata di origine se espressi con il suffisso %, ad esempio "Start": "15%", OR
@@ -376,7 +376,7 @@ Per tagliare i video, è possibile eseguire uno dei set di impostazioni di Media
 Per tagliare i video, è possibile eseguire un’impostazione predefinita MES documentata [qui](media-services-mes-presets-overview.md) e modificare l'elemento **Sources** (come illustrato di seguito).
 
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Sources>
         <Source StartTime="PT4S" Duration="PT14S"/>
       </Sources>
@@ -581,8 +581,7 @@ Se si usa .NET, aggiungere le due funzioni seguenti all'esempio .NET definito in
                 },
                 {
                   "IsOverlay": true,
-                  "OverlayLoopCount": 1,
-                  "InputLoop": true
+                  "OverlayLoopCount": 1
                 }
               ],
               "Source": "Image001.png",
@@ -639,7 +638,7 @@ Se si usa .NET, aggiungere le due funzioni seguenti all'esempio .NET definito in
 
 ### <a name="xml-preset"></a>Set di impostazioni XML
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Sources>
         <Source>
           <Streams />
@@ -656,12 +655,10 @@ Se si usa .NET, aggiungere le due funzioni seguenti all'esempio .NET definito in
                 <MediaParam>
                   <IsOverlay>false</IsOverlay>
                   <OverlayLoopCount>1</OverlayLoopCount>
-                  <InputLoop>false</InputLoop>
                 </MediaParam>
                 <MediaParam>
                   <IsOverlay>true</IsOverlay>
                   <OverlayLoopCount>1</OverlayLoopCount>
-                  <InputLoop>true</InputLoop>
                 </MediaParam>
               </MediaParams>
             </VideoOverlay>
@@ -1038,7 +1035,7 @@ Per altre informazioni sul modo in cui il codificatore interpreta le impostazion
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Vedere anche

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: glenga
-ms.openlocfilehash: d7396ddb94017048247050726f83b0302e946633
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
-ms.translationtype: HT
+ms.openlocfilehash: 2762e5c4f2b67415a0e42e80a34ae5b34c57adc9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347121"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086582"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Distribuzione con file ZIP per Funzioni di Azure
 
@@ -51,13 +51,13 @@ Quando lo sviluppo avviene in un computer locale, è facile creare un file ZIP d
 
 + **Dal portale di Azure:**
 
-    1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'app per le funzioni.
+  1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'app per le funzioni.
 
-    2. Nella scheda **Panoramica** selezionare **Scarica contenuto dell'app**. Selezionare le opzioni di download, quindi **Scarica**.
+  2. Nella scheda **Panoramica** selezionare **Scarica contenuto dell'app**. Selezionare le opzioni di download, quindi **Scarica**.
 
-        ![Scaricare il progetto dell'app per le funzioni](./media/deployment-zip-push/download-project.png)
+      ![Scaricare il progetto dell'app per le funzioni](./media/deployment-zip-push/download-project.png)
 
-    Il file ZIP scaricato è nel formato corretto per essere ripubblicato nell'app per le funzioni utilizzando la distribuzione push con file ZIP. Il download dal portale consente anche di aggiungere i file necessari per aprire l'app per le funzioni direttamente in Visual Studio.
+     Il file ZIP scaricato è nel formato corretto per essere ripubblicato nell'app per le funzioni utilizzando la distribuzione push con file ZIP. Il download dal portale consente anche di aggiungere i file necessari per aprire l'app per le funzioni direttamente in Visual Studio.
 
 + **Tramite API REST:**
 
@@ -89,9 +89,6 @@ Quando si utilizza l'interfaccia della riga di comando di Azure nel computer loc
 ## <a name="run-functions-from-the-deployment-package"></a>Eseguire le funzioni dal pacchetto di distribuzione
 
 È anche possibile scegliere di eseguire le funzioni direttamente dal file di pacchetto di distribuzione. Questo metodo ignora il passaggio di distribuzione relativo alla copia dei file dal pacchetto alla directory `wwwroot` dell'app per le funzioni. Il file del pacchetto è invece montato dal runtime di funzioni e il contenuto della directory `wwwroot` diventa di sola lettura.  
-
-> [!NOTE]
-> La possibilità di eseguire l'app per le funzioni dal pacchetto di distribuzione è in anteprima.
 
 La distribuzione ZIP si integra con questa funzionalità che può essere attivata impostando l'impostazione dell'app per le funzioni `WEBSITE_RUN_FROM_PACKAGE` su un valore di `1`. Per altre informazioni, vedere [Run your Functions from a deployment package file](run-functions-from-deployment-package.md) (Esecuzione di funzioni da un file di pacchetto di distribuzione).
 

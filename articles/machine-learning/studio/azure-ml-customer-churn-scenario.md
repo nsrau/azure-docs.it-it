@@ -5,17 +5,17 @@ description: Casi di studio sullo sviluppo di un modello integrato per l'analisi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: a00548bd5eb88c95ea83d492524e2ae10f274bba
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 320dd28ba22d7919e3f3afdcd8baa47780f363dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453988"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856117"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analizzare la varianza dei clienti con Azure Machine Learning Studio
 ## <a name="overview"></a>Panoramica
@@ -25,7 +25,7 @@ Questo argomento illustra un'implementazione di riferimento di un progetto di an
 Questo esperimento è stato sviluppato e testato da Serge Berger, Principal Data Scientist presso Microsoft, e Roger Barga, ex Product Manager per Microsoft Azure Machine Learning Studio. Il team di documentazione di Azure esprime riconoscenza e ringrazia gli esperti per aver condiviso le proprie competenze in questo white paper.
 
 > [!NOTE]
-> I dati usati per questo esperimento non sono disponibili pubblicamente. Per un esempio su come compilare un modello di apprendimento automatico per l'analisi della varianza, vedere: [Retail churn model template](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) (Modello di varianza al dettaglio) nella [Azure AI Gallery](http://gallery.azure.ai/)
+> I dati usati per questo esperimento non sono disponibili pubblicamente. Per un esempio su come compilare un modello di apprendimento automatico per l'analisi della varianza, vedere: [Retail churn model template](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) (Modello di varianza al dettaglio) nella [Azure AI Gallery](https://gallery.azure.ai/)
 > 
 > 
 
@@ -106,7 +106,7 @@ Nei diagrammi che seguono sono illustrati i dati usati.
  
 
 > Questi dati sono privati e quindi il modello e i dati non possono essere condivisi.
-> Tuttavia, per un modello simile che usa dati disponibili pubblicamente, vedere questo esperimento di esempio nella [Azure AI Gallery](http://gallery.azure.ai/): [Telco Customer Churn](http://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383) (Varianza del cliente in ambito di telecomunicazioni).
+> Tuttavia, per un modello simile che usa dati disponibili pubblicamente, vedere questo esperimento di esempio nella [Azure AI Gallery](https://gallery.azure.ai/): [Telco Customer Churn](https://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383) (Varianza del cliente in ambito di telecomunicazioni).
 > 
 > Per altre informazioni su come è possibile implementare un modello di analisi della varianza usando Cortana Intelligence Suite, si consiglia anche [questo video](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) del Senior Program Manager Wee Hyong Tok. 
 > 
@@ -213,13 +213,13 @@ In questo documento viene descritto un approccio intelligente alla gestione di u
 ## <a name="references"></a>Riferimenti
 [1] Analisi predittiva: Beyond the Predictions, W. McKnight, Information Management, luglio/agosto 2011, pp.18-20.  
 
-[2] Articolo di Wikipedia: [Accuratezza e precisione](http://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] Articolo di Wikipedia: [Accuratezza e precisione](https://en.wikipedia.org/wiki/Accuracy_and_precision)
 
-[3] [CRISP-DM 1.0: Guida dettagliata sul data mining](http://www.the-modeling-agency.com/crisp-dm.pdf)   
+[3] [CRISP-DM 1.0: Guida dettagliata sul data mining](https://www.the-modeling-agency.com/crisp-dm.pdf)   
 
 [4] [Big Data Marketing: coinvolgere i clienti e valorizzare i prodotti in modo più efficace](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Modello di varianza delle telecomunicazioni](http://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) nella [Raccolta di intelligenza artificiale per Azure](http://gallery.azure.ai/) 
+[5] [Modello di varianza delle telecomunicazioni](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) nella [Raccolta di intelligenza artificiale per Azure](https://gallery.azure.ai/) 
  
 
 ## <a name="appendix"></a>Appendice

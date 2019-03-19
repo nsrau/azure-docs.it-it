@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c4537709181398e401ade67b831bc2d26a99221f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 31a800e851eb8a2f533cc8170856b16cd43c21cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193587"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850718"
 ---
 # <a name="lead-management-instructions-for-azure-table"></a>Istruzioni relative alla gestione dei lead per le tabelle di Azure
 
@@ -38,7 +38,7 @@ Questo articolo descrive come configurare le tabelle di Azure per l'archiviazion
     
     ![Chiave di archiviazione di Azure](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
 
-È possibile usare lo [strumento di esplorazione dell'archiviazione di Azure](http://azurestorageexplorer.codeplex.com/) o qualsiasi altro strumento per visualizzare i dati nella tabella di archiviazione. È anche possibile esportare i dati nella tabella di Azure.
+È possibile usare lo [strumento di esplorazione dell'archiviazione di Azure](https://azurestorageexplorer.codeplex.com/) o qualsiasi altro strumento per visualizzare i dati nella tabella di archiviazione. È anche possibile esportare i dati nella tabella di Azure.
 dati.
 
 ## <a name="optional-use-microsoft-flow-with-an-azure-table"></a>**(Facoltativo)**  Usare Microsoft Flow con una tabella di Azure

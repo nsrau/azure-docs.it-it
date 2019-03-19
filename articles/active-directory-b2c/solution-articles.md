@@ -7,13 +7,13 @@ ms.author: davidmu
 ms.date: 11/05/2018
 ms.topic: conceptual
 ms.service: active-directory
-ms.subservice: b2c
-ms.openlocfilehash: 5f771e51a0114c321d1dfcbaf305dd9923040032
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.subservice: B2C
+ms.openlocfilehash: 08a5e288d58d86cdad18561cb8a08a31f44ae498
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149036"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009719"
 ---
 # <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Soluzioni e training per Azure Active Directory B2C
 
@@ -28,3 +28,4 @@ Azure Active Directory (Azure AD) B2C consente alle organizzazioni di implementa
 | [Migrating Application Authentication to Azure AD B2C in a Hybrid Environment](https://aka.ms/MigratetoAADB2C) (Migrazione dell'autenticazione delle applicazioni ad Azure AD B2C in un ambiente ibrido) | Nelle organizzazioni moderne di oggi, la trasformazione digitale e il passaggio al cloud avvengono in fasi, rendendo necessario per la maggior parte delle organizzazioni operare temporaneamente in un ambiente di gestione delle identità ibrido.<br><br>Questa guida è incentrata sulla creazione del piano di migrazione per spostare la prima applicazione in Azure AD B2C e illustra le considerazioni da tenere presenti per eseguire questa operazione in un ambiente di gestione delle identità ibrido. |
 | [General Data protection Regulation (GDPR) Considerations for Customer Facing Applications](https://aka.ms/AADB2CandGDPR) (Considerazioni sul Regolamento generale sulla protezione dei dati (GDPR) per le applicazioni rivolte ai clienti) | Per le applicazioni rivolte ai clienti, tutte le organizzazioni che intraprendono progetti che vedono coinvolti dati personali e si rivolgono ai clienti dell'UE devono tenere presente il Regolamento generale sulla protezione dei dati.<br><br>Questa guida alla soluzione è incentrata sul modo in cui Azure AD B2C può essere usato come un componente flessibile dell'approccio generale di conformità al GDPR, spiegando anche come i componenti di Azure AD B2C supportano ognuno dei diritti di base del GDPR per i singoli individui. |
 | Lavorare con i criteri personalizzati:<br><ul><li>[Introduzione dei criteri personalizzati](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Introduction.pdf)</li><li>[Usare i criteri personalizzati nel tenant](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Leveraging%20Custom%20Policies%20for%20your%20Tenant.pdf)</li><li>[Strutturare i criteri e gestire le chiavi](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Structuring%20Policies%20and%20Managing%20Keys.pdf)</li><li>[Portare la propria identità e migrare gli utenti](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Bring-your-own-identity%20and%20Migrating%20Users.pdf)</li><li>[Risolvere i problemi dei criteri e controllare l'accesso](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Troubleshooting%20Policies%20and%20Auditing.pdf)</li><li>[Approfondire lo schema dei criteri personalizzati](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Deep%20Dive%20on%20Custom%20Policy%20Schema.pdf)</li><br>| Questa serie di documenti offre un percorso end-to-end con i criteri personalizzati in Azure AD B2C, presentando in dettaglio gli scenari di identità avanzati più comuni.<br><br> Illustra come implementare e gestire i criteri personalizzati per questi scenari e come diagnosticarli con gli strumenti disponibili. Fornisce inoltre una comprensione approfondita del funzionamento dei criteri personalizzati e spiega in dettaglio come ottimizzarli in base alle proprie esigenze specifiche. |
+

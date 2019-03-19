@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: eb5b4b3741b064a934833b3094c69db85e9ccabb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5eac98ec88b960956c9a0931673e67f530aef8da
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238710"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542183"
 ---
-# <a name="biztalk-services-issuer-name-and-issuer-key"></a>Servizi BizTalk: nome e chiave dell'autorità emittente
+# <a name="biztalk-services-issuer-name-and-issuer-key"></a>Servizi BizTalk: Nome dell'autorità emittente e chiave dell'autorità emittente
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -38,8 +38,8 @@ Questo argomento elenca i passaggi necessari per recuperare il nome e la chiave 
 ## <a name="access-control-issuer-name-and-issuer-key"></a>Nome e chiave dell'autorità emittente del Controllo di accesso
 Il nome e la chiave dell'autorità emittente del Controllo di accesso vengono utilizzati dagli elementi seguenti:
 
-* Applicazione del servizio BizTalk di Azure creata in Visual Studio: per distribuire correttamente l'applicazione del servizio BizTalk in Visual Studio in Azure, immettere il nome e la chiave dell'autorità emittente del Controllo di accesso. 
-* Portale dei servizi BizTalk di Azure: quando si crea un servizio BizTalk e si apre il portale dei servizi BizTalk, il nome e la chiave dell'autorità emittente del Controllo di accesso vengono registrati automaticamente per le distribuzioni con gli stessi valori del Controllo di accesso.
+* L'applicazione di servizio BizTalk di Azure creata in Visual Studio: Per distribuire correttamente l'applicazione BizTalk Service in Visual Studio in Azure, immettere il nome dell'autorità di certificazione di controllo di accesso e la chiave dell'autorità di certificazione. 
+* Il portale dei servizi BizTalk di Azure: Quando si crea un BizTalk Service e apre il portale dei servizi BizTalk, il nome dell'autorità di certificazione di controllo di accesso e la chiave dell'autorità di certificazione vengono registrati automaticamente per le distribuzioni con gli stessi valori di controllo di accesso.
 
 ### <a name="get-the-access-control-issuer-name-and-issuer-key"></a>Ottenere il nome e la chiave dell'autorità emittente del Controllo di accesso
 
@@ -77,7 +77,7 @@ Altre informazioni sul cmdlet [New-AzureSBNamespace](https://docs.microsoft.com/
 Il nome e la chiave dell'autorità emittente del bus di servizio vengono utilizzati dai servizi dell'adapter di BizTalk. Nel progetto di Servizi BizTalk in Visual Studio è possibile usare Servizi Adapter BizTalk per la connessione a un sistema LOB (Line-of-Business) locale. Per effettuare la connessione, creare l'inoltro LOB e immettere i dettagli relativi al sistema LOB. Quando si esegue questa operazione, è necessario immettere anche il nome e la chiave dell'autorità emittente del bus di servizio.
 
 ### <a name="to-retrieve-the-service-bus-issuer-name-and-issuer-key"></a>Per recuperare il nome e la chiave dell'autorità emittente del bus di servizio
-1. Accedere al [portale di Azure](http://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Cercare il **bus di servizio** e selezionare lo spazio dei nomi. 
 3. Aprire le proprietà per **Criteri di accesso condiviso**, selezionare i criteri e visualizzare la **stringa di connessione** per il nome e i valori chiave.  
 
@@ -85,16 +85,16 @@ Il nome e la chiave dell'autorità emittente del bus di servizio vengono utilizz
 Altri argomenti relativi a Servizi BizTalk di Azure:
 
 * [Installare Azure BizTalk Services SDK](https://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
-* [Servizi BizTalk: Esercitazioni ed esempi](https://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
+* [Esercitazioni: Servizi BizTalk di Azure](https://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
 * [Come iniziare a usare l'SDK di Servizi BizTalk di Azure](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 * [Servizi BizTalk di Azure](https://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
 ## <a name="see-also"></a>Vedere anche
-* [Procedura: Usare il servizio di gestione ACS per la configurazione delle identità del servizio](https://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
-* [Servizi BizTalk: Grafico edizioni Developer, Basic, Standard e Premium](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [Procedura: Usare il servizio di gestione ACS per configurare identità del servizio](https://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
+* [Servizi BizTalk: Developer, Basic, Standard e Premium dei servizi BizTalk](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
 * [Servizi BizTalk: Provisioning](https://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-* [Servizi BizTalk: Grafico dello stato del provisioning](https://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-* [Servizi BizTalk: Schede Dashboard, Monitoraggio, Scalabilità](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [Servizi BizTalk: backup e ripristino](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-* [Servizi BizTalk: limitazione](https://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+* [Servizi BizTalk: Grafico dello stato di provisioning](https://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+* [Servizi BizTalk: Schede dashboard, monitoraggio e scalabilità](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [Servizi BizTalk: Backup e ripristino](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [Servizi BizTalk: Throttling](https://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 

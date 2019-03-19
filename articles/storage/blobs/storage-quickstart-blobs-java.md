@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/04/2019
 ms.author: rogarana
-ms.openlocfilehash: 3bf82f37752009a488512d720093bc9c595dff8e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: c9aaa22a656d1164ad4e9f9c1ed7539a93dd0457
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753215"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999940"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Come caricare, scaricare ed elencare BLOB con la libreria client per Java v7
 
@@ -34,7 +34,7 @@ Assicurarsi di avere i prerequisiti seguenti:
 
 * Oppure installare e configurare Maven per usarlo dalla riga di comando.
 
-Questa guida usa [Eclipse](http://www.eclipse.org/downloads/) con la configurazione "Eclipse IDE for Java Developers" (IDE Eclipse per sviluppatori Java).
+Questa guida usa [Eclipse](https://www.eclipse.org/downloads/) con la configurazione "Eclipse IDE for Java Developers" (IDE Eclipse per sviluppatori Java).
 
 ## <a name="download-the-sample-application"></a>Scaricare l'applicazione di esempio
 
@@ -87,7 +87,7 @@ Deleting the source, and downloaded files
 Prima di continuare controllare nella directory predefinita (*C:\Utenti\<utente>\AppData\Local\Temp* per gli utenti di Windows) se è presente il file di esempio. Copiare l'URL per il BLOB nella finestra della console e incollarlo in un browser per visualizzare il contenuto del file nell'archiviazione BLOB. Se si confronta il file di esempio nella directory con il contenuto archiviato nell'archivio Blob, si noterà che sono uguali. 
 
   >[!NOTE]
-  >È anche possibile usare uno strumento come [Azure Storage Explorer](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) per visualizzare i file nell'archiviazione BLOB. Azure Storage Explorer è uno strumento multipiattaforma gratuito che consente di accedere alle informazioni dell'account di archiviazione.
+  >È anche possibile usare uno strumento come [Azure Storage Explorer](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) per visualizzare i file nell'archiviazione BLOB. Azure Storage Explorer è uno strumento multipiattaforma gratuito che consente di accedere alle informazioni dell'account di archiviazione.
 
 Dopo aver verificato i file, premere **INVIO** per terminare la demo ed eliminare i file di test. Ora che si conosce il risultato dell'esempio, aprire il file **AzureApp.java** per esaminare il codice. 
 

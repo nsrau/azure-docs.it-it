@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 99b4712373423d30dc83408cc80eccc93b342c10
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 5073d3ab967c4c4e1b90636c247839875a6aa0d7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206001"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086310"
 ---
 # <a name="how-to-use-version-tagging"></a>Come usare l'assegnazione di tag alle versioni
 
@@ -67,9 +67,9 @@ Si creerà una singola azione per la versione 1.
 
 La versione verrà contrassegnata come "versione 1" del modello.
 
-4. Nel riquadro a sinistra fare clic su "settings" (impostazioni), quindi sull'icona dei tag di versione ![](../media/tutorial18_version_tags.PNG) per visualizzare il pulsante `New Tag` (Nuovo tag) su cui fare clic.
+1. Nel riquadro a sinistra fare clic su "settings" (impostazioni), quindi sull'icona dei tag di versione ![](../media/tutorial18_version_tags.PNG) per visualizzare il pulsante `New Tag` (Nuovo tag) su cui fare clic.
     - Assegnare il nome "version 1".
-4. Nel menu a discesa dei "tag live" selezionare "Version 1".  
+1. Nel menu a discesa dei "tag live" selezionare "Version 1".  
     - A questo punto i canali che usano questo bot useranno la versione 1 del modello.
     - L'entità, le azioni e i dialoghi di training di questo modello della versione 1 non possono più essere modificati.
     - Se si seleziona "Version 1" come "tag di modifica" sarà possibile SOLO visualizzare il modello e non modificarlo.

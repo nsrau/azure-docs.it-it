@@ -1,5 +1,5 @@
 ---
-title: Messaggi AS2 per l'integrazione aziendale B2B - App per la logica di Azure | Microsoft Docs
+title: Messaggi AS2 per l'integrazione aziendale B2B - App per la logica di Azure | Documentazione Microsoft
 description: Scambiare messaggi AS2 per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.date: 06/08/2017
-ms.openlocfilehash: 2604cdd6bf758858328c2d30fc4cde535f0a7148
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: 3413b235d9202530eb1a3129637e3746bbe6585b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124663"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872568"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Scambiare messaggi AS2 per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
 
@@ -35,7 +35,7 @@ Dopo aver [creato un account di integrazione](../logic-apps/logic-apps-enterpris
 
 ## <a name="create-an-as2-agreement"></a>Creare un contratto AS2
 
-1.  Accedere al [Portale di Azure](http://portal.azure.com "Portale di Azure").  
+1.  Accedere al [Portale di Azure](https://portal.azure.com "Portale di Azure").  
 
 2. Nel menu principale di Azure selezionare **Tutti i servizi**. Nella casella di ricerca immettere "integrazione" e quindi selezionare **Account di integrazione**.
 

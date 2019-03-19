@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/25/2018
+ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5e185eea6fb1e96f17bf458dbfe2f06226933386
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 170f20ae65a8ba58291a630dc76496cbdcdb36de
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341169"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58138117"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestazioni e scalabilità in Funzioni permanenti (Funzioni di Azure)
 
@@ -48,6 +48,15 @@ Esiste una coda di elementi di lavoro per ogni hub attività in Funzioni permane
 In Funzioni permanenti sono presenti più *code di controllo* per hub attività. Una *coda di controllo* è più complessa della coda di elementi di lavoro. Le code di controllo vengono usate per attivare le funzioni dell'agente di orchestrazione con stato. Poiché le istanze della funzione dell'agente di orchestrazione sono di tipo singleton con stato, non è possibile usare un modello di consumer concorrenti per distribuire il carico tra le macchine virtuali. I messaggi dell'agente di orchestrazione sono distribuiti con bilanciamento del carico tra le code di controllo. Altre informazioni su questo comportamento sono disponibili nelle sezioni successive.
 
 Le code di controllo contengono messaggi di diverso tipo relativi al ciclo di vita di orchestrazione. Gli esempi includono i [messaggi di controllo dell'agente di orchestrazione](durable-functions-instance-management.md), i messaggi di *risposta* delle funzioni di attività e i messaggi del timer. In una singola operazione di polling dalla coda di controllo verranno rimossi al massimo 32 messaggi. Tali messaggi contengono dati di payload, nonché altri metadati, ad esempio l'istanza di orchestrazione a cui sono destinati. Se più messaggi rimossi dalla coda sono destinati alla stessa istanza di orchestrazione, verranno elaborati in batch.
+
+### <a name="queue-polling"></a>Polling della coda
+
+L'estensione durable task implementa un algoritmo esponenziale casuale back-off per ridurre l'effetto di code inattive sui costi delle transazioni di archiviazione di polling. Quando viene trovato un messaggio, il runtime controlla immediatamente per un altro messaggio. Quando viene trovato alcun messaggio, rimane in attesa per un periodo di tempo prima di riprovare. Dopo alcuni tentativi non riusciti per ottenere un messaggio della coda, il tempo di attesa continua ad aumentare finché non raggiunge il tempo di attesa massimo, impostazione predefinita è 30 secondi.
+
+L'intervallo di polling massimo è configurabile tramite il `maxQueuePollingInterval` proprietà il [file host. JSON](../functions-host-json.md#durabletask). Impostazione di un valore più elevato potrebbe causare latenze di elaborazione dei messaggi superiore. Latenze più elevate dovrebbe solo dopo i periodi di inattività. Questa impostazione su un valore inferiore potrebbe causare un aumento dei costi di archiviazione a causa di transazioni di archiviazione maggiore.
+
+> [!NOTE]
+> Durante l'esecuzione nei piani di consumo di funzioni di Azure e Premium, il [Controller di scalabilità di funzioni di Azure](../functions-scale.md#how-the-consumption-plan-works) eseguirà il polling ogni coda di controllo e di elemento di lavoro una volta ogni 10 secondi. Polling aggiuntivi è necessario determinare il momento di attivazione di istanze di app di funzione e per prendere decisioni di scalabilità. Al momento della scrittura, questo intervallo di 10 secondi è costante e non può essere configurato.
 
 ## <a name="storage-account-selection"></a>Selezione dell'account di archiviazione
 

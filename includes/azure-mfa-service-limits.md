@@ -4,21 +4,21 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 00c3a9392d0654208093ef235ec60bf25aadb6b9
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.openlocfilehash: a8ee7cc28985d905a0d158745145ce7ffaa5ba6e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279700"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553491"
 ---
 | Risorsa | Limite predefinito | Limite massimo |
 | --- | --- | --- |
-| Numero massimo di indirizzi/intervalli IP attendibili</a> per ogni sottoscrizione |0 |50 |
-| Tenere presente i dispositivi - numero di giorni |14 |60 |
-| Numero massimo di password di app? |0 |Nessun limite |
+| Numero massimo di intervalli o indirizzi IP attendibili</a> per ogni sottoscrizione |0 |50 |
+| Tenere presente i dispositivi, numero di giorni |14 |60 |
+| Numero massimo di password dell'app |0 |Nessun limite |
 | Consenti **X** tentativi durante la chiamata di autenticazione MFA |1 |99 |
-| Messaggio di testo bidirezionale - Timeout (secondi) |60 |600 |
-| Secondi predefiniti bypass monouso |300 |1800 |
+| Secondi timeout per SMS bidirezionale |60 |600 |
+| Secondi predefiniti bypass monouso |300 |1,800 |
 | Blocca account utente dopo **X** rifiuti consecutivi di autenticazione MFA |Non impostato |99 |
-| Reimposta blocco account dopo **X** minuti |Non impostato |9999 |
-| Sblocca account dopo **X** minuti |Non impostato |9999 |
+| Reimposta blocco account dopo **X** minuti |Non impostato |9,999 |
+| Sblocca account dopo **X** minuti |Non impostato |9,999 |

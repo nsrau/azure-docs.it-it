@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
-ms.openlocfilehash: 8b46839d26130f37f4f4ba5559f5699498b0e60f
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 2cb70c67bc4719eb43c4fcb70edf574c57362f26
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599400"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013280"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico
 
@@ -41,7 +41,7 @@ Se lo stato di integrità di Gestione traffico è **Inattivo**, entrambi gli end
 
 Per risolvere gli errori di probe, è necessario uno strumento che mostri il codice di stato HTTP restituito dall'URL del probe. Sono disponibili numerosi strumenti che mostrano la risposta HTTP non elaborata.
 
-* [Fiddler](http://www.telerik.com/fiddler)
+* [Fiddler](https://www.telerik.com/fiddler)
 * [curl](https://curl.haxx.se/)
 * [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
 
@@ -78,7 +78,7 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 [System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
 ```
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 [Informazioni sui metodi di routing di Gestione traffico](traffic-manager-routing-methods.md)
 

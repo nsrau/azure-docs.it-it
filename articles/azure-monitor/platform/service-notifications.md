@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/12/2018
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 9bd5ec3471fc3447d1e29d875c154793daf8e9e5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: ab4aa2f37d5a883c83b8ee09b5de6551ebf13d2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474031"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995145"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visualizzare le notifiche sull'integrità del servizio tramite il portale di Azure
 
@@ -60,24 +60,24 @@ Properties.communicationId | La comunicazione a cui è associato l'evento.
 ### <a name="details-on-service-health-level-information"></a>Informazioni sui livelli di integrità dei servizi
 
 **Azione necessaria** (properties.incidentType == ActionRequired)
-    - Informativo: l'azione dell'amministratore è necessaria per evitare l'impatto sui servizi esistenti
+- Informativo: l'azione dell'amministratore è necessaria per evitare l'impatto sui servizi esistenti
     
 **Manutenzione** (properties.incidentType == Maintenance)
-    - Avviso: manutenzione emergenze
-    - Informativo: manutenzione pianificata standard
+- Avviso: manutenzione emergenze
+- Informativo: manutenzione pianificata standard
 
 **Informazioni** (properties.incidentType == Information)
-    - Informativo: l'azione dell'amministratore può essere necessaria per evitare l'impatto sui servizi esistenti
+- Informativo: l'azione dell'amministratore può essere necessaria per evitare l'impatto sui servizi esistenti
 
 **Sicurezza** (properties.incidentType == Security)
-    - Errore: un grande numero di clienti ha problemi di ampia portata ad accedere a più servizi in più aree.
-    - Avviso: un sottoinsieme di clienti ha problemi ad accedere a servizi specifici e/o aree specifiche.
-    - Informativo: i problemi influiscono sulle operazioni di gestione e/o sulla latenza senza alcun impatto sulla disponibilità del servizio.
+- Errore: un grande numero di clienti ha problemi di ampia portata ad accedere a più servizi in più aree.
+- Avviso: un sottoinsieme di clienti ha problemi ad accedere a servizi specifici e/o aree specifiche.
+- Informativo: i problemi influiscono sulle operazioni di gestione e/o sulla latenza senza alcun impatto sulla disponibilità del servizio.
 
 **Problemi relativi al servizio** (properties.incidentType == Incident)
-    - Errore: un grande numero di clienti ha problemi di ampia portata ad accedere a più servizi in più aree.
-    - Avviso: un sottoinsieme di clienti ha problemi ad accedere a servizi specifici e/o aree specifiche.
-    - Informativo: i problemi influiscono sulle operazioni di gestione e/o sulla latenza senza alcun impatto sulla disponibilità del servizio.
+- Errore: un grande numero di clienti ha problemi di ampia portata ad accedere a più servizi in più aree.
+- Avviso: un sottoinsieme di clienti ha problemi ad accedere a servizi specifici e/o aree specifiche.
+- Informativo: i problemi influiscono sulle operazioni di gestione e/o sulla latenza senza alcun impatto sulla disponibilità del servizio.
 
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Visualizzare le notifiche sull'integrità del servizio nel portale di Azure

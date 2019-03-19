@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 7afc1170ba2503c8a8c97be9a19459c92e331449
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: a4907a65f100fd6efcabe422becad69aaee4b6ef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453580"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57882710"
 ---
 # <a name="automated-backups"></a>Backup automatizzati
 
@@ -42,7 +42,7 @@ Il database SQL usa la tecnologia di SQL Server per creare backup [completi](htt
 
 ## <a name="how-long-are-backups-kept"></a>Per quanto tempo sono conservati i backup
 
-Ogni database SQL ha un periodo di conservazione dei backup predefinito che varia da 7 e 35 giorni e dipende dal modello di acquisto e dal livello di servizio. È possibile aggiornare il periodo di conservazione dei backup per un database nel server di database SQL. Per altre informazioni, vedere [Modifica del periodo di conservazione backup](#how-to-change-the-pitr-backup-retention-period).
+Ogni database SQL ha un periodo di conservazione dei backup predefinito che varia da 7 e 35 giorni e dipende dal modello di acquisto e dal livello di servizio. È possibile aggiornare il periodo di conservazione dei backup per un database in Database di SQL server. Per altre informazioni, vedere [Modifica del periodo di conservazione backup](#how-to-change-the-pitr-backup-retention-period).
 
 Se si elimina un database, il database SQL manterrà i backup come farebbe con un database online. Ad esempio, se si elimina un database Basic con un periodo di conservazione di sette giorni, un backup di quattro giorni viene salvato per altri tre giorni.
 
@@ -66,7 +66,7 @@ Il periodo di conservazione predefinito per un database creato tramite il modell
 Se si usa il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md), il periodo di conservazione dei backup predefinito è di 7 giorni (per i database singoli, in pool e di istanza). Per tutti i database SQL di Azure (database singoli, in pool e di istanza), è possibile [modificare il periodo di conservazione dei backup fino a un massimo di 35 giorni](#how-to-change-the-pitr-backup-retention-period).
 
 > [!WARNING]
-> Se si riduce il periodo di conservazione corrente, tutti i backup esistenti anteriori al nuovo periodo di conservazione non saranno disponibili. Se si aumenta il periodo di conservazione corrente, Database SQL manterrà i backup esistenti fino al raggiungimento del periodo di conservazione più lungo.
+> Se si riduce il periodo di memorizzazione corrente, tutti i backup esistenti anteriori al periodo di conservazione dei nuovi non sono più disponibili. Se si aumenta il periodo di conservazione corrente, Database SQL manterrà i backup esistenti fino al raggiungimento del periodo di conservazione più lungo.
 
 ## <a name="how-often-do-backups-happen"></a>Con quale frequenza si verificano i backup
 
@@ -126,12 +126,13 @@ Per modificare il periodo di conservazione dei backup per il recupero temporizza
 
 ### <a name="change-pitr-backup-retention-period-using-powershell"></a>Modificare il periodo di conservazione dei backup di ripristino temporizzato usando PowerShell
 
-```powershell
-Set-AzureRmSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
-```
-
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Questa API è inclusa nel modulo AzureRM.Sql PowerShell a partire dalla versione [4.7.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.7.0-preview).
+> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
+
+```powershell
+Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
+```
 
 ### <a name="change-pitr-retention-period-using-rest-api"></a>Modificare il periodo di conservazione di ripristino temporizzato con l'API REST
 
@@ -145,9 +146,9 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 
 ```json
 {
-  "properties":{  
-      "retentionDays":28
-   }
+  "properties":{
+    "retentionDays":28
+  }
 }
 ```
 
@@ -174,4 +175,4 @@ Per altre informazioni, vedere [Backup Retention REST API](https://docs.microsof
 - Per eseguire il ripristino temporizzato nel portale di Azure, vedere l'articolo sul [ripristino temporizzato nel portale di Azure](sql-database-recovery-using-backups.md).
 - Per eseguire il ripristino temporizzato usando PowerShell, vedere l'articolo sul [ripristino temporizzato con PowerShell](scripts/sql-database-restore-database-powershell.md).
 - Per configurare, gestire e ripristinare dalla conservazione a lungo termine di backup automatici in Archiviazione BLOB di Azure tramite il portale di Azure, vedere [Gestire la conservazione a lungo termine dei backup usando il portale di Azure](sql-database-long-term-backup-retention-configure.md).
-- Per configurare, gestire e ripristinare dalla conservazione a lungo termine di backup automatici in Archiviazione BLOB di Azure tramite PowerShell, vedere [Gestire la conservazione del backup a lungo termine usando PowerShell](sql-database-long-term-backup-retention-configure.md).
+- Per configurare, gestire e ripristinare dalla conservazione a lungo termine dei backup automatici in archiviazione Blob di Azure con PowerShell, vedere [gestire conservazione backup a lungo termine usando PowerShell](sql-database-long-term-backup-retention-configure.md).

@@ -16,19 +16,19 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 770a5e61f549a10c8b313ed4d137f56dda45769e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 91548a4df4a77623978ea4bcb214b76427c026a6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343861"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012012"
 ---
 # <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>Gestire l'accesso alle risorse di Azure per utenti esterni usando il controllo degli accessi in base al ruolo
 
 Il controllo degli accessi in base al ruolo (RBAC) consente una migliore gestione della sicurezza nelle organizzazioni di grandi dimensioni e nelle piccole e medie imprese che si avvalgono di collaboratori esterni, fornitori o freelance che hanno necessità di accedere a risorse specifiche nell'ambiente, ma non necessariamente all'intera infrastruttura o agli ambiti correlati alla fatturazione. Il controllo degli accessi in base al ruolo consente la flessibilità di possedere una sottoscrizione di Azure gestita dall'account di amministratore (ruolo di amministratore del servizio a livello di sottoscrizione) e di invitare più utenti a usare la stessa sottoscrizione ma senza i diritti amministrativi.
 
 > [!NOTE]
-> Gli abbonamenti di Office 365 o le licenze di Azure Active Directory, ad esempio Accesso ad Azure Active Directory, di cui viene effettuato il provisioning dall'interfaccia di amministrazione di Office 365 non danno diritto all'uso del controllo degli accessi in base al ruolo.
+> Gli abbonamenti di Office 365 o le licenze di Azure Active Directory, ad esempio Accesso ad Azure Active Directory) di cui è stato effettuato il provisioning dal Microsoft 365 non danno diritto all'interfaccia di amministrazione per l'uso di RBAC.
 
 ## <a name="assign-rbac-roles-at-the-subscription-scope"></a>Assegnare i ruoli di controllo degli accessi in base al ruolo all'ambito della sottoscrizione
 

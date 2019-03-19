@@ -3,22 +3,22 @@ title: Attività di stored procedure di SQL Server
 description: Informazioni sull'uso dell'attività di stored procedure di SQL Server da una pipeline di Data factory per richiamare una stored procedure in un database SQL di Azure o in Azure SQL Data Warehouse.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: douglasl
+author: nabhishek
+ms.author: abnarain
+manager: craigg
 robots: noindex
-ms.openlocfilehash: 5604767b49e6234bba5c16179bebe717938170cf
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 77842b60108629168f423f25eb03b01079cf55e5
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753266"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775358"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Attività di stored procedure di SQL Server
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -85,7 +85,7 @@ La procedura dettagliata seguente usa l'attività stored procedure in una pipeli
     ```
 
    > [!IMPORTANT]
-   > Il **nome** e la **combinazione di maiuscole e minuscole** per il parametro (DateTime in questo esempio) devono corrispondere a quelli del parametro specificato nel codice JSON per la pipeline/attività. Nella definizione della stored procedure assicurarsi che **@** sia usato come prefisso per il parametro.
+   > Il **nome** e la **combinazione di maiuscole e minuscole** per il parametro (DateTime in questo esempio) devono corrispondere a quelli del parametro specificato nel codice JSON per la pipeline/attività. Nella definizione della stored procedure assicurarsi che **\@** sia usato come prefisso per il parametro.
 
 ### <a name="create-a-data-factory"></a>Creare una data factory
 1. Accedere al [portale di Azure](https://portal.azure.com/).
@@ -304,7 +304,7 @@ Di seguito è riportato il formato JSON per la definizione di un'attività di St
 
 La tabella seguente illustra queste proprietà JSON:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | name | Nome dell'attività |Sì |
 | description |Testo descrittivo per lo scopo dell'attività |No  |

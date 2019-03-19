@@ -1,19 +1,19 @@
 ---
 title: Pianificare processi con l'hub IoT di Azure (.NET/.NET) | Microsoft Docs
 description: Come pianificare un processo dell'hub IoT di Azure per richiamare un metodo diretto su più dispositivi. Usare Azure IoT SDK per dispositivi per .NET per implementare le app per dispositivi simulati un'app di servizio per eseguire il processo.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/06/2018
-ms.author: dobett
-ms.openlocfilehash: 4089ee74b44bc17324c7cd33b1bbd734a651d75f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: HT
+ms.author: robin.shahan
+ms.openlocfilehash: b39d7d4af4c476778665e844f647beecf20e3d9f
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514809"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008883"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Pianificare e trasmettere processi (.NET/.NET)
 
@@ -29,9 +29,9 @@ Un processo esegue il wrapping di una di queste azioni e tiene traccia dell'esec
 
 Per altre informazioni su queste funzionalità, vedere:
 
-* Dispositivi gemelli e proprietà: [Introduzione ai dispositivi gemelli](iot-hub-csharp-csharp-twin-getstarted.md) ed [Esercitazione: Come usare le proprietà dei dispositivi gemelli](tutorial-device-twins.md)
+* Dispositivo gemello e proprietà: [Introduzione ai dispositivi gemelli](iot-hub-csharp-csharp-twin-getstarted.md) e [esercitazione: Come usare le proprietà del dispositivo gemello](tutorial-device-twins.md)
 
-* Metodi diretti: [Guida per sviluppatori dell'hub IoT - Metodi diretti](iot-hub-devguide-direct-methods.md) ed [Esercitazione: Usare metodi diretti](quickstart-control-device-dotnet.md)
+* Metodi diretti: [Guida per gli sviluppatori dell'IoT Hub - metodi diretti](iot-hub-devguide-direct-methods.md) e [esercitazione: Usare metodi diretti](quickstart-control-device-dotnet.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -291,6 +291,6 @@ A questo punto è possibile eseguire le app.
 
 In questa esercitazione è stato usato un processo per pianificare un metodo diretto in un dispositivo e aggiornare le proprietà di un dispositivo gemello.
 
-Per altre informazioni sull'hub IoT e sui modelli di gestione dei dispositivi, ad esempio in modalità remota tramite l'aggiornamento del firmware air, vedere [Esercitazione: Come eseguire un aggiornamento del firmware](tutorial-firmware-update.md).
+Per altre informazioni sull'IoT Hub e modelli di gestione dei dispositivi, ad esempio remoto tramite l'aggiornamento del firmware air, leggere [esercitazione: Come eseguire un aggiornamento del firmware](tutorial-firmware-update.md).
 
 Per altre informazioni sulla distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge, vedere la [Guida introduttiva di IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).

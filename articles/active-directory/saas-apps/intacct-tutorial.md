@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5d30bae699a69bed893e36e24b6f8370db4f8b1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 31a440570abbbbf484adc5332e1db7ca8ba2bee1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167100"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839052"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intacct"></a>Esercitazione: Integrazione di Azure Active Directory con Intacct
 
@@ -114,6 +114,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![Configure Single Sign-On](./media/intacct-tutorial/tutorial_intacct_url.png)
 
     Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente:
+    
     | |
     |--|
     | `https://<companyname>.intacct.com/ia/acct/sso_response.phtml`|

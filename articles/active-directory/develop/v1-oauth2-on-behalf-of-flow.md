@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd5d724583dd4682fb6c0b01e8ec11196936289b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 53f8ec8a6833446663d7f142deefd595eed13136
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211904"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116266"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Chiamate da servizio a servizio tramite l'identità utente delegato nel flusso on-behalf-of
 
@@ -63,12 +63,12 @@ Registrare sia l'applicazione client che il servizio di livello intermedio in Az
     1. In base al tipo di applicazione, impostare l'URL di accesso o l'URL di reindirizzamento sull'URL di base.
     1. Selezionare **Crea** per creare l'applicazione.
 1. Generare un segreto client prima di uscire dal portale di Azure.
-    1. Nel portale di Azure scegliere l'applicazione e selezionare **Impostazioni**.
-    1. Selezionare **Chiavi** nel menu impostazioni e aggiungere una chiave con una durata della chiave di uno o due anni.
-    1. Quando si salva questa pagina, il portale di Azure consente di visualizzare il valore della chiave. Copiare e salvare la chiave in un percorso sicuro.
+   1. Nel portale di Azure scegliere l'applicazione e selezionare **Impostazioni**.
+   1. Selezionare **Chiavi** nel menu impostazioni e aggiungere una chiave con una durata della chiave di uno o due anni.
+   1. Quando si salva questa pagina, il portale di Azure consente di visualizzare il valore della chiave. Copiare e salvare la chiave in un percorso sicuro.
 
-    > [!IMPORTANT]
-    > La chiave è necessaria per configurare le impostazioni dell'applicazione nell'implementazione. Il valore di questa chiave non viene visualizzato anche in questo caso, e non è recuperabile con altri mezzi. Registrarlo non appena è visibile nel portale di Azure.
+      > [!IMPORTANT]
+      > La chiave è necessaria per configurare le impostazioni dell'applicazione nell'implementazione. Il valore di questa chiave non viene visualizzato anche in questo caso, e non è recuperabile con altri mezzi. Registrarlo non appena è visibile nel portale di Azure.
 
 ### <a name="register-the-client-application"></a>Registrare l'applicazione client
 

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 13ed2caa5ae547747707c368246ea23486dbed72
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 1e9d039769e7fbcb9c2b7285aa727acd7322bcdf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469567"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103333"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Usare una condivisione file di Azure con un pool di Batch
 
@@ -66,16 +66,16 @@ Per semplificare l'operazione di montaggio, rendere facoltativamente persistenti
 
 1. Eseguire l'utilità della riga di comando `cmdkey` con un'attività di avvio nella configurazione del pool. In questo modo le credenziali vengono rese persistenti in ogni nodo di Windows. La riga di comando dell'attività di avvio è simile a:
 
-  ```
-  cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
+   ```
+   cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
 
-  ```
+   ```
 
 2. Montare la condivisione in ogni nodo come parte di ogni attività con `net use`. La riga di comando dell'attività seguente, ad esempio, monta la condivisione file come unità *S:* e sarà seguita da un comando o uno script che fa riferimento alla condivisione. Le credenziali memorizzate nella cache vengono usate nella chiamata a `net use`. Questo passaggio presuppone per le attività l'uso della stessa identità utente usata per l'attività di avvio nel pool, il che non è valido per tutti gli scenari.
 
-  ```
-  cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
-  ```
+   ```
+   cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
+   ```
 
 ### <a name="c-example"></a>Esempio in C#
 L'esempio in C# seguente illustra come rendere persistenti le credenziali in un pool di Windows usando un'attività di avvio. Il nome del servizio file di archiviazione e le credenziali di archiviazione vengono passati come costanti definite. In questo caso, l'attività di avvio viene eseguita in un account utente automatico standard (non amministratore) con l'ambito del pool.

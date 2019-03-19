@@ -5,15 +5,15 @@ services: iot-hub
 ms.service: iot-hub
 author: dominicbetts
 ms.topic: include
-ms.date: 05/17/2018
+ms.date: 02/17/2019
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 3cdfa74c5f124e57b125399e39b7981b1dfb6d09
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: 69fdc6cf678107ef64ea1fe7b819738fd4a4ff4f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43100238"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56741267"
 ---
 ## <a name="customize-and-extend-the-device-management-actions"></a>Personalizzare ed estendere le operazioni di gestione dei dispositivi
 
@@ -27,10 +27,6 @@ Configurare i dispositivi in modo che eseguano le azioni in un momento che riduc
 
 In questa esercitazione è stato usato un metodo diretto per attivare un riavvio remoto su un dispositivo. Sono state usate le proprietà segnalate per indicare l'ora dell'ultimo riavvio dal dispositivo ed è stata eseguita una query sul dispositivo gemello per ottenere l'ora dell'ultimo riavvio del dispositivo dal cloud.
 
-Per altre informazioni sull'hub IoT e sui modelli di gestione dei dispositivi, ad esempio in modalità remota tramite l'aggiornamento del firmware air, vedere:
+Per altre informazioni sull'IoT Hub e modelli di gestione dei dispositivi, ad esempio remoto tramite l'aggiornamento del firmware air, vedere [come eseguire un aggiornamento del firmware](../articles/iot-hub/tutorial-firmware-update.md)
 
-[Esercitazione: Come eseguire un aggiornamento del firmware](../articles/iot-hub/tutorial-firmware-update.md)
-
-Per informazioni su come estendere la soluzione IoT e pianificare le chiamate al metodo su più dispositivi, vedere l'esercitazione [Pianificare e trasmettere processi](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).
-
-Per altre informazioni sulle attività iniziali con l'hub IoT, vedere [Introduzione a IoT Edge](../articles/iot-edge/tutorial-simulate-device-linux.md).
+Per informazioni su come estendere la soluzione e pianificazione di un metodo viene chiamato su più dispositivi di IoT, vedere [pianificare e trasmettere processi](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: f6d5f2d7df483e0884779c3eac6a77f976e173c3
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 8f1320db0af85f6c83a9daf8e17a691336c9b251
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567037"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58164460"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Aggiornare i modelli di Azure Machine Learning tramite l'attività Aggiorna risorsa
 Questo articolo è complementare all'articolo principale sull'integrazione di Azure Data Factory e Azure Machine Learning: [Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory](transform-data-using-machine-learning.md). Se ancora non è stato fatto, consultare l'articolo principale prima di leggere questo articolo.
@@ -57,7 +57,7 @@ Il frammento JSON seguente definisce un'attività Esecuzione batch di Azure Mach
 }
 ```
 
-| Proprietà                      | Descrizione                              | Obbligatoria |
+| Proprietà                      | Descrizione                              | Obbligatorio |
 | :---------------------------- | :--------------------------------------- | :------- |
 | name                          | Nome dell'attività nella pipeline     | Sì      |
 | description                   | Testo che descrive l'attività.  | No        |

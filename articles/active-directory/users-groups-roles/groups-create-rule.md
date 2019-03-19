@@ -1,6 +1,6 @@
 ---
 title: Creare un gruppo dinamico e controllare lo stato - Azure Active Directory | Microsoft Docs
-description: Come creare regole di appartenenza a un gruppo nel portale di Azure e controllare lo stato.
+description: Come creare una regola di appartenenza al gruppo nel portale di Azure, controllare lo stato.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,44 +9,50 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/01/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5651d5e37613abcef8c8f5448af38637f91ebe30
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 79b40af914cd55ae37205123df595ab177c87752
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193629"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098203"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Creare un gruppo dinamico e controllare lo stato
 
-In Azure Active Directory (Azure AD) è possibile creare gruppi applicando una regola per determinare l'appartenenza in base alle proprietà degli utenti o dei dispositivi. Quando gli attributi di un utente o un dispositivo cambiano, Azure AD valuta tutte le regole dei gruppi dinamici nel tenant di Azure AD ed esegue eventuali operazioni di aggiunta o rimozione. Se un utente o un dispositivo soddisfa una regola per un gruppo, viene aggiunto come membro e quando non la soddisfa più viene rimosso.
+In Azure Active Directory (Azure AD), è possibile utilizzare le regole per determinare l'appartenenza al gruppo in base alle proprietà utente o dispositivo. Questo articolo descrive come configurare una regola per un gruppo dinamico nel portale di Azure.
+L'appartenenza dinamica è supportata per i gruppi di sicurezza o gruppi di Office 365. Quando viene applicata una regola di appartenenza al gruppo, vengono valutati gli attributi utente e dispositivo per individuare corrispondenze con la regola di appartenenza. Quando viene modificato un attributo per un utente o dispositivo, vengono elaborate tutte le regole di gruppo dinamico all'interno dell'organizzazione per modifiche all'appartenenza. Utenti e dispositivi vengono aggiunti o rimossi se soddisfano le condizioni per un gruppo.
 
-Questo articolo illustra in modo dettagliato come configurare una regola nel portale di Azure per l'appartenenza dinamica ai gruppi di sicurezza o ai gruppi di Office 365. Per esempi di sintassi delle regole e un elenco completo di proprietà, operatori e valori supportati per una regola di appartenenza, vedere [Regole di appartenenza dinamica per i gruppi in Azure Active Directory](groups-dynamic-membership.md).
+Per esempi di sintassi, le proprietà supportate, operatori e valori per una regola di appartenenza, vedere [regole di appartenenza dinamica per i gruppi in Azure Active Directory](groups-dynamic-membership.md).
 
 ## <a name="to-create-a-group-membership-rule"></a>Per creare una regola di appartenenza a un gruppo
 
-1. Accedere all'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) con un account con il ruolo di amministratore globale, amministratore del servizio Intune o amministratore account utente nel tenant.
+1. Accedi per il [interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) con un account che si trova nell'amministratore globale, amministratore di Intune o ruolo di utente amministratore nel tenant.
 2. Selezionare **Gruppi**.
 3. Selezionare **Tutti i gruppi** e selezionare **Nuovo gruppo**.
 
    ![Aggiungere un nuovo gruppo](./media/groups-create-rule/new-group-creation.png)
 
-4. Nel pannello **Gruppo** immettere un nome e una descrizione per il nuovo gruppo. Selezionare un **Tipo di appartenenza** di **Utente dinamico** o **Dispositivo dinamico**, a seconda che si intenda creare una regola per gli utenti o per i dispositivi e quindi selezionare **Aggiungi query dinamica**. È possibile usare il generatore di regole per creare una regola semplice oppure scrivere manualmente una regola di appartenenza. Questo articolo contiene informazioni aggiuntive sugli attributi disponibili per utenti e dispositivi, oltre a esempi di regole di appartenenza.
+4. Nel **gruppo** pagina, immettere un nome e una descrizione per il nuovo gruppo. Selezionare una **tipo di appartenenza** per gli utenti o dispositivi e quindi selezionare **Aggiungi query dinamica**. È possibile usare il generatore di regole per creare una regola semplice, o [scrivere una regola di appartenenza](groups-dynamic-membership.md).
 
    ![Aggiungere una regola di appartenenza dinamica](./media/groups-create-rule/add-dynamic-group-rule.png)
 
-5. Per visualizzare l'elenco completo delle proprietà di estensione personalizzate che è possibile aggiungere alla query di appartenenza, selezionare **Ottenere le proprietà di estensione personalizzate**, immettere l'ID applicazione, quindi selezionare **Aggiorna le proprietà**. L'elenco completo delle proprietà saranno a questo punto disponibili per la selezione.
+5. Per visualizzare le proprietà di estensione personalizzato disponibile per la query di appartenenza
+   1. Selezionare **ottenere le proprietà di estensione personalizzato**
+   2. Immettere l'ID applicazione e quindi selezionare **Aggiorna le proprietà**. 
 6. Dopo avere creato la regola, selezionare **Aggiungi query** nella parte inferiore del pannello.
 7. Selezionare **Crea** on the **Gruppo** per creare il gruppo.
 
-> [!TIP]
-> La creazione del gruppo non riesce se la regola che è stata immessa è in un formato non corretto o non è valida. Verrà visualizzata una notifica nell'angolo superiore destro del portale, che contiene una spiegazione dei motivi per cui la regola non è stata elaborata. Leggere attentamente per capire come occorre modificare la regola per renderla valida.
+Se la regola che è stato immesso non è valida, una spiegazione del motivo per cui non può essere elaborata la regola viene visualizzata nell'angolo superiore destro del portale. Leggerla attentamente per capire come correggere la regola.
 
-## <a name="check-processing-status-for-a-membership-rule"></a>Controllare lo stato di elaborazione per una regola di appartenenza
+## <a name="turn-on-or-off-welcome-email"></a>Attivare o disattivare il messaggio di benvenuto
+
+Quando viene creato un nuovo gruppo di Office 365, è possibile che gli utenti che vengono aggiunti al gruppo viene inviata una notifica di benvenuto. In un secondo momento, se gli attributi di un utente o un dispositivo cambiano, tutte le regole di gruppo dinamico all'interno dell'organizzazione verranno elaborate modifiche dell'appartenenza. Utenti aggiunti ricevono quindi anche la notifica iniziale. È possibile disattivare questo comportamento nel [PowerShell per Exchange](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
+
+## <a name="check-processing-status-for-a-rule"></a>Controllare lo stato di elaborazione per una regola
 
 È possibile visualizzare lo stato di elaborazione dell'appartenenza e la data dell'ultimo aggiornamento nella pagina **Panoramica** per il gruppo.
   
@@ -57,14 +63,14 @@ I seguenti messaggi di stato possono essere visualizzati per lo stato di **Elabo
 * **Valutazione**:  la modifica dei gruppi è stata ricevuta e gli aggiornamenti sono in fase di valutazione.
 * **Elaborazione**: gli aggiornamenti sono in fase di elaborazione.
 * **Aggiornamento completato**: l'elaborazione è stata completata e tutti gli aggiornamenti sono stati apportati.
-* **Errore di elaborazione**: si è verificato un errore durante la valutazione della regola di appartenenza e l'elaborazione non è stata completata.
+* **Errore di elaborazione**:  Non è stato possibile completare l'elaborazione a causa di un errore durante la valutazione la regola di appartenenza.
 * **Aggiornamento sospeso**: gli aggiornamenti della regola di appartenenza dinamica sono stati sospesi dall'amministratore. MembershipRuleProcessingState è impostato su "Paused".
 
 I seguenti messaggi di stato possono essere visualizzati per lo stato dell'**Ultimo aggiornamento dell'appartenenza**:
 
 * &lt;**Data e ora**&gt;: ora dell'ultimo aggiornamento dell'appartenenza.
 * **In corso**: aggiornamenti in corso.
-* **Sconosciuto**: non è possibile recuperare l'ora dell'ultimo aggiornamento. Potrebbe essere dovuto alla recente creazione di un gruppo.
+* **Sconosciuto**: Non è possibile recuperare l'ora dell'ultimo aggiornamento. Il gruppo potrebbe non essere ancora.
 
 Se si verifica un errore durante l'elaborazione della regola di appartenenza per un gruppo specifico, un avviso viene visualizzato nella parte superiore della **Pagina di panoramica** per il gruppo. Se non è possibile elaborare aggiornamenti in sospeso per l'appartenenza dinamica per tutti i gruppi all'interno del tenant per oltre 24 ore, viene visualizzato un avviso nella parte superiore di **Tutti i gruppi** .
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 4e787ab134caee1a7f9a26e46f698f2fe9807d83
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: edb169d131aafd045fdf0f670e1dda87677d57ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813681"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834678"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Failover e failback dei server fisici replicati in Azure
 
@@ -36,7 +36,7 @@ Verificare le proprietà del server e assicurarsi che sia conforme ai [requisiti
 1. In **Elementi protetti** fare clic su **Elementi replicati** e selezionare il computer.
 
 2. Nel riquadro **Replicated item** (Elemento replicato) è possibile vedere un riepilogo relativo a informazioni sulla macchina, stato integrità e ultimi punti di ripristino disponibili. Fare clic su **Proprietà** per visualizzare altri dettagli.
-3. In **Calcolo e rete** è possibile modificare il nome Azure, il gruppo di risorse, le dimensioni di destinazione, il [set di disponibilità](../virtual-machines/windows/tutorial-availability-sets.md) e le impostazioni del disco gestito
+3. In **Calcolo e rete** è possibile modificare le impostazioni relative a nome, gruppo di risorse, dimensioni di destinazione, [set di disponibilità](../virtual-machines/windows/tutorial-availability-sets.md) e dischi gestiti di Azure.
 4. È possibile visualizzare e modificare le impostazioni di rete, tra cui la rete/subnet in cui si troverà la macchina virtuale di Azure dopo il failover e l'indirizzo IP che le verrà assegnato.
 5. In **Disks** (Dischi) è possibile vedere le informazioni sul sistema operativo e sui dischi dati della macchina.
 
@@ -68,7 +68,7 @@ Seguire i passaggi descritti [qui](site-recovery-failover-to-azure-troubleshoot.
 Il server di elaborazione riceve i dati dalla macchina virtuale di Azure e li invia al sito locale. È necessaria una rete a bassa latenza tra il server di elaborazione e la macchina protetta.
 
 - A scopo di test, se si ha una connessione Azure ExpressRoute è possibile usare il server di elaborazione locale che viene installato automaticamente nel server di configurazione.
-- Se si ha una connessione VPN o si esegue il failback in un ambiente di produzione è necessario configurare una macchina virtuale di Azure come server di elaborazione basato su Azure per il failback.
+- Se si ha una connessione VPN o si esegue il failback in un ambiente di produzione, è necessario configurare una macchina virtuale di Azure come server di elaborazione basato su Azure per il failback.
 - Per configurare un server di elaborazione in Azure, seguire le istruzioni fornite in [questo articolo](vmware-azure-set-up-process-server-azure.md).
 
 ## <a name="configure-the-master-target-server"></a>Configurare il server di destinazione master

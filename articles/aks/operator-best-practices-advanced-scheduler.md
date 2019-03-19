@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 395b0cadf3ba3313a9a1304d9244f1fe72a8209c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: HT
+ms.openlocfilehash: 27c9c872f4dfb82b4a1389189d62c4e1f06ee272
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016879"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175982"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedure consigliate per le funzionalità avanzate dell'utilità di pianificazione nel servizio Azure Kubernetes (AKS)
 
@@ -39,10 +39,10 @@ L'utilità di pianificazione di Kubernetes può usare taint e tolleranze per lim
 Quando si distribuisce un pod in un cluster servizio Azure Kubernetes, Kubernetes pianifica solo i pod sui nodi in cui una tolleranza è allineata con un taint. Si supponga ad esempio di avere un pool di nodi nel cluster servizio Azure Kubernetes per i nodi con supporto GPU. Si definisce il nome, ad esempio *gpu*, quindi un valore per la pianificazione. Se si imposta questo valore su *NoSchedule*, l'utilità di pianificazione di Kubernetes non può pianificare i pod sul nodo se il pod non definisce la tolleranza appropriata.
 
 ```console
-kubectl taint node aks-nodepool1 gpu:NoSchedule
+kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
 ```
 
-Con un taint applicato ai nodi, si definisce quindi una tolleranza nella specifica del pod che consente la pianificazione sui nodi. L'esempio seguente definisce `key: gpu` e `effect: NoSchedule` per tollerare il taint applicato al nodo nel passaggio precedente:
+Con un taint applicato ai nodi, si definisce quindi una tolleranza nella specifica del pod che consente la pianificazione sui nodi. L'esempio seguente definisce `sku: gpu` e `effect: NoSchedule` per tollerare il taint applicato al nodo nel passaggio precedente:
 
 ```yaml
 kind: Pod
@@ -61,9 +61,9 @@ spec:
       cpu: 4.0
       memory: 16Gi
   tolerations:
-  - key: "gpu"
+  - key: "sku"
     operator: "Equal"
-    value: "value"
+    value: "gpu"
     effect: "NoSchedule"
 ```
 
@@ -151,7 +151,7 @@ Per altre informazioni, vedere la sezione relativa ad [affinità e anti-affinit�
 
 Un ultimo approccio per consentire all'utilità di pianificazione di Kubernetes di isolare in modo logico i carichi di lavoro consiste nell'usare l'affinità tra pod o l'anti-affinità. Le impostazioni definiscono che i pod *non devono* essere pianificati su un nodo con un pod corrispondente esistente o che *devono* essere pianificati. Per impostazione predefinita, l'utilità di pianificazione di Kubernetes tenta di pianificare più pod in un set di repliche tra i nodi. È possibile definire più regole specifiche in base a questo comportamento.
 
-Un buon esempio è un'applicazione Web che usa anche una cache Redis di Azure. È possibile usare le regole di anti-affinità dei pod per fare in modo che l'utilità di pianificazione di Kubernetes distribuisca le repliche tra i nodi. È quindi possibile usare le regole di affinità per assicurarsi che ogni componente dell'app Web sia pianificato sullo stesso host di una cache corrispondente. La distribuzione dei pod tra i nodi è simile alla seguente:
+Un buon esempio è un'applicazione Web che usa anche una cache Redis di Azure. È possibile usare le regole di anti-affinità dei pod per fare in modo che l'utilità di pianificazione di Kubernetes distribuisca le repliche tra i nodi. È quindi possibile usare le regole di affinità per assicurarsi che ogni componente dell'app web è stata pianificata nello stesso host di una cache corrispondente. La distribuzione dei pod tra i nodi è simile alla seguente:
 
 | **Nodo 1** | **Nodo 2** | **Nodo 3** |
 |------------|------------|------------|

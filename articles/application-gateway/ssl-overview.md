@@ -5,14 +5,14 @@ services: application-gateway
 author: amsriva
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/23/2018
-ms.author: amsriva
-ms.openlocfilehash: fcb49f532d5dfcd340baf017bd55c69d4e81e0e6
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.date: 3/12/2019
+ms.author: victorh
+ms.openlocfilehash: 16ba6b73dd0c64298f319d4b18750d753f166987
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630683"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849381"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Panoramica di SSL end-to-end con il gateway applicazione
 
@@ -20,7 +20,9 @@ Il gateway applicazione supporta la terminazione SSL nel gateway, dopo la quale 
 
 La crittografia SSL end-to-end consente di trasmettere in modo sicuro dati sensibili crittografati al back-end, usufruendo comunque dei vantaggi delle funzionalità di bilanciamento del carico di livello 7 offerte dal gateway applicazione. Alcune di queste funzionalità sono l'affinità di sessione basata su cookie, il routing basato su URL, il supporto per il routing basato su siti o la possibilità di inserire intestazioni X-Forwarded-*.
 
-Se configurato con la modalità di comunicazione SSL end-to-end, il gateway applicazione termina le sessioni SSL nel gateway ed esegue la decrittografia del traffico utente. Applica quindi le regole configurate per selezionare un'istanza del pool di back-end adeguata su cui instradare il traffico. Il gateway applicazione avvia a questo punto una nuova connessione SSL al server back-end e crittografa nuovamente i dati usando il certificato di chiave pubblica del server back-end prima di trasmettere la richiesta al back-end. Per abilitare SSL end-to-end si imposta la configurazione del protocollo in **BackendHTTPSetting** su HTTPS. Questa impostazione viene quindi applicata a un pool back-end. Per una comunicazione protetta, ogni server back-end nel pool di back-end con SSL end-to-end abilitato deve essere configurato con un certificato.
+Se configurato con la modalità di comunicazione SSL end-to-end, il gateway applicazione termina le sessioni SSL nel gateway ed esegue la decrittografia del traffico utente. Applica quindi le regole configurate per selezionare un'istanza del pool di back-end adeguata su cui instradare il traffico. Il gateway applicazione avvia a questo punto una nuova connessione SSL al server back-end e crittografa nuovamente i dati usando il certificato di chiave pubblica del server back-end prima di trasmettere la richiesta al back-end. -To-end SSL viene abilitata impostando l'impostazione del protocollo **BackendHTTPSetting** su HTTPS, che viene quindi applicato a un pool di back-end. Per una comunicazione protetta, ogni server back-end nel pool di back-end con SSL end-to-end abilitato deve essere configurato con un certificato.
+
+I criteri SSL viene applicata al traffico front-end e back-end. Nel front-end, il Gateway applicazione funge da server e vengono applicati i criteri. Al back-end, il Gateway applicazione funge da client e invia le informazioni sul protocollo/pacchetti di crittografia come la preferenza durante l'handshake SSL.
 
 ![Scenario di SSL end-to-end][1]
 
@@ -39,10 +41,10 @@ I certificati di autenticazione sono stati deprecati e sostituiti da certificati
 
 - I certificati firmati da autorità di certificazione note il cui nome comune corrisponde al nome host nelle impostazioni HTTP di back-end non richiedono alcun passaggio aggiuntivo per il funzionamento di SSL end-to-end. 
 
-   Ad esempio, se i certificati di back-end sono rilasciati da un'autorità di certificazione nota il cui nome comune è contoso.com e anche il campo host delle impostazioni HTTP di back-end è impostato su contoso.com, non sono necessarie altre operazioni. Se si configura il protocollo come HTTPS nell'impostazione HTTP di back-end, sia il probe di integrità che il percorso dei dati saranno abilitati per SSL. Se si usano Servizio app di Azure o altri servizi Web di Azure come back-end, anche questi sono considerati implicitamente attendibili e non sono necessari altri passaggi per SSL end-to-end.
+   Ad esempio, se i certificati di back-end sono rilasciati da un'autorità di certificazione nota il cui nome comune è contoso.com e anche il campo host delle impostazioni HTTP di back-end è impostato su contoso.com, non sono necessarie altre operazioni. Se si configura il protocollo come HTTPS nell'impostazione HTTP di back-end, sia il probe di integrità che il percorso dei dati saranno abilitati per SSL. Se si usa servizio App di Azure o altri servizi web di Azure come back-end, questi sono considerati implicitamente attendibili anche e non sono altri passaggi necessari per SSL end-to-end.
 - Se il certificato è autofirmato o firmato da intermediari sconosciuti, per abilitare SSL end-to-end nello SKU v2 deve essere definito un certificato radice attendibile. Il gateway applicazione comunicherà solo con back-end il cui certificato radice del certificato del server corrisponde a uno dei certificati dell'elenco dei certificati radice attendibili nell'impostazione HTTP di back-end associata al pool.
 - Oltre alla corrispondenza del certificato radice, il gateway applicazione verifica anche se l'impostazione Host specificata nell'impostazione HTTP di back-end corrisponde a quella del nome comune presentata dal certificato SSL del server back-end. Quando si tenta di stabilire una connessione SSL al back-end, il gateway applicazione imposta l'estensione Indicazione nome server (SNI) sull'host specificato nell'impostazione HTTP di back-end.
-- Se si sceglie **pick hostname from backend address** (selezionare il nome host dall'indirizzo di back-end) anziché il campo Host nell'impostazione HTTP di back-end, l'intestazione SNI è sempre impostata sul nome di dominio completo del pool di back-end e il nome comune sul certificato SSL del server back-end deve corrispondere al nome di dominio completo. I membri del pool di back-end con indirizzi IP non sono supportati in questo scenario.
+- Se si sceglie **pick hostname from backend address** (selezionare il nome host dall'indirizzo di back-end) anziché il campo Host nell'impostazione HTTP di back-end, l'intestazione SNI è sempre impostata sul nome di dominio completo del pool di back-end e il nome comune sul certificato SSL del server back-end deve corrispondere al nome di dominio completo. I membri del pool back-end con indirizzi IP non sono supportati in questo scenario.
 - Il certificato radice è un certificato radice codificato con codifica base64 dai certificati del server back-end.
 
 ## <a name="next-steps"></a>Passaggi successivi

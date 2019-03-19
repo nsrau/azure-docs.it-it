@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/15/2019
-ms.openlocfilehash: f2c7fde7b4834457f84ecaa3ce0fdd5f65dd03b5
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: c42c6175512105de38a29be260c370851e152137
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430319"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871644"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e interfaccia della riga di comando: Abilitare Transparent Data Encryption con una chiave di Azure Key Vault gestita dal cliente
 
@@ -25,15 +25,19 @@ Questo articolo illustra come usare una chiave di Azure Key Vault per Transparen
 
 ## <a name="prerequisites-for-powershell"></a>Prerequisiti di PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
+
 - È necessario disporre di una sottoscrizione di Azure e avere il ruolo di amministratore di tale sottoscrizione.
 - [Consigliata ma facoltativa] Disporre di un modulo di protezione hardware (HSM) o una chiave locale già archiviati a scopo di creazione di una copia locale del materiale della chiave di protezione TDE.
-- È necessario che sia installato e sia esecuzione Azure PowerShell 4.2.0 o una versione più recente. 
+- È necessario disporre di Azure PowerShell installato e in esecuzione. 
 - Creare le chiavi e un Azure Key Vault per l'uso con TDE.
-   - [Istruzioni di PowerShell da Key Vault](../key-vault/key-vault-overview.md)
-   - [Istruzioni per l'uso di un modulo di protezione hardware (HSM) e di Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
- - L'insieme di credenziali delle chiavi deve avere la seguente proprietà da usare per TDE:
-   - [Eliminazione temporanea](../key-vault/key-vault-ovw-soft-delete.md)
-   - [Come usare l'eliminazione temporanea di Key Vault con PowerShell](../key-vault/key-vault-soft-delete-powershell.md) 
+  - [Istruzioni di PowerShell da Key Vault](../key-vault/key-vault-overview.md)
+  - [Istruzioni per l'uso di un modulo di protezione hardware (HSM) e di Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
+    - L'insieme di credenziali delle chiavi deve avere la seguente proprietà da usare per TDE:
+  - [Eliminazione temporanea](../key-vault/key-vault-ovw-soft-delete.md)
+  - [Come usare l'eliminazione temporanea di Key Vault con PowerShell](../key-vault/key-vault-soft-delete-powershell.md) 
 - La chiave deve avere i seguenti attributi per essere usata per TDE:
    - Nessuna data di scadenza
    - Non disabilitato
@@ -44,16 +48,16 @@ Questo articolo illustra come usare una chiave di Azure Key Vault per Transparen
 Se si dispone di un server esistente, usare quanto segue per aggiungere un'identità Azure AD al server:
 
    ```powershell
-   $server = Set-AzureRmSqlServer `
+   $server = Set-AzSqlServer `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> `
    -AssignIdentity
    ```
 
-Se si sta creando un server, usare il cmdlet [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) con il tag Identità per aggiungere un'identità Azure AD durante la creazione del server:
+Se si sta creando un server, usare il [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) cmdlet con il tag-Identity per aggiungere un'identità Azure AD durante la creazione del server:
 
    ```powershell
-   $server = New-AzureRmSqlServer `
+   $server = New-AzSqlServer `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -Location <RegionName> `
    -ServerName <LogicalServerName> `
@@ -64,10 +68,10 @@ Se si sta creando un server, usare il cmdlet [New-AzureRmSqlServer](/powershell/
 
 ## <a name="step-2-grant-key-vault-permissions-to-your-server"></a>Passaggio 2. Concedere le autorizzazioni di Key Vault al server
 
-Usare il cmdlet [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) per concedere l'accesso al server all'insieme di credenziali delle chiavi prima di usare una chiave da quest'ultimo per TDE.
+Usare la [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet per concedere l'accesso al server per la chiave dell'insieme di credenziali prima di usare una chiave da quest'ultimo per TDE.
 
    ```powershell
-   Set-AzureRmKeyVaultAccessPolicy  `
+   Set-AzKeyVaultAccessPolicy  `
    -VaultName <KeyVaultName> `
    -ObjectId $server.Identity.PrincipalId `
    -PermissionsToKeys get, wrapKey, unwrapKey
@@ -75,9 +79,9 @@ Usare il cmdlet [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.key
 
 ## <a name="step-3-add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Passaggio 3. Aggiungere la chiave di Key Vault al server e impostare la protezione TDE
 
-- Usare il cmdlet [Add-AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey) per aggiungere al server la chiave da Key Vault.
-- Usare il cmdlet [Set-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) per impostare la chiave come protezione TDE per tutte le risorse del server.
-- Usare il cmdlet [Get-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/get-azurermsqlservertransparentdataencryptionprotector) per confermare che la protezione TDE è configurata come prestabilito.
+- Usare la [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) cmdlet per aggiungere la chiave da Key Vault al server.
+- Usare la [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet per impostare la chiave come protezione TDE per tutte le risorse del server.
+- Usare la [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet per verificare che la protezione TDE è stata configurata nel modo previsto.
 
 > [!Note]
 > La lunghezza combinata per il nome dell'insieme di credenziali delle chiavi non può superare 94 caratteri.
@@ -89,30 +93,30 @@ Usare il cmdlet [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.key
 
    ```powershell
    <# Add the key from Key Vault to the server #>
-   Add-AzureRmSqlServerKeyVaultKey `
+   Add-AzSqlServerKeyVaultKey `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> `
    -KeyId <KeyVaultKeyId>
 
    <# Set the key as the TDE protector for all resources under the server #>
-   Set-AzureRmSqlServerTransparentDataEncryptionProtector `
+   Set-AzSqlServerTransparentDataEncryptionProtector `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> `
    -Type AzureKeyVault `
    -KeyId <KeyVaultKeyId> 
 
    <# To confirm that the TDE protector was configured as intended: #>
-   Get-AzureRmSqlServerTransparentDataEncryptionProtector `
+   Get-AzSqlServerTransparentDataEncryptionProtector `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> 
    ```
 
 ## <a name="step-4-turn-on-tde"></a>Passaggio 4. Attivare la crittografia TDE 
 
-Usare il cmdlet [Set-AzureRmSqlDatabaseTransparentDataEncryption](/powershell/module/azurerm.sql/set-azurermsqldatabasetransparentdataencryption) per attivare la TDE.
+Usare la [Set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) cmdlet per abilitare TDE.
 
    ```powershell
-   Set-AzureRMSqlDatabaseTransparentDataEncryption `
+   Set-AzSqlDatabaseTransparentDataEncryption `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> `
    -DatabaseName <DatabaseName> `
@@ -123,17 +127,17 @@ A questo punto il database o il data warehouse ha abilitato TDE con una chiave d
 
 ## <a name="step-5-check-the-encryption-state-and-encryption-activity"></a>Passaggio 5. Controllare lo stato della crittografia e l'attività di crittografia
 
-Usare [Get-AzureRMSqlDatabaseTransparentDataEncryption](/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption) per ottenere lo stato di crittografia e [Get-AzureRMSqlDatabaseTransparentDataEncryptionActivity](/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryptionactivity) per controllare l'avanzamento della crittografia per un database o un data warehouse.
+Usare la [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) per ottenere lo stato di crittografia e la [Get-AzSqlDatabaseTransparentDataEncryptionActivity](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity) per controllare l'avanzamento della crittografia per un database o data warehouse di.
 
    ```powershell
    # Get the encryption state
-   Get-AzureRMSqlDatabaseTransparentDataEncryption `
+   Get-AzSqlDatabaseTransparentDataEncryption `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> `
    -DatabaseName <DatabaseName> `
 
    <# Check the encryption progress for a database or data warehouse #>
-   Get-AzureRMSqlDatabaseTransparentDataEncryptionActivity `
+   Get-AzSqlDatabaseTransparentDataEncryptionActivity `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> `
    -DatabaseName <DatabaseName>  
@@ -141,30 +145,30 @@ Usare [Get-AzureRMSqlDatabaseTransparentDataEncryption](/powershell/module/azure
 
 ## <a name="other-useful-powershell-cmdlets"></a>Altri cmdlet PowerShell utili
 
-- Usare il cmdlet [Set-AzureRmSqlDatabaseTransparentDataEncryption](/powershell/module/azurerm.sql/set-azurermsqldatabasetransparentdataencryption) per disattivare la TDE.
+- Usare la [Set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) cmdlet per disattivare TDE.
 
    ```powershell
-   Set-AzureRMSqlDatabaseTransparentDataEncryption `
+   Set-AzSqlDatabaseTransparentDataEncryption `
    -ServerName <LogicalServerName> `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -DatabaseName <DatabaseName> `
    -State "Disabled”
    ```
  
-- Usare il cmdlet [Get-AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/get-azurermsqlserverkeyvaultkey) per restituire l'elenco delle chiavi di Key Vault aggiunte al server.
+- Usare la [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet per restituire l'elenco delle chiavi di Key Vault aggiunte al server.
 
    ```powershell
    <# KeyId is an optional parameter, to return a specific key version #>
-   Get-AzureRmSqlServerKeyVaultKey `
+   Get-AzSqlServerKeyVaultKey `
    -ServerName <LogicalServerName> `
    -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
  
-- Usare [Remove-AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/remove-azurermsqlserverkeyvaultkey) per rimuovere una chiave di Key Vault dal server.
+- Usare la [Remove-AzSqlServerKeyVaultKey](/powershell/module/az.sql/remove-azsqlserverkeyvaultkey) per rimuovere una chiave di Key Vault dal server.
 
    ```powershell
    <# The key set as the TDE Protector cannot be removed. #>
-   Remove-AzureRmSqlServerKeyVaultKey `
+   Remove-AzSqlServerKeyVaultKey `
    -KeyId <KeyVaultKeyId> `
    -ServerName <LogicalServerName> `
    -ResourceGroupName <SQLDatabaseResourceGroupName>   
@@ -173,10 +177,10 @@ Usare [Get-AzureRMSqlDatabaseTransparentDataEncryption](/powershell/module/azure
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Se si verifica un problema, controllare quanto segue:
-- Se l'insieme di credenziali delle chiavi non viene trovato, verificare che sia attiva la sottoscrizione corretta con il cmdlet [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
+- Se l'insieme di credenziali delle chiavi non viene trovato, verificare che sia attiva la sottoscrizione a destra con il [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet.
 
    ```powershell
-   Get-AzureRmSubscription `
+   Get-AzSubscription `
    -SubscriptionId <SubscriptionId>
    ```
 
@@ -193,13 +197,13 @@ Se si verifica un problema, controllare quanto segue:
 
 - È necessario disporre di una sottoscrizione di Azure e avere il ruolo di amministratore di tale sottoscrizione.
 - [Consigliata ma facoltativa] Disporre di un modulo di protezione hardware (HSM) o una chiave locale già archiviati a scopo di creazione di una copia locale del materiale della chiave di protezione TDE.
-- Interfaccia della riga di comando versione 2.0 o successiva. Per installare l'ultima versione e associarla alla sottoscrizione di Azure, vedere [Install and Configure the Azure Cross-Platform Command-Line Interface 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) (Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure 2.0). 
+- Interfaccia della riga di comando versione 2.0 o successiva. Per installare l'ultima versione e associarla alla sottoscrizione di Azure, vedere [Install and Configure the Azure Cross-Platform Command-Line Interface 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure 2.0). 
 - Creare le chiavi e un Azure Key Vault per l'uso con TDE.
-   - [Gestire Key Vault tramite l'interfaccia della riga di comando 2.0](../key-vault/key-vault-manage-with-cli2.md)
-   - [Istruzioni per l'uso di un modulo di protezione hardware (HSM) e di Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
- - L'insieme di credenziali delle chiavi deve avere la seguente proprietà da usare per TDE:
-   - [Eliminazione temporanea](../key-vault/key-vault-ovw-soft-delete.md)
-   - [Come usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando](../key-vault/key-vault-soft-delete-cli.md) 
+  - [Gestire Key Vault tramite l'interfaccia della riga di comando 2.0](../key-vault/key-vault-manage-with-cli2.md)
+  - [Istruzioni per l'uso di un modulo di protezione hardware (HSM) e di Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
+    - L'insieme di credenziali delle chiavi deve avere la seguente proprietà da usare per TDE:
+  - [Eliminazione temporanea](../key-vault/key-vault-ovw-soft-delete.md)
+  - [Come usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando](../key-vault/key-vault-soft-delete-cli.md) 
 - La chiave deve avere i seguenti attributi per essere usata per TDE:
    - Nessuna data di scadenza
    - Non disabilitato
@@ -261,11 +265,11 @@ A questo punto il database o il data warehouse ha abilitato TDE con una chiave d
 
 ## <a name="sql-cli-references"></a>Informazioni di riferimento sull'interfaccia della riga di comando SQL
 
-https://docs.microsoft.com/cli/azure/sql?view=azure-cli-latest 
+https://docs.microsoft.com/cli/azure/sql 
 
-https://docs.microsoft.com/cli/azure/sql/server/key?view=azure-cli-latest 
+https://docs.microsoft.com/cli/azure/sql/server/key 
 
-https://docs.microsoft.com/cli/azure/sql/server/tde-key?view=azure-cli-latest 
+https://docs.microsoft.com/cli/azure/sql/server/tde-key 
 
-https://docs.microsoft.com/cli/azure/sql/db/tde?view=azure-cli-latest 
+https://docs.microsoft.com/cli/azure/sql/db/tde 
 

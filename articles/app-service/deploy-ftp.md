@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: cephalin;dariac
 ms.custom: seodec18
-ms.openlocfilehash: 8b1a4bbb100fc4db1323f530808a8d01bd8f30ce
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
+ms.openlocfilehash: db8445ec2b3dd8bdefa661d7f186e720c6fada09
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582440"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858878"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Distribuire l'app nel servizio app di Azure usando FTP/S
 
@@ -30,7 +30,7 @@ L'endpoint FTP/S per l'app è già attivo. Non è necessaria alcuna configurazio
 
 ## <a name="open-ftp-dashboard"></a>Aprire un dashboard FTP
 
-Nel [portale di Azure](https://portal.azure.com) aprire la [pagina delle risorse](../azure-resource-manager/resource-group-portal.md#manage-resources) dell'app.
+Nel [portale di Azure](https://portal.azure.com) aprire la [pagina delle risorse](../azure-resource-manager/manage-resources-portal.md#manage-resources) dell'app.
 
 Per aprire il dashboard FTP, fare clic su **Centro distribuzione** > **FTP** > **Dashboard**.
 
@@ -43,6 +43,14 @@ Nel dashboard FTP fare clic su **Copia** per copiare le credenziali FTPS di endp
 ![Copiare le informazioni FTP](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
 È consigliabile usare **Credenziali dell'app** per distribuire l'app perché si tratta di informazioni univoche per ogni app. Tuttavia, se si fa clic su **Credenziali utente**, è possibile impostare le credenziali a livello di utente da usare per l'accesso FTP/S a tutte le app del servizio app della sottoscrizione.
+
+> [!NOTE]
+> L'autenticazione a un endpoint FTP/FTPS con requirers credenziali a livello di utente un nome utente nel formato seguente: 
+>
+>`<app-name>\<user-name>`
+>
+> Poiché le credenziali a livello di utente sono collegate all'utente e non una risorsa specifica, il nome utente deve essere nel formato per indirizzare l'azione di accesso per l'endpoint dell'app a destra.
+>
 
 ## <a name="deploy-files-to-azure"></a>Distribuire file in Azure
 
@@ -58,7 +66,6 @@ Nel dashboard FTP fare clic su **Copia** per copiare le credenziali FTPS di endp
 > - Generazione di web.config ([esempio di Node.js](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps))
 > 
 > Generare questi file necessari manualmente nel computer locale e quindi distribuirli insieme all'app.
->
 >
 
 ## <a name="enforce-ftps"></a>Applicare FTPS

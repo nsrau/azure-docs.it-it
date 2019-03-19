@@ -2,21 +2,21 @@
 title: Eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure con Servizio Migrazione del database e PowerShell | Microsoft Docs
 description: Informazioni su come eseguire la migrazione da SQL Server locale a Istanza gestita di database SQL di Azure tramite Azure PowerShell.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/15/2019
-ms.openlocfilehash: 93ab8b2aca49fcd0d2f27ec17f7fc519b19bf563
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 19fb53e73da40a65b074cb0c2f14f11bb130b586
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305170"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177620"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-managed-instance-using-azure-powershell"></a>Eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure con Azure PowerShell
 In questo articolo si esegue la migrazione del database **Adventureworks2012**, ripristinato in un'istanza locale di SQL Server 2005 o versione successiva, verso un'istanza gestita di database SQL di Azure tramite Microsoft Azure PowerShell. Per eseguire la migrazione di database da un'istanza di SQL Server locale a un'istanza gestita di database SQL di Azure è possibile usare il modulo `AzureRM.DataMigration` di Microsoft Azure PowerShell.
@@ -37,7 +37,7 @@ Per completare questi passaggi è necessario disporre di:
 - Un'istanza del database SQL di Azure. È possibile creare un'istanza del database SQL di Azure seguendo le istruzioni riportate nell'articolo [Creare un database SQL di Azure nel portale di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 - [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) versione 3.3 o successiva.
 - Per creare una rete virtuale tramite il modello di distribuzione Azure Resource Manager, fornito dal Servizio Migrazione del database di Azure con la connettività da sito a sito ai server di origine locali, usando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Per una valutazione completa della migrazione del database e dello schema locale mediante Data Migration Assistant, come descritto nell'articolo [Eseguire la migrazione a SQL Server di Azure](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)
+- Aver completato una valutazione della migrazione di database e schema in locale usando Data Migration Assistant, come descritto nell'articolo [eseguire una valutazione della migrazione di SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)
 - Per scaricare e installare il modulo AzureRM.DataMigration da PowerShell Gallery usando il [cmdlet di PowerShell Install-Module](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1)
 - Per assicurarsi che le credenziali usate per connettersi all'istanza di origine di SQL Server abbiano l'autorizzazione [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).
 - Per assicurarsi che le credenziali usate per connettersi all'istanza del database SQL di Azure di destinazione abbiano l'autorizzazione CONTROL DATABASE nei database SQL di Azure di destinazione.
@@ -239,8 +239,8 @@ if (($mytask.ProjectTask.Properties.State -eq "Running") -or ($mytask.ProjectTas
 }
 ```
 
-## <a name="deleting-the-dms-instance"></a>Eliminazione dell'istanza del servizio Migrazione del database
-Al termine della migrazione, è possibile eliminare l'istanza servizio Migrazione del database di Azure:
+## <a name="deleting-the-dms-instance"></a>Eliminazione dell'istanza del Servizio Migrazione del database di Azure
+Al termine della migrazione, è possibile eliminare l'istanza del Servizio Migrazione del database di Azure:
 
 ```powershell
 Remove-AzureRmDms -ResourceGroupName myResourceGroup -ServiceName MyDMS

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 9f5cf0e8be0529ce59edc9aa4cd33d470415c8a6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 694c56cf52cb7a15230b9a2cdd34642c7820b407
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190960"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897562"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quote e limitazioni in Servizi multimediali di Azure v3
 
@@ -37,10 +37,11 @@ Questo articolo descrive le quote e le limitazioni in Servizi multimediali di Az
 | Account di Servizi multimediali in una singola sottoscrizione | 25 (fisso) |
 | Output live in stato di esecuzione per ogni LiveEvent |3|
 | Account di archiviazione | 100<sup>(4)</sup> (fisso) |
-| Endpoint di streaming (interrotti o in esecuzione) per account di Servizi multimediali|2|
+| Endpoint di streaming (interrotti o in esecuzione) per account di Servizi multimediali|2 (fisso)|
 | Criteri di streaming | 100 <sup>(3)</sup> |
 | Transform per ogni account di Servizi multimediali | 100 (fisso)|
 | Localizzatori di streaming univoci associati contemporaneamente a un asset | 100<sup>(5)</sup> (fisso) |
+| Criteri di chiave simmetrica |30 | 
 
 <sup>1</sup> Le dimensioni massime supportate per un BLOB singolo corrispondono a 5 TB in Archiviazione BLOB di Azure. Vengono tuttavia applicati altri limiti in Servizi multimediali di Azure in base alle dimensioni delle macchine virtuali usate dal servizio. Se le dimensioni del file di origine sono maggiori di 260 GB, è probabile che il processo abbia esito negativo. Se le dimensioni dei contenuti 4K superano il limite di 260 GB, scrivere all'indirizzo amshelp@microsoft.com per possibili soluzioni di attenuazione per consentire il supporto di questo scenario.
 

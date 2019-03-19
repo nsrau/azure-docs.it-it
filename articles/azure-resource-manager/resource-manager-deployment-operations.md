@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9bb6491565f685e8ca3d7a6271747a5df3629e81
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 9ff6388c72c631dad870a4f52f86749bfd744d85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269077"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085619"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Visualizzare le operazioni di distribuzione con Azure Resource Manager
 
@@ -58,118 +58,118 @@ Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguen
 ## <a name="powershell"></a>PowerShell
 1. Per ottenere lo stato complessivo di una distribuzione, usare il comando **Get-AzResourceGroupDeployment**. 
 
-  ```powershell
-  Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup
-  ```
+   ```powershell
+   Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup
+   ```
 
    In alternativa, è possibile filtrare i risultati per visualizzare solo le distribuzioni con esito negativo.
 
-  ```powershell
-  Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
-  ```
+   ```powershell
+   Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
+   ```
    
 2. Per ottenere l'ID di correlazione, usare:
 
-  ```powershell
-  (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
-  ```
+   ```powershell
+   (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
+   ```
 
 3. Ogni distribuzione include più operazioni, ognuna delle quali rappresenta un passaggio del processo di distribuzione. Per individuare eventuali problemi, solitamente è necessario visualizzare i dettagli relativi alle operazioni di distribuzione. Per visualizzare lo stato delle operazioni, usare il comando **Get-AzResourceGroupDeploymentOperation**.
 
-  ```powershell 
-  Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
-  ```
+   ```powershell 
+   Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
+   ```
 
     Che restituisce più operazioni, ognuna nel formato seguente:
 
-  ```powershell
-  Id             : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/A3EB2DA598E0A780
-  OperationId    : A3EB2DA598E0A780
-  Properties     : @{provisioningOperation=Create; provisioningState=Succeeded; timestamp=2016-06-14T21:55:15.0156208Z;
+   ```powershell
+   Id             : /subscriptions/{guid}/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/A3EB2DA598E0A780
+   OperationId    : A3EB2DA598E0A780
+   Properties     : @{provisioningOperation=Create; provisioningState=Succeeded; timestamp=2016-06-14T21:55:15.0156208Z;
                    duration=PT23.0227078S; trackingId=11d376e8-5d6d-4da8-847e-6f23c6443fbf;
                    serviceRequestId=0196828d-8559-4bf6-b6b8-8b9057cb0e23; statusCode=OK; targetResource=}
-  PropertiesText : {duration:PT23.0227078S, provisioningOperation:Create, provisioningState:Succeeded,
+   PropertiesText : {duration:PT23.0227078S, provisioningOperation:Create, provisioningState:Succeeded,
                    serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
-  ```
+   ```
 
 4. Per ottenere altre informazioni sulle operazioni non riuscite, recuperare le proprietà per le operazioni con stato **Non riuscita** .
 
-  ```powershell
-  (Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
-  ```
+   ```powershell
+   (Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
+   ```
    
     Vengono restituite tutte le operazioni non riuscite, ognuna nel formato seguente:
 
-  ```powershell
-  provisioningOperation : Create
-  provisioningState     : Failed
-  timestamp             : 2016-06-14T21:54:55.1468068Z
-  duration              : PT3.1449887S
-  trackingId            : f4ed72f8-4203-43dc-958a-15d041e8c233
-  serviceRequestId      : a426f689-5d5a-448d-a2f0-9784d14c900a
-  statusCode            : BadRequest
-  statusMessage         : @{error=}
-  targetResource        : @{id=/subscriptions/{guid}/resourceGroups/ExampleGroup/providers/
+   ```powershell
+   provisioningOperation : Create
+   provisioningState     : Failed
+   timestamp             : 2016-06-14T21:54:55.1468068Z
+   duration              : PT3.1449887S
+   trackingId            : f4ed72f8-4203-43dc-958a-15d041e8c233
+   serviceRequestId      : a426f689-5d5a-448d-a2f0-9784d14c900a
+   statusCode            : BadRequest
+   statusMessage         : @{error=}
+   targetResource        : @{id=/subscriptions/{guid}/resourceGroups/ExampleGroup/providers/
                           Microsoft.Network/publicIPAddresses/myPublicIP;
                           resourceType=Microsoft.Network/publicIPAddresses; resourceName=myPublicIP}
-  ```
+   ```
 
     Si notino gli elementi serviceRequestId e trackingId per l'operazione. L'elemento serviceRequestId può essere utile quando si interagisce con il supporto tecnico per risolvere i problemi relativi a una distribuzione, mentre l'elemento trackingId viene usato nel passaggio successivo per concentrarsi su una particolare operazione.
 5. Per ottenere il messaggio di stato di un'operazione non riuscita particolare, usare il comando seguente:
 
-  ```powershell
-  ((Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
-  ```
+   ```powershell
+   ((Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
+   ```
 
     Che restituisce:
 
-  ```powershell
-  code           message                                                                        details
-  ----           -------                                                                        -------
-  DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
-  ```
+   ```powershell
+   code           message                                                                        details
+   ----           -------                                                                        -------
+   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
+   ```
 6. Ogni operazione di distribuzione in Azure include il contenuto della richiesta e della risposta. Il contenuto della richiesta corrisponde a quanto è stato inviato a Azure durante la distribuzione, ad esempio la richiesta di creare una macchina virtuale, un disco del sistema operativo e altre risorse. Il contenuto della risposta è la risposta di Azure alla richiesta di distribuzione. Durante la distribuzione è possibile usare il parametro **DeploymentDebugLogLevel** per specificare che la richiesta e/o la risposta vengono mantenute nel log. 
 
-  Per ottenere tali informazioni dal log e salvarle in locale, usare i comandi PowerShell seguenti:
+   Per ottenere tali informazioni dal log e salvarle in locale, usare i comandi PowerShell seguenti:
 
-  ```powershell
-  (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+   ```powershell
+   (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
 
-  (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
-  ```
+   (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+   ```
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
 1. Per ottenere lo stato complessivo di una distribuzione, è possibile usare il comando **azure group deployment show** .
 
-  ```azurecli
-  az group deployment show -g ExampleGroup -n ExampleDeployment
-  ```
+   ```azurecli
+   az group deployment show -g ExampleGroup -n ExampleDeployment
+   ```
   
 2. Uno dei calori restituiti è **correlationId**. Tale valore viene usato per tenere traccia degli eventi correlati e può essere utile quando si interagisce con il supporto tecnico per risolvere i problema relativi a una distribuzione.
 
-  ```azurecli
-  az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
-  ```
+   ```azurecli
+   az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
+   ```
 
 3. Per visualizzare le operazioni per una distribuzione, usare:
 
-  ```azurecli
-  az group deployment operation list -g ExampleGroup -n ExampleDeployment
-  ```
+   ```azurecli
+   az group deployment operation list -g ExampleGroup -n ExampleDeployment
+   ```
 
 ## <a name="rest"></a>REST
 
 1. Ottenere informazioni su una distribuzione con l'operazione [Ottenere informazioni su una distribuzione modello](https://docs.microsoft.com/rest/api/resources/deployments).
 
-  ```http
-  GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
-  ```
+   ```http
+   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
+   ```
 
     Nella risposta si notino in particolare gli elementi **provisioningState**, **correlationId** ed **error**. Il valore **correlationId** viene usato per tenere traccia degli eventi correlati e può essere utile quando si interagisce con il supporto tecnico per risolvere i problemi relativi a una distribuzione.
 
-  ```json
-  { 
+   ```json
+   { 
     ...
     "properties": {
       "provisioningState":"Failed",
@@ -180,19 +180,19 @@ Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguen
         "details":[{"code":"Conflict","message":"{\r\n  \"error\": {\r\n    \"message\": \"Conflict\",\r\n    \"code\": \"Conflict\"\r\n  }\r\n}"}]
       }  
     }
-  }
-  ```
+   }
+   ```
 
 2. Per informazioni sulle distribuzioni, vedere l'[elenco di tutte le operazioni di distribuzione di modelli](https://docs.microsoft.com/rest/api/resources/deployments). 
 
-  ```http
-  GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
-  ```
+   ```http
+   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
+   ```
    
     La risposta include la richiesta e/o le informazioni sulla risposta in base a quanto specificato nella proprietà **debugSetting** durante la distribuzione.
 
-  ```json
-  {
+   ```json
+   {
     ...
     "properties": 
     {
@@ -213,8 +213,8 @@ Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguen
         }
       }
     }
-  }
-  ```
+   }
+   ```
 
 
 ## <a name="next-steps"></a>Passaggi successivi

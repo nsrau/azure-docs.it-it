@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c4acb3b779821193949c69d440edaafec5e3d803
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e29f36897dd52fcb09456768a799209a385d74fe
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474055"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444498"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Fase di acquisizione e comprensione dei dati nel processo di data science per i team
 
@@ -66,9 +66,9 @@ In questa fase si sviluppa un'architettura della soluzione della pipeline di dat
 ## <a name="artifacts"></a>Elementi
 Di seguito sono descritti i risultati finali di questa fase:
 
-   * [Report sulla qualità dei dati](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/DataSummaryReport.md): il report include i riepiloghi dei dati, le relazioni tra ogni attributo e destinazione, il ranking delle variabili e altro ancora. Lo strumento [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) viene fornito come parte del processo TDSP e può generare rapidamente questo report su qualsiasi set di dati tabulare, ad esempio un file con estensione CSV o una tabella relazionale. 
+   * [Report sulla qualità dei dati](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): il report include i riepiloghi dei dati, le relazioni tra ogni attributo e destinazione, il ranking delle variabili e altro ancora. Lo strumento [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) viene fornito come parte del processo TDSP e può generare rapidamente questo report su qualsiasi set di dati tabulare, ad esempio un file con estensione CSV o una tabella relazionale. 
    * **Architettura della soluzione**: può trattarsi di un diagramma o della descrizione della pipeline di dati usata per assegnare punteggi o eseguire stime sui nuovi dati dopo aver creato un modello. Include anche la pipeline per ripetere il training del modello basato su nuovi dati. Archiviare il documento nella directory di [progetto](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) quando si usa il modello della struttura di directory del progetto TDSP.
-   * **Decisione di checkpoint**: prima di iniziare la progettazione completa delle caratteristiche e la creazione del modello, è possibile riesaminare il progetto per determinare se il valore previsto è sufficiente per continuare la progettazione. È possibile ad esempio che tutto sia predisposto per procedere, che si debbano raccogliere altri dati o abbandonare il progetto, se non esistono dati per rispondere alla domanda.
+   * **Decisione di checkpoint**: Prima di iniziare la progettazione completa delle funzionalità e la compilazione del modello, è possibile riesaminare il progetto per determinare se il valore previsto è sufficiente per continuare, cercando di ottenere. È possibile ad esempio che tutto sia predisposto per procedere, che si debbano raccogliere altri dati o abbandonare il progetto, se non esistono dati per rispondere alla domanda.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

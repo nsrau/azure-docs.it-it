@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: d684ec56c7dfcc28d1057d0b20905db49bce9723
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 1a575a172e4ff567cc20442c7a9779e1d52dbbba
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498067"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099985"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerazioni sulla sicurezza dello spostamento dei dati in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,6 +34,7 @@ Sebbene Data Factory sia disponibile solo in alcune regioni, il servizio di spos
 Azure Data Factory non archivia i dati a eccezione delle credenziali del servizio collegato per gli archivi di dati cloud, che vengono crittografate usando i certificati. Con Data Factory, è possibile creare flussi di lavoro basati sui dati per orchestrare lo spostamento di dati tra [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats) e l'elaborazione di dati usando i [servizi di calcolo](compute-linked-services.md) in altre aree o in un ambiente locale. È anche possibile monitorare e gestire i flussi di lavoro usando SDK e Monitoraggio di Azure.
 
 Data Factory è stato certificato per:
+
 | **[Certificazione CSA STAR](https://www.microsoft.com/trustcenter/compliance/csa-star-certification)** |
 | :----------------------------------------------------------- |
 | **[ISO 20000-1:2011](https://www.microsoft.com/trustcenter/Compliance/ISO-20000-1)** |
@@ -45,12 +46,14 @@ Data Factory è stato certificato per:
 | **[SOC 1, 2, 3](https://www.microsoft.com/trustcenter/compliance/soc)** |
 | **[HIPAA BAA](https://www.microsoft.com/trustcenter/compliance/hipaa)** |
 
-Se si è interessati alla conformità di Azure e alle modalità di protezione dell'infrastruttura da parte di Azure, visitare [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx). Per un elenco aggiornato di tutte le offerte di conformità di Azure, consultare - http://aka.ms/AzureCompliance.
+Se si è interessati alla conformità di Azure e alle modalità di protezione dell'infrastruttura da parte di Azure, visitare [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx). Per un elenco aggiornato di tutte le offerte di conformità di Azure, consultare - https://aka.ms/AzureCompliance.
 
 In questo articolo vengono prese in esame le considerazioni sulla sicurezza nei due scenari di spostamento di dati seguenti: 
 
 - **Scenario cloud**: in questo scenario l'origine e la destinazione sono accessibili pubblicamente tramite Internet. Sono inclusi i servizi di archiviazione cloud gestiti come Archiviazione di Azure, Azure SQL Data Warehouse, Database SQL di Azure, Azure Data Lake Store, Amazon S3, Amazon Redshift, i servizi SaaS come Salesforce e i protocolli Web, ad esempio FTP e OData. Per un elenco completo delle origini dati supportate, vedere [Archivi dati e formati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 - **Scenario ibrido**: in questo scenario l'origine o la destinazione si trova dietro un firewall o in una rete aziendale locale. oppure l'archivio dati si trova in una rete privata o in una rete virtuale (il più delle volte l'origine) e non è accessibile pubblicamente. Anche i server di database ospitati nelle macchine virtuali rientrano in questo scenario.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="cloud-scenarios"></a>Scenari cloud
 
@@ -89,10 +92,10 @@ Azure Data Lake Store offre anche la possibilità di crittografare i dati archiv
 Archiviazione BLOB di Azure e Archiviazione tabelle di Azure supportano la crittografia del servizio di archiviazione, che crittografa automaticamente i dati prima di renderli persistenti nella risorsa di archiviazione e li decrittografa prima di recuperarli. Per altre informazioni, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](../storage/common/storage-service-encryption.md).
 
 #### <a name="amazon-s3"></a>Amazon S3
-Amazon S3 supporta la crittografia client e server dei dati inattivi. Per altre informazioni, vedere [Protezione dei dati mediante la crittografia](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html).
+Amazon S3 supporta la crittografia client e server dei dati inattivi. Per altre informazioni, vedere [Protezione dei dati mediante la crittografia](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html).
 
 #### <a name="amazon-redshift"></a>Amazon Redshift
-Amazon Redshift supporta la crittografia cluster per i dati inattivi. Per altre informazioni, vedere [Amazon Redshift Database Encryption](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html) (Crittografia database Amazon Redshift). 
+Amazon Redshift supporta la crittografia cluster per i dati inattivi. Per altre informazioni, vedere [Amazon Redshift Database Encryption](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html) (Crittografia database Amazon Redshift). 
 
 #### <a name="salesforce"></a>Salesforce
 Salesforce supporta il servizio Shield Platform Encryption, che consente la crittografia di tutti i file, gli allegati e i campi personalizzati. Per altre informazioni, vedere [Understanding the Web Server OAuth Authentication Flow](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm) (Comprendere il flusso di autenticazione OAuth per il server Web).  
@@ -109,9 +112,9 @@ Le credenziali per gli archivi dati locali vengono sempre crittografate e archiv
 
 - **Archiviare le credenziali in locale**. Per crittografare e archiviare le credenziali in locale nel runtime di integrazione self-hosted, seguire i passaggi in [Crittografia delle credenziali per gli archivi dati locali in Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Tutti i connettori supportano questa opzione. Il runtime di integrazione self-hosted usa Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) per crittografare i dati sensibili e le informazioni sulle credenziali. 
 
-   Usare il cmdlet **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** per crittografare le credenziali del servizio collegato e le informazioni riservate nel servizio collegato. È quindi possibile usare il codice JSON restituito (con l'elemento **EncryptedCredential** nella stringa di connessione) per creare un servizio collegato usando il cmdlet **Set-AzureRmDataFactoryV2LinkedService**.  
+   Usare la **New-AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet per crittografare le credenziali del servizio collegato e le informazioni riservate nel servizio collegato. È quindi possibile usare il codice JSON restituito (con il **EncryptedCredential** elemento nella stringa di connessione) per creare un servizio collegato tramite il **Set-AzDataFactoryV2LinkedService** cmdlet.  
 
-- **Archiviare nella risorsa di archiviazione gestita di Azure Data Factory**. Se si usa direttamente il cmdlet **Set-AzureRmDataFactoryV2LinkedService** con le stringhe di connessione e le credenziali inline in JSON, il servizio collegato viene crittografato e archiviato nella risorsa di archiviazione gestita di Azure Data Factory. Le informazioni sensibili sono ancora crittografate dal certificato e Microsoft gestisce questi certificati.
+- **Archiviare nella risorsa di archiviazione gestita di Azure Data Factory**. Se si usa direttamente la **Set-AzDataFactoryV2LinkedService** cmdlet con la connessione di stringhe e le credenziali inline in JSON, il servizio collegato viene crittografato e archiviato nell'archiviazione gestita di Azure Data Factory. Le informazioni sensibili sono ancora crittografate dal certificato e Microsoft gestisce questi certificati.
 
 
 
@@ -184,7 +187,7 @@ Gli archivi dati cloud seguenti richiedono di inserire nell'elenco elementi cons
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)
-- [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
+- [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 

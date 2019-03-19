@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
 ms.subservice: common
-ms.openlocfilehash: 9a96f80c609f446dcc1fea2a87925dec3dadfedd
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 0a2088e603828a7850cb250c1874008d63fe9c89
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471896"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992461"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Crittografia lato client e Insieme di credenziali chiave Azure con Java per Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Panoramica
-La [libreria client di archiviazione di Azure per Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) supporta la crittografia dei dati all'interno delle applicazioni client prima del caricamento nell'Archiviazione di Azure, nonché la decrittografia dei dati durante il download al client. La libreria inoltre supporta l'integrazione con l' [insieme di credenziali chiave](https://azure.microsoft.com/services/key-vault/) di Azure per la gestione delle chiavi dell'account di archiviazione.
+La [libreria client di archiviazione di Azure per Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) supporta la crittografia dei dati all'interno delle applicazioni client prima del caricamento nell'Archiviazione di Azure, nonché la decrittografia dei dati durante il download al client. La libreria inoltre supporta l'integrazione con l' [insieme di credenziali chiave](https://azure.microsoft.com/services/key-vault/) di Azure per la gestione delle chiavi dell'account di archiviazione.
 
 ## <a name="encryption-and-decryption-via-the-envelope-technique"></a>Crittografia e decrittografia tramite la tecnica basata su envelope
 Le procedure di crittografia e decrittografia seguono la tecnica basata su envelope.  
@@ -43,7 +43,7 @@ La decrittografia tramite la tecnica basata su envelope funziona nel modo seguen
 4. La chiave di crittografia del contenuto (CEK) viene quindi utilizzata per decrittografare i dati utente crittografati.
 
 ## <a name="encryption-mechanism"></a>Meccanismo di crittografia
-La libreria client di archiviazione usa [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) per la crittografia dei dati utente. In particolare, si avvale della modalità [Cipher Block Chaining (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) con AES. Ogni servizio funziona in modo diverso, pertanto qui verrà illustrato ciascuno di essi.
+La libreria client di archiviazione usa [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) per la crittografia dei dati utente. In particolare, si avvale della modalità [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) con AES. Ogni servizio funziona in modo diverso, pertanto qui verrà illustrato ciascuno di essi.
 
 ### <a name="blobs"></a>Blobs
 La libreria client attualmente supporta la crittografia solo di interi BLOB. In particolare, la crittografia è supportata quando gli utenti usano i metodi **upload*** o il metodo **openOutputStream**. Per i download, sono supportati sia i download completi che di intervallo.  
@@ -55,9 +55,9 @@ Durante la crittografia, la libreria client genererà un vettore di inizializzaz
 > 
 > 
 
-Il download di un BLOB crittografato comporta il recupero del contenuto dell'intero BLOB usando i metodi di servizio **download*/openInputStream**. La CEK con wrapping viene sottoposta a rimozione del wrapping e utilizzata con il vettore di inizializzazione (archiviato come metadati BLOB in questo caso) per restituire i dati decrittografati agli utenti.
+Download di un blob crittografato comporta il recupero del contenuto dell'intero blob usando il **scaricare**/**/openinputstream** metodi pratici. La CEK con wrapping viene sottoposta a rimozione del wrapping e utilizzata con il vettore di inizializzazione (archiviato come metadati BLOB in questo caso) per restituire i dati decrittografati agli utenti.
 
-Il download di un intervallo arbitrario (metodi**downloadRange**\*) nel BLOB crittografato implica la regolazione dell'intervallo fornito dagli utenti per ottenere una piccola quantità di dati aggiuntivi utilizzabili per decrittografare correttamente l'intervallo richiesto.  
+Download di un intervallo arbitrario (**downloadRange** metodi) nel blob crittografato implica la regolazione dell'intervallo fornito dagli utenti per ottenere una piccola quantità di dati aggiuntivi che possono essere utilizzati per decrittografare correttamente la richiesta intervallo.  
 
 Tutti i tipi di BLOB (BLOB in blocchi, BLOB di pagine e BLOB di accodamento) possono essere crittografati/decrittografati con questo schema.
 
@@ -98,8 +98,8 @@ Nelle operazioni batch, la stessa KEK verrà utilizzata per tutte le righe nell�
 > [!NOTE]
 > Dato che le entità sono crittografate, non è possibile eseguire query che eseguono operazioni di filtro in base a una proprietà crittografata.  Se si tenta un'operazione di questo tipo i risultati non saranno corretti, perché il servizio tenterebbe di confrontare dati crittografati con dati non crittografati.
 > 
->
-Per eseguire operazioni di query, è necessario specificare un resolver di chiave in grado di risolvere tutte le chiavi nel set di risultati. Se un'entità inclusa nel risultato della query non può essere risolta in un provider, la libreria client genererà un errore. Per ogni query che esegue le proiezioni del lato server, la libreria client aggiungerà le proprietà dei metadati di crittografia speciali (_ClientEncryptionMetadata1 e ClientEncryptionMetadata2) per impostazione predefinita alle colonne selezionate.
+> 
+> Per eseguire operazioni di query, è necessario specificare un resolver di chiave in grado di risolvere tutte le chiavi nel set di risultati. Se un'entità inclusa nel risultato della query non può essere risolta in un provider, la libreria client genererà un errore. Per ogni query che esegue le proiezioni del lato server, la libreria client aggiungerà le proprietà dei metadati di crittografia speciali (_ClientEncryptionMetadata1 e ClientEncryptionMetadata2) per impostazione predefinita alle colonne selezionate.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
 L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Con l'insieme di credenziali chiave di Azure gli utenti possono crittografare chiavi e segreti (ad esempio, chiavi di autenticazione, chiavi dell'account di archiviazione, chiavi di crittografia dati, file PFX e password) usando chiavi protette da moduli di protezione hardware (HSM). Per altre informazioni, vedere [Informazioni sull’insieme di credenziali chiave di Azure](../../key-vault/key-vault-whatis.md)
@@ -248,9 +248,9 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
 Si noti che la crittografia dei dati di archiviazione restituisce un overhead delle prestazioni aggiuntivo. La chiave simmetrica e il vettore devono essere generati, il contenuto stesso deve essere crittografato e metadati aggiuntivi devono essere formattati e caricati. Questo overhead varia a seconda della quantità di dati da crittografare. È consigliabile che i clienti testano sempre le proprie applicazioni per le prestazioni durante lo sviluppo.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Scaricare la [libreria client di archiviazione di Azure per il pacchetto Java Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
+* Scaricare la [libreria client di archiviazione di Azure per il pacchetto Java Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
 * Scaricare la [libreria client di Archiviazione di Azure per il codice Java Source da GitHub](https://github.com/Azure/azure-storage-java)   
 * Scaricare la libreria Maven dell'insieme di credenziali delle chiavi di Azure per i pacchetti Java Maven seguenti:
-  * [core](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) 
-  * [client](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
+  * [core](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) 
+  * [client](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) 
 * Vedere la [documentazione sull'insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-whatis.md)

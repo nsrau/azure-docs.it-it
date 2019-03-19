@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: bdb9b48549d24565fdafb9ac1c3215029445793c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 3387996dc0e1953eaafee9c4c61eb8faa865b654
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100495"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58172836"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Panoramica dell'acceleratore di soluzioni di manutenzione predittiva
 
@@ -27,7 +27,7 @@ Il diagramma seguente illustra i componenti logici dell'acceleratore di soluzion
 
 ![Architettura logica][img-architecture]
 
-Gli elementi blu sono servizi di Azure di cui viene effettuato il provisioning nell'area in cui è stato distribuito l'acceleratore di soluzioni. L'elenco di aree in cui è possibile distribuire l'acceleratore di soluzioni viene visualizzato nella [pagina di provisioning][lnk-azureiotsuite].
+Gli elementi blu sono servizi di Azure di cui viene effettuato il provisioning nell'area in cui è stato distribuito l'acceleratore di soluzioni. L'elenco di aree in cui è possibile distribuire l'acceleratore di soluzioni viene visualizzato nella [pagina di provisioning][lnk-azureiotsolutions].
 
 L'elemento verde rappresenta un motore di aereo simulato. Altre informazioni su questi dispositivi simulati sono disponibili nella sezione [Dispositivi simulati](#simulated-devices).
 
@@ -39,7 +39,7 @@ Nel portale di Azure passare al gruppo di risorse con il nome della soluzione sc
 
 ![Risorse degli acceleratori][img-resource-group]
 
-Quando si esegue il provisioning dell'acceleratore di soluzioni, viene visualizzato un messaggio di posta elettronica con un collegamento all'area di lavoro di Machine Learning. È anche possibile passare all'area di lavoro di Machine Learning dalla pagina [Acceleratori della soluzione di Microsoft Azure IoT][lnk-azureiotsuite]. Quando lo stato della soluzione è **Ready** (Pronto), in questa pagina è disponibile un riquadro.
+Quando si esegue il provisioning dell'acceleratore di soluzioni, viene visualizzato un messaggio di posta elettronica con un collegamento all'area di lavoro di Machine Learning. È anche possibile passare all'area di lavoro di Machine Learning dalla pagina [Acceleratori della soluzione di Microsoft Azure IoT][lnk-azureiotsolutions]. Quando lo stato della soluzione è **Ready** (Pronto), in questa pagina è disponibile un riquadro.
 
 ![Modello di Machine Learning][img-machine-learning]
 
@@ -71,7 +71,7 @@ L'hub IoT fornisce il riconoscimento dei comandi del dispositivo.
 L'**host processore di eventi** viene eseguito in un processo Web di Azure. Il **processore di eventi** considera i valori medi dei sensori per un ciclo completato e quindi li passa a un modello con training che calcola la vita utile rimanente di un motore. Un'API fornisce l'accesso al modello in un'area di lavoro di Machine Learning che fa parte della soluzione.
 
 ## <a name="machine-learning"></a>Machine Learning
-Il componente Machine Learning usa un modello derivato dai dati raccolti da veri motori di aerei. È possibile passare all'area di lavoro di Machine Learning dal riquadro della soluzione nella pagina [azureiotsuite.com][lnk-azureiotsuite]. Quando lo stato della soluzione è **Ready** (Pronto), il riquadro è disponibile.
+Il componente Machine Learning usa un modello derivato dai dati raccolti da veri motori di aerei. È possibile passare all'area di lavoro di Machine Learning dal riquadro della soluzione nella [azureiotsolutions.com] [ lnk-azureiotsolutions] pagina. Quando lo stato della soluzione è **Ready** (Pronto), il riquadro è disponibile.
 
 Per visualizzare il funzionamento dei dati di telemetria raccolti attraverso i servizi degli acceleratori di soluzioni IoT, è disponibile il modello di Azure Machine Learning. Microsoft ha creato un [modello di regressione][lnk_regression_model] basato su dati pubblici<sup>\[[1]\]</sup> e le istruzioni dettagliate su come usare il modello.
 
@@ -93,7 +93,7 @@ Dopo avere esaminato i componenti chiave dell'acceleratore di soluzioni di manut
 
 [lnk-remote-monitoring]: quickstart-predictive-maintenance-deploy.md
 [lnk-cortana-analytics]: https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
-[lnk-azureiotsuite]: https://www.azureiotsolutions.com/
+[lnk-azureiotsolutions]: https://www.azureiotsolutions.com/
 [lnk-faq]: iot-accelerators-faq.md
 [lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/

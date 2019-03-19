@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: cf566811f1e5fe7fde20d148e68417acf6d42f54
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 0955d95ebfd9e1f72ed1da577bf3520a70b71624
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073823"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008323"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Configurare il tunneling forzato con il modello di distribuzione classico
 
@@ -28,7 +28,7 @@ Il tunneling forzato consente di reindirizzare o "forzare" tutto il traffico ass
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-Questo articolo illustra la configurazione del tunneling forzato per le reti virtuali create usando il modello di distribuzione classico. Il tunneling forzato può essere configurato tramite PowerShell e non tramite il portale. Se si intende configurare il tunneling forzato per il modello di distribuzione di Resource Manager, selezionare l'articolo relativo alla distribuzione classica nell'elenco a discesa seguente:
+Questo articolo illustra la configurazione del tunneling forzato per le reti virtuali create usando il modello di distribuzione classico. Il tunneling forzato può essere configurato tramite PowerShell e non tramite il portale. Se si desidera configurare il tunneling forzato per il modello di distribuzione Resource Manager, selezionare l'articolo di Resource Manager nell'elenco a discesa seguente:
 
 > [!div class="op_single_selector"]
 > * [PowerShell - Classico](vpn-gateway-about-forced-tunneling.md)

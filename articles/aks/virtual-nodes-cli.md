@@ -3,22 +3,25 @@ title: Creare nodi virtuali usando l'interfaccia della riga di comando di Azure 
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per creare un cluster del servizio Azure Kubernetes che usa nodi virtuali per eseguire i pod.
 services: container-service
 author: iainfoulds
+ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 0aff1040a9c7532ff5efe724382a074120801eb3
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: a04dbd42e09ad8ec352af74950b6d71425a84a9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856486"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177671"
 ---
-# <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Creare e configurare un cluster del servizio Azure Kubernetes per l'uso di nodi virtuali tramite l'interfaccia della riga di comando di Azure
+# <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Visualizzare in anteprima: creare e configurare un cluster di servizi di Kubernetes di Azure (AKS) per usare i nodi virtuali tramite la CLI di Azure
 
 Per ridimensionare rapidamente i carichi di lavoro dell'applicazione in un cluster del servizio Azure Kubernetes è possibile usare nodi virtuali. I nodi virtuali consentono di effettuare rapidamente il provisioning dei pod applicando al tempo di esecuzione una tariffa al secondo. Non è necessario attendere che la funzione di scalabilità automatica del cluster del servizio Azure Kubernetes distribuisca i nodi di calcolo delle macchine virtuali per eseguire pod aggiuntivi. Questo articolo illustra come creare e configurare le risorse della rete virtuale e un cluster del servizio Azure Kubernetes e quindi abilitare i nodi virtuali.
 
 > [!IMPORTANT]
-> I nodi virtuali del servizio Azure Kubernetes sono attualmente disponibili in **anteprima**. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
+> Funzionalità di anteprima del servizio contenitore di AZURE sono self-service e fornire il consenso esplicito. Le anteprime sono fornite per raccogliere commenti e suggerimenti e bug dalla community. Tuttavia, non sono supportati dal supporto tecnico di Azure. Se si crea un cluster o aggiungere queste funzionalità in cluster esistenti, tale cluster non è supportato fino a quando la funzionalità non è più disponibile in anteprima e passano a livello generale (GA).
+>
+> Se si verificano problemi con funzionalità di anteprima [segnalare un problema nel repository GitHub di AKS] [ aks-github] con il nome della funzionalità Anteprima nel titolo del bug.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -43,6 +46,16 @@ Se il provider viene visualizzato come *NotRegistered*, registrare il provider u
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
 ```
+
+## <a name="preview-limitations"></a>Limiti di anteprima
+
+Quando questa funzionalità è disponibile in anteprima, le aree seguenti sono supportate per le distribuzioni:
+
+* Australia orientale (australiaeast)
+* Stati Uniti orientali (eastus)
+* Stati Uniti centrali (westcentralus)
+* Europa occidentale (westeurope)
+* Stati Uniti occidentali (westus)
 
 ## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell
 
@@ -324,6 +337,7 @@ I nodi virtuali sono spesso un componente di una soluzione di scalabilità nel s
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+[aks-github]: https://github.com/azure/aks/issues]
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli

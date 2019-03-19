@@ -12,12 +12,12 @@ ms.date: 01/08/2019
 ms.author: celested
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2804ebdbeb72bd35c7e63553184157066f9cfd32
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7dfef0e27dd3e38e5a965f47a47619671a3127b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177299"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117660"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Configurare l'accesso Single Sign-On per applicazioni non incluse nella raccolta in Azure Active Directory
 
@@ -29,8 +29,8 @@ Sono disponibili anche queste funzionalità in base al contratto di licenza. Per
 
 - Integrazione self-service di qualsiasi applicazione che supporta i provider di identità SAML 2.0 (avviato dal provider di servizi o dal provider di identità)
 - Integrazione self-service di qualsiasi applicazione Web con una pagina di accesso basata su HTML con [SSO basato su password](what-is-single-sign-on.md#password-based-sso)
-* Connessione self-service di applicazioni che usano il protocollo SCIM per il provisioning dell'utente ([descritto qui](use-scim-to-provision-users-and-groups.md))
-* Possibilità di aggiungere collegamenti a qualsiasi applicazione nell'[icona di avvio delle app di Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) o nel [riquadro di accesso di Azure AD](what-is-single-sign-on.md#linked-sso)
+- Connessione self-service di applicazioni che usano il protocollo SCIM per il provisioning dell'utente ([descritto qui](use-scim-to-provision-users-and-groups.md))
+- Possibilità di aggiungere collegamenti a qualsiasi applicazione nell'[icona di avvio delle app di Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) o nel [riquadro di accesso di Azure AD](what-is-single-sign-on.md#linked-sso)
 
 Possono essere incluse le applicazioni SaaS usate ma non ancora caricate nella raccolta di applicazioni di Azure AD, nonché le applicazioni Web di terze parti che l'organizzazione ha distribuito nei server sotto il suo controllo, nel cloud o in locale.
 
@@ -60,7 +60,7 @@ Per configurare Azure AD, immettere la configurazione SAML di base. È possibile
 
   ![URL e dominio di Litware](./media/configure-single-sign-on-non-gallery-applications/customapp4.png)
 
-- **URL di accesso (avviato solo da provider di servizi)** da cui l'utente accede all'applicazione. Se l'applicazione è configurata per eseguire l'accesso Single Sign-On avviato dal provider di servizi, quando un utente passa a questo URL, il provider di servizi eseguirà il reindirizzamento necessario ad Azure Active Directory per l'autenticazione e l'accesso dell'utente. Se questo campo è popolato, Azure AD userà questo URL per avviare l'applicazione da Office 365 e il pannello di accesso di AD Azure. Se questo campo è omesso, Azure Active Directory eseguirà l'accesso Single Sing-On avviato dal provider di identità quando l'app viene avviata da Office 365, dal pannello di accesso di Azure AD o dall'URL di accesso Single Sign-On di Azure Active Directory, che è possibile copiare dalla scheda Dashboard.
+- **URL di accesso (avviato solo da provider di servizi)** da cui l'utente accede all'applicazione. Se l'applicazione è configurata per eseguire l'accesso Single Sign-On avviato dal provider di servizi, quando un utente passa a questo URL, il provider di servizi eseguirà il reindirizzamento necessario ad Azure Active Directory per l'autenticazione e l'accesso dell'utente. Se questo campo è popolato, Azure AD userà questo URL per avviare l'applicazione da Office 365 e il pannello di accesso di AD Azure. Se questo campo è omesso, quindi Azure AD eseguirà invece il provider di identità-avviato sign-on quando l'app viene avviata da Office 365, il pannello di accesso di Azure AD o dall'Azure AD single sign-on di URL (possono essere copiati dalla scheda Dashboard).
 - **Identificatore**: deve identificare in modo univoco l'applicazione per cui viene configurato l'accesso Single Sign-On. È possibile trovare questo valore come elemento di autorità di certificazione in AuthRequest (richiesta SAML) inviato dall'applicazione. Questo valore viene inoltre visualizzato come **ID entità** in tutti i metadati SAML forniti dall'applicazione. Per informazioni dettagliate sui valori di ID entità o Audience, controllare la documentazione SAML dell'applicazione. 
 
     Di seguito è riportato un esempio di come l'identificatore o l'autorità di certificazione viene visualizzato nella richiesta SAML inviata dall'applicazione ad Azure AD:

@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: e8e9991f20481deee85a6d582582335eb98e3c24
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: e1b4bf1f9fa956da7a7b0ca1521439002d1ce76b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815218"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993430"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql-server"></a>Ottimizzare i processi autovacuum in un server di Database di Azure per PostgreSQL 
 Questo articolo descrive come ottimizzare efficacemente i processi autovacuum in un server di Database di Azure per PostgreSQL.
@@ -43,6 +43,7 @@ I parametri di configurazione che controllano i processi autovacuum si basano su
 - Quanti elementi è necessario eliminare dopo l'avvio?
 
 Ecco alcuni parametri di configurazione di processi autovacuum che è possibile aggiornare in base alle domande precedenti, con alcune indicazioni.
+
 Parametro|DESCRIZIONE|Valore predefinito
 ---|---|---
 autovacuum_vacuum_threshold|Specifica il numero minimo di tuple aggiornate o eliminate necessarie per attivare un'operazione vacuum in una tabella. Il valore predefinito è 50 tuple. Impostare questo parametro solo nel file postgresql.conf o nella riga di comando del server. Per eseguire l'override dell'impostazione per le singole tabelle, modificare i parametri di archiviazione della tabella stessa.|50
@@ -51,6 +52,7 @@ autovacuum_vacuum_cost_limit|Specifica il valore di limite di costo usato nelle 
 autovacuum_vacuum_cost_delay|Specifica il valore di intervallo di costo usato nelle operazioni vacuum automatiche. Se viene specificato -1, viene usato il valore vacuum_cost_delay normale. Il valore predefinito è 20 millisecondi. Impostare questo parametro solo nel file postgresql.conf o nella riga di comando del server. Per eseguire l'override dell'impostazione per le singole tabelle, modificare i parametri di archiviazione della tabella stessa.|20 ms
 autovacuum_nap_time|Specifica l'intervallo minimo tra le esecuzioni di processi autovacuum su un database specifico. In ogni ciclo il daemon esamina il database e genera i comandi VACUUM e ANALYZE in base alle necessità per le tabelle nel database. L'intervallo viene misurato in secondi e il valore predefinito è 1 minuto (1 min). Impostare questo parametro solo nel file postgresql.conf o nella riga di comando del server.|15 s
 autovacuum_max_workers|Specifica il numero massimo di processi autovacuum, diversi dall'utilità di avvio autovacuum, che possono essere in esecuzione in qualsiasi momento. Il valore predefinito è tre. Impostare questo parametro solo all'avvio del server.|3
+
 Per eseguire l'override delle impostazioni per le singole tabelle, modificare i parametri di archiviazione della tabella stessa. 
 
 ## <a name="autovacuum-cost"></a>Costo dei processi autovacuum

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.workload: Supportability
 ms.date: 3/27/2018
-ms.openlocfilehash: 898f2eca0b6cc115f56bcae195c58c6eef190694
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 69b142cd46c006e562218c949fb450864589a661
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884869"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838070"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Configurare le notifiche di integrità per i sistemi di gestione dei problemi esistenti usando un webhook
 
@@ -59,7 +59,7 @@ Dalla gravità minima a quella massima, la proprietà `level` del payload può a
 
 ## <a name="parsing-the-impacted-services-to-understand-the-full-scope-of-the-incident"></a>Analisi dei servizi interessati per comprendere l'ambito completo dell'evento imprevisto
 Gli avvisi di integrità del servizio possono dare informazioni sui problemi di più aree e servizi. Per ottenere i dettagli completi, è necessario analizzare il valore di `impactedServices`.
-Il contenuto interno è una stringa [JSON con escape](http://json.org/); quando è senza escape, contiene un altro oggetto JSON che può essere analizzato regolarmente.
+Il contenuto interno è una stringa [JSON con escape](https://json.org/); quando è senza escape, contiene un altro oggetto JSON che può essere analizzato regolarmente.
 
 ```json
 {"data.context.activityLog.properties.impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"},{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"Alerts & Metrics\"},{\"ImpactedRegions\":[{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"App Service\"}]"}

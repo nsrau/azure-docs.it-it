@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: 0c2fd29990e180283eb25949b806c4ceac58e2f7
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 8c37093b5369d2390942bc00c1531248bc4424c8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653629"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869089"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Panoramica di Apache Spark Structured Streaming
 
@@ -24,7 +24,7 @@ Le applicazioni Structured Streaming vengono eseguite in cluster HDInsight Spark
 
 Structured Streaming crea una query a esecuzione prolungata durante la quale è possibile applicare operazioni ai dati di input, tra cui la selezione, la proiezione, l'aggregazione, il windowing e l'aggiunta al frame di dati di streaming di frame di dati di riferimento. È quindi possibile restituire i risultati nell'archiviazione file (BLOB del servizio di archiviazione di Azure o Data Lake Storage) o in qualsiasi archivio dati usando codice personalizzato (come il database SQL o Power BI). Structured Streaming fornisce inoltre l'output alla console per il debug in locale e a una tabella in memoria per poter visualizzare i dati generati per il debug in HDInsight. 
 
-![Elaborazione di flussi con HDInsight e Spark Structured Streaming ](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
+![Elaborazione di flussi con HDInsight e Spark Structured Streaming](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
 
 > [!NOTE]  
 > Spark Structured Streaming sostituisce Spark Streaming (flussi DStream). In futuro Structured Streaming riceverà miglioramenti e manutenzione, mentre i flussi DStream resteranno solo in modalità manutenzione. Structured Streaming attualmente non include funzionalità complete come i flussi DStream per origini e sink, supportate per impostazione predefinita, e di conseguenza è necessario valutare i propri requisiti per scegliere l'opzione di elaborazione di flussi Spark più appropriata. 

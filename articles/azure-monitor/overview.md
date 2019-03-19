@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 0ef11355d7a65bd2c9b7ddfb6c4db2ba02538062
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: d0902c0e0b4c669f3918155f8416f064485abbea
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270369"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874903"
 ---
 # <a name="azure-monitor-overview"></a>Panoramica di Monitoraggio di Azure
 
@@ -40,7 +40,7 @@ Per molte risorse di Azure, i dati raccolti da Monitoraggio di Azure sono visual
 
 ![Metriche](media/overview/metrics.png)
 
-I dati di log raccolti da Monitoraggio di Azure possono essere analizzati con [query](log-query/log-query-overview.md) per recuperare, consolidare e analizzare rapidamente i dati raccolti.  È possibile creare e testare query usando [Log Analytics](log-query/portals.md) nel portale di Azure e quindi analizzare direttamente i dati usando questi strumenti o salvare le query per l'uso con [visualizzazioni](visualizations.md) o [regole degli avvisi](platform/alerts-overview.md).
+I dati di log raccolti da Monitoraggio di Azure possono essere analizzati con [query](log-query/log-query-overview.md) per recuperare, consolidare e analizzare rapidamente i dati raccolti.  È possibile creare e testare le query che utilizzano [Log Analitica](log-query/portals.md) nel portale di Azure e quindi analizzare direttamente i dati usando questi strumenti o salvare le query per l'uso con [visualizzazioni](visualizations.md) o [avviso le regole](platform/alerts-overview.md).
 
 Monitoraggio di Azure usa una versione del [linguaggio di query Kusto](/azure/kusto/query/), usato da Esplora dati di Azure e adatto a query semplici nei log, ma che include anche funzionalità avanzate come le aggregazioni, i join e le analisi intelligenti. È possibile apprendere rapidamente il linguaggio di query usando le [numerose lezioni](log-query/get-started-queries.md) disponibili.  Indicazioni specifiche sono disponibili per gli utenti che hanno già familiarità con [SQL](log-query/sql-cheatsheet.md) e [Splunk](log-query/splunk-cheatsheet.md).
 
@@ -130,14 +130,12 @@ Le [visualizzazioni](../log-analytics/log-analytics-view-designer.md) presentano
 Spesso si ha l'esigenza di integrare Monitoraggio di Azure con altri sistemi e compilare soluzioni personalizzate che utilizzano i dati di monitoraggio. Altri servizi di Azure funzionano con Monitoraggio di Azure per fornire questa integrazione.
 
 ### <a name="event-hub"></a>Hub eventi
-[Hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs) è una piattaforma di streaming e un servizio di inserimento di eventi che può trasformare e archiviare i dati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch o archiviazione. Usare Hub eventi per [lo streaming di dati di log da Monitoraggio di Azure](platform/stream-monitoring-data-event-hubs.md) a strumenti di monitoraggio e informazioni di sicurezza e gestione degli eventi partner.
+[Hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs) è una piattaforma di streaming e un servizio di inserimento di eventi che può trasformare e archiviare i dati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch o archiviazione. Usare gli hub eventi per [flusso di dati di monitoraggio di Azure](platform/stream-monitoring-data-event-hubs.md) collaborare SIEM e gli strumenti di monitoraggio.
 
-> [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
 ### <a name="logic-apps"></a>App per la logica
 [App per la logica](https://azure.microsoft.com/services/logic-apps) è un servizio che consente di automatizzare le attività e i processi aziendali tramite flussi di lavoro che si integrano con diversi sistemi e servizi. Sono disponibili attività di lettura e scrittura di log e metriche in Monitoraggio di Azure, che consente di creare flussi di lavoro integrati con una varietà di altri sistemi.
 
-![App per la logica](platform/media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
 ### <a name="api"></a>API
 Sono disponibili varie API di lettura e scrittura di metriche e log in e da Monitoraggio di Azure oltre all'accesso agli avvisi generati. È anche possibile configurare e recuperare gli avvisi. Ciò offre possibilità praticamente illimitate per la compilazione di soluzioni personalizzate integrate con Monitoraggio di Azure.

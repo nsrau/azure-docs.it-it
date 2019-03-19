@@ -3,20 +3,20 @@ title: Usare attività personalizzate in una pipeline di Azure Data Factory
 description: Informazioni su come creare attività personalizzate e usarle in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: douglasl
-ms.openlocfilehash: 0236d9118389b4f8fb79453b425c70f09e94bbb8
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: 849f944235cf1ab4408aeab336310028d6e754f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213808"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855870"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usare attività personalizzate in una pipeline di Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,11 +30,13 @@ In una pipeline di Azure Data Factory è possibile usare due tipi di attività.
 
 Per spostare dati da o verso un archivio dati non supportato da Data Factory oppure per trasformare o elaborare dati in un modo non supportato da Data Factory, è possibile creare un'**attività personalizzata** contenente la logica di spostamento o trasformazione dei dati necessaria e usare tale attività in una pipeline. L'attività personalizzata esegue la logica del codice personalizzata in un pool di **Azure Batch** di macchine virtuali.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Vedere gli articoli seguenti se non si ha familiarità con il servizio Azure Batch:
 
 * [Nozioni di base di Azure Batch](../batch/batch-technical-overview.md) per una panoramica del servizio Azure Batch.
-* Cmdlet [New-AzureRmBatchAccount](/powershell/module/azurerm.batch/New-AzureRmBatchAccount?view=azurermps-4.3.1) per creare un account di Azure Batch oppure [Portale di Azure](../batch/batch-account-create-portal.md) per creare l'account di Azure Batch usando il portale di Azure. Per istruzioni dettagliate sull'uso del cmdlet, vedere l'articolo [Uso di Azure PowerShell per gestire l'account di Azure Batch](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
-* [New AzureBatchPool](/powershell/module/azurerm.batch/New-AzureBatchPool?view=azurermps-4.3.1) per creare un pool di Batch di Azure.
+* [Nuovo AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet per creare un account Azure Batch (o) [portale di Azure](../batch/batch-account-create-portal.md) per creare l'account Azure Batch usando il portale di Azure. Per istruzioni dettagliate sull'uso del cmdlet, vedere l'articolo [Uso di Azure PowerShell per gestire l'account di Azure Batch](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
+* [Nuovo AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet per creare un pool di Batch di Azure.
 
 ## <a name="azure-batch-linked-service"></a>Servizio collegato Azure Batch
 Il codice JSON seguente definisce un servizio collegato Azure Batch di esempio. Per i dettagli, vedere [Ambienti di calcolo supportati da Azure Data Factory](compute-linked-services.md)
@@ -96,19 +98,23 @@ In questo esempio, helloworld.exe è un'applicazione personalizzata salvata nell
 
 Nella tabella seguente vengono descritti i nomi e le descrizioni delle proprietà specifiche per questa attività.
 
-| Proprietà              | DESCRIZIONE                              | Obbligatoria |
+| Proprietà              | Descrizione                              | Obbligatorio |
 | :-------------------- | :--------------------------------------- | :------- |
-| name                  | Nome dell'attività nella pipeline     | Yes      |
+| name                  | Nome dell'attività nella pipeline     | Sì      |
 | description           | Testo che descrive l'attività.  | No        |
-| type                  | Per l'attività personalizzata, il tipo corrisponde a **Custom**. | Yes      |
-| linkedServiceName     | Servizio collegato ad Azure Batch. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md).  | Yes      |
-| command               | Comando dell'applicazione personalizzata da eseguire. Se l'applicazione è già disponibile nel nodo del pool di Azure Batch, è possibile ignorare resourceLinkedService e folderPath. È ad esempio possibile specificare come comando `cmd /c dir`, supportato in modo nativo dal nodo del pool di batch di Windows. | Yes      |
+| type                  | Per l'attività personalizzata, il tipo corrisponde a **Custom**. | Sì      |
+| linkedServiceName     | Servizio collegato ad Azure Batch. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md).  | Sì      |
+| command               | Comando dell'applicazione personalizzata da eseguire. Se l'applicazione è già disponibile nel nodo del pool di Azure Batch, è possibile ignorare resourceLinkedService e folderPath. È ad esempio possibile specificare come comando `cmd /c dir`, supportato in modo nativo dal nodo del pool di batch di Windows. | Sì      |
 | resourceLinkedService | Servizio di Archiviazione di Azure collegato all'account di archiviazione in cui è archiviata l'applicazione personalizzata | No &#42;       |
 | folderPath            | Percorso della cartella dell'applicazione personalizzata e di tutte le relative dipendenze<br/><br/>Se sono presenti dipendenze archiviate nelle sottocartelle, vale a dire, in una struttura di cartelle gerarchiche in *folderPath*, la struttura di cartelle è attualmente di tipo flat quando i file vengono copiati in Azure Batch. Vale a dire, tutti i file vengono copiati in un'unica cartella senza sottocartelle. Per risolvere questo comportamento, è possibile comprimere i file, copiare il file compresso e quindi decomprimerlo con codice personalizzato nel percorso desiderato. | No &#42;       |
 | referenceObjects      | Matrice di servizi collegati e set di dati esistenti. I servizi collegati e i set di dati a cui si fa riferimento vengono passati all'applicazione personalizzata in formato JSON. Il codice personalizzato può quindi fare riferimento a risorse di Data Factory | No        |
 | extendedProperties    | Proprietà definite dall'utente che possono essere passate all'applicazione personalizzata in formato JSON. Il codice personalizzato può quindi fare riferimento a proprietà aggiuntive | No        |
+| retentionTimeInDays | Il tempo di conservazione per i file inviati per l'attività personalizzata. Valore predefinito è 30 giorni. | No  |
 
 &#42; Le proprietà `resourceLinkedService` e `folderPath` devono essere specificate oppure omesse entrambe.
+
+> [!NOTE]
+> Se si siano passando a servizi collegati come referenceObjects nell'attività personalizzata, è buona norma per passare un Azure Key Vault abilitata recupero e il servizio collegato (poiché non contiene tutte le stringhe sicure) le credenziali con nome del segreto direttamente dalla chiave Insieme di credenziali dal codice. È possibile trovare un esempio [qui](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) che riferimenti AKV abilitato il servizio collegato, recupera le credenziali da Key Vault e quindi si accede lo spazio di archiviazione nel codice.  
 
 ## <a name="custom-activity-permissions"></a>Autorizzazioni per le attività personalizzate
 
@@ -227,13 +233,13 @@ namespace SampleApp
 Per avviare una pipeline, eseguire il comando di PowerShell seguente:
 
 ```.powershell
-$runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
+$runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
 ```
 Quando la pipeline è in esecuzione, è possibile controllare l'output dell'esecuzione usando i comandi seguenti:
 
 ```.powershell
 while ($True) {
-    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 
     if(!$result) {
         Write-Host "Waiting for pipeline to start..." -foregroundcolor "Yellow"
@@ -318,9 +324,9 @@ Per accedere a proprietà di tipo *SecureString* da un'attività personalizzata,
 
 ## <a name="compare-v2-v1"></a> Confrontare l'attività personalizzata della versione 2 e l'attività DotNet (personalizzata) della versione 1
 
-In Azure Data Factory versione 1 un'attività DotNet (personalizzata) viene implementata creando un progetto della libreria di classi .NET con una classe che implementa il metodo `Execute` dell'interfaccia `IDotNetActivity`. I servizi collegati, i set di dati e le proprietà estese nel payload JSON di un'attività DotNet (personalizzata) vengono passati al metodo di esecuzione come oggetti fortemente tipizzati. Per informazioni dettagliate sul comportamento della versione 1, vedere [Attività DotNet (personalizzate) nella versione 1](v1/data-factory-use-custom-activities.md). A causa di questa implementazione, il codice dell'attività DotNet della versione 1 deve avere come destinazione .NET Framework 4.5.2. L'attività DotNet della versione 1 deve inoltre essere eseguita sui nodi di pool di Azure Batch basati su Windows.
+In Azure Data Factory versione 1, si implementa un'attività DotNet (personalizzata) creando un progetto libreria di classi .NET con una classe che implementa il `Execute` metodo di `IDotNetActivity` interfaccia. I servizi collegati, i set di dati e le proprietà estese nel payload JSON di un'attività DotNet (personalizzata) vengono passati al metodo di esecuzione come oggetti fortemente tipizzati. Per informazioni dettagliate sul comportamento della versione 1, vedere [Attività DotNet (personalizzate) nella versione 1](v1/data-factory-use-custom-activities.md). A causa di questa implementazione, il codice di attività DotNet della versione 1 ha come destinazione .NET Framework 4.5.2. L'attività DotNet della versione 1 deve inoltre essere eseguita sui nodi di pool di Azure Batch basati su Windows.
 
-Nell'attività personalizzata di Azure Data Factory versione 2 non è necessario implementare un'interfaccia .NET. È ora possibile eseguire direttamente comandi, script e codice personalizzato, compilato come eseguibile. Per configurare questa implementazione, specificare la proprietà `Command` con la proprietà `folderPath`. L'attività personalizzata carica il file eseguibile e le relative dipendenze in `folderpath` ed esegue il comando automaticamente.
+L'attività di Azure Data Factory V2 personalizzato, non è necessario implementare un'interfaccia .NET. È ora possibile eseguire direttamente comandi, script e codice personalizzato, compilato come eseguibile. Per configurare questa implementazione, specificare la proprietà `Command` con la proprietà `folderPath`. L'attività personalizzata carica il file eseguibile e le relative dipendenze in `folderpath` ed esegue il comando automaticamente.
 
 I servizi collegati, i set di dati definiti in referenceObjects e le proprietà estese definite nel payload JSON di un'attività personalizzata di Data Factory versione 2 sono accessibili dal file eseguibile come file JSON. È possibile accedere alle proprietà obbligatorie tramite un serializzatore JSON, come illustrato nell'esempio di codice precedente SampleApp.exe.
 
@@ -331,18 +337,18 @@ La tabella seguente illustra le differenze tra l'attività personalizzata di Dat
 
 |Differenze      | Attività personalizzata      | Attività DotNet (personalizzata) versione 1      |
 | ---- | ---- | ---- |
-|Modalità di definizione della logica personalizzata      |Mediante l'uso di un file eseguibile      |Mediante l'implementazione di un file DLL .Net      |
-|Ambiente di esecuzione della logica personalizzata      |Windows o Linux      |Windows (.Net Framework 4.5.2)      |
-|Esecuzione di script      |Supporta l'esecuzione diretta di script, ad esempio "cmd /c echo hello world" su macchine virtuali Windows      |Richiede l'implementazione nel file DLL .Net      |
+|Modalità di definizione della logica personalizzata      |Mediante l'uso di un file eseguibile      |Mediante l'implementazione di una DLL .NET      |
+|Ambiente di esecuzione della logica personalizzata      |Windows o Linux      |Windows (.NET Framework 4.5.2)      |
+|Esecuzione di script      |Supporta l'esecuzione diretta di script, ad esempio "cmd /c echo hello world" su macchine virtuali Windows      |È necessaria l'implementazione nella DLL .NET      |
 |Set di dati obbligatorio      |Facoltativo      |Richiesta per concatenare le attività e passare le informazioni      |
 |Passare le informazioni dall'attività alla logica personalizzata      |Tramite ReferenceObjects (LinkedServices e Datasets) ed ExtendedProperties (proprietà personalizzate)      |Tramite ExtendedProperties (proprietà personalizzate), set di dati di input e output      |
-|Recuperare le informazioni nella logica personalizzata      |Analizza i file activity.json, linkedServices.json e datasets.json archiviati nella stessa cartella del file eseguibile      |Tramite .Net SDK (.Net Frame 4.5.2)      |
-|Registrazione      |Scrive direttamente in STDOUT      |Implementazione del logger nel file DLL .Net      |
+|Recuperare le informazioni nella logica personalizzata      |Analizza i file activity.json, linkedServices.json e datasets.json archiviati nella stessa cartella del file eseguibile      |Tramite .NET SDK (.NET Frame 4.5.2)      |
+|Registrazione      |Scrive direttamente in STDOUT      |Implementazione del Logger nel DLL .NET      |
 
 
-Se si ha a disposizione il codice .NET esistente scritto per un'attività DotNet (personalizzata) della versione 1, è necessario modificarlo per consentirne il funzionamento con la versione corrente di un'attività personalizzata. Aggiornare il codice seguendo queste linee guida generali:
+Se si dispone di codice .NET esistente scritto per una versione 1 attività di DotNet (personalizzata), è necessario modificare il codice per farli funzionare con la versione corrente dell'attività personalizzata. Aggiornare il codice seguendo queste linee guida generali:
 
-  - Modificare il progetto da una libreria di classi .NET a un'app console.
+  - Modificare il progetto da una libreria di classi .NET a un'App Console.
   - Avviare l'applicazione con il metodo `Main`. Il metodo `Execute` dell'interfaccia `IDotNetActivity` non è più necessario.
   - Leggere e analizzare i servizi collegati, i set di dati e l'attività con un serializzatore JSON e non come oggetti fortemente tipizzati. Passare i valori delle proprietà obbligatorie alla logica del codice personalizzata principale. Fare riferimento all'esempio di codice precedente SampleApp.exe.
   - L'oggetto Logger non è più supportato. L'output del file eseguibile può essere stampato nella console e viene salvato in stdout.txt.

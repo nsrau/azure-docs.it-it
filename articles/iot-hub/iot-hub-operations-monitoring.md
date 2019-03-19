@@ -1,26 +1,26 @@
 ---
-title: Monitoraggio delle operazioni dell'hub IoT di Azure | Microsoft Docs
+title: Operazioni dell'IoT Hub di Azure monitoring (deprecato) | Microsoft Docs
 description: Come usare il monitoraggio delle operazioni dell'hub IoT di Azure per monitorare lo stato delle operazioni nell'hub IoT in tempo reale.
 author: nberdy
 manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/10/2017
+ms.date: 03/11/2019
 ms.author: nberdy
-ms.openlocfilehash: 3aa452cd178bd0d064726c5be7dbdf65c6ef8d92
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
-ms.translationtype: HT
+ms.openlocfilehash: d839e2e9922ac68af3aea37884e8b2f72b80b0e7
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160049"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791580"
 ---
-# <a name="iot-hub-operations-monitoring"></a>Monitoraggio delle operazioni dell'hub IoT
+# <a name="iot-hub-operations-monitoring-deprecated"></a>Operazioni dell'IoT Hub di monitoraggio (deprecata)
 
 Il monitoraggio delle operazioni dell'hub IoT consente di monitorare lo stato delle operazioni nel proprio hub IoT in tempo reale. L'hub IoT tiene traccia degli eventi nelle diverse categorie di operazioni. È possibile scegliere di impostare l'invio di eventi da una o più categorie a un endpoint del proprio hub IoT per l'elaborazione. È possibile monitorare i dati per individuare gli errori o configurare un'elaborazione più complessa in base ai modelli di dati.
 
 >[!NOTE]
->Il monitoraggio operazioni dell'hub IoT è deprecato e verrà rimosso dall'hub IoT il 10 marzo 2019. Per monitorare le operazioni e l'integrità dell'hub IoT, vedere [Monitor the health of Azure IoT Hub and diagnose problems quickly][lnk-monitor] (Monitorare lo stato dell'hub IoT di Azure e diagnosticare i problemi rapidamente) Per altre informazioni sulla sequenza temporale relativa alla funzionalità deprecata, vedere [Monitorare le soluzioni IoT di Azure con Monitoraggio di Azure e Integrità risorse di Azure][lnk-blog-announcement].
+>L'IoT Hub **operazioni di monitoraggio è deprecate ed è stata rimossa dall'IoT Hub il 10 marzo 2019**. Per monitorare le operazioni e l'integrità dell'hub IoT, vedere [Monitor the health of Azure IoT Hub and diagnose problems quickly][lnk-monitor] (Monitorare lo stato dell'hub IoT di Azure e diagnosticare i problemi rapidamente) Per altre informazioni sulla sequenza temporale relativa alla funzionalità deprecata, vedere [Monitorare le soluzioni IoT di Azure con Monitoraggio di Azure e Integrità risorse di Azure][lnk-blog-announcement].
 
 L'hub IoT monitora sei categorie di eventi:
 

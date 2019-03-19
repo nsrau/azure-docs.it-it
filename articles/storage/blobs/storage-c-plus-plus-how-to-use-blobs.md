@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: michaelhauss
 ms.subservice: blobs
-ms.openlocfilehash: a9b7d15bebdef40c983eaf4d5eee6953b5a10994
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: d86b2c71515900405b0e7714d2c36cd8e4cbc7fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236939"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993219"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Come usare l'archivio BLOB da C++
 
-In questa guida vengono illustrati diversi scenari comuni per l'uso dell'archivio BLOB di Azure. Gli esempi illustrano come caricare, elencare, scaricare ed eliminare i BLOB. Gli esempi sono scritti in C++ e utilizzano la [libreria client di Archiviazione di Azure per C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md).   
+In questa guida vengono illustrati diversi scenari comuni per l'uso dell'archivio BLOB di Azure. Gli esempi illustrano come caricare, elencare, scaricare ed eliminare i BLOB. Gli esempi sono scritti in C++ e utilizzano la [libreria client di Archiviazione di Azure per C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).   
 
 Per altre informazioni sull'archivio BLOB, vedere [Introduzione all'archiviazione BLOB di Azure](storage-blobs-introduction.md).
 
 > [!NOTE]
-> Questa guida fa riferimento alla libreria client di Archiviazione di Azure per C++ versione 1.0.0 e successive. Microsoft consiglia di usare la versione più recente della libreria client di archiviazione per C++, disponibile tramite [NuGet](http://www.nuget.org/packages/wastorage) oppure [GitHub](https://github.com/Azure/azure-storage-cpp).
+> Questa guida fa riferimento alla libreria client di Archiviazione di Azure per C++ versione 1.0.0 e successive. Microsoft consiglia di usare la versione più recente della libreria client di archiviazione per C++, disponibile tramite [NuGet](https://www.nuget.org/packages/wastorage) oppure [GitHub](https://github.com/Azure/azure-storage-cpp).
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
@@ -34,7 +34,7 @@ A tal fine, sarà necessario installare la libreria client di Archiviazione di A
 Per installare la libreria client di Archiviazione di Azure per C++, è possibile utilizzare i metodi seguenti:
 
 * **Linux:** seguire le istruzioni fornite nella pagina [README della libreria client di Archiviazione di Azure per C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .  
-* **Windows:** In Visual Studio fare clic su **Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti**. Digitare il seguente comando nella [console Gestione pacchetti NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e premere **INVIO**.  
+* **Windows:** In Visual Studio fare clic su **Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti**. Digitare il seguente comando nella [console Gestione pacchetti NuGet](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) e premere **INVIO**.  
   
      Install-Package knockoutjs
 
@@ -258,7 +258,7 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione BLOB, vi
 * [Come usare l’archiviazione delle code da C++](../storage-c-plus-plus-how-to-use-queues.md)
 * [Come usare l’archiviazione tabelle da C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [Elenco delle risorse di archiviazione di Azure in C++](../storage-c-plus-plus-enumeration.md)
-* [Informazioni di riferimento sulla libreria client di archiviazione per C++](http://azure.github.io/azure-storage-cpp)
+* [Informazioni di riferimento sulla libreria client di archiviazione per C++](https://azure.github.io/azure-storage-cpp)
 * [Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Trasferire dati con l'utilità della riga di comando AzCopy](../storage-use-azcopy.md)
 

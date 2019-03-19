@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 400cf53172fbd1ce5803cf3de298749afbf45cd4
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 49a28901e2ea471f97270c0407e2f6c0a4a533fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430195"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58169154"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integrazione del controllo del codice sorgente in Automazione di Azure
 
@@ -140,6 +140,10 @@ Controllo del codice sorgente richiede alcune autorizzazioni minime per i token 
 Per disconnettersi dal repository di un controllo del codice sorgente, aprire **Controllo del codice sorgente (anteprima)** in **Impostazioni account** nell'account di automazione.
 
 Selezionare il controllo del codice sorgente da rimuovere. Nella pagina **Riepilogo del Controllo del codice sorgente** fare clic su **Elimina**.
+
+## <a name="encoding"></a>Codifica
+
+Se più persone che sta modificando i runbook nel repository di controllo del codice sorgente con diversi editor vi è possibilità verifichino i problemi di codifica. Ciò può inserire caratteri non validi nel runbook. Per altre informazioni, vedere [cause comuni di problemi di codifica](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 5fc50aeeb2764f90a111c2466ff5a9deefe1e65c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 513cccb8b83eb4a69df1bc6172f1f02485215e35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167989"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086004"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Criteri password e di blocco dell'account nei domini gestiti
 Questo articolo illustra i criteri password predefiniti in un dominio gestito, oltre al modo in cui è possibile configurarli.
@@ -89,28 +89,28 @@ Per creare un criterio granulare per le password personalizzato in un dominio ge
 7. Nel pannello **Attività** a destra, fare clic su **Nuovo** e quindi su **Impostazioni password**.
 8. Nella finestra di dialogo **Create Password Settings** (Crea impostazioni password) specificare le impostazioni della password personalizzata da applicare come parte dei criteri granulari personalizzati. Ricordarsi di impostare in modo appropriato la precedenza per sostituire il criterio granulare per la password predefinito.
 
-  ![Creare criteri granulari per le password predefiniti](./media/how-to/custom-fgpp.png)
+   ![Creare criteri granulari per le password predefiniti](./media/how-to/custom-fgpp.png)
 
-  > [!TIP]
-  > **Ricordarsi di deselezionare l'opzione Protect from accidental deletion (Proteggi da eliminazione accidentale).** Se questa opzione è selezionata, non è possibile salvare i criteri granulari per le password.
-  >
-  >
+   > [!TIP]
+   > **Ricordarsi di deselezionare l'opzione Protect from accidental deletion (Proteggi da eliminazione accidentale).** Se questa opzione è selezionata, non è possibile salvare i criteri granulari per le password.
+   >
+   >
 
 9. In **Directly Applies To** (Si applica direttamente a), fare clic sul pulsante **Add** (Aggiungi). Nella finestra di dialogo **Seleziona utenti o gruppi** fare clic sul pulsante **Località**.
 
-  ![Selezionare Utenti e gruppi](./media/how-to/fgpp-applies-to.png)
+   ![Selezionare Utenti e gruppi](./media/how-to/fgpp-applies-to.png)
 
 10. Nella finestra di dialogo **Località** espandere il nome di dominio e fare clic su **AADDC Users** (Utenti AADDC). È ora possibile selezionare un gruppo dall'unità organizzativa degli utenti predefinita, a cui applicare i criteri granulari.
 
-  ![Selezionare l'unità organizzativa a cui appartiene tale gruppo](./media/how-to/fgpp-container.png)
+    ![Selezionare l'unità organizzativa a cui appartiene tale gruppo](./media/how-to/fgpp-container.png)
 
 11. Digitare il nome del gruppo, quindi scegliere il pulsante **Controlla nomi** per verificare che il gruppo esista.
 
-  ![Selezionare il gruppo a cui applicare i criteri granulari per le password](./media/how-to/fgpp-apply-group.png)
+    ![Selezionare il gruppo a cui applicare i criteri granulari per le password](./media/how-to/fgpp-apply-group.png)
 
 12. Il nome del gruppo viene visualizzato nella sezione **Directly Applies To**. Fare clic sul pulsante **OK** per salvare le modifiche apportate.
 
-  ![Criteri granulari per le password non applicati](./media/how-to/fgpp-applied.png)
+    ![Criteri granulari per le password non applicati](./media/how-to/fgpp-applied.png)
 
 > [!TIP]
 > **Per applicare i criteri password personalizzati per gli account utente in un'unità organizzativa personalizzata:** i criteri granulari per le password possono essere applicati solo ai gruppi. Per configurare i criteri password personalizzati solo per gli utenti da un'unità organizzativa personalizzata, creare un gruppo che includa gli utenti in tale unità organizzativa.

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32f53742de3242fb3b60a15d436ec6cd842aa429
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c8c86ad6e4b11f21c648083fac35e15eec7658c1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183994"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995504"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>Esercitazione: Integrazione di Azure Active Directory con KnowledgeOwl
 
@@ -110,6 +110,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di KnowledgeOwl](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_url.png)
 
     a. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il criterio seguente:
+
     |||
     |-|-|
     | `https://app.knowledgeowl.com/sp`|
@@ -117,6 +118,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     |||
 
     b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente:
+
     |||
     |-|-|
     | `https://subdomain.knowledgeowl.com/help/saml-login`|
@@ -132,6 +134,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di KnowledgeOwl](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_url1.png)
 
     Nella casella di testo **URL di accesso** digitare un URL usando il criterio seguente:
+    
     |||
     |-|-|
     | `https://subdomain.knowledgeowl.com/help/saml-login`|
@@ -185,39 +188,39 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Fare clic su **Settings** (Impostazioni) e quindi selezionare **Security** (Sicurezza).
 
-    ![Configurazione di KnowledgeOwl](./media/knowledgeowl-tutorial/configure1.png)
+     ![Configurazione di KnowledgeOwl](./media/knowledgeowl-tutorial/configure1.png)
 
 1. Scorrere verso il basso fino a **SAML SSO Integration** (Integrazione SSO SAML) e seguire questa procedura:
     
-    ![Configurazione di KnowledgeOwl](./media/knowledgeowl-tutorial/configure2.png)
+     ![Configurazione di KnowledgeOwl](./media/knowledgeowl-tutorial/configure2.png)
 
-    a. Selezionare **Enable SAML SSO** (Abilita SSO SAML).
+     a. Selezionare **Enable SAML SSO** (Abilita SSO SAML).
 
-    b. Copiare il valore di **SP Entity ID** (ID entità del provider di servizi) e incollarlo in **Identificatore (ID entità)** nella sezione **URL e dominio KnowledgeOwl** del portale di Azure.
+     b. Copiare il valore di **SP Entity ID** (ID entità del provider di servizi) e incollarlo in **Identificatore (ID entità)** nella sezione **URL e dominio KnowledgeOwl** del portale di Azure.
 
-    c. Copiare il valore di **SP Login URL** (URL di accesso del provider di servizi) e incollarlo nelle caselle di testo **URL di accesso e URL di risposta** nella sezione **URL e dominio KnowledgeOwl** del portale di Azure.
+     c. Copiare il valore di **SP Login URL** (URL di accesso del provider di servizi) e incollarlo nelle caselle di testo **URL di accesso e URL di risposta** nella sezione **URL e dominio KnowledgeOwl** del portale di Azure.
 
-    d. Nella casella di testo **IdP entityID** (ID entità IdP) incollare il valore di **ID entità SAML** copiato dal portale di Azure.
+     d. Nella casella di testo **IdP entityID** (ID entità IdP) incollare il valore di **ID entità SAML** copiato dal portale di Azure.
 
-    e. Nella casella di testo **IDP Login URL** (URL di accesso IdP) incollare il valore di **SAML Single Sign-On Service URL** (URL servizio Single Sign-On SAML) copiato dal portale di Azure.
+     e. Nella casella di testo **IDP Login URL** (URL di accesso IdP) incollare il valore di **SAML Single Sign-On Service URL** (URL servizio Single Sign-On SAML) copiato dal portale di Azure.
 
-    f. Nella casella di testo **IdP Logout URL** (URL di disconnessione IdP) incollare il valore di **Sign-Out URL** (URL di disconnessione) copiato dal portale di Azure
+     f. Nella casella di testo **IdP Logout URL** (URL di disconnessione IdP) incollare il valore di **Sign-Out URL** (URL di disconnessione) copiato dal portale di Azure
 
-    g. Caricare il certificato scaricato dal portale di Azure facendo clic su **Upload IdP Certificate** (Carica certificato IdP).
+     g. Caricare il certificato scaricato dal portale di Azure facendo clic su **Upload IdP Certificate** (Carica certificato IdP).
 
-    h. Fare clic su **Map SAML Attributes** (Esegui il mapping degli attributi SAML) per eseguire il mapping degli attributi e seguire questa procedura:
+     h. Fare clic su **Map SAML Attributes** (Esegui il mapping degli attributi SAML) per eseguire il mapping degli attributi e seguire questa procedura:
     
-    ![Configurazione di KnowledgeOwl](./media/knowledgeowl-tutorial/configure3.png)
+     ![Configurazione di KnowledgeOwl](./media/knowledgeowl-tutorial/configure3.png)
 
     * Immettere `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid` nella casella di testo **SSO ID** (ID SSO)
     * Immettere `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` nella casella di testo **Username/Email** (Nome utente/indirizzo di posta elettronica).
     * Immettere `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` nella casella di testo **First Name** (Nome).
     * Immettere `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` nella casella di testo **Last Name** (Cognome).
-    * Fare clic su **Save**
+    * Fare clic su **Save** (Salva).
 
-    i. Fare clic su **Save** nella parte inferiore della pagina.
+      i. Fare clic su **Save** nella parte inferiore della pagina.
 
-    ![Configurazione di KnowledgeOwl](./media/knowledgeowl-tutorial/configure4.png)
+      ![Configurazione di KnowledgeOwl](./media/knowledgeowl-tutorial/configure4.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 

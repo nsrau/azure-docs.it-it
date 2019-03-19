@@ -14,25 +14,25 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b8ca5fc5348818a7d0f1075557d4fe5c7e3bef44
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: cacc7c0b269e8006903961049caf3cd7e3bee449
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807827"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834337"
 ---
 <a name="azure-marketplace-seo-publisher-guide"></a>Guida alla pubblicazione SEO per Microsoft Azure Marketplace
 =======================================
 
 ### <a name="general-explanation-of-algorithm"></a>Descrizione generale dell'algoritmo
 
-Il marketplace usa Ricerca di Azure per potenziare le funzionalità di ricerca del sito. L'algoritmo si basa sulla frequenza del termine/frequenza inversa del documento ([TF/IDF](https://en.wikipedia.org/wiki/Tf–idf)). Viene usato [l'analizzatore Lucene](http://lucene.apache.org/core/) standard.
+Il marketplace usa Ricerca di Azure per potenziare le funzionalità di ricerca del sito. L'algoritmo si basa sulla frequenza del termine/frequenza inversa del documento ([TF/IDF](https://en.wikipedia.org/wiki/Tf–idf)). Viene usato [l'analizzatore Lucene](https://lucene.apache.org/core/) standard.
 
 In generale, tutto i campi di testo, le categorie e i settori sono inclusi nella ponderazione della pertinenza. Termini specifici che vengono utilizzati raramente dalle app generiche, ma di frequente nella propria app genereranno un punteggio di corrispondenza maggiore nella ricerca. Ad esempio, termini come "VM" offriranno pochi vantaggi, mentre "Ricerca di Azure" potrebbe essere molto più specifico.
 Di seguito, sono elencati i campi più importanti da considerare.
 
  
-|  Campo                   | priorità | Indicazioni                                                                                            |
+|  Campo                   | priorità | Materiale sussidiario                                                                                            |
 |  --------------------    | ----------                   | ---------------                                                                   |
 | Nome offerta               |  Alto      | Un valore esatto o vicino a una corrispondenza completa con la query di ricerca sospenderà la classificazione elevata.                       |
 | Nome entità di pubblicazione           |  Alto      | Un valore esatto o vicino a una corrispondenza completa con la query di ricerca sospenderà la classificazione elevata.                       |

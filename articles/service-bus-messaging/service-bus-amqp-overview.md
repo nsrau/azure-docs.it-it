@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 70a0463094f98612169e78e4bcdd4eac9c8ebf24
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 34829482e570354c1ab1e1fd6cec0c96b993cd83
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844705"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58167032"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Supporto per il protocollo AMQP 1.0 nel bus di servizio
 Il protocollo AMQP (Advanced Message Queueing Protocol) 1.0 è supportato sia nel servizio cloud del bus di servizio di Azure sia nel [bus di servizio per Windows Server (Bus di servizio 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) locale. AMQP consente di creare applicazioni ibride multipiattaforma usando un protocollo aperto standard. È possibile creare applicazioni usando componenti creati in linguaggi e framework diversi e in esecuzione su sistemi operativi diversi. Tutti questi componenti possono connettersi al bus di servizio e scambiare in modo lineare ed efficiente messaggi di business strutturati con assoluta fedeltà.
@@ -77,7 +77,7 @@ La figura riportata di seguito illustra una distribuzione di esempio, in cui i c
 | C |Apache Qpid Proton-C |
 | PHP |Apache Qpid Proton-PHP |
 | Python |Apache Qpid Proton-Python |
-| C# |AMQP .Net Lite |
+| C# |AMQP .NET Lite |
 
 **Figura 2: Tabella delle librerie client del protocollo AMQP 1.0**
 

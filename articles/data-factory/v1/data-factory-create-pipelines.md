@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f04903cc1ffd16edd951969c86659c8f1f33105f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: ee34c91787ede0431c71b0fd96d2c040717dbca2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814130"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551198"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipeline e attività in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,6 +32,8 @@ Questo articolo fornisce informazioni sulle pipeline e sulle attività in Azure 
 
 > [!NOTE]
 > Questo articolo è da leggersi dopo aver consultato l' [Introduzione a Data factory di Azure](data-factory-introduction.md). Se non si ha esperienza diretta nella creazione di data factory, l'[esercitazione sulla trasformazione dei dati](data-factory-build-your-first-pipeline.md) e/o [quella sullo spostamento dei dati](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) può essere utile per comprendere meglio questo articolo.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Panoramica
 Una data factory può comprendere una o più pipeline. Una pipeline è un raggruppamento logico di attività che insieme eseguono un compito. Le attività in una pipeline definiscono le azioni da eseguire sui dati. Ad esempio, è possibile usare un'attività di copia per copiare i dati da un Server SQL locale a un'archiviazione BLOB di Azure. Quindi, usare un'attività Hive che esegue uno script Hive in un cluster HDInsight di Azure per elaborare o trasformare i dati dall'archivio BLOB per produrre dati di output. Infine, usare una seconda attività di copia per copiare i dati di output in un Azure SQL Data Warehouse in cui vengono compilate le soluzioni di report di business intelligence, BI.
@@ -92,12 +94,12 @@ Osserviamo più da vicino come viene definita una pipeline nel formato JSON. La 
 }
 ```
 
-| Tag | DESCRIZIONE | Obbligatoria |
+| Tag | DESCRIZIONE | Obbligatorio |
 | --- | --- | --- |
-| name |Nome della pipeline. Specificare un nome che rappresenti l'azione eseguita dalla pipeline. <br/><ul><li>Numero massimo di caratteri: 260</li><li>Deve iniziare con una lettera, un numero o un carattere di sottolineatura (\_)</li><li>Non sono ammessi i caratteri seguenti: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\\"</li></ul> |Sì |
+| name |Nome della pipeline. Specificare un nome che rappresenti l'azione eseguita dalla pipeline. <br/><ul><li>Numero massimo di caratteri: 260</li><li>Deve iniziare con una lettera, un numero o un carattere di sottolineatura (\_)</li><li>Non sono consentiti seguenti caratteri: ".", "+","?", "/", "<",">", "\*", "%", "&", ":","\\"</li></ul> |Sì |
 | description | Specificare il testo descrittivo che illustra lo scopo della pipeline. |Sì |
 | attività | Nella sezione delle **attività** possono essere definite una o più attività. Vedere la sezione successiva per informazioni dettagliate sulle attività dell'elemento JSON. | Sì |
-| start | Data e ora di inizio per la pipeline. Devono essere nel [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), Ad esempio: `2016-10-14T16:32:41Z`. <br/><br/>È possibile specificare un'ora locale, ad esempio in base al fuso orario EST. Di seguito viene riportato un esempio: `2016-02-27T06:00:00-05:00`, che indica le 06:00 EST.<br/><br/>Le proprietà start ed end insieme specificano il periodo attivo per la pipeline. Le sezioni di output vengono generate solo in questo periodo attivo. |No <br/><br/>Se si specifica un valore per la proprietà di fine, è necessario specificare un valore anche per la proprietà di avvio.<br/><br/>L'ora di inizio e l'ora di fine possono essere entrambe vuote per creare una pipeline. È necessario specificare entrambi i valori per impostare un periodo attivo per l'esecuzione della pipeline. Se non si specificano le ore di inizio e fine durante la creazione di una pipeline, è possibile impostare tali valori in un secondo momento usando il cmdlet Set-AzureRmDataFactoryPipelineActivePeriod. |
+| start | Data e ora di inizio per la pipeline. Devono essere nel [formato ISO](https://en.wikipedia.org/wiki/ISO_8601), Ad esempio: `2016-10-14T16:32:41Z`. <br/><br/>È possibile specificare un'ora locale, ad esempio in base al fuso orario EST. Di seguito viene riportato un esempio: `2016-02-27T06:00:00-05:00`, che indica le 06:00 EST.<br/><br/>Le proprietà start ed end insieme specificano il periodo attivo per la pipeline. Le sezioni di output vengono generate solo in questo periodo attivo. |No <br/><br/>Se si specifica un valore per la proprietà di fine, è necessario specificare un valore anche per la proprietà di avvio.<br/><br/>L'ora di inizio e l'ora di fine possono essere entrambe vuote per creare una pipeline. È necessario specificare entrambi i valori per impostare un periodo attivo per l'esecuzione della pipeline. Se non si specifica ora di inizio e fine quando si crea una pipeline, è possibile impostarle usando il cmdlet Set-AzDataFactoryPipelineActivePeriod in un secondo momento. |
 | end | Data e ora di fine per la pipeline. Se specificate, devono essere in formato ISO. Ad esempio: `2016-10-14T17:32:41Z` <br/><br/>È possibile specificare un'ora locale, ad esempio in base al fuso orario EST. Di seguito è fornito l'esempio `2016-02-27T06:00:00-05:00`, che indica le 6 EST.<br/><br/>Per eseguire la pipeline illimitatamente, specificare 9999-09-09 come valore per la proprietà end. <br/><br/> Una pipeline è attiva solo tra l'ora di inizio e l’ora di fine. Non viene eseguita prima dell'ora di inizio o dopo l'ora di fine. Se la pipeline viene sospesa, non viene eseguita indipendentemente dall'ora di inizio e di fine. Per essere eseguita, una pipeline non deve essere in pausa. Vedere [Pianificazione ed esecuzione con Data factory](data-factory-scheduling-and-execution.md) per comprendere il funzionamento della pianificazione e dell'esecuzione in Data factory di Azure. |No  <br/><br/>Se si specifica un valore per la proprietà di avvio, è necessario specificare un valore anche per la proprietà di fine.<br/><br/>Vedere le note della proprietà **start** . |
 | isPaused | Se impostata su true, la pipeline non viene eseguita. È in stato di sospensione. Valore predefinito = false. È possibile usare questa proprietà per abilitare o disabilitare una pipeline. |No  |
 | pipelineMode | Metodo di pianificazione delle esecuzioni per la pipeline. I valori consentiti sono scheduled (predefinito) e onetime.<br/><br/>"Scheduled" indica che la pipeline viene eseguita a intervalli di tempo specificati in base al periodo di attività, ovvero all'ora di inizio e di fine. "Onetime" indica che la pipeline viene eseguita una sola volta. Al momento, dopo aver creato una pipeline monouso non è possibile modificarla o aggiornarla. Per informazioni dettagliate sull'impostazione onetime, vedere la sezione [Pipeline monouso](#onetime-pipeline) . |No  |
@@ -130,7 +132,7 @@ Nella sezione delle **attività** possono essere definite una o più attività. 
 
 La tabella seguente descrive le proprietà all'interno della definizione JSON dell'attività:
 
-| Tag | DESCRIZIONE | Obbligatoria |
+| Tag | DESCRIZIONE | Obbligatorio |
 | --- | --- | --- |
 | name | Nome dell'attività. Specificare un nome che rappresenti l'azione eseguita dall'attività. <br/><ul><li>Numero massimo di caratteri: 260</li><li>Deve iniziare con una lettera, un numero o un carattere di sottolineatura (\_)</li><li>Non sono ammessi i caratteri seguenti: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\\"</li></ul> |Sì |
 | description | Testo descrittivo per il tipo o lo scopo dell'attività |Sì |

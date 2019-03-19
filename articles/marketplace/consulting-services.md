@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 53281af4cf3ce49272ffe9fc48ab0f85cea276b2
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: fbaa89140033ee3b07017370e31e69601aa298db
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213622"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078761"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Servizi di consulenza per Azure Marketplace e AppSource
 I Servizi di consulenza in Azure Marketplace e AppSource consentono ai partner Microsoft di connettere i clienti con servizi per supportare ed estendere l'uso di Azure e gli obiettivi aziendali. 
@@ -41,12 +41,12 @@ Le vetrine del marketplace sono organizzate in base a gruppi di destinatari e pr
 
 Le offerte di servizio basate su Microsoft Dynamics 365, Office 365 e Power BI sono idonee a essere inserite in AppSource. Per altre informazioni, vedere [Microsoft AppSource consulting services listing guidelines](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) (Linee guida all'inserzione di servizi di consulenza in Microsoft AppSource). 
 
->[!Note]
->I servizi di consulenza in Azure Marketplace devono sfruttare le offerte rivolte a un **pubblico tecnico focalizzato sulle *soluzioni e i servizi tecnici di Azure*. ** I servizi di consulenza in AppSource devono sfruttare le offerte rivolte agli esperti di sviluppo di soluzioni di qualità per Dynamics 365, Power BI o PowerApps per elencare le offerte di servizi di consulenza in AppSource
-
-
->[!TIP]
->Per pubblicare nella vetrina di Azure Marketplace, occorre effettuare questa selezione scegliendo "Azure" dal menu a discesa "Prodotto principale" nel portale Cloud Partner. Per pubblicare in AppSource, occorre effettuare questa selezione scegliendo "Dynamics 365," "Power BI" o "Power Apps" dal menu a discesa "Prodotto principale" nel portale Cloud Partner.
+> [!Note]
+> I servizi di consulenza in Azure Marketplace devono sfruttare le offerte rivolte a un **pubblico tecnico focalizzato sulle *soluzioni e i servizi tecnici di Azure*. ** I servizi di consulenza in AppSource devono sfruttare le offerte rivolte agli esperti di sviluppo di soluzioni di qualità per Dynamics 365, Power BI o PowerApps per elencare le offerte di servizi di consulenza in AppSource
+> 
+> 
+> [!TIP]
+> Per pubblicare nella vetrina di Azure Marketplace, occorre effettuare questa selezione scegliendo "Azure" dal menu a discesa "Prodotto principale" nel portale Cloud Partner. Per pubblicare in AppSource, occorre effettuare questa selezione scegliendo "Dynamics 365," "Power BI" o "Power Apps" dal menu a discesa "Prodotto principale" nel portale Cloud Partner.
 
 ## <a name="eligible-partners-and-supported-countries"></a>Partner idonei e Paesi supportati
 
@@ -156,7 +156,7 @@ Esempi:
 
 Durante la revisione delle descrizioni e dei riepiloghi delle offerte, il team applicherà i criteri seguenti:
 
-|Tipo di offerta  |Obbligatoria |Consigliato  |
+|Tipo di offerta  |Obbligatorio |Consigliato  |
 |---------|---------|---------|
 |**Valutazione**    |   Includere un'agenda dettagliata delle valutazioni di più giorni o più settimane e descrivere in modo articolato il risultato finale che il cliente può aspettarsi      |    Ottimizzare il riepilogo dell'offerta con le principali parole chiave dell'ottimizzazione motore di ricerca     |
 |**Briefing**    |   Descrivere in modo articolato il risultato finale che il cliente può aspettarsi. Tenere presente che un briefing deve essere offerto di persona. Se si fornisce un servizio virtuale, scegliere un tipo di offerta diverso    |  Ottimizzare il riepilogo dell'offerta con le principali parole chiave dell'ottimizzazione motore di ricerca       |

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2018
+ms.date: 02/12/2019
 ms.author: jdial
-ms.openlocfilehash: 7d8047e569d3506f9ebb798b4f8c31ff94204fa4
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: a8cc730e6e03e3d1adce1a584a20e8111116f40c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694058"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013049"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Domande frequenti sulla rete virtuale di Azure
 
@@ -52,7 +52,7 @@ Per creare o configurare una rete virtuale, è possibile usare gli strumenti seg
 * Un file di configurazione di rete (netcfg - solo per reti virtuali classiche). Vedere l'articolo [Configurare una rete virtuale usando un file di configurazione di rete](virtual-networks-using-network-configuration-file.md).
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Quali intervalli di indirizzi è possibile usare nelle reti virtuali?
-Qualsiasi intervallo di indirizzi IP definito in [RFC 1918](http://tools.ietf.org/html/rfc1918). Ad esempio, 10.0.0.0/16. Non è possibile aggiungere gli intervalli di indirizzi seguenti:
+Qualsiasi intervallo di indirizzi IP definito in [RFC 1918](https://tools.ietf.org/html/rfc1918). Ad esempio, 10.0.0.0/16. Non è possibile aggiungere gli intervalli di indirizzi seguenti:
 * 224.0.0.0/4 (multicast)
 * 255.255.255.255/32 (broadcast)
 * 127.0.0.0/8 (loopback)
@@ -221,7 +221,7 @@ Sì. È possibile usare le API REST per le reti virtuali nei modelli di distribu
 ### <a name="is-there-tooling-support-for-vnets"></a>È disponibile il supporto degli strumenti per le reti virtuali?
 Sì. Altre informazioni:
 - Uso del portale di Azure per distribuire reti virtuali con i modelli di distribuzione [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) e [classica](virtual-networks-create-vnet-classic-pportal.md).
-- Uso di PowerShell per gestire reti virtuali distribuite con i modelli di distribuzione [Resource Manager](/powershell/module/azurerm.network) e [classica](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0).
+- Uso di PowerShell per gestire reti virtuali distribuite con i modelli di distribuzione [Resource Manager](/powershell/module/az.network) e [classica](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0).
 - Uso dell'interfaccia della riga di comando di Azure per distribuire e gestire reti virtuali distribuite con i modelli di distribuzione [Resource Manager](/cli/azure/network/vnet) e [classica](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources).  
 
 ## <a name="vnet-peering"></a>Peering reti virtuali
@@ -231,6 +231,26 @@ Il peering di reti virtuali consente di connettere le reti virtuali. Usando una 
 
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>È possibile creare una connessione di peering per una rete virtuale in un'area diversa?
 Sì. Il peering di reti virtuali globale consente di eseguire il peering di reti virtuali in aree diverse. Il peering di reti virtuali globale è disponibile in tutte le aree pubbliche di Azure e nelle aree cloud cinesi. Non è possibile eseguire il peering globale da aree pubbliche di Azure nelle aree cloud nazionali. Il peering globale non è attualmente disponibile nei cloud per enti pubblici.
+
+### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>Quali sono i vincoli relativi al Peering reti virtuali e servizi di bilanciamento del carico?
+Se le due reti virtuali sono in aree diverse (Peering reti virtuali globale), è possibile connettersi alle risorse che usano Load Balancer Basic. È possibile connettersi alle risorse che usano Load Balancer Standard.
+Le seguenti risorse usano base i bilanciamenti del carico che significa che non è possibile comunicare loro tra Peering reti virtuali:
+- Macchine virtuali dietro a servizi di bilanciamento del carico di base
+- I set di scalabilità di macchine Virtuali con servizi di bilanciamento del carico di base 
+- Cache Redis 
+- Application Gateway (v1) SKU
+- Service Fabric
+- SQL Always on
+- SQL MI
+- Gestione API
+- ADDS
+- App per la logica
+- HD Insight
+-   Azure Batch
+- servizio Azure Container
+- Ambiente del servizio app
+
+È possibile connettersi a queste risorse tramite ExpressRoute o della rete virtuale a rete virtuale tramite gateway di rete virtuale.
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>È possibile abilitare il peering reti virtuali se le reti virtuali appartengono a sottoscrizioni all'interno di diversi tenant di Azure Active Directory?
 Sì. È possibile stabilire il peering reti virtuali (sia locale che globale) se le sottoscrizioni appartengono a tenant di Azure Active Directory diversi. Questa operazione può essere eseguita tramite PowerShell o l'interfaccia della riga di comando. L'uso del portale non è ancora supportato.
@@ -350,7 +370,7 @@ L'eliminazione dell'account del servizio di Azure è un'operazione indipendente 
 Quando gli endpoint di servizio di rete virtuale vengono abilitati, gli indirizzi IP di origine delle risorse nella subnet della rete virtuale passano dall'usare indirizzi IPV4 pubblici a indirizzi privati della rete virtuale di Azure per il traffico verso il servizio di Azure. Ciò può causare errori nei firewall IP impostati in precedenza sull'indirizzo IPV4 pubblico nei servizi di Azure. 
 
 ### <a name="does-service-endpoint-route-always-take-precedence"></a>La route degli endpoint di servizio ha sempre la precedenza?
-Gli endpoint di servizio aggiungono una route di sistema che ha la precedenza sulle route BGP, consentendo un routing ottimale per il traffico degli endpoint di servizio. Gli endpoint di servizio instradano sempre il traffico del servizio direttamente dalla rete virtuale al servizio nella rete backbone di Microsoft Azure. Per altre informazioni su come Azure seleziona una route, vedere [Routing del traffico di rete virtuale di Azure] (virtual-networks-udr-overview.md).
+Gli endpoint di servizio aggiungono una route di sistema che ha la precedenza sulle route BGP, consentendo un routing ottimale per il traffico degli endpoint di servizio. Gli endpoint di servizio instradano sempre il traffico del servizio direttamente dalla rete virtuale al servizio nella rete backbone di Microsoft Azure. Per altre informazioni su come Azure seleziona una route, vedere [il routing del traffico di rete virtuale di Azure](virtual-networks-udr-overview.md).
  
 ### <a name="how-does-nsg-on-a-subnet-work-with-service-endpoints"></a>Come funziona un gruppo di sicurezza di rete in una subnet con gli endpoint di servizio?
 Per raggiungere il servizio di Azure, i gruppi di sicurezza di rete devono consentire la connettività in uscita. Se i gruppi di sicurezza di rete sono aperti a tutto il traffico Internet in uscita, il traffico dell'endpoint di servizio dovrebbe funzionare. È anche possibile limitare il traffico in uscita solo agli IP del servizio che usano i tag del servizio.  

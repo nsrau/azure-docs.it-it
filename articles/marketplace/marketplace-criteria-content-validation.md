@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: fb12fe381cb4df6139fae7289279220f72984484
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: e72b115420e49a50f18ae9a27c6243394427ea4a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078015"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000413"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Linee guida per la presentazione in Azure Marketplace
 
@@ -72,16 +72,18 @@ Tutte le offerte devono soddisfare [tutti i requisiti di presentazione](https://
 ----
 
 ## <a name="container-offer-requirements"></a>Requisiti delle offerte Contenitore
+
 |  | Elemento | Requisiti di base | Requisiti ottimali | 
 |:--- |:--- |:--- |:--- |
 |1 |Impostazioni dell'offerta | <br>• ID offerta: massimo 50 caratteri <br>• ID editore: selezionare un valore dall'elenco a discesa <br>•   Nome: massimo 50 caratteri | Rispecchia lo stile del titolo già disponibile nella descrizione. Evitare titoli lunghi. | 
-| 2 | SKU | Il partner fa clic sul nuovo SKU| Rispecchia lo stile del titolo già disponibile nella descrizione. Evitare titoli lunghi.  |  |
+| 2 | SKU | Il partner fa clic sul nuovo SKU| Rispecchia lo stile del titolo già disponibile nella descrizione. Evitare titoli lunghi.  |
 | 3 | Artefatti di Marketplace | I logo vengono visualizzati correttamente |<br>• Il logo include l'"immagine del banner", ovvero l'immagine nel portale di Azure in grande formato <br>• Logo: le dimensioni richieste sono Piccolo (48 x 48) e Grande (216 x 216) <br>• Requisiti dell'immagine del banner: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>• Screenshot (massimo 5):  CPP richiede un'immagine con estensione png con risoluzione 1280 x 720.|
 | 4 | Gestione dei lead |<br>•    Gestione dei lead: Selezionare il sistema nel quale archiviare i clienti potenziali. <br>•   Le informazioni su come connettere il sistema CRM sono disponibili [qui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) | |
 
 ----
 
 ## <a name="consulting-offer-requirements"></a>Requisiti delle offerte di consulenza
+
 |  | Elemento | Requisiti di base | Requisiti ottimali |
 |:--- |:--- |:--- |:--- |
 | 1 | Titolo dell'offerta  |  <br>• Deve indicare in modo chiaro il tipo e la durata del servizio nel formato seguente: NOME: TIPO DURATA. (ad esempio "Offerta di engagement: 1 settimana di verifica del modello")  | <br>•  Non ripete il nome dell'editore <br>•  Rispecchia lo stile del titolo già disponibile nella descrizione. Evitare titoli lunghi. | 
@@ -103,4 +105,4 @@ Tutte le offerte devono soddisfare [tutti i requisiti di presentazione](https://
 *   [Determinare il tipo di inserzione per la propria soluzione](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
 
  
----  
+---

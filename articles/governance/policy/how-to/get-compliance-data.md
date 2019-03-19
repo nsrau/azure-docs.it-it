@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 40d0250101e4653cd5ab2a3610473d9c577d8998
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: df5b6268a2ecd7062969aac9d663ee751eeab130
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114111"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535213"
 ---
 # <a name="getting-compliance-data"></a>Ottenere dati sulla conformità
 
@@ -28,7 +28,7 @@ Esistono diversi modi per accedere alle informazioni sulla conformità generate 
 Prima di esaminare i metodi disponibili per creare report sulla conformità, è opportuno comprendere quando vengono aggiornate le informazioni sulla conformità e la frequenza e gli eventi che attivano un ciclo di valutazione.
 
 > [!WARNING]
-> Se lo stato di conformità viene segnalato come **Non registrato**, verificare che il provider di risorse **Microsoft.PolicyInsights** sia registrato e che l'utente abbia le autorizzazioni di controllo degli accessi in base al ruolo appropriate, come descritto [qui](../overview.md#rbac-permissions-in-azure-policy).
+> Se lo stato di conformità viene segnalato come **non è registrato**, verificare che il **policyinsights** (controllo di Provider di risorse viene registrato e che l'utente disponga dell'accesso appropriato in base al ruolo Le autorizzazioni RBAC) come descritto in [RBAC in Criteri di Azure](../overview.md#rbac-permissions-in-azure-policy).
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -142,25 +142,11 @@ Fare clic con il pulsante destro del mouse sulla riga dell'evento per cui si vog
 
 ![Log attività della conformità ai criteri](../media/getting-compliance-data/compliance-activitylog.png)
 
-### <a name="change-history-preview"></a>Cronologia modifiche (anteprima)
+### <a name="understand-non-compliance"></a>Comprendere mancata conformità
 
-Come parte di una nuova **anteprima pubblica**, sono disponibili gli ultimi quattordici giorni di cronologia modifiche per una risorsa non conforme. La cronologia modifiche fornisce informazioni dettagliate su quando è stata rilevata una modifica e offre un _diff visivo_ per ogni modifica. Viene attivato un rilevamento di modifiche ogni volta che vengono aggiunte, rimosse o modificate le proprietà di Resource Manager di una risorsa non conforme.
+<a name="change-history-preview"></a>
 
-1. Avviare il servizio Criteri di Azure nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Criteri**.
-
-1. Nella pagina **Panoramica** o **Conformità** selezionare un criterio _Non conforme_.
-
-1. Nella scheda **Conformità risorsa** della pagina **Conformità dei criteri** selezionare una risorsa _Non conforme_.
-
-1. Selezionare la scheda **Cronologia modifiche (anteprima)** nella pagina **Conformità risorsa**. Verrà visualizzato un elenco delle eventuali modifiche rilevate.
-
-   ![Scheda della cronologia modifiche dei criteri](../media/getting-compliance-data/change-history-tab.png)
-
-1. Selezionare una delle modifiche rilevate. Verrà visualizzato il _diff visivo_ per le risorse non conformi nella pagina **Cronologia modifiche**.
-
-   ![Diff visivo nella cronologia modifiche dei criteri](../media/getting-compliance-data/change-history-visual-diff.png)
-
-Il _diff visivo_ facilita l'identificazione delle modifiche di una risorsa. Le modifiche rilevate potrebbero non essere correlate a ciò che ha causato la non conformità della risorsa ai criteri selezionati.
+Quando una risorsa viene identificata come **non conformi**, esistono numerose cause. Per determinare la causa è una risorsa **non conformi** o responsabile per la modifica, vedere [determinare di non conformità](./determine-non-compliance.md).
 
 ## <a name="command-line"></a>Riga di comando
 
@@ -430,7 +416,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Log di Monitoraggio di Azure
 
-Se si dispone di un'[area di lavoro di Log Analytics](../../../log-analytics/log-analytics-overview.md) con la soluzione `AzureActivity` collegata alla sottoscrizione in uso, è anche possibile visualizzare i risultati di non conformità dal ciclo di valutazione usando semplici query di Esplora dati di Azure e la tabella `AzureActivity`. Con i dettagli dei log di Monitoraggio di Azure è possibile configurare gli avvisi in modo da individuare le risorse non conformi.
+Se si dispone di un [dell'area di lavoro di Log Analitica](../../../log-analytics/log-analytics-overview.md) con `AzureActivity` dal [soluzione Analitica Log attività](../../../azure-monitor/platform/collect-activity-logs.md) associato alla sottoscrizione, è anche possibile visualizzare i risultati di conformità dal ciclo di valutazione usando query Kusto semplici e `AzureActivity` tabella. Con i dettagli dei log di Monitoraggio di Azure è possibile configurare gli avvisi in modo da individuare le risorse non conformi.
 
 ![Conformità dei criteri con i log di Monitoraggio di Azure](../media/getting-compliance-data/compliance-loganalytics.png)
 

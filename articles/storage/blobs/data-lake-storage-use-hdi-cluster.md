@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: df65c29b39921eda6ba2bd682e5938f58a9e4de7
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 15d9210e356da6d7757582dc4dad25cb2882ccfa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964578"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003232"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Usare Azure Data Lake Storage Gen2 con cluster Azure HDInsight
 
@@ -153,9 +153,6 @@ az storage account create \
     --Enable-hierarchical-namespace true
 ```
 
-> [!NOTE]
-> Durante l'anteprima pubblica di Data Lake Storage Gen2 è supportato solo `--sku Standard_LRS`.
-
 Verrà chiesto di specificare l'area geografica in cui verrà creato l'account di archiviazione. Creare l'account di archiviazione nella stessa area in cui si prevede di creare il cluster HDInsight.
 
 Dopo aver creato l'account di archiviazione, usare il comando seguente per recuperare le chiavi dell’account di archiviazione:
@@ -214,7 +211,7 @@ Per altre informazioni, vedere:
 [powershell-install]: /powershell/azure/install-az-ps
 [hdinsight-creation]: ../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md
 
-[blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx
+[blob-storage-restAPI]: https://msdn.microsoft.com/library/windowsazure/dd135733.aspx
 [azure-storage-create]: ../common/storage-create-storage-account.md
 
 [img-hdi-powershell-blobcommands]: ./media/data-lake-storage-use-hdi-cluster/HDI.PowerShell.BlobCommands.png

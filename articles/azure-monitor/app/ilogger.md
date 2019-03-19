@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: c456f8f7f08fdbd0020bfc49ceeec262fa0ac773
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 14c9a453913a9a8080c840df3f23751487b86c34
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458178"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006160"
 ---
 # <a name="ilogger"></a>ILogger
 
@@ -219,6 +219,26 @@ services.AddApplicationInsightsTelemetry("ikeyhere");
 In questo esempio la configurazione usata da `ApplicationInsightsLoggerProvider` è uguale a quella usata per il normale monitoraggio dell'applicazione. Di conseguenza, entrambe le tracce di `ILogger` e altri dati di telemetria (richieste, dipendenze e così via) eseguiranno lo stesso set di oggetti `TelemetryInitializers`, `TelemetryProcessors` e `TelemetryChannel`. La correlazione e il campionamento/mancato campionamento avverranno nello stesso modo.
 
 C'è tuttavia un'eccezione a questo comportamento. L'oggetto `TelemetryConfiguration` predefinito non è completamente configurato quando si esegue la registrazione da `Program.cs` o `Startup.cs`, quindi questi log non avranno la configurazione predefinita. Tuttavia, ogni altro log (ad esempio i log di controller, modelli e così via) condividerà questa configurazione.
+
+## <a name="control-logging-level"></a>Livello di registrazione di controllo
+
+Oltre a filtrare i log nel codice come illustrato negli esempi precedenti, è anche possibile controllare il livello di registrazione di Application Insights consente di acquisire, modificando il `appsettings.json`. Il [registrazione documentazione nozioni fondamentali su ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-filtering) viene illustrato come ottenere questo risultato. In particolare per Application Insights, è il nome dell'alias di provider `ApplicationInsights`, come illustrato nel seguente esempio che consentono di configurare `ApplicationInsights` acquisire solo i log di `Warning` e versioni successive di tutte le categorie.
+
+```json
+{
+  "Logging": {
+    "ApplicationInsights": {
+      "LogLevel": {
+        "Default": "Warning"
+      }
+    },
+    "LogLevel": {
+      "Default": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -12,51 +12,55 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: e5e60e3370cc813685403cc979e6ef8dc043b7ac
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 4254175955c3560c7bd0fdd08c6b60c318238b76
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233269"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57991570"
 ---
 # <a name="how-to-configure-geo-replication-for-azure-cache-for-redis"></a>Come configurare la replica geografica per Cache Redis di Azure
 
-La replica geografica fornisce un meccanismo per il collegamento di due istanze Cache Redis di Azure di livello Premium. Una cache viene definita come la cache primaria collegata, mentre l'altra come la cache collegata secondaria. La cache secondaria collegata diventa di sola lettura e i dati scritti nella cache primaria vengono replicati nella cache collegata secondaria. Questa funzionalità può essere usata per replicare una cache nelle aree di Azure. In questo articolo viene fornita una guida alla configurazione della replica geografica per le istanze Cache Redis di Azure di livello Premium.
+La replica geografica fornisce un meccanismo per il collegamento di due istanze Cache Redis di Azure di livello Premium. Una cache viene scelto come la cache collegata primaria e l'altro come la cache collegata secondaria. La cache secondaria collegata diventa di sola lettura e i dati scritti nella cache primaria vengono replicati nella cache collegata secondaria. Questa funzionalità può essere usata per replicare una cache nelle aree di Azure. In questo articolo viene fornita una guida alla configurazione della replica geografica per le istanze Cache Redis di Azure di livello Premium.
 
 ## <a name="geo-replication-prerequisites"></a>Prerequisiti per la replica geografica
 
 Per configurare la replica geografica tra due cache, devono essere soddisfatti i prerequisiti seguenti:
 
-- Entrambe le cache devono essere cache di [livello Premium](cache-premium-tier-intro.md).
-- Entrambe le cache devono trovarsi nella stessa sottoscrizione di Azure.
-- La cache collegata secondaria deve avere lo stesso piano tariffario o un piano tariffario maggiore rispetto alla cache collegata primaria.
-- Se la cache collegata primaria dispone di clustering abilitato, la cache collegata secondaria deve avere il clustering abilitato con lo stesso numero di partizioni della cache collegata primaria.
-- Entrambe le cache devono essere create e in esecuzione.
-- La persistenza non deve essere attivata in nessuna delle due cache.
-- La replica geografica tra le cache nella stessa rete virtuale è supportata. 
-- La replica geografica tra cache in reti virtuali con peering all'interno della stessa area è attualmente una funzionalità in anteprima. Le due reti virtuali devono essere configurate in modo che le risorse all'interno di esse siano in grado di raggiungersi tra loro tramite connessioni TCP.
-- La replica geografica tra cache in reti virtuali con peering in aree diverse non è ancora supportata, ma sarà presto disponibile in anteprima.
+- Entrambe le cache vengono [livello Premium](cache-premium-tier-intro.md) memorizza nella cache.
+- Entrambe le cache sono nella stessa sottoscrizione di Azure.
+- La cache collegata secondaria è la stessa dimensione della cache o una dimensione della cache maggiore la cache collegata primaria.
+- Entrambe le cache vengono create e in esecuzione.
+
+Alcune funzionalità non sono supportate con la replica geografica:
+
+- La persistenza non è supportata con la replica geografica.
+- Il clustering è supportato se entrambe le cache clustering abilitato e avere lo stesso numero di partizioni.
+- Le cache nella stessa rete virtuale sono supportate.
+- Le cache in diverse reti virtuali sono supportate con avvertenze. Visualizzare [è possibile usare la replica geografica con le cache in una rete virtuale?](#can-i-use-geo-replication-with-my-caches-in-a-vnet) per altre informazioni.
 
 Dopo aver configurato la replica geografica, si applicano le restrizioni seguenti alla coppia di cache collegate:
 
 - La cache collegata secondaria è di sola lettura. È possibile leggere da essa, ma non è possibile scrivervi dati. 
-- Tutti i dati presenti nella cache collegata secondaria prima dell'aggiunta del collegamento vengono rimossi. Tuttavia, se la replica geografica viene successivamente rimossa, i dati replicati rimarranno nella cache collegata secondaria.
-- Non è possibile avviare un'[operazione di ridimensionamento](cache-how-to-scale.md) nella cache o [modificare il numero di partizioni](cache-how-to-premium-clustering.md) se la cache ha il clustering abilitato.
+- Tutti i dati presenti nella cache collegata secondaria prima dell'aggiunta del collegamento vengono rimossi. Se la replica geografica è successiva rimosse, tuttavia, i dati replicati rimangono nella cache collegata secondaria.
+- Non è possibile [scalabilità](cache-how-to-scale.md) entrambe le cache mentre le cache collegate.
+- Non è possibile [modificare il numero di partizioni](cache-how-to-premium-clustering.md) se la cache ha il clustering abilitato.
 - Non è possibile abilitare la persistenza in nessuna delle cache.
-- È possibile usare [Esporta](cache-how-to-import-export-data.md#export) con entrambe le cache, ma l'opzione [Importa](cache-how-to-import-export-data.md#import) è abilitata solo nella cache collegata primaria.
-- Non è possibile eliminare la cache collegata o il gruppo di risorse che le contiene, fino a quando non si rimuove il collegamento di replica geografica. Per altre informazioni, vedere [Perché, quando si è tentato di eliminare la cache collegata, l'operazione non è riuscita?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
-- Se le due cache si trovano in aree diverse, i costi di rete in uscita verranno applicati ai dati replicati nelle aree geografiche della cache collegata secondaria. Per altre informazioni, vedere [Quanto costa replicare i dati nelle aree di Azure?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
-- Se la cache primaria (e relativa replica) si disattivano, non si verifica alcun failover automatico nella cache collegata secondaria. Per eseguire il failover delle applicazioni del client, è necessario rimuovere manualmente il collegamento di replica geografica e rivolgere le applicazioni del client verso la cache che in precedenza era la cache collegata secondaria. Per altre informazioni, vedere [Come funziona il failover nella cache collegata secondaria?](#how-does-failing-over-to-the-secondary-linked-cache-work)
+- È possibile [esportare](cache-how-to-import-export-data.md#export) da entrambe le cache.
+- Non è possibile [importazione](cache-how-to-import-export-data.md#import) nella cache collegata secondaria.
+- È possibile eliminare cache collegata o il gruppo di risorse che li contiene, fino a quando non si scollega la cache. Per altre informazioni, vedere [Perché, quando si è tentato di eliminare la cache collegata, l'operazione non è riuscita?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
+- Se la cache si trovano in aree diverse, i costi di uscita di rete si applicano ai dati spostati tra le aree. Per altre informazioni, vedere [Quanto costa replicare i dati nelle aree di Azure?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
+- Il failover automatico non avviene tra la cache collegata primaria e secondaria. Per altre informazioni e le informazioni su come eseguire il failover di un'applicazione client, vedere [come funziona il failover per la cache collegata secondaria?](#how-does-failing-over-to-the-secondary-linked-cache-work)
 
 ## <a name="add-a-geo-replication-link"></a>Aggiungere un collegamento di replica geografica
 
-1. Per collegare due cache Premium per la replica geografica, fare clic su **Replica geografica** dal menu Risorsa della cache che va considerata come quella collegata primaria e quindi fare clic su **Add cache replication link** (Aggiungi collegamento di replica della cache) dal pannello **Replica geografica**.
+1. Per collegare due cache per la replica geografica, prima fare clic su **replica geografica** dal menu delle risorse della cache che si intende primario collegate della cache. Fare quindi clic **Aggiungi collegamento di replica della cache** dalle **Geo-replication** pannello.
 
     ![Aggiungi collegamento](./media/cache-how-to-geo-replication/cache-geo-location-menu.png)
 
-2. Fare clic sul nome della cache secondaria desiderata dall'elenco **Compatible caches** (Cache compatibili). Se la cache desiderata non viene visualizzata nell'elenco, verificare che i [Prerequisiti per la replica geografica](#geo-replication-prerequisites) siano soddisfatti per la cache secondaria desiderata. Per filtrare le cache per area, fare clic sull'area desiderata nella mappa per visualizzare solo quelle cache nell'elenco **Compatible caches** (Cache compatibili).
+2. Fare clic sul nome della cache secondaria desiderata dal **cache compatibili** elenco. Se la cache secondaria non viene visualizzata nell'elenco, verificare che il [prerequisiti per la replica geografica](#geo-replication-prerequisites) per la cache secondaria vengono soddisfatti. Per filtrare le cache per area, fare clic sull'area della mappa per visualizzare solo quelle cache nel **cache compatibili** elenco.
 
     ![Cache compatibili con la replica geografica](./media/cache-how-to-geo-replication/cache-geo-location-select-link.png)
     
@@ -80,7 +84,7 @@ Dopo aver configurato la replica geografica, si applicano le restrizioni seguent
 
     ![Stato della cache](./media/cache-how-to-geo-replication/cache-geo-location-link-successful.png)
 
-    Durante il processo di collegamento, la cache collegata primaria resta disponibile per l'uso, ma la cache collegata secondaria non è disponibile finché non viene completato il processo di collegamento.
+    La cache collegata primaria resta disponibile per l'uso durante il processo di collegamento. La cache collegata secondaria non è disponibile finché non viene completato il processo di collegamento.
 
 ## <a name="remove-a-geo-replication-link"></a>Rimuovere un collegamento di replica geografica
 
@@ -119,12 +123,13 @@ No, la replica geografica è disponibile solo per le cache del livello Premium.
 
 ### <a name="is-my-cache-available-for-use-during-the-linking-or-unlinking-process"></a>La cache è disponibile per l'uso durante il processo di collegamento o scollegamento?
 
-- Quando le due cache si collegano per la replica geografica, la cache collegata primaria resta disponibile per l'uso, ma la cache collegata secondaria non è disponibile finché non viene completato il processo di collegamento.
-- Quando si rimuove il collegamento di replica geografica tra due cache, entrambe le cache restano disponibili per l'uso.
+- Quando il collegamento, la cache collegata primaria resta disponibile durante il processo di collegamento viene completata.
+- Durante il collegamento, la cache collegata secondaria non è disponibile finché non viene completato il processo di collegamento.
+- Durante lo scollegamento, entrambe le cache rimangono disponibili durante il processo di scollegamento completato.
 
 ### <a name="can-i-link-more-than-two-caches-together"></a>È possibile collegare più di due cache?
 
-No, quando si usa la replica geografica è possibile collegare solo due cache.
+No, è possibile collegare solo due cache insieme.
 
 ### <a name="can-i-link-two-caches-from-different-azure-subscriptions"></a>È possibile collegare due cache da diverse sottoscrizioni di Azure?
 
@@ -140,47 +145,51 @@ Sì, purché entrambe le cache abbiano lo stesso numero di partizioni.
 
 ### <a name="can-i-use-geo-replication-with-my-caches-in-a-vnet"></a>È possibile usare la replica geografica con le cache in una rete virtuale?
 
-Sì, la replica geografica di cache nelle reti virtuali è supportata. 
+Sì, la replica geografica di cache nelle reti virtuali è supportata con alcune avvertenze:
 
 - La replica geografica tra le cache nella stessa rete virtuale è supportata.
-- È supportata anche la replica geografica tra cache di diverse reti virtuali, purché le due reti virtuali siano configurate in modo tale che le risorse nelle reti virtuali siano in grado di raggiungersi tra loro tramite connessioni TCP.
+- È supportata anche la replica geografica tra cache nelle reti virtuali diverse.
+  - Se le reti virtuali si trovano nella stessa area, è possibile connetterle usando [peering reti virtuali](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) o una [connessione Gateway VPN VNET-VNET](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V).
+  - Se le reti virtuali si trovano in aree diverse, la replica geografica usando il peering non è supportato a causa di un vincolo con servizi di bilanciamento del carico interno di base. Per altre informazioni sui vincoli di peering della rete virtuale, vedere [vincoli e requisiti della rete virtuale - Peering -](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). La soluzione consigliata consiste nell'utilizzare una connessione Gateway VPN VNET-VNET.
+
+Usando [questo modello di Azure](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/), è possibile distribuire rapidamente due cache con replica geografica in una rete virtuale connesse con una connessione Gateway VPN VNET-VNET.
 
 ### <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>Che cos'è la pianificazione della replica per la replica geografica Redis?
 
-La replica non viene eseguita in base a una pianificazione specifica, ma è continua e asincrona, ovvero tutte le operazioni di scrittura eseguite nella cache primaria vengono replicate immediatamente in modo asincrono nella cache secondaria.
+La replica è continua e asincrona e non viene eseguita su una pianificazione specifica. Tutte le operazioni di scrittura eseguite alla replica primaria vengono replicati in modo asincrono e istantaneamente nella replica secondaria.
 
 ### <a name="how-long-does-geo-replication-replication-take"></a>Quanto tempo richiede la replica geografica?
 
-La replica è incrementale, asincrona e continua e il tempo impiegato in genere non è molto diverso dalla latenza tra le aree. In determinate circostanze e in determinati orari, potrebbe essere richiesta una sincronizzazione completa dei dati della cache secondaria dalla cache primaria. Il tempo di replica in questo caso dipende da numerosi fattori, ad esempio: carico nella cache primaria, larghezza di banda disponibile nel computer della cache, latenza tra le aree e così via. Ad esempio, da alcuni test condotti risulta che il tempo di replica per una coppia completa con replica geografica di 53 GB nelle aree Stati Uniti orientali e Stati Uniti occidentali può essere compreso tra 5 e 10 minuti.
+La replica è incrementale, asincrona e continua e il tempo richiesto non è molto diverso dalla latenza tra le aree. In determinate circostanze, la cache secondaria potrebbe essere necessario eseguire una sincronizzazione completa dei dati dal database primario. Il tempo di replica in questo caso è dipendente da diversi fattori, ad esempio: carico nella cache primaria, larghezza di banda disponibile e la latenza tra le aree. È stato trovato il tempo di replica per una coppia completa a 53 GB con replica geografica può essere compreso tra 5 e 10 minuti.
 
 ### <a name="is-the-replication-recovery-point-guaranteed"></a>Il punto di recupero della replica è garantito?
 
-Attualmente, per le cache in modalità con replica geografica, la persistenza e la funzionalità di importazione/esportazione sono disabilitate. Pertanto, nel caso di un failover avviato da un cliente o nei casi in cui un collegamento di replica viene interrotto tra la coppia con replica geografica, la cache secondaria manterrà i dati in memoria sincronizzati dalla cache primaria fino a tale punto nel tempo. Non viene offerta alcuna garanzia del punto di recupero in situazioni di questo tipo.
+Per le cache in una modalità con replica geografica, la persistenza è disabilitata. Se una coppia con replica geografica è scollegata, ad esempio un failover avviato dal cliente, la cache collegata secondaria mantiene i dati sincronizzati fino a quel punto nel tempo. Nessun punto di ripristino è garantito in tali situazioni.
+
+Per ottenere un punto di ripristino [esportare](cache-how-to-import-export-data.md#export) da entrambe le cache. È possibile in un secondo momento [importazione](cache-how-to-import-export-data.md#import) nella cache collegata primaria.
 
 ### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>È possibile usare PowerShell o l'interfaccia della riga di comando di Azure per gestire la replica geografica?
 
-In questo momento è possibile gestire la replica geografica solo tramite il portale di Azure.
+Sì, la replica geografica può essere gestita tramite il portale di Azure, PowerShell o CLI di Azure. Per altre informazioni, vedere la [PowerShell docs](https://docs.microsoft.com/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) oppure [documentazione di CLI di Azure](https://docs.microsoft.com/cli/azure/redis/server-link?view=azure-cli-latest).
 
 ### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-regions"></a>Quanto costa replicare i dati nelle aree di Azure?
 
-Quando si usa la replica geografica, i dati dalla cache collegata primaria vengono replicati nella cache collegata secondaria. Se le due cache collegate si trovano nella stessa area di Azure, non è previsto alcun addebito per il trasferimento dei dati. Se le due cache collegate si trovano in diverse aree di Azure, l'addebito per il trasferimento dei dati della replica geografica corrisponde al costo della larghezza di banda della replica di quei dati nelle altre aree di Azure. Per altre informazioni, vedere [Dettagli sui prezzi per la larghezza di banda](https://azure.microsoft.com/pricing/details/bandwidth/).
+Quando si usa la replica geografica, i dati dalla cache collegata primaria vengono replicati nella cache collegata secondaria. Non sono previsti addebiti per il trasferimento dei dati se le due cache collegate si trovano nella stessa area. Se le due cache collegate si trovano in aree diverse, l'addebito per il trasferimento dei dati è il costo di rete in uscita dei dati in movimento attraverso l'area. Per altre informazioni, vedere [Dettagli sui prezzi per la larghezza di banda](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ### <a name="why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache"></a>Perché, quando si è tentato di eliminare la cache collegata, l'operazione non è riuscita?
 
-Quando due cache sono collegate, non è possibile eliminare una delle cache o il gruppo di risorse che le contiene fino a quando non si rimuove il collegamento di replica geografica. Se si tenta di eliminare il gruppo di risorse che contiene una o entrambe le cache collegate, vengono eliminate le altre risorse nel gruppo di risorse, ma il gruppo di risorse rimane nello stato `deleting` mentre le cache collegate nel gruppo di risorse rimangono nello stato `running`. Per completare l'eliminazione del gruppo di risorse e le cache collegate all'interno di esso, interrompere il collegamento di replica geografica, come descritto in [Rimuovere un collegamento di replica geografica](#remove-a-geo-replication-link).
+Le cache con replica geografica e i relativi gruppi di risorse non possono essere eliminati se collegato fino a quando non si rimuove il collegamento di replica geografica. Se si tenta di eliminare il gruppo di risorse che contiene una o entrambe le cache collegate, vengono eliminate le altre risorse nel gruppo di risorse, ma il gruppo di risorse rimane nello stato `deleting` mentre le cache collegate nel gruppo di risorse rimangono nello stato `running`. Per eliminare completamente il gruppo di risorse e le cache collegate all'interno di esso, scollegare le cache come descritto in [rimuovere un collegamento di replica geografica](#remove-a-geo-replication-link).
 
 ### <a name="what-region-should-i-use-for-my-secondary-linked-cache"></a>Quale area si deve usare per la cache collegata secondaria?
 
-In generale, è consigliabile che la cache sia presente nella stessa area di Azure dell'applicazione che accede ad essa. Se l'applicazione dispone di un'area primaria e di fallback, le cache primaria e secondaria devono essere presenti in quelle stesse aree. Per altre informazioni sulle aree abbinate, vedere [Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure](../best-practices-availability-paired-regions.md).
+In generale, è consigliabile per la cache a esistere nella stessa area di Azure dell'applicazione che vi accede. Per le applicazioni con aree primarie e di fallback separate, è consigliabile che la cache primaria e secondaria presenti in quelle stesse aree. Per altre informazioni sulle aree abbinate, vedere [Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure](../best-practices-availability-paired-regions.md).
 
 ### <a name="how-does-failing-over-to-the-secondary-linked-cache-work"></a>Come funziona il failover nella cache collegata secondaria?
 
-Nella versione iniziale della replica geografica, Cache Redis di Azure non supporta il failover automatico nelle aree di Azure. La replica geografica è usata principalmente in uno scenario di ripristino di emergenza. In uno scenario di ripristino di emergenza, i clienti devono portare lo stack dell'intera applicazione in un'area di backup in modo coordinato invece di consentire che i singoli componenti dell'applicazione decidano quando attivare i backup in modo autonomo. Ciò è particolarmente importante per Redis. Uno dei principali vantaggi di Redis è quello di essere un archivio a latenza molto bassa. Se Redis usato da un'applicazione effettua il failover in un'area diversa di Azure, ma il livello di calcolo non lo fa, il tempo di round trip aggiunto avrà un impatto notevole sulle prestazioni. Per questo motivo, si desidera che Redis effettui il failover automatico a causa di problemi temporanei di disponibilità.
+Il failover automatico tra aree di Azure non è supportato per le cache di replica geografica. In uno scenario di ripristino di emergenza, i clienti devono portare lo stack dell'intera applicazione in modo coordinato nella rispettiva area di backup. Consentendo applicazione singoli componenti di decidere quando attivare i backup in modo autonomo può influire negativamente sulle prestazioni. Uno dei principali vantaggi di Redis è che è un archivio di latenza molto bassa. Se l'applicazione del cliente principale è in un'area diversa rispetto a propria cache, il tempo di round trip aggiunto avrebbe un impatto notevole sulle prestazioni. Per questo motivo, sarà possibile evitare il failover automaticamente a causa di problemi temporanei di disponibilità.
 
-Attualmente, per avviare il failover, è necessario rimuovere il collegamento di replica geografica nel portale di Azure e quindi modificare l'endpoint di connessione nel client Redis dalla cache collegata primaria alla cache secondaria (in precedenza collegata). Quando vengono dissociate le due cache, la replica diventa nuovamente una cache di lettura/scrittura regolare e accetta le richieste direttamente da client Redis.
-
+Per avviare un failover avviato dal cliente, è prima necessario scollegare le cache. Modificare quindi i client Redis per usare l'endpoint della connessione della cache secondaria (in precedenza collegata). Quando non vengono scollegate le due cache, la cache secondaria diventa nuovamente una cache di lettura / scrittura regolare e accetta le richieste direttamente dai client di Redis.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni sul [livello Premium di Cache Redis di Azure](cache-premium-tier-intro.md).
-

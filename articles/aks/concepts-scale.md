@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 7cd6af1dc6b947abd91c9d25a4b102e52da9d24d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 20f9655e1c3e7cce652802957f5eef1f333870e9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456725"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176498"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opzioni di ridimensionamento per le applicazioni nel servizio Azure Kubernetes
 
@@ -51,7 +51,7 @@ Potrebbe essere necessario regolare questi valori di raffreddamento. I valori di
 
 ## <a name="cluster-autoscaler"></a>Ridimensionamento automatico del cluster
 
-Per rispondere alle variazioni della domanda di pod, Kubernetes include il ridimensionamento automatico del cluster che regola il numero di nodi in base alle risorse di calcolo richieste nel pool di nodi. Per impostazione predefinita, il ridimensionamento automatico del cluster controlla il server API ogni 10 secondi per rilevare eventuali modifiche necessarie al numero di nodi. Se il ridimensionamento automatico del cluster determina che è necessaria una modifica, il numero di nodi nel cluster servizio Azure Kubernetes viene aumentato o ridotto di conseguenza. Il ridimensionamento automatico del cluster funziona con i cluster servizio Azure Kubernetes abilitati per RBAC che eseguono Kubernetes 1.10.x o versione successiva.
+Per rispondere alle variazioni della domanda di pod, Kubernetes ha una scalabilità automatica di cluster (attualmente in anteprima nel servizio contenitore di AZURE) che consente di regolare il numero di nodi basati sulle risorse di calcolo richiesto nel pool di nodi. Per impostazione predefinita, il ridimensionamento automatico del cluster controlla il server API ogni 10 secondi per rilevare eventuali modifiche necessarie al numero di nodi. Se il ridimensionamento automatico del cluster determina che è necessaria una modifica, il numero di nodi nel cluster servizio Azure Kubernetes viene aumentato o ridotto di conseguenza. Il ridimensionamento automatico del cluster funziona con i cluster servizio Azure Kubernetes abilitati per RBAC che eseguono Kubernetes 1.10.x o versione successiva.
 
 ![Ridimensionamento automatico del cluster Kubernetes](media/concepts-scale/cluster-autoscaler.png)
 
@@ -81,7 +81,7 @@ Per ridimensionare rapidamente il cluster del servizio Azure Kubernetes, è poss
 
 ![Ridimensionamento burst di Kubernetes in Istanze di contenitore di Azure](media/concepts-scale/burst-scaling.png)
 
-Istanze di Azure Container consente di distribuire rapidamente istanze di contenitore senza sovraccarico aggiuntivo per l'infrastruttura. Quando ci si connette con il servizio Azure Kubernetes, Istanze di Azure Container diventa un'estensione logica protetta del cluster servizio Azure Kubernetes. Il componente kubelet virtuale viene installato nel cluster servizio Azure Kubernetes che presenta Istanze di Azure Container come nodo Kubernetes virtuale. Kubernetes può quindi pianificare i pod che vengono eseguiti come istanze di Istanze di Azure Container tramite i nodi virtuali e non come pod sui nodi macchina virtuale direttamente nel cluster del servizio Azure Kubernetes.
+Istanze di Azure Container consente di distribuire rapidamente istanze di contenitore senza sovraccarico aggiuntivo per l'infrastruttura. Quando ci si connette con il servizio Azure Kubernetes, Istanze di Azure Container diventa un'estensione logica protetta del cluster servizio Azure Kubernetes. Il componente kubelet virtuale viene installato nel cluster servizio Azure Kubernetes che presenta Istanze di Azure Container come nodo Kubernetes virtuale. Kubernetes può quindi pianificare i pod che vengono eseguiti come istanze di Istanze di Azure Container tramite i nodi virtuali e non come pod sui nodi macchina virtuale direttamente nel cluster del servizio Azure Kubernetes. I nodi virtuali sono attualmente in anteprima nel servizio contenitore di AZURE.
 
 L'applicazione non richiede alcuna modifica per usare i nodi virtuali. Le distribuzioni possono essere ridimensionate su Istanze di Azure Container e il servizio Azure Kubernetes senza ritardo mentre il ridimensionamento automatico del cluster distribuisce nuovi nodi nel cluster del servizio Azure Kubernetes.
 

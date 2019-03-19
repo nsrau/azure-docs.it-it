@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: ff202c85f20adce173a375987a5f2250fda565b2
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 4d259523d3f7fe7165d0ef4c8a5aac12bd7cd823
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041187"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123777"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Elaborazione di database serverless con Azure Cosmos DB e Funzioni di Azure
 
@@ -97,11 +97,11 @@ Nelle implementazioni della vendite al dettaglio, quando un utente aggiunge un e
 
 1. È possibile creare più funzioni di Azure aggiungendo a ognuna trigger di Azure Cosmos DB, tutti in ascolto dello stesso feed di modifiche dei dati del carrello. Si noti che quando più funzioni sono in ascolto dello stesso feed di modifiche, è necessaria una nuova raccolta di lease per ogni funzione. Per altre informazioni sulle raccolte di lease, vedere [Informazioni sulla libreria del processore dei feed delle modifiche](change-feed-processor.md).
 2. Ogni volta che viene aggiunto un nuovo elemento a un carrello dell'utente, ogni funzione viene richiamata in modo indipendente dal feed di modifiche dal contenitore del carrello.
-    * Una funzione può usare i contenuti del carrello corrente per modificare la visualizzazione di altri elementi a cui l'utente potrebbe essere interessato.
-    * Un'altra funzione può aggiornare i totali dell'inventario.
-    * Un'altra funzione può inviare informazioni sul cliente per determinati prodotti al reparto marketing, che le invia ai mailer promozionali. 
+   * Una funzione può usare i contenuti del carrello corrente per modificare la visualizzazione di altri elementi a cui l'utente potrebbe essere interessato.
+   * Un'altra funzione può aggiornare i totali dell'inventario.
+   * Un'altra funzione può inviare informazioni sul cliente per determinati prodotti al reparto marketing, che le invia ai mailer promozionali. 
 
-    Qualsiasi reparto può creare un trigger di Azure Cosmos DB in ascolto del feed di modifiche ed essere sicuro di non ritardare gli eventi di elaborazione di ordini importanti nel processo.
+     Qualsiasi reparto può creare un trigger di Azure Cosmos DB in ascolto del feed di modifiche ed essere sicuro di non ritardare gli eventi di elaborazione di ordini importanti nel processo.
 
 In tutti questi casi d'uso, poiché la funzione ha diviso l'app stessa non è necessario creare nuove istanze dell'app ogni volta. Al contrario, Funzioni di Azure crea le singole funzioni per completare processi distinti in base alle esigenze.
 

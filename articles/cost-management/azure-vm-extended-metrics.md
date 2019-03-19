@@ -6,16 +6,16 @@ keywords: ''
 author: bandersmsft
 manager: vitavor
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 03/14/2018
 ms.topic: conceptual
 ms.service: cost-management
 ms.custom: seodec18
-ms.openlocfilehash: 9bb8d74b012b25ca959cdb87b8a3d5e4284b6497
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: c7b5472c6a10e7a184d6db9d4c889b8fd37a9186
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097217"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000780"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Aggiungere metriche estese per le macchine virtuali di Azure
 
@@ -31,7 +31,7 @@ Dopo aver abilitato la raccolta delle metriche, è possibile:
 Ad esempio, potrebbe essere necessario monitorare le percentuali di CPU e memoria delle macchine virtuali di Azure. Le metriche delle macchine virtuali di Azure corrispondono a _Percentuale CPU [host]_ e _Percentuale memoria [guest]_.
 
 > [!NOTE]
-> La raccolta di dati relativi alle metriche estese è supportata solo con il monitoraggio a livello di guest di Azure. Cloudyn non è compatibile con l'estensione macchina virtuale di Log Analytics.
+> La raccolta di dati relativi alle metriche estese è supportata solo con il monitoraggio a livello di guest di Azure. Cloudyn non è compatibile con l'estensione VM di log di monitoraggio di Azure.
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>Determinare se le metriche estese sono abilitate
 

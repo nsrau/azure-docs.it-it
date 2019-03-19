@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 60bd3aef20e39a9f451f54164ef3fb8ef682bc3e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 4ff3f129838a43bd7684dc10e1653dab969e9c1e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809689"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087007"
 ---
 # <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-multiple-regions-with-azure-app-service-traffic-manager-and-azure-mysql"></a>Migrazione di Contoso: EffettuaRE il refactoring di un'app Service Desk Linux di Contoso in più aree con Servizio app di Azure, Gestione traffico e Azure MySQL
 
@@ -109,7 +109,7 @@ In Contoso il processo di migrazione verrà completato come indicato di seguito:
 **Servizio** | **Descrizione** | **Costii**
 --- | --- | ---
 [Servizio app di Azure](https://azure.microsoft.com/services/app-service/) | Il servizio viene eseguito e ridimensiona le applicazioni mediante il servizio PaaS di Azure per i siti Web.  | I prezzi sono basati sulle dimensioni delle istanze e sulle funzionalità necessarie. [Altre informazioni](https://azure.microsoft.com/pricing/details/app-service/windows/)
-[Gestione traffico](https://azure.microsoft.com/services/traffic-manager/) | Un bilanciamento del carico che usa il DNS per indirizzare gli utenti ad Azure, o siti Web e servizi esterni. | I prezzi si basano sul numero di query DNS ricevute e sul numero di endpoint monitorati. | [Altre informazioni](https://azure.microsoft.com/pricing/details/traffic-manager/)
+[Gestione traffico](https://azure.microsoft.com/services/traffic-manager/) | Un bilanciamento del carico che usa il DNS per indirizzare gli utenti ad Azure, o siti Web e servizi esterni. | I prezzi si basano sul numero di query DNS ricevute e sul numero di endpoint monitorati. [Altre informazioni](https://azure.microsoft.com/pricing/details/traffic-manager/)
 [Database di Azure per MySQL](https://docs.microsoft.com/azure/mysql/) | Il database si basa sul motore del server MySQL open source. Offre un database MySQL come servizio completamente gestito, di livello aziendale e supportato dalla community per lo sviluppo e la distribuzione di app. | I prezzi si basano sui requisiti di calcolo, archiviazione e backup. [Altre informazioni](https://azure.microsoft.com/pricing/details/mysql/)
 
  

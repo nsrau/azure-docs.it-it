@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d98a5ab13c2aecd3b3cef590526031f5bdee594
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 687f99fb6447eddb4ce10ce81bc349181ec5c48c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268312"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094753"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurazioni del carico di lavoro SAP con le zone di disponibilità di Azure
 [Zone di disponibilità di Azure](https://docs.microsoft.com/azure/availability-zones/az-overview) è una delle funzionalità a disponibilità elevata offerte da Azure. L'uso delle zone di disponibilità migliora la disponibilità generale dei carichi di lavoro SAP in Azure. Questa funzionalità è già disponibile in alcune [aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/). In futuro sarà disponibile in un numero maggiore di aree.
@@ -52,7 +52,7 @@ Quando si usano le zone di disponibilità, tenere presente quanto segue:
 - La latenza di rete tra le zone di disponibilità non è la stessa in tutte le aree di Azure. In alcuni casi, è possibile distribuire ed eseguire il livello dell'applicazione SAP su zone diverse, perché la latenza di rete da una zona alla macchina virtuale DBMS attiva è accettabile. In alcune aree di Azure, tuttavia, la latenza tra la macchina virtuale DBMS attiva e l'istanza dell'applicazione SAP, distribuite in zone diverse, può non essere sufficiente per i processi aziendali SAP. In questi casi, l'architettura di distribuzione deve essere diversa con un'architettura attiva/attiva per l'applicazione o attiva/passiva se la latenza di rete tra zone è troppo elevata.
 - Nel decidere dove usare le zone di disponibilità, tenere conto della latenza di rete tra le zone. La latenza di rete svolge un ruolo importante in due aree:
     - Latenza tra le due istanze di DBMS per le quali è necessario configurare la replica sincrona. Maggiore sarà la latenza di rete, maggiore sarà l'impatto sulla scalabilità del carico di lavoro.
-    - Differenza nella latenza di rete tra una macchina virtuale che esegue un'istanza di dialogo SAP nella stessa zona dell'istanza del DBMS attiva e una macchina virtuale simile in un'altra zona. Maggiore sarà questa differenza, più alto sarà l'impatto sul tempo di esecuzione dei processi aziendali e dei processi batch, a seconda che siano eseguiti nella stessa zona del sistema DBMS o in una zona diversa.
+    - La differenza nella latenza di rete tra una macchina virtuale che esegue un'istanza di dialogo SAP nella stessa zona dell'istanza del DBMS attiva e una macchina virtuale simile in un'altra zona. Maggiore sarà questa differenza, più alto sarà l'impatto sul tempo di esecuzione dei processi aziendali e dei processi batch, a seconda che siano eseguiti nella stessa zona del sistema DBMS o in una zona diversa.
 
 Quando si distribuiscono macchine virtuali di Azure in più zone di disponibilità e si implementano soluzioni di failover nella stessa area di Azure, si applicano alcune restrizioni:
 
@@ -109,8 +109,8 @@ A questa configurazione si applicano le considerazioni seguenti:
 - Per tutte le macchine virtuali distribuite, è necessario usare [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). I dischi non gestiti non sono supportati per le distribuzioni nelle zone.
 - L'archiviazione Premium di Azure e l'[archiviazione Ultra SSD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd) non supportano alcun tipo di replica dell'archiviazione tra le zone. L'applicazione (DBMS o SAP Central Services) deve replicare i dati importanti.
 - Lo stesso vale per la directory sapmnt condivisa, ovvero un disco condiviso (Windows), una condivisione CIFS (Windows) o una condivisione NFS (Linux). È necessario usare una tecnologia che esegue la replica di tali dischi condivisi o condivisioni tra le zone. Sono supportate le tecnologie seguenti:
-    - Per Windows, una soluzione cluster che usa SIOS DataKeeper, come documentato in [Clustering di un'istanza SAP ASCS/SCS in un cluster di failover Windows tramite un disco condiviso del cluster in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk).
-    - Per SUSE Linux, una condivisione NFS configurata come documentato in [Disponibilità elevata per NFS in macchine virtuali di Azure su SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
+  - Per Windows, una soluzione cluster che usa SIOS DataKeeper, come documentato in [Clustering di un'istanza SAP ASCS/SCS in un cluster di failover Windows tramite un disco condiviso del cluster in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk).
+  - Per SUSE Linux, una condivisione NFS configurata come documentato in [Disponibilità elevata per NFS in macchine virtuali di Azure su SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
     
     Attualmente la soluzione che usa File server di scalabilità orizzontale Microsoft, come documentato in [Preparare l'infrastruttura di Azure per la disponibilità elevata di SAP con un cluster di failover Windows e la condivisione di file per le istanze di SAP ASCS/SCS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share), non è supportata tra le zone.
 - La terza zona viene usata per ospitare il dispositivo SBD nel caso si creino un [cluster Pacemaker di SUSE Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) o altre istanze dell'applicazione.
@@ -123,7 +123,7 @@ Se non si riesce a trovare una differenza accettabile tra la latenza di rete all
 
 Il layout di base di questa architettura è simile al seguente:
 
-![Distribuzione attiva/passiva in una zona](./media/sap-ha-availability-zones/active_active_zones_deployment.png)
+![Distribuzione attiva/passiva in una zona](./media/sap-ha-availability-zones/active_passive_zones_deployment.png)
 
 A questa configurazione si applicano le considerazioni seguenti:
 

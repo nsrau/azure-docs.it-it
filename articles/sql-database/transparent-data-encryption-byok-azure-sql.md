@@ -11,17 +11,17 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: c8c2c58250b6f806b48241ad1bb2a85202b9b67a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 28bb6fbc3b6b9552850244d608e6587e8a9052de
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456878"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891002"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL Transparent Data Encryption con chiavi gestite dal cliente in Azure Key Vault: supporto BYOK (Bring Your Own Key).
 
-[Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) con integrazione Azure Key Vault consente di crittografare la chiave di crittografia (DEK) del database con una chiave asimmetrica gestita dal cliente chiamata protezione TDE. Questo è anche comunemente noto come supporto Bring Your Own Key (BYOK) per Transparent Data Encryption.  Nello scenario BYOK, la protezione TDE è archiviata in un'istanza di [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), il sistema di gestione delle chiavi esterne basato sul cloud di Azure, che viene gestita dal cliente ed è di sua proprietà. La protezione TDE può essere [generata](https://docs.microsoft.com/en-us/azure/key-vault/about-keys-secrets-and-certificates) da Key Vault o [trasferita](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) in Key Vault da un dispositivo HSM locale. La chiave DEK della crittografia TDE, archiviata nella pagina di avvio di un database, viene crittografata e decrittografata dalla protezione TDE, che rimane archiviata in modo permanente in Azure Key Vault.  Per decrittografare e crittografare la chiave DEK, il database SQL deve possedere le autorizzazioni di accesso all'insieme di credenziali delle chiavi del cliente. Se le autorizzazioni del server SQL per l'insieme di credenziali delle chiavi vengono revocate, un database non è accessibile e tutti i dati rimangono crittografati. Per il database SQL di Azure, la protezione TDE è impostata a livello di server logico SQL e viene ereditata da tutti i database associati al server. Per l'[istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance), la protezione TDE è impostata a livello di istanza e viene ereditata da tutti i database *crittografati* nell'istanza. Salvo diversa indicazione, in questo documento il termine *server* fa riferimento sia al server che all'istanza.
+[Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) con integrazione Azure Key Vault consente di crittografare la chiave di crittografia (DEK) del database con una chiave asimmetrica gestita dal cliente chiamata protezione TDE. Questo è anche comunemente noto come supporto Bring Your Own Key (BYOK) per Transparent Data Encryption.  Nello scenario BYOK, la protezione TDE è archiviata in un'istanza di [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), il sistema di gestione delle chiavi esterne basato sul cloud di Azure, che viene gestita dal cliente ed è di sua proprietà. Può essere la protezione TDE [generati](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates) dall'insieme di credenziali chiave o [trasferiti](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) all'insieme di credenziali chiave da un dispositivo HSM locale on. La chiave DEK della crittografia TDE, archiviata nella pagina di avvio di un database, viene crittografata e decrittografata dalla protezione TDE, che rimane archiviata in modo permanente in Azure Key Vault.  Per decrittografare e crittografare la chiave DEK, il database SQL deve possedere le autorizzazioni di accesso all'insieme di credenziali delle chiavi del cliente. Se le autorizzazioni del server SQL per l'insieme di credenziali delle chiavi vengono revocate, un database non è accessibile e tutti i dati rimangono crittografati. Per il database SQL di Azure, la protezione TDE è impostata a livello di server logico SQL e viene ereditata da tutti i database associati al server. Per l'[istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance), la protezione TDE è impostata a livello di istanza e viene ereditata da tutti i database *crittografati* nell'istanza. Salvo diversa indicazione, in questo documento il termine *server* fa riferimento sia al server che all'istanza.
 
 Grazie all'integrazione di TDE con Azure Key Vault, gli utenti possono controllare le attività di gestione delle chiavi, tra cui le rotazioni, i backup e le autorizzazioni dell'insieme di credenziali, nonché abilitare il controllo o il reporting per tutte le protezioni TDE usando Azure Key Vault. Key Vault offre la gestione centralizzata delle chiavi, sfrutta i moduli di protezione hardware accuratamente monitorati (HSM) e consente la separazione dei compiti tra la gestione delle chiavi e i dati per contribuire a rispettare la conformità con i criteri di sicurezza.  
 
@@ -38,6 +38,10 @@ L'integrazione TDE con Azure Key Vault offre i vantaggi seguenti:
 > Per chi usa TDE gestita dal servizio e desidera iniziare a usare Key Vault, la protezione TDE rimane abilitata durante il processo del passaggio a una protezione TDE in Key Vault. Non vi è alcun il tempo di inattività o riesecuzione della crittografia dei file di database. Il passaggio da una chiave gestita dal servizio a una chiave di Key Vault richiede solo la riesecuzione della crittografia della chiave di crittografia del database (DEK), che è una operazione online rapida.
 
 ## <a name="how-does-tde-with-azure-key-vault-integration-support-work"></a>In che modo TDE con l'integrazione di Azure Key Vault supporta il lavoro
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
 
 ![Autenticazione del server per l'insieme in Key Vault](./media/transparent-data-encryption-byok-azure-sql/tde-byok-server-authentication-flow.PNG)
 
@@ -62,17 +66,18 @@ Quando TDE viene configurato per la prima volta per l'uso di una protezione TDE 
   - Alle azioni di **recupero** ed **eliminazione definitiva** sono associate autorizzazioni specifiche nei criteri di accesso dell'insieme di credenziali delle chiavi.
 - Impostare un blocco risorsa per l'insieme di credenziali delle chiavi per controllare chi può eliminare questa risorsa critica e impedire eliminazioni accidentali o non autorizzate.  [Altre informazioni sul blocco risorsa](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)
 
-- Concedere l'accesso al server di database SQL all'insieme di credenziali delle chiavi usando la relativa identità di Azure Active Directory (Azure AD).  Quando si usa l'interfaccia utente del portale, l'identità di Azure AD viene creata automaticamente e vengono concesse le autorizzazioni di accesso dell'insieme di credenziali delle chiavi al server.  Usando PowerShell per configurare TDE con BYOK, l'identità di Azure AD deve essere creata, è necessario verificarne il completamento dell'operazione. Vedere [Configurare TDE con BYOK](transparent-data-encryption-byok-azure-sql-configure.md) e [Configurare TDE con BYOK per l'istanza gestita](http://aka.ms/sqlmibyoktdepowershell) per istruzioni dettagliate relative all'uso con PowerShell.
+- Concedere l'accesso al server di database SQL all'insieme di credenziali delle chiavi usando la relativa identità di Azure Active Directory (Azure AD).  Quando si usa l'interfaccia utente del portale, l'identità di Azure AD viene creata automaticamente e vengono concesse le autorizzazioni di accesso dell'insieme di credenziali delle chiavi al server.  Usando PowerShell per configurare TDE con BYOK, l'identità di Azure AD deve essere creata, è necessario verificarne il completamento dell'operazione. Vedere [Configurare TDE con BYOK](transparent-data-encryption-byok-azure-sql-configure.md) e [Configurare TDE con BYOK per l'istanza gestita](https://aka.ms/sqlmibyoktdepowershell) per istruzioni dettagliate relative all'uso con PowerShell.
 
   > [!NOTE]
   > Se l'identità Azure AD **viene accidentalmente eliminata o vengono revocate le autorizzazioni del server** usando i criteri di accesso dell'insieme di credenziali della chiavi, il server perde l'accesso all'insieme di credenziali delle chiavi e i database crittografati TDE vengono resi inaccessibili entro 24 ore.
 
-- Quando si usano firewall e reti virtuali con Azure Key Vault, è necessario configurare quanto segue: in Consentire ai servizi Microsoft attendibili di ignorare il firewall, selezionare SÌ
+- Quando si usano i firewall e le reti virtuali con Azure Key Vault, è necessario configurare quanto segue: 
+  - Consentire ai servizi Microsoft attendibili di ignorare il firewall: scegliere SÌ
 
- > [!NOTE]
- > Se i database SQL crittografati TDE perdono l'accesso all'insieme di credenziali delle chiavi perché non possono ignorare il firewall, vengono resi inaccessibili entro 24 ore.
+  > [!NOTE]
+  > Se la crittografia TDE database SQL di perdono l'accesso all'insieme di credenziali chiave poiché essi non è possibile ignorare il firewall, i database sono inaccessibili entro 24 ore.
 
-- Abilitare il controllo e la creazione di report per tutte le chiavi di crittografia: Key Vault include log che si inseriscono facilmente in altri strumenti di gestione di sicurezza delle informazioni e degli eventi (SIEM). Operations Management Suite (OMS) [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) è un esempio di un servizio già integrato.
+- Abilitare il controllo e la creazione di report per tutte le chiavi di crittografia: Key Vault include log che si inseriscono facilmente in altri strumenti di gestione di sicurezza delle informazioni e degli eventi (SIEM). Operations Management Suite (OMS) [monitoraggio di Azure registra](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) è un esempio di un servizio già integrato.
 - Per garantire la disponibilità elevata dei database crittografati, configurare ogni server di Database SQL con due Azure Key Vault che risiedono in aree diverse.
 
 ### <a name="guidelines-for-configuring-the-tde-protector-asymmetric-key"></a>Linee guida per la configurazione della protezione TDE (chiave asimmetrica)
@@ -86,11 +91,11 @@ Quando TDE viene configurato per la prima volta per l'uso di una protezione TDE 
 
 - Usare una chiave senza data di scadenza e non impostare una data di scadenza per una chiave già in uso: **una volta scaduta la chiave, i database crittografati perdono l'accesso alla protezione TDE e vengono resi inaccessibili entro 24 ore**.
 - Verificare che la chiave sia abilitata e disponga delle autorizzazioni per eseguire le operazioni *Ottieni*, *Esegui il wrapping della chiave* e *Annulla il wrapping della chiave*.
-- Creare un backup della chiave di Azure Key Vault prima di usare per la prima volta la chiave in Azure Key Vault. Altre informazioni sul comando [Backup-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1).
+- Creare un backup della chiave di Azure Key Vault prima di usare per la prima volta la chiave in Azure Key Vault. Altre informazioni sul [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) comando.
 - Creare un nuovo backup ogni volta che vengono apportate modifiche alla chiave (ad esempio, aggiungere gli ACL, aggiungere i tag, aggiungere gli attributi chiave).
 - **Mantenere le versioni precedenti** della chiave nell'insieme di credenziali delle chiavi durante la rotazione delle chiavi in modo tale da poter ripristinare i backup del database meno recenti. Quando la protezione TDE viene modificata per un database, i backup precedenti del database **non vengono aggiornati** per l'uso con la protezione TDE più recente.  Ogni backup richiede che la protezione TDE sia stata creata in fase di ripristino. Le rotazioni delle chiavi possono essere eseguite seguendo le istruzioni riportate in [Ruotare la protezione di Transparent Data Encryption con PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md).
 - Mantenere tutte le chiavi usate in precedenza in Azure Key Vault dopo il ripristino delle chiavi gestite dal servizio.  In questo modo è possibile ripristinare i backup dei database con le protezioni TDE archiviate in Azure Key Vault.  Le protezioni TDE create con Azure Key Vault devono essere mantenute fino a quando non sono stati creati tutti i backup memorizzati con chiavi gestite dal servizio.  
-- Creare copie di backup recuperabili di tali chiavi usando [Backup-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1).
+- Creare copie di backup recuperabili delle chiavi usando [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey).
 - Per rimuovere una chiave potenzialmente compromessa durante un evento imprevisto di sicurezza senza il rischio di perdita di dati, seguire i passaggi descritti in [Rimuovere una chiave potenzialmente compromessa](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md).
 
 ## <a name="high-availability-geo-replication-and-backup--restore"></a>Disponibilità elevata, replica geografica e backup/ripristino
@@ -99,7 +104,7 @@ Quando TDE viene configurato per la prima volta per l'uso di una protezione TDE 
 
 Come configurare la disponibilità elevata con Azure Key Vault dipende dalla configurazione del database e del server di database SQL, di seguito sono presenti le configurazioni consigliate per due casi distinti.  Il primo caso è un database autonomo o un server di database SQL senza alcuna ridondanza geografica configurata.  Il secondo caso è un database o un server di database SQL configurato con i gruppi di failover o di ridondanza geografica, in cui è necessario assicurare che ogni copia con ridondanza geografica abbia un Azure Key Vault locale all'interno del gruppo di failover per garantire il funzionamento di failover geografici.
 
-Nel primo caso, se si richiedono un'elevata disponibilità di un database e un server di database SQL senza alcuna ridondanza geografica configurata, si consiglia di configurare il server per usare due diversi insiemi di credenziali delle chiavi in due aree diverse con lo stesso materiale della chiave. Ciò può essere ottenuto creando una protezione TDE con l'insieme di credenziali delle chiavi primarie posizionato nella stessa area del server di database SQL e clonando la chiave in un insieme di credenziali delle chiavi in un'area di Azure diversa, in modo che il server abbia accesso a un secondo insieme di credenziali delle chiavi se l'insieme di credenziali delle chiavi primarie subisce un'interruzione mentre il database è attivo e in esecuzione. Usare il cmdlet Backup-AzureKeyVaultKey per recuperare la chiave in formato crittografato dall'insieme di credenziali delle chiavi primarie e quindi usare il cmdlet Restore-AzureKeyVaultKey e specificare un insieme di credenziali delle chiavi nella seconda area.
+Nel primo caso, se si richiedono un'elevata disponibilità di un database e un server di database SQL senza alcuna ridondanza geografica configurata, si consiglia di configurare il server per usare due diversi insiemi di credenziali delle chiavi in due aree diverse con lo stesso materiale della chiave. Ciò può essere ottenuto creando una protezione TDE con l'insieme di credenziali delle chiavi primarie posizionato nella stessa area del server di database SQL e clonando la chiave in un insieme di credenziali delle chiavi in un'area di Azure diversa, in modo che il server abbia accesso a un secondo insieme di credenziali delle chiavi se l'insieme di credenziali delle chiavi primarie subisce un'interruzione mentre il database è attivo e in esecuzione. Usare il cmdlet Backup-AzKeyVaultKey per recuperare la chiave in formato crittografato dall'insieme di credenziali chiave primaria e quindi usare il cmdlet Restore-AzKeyVaultKey e specificare un insieme di credenziali delle chiavi nella seconda area.
 
 ![Server singolo a disponibilità elevata e nessun ripristino di emergenza geografico](./media/transparent-data-encryption-byok-azure-sql/SingleServer_HA_Config.PNG)
 
@@ -117,14 +122,14 @@ La sezione seguente esaminerà i passaggi di installazione e configurazione in m
 
 ### <a name="azure-key-vault-configuration-steps"></a>Passaggi per la configurazione di Azure Key Vault
 
-- Installare [PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-5.6.0)
+- Installare [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
 - Creare due Azure Key Vault in due aree differenti tramite [PowerShell per abilitare la proprietà "eliminazione temporanea"](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) nell'insieme di credenziali delle chiavi (questa opzione non è disponibile dal portale di Azure Key Vault, ma è richiesta da SQL).
 - Entrambe gli Azure Key Vault devono trovarsi in due aree disponibili nella stessa area geografica di Azure per l'esecuzione del backup e il ripristino delle chiavi.  Se è necessario che i due insiemi di credenziali delle chiavi siano posizionati in aree geografiche diverse per rispettare i requisiti di ripristino di emergenza geografico di SQL, seguire la [procedura BYOK](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) che consente l'importazione da un modulo HSM locale delle chiavi.
 - Creare una nuova chiave nell'insieme di credenziali delle chiavi:  
   - RSA/RSA-HSA 2048 key
   - Nessuna data di scadenza
   - La chiave è abilitata e dispone delle autorizzazioni per eseguire le operazioni Ottieni, Esegui il wrapping della chiave e Annulla il wrapping della chiave
-- Eseguire il backup della chiave primaria e ripristinare la chiave per il secondo insieme di credenziali delle chiavi.  Vedere [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) e [Restore-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-5.5.0).
+- Eseguire il backup della chiave primaria e ripristinare la chiave per il secondo insieme di credenziali delle chiavi.  Visualizzare [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) e [Restore-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey).
 
 ### <a name="azure-sql-database-configuration-steps"></a>Passaggi per la configurazione del database SQL di Azure
 
@@ -172,10 +177,10 @@ Per ripristinare un backup crittografato con protezione TDE da Key Vault, assicu
 
 Se una chiave che potrebbe essere necessaria per ripristinare un backup non è più inclusa nell'insieme di credenziali delle chiavi originale, viene restituito il messaggio di errore seguente: "Il server di destinazione `<Servername>` non dispone dell'accesso a tutti gli URI AKV creati tra <Timestamp #1> e <Timestamp #2>. Ripetere l'operazione dopo il ripristino di tutti gli URI AKV."
 
-Per risolvere questo problema, eseguire il cmdlet [Get-AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/get-azurermsqlserverkeyvaultkey) per restituire l'elenco di chiavi da Key Vault aggiunte al server (a meno che non siano state eliminate da un utente). Per garantire che tutti i backup possano essere ripristinati, verificare che il server di destinazione per il backup abbia accesso a tutte queste chiavi.
+Per risolvere questo problema, eseguire la [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet per restituire l'elenco di chiavi da Key Vault aggiunte al server (a meno che non siano state eliminate da un utente). Per garantire che tutti i backup possano essere ripristinati, verificare che il server di destinazione per il backup abbia accesso a tutte queste chiavi.
 
 ```powershell
-Get-AzureRmSqlServerKeyVaultKey `
+Get-AzSqlServerKeyVaultKey `
   -ServerName <LogicalServerName> `
   -ResourceGroup <SQLDatabaseResourceGroupName>
 ```

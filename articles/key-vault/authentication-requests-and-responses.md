@@ -3,7 +3,7 @@ title: Autenticazione, richieste e risposte
 description: Eseguire l'autenticazione in AD per l'uso di Key Vault
 services: key-vault
 documentationcenter: ''
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 4c321939-8a5b-42ca-83c4-2f5f647ca13e
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
-ms.openlocfilehash: 57f04a79396cd286ea87e6a8cc7b37f5459fa14c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.author: mbaldwin
+ms.openlocfilehash: 7ca486768cf56059328801b1b4b1036bb8aeece8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111527"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081781"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticazione, richieste e risposte
 
@@ -31,17 +31,17 @@ Questo argomento illustra le caratteristiche del servizio Azure Key Vault. Per i
 
  Di seguito sono riportati gli URL di esempio per lavorare con gli oggetti in Azure Key Vault:  
 
--   Per creare una chiave denominata TESTKEY in Key Vault usare - `PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
+- Per creare una chiave denominata TESTKEY in Key Vault usare - `PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
 
--   Per importare una chiave denominata IMPORTEDKEY in Key Vault usare- `POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
+- Per importare una chiave denominata IMPORTEDKEY in Key Vault usare- `POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
 
--   Per ottenere un segreto denominato MYSECRET in Key Vault usare - `GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
+- Per ottenere un segreto denominato MYSECRET in Key Vault usare - `GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
 
--   Per firmare un digest usando una chiave denominata TESTKEY in Key Vault usare - `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
+- Per firmare un digest usando una chiave denominata TESTKEY in Key Vault usare - `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
 
- L'autorità per una richiesta a Key Vault è sempre la seguente: `https://{keyvault-name}.vault.azure.net/`  
+  L'autorità per una richiesta a Key Vault è sempre la seguente: `https://{keyvault-name}.vault.azure.net/`  
 
- Le chiavi vengono sempre archiviate nel percorso /keys, i segreti vengono sempre archiviati nel percorso /secrets.  
+  Le chiavi vengono sempre archiviate nel percorso /keys, i segreti vengono sempre archiviati nel percorso /secrets.  
 
 ## <a name="api-version"></a>Versione dell'API  
  Il servizio Azure Key Vault supporta il controllo delle versioni del protocollo per garantire la compatibilità con i client di livello inferiore, anche se non tutte le funzionalità saranno disponibili per tali client. I client devono usare il parametro di stringa della query `api-version` per specificare la versione del protocollo supportato, dato che non ci sono valori predefiniti.  
@@ -64,17 +64,17 @@ Questo argomento illustra le caratteristiche del servizio Azure Key Vault. Per i
 ## <a name="error-responses"></a>Risposte di errore  
  La gestione degli errori usa i codici di stato HTTP. I risultati tipici sono:  
 
--   2xx – Success (Operazione riuscita): usato per un'operazione normale. Il corpo della risposta conterrà il risultato previsto  
+- 2xx – Success (Operazione riuscita): usato per un'operazione normale. Il corpo della risposta conterrà il risultato previsto  
 
--   3xx – Redirection (Reindirizzamento): può essere restituito il messaggio 304 "Not Modified" (Non modificato) per soddisfare un'operazione GET condizionale. Altri codici 3xx potranno essere usati in futuro per indicare modifiche di DNS e percorso.  
+- 3xx – Redirection (Reindirizzamento): può essere restituito il messaggio 304 "Not Modified" (Non modificato) per soddisfare un'operazione GET condizionale. Altri codici 3xx potranno essere usati in futuro per indicare modifiche di DNS e percorso.  
 
--   4xx – Client Error (Errore client): usato per richieste errate, chiavi mancanti, errori di sintassi, parametri non validi, errori di autenticazione e così via. Il corpo della risposta conterrà la descrizione dettagliata dell'errore.  
+- 4xx – Client Error (Errore client): usato per richieste errate, chiavi mancanti, errori di sintassi, parametri non validi, errori di autenticazione e così via. Il corpo della risposta conterrà la descrizione dettagliata dell'errore.  
 
--   5xx – Server Error (Errore server): usato per errori interni del server. L'organo di risposta contiene informazioni riassuntive sull'errore.  
+- 5xx – Server Error (Errore server): usato per errori interni del server. L'organo di risposta contiene informazioni riassuntive sull'errore.  
 
- Il sistema è progettato per funzionare dietro un proxy o un firewall. Il client potrebbe quindi ricevere altri codici di errore.  
+  Il sistema è progettato per funzionare dietro un proxy o un firewall. Il client potrebbe quindi ricevere altri codici di errore.  
 
- Azure Key Vault restituisce anche le informazioni sull'errore nel corpo della risposta quando si verifica un problema. Il corpo della risposta è in formato JSON e assume il formato seguente:  
+  Azure Key Vault restituisce anche le informazioni sull'errore nel corpo della risposta quando si verifica un problema. Il corpo della risposta è in formato JSON e assume il formato seguente:  
 
 ```  
 
@@ -92,7 +92,7 @@ Questo argomento illustra le caratteristiche del servizio Azure Key Vault. Per i
 ```  
 
 ## <a name="authentication"></a>Authentication  
- Tutte le richieste inviate ad Azure Key Vault DEVONO essere autenticate. Azure Key Vault supporta i token di accesso di Azure Active Directory che possono essere ottenuti tramite OAuth2 [[RFC6749](http://tools.ietf.org/html/rfc6749)]. 
+ Tutte le richieste inviate ad Azure Key Vault DEVONO essere autenticate. Azure Key Vault supporta i token di accesso di Azure Active Directory che possono essere ottenuti tramite OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
  
  Per altre informazioni sulla registrazione dell'applicazione e l'autenticazione per l'uso di Azure Key Vault, vedere [Registrare l'applicazione client con Azure AD](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).
  

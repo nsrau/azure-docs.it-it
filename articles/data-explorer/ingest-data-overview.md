@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 2/18/2019
-ms.openlocfilehash: 4fd0f0990163963fc0cc3c7caf221609da487909
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: c4db658db3d32905368390826e5531ca31525486
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340179"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58133128"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Inserimento dati in Esplora dati di Azure
 
@@ -53,7 +53,7 @@ Esplora dati di Azure attualmente supporta:
 
 ### <a name="ingestion-using-integration-services"></a>Inserimento tramite servizi di integrazione
 
-* Azure Data Factory (ADF), un servizio di integrazione dei dati completamente gestito per carichi di lavoro di analisi in Azure, per copiare i dati in e da Esplora dati di Azure. Per altre informazioni, vedere [Copiare dati in o da Esplora dati di Azure usando Azure Data Factory](/azure/data-factory/connector-azure-data-explorer).
+* Azure Data Factory (ADF), un servizio di integrazione dei dati completamente gestito per carichi di lavoro analitici in Azure, per copiare dati da e verso Azure Data Explorer utilizzando [archivi dati e formati supportati](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). Per altre informazioni, vedere [Copiare dati in o da Esplora dati di Azure usando Azure Data Factory](/azure/data-factory/connector-azure-data-explorer).
 
 ### <a name="programmatic-ingestion"></a>Inserimento a livello di codice
 
@@ -81,7 +81,7 @@ Kusto offre un SDK client che può essere usato per inserire ed eseguire query s
 
 * Inserimento dei dati direttamente nel motore Esplora dati di Azure (il più appropriato per l'esplorazione e la creazione di prototipi):
 
-  * **Inserimento inline**: il comando di controllo (.ingest inline) contenente i dati in banda è destinato ai test ad hoc.
+  * **L'inserimento di inline**: comando di controllo (.ingest inline) che contiene i dati in banda è destinato a scopo di test ad hoc.
 
   * **Inserimento da query**: il comando di controllo (.set, .set-or-append, .set-or-replace) che fa riferimento ai risultati della query viene usato per la generazione di report o di tabelle temporanee di piccole dimensioni.
 

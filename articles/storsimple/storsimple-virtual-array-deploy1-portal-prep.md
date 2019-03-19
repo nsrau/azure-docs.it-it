@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 17e51c91d2857ac91b0ebf998c016ebcf56c0de0
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: 7c6f0a6371b38f0271237db0f7d80b831ecc145c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244784"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088707"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Distribuire l'array virtuale StorSimple: preparare il portale di Azure
 
@@ -155,15 +155,15 @@ Eseguire i passaggi seguenti nel [portale di Azure](https://ms.portal.azure.com/
 3. Fare clic su **Aggiungi**.
 4. Nel pannello **Aggiungi un account di archiviazione** eseguire le operazioni seguenti:
    
-    1. Per **Sottoscrizione** selezionare **Corrente**.
+   1. Per **Sottoscrizione** selezionare **Corrente**.
    
-    2. Specificare il nome dell'account di archiviazione di Azure.
+   2. Specificare il nome dell'account di archiviazione di Azure.
    
-    3. Selezionare**Abilita** per creare un canale sicuro per la comunicazione di rete tra il dispositivo StorSimple e il cloud. Selezionare **Disabilita** solo se si opera all'interno di un cloud privato.
+   3. Selezionare**Abilita** per creare un canale sicuro per la comunicazione di rete tra il dispositivo StorSimple e il cloud. Selezionare **Disabilita** solo se si opera all'interno di un cloud privato.
    
-    4. Fare clic su **Aggiungi**. Quando la creazione dell'account di archiviazione viene completata, si riceve una notifica.<br></br>
+   4. Fare clic su **Aggiungi**. Quando la creazione dell'account di archiviazione viene completata, si riceve una notifica.<br></br>
    
-     ![Aggiungere le credenziali di un account di archiviazione esistente](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
+      ![Aggiungere le credenziali di un account di archiviazione esistente](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 
 ## <a name="next-step"></a>Passaggio successivo
 

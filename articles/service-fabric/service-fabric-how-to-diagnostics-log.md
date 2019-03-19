@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/27/2018
 ms.author: ryanwi
-ms.openlocfilehash: 42a6430162f3bafd3ec3ce2a3c523f6f5755914a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: 0e5cfa42eba5a2110ebf8879c771f2fef048ae03
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001379"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835714"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Aggiungere la registrazione all'applicazione di Service Fabric
 
@@ -132,7 +132,7 @@ La funzione di registrazione di ASP.NET Core ([pacchetto NuGet Microsoft.Extensi
 
 ### <a name="using-other-logging-providers"></a>Uso di altri provider di registrazione
 
-Alcuni provider di terze parti usano l'approccio descritto nella sezione precedente, inclusi [Serilog](https://serilog.net/), [NLog](http://nlog-project.org/) e [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging). È possibile inserirli tutti nella registrazione ASP.NET Core oppure usarli separatamente. Serilog offre una funzionalità che arricchisce tutti i messaggi inviati da un logger. Questa funzionalità può essere utile per restituire il nome del servizio, il tipo e le informazioni sulla partizione. Per usare questa funzionalità nell'infrastruttura di ASP.NET Core, seguire questa procedura:
+Alcuni provider di terze parti usano l'approccio descritto nella sezione precedente, inclusi [Serilog](https://serilog.net/), [NLog](https://nlog-project.org/) e [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging). È possibile inserirli tutti nella registrazione ASP.NET Core oppure usarli separatamente. Serilog offre una funzionalità che arricchisce tutti i messaggi inviati da un logger. Questa funzionalità può essere utile per restituire il nome del servizio, il tipo e le informazioni sulla partizione. Per usare questa funzionalità nell'infrastruttura di ASP.NET Core, seguire questa procedura:
 
 1. Aggiungere i pacchetti NuGet **Serilog**, **Serilog.Extensions.Logging**, **Serilog.Sinks.Literate** e **Serilog.Sinks.Observable** al progetto. 
 2. Creare una `LoggerConfiguration` e l'istanza del logger.

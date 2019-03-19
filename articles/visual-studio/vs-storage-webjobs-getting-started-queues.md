@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 74aea3ad4c3dda8abc69275ad4d683fbcf485ccc
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722907"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999545"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Introduzione all'archiviazione di accodamento di Azure e ai servizi relativi a Visual Studio (progetti WebJob)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -27,7 +27,7 @@ Questo articolo descrive come iniziare a usare l'archiviazione code di Azure in 
 
 Questo articolo fornisce esempi di codice C# che illustrano come usare Azure WebJobs SDK versione 1.x con il servizio di archiviazione di accodamento di Azure.
 
-Il servizio di archiviazione di accodamento di Azure consente di archiviare grandi quantità di messaggi ai quali è possibile accedere da qualsiasi parte del mondo mediante chiamate autenticate tramite HTTP o HTTPS. La dimensione massima di un singolo messaggio della coda è di 64 KB e una coda può contenere milioni di messaggi, nei limiti della capacità complessiva di un account di archiviazione. Per altre informazioni, vedere [Introduzione all'archiviazione code di Azure con .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) . Per ulteriori informazioni su ASP.NET, vedere [ASP.NET](http://www.asp.net).
+Il servizio di archiviazione di accodamento di Azure consente di archiviare grandi quantità di messaggi ai quali è possibile accedere da qualsiasi parte del mondo mediante chiamate autenticate tramite HTTP o HTTPS. La dimensione massima di un singolo messaggio della coda è di 64 KB e una coda può contenere milioni di messaggi, nei limiti della capacità complessiva di un account di archiviazione. Per altre informazioni, vedere [Introduzione all'archiviazione code di Azure con .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) . Per ulteriori informazioni su ASP.NET, vedere [ASP.NET](https://www.asp.net).
 
 ## <a name="how-to-trigger-a-function-when-a-queue-message-is-received"></a>Come attivare una funzione quando viene ricevuto un messaggio in coda
 Per scrivere una funzione che viene chiamata da WebJobs SDK quando viene ricevuto un messaggio di coda, usare l'attributo **QueueTrigger** . Il costruttore dell'attributo accetta un parametro di stringa che specifica il nome della coda di cui eseguire il polling. Per informazioni su come impostare il nome della coda in modo dinamico, vedere l'argomento relativo a [come impostare le opzioni di configurazione](#how-to-set-configuration-options).
@@ -44,7 +44,7 @@ public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMess
 
 Oltre a **string**, il parametro può essere una matrice di byte, un oggetto **CloudQueueMessage** o un oggetto POCO definito dall'utente.
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>Messaggi di coda POCO [(Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>Messaggi di coda POCO [(Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 Nell'esempio seguente, il messaggio in coda contiene JSON per un oggetto **BlobInformation** che include una proprietà **BlobName**. L'SDK deserializza automaticamente l'oggetto.
 
 ```csharp
@@ -54,7 +54,7 @@ public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobI
 }
 ```
 
-L'SDK usa il pacchetto [Newtonsoft.Json NuGet](http://www.nuget.org/packages/Newtonsoft.Json) per serializzare e deserializzare i messaggi. Se si creano messaggi di coda in un programma che non usa WebJobs SDK, è possibile scrivere codice simile a quello del seguente esempio per creare un messaggio di coda POCO analizzabile dall'SDK.
+L'SDK usa il pacchetto [Newtonsoft.Json NuGet](https://www.nuget.org/packages/Newtonsoft.Json) per serializzare e deserializzare i messaggi. Se si creano messaggi di coda in un programma che non usa WebJobs SDK, è possibile scrivere codice simile a quello del seguente esempio per creare un messaggio di coda POCO analizzabile dall'SDK.
 
 ```csharp
 BlobInformation blobInfo = new BlobInformation() { BlobName = "log.txt" };
@@ -72,7 +72,7 @@ public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] str
 }
 ```
 
-Le funzioni asincrone possono usare un [token di annullamento](http://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken), come illustrato nel seguente esempio che copia un BLOB. Per una spiegazione del segnaposto **queueTrigger**, vedere la sezione relativa ai [BLOB](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message).
+Le funzioni asincrone possono usare un [token di annullamento](https://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken), come illustrato nel seguente esempio che copia un BLOB. Per una spiegazione del segnaposto **queueTrigger**, vedere la sezione relativa ai [BLOB](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message).
 
 ```csharp
 public async static Task ProcessQueueMessageAsyncCancellationToken(
@@ -201,7 +201,7 @@ public static void CreateQueueMessage(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>Messaggi di coda POCO [(Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>Messaggi di coda POCO [(Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 Per creare un messaggio di coda contenente un oggetto POCO anziché una stringa, passare il tipo POCO come parametro di output al costruttore dell'attributo **Queue** .
 
 ```csharp
@@ -296,7 +296,7 @@ public static void DeleteBlob(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>Messaggi di coda POCO [(Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>Messaggi di coda POCO [(Plain Old CLR Object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 Per un oggetto POCO archiviato nel formato JSON nel messaggio della coda, è possibile usare i segnaposto che denominano le proprietà dell'oggetto nel parametro **blobPath** dell'attributo **Queue**. È anche possibile usare nomi di proprietà dei metadati di coda come segnaposto. Vedere [Ottenere i metadati della coda o del messaggio in coda](#get-queue-or-queue-message-metadata).
 
 Il seguente esempio copia un BLOB in un nuovo BLOB con un'estensione diversa. Il messaggio di coda è un oggetto **BlobInformation** che include le proprietà **BlobName** e **BlobNameWithoutExtension**. I nomi delle proprietà vengono usati come segnaposto nel percorso BLOB per gli attributi **Blob** .
@@ -311,7 +311,7 @@ public static void CopyBlobPOCO(
 }
 ```
 
-L'SDK usa il pacchetto [Newtonsoft.Json NuGet](http://www.nuget.org/packages/Newtonsoft.Json) per serializzare e deserializzare i messaggi. Se si creano messaggi di coda in un programma che non usa WebJobs SDK, è possibile scrivere codice simile a quello del seguente esempio per creare un messaggio di coda POCO analizzabile dall'SDK.
+L'SDK usa il pacchetto [Newtonsoft.Json NuGet](https://www.nuget.org/packages/Newtonsoft.Json) per serializzare e deserializzare i messaggi. Se si creano messaggi di coda in un programma che non usa WebJobs SDK, è possibile scrivere codice simile a quello del seguente esempio per creare un messaggio di coda POCO analizzabile dall'SDK.
 
 ```csharp
 BlobInformation blobInfo = new BlobInformation() { BlobName = "boot.log", BlobNameWithoutExtension = "boot" };

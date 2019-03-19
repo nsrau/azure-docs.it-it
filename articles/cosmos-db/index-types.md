@@ -1,17 +1,17 @@
 ---
 title: Tipi di indici in Azure Cosmos DB
 description: Panoramica dei tipi di indice in Azure Cosmos DB
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/5/2018
-ms.author: rimman
-ms.openlocfilehash: 02055ec07de2b08abdc949e17c668912431e00ce
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.date: 3/13/2019
+ms.author: mjbrown
+ms.openlocfilehash: 56c0fcb24ac5d255c6a36bcffd327df76f459963
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871252"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990561"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Tipi di indici in Azure Cosmos DB
 
@@ -19,30 +19,24 @@ Per configurare i criteri di indicizzazione per un percorso, sono disponibili pi
 
 - **Tipo di dati:** String, Number, Point, Polygon o LineString. Può contenere solo una voce per tipo di dati per percorso.
 
-- **Tipo indice:** hash (query di uguaglianza), intervallo (query di uguaglianza, di intervallo o ORDER BY) o spaziale (query spaziali).
+- **Tipo indice:** Intervallo (uguaglianza, intervallo o le query ORDER BY) o spaziale (query spaziali).
 
-- **Precisione:** per un indice hash, varia da 1 a 8 per stringhe e numeri. Il valore predefinito è 3. Per un indice di intervallo, il valore massimo per la precisione è -1. Può variare tra 1 e 100 (precisione massima) per i valori stringa o numerici.
+- **Precisione:** Per un indice di intervallo, il valore di precisione massima è -1, che è anche il valore predefinito.
 
 ## <a name="index-kind"></a>Tipologia di indice
 
-Azure Cosmos DB supporta l'indice hash e di intervallo per ogni percorso che può essere configurato per tipi di dati String o Number o per entrambi.
+Azure Cosmos DB supporta l'indice di intervallo per ogni percorso che può essere configurato per i tipi di dati stringa o un numero o entrambi.
 
-- L'indice **hash** supporta query di uguaglianza e query JOIN efficienti. Nella maggior parte dei casi, gli indici hash non richiedono una precisione superiore al valore predefinito di 3 byte. I dati possono essere di tipo stringa o numerico.
-
-  > [!NOTE]
-  > I contenitori di Azure Cosmos supportano un nuovo layout di indice che non usa la tipologia di indice Hash. Se si specifica una tipologia di indice Hash nei criteri di indicizzazione, le richieste CRUD sul contenitore ignoreranno automaticamente la tipologia di indice e la risposta dal contenitore conterrà solo la tipologia di indice di intervallo. Tutti i nuovi contenitori di Cosmos usano il nuovo layout di indice per impostazione predefinita. 
-  
-- L'indice **intervallo** supporta query di uguaglianza, query di intervallo (con >, <, >=, <=, !=) e query ORDER BY efficienti. Per impostazione predefinita, anche le query ORDER BY richiedono la precisione di indice massima (-1). I dati possono essere di tipo stringa o numerico.
+- **Indice di intervallo** supporta query di uguaglianza efficienti, query JOIN, le query di intervallo (con >, <>, =, < =,! =) e le query ORDER BY. Per impostazione predefinita, anche le query ORDER BY richiedono la precisione di indice massima (-1). I dati possono essere di tipo stringa o numerico.
 
 - L'indice **spaziale** supporta query spaziali (within e distance) efficienti. Il tipo di dati può essere Point, Polygon o LineString. Azure Cosmos DB supporta il tipo di indice spaziale anche per ogni percorso che può essere specificato per il tipo di dati Point, Polygon o LineString. Il valore nel percorso specificato deve essere un frammento GeoJSON valido, ad esempio {"type": "Point", "coordinates": [0.0, 10.0]}. Azure Cosmos DB supporta l'indicizzazione automatica dei tipi di dati Point, Polygon e LineString.
 
-Ecco alcuni esempi di query in cui è possibile usare indici hash, intervallo e spaziali:
+Ecco alcuni esempi di query il cui intervallo e possono essere usati per servire gli indici spaziali:
 
 | **Tipologia di indice** | **Descrizione/Caso d'uso** |
 | ---------- | ---------------- |
-| Hash  | Hash over /prop/? (or /) può essere usato per servire in modo efficiente le query seguenti:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Hash over /props/[]/? (or / or /props/) può essere usato per servire in modo efficiente le query seguenti:<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5  |
-| Range  | Range over /prop/? (or /) può essere usato per servire in modo efficiente le query seguenti:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop   |
-| Spatial     | Range over /prop/? (or /) può essere usato per servire in modo efficiente le query seguenti:<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Point", ... }) - con l'indicizzazione sui punti abilitata<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Polygon", ... }, c.prop) - con l'indicizzazione sui poligoni abilitata.     |
+| Range      | Range over /prop/? (or /) può essere usato per servire in modo efficiente le query seguenti:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop<br><br>Range over /props/[]/? (or / or /props/) può essere usato per servire in modo efficiente le query seguenti:<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5  |
+| Spatial    | Range over /prop/? (or /) può essere usato per servire in modo efficiente le query seguenti:<br><br>SELECT FROM collection c dove ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Point", ... }) - con l'indicizzazione sui punti abilitata<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Polygon", ... }, c.prop) - con l'indicizzazione sui poligoni abilitata. |
 
 ## <a name="default-behavior-of-index-kinds"></a>Comportamento predefinito delle tipologie di indice
 
@@ -54,6 +48,9 @@ Ecco alcuni esempi di query in cui è possibile usare indici hash, intervallo e 
 
 ## <a name="index-precision"></a>Precisione indice
 
+> [!NOTE]
+> I contenitori di Azure Cosmos supportano un nuovo layout di indice che non richiede più una precisione di indice personalizzata diversa dal valore massimo per la precisione (-1). Con questo metodo, i percorsi vengono indicizzati sempre con la massima precisione. Se si specifica una tipologia di indice Hash nei criteri di indicizzazione, le richieste CRUD sul contenitore ignoreranno automaticamente la tipologia di indice e la risposta dal contenitore conterrà solo il valore massimo per la precisione (-1).  Tutti i nuovi contenitori di Cosmos usano il nuovo layout di indice per impostazione predefinita.
+
 - È possibile usare la precisione dell'indice per ottenere un buon compromesso tra l'overhead di archiviazione dell'indice e le prestazioni delle query. Per i numeri, è consigliabile usare la configurazione di precisione predefinita -1 (precisione massima). Poiché i numeri sono a 8 byte in JSON, questo valore equivale a una configurazione di 8 byte. Selezionando un valore inferiore per la precisione, ad esempio da 1 a 7, i valori compresi in alcuni intervalli vengono associati alla stessa voce di indice. Per questo motivo, è possibile ridurre lo spazio di archiviazione dell'indice, ma l'esecuzione delle query potrebbe dover elaborare più elementi. Di conseguenza, viene utilizzata una velocità effettiva/UR maggiore.
 
 - La precisione dell'indice ha un'applicazione più pratica con gli intervalli di stringhe. Poiché le stringhe possono avere qualsiasi lunghezza arbitraria, la scelta della precisione dell'indice può influire sulle prestazioni delle query di intervallo di stringhe. Può anche influire sulla quantità di spazio di archiviazione dell'indice necessaria. Gli indici di intervallo di tipo stringa possono essere configurati con una precisione compresa tra 1 e 100, o -1 (massima). Se si vuole eseguire query ORDER BY su proprietà stringa, è necessario specificare una precisione pari a -1 per i percorsi corrispondenti.
@@ -61,9 +58,6 @@ Ecco alcuni esempi di query in cui è possibile usare indici hash, intervallo e 
 - Gli indici spaziali usano sempre la precisione dell'indice predefinita per tutti i tipi (Point, LineString e Polygon). Non è possibile eseguire l'override della precisione dell'indice predefinita per indici spaziali.
 
 Azure Cosmos DB restituisce un errore quando una query usa ORDER BY ma non ha un indice di intervallo sul percorso sottoposto a query con la precisione massima.
-
-> [!NOTE]
-> I contenitori di Azure Cosmos supportano un nuovo layout di indice che non richiede più una precisione di indice personalizzata diversa dal valore massimo per la precisione (-1). Con questo metodo, i percorsi vengono indicizzati sempre con la massima precisione. Se si specifica una tipologia di indice Hash nei criteri di indicizzazione, le richieste CRUD sul contenitore ignoreranno automaticamente la tipologia di indice e la risposta dal contenitore conterrà solo il valore massimo per la precisione (-1).  Tutti i nuovi contenitori di Cosmos usano il nuovo layout di indice per impostazione predefinita.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

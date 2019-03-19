@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: adc85514c0f4e2f7245a7db6dffbe6b9dc5e6d42
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: 6e27d00e4b12ade82cfde6b3a4927edc7d69798a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435192"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075817"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-apache-hadoop-in-hdinsight-ssh"></a>Generare raccomandazioni di film tramite Apache Mahout con Apache Hadoop basato su Linux in HDInsight (SSH)
 
@@ -170,15 +170,15 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     Questo comando esamina le raccomandazioni generate per l'ID utente 4.
 
-    * Il file **user-ratings.txt** viene usato per recuperare i film che sono stati classificati.
+   * Il file **user-ratings.txt** viene usato per recuperare i film che sono stati classificati.
 
-    * Il file **moviedb.txt** viene usato per recuperare i nomi dei film.
+   * Il file **moviedb.txt** viene usato per recuperare i nomi dei film.
 
-    * Il file **recommendations.txt** viene usato per recuperare le raccomandazioni di film per questo utente.
+   * Il file **recommendations.txt** viene usato per recuperare le raccomandazioni di film per questo utente.
 
      L'output di questo comando è simile al testo seguente:
 
-        Sette anni in Tibet (1997), punteggio = 5.0   Indiana Jones e l'ultima crociata (1989), punteggio = 5.0   Lo squalo (1975), punteggio = 5.0   Ragione e sentimento (1995), punteggio = 5.0 Independence Day (ID4) (1996), punteggio = 5.0   Il matrimonio del mio migliore amico (1997), punteggio = 5.0   Jerry Maguire (1996), punteggio = 5.0   Scream 2 (1997), punteggio = 5.0   Il momento di uccidere (1996), punteggio = 5.0
+       Sette anni in Tibet (1997), punteggio = 5.0   Indiana Jones e l'ultima crociata (1989), punteggio = 5.0   Lo squalo (1975), punteggio = 5.0   Ragione e sentimento (1995), punteggio = 5.0 Independence Day (ID4) (1996), punteggio = 5.0   Il matrimonio del mio migliore amico (1997), punteggio = 5.0   Jerry Maguire (1996), punteggio = 5.0   Scream 2 (1997), punteggio = 5.0   Il momento di uccidere (1996), punteggio = 5.0
 
 ## <a name="delete-temporary-data"></a>Eliminare i dati temporanei
 

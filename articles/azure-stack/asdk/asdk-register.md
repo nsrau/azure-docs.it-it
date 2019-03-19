@@ -15,12 +15,12 @@ ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: d5463b495620e441ad5371b5859c9ab543e0e7c6
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: dc146c6e8877a99570aab25d198ba365abbe7c86
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874665"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078177"
 ---
 # <a name="azure-stack-registration"></a>Registrazione con Azure Stack
 È possibile registrare l'installazione di Azure Stack Development Kit (ASDK) con Azure per scaricare elementi di marketplace di Azure e per impostare i dati di e-commerce segnalazioni a Microsoft. È necessario eseguire la registrazione per supportare la funzionalità di Azure Stack completa, tra cui diffusione di marketplace. È necessario eseguire la registrazione per poter testare le funzionalità di Azure Stack importanti come la diffusione di marketplace e report sull'utilizzo. Dopo la registrazione di Azure Stack, sull'utilizzo viene segnalato ad Azure commerce. È possibile visualizzarlo nella sottoscrizione che è usata per la registrazione. Tuttavia, gli utenti ASDK non vengono addebitate spese per qualsiasi utilizzo che generano report.
@@ -38,7 +38,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 Verificare che l'output restituisce **FullLanguageMode**. Se viene restituita qualsiasi altra modalità di linguaggio, registrazione dovrà essere eseguito in un altro computer o la modalità di linguaggio dovrà essere impostata su **FullLanguageMode** prima di continuare.
 
-L'account di Azure AD usato per la registrazione deve avere accesso alla sottoscrizione di Azure e disporre delle autorizzazioni per creare applicazioni a identità ed entità servizio nella directory associata alla sottoscrizione. È consigliabile registrare Azure Stack con Azure tramite Amministrazione privilegi minimi da [creazione di un account di servizio da usare per la registrazione](..\azure-stack-registration-role.md) invece di usare le credenziali di amministratore globale.
+L'account di Azure AD usato per la registrazione deve avere accesso alla sottoscrizione di Azure e disporre delle autorizzazioni per creare applicazioni a identità ed entità servizio nella directory associata alla sottoscrizione. È consigliabile registrare Azure Stack con Azure tramite Amministrazione privilegi minimi da [creazione di un account di servizio da usare per la registrazione](../azure-stack-registration-role.md) invece di usare le credenziali di amministratore globale.
 
 ## <a name="register-azure-stack-with-azure"></a>Registrare Azure Stack con Azure
 Seguire questi passaggi per registrare il ASDK con Azure.

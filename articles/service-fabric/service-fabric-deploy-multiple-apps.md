@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: ea2f27069ca445a4d74ddc634f5c396ab13564a1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 4d9dfbcfc1dd00209a90386bf75f0c2515a28060
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248997"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854467"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Distribuire più eseguibili guest
 Questo articolo descrive come creare pacchetti di più eseguibili guest e in che modo distribuirli in Azure Service Fabric. Per la creazione e la distribuzione di un pacchetto di Service Fabric, consultare l'articolo [Distribuire un eseguibile guest in Service Fabric](service-fabric-deploy-existing-app.md).
 
 Questa procedura dettagliata illustra come distribuire un'applicazione con un front-end di Node.js che usa MongoDB come archivio dati, ma può essere adottata per qualsiasi applicazione che presenta dipendenze da un'altra applicazione.   
 
-È possibile usare Visual Studio per generare il pacchetto dell'applicazione che contiene più eseguibili guest. Vedere [Uso di Visual Studio per creare il pacchetto di un'applicazione esistente](service-fabric-deploy-existing-app.md). Dopo aver aggiunto il primo eseguibile guest, fare clic con il tasto destro sul progetto dell'applicazione e selezionare **Aggiungi -> Nuovo servizio Service Fabric** per aggiungere il secondo progetto eseguibile guest alla soluzione. Nota: se si sceglie il collegamento all'origine nel progetto di Visual Studio, la compilazione della soluzione di Visual Studio assicura che il pacchetto dell'applicazione venga aggiornato in base alle modifiche nell'origine. 
+È possibile usare Visual Studio per generare il pacchetto dell'applicazione che contiene più eseguibili guest. Vedere [Uso di Visual Studio per creare il pacchetto di un'applicazione esistente](service-fabric-deploy-existing-app.md). Dopo aver aggiunto il primo eseguibile guest, fare clic con il tasto destro sul progetto dell'applicazione e selezionare **Aggiungi -> Nuovo servizio Service Fabric** per aggiungere il secondo progetto eseguibile guest alla soluzione. Note: Se si sceglie il collegamento all'origine nel progetto di Visual Studio, la compilazione della soluzione di Visual Studio assicura che il pacchetto dell'applicazione venga aggiornato in base alle modifiche nell'origine. 
 
 ## <a name="samples"></a>Esempi
 * [Esempio per la creazione di un pacchetto e distribuzione di un file guest eseguibile](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
@@ -167,7 +167,7 @@ Passare alla directory ed esaminare gli elementi creati dallo strumento.
 Come si può vedere, lo strumento ha aggiunto una nuova cartella MongoDB alla directory contenente i file binari di MongoDB. Se si apre il file `ApplicationManifest.xml` , si può notare che il pacchetto contiene ora l'applicazione Node.js e MongoDB. Il codice seguente illustra il contenuto del manifesto dell'applicazione.
 
 ```xml
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyNodeApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyNodeApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <ServiceManifestImport>
       <ServiceManifestRef ServiceManifestName="MongoDB" ServiceManifestVersion="1.0" />
    </ServiceManifestImport>

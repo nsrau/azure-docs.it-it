@@ -15,12 +15,12 @@ ms.date: 12/11/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 1ccbe8b268725cf3d0747486a20e0597d023662e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 8080355bebf00c9f37c28ae8ed54bba092f8dc17
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890604"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099934"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Distribuzione di servizi cognitivi di Azure ad Azure Stack
 
@@ -67,12 +67,12 @@ Prima di iniziare, è necessario:
 
 Creare una risorsa di servizi cognitivi in Azure per visualizzare in anteprima i contenitori di viso, LUIS o testo riconoscere, rispettivamente. È necessario usare l'URL di endpoint e chiave di sottoscrizione dalla risorsa per creare un'istanza dei contenitori dei servizi cognitivi.
 
-1.  Creare una risorsa di Azure nel portale di Azure. Se si desidera visualizzare in anteprima i contenitori di viso, è necessario creare innanzitutto una risorsa faccia corrispondente nel portale di Azure. Per altre informazioni, vedere [Avvio rapido: Creare un account di Servizi cognitivi nel portale di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+1. Creare una risorsa di Azure nel portale di Azure. Se si desidera visualizzare in anteprima i contenitori di viso, è necessario creare innanzitutto una risorsa faccia corrispondente nel portale di Azure. Per altre informazioni, vedere [Avvio rapido: Creare un account di Servizi cognitivi nel portale di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
-    >  [!Note]  
-    >  La risorsa faccia o visione artificiale è necessario usare il piano tariffario F0.
+   > [!Note]
+   >  La risorsa faccia o visione artificiale è necessario usare il piano tariffario F0.
 
-2.  Ottenere l'URL dell'endpoint e la chiave di sottoscrizione per la risorsa di Azure. Dopo aver creata la risorsa di Azure, è necessario utilizzare l'URL di endpoint e chiave di sottoscrizione dalla risorsa a creare un'istanza di contenitore viso, LUIS o riconoscere testo corrispondente per l'anteprima.
+2. Ottenere l'URL dell'endpoint e la chiave di sottoscrizione per la risorsa di Azure. Dopo aver creata la risorsa di Azure, è necessario utilizzare l'URL di endpoint e chiave di sottoscrizione dalla risorsa a creare un'istanza di contenitore viso, LUIS o riconoscere testo corrispondente per l'anteprima.
 
 ## <a name="create-a-kubernetes-secret"></a>Creare un segreto Kubernetes 
 

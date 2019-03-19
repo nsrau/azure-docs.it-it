@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/14/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: 5ececb2d3c52a1da8c1a537e6223f17a9b83921f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1c21cc778ed398c28077ef1a20ebbb7b295c2baa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207535"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012391"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Considerazioni relative all'integrazione di datacenter per i sistemi integrati di Azure Stack
 Se è interessati a un sistema integrato Azure Stack, è necessario comprendere le principali considerazioni sulla pianificazione alla distribuzione e come il sistema si inserisce nel tuo Data Center. Questo articolo fornisce una panoramica generale di queste considerazioni che consentono di prendere decisioni importanti dell'infrastruttura per il sistema a più nodi di Azure Stack. Consente di comprendere queste considerazioni quando si lavora con il fornitore dell'hardware OEM quando si distribuisce Azure Stack nel tuo Data Center.  
@@ -162,7 +162,7 @@ La tabella seguente riepiloga l'elenco delle opzioni attualmente disponibili.
 | Area | Soluzione di monitoraggio esterno |
 | -- | -- |
 | Software Azure Stack | [Azure Stack Management Pack per Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Nagios plug-in](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>Chiamate API basate su REST | 
-| Server fisici (BMC tramite IPMI) | Hardware OEM - management pack di Operations Manager fornitore<br>Soluzione fornita dal produttore hardware OEM<br>Fornitore dell'hardware plug-in di Nagios | Monitoraggio delle soluzioni (incluso) supportato da partner OEM | 
+| Server fisici (BMC tramite IPMI) | Hardware OEM - management pack di Operations Manager fornitore<br>Soluzione fornita dal produttore hardware OEM<br>Fornitore dell'hardware plug-in di Nagios.<br>Monitoraggio delle soluzioni (incluso) supportato da partner OEM | 
 | Dispositivi di rete (SNMP) | Individuazione dispositivo rete in Operations Manager<br>Soluzione fornita dal produttore hardware OEM<br>Opzione di Nagios plug-in |
 | Monitoraggio dell'integrità della sottoscrizione tenant | [System Center Management Pack per Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
 |  |  | 

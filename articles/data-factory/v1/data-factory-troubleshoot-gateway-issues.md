@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: dcbf011d6e5f035a1934b69f94cf95b2318491f0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 0559d89bd691323a95713d518df05e58283cef39
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813841"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119344"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Risolvere i problemi nell'uso del gateway di gestione dati
 Questo articolo offre informazioni sulla risoluzione dei problemi nell'uso del gateway di gestione dati.
@@ -169,8 +169,8 @@ Il gateway non può connettersi al servizio cloud tramite il bus di servizio.
 Seguire questi passaggi per fare in modo che il gateway torni online:
 
 1. Consentire le regole in uscita degli indirizzi IP nel computer gateway e nel firewall aziendale. È possibile trovare gli indirizzi IP nel log eventi di Windows (ID == 401): Si è verificato un tentativo di accesso a un socket in modalità non consentite dalle relative autorizzazioni di accesso XX.XX.XX.XX:9350.
-* Configurare le impostazioni proxy nel gateway. Per conoscere i dettagli, vedere la sezione Considerazioni sui server proxy.
-* Abilitare le porte in uscita 5671 e 9350-9354 sia su Windows Firewall nel computer gateway che nel firewall aziendale. Per conoscere i dettagli, vedere la sezione Porte e firewall. Questo passaggio è facoltativo, ma consigliato per considerazioni relative alle prestazioni.
+1. Configurare le impostazioni proxy nel gateway. Per conoscere i dettagli, vedere la sezione Considerazioni sui server proxy.
+1. Abilitare le porte in uscita 5671 e 9350-9354 sia su Windows Firewall nel computer gateway che nel firewall aziendale. Per conoscere i dettagli, vedere la sezione Porte e firewall. Questo passaggio è facoltativo, ma consigliato per considerazioni relative alle prestazioni.
 
 ### <a name="3-problem"></a>3. Problema
 Viene visualizzato l'errore seguente:
@@ -184,7 +184,7 @@ Errore temporaneo nella connettività di rete.
 Seguire questi passaggi per fare in modo che il gateway torni online:
 
 1. Attendere un paio di minuti; la connettività verrà ripristinata automaticamente quando l'errore non sarà più visualizzato.
-* Se l'errore persiste, riavviare il servizio gateway.
+1. Se l'errore persiste, riavviare il servizio gateway.
 
 ## <a name="failed-to-author-linked-service"></a>Impossibile creare il servizio collegato
 ### <a name="problem"></a>Problema
@@ -282,6 +282,6 @@ Per informazioni dettagliate sui log del gateway, vedere il registro eventi di W
 1. Avviare il **Visualizzatore eventi** di Windows.
 2. Individuare i log nella cartella **Registri applicazioni e servizi** > **Gateway di gestione dati**.
 
- Per risolvere i problemi correlati al gateway, cercare gli eventi a livello di errore nel Visualizzatore eventi.
+   Per risolvere i problemi correlati al gateway, cercare gli eventi a livello di errore nel Visualizzatore eventi.
 
 ![Gateway di gestione dati - Log nel Visualizzatore eventi](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)

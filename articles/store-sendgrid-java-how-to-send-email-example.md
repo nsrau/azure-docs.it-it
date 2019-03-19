@@ -14,19 +14,19 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
-ms.openlocfilehash: c2f2a6e5f2dd551cfb300d333081874fef2f405c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: fecc3b411211ceb8aa6db5a0e0c0c6b07f19a63f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421948"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442462"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Come inviare messaggi di posta elettronica usando SendGrid da Java in una distribuzione Azure
-L'esempio seguente illustra come è possibile usare SendGrid per inviare messaggi di posta elettronica da una pagina Web ospitata in Azure. L'applicazione risultante chiederà all'utente di inserire i valori relativi al messaggio di posta elettronica, come illustrato nella schermata seguente.
+L'esempio seguente illustra come è possibile usare SendGrid per inviare messaggi di posta elettronica da una pagina Web ospitata in Azure. L'applicazione risultante chiederà all'utente i valori di indirizzo di posta elettronica, come illustrato nello screenshot seguente.
 
 ![Modulo per la posta elettronica][emailform]
 
-Il messaggio di posta elettronica finale dovrebbe essere simile a quello riportato nella schermata seguente.
+Messaggio di posta elettronica risulta avrà un aspetto simile allo screenshot seguente.
 
 ![Messaggio di posta elettronica][emailsent]
 
@@ -204,7 +204,7 @@ Il codice seguente, chiamato quando si completa il modulo in emailform.jsp, crea
     </body>
     </html>
 
-Oltre a inviare la posta elettronica emailform.jsp fornisce un risultato all'utente. Nella schermata di seguito viene visualizzato un esempio:
+Oltre a inviare il messaggio di posta elettronica, emailform fornisce un risultato per l'utente. un esempio è lo screenshot seguente:
 
 ![Risultato invio posta elettronica][emailresult]
 

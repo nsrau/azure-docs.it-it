@@ -6,15 +6,15 @@ keywords: clip;clip secondaria;codifica;multimediale
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 02/10/2019
+ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 772865f42dfef8734fb23022039f02910958af61
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 51848b9ba4d18b3ac7d652cfbd97cab6b85f2ee8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992467"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842363"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Creare clip con Azure Media Clipper
 Questa sezione illustra i passaggi fondamentali per iniziare a usare Azure Media Clipper. Le sezioni che seguono illustrano le specifiche relative alla configurazione di Azure Media Clipper.
@@ -100,7 +100,7 @@ I parametri per la chiamata al metodo di inizializzazione sono i seguenti:
 - `height` {FACOLTATIVO, numero}: altezza totale del widget. L'altezza minima è di 600 px senza riquadro degli asset e di 850 px con il riquadro degli asset.
 - `subclippingMode` (FACOLTATIVO, {'all', 'render', 'filter'}): modalità di creazione di clip secondarie consentita. Il valore predefinito è all.
 - `filterAssetsTypes` (FACOLTATIVO, booleano): consente di mostrare/nascondere il menu a discesa dei filtri nel riquadro degli asset. Il valore predefinito è true.
-- `speedLevels` (FACOLTATIVO, array): consente di impostare livelli di velocità diversi per il lettore video. Per altre informazioni, vedere la [documentazione di Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions).
+- `speedLevels` (FACOLTATIVO, array): consente di impostare livelli di velocità diversi per il lettore video. Per altre informazioni, vedere la [documentazione di Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions).
 - `resetOnJobDone` (FACOLTATIVO, booleano): consente a Clipper di reimpostare l'utilità di creazione clip secondarie su uno stato iniziale dopo che l'invio di un processo ha avuto esito positivo.
 - `autoplayVideo` (FACOLTATIVO, booleano): consente a Clipper di riprodurre automaticamente il video su caricamento. Il valore predefinito è true.
 - `language` {FACOLTATIVO, stringa}: imposta la lingua del widget. Se non specificato, il widget tenta di localizzare i messaggi in base alla lingua del browser. Se non individua la lingua del browser, il widget usa l'impostazione predefinita, che è l'inglese. Per altre informazioni, vedere la sezione [Configurazione della localizzazione](media-services-azure-media-clipper-localization.md).
@@ -108,7 +108,7 @@ I parametri per la chiamata al metodo di inizializzazione sono i seguenti:
 - `extraLanguages` (FACOLTATIVO, JSON): questo parametro aggiunge nuove lingue al dizionario predefinito. Per altre informazioni, vedere la sezione [Configurazione della localizzazione](media-services-azure-media-clipper-localization.md).
 
 ## <a name="typescript-definition"></a>Definizione TypeScript
-Un file di definizione [TypeScript](https://www.typescriptlang.org/) per Clipper è disponibile [qui](http://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts).
+Un file di definizione [TypeScript](https://www.typescriptlang.org/) per Clipper è disponibile [qui](https://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts).
 
 ## <a name="azure-media-clipper-api"></a>API di Azure Media Clipper
 Questa sezione illustra la superficie dell'API disponibile in Clipper.

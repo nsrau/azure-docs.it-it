@@ -1,24 +1,24 @@
 ---
 title: Configurare Mapping dei servizi in Azure | Microsoft Docs
 description: Service Map è una soluzione di Azure che rileva automaticamente i componenti delle applicazioni nei sistemi Windows e Linux e mappa la comunicazione tra i servizi. Questo articolo fornisce informazioni dettagliate su come distribuire Mapping dei servizi nell'ambiente e su come usarlo in svariati scenari.
-services: monitoring
+services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: d3d66b45-9874-4aad-9c00-124734944b2e
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2019
-ms.author: bwren
-ms.openlocfilehash: 60c43475fc044b0847e5d9bd495c0d53b562114e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.date: 03/11/2019
+ms.author: magoedte
+ms.openlocfilehash: 26da504188a9060dbbb35330dbd8604bf5fe5e1b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822706"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995135"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurare Mapping dei servizi in Azure
 Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Consente di avere una vista dei server corrispondente alla loro rappresentazione concettuale, ovvero come sistemi interconnessi che offrono servizi critici. Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
@@ -28,8 +28,10 @@ Questo articolo descrive in dettaglio come configurare l'elenco dei servizi e il
 ## <a name="supported-azure-regions"></a>Aree di Azure supportate
 Mapping dei servizi è attualmente disponibile nelle aree seguenti:
 - Stati Uniti orientali
-- Europa occidentale
 - Stati Uniti centro-occidentali
+- Canada centrale
+- Regno Unito meridionale
+- Europa occidentale
 - Asia sud-orientale
 
 ## <a name="supported-windows-operating-systems"></a>Sistemi operativi Windows supportati
@@ -40,6 +42,7 @@ La sezione seguenti elenca i sistemi operativi supportati per Dependency Agent i
 >
 
 ### <a name="windows-server"></a>Windows Server
+- Windows Server 2019
 - Windows Server 2016 1803
 - Windows Server 2016
 - Windows Server 2012 R2
@@ -58,18 +61,14 @@ La sezione seguente elenca i sistemi operativi supportati per Dependency Agent i
 
 - Sono supportate solo versioni predefinita e SMP del kernel Linux.
 - Le versioni del kernel non standard, ad esempio PAE e Xen, non sono supportate per le distribuzioni Linux. Ad esempio, un sistema con la stringa di versione "2.6.16.21-0.8-xen" non è supportato.
-- I kernel personalizzati, tra cui le ricompilazioni dei kernel standard, non sono supportate.
-- Il kernel CentOSPlus non è supportato.
+- I kernel personalizzati, tra cui le ricompilazioni dei kernel standard, non sono supportati.
+- Il kernel CentOSPlus è supportato.
 - Unbreakable Enterprise Kernel (UEK) di Oracle è illustrato in una sezione successiva di questo articolo.
 
 ### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 
 | Versione del sistema operativo | Versione del kernel |
 |:--|:--|
-| 7.0 | 3.10.0-123 |
-| 7.1 | 3.10.0-229 |
-| 7,2 | 3.10.0-327 |
-| 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
 | 7.5 | 3.10.0-862 |
 | 7.6 | 3.10.0-957 |
@@ -78,49 +77,36 @@ La sezione seguente elenca i sistemi operativi supportati per Dependency Agent i
 
 | Versione del sistema operativo | Versione del kernel |
 |:--|:--|
-| 6.0 | 2.6.32-71 |
-| 6.1 | 2.6.32-131 |
-| 6.2 | 2.6.32-220 |
-| 6.3 | 2.6.32-279 |
-| 6.4 | 2.6.32-358 |
-| 6,5 | 2.6.32-431 |
-| 6.6 | 2.6.32-504 |
-| 6.7 | 2.6.32-573 |
-| 6.8 | 2.6.32-642 |
 | 6.9 | 2.6.32-696 |
 | 6.10 | 2.6.32-754 |
+
+### <a name="centosplus"></a>CentOSPlus
+| Versione del sistema operativo | Versione del kernel |
+|:--|:--|
+| 6.9 | 2.6.32-696.18.7<br>2.6.32-696.30.1 |
+| 6.10 | 2.6.32-696.30.1<br>2.6.32-754.3.5 |
 
 ### <a name="ubuntu-server"></a>Ubuntu Server
 
 | Versione del sistema operativo | Versione del kernel |
 |:--|:--|
-| Ubuntu 18.04 | kernel 4.15.* |
+| Ubuntu 18.04 | kernel 4.15.\*<br>4.18* |
 | Ubuntu 16.04.3 | kernel 4.15.* |
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
 
-### <a name="oracle-enterprise-linux-6-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux 6 con Unbreakable Enterprise Kernel
-| Versione del sistema operativo | Versione del kernel
-|:--|:--|
-| 6.2 | Oracle 2.6.32-300 (UEK R1) |
-| 6.3 | Oracle 2.6.39-200 (UEK R2) |
-| 6.4 | Oracle 2.6.39-400 (UEK R2) |
-| 6,5 | Oracle 2.6.39-400 (UEK R2 i386) |
-| 6.6 | Oracle 2.6.39-400 (UEK R2 i386) |
-
-### <a name="oracle-enterprise-linux-5-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux 5 con Unbreakable Enterprise Kernel
+### <a name="suse-linux-11-enterprise-server"></a>SUSE Linux 11 Enterprise Server
 
 | Versione del sistema operativo | Versione del kernel
 |:--|:--|
-| 5.10 | Oracle 2.6.39-400 (UEK R2) |
-| 5.11 | Oracle 2.6.39-400 (UEK R2) |
+| 11 SP4 | 3.0.* |
 
-## <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
+### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
 | Versione del sistema operativo | Versione del kernel
 |:--|:--|
-|12 SP2 | 4.4.* |
-|12 SP3 | 4.4.* |
+| 12 SP2 | 4.4.* |
+| 12 SP3 | 4.4.* |
 
 ## <a name="dependency-agent-downloads"></a>Download di Dependency Agent
 
@@ -173,6 +159,8 @@ Per altre informazioni sulla raccolta e l'uso dei dati, vedere l'[Informativa su
 
 ## <a name="installation"></a>Installazione
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ### <a name="azure-vm-extension"></a>Estensione di VM Azure
 È disponibile un'estensione per Windows (DependencyAgentWindows) e per Linux (DependencyAgentLinux) ed è possibile distribuire facilmente Dependency Agent nelle macchine virtuali di Azure usando un'[estensione di VM Azure](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  Con l'estensione di VM Azure è possibile distribuire Dependency Agent nelle macchine virtuali Windows e Linux usando uno script PowerShell o direttamente nella macchina virtuale usando un modello di Azure Resource Manager.  Se si distribuisce l'agente con l'estensione di VM Azure, gli agenti vengono automaticamente aggiornati alla versione più recente.
 
@@ -188,7 +176,7 @@ $ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
 $OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
 $rmgroup = "<Your Resource Group Here>"
 
-Get-AzureRmVM -ResourceGroupName $rmgroup |
+Get-AzVM -ResourceGroupName $rmgroup |
 ForEach-Object {
     ""
     $name = $_.Name
@@ -198,7 +186,7 @@ ForEach-Object {
     "${name}: ${os} (${location})"
     Date -Format o
     $ext = $OsExtensionMap.($os.ToString())
-    $result = Set-AzureRmVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
+    $result = Set-AzVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
     -Publisher $ExtPublisher -ExtensionType $ext -Name "DependencyAgent" -TypeHandlerVersion $version
     $result.IsSuccessStatusCode
 }

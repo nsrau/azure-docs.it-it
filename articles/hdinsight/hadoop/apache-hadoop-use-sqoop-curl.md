@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: a7b657d11e829d636063639e26a90d671a5d1473
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: ad716e2ef5e597424c860378e7a63d5c2de53f54
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438354"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834558"
 ---
 # <a name="run-apache-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Esecuzione di processi Apache Sqoop con Hadoop in HDInsight mediante Curl
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -27,7 +27,7 @@ Curl viene usato per illustrare come è possibile interagire con HDInsight trami
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
 
 
-* Completare la procedura illustrata in [Usare Sqoop con Apache Hadoop in HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database) per configurare un ambiente con un cluster HDInsight e un database SQL di Azure.
+* Completa [usare Apache Sqoop con Hadoop in HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database) configurare un ambiente con un cluster HDInsight e un database SQL di Azure.
 * [Curl](https://curl.haxx.se/). Curl è uno strumento per il trasferimento di dati da o verso un cluster HDInsight.
 * [jq](https://stedolan.github.io/jq/). L'utilità jq viene usata per elaborare i dati JSON restituiti dalle richieste REST.
 
@@ -68,19 +68,19 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
 
     I parametri usati in questo comando sono i seguenti:
 
-    * **-d**: poiché `-G` non viene usato, la richiesta userà il metodo POST per impostazione predefinita. `-d` specifica i valori di dati che vengono inviati con la richiesta.
+   * **-d**: poiché `-G` non viene usato, la richiesta userà il metodo POST per impostazione predefinita. `-d` specifica i valori di dati che vengono inviati con la richiesta.
 
-        * **user.name** : l'utente che esegue il comando.
+       * **user.name** : l'utente che esegue il comando.
 
-        * **command** : il comando Sqoop da eseguire.
+       * **command** : il comando Sqoop da eseguire.
 
-        * **statusdir** : la directory in cui verrà scritto lo stato del processo.
+       * **statusdir** : la directory in cui verrà scritto lo stato del processo.
 
-    Questo comando restituisce un ID processo utilizzabile per verificare lo stato del processo.
+     Questo comando restituisce un ID processo utilizzabile per verificare lo stato del processo.
 
-        ```json
-        {"id":"job_1415651640909_0026"}
-        ```
+       ```json
+       {"id":"job_1415651640909_0026"}
+       ```
 
 3. Per verificare lo stato del processo, usare il seguente comando. Sostituire **JOBID** con il valore restituito nel passaggio precedente. Se ad esempio il valore restituito è `{"id":"job_1415651640909_0026"}`, **JOBID** sarà `job_1415651640909_0026`.
 

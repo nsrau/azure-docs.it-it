@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82ccfe6a8d77926d2b908f84db600b0665565d51
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 257f7b66163b72141ceb6405768e912a263fb14b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173892"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124219"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Come vengono aggiunte le applicazioni in Azure AD e perché
 
@@ -133,8 +133,9 @@ Se si vuole comunque impedire agli utenti nella directory di registrare le appli
 * Per impedire agli utenti di dare il consenso alle applicazioni per proprio conto:
   1. Nel portale di Azure passare alla sezione [Impostazioni utente](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) in Applicazioni aziendali.
   2. Impostare l'opzione **Gli utenti possono fornire il consenso alle app che accedono ai dati aziendali per loro conto** su **No**. 
-      > [!NOTE]
-      > Se si decide di disattivare il consenso dell'utente, un amministratore dovrà fornire il consenso per qualsiasi nuova applicazione che un utente deve usare.    
+     
+     > [!NOTE]
+     > Se si decide di disattivare il consenso dell'utente, un amministratore dovrà fornire il consenso per qualsiasi nuova applicazione che un utente deve usare.    
 * Per impedire agli utenti di registrare le proprie applicazioni:
   1. Nel portale di Azure passare alla sezione [Impostazioni utente](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) in Azure Active Directory
   2. Impostare l'opzione **Gli utenti possono registrare applicazioni** su **No**.

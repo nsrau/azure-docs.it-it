@@ -5,17 +5,17 @@ description: Creare endpoint del servizio Web in Azure Machine Learning Studio. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: 62505a89be5535f7b8b7b50ad2462e33d44db57a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: ac434a696f6e77e5ce61b430232166e7727eda38
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454005"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084692"
 ---
 # <a name="create-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>Creare endpoint per servizi Web di Azure Machine Learning Studio distribuiti
 

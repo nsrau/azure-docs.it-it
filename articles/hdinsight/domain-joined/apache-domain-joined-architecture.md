@@ -9,12 +9,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 5c5615dcfc9d43016bdf995a22ae29a5c5dd2c6f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7e71f27ab8d577602dd4b02f83d57ff84a92858a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185384"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088095"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Uso di Enterprise Security Package in HDInsight
 
@@ -64,33 +64,33 @@ L'uso di Active Directory locale o di Active Directory sulle sole macchine virtu
 
 Se è in uso la federazione e gli hash delle password vengono sincronizzati correttamente ma si ricevono errori di autenticazione, verificare che l'autenticazione della password cloud sia abilitata per l'entità servizio PowerShell. In caso negativo, sarà necessario impostare [criteri di individuazione dell'area di autenticazione principale](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) per il tenant di Azure AD. Per verificare e impostare i criteri di individuazione dell'area di autenticazione principale:
 
- 1. Installare il modulo Azure AD PowerShell.
+1. Installare il modulo Azure AD PowerShell.
 
- ```
-    Install-Module AzureAD
- ```
+   ```
+   Install-Module AzureAD
+   ```
 
- 2. Accedere a `Connect-AzureAD` usando le credenziali di amministratore globale (amministratore del tenant).
+2. Accedere a `Connect-AzureAD` usando le credenziali di amministratore globale (amministratore del tenant).
 
- 3. Controllare se è già stata creata l'entità servizio Microsoft Azure PowerShell.
+3. Controllare se è già stata creata l'entità servizio Microsoft Azure PowerShell.
 
- ```
-    $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
- ```
+   ```
+   $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
+   ```
 
- 4. Se non esiste, ovvero se `($powershellSPN -eq $null)`, creare l'entità servizio.
+4. Se non esiste, ovvero se `($powershellSPN -eq $null)`, creare l'entità servizio.
 
- ```
-    $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
- ```
+   ```
+   $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+   ```
 
- 5. Creare e associare i criteri a questa entità servizio.
+5. Creare e associare i criteri a questa entità servizio.
 
- ```
-    $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+   ```
+   $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
 
-    Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
- ```
+   Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
+   ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

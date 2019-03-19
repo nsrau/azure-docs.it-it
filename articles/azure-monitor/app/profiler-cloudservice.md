@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: e050122984c19e46f3782c8364331323b403caad
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 2e13f1f09fcdfb68a99e705511e3659f1632132e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893836"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895482"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profilare i servizi cloud di Azure attivi con Application Insights
 
@@ -32,6 +32,8 @@ Application Insights Profiler viene installato con l'estensione Diagnostica di M
 1. Verificare che [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) o versione successiva sia in uso. È sufficiente confermare che i file *ServiceConfiguration.\*.cscfg* abbiano un valore di `osFamily` pari a "5" o maggiore.
 
 1. Aggiungere [Application Insights SDK ai servizi cloud di Azure](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
+
+   >**È presente un bug nel profiler fornito con la versione più recente di diagnostica di Microsoft AZURE per i servizi Cloud.** Per usare profiler con un servizio cloud, supporta solo AI SDK fino alla versione 2.7.2. Se si usa una versione più recente del SDK di intelligenza artificiale, è possibile tornare a 2.7.2 per poter usare il profiler. Se si usa Visual Studio per effettuare il downgrade la versione del SDK di App Insights, è possibile ottenere un errore di reindirizzamento di associazione in fase di esecuzione. Questo avviene perché "newVersion" nel file Web. config per Microsoft. applicationinsights deve essere impostato su "2.7.2.0" dopo il downgrade a SDK di intelligenza artificiale, ma non vengono aggiornato automaticamente.
 
 1. Tenere traccia delle richieste con Application Insights:
 

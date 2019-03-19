@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fed31d07f4bbe9fc47ce0d2c31f45fed288c4c4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6888a8787856ef23c459c7ffc18f8e2b4de17f6f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218024"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901137"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restrizioni e criteri password in Azure Active Directory
 
@@ -36,20 +36,22 @@ Il criterio a due gate richiede tre tipi di dati di autenticazione, ad esempio u
   * Amministratore fatturazione
   * Supporto partner - Livello 1
   * Supporto partner - Livello 2
-  * Amministratore del servizio Exchange
-  * Amministratore del servizio Lync
-  * Amministratore account utente
+  * Amministratore di Exchange
+  * Amministratore di Skype for Business
+  * Amministratore utenti
   * Writer di directory
   * Amministratore globale o amministratore aziendale
-  * Amministratore del servizio SharePoint
+  * Amministratore di SharePoint
   * Amministratore di conformità
   * Amministratore di applicazioni
   * Amministratore della sicurezza
   * Amministratore dei ruoli con privilegi
-  * Amministratore del servizio Microsoft Intune
+  * Amministratore di Intune
   * Amministratore del servizio proxy di applicazione
-  * Amministratore del servizio CRM
+  * Amministratore di Dynamics 365
   * Amministratore del servizio Power BI
+  * Amministratore dell'autenticazione
+  * Amministratore con privilegi di autenticazione
 
 * Se sono trascorsi 30 giorni per una sottoscrizione di valutazione o
 * È presente un dominio personale, ad esempio contoso.com, o
@@ -75,13 +77,13 @@ A ogni account utente che deve eseguire l'accesso ad Azure AD è necessario che 
 
 ## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Criteri password che si applicano solo agli account utente del cloud
 
-La tabella seguente descrive le impostazioni disponibili per i criteri password che possono essere applicate agli account utente creati e gestiti in Azure AD:
+La tabella seguente descrive le impostazioni dei criteri password applicate ad account utente creati e gestiti in Azure AD:
 
 | Proprietà | Requisiti |
 | --- | --- |
-| Caratteri consentiti |<ul><li>A-Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
-| Caratteri non consentiti |<ul><li>Caratteri Unicode.</li><li>Spazi.</li><li> Solo password complesse: non possono contenere un punto "." subito prima del simbolo "\@\"".</li></ul> |
-| Restrizioni per le password |<ul><li>Devono avere un numero di caratteri compreso tra 8 e 16.</li><li>Solo password complesse: è necessario soddisfare tre dei quattro requisiti seguenti:<ul><li>Caratteri minuscoli.</li><li>Caratteri maiuscoli.</li><li>Numeri (da 0 a 9).</li><li>Simboli (vedere le restrizioni per le password elencate sopra).</li></ul></li></ul> |
+| Caratteri consentiti |<ul><li>A-Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li></ul> |
+| Caratteri non consentiti |<ul><li>Caratteri Unicode.</li><li>Spazi.</li><li> Non può contenere un punto "." subito prima di "\@ \" simbolo".</li></ul> |
+| Restrizioni per le password |<ul><li>Devono avere un numero di caratteri compreso tra 8 e 16.</li><li>è necessario soddisfare tre dei quattro requisiti seguenti:<ul><li>Caratteri minuscoli.</li><li>Caratteri maiuscoli.</li><li>Numeri (da 0 a 9).</li><li>Simboli (vedere le restrizioni per le password elencate sopra).</li></ul></li></ul> |
 | Durata di validità della password |<ul><li>Valore predefinito: **90** giorni.</li><li>Il valore può essere configurato con il cmdlet `Set-MsolPasswordPolicy` del modulo di Azure Active Directory per Windows PowerShell.</li></ul> |
 | Notifica della scadenza della password |<ul><li>Valore predefinito: **14** giorni (prima della scadenza della password).</li><li>Il valore può essere configurato con il cmdlet `Set-MsolPasswordPolicy`.</li></ul> |
 | Scadenza della password |<ul><li>Valore predefinito: **false** giorni (indica che la scadenza password è abilitata).</li><li>Il valore può essere configurato per singoli account utente con il cmdlet `Set-MsolUser`.</li></ul> |
@@ -108,7 +110,7 @@ Per iniziare, è necessario [scaricare e installare il modulo di Azure AD PowerS
 1. Connettersi a Windows PowerShell usando le credenziali aziendali di amministratore.
 1. Eseguire uno di questi comandi:
 
-   * Per vedere se la password di un singolo utente è impostata in modo da non scadere mai, eseguire il cmdlet seguente usando l'UPN (ad esempio, *aprilr@contoso.onmicrosoft.com*) o l'ID dell'utente che si desidera controllare: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
+   * Per verificare se la password di un singolo utente è impostata per non scadere mai, eseguire il cmdlet seguente usando l'UPN (ad esempio, *aprilr\@contoso.onmicrosoft.com*) o l'ID utente dell'utente si desidera controllare: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
    * Per visualizzare l'impostazione **La password non scade mai** per tutti gli utenti, eseguire il cmdlet seguente: `Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
 
 ### <a name="set-a-password-to-expire"></a>Impostare una scadenza della password

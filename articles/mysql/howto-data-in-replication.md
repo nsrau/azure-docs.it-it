@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/31/2018
-ms.openlocfilehash: 18ef70d64523bc4001fa7d9a35a7f803b8050613
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 7d56d7f8fcbd53d4f69863d260591ef80f3d7188
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539620"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102942"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Come configurare la replica dei dati in ingresso in Database di Azure per MySQL
 
@@ -184,7 +184,7 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
    CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
    ```
 
-2. Avviare la replica
+1. Avviare la replica
 
    Chiamare la stored procedure `mysql.az_replication_start` per avviare la replica.
 
@@ -192,7 +192,7 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
    CALL mysql.az_replication_start;
    ```
 
-3. Verificare lo stato della replica
+1. Verificare lo stato della replica
 
    Chiamare il comando [`show slave status`](https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html) sul server di replica per visualizzare lo stato della replica.
     

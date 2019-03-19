@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 59271a96c5ad1a92483ca585fc30f1e9de0ed4f7
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: b2f08e811217572e09a254e9ab3306ab954b14b5
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608750"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009690"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Domande frequenti sugli acceleratori di soluzioni IoT
 
@@ -71,9 +71,9 @@ La versione precedente dell'acceleratore di soluzione di monitoraggio remoto era
 
 Sì, la nuova soluzione di monitoraggio remoto è disponibile nelle stesse aree geografiche.
 
-### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsuitecom"></a>Che differenza c'è tra eliminare un gruppo di risorse nel portale di Azure e fare clic per eliminare un acceleratore di soluzioni in azureiotsuite.com?
+### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>Che cos'è la differenza tra l'eliminazione di un gruppo di risorse nel portale di Azure e fare clic per eliminare un solution accelerator in azureiotsolutions.com?
 
-* Se si elimina l'acceleratore di soluzioni in [azureiotsuite.com](https://www.azureiotsolutions.com/), si eliminano anche tutte le risorse distribuite al momento della creazione dell'acceleratore di soluzioni. Se sono state aggiunte altre risorse al gruppo, anche queste ultime vengono eliminate.
+* Se si elimina l'acceleratore di soluzione in [azureiotsolutions.com](https://www.azureiotsolutions.com/), eliminare tutte le risorse che sono state distribuite durante la creazione dell'acceleratore di soluzione. Se sono state aggiunte altre risorse al gruppo, anche queste ultime vengono eliminate.
 * Se si elimina il gruppo di risorse nel [portale di Azure](https://portal.azure.com), si eliminano solo le risorse presenti in tale gruppo. È anche necessario eliminare l'applicazione Azure Active Directory associata all'acceleratore di soluzioni.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>È possibile continuare a sfruttare gli investimenti negli acceleratori di soluzioni Azure IoT?

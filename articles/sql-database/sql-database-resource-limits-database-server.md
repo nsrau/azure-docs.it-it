@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: CarlRabeler
 ms.author: carlrab
-ms.reviewer: sashan,moslake
+ms.reviewer: sashan,moslake,josack
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 670ca1b8ba16122d4e969a41f8679e1a6d1b27c6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 03/01/2019
+ms.openlocfilehash: 5b11f9bc25cd0fcc8a83a2eeaf5cc1746a63200e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990105"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093889"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Limiti delle risorse del database SQL per il server di database SQL di Azure
 
@@ -36,7 +36,7 @@ Questo articolo offre una panoramica dei limiti delle risorse del database SQL p
 | Quota DTU/eDTU per server | 54.000 |  
 | Quota vCore per server/istanza | 540 |
 | N. max pool per server | Limitato dal numero di DTU o vCore. Se ad esempio ogni pool è da 1000 DTU, un server può supportare 54 pool.|
-||||
+|||
 
 > [!NOTE]
 > Per ottenere una quota di DTU/eDTU o vCore maggiore o un numero di server più alto rispetto alla quantità predefinita, è possibile inviare una nuova richiesta di supporto nel portale di Azure per la sottoscrizione con il tipo di problema "Quota". La quota di DTU/eDTU e il limite di database per server limita il numero di pool elastici per ogni server.
@@ -73,6 +73,34 @@ In caso di uso elevato di sessioni o ruoli di lavoro, le opzioni di mitigazione 
 
 - Aumento del livello di servizio o della dimensione di calcolo del database o del pool elastico. Vedere [Ridimensionare le risorse del database singolo](sql-database-single-database-scale.md) e [Ridimensionare le risorse del pool elastico](sql-database-elastic-pool-scale.md).
 - Ottimizzazione delle query per ridurre l'uso delle risorse di ogni query, se l'aumento dell'uso di ruoli di lavoro è dovuto a un conflitto delle risorse di elaborazione. Per altre informazioni, vedere la sezione [Hint/ottimizzazione di query](sql-database-performance-guidance.md#query-tuning-and-hinting).
+
+## <a name="transaction-log-rate-governance"></a>Governance delle velocità di Log delle transazioni 
+Governance delle velocità di log delle transazioni è un processo in Azure SQL Database usate per limitare i tassi di inserimento elevati per carichi di lavoro, ad esempio bulk insert, SELECT INTO, e le compilazioni di indici. Questi limiti vengono registrati e applicati a livello di frazioni di secondo per la frequenza di generazione di record di log, limitazione della velocità effettiva indipendentemente dal numero IOs può essere emesso per i file di dati.  Frequenza di generazione del log delle transazioni attualmente una scalabilità lineare fino a un punto che dipende dall'hardware, con il log massimo consentita da 48 MB/s con il modello di acquisto di Vcore per velocità. 
+
+> [!NOTE]
+> IOs fisico effettivo nei file di log delle transazioni non sono regolate o limitate. 
+
+Tassi di log vengono impostate in modo che possano essere ottenute e mantenute in una vasta gamma di scenari, mentre tutto il sistema può gestire le funzionalità con un impatto ridotto a icona per il carico utente. Log frequenza governance assicura che i backup vengano mantenute all'interno di recuperabilità pubblicata i contratti di servizio il log delle transazioni.  La governance impedisce anche un backlog eccessivo sulle repliche secondarie.
+
+Quando vengono generati i record del log, ogni operazione viene valutata e valutato per indica se deve essere ritardato per mantenere una frequenza massima del registro desiderato (MB/s al secondo). I ritardi non vengono aggiunti quando i record del log vengono scaricati da archiviazione, piuttosto log frequenza governance viene applicata durante la generazione della velocità del log stesso.
+
+La generazione di log effettivo tassi di imposte in fase di esecuzione potrebbero anche essere influenzate da meccanismi di commenti e suggerimenti, ridurre temporaneamente le frequenze consentite per il log in modo che il sistema può stabilizzarsi. Gestione dello spazio file di log, evitando in esecuzione in condizioni di spazio di log e il gruppo di disponibilità di meccanismi di replica può ridurre temporaneamente i limiti di sistema complessivo. 
+
+La conformazione del traffico di log frequenza governor viene esposto tramite i seguenti tipi di attesa (esposto nel [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV):
+
+| Tipo di attesa | Note |
+| :--- | :--- |
+| LOG_RATE_GOVERNOR | La limitazione del database |
+| POOL_LOG_RATE_GOVERNOR | Limitazione di pool |
+| INSTANCE_LOG_RATE_GOVERNOR | La limitazione a livello di istanza |  
+| HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Controllo di commenti e suggerimenti, replica fisico di gruppo di disponibilità in Premium/Business Critical non bastano |  
+| HADR_THROTTLE_LOG_RATE_LOG_SIZE | Controllo di commenti e suggerimenti, limitazione della velocità per evitare di log dello spazio insufficiente |
+|||
+
+In presenza di un limite di frequenza di log che è intralciano la scalabilità desiderata, prendere in considerazione le opzioni seguenti:
+- Aumentare le prestazioni a un livello di dimensioni maggiori per ottenere la massima velocità di log 48 MB/s. 
+- Se i dati in fase di caricamento sono temporanei, ad esempio gestione temporanea dei dati in un processo ETL, può essere caricato in tempdb (che è a registrazione minima). 
+- Per gli scenari analitici, caricare in una tabella columnstore cluster coperto. In questo modo si riduce la velocità necessaria log a causa della compressione. Questa tecnica comporta un aumento utilizzo della CPU ed è applicabile solo ai set di dati che traggono vantaggio dagli indici columnstore cluster. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

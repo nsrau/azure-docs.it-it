@@ -1,24 +1,24 @@
 ---
-title: Configurare gli account di Azure per Project Acoustics
+title: Configurazione dell'Account Azure Batch acustica progetto
 titlesuffix: Azure Cognitive Services
-description: Seguire questa guida per configurare gli account di archiviazione e Azure Batch necessari per gestire l'acustica.
+description: Questa procedura viene illustrata l'impostazione di un account Azure Batch per l'utilizzo con progetti acustica Unity e Unreal integrazioni di motore.
 services: cognitive-services
 author: ashtat
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: b8735c0c5d05f2ee4bd17dc41fc90d1f5aa5128a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d3b761630124ef7f72269fe0712bf22647968d59
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876692"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58137029"
 ---
-# <a name="create-an-azure-batch-account"></a>Creare un account Azure Batch
-Seguire questa guida per configurare gli account di archiviazione e Azure Batch necessari per gestire l'acustica. Per informazioni sul plug-in Unity sviluppato come parte di Project Acoustics, vedere [Informazioni sull'acustica](what-is-acoustics.md). Per informazioni su come incorporare l'acustica nel progetto Unity, vedere [Introduzione](getting-started.md).  
+# <a name="project-acoustics-azure-batch-account-setup"></a>Configurazione dell'Account Azure Batch acustica progetto
+Questa procedura viene illustrata l'impostazione di un account Azure Batch per l'utilizzo con progetti acustica Unity e Unreal integrazioni di motore.
 
 ## <a name="get-an-azure-subscription"></a>Ottenere una sottoscrizione di Azure
 Per configurare gli account di archiviazione e Batch, è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free/). Se si esegue l'iscrizione per la prima volta, Azure offre alcune risorse gratuite di durata limitata e 200 dollari di credito.
@@ -28,40 +28,40 @@ Seguire ora [queste istruzioni](https://docs.microsoft.com/azure/batch/batch-acc
 
 Selezionare le opzioni predefinite per entrambi gli account di archiviazione e Batch:
   
-  ![Nuovo account Batch](media/NewBatchAccountCreate.png)
+  ![Nuovo account Batch](media/new-batch-account-create.png)
 
-  ![Nuovo account di archiviazione](media/BatchStorageAccountCreate.png)
+  ![Nuovo account di archiviazione](media/batch-storage-account-create.png)
 
 Per distribuire gli account, Azure impiega alcuni minuti. Cercare una notifica di completamento nell'angolo in alto a destra nel portale.
   
-  ![Account distribuiti](media/BatchAccountsDeployNotification.png)
+  ![Account distribuiti](media/batch-accounts-deploy-notification.png)
 
 Gli account dovrebbero essere ora visibili nel dashboard.
   
-  ![Dashboard del portale](media/AzurePortalDashboard.png)
+  ![Dashboard del portale](media/azure-portal-dashboard.png)
 
 ## <a name="set-up-acoustics-bake-ui-with-azure-credentials"></a>Configurare l'interfaccia utente del bake di acustica con le credenziali di Azure
 Fare clic sul collegamento all'account Batch nel dashboard, quindi fare clic sul collegamento **Chiavi** nella pagina dell'account Batch per accedere alle credenziali.
   
-  ![Collegamento Chiavi di Batch](media/BatchAccessKeys.png)
+  ![Collegamento Chiavi di Batch](media/batch-access-keys.png)
 
-  ![Credenziali dell'account Batch](media/BatchKeysInfo.png)
+  ![Credenziali dell'account Batch](media/batch-keys-info.png)
 
 Fare clic sul collegamento **Account di archiviazione** nella pagina per accedere alle credenziali dell'account di archiviazione di Azure.
   
-  ![Credenziali dell'account di archiviazione](media/StorageKeysInfo.png)
+  ![Credenziali dell'account di archiviazione](media/storage-keys-info.png)
 
-Immettere queste credenziali nella scheda Bake, come illustrato nella [procedura dettagliata sull'interfaccia utente del bake](bake-ui-walkthrough.md).
+Immettere queste credenziali nel [plug-in di Unity bake](unity-baking.md) o [plug-in bake Unreal](unreal-baking.md).
 
 ## <a name="node-types-and-region-support"></a>Tipi di nodi e supporto di aree
-Project Acoustics richiede nodi di VM di Azure con ottimizzazione per il calcolo delle serie F e H, che potrebbero non essere supportati in tutte le aree di Azure. Controllare [questa tabella](https://azure.microsoft.com/global-infrastructure/services) per assicurarsi di selezionare la località corretta per l'account Batch. Le macchine virtuali della serie H sono attualmente supportate nelle aree Stati Uniti orientali, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Stati Uniti occidentali, Stati Uniti occidentali 2, Europa settentrionale, Europa occidentale e Giappone occidentale.
+Progetto acustica richiede che e H-macchine virtuali serie Fsv2 calcolo ottimizzato nodi macchina virtuale di Azure che potrebbero non essere supportati in tutte le aree di Azure. Controllare [questa tabella](https://azure.microsoft.com/global-infrastructure/services) per assicurarsi di selezionare la località corretta per l'account Batch.
+![Macchine virtuali di Azure per area](media/azure-regions.png) 
 
 ## <a name="upgrading-your-quota"></a>Aggiornamento della quota
-Il provisioning degli account Azure Batch viene effettuato durante la creazione degli account con un limite di 20 core di calcolo. Potrebbe essere necessario aumentare questo limite per accelerare i tempi di bake, perché è possibile parallelizzare il carico di lavoro dell'acustica tra più nodi, fino al numero di punti di probe nella scena. Per richiedere un aumento di una quota, fare clic sul collegamento **Quota** nella pagina del portale di Azure Batch e quindi su **Richiedi aumento di quota**:
+Il provisioning degli account Azure Batch viene effettuato durante la creazione degli account con un limite di 20 core di calcolo. Si potrebbe essere necessario aumentare questo limite per accelerare bake, poiché è possibile parallelizzare il carico di lavoro acustica in molti nodi, fino al numero di punti di probe nella scena. Per richiedere un aumento di una quota, fare clic sul collegamento **Quota** nella pagina del portale di Azure Batch e quindi su **Richiedi aumento di quota**:
 
-![Aumento di quota di Azure](media/azurequotas.png)
+![Aumento di quota di Azure](media/azure-quotas.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Iniziare a [integrare l'acustica nei progetti Unity](getting-started.md)
-* Esplorare la [scena di esempio](sample-walkthrough.md)
+* Integrare il plug-in progetto acustica nel [Unity](unity-integration.md) oppure [Unreal](unreal-integration.md) progetto
 

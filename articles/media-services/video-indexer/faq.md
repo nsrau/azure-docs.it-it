@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: bc52c4eaf77b9441683eea8e5f899c6ef34d62e8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: e85beea4250b5ac5f4defd0b918786079d3dbe3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002358"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892660"
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -100,7 +100,7 @@ Il contenuto video o audio specificato come pubblico tramite l'impostazione di p
 
 ### <a name="what-access-does-microsoft-have-to-my-video-or-audio-files-that-have-been-indexed-andor-stored-by-video-indexer-and-the-metadata-and-insights-that-were-extracted"></a>Che tipo di accesso ha Microsoft ai file audio o video che sono stati indicizzati e/o archiviati da Video Indexer e ai metadati e alle informazioni dettagliate estratti?
 
-In base alle [condizioni per i Servizi online di Azure](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), il contenuto è interamente di proprietà dell'utente e Microsoft accederà al contenuto e ai metadati e alle informazioni dettagliate del contenuto estratti da Video Indexer solo in base a quanto stabilito dalle condizioni per i Servizi online e dall'informativa sulla privacy di Microsoft.
+In base alle [condizioni per i Servizi online di Azure](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), il contenuto è interamente di proprietà dell'utente e Microsoft accederà al contenuto e ai metadati e alle informazioni dettagliate del contenuto estratti da Video Indexer solo in base a quanto stabilito dalle condizioni per i Servizi online e dall'informativa sulla privacy di Microsoft.
 
 ### <a name="are-the-custom-models-that-i-build-in-my-video-indexer-account-available-to-other-accounts"></a>I modelli personalizzati creati nell'account di Video Indexer sono disponibili per altri account?
 
@@ -158,6 +158,10 @@ I token di accesso scadono ogni ora, pertanto è necessario generare un nuovo to
 
 Video Indexer usa un semplice modello di determinazione dei prezzi con pagamento in base al consumo che dipende dalla durata dell'input del contenuto indicizzato. La codifica, lo streaming, l'archiviazione, l'uso della rete e le unità riservate di codifica potrebbero richiedere costi aggiuntivi. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/).
 
+### <a name="when-am-i-billed-for-using-video-indexer"></a>Quando viene fatturato per l'uso di Video Indexer?
+
+Durante l'invio di un video da indicizzare, l'utente definirà l'indicizzazione per essere video analysis, analisi audio o entrambi. Determina quale SKU verrà addebitato. Se si verifica un errore a livello critico durante l'elaborazione, verrà restituito un codice di errore sotto forma di risposta. In tal caso, si verifica alcuna attività di fatturazione.  Un errore critico può essere causato da un bug nel codice o dispone di un errore critico in una relazione interna del servizio. Gli errori, ad esempio estrazione errato di identificazione o informazioni dettagliate non sono considerati come critico e viene restituita una risposta. In tutti i casi in cui viene restituita una risposta valida (codice non di errore), si verifica la fatturazione.
+ 
 ### <a name="does-video-indexer-offer-a-free-trial"></a>È disponibile una versione di valutazione gratuita di Video Indexer?
 
 Sì, è disponibile una versione di valutazione gratuita di Video Indexer che consente di accedere a tutte le caratteristiche del servizio e alle funzionalità dell'API. È prevista una quota di video equivalente a 600 minuti per gli utenti dell'interfaccia basata sul Web e a 2.400 minuti per gli utenti delle API. 

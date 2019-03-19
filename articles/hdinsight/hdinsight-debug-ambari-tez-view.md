@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9b8b92b7a672a4d344b17d4ade497749766f8a91
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 7d8a654b6b2f429119323fa5d18eb0596f63e6f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719694"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105268"
 ---
 # <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>Usare le visualizzazioni di Apache Ambari per il debug di processi Apache Tez in HDInsight
 
@@ -90,16 +90,16 @@ Usare la procedura seguente per eseguire una query Hive che usa Tez:
 
 5. Le schede in questa pagina consentono di visualizzare le informazioni seguenti:
 
-    * **Dettagli query**: informazioni dettagliate sulla query Hive.
-    * **Sequenza temporale**: informazioni sulla durata di ogni fase dell'elaborazione.
-    * **Configurazioni**: configurazione usata per questa query.
+   * **Dettagli query**: informazioni dettagliate sulla query Hive.
+   * **Sequenza temporale**: informazioni sulla durata di ogni fase dell'elaborazione.
+   * **Configurazioni**: configurazione usata per questa query.
 
-    Da __Dettagli query__ è possibile usare i collegamenti per trovare le informazioni sull'__applicazione__ o il __DAG__ per questa query.
+     Da __Dettagli query__ è possibile usare i collegamenti per trovare le informazioni sull'__applicazione__ o il __DAG__ per questa query.
     
-    * Il collegamento __Applicazione__ consente di visualizzare informazioni sull'applicazione YARN per questa query. Da qui è possibile accedere ai registri dell'applicazione YARN.
-    * Il collegamento __DAG__ consente di visualizzare le informazioni su un grafo aciclico diretto per questa query. Da qui è possibile visualizzare una rappresentazione grafica del DAG. È anche possibile trovare informazioni sui vertici all'interno del DAG.
+   * Il collegamento __Applicazione__ consente di visualizzare informazioni sull'applicazione YARN per questa query. Da qui è possibile accedere ai registri dell'applicazione YARN.
+   * Il collegamento __DAG__ consente di visualizzare le informazioni su un grafo aciclico diretto per questa query. Da qui è possibile visualizzare una rappresentazione grafica del DAG. È anche possibile trovare informazioni sui vertici all'interno del DAG.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 A questo punto, dopo avere appreso come usare la vista Apache Tez, è possibile trovare altre informazioni in [Uso di Apache Hive in HDInsight](hadoop/hdinsight-use-hive.md).
 

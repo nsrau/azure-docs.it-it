@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25af451ac06a7d744e171754db6f4e54cb2156c9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 78e15de18e57e949b2e7b7146269204469e61797
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203218"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106951"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizzare la funzionalità di Azure AD per la reimpostazione della password self-service
 
@@ -68,8 +68,8 @@ Gli elementi grafici scelti vengono visualizzati nelle circostanze seguenti:
 
 * Dopo che l'utente immette il proprio nome utente
 * Se l'utente accede all'URL personalizzato:
-    * Passando il parametro `whr` alla pagina per la reimpostazione della password, ad esempio "https://login.microsoftonline.com/?whr=contoso.com"
-    * Passando il parametro `username` alla pagina per la reimpostazione della password, ad esempio "https://login.microsoftonline.com/?username=admin@contoso.com"
+    * Passando il `whr` parametro per la password reimpostazione della pagina, ad esempio `https://login.microsoftonline.com/?whr=contoso.com`
+    * Passando il `username` parametro per la password reimpostazione della pagina, ad esempio `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 Per Informazioni dettagliate su come configurare le informazioni personalizzate distintive dell'azienda, vedere l'articolo [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso](../fundamentals/customize-branding.md).
 

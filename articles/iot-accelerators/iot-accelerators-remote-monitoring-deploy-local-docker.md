@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 252aacfeb85f23699c6a2e2ac1f457f9e2b59b0e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c00e62e237fe263f54926c8e74fb6211a2e5a4e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997184"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993059"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Distribuire localmente l'acceleratore di soluzioni di monitoraggio remoto - Docker
 
@@ -96,7 +96,7 @@ Per avviare il processo di analisi di flusso, seguire questa procedura:
 
 ### <a name="connect-to-the-dashboard"></a>Connettersi al dashboard
 
-Per accedere alla dashboard della soluzione di monitoraggio remoto, passare a [http://localhost:8080](http://localhost:8080) nel browser. È ora possibile usare l'interfaccia utente Web e i microservizi locali.
+Per accedere a dashboard della soluzione di monitoraggio remoto, passare a `http://localhost:8080` nel browser. È ora possibile usare l'interfaccia utente Web e i microservizi locali.
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 

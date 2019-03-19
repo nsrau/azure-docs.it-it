@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: kumud
-ms.openlocfilehash: c9524396376f3de7d9468d94e3236929aadd374c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 6dea36afd3a426bbbd0c28a96f21ccad1a82ea88
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463916"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998004"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Esercitazione: Migliorare la risposta di un sito Web tramite Gestione traffico
 
@@ -63,6 +63,7 @@ In questa sezione si creano due VM *myIISVMEastUS* e *myIISVMWEurope* nelle aree
     |Gruppo di risorse| Selezionare **Nuovo** e quindi digitare *myResourceGroupTM1*.|
     |Località| Selezionare **Stati Uniti orientali**.|
     |||
+
 4. Selezionare le dimensioni della macchina virtuale in **Scegli una dimensione**.
 5. Selezionare i valori seguenti in **Impostazioni**, quindi scegliere **OK**:
     
@@ -72,6 +73,7 @@ In questa sezione si creano due VM *myIISVMEastUS* e *myIISVMWEurope* nelle aree
     |Gruppo di sicurezza di rete|Selezionare **Base** e dall'elenco a discesa **Selezionare le porte in ingresso pubbliche** selezionare **HTTP** e **RDP**. |
     |Diagnostica di avvio|Selezionare **Disabilitata**.|
     |||
+
 6. In **Crea** in **Riepilogo** selezionare **Crea** per avviare la distribuzione della macchina virtuale.
 
 7. Ripetere i passaggi da 1 a 6, con le modifiche seguenti:
@@ -83,6 +85,7 @@ In questa sezione si creano due VM *myIISVMEastUS* e *myIISVMWEurope* nelle aree
     |Nome macchina virtuale | myIISVMWEurope|
     |Rete virtuale | Selezionare **Rete virtuale** in **Crea rete virtuale**, immettere **myVNet2** per *Nome* e *mySubnet* per la subnet.|
     |||
+
 8. La creazione delle macchine virtuali può richiedere alcuni minuti. Non procedere con i passaggi rimanenti finché non sono state create entrambe le macchine virtuali.
 
    ![Creare una macchina virtuale](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
@@ -115,7 +118,7 @@ In questa sezione si installa il server IIS nelle due VM, *myIISVMEastUS*  &  *m
 
 #### <a name="configure-dns-names-for-the-vms-running-iis"></a>Configurare i nomi DNS per le VM che eseguono IIS
 
-Gestione traffico instrada il traffico degli utenti in base al nome DNS degli endpoint di servizio. In questa sezione vengono configurati i nomi DNS per i server IIS, *myIISVMEastUS* e *myIISVMWEurope*.
+Gestione traffico instrada il traffico degli utenti in base al nome DNS degli endpoint di servizio. In questa sezione si configurano i nomi DNS per i server IIS, *myIISVMEastUS* e *myIISVMWEurope*.
 
 1. Fare clic su **Tutte le risorse** nel menu a sinistra e quindi nell'elenco delle risorse selezionare *myIISVMEastUS*, che si trova nel gruppo di risorse *myResourceGroupTM1*.
 2. Nella pagina **Panoramica**, in **Nome DNS**, selezionare **Configura**.
@@ -139,6 +142,7 @@ In questa sezione si crea una VM (*mVMEastUS* e *myVMWestEurope*) in ogni area d
 
 4. Selezionare le dimensioni della macchina virtuale in **Scegli una dimensione**.
 5. Selezionare i valori seguenti in **Impostazioni**, quindi scegliere **OK**:
+
     |Impostazione|Valore|
     |---|---|
     |Rete virtuale| Selezionare **Rete virtuale** in **Crea rete virtuale**, immettere **myVNet3** per *Nome* e *mySubnet* per la subnet.|
@@ -164,6 +168,7 @@ Creare un profilo di Gestione traffico che indirizza il traffico degli utenti ve
 
 1. In alto a sinistra nello schermo selezionare **Crea una risorsa** > **Rete** > **Profilo di Gestione traffico** > **Crea**.
 2. In **Crea profilo di Gestione traffico** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le impostazioni rimanenti e quindi selezionare **Crea**:
+
     | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
     | NOME                   | Questo nome deve essere univoco all'interno della zona trafficmanager.net e determina il nome DNS, trafficmanager.net, che viene usato per accedere al profilo di Gestione traffico.                                   |
@@ -185,7 +190,7 @@ Aggiungere le due VM che eseguono i server IIS, *myIISVMEastUS*  &  *myIISVMWEur
 
     | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
-    | type                    | Endpoint di Azure                                   |
+    | Type                    | Endpoint di Azure                                   |
     | NOME           | myEastUSEndpoint                                        |
     | Tipo di risorsa di destinazione           | Indirizzo IP pubblico                          |
     | Risorsa di destinazione          | **Scegliere un indirizzo IP pubblico** per visualizzare l'elenco delle risorse con gli indirizzi IP pubblici inclusi nella stessa sottoscrizione. In **Risorsa** selezionare l'indirizzo IP pubblico denominato *myIISVMEastUS-ip*. Questo è l'indirizzo IP pubblico della VM del server IIS nell'area Stati Uniti orientali.|

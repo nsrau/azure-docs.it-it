@@ -10,15 +10,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 11/14/2018
+ms.date: 03/05/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 0aa0be7ae9658259b327014c5678777c963e6cb5
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
-ms.translationtype: HT
+ms.openlocfilehash: 1d2d53213af34377d23c9ea140bab15822fc1b2e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302817"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444770"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Rendere persistenti i dati delle attività in Archiviazione di Azure con l'API del servizio Batch
 
@@ -36,9 +36,6 @@ Il servizio Azure Batch offre diversi modi per rendere persistente l'output dell
 - Si vuole rendere persistente l'output delle attività del servizio Batch e delle attività del gestore di processi create con la configurazione della macchina virtuale.
 - Si vuole rendere persistente l'output in un contenitore di Archiviazione di Azure con un nome arbitrario.
 - Si vuole rendere persistente l'output in un contenitore di Archiviazione di Azure denominato in base agli [standard di Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
-
-> [!NOTE]
-> L'API del servizio Batch non consente di rendere persistenti i dati dalle attività in esecuzione nei pool creati con la configurazione del servizio cloud. Per informazioni su come rendere persistente l'output delle attività dai pool che eseguono la configurazione dei servizi cloud, vedere [Rendere persistenti i dati di attività e processi in Archiviazione di Azure con la libreria Batch File Conventions per .NET](batch-task-output-file-conventions.md).
 
 Se lo scenario è diverso da quelli sopra elencati, potrebbe essere necessario prendere in considerazione un approccio diverso. Ad esempio, l'API del servizio Batch attualmente non supporta flussi dell'output in Archiviazione di Azure durante l'esecuzione dell'attività. Per questa esigenza, prendere in considerazione l'uso della libreria Batch File Conventions, disponibile per .NET. Per altri linguaggi, sarà necessario implementare una soluzione personalizzata. Per altre informazioni sulle opzioni per rendere persistente l'output delle attività, vedere [Rendere persistente l'output di processi e attività](batch-task-output.md).
 

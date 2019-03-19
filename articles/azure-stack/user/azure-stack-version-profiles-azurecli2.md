@@ -14,12 +14,12 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 261efda18b7cecc6370743c604622a8884ff8364
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 519046081a7f9778fb430daa0cd418cf9863a2b0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57732309"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57975628"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Usare i profili delle versioni API con il comando di Azure in Azure Stack
 
@@ -47,7 +47,7 @@ Per esportare il certificato radice ASDK nel formato PEM:
 
 2. Accedi al computer, aprire un prompt di PowerShell con privilegi elevato e quindi eseguire lo script seguente:
 
-      ```powershell  
+    ```powershell  
       $label = "AzureStackSelfSignedRootCert"
       Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
       $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
@@ -56,13 +56,13 @@ Per esportare il certificato radice ASDK nel formato PEM:
           Write-Error "Certificate with subject CN=$label not found"
           return
       }
-      
+
     Write-Host "Exporting certificate"
     Export-Certificate -Type CERT -FilePath root.cer -Cert $root
 
     Write-Host "Converting certificate to PEM format"
     certutil -encode root.cer root.pem
-```
+    ```
 
 3. Copiare il certificato nel computer locale.
 
@@ -75,15 +75,15 @@ Per esportare il certificato radice ASDK nel formato PEM:
 
 2. Scaricare il [file di esempio](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) da GitHub.
 
-4. Creare un account di archiviazione in Azure Stack. Al termine, creare un contenitore blob. Impostare i criteri di accesso per "pubblico".  
+3. Creare un account di archiviazione in Azure Stack. Al termine, creare un contenitore blob. Impostare i criteri di accesso per "pubblico".  
 
-3. Caricare il file JSON nel nuovo contenitore. Al termine, è possibile visualizzare l'URL del blob. Selezionare il nome del blob e quindi selezionando l'URL dalle proprietà del blob.
+4. Caricare il file JSON nel nuovo contenitore. Al termine, è possibile visualizzare l'URL del blob. Selezionare il nome del blob e quindi selezionando l'URL dalle proprietà del blob.
 
-### <a name="install-or-ugrade-cli"></a>Installare o aggiornare CLI
+### <a name="install-or-upgrade-cli"></a>Installazione o l'aggiornamento della riga di comando
 
 Accedere alla workstation di sviluppo e installare CLI. Azure Stack richiede la versione 2.0 o versione successiva della riga di comando di Azure. La versione più recente dei profili di API richiede una versione corrente della riga di comando.  È possibile installare l'interfaccia della riga di comando usando i passaggi descritti nel [installare CLI Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) articolo. Per verificare se l'installazione ha avuto esito positivo, aprire un terminale o una finestra del prompt dei comandi ed eseguire il comando seguente:
 
-```azurecli
+```shell
 az --version
 ```
 
@@ -151,7 +151,7 @@ In questa sezione illustrerà impostazione della riga di comando se si usa Azure
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Considerare attendibile il certificato di autorità di certificazione di Azure Stack radice
 
-Se si usa il ASDK, è necessario considerare attendibile il certificato radice della CA nel computer remoto. Non è necessario eseguire questa operazione con i sistemi intregrated.
+Se si usa il ASDK, è necessario considerare attendibile il certificato radice della CA nel computer remoto. Non è necessario eseguire questa operazione con i sistemi integrati.
 
 Per rendere attendibile il certificato radice CA Azure Stack, aggiungerlo al certificato Python esistente.
 
@@ -206,11 +206,12 @@ Per rendere attendibile il certificato radice CA Azure Stack, aggiungerlo al cer
     ```
 
 2. Registrare l'ambiente. Usare i parametri seguenti durante l'esecuzione `az cloud register`.
+
     | Valore | Esempio | DESCRIZIONE |
     | --- | --- | --- |
     | Nome ambiente | AzureStackUser | Usare `AzureStackUser` per l'ambiente utente. Se si è l'operatore, specificare `AzureStackAdmin`. |
-    | Endpoint di gestione risorse | https://management.local.azurestack.external | Il **ResourceManagerUrl** in Azure Stack Development Kit (ASDK) è: `https://management.local.azurestack.external/` Il **ResourceManagerUrl** in sistemi integrati è: `https://management.<region>.<fqdn>/` Per recuperare i metadati richiesti: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Se hai una domanda sull'endpoint di sistema integrato, contattare l'operatore cloud. |
-    | Endpoint di archiviazione | local.azurestack.external | `local.azurestack.external` è destinato il ASDK. Per un sistema intregrated, è consigliabile usare un endpoint per il sistema.  |
+    | Endpoint di Resource Manager | https://management.local.azurestack.external | Il **ResourceManagerUrl** in Azure Stack Development Kit (ASDK) è: `https://management.local.azurestack.external/` Il **ResourceManagerUrl** in sistemi integrati è: `https://management.<region>.<fqdn>/` Per recuperare i metadati richiesti: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Se hai una domanda sull'endpoint di sistema integrato, contattare l'operatore cloud. |
+    | Endpoint di archiviazione | local.azurestack.external | `local.azurestack.external` è destinato il ASDK. Per un sistema integrato, è consigliabile usare un endpoint per il sistema.  |
     | Suffisso Keyvalut | .vault.local.azurestack.external | `.vault.local.azurestack.external` è destinato il ASDK. Per un sistema integrato, è consigliabile usare un endpoint per il sistema.  |
     | Immagine VM alias doc endpoint | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI del documento che contiene gli alias di immagine di macchina virtuale. Per altre informazioni, vedere [# # # configurare l'endpoint di macchina virtuale gli alias](#set-up-the-virtual-machine-aliases-endpoint). |
 
@@ -235,24 +236,24 @@ Per rendere attendibile il certificato radice CA Azure Stack, aggiungerlo al cer
  
 1. Accedere all'ambiente Azure Stack usando il `az login` comando. È possibile accedere all'ambiente Azure Stack come un utente o come un [entità servizio](../../active-directory/develop/app-objects-and-service-principals.md). 
 
-  - Accedere come un *utente*: 
+   - Accedere come un *utente*: 
 
-    È possibile specificare il nome utente e password direttamente all'interno di `az login` comando o eseguire l'autenticazione usando un browser. È necessario eseguire quest'ultimo se l'account è abilitata l'autenticazione a più fattori:
+     È possibile specificare il nome utente e password direttamente all'interno di `az login` comando o eseguire l'autenticazione usando un browser. È necessario eseguire quest'ultimo se l'account è abilitata l'autenticazione a più fattori:
 
-    ```azurecli
-    az login -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
-    ```
+     ```azurecli
+     az login -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
+     ```
 
-    > [!NOTE]
-    > Se l'account utente è attivata l'autenticazione a più fattori, è possibile usare la `az login` comando senza fornire il `-u` parametro. Questo comando fornisce un URL e un codice che è necessario usare per eseguire l'autenticazione.
+     > [!NOTE]
+     > Se l'account utente è attivata l'autenticazione a più fattori, è possibile usare la `az login` comando senza fornire il `-u` parametro. Questo comando fornisce un URL e un codice che è necessario usare per eseguire l'autenticazione.
 
-  - Accedere come un *entità servizio*: 
+   - Accedere come un *entità servizio*: 
     
-    Prima di accedere, [creare un'entità servizio tramite il portale di Azure](azure-stack-create-service-principals.md) o CLI e assegnarle un ruolo. Accedere a questo punto, usando il comando seguente:
+     Prima di accedere, [creare un'entità servizio tramite il portale di Azure](azure-stack-create-service-principals.md) o CLI e assegnarle un ruolo. Accedere a questo punto, usando il comando seguente:
 
-    ```azurecli  
-    az login --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> --service-principal -u <Application Id of the Service Principal> -p <Key generated for the Service Principal>
-    ```
+     ```azurecli  
+     az login --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> --service-principal -u <Application Id of the Service Principal> -p <Key generated for the Service Principal>
+     ```
 
 ### <a name="test-the-connectivity"></a>Testare la connettività
 
@@ -272,7 +273,7 @@ In questa sezione illustrerà impostazione della riga di comando se si usa Activ
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Considerare attendibile il certificato di autorità di certificazione di Azure Stack radice
 
-Se si usa il ASDK, è necessario considerare attendibile il certificato radice della CA nel computer remoto. Non è necessario eseguire questa operazione con i sistemi intregrated.
+Se si usa il ASDK, è necessario considerare attendibile il certificato radice della CA nel computer remoto. Non è necessario eseguire questa operazione con i sistemi integrati.
 
 1. Trovare il percorso di certificato nel computer. Il percorso può variare in base alla quale è stato installato Python. Aprire un prompt dei comandi o un prompt di PowerShell con privilegi elevato e digitare il comando seguente:
 
@@ -325,11 +326,12 @@ Se si usa il ASDK, è necessario considerare attendibile il certificato radice d
     ```
 
 2. Registrare l'ambiente. Usare i parametri seguenti durante l'esecuzione `az cloud register`.
+
     | Valore | Esempio | DESCRIZIONE |
     | --- | --- | --- |
     | Nome ambiente | AzureStackUser | Usare `AzureStackUser` per l'ambiente utente. Se si è l'operatore, specificare `AzureStackAdmin`. |
-    | Endpoint di gestione risorse | https://management.local.azurestack.external | Il **ResourceManagerUrl** in Azure Stack Development Kit (ASDK) è: `https://management.local.azurestack.external/` Il **ResourceManagerUrl** in sistemi integrati è: `https://management.<region>.<fqdn>/` Per recuperare i metadati richiesti: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Se hai una domanda sull'endpoint di sistema integrato, contattare l'operatore cloud. |
-    | Endpoint di archiviazione | local.azurestack.external | `local.azurestack.external` è destinato il ASDK. Per un sistema intregrated, è consigliabile usare un endpoint per il sistema.  |
+    | Endpoint di Resource Manager | https://management.local.azurestack.external | Il **ResourceManagerUrl** in Azure Stack Development Kit (ASDK) è: `https://management.local.azurestack.external/` Il **ResourceManagerUrl** in sistemi integrati è: `https://management.<region>.<fqdn>/` Per recuperare i metadati richiesti: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Se hai una domanda sull'endpoint di sistema integrato, contattare l'operatore cloud. |
+    | Endpoint di archiviazione | local.azurestack.external | `local.azurestack.external` è destinato il ASDK. Per un sistema integrato, è consigliabile usare un endpoint per il sistema.  |
     | Suffisso Keyvalut | .vault.local.azurestack.external | `.vault.local.azurestack.external` è destinato il ASDK. Per un sistema integrato, è consigliabile usare un endpoint per il sistema.  |
     | Immagine VM alias doc endpoint | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI del documento che contiene gli alias di immagine di macchina virtuale. Per altre informazioni, vedere [# # # configurare l'endpoint di macchina virtuale gli alias](#set-up-the-virtual-machine-aliases-endpoint). |
 
@@ -354,34 +356,34 @@ Se si usa il ASDK, è necessario considerare attendibile il certificato radice d
 
 1. Accedere all'ambiente Azure Stack usando il `az login` comando. È possibile accedere all'ambiente Azure Stack come un utente o come un [entità servizio](../../active-directory/develop/app-objects-and-service-principals.md). 
 
-  - Accedere come un *utente*:
+   - Accedere come un *utente*:
 
-    È possibile specificare il nome utente e password direttamente all'interno di `az login` comando o eseguire l'autenticazione usando un browser. È necessario eseguire quest'ultimo se l'account è abilitata l'autenticazione a più fattori:
+     È possibile specificare il nome utente e password direttamente all'interno di `az login` comando o eseguire l'autenticazione usando un browser. È necessario eseguire quest'ultimo se l'account è abilitata l'autenticazione a più fattori:
 
-    ```azurecli
-    az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/" --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2018-03-01-hybrid"
-    ```
+     ```azurecli
+     az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/" --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2018-03-01-hybrid"
+     ```
 
-    > [!NOTE]
-    > Se l'account utente è attivata l'autenticazione a più fattori, è possibile usare la `az login` comando senza fornire il `-u` parametro. Questo comando fornisce un URL e un codice che è necessario usare per eseguire l'autenticazione.
+     > [!NOTE]
+     > Se l'account utente è attivata l'autenticazione a più fattori, è possibile usare la `az login` comando senza fornire il `-u` parametro. Questo comando fornisce un URL e un codice che è necessario usare per eseguire l'autenticazione.
 
-  - Accedere come un *entità servizio*: 
+   - Accedere come un *entità servizio*: 
     
-    Preparare il file con estensione PEM da utilizzare per l'accesso dell'entità servizio.
+     Preparare il file con estensione PEM da utilizzare per l'accesso dell'entità servizio.
 
-    Nel computer client in cui l'entità è stata creata, esportare il certificato dell'entità servizio come un file pfx con la chiave privata disponibile all'indirizzo `cert:\CurrentUser\My`; il certificato nome ha lo stesso nome dell'entità.
+     Nel computer client in cui l'entità è stata creata, esportare il certificato dell'entità servizio come un file pfx con la chiave privata disponibile all'indirizzo `cert:\CurrentUser\My`; il certificato nome ha lo stesso nome dell'entità.
 
-    Convertire il file pfx in pem (usare l'utilità di OpenSSL).
+     Convertire il file pfx in pem (usare l'utilità di OpenSSL).
 
-    Accedi per l'interfaccia della riga di comando:
+     Accedi per l'interfaccia della riga di comando:
   
-    ```azurecli  
-    az login --service-principal \
+     ```azurecli  
+     az login --service-principal \
       -u <Client ID from the Service Principal details> \
       -p <Certificate's fully qualified name, such as, C:\certs\spn.pem>
       --tenant <Tenant ID> \
       --debug 
-    ```
+     ```
 
 ### <a name="test-the-connectivity"></a>Testare la connettività
 
@@ -402,7 +404,7 @@ In questa sezione illustrerà impostazione della riga di comando se si usa Azure
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Considerare attendibile il certificato di autorità di certificazione di Azure Stack radice
 
-Se si usa il ASDK, è necessario considerare attendibile il certificato radice della CA nel computer remoto. Non è necessario eseguire questa operazione con i sistemi intregrated.
+Se si usa il ASDK, è necessario considerare attendibile il certificato radice della CA nel computer remoto. Non è necessario eseguire questa operazione con i sistemi integrati.
 
 Considerare attendibile il certificato radice CA Azure Stack aggiungendolo al certificato Python esistente.
 
@@ -416,17 +418,17 @@ Considerare attendibile il certificato radice CA Azure Stack aggiungendolo al ce
 
 2. Eseguire il comando bash seguente con il percorso del certificato.
 
-  - Per un computer Linux remoto:
+   - Per un computer Linux remoto:
 
-    ```bash  
-    sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
-    ```
+     ```bash  
+     sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
+     ```
 
-  - Per una macchina Linux all'interno dell'ambiente Azure Stack:
+   - Per una macchina Linux all'interno dell'ambiente Azure Stack:
 
-    ```bash  
-    sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
-    ```
+     ```bash  
+     sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
+     ```
 
 ### <a name="connect-to-azure-stack"></a>Connettersi ad Azure Stack
 
@@ -440,11 +442,12 @@ Usare la procedura seguente per connettersi ad Azure Stack:
    ```
 
 2. Registrare l'ambiente. Usare i parametri seguenti durante l'esecuzione `az cloud register`.
+
     | Valore | Esempio | DESCRIZIONE |
     | --- | --- | --- |
     | Nome ambiente | AzureStackUser | Usare `AzureStackUser` per l'ambiente utente. Se si è l'operatore, specificare `AzureStackAdmin`. |
-    | Endpoint di gestione risorse | https://management.local.azurestack.external | Il **ResourceManagerUrl** in Azure Stack Development Kit (ASDK) è: `https://management.local.azurestack.external/` Il **ResourceManagerUrl** in sistemi integrati è: `https://management.<region>.<fqdn>/` Per recuperare i metadati richiesti: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Se hai una domanda sull'endpoint di sistema integrato, contattare l'operatore cloud. |
-    | Endpoint di archiviazione | local.azurestack.external | `local.azurestack.external` è destinato il ASDK. Per un sistema intregrated, è consigliabile usare un endpoint per il sistema.  |
+    | Endpoint di Resource Manager | https://management.local.azurestack.external | Il **ResourceManagerUrl** in Azure Stack Development Kit (ASDK) è: `https://management.local.azurestack.external/` Il **ResourceManagerUrl** in sistemi integrati è: `https://management.<region>.<fqdn>/` Per recuperare i metadati richiesti: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Se hai una domanda sull'endpoint di sistema integrato, contattare l'operatore cloud. |
+    | Endpoint di archiviazione | local.azurestack.external | `local.azurestack.external` è destinato il ASDK. Per un sistema integrato, è consigliabile usare un endpoint per il sistema.  |
     | Suffisso Keyvalut | .vault.local.azurestack.external | `.vault.local.azurestack.external` è destinato il ASDK. Per un sistema integrato, è consigliabile usare un endpoint per il sistema.  |
     | Immagine VM alias doc endpoint | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI del documento che contiene gli alias di immagine di macchina virtuale. Per altre informazioni, vedere [# # # configurare l'endpoint di macchina virtuale gli alias](#set-up-the-virtual-machine-aliases-endpoint). |
 
@@ -469,30 +472,30 @@ Usare la procedura seguente per connettersi ad Azure Stack:
 
 5. Accedere all'ambiente Azure Stack usando il `az login` comando. È possibile accedere all'ambiente Azure Stack come un utente o come un [entità servizio](../../active-directory/develop/app-objects-and-service-principals.md). 
 
-    * Accedere come un *utente*:
+   * Accedere come un *utente*:
 
-    È possibile specificare il nome utente e password direttamente all'interno di `az login` comando o eseguire l'autenticazione usando un browser. È necessario eseguire quest'ultimo se l'account è abilitata l'autenticazione a più fattori:
+     È possibile specificare il nome utente e password direttamente all'interno di `az login` comando o eseguire l'autenticazione usando un browser. È necessario eseguire quest'ultimo se l'account è abilitata l'autenticazione a più fattori:
 
-      ```azurecli
-      az login \
-        -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> \
-        --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
-      ```
+     ```azurecli
+     az login \
+       -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> \
+       --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
+     ```
 
-    > [!NOTE]
-    > Se l'account utente è attivata l'autenticazione a più fattori, è possibile usare la `az login` comando senza fornire il `-u` parametro. Questo comando fornisce un URL e un codice che è necessario usare per eseguire l'autenticazione.
+     > [!NOTE]
+     > Se l'account utente è attivata l'autenticazione a più fattori, è possibile usare la `az login` comando senza fornire il `-u` parametro. Questo comando fornisce un URL e un codice che è necessario usare per eseguire l'autenticazione.
    
-    * Accedere come un *entità servizio*
+   * Accedere come un *entità servizio*
     
-    Prima di accedere, [creare un'entità servizio tramite il portale di Azure](azure-stack-create-service-principals.md) o CLI e assegnarle un ruolo. Accedere a questo punto, usando il comando seguente:
+     Prima di accedere, [creare un'entità servizio tramite il portale di Azure](azure-stack-create-service-principals.md) o CLI e assegnarle un ruolo. Accedere a questo punto, usando il comando seguente:
 
-      ```azurecli  
-      az login \
-        --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
-        --service-principal \
-        -u <Application Id of the Service Principal> \
-        -p <Key generated for the Service Principal>
-      ```
+     ```azurecli  
+     az login \
+       --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
+       --service-principal \
+       -u <Application Id of the Service Principal> \
+       -p <Key generated for the Service Principal>
+     ```
 
 ### <a name="test-the-connectivity"></a>Testare la connettività
 
@@ -512,7 +515,7 @@ In questa sezione illustrerà impostazione della riga di comando se si usa Activ
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Considerare attendibile il certificato di autorità di certificazione di Azure Stack radice
 
-Se si usa il ASDK, è necessario considerare attendibile il certificato radice della CA nel computer remoto. Non è necessario eseguire questa operazione con i sistemi intregrated.
+Se si usa il ASDK, è necessario considerare attendibile il certificato radice della CA nel computer remoto. Non è necessario eseguire questa operazione con i sistemi integrati.
 
 Considerare attendibile il certificato radice CA Azure Stack aggiungendolo al certificato Python esistente.
 
@@ -526,17 +529,17 @@ Considerare attendibile il certificato radice CA Azure Stack aggiungendolo al ce
 
 2. Eseguire il comando bash seguente con il percorso del certificato.
 
-  - Per un computer Linux remoto:
+   - Per un computer Linux remoto:
 
-    ```bash  
-    sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
-    ```
+     ```bash  
+     sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
+     ```
 
-  - Per una macchina Linux all'interno dell'ambiente Azure Stack:
+   - Per una macchina Linux all'interno dell'ambiente Azure Stack:
 
-    ```bash  
-    sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
-    ```
+     ```bash  
+     sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
+     ```
 
 ### <a name="connect-to-azure-stack"></a>Connettersi ad Azure Stack
 
@@ -550,11 +553,12 @@ Usare la procedura seguente per connettersi ad Azure Stack:
    ```
 
 2. Registrare l'ambiente. Usare i parametri seguenti durante l'esecuzione `az cloud register`.
+
     | Valore | Esempio | DESCRIZIONE |
     | --- | --- | --- |
     | Nome ambiente | AzureStackUser | Usare `AzureStackUser` per l'ambiente utente. Se si è l'operatore, specificare `AzureStackAdmin`. |
-    | Endpoint di gestione risorse | https://management.local.azurestack.external | Il **ResourceManagerUrl** in Azure Stack Development Kit (ASDK) è: `https://management.local.azurestack.external/` Il **ResourceManagerUrl** in sistemi integrati è: `https://management.<region>.<fqdn>/` Per recuperare i metadati richiesti: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Se hai una domanda sull'endpoint di sistema integrato, contattare l'operatore cloud. |
-    | Endpoint di archiviazione | local.azurestack.external | `local.azurestack.external` è destinato il ASDK. Per un sistema intregrated, è consigliabile usare un endpoint per il sistema.  |
+    | Endpoint di Resource Manager | https://management.local.azurestack.external | Il **ResourceManagerUrl** in Azure Stack Development Kit (ASDK) è: `https://management.local.azurestack.external/` Il **ResourceManagerUrl** in sistemi integrati è: `https://management.<region>.<fqdn>/` Per recuperare i metadati richiesti: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Se hai una domanda sull'endpoint di sistema integrato, contattare l'operatore cloud. |
+    | Endpoint di archiviazione | local.azurestack.external | `local.azurestack.external` è destinato il ASDK. Per un sistema integrato, è consigliabile usare un endpoint per il sistema.  |
     | Suffisso Keyvalut | .vault.local.azurestack.external | `.vault.local.azurestack.external` è destinato il ASDK. Per un sistema integrato, è consigliabile usare un endpoint per il sistema.  |
     | Immagine VM alias doc endpoint | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI del documento che contiene gli alias di immagine di macchina virtuale. Per altre informazioni, vedere [# # # configurare l'endpoint di macchina virtuale gli alias](#set-up-the-virtual-machine-aliases-endpoint). |
 
@@ -581,24 +585,24 @@ Usare la procedura seguente per connettersi ad Azure Stack:
 
 6. Accedi: 
 
-  *  Come un **utente** usando un web browser con un codice di dispositivo:  
+   *  Come un **utente** usando un web browser con un codice di dispositivo:  
 
-  ```azurecli  
+   ```azurecli  
     az login --use-device-code
-  ```
+   ```
 
-  > [!NOTE]  
-  >Esecuzione del comando fornisce un URL e un codice che è necessario usare per eseguire l'autenticazione.
+   > [!NOTE]  
+   >Esecuzione del comando fornisce un URL e un codice che è necessario usare per eseguire l'autenticazione.
 
-  * Come un'entità servizio:
+   * Come un'entità servizio:
         
-    Preparare il file con estensione PEM da utilizzare per l'accesso dell'entità servizio.
+     Preparare il file con estensione PEM da utilizzare per l'accesso dell'entità servizio.
 
       * Nel computer client in cui l'entità è stata creata, esportare il certificato dell'entità servizio come un file pfx con la chiave privata disponibile all'indirizzo `cert:\CurrentUser\My`; il certificato nome ha lo stesso nome dell'entità.
   
       * Convertire il file pfx in pem (usare l'utilità di OpenSSL).
 
-    Accedi per l'interfaccia della riga di comando:
+     Accedi per l'interfaccia della riga di comando:
 
       ```azurecli  
       az login --service-principal \

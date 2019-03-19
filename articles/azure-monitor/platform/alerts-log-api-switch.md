@@ -5,20 +5,20 @@ author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/24/2018
+ms.date: 03/01/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 6af1c5347a522f7e42feecb6722dfbb64439d086
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 7c8e2297426b098fa6e86a5cda81afc2d71b08f4
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341012"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214640"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Modificare la preferenza della API degli avvisi di Log Alerts
 
 > [!NOTE]
-> Contenuto indicato **non** applicabile agli utenti di Azure GovCloud e solo per gli utenti del cloud pubblico di Azure.  
+> Contenuto dichiarato applicabile agli utenti solo cloud pubblico Azure e **non** per cloud di Azure per enti pubblici o Azure Cina.  
 
 Fino a poco tempo fa le regole degli avvisi venivano gestite nel portale Microsoft Operations Management Suite (OMS). La nuova esperienza avvisi è stata integrata con diversi servizi in Microsoft Azure, tra cui Log Analytics e abbiamo chiesto di [estendere le regole di avviso dal portale OMS ad Azure](alerts-extend.md). Ma per assicurare un'interruzione minima per i clienti, il processo non ha modificato l'interfaccia programmatica per l'uso- [API degli avvisi di Log Analytics](api-alerts.md) basata su SavedSearch.
 
@@ -43,6 +43,7 @@ Gli effetti della commutazione delle preferenze API scheduledQueryRules sono i s
 
 - Tutte le interazioni eseguite per la gestione degli avvisi relativi ai log tramite interfacce programmatiche ora devono essere create tramite [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Per altre informazioni, vedere [l'uso di esempio di Modello di risorsa di Azure](alerts-log.md#managing-log-alerts-using-azure-resource-template) e [l'uso di esempio tramite PowerShell o interfaccia della riga di comando di Azure](alerts-log.md#managing-log-alerts-using-powershell-cli-or-api)
 - Le nuove regole degli avvisi relativi ai log create nel portale di Azure verranno create solo tramite [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e consentiranno agli utenti di usare [funzionalità aggiuntive della nuova API](#Benefits-of-switching-to-new-Azure-API) anche tramite il portale di Azure
+- Livello di gravità per le regole di avviso di log verrà spostato dal: *Critico, avviso e informativi*, in *i valori di gravità di 0, 1 e 2*. Insieme all'opzione per creare o aggiornare le regole di avviso con gravità 4.
 
 Qualsiasi cliente che desideri passare volontariamente al nuovo [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e bloccare l'uso dalla [API legacy degli avvisi relativi a Log Analytics](api-alerts.md) può farlo effettuando una chiamata PUT sull'API per cambiare tutte le regole relative agli avvisi associate all'area di lavoro specifica di Log Analytics.
 

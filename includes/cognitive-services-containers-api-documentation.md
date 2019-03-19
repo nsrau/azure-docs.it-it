@@ -4,12 +4,12 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/24/2019
-ms.openlocfilehash: 81fab765ca65717bac2902d097e636c386d55ee4
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: db3b5edfea8d471bb763c2160c3bb77a7df989f6
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302295"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56741600"
 ---
 Il contenitore fornisce documentazione completa per gli endpoint, oltre a una funzionalità `Try it now`. Questa funzionalità consente di immettere le impostazioni personalizzate in un modulo HTML basato sul Web ed eseguire la query senza dover scrivere codice. Dopo che la query restituisce il risultato, viene fornito un comando CURL di esempio per illustrare il formato richiesto per il corpo e le intestazioni HTTP. 
 

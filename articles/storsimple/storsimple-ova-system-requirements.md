@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 7e5cf79613bdbd62427e99a0d1f2aa29ed8f85be
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: becf48320b346feea82944ed2f7e752125795d40
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245192"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999514"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisiti di sistema StorSimple Virtual Array
 ## <a name="overview"></a>Panoramica
@@ -95,11 +95,11 @@ La tabella seguente elenca le porte che devono essere aperte nel firewall per co
 | **Numero porta<sup>1</sup>** | **In ingresso/In uscita** | **Ambito porta** | **Obbligatorio** | **Note** |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP) |In uscita |WAN |No  |La porta in uscita viene usata per consentire all'accesso Internet di recuperare gli aggiornamenti. <br></br>Il proxy Web in uscita è configurabile dall'utente. |
-| TCP 443 (HTTPS) |In uscita |WAN |Yes |La porta in uscita viene usata per accedere ai dati nel cloud. <br></br>Il proxy Web in uscita è configurabile dall'utente. |
+| TCP 443 (HTTPS) |In uscita |WAN |Sì |La porta in uscita viene usata per accedere ai dati nel cloud. <br></br>Il proxy Web in uscita è configurabile dall'utente. |
 | UDP 53 (DNS) |In uscita |WAN |In alcuni casi; vedere le note. |Questa porta è obbligatoria solo se si usa un server DNS basato su Internet. <br></br> Nota: se si distribuisce un file server, si consiglia l'uso del server DNS locale. |
 | UDP 123 (NTP) |In uscita |WAN |In alcuni casi; vedere le note. |Questa porta è obbligatoria solo se si usa un server NTP basato su Internet.<br></br> Nota: se si distribuisce un file server, si consiglia di sincronizzare l'ora con i controller di dominio di Active Directory. |
-| TCP 80 (HTTP) |In ingresso |LAN |Yes |Questa è la porta in ingresso per l'interfaccia utente locale nel dispositivo StorSimple per la gestione locale. <br></br> Nota: l'accesso all'interfaccia utente locale tramite HTTP esegue il reindirizzamento automatico a HTTPS. |
-| TCP 443 (HTTPS) |In ingresso |LAN |Yes |Questa è la porta in ingresso per l'interfaccia utente locale nel dispositivo StorSimple per la gestione locale. |
+| TCP 80 (HTTP) |In ingresso |LAN |Sì |Questa è la porta in ingresso per l'interfaccia utente locale nel dispositivo StorSimple per la gestione locale. <br></br> Nota: l'accesso all'interfaccia utente locale tramite HTTP esegue il reindirizzamento automatico a HTTPS. |
+| TCP 443 (HTTPS) |In ingresso |LAN |Sì |Questa è la porta in ingresso per l'interfaccia utente locale nel dispositivo StorSimple per la gestione locale. |
 | TCP 3260 (iSCSI) |In ingresso |LAN |No  |Questa porta viene usata per accedere ai dati tramite iSCSI. |
 
 <sup>1</sup> Nessuna porta in ingresso deve essere aperta sulla rete Internet pubblica.
@@ -125,12 +125,12 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 | --- | --- |
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|Servizio Gestione dispositivi StorSimple<br>Servizio di controllo di accesso<br>Bus di servizio di Azure<br>Servizio di autenticazione|
 | `http://*.backup.windowsazure.com` |Registrazione del dispositivo |
-| `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Revoca del certificato |
+| `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Revoca del certificato |
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Account di archiviazione di Azure e monitoraggio |
-| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Server di Microsoft Update<br> |
+| `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Server di Microsoft Update<br> |
 | `http://*.deploy.akamaitechnologies.com` |Rete CDN di Akamai |
 | `https://*.partners.extranet.microsoft.com/*` |Pacchetto di supporto |
-| `http://*.data.microsoft.com ` |Servizio Telemetria in Windows; vedere [Aggiornamento per la soddisfazione dei clienti e di telemetria diagnostica](https://support.microsoft.com/en-us/kb/3068708) |
+| `https://*.data.microsoft.com ` |Servizio Telemetria in Windows; vedere [Aggiornamento per la soddisfazione dei clienti e di telemetria diagnostica](https://support.microsoft.com/en-us/kb/3068708) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Preparare il portale per distribuire StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)

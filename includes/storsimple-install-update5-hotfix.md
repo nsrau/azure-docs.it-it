@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 8abc6129e1179378ac90278fd2032737b2b828b2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 19d2dedc2ccf7015696504a94f5ef7c43a90d3be
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888484"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113920"
 ---
 #### <a name="to-download-hotfixes"></a>Scaricare gli hotfix
 
@@ -93,19 +93,19 @@ Per installare e verificare gli aggiornamenti rapidi in modalità normale, segui
     > [!NOTE]
     > In alcuni casi, i cmdlet mostrano`False` quando l'aggiornamento è ancora in corso. Per assicurarsi che l'aggiornamento rapido è stato completato, attendere alcuni minuti, eseguire nuovamente il comando e verificare che `RunInProgress` sia `False`. In caso affermativo, l'aggiornamento rapido è stato completato.
 
-7. Dopo aver installato gli aggiornamenti del software, verificare le versioni del software del sistema. Digitare:
+7. Dopo aver installato gli aggiornamenti del software, verificare le versioni del software del sistema. Digitare: 
    
     `Get-HcsSystem`
    
     Dovrebbero essere visualizzate le seguenti versioni:
    
    * `FriendlySoftwareVersion: StorSimple 8000 Series Update 5.0`
-   *  `HcsSoftwareVersion: 6.3.9600.17845`
+   * `HcsSoftwareVersion: 6.3.9600.17845`
    
-    Se il numero di versione non cambia dopo aver applicato l'aggiornamento, non è stato possibile applicare l'hotfix. In questo caso contattare il [Supporto tecnico Microsoft](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) per assistenza.
+     Se il numero di versione non cambia dopo aver applicato l'aggiornamento, non è stato possibile applicare l'hotfix. In questo caso contattare il [Supporto tecnico Microsoft](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) per assistenza.
      
-    > [!IMPORTANT]
-    > Prima di applicare l'aggiornamento successivo è necessario riavviare il controller attivo tramite il cmdlet `Restart-HcsController`.
+     > [!IMPORTANT]
+     > Prima di applicare l'aggiornamento successivo è necessario riavviare il controller attivo tramite il cmdlet `Restart-HcsController`.
      
 8. Ripetere i passaggi da 3 a 6 per installare l'agente _CisMDSAgentupdate.exe_ scaricato nella cartella _FirstOrderUpdate_.
 8. Ripetere i passaggi da 3 a 6 per installare gli aggiornamenti di secondo livello. 
@@ -175,7 +175,7 @@ Per installare gli aggiornamenti del firmware del disco, seguire le istruzioni r
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. Monitorare l'avanzamento dell'installazione con il comando `Get-HcsUpdateStatus` . L'aggiornamento è completo quando `RunInProgress` diventa `False`.
-4. Al termine dell'installazione, il controller in cui è stato installato l'aggiornamento rapido in modalità di manutenzione viene riavviato. Accedere all'opzione 1, **Accedi con accesso completo** e verificare la versione del firmware del disco. Digitare:
+4. Al termine dell'installazione, il controller in cui è stato installato l'aggiornamento rapido in modalità di manutenzione viene riavviato. Accedere all'opzione 1, **Accedi con accesso completo** e verificare la versione del firmware del disco. Digitare: 
    
    `Get-HcsFirmwareVersion`
    

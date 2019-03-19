@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/4/2019
-ms.author: rkarlin
-ms.openlocfilehash: c31510b0d5ca2afcd6a52cf4301e5e5eaae7da5b
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.date: 3/14/2019
+ms.author: monhaber
+ms.openlocfilehash: 98fffbc7a3b287dd59cfc681beec2107a5fd4ed6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343511"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085049"
 ---
 # <a name="working-with-security-policies"></a>Utilizzo dei criteri di sicurezza
 
@@ -36,7 +36,7 @@ Un criterio di sicurezza definisce la configurazione specifica dei carichi di la
 
 I criteri di sicurezza determinano i suggerimenti per la sicurezza ottenuti nel Centro sicurezza di Azure. È possibile monitorare la conformità a tali criteri per identificare potenziali vulnerabilità e attenuare le minacce. Per altre informazioni su come determinare l'opzione più appropriata, vedere l'elenco di [criteri di sicurezza predefiniti](security-center-policy-definitions.md).
 
-Se si abilita Centro sicurezza, i criteri di sicurezza incorporati al suo interno si riflettono in Criteri di Azure come iniziativa predefinita nella categoria Centro sicurezza. L'iniziativa predefinita viene automaticamente assegnata a tutte le sottoscrizioni registrate di Centro sicurezza (livello Gratuito o Standard). L'iniziativa predefinita contiene solo criteri di controllo. 
+Se si abilita Centro sicurezza, i criteri di sicurezza incorporati al suo interno si riflettono in Criteri di Azure come iniziativa predefinita nella categoria Centro sicurezza. L'iniziativa predefinita viene automaticamente assegnata a tutte le sottoscrizioni registrate di Centro sicurezza (livello Gratuito o Standard). L'iniziativa predefinita contiene solo criteri di controllo.
 
 
 ### <a name="management-groups"></a>Gruppi di gestione
@@ -68,25 +68,25 @@ Per visualizzare i criteri di sicurezza nel Centro sicurezza:
 
     ![Riquadro Gestione dei criteri](./media/security-center-policies/security-center-policy-mgt.png)
 
-  Nella schermata **Gestione dei criteri** è possibile visualizzare il numero dei gruppi di gestione, delle sottoscrizioni e delle aree di lavoro, oltre alla struttura dei gruppi di gestione.
+   Nella schermata **Gestione dei criteri** è possibile visualizzare il numero dei gruppi di gestione, delle sottoscrizioni e delle aree di lavoro, oltre alla struttura dei gruppi di gestione.
 
-  > [!NOTE]
-  > - Il dashboard Centro sicurezza potrebbe mostrare in **Copertura della sottoscrizione** un numero di sottoscrizioni maggiore rispetto a quello indicato in **Gestione dei criteri**. In Copertura della sottoscrizione è riportato il numero di sottoscrizioni di tipo Standard, Gratuito e “senza copertura”. Le sottoscrizioni "senza copertura" non hanno abilitato il Centro sicurezza e non vengono visualizzate in **Gestione dei criteri**.
-  >
+   > [!NOTE]
+   > - Il dashboard Centro sicurezza potrebbe mostrare in **Copertura della sottoscrizione** un numero di sottoscrizioni maggiore rispetto a quello indicato in **Gestione dei criteri**. In Copertura della sottoscrizione è riportato il numero di sottoscrizioni di tipo Standard, Gratuito e “senza copertura”. Le sottoscrizioni "senza copertura" non hanno abilitato il Centro sicurezza e non vengono visualizzate in **Gestione dei criteri**.
+   >
 
-  Le colonne nella tabella mostrano:
+   Le colonne nella tabella mostrano:
 
- - **Assegnazione dell'iniziativa relativa ai criteri**: iniziative e [criteri predefiniti](security-center-policy-definitions.md) del Centro sicurezza assegnati a una sottoscrizione o a un gruppo di gestione.
- - **Copertura**: identifica il piano tariffario, Gratuito o Standard, in cui viene eseguito il gruppo di gestione, la sottoscrizione o l'area di lavoro.  Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md).
- - **Impostazioni**: per le sottoscrizioni è disponibile il collegamento **Modifica impostazioni**. Selezionando **Modifica impostazioni**, è possibile aggiornare le [impostazioni del Centro sicurezza](security-center-policies-overview.md) per ogni sottoscrizione o gruppo di gestione.
- - **Punteggio di sicurezza**: il [Punteggio di sicurezza](security-center-secure-score.md) fornisce un'indicazione sul comportamento di sicurezza del carico di lavoro e aiuta a dare priorità alle raccomandazioni per il miglioramento.
+   - **Assegnazione dell'iniziativa relativa ai criteri**: iniziative e [criteri predefiniti](security-center-policy-definitions.md) del Centro sicurezza assegnati a una sottoscrizione o a un gruppo di gestione.
+   - **Copertura**: identifica il piano tariffario, Gratuito o Standard, in cui viene eseguito il gruppo di gestione, la sottoscrizione o l'area di lavoro.  Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md).
+   - **Impostazioni**: per le sottoscrizioni è disponibile il collegamento **Modifica impostazioni**. Selezionando **Modifica impostazioni**, è possibile aggiornare le [impostazioni del Centro sicurezza](security-center-policies-overview.md) per ogni sottoscrizione o gruppo di gestione.
+   - **Punteggio di sicurezza**: il [Punteggio di sicurezza](security-center-secure-score.md) fornisce un'indicazione sul comportamento di sicurezza del carico di lavoro e aiuta a dare priorità alle raccomandazioni per il miglioramento.
 
 2. Selezionare la sottoscrizione o il gruppo di gestione di cui si vogliono visualizzare i criteri.
 
-  - La schermata **Criteri di sicurezza** rispecchia l'azione eseguita dai criteri assegnati nella sottoscrizione o nel gruppo di gestione selezionato.
-  - Nella parte superiore usare i collegamenti forniti per aprire ogni **assegnazione** dei criteri che si applica alla sottoscrizione o al gruppo di gestione. È possibile usare i collegamenti per accedere all'assegnazione e modificare o disabilitare i criteri. Se ad esempio si nota che l'assegnazione di un determinato criterio rifiuta di fatto la protezione di un endpoint, è possibile usare il collegamento per accedere al criterio e modificarlo o disabilitarlo.
-  - Nell'elenco dei criteri è possibile visualizzare l'applicazione effettiva del criterio nella sottoscrizione o nel gruppo di gestione. Ciò significa che vengono prese in esame le impostazioni di ogni criterio che si applicano all'ambito e viene fornito il risultato cumulativo dell'azione che viene eseguita dal criterio. Se ad esempio in un'assegnazione il criterio è disabilitato, ma in un'altra è impostato su AuditIfNotExist, l'effetto cumulativo applica AuditIfNotExist. L'effetto più attivo ha sempre la precedenza.
-  - L'effetto dei criteri può essere uno dei seguenti, ovvero Append, Audit, AuditIfNotExists, Deny, DeployIfNotExists, Disabled. Per altre informazioni su come vengono applicati gli effetti, vedere [Informazioni sugli effetti di Criteri](../governance/policy/concepts/effects.md).
+   - La schermata **Criteri di sicurezza** rispecchia l'azione eseguita dai criteri assegnati nella sottoscrizione o nel gruppo di gestione selezionato.
+   - Nella parte superiore usare i collegamenti forniti per aprire ogni **assegnazione** dei criteri che si applica alla sottoscrizione o al gruppo di gestione. È possibile usare i collegamenti per accedere all'assegnazione e modificare o disabilitare i criteri. Se ad esempio si nota che l'assegnazione di un determinato criterio rifiuta di fatto la protezione di un endpoint, è possibile usare il collegamento per accedere al criterio e modificarlo o disabilitarlo.
+   - Nell'elenco dei criteri è possibile visualizzare l'applicazione effettiva del criterio nella sottoscrizione o nel gruppo di gestione. Ciò significa che vengono prese in esame le impostazioni di ogni criterio che si applicano all'ambito e viene fornito il risultato cumulativo dell'azione che viene eseguita dal criterio. Se ad esempio in un'assegnazione il criterio è disabilitato, ma in un'altra è impostato su AuditIfNotExist, l'effetto cumulativo applica AuditIfNotExist. L'effetto più attivo ha sempre la precedenza.
+   - L'effetto dei criteri può essere uno dei seguenti, ovvero Append, Audit, AuditIfNotExists, Deny, DeployIfNotExists, Disabled. Per altre informazioni su come vengono applicati gli effetti, vedere [Informazioni sugli effetti di Criteri](../governance/policy/concepts/effects.md).
 
    ![Schermata dei criteri](./media/security-center-policies/policy-screen.png)
 
@@ -99,6 +99,29 @@ Per visualizzare i criteri di sicurezza nel Centro sicurezza:
 Per istruzioni su come modificare un criterio di sicurezza in Criteri di Azure, vedere [Creare e gestire i criteri per applicare la conformità](../governance/policy/tutorials/create-and-manage.md).
 
 È possibile modificare i criteri di sicurezza tramite il portale Criteri di Azure, l'API REST o Windows PowerShell. L'esempio seguente contiene istruzioni per la modifica tramite l'API REST.
+
+
+## <a name="disable-security-policies"></a>Disabilitare i criteri di sicurezza
+Se i criteri di sicurezza predefinito genera un'indicazione che non è rilevante per l'ambiente, è possibile arrestarlo disabilitando la definizione dei criteri che invia la raccomandazione.
+Per altre informazioni sulle raccomandazioni, vedere [gestione delle raccomandazioni di sicurezza](security-center-recommendations.md).
+
+1. Nel Centro sicurezza, dal **criteri e conformità** fare clic su **criteri di sicurezza**.
+
+   ![Gestione dei criteri](./media/tutorial-security-policy/policy-management.png)
+
+2. Fare clic sulla sottoscrizione per cui si desidera disabilitare la raccomandazione.
+
+1. Fare clic sul criterio assegnato.
+
+   ![disabilitare i criteri](./media/tutorial-security-policy/security-policy.png)
+
+1. Nel **parametri** sezione ricerca per il criterio che richiama l'indicazione che si desidera disabilitare e nell'elenco a discesa, selezionare **disabilitato**
+
+   ![disabilitare i criteri](./media/tutorial-security-policy/disable-policy.png)
+1. Fare clic su **Save**.
+> [!Note]
+> Le modifiche al criterio disabilitazione possono richiedere fino a 12 ore per diventare effettive.
+
 
 ### <a name="configure-a-security-policy-using-the-rest-api"></a>Configurare criteri di sicurezza usando l'API REST
 
@@ -159,38 +182,38 @@ Questo esempio illustra come assegnare l'iniziativa del Centro sicurezza integra
 
 - Protezione di endpoint ("endpointProtectionMonitoringEffect") 
 
- 
-      PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
 
-      Request Body (JSON) 
-
-      { 
-
-        "properties":{ 
-
-      "displayName":"Enable Monitoring in Azure Security Center", 
-
-      "metadata":{ 
-
-      "assignedBy":"{Name}" 
-
-      }, 
-
-      "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
-
-      "parameters":{ 
-
-      "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
-
-      "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
-
-      "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
-
-      }, 
-
-       } 
-
-      } 
+    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+    
+    Corpo della richiesta (JSON) 
+    
+    { 
+    
+      "properties":{ 
+    
+    "displayName": "Abilita monitoraggio nel Centro sicurezza di Azure", 
+    
+    "metadati": { 
+    
+    "assignedBy":"{Name}" 
+    
+    }, 
+    
+    "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+    
+    "parameters": { 
+    
+    "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
+    
+    "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
+    
+    "endpointProtectionMonitoringEffect": {"value": "Disabled"}, 
+    
+    }, 
+    
+     } 
+    
+    } 
 
 Questo esempio illustra come rimuovere un'assegnazione:
 

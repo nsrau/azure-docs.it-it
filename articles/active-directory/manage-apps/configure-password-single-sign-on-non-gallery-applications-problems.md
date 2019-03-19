@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bacefaada8ab0d63bb17d22f67b91c51a789de8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c769d241f54d5d86ef4954609eec555d8aab947a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172332"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857998"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problema nella configurazione dell'accesso Single Sign-On basato su password per un'applicazione non inclusa nella raccolta
 
@@ -46,25 +46,25 @@ Come regola generale, **se non funziona l'acquisizione automatica dei campi di a
 
 Per configurare l'**accesso Single Sign-On basato su password** per un'applicazione usando l'**acquisizione automatica dei campi di accesso**, seguire questa procedura:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
+2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
+4. Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
 
-5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-  * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 
-6.  Selezionare l'applicazione per cui si vuole configurare l'accesso Single Sign-On.
+6. Selezionare l'applicazione per cui si vuole configurare l'accesso Single Sign-On.
 
-7.  Dopo il caricamento dell'applicazione, fare clic su **Single Sign-On** nel menu di spostamento di sinistra dell'applicazione.
+7. Dopo il caricamento dell'applicazione, fare clic su **Single Sign-On** nel menu di spostamento di sinistra dell'applicazione.
 
-8.  Selezionare la modalità **Accesso basato su password**.
+8. Selezionare la modalità **Accesso basato su password**.
 
-9.  Immettere l'**URL di accesso**, ovvero l'URL in cui gli utenti immetteranno il nome utente e la password per eseguire l'accesso. **Assicurarsi che i campi di accesso siano visibili nell'URL fornito**.
+9. Immettere l'**URL di accesso**, ovvero l'URL in cui gli utenti immetteranno il nome utente e la password per eseguire l'accesso. **Assicurarsi che i campi di accesso siano visibili nell'URL fornito**.
 
 10. Fare clic sul pulsante **Salva** .
 
@@ -76,25 +76,25 @@ Per acquisire manualmente i campi di accesso, è necessario prima di tutto avere
 
 Per configurare l'**accesso Single Sign-On basato su password** per un'applicazione usando l'**acquisizione manuale dei campi di accesso**, seguire questa procedura:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
+2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
+4. Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
 
-5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
    * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 
-6.  Selezionare l'applicazione per cui si vuole configurare l'accesso Single Sign-On.
+6. Selezionare l'applicazione per cui si vuole configurare l'accesso Single Sign-On.
 
-7.  Dopo il caricamento dell'applicazione, fare clic su **Single Sign-On** nel menu di spostamento di sinistra dell'applicazione.
+7. Dopo il caricamento dell'applicazione, fare clic su **Single Sign-On** nel menu di spostamento di sinistra dell'applicazione.
 
-8.  Selezionare la modalità **Accesso basato su password**.
+8. Selezionare la modalità **Accesso basato su password**.
 
-9.  Immettere l'**URL di accesso**, ovvero l'URL in cui gli utenti immetteranno il nome utente e la password per eseguire l'accesso. **Assicurarsi che i campi di accesso siano visibili nell'URL fornito**.
+9. Immettere l'**URL di accesso**, ovvero l'URL in cui gli utenti immetteranno il nome utente e la password per eseguire l'accesso. **Assicurarsi che i campi di accesso siano visibili nell'URL fornito**.
 
 10. Fare clic sul pulsante **Salva** .
 
@@ -174,21 +174,21 @@ Per installare l'estensione del browser per il pannello di accesso, seguire ques
 
 È possibile visualizzare i dettagli di qualsiasi notifica del portale seguendo questa procedura:
 
-1.  Fare clic sull'icona **Notifiche** (la campanella) in alto a destra nel portale di Azure
+1. Fare clic sull'icona **Notifiche** (la campanella) in alto a destra nel portale di Azure
 
-2.  Selezionare una notifica con stato **Errore** contrassegnata con un punto esclamativo (!) rosso.
+2. Selezionare una notifica con stato **Errore** contrassegnata con un punto esclamativo (!) rosso.
 
-  >!NOTA] Non è possibile fare clic sulle notifiche in uno stato di **Operazione completata** o **In corso**.
-  >
-  >
+   >!NOTA] Non è possibile fare clic sulle notifiche in uno stato di **Operazione completata** o **In corso**.
+   >
+   >
 
-3.  Viene aperto il riquadro **Dettagli notifica**.
+3. Viene aperto il riquadro **Dettagli notifica**.
 
-4.  Usare le informazioni per ottenere maggiori dettagli sul problema.
+4. Usare le informazioni per ottenere maggiori dettagli sul problema.
 
-5.  Nel caso in cui sia ancora necessaria assistenza sul problema, è possibile condividere le informazioni con un tecnico di supporto o con il gruppo del prodotto.
+5. Nel caso in cui sia ancora necessaria assistenza sul problema, è possibile condividere le informazioni con un tecnico di supporto o con il gruppo del prodotto.
 
-6.  Fare clic sull'**icona** **Copia** a destra della casella di testo **Copia errore** per copiare tutti i dettagli della notifica da condividere con un tecnico del supporto o con il gruppo del prodotto.
+6. Fare clic sull'**icona** **Copia** a destra della casella di testo **Copia errore** per copiare tutti i dettagli della notifica da condividere con un tecnico del supporto o con il gruppo del prodotto.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Come ottenere assistenza inviando i dettagli di notifica a un tecnico del supporto
 
@@ -226,7 +226,7 @@ La sezione seguente illustra in dettaglio il significato degli elementi della no
 
 -   **UPN** : l'utente che ha eseguito l'operazione
 
-    -   Esempio: **tperkins@f128.info**
+    -   Esempio – **tperkins\@f128.info**
 
 -   **ID tenant**: ID univoco del tenant di cui è membro l'utente che ha eseguito l'operazione
 
@@ -240,11 +240,11 @@ La sezione seguente illustra in dettaglio il significato degli elementi della no
 
 -   **Nome visualizzato**: **(può essere vuoto)** un nome visualizzato più dettagliato per l'errore
 
-    -   Esempio*: **impostazioni del proxy di applicazione**
+    -   Esempio: **Impostazioni proxy di applicazione**
 
 -   **Stato**: lo stato specifico della notifica
 
-    -   Esempio*: **Operazione non riuscita**
+    -   Esempio: **Operazione non riuscita**
 
 -   **ID oggetto**: **(può essere vuoto)** ID dell'oggetto su cui è stata eseguita l'operazione
 
@@ -252,7 +252,7 @@ La sezione seguente illustra in dettaglio il significato degli elementi della no
 
 -   **Dettagli**: la descrizione dettagliata di ciò che si è verificato come conseguenza dell'operazione
 
-    -   Esempio: **L'URL interno "https://bing.com/" non è valido perché è già in uso**
+    -   Esempio: **L'URL interno "<https://bing.com/>" non è valido perché è già in uso**
 
 -   **Copia errore**: fare clic sull'**icona Copia** a destra della casella di testo **Copia errore** per copiare tutti i dettagli della notifica da condividere con un tecnico di supporto o del gruppo di prodotti
 

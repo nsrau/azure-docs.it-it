@@ -2,111 +2,31 @@
 title: Analizzare il carico di lavoro in Azure SQL Data Warehouse | Microsoft Docs
 description: Tecniche per l'analisi della definizione della priorità delle query per il carico di lavoro in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: kevinvngo
+author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
-ms.date: 04/17/2018
-ms.author: kevin
-ms.reviewer: igorstan
-ms.openlocfilehash: 9025eccabcbf7052131fee741a1e1f6a2139366b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.subservice: workload management
+ms.date: 03/13/2019
+ms.author: rortloff
+ms.reviewer: jrasnick
+ms.openlocfilehash: 7b5ca738ef71e25dfe5e71a1983d701bb8868fe5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476758"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896807"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analizzare il carico di lavoro in Azure SQL Data Warehouse
-Tecniche per l'analisi della definizione della priorità delle query per il carico di lavoro in Azure SQL Data Warehouse.
 
-## <a name="workload-groups"></a>Gruppi di carichi di lavoro 
-SQL Data Warehouse implementa le classi di risorse utilizzando i gruppi del carico di lavoro. Esistono in totale otto gruppi di carichi di lavoro che controllano il comportamento delle classi di risorse nelle DWU di varie dimensioni. Per qualsiasi DWU, SQL Data Warehouse usa solo quattro degli otto gruppi del carico di lavoro. Il senso di questo approccio è assegnare a ogni gruppo di carichi di lavoro una delle quattro classi di risorse, tra smallrc, mediumrc, largerc o xlargerc. È importante comprendere per alcuni gruppi di carichi di lavoro viene impostato il livello di *priorità*più elevato. La priorità viene usata per la pianificazione della CPU. Le query eseguite con priorità alta ottengono tre volte più cicli della CPU rispetto alle query eseguite con priorità media. Di conseguenza, i mapping degli slot della concorrenza determinano anche la priorità della CPU. Quando una query utilizza 16 o più slot, viene eseguita con priorità alta.
+Tecniche per analizzare il carico di lavoro in Azure SQL Data Warehouse.
 
-Nella tabella seguente vengono riportati i mapping di priorità per ogni gruppo di carichi di lavoro.
+## <a name="resource-classes"></a>Classi di risorse
 
-### <a name="workload-group-mappings-to-concurrency-slots-and-importance"></a>Mapping dei gruppi di carichi di lavoro agli slot di concorrenza e relativa importanza
-
-| Gruppi di carichi di lavoro | Mapping degli slot di concorrenza | MB / Distribuzione (elasticità) | MB / Distribuzione (calcolo) | Mapping delle priorità |
-|:---------------:|:------------------------:|:------------------------------:|:---------------------------:|:------------------:|
-| SloDWGroupC00   | 1                        |    100                         | 250                         | Media             |
-| SloDWGroupC01   | 2                        |    200                         | 500                         | Media             |
-| SloDWGroupC02   | 4                        |    400                         | 1000                        | Media             |
-| SloDWGroupC03   | 8                        |    800                         | 2000                        | Media             |
-| SloDWGroupC04   | 16                       |  1.600                         | 4000                        | Alto               |
-| SloDWGroupC05   | 32                       |  3.200                         | 8000                        | Alto               |
-| SloDWGroupC06   | 64                       |  6.400                         | 16.000                      | Alto               |
-| SloDWGroupC07   | 128                      | 12.800                         | 32.000                      | Alto               |
-| SloDWGroupC08   | 256                      | 25.600                         | 64.000                      | Alto               |
-
-<!-- where are the allocation and consumption of concurrency slots charts? -->Il grafico **Allocation and consumption of concurrency slots** (Allocazione e utilizzo degli slot di concorrenza) illustra che DW500 usa 1, 4, 8 o 16 slot di concorrenza per smallrc, mediumrc, largerc e xlargerc rispettivamente. Per identificare la priorità di ogni classe di risorse, è possibile cercare questi valori nel grafico precedente.
-
-### <a name="dw500-mapping-of-resource-classes-to-importance"></a>Mapping dell'importanza delle classi di risorse in DW500
-| classe di risorse | Gruppo del carico di lavoro | Numero di slot di concorrenza usati | MB/Distribuzione | priorità |
-|:-------------- |:-------------- |:----------------------:|:-----------------:|:---------- |
-| smallrc        | SloDWGroupC00  | 1                      | 100               | Media     |
-| mediumrc       | SloDWGroupC02  | 4                      | 400               | Media     |
-| largerc        | SloDWGroupC03  | 8                      | 800               | Media     |
-| xlargerc       | SloDWGroupC04  | 16                     | 1.600             | Alto       |
-| staticrc10     | SloDWGroupC00  | 1                      | 100               | Media     |
-| staticrc20     | SloDWGroupC01  | 2                      | 200               | Media     |
-| staticrc30     | SloDWGroupC02  | 4                      | 400               | Media     |
-| staticrc40     | SloDWGroupC03  | 8                      | 800               | Media     |
-| staticrc50     | SloDWGroupC03  | 16                     | 1.600             | Alto       |
-| staticrc60     | SloDWGroupC03  | 16                     | 1.600             | Alto       |
-| staticrc70     | SloDWGroupC03  | 16                     | 1.600             | Alto       |
-| staticrc80     | SloDWGroupC03  | 16                     | 1.600             | Alto       |
-
-## <a name="view-workload-groups"></a>Visualizzare i gruppi di carichi di lavoro
-La query seguente visualizza i dettagli dell'allocazione delle risorse di memoria dal punto di vista di Resource Governor. Ciò risulta utile per l'analisi dell'utilizzo attivo e della cronologia di utilizzo dei gruppi di carico di lavoro durante la risoluzione dei problemi.
-
-```sql
-WITH rg
-AS
-(   SELECT  
-     pn.name                                AS node_name
-    ,pn.[type]                              AS node_type
-    ,pn.pdw_node_id                         AS node_id
-    ,rp.name                                AS pool_name
-    ,rp.max_memory_kb*1.0/1024              AS pool_max_mem_MB
-    ,wg.name                                AS group_name
-    ,wg.importance                          AS group_importance
-    ,wg.request_max_memory_grant_percent    AS group_request_max_memory_grant_pcnt
-    ,wg.max_dop                             AS group_max_dop
-    ,wg.effective_max_dop                   AS group_effective_max_dop
-    ,wg.total_request_count                 AS group_total_request_count
-    ,wg.total_queued_request_count          AS group_total_queued_request_count
-    ,wg.active_request_count                AS group_active_request_count
-    ,wg.queued_request_count                AS group_queued_request_count
-    FROM    sys.dm_pdw_nodes_resource_governor_workload_groups wg
-    JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools rp    
-            ON  wg.pdw_node_id  = rp.pdw_node_id
-            AND wg.pool_id      = rp.pool_id
-    JOIN    sys.dm_pdw_nodes pn
-            ON    wg.pdw_node_id    = pn.pdw_node_id
-    WHERE   wg.name like 'SloDWGroup%'
-    AND     rp.name    = 'SloDWPool'
-)
-SELECT  pool_name
-,       pool_max_mem_MB
-,       group_name
-,       group_importance
-,       (pool_max_mem_MB/100)*group_request_max_memory_grant_pcnt AS max_memory_grant_MB
-,       node_name
-,       node_type
-,       group_total_request_count
-,       group_total_queued_request_count
-,       group_active_request_count
-,       group_queued_request_count
-FROM    rg
-ORDER BY
-        node_name
-,       group_request_max_memory_grant_pcnt
-,       group_importance
-;
-```
+SQL Data Warehouse fornisce le classi di risorse per assegnare le risorse di sistema per le query.  Per altre informazioni sulle classi di risorse, vedere [gestione delle classi di & carico di lavoro risorse](resource-classes-for-workload-management.md).  Le query rimarrà in attesa se la classe di risorse assegnata a una query richiede più risorse rispetto a quelli attualmente disponibili.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Rilevamento di query in coda e altre viste a gestione dinamica
+
 È possibile utilizzare la DMV `sys.dm_pdw_exec_requests` per identificare le query in attesa in una coda di concorrenza. Le query in attesa di uno slot di concorrenza sono in stato **sospeso**.
 
 ```sql
@@ -186,7 +106,7 @@ WHERE    w.[session_id] <> SESSION_ID()
 ;
 ```
 
-La DMV `sys.dm_pdw_resource_waits` mostra solo le attese di risorse utilizzate da una determinata query. Il tempo in attesa delle risorse misura solo il tempo richiesto per fornire le risorse, a differenza del tempo di attesa del segnale che rappresenta il tempo impiegato dal server SQL Server sottostante per pianificare la query sulla CPU.
+Il `sys.dm_pdw_resource_waits` DMV Mostra le informazioni di attesa per una determinata query. Risorsa attesa misure ora il tempo di attesa per le risorse devono essere fornite. Tempo di attesa del segnale è il tempo che necessario per il server SQL Server sottostante pianificare la query sulla CPU.
 
 ```sql
 SELECT  [session_id]
@@ -204,12 +124,13 @@ FROM    sys.dm_pdw_resource_waits
 WHERE    [session_id] <> SESSION_ID()
 ;
 ```
+
 È anche possibile usare la DMV `sys.dm_pdw_resource_waits` per calcolare quanti slot di concorrenza sono stati concessi.
 
 ```sql
-SELECT  SUM([concurrency_slots_used]) as total_granted_slots 
-FROM    sys.[dm_pdw_resource_waits] 
-WHERE   [state]           = 'Granted' 
+SELECT  SUM([concurrency_slots_used]) as total_granted_slots
+FROM    sys.[dm_pdw_resource_waits]
+WHERE   [state]           = 'Granted'
 AND     [resource_class] is not null
 AND     [session_id]     <> session_id()
 ;
@@ -230,6 +151,5 @@ FROM    sys.dm_pdw_wait_stats w
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per ulteriori informazioni sulla gestione degli utenti e della sicurezza del database, vedere [Proteggere un database in SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md). Per ulteriori informazioni sulle classi di risorse più grandi che possono migliorare le qualità degli indici indice columnstore cluster, vedere [Ricompilazione degli indici per migliorare la qualità del segmento](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
-
-

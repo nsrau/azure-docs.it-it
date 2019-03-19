@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: a9b90fe119bc56620a7bd3087d4842f604fc18f0
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
+ms.openlocfilehash: 4cb73ea08060336710207e026bb5bcc5a251efc8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582542"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877922"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Backup e ripristino periodici in Azure Service Fabric 
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Service Fabric fornisce un set di API per ottenere le seguenti funzionalità rel
     - Archiviazione di Azure
     - Condivisione di file (locale)
 - Enumerazione di backup
-- Attivazione di un backup ad hoc di una partizione
+- Attivare un backup ad hoc di una partizione
 - Ripristino di una partizione utilizzando un backup precedente
 - Sospensione temporanea dei backup
 - Gestione della memorizzazione dei backup (a breve)
@@ -57,7 +57,7 @@ Service Fabric fornisce un set di API per ottenere le seguenti funzionalità rel
 ## <a name="prerequisites"></a>Prerequisiti
 * Cluster di Service Fabric con Fabric versione 6.2 e successive. Il cluster deve essere installato in Windows Server. Fare riferimento a questo [articolo](service-fabric-cluster-creation-via-arm.md) per informazioni sulla procedura per la creazione del cluster di Service Fabric con il modello di risorse di Azure.
 * Certificato X.509 per la crittografia dei dati, necessario per connettersi alla risorsa di archiviazione e archiviare i backup. Fare riferimento all’[articolo](service-fabric-cluster-creation-via-arm.md) per sapere come ottenere o creare un certificato X.509.
-* Applicazione Reliable di Service Fabric con informazioni sullo stato, creata utilizzando Service Fabric SDK versione 3.0 o versione successiva. Per applicazioni destinate a .Net Core 2.0, l'applicazione deve essere sviluppata utilizzando Service Fabric SDK versione 3.1 o versione successiva.
+* Applicazione Reliable di Service Fabric con informazioni sullo stato, creata utilizzando Service Fabric SDK versione 3.0 o versione successiva. Per le applicazioni destinate a .NET Core 2.0, applicazione deve essere generata utilizzando Service Fabric SDK versione 3.1 o versione successiva.
 * Creare un account di archiviazione di Azure per i backup dell'applicazione.
 
 ## <a name="enabling-backup-and-restore-service"></a>Attivazione del backup e del ripristino del servizio

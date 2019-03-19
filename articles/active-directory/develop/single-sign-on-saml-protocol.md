@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a46bc954d137ad610310d83d3ad7f54370b9177b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d9cb9877015f2cfe61799a56be6490a3f4e2fb60
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184041"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012764"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocollo SAML per Single Sign-On
 
@@ -49,9 +49,9 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 
 | Parametro |  | DESCRIZIONE |
 | --- | --- | --- |
-| ID | Obbligatoria | Azure AD usa questo attributo per popolare l'attributo `InResponseTo` della risposta restituita. L'ID non deve iniziare con un numero, quindi una strategia comune consiste nell'anteporre una stringa come "id" alla rappresentazione di stringa di un GUID. Ad esempio, `id6c1c178c166d486687be4aaf5e482730` è un ID valido. |
-| Versione | Obbligatoria | Questo parametro deve essere impostato su **2.0**. |
-| IssueInstant | Obbligatoria | Stringa DateTime con un valore UTC e [formato round trip ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD prevede un valore DateTime di questo tipo, ma non valuta o usa il valore. |
+| ID | Obbligatorio | Azure AD usa questo attributo per popolare l'attributo `InResponseTo` della risposta restituita. L'ID non deve iniziare con un numero, quindi una strategia comune consiste nell'anteporre una stringa come "id" alla rappresentazione di stringa di un GUID. Ad esempio, `id6c1c178c166d486687be4aaf5e482730` è un ID valido. |
+| Versione | Obbligatorio | Questo parametro deve essere impostato su **2.0**. |
+| IssueInstant | Obbligatorio | Stringa DateTime con un valore UTC e [formato round trip ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD prevede un valore DateTime di questo tipo, ma non valuta o usa il valore. |
 | AssertionConsumerServiceUrl | Facoltativo | Se specificato, il parametro deve corrispondere al valore `RedirectUri` del servizio cloud in Azure AD. |
 | ForceAuthn | Facoltativo | Si tratta di un valore booleano. Se è True, significa che l'utente dovrà ripetere l'autenticazione, anche se ha una sessione valida con Azure AD. |
 | IsPassive | Facoltativo | È un valore booleano che specifica se Azure AD deve autenticare l'utente in modalità invisibile, senza interazione dell'utente, usando il cookie di sessione, se è disponibile. In questo caso Azure AD tenterà di autenticare l'utente usando il cookie di sessione. |
@@ -170,7 +170,7 @@ Ad esempio, una risposta con elemento Issuer può avere un aspetto simile al seg
 
 L'elemento `Status` indica l'esito positivo o negativo dell'accesso. Include l'elemento `StatusCode` che contiene un codice o un set di codici annidati che rappresentano lo stato della richiesta. Include anche l'elemento `StatusMessage` che contiene i messaggi di errore personalizzati generati durante il processo di accesso.
 
-<!-- TODO: Add a authentication protocol error reference -->
+<!-- TODO: Add an authentication protocol error reference -->
 
 L'esempio seguente rappresenta una risposta SAML a un tentativo di accesso non riuscito.
 

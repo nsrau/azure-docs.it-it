@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: 5c51fe4e3d8b432e80a2d437c299b33af557d936
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: daeb900abc3f24a408fc1b5f6e989e5181f2a463
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245814"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862744"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Creare, modificare o estendere JSON per le definizioni di app per la logica - App per la logica di Azure
 
@@ -191,7 +191,7 @@ App per la logica ha diverse funzioni per l'uso delle stringhe. Si supponga, ad 
       "type": "Http",
       "inputs": {
         "method": "GET",
-        "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
+        "uri": "https://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
       }
     }
   },
@@ -202,7 +202,7 @@ App per la logica ha diverse funzioni per l'uso delle stringhe. Si supponga, ad 
 I passaggi seguenti descrivono come questa stringa viene elaborata nell'esempio, a partire dall'interno verso l'esterno:
 
 ```
-"uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
+"uri": "https://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
 ```
 
 1. Ottenere l'elemento [`length()`](../logic-apps/logic-apps-workflow-definition-language.md) per il nome della società per poter ottenere il numero totale di caratteri.
@@ -244,7 +244,7 @@ Questo flusso di lavoro, ad esempio, definisce alcune categorie come parametri e
     },
     "destinationMap": {
       "defaultValue": {
-        "science": "http://www.nasa.gov",
+        "science": "https://www.nasa.gov",
         "microsoft": "https://www.microsoft.com/en-us/default.aspx",
         "google": "https://www.google.com",
         "robots": "https://en.wikipedia.org/wiki/Robot",
@@ -264,7 +264,7 @@ Questo flusso di lavoro, ad esempio, definisce alcune categorie come parametri e
       "type": "Http",
       "inputs": {
         "method": "GET",
-        "uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.wired.com/wired/index"
+        "uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=https://feeds.wired.com/wired/index"
       }
     },
     "forEachArticle": {
@@ -341,7 +341,7 @@ Per formattare le date, è possibile usare formattatori di stringa. Per ottenere
       "type": "Http",
       "inputs": {
         "method": "GET",
-        "uri": "http://www.example.com/?id=@{parameters('order').id}"
+        "uri": "https://www.example.com/?id=@{parameters('order').id}"
       }
     },
     "ifTimingWarning": {
@@ -352,7 +352,7 @@ Per formattare le date, è possibile usare formattatori di stringa. Per ottenere
           "type": "Http",
           "inputs": {
             "method": "GET",
-            "uri": "http://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
+            "uri": "https://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
           }
         }
       },

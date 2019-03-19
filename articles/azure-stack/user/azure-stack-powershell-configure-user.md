@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/15/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 2012810e42c3a35e8e93f85402d92dae1151516b
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: ab23013d8de61e13013aa4cd735be04e1e3213c3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731527"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119939"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-a-user"></a>Connettersi ad Azure Stack con PowerShell come utente
 
@@ -94,13 +94,7 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-<<<<<<< HEAD
 - [Sviluppo di modelli per Azure Stack](azure-stack-develop-templates.md)
 - [Distribuire modelli con PowerShell](azure-stack-deploy-template-powershell.md)
- - [Riferimento al modulo PowerShell di Azure Stack](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)
-=======
-- [Sviluppo di modelli per Azure Stack](azure-stack-develop-templates.md)  
-- [Distribuire modelli con PowerShell](azure-stack-deploy-template-powershell.md)  
-- [Riferimento al modulo di Azure Stack](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)  
->>>>>>> ac8c5a2d00d4eb5b4ef65359c5349ddff1bf30cf
+- [Riferimento al modulo PowerShell di Azure Stack](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)
 - Se si desidera configurare PowerShell per l'ambiente di operatore cloud, vedere la [configurare l'ambiente PowerShell dell'operatore Azure Stack](../azure-stack-powershell-configure-admin.md) articolo.

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 1dba848be0c24ef26dcefd23d4fc3f7201420449
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 17e4d576d4c524321fd19c589868a323f97c48a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873513"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079718"
 ---
 # <a name="learn-image-moderation-concepts"></a>Informazioni sui concetti di moderazione delle immagini
 
@@ -35,12 +35,11 @@ L'operazione **Valuta** restituisce un punteggio di attendibilità compreso tra 
       ],
 
 > [!NOTE]
-
+> 
 > - `isImageAdultClassified` rappresenta la potenziale presenza di immagini che potrebbero essere considerate sessualmente esplicite o per adulti in determinate situazioni.
 > - `isImageRacyClassified` rappresenta la potenziale presenza di immagini che potrebbero essere considerate sessualmente suggestive o per maggiorenni in determinate situazioni.
 > - I punteggi sono compresi tra 0 e 1. Maggiore è il punteggio, più alto è il modello che prevede che la categoria possa essere applicabile. Questa anteprima si basa su un modello statistico piuttosto che su risultati codificati manualmente. Si consiglia di eseguire i test con i propri contenuti per determinare come ogni categoria si allinei alle proprie esigenze.
 > - I valori booleani sono true o false a seconda delle soglie interne del punteggio. I clienti devono valutare se usare questo valore o optare per le soglie personalizzate in base ai propri criteri relativi ai contenuti.
->
 
 ## <a name="detecting-text-with-optical-character-recognition-ocr"></a>Rilevamento del testo con il riconoscimento ottico dei caratteri (OCR)
 

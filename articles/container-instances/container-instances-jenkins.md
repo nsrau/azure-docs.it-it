@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: danlep
-ms.openlocfilehash: 85b67fb4fa474bb00b5b7ca66580273671081cdf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 2687a64bfd952888086862d929a3e5869aee5a4f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478192"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003429"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Usare Istanze di Azure Container come agente di compilazione Jenkins
 
@@ -73,7 +73,7 @@ Per altre informazioni su Istanze di Azure Container, vedere [Informazioni su Is
    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
    ```
 
-5. Lasciare in esecuzione la sessione SSH e il tunnel e passare a http://localhost:8080 in un browser. Incollare la password amministratore iniziale nella casella e quindi selezionare **Continue** (Continua).
+5. Lasciare in esecuzione la sessione SSH e il tunnel e passare a `http://localhost:8080` in un browser. Incollare la password amministratore iniziale nella casella e quindi selezionare **Continue** (Continua).
 
    ![Schermata "Unlock Jenkins" (Sblocca Jenkins) con la casella per la password amministratore](./media/container-instances-jenkins/jenkins-portal-05.png)
 

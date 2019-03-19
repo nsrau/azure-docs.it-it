@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 68c04ef893e5e0826f03bffa93fb7c79b4959fdc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d2df7388018c463ba58b57be46945915210b84b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888474"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58114021"
 ---
 #### <a name="to-install-an-update-from-the-azure-portal"></a>Per installare un aggiornamento dal portale di Azure
 
@@ -35,7 +35,7 @@ ms.locfileid: "55888474"
    * **Controlli di integrità del componente hardware** per verificare che tutti i componenti hardware del dispositivo StorSimple siano integri.
    * **Controlla DATA 0** per verificare che DATA 0 è attivato sul dispositivo. Se questa interfaccia non è abilitata, è necessario abilitarla e riprovare.
 
-    L'aggiornamento viene scaricato e installato solo se tutti i controlli vengono completati correttamente. Quando i controlli sono in corso si riceve una notifica. Se le verifiche preliminari hanno esito negativo, verranno indicate le cause dell'errore. Risolvere tali problemi e quindi provare a eseguire di nuovo l'operazione. Se non è possibile risolvere tali problemi in autonomia, contattare il supporto tecnico Microsoft.
+     L'aggiornamento viene scaricato e installato solo se tutti i controlli vengono completati correttamente. Quando i controlli sono in corso si riceve una notifica. Se le verifiche preliminari hanno esito negativo, verranno indicate le cause dell'errore. Risolvere tali problemi e quindi provare a eseguire di nuovo l'operazione. Se non è possibile risolvere tali problemi in autonomia, contattare il supporto tecnico Microsoft.
 
 7. Dopo aver completato tutte le verifiche preliminari, viene creato un processo di aggiornamento. Dopo la creazione di tale processo si riceve una notifica.
    

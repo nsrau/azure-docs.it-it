@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f0a8f6ce325dd087aec5e055e09e20e7de62a40
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b1b48d3bced2061dbe7e8ba26e2c6738e44ba4b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204832"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840427"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Esercitazione: Integrazione di Azure Active Directory con Tableau Server
 
@@ -171,7 +171,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     b. Selezionare la casella di controllo **Enable SAML Authentication for the server** (Abilita autenticazione SAML per il server).
 
-    c. Tableau Server return URL (URL restituito di Tableau Server): l'URL a cui accedono gli utenti di Tableau Server, ad esempio http://tableau_server. L'uso di http://localhost non è consigliato. Gli URL con barra finale (ad esempio http://tableau_server/)) non sono supportati. Copiare l'**URL restituito di Tableau Server** e incollarlo nella casella di testo **URL di accesso** in Azure AD nella sezione **URL e dominio Tableau Server**.
+    c. Tableau Server return URL (URL restituito di Tableau Server): l'URL a cui accedono gli utenti di Tableau Server, ad esempio <http://tableau_server>. L'uso di `http://localhost` non è consigliato. Usando un URL con una barra finale (ad esempio, `http://tableau_server/`) non è supportato. Copiare l'**URL restituito di Tableau Server** e incollarlo nella casella di testo **URL di accesso** in Azure AD nella sezione **URL e dominio Tableau Server**.
 
     d. SAML entity ID (ID entità SAML): l'ID entità identifica in modo univoco l'installazione di Tableau Server nel provider di identità. Se si desidera, qui è possibile immettere di nuovo l'URL di Tableau Server, ma non deve essere l'URL di Tableau Server in uso. Copiare l'**ID di entità SAML** e incollarlo nella casella di testo **Identificatore** in Azure AD nella sezione **URL e dominio Tableau Server**.
 
@@ -181,7 +181,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     g. Immettere i nomi per gli attributi usati dal provider di identità per contenere nomi utente, nomi visualizzati e indirizzi di posta elettronica.
 
-    h. Fare clic su **Save**
+    h. Fare clic su **Save** (Salva).
 
     >[!NOTE] 
     >Il cliente deve caricare eventuali certificati nella configurazione SSO SAML di Tableau Server e il passaggio verrà ignorato nel flusso SSO.
@@ -205,7 +205,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel **nome utente** , digitare **brittasimon\@yourcompanydomain.extension**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare **Proprietà**, selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

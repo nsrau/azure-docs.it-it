@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 780853644125c8fa6d5edcef642cfad724516ef2
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 72fa9bf211139b971afa443af812d644c76062fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188386"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123471"
 ---
 # <a name="deploy"></a>Distribuire
 
@@ -49,15 +49,15 @@ Questo articolo fa parte di un'esercitazione sulla creazione di modelli tabulari
   
 #### <a name="to-deploy-the-adventure-works-internet-sales"></a>Per distribuire il modello Adventure Works Internet Sales
   
-1.  In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **AW Internet Sales** e quindi scegliere **Compila**.  
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **AW Internet Sales** e quindi scegliere **Compila**.  
 
-2.  Fare clic con il pulsante destro del mouse sul progetto **AW Internet Sales** e quindi scegliere **Distribuisci**.
+2. Fare clic con il pulsante destro del mouse sul progetto **AW Internet Sales** e quindi scegliere **Distribuisci**.
 
-    Durante la distribuzione in Azure Analysis Services potrebbe essere richiesto di immettere le proprie credenziali. Immettere nome e password dell'account dell'organizzazione, ad esempio nancy@adventureworks.com. Questo account deve essere incluso nel gruppo Admins del server.
+   Durante la distribuzione in Azure Analysis Services potrebbe essere richiesto di immettere le proprie credenziali. Immettere nome e password dell'account dell'organizzazione, ad esempio nancy@adventureworks.com. Questo account deve essere incluso nel gruppo Admins del server.
   
-    Verrà visualizzata la finestra di dialogo Distribuisci con indicazione dello stato della distribuzione dei metadati e di ogni tabella inclusa nel modello.  
+   Verrà visualizzata la finestra di dialogo Distribuisci con indicazione dello stato della distribuzione dei metadati e di ogni tabella inclusa nel modello.  
     
-    ![aas-lesson13-deploy-status](../tutorials/media/aas-lesson13-deploy-status.png)
+   ![aas-lesson13-deploy-status](../tutorials/media/aas-lesson13-deploy-status.png)
   
 3. Dopo aver completato correttamente la distribuzione, procedere e fare clic su **Chiudi**.  
   

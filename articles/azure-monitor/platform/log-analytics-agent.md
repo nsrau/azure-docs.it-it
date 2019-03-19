@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 0140cb4fd1721e1d13840fe27db223c0ebec7d8a
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: e9df83ef81c2656bf94002feb79d7e4d99ed7954
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301894"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57841107"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Raccogliere dati di log con l'agente di Azure Log Analytics
 
@@ -83,6 +83,7 @@ Di seguito viene riportato un elenco delle informazioni di configurazione del pr
 |*.blob.core.windows.net |Porta 443 |In uscita|Sì |  
 |*.azure-automation.net |Porta 443 |In uscita|Sì |  
 
+Per informazioni sul firewall necessarie per Azure per enti pubblici, vedere [gestione di Azure per enti pubblici](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
 
 Se si prevede di usare il ruolo di lavoro ibrido per runbook di Automazione di Azure per connettersi e registrarsi al servizio di automazione per usare i runbook nell'ambiente in uso, è necessario avere accesso al numero di porta e agli URL descritti in [Configurare la rete per il ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 

@@ -16,12 +16,12 @@ ms.date: 07/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbe9a10c85efa2f52a04f5c2fab87421a08f0a16
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3a7b9c8827979ac4135bcaf4dfeef7cd5de02b2d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199800"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118443"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Servizio di sincronizzazione Azure Active Directory Connect: configurare il percorso dati preferito per le risorse di Office 365
 Questo argomento illustra in dettaglio come configurare l'attributo relativo al percorso dati preferito nel servizio di sincronizzazione Azure Active Directory (Azure AD) Connect. Quando qualcuno usa Multi-Geo Capabilities in Office 365, si usa questo attributo per definire la posizione geografica dei dati di Office 365 dell'utente. I termini *area* e *area geografica* vengono usati in modo intercambiabile.
@@ -192,8 +192,8 @@ In generale, un ciclo di sincronizzazione completo è necessario. Il motivo è c
    3. Nella finestra di dialogo selezionare **Importazione completa** e fare clic su **OK**.
    4. Attendere il completamento dell'operazione.
 
-    > [!NOTE]
-    > È possibile ignorare l'importazione completa in Active Directory Connector locale se l'attributo di origine è già incluso nell'elenco degli attributi importati. In altre parole, non è necessario apportare modifiche durante il passaggio 2 in precedenza in questo articolo.
+      > [!NOTE]
+      > È possibile ignorare l'importazione completa in Active Directory Connector locale se l'attributo di origine è già incluso nell'elenco degli attributi importati. In altre parole, non è necessario apportare modifiche durante il passaggio 2 in precedenza in questo articolo.
 
 2. Eseguire un'**importazione completa** in Azure AD Connector:
 

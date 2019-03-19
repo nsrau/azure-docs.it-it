@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: eb924bcfe3e2545cf6666a19bbb3494c11bc3a48
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
-ms.translationtype: HT
+ms.openlocfilehash: 28a7de1b43d793641237197aea841022996b07e3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42145957"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994044"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introduzione all’archiviazione di accodamento di Azure e ai servizi connessi di Visual Studio (progetti servizi cloud)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -32,7 +32,7 @@ L'operazione **Aggiungi servizi connessi** consente di installare i pacchetti Nu
 * Per altre informazioni sulla modifica delle code a livello di codice, vedere [Introduzione all'archiviazione code di Azure con .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) .
 * Vedere [documentazione di archiviazione](https://azure.microsoft.com/documentation/services/storage/) per informazioni generali sull'archiviazione di Azure.
 * Vedere la [documentazione dei servizi Cloud](https://azure.microsoft.com/documentation/services/cloud-services/) per informazioni generali sui servizi cloud di Azure.
-* Vedere [ASP.NET](http://www.asp.net) per ulteriori informazioni sulle applicazioni di programmazione di ASP.NET.
+* Vedere [ASP.NET](https://www.asp.net) per ulteriori informazioni sulle applicazioni di programmazione di ASP.NET.
 
 Il servizio di archiviazione di accodamento di Azure consente di archiviare grandi quantità di messaggi ai quali è possibile accedere da qualsiasi parte del mondo mediante chiamate autenticate tramite HTTP o HTTPS. La dimensione massima di un singolo messaggio della coda è di 64 KB e una coda può contenere milioni di messaggi, nei limiti della capacità complessiva di un account di archiviazione.
 
@@ -57,7 +57,7 @@ Per accedere alle code nei progetti Servizi cloud di Visual Studio, è necessari
         // Get a reference to a queue named "messageQueue"
         CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
-**NOTA:** utilizzare tutto il codice riportato in precedenza prima del codice indicato negli esempi seguenti.
+**NOTA:** Utilizzare tutto il codice riportato in precedenza prima del codice indicato negli esempi seguenti.
 
 ## <a name="create-a-queue-in-code"></a>Creare una coda in codice
 Per creare la coda nel codice, è sufficiente aggiungere una chiamata a **CreateIfNotExists**.

@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewr: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a488c30f5b9438a91d2eae429cf65689af992dcb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fccf671edbc121501a17975be303453a798837e4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167083"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122200"
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>Come vengono visualizzate le applicazioni nel pannello di accesso
 
@@ -46,41 +46,41 @@ Un utente potrebbe vedere un'applicazione nel proprio pannello di accesso perch�
 
 Per controllare se un utente è assegnato all'applicazione, seguire questa procedura:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
 
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
+2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
+4. Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
 
-5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-6.  **Cercare** il nome dell'applicazione in questione.
+6. **Cercare** il nome dell'applicazione in questione.
 
-7.  Fare clic su **Utenti e gruppi**.
+7. Fare clic su **Utenti e gruppi**.
 
-8.  Controllare se un utente è assegnato all'applicazione.
+8. Controllare se un utente è assegnato all'applicazione.
 
-  * Se si vuole rimuovere l'utente dall'applicazione, **fare clic sulla riga** dell'utente e selezionare **Elimina**.
+   * Se si vuole rimuovere l'utente dall'applicazione, **fare clic sulla riga** dell'utente e selezionare **Elimina**.
 
 ### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>Controllare se un utente è incluso nella licenza relativa all'applicazione
 
 Per controllare le licenze assegnate a un utente, seguire questa procedura:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
 
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
+2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  Fare clic su **Utenti e gruppi** nel menu di navigazione.
+4. Fare clic su **Utenti e gruppi** nel menu di navigazione.
 
-5.  Fare clic su **Tutti gli utenti**.
+5. Fare clic su **Tutti gli utenti**.
 
-6.  **Cercare** l'utente desiderato e **fare clic sulla riga corrispondente** per selezionarlo.
+6. **Cercare** l'utente desiderato e **fare clic sulla riga corrispondente** per selezionarlo.
 
-7.  Fare clic su **Licenze** per verificare quali licenze sono assegnate all'utente.
+7. Fare clic su **Licenze** per verificare quali licenze sono assegnate all'utente.
 
    * Se l'utente è assegnato a una licenza Office, le applicazioni Office di prima entità verranno visualizzate nel pannello di accesso dell'utente.
 
@@ -96,45 +96,45 @@ Un utente può visualizzare un'applicazione nel pannello di accesso perché è m
 
 Per controllare l'appartenenza a un gruppo, seguire questa procedura:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
 
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
+2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  Fare clic su **Utenti e gruppi** nel menu di navigazione.
+4. Fare clic su **Utenti e gruppi** nel menu di navigazione.
 
-5.  Fare clic su **Tutti gli utenti**.
+5. Fare clic su **Tutti gli utenti**.
 
-6.  **Ricercare** l'utente per cui si vuole verificare la licenza e **fare clic sulla relativa riga** per selezionarlo.
+6. **Ricercare** l'utente per cui si vuole verificare la licenza e **fare clic sulla relativa riga** per selezionarlo.
 
-7.  Fare clic su **gruppi.**
+7. Fare clic su **gruppi.**
 
-8.  Controllare se un utente è membro di un gruppo assegnato all'applicazione.
+8. Controllare se un utente è membro di un gruppo assegnato all'applicazione.
 
    * Se si vuole rimuovere l'utente dal gruppo, **fare clic sulla riga** del gruppo e selezionare Elimina.
 
 ### <a name="check-if-a-user-is-a-member-of-a-group-assigned-to-a-license"></a>Controllare se un utente è membro di un gruppo assegnato a una licenza
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
 
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
+2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  Fare clic su **Utenti e gruppi** nel menu di navigazione.
+4. Fare clic su **Utenti e gruppi** nel menu di navigazione.
 
-5.  Fare clic su **Tutti gli utenti**.
+5. Fare clic su **Tutti gli utenti**.
 
-6.  **Ricercare** l'utente per cui si vuole verificare la licenza e **fare clic sulla relativa riga** per selezionarlo.
+6. **Ricercare** l'utente per cui si vuole verificare la licenza e **fare clic sulla relativa riga** per selezionarlo.
 
-7.  Fare clic su **gruppi.**
+7. Fare clic su **gruppi.**
 
-8.  Fare clic sulla riga di un gruppo specifico.
+8. Fare clic sulla riga di un gruppo specifico.
 
-9.  Fare clic su **Licenze** per vedere le licenze assegnate al gruppo.
+9. Fare clic su **Licenze** per vedere le licenze assegnate al gruppo.
 
-  * Se il gruppo è assegnato a una licenza Office, alcune applicazioni Office di prima entità potrebbero essere visualizzate nel pannello di accesso dell'utente.
+   * Se il gruppo è assegnato a una licenza Office, alcune applicazioni Office di prima entità potrebbero essere visualizzate nel pannello di accesso dell'utente.
 
 
 ## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Se questi passaggi di risoluzione dei problemi non risolvono il problema

@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 20fc3722-6f8b-402f-b391-b84e9df6fcff
 ms.date: 07/08/2016
-ms.openlocfilehash: ad7a29f4a554d599b17576921542b1ac6e403911
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: 05368f627c5e9482a43d5e30b0e16b1d47f6217c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127765"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074722"
 ---
 # <a name="receive-b2b-data-with-azure-logic-apps-and-enterprise-integration-pack"></a>Ricevere dati B2B con App per la logica di Azure e Enterprise Integration Pack
 
@@ -47,11 +47,13 @@ Seguire questa procedura per creare un'app per la logica B2B che usi le azioni A
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-6.png)
 
-6. Aggiungere il **corpo** che si desidera usare come input. In questo esempio selezionare il corpo della richiesta HTTP che attiva l'app per la logica. Oppure, immettere un'espressione che inserisce le intestazioni nel campo **INTESTAZIONI**:
+6. Aggiungere il **corpo** che si desidera usare come input. 
+   In questo esempio selezionare il corpo della richiesta HTTP che attiva l'app per la logica. Oppure, immettere un'espressione che inserisce le intestazioni nel campo **INTESTAZIONI**:
 
     @triggerOutputs()['headers']
 
-7. Aggiungere le **intestazioni** necessarie per AS2, che è possibile trovare nelle intestazioni della richiesta HTTP. In questo esempio selezionare le intestazioni della richiesta HTTP che attivano l'app per la logica.
+7. Aggiungere le **intestazioni** necessarie per AS2, che è possibile trovare nelle intestazioni della richiesta HTTP. 
+   In questo esempio selezionare le intestazioni della richiesta HTTP che attivano l'app per la logica.
 
 8. A questo punto aggiungere l'azione del messaggio Decode X12. Selezionare **Aggiungi un'azione**.
 
@@ -65,7 +67,8 @@ Seguire questa procedura per creare un'app per la logica B2B che usi le azioni A
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-as2message.png)
 
-11. A questo punto è necessario specificare l'input per questa azione. Questo input è l'output dell'azione AS2 precedente.
+11. A questo punto è necessario specificare l'input per questa azione. 
+    Questo input è l'output dell'azione AS2 precedente.
 
     Il contenuto effettivo del messaggio è in un oggetto JSON e codificato in base64, pertanto è necessario specificare un'espressione come input. 
     Immettere l'espressione seguente nel campo di input **X12 FLAT FILE MESSAGE TO DECODE** (MESSAGGIO FILE FLAT X12 DA DECODIFICARE):

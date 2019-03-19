@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6b97968540914bf1edf5624d04e8f47956de7f0d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822256"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084607"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiare dati da o verso un database Oracle locale con Azure Data Factory
 
@@ -56,11 +56,11 @@ Il gateway è necessario anche se il database Oracle è ospitato in una macchina
 Il connettore Oracle supporta due versioni di driver:
 
 - **Driver Microsoft per Oracle (scelta consigliata)**: a partire da Gateway di gestione dati versione 2.7, un driver Microsoft per Oracle viene installato automaticamente con il gateway. Non è necessario installare o aggiornare il driver per stabilire la connettività a Oracle. È inoltre possibile ottenere migliori prestazioni di copia usando questo driver. Sono supportate le versioni seguenti dei database Oracle:
-    - Oracle 12c R1 (12.1)
-    - Oracle 11g R1, R2 (11.1, 11.2)
-    - Oracle 10g R1, R2 (10.1, 10.2)
-    - Oracle 9i R1, R2 (9.0.1, 9.2)
-    - Oracle 8i R3 (8.1.7)
+  - Oracle 12c R1 (12.1)
+  - Oracle 11g R1, R2 (11.1, 11.2)
+  - Oracle 10g R1, R2 (10.1, 10.2)
+  - Oracle 9i R1, R2 (9.0.1, 9.2)
+  - Oracle 8i R3 (8.1.7)
 
     > [!NOTE]
     > Il server proxy Oracle non è supportato.
@@ -69,7 +69,7 @@ Il connettore Oracle supporta due versioni di driver:
     > Il driver Microsoft per Oracle supporta attualmente solo la copia dei dati da Oracle, ma non la scrittura in Oracle. La funzionalità di connessione di test nella scheda **Diagnostica** di Gateway di gestione dati non supporta questo driver. In alternativa, è possibile usare la Copia guidata per convalidare la connettività.
     >
 
-- **Provider di dati Oracle per .NET**: è possibile usare il provider di dati Oracle per copiare i dati da o verso Oracle. Questo componente è incluso in [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Installare la versione corrispondente (32 bit o 64 bit) nel computer in cui è installato il gateway. Il [provider di dati Oracle per .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) può accedere a Oracle Database 10g Release 2 e versioni successive.
+- **Provider di dati Oracle per .NET**: è possibile usare il provider di dati Oracle per copiare i dati da o verso Oracle. Questo componente è incluso in [Oracle Data Access Components for Windows](https://www.oracle.com/technetwork/topics/dotnet/downloads/). Installare la versione corrispondente (32 bit o 64 bit) nel computer in cui è installato il gateway. Il [provider di dati Oracle per .NET 12.1](https://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) può accedere a Oracle Database 10g Release 2 e versioni successive.
 
     Se si sceglie di **installare XCopy**, completare i passaggi descritti nel file readme.htm. È consigliabile selezionare il programma di installazione con l'interfaccia utente (non il programma di installazione XCopy).
 
@@ -151,7 +151,7 @@ Le sezioni di un file JSON del set di dati, tra cui struttura, disponibilità e 
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione **typeProperties** per il set di dati di tipo **OracleTable** presenta le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | tableName |Nome della tabella nel database Oracle a cui fa riferimento il servizio collegato. |No (se è specificato **oracleReaderQuery** o **OracleSource**) |
 
@@ -170,7 +170,7 @@ Le proprietà disponibili nella sezione **typeProperties** dell'attività varian
 
 Nell'attività di copia con origine di tipo **OracleSource** sono disponibili le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
+| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
 | oracleReaderQuery |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio, "select \* from **MyTable**". <br/><br/>Se non specificato, viene eseguita questa istruzione SQL: "select \* from **MyTable**" |No <br />(se è specificato **tableName** nel **set di dati**) |
 
@@ -178,12 +178,12 @@ Nell'attività di copia con origine di tipo **OracleSource** sono disponibili le
 
 **OracleSink** supporta le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
+| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
 | writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout. |**timespan**<br/><br/> Esempio: 00:30:00 (30 minuti) |No  |
 | writeBatchSize |Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge il valore di **writeBatchSize**. |Numero intero (numero di righe) |No (valore predefinito: 100) |
 | sqlWriterCleanupScript |Specifica una query da eseguire nell'attività di copia per eseguire la pulizia dei dati di una sezione specifica. |Istruzione di query. |No  |
-| sliceIdentifierColumnName |Specifica il nome della colonna per l'attività di copia da riempire con un identificatore di sezione generato automaticamente.  Il valore di **sliceIdentifierColumnName** viene usato per eseguire la pulizia dei dati di una sezione specifica quando viene nuovamente eseguita. |Nome di colonna di una colonna con tipo di dati **binary(32)**. |No  |
+| sliceIdentifierColumnName |Specifica il nome della colonna per l'attività di copia da riempire con un identificatore di sezione generato automaticamente. Il valore di **sliceIdentifierColumnName** viene usato per eseguire la pulizia dei dati di una sezione specifica quando viene nuovamente eseguita. |Nome di colonna di una colonna con tipo di dati **binary(32)**. |No  |
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>Esempi JSON per la copia dei dati da e verso il database Oracle
 
@@ -557,7 +557,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 
 **Messaggio di errore**
 
-    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed.
+    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .NET Framework Data Provider. It may not be installed.
 
 **Possibili cause**
 
@@ -566,10 +566,10 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 
 **Risoluzione**
 
-* Se non è stato installato il provider .NET per Oracle, [installarlo](http://www.oracle.com/technetwork/topics/dotnet/downloads/) e quindi ripetere lo scenario.
+* Se non è stato installato il provider .NET per Oracle, [installarlo](https://www.oracle.com/technetwork/topics/dotnet/downloads/) e quindi ripetere lo scenario.
 * Se viene visualizzato il messaggio di errore anche dopo l'installazione del provider, completare questa procedura:
-   1. Aprire il file machine.config per .NET 2.0 dalla cartella <disco di sistema\>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
-   2. Cercare **Provider di dati Oracle per .NET**. Dovrebbe essere possibile trovare una voce, come illustrato nell'esempio seguente in **system.data** > **DbProviderFactories**: `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
+    1. Aprire il file machine.config per .NET 2.0 dalla cartella <disco di sistema\>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
+    2. Cercare **Provider di dati Oracle per .NET**. Dovrebbe essere possibile trovare una voce, come illustrato nell'esempio seguente in **system.data** > **DbProviderFactories**: `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
 * Copiare questa voce nel file machine.config nella seguente cartella .NET 4.0: <disco di sistema\>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Modificare quindi la versione impostandola su 4.xxx.x.x.
 * Installare <percorso di installazione di ODP.NET\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll nella Global Assembly Cache eseguendo **gacutil /i [percorso del provider]**.
 

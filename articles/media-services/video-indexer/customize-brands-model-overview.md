@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: 48255614291086fe85666bec407ea62f7a365410
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 15f4b8b6d4a27e721dfcaed8b9dd700e87e3a257
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237366"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872880"
 ---
 # <a name="customize-a-brands-model-in-video-indexer"></a>Personalizzare un modello dei marchi con Video Indexer
 
@@ -28,7 +28,7 @@ Nella presentazione [Microsoft Build 2017 Giorno 2](https://www.videoindexer.ai/
 
 ![Panoramica sui marchi](./media/content-model-customization/brands-overview.png)
 
-Se si parla di "windows" (finestre) in ambito edilizio, la parola "windows" non verrà rilevata come marchio grazie ad avanzati algoritmi di Machine Learning in grado di risolvere l'ambiguità in base al contesto. Lo stesso vale per Box (scatola), Apple (mela) e Fox (volpe). Il rilevamento del marchio viene usato per tutte le lingue supportate. Fare clic qui per [l'indice e il video completo dell'intervento su Microsoft Build 2017 Giorno 2](http://www.videoindexer.ai/media/ed6ede78ad/).
+Se si parla di "windows" (finestre) in ambito edilizio, la parola "windows" non verrà rilevata come marchio grazie ad avanzati algoritmi di Machine Learning in grado di risolvere l'ambiguità in base al contesto. Lo stesso vale per Box (scatola), Apple (mela) e Fox (volpe). Il rilevamento del marchio viene usato per tutte le lingue supportate. Fare clic qui per [l'indice e il video completo dell'intervento su Microsoft Build 2017 Giorno 2](https://www.videoindexer.ai/media/ed6ede78ad/).
 
 Per inserire i propri marchi, consultare la sezione Passaggi successivi.
 

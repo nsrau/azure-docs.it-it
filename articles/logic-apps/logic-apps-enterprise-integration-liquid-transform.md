@@ -5,17 +5,16 @@ services: logic-apps
 ms.service: logic-apps
 author: divyaswarnkar
 ms.author: divswa
-manager: jeconnoc
 ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: d607c75bc451774e6bf269eb658236d93a85021f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 3441350a07047676ac43de23262be6c54912162c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854378"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104166"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Eseguire trasformazioni JSON avanzate con i modelli Liquid in App per la logica di Azure
 
@@ -35,8 +34,7 @@ Quindi, prima di eseguire una trasformazione Liquid nell'app per la logica, è n
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Creare un modello o una mappa Liquid per l'account di integrazione
 
-1. Per questo esempio, creare il modello Liquid di esempio descritto in questo passaggio.
-Per usare i filtri nel modello Liquid, assicurarsi che i nomi dei filtri inizino con una lettera maiuscola. Sono disponibili altre informazioni sui [filtri Liquid](https://shopify.github.io/liquid/basics/introduction/#filters), che usano le convenzione di denominazione [DotLiquid](https://dotliquidmarkup.org/) e C#.
+1. Per questo esempio, creare il modello Liquid di esempio descritto in questo passaggio. Nel modello Liquid, è possibile usare [Liquid Filtra](https://shopify.github.io/liquid/basics/introduction/#filters), che usano [DotLiquid](https://dotliquidmarkup.org/) e C# convenzioni di denominazione. Tuttavia, assicurarsi che si *iniziare i nomi dei filtri con caratteri maiuscoli*, non i caratteri minuscoli. 
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -82,7 +80,8 @@ Per usare i filtri nel modello Liquid, assicurarsi che i nomi dei filtri inizino
 
 2. Nella finestra di progettazione di app per la logica aggiungere il [trigger Request](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) all'app per la logica.
 
-3. Nel trigger scegliere **Nuovo passaggio**. Nella casella di ricerca immettere "liquid" come filtro e selezionare questa azione: **Trasforma JSON in JSON - Liquid**
+3. Nel trigger scegliere **Nuovo passaggio**. 
+   Nella casella di ricerca immettere "liquid" come filtro e selezionare questa azione: **Trasforma JSON in JSON - Liquid**
 
    ![Trovare e selezionare l'azione Liquid](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
@@ -101,7 +100,7 @@ Per usare i filtri nel modello Liquid, assicurarsi che i nomi dei filtri inizino
 
    2. Nell'elenco **Selezionare un account di integrazione** selezionare l'account di integrazione e scegliere **Salva**.
 
-     ![Collegare l'app per la logica all'account di integrazione](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
+      ![Collegare l'app per la logica all'account di integrazione](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
 
 ## <a name="test-your-logic-app"></a>Testare l'app per la logica
 

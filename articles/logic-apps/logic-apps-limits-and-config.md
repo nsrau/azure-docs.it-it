@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: d77cdd7781f3a371d6089573a16ba642fb1c774c
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 4a2b06f18e709f9a8479770d58f43928893281be
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769869"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117354"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -168,7 +168,7 @@ Limiti per i connettori personalizzati che è possibile creare da API Web.
 | ---- | ----- | 
 | Numero di connettori personalizzati | 1.000 per ogni sottoscrizione di Azure | 
 | Numero di richieste al minuto per ogni connessione creata da un connettore personalizzato | 500 richieste per connessione |
-|||| 
+|||
 
 <a name="managed-identity"></a>
 

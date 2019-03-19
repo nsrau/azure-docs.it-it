@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: c7d66c389958aa3b5274a3d81f27f416308acdee
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 053d400a9986d0997344b2be09140d8afb0e1faf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975662"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996377"
 ---
 # <a name="about-recovery-plans"></a>Informazioni sui piani di ripristino
 
@@ -29,7 +29,7 @@ Un piano di ripristino consente di definire un processo di ripristino sistematic
 
 * Modellare un'app in base alle relative dipendenze.
 * Automatizzare le attività di ripristino per ridurre l'obiettivo del tempo di ripristino.
-- Verificare di essere pronti per la migrazione o il ripristino di emergenza, assicurandosi che le app facciano parte di un piano di ripristino.
+* Verificare di essere pronti per la migrazione o il ripristino di emergenza, assicurandosi che le app facciano parte di un piano di ripristino.
 * Eseguire il failover di test per i piani di ripristino, per assicurarsi che il ripristino di emergenza o la migrazione funzioni come previsto.
 
 
@@ -42,10 +42,10 @@ Un piano di ripristino consente di definire un processo di ripristino sistematic
     - Questo ordine assicura che quando il middleware viene avviato e tenta di connettersi al livello di SQL Server, il livello di SQL Server è già in esecuzione. 
     - Tale ordine aiuta anche ad assicurare che il server front-end venga avviato per ultimo, in modo che gli utenti finali non si connettano all'URL dell'app prima che tutti i componenti siano operativi e che l'app sia pronta per accettare le richieste.
 
-Per creare questo ordine, aggiungere gruppi al gruppo di ripristino e aggiungere computer ai gruppi. 
-    - Se l'ordine è specificato, viene usata la sequenziazione. Dove appropriato, le azioni vengono eseguite in parallelo, per migliorare l'obiettivo del tempo di ripristino dell'applicazione.
-    - Il failover dei computer che fanno parte di un unico gruppo avviene in parallelo.
-    - Il failover dei computer in gruppi diversi avviene in base all'ordine dei gruppi, quindi i computer del gruppo 2 iniziano il failover solo dopo il failover e l'avvio di tutti i computer del gruppo 1.
+Per creare questo ordine, aggiungere gruppi al gruppo di ripristino e aggiungere computer ai gruppi.
+- Se l'ordine è specificato, viene usata la sequenziazione. Dove appropriato, le azioni vengono eseguite in parallelo, per migliorare l'obiettivo del tempo di ripristino dell'applicazione.
+- Il failover dei computer che fanno parte di un unico gruppo avviene in parallelo.
+- Il failover dei computer in gruppi diversi avviene in base all'ordine dei gruppi, quindi i computer del gruppo 2 iniziano il failover solo dopo il failover e l'avvio di tutti i computer del gruppo 1.
 
     ![Piano di ripristino di esempio](./media/recovery-plan-overview/rp.png)
 
@@ -93,4 +93,4 @@ Guardare un rapido video di esempio che mostra un failover tramite clic per un'a
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Creare](site-recovery-create-recovery-plans.md) un piano di ripristino.
-* Leggere altre informazioni sull'[esecuzione di failover](site-recovery-failover.md).  
+- Leggere altre informazioni sull'[esecuzione di failover](site-recovery-failover.md).  

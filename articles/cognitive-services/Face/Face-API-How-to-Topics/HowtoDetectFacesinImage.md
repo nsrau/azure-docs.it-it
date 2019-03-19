@@ -1,180 +1,148 @@
 ---
-title: 'Esempio: Rilevare i visi nelle immagini - API Viso'
+title: Rileva i visi in un'immagine - API viso
 titleSuffix: Azure Cognitive Services
-description: Usare l'API Viso per rilevare visi nelle immagini.
+description: Informazioni su come usare i vari dati restituiti dalla funzionalità di rilevamento del viso.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
-ms.topic: sample
-ms.date: 03/01/2018
+ms.topic: conceptual
+ms.date: 02/22/2019
 ms.author: sbowles
-ms.openlocfilehash: 30d5294defe02ca6c8cfd588648429859bdf19ad
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bf3af8f5d1d2f063199a8275c2f49c70140e8732
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856395"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588772"
 ---
-# <a name="example-how-to-detect-faces-in-image"></a>Esempio: Come rilevare visi nelle immagini
+# <a name="get-face-detection-data"></a>Ottenere i dati di rilevamento viso
 
-Questa guida dimostrerà come rilevare visi da un'immagine, estraendo attributi del viso come sesso, età o posizione della testa. Gli esempi sono scritti in C# usando la libreria client dell'API Viso. 
+Questa guida illustra come usare il rilevamento viso per estrarre gli attributi, ad esempio sesso, età o posa da una determinata immagine. I frammenti di codice in questa guida sono scritti in C# usando la libreria di client API viso, ma la stessa funzionalità è disponibile tramite il [API REST](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-## <a name="concepts"></a>Concetti
+Questa guida viene illustrato come a:
 
-Se non si ha familiarità con i concetti seguenti in questa guida, cercare le definizioni nel [glossario](../Glossary.md) in qualsiasi momento: 
+- Ottenere le posizioni e le dimensioni dei visi in un'immagine.
+- Ottenere le posizioni di vari riquadri (studenti, naso, bocca e così via) in un'immagine.
+- Indovinare il sesso, età e delle emozioni e altri attributi di un volto rilevato.
 
-- Rilevamento del viso
-- Punti di riferimento del viso
-- Posizione della testa
-- Attributi del viso
+## <a name="setup"></a>Configurazione
 
-## <a name="preparation"></a>Operazioni preliminari
+Questa guida si presuppone di aver già costruito un **[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)** oggetto, denominato `faceClient`, con un URL di chiave e l'endpoint sottoscrizione viso. A questo punto, è possibile usare la funzionalità di rilevamento viso chiamando **[DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet)** (usato in questa Guida) oppure **[DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet)**. Vedere le [Guida introduttiva di rilevare i volti a C# ](../quickstarts/csharp-detect-sdk.md) per istruzioni su come impostare questa funzionalità.
 
-In questo esempio verranno dimostrate le funzionalità seguenti: 
+Questa guida è incentrata sulle specifiche della chiamata di rilevamento&mdash;gli argomenti che è possibile passare e operazioni eseguibili con i dati restituiti. È consigliabile solo l'esecuzione di query per le funzionalità che necessarie, perché ogni operazione richiede più tempo per completare.
 
-- Rilevamento dei visi da un'immagine e contrassegno dei visi tramite una cornice rettangolare
-- Analisi della posizione di pupille, naso o bocca e contrassegno di questi elementi nell'immagine
-- Analisi della posizione della testa, del sesso e dell'età del viso
+## <a name="get-basic-face-data"></a>Ottenere i dati di base viso
 
-Per eseguire queste funzionalità, sarà necessario preparare un'immagine con almeno un viso chiaramente visibile. 
+Per trovare visi e ottenere le relative posizioni in un'immagine, chiamare il metodo con il _returnFaceId_ parametro impostato su **true** (impostazione predefinita).
 
-## <a name="step-1-authorize-the-api-call"></a>Passaggio 1: Autorizzare la chiamata API
-
-Ogni chiamata all'API Viso richiede una chiave di sottoscrizione. Questa chiave deve essere passata tramite un parametro di stringa di query o essere specificata nell'intestazione della richiesta. Per passare la chiave di sottoscrizione tramite una stringa di query, fare riferimento all'URL della richiesta [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (Viso - Rilevamento) a titolo di esempio:
-
-```
-https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes]
-&subscription-key=<Subscription Key>
+```csharp
+IList<DetectedFace> faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, false, null);
 ```
 
-La chiave di sottoscrizione può essere in alternativa specificata nell'intestazione della richiesta HTTP: **ocp-apim-subscription-key: &lt;Chiave di sottoscrizione&gt;** Quando si usa una libreria client, la chiave di sottoscrizione viene passata tramite il costruttore della classe FaceServiceClient. Ad esempio: 
-```CSharp
-faceServiceClient = new FaceServiceClient("<Subscription Key>");
-```
+L'oggetto restituito **[DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet)** oggetti possano essere interrogati per i relativi ID univoco e un rettangolo che fornisce le coordinate di pixel della faccia.
 
-## <a name="step-2-upload-an-image-to-the-service-and-execute-face-detection"></a>Passaggio 2: Caricare un'immagine nel servizio ed eseguire il rilevamento del viso
-
-Il modo più semplice per eseguire il rilevamento del viso è caricando un'immagine direttamente. Si invia a tal fine una richiesta "POST" con il tipo di contenuto del flusso applicazione/flusso di ottetti insieme ai dati letti da un'immagine JPEG. Le dimensioni massime dell'immagine sono di 4 MB.
-
-Quando di usa la libreria client, il rilevamento del viso tramite caricamento viene eseguito passando un oggetto Stream. Vedere l'esempio seguente:
-
-```CSharp
-using (Stream s = File.OpenRead(@"D:\MyPictures\image1.jpg"))
+```csharp
+foreach (var face in faces)
 {
-    var faces = await faceServiceClient.DetectAsync(s, true, true);
- 
-    foreach (var face in faces)
-    {
-        var rect = face.FaceRectangle;
-        var landmarks = face.FaceLandmarks;
-    }
+    string id = face.FaceId.ToString();
+    FaceRectangle rect = face.FaceRectangle;
 }
 ```
 
-Si noti che il metodo DetectAsync di FaceServiceClient è asincrono. Anche il metodo chiamante deve essere contrassegnato come asincrono in modo che possa usare la clausola await.
-Se l'immagine è già sul Web e ha un URL, è possibile eseguire il rilevamento del viso anche specificando l'URL. In questo esempio, il corpo della richiesta sarà una stringa JSON che contiene l'URL.
-Quando si usa la libreria client, il rilevamento del viso tramite un URL può essere eseguito facilmente usando un altro overload del metodo DetectAsync.
+Visualizzare **[FaceRectangle](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.facerectangle?view=azure-dotnet)** per informazioni su come analizzare la posizione e dimensioni della superficie. Questo rettangolo contiene in genere, gli occhi, eyebrows, naso e bocca; le proprietà di head, orecchie e mento non sono necessariamente inclusi. Se si prevede di utilizzare il rettangolo per il viso per ritagliare un head completo o intermedio cattura verticale (un'immagine di tipo ID di foto), è possibile espandere il rettangolo per un certo margine in entrambe le direzioni.
 
-```CSharp
-string imageUrl = "http://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceServiceClient.DetectAsync(imageUrl, true, true);
- 
+## <a name="get-face-landmarks"></a>Ottenere i riquadri
+
+Riquadri sono un set di punti di facile da trovare in un viso, ad esempio gli alunni o il suggerimento di punta. È possibile ottenere dati di luoghi di interesse viso impostando il _returnFaceLandmarks_ parametro per **true**.
+
+```csharp
+IList<DetectedFace> faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, null);
+```
+
+Per impostazione predefinita, esistono 27 punti di riferimento predefiniti. La figura seguente mostra tutti i punti di 27:
+
+![Un diagramma di viso con tutti i 27 riferimenti etichettate](../Images/landmarks.1.jpg)
+
+I punti restituiti sono in unità di pixel, esattamente come il frame di rettangolo viso. Il codice seguente viene illustrato come è possibile recuperare le posizioni del naso e studenti:
+
+```csharp
 foreach (var face in faces)
 {
-    var rect = face.FaceRectangle;
     var landmarks = face.FaceLandmarks;
-}
-``` 
 
-La proprietà FaceRectangle che viene restituita con i visi rilevati corrisponde essenzialmente alle posizioni nel viso in pixel. Questo rettangolo contiene in genere gli occhi, le sopracciglia, il naso e la bocca. La sommità della testa, le orecchie e il mento non sono inclusi. Se si ritaglia una testa completa o un ritratto a mezzo busto (un'immagine del tipo usato per i documenti), è possibile espandere l'area della cornice rettangolare del viso, perché l'area del viso potrebbe essere troppo piccola per alcune applicazioni. Per un posizionamento più preciso del viso, sarà utile ricorrere ai punti di riferimento del viso (meccanismi per l'individuazione delle caratteristiche o della direzione del viso) descritti nella prossima sezione.
-
-## <a name="step-3-understanding-and-using-face-landmarks"></a>Passaggio 3: Comprensione e uso dei punti di riferimento del viso
-
-I punti di riferimenti del viso sono una serie di punti dettagliati su un viso, in genere componenti come pupille, canto o naso. I punti di riferimento del viso sono attributi facoltativi che possono essere analizzati durante il rilevamento del viso. È possibile passare 'true' come valore booleano al parametro di query returnFaceLandmarks quando si chiama l'API [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (Viso - Rilevamento) oppure usare il parametro facoltativo returnFaceLandmarks per il metodo DetectAsync della classe FaceServiceClient per includere i punti di riferimento del viso nei risultati del rilevamento.
-
-Per impostazione predefinita, esistono 27 punti di riferimento predefiniti. La figura seguente mostra come sono definiti tutti i 27 punti:
-
-![HowToDetectFace](../Images/landmarks.1.jpg)
-
-I punti restituiti sono espressi in unità di pixel, esattamente come la cornice rettangolare per il viso. Risulta pertanto più semplice contrassegnare punti di interesse specifici nell'immagine. Il codice seguente illustra come recuperare le posizioni di naso e pupille:
-
-```CSharp
-var faces = await faceServiceClient.DetectAsync(imageUrl, returnFaceLandmarks:true);
- 
-foreach (var face in faces)
-{
-    var rect = face.FaceRectangle;
-    var landmarks = face.FaceLandmarks;
- 
     double noseX = landmarks.NoseTip.X;
     double noseY = landmarks.NoseTip.Y;
- 
+
     double leftPupilX = landmarks.PupilLeft.X;
     double leftPupilY = landmarks.PupilLeft.Y;
- 
+
     double rightPupilX = landmarks.PupilRight.X;
     double rightPupilY = landmarks.PupilRight.Y;
 }
-``` 
+```
 
-Oltre a contrassegnare le caratteristiche di un viso in un'immagine, i punti di riferimento possono anche essere usati per calcolare con precisione la direzione del viso. Ad esempio, è possibile definire la direzione del viso come vettore dal centro della bocca al centro degli occhi. Il codice seguente illustra questa procedura in dettaglio:
+Viso riferimenti dati sono anche utilizzabile per calcolare con precisione la direzione della faccia. Ad esempio, è possibile definire la rotazione del volto come vettore dal centro della bocca al centro dal punto di vista. Il codice seguente consente di calcolare il vettore:
 
-```CSharp
-var landmarks = face.FaceLandmarks;
- 
+```csharp
 var upperLipBottom = landmarks.UpperLipBottom;
 var underLipTop = landmarks.UnderLipTop;
- 
+
 var centerOfMouth = new Point(
     (upperLipBottom.X + underLipTop.X) / 2,
     (upperLipBottom.Y + underLipTop.Y) / 2);
- 
+
 var eyeLeftInner = landmarks.EyeLeftInner;
 var eyeRightInner = landmarks.EyeRightInner;
- 
+
 var centerOfTwoEyes = new Point(
     (eyeLeftInner.X + eyeRightInner.X) / 2,
     (eyeLeftInner.Y + eyeRightInner.Y) / 2);
- 
+
 Vector faceDirection = new Vector(
     centerOfTwoEyes.X - centerOfMouth.X,
     centerOfTwoEyes.Y - centerOfMouth.Y);
-``` 
+```
 
-Se si conosce la direzione del viso, è possibile ruotare la cornice rettangolare per allinearla al viso. È evidente che i punti di riferimento del viso possono offrire maggiori dettagli ed essere di grande utilità.
+Conoscendo la direzione del volto, quindi è possibile ruotare il frame rettangolare viso per allinearla più correttamente. Se si desidera ritagliare visi in un'immagine, è possibile ruotare a livello di codice l'immagine in modo che le facce vengono sempre visualizzati in verticale.
 
-## <a name="step-4-using-other-face-attributes"></a>Passaggio 4: Uso di altri attributi del viso
+## <a name="get-face-attributes"></a>Ottenere gli attributi del viso
 
-Oltre ai punti di riferimento del viso, l'API Viso - Rilevamento può anche analizzare vari altri attributi in un viso. Gli attributi disponibili sono:
+Oltre ai rettangoli e punti di riferimento, l'API di rilevamento viso in grado di analizzare diversi attributi concettuali di un viso. incluse le seguenti:
 
 - Age
 - Sesso
 - Intensità del sorriso
 - Peli del volto
-- Posizione della testa 3D
+- Occhiali
+- Posa head 3D
+- Emozioni
 
-La previsione di questi attributi avviene tramite algoritmi statistici e potrebbe non essere sempre precisa al 100%. Tuttavia, sono comunque utili per classificare i visi sulla base di questi attributi. Per altre informazioni sui singoli attributi, vedere il [glossario](../Glossary.md).
+> [!IMPORTANT]
+> Questi attributi sono stimati tramite l'uso di algoritmi statistici e potrebbero non essere sempre accurati. Prestare attenzione quando si eseguono decisioni basate sui dati dell'attributo.
+>
 
-Di seguito è riportato un esempio semplice di estrazione degli attributi del viso durante il rilevamento:
+Per analizzare attributi facciali, impostare il _returnFaceAttributes_ parametro per un elenco delle **[FaceAttributeType Enum](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** valori.
 
-```CSharp
+```csharp
 var requiredFaceAttributes = new FaceAttributeType[] {
-                FaceAttributeType.Age,
-                FaceAttributeType.Gender,
-                FaceAttributeType.Smile,
-                FaceAttributeType.FacialHair,
-                FaceAttributeType.HeadPose,
-                FaceAttributeType.Glasses
-            };
-var faces = await faceServiceClient.DetectAsync(imageUrl,
-    returnFaceLandmarks: true,
-    returnFaceAttributes: requiredFaceAttributes);
+    FaceAttributeType.Age,
+    FaceAttributeType.Gender,
+    FaceAttributeType.Smile,
+    FaceAttributeType.FacialHair,
+    FaceAttributeType.HeadPose,
+    FaceAttributeType.Glasses,
+    FaceAttributeType.Emotion
+};
+var faces = await faceClient.DetectWithUrlAsync(imageUrl, true, false, requiredFaceAttributes);
+```
 
+Quindi, ottenere riferimenti a dati restituiti ed eseguire altre operazioni in base alle esigenze.
+
+```csharp
 foreach (var face in faces)
 {
-    var id = face.FaceId;
     var attributes = face.FaceAttributes;
     var age = attributes.Age;
     var gender = attributes.Gender;
@@ -182,15 +150,17 @@ foreach (var face in faces)
     var facialHair = attributes.FacialHair;
     var headPose = attributes.HeadPose;
     var glasses = attributes.Glasses;
+    var emotion = attributes.Emotion;
 }
-``` 
+```
 
-## <a name="summary"></a>Summary
+Per altre informazioni su ciascuno degli attributi, vedere la [glossario](../Glossary.md).
 
-In questa guida sono state presentate le funzionalità dell'API [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (Viso - Rilevamento): come consente di rilevare i visi in immagini caricate in locale o tramite URL di immagini nel Web, come consente di rilevare i visi racchiudendoli in cornici rettangolari e come supporta anche l'analisi dei punti di riferimento del viso, delle posizioni della testa 3D e di altri attributi del viso.
+## <a name="next-steps"></a>Passaggi successivi
 
-Per altri dettagli sull'API, vedere la guida di riferimento dell'API per [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (Viso - Rilevamento).
+In questa guida è stato descritto come utilizzare le diverse funzionalità di rilevamento del viso. Successivamente, vedere la [glossario](../Glossary.md) per un'analisi più approfondita i dati di volti recuperati.
 
 ## <a name="related-topics"></a>Argomenti correlati
 
-[Come identificare visi nelle immagini](HowtoIdentifyFacesinImage.md)
+- [Documentazione di riferimento (REST)](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+- [Documentazione di riferimento (.NET SDK)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/face?view=azure-dotnet)

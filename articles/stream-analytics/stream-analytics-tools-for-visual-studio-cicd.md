@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/27/2017
-ms.openlocfilehash: 85cb23d865133f2ee769874aa5150ab13e04cd69
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: 641254be37ac0019ee6a256fc99f96fc3bfb75a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410572"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122774"
 ---
 # <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>Eseguire integrazione e sviluppo in modo continuo con gli strumenti di Analisi di flusso
 Questo articolo descrive come usare gli strumenti di Visual Studio per Analisi di flusso di Azure per configurare un processo di distribuzione e integrazione continuo.
@@ -21,8 +21,8 @@ Questo articolo descrive come usare gli strumenti di Visual Studio per Analisi d
 Usare la versione 2.3.0000.0 o una versione successiva degli [strumenti di Analisi di flusso di Azure per Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) per ottenere il supporto di MSBuild.
 
 È disponibile un pacchetto NuGet: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Fornisce MSBuild, l'esecuzione locale e gli strumenti di distribuzione che supportano l'integrazione continua e il processo di distribuzione dei progetti di Analisi di flusso per Visual Studio. 
-> [!NOTE] 
-Il pacchetto NuGet può essere usato solo con la versione 2.3.0000.0 o successiva di strumenti di Analisi di flusso di Azure per Visual Studio. Se i progetti sono stati creati con le versioni precedenti degli strumenti di Visual Studio, aprirli con la versione 2.3.0000.0 o successiva e salvare. Le nuove funzionalità vengono quindi abilitate. 
+> [!NOTE]
+> Il pacchetto NuGet può essere usato solo con la versione 2.3.0000.0 o successiva di strumenti di Analisi di flusso di Azure per Visual Studio. Se i progetti sono stati creati con le versioni precedenti degli strumenti di Visual Studio, aprirli con la versione 2.3.0000.0 o successiva e salvare. Le nuove funzionalità vengono quindi abilitate. 
 
 Per altre informazioni, vedere [Usare gli strumenti di Analisi di flusso di Azure per Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
 
@@ -45,8 +45,8 @@ Quando viene compilato un progetto di Analisi di flusso per Visual Studio, vengo
 
 I parametri predefiniti nel file parameters.json corrispondono alle impostazioni del progetto di Visual Studio. Se si vuole distribuire in un altro ambiente, sostituire i parametri di conseguenza.
 
-> [!NOTE] 
-Per tutte le credenziali, i valori predefiniti sono impostati su Null. È *obbligatorio* impostare i valori prima di eseguire la distribuzione nel cloud.
+> [!NOTE]
+> Per tutte le credenziali, i valori predefiniti sono impostati su Null. È *obbligatorio* impostare i valori prima di eseguire la distribuzione nel cloud.
 
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {

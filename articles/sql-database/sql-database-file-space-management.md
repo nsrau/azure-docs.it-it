@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 02/11/2019
-ms.openlocfilehash: 32cfb108964d67f865b1d03ffa745eb468feeea7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 043ceb6c46155ed169c080d08f37688b47e3e4b9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110150"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57881164"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Gestire lo spazio file per database singoli e in pool nel database SQL di Azure
 
@@ -27,6 +27,10 @@ Questo articolo descrive i diversi tipi di spazio di archiviazione per database 
 > Le informazioni di questo articolo non sono valide per l'opzione di distribuzione dell'istanza gestita nel database SQL di Azure.
 
 ## <a name="overview"></a>Panoramica
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
 
 Con i database singoli e in pool nel database SQL di Azure sono disponibili modelli di carico di lavoro in cui l'allocazione dei file di dati sottostanti per i database può superare la quantità di pagine di dati usate. Questa condizione si può verificare quando lo spazio usato aumenta e i dati vengono successivamente eliminati. Ciò è dovuto al fatto che lo spazio file allocato non viene recuperato automaticamente quando i dati vengono eliminati.
 
@@ -40,7 +44,7 @@ Può essere necessario monitorare l'utilizzo dello spazio file e compattare i fi
 
 La maggior parte delle metriche per lo spazio di archiviazione visualizzate nel portale di Azure e delle API seguenti misura solo le dimensioni delle pagine di dati usate:
 
-- API per le metriche basate su Azure Resource Manager tra cui [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric) di PowerShell
+- API per le metriche basate su Azure Resource Manager tra cui [get-metrics](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetric) di PowerShell
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 Le API seguenti misurano invece anche le dimensioni dello spazio allocato per i database e i pool elastici:
@@ -162,7 +166,7 @@ $userName = "name"
 $password = "password"
 
 # Get list of databases in elastic pool
-$databasesInPool = Get-AzureRmSqlElasticPoolDatabase `
+$databasesInPool = Get-AzSqlElasticPoolDatabase `
     -ResourceGroupName $resourceGroupName `
     -ServerName $serverName `
     -ElasticPoolName $poolName
@@ -237,7 +241,7 @@ Per abilitare la compattazione automatica, modificare il nome del database nel c
 ALTER DATABASE [db1] SET AUTO_SHRINK ON
 ```
 
-Per altre informazioni su questo comando, vedere [Opzioni ALTER DATABASE SET](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017). 
+Per altre informazioni su questo comando, vedere [Opzioni ALTER DATABASE SET](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current). 
 
 ### <a name="rebuild-indexes"></a>Ricompilazione degli indici
 

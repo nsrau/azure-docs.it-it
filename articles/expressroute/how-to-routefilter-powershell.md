@@ -1,20 +1,19 @@
 ---
 title: 'Configurare i filtri di route per il peering Microsoft - ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: Questo articolo descrive come configurare i filtri di route per il peering Microsoft con PowerShell.
-documentationcenter: na
 services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 02/25/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: fc2cfcce57ad15d2bbad3242351492e184e7fd33
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: c67d4979709fc8e72c560c9071b17f48b309e07d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415297"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110835"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Configurare i filtri di route per il peering Microsoft: PowerShell
 > [!div class="op_single_selector"]
@@ -75,6 +74,9 @@ Prima di iniziare la configurazione, assicurarsi che siano soddisfatti i criteri
 
 
 ### <a name="working-with-azure-powershell"></a>Uso di Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ### <a name="log-in-to-your-azure-account"></a>Accedere all'account Azure
@@ -84,19 +86,19 @@ Prima di iniziare questa configurazione, è necessario accedere all'account Azur
 Aprire la console di PowerShell con privilegi elevati e connettersi al proprio account. Per eseguire la connessione, usare gli esempi seguenti. Se si usa Azure Cloud Shell, non è necessario eseguire questo cmdlet perché l'accesso verrà eseguito automaticamente.
 
 ```azurepowershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Se si hanno più sottoscrizioni di Azure, selezionare le sottoscrizioni per l'account.
 
 ```azurepowershell-interactive
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Specificare la sottoscrizione da usare.
 
 ```azurepowershell-interactive
-Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
 ```
 
 ## <a name="prefixes"></a>Passaggio 1: Ottenere un elenco di prefissi e di valori di community BGP
@@ -106,7 +108,7 @@ Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_nam
 Usare il cmdlet seguente per ottenere l'elenco dei valori di community BGP associati ai servizi accessibili tramite il peering Microsoft e l'elenco dei prefissi associati:
 
 ```azurepowershell-interactive
-Get-AzureRmBgpServiceCommunity
+Get-AzBgpServiceCommunity
 ```
 ### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. Creare un elenco dei valori che si vuole usare
 
@@ -118,10 +120,10 @@ Un filtro di route può includere una sola regola di tipo 'Consenti'. A questa r
 
 ### <a name="1-create-a-route-filter"></a>1. Creare un filtro di route
 
-Creare prima di tutto il filtro di route. Il comando 'New-AzureRmRouteFilter' crea solo una risorsa filtro di route. Dopo aver creato la risorsa, è necessario creare una regola e associarla all'oggetto filtro di route. Eseguire il comando seguente per creare una risorsa filtro di route:
+Creare prima di tutto il filtro di route. Il comando 'New-AzRouteFilter' Crea solo una risorsa filtro di route. Dopo aver creato la risorsa, è necessario creare una regola e associarla all'oggetto filtro di route. Eseguire il comando seguente per creare una risorsa filtro di route:
 
 ```azurepowershell-interactive
-New-AzureRmRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup" -Location "West US"
+New-AzRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup" -Location "West US"
 ```
 
 ### <a name="2-create-a-filter-rule"></a>2. Creare una regola di filtro
@@ -129,7 +131,7 @@ New-AzureRmRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup
 È possibile specificare un set di community BGP come elenco delimitato da virgole, come illustrato nell'esempio. Eseguire il comando seguente per creare una nuova regola:
  
 ```azurepowershell-interactive
-$rule = New-AzureRmRouteFilterRuleConfig -Name "Allow-EXO-D365" -Access Allow -RouteFilterRuleType Community -CommunityList "12076:5010,12076:5040"
+$rule = New-AzRouteFilterRuleConfig -Name "Allow-EXO-D365" -Access Allow -RouteFilterRuleType Community -CommunityList "12076:5010,12076:5040"
 ```
 
 ### <a name="3-add-the-rule-to-the-route-filter"></a>3. Aggiungere la regola al filtro di route
@@ -137,9 +139,9 @@ $rule = New-AzureRmRouteFilterRuleConfig -Name "Allow-EXO-D365" -Access Allow -R
 Eseguire il comando seguente per aggiungere la regola di filtro al filtro di route:
  
 ```azurepowershell-interactive
-$routefilter = Get-AzureRmRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
+$routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
 $routefilter.Rules.Add($rule)
-Set-AzureRmRouteFilter -RouteFilter $routefilter
+Set-AzRouteFilter -RouteFilter $routefilter
 ```
 
 ## <a name="attach"></a>Passaggio 3: Associare il filtro di route a un circuito ExpressRoute
@@ -147,9 +149,9 @@ Set-AzureRmRouteFilter -RouteFilter $routefilter
 Se si usano solo peer Microsoft, eseguire questo comando per associare il filtro route al circuito ExpressRoute:
 
 ```azurepowershell-interactive
-$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+$ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 $ckt.Peerings[0].RouteFilter = $routefilter 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ## <a name="tasks"></a>Attività comuni
@@ -160,24 +162,24 @@ Per ottenere le proprietà di un filtro di route, seguire questa procedura:
 
 1. Eseguire il comando seguente per ottenere una risorsa filtro di route:
 
-  ```azurepowershell-interactive
-  $routefilter = Get-AzureRmRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
-  ```
+   ```azurepowershell-interactive
+   $routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
+   ```
 2. Eseguire il comando seguente per ottenere le regole di filtro di route per la risorsa filtro di route:
 
-  ```azurepowershell-interactive
-  $routefilter = Get-AzureRmRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
-  $rule = $routefilter.Rules[0]
-  ```
+   ```azurepowershell-interactive
+   $routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
+   $rule = $routefilter.Rules[0]
+   ```
 
 ### <a name="updateproperties"></a>Per aggiornare le proprietà di un filtro di route
 
 Se il filtro di route è già associato a un circuito, gli aggiornamenti all'elenco di community BGP includono la propagazione automatica delle modifiche per gli annunci dei prefissi tramite le sessioni BGP stabilite. È possibile aggiornare l'elenco di community BGP del filtro di route con il comando seguente:
 
 ```azurepowershell-interactive
-$routefilter = Get-AzureRmRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
+$routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
 $routefilter.rules[0].Communities = "12076:5030", "12076:5040"
-Set-AzureRmRouteFilter -RouteFilter $routefilter
+Set-AzRouteFilter -RouteFilter $routefilter
 ```
 
 ### <a name="detach"></a>Per rimuovere l'associazione di un filtro di route da un circuito ExpressRoute
@@ -186,7 +188,7 @@ Dopo aver rimosso l'associazione di un filtro di route dal circuito ExpressRoute
   
 ```azurepowershell-interactive
 $ckt.Peerings[0].RouteFilter = $null
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="delete"></a>Per eliminare un filtro di route
@@ -194,9 +196,9 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 È possibile eliminare un filtro di route solo se non è associato a un circuito. Assicurarsi che il filtro di route non sia associato a un circuito prima di tentare di eliminarlo. È possibile eliminare un filtro di route con il comando seguente:
 
 ```azurepowershell-interactive
-Remove-AzureRmRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup"
+Remove-AzRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup"
 ```
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).

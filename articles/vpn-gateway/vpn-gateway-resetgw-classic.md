@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6e57979e2c43cc47504495cce23947b93abb4020
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 54b89b74017b8d5d6e4bd1b52c6b3986d2802702
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414934"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118800"
 ---
 # <a name="reset-a-vpn-gateway"></a>Reimpostare un gateway VPN
 
@@ -47,7 +47,7 @@ Verificare gli elementi seguenti prima di reimpostare il gateway:
 1. Aprire il [portale di Azure](https://portal.azure.com) e passare al gateway di rete virtuale di Resource Manager che si desidera reimpostare.
 2. Nel pannello per il gateway di rete virtuale fare clic su "Reimposta".
 
-  ![Pannello di reimpostazione gateway VPN](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
+   ![Pannello di reimpostazione gateway VPN](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
 3. Nel pannello Reimposta, fare clic sul pulsante **Reimposta**.
 
 ## <a name="ps"></a>PowerShell
@@ -56,7 +56,7 @@ Verificare gli elementi seguenti prima di reimpostare il gateway:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Il cmdlet per la reimpostazione di un gateway è **Reset-AzVirtualNetworkGateway**. Prima di eseguire un ripristino assicurarsi di avere la versione più recente dei [cmdlet di PowerShell per Azure Resource Manager](https://docs.microsoft.com/powershell/azure/azurerm/install-Az-ps?view=azurermps-4.0.0). Nell'esempio seguente viene ripristinato un gateway di rete virtuale denominato VNet1GW nel gruppo di risorse TestRG1:
+Il cmdlet per la reimpostazione di un gateway è **Reset-AzVirtualNetworkGateway**. Prima di eseguire un ripristino assicurarsi di avere la versione più recente del [i cmdlet di PowerShell Az](https://docs.microsoft.com/powershell/module/az.network). Nell'esempio seguente viene ripristinato un gateway di rete virtuale denominato VNet1GW nel gruppo di risorse TestRG1:
 
 ```powershell
 $gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1

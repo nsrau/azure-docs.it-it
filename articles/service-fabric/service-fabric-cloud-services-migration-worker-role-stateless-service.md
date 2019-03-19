@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 4eed3825d52fe52025077980e21f3763cc5751ac
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: f23f29d15c4c8f05551b20d42b92dda5632cde08
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049950"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078738"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guida alla conversione di ruoli di lavoro e Web in servizi senza stato di Service Fabric
 Questo articolo descrive come eseguire la migrazione di ruoli di lavoro e Web di Servizi cloud a servizi senza stato di Service Fabric. Questo è il percorso di migrazione più semplice da Servizi cloud a Service Fabric per le applicazioni la cui architettura complessiva rimarrà approssimativamente la stessa.
@@ -44,7 +44,7 @@ Analogamente a un ruolo di lavoro, anche un ruolo Web rappresenta un carico di l
 | Web Form ASP.NET |No  |Convertire in ASP.NET Core 1 MVC |
 | ASP.NET MVC |Con migrazione |Eseguire l'aggiornamento ad ASP.NET Core 1 MVC |
 | API Web ASP.NET |Con migrazione |Usare un server self-hosted o ASP.NET Core 1 |
-| ASP.NET Core 1 |Yes |N/D |
+| ASP.NET Core 1 |Sì |N/D |
 
 ## <a name="entry-point-api-and-lifecycle"></a>API del punto di ingresso e ciclo di vita
 Le API del servizio di Service Fabric e del ruolo di lavoro offrono punti di ingresso simili: 
@@ -110,8 +110,8 @@ Entrambi hanno un override "Run" primario in cui iniziare l'elaborazione. I serv
 
 Esistono alcune differenze principali tra il ciclo di vita e la durata dei servizi di Service Fabric e dei ruoli di lavoro:
 
-* **Ciclo di vita:** la differenza principale è che un ruolo di lavoro è una VM e quindi il ciclo di vita è associato alla VM e include gli eventi relativi all'avvio e all'arresto della VM. Un servizio di Service Fabric ha un ciclo di vita separato dal ciclo di vita della macchina virtuale, quindi non include gli eventi relativi all'avvio e all'arresto della macchina virtuale host o del computer, perché non sono correlati.
-* **Durata:** un'istanza del ruolo di lavoro verrà riciclata se il metodo `Run` viene chiuso. Il metodo `RunAsync` in un servizio di Service Fabric può tuttavia essere eseguito fino al completamento e l'istanza del servizio rimarrà operativa. 
+* **Ciclo di vita:** La differenza principale è che un ruolo di lavoro è una macchina virtuale e pertanto il ciclo di vita è associato alla macchina virtuale, che include gli eventi di inizio e la fine della macchina virtuale. Un servizio di Service Fabric ha un ciclo di vita separato dal ciclo di vita della macchina virtuale, quindi non include gli eventi relativi all'avvio e all'arresto della macchina virtuale host o del computer, perché non sono correlati.
+* **Durata:** Un'istanza del ruolo di lavoro verrà riciclata se il `Run` viene chiuso (metodo). Il metodo `RunAsync` in un servizio di Service Fabric può tuttavia essere eseguito fino al completamento e l'istanza del servizio rimarrà operativa. 
 
 Service Fabric fornisce un punto di ingresso facoltativo di configurazione della comunicazione per i servizi in ascolto delle richieste client. Sia il punto di ingresso di comunicazione che quello di RunAsync sono sostituzioni facoltative nei servizi di Service Fabric, ovvero il servizio può scegliere di restare in ascolto solo delle richieste client o eseguire solo un ciclo di elaborazione oppure entrambi, motivo per cui il metodo RunAsync può terminare senza riavviare l'istanza del servizio, perché può continuare a rimanere in ascolto delle richieste client.
 
@@ -209,7 +209,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 Le attività di avvio sono azioni eseguite prima dell'avvio di un'applicazione. Un'attività di avvio viene in genere usata per eseguire script di installazione con privilegi elevati. Sia Servizi Cloud che Service Fabric supportano attività di avvio. La differenza principale riguarda il fatto che in Servizi cloud un'attività di avvio è collegata a una VM, perché fa parte di un'istanza del ruolo, mentre in Service Fabric un'attività di avvio è collegata a un servizio che non è associato a una VM specifica.
 
 | Service Fabric | Servizi cloud |
-| --- | --- | --- |
+| --- | --- |
 | Percorso di configurazione |ServiceDefinition.csdef |
 | Privilegi |"limitato" o "con privilegi elevati" |
 | Sequenziazione |"semplice", "background", "in primo piano" |

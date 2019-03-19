@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: a46f2b4ed1bb3fc5fff65a627bd3d808ed85ffce
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 4e32d2357636cb488d3a58b78b025860da3f74c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967283"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091359"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Preparare una macchina virtuale basata su CentOS per Azure
 
@@ -301,11 +301,11 @@ La preparazione di una macchina virtuale CentOS 7 per Azure è molto simile a Ce
 
 10. Se si compila l'immagine da **VMware, VirtualBox o KVM**, assicurarsi che i driver Hyper-V siano inclusi in initramfs:
 
-   Modificare `/etc/dracut.conf`e aggiungere il contenuto:
+    Modificare `/etc/dracut.conf`e aggiungere il contenuto:
 
         add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
 
-   Ricompilare l’initramfs:
+    Ricompilare l’initramfs:
 
         # sudo dracut -f -v
 
@@ -316,7 +316,7 @@ La preparazione di una macchina virtuale CentOS 7 per Azure è molto simile a Ce
 
 12. Non creare l'area di swap sul disco del sistema operativo.
 
-   L'agente Linux di Azure può configurare automaticamente l'area di swap utilizzando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco *temporaneo* e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure come illustrato nel passaggio precedente, modificare i seguenti parametri di `/etc/waagent.conf` in modo appropriato:
+    L'agente Linux di Azure può configurare automaticamente l'area di swap utilizzando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco *temporaneo* e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure come illustrato nel passaggio precedente, modificare i seguenti parametri di `/etc/waagent.conf` in modo appropriato:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4

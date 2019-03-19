@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: 301de81fc9b8bdb8b295700de33065d988379334
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 34056b3a562d3110569e05c5c50ae4d9dae2375a
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428795"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868137"
 ---
 # <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>Scrivere in Apache Hadoop HDFS da Apache Storm in HDInsight
 
@@ -146,7 +146,7 @@ Per informazioni sull'uso di questo script con il cluster, vedere il documento [
 
 ## <a name="build-and-package-the-topology"></a>Compilare e creare il pacchetto della topologia
 
-1. Scaricare il progetto di esempio da [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) all'ambiente di sviluppo.
+1. Scaricare il progetto di esempio dal [ https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) all'ambiente di sviluppo.
 
 2. Da un prompt dei comandi, un terminale o una sessione shell, modificare le directory impostandole sulla directory principale del progetto scaricato. Per compilare e creare la topologia, usare il seguente comando:
    

@@ -13,17 +13,17 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/06/2015
 ms.author: lauraa
-ms.openlocfilehash: 639faef9d95a6ff3ba307290add3bee73904fee0
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.openlocfilehash: 4d4e68d99585522e773e71430b4e4f37ad7b1580
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52270668"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124407"
 ---
-Le seguenti limitazioni si applicano a Azure Site Recovery:
+I limiti seguenti si applicano ad Azure Site Recovery.
 
-| IDENTIFICATORE LIMITE | LIMITE PREDEFINITO |
-| --- | --- | --- | --- |
+| Identificatore limite | Limite predefinito |
+| --- | --- |
 | Numero di insiemi di credenziali per ogni sottoscrizione |500 |     
 | Numero di server per l'insieme di credenziali di Azure |250 |
 | Numero di gruppi protezione dati per ogni insieme di credenziali di Azure |Nessun limite |

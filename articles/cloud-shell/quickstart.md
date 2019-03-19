@@ -3,7 +3,7 @@ title: Guida introduttiva a Bash in Azure Cloud Shell | Microsoft Docs
 description: Guida introduttiva a Bash in Cloud Shell
 services: ''
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
-ms.author: juluk
-ms.openlocfilehash: 0b3616a723e793ab1ce8d7bcca1f53ca10ec4f96
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.author: damaerte
+ms.openlocfilehash: 1b6419feef96b57bafd0831531bd8cfa56142cc4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970666"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089149"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Guida introduttiva a Bash in Azure Cloud Shell
 
@@ -44,14 +44,14 @@ Controllare che l'elenco a discesa degli ambienti dal lato sinistro della finest
 
 ### <a name="set-your-subscription"></a>Impostare la sottoscrizione
 1. Elencare le sottoscrizioni a cui si ha accesso.
-```azurecli-interactive
-az account list
-```
+   ```azurecli-interactive
+   az account list
+   ```
 
 2. Impostare la sottoscrizione preferita: <br>
-```azurecli-interactive
-az account set --subscription my-subscription-name`
-```
+   ```azurecli-interactive
+   az account set --subscription my-subscription-name`
+   ```
 
 > [!TIP]
 > La sottoscrizione verrà memorizzata per le sessioni future con `/home/<user>/.azure/azureProfile.json`.
@@ -77,26 +77,26 @@ Il nome utente in questa VM sarà quello usato in Cloud Shell ($User@Azure:).
 ### <a name="ssh-into-your-linux-vm"></a>Usare SSH per connettersi alla VM Linux
 1. Cercare il nome della macchina virtuale nella barra di ricerca del portale di Azure.
 2. Fare clic su "Connetti" per ottenere il nome e l'indirizzo IP pubblico della macchina virtuale. <br>
-![](media/quickstart/sshcmd-copy.png)
+   ![](media/quickstart/sshcmd-copy.png)
 
 3. SSH nella macchina virtuale con il cmd `ssh`.
-```
-ssh username@ipaddress
-```
+   ```
+   ssh username@ipaddress
+   ```
 
 Quando viene stabilita la connessione SSH, verrà visualizzato il prompt di benvenuto di Ubuntu. <br>
 ![](media/quickstart/ubuntu-welcome.png)
 
 ## <a name="cleaning-up"></a>Cleaning up 
 1. Chiudere la sessione SSH.
-```azurecli-interactive
-exit
-```
+   ```azurecli-interactive
+   exit
+   ```
 
 2. Eliminare il gruppo di risorse e tutte le risorse al suo interno.
-```azurecli-interactive
-az group delete -n MyRG
-```
+   ```azurecli-interactive
+   az group delete -n MyRG
+   ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Informazioni sulla persistenza dei file per Bash all’interno di Cloud Shell.](persisting-shell-storage.md) <br>

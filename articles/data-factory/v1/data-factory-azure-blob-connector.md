@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 733ae4451988651df2a62a22aa6eb1b6fae44309
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: ea4cf03b368cebbfc7d1229be28014b54f2c11d0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331725"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004310"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copiare i dati da e in Archiviazione BLOB di Azure mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,7 +71,7 @@ Esistono due tipi di servizi collegati, che consentono di collegare un archivio 
 
 [!INCLUDE [data-factory-azure-storage-linked-services](../../../includes/data-factory-azure-storage-linked-services.md)]
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 Per specificare un set di dati per rappresentare i dati di input o di output in un'archiviazione BLOB di Azure, impostare la proprietà del tipo del set di dati su **AzureBlob**. Impostare la proprietà **linkedServiceName** del set di dati sul nome del servizio collegato di Archiviazione di Azure o di firma di accesso condiviso Archiviazione di Azure.  Le proprietà del tipo del set di dati specificano il **contenitore BLOB** e la **cartella** nell'archivio BLOB.
 
 Per un elenco completo delle proprietà e delle sezioni JSON disponibili per la definizione dei set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
@@ -80,9 +80,9 @@ Data factory supporta i valori di tipo basati su .NET conformi a CLS per specifi
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione, il formato dei dati e così via nell'archivio dati. La sezione typeProperties per il set di dati di tipo **AzureBlob** presenta le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
-| folderPath |Percorso del contenitore e della cartella nell'archivio BLOB. Esempio: myblobcontainer\myblobfolder\ |Yes |
+| folderPath |Percorso del contenitore e della cartella nell'archivio BLOB. Esempio: myblobcontainer\myblobfolder\ |Sì |
 | fileName |Nome del BLOB. fileName è facoltativo e non applica la distinzione tra maiuscole e minuscole.<br/><br/>Se si specifica un filename, l'attività, inclusa la copia, funziona sul BLOB specifico.<br/><br/>Quando fileName non è specificato, la copia include tutti i BLOB in folderPath per il set di dati di input.<br/><br/>Quando **fileName** non è specificato per un set di dati di output e **preserveHierarchy** non è specificato nel sink dell'attività, il nome del file generato avrà il formato seguente: Data.<Guid>.txt (ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No  |
 | partitionedBy |partitionedBy è una proprietà facoltativa. Può essere utilizzata per specificare una proprietà folderPath dinamica e un nome file per i dati della serie temporale. Ad esempio, è possibile includere parametri per ogni ora di dati in folderPath. Per informazioni dettagliate ed esempi, vedere la sezione [Uso della proprietà partitionedBy](#using-partitionedBy-property) . |No  |
 | format | Sono supportati i formati di file seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [TextFormat](data-factory-supported-file-and-compression-formats.md#text-format), [JsonFormat](data-factory-supported-file-and-compression-formats.md#json-format), [AvroFormat](data-factory-supported-file-and-compression-formats.md#avro-format), [OrcFormat](data-factory-supported-file-and-compression-formats.md#orc-format) e [ParquetFormat](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. |No  |
@@ -126,13 +126,13 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 **BlobSource** supporta le seguenti proprietà della sezione **typeProperties**:
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
+| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
 | ricorsiva |Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. |True (valore predefinito), False |No  |
 
 **BlobSink** supporta le proprietà della sezione **typeProperties** seguenti:
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
+| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
 | copyBehavior |Definisce il comportamento di copia quando l'origine è BlobSource o FileSystem. |<b>PreserveHierarchy:</b> mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><br/><b>FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. Il nome dei file di destinazione viene generato automaticamente. <br/><br/><b>MergeFiles</b>: unisce tutti i file della cartella di origine in un solo file. Se viene specificato il nome file/BLOB, il nome file unito sarà il nome specificato. In caso contrario, sarà il nome file generato automaticamente. |No  |
 
@@ -181,6 +181,7 @@ Ecco come copiare rapidamente i dati in/da una risorsa di archiviazione BLOB di 
     John, Doe
     Jane, Doe
     ```
+
 ### <a name="create-the-data-factory"></a>Creare la data factory
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Fare clic su **Crea una risorsa** nell'angolo in alto a sinistra, selezionare **Intelligence e analisi** e quindi **Data factory**.
@@ -249,14 +250,14 @@ Ecco come copiare rapidamente i dati in/da una risorsa di archiviazione BLOB di 
     4. Selezionare l'account di archiviazione di Azure.
     5. Fare clic su **Avanti**.
 10. Nella pagina **Choose the output file or folder** (Scegliere il file o la cartella di output):  
-    6. In **Percorso cartella** specificare **adfblobconnector/output/{year}/{month}/{day}** (adfblobconnector/output/{anno}/{mese}/{giorno}). Premere **TAB**.
-    7. Per **anno**, selezionare **yyyy**.
-    8. Per **mese**, verificare che sia impostato su **MM**.
-    9. Per **giorno**, verificare che sia impostato su **dd** (gg).
-    10. Verificare che **Tipo di compressione** sia impostato su **Nessuno**.
-    11. Verificare che **copy behavior** (Comportamento copia) sia impostato su **Merge files** (Unisci file). Se esiste già un file di output con lo stesso nome, il nuovo contenuto viene aggiunto alla fine dello stesso file.
-    12. Fare clic su **Avanti**.
-    ![Strumento di copia - Scegliere il file o la cartella di output](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
+    1. In **Percorso cartella** specificare **adfblobconnector/output/{year}/{month}/{day}** (adfblobconnector/output/{anno}/{mese}/{giorno}). Premere **TAB**.
+    1. Per **anno**, selezionare **yyyy**.
+    1. Per **mese**, verificare che sia impostato su **MM**.
+    1. Per **giorno**, verificare che sia impostato su **dd** (gg).
+    1. Verificare che **Tipo di compressione** sia impostato su **Nessuno**.
+    1. Verificare che **copy behavior** (Comportamento copia) sia impostato su **Merge files** (Unisci file). Se esiste già un file di output con lo stesso nome, il nuovo contenuto viene aggiunto alla fine dello stesso file.
+    1. Fare clic su **Avanti**.
+       ![Strumento di copia - Scegliere il file o la cartella di output](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
 11. Nella pagina **File format settings** (Impostazioni di formato file) rivedere le impostazioni e fare clic su **Avanti**. Una delle opzioni aggiuntive ora consiste nell'aggiungere un'intestazione al file di output. Se si seleziona tale opzione, viene aggiunta una riga di intestazione con i nomi delle colonne dalla schema dell'origine. È possibile rinominare i nomi di colonna predefiniti quando si visualizza lo schema per l'origine. È ad esempio possibile impostare la prima colonna su Nome e la seconda colonna su Cognome. Viene quindi generato il file di output con un'intestazione contenente questi nomi come nomi di colonna.
     ![Strumento di copia - Impostazioni di formatto file per la destinazione](media/data-factory-azure-blob-connector/file-format-destination.png)
 12. Nella pagina **Performance settings** (Impostazioni prestazioni) verificare che **cloud units** (Unità cloud) e **parallel copies** (Copie parallele) siano impostati su **Auto** e fare clic su Avanti. Per informazioni dettagliate su queste impostazioni, vedere [Guida alle prestazioni dell'attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md#parallel-copy).
@@ -281,7 +282,7 @@ Ecco come copiare rapidamente i dati in/da una risorsa di archiviazione BLOB di 
     2017/04/24
     2017/04/25
     ```
-Per informazioni dettagliate sul monitoraggio e la gestione delle data factory, vedere l'articolo [Monitorare e gestire le pipeline di Data Factory](data-factory-monitor-manage-app.md).
+   Per informazioni dettagliate sul monitoraggio e la gestione delle data factory, vedere l'articolo [Monitorare e gestire le pipeline di Data Factory](data-factory-monitor-manage-app.md).
 
 ### <a name="data-factory-entities"></a>Entità di Data factory
 Tornare ora alla scheda con la home page di Data Factory. Si noti che ora nella data factory sono presenti due servizi collegati, due set di dati e una pipeline.

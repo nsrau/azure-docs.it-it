@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7b5bb0bf8ff5fac10c47cf5bdf9564903f4d6b94
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 58be8a222f649abe4be6de272a1ef2b686336262
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448484"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57847128"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configurare l'applicazione nel portale di pubblicazione
 
@@ -27,16 +27,16 @@ A questo punto si è pronti a configurare l'applicazione nel portale di pubblica
 
 ## <a name="login-and-create-a-new-offer"></a>Accedere e creare una nuova offerta
 
-1. Accedere al [portale Cloud Partner](http://cloudpartner.azure.com/).
+1. Accedere al [Portale per Cloud Partner](https://cloudpartner.azure.com/).
 2. Nella barra di spostamento a sinistra scegliere "+ Nuova offerta" e selezionare "Dynamics 365 for Customer Engagement".
 
 ![Selezione di una nuova offerta](./media/CRMScreenShot14.png)
 
-3. Viene ora aperto l'"Editor" della nuova offerta in cui è possibile iniziare la creazione.
+1. Viene ora aperto l'"Editor" della nuova offerta in cui è possibile iniziare la creazione.
 
 ![Schermata Nuova offerta](./media/CRMScreenShot15.png)
 
-4. I "moduli" da compilare sono visibili a sinistra nell'"Editor". Ogni "modulo" è costituito da un set di campi da compilare. I campi obbligatori sono contrassegnati con un asterisco rosso (\*).
+1. I "moduli" da compilare sono visibili a sinistra nell'"Editor". Ogni "modulo" è costituito da un set di campi da compilare. I campi obbligatori sono contrassegnati con un asterisco rosso (\*).
 
 I moduli principali per creare un'offerta Dynamics 365 for Customer Engagement sono quattro.
 
@@ -59,7 +59,7 @@ Ad esempio, se un editore **"contoso"** crea un'offerta con ID **"sample-WebApp"
 
 Questo elenco a discesa consente di scegliere il profilo di pubblicazione in cui si desidera pubblicare l'offerta. Questo campo è bloccato dopo la pubblicazione dell'offerta.
 
-### <a name="name"></a>Name (Nome)
+### <a name="name"></a>NOME
 
 Nome visualizzato dell'offerta. È il nome che verrà visualizzato in [AppSource](https://appsource.microsoft.com/). Può contenere massimo 50 caratteri.
 
@@ -88,9 +88,9 @@ Di seguito è riportata una spiegazione di questi campi:
 
 ### <a name="crm-package-availability"></a>Disponibilità del pacchetto CRM
 
-In questa sezione selezionare le aree geografiche di CRM in cui il pacchetto sarà reso disponibile. Per informazioni sui paesi serviti in ciascuna area, vedere il collegamento: [http://o365datacentermap.azurewebsites.net/](http://o365datacentermap.azurewebsites.net/)
+In questa sezione selezionare le aree geografiche di CRM in cui il pacchetto sarà reso disponibile. Per informazioni sui paesi serviti in ciascuna area, vedere il collegamento: [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
-Nota: la distribuzione nei "cloud sovrani e US Gov" in Germania RICHIEDE UN'AUTORIZZAZIONE SPECIALE e LA CONVALIDA DURANTE LA CERTIFICAZIONE.
+Note: la distribuzione nei "cloud sovrani e US Gov" in Germania RICHIEDE UN'AUTORIZZAZIONE SPECIALE e LA CONVALIDA DURANTE LA CERTIFICAZIONE.
 
 ## <a name="storefront-details"></a>Dati da visualizzare nella vetrina
 
@@ -193,4 +193,4 @@ Selezionare un sistema CRM nel quale verranno archiviati i clienti potenziali. S
 
 ## <a name="storefront-details"></a>Dati da visualizzare nella vetrina
 
-I dettagli di contatto vengono usati solo per le comunicazioni interne tra il partner e Microsoft. Nota: in questi campi è importante usare un indirizzo di posta elettronica che viene monitorato. Questo indirizzo verrà usato per comunicare con l'utente sullo stato di avanzamento della pubblicazione in AppSource. Solo l'URL del supporto sarà visibile ai clienti.
+I dettagli di contatto vengono usati solo per le comunicazioni interne tra il partner e Microsoft. Note: in questi campi è importante usare un indirizzo di posta elettronica che viene monitorato. Questo indirizzo verrà usato per comunicare con l'utente sullo stato di avanzamento della pubblicazione in AppSource. Solo l'URL del supporto sarà visibile ai clienti.

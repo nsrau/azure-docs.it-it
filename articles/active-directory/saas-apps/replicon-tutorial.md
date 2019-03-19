@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46466ac85a8be1dec273440751489833f12c00db
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ade40287bd38580a1e3f6377e54017bfe92bf452
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166812"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863407"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Esercitazione: Integrazione di Azure Active Directory con Replicon
 
@@ -196,7 +196,7 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in Replicon.
 
     ![Profilo utente](./media/replicon-tutorial/ic777808.png "Profilo utente")
 
-    a. Nella casella di testo **Nome accesso** digitare l'indirizzo di posta elettronica dell'utente di Azure AD di cui si desidera eseguire il provisioning, ad esempio **BrittaSimon@contoso.com**.
+    a. Nel **nome account di accesso** nella casella di testo, digitare l'indirizzo di posta elettronica dell'utente di Azure AD che si desidera eseguire il provisioning, ad esempio **BrittaSimon\@contoso.com**.
 
     b. In **Tipo di autenticazione** selezionare **SSO**.
 

@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be95a75e7cdcaa11ef3e90093ef52c5615608eac
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 4d74b122f3b5567e8291ec5f3ff4e1dda7ff68f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458024"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835017"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Creare funzionalità per i dati in un cluster Hadoop con query Hive
 Questo documento illustra come creare funzionalità per i dati archiviati in un cluster Hadoop di Azure HDInsight tramite query Hive. Tali query Hive usano le funzioni definite dall'utente di Hive incorporate, gli script per i quali sono fornite.
 
 Le operazioni necessarie per creare le funzionalità possono richiedere molta memoria. Le prestazioni delle query Hive diventano più importanti in questi casi e possono essere migliorate, ottimizzando determinati parametri. L'ottimizzazione di questi parametri è descritta nella sezione finale.
 
-Nell'[archivio GitHub](http://chriswhong.com/open-data/foil_nyc_taxi/) sono disponibili anche alcuni esempi di query specifiche per gli scenari relativi ai [dati dei tragitti dei taxi di NYC](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Tali query dispongono già di un determinato schema dei dati e possono essere inviate e usate immediatamente. Nella parte finale del documento sono descritti anche i parametri che gli utenti possono impostare per migliorare le prestazioni delle query Hive.
+Nell'[archivio GitHub](https://chriswhong.com/open-data/foil_nyc_taxi/) sono disponibili anche alcuni esempi di query specifiche per gli scenari relativi ai [dati dei tragitti dei taxi di NYC](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Tali query dispongono già di un determinato schema dei dati e possono essere inviate e usate immediatamente. Nella parte finale del documento sono descritti anche i parametri che gli utenti possono impostare per migliorare le prestazioni delle query Hive.
 
 Questa attività è un passaggio del [Processo di analisi scientifica dei dati per i team (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
@@ -130,7 +130,7 @@ I campi usati in questa query sono coordinate GPS relative ai luoghi in cui si s
         and dropoff_latitude between 30 and 90
         limit 10;
 
-Le equazioni matematiche per calcolare la distanza tra due coordinate GPS sono riportate nel sito <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a>, creato da Peter Lapisu. In JavaScript la funzione `toRad()` è *lat_or_lon*pi/180* e consente di convertire i gradi in radianti. Qui *lat_or_lon* rappresenta la latitudine o la longitudine. Dal momento che Hive non fornisce la funzione `atan2`, ma `atan`, la funzione `atan2` viene implementata dalla funzione `atan` nella query Hive precedente in base alla definizione fornita su <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
+Le equazioni matematiche per calcolare la distanza tra due coordinate GPS sono riportate nel sito <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a>, creato da Peter Lapisu. In Javascript la funzione `toRad()` è sufficiente *lat_or_lon*pi/180, che converte i gradi in radianti. Qui *lat_or_lon* rappresenta la latitudine o la longitudine. Dal momento che Hive non fornisce la funzione `atan2`, ma `atan`, la funzione `atan2` viene implementata dalla funzione `atan` nella query Hive precedente in base alla definizione fornita su <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
 ![Creare un'area di lavoro](./media/create-features-hive/atan2new.png)
 
@@ -161,11 +161,11 @@ Le impostazioni predefinite per i parametri del cluster Hive potrebbero non esse
    
     In genere il valore predefinito di:
     
-    - *mapred.min.split.size* è 0
-    - *mapred.max.split.size* è **Long.MAX** 
-    - *dfs.block.size* è 64 MB.
+   - *mapred.min.split.size* è 0
+   - *mapred.max.split.size* è **Long.MAX** 
+   - *dfs.block.size* è 64 MB.
 
-    Come è evidente, stabilita la dimensione dei dati, regolare i parametri "impostandoli" consente all'utente di scegliere il numero di mapper da usare.
+     Come è evidente, stabilita la dimensione dei dati, regolare i parametri "impostandoli" consente all'utente di scegliere il numero di mapper da usare.
 
 4. Di seguito sono riportate altre **opzioni avanzate** che consentono di ottimizzare le prestazioni di Hive. Tali opzioni consentono di impostare la quantità di memoria allocata per le attività di mapping e di riduzione e possono essere utili nella modifica delle prestazioni. Tenere presente che *mapreduce.reduce.memory.mb* non può essere superiore alla dimensione della memoria fisica di ogni nodo di lavoro presente nel cluster Hadoop.
    

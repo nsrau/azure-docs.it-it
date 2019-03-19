@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 89b18d71e864c198b7efafcff09777da21930b6c
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 8a2ea64d32194ff06378e3227b260c4f10d53175
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733638"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116674"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Individuare e valutare un ambiente VMware di grandi dimensioni
 
@@ -38,7 +38,7 @@ Azure Migrate deve avere accesso ai server VMware per l'individuazione automatic
 
 Se si esegue la distribuzione in un ambiente tenant, ecco un modo per impostare questa funzionalità:
 
-1.  Creare un utente per ogni tenant e, tramite [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), assegnare autorizzazioni di sola lettura a tutte le macchine virtuali appartenenti a un particolare tenant. Usare quindi queste credenziali per l'individuazione. RBAC assicura che l'utente vCenter corrispondente possa accedere solo al tenant della macchina virtuale specifica.
+1. Creare un utente per ogni tenant e, tramite [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), assegnare autorizzazioni di sola lettura a tutte le macchine virtuali appartenenti a un particolare tenant. Usare quindi queste credenziali per l'individuazione. RBAC assicura che l'utente vCenter corrispondente possa accedere solo al tenant della macchina virtuale specifica.
 2. È possibile impostare RBAC per utenti tenant diversi, come descritto nell'esempio seguente per l'Utente n. 1 e l'Utente n. 2:
 
     - In **Nome utente** e **Password** specificare le credenziali dell'account di sola lettura che verranno usate dall'agente di raccolta per individuare le macchine virtuali in

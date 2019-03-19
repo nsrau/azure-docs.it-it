@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: normesta
-ms.openlocfilehash: 09514e37d1d40c489eda483980237d26e4a08730
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: ec97cf903a37465f98007750fc41edc0952ab3a6
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417923"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889597"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Uso di Azure Data Lake Storage Gen2 per i requisiti di Big Data
 
@@ -70,9 +70,9 @@ Questa tabella illustra come concedere l'accesso per ogni strumento o servizio d
 |---|--|---|
 |Storage Explorer| Assegnazione di ruolo a utenti e gruppi | [Assegnazione di ruoli di amministratore e senza privilegi di amministratore agli utenti con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) |
 |AzCopy| Assegnazione di ruolo a utenti e gruppi <br>**or**<br> Usare un token di firma di accesso condiviso| [Assegnazione di ruoli di amministratore e senza privilegi di amministratore agli utenti con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)<br><br>[Creare con facilità una firma di accesso condiviso per scaricare un file da Archiviazione di Azure – tramite Azure Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)|
-|Apache DistCp | Assegnare un ruolo a un'identità gestita assegnata dall'utente | [Creazione di un cluster HDInsight con Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#creating-an-hdinsight-cluster-with-data-lake-storage-gen2) |
+|Apache DistCp | Assegnare un ruolo a un'identità gestita assegnata dall'utente | [Creazione di un cluster HDInsight con Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
 |Data factory di Azure| Assegnare un ruolo a un'identità gestita assegnata dall'utente<br>**or**<br> Assegnare un ruolo a un'entità servizio<br>**or**<br> Usare una chiave dell'account di archiviazione | [Proprietà del servizio collegato](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |
-|HDInsight di Azure| Assegnare un ruolo a un'identità gestita assegnata dall'utente | [Creazione di un cluster HDInsight con Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#creating-an-hdinsight-cluster-with-data-lake-storage-gen2)|
+|HDInsight di Azure| Assegnare un ruolo a un'identità gestita assegnata dall'utente | [Creazione di un cluster HDInsight con Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)|
 |Azure Databricks| Assegnare un ruolo a un'entità servizio | [Procedura: Usare il portale per creare un'entità servizio e applicazione di Azure AD che possano accedere alle risorse](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)|
 
 Per concedere l'accesso a specifici file e cartelle, vedere questi articoli.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 6bd8d0cee01853547efd028feef0a97f9398024e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 692113257e483f67eaaee038c07d8702d95a7b31
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015523"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116810"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrare i dati di telemetria nell'App Web Java
 
@@ -186,12 +186,12 @@ Esclude le tracce di log (registrate tramite [TrackTrace()](../../azure-monitor/
 ```
 
 * I valori `FromSeverityLevel` validi sono:
- *  OFF             - Esclude TUTTE le tracce
- *  TRACE           - Non applica alcun filtro. Corrisponde al livello Trace
- *  INFO            - Esclude il livello TRACE
- *  WARN            - Esclude TRACE e INFO
- *  ERROR           - Esclude WARN, INFO, TRACE
- *  CRITICAL        - Esclude tutto tranne CRITICAL
+  *  OFF             - Esclude TUTTE le tracce
+  *  TRACE           - Non applica alcun filtro. Corrisponde al livello Trace
+  *  INFO            - Esclude il livello TRACE
+  *  WARN            - Esclude TRACE e INFO
+  *  ERROR           - Esclude WARN, INFO, TRACE
+  *  CRITICAL        - Esclude tutto tranne CRITICAL
 
 
 ## <a name="custom-filters"></a>Filtri personalizzati

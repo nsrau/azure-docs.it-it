@@ -16,25 +16,25 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: bbd73035993d3a981744eb5377fe0bf2c9d55b63
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 92f9fcc8a10f90c0886667f33f3c7d4dec09bc8e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268856"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884677"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Effettuare il provisioning di una macchina virtuale per l'analisi scientifica dei dati per Linux (Ubuntu)
 
 La macchina virtuale per la data science per Linux è un'immagine di macchina virtuale basata su Ubuntu che consente di iniziare a usare in modo semplice l'apprendimento automatico, incluso l'apprendimento avanzato in Azure. Gli strumenti di apprendimento avanzato includono:
 
-  * [Caffe](http://caffe.berkeleyvision.org/): infrastruttura di Deep Learning creata per la velocità, l'espressività e la modularità
+  * [Caffe](https://caffe.berkeleyvision.org/): infrastruttura di Deep Learning creata per la velocità, l'espressività e la modularità
   * [Caffe2](https://github.com/caffe2/caffe2): versione multipiattaforma di Caffe
   * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): toolkit per software di Deep Learning sviluppato da Microsoft Research.
   * [H2O](https://www.h2o.ai/): piattaforma per Big Data e interfaccia utente grafica open source
   * [Keras](https://keras.io/): API per reti neurali di alto livello in Python per TensorFlow, Microsoft Cognitive Toolkit e Theano
-  * [MXNet](http://mxnet.io/): libreria di Deep Learning flessibile ed efficiente con numerosi binding di linguaggio
+  * [MXNet](https://mxnet.io/): libreria di Deep Learning flessibile ed efficiente con numerosi binding di linguaggio
   * [NVIDIA DIGITS](https://developer.nvidia.com/digits): sistema grafico che semplifica le attività di Deep Learning comuni
-  * [PyTorch](http://pytorch.org/): libreria Python di alto livello con supporto per le reti dinamiche
+  * [PyTorch](https://pytorch.org/): libreria Python di alto livello con supporto per le reti dinamiche
   * [TensorFlow](https://www.tensorflow.org/): libreria open source di Google per l'intelligenza artificiale
   * [Theano](http://deeplearning.net/software/theano/): libreria Python per definire, ottimizzare e valutare in modo efficiente espressioni matematiche che prevedono matrici multidimensionali
   * [Torch](http://torch.ch/): framework di calcolo scientifico con ampio supporto per algoritmi di Machine Learning
@@ -120,7 +120,7 @@ Per il provisioning sono necessari circa 5 minuti. Lo stato del provisioning vie
 
 ### <a name="ssh"></a>SSH
 
-Dopo aver creato la VM, è possibile accedervi tramite SSH. Usare le credenziali dell'account creato nella sezione **Nozioni di base** del passaggio 3 per l'interfaccia della shell di testo. In Windows è possibile scaricare uno strumento client SSH come [Putty](http://www.putty.org). Se si preferisce un desktop con interfaccia grafica (X Windows System), è possibile usare X11 Forwarding su Putty o installare il client X2Go.
+Dopo aver creato la VM, è possibile accedervi tramite SSH. Usare le credenziali dell'account creato nella sezione **Nozioni di base** del passaggio 3 per l'interfaccia della shell di testo. In Windows è possibile scaricare uno strumento client SSH come [Putty](https://www.putty.org). Se si preferisce un desktop con interfaccia grafica (X Windows System), è possibile usare X11 Forwarding su Putty o installare il client X2Go.
 
 > [!NOTE]
 > Nei test il client X2Go ha fornito prestazioni migliori di X11 Forwarding. È quindi consigliabile usare il client X2Go per un'interfaccia desktop grafica.
@@ -130,7 +130,7 @@ Dopo aver creato la VM, è possibile accedervi tramite SSH. Usare le credenziali
 ### <a name="x2go"></a>X2Go
 Nella VM Linux è già stato effettuato il provisioning del server X2Go ed è pronta per accettare connessioni client. Per connettersi al desktop con interfaccia grafica della VM Linux, è necessario completare la procedura seguente nel client:
 
-1. Scaricare e installare il client X2Go per la piattaforma client da [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+1. Scaricare e installare il client X2Go per la piattaforma client da [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 1. Eseguire il client X2Go e selezionare **New Session**(Nuova sessione). Viene visualizzata una finestra di configurazione con più schede. Immettere i parametri di configurazione seguenti:
    * **Scheda Session**(Sessione):
      * **Host**: nome host o indirizzo IP della Data Science VM per Linux.
@@ -205,7 +205,7 @@ R è uno dei linguaggi più diffusi per l'analisi dei dati e il Machine Learning
 
 Per avviare la console R è sufficiente digitare **R** nella shell. Verrà visualizzato un ambiente interattivo. Per sviluppare il programma R, si usa in genere un editor come Emacs o VI e quindi si eseguono gli script all'interno di R. Con RStudio si ottiene un ambiente IDE con interfaccia grafica completo per sviluppare il programma R.
 
-È anche disponibile uno script R per installare i [20 pacchetti R più popolari](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) , se necessario. Questo script può essere eseguito una volta nell'interfaccia interattiva R, a cui è possibile accedere digitando **R** nella shell, come indicato sopra.  
+È anche disponibile uno script R per installare i [20 pacchetti R più popolari](https://www.kdnuggets.com/2015/06/top-20-r-packages.html) , se necessario. Questo script può essere eseguito una volta nell'interfaccia interattiva R, a cui è possibile accedere digitando **R** nella shell, come indicato sopra.  
 
 ### <a name="python"></a>Python
 Anaconda Python viene installato con ambienti Python 2.7 e 3.5. L'ambiente 2.7 è detto _radice_, mentre l'ambiente 3.5 è detto _py35_. Questa distribuzione contiene il linguaggio Python di base con circa 300 dei più diffusi pacchetti di matematica, ingegneria e analisi dei dati. 
@@ -271,12 +271,12 @@ Prima di eseguire nel contesto Spark in Microsoft R Server, è necessario esegui
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-È possibile arrestare i servizi relativi a Hadoop quando non servono eseguendo ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```. un esempio che illustra come sviluppare e verificare che MRS nel contesto di Spark remoto, ovvero l'istanza di Spark autonoma nel DSVM, sia implementato e disponibile nella directory `/dsvm/samples/MRS`. 
+È possibile arrestare il Hadoop relativi servizi quando non servono eseguendo ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn``` un esempio che illustra come sviluppare e verificare che MRS nel contesto di Spark remoto, ovvero l'istanza di Spark autonoma nel DSVM, sia implementato e disponibile nel `/dsvm/samples/MRS` Directory. 
 
 ### <a name="ides-and-editors"></a>IDE ed editor
 È possibile scegliere tra diversi editor di codice, tra cui VI/VIM, Emacs, PyCharm, RStudio e IntelliJ. IntelliJ, RStudio e PyCharm sono editor grafici e per usarli è necessario essere connessi a un desktop con interfaccia grafica. Per avviare questi editor sono disponibili collegamenti di menu delle applicazioni e sul desktop.
 
-**VIM** e **Emacs** sono editor basati su testo. In Emacs è installato un pacchetto di componenti aggiuntivi denominato Emacs Speaks Statistics (ESS) che facilita l'utilizzo di R nell'editor Emacs. Altre informazioni sono disponibili nella pagina relativa a [ESS](http://ess.r-project.org/).
+**VIM** e **Emacs** sono editor basati su testo. In Emacs è installato un pacchetto di componenti aggiuntivi denominato Emacs Speaks Statistics (ESS) che facilita l'utilizzo di R nell'editor Emacs. Altre informazioni sono disponibili nella pagina relativa a [ESS](https://ess.r-project.org/).
 
 **LaTex** viene installato tramite il pacchetto texlive insieme a un pacchetto di componenti aggiuntivi di Emacs, [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) , che semplifica la creazione di documenti LaTex in Emacs.  
 

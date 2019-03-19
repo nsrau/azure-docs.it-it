@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2886dbafe6bf20718f4e3cd2976764fc432dbb04
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
-ms.translationtype: HT
+ms.openlocfilehash: 92a5f7c058904015cb22a239b7e7c4938ae1fdae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44021753"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895253"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Elemento Microsoft.Common.FileUpload dell'interfaccia utente
 Controllo che consente a un utente di specificare uno o più file da caricare.
@@ -48,7 +48,7 @@ Controllo che consente a un utente di specificare uno o più file da caricare.
 ```
 
 ## <a name="remarks"></a>Osservazioni
-- `constraints.accept` specifica i tipi di file visualizzati nella finestra di dialogo del browser relativa ai file. Per informazioni sui valori consentiti, vedere la [specifica HTML5](http://www.w3.org/TR/html5/forms.html#attr-input-accept). Il valore predefinito è **null**.
+- `constraints.accept` specifica i tipi di file visualizzati nella finestra di dialogo del browser relativa ai file. Per informazioni sui valori consentiti, vedere la [specifica HTML5](https://www.w3.org/TR/html5/forms.html#attr-input-accept). Il valore predefinito è **null**.
 - Se la proprietà `options.multiple` è impostata su **true**, l'utente è autorizzato a selezionare più di un file nella finestra di dialogo del browser relativa ai file. Il valore predefinito è **false**.
 - Questo elemento supporta il caricamento dei file in due modalità in base al valore di `options.uploadMode`. Se il valore **file** è specificato, l'output include i contenuti del file sotto forma di BLOB. Se il valore **url** è specificato, il file viene caricato in una posizione temporanea e l'output contiene l'URL del BLOB. I BLOB temporanei verranno eliminati dopo 24 ore. Il valore predefinito è **file**.
 - Un file caricato è protetto. L'URL di output include un [token di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) per l'accesso ai file durante la distribuzione.

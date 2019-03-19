@@ -16,12 +16,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd05913a982d88a1e4fe4ff72bca0387e280e230
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fc27e5cd6af19f06a5eab73e30d3034fada0ccc2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211632"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838392"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Sincronizzazione delle identità e resilienza degli attributi duplicati
 La resilienza degli attributi duplicati è una funzionalità di Azure Active Directory che consente di eliminare i problemi causati dai conflitti tra **UserPrincipalName** e **ProxyAddress** durante l'esecuzione di uno degli strumenti di sincronizzazione di Microsoft.
@@ -40,7 +40,7 @@ Se viene eseguito un tentativo di effettuare il provisioning di un nuovo oggetto
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>Comportamento con resilienza degli attributi duplicati
 Invece di causare un errore di provisioning o di aggiornamento di un oggetto a causa di un attributo duplicato, Azure Active Directory "mette in quarantena" l'attributo duplicato che violerebbe il vincolo di univocità. Se questo attributo è obbligatorio per il provisioning, ad esempio UserPrincipalName, il servizio assegna un valore segnaposto. Il formato di questi valori temporanei è  
-“***<OriginalPrefix>+<4DigitNumber>@<InitialTenantDomain>.onmicrosoft.com***”.  
+"***<OriginalPrefix>+ < 4DigitNumber >\@<InitialTenantDomain>. onmicrosoft.com***".  
 Se l'attributo non è obbligatorio, ad esempio **ProxyAddress**, Azure Active Directory mette semplicemente in quarantena l'attributo in conflitto e procede alla creazione o all'aggiornamento dell'oggetto.
 
 Dopo aver messo in quarantena l'attributo, vengono inviate informazioni sul conflitto nello stesso messaggio di posta elettronica di segnalazione dell'errore usato nel comportamento precedente. Queste informazioni vengono però visualizzate nella segnalazione dell'errore una sola volta, al momento dell'inserimento in quarantena, e non continuano a essere registrate nei messaggi di posta elettronica futuri. Poiché l'esportazione di questo oggetto è riuscita, il client di sincronizzazione non registra un errore e non prova a ripetere l'operazione di creazione o aggiornamento nei cicli di sincronizzazione successivi.
@@ -144,9 +144,9 @@ Nessuno di questi problemi noti causa perdite di dati o la riduzione delle prest
 1. Per gli oggetti con configurazioni di attributo specifiche continuano a verificarsi errori di esportazione, diversamente dagli attributi duplicati che vengono messi in quarantena.  
    Ad esempio: 
    
-    a. In AD viene creato un nuovo utente con un UPN **Joe@contoso.com** e ProxyAddress **smtp:Joe@contoso.com**
+    a. Nuovo utente viene creato in Active Directory con l'UPN **Joe\@contoso.com** e ProxyAddress **smtp:Joe\@contoso.com**
    
-    b. Le proprietà di questo oggetto sono in conflitto con un gruppo esistente, in cui ProxyAddress è **SMTP:Joe@contoso.com**.
+    b. Le proprietà di questo oggetto in conflitto con un gruppo esistente, in cui ProxyAddress è **SMTP:Joe\@contoso.com**.
    
     c. Al momento dell'esportazione viene generato un errore per un **conflitto di ProxyAddress** , invece di mettere in quarantena gli attributi in conflitto. L'operazione viene ritentata durante ogni ciclo di sincronizzazione successivo, come avveniva prima dell'abilitazione della funzionalità di resilienza.
 2. Se in locale vengono creati due gruppi con lo stesso indirizzo SMTP, uno non riesce a effettuare il provisioning al primo tentativo, con un errore duplicato **ProxyAddress** standard. Il valore duplicato viene tuttavia messo correttamente in quarantena al successivo ciclo di sincronizzazione.
@@ -156,13 +156,13 @@ Nessuno di questi problemi noti causa perdite di dati o la riduzione delle prest
 1. Il messaggio di errore dettagliato per due oggetti in un set di conflitti UPN è lo stesso. Ciò indica che per entrambi l'UPN è stato modificato o messo in quarantena, mentre in realtà i dati sono stati modificati solo per uno di essi.
 2. Il messaggio di errore dettagliato per un conflitto di UPN mostra il valore displayName errato per un utente il cui UPN è stato modificato o messo in quarantena. Ad esempio: 
    
-    a. **User A** viene sincronizzato prima con **UPN = User@contoso.com**.
+    a. **L'utente** sincronizzazioni prima con **UPN = User\@contoso.com**.
    
-    b. Viene quindi provata la sincronizzazione di **User B** con **UPN = User@contoso.com**.
+    b. **User B** è stata tentata la sincronizzazione con **UPN = User\@contoso.com**.
    
-    c. L'UPN di **User B** UPN viene modificato in **User1234@contoso.onmicrosoft.com** e **User@contoso.com** viene aggiunto a **DirSyncProvisioningErrors**.
+    c. **User B** UPN viene modificato in **User1234\@contoso.onmicrosoft.com** e **utente\@contoso.com** viene aggiunto a **DirSyncProvisioningErrors** .
    
-    d. Il messaggio di errore per **User B** indicherà che per **User A** esiste già **User@contoso.com** come UPN, ma visualizza il valore displayName di **User B**.
+    d. Il messaggio di errore per **User B** indicherà che **User A** ha già **utente\@contoso.com** come un nome UPN, ma visualizza **User B** valore displayName.
 
 **Segnalazione dell'errore di sincronizzazione delle identità**:
 

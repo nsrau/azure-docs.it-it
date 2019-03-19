@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: ad8a01ecccd7af15686c449b17cd5f014450b015
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: bc89b8d830e364c70fef5a5959d4da85c517a5ee
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734437"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764934"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Usare tag per organizzare le risorse di Azure
 
@@ -115,7 +115,7 @@ $r.Tags.Add("Status", "Approved")
 Set-AzResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
-Per applicare tutti i tag da un gruppo di risorse alle risorse *senza mantenere i tag esistenti nelle risorse*, usare lo script seguente:
+Per applicare tutti i tag da un gruppo di risorse alle risorse e *non mantenere i tag esistenti nelle risorse*, usare lo script seguente:
 
 ```azurepowershell-interactive
 $groups = Get-AzResourceGroup
@@ -125,7 +125,7 @@ foreach ($g in $groups)
 }
 ```
 
-Per applicare tutti i tag da un gruppo di risorse alle risorse *mantenendo i tag esistenti nelle risorse non duplicate*, usare lo script seguente:
+Per applicare tutti i tag da un gruppo di risorse alle risorse e *mantenere i tag esistenti nelle risorse che non vengono duplicati*, usare lo script seguente:
 
 ```azurepowershell-interactive
 $group = Get-AzResourceGroup "examplegroup"
@@ -222,7 +222,7 @@ rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
 az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-Per applicare tutti i tag da un gruppo di risorse alle risorse *senza mantenere i tag esistenti nelle risorse*, usare lo script seguente:
+Per applicare tutti i tag da un gruppo di risorse alle risorse e *non mantenere i tag esistenti nelle risorse*, usare lo script seguente:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -279,4 +279,4 @@ Per le operazioni API REST, vedere [Riferimento API REST alla fatturazione di Az
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Non tutti i tipi di risorse supportano i tag. Per determinare se è possibile applicare un tag a un tipo di risorsa, vedere [Supporto dei tag per le risorse di Azure](tag-support.md).
-* Per un'introduzione all'uso del portale, vedere [Uso del portale di Azure per gestire le risorse di Azure](resource-group-portal.md).  
+* Per un'introduzione all'uso del portale, vedere [Uso del portale di Azure per gestire le risorse di Azure](manage-resource-groups-portal.md).  

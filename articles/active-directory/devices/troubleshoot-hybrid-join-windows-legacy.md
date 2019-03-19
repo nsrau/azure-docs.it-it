@@ -16,12 +16,12 @@ ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7054946a15ca27f4b5a36d3d2ac712cba2fd68d8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6e79b0fc0ef23287c8871b7a7634d28d129b900e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185129"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101143"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Risoluzione dei problemi relativi a dispositivi di livello inferiore aggiunti all'identità ibrida di Azure Active Directory 
 
@@ -85,19 +85,19 @@ Se il dispositivo non è stato aggiunto a Azure AD in modalità ibrida, è possi
 
     ![Aggiunta all'area di lavoro per Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
     
-    - Autoworkplace.exe non è in grado di eseguire automaticamente l'autenticazione con Azure AD o AD FS. Ciò potrebbe essere causato dai servizi AD FS mancanti o non configurati correttamente (per i domini federati) o dall'accesso Single Sign-On facile di Azure AD mancante o non configurato correttamente (per i domini gestiti) o da problemi di rete. 
+  - Autoworkplace.exe non è in grado di eseguire automaticamente l'autenticazione con Azure AD o AD FS. Ciò potrebbe essere causato dai servizi AD FS mancanti o non configurati correttamente (per i domini federati) o dall'accesso Single Sign-On facile di Azure AD mancante o non configurato correttamente (per i domini gestiti) o da problemi di rete. 
     
-     - L'autenticazione a più fattori (MFA) potrebbe essere abilitata/configurata per l'utente e WIAORMUTLIAUTHN potrebbe non essere configurato sul server AD FS. 
+    - L'autenticazione a più fattori (MFA) potrebbe essere abilitata/configurata per l'utente e WIAORMUTLIAUTHN potrebbe non essere configurato sul server AD FS. 
      
-     - È anche possibile che la pagina di individuazione dell'area di autenticazione principale sia in attesa dell'interazione dell'utente, impedendo ad **autoworkplace.exe** di richiedere automaticamente un token.
+    - È anche possibile che la pagina di individuazione dell'area di autenticazione principale sia in attesa dell'interazione dell'utente, impedendo ad **autoworkplace.exe** di richiedere automaticamente un token.
      
-     - Gli URL di AD FS e di Azure AD potrebbero non essere presenti nell'area intranet di Internet Explorer sul client.
+    - Gli URL di AD FS e di Azure AD potrebbero non essere presenti nell'area intranet di Internet Explorer sul client.
      
-     - Problemi di connettività di rete potrebbero impedire ad **autoworkplace.exe** di raggiungere gli URL di AD FS o di Azure AD. 
+    - Problemi di connettività di rete potrebbero impedire ad **autoworkplace.exe** di raggiungere gli URL di AD FS o di Azure AD. 
      
-     - **Autoworkplace.exe** richiede che il client comunichi direttamente con il controller di dominio AD locale dell'organizzazione, il che significa che l'aggiunta ad Azure AD ibrido riesce solo quando il client è connesso alla rete intranet dell'organizzazione.
+    - **Autoworkplace.exe** richiede il client disponga della linea di visuale diretta dal client dell'organizzazione in locale controller di dominio Active Directory, il che significa che uniscono in join ibrida di Azure AD ha esito positivo solo quando il client è connesso alla rete intranet dell'organizzazione.
      
-     - L'organizzazione usa il Single Sign-On di Azure AD, `https://autologon.microsoftazuread-sso.com` o `https://aadg.windows.net.nsatc.net` non sono presenti nelle impostazioni Intranet di IE del dispositivo e l'opzione **Consenti aggiornamenti alla barra di stato tramite script** non è abilitata per l'area Intranet.
+    - L'organizzazione usa il Single Sign-On di Azure AD, `https://autologon.microsoftazuread-sso.com` o `https://aadg.windows.net.nsatc.net` non sono presenti nelle impostazioni Intranet di IE del dispositivo e l'opzione **Consenti aggiornamenti alla barra di stato tramite script** non è abilitata per l'area Intranet.
 
 - Non si è connessi come utente di dominio
 

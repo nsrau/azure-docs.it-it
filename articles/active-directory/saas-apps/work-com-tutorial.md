@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e5d097afa3af111a7de8341b90d8c6c05ac0347
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6a37a811c7944334571b4043d8ba937ffadc1e71
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205750"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891570"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Esercitazione: Integrazione di Azure Active Directory con Work.com
 
@@ -116,7 +116,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `http://<companyname>.my.salesforce.com`
 
     > [!NOTE] 
-    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso Sign-On effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di Work.com](https://help.salesforce.com/articleView?id=000159855&type=3). 
+    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di Work.com](https://help.salesforce.com/articleView?id=000159855&type=3). 
 
 1. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
@@ -262,9 +262,9 @@ Per consentire l'accesso agli utenti di Azure Active Directory, è necessario ch
     
     c. Nella casella di testo **Alias** digitare il **nome** dell'utente **BrittaS**.
     
-    d. Nella casella di testo **Email** (Posta elettronica) digitare l'**indirizzo e-mail** dell'utente **Brittasimon@contoso.com**.
+    d. Nel **messaggio di posta elettronica** digitare il **indirizzo di posta elettronica** dell'utente **Brittasimon\@contoso.com**.
     
-    e. Nella casella di testo **User Name** (Nome utente) digitare un nome utente, ad esempio **Brittasimon@contoso.com**.
+    e. Nel **nome utente** nella casella di testo digitare un nome utente dell'utente, ad esempio **Brittasimon\@contoso.com**.
     
     f. Nella casella di testo **Nick Name** (Nome alternativo) digitare un **nome alternativo** dell'utente **Simon**.
     

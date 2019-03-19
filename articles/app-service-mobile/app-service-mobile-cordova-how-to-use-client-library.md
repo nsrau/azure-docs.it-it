@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: cddb3769cfc5a2ba002e19036d986f4165670dc1
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 3c22aab20a9260bfd21869f0b327211e2f3d8894
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962452"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004211"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Come usare la libreria client Apache Cordova per App per dispositivi mobili di Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -106,7 +106,7 @@ Per aggiungere le proprie impostazioni locali alla configurazione seguire questa
              "https://localhost:3000"
          ],
 
-    Sostituire gli URL con quelli del servizio.  Alcuni esempi: "http://localhost:3000" (per il servizio di esempio Node.js) o "http://localhost:4400" (per il servizio Ripple).  Questi URL sono solo esempi e la situazione reale per i servizi dell'esempio potrebbe essere diversa.
+    Sostituire gli URL con quelli del servizio.  Gli esempi includono `http://localhost:3000` (per il servizio di esempio Node. js), o `http://localhost:4400` (per il servizio Ripple).  Questi URL sono solo esempi e la situazione reale per i servizi dell'esempio potrebbe essere diversa.
 8. Fare clic sul pulsante **Lettura/scrittura** nell'angolo in alto a destra della schermata.
 9. Fare clic sul pulsante verde **PUT** .
 

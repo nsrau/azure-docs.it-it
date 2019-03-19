@@ -3,16 +3,16 @@ ms.assetid: ''
 title: Eliminazione temporanea di Azure Key Vault | Microsoft Docs
 ms.service: key-vault
 ms.topic: conceptual
-author: bryanla
-ms.author: bryanla
+author: msmbaldwin
+ms.author: mbaldwin
 manager: barbkess
 ms.date: 09/25/2017
-ms.openlocfilehash: 02d08f4334f1e20a3f635868fb053ffb44388d9c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 526b0b135c8d5c1741ddf5f3fe6fb32f259a3e2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108026"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092991"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Panoramica di eliminazione temporanea di Azure Key Vault
 
@@ -44,9 +44,9 @@ L'eliminazione temporanea è un comportamento facoltativo di Key Vault e in ques
 ### <a name="purge-protection--flag"></a>Flag di protezione dalla ripulitura
 Il flag di protezione dalla ripulitura (**--enable-purge-protection**(Attiva protezione dalla ripulitura) nell'interfaccia della riga di comando di Azure) è disattivato per impostazione predefinita. Quando questo flag è attivato, un insieme di credenziali o un oggetto nello stato eliminato non può essere ripulito finché non ha superato il periodo di conservazione di 90 giorni. Tale insieme di credenziali o oggetto può essere comunque ripristinato. Questo flag offre maggiore sicurezza ai clienti che un oggetto o un insieme di credenziali non venga mai eliminato definitivamente prima che sia trascorso il periodo di conservazione. È possibile attivare il flag di protezione dalla ripulitura solo se il flag di eliminazione temporanea è attivato o al momento della creazione dell'insieme di credenziali si attiva sia l'eliminazione temporanea che la protezione dalla ripulitura.
 
-> [!NOTE] 
-   Il prerequisito per l'attivazione della protezione dalla ripulitura è l'attivazione dell'eliminazione temporanea.
-Il comando per eseguire questa operazione si trova nell'interfaccia della riga di comando di Azure 2
+> [!NOTE]
+>    Il prerequisito per l'attivazione della protezione dalla ripulitura è l'attivazione dell'eliminazione temporanea.
+> Il comando per eseguire questa operazione si trova nell'interfaccia della riga di comando di Azure 2
 
 ```
 az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true

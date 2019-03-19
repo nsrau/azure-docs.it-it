@@ -7,19 +7,19 @@ author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
-ms.service: na
+ms.service: api-management
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 62bc6507e4b56c9df31a561f7677907486b0d562
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: 3b6f1a004e4fb69bc08d5163734021bcb2aed9a2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421590"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765799"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Caricare un certificato di gestione dei servizi di Azure
 I certificati di gestione consentono di eseguire l'autenticazione con il modello di distribuzione classico fornito da Azure. Molti programmi e strumenti (ad esempio Visual Studio o Azure SDK) usano questi certificati per automatizzare la configurazione e la distribuzione di vari servizi di Azure. 
@@ -33,7 +33,7 @@ Se servono altre informazioni sui certificati di Azure, compresa la creazione di
 
 È anche possibile usare [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) per autenticare il codice client per scopi di automazione.
 
-**Nota:** è necessario essere un co-amministratore della sottoscrizione per eseguire le operazioni con i certificati di gestione. [Altre informazioni](https://go.microsoft.com/fwlink/?linkid=849300) su come aggiungere o rimuovere co-amministratori dal nuovo portale di Azure. 
+**Nota:** È necessario essere un coamministratore della sottoscrizione per eseguire le operazioni con i certificati di gestione. [Altre informazioni](https://go.microsoft.com/fwlink/?linkid=849300) su come aggiungere o rimuovere co-amministratori dal nuovo portale di Azure. 
 
 ## <a name="upload-a-management-certificate"></a>Creare un certificato di gestione
 Dopo aver creato un certificato di gestione (file con estensione cer solo con la chiave pubblica), è possibile caricarlo nel portale. Quando il certificato è disponibile nel portale, chiunque disponga di un certificato corrispondente (chiave privata) può connettersi tramite l'API di gestione e accedere alle risorse per la sottoscrizione associata.

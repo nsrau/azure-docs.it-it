@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: bd12aabf0ca8f82261e6b3c677d7306ee46c4171
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: b3adec799da582dc30ecd716a530ca6032f5c2e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308618"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990575"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Comprendere la sequenza di distribuzione in Azure Blueprints
 
@@ -112,8 +112,8 @@ Se si dichiara che la dipendenza di un artefatto non altera l'ordine predefinito
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sul [ciclo di vita del progetto](lifecycle.md)
-- Comprendere come usare i [parametri statici e dinamici](parameters.md)
-- Scoprire come usare il [blocco delle risorse del progetto](resource-locking.md)
-- Informazioni su come [aggiornare assegnazioni esistenti](../how-to/update-existing-assignments.md)
-- Risolvere i problemi durante l'assegnazione di un progetto con la [risoluzione generale dei problemi](../troubleshoot/general.md)
+- Scopri le [ciclo di vita del progetto](lifecycle.md).
+- Informazioni su come usare [parametri statici e dinamici](parameters.md).
+- Scopri come rendere sfrutta [blueprint blocco delle risorse](resource-locking.md).
+- Informazioni su come [aggiornare le assegnazioni esistenti](../how-to/update-existing-assignments.md).
+- Risolvere i problemi durante l'assegnazione di un progetto con [risoluzione dei problemi generali](../troubleshoot/general.md).

@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: d5ed8da4ea527e350b1ff73d0bd188cdad2caf71
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ad58b8f1034a0e2818d3aca53c023736da9370cb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189210"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119922"
 ---
 # <a name="azure-stack-datacenter-integration"></a>Integrazione di Data Center di Azure Stack
 
@@ -116,32 +116,32 @@ Prima che la soluzione viene passata al cliente nella fase di post-integrazione,
 
 Le azioni che devono essere eseguite dal Partner OEM sono:
 
--   [Eseguire test-azurestack](azure-stack-diagnostic-test.md#run-validation-tool-to-test-system-readiness-before-installing-update-or-hotfix)
+- [Eseguire test-azurestack](azure-stack-diagnostic-test.md#run-validation-tool-to-test-system-readiness-before-installing-update-or-hotfix)
 
--   [Registrazione con Azure](azure-stack-registration.md)
+- [Registrazione con Azure](azure-stack-registration.md)
 
--   [Diffusione di Marketplace](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
+- [Diffusione di Marketplace](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
 
--   File di configurazione del commutatore e HLH configurazione backup
+- File di configurazione del commutatore e HLH configurazione backup
 
--   Rimuovere DVM
+- Rimuovere DVM
 
--   Preparare un riepilogo dei clienti per la distribuzione
+- Preparare un riepilogo dei clienti per la distribuzione
 
--   [Controllare gli aggiornamenti per assicurarsi che il software di soluzione viene aggiornato alla versione più recente](.\azure-stack-updates.md)
+- [Controllare gli aggiornamenti per assicurarsi che il software di soluzione viene aggiornato alla versione più recente](./azure-stack-updates.md)
 
 Sono disponibili diversi passaggi che sono obbligatori o facoltativi in base al tipo di installazione.
 
--   Se è stata completata la distribuzione usando [ADFS](azure-stack-integrate-identity.md), quindi lo Stack di Azure timbro dovrà essere integrata con clienti del proprio AD FS.
+- Se è stata completata la distribuzione usando [ADFS](azure-stack-integrate-identity.md), quindi lo Stack di Azure timbro dovrà essere integrata con clienti del proprio AD FS.
 
   > [!NOTE]
   > Questo passaggio è responsabilità del cliente, anche se il partner può scegliere di offrire servizi a tale scopo.
 
--   Integrazione con un sistema di monitoraggio esistente dai rispettivi partner.
+- Integrazione con un sistema di monitoraggio esistente dai rispettivi partner.
 
-    -   [Integrazione di System Center Operations Manager](azure-stack-integrate-monitor.md) supporta anche funzionalità di gestione della flotta.
+  -   [Integrazione di System Center Operations Manager](azure-stack-integrate-monitor.md) supporta anche funzionalità di gestione della flotta.
 
-    -   [Nagios Integration](azure-stack-integrate-monitor.md#integrate-with-nagios)
+  -   [Nagios Integration](azure-stack-integrate-monitor.md#integrate-with-nagios)
 
 ## <a name="overall-timeline"></a>Sequenza temporale complessiva
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: aschhab
-ms.openlocfilehash: c467c963a558f84a0a08887d3777dccf7cd8554d
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 0801469d586e6f2d6514927cdc7b894900a3aa35
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234068"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843569"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Usare gli endpoint del servizio Rete virtuale con il bus di servizio di Azure
 
@@ -48,7 +48,7 @@ Il risultato è una relazione privata e isolata tra i carichi di lavoro associat
 
 ## <a name="enable-service-endpoints-with-service-bus"></a>Abilitare gli endpoint servizio con il bus di servizio
 
-Una considerazione importante quando si usano gli endpoint di servizio di rete virtuale con il bus di servizio: è consigliabile non abilitare questi endpoint nelle applicazioni che combinano spazi dei nomi del bus di servizio di livello Standard e Premium. Dato che il livello Standard non supporta le reti virtuali, l'endpoint è limitato ai soli spazi dei nomi di livello Premium. La rete virtuale bloccherà il traffico dello spazio dei nomi Standard.
+Una considerazione importante quando si usano gli endpoint di servizio di rete virtuale con il bus di servizio: è consigliabile non abilitare questi endpoint nelle applicazioni che combinano spazi dei nomi del bus di servizio di livello Standard e Premium. Dato che il livello Standard non supporta le reti virtuali, l'endpoint è limitato ai soli spazi dei nomi di livello Premium.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Scenari di sicurezza avanzati resi possibili dall'integrazione della rete virtuale 
 

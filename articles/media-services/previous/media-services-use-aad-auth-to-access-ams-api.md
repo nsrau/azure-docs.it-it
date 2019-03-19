@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: b846e1fe4552c6cec356a7e7828135b0e1fdf315
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fa13ffe450b60bd8c896636911268a98b49bbc0f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994102"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104132"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD  
  
@@ -71,20 +71,20 @@ Nel diagramma precedente i numeri rappresentano il flusso delle richieste in ord
 1. Richiedere le credenziali all'utente.
 2. Richiedere un token di accesso di Azure AD con i parametri seguenti:  
 
-    * Endpoint tenant di Azure AD.
+   * Endpoint tenant di Azure AD.
 
-        Le informazioni sul tenant possono essere recuperate dal portale di Azure. Posizionare il cursore sul nome dell'utente connesso nell'angolo in alto a destra.
-    * URI di risorsa per Servizi multimediali. 
+       Le informazioni sul tenant possono essere recuperate dal portale di Azure. Posizionare il cursore sul nome dell'utente connesso nell'angolo in alto a destra.
+   * URI di risorsa per Servizi multimediali. 
 
-        Questo URI è identico a quello degli account di Servizi multimediali inclusi nello stesso ambiente Azure (ad esempio, https://rest.media.azure.net).
+       Questo URI è identico a quello degli account di Servizi multimediali inclusi nello stesso ambiente Azure (ad esempio, https://rest.media.azure.net).
 
-    * ID client dell'applicazione Servizi multimediali (nativa).
-    * URI di reindirizzamento dell'applicazione Servizi multimediali (nativa).
-    * URI di risorsa per Servizi multimediali REST.
+   * ID client dell'applicazione Servizi multimediali (nativa).
+   * URI di reindirizzamento dell'applicazione Servizi multimediali (nativa).
+   * URI di risorsa per Servizi multimediali REST.
         
-        L'URI rappresenta l'endpoint dell'API REST (ad esempio, https://test03.restv2.westus.media.azure.net/api/).
+       L'URI rappresenta l'endpoint dell'API REST (ad esempio, https://test03.restv2.westus.media.azure.net/api/).
 
-    Per ottenere i valori di questi parametri, vedere [Uso del portale di Azure per accedere alle impostazioni di autenticazione di Azure AD](media-services-portal-get-started-with-aad.md) usando l'opzione di autenticazione utente.
+     Per ottenere i valori di questi parametri, vedere [Uso del portale di Azure per accedere alle impostazioni di autenticazione di Azure AD](media-services-portal-get-started-with-aad.md) usando l'opzione di autenticazione utente.
 
 3. Il token di accesso di Azure AD viene inviato al client.
 4. Il client invia una richiesta all'API REST di Servizi multimediali di Azure con il token di accesso di Azure AD.
@@ -113,20 +113,20 @@ Nel diagramma precedente i numeri rappresentano il flusso delle richieste in ord
     
 1. Un'app di livello intermedio (API Web o applicazione Web) richiede un token di accesso di Azure AD con i parametri seguenti:  
 
-    * Endpoint tenant di Azure AD.
+   * Endpoint tenant di Azure AD.
 
-        Le informazioni sul tenant possono essere recuperate dal portale di Azure. Posizionare il cursore sul nome dell'utente connesso nell'angolo in alto a destra.
-    * URI di risorsa per Servizi multimediali. 
+       Le informazioni sul tenant possono essere recuperate dal portale di Azure. Posizionare il cursore sul nome dell'utente connesso nell'angolo in alto a destra.
+   * URI di risorsa per Servizi multimediali. 
 
-        Questo URI è identico a quello degli account di Servizi multimediali che si trovano nello stesso ambiente Azure (ad esempio, https://rest.media.azure.net).
+       Questo URI è identico a quello degli account di Servizi multimediali che si trovano nello stesso ambiente Azure (ad esempio, https://rest.media.azure.net).
 
-    * URI di risorsa per Servizi multimediali REST.
+   * URI di risorsa per Servizi multimediali REST.
 
-        L'URI rappresenta l'endpoint dell'API REST (ad esempio, https://test03.restv2.westus.media.azure.net/api/).
+       L'URI rappresenta l'endpoint dell'API REST (ad esempio, https://test03.restv2.westus.media.azure.net/api/).
 
-    * Valori dell'applicazione Azure AD: l'ID client e il segreto client.
+   * Valori dell'applicazione Azure AD: l'ID client e il segreto client.
     
-    Per ottenere i valori di questi parametri, vedere [Uso del portale di Azure per accedere alle impostazioni di autenticazione di Azure AD](media-services-portal-get-started-with-aad.md) usando l'opzione di autenticazione basata su entità servizio.
+     Per ottenere i valori di questi parametri, vedere [Uso del portale di Azure per accedere alle impostazioni di autenticazione di Azure AD](media-services-portal-get-started-with-aad.md) usando l'opzione di autenticazione basata su entità servizio.
 
 2. Il token di accesso di Azure AD viene inviato al livello intermedio.
 4. Il livello intermedio invia una richiesta all'API REST di Servizi multimediali di Azure con il token di Azure AD.

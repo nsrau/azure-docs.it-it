@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d418715ab651721d03b67bd411eb90607391bf10
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 2a1785b9c749a8c413987974446190aafc08ed3a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237128"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105591"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Panoramica di Hub eventi dedicato
 
@@ -29,7 +29,7 @@ La capacità di *Hub eventi dedicato* offre distribuzioni a tenant singolo per i
 La tabella seguente confronta i livelli di servizio disponibili per Hub eventi. L'offerta di Hub eventi dedicato prevede un prezzo mensile fisso, rispetto ai prezzi in base all'utilizzo previsti per la maggior parte delle funzionalità del livello Standard. Il livello Dedicato offre tutte le funzionalità del piano Standard, ma con capacità su scala aziendale per i clienti con carichi di lavoro intensi. 
 
 | Funzionalità | Standard | Dedicato |
-| --- |:---:|:---:|:---:|
+| --- |:---:|:---:|
 | Eventi in ingresso | Pagamento per ogni milione di eventi | Incluso |
 | Unità di velocità effettiva (in entrata 1 MB/secondo, in uscita di 2 MB/secondo) | Pagamento per ogni ora | Incluso |
 | Dimensioni del messaggio | 1 MB | 1 MB |

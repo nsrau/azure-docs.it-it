@@ -9,19 +9,19 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: ae6efd2323031a75f05802bf7f2f6c60aaffc46c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 4d03894ebc43cc4e76b73bd30eb6ef68bf6a71e6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851197"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58114343"
 ---
 Nella tabella seguente viene descritto come aggiungere un supporto per questa associazione in ogni ambiente di sviluppo.
 
 | Ambiente di sviluppo               | Per aggiungere un supporto in <br>Funzioni 2.x  |
-|----------------------|----------------|---------------|
-|Sviluppo locale - Libreria di classi C#       | [Installare il pacchetto](../articles/azure-functions/functions-triggers-bindings.md#c-class-library-with-visual-studio-2017) |
-|Sviluppo locale - Script C#, JavaScript, F#, Java e Python |[Registrare l'estensione](../articles/azure-functions/functions-triggers-bindings.md#local-development-azure-functions-core-tools)         |
+|----------------------|----------------|
+|Sviluppo locale - Libreria di classi C#       | [Installare il pacchetto](../articles/azure-functions/functions-bindings-register.md#c-class-library-with-visual-studio-2017) |
+|Sviluppo locale - Script C#, JavaScript, F#, Java e Python |[Registrare l'estensione](../articles/azure-functions/functions-bindings-register.md#local-development-azure-functions-core-tools)         |
 |Sviluppo con il portale| Installare quando si aggiunge l'associazione di output    |
 
 Per informazioni su come aggiornare le estensioni delle associazioni esistenti nel portale, senza dover ripubblicare il progetto dell'app per le funzioni, vedere [Aggiornare le estensioni](../articles/azure-functions/install-update-binding-extensions-manual.md).

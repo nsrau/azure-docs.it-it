@@ -8,12 +8,12 @@ ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: bb219b6db97e654c8fb6db0b1c43f3326db7b9c5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 9d9d5a7232529989901709013dcfac12f94afad0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232060"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433077"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Introduzione ad Azure Data Lake Analytics con l'interfaccia della riga di comando di Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -66,7 +66,7 @@ az group create --name "<Resource Group Name>" --location "<Azure Location>"
 
 * **Nome dell'account Data Lake Analytics**. Ogni account Data Lake Analytics ha un nome.
 * **Località**. Usare uno dei data center di Azure che supporta Data Lake Analytics.
-* **Account Data Lake Store predefinito**: ogni account Data Lake Analytics ha un account Data Lake Store predefinito.
+* **Account predefinito Data Lake Store**: ogni account Data Lake Analytics ha un account Data Lake Store predefinito.
 
 Per elencare l'account Data Lake Store esistente:
 
@@ -108,7 +108,7 @@ az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 Data Lake Analytics può inoltre accedere all'archivio BLOB di Azure.  Per caricare i dati nell'archiviazione BLOB di Azure, vedere [Uso dell’interfaccia della riga di comando di Azure con Archiviazione di Azure](../storage/common/storage-azure-cli.md).
 
 ## <a name="submit-data-lake-analytics-jobs"></a>Inviare processi di Data Lake Analytics
-I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altre informazioni su U-SQL, vedere [Introduzione a U-SQL](data-lake-analytics-u-sql-get-started.md) e [U-SQL Language Reference](https://go.microsoft.com/fwlink/?LinkId=691348) (Informazioni di riferimento sul linguaggio U-SQL).
+I processi di Data Lake Analtyics vengono scritti nel linguaggio U-SQL. Per altre informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL](data-lake-analytics-u-sql-get-started.md) e [U-SQL Language Reference](https://go.microsoft.com/fwlink/?LinkId=691348) (Riferimenti al linguaggio U-SQL).
 
 **Per creare uno script per il processo di Data Lake Analytics**
 

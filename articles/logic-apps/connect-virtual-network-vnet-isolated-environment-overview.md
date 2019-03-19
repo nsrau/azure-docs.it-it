@@ -8,32 +8,42 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/12/2019
-ms.openlocfilehash: 204138e7b8b3846e2d50607b3c5ec0836abefe24
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.date: 03/11/2019
+ms.openlocfilehash: b53cd54afdf6243769602971ab77145cfa9ba9cc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162374"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57758778"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Accedere alle risorse di Rete virtuale di Azure da App per la logica di Azure usando ambienti del servizio di integrazione (ISE)
 
 > [!NOTE]
-> Questa funzionalità è in *anteprima privata*. Per partecipare all'anteprima privata, [creare la richiesta qui](https://aka.ms/iseprivatepreview).
+> Questa funzionalità è disponibile in [ *versione di anteprima pubblica*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-A volte, le app per la logica e gli account di integrazione devono accedere a risorse protette, ad esempio macchine virtuali e altri sistemi o servizi in una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). Per impostare l'accesso, è possibile [creare un *ambiente del servizio di integrazione*](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) (ISE, Integration Service Environment) in cui eseguire le app per la logica e gli account di integrazione.
+A volte, le app per la logica e gli account di integrazione devono accedere a risorse protette, ad esempio macchine virtuali e altri sistemi o servizi in una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). Per impostare l'accesso, è possibile [creare un *ambiente del servizio di integrazione*](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) (ISE, Integration Service Environment) in cui eseguire le app per la logica e gli account di integrazione. Quando si crea un'istanza di ISE, Azure distribuisce un'istanza isolata e privata del servizio App per la logica nella rete virtuale di Azure. L'istanza privata usa risorse dedicate, ad esempio lo spazio di archiviazione, e viene eseguita separatamente dal servizio App per la logica pubblico "globale". La separazione tra l'istanza privata isolata e l'istanza globale pubblico contribuisce a ridurre l'impatto di altri tenant di Azure potrebbe avere sulle prestazioni delle proprie App, che è noto anche come il [effetto "vicini fastidiosi"](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
+
+Dopo aver creato l'ISE, quando si passa a creare l'account di integrazione o app per la logica, è possibile selezionare l'ISE come percorso per la logica app o l'integrazione del tuo account:
 
 ![Selezionare l'ambiente del servizio di integrazione](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 
-Con la creazione di un ambiente del servizio di integrazione, un'istanza di App per la logica privata e isolata viene distribuita nella rete virtuale di Azure. L'istanza privata usa risorse dedicate, ad esempio lo spazio di archiviazione, e viene eseguita separatamente dal servizio App per la logica pubblico "globale". Questa separazione consente anche di ridurre il potenziale impatto degli altri tenant di Azure, che [possono influire negativamente](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors) sulle prestazioni delle app. 
+App per la logica possa accedere direttamente ai sistemi che si trovano all'interno o connesso alla rete virtuale usando uno di questi elementi:
 
-Questa panoramica descrive come un ambiente del servizio di integrazione consenta alle app per la logica e agli account di integrazione di accedere direttamente alla rete virtuale di Azure e descrive le differenze tra un ambiente del servizio di integrazione e il servizio App per la logica globale.
+* Un connettore ISE con controllo delle versioni per tale sistema, ad esempio, SQL Server
+* Trigger predefinito o azione, ad esempio il trigger HTTP o l'azione
+* Un connettore personalizzato
+
+Questa panoramica descrive altri dettagli sul modo in cui un'istanza di ISE offre App per la logica e integrazione degli account di accesso diretto alla rete virtuale di Azure e confronta le differenze tra un'istanza di ISE e il servizio App per la logica globale.
+Per i sistemi in locale che non sono connessi a una rete virtuale o non avere connettori ISE versione, è possibile connettersi a questi sistemi da [impostazione e uso del gateway dati locale](../logic-apps/logic-apps-gateway-install.md).
+
+> [!IMPORTANT]
+> Le app per la logica, le azioni predefinite e i connettori eseguiti nell'ambiente del servizio di integrazione usano un piano tariffario diverso, non quello con pagamento in base al consumo. Per altre informazioni, vedere [Prezzi di App per la logica](../logic-apps/logic-apps-pricing.md).
 
 <a name="difference"></a>
 
 ## <a name="isolated-versus-global"></a>Ambiente isolato e ambiente globale
 
-Quando si crea un ambiente del servizio di integrazione (ISE) in Azure, selezionare la rete virtuale di Azure in cui si vuole *inserire* l'ambiente. Azure distribuisce un'istanza privata del servizio App per la logica nella rete virtuale. Questa azione crea un ambiente isolato in cui è possibile creare ed eseguire le app per la logica in risorse dedicate. Quando si crea un'app per la logica, selezionare questo ambiente come percorso dell'app, fornendo così all'app per la logica l'accesso diretto alle risorse nella rete virtuale.
+Quando si crea un ambiente del servizio integrato (ISE) in Azure, è possibile selezionare la rete virtuale di Azure in cui si desidera *inserire* di ISE. Azure inserisce quindi o distribuisce, un'istanza privata del servizio App per la logica nella rete virtuale. Questa azione crea un ambiente isolato in cui è possibile creare ed eseguire le app per la logica in risorse dedicate. Quando si crea l'app per la logica, selezionare l'ISE come percorso dell'app, che offre l'accesso diretto di app per la logica per la rete virtuale e le risorse in tale rete.
 
 Le app per la logica in un ambiente del servizio di integrazione offrono le stesse esperienze utente e funzionalità simili a quelle del servizio App per la logica globale. Non solo è possibile usare le stesse azioni predefinite e gli stessi connettori nel servizio App per la logica globale, ma è anche possibile usare connettori specifici dell'ambiente del servizio di integrazione (ISE). Ecco ad esempio alcuni connettori standard che offrono versioni eseguite in un ambiente del servizio di integrazione:
 
@@ -54,28 +64,6 @@ La differenza tra connettori dell'ambiente del servizio di integrazione e quelli
   ![Selezionare i connettori ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
 
 * I connettori eseguiti in un ambiente del servizio di integrazione sono disponibili anche nel servizio App per la logica globale.
-
-> [!IMPORTANT]
-> Le app per la logica, le azioni predefinite e i connettori eseguiti nell'ambiente del servizio di integrazione usano un piano tariffario diverso, non quello con pagamento in base al consumo. Per altre informazioni, vedere [Prezzi di App per la logica](../logic-apps/logic-apps-pricing.md).
-
-<a name="vnet-access"></a>
-
-## <a name="permissions-for-virtual-network-access"></a>Autorizzazioni per l'accesso alla rete virtuale
-
-Quando si crea un ambiente del servizio di integrazione in Azure, si seleziona una rete virtuale di Azure in cui si *inserisce* l'ambiente. L'inserimento distribuisce un'istanza privata del servizio App per la logica nella rete virtuale. Questa azione crea un ambiente isolato in cui è possibile creare ed eseguire le app per la logica in risorse dedicate. Quando si creano le app per la logica selezionare l'ambiente del servizio di integrazione (ISE) come percorso delle app. Le app per la logica possono quindi accedere direttamente alla rete virtuale e connettersi alle risorse nella rete.
-
-Nei sistemi connessi a una rete virtuale inserire un ambiente del servizio di integrazione (ISE) nella rete virtuale per consentire l'accesso diretto delle app per la logica ai sistemi tramite uno degli elementi seguenti:
-
-* Connettore ISE per tale sistema, ad esempio, SQL Server
-
-* Azione HTTP
-
-* Connettore personalizzato
-
-È possibile connettersi ai sistemi locali non connessi a una rete virtuale o senza connettori ISE [configurando e usando il gateway dati locale](../logic-apps/logic-apps-gateway-install.md).
-
-Prima di poter selezionare una rete virtuale di Azure per l'inserimento dell'ambiente, è necessario configurare le autorizzazioni del controllo degli accessi in base al ruolo nella rete virtuale per il servizio App per la logica di Azure. Per eseguire questa attività, è necessario assegnare i ruoli **Collaboratore Rete** e **Collaboratore Rete classica** al servizio App per la logica di Azure.
-Per impostare queste autorizzazioni, vedere [Connettere le reti virtuali di Azure da App per la logica](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#vnet-access)
 
 <a name="create-integration-account-environment"></a>
 

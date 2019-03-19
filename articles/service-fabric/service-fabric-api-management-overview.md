@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 01b67cc0c20710fcf7c9a072e0ba3baaf286852a
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: 60466f0c3c0e674dcbfa287a0368462fd5a1d18f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423644"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120313"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Panoramica di Service Fabric con Gestione API di Azure
 
@@ -30,7 +30,7 @@ In questo articolo viene illustrata un'introduzione all'uso di Gestione API di A
 ## <a name="availability"></a>Disponibilità
 
 > [!IMPORTANT]
-> Questa funzionalità è disponibile nei livelli **Premium** e **Developer** di Gestione API dato il supporto di rete virtuale richiesto.
+> Questa funzionalità è disponibile nei livelli **Premium** e **Developer** di Gestione API, dato il supporto di rete virtuale richiesto.
 
 ## <a name="architecture"></a>Architettura
 
@@ -83,9 +83,9 @@ A tale scopo, un'operazione di Gestione API contiene criteri di elaborazione in 
 
 Questo esempio illustra come creare una nuova istanza del servizio senza stato per ogni utente di un'applicazione con un nome generato dinamicamente usando la formula seguente:
  
- - `fabric:/app/users/<username>`
+- `fabric:/app/users/<username>`
 
- Ogni servizio dispone di un nome univoco, ma i nomi non sono noti in anticipo, poiché i servizi vengono creati in risposta all'input dell'utente o dell'amministratore e non possono quindi essere codificati in criteri APIM o regole di routing. Al contrario, il nome del servizio a cui inviare una richiesta viene generato nella definizione dei criteri back-end del valore `name` indicato nel percorso della richiesta dell'URL. Ad esempio: 
+  Ogni servizio dispone di un nome univoco, ma i nomi non sono noti in anticipo, poiché i servizi vengono creati in risposta all'input dell'utente o dell'amministratore e non possono quindi essere codificati in criteri APIM o regole di routing. Al contrario, il nome del servizio a cui inviare una richiesta viene generato nella definizione dei criteri back-end del valore `name` indicato nel percorso della richiesta dell'URL. Ad esempio: 
 
   - Una richiesta a `/api/users/foo` viene instradata all'istanza del servizio `fabric:/app/users/foo`
   - Una richiesta a `/api/users/bar` viene instradata all'istanza del servizio `fabric:/app/users/bar`
@@ -102,9 +102,9 @@ A tale scopo, un'operazione di Gestione API contiene criteri di elaborazione in 
 
 Questo esempio illustra come creare una nuova istanza del servizio con stato per ogni utente di un'applicazione con un nome generato dinamicamente usando la formula seguente:
  
- - `fabric:/app/users/<username>`
+- `fabric:/app/users/<username>`
 
- Ogni servizio dispone di un nome univoco, ma i nomi non sono noti in anticipo, poiché i servizi vengono creati in risposta all'input dell'utente o dell'amministratore e non possono quindi essere codificati in criteri APIM o regole di routing. Al contrario, il nome del servizio a cui inviare una richiesta viene generato nella definizione dei criteri back-end del valore `name` indicato nel percorso della richiesta dell'URL. Ad esempio: 
+  Ogni servizio dispone di un nome univoco, ma i nomi non sono noti in anticipo, poiché i servizi vengono creati in risposta all'input dell'utente o dell'amministratore e non possono quindi essere codificati in criteri APIM o regole di routing. Al contrario, il nome del servizio a cui inviare una richiesta viene generato nella definizione dei criteri back-end del valore `name` indicato nel percorso della richiesta dell'URL. Ad esempio: 
 
   - Una richiesta a `/api/users/foo` viene instradata all'istanza del servizio `fabric:/app/users/foo`
   - Una richiesta a `/api/users/bar` viene instradata all'istanza del servizio `fabric:/app/users/bar`

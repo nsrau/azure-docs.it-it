@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9c66a937ffd9155569820c47c99946d186c55cce
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 2d17991854f13f889c4e8c3a8c6f18e933655546
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052156"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884223"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Risoluzione dei problemi di rallentamento delle prestazioni delle app nel Servizio app di Azure
 Questo articolo fornisce informazioni utili per la risoluzione dei rallentamenti delle prestazioni delle app nel [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -162,7 +162,7 @@ Per altre informazioni sul ridimensionamento, vedere [Ridimensionare un'app nel 
 È possibile impostare il ridimensionamento manuale o automatico.
 
 #### <a name="use-autoheal"></a>Usare la funzionalità AutoHeal
-La funzionalità AutoHeal consente di riciclare il processo di lavoro per l'app in base alle impostazioni specificate, ad esempio modifiche di configurazione, richieste, limiti basati sulla memoria o il tempo necessario per l'esecuzione di una richiesta. Nella maggior parte dei casi, riciclare il processo costituisce il modo più veloce per risolvere un problema. Anche se è possibile riavviare l'app direttamente dall'interno del portale di Azure, la funzionalità AutoHeal esegue questa operazione automaticamente. È sufficiente aggiungere alcuni trigger nel file web.config radice per l'app. Queste impostazioni funzionano allo stesso modo anche per le app non .NET.
+La funzionalità AutoHeal consente di riciclare il processo di lavoro per l'app in base alle impostazioni specificate, ad esempio modifiche di configurazione, richieste, limiti basati sulla memoria o il tempo necessario per l'esecuzione di una richiesta. Nella maggior parte dei casi, riciclare il processo costituisce il modo più veloce per risolvere un problema. Anche se è possibile riavviare l'app direttamente dall'interno del portale di Azure, la funzionalità AutoHeal esegue questa operazione automaticamente. È sufficiente aggiungere alcuni trigger nel file web.config radice per l'app. Queste impostazioni funzionano allo stesso modo anche se l'applicazione non è un'app .NET.
 
 Per altre informazioni, vedere il post di blog relativo alla [correzione automatica di Siti Web di Azure](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 

@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 26ea184055f1496babf4f98f5d103b9af9c77ac0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 92eef714f651ef0ce4e58fcfbb8fad75a38c55c8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973452"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121333"
 ---
 # <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>Requisiti del server di configurazione per il ripristino di emergenza di VMware in Azure
 
@@ -75,11 +75,12 @@ La tabella seguente riepiloga i requisiti di capacità del server di configurazi
 
 **Componente** | **Requisito** 
 --- | ---
-**CPU** | **Memoria** | **Disco cache** | **Frequenza di modifica dei dati** | **Computer replicati**
---- | --- | --- | --- | ---
-8 vCPU<br/><br/> 2 socket * 4 core \@ 2,5 GHz | 16 GB | 300 GB | 500 GB o inferiore | Meno di 100 computer
-12 vCPU<br/><br/> 2 socket * 6 core \@ 2,5 GHz | 18 GB | 600 GB | 500 GB-1 TB | Da 100 a 150 computer
-16 vCPU<br/><br/> 2 socket * 8 core \@ 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150-200 computer
+
+| **CPU** | **Memoria** | **Disco cache** | **Frequenza di modifica dei dati** | **Computer replicati** |
+| --- | --- | --- | --- | --- |
+| 8 vCPU<br/><br/> 2 socket * 4 core \@ 2,5 GHz | 16 GB | 300 GB | 500 GB o inferiore | Meno di 100 computer |
+| 12 vCPU<br/><br/> 2 socket * 6 core \@ 2,5 GHz | 18 GB | 600 GB | 500 GB-1 TB | Da 100 a 150 computer |
+| 16 vCPU<br/><br/> 2 socket * 8 core \@ 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150-200 computer | 
 
 
 

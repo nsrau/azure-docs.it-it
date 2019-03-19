@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49a311b74fbc48f414f530e962af39d17a346353
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 59e60f4b89bb1d579c9a3e11ddb65b33af81b0e7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175541"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848848"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-phraseanet"></a>Esercitazione: integrazione di Azure Active Directory con Phraseanet
 
@@ -141,7 +141,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel **nome utente** tipo di campo **brittasimon\@yourcompanydomain.extension**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare **Proprietà**, selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

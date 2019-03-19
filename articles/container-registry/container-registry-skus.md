@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: danlep
-ms.openlocfilehash: 3f058a68057d6b84cbbb2dfdb08ea8c2cb12b0b9
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
-ms.translationtype: HT
+ms.openlocfilehash: 8fc364eac619c2f23ad2db1051a9b3ffa1bd38d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322094"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58138083"
 ---
 # <a name="azure-container-registry-skus"></a>SKU di Registro Azure Container
 
@@ -20,9 +20,9 @@ Registro Azure Container è disponibile su più livelli di servizio, noti come S
 
 | SKU | Gestito | DESCRIZIONE |
 | --- | :-------: | ----------- |
-| **Basic** | Yes | Un punto di ingresso di ottimizzazione dei costi per gli sviluppatori che iniziano a usare Registro Azure Container. I registri Basic dispongono delle stesse funzionalità programmatiche del livello Standard e Premium, ovvero l'integrazione dell'autenticazione, l'eliminazione delle immagini e gli hook Web di Azure Active Directory. Tuttavia, le risorse di archiviazione incluse e la velocità effettiva di immagine sono più appropriate per scenari di utilizzo inferiore. |
-| **Standard** | Yes | I registri standard offrono le stesse funzionalità del livello base, con risorse di archiviazione incluse e velocità effettiva di immagine maggiori. I registri Standard devono soddisfare le esigenze della maggior parte degli scenari di produzione. |
-| **Premium** | Yes | I registri Premium offrono il massimo livello di risorse di archiviazione incluse e operazioni simultanee, consentendo scenari con volumi elevati. Oltre alla maggiore velocità effettiva per le immagini, il livello Premium aggiunge funzionalità come la [replica geografica][container-registry-geo-replication] per la gestione di un solo registro in più aree, e l'[attendibilità dei contenuti (anteprima)](container-registry-content-trust.md) per la firma dei tag di immagine. |
+| **Basic** | Sì | Un punto di ingresso di ottimizzazione dei costi per gli sviluppatori che iniziano a usare Registro Azure Container. I registri Basic dispongono delle stesse funzionalità programmatiche del livello Standard e Premium, ovvero l'integrazione dell'autenticazione, l'eliminazione delle immagini e gli hook Web di Azure Active Directory. Tuttavia, le risorse di archiviazione incluse e la velocità effettiva di immagine sono più appropriate per scenari di utilizzo inferiore. |
+| **Standard** | Sì | I registri standard offrono le stesse funzionalità del livello base, con risorse di archiviazione incluse e velocità effettiva di immagine maggiori. I registri Standard devono soddisfare le esigenze della maggior parte degli scenari di produzione. |
+| **Premium** | Sì | I registri Premium offrono il massimo livello di risorse di archiviazione incluse e operazioni simultanee, consentendo scenari con volumi elevati. Oltre a una velocità effettiva di immagine, il livello Premium aggiunge funzionalità, tra cui [replica geografica] [ container-registry-geo-replication] per la gestione di un singolo registro in più aree, [trust (anteprima)delcontenuto](container-registry-content-trust.md) per la firma di tag di immagine, e [firewall e reti virtuali (anteprima)](container-registry-vnet.md) per limitare l'accesso al Registro di sistema. |
 | Classic<sup>1</sup> | No  | Lo SKU ha abilitato la versione iniziale del servizio Registro Azure Container in Azure. I registri classici sono supportati da un account di archiviazione creato da Azure nella sottoscrizione, che limita la capacità di Registro Azure Container di offrire funzionalità di livello superiore, ad esempio velocità effettiva e replica geografica aumentate. |
 
 <sup>1</sup> Il codice SKU classico sarà **deprecato** a **marzo 2019**. Usare Basic, Standard o Premium per tutti i nuovi registri contenitori.
@@ -86,11 +86,11 @@ Per i dettagli sui prezzi per i trasferimenti dei dati, vedere [Dettagli sui pre
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-**Guida del Registro contenitori di Azure**
+**Guida di Registro Azure Container**
 
 Visitare la [Guida di Registro Azure Container][acr-roadmap] su GitHub per maggiori informazioni sulle funzionalità future del servizio.
 
-**UserVoice del Registro contenitori di Azure**
+**UserVoice di Registro Azure Container**
 
 Inviare e votare i nuovi suggerimenti sulle funzionalità in [UserVoice di Registro Azure Container][container-registry-uservoice].
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e56dc54c2c296ee17b04070ac8ee68d2180b7046
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7b458632ddb6e23ab1ddf642752aa0cbfc11f1ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183446"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839069"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Esercitazione: Integrazione di Azure Active Directory con Picturepark
 
@@ -115,7 +115,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<companyname>.picturepark.com`
 
-    b. Nella casella di testo **Identificatore** digitare un URL usando il criterio seguente: 
+    b. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: 
     
     |  |
     |--|
@@ -224,7 +224,7 @@ Per consentire agli utenti di Azure AD di accedere a Picturepark, è necessario 
    
     ![Crea utente](./media/picturepark-tutorial/ic795069.png "Crea utente")
    
-    a. Nella casella di testo **Indirizzo di posta elettronica** digitare l'**indirizzo di posta elettronica** dell'utente **BrittaSimon@contoso.com**.  
+    a. Nel **indirizzo di posta elettronica** digitare il **indirizzo di posta elettronica** dell'utente **BrittaSimon\@contoso.com**.  
    
     b. Nelle caselle di testo **Password** e **Conferma password** digitare la **password** di BrittaSimon. 
    

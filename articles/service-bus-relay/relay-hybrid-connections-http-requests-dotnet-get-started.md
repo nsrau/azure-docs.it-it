@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
 ms.service: service-bus-relay
 ms.devlang: tbd
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: de905466d47774decf864ace5464bb2a68e5e6bc
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
-ms.translationtype: HT
+ms.openlocfilehash: 5bb45ff87f558e1142b68af01147ad55386ee28f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51611999"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888060"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>Introduzione alle richieste HTTP per Connessioni ibride di Inoltro di Azure in .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -38,7 +38,7 @@ In questa guida introduttiva vengono completati i passaggi seguenti:
 
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 
-* [Visual Studio 2015 o versione successiva](http://www.visualstudio.com). Negli esempi di questa esercitazione viene usato Visual Studio 2017.
+* [Visual Studio 2015 o versione successiva](https://www.visualstudio.com). Negli esempi di questa esercitazione viene usato Visual Studio 2017.
 * Una sottoscrizione di Azure. Se non se ne ha una, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="create-a-namespace"></a>Creare uno spazio dei nomi

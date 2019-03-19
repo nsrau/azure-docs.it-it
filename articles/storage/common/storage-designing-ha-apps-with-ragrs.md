@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/17/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 47ca2febeffe395ba2482165f04ee29aa0193c63
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 256d709ac976736715f441ecde5eee22a6d86fa6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512245"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009078"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Progettazione di applicazioni a disponibilità elevata con RA-GRS
 
@@ -216,7 +216,7 @@ Per riconoscere la presenza di dati potenzialmente incoerenti, il client può us
 
 È importante verificare che l'applicazione si comporti come previsto quando si verificano errori non irreversibili. È ad esempio necessario verificare che l'applicazione passi all'area secondaria e in modalità di sola lettura quando viene rilevato un problema e torni all'area primaria quando questa è nuovamente disponibile. A tale scopo è necessario un modo per simulare gli errori non irreversibili e la frequenza con cui si verificano.
 
-È possibile usare [Fiddler](http://www.telerik.com/fiddler) per intercettare e modificare le risposte HTTP in uno script. Questo script può identificare le risposte che provengono dall'endpoint primario e sostituire il codice di stato HTTP con un codice riconosciuto dalla libreria client di archiviazione come errore non irreversibile. Questo frammento di codice descrive un esempio semplice di script Fiddler che intercetta le risposte alle richieste di lettura sulla tabella **employeedata** per restituire uno stato 502:
+È possibile usare [Fiddler](https://www.telerik.com/fiddler) per intercettare e modificare le risposte HTTP in uno script. Questo script può identificare le risposte che provengono dall'endpoint primario e sostituire il codice di stato HTTP con un codice riconosciuto dalla libreria client di archiviazione come errore non irreversibile. Questo frammento di codice descrive un esempio semplice di script Fiddler che intercetta le risposte alle richieste di lettura sulla tabella **employeedata** per restituire uno stato 502:
 
 ```java
 static function OnBeforeResponse(oSession: Session) {
@@ -228,11 +228,11 @@ static function OnBeforeResponse(oSession: Session) {
 }
 ```
 
-È possibile estendere questo esempio per intercettare una gamma più ampia di richieste e modificare **responseCode** solo in alcune di esse per simulare meglio uno scenario reale. Per altre informazioni sulla personalizzazione degli script Fiddler, vedere [Modifying a Request or Response](http://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) (Modifica di una richiesta o risposta) nella documentazione di Fiddler.
+È possibile estendere questo esempio per intercettare una gamma più ampia di richieste e modificare **responseCode** solo in alcune di esse per simulare meglio uno scenario reale. Per altre informazioni sulla personalizzazione degli script Fiddler, vedere [Modifying a Request or Response](https://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) (Modifica di una richiesta o risposta) nella documentazione di Fiddler.
 
 Se le soglie per il passaggio dell'applicazione alla modalità di sola lettura sono state impostate come configurabili, sarà più semplice verificare il comportamento con volumi di transazioni non di produzione.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 * Per altre informazioni sull'archiviazione con ridondanza geografica e accesso in lettura, incluso un altro esempio di impostazione di LastSyncTime, vedere [Windows Azure Storage Redundancy Options and Read Access Geo-Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) (Opzioni di ridondanza di Archiviazione di Microsoft Azure e archiviazione con ridondanza geografica e accesso in lettura).
 

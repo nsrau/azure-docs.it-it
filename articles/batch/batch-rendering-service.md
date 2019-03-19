@@ -2,22 +2,23 @@
 title: Panoramica del rendering - Azure Batch
 description: Introduzione all'uso di Azure per il rendering e panoramica delle funzionalità di rendering di Azure Batch
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: bc8c96345aeb1886696326edd230666ac8b6c41d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: d4423b22c4c8afea5afa9c7040e081665b17ba87
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542211"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790341"
 ---
 # <a name="rendering-using-azure"></a>Rendering tramite Azure
 
 Il rendering è il processo di conversione di modelli 3D in immagini 2D. I file delle scene 3D vengono creati in applicazioni come Autodesk 3ds Max, Autodesk Maya e Blender.  Le applicazioni di rendering come Autodesk Maya, Autodesk Arnold, Chaos Group V-Ray e Blender Cycles producono immagini 2D.  A volte dai file delle scene vengono create singole immagini. Tuttavia, è prassi comune eseguire la modellazione e il rendering di più immagini e quindi combinarle in un'animazione.
 
-Il carico di lavoro di rendering viene usato in modo intensivo per gli effetti speciali (VFX) nel settore dei media e dell'intrattenimento. Il rendering viene usato anche in molti altri settori, tra cui quelli pubblicitario, manifatturiero, della vendita al dettaglio e di gas e petrolio.
+Il carico di lavoro di rendering viene usato in modo intensivo per gli effetti speciali (VFX) nel settore dei media e dell'intrattenimento. Per il rendering viene usato anche in molti altri settori, ad esempio la pubblicità, delle vendite al dettaglio, petrolio e gas e produzione.
 
 Il processo di rendering usa risorse di calcolo in modo intensivo, in quanto possono essere presenti molti fotogrammi/immagini da produrre e il rendering di ogni immagine può richiedere molte ore.  Di conseguenza, il rendering è un carico di lavoro di elaborazione batch perfetto, che può sfruttare Azure e Azure Batch per eseguire molte attività di rendering in parallelo.
 

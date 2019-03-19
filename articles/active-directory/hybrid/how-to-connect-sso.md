@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94b027900a3be4a43d6524fa595a5b4dc2909fa7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7c34d8de3dfd06540dd50542ab19da0c1d9b1567
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186217"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079742"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Accesso Single Sign-On facile di Azure Active Directory
 
@@ -53,8 +53,8 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 
 - Il nome utente usato per l'accesso può essere il nome utente predefinito locale (`userPrincipalName`) o un altro attributo configurato in Azure AD Connect (`Alternate ID`). Sono supportati entrambi i casi d'uso, perché l'accesso Single Sign-On facile usa l'attestazione `securityIdentifier` nel ticket Kerberos per cercare l'oggetto utente corrispondente in Azure AD.
 - L'accesso SSO facile è una funzionalità opportunistica. Se per qualche motivo ha esito negativo, l'esperienza di accesso dell'utente ritorna al comportamento normale, ovvero l'utente deve immettere la propria password nella pagina di accesso.
-- Ad esempio, se un'applicazione https://myapps.microsoft.com/contoso.com) inoltra un parametro `domain_hint` (OpenID Connect) o `whr` (SAML) per identificare il tenant o un parametro `login_hint` per identificare l'utente, nella richiesta di accesso ad Azure AD l'accesso degli utenti viene effettuato automaticamente, senza che debbano immettere i nomi utente o le password.
-- Gli utenti possono inoltre usufruire di un'esperienza di accesso automatico nei casi in cui un'applicazione, ad esempio https://contoso.sharepoint.com), invia le richieste di accesso agli endpoint con tenant di Azure AD, ovvero https://login.microsoftonline.com/contoso.com/<..> o https://login.microsoftonline.com/<tenant_ID>/<..>, anziché all'endpoint comune di Azure AD (https://login.microsoftonline.com/common/<...>).
+- Se un'applicazione (ad esempio, `https://myapps.microsoft.com/contoso.com`) inoltra una `domain_hint` (OpenID Connect) o `whr` parametro (SAML) - identificare il tenant o `login_hint` parametro - identificare l'utente, nel relativo AD Azure richiesta di accesso, gli utenti sono accedere automaticamente senza immettere nomi utente o password.
+- Gli utenti ottengono un'esperienza di accesso non interattiva anche se un'applicazione (ad esempio, `https://contoso.sharepoint.com`) invia le richieste di accesso agli endpoint di Azure AD impostato come tenant, vale a dire `https://login.microsoftonline.com/contoso.com/<..>` oppure `https://login.microsoftonline.com/<tenant_ID>/<..>` , anziché l'endpoint Azure AD comune, vale a dire `https://login.microsoftonline.com/common/<...>` .
 - La disconnessione è supportata. In questo modo gli utenti possono scegliere di eseguire l'accesso con un altro account di Azure AD anziché accedere automaticamente tramite l'accesso Single Sign-On facile.
 - I client Office 365 Win32 (Outlook, Word, Excel e altri) con le versioni 16.0.8730.xxxx e successive sono supportati tramite un flusso non interattivo. Per OneDrive, è necessario attivare la [funzionalità di configurazione automatica di OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) per un'esperienza di accesso automatico.
 - Può essere abilitata da Azure AD Connect.

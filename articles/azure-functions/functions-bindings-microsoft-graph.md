@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: eb05d1b28b80cb7bf48bc1160c251936423763e6
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: f112bdf9eacf51852659ab49a5673b0c8bfb0e46
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100785"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997559"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associazioni di Microsoft Graph per Funzioni di Azure
 
@@ -360,6 +360,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 ### <a name="excel-input---usage"></a>Input di Excel: utilizzo
 
 Questa associazione richiede le autorizzazioni Azure AD seguenti:
+
 |Risorsa|Autorizzazione|
 |--------|--------|
 |Microsoft Graph|Leggere i file dell'utente|
@@ -522,6 +523,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 ### <a name="excel-output---usage"></a>Output di Excel: utilizzo
 
 Questa associazione richiede le autorizzazioni Azure AD seguenti:
+
 |Risorsa|Autorizzazione|
 |--------|--------|
 |Microsoft Graph|Accesso completo ai file dell'utente|
@@ -664,6 +666,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 ### <a name="file-input---usage"></a>Input di file: utilizzo
 
 Questa associazione richiede le autorizzazioni Azure AD seguenti:
+
 |Risorsa|Autorizzazione|
 |--------|--------|
 |Microsoft Graph|Leggere i file dell'utente|
@@ -811,6 +814,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 #### <a name="file-output---usage"></a>Output di file: utilizzo
 
 Questa associazione richiede le autorizzazioni Azure AD seguenti:
+
 |Risorsa|Autorizzazione|
 |--------|--------|
 |Microsoft Graph|Accesso completo ai file dell'utente|
@@ -960,6 +964,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 ### <a name="outlook-output---usage"></a>Output di Outlook: utilizzo
 
 Questa associazione richiede le autorizzazioni Azure AD seguenti:
+
 |Risorsa|Autorizzazione|
 |--------|--------|
 |Microsoft Graph|Inviare un messaggio di posta elettronica come utente|

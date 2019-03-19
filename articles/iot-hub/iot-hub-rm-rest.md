@@ -1,20 +1,20 @@
 ---
 title: Creare un hub IoT di Azure con l'API REST del provider di risorse | Documentazione Microsoft
 description: Come usare l'API REST del provider di risorse per creare un hub IoT.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.author: dobett
-ms.openlocfilehash: 6da222086f29c4b492652d924b4d98e9780eaa53
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 04850d16a9affc51bae5fbfb23fd4dff51a79340
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434598"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089931"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Creare un hub IoT con l'API REST del provider di risorse (.NET)
 
@@ -24,6 +24,8 @@ ms.locfileid: "54434598"
 
 > [!NOTE]
 > Azure offre due modelli di distribuzione diversi per creare e usare le risorse:  [Azure Resource Manager e distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md).  In questo articolo viene illustrato l'uso del modello di distribuzione Azure Resource Manager.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
@@ -70,7 +72,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
     static string rgName = "{Resource group name}";
     static string iotHubName = "{IoT Hub name including your initials}";
     ```
-[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 [!INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
 
@@ -164,10 +166,10 @@ Usare l'[API REST del provider di risorse dell'hub IoT][lnk-rest-api] per creare
 
 3. Fare clic su **Debug** e quindi su **Avvia debug** per eseguire l'applicazione. Potrebbero occorrere alcuni minuti per l'esecuzione della distribuzione.
 
-4. Per verificare che l'applicazione abbia aggiunto il nuovo hub IoT, visitare il [portale di Azure][lnk-azure-portal] e visualizzare l'elenco delle risorse. In alternativa, usare il cmdlet di PowerShell **Get-AzureRmResource**.
+4. Per verificare che l'applicazione abbia aggiunto il nuovo hub IoT, visitare il [portale di Azure][lnk-azure-portal] e visualizzare l'elenco delle risorse. In alternativa, usare il **Get-AzResource** cmdlet di PowerShell.
 
 > [!NOTE]
-> Questa applicazione di esempio aggiunge un hub IoT Standard S1 che viene addebitato. Al termine è possibile eliminare l'hub IoT tramite il [portale di Azure][lnk-azure-portal] o usando il cmdlet di PowerShell **Remove-AzureRmResource**.
+> Questa applicazione di esempio aggiunge un hub IoT Standard S1 che viene addebitato. Al termine, è possibile eliminare l'hub IoT tramite il [portale di Azure] [ lnk-azure-portal] o utilizzando il **Remove-AzResource** cmdlet di PowerShell dopo averli completati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver distribuito un hub IoT mediante l'API REST del provider di risorse, può essere opportuno approfondire gli argomenti seguenti:
@@ -188,7 +190,7 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
+[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-Az-ps
 [lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 

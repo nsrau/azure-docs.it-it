@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 766eb7864a6bce296daafc86179e2deed77f8e02
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 44feaecd42a8c3ce0ac0c712aa27b2480fd2a486
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163123"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806930"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedura: Come consentire l'accesso a qualsiasi utente di Azure Active Directory usando il modello di applicazione multi-tenant
 
@@ -39,7 +39,7 @@ Quattro semplici passaggi consentono di convertire l'applicazione in un'applicaz
 1. [Aggiornare la registrazione dell'applicazione in modo che sia multi-tenant](#update-registration-to-be-multi-tenant)
 2. [Aggiornare il codice per l'invio delle richieste all'endpoint /common](#update-your-code-to-send-requests-to-common)
 3. [Aggiornare il codice per gestire più valori dell'autorità di certificazione](#update-your-code-to-handle-multiple-issuer-values)
-4. Informarsi sul consenso dell'utente e dell'amministratore e apportare le modifiche appropriate al codice
+4. [Informarsi sul consenso dell'utente e dell'amministratore e apportare le modifiche appropriate al codice](#understand-user-and-admin-consent)
 
 Esaminiamo in dettaglio ogni passaggio. È anche possibile passare direttamente a [questo elenco di esempi multi-tenant][AAD-Samples-MT].
 

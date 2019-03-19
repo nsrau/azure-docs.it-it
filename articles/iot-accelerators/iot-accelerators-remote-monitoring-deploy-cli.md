@@ -8,16 +8,16 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/30/2018
 ms.topic: conceptual
-ms.openlocfilehash: 61da17d1dc59a08128671da163d8b3ea27f83994
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7f1b9bb9d542b54afb6bf8b7bfc0df9fc1a9e434
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463219"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009427"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuire l'acceleratore di soluzioni di monitoraggio remoto tramite l'interfaccia della riga di comando
 
-Questa guida procedurale illustra come distribuire l'acceleratore di soluzioni di monitoraggio remoto. Distribuire la soluzione usando l'interfaccia della riga di comando. È possibile distribuire la soluzione anche usando l'interfaccia utente basata sul Web disponibile all'indirizzo azureiotsuite.com. Per informazioni su questa opzione, vedere [Distribuire l'acceleratore di soluzioni per il monitoraggio remoto](quickstart-remote-monitoring-deploy.md).
+Questa guida procedurale illustra come distribuire l'acceleratore di soluzioni di monitoraggio remoto. Distribuire la soluzione usando l'interfaccia della riga di comando. È anche possibile distribuire la soluzione usando l'interfaccia utente basata sul web in azureiotsolutions.com, per informazioni su questa opzione, vedere la [distribuire l'acceleratore di soluzione di monitoraggio remoto](quickstart-remote-monitoring-deploy.md) Guida introduttiva.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -66,7 +66,7 @@ La distribuzione di base è orientata verso la presentazione della soluzione. Pe
 
 Una distribuzione di base crea i servizi seguenti nella sottoscrizione di Azure:
 
-| Conteggio | Risorsa                       | type         | Utilizzo |
+| Conteggio | Risorsa                       | Type         | Utilizzo |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Macchina virtuale Linux](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Microservizi di hosting |
 | 1     | [Hub IoT Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 - livello Standard | Comunicazione e gestione dei dispositivi |

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 357257d38c444eae8077568993d49816e3c090a3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: a0bb320abb31b38461102e0e9a062ea0c2af51fb
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966076"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959579"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Accesso ai log di diagnostica per Azure Data Lake Storage Gen1
 Informazioni su come abilitare la registrazione diagnostica per l'account Azure Data Lake Storage Gen1 e visualizzare i log raccolti per l'account.
@@ -46,7 +46,7 @@ Le organizzazioni possono abilitare la registrazione diagnostica per il loro acc
         
         * Selezionare l'opzione per eseguire lo **streaming in Hub eventi** per trasmettere i dati di log a un Hub eventi di Azure. Molto probabilmente questa opzione viene utilizzata se si dispone di una pipeline di elaborazione a valle per analizzare in tempo reale i log in ingresso. Se si seleziona questa opzione, è necessario fornire i dettagli dell'Hub eventi di Azure che si desidera utilizzare.
 
-        * Selezionare l'opzione per **inviare a Log Analytics** per usare il servizio Log Analytics di Azure per analizzare i dati di log generati. Se si seleziona questa opzione, è necessario fornire i dettagli per l'area di lavoro di Log Analytics che si vuole usare per eseguire l'analisi dei log. Per informazioni dettagliate sull'uso di Log Analytics, vedere [Visualizzare o analizzare i dati raccolti con la ricerca log di Log Analytics](../azure-monitor/learn/tutorial-viewdata.md).
+        * Selezionare l'opzione **Invia a Log Analitica** usare il servizio di monitoraggio di Azure per analizzare i dati di log generato. Se si seleziona questa opzione, è necessario fornire i dettagli per l'area di lavoro di Log Analytics che si vuole usare per eseguire l'analisi dei log. Visualizzare [visualizzare o analizzare i dati raccolti con la ricerca nei log di monitoraggio di Azure](../azure-monitor/learn/tutorial-viewdata.md) per informazioni dettagliate sull'uso di monitoraggio di Azure i log.
      
    * Specificare se si desidera ottenere i log di controllo, i log delle richieste o entrambi.
    * Specificare il numero di giorni per cui devono essere conservati i dati. La conservazione dei dati è disponibile solo se si usano account di archiviazione di Azure per archiviare i dati del log.
@@ -113,10 +113,10 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
     }
 
 #### <a name="request-log-schema"></a>Schema del log delle richieste
-| NOME | type | DESCRIZIONE |
+| NOME | Type | DESCRIZIONE |
 | --- | --- | --- |
 | time |string |Il timestamp del log (fusorario UTC) |
-| ResourceId |string |L’ID della risorsa interessata dall’operazione |
+| resourceId |string |L’ID della risorsa interessata dall’operazione |
 | category |string |La categoria di log. Ad esempio, **Richieste**. |
 | operationName |string |Il nome dell'operazione registrata. Ad esempio, getfilestatus. |
 | resultType |string |Lo stato dell'operazione, ad esempio 200. |
@@ -126,7 +126,7 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
 | properties |JSON |Vedere di seguito per ulteriori dettagli |
 
 #### <a name="request-log-properties-schema"></a>Schema delle proprietà del log di richiesta
-| NOME | type | DESCRIZIONE |
+| NOME | Type | DESCRIZIONE |
 | --- | --- | --- |
 | HttpMethod |string |Il metodo HTTP utilizzato per l'operazione. Esempio: GET. |
 | path |string |Il percorso coinvolto nell'operazione |
@@ -160,10 +160,10 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
     }
 
 #### <a name="audit-log-schema"></a>Schema del log di controllo
-| NOME | type | DESCRIZIONE |
+| NOME | Type | DESCRIZIONE |
 | --- | --- | --- |
 | time |string |Il timestamp del log (fusorario UTC) |
-| ResourceId |string |L’ID della risorsa interessata dall’operazione |
+| resourceId |string |L’ID della risorsa interessata dall’operazione |
 | category |string |La categoria di log. Ad esempio, **Audit**. |
 | operationName |string |Il nome dell'operazione registrata. Ad esempio, getfilestatus. |
 | resultType |string |Lo stato dell'operazione, ad esempio 200. |
@@ -173,12 +173,12 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 | properties |JSON |Vedere di seguito per ulteriori dettagli |
 
 #### <a name="audit-log-properties-schema"></a>Schema delle proprietà del log di controllo
-| NOME | type | DESCRIZIONE |
+| NOME | Type | DESCRIZIONE |
 | --- | --- | --- |
 | StreamName |string |Il percorso coinvolto nell'operazione |
 
 ## <a name="samples-to-process-the-log-data"></a>Esempi per elaborare i dati di log
-Quando si inviano i log da Azure Data Lake Storage Gen1 ad Azure Log Analytics (per informazioni dettagliate sull'uso di Log Analytics, vedere [Visualizzare o analizzare i dati raccolti con la ricerca log di Log Analytics](../azure-monitor/learn/tutorial-viewdata.md)), la query seguente restituisce una tabella contenente un elenco dei nomi visualizzati degli utenti, l'ora degli eventi e il numero di eventi per l'ora dell'evento insieme a un grafico visivo. È possibile modificarlo facilmente per mostrare i GUID utente o altri attributi:
+Durante l'invio di log da Azure Data Lake archiviazione Gen1 ai log di monitoraggio di Azure (vedere [visualizzare o analizzare i dati raccolti con la ricerca nei log di monitoraggio di Azure](../azure-monitor/learn/tutorial-viewdata.md) per informazioni dettagliate sull'uso di monitoraggio di Azure registra), la query seguente restituisce una tabella che contiene un elenco di utenti visualizzati nomi, l'ora degli eventi e il conteggio degli eventi per l'ora dell'evento insieme a un grafico visivo. È possibile modificarlo facilmente per mostrare i GUID utente o altri attributi:
 
 ```
 search *

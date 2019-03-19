@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58ae26a2daf2a65eaf56672c9e75147bd71e489a
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: aac7ca7aa67143f89d9247da879a6fad2cfbb7b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330733"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992486"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Distribuzione DBMS per SQL Server di macchine virtuali di Azure per un SAP NetWeaver
 
@@ -158,7 +158,7 @@ ms.locfileid: "56330733"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -172,7 +172,7 @@ ms.locfileid: "56330733"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -343,7 +343,7 @@ In base alla descrizione generale, gli eseguibili di SQL Server devono essere sa
 Con queste configurazioni il database tempdb può consumare più spazio di quello che l'unità di sistema è in grado di offrire. L'unità D:\ non persistente offre inoltre una migliore latenza delle operazioni di I/O e una migliore velocità effettiva (fatta eccezione per le macchine virtuali serie A). Per determinare le dimensioni corrette del database tempdb, è possibile controllare le dimensioni di tempdb nei sistemi esistenti. 
 
 >[!NOTE]
-> Se si memorizzano i file di dati di tempdb e il file di log in una cartella nell'unità D:\ creata personalmente, è necessario assicurarsi che la cartella esista dopo un riavvio della VM. Poiché l'unità D:\ viene inizializzata del tutto dopo il riavvio di una macchina virtuale tutte le strutture di file e di directory vengono cancellate. Una possibilità per ricreare le strutture di directory nell'unità D:\ prima dell'avvio del servizio SQL Server è documentata in [questo articolo](http://www.sqlserver.co.uk/index.php/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/).
+> Se si memorizzano i file di dati di tempdb e il file di log in una cartella nell'unità D:\ creata personalmente, è necessario assicurarsi che la cartella esista dopo un riavvio della VM. Poiché l'unità D:\ viene inizializzata del tutto dopo il riavvio di una macchina virtuale tutte le strutture di file e di directory vengono cancellate. Una possibilità per ricreare le strutture di directory nell'unità D:\ prima dell'avvio del servizio SQL Server è documentata in [questo articolo](https://www.sqlserver.co.uk/index.php/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/).
 
 Una configurazione di VM che esegue SQL Server con un database SAP e in cui i dati e il file di log di tempdb si trovano nell'unità D:\ è simile a quella illustrata nella figura seguente:
 
@@ -383,7 +383,7 @@ In SQL Server 2014 e versioni successive è possibile archiviare file di databas
 * Le considerazioni elencate in precedenza in merito alla distribuzione di dischi rigidi virtuali in diversi account di archiviazione di Azure sono valide anche per questo metodo di distribuzione. Questo significa che il numero di operazioni di I/O viene tenuto in considerazione ai fini dei limiti dell'account di archiviazione di Azure.
 * Invece di considerare la quota di operazioni di I/O di archiviazione della VM, il traffico rispetto ai BLOB di archiviazione che rappresenta i file di log e i file di dati SQL Server viene tenuto in considerazione nella larghezza di banda della rete della VM del tipo di VM specifico. Per la larghezza di banda della rete e della risorsa di archiviazione di un tipo di VM specifico, vedere l'articolo [Dimensioni per le macchine virtuali Windows in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
 * Come risultato dell'esecuzione del push dei file I/O tramite la quota di rete, si ripercuote principalmente la quota di archiviazione e con questa la larghezza di banda complessiva della macchina virtuale solo parzialmente.
-* Gli obiettivi di prestazione delle operazioni di I/O al secondo e della velocità effettiva delle operazioni di I/O che Archiviazione Premium di Azure specifica per le diverse dimensioni di disco non si applicano più. Ciò vale anche se i BLOB creati si trovano in Archiviazione Premium di Azure. Gli obiettivi sono documentati nell'articolo [Archiviazione Premium a prestazioni elevate e dischi gestiti per le VM](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#scalability-and-performance-targets). In conseguenza della memorizzazione di file di dati e dei file di log SQL Server direttamente in BLOB che sono memorizzati in Archiviazione Premium di Azure, le caratteristiche delle prestazioni possono essere diverse in confronto ai dischi rigidi virtuali in Archiviazione Premium di Azure.
+* Gli obiettivi di prestazione delle operazioni di I/O al secondo e della velocità effettiva delle operazioni di I/O che Archiviazione Premium di Azure specifica per le diverse dimensioni di disco non si applicano più. Ciò vale anche se i BLOB creati si trovano in Archiviazione Premium di Azure. Gli obiettivi sono documentati nell'articolo [Archiviazione Premium a prestazioni elevate e dischi gestiti per le VM](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage). In conseguenza della memorizzazione di file di dati e dei file di log SQL Server direttamente in BLOB che sono memorizzati in Archiviazione Premium di Azure, le caratteristiche delle prestazioni possono essere diverse in confronto ai dischi rigidi virtuali in Archiviazione Premium di Azure.
 * La cache basata su host disponibile per i dischi di Archiviazione Premium di Azure non è disponibile quando si inseriscono file di dati di SQL Server direttamente su BLOB di Azure.
 * Nelle macchine virtuali serie M l'acceleratore di scrittura di Azure non può essere usato per supportare operazioni di scrittura inferiori al millisecondo rispetto al file registro transazioni di SQL Server. 
 

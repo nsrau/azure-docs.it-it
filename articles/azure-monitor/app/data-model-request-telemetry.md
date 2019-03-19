@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: d39ec71315bec98c35ac7fb76ed9a88a094817ca
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: fef016d87cc60bc916fdcb08f92171e115221fe5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117147"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884121"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Dati di telemetria richiesta: Modello di dati di Application Insights
 
@@ -29,7 +29,7 @@ La telemetria delle richieste supporta il modello di estendibilità standard usa
 
 Il nome della richiesta rappresenta il percorso di codice intrapreso per elaborare la richiesta. Un valore di cardinalità basso consente di raggruppare meglio le richieste. Per le richieste HTTP, rappresenta il metodo HTTP e un modello di percorso URL, ad esempio `GET /values/{id}`, senza il valore di `id` effettivo.
 
-Web Application Insights SDK invia il nome della richiesta "così com'è" per quanto riguarda le maiuscole e minuscole. Il raggruppamento nell'interfaccia utente considera la distinzione tra maiuscole e minuscole, pertanto `GET /Home/Index` viene considerato diverso da `GET /home/INDEX`, anche se spesso riguardano l'esecuzione della stessa azione e dello stesso controller. Ciò accade perché gli URL rilevano in genere [la distinzione tra maiuscole e minuscole](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Si consiglia di verificare se tutti gli errori `404` si sono verificati per gli URL digitati in maiuscolo. Altre informazioni sulla raccolta di nomi di richiesta da ASP.Net Web SDK sono disponibili nel [post di blog](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
+Web Application Insights SDK invia il nome della richiesta "così com'è" per quanto riguarda le maiuscole e minuscole. Il raggruppamento nell'interfaccia utente considera la distinzione tra maiuscole e minuscole, pertanto `GET /Home/Index` viene considerato diverso da `GET /home/INDEX`, anche se spesso riguardano l'esecuzione della stessa azione e dello stesso controller. Ciò accade perché gli URL rilevano in genere [la distinzione tra maiuscole e minuscole](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Si consiglia di verificare se tutti gli errori `404` si sono verificati per gli URL digitati in maiuscolo. È possibile leggere ulteriori raccolta nome richiesta via da ASP.NET Web SDK nel [post di blog](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
 
 Lunghezza massima: 1024 caratteri
 
@@ -45,7 +45,7 @@ URL della richiesta con tutti i parametri di stringa di query.
 
 Lunghezza massima: 2048 caratteri
 
-## <a name="source"></a>Sorgente
+## <a name="source"></a>Source (Sorgente)
 
 Origine della richiesta. Esempi sono la chiave di strumentazione o l'indirizzo IP del chiamante. Per altre informazioni vedere la pagina relativa alla [correlazione](../../azure-monitor/app/correlation.md).
 

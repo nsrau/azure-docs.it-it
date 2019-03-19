@@ -7,18 +7,18 @@ author: cawaMS
 manager: paulyuk
 editor: ''
 ms.assetid: ''
-ms.service: ''
+ms.service: key-vault
 ms.workload: web, azure
 ms.tgt_pltfrm: vs-getting-started
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
-ms.openlocfilehash: df6330827a4fb8bb8e80af89855c3ea104584295
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 79b1c740bca56982243ddc130d8747fdc955247f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662290"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124117"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Salvataggio sicuro delle impostazioni applicazione segrete per un'applicazione Web
 
@@ -143,9 +143,9 @@ Se si sta scrivendo un prototipo veloce e non si desidera eseguire il provisioni
 Seguire le istruzioni nella sezione su ASP.NET Core per configurare un Key Vault per il progetto.
 
 1. Installare il seguente pacchetto NuGet nel progetto
-```
-Microsoft.Configuration.ConfigurationBuilders.UserSecrets
-```
+   ```
+   Microsoft.Configuration.ConfigurationBuilders.UserSecrets
+   ```
 
 2. Definire il generatore di configurazione Key Vault in Web.config. Mettere questa sezione prima della sezione *appSettings*. Sostituire *vaultName* in modo che sia il nome del Key Vault, se il Key Vault si trova in Azure pubblico, o l'URI completo, se si usa un sovereign cloud.
 
@@ -159,16 +159,16 @@ Microsoft.Configuration.ConfigurationBuilders.UserSecrets
         </builders>
     </configBuilders>
     ```
-3.  Specificare che la sezione appSettings sta usando il generatore di configurazione Key Vault. Assicurarsi che tutte le voci per l'impostazione segreta abbiano un valore fittizio.
+3. Specificare che la sezione appSettings sta usando il generatore di configurazione Key Vault. Assicurarsi che tutte le voci per l'impostazione segreta abbiano un valore fittizio.
 
-    ```xml
-    <appSettings configBuilders="AzureKeyVault">
-        <add key="webpages:Version" value="3.0.0.0" />
-        <add key="webpages:Enabled" value="false" />
-        <add key="ClientValidationEnabled" value="true" />
-        <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-        <add key="secret" value="" />
-    </appSettings>
-    ```
+   ```xml
+   <appSettings configBuilders="AzureKeyVault">
+       <add key="webpages:Version" value="3.0.0.0" />
+       <add key="webpages:Enabled" value="false" />
+       <add key="ClientValidationEnabled" value="true" />
+       <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+       <add key="secret" value="" />
+   </appSettings>
+   ```
 
 4. Avviare il debug del progetto. Sarà eseguito correttamente.

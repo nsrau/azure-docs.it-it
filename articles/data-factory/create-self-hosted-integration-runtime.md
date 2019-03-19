@@ -3,20 +3,20 @@ title: Creare un runtime di integrazione self-hosted in Azure Data Factory | Mic
 description: Informazioni su come creare un runtime di integrazione self-hosted in Azure Data Factory, che consente alle data factory di accedere agli archivi dati in una rete privata.
 services: data-factory
 documentationcenter: ''
-author: nabhishek
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
+author: nabhishek
 ms.author: abnarain
-ms.openlocfilehash: 68878a68b5f0051c1ee9beda96293dd7cd00eaf1
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+manager: craigg
+ms.openlocfilehash: 37e3dbb5f69d7319e0b56a5d209e0487e0562e00
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493593"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838800"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creare e configurare un runtime di integrazione self-hosted
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per distribuire le funzionalità di integrazione di dati in ambienti di rete diversi. Per informazioni dettagliate sul runtime di integrazione, vedere [Runtime di integrazione in Azure Data Factory](concepts-integration-runtime.md).
@@ -25,11 +25,13 @@ Un runtime di integrazione self-hosted può eseguire attività di copia tra un a
 
 Questo documento descrive come creare e configurare un runtime di integrazione self-hosted.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="high-level-steps-to-install-a-self-hosted-ir"></a>Procedura generale per installare un runtime di integrazione self-hosted
 1. Creare un runtime di integrazione self-hosted. Per questa attività, è possibile usare l'interfaccia utente di Azure Data Factory. Di seguito è illustrato un esempio di PowerShell:
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
   
 2. [Scaricare](https://www.microsoft.com/download/details.aspx?id=39717) e installare il runtime di integrazione self-hosted in un computer locale.
@@ -37,7 +39,7 @@ Questo documento descrive come creare e configurare un runtime di integrazione s
 3. Recuperare la chiave di autenticazione e registrare il runtime di integrazione self-hosted con la chiave. Di seguito è illustrato un esempio di PowerShell:
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
     ```
 
 ## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template-automation"></a>Configurazione di un runtime di integrazione self-hosted in una macchina virtuale di Azure usando un modello di Azure Resource Manager (automazione)
@@ -59,7 +61,7 @@ Di seguito viene indicato un flusso di dati generale per il riepilogo dei passag
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>Considerazioni sull'uso del runtime di integrazione self-hosted
 
 - Un singolo runtime di integrazione self-hosted può essere usato per più origini dati locali. e può essere condiviso con un'altra data factory nello stesso tenant di Azure Active Directory. Per altre informazioni, vedere [Condivisione di un runtime di integrazione self-hosted](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories).
-- In un computer può essere installata una sola istanza di un runtime di integrazione self-hosted. Se sono presenti due data factory che richiedono l'accesso alle origini dati locali, è necessario installare il runtime di integrazione self-hosted nei due computer locali. In altre parole, un runtime di integrazione self-hosted viene associato a una data factory specifica.
+- In un computer può essere installata una sola istanza di un runtime di integrazione self-hosted. Se si dispone di due data factory che devono accedere alle origini dati locali, è necessario installare il runtime di integrazione self-hosted in due computer locali ogni da entrambe le data factory oppure usare il [self-hosted IRfunzionalitàdicondivisione](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories)condividere un runtime di integrazione self-hosted con un'altra Data Factory.  
 - Il runtime di integrazione self-hosted non deve trovarsi nello stesso computer dell'origine dati. Se tuttavia il runtime di integrazione self-hosted è più vicino all'origine dati, il tempo di connessione a quest'ultima è minore. Si consiglia di installare il runtime di integrazione self-hosted in un computer diverso da quello che ospita l'origine dati locale. Quando il runtime di integrazione self-hosted e l'origine dati si trovano in computer diversi, non competono per accedere alle risorse.
 - È possibile che più runtime di integrazione self-hosted siano presenti in computer diversi che si connettono alla stessa origine dati locale. Potrebbero essere disponibili, ad esempio, due runtime di integrazione self-hosted che servono due data factory per cui è registrata la stessa origine dati locale.
 - Se nel computer è già installato un gateway per uno scenario Power BI, installare un runtime di integrazione self-hosted separato per Azure Data Factory in un altro computer.
@@ -96,7 +98,7 @@ Per installare il runtime di integrazione self-hosted, è possibile scaricare un
 9. Ottenere la chiave di autenticazione tramite Azure PowerShell. Di seguito viene indicato un esempio di PowerShell per recuperare la chiave di autenticazione:
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
     ```
 11. Nella pagina **Registra Integration Runtime (self-hosted)** di Gestione configurazione di Microsoft Integration Runtime in esecuzione sul computer seguire questa procedura:
 
@@ -112,7 +114,7 @@ Un runtime di integrazione self-hosted può essere associato a più computer loc
 * Disponibilità più elevata del runtime di integrazione self-hosted in modo che non sia più il singolo punto di guasto nella soluzione per Big Data o nell'integrazione dei dati cloud con Azure Data Factory, assicurando la continuità fino a quattro nodi.
 * Miglioramento delle prestazioni e della velocità effettiva durante lo spostamento dati tra archivi dati locali e cloud. Ottenere altre informazioni sui [confronti delle prestazioni](copy-activity-performance.md).
 
-Per associare più nodi, installare il software di runtime di integrazione self-hosted dall'[Area download](https://www.microsoft.com/download/details.aspx?id=39717) e quindi registrarlo usando una delle chiavi di autenticazione ottenute dal cmdlet **New-AzureRmDataFactoryV2IntegrationRuntimeKey**, come descritto nell'[esercitazione](tutorial-hybrid-copy-powershell.md).
+Per associare più nodi, installare il software di runtime di integrazione self-hosted dall'[Area download](https://www.microsoft.com/download/details.aspx?id=39717) Quindi, usando una delle chiavi di autenticazione ottenuta dal registro il **New-AzDataFactoryV2IntegrationRuntimeKey** cmdlet, come descritto nel [esercitazione](tutorial-hybrid-copy-powershell.md).
 
 > [!NOTE]
 > Non è necessario creare un nuovo runtime di integrazione self-hosted per associare ogni nodo. È possibile installare il runtime di integrazione self-hosted in un altro computer e registrarlo con la stessa chiave di autenticazione. 
@@ -143,7 +145,7 @@ Ecco i requisiti per il certificato TLS/SSL usato per proteggere le comunicazion
 - I certificati che usano chiavi CNG non sono supportati.  
 
 > [!NOTE]
-> Questo certificato viene usato per crittografare le porte nel nodo runtime di integrazione self-hosted, usato per la **comunicazione da nodo a nodo** (per la sincronizzazione dello stato) e durante l'**uso di PowerShell cmdlet per l'impostazione di credenziali di servizio collegate**  dalla rete locale. È consigliabile usare questo certificato se l'ambiente di rete privato non è protetto o se si vuole proteggere la comunicazione tra nodi anche all'interno della rete privata. Lo spostamento dati in transito dal runtime di integrazione self-hosted ad altri archivi dati avviene sempre tramite un canale crittografato, indipendentemente dal fatto che il certificato sia stato impostato o meno. 
+> Questo certificato viene usato per le porte nel nodo di runtime di integrazione self-hosted, usato per crittografare **comunicazione da nodo a nodo** (per la sincronizzazione dello stato che include servizi collegati di credenziali sincronizzazione tra nodi) e while **tramite PowerShell cmdlet per il servizio collegato di impostazione credenziali** dalla rete locale. È consigliabile usare questo certificato se l'ambiente di rete privato non è protetto o se si vuole proteggere la comunicazione tra nodi anche all'interno della rete privata. Lo spostamento dati in transito dal runtime di integrazione self-hosted ad altri archivi dati avviene sempre tramite un canale crittografato, indipendentemente dal fatto che il certificato sia stato impostato o meno. 
 
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>Condivisione del runtime di integrazione self-hosted in più data factory
 
@@ -197,8 +199,6 @@ Per un'introduzione di dodici minuti e una dimostrazione di questa funzionalità
 * La data factory in cui verrà creato il runtime di integrazione collegato deve disporre di un'[identità del servizio gestita](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Per impostazione predefinita, nelle data factory create nel portale di Azure o nei cmdlet di PowerShell un'identità del servizio gestita è creata in modo implicito. Quando una data factory viene creata tramite un modello di Azure Resource Manager oppure un SDK, tuttavia, la proprietà **Identity** deve essere impostata in modo esplicito per garantire che Azure Resource Manager crei una data factory contenente un'identità del servizio gestita. 
 
 * La versione di Azure Data Factory .NET SDK che supporta questa funzionalità è 1.1.0 o successiva.
-
-* La versione di Azure PowerShell che supporta questa funzionalità è 6.6.0 o successiva (AzureRM.DataFactoryV2, 0.5.7 o versione successiva).
 
 * Per concedere l'autorizzazione, l'utente deve disporre del ruolo di proprietario o del ruolo di proprietario ereditato nella data factory in cui è presente il runtime di integrazione condiviso.
 
@@ -343,7 +343,7 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 > [!NOTE]
 > L'applicazione Gestione credenziali non è ancora disponibile per la crittografia delle credenziali in Azure Data Factory V2.  
 
-Se si sceglie di non aprire la porta 8060 nel computer del runtime di integrazione self-hosted, usare meccanismi diversi dall'uso dell'applicazione di impostazione credenziali per configurare le credenziali dell'archivio dati. È possibile ad esempio usare il cmdlet di PowerShell **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential**.
+Se si sceglie di non aprire la porta 8060 nel computer del runtime di integrazione self-hosted, usare meccanismi diversi dall'uso dell'applicazione di impostazione credenziali per configurare le credenziali dell'archivio dati. Ad esempio, è possibile usare la **New-AzDataFactoryV2LinkedServiceEncryptCredential** cmdlet di PowerShell.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

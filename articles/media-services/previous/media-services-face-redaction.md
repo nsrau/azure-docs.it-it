@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/09/2019
 ms.author: juliako;
-ms.openlocfilehash: 7fa1bec1b6f83b18684f6139bf6ac8db1ae9daec
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: a0d6eb67c255a40856683c8a5c47c1e1e9f6753e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004894"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837797"
 ---
-# <a name="redact-faces-with-azure-media-analytics-legacy"></a>Offuscare i volti con Analisi Servizi multimediali di Azure (legacy)
+# <a name="redact-faces-with-azure-media-analytics"></a>Offuscare i volti con Analisi Servizi multimediali di Azure 
 ## <a name="overview"></a>Panoramica
 **Azure Media Redactor** è un processore di contenuti multimediali di [Analisi Servizi multimediali di Azure](media-services-analytics-overview.md) che offre funzionalità scalabili di offuscamento dei volti nel cloud. L'offuscamento dei volti consente di modificare un video per sfocare i volti di persone selezionate. Può essere opportuno usare tale servizio in scenari di pubblica sicurezza e notizie giornalistiche. Offuscare manualmente alcuni minuti di filmato contenenti più volti può richiedere ore, ma con questo servizio il processo di offuscamento dei volti richiederà pochi semplici passaggi. Per altre informazioni, vedere [questo](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
@@ -41,10 +41,10 @@ Questa modalità produce automaticamente un file mp4 offuscato senza alcun input
 | Asset di output |foo_redacted.mp4 |Video con sfocatura applicata |
 
 #### <a name="input-example"></a>Esempio di input:
-[Guardare il video](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
+[Guardare il video](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
 
 #### <a name="output-example"></a>Esempio di output:
-[Guardare il video](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
+[Guardare il video](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
 
 ### <a name="analyze-mode"></a>Modalità analisi
 Nel flusso di lavoro in due passaggi, il passaggio dell' **analisi** usa un input video e produce un file JSON di posizioni di volti e immagini jpg di ogni volto rilevato.
@@ -125,7 +125,7 @@ L'output del passaggio dell'analisi non include il video originale. Il video dev
 #### <a name="example-output"></a>Output di esempio
 Questo output viene ottenuto da un elenco di ID con un ID selezionato.
 
-[Guardare il video](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
+[Guardare il video](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
 
 Esempio foo_IDList.txt
  
@@ -373,5 +373,5 @@ namespace FaceRedaction
 ## <a name="related-links"></a>Collegamenti correlati
 [Panoramica di Analisi servizi multimediali di Azure](media-services-analytics-overview.md)
 
-[Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Demo di Analisi servizi multimediali di Azure](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

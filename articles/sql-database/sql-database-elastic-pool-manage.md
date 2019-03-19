@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 2a719fcbe2180e366060fba11bf64ad9770aa672
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 45769a2285965395d113f026f0ffc171873a5a99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756122"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842601"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Creare e gestire pool elastici nel database SQL di Azure
 
@@ -39,6 +39,10 @@ Da qui è possibile eseguire una combinazione qualsiasi di modifiche tra quelle 
 
 ## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: gestire i pool elastici e i database in pool
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
+
 Per creare e gestire i pool elastici e i database in pool del database SQL con Azure PowerShell, usare i cmdlet di PowerShell seguenti. Se è necessario installare o aggiornare PowerShell, vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps). Per creare e gestire i server di database SQL di Azure per un pool elastico, vedere [Creare e gestire server di database SQL di Azure](sql-database-servers.md). Per creare e gestire regole del firewall, vedere [Creare e gestire le regole del firewall con PowerShell](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-azure-powershell).
 
 > [!TIP]
@@ -47,15 +51,15 @@ Per creare e gestire i pool elastici e i database in pool del database SQL con A
 
 | Cmdlet | DESCRIZIONE |
 | --- | --- |
-|[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Consente di creare un pool elastico.|
-|[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|Consente di ottenere i pool elastici e i relativi valori della proprietà.|
-|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|Consente di modificare le proprietà di un pool di database elastico. Ad esempio, usare le proprietà **StorageMB** per modificare l'archiviazione massima di un pool elastico.|
-|[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|Consente di eliminare un pool elastico.|
-|[Get-AzureRmSqlElasticPoolActivity](/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity)|Consente di ottenere lo stato delle operazioni in un pool elastico|
-|[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Consente di creare un nuovo database in un pool esistente o in un database singolo. |
-|[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Ottiene uno o più database.|
-|[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Consente di impostare le proprietà per un database oppure sposta un database esistente all'interno o all'esterno di in un pool elastico.|
-|[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Rimuove un database.|
+|[New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool)|Consente di creare un pool elastico.|
+|[Get-AzSqlElasticPool](/powershell/module/az.sql/get-azsqlelasticpool)|Consente di ottenere i pool elastici e i relativi valori della proprietà.|
+|[Set-AzSqlElasticPool](/powershell/module/az.sql/set-azsqlelasticpool)|Consente di modificare le proprietà di un pool di database elastico. Ad esempio, usare le proprietà **StorageMB** per modificare l'archiviazione massima di un pool elastico.|
+|[Remove-AzSqlElasticPool](/powershell/module/az.sql/remove-azsqlelasticpool)|Consente di eliminare un pool elastico.|
+|[Get-AzSqlElasticPoolActivity](/powershell/module/az.sql/get-azsqlelasticpoolactivity)|Consente di ottenere lo stato delle operazioni in un pool elastico|
+|[New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)|Consente di creare un nuovo database in un pool esistente o in un database singolo. |
+|[Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase)|Ottiene uno o più database.|
+|[Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase)|Consente di impostare le proprietà per un database oppure sposta un database esistente all'interno o all'esterno di in un pool elastico.|
+|[Remove-AzSqlDatabase](/powershell/module/az.sql/remove-azsqldatabase)|Rimuove un database.|
 
 > [!TIP]
 > La creazione di molti database in un pool elastico può richiedere tempo quando viene eseguita tramite il portale o i cmdlet di PowerShell che creano un database singolo alla volta. Per automatizzare la creazione in un pool elastico, vedere [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).
