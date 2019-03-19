@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: ea46039583681bd89e254d153997e3a300041d4e
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
-ms.translationtype: HT
+ms.openlocfilehash: 40ba5814bce08037b9e4d0787defbab4d02e58df
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341355"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546255"
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Test locale delle prestazioni di un servizio cloud nell'emulatore di calcolo di Azure mediante il profiler di Visual Studio
 È possibile usare diversi strumenti e tecniche per il test delle prestazioni di servizi cloud.
@@ -31,7 +31,7 @@ Quando si pubblica un servizio cloud in Azure, è possibile impostare Visual Stu
 In questo articolo viene illustrato il metodo Campionamento CPU per la profilatura, che può essere eseguito localmente nell'emulatore. Si tratta di un metodo di profilatura non eccessivamente invasivo. Il profiler salva uno snapshot dello stack di chiamate in base a intervalli di campionamento specificati. I dati vengono raccolti per un determinato periodo di tempo e vengono visualizzati in un rapporto. Questo metodo di profilatura tende a indicare la posizione in cui viene eseguita la maggior parte del lavoro della CPU in un'applicazione a elevato utilizzo di calcolo.  Ciò consente di focalizzare l'attenzione sul "percorso critico" in cui l'applicazione trascorre la maggior parte del tempo.
 
 ## <a name="1-configure-visual-studio-for-profiling"></a>1: Configurare Visual Studio per la profilatura
-Visual Studio include alcune opzioni di configurazione che possono risultare utili per la profilatura. Per rendere comprensibili i rapporti di profilatura, saranno necessari simboli (file con estensione pdb) per l'applicazione, oltre a simboli per le librerie di sistema. È necessario assicurarsi di fare riferimento ai server dei simboli disponibili. A tale scopo, dal menu **Strumenti** in Visual Studio scegliere **Opzioni**, quindi **Debug** e infine **Simboli**. Verificare che Server dei simboli Microsoft sia elencato in **Percorsi dei file di simboli (pdb)**.  È anche possibile fare riferimento a http://referencesource.microsoft.com/symbols, che può avere file di simboli aggiuntivi.
+Visual Studio include alcune opzioni di configurazione che possono risultare utili per la profilatura. Per rendere comprensibili i rapporti di profilatura, saranno necessari simboli (file con estensione pdb) per l'applicazione, oltre a simboli per le librerie di sistema. È necessario assicurarsi di fare riferimento ai server dei simboli disponibili. A tale scopo, dal menu **Strumenti** in Visual Studio scegliere **Opzioni**, quindi **Debug** e infine **Simboli**. Verificare che Server dei simboli Microsoft sia elencato in **Percorsi dei file di simboli (pdb)**.  È anche possibile fare riferimento a https://referencesource.microsoft.com/symbols, che può avere file di simboli aggiuntivi.
 
 ![Opzioni dei simboli][4]
 
@@ -113,7 +113,7 @@ Per interrompere la profilatura, scegliere il collegamento **Interrompi la profi
 
 ![Opzione Arresta profilatura][10]
 
-## <a name="3-view-performance-reports"></a>3: Visualizzare i rapporti relativi alle prestazioni
+## <a name="3-view-performance-reports"></a>3: Visualizzare i report di prestazioni
 Viene visualizzato il rapporto relativo alle prestazioni dell'applicazione.
 
 A questo punto, l'esecuzione del profiler viene interrotta, i dati vengono salvati in un file con estensione vsp e viene visualizzato un rapporto che include un'analisi di tali dati.
@@ -130,7 +130,7 @@ Se è stato aggiunto il codice di concatenazione di stringa disponibile in quest
 
 ![Avvisi di prestazioni][14]
 
-## <a name="4-make-changes-and-compare-performance"></a>4: Apportare modifiche e confrontare le prestazioni
+## <a name="4-make-changes-and-compare-performance"></a>4: Apportare le modifiche e confrontare le prestazioni
 È anche possibile confrontare le prestazioni prima e dopo la modifica del codice.  Arrestare il processo in esecuzione e modificare il codice per sostituire l'operazione di concatenazione di stringa usando StringBuilder:
 
 ```csharp
@@ -162,14 +162,14 @@ Congratulazioni! sono state eseguite le operazioni preliminari con il profiler.
 * Usare l'interfaccia utente dell'emulatore di calcolo per visualizzare lo stato dell'applicazione. 
 * Se si verificano problemi di avvio delle applicazioni nell'emulatore o problemi di connessione del profiler, arrestare l'emulatore di calcolo e riavviarlo. Se il problema persiste, provare a riavviare il sistema. È possibile che questo problema si verifichi se si usa l'emulatore di calcolo per sospendere e rimuovere distribuzioni in esecuzione.
 * Se sono stati usati comandi relativi alla profilatura dalla riga di comando, in particolare le impostazioni globali, assicurarsi che sia stata effettuata la chiamata a VSPerfClrEnv /globaloff e che VsPerfMon.exe sia stato arrestato.
-* Se durante il campionamento viene visualizzato il messaggio "PRF0025: Dati non raccolti", verificare che nel processo a cui ci si è connessi sia presente attività della CPU. È possibile che le applicazioni che non eseguono attività di calcolo non producano dati di campionamento.  È inoltre possibile che il processo sia stato chiuso prima dell'esecuzione del campionamento. Verificare che il metodo Run di un ruolo da sottoporre a profilatura non preveda la terminazione.
+* Se durante il campionamento, viene visualizzato il messaggio "PRF0025: Dati non raccolti,"verificare che il processo sono stati collegati a dispone di attività della CPU. È possibile che le applicazioni che non eseguono attività di calcolo non producano dati di campionamento.  È inoltre possibile che il processo sia stato chiuso prima dell'esecuzione del campionamento. Verificare che il metodo Run di un ruolo da sottoporre a profilatura non preveda la terminazione.
 
-## <a name="next-steps"></a>Passaggi successivi
-La strumentazione dei file binari di Azure nell'emulatore non è supportata nel profiler di Visual Studio. Se tuttavia si desidera testare l'allocazione della memoria, è possibile scegliere tale opzione durante la profilatura. È inoltre possibile scegliere la profilatura della concorrenza, che consente di determinare se i thread sprecano tempo nel tentativo di ottenere blocchi, oppure la profilatura di interazioni tra livelli, che consente di tenere traccia dei problemi di prestazioni durante l'interazione tra livelli di un'applicazione, nella maggior parte dei casi tra il livello dati e il ruolo di lavoro.  È possibile visualizzare le query di database generate dall'applicazione e usare i dati di profilatura per ottimizzare l'uso del database. Per informazioni sulla profilatura dell'interazione tra livelli, vedere il post di blog [Walkthrough: Using the Tier Interaction Profiler in Visual Studio Team System 2010][3] (Procedura dettagliata: Uso del profiler relativo alle interazioni tra livelli in Visual Studio Team System 2010).
+## <a name="next-steps"></a>Fasi successive
+La strumentazione dei file binari di Azure nell'emulatore non è supportata nel profiler di Visual Studio. Se tuttavia si desidera testare l'allocazione della memoria, è possibile scegliere tale opzione durante la profilatura. È inoltre possibile scegliere la profilatura della concorrenza, che consente di determinare se i thread sprecano tempo nel tentativo di ottenere blocchi, oppure la profilatura di interazioni tra livelli, che consente di tenere traccia dei problemi di prestazioni durante l'interazione tra livelli di un'applicazione, nella maggior parte dei casi tra il livello dati e il ruolo di lavoro.  È possibile visualizzare le query di database generate dall'applicazione e usare i dati di profilatura per ottimizzare l'uso del database. Per informazioni sulla profilatura interazione tra livelli, vedere il post di blog [procedura dettagliata: Usare il Profiler di interazione tra livelli in Visual Studio Team System 2010][3].
 
 [1]: https://docs.microsoft.com/azure/application-insights/app-insights-profiler
-[2]: http://msdn.microsoft.com/library/azure/hh411542.aspx
-[3]: http://blogs.msdn.com/b/habibh/archive/2009/06/30/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010.aspx
+[2]: https://msdn.microsoft.com/library/azure/hh411542.aspx
+[3]: https://blogs.msdn.com/b/habibh/archive/2009/06/30/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010.aspx
 [4]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png
 [5]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally10.png
 [6]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally02.png

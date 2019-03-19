@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 0a2ccdc6b02e9d348517bee95306ffc88d9ccd98
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 9208d9949ee68f966087c5e0bb50806ece8a2f60
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599945"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011416"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Distribuire un gateway perimetrale per l'acceleratore di soluzioni di connected factory in Windows o Linux
 
@@ -39,7 +39,7 @@ Le procedure descritte in questo articolo mostrano come distribuire un gateway p
 
 ## <a name="choose-a-gateway-device"></a>Scegliere un dispositivo gateway
 
-Se non si ha ancora un dispositivo gateway, Microsoft consiglia di acquistare un gateway commerciale da uno dei partner. Per un elenco dei dispositivi gateway compatibili con la soluzione Connected Factory vedere il  [catalogo dei dispositivi Azure IoT](https://catalog.azureiotsuite.com/?q=opc). Seguire le istruzioni fornite con il dispositivo per configurare il gateway.
+Se non si ha ancora un dispositivo gateway, Microsoft consiglia di acquistare un gateway commerciale da uno dei partner. Per un elenco dei dispositivi gateway compatibili con la soluzione Connected Factory vedere il  [catalogo dei dispositivi Azure IoT](https://catalog.azureiotsolutions.com/?q=opc). Seguire le istruzioni fornite con il dispositivo per configurare il gateway.
 
 Usare le istruzioni seguenti per configurare manualmente un dispositivo gateway esistente.
 

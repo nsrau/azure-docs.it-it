@@ -16,12 +16,12 @@ ms.date: 07/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 437577ec68ee825bd0815735fef08e8297dad756
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: aa21b1054fa6860a8acc5d6971f75e1d74c889f7
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180540"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193756"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Eseguire l'aggiornamento da una versione precedente
 Questo argomento descrive i diversi metodi che è possibile usare per aggiornare l'installazione di Azure Active Directory (Azure AD) Connect alla versione più recente. È consigliabile mantenersi sempre al passo con le versioni di Azure AD Connect. È anche possibile usare le procedure illustrate nella sezione [Migrazione swing](#swing-migration), che consentono di apportare modifiche significative alla configurazione.
@@ -62,7 +62,7 @@ I due server possono usare versioni diverse. Ad esempio, il server attivo per il
 ![server di gestione temporanea](./media/how-to-upgrade-previous-version/stagingserver1.png)
 
 > [!NOTE]
-> Alcuni clienti preferiscono avere tre o quattro server per questo scenario. Quando il server di staging viene aggiornato, in caso di [ripristino di emergenza](how-to-connect-sync-operations.md#disaster-recovery) non è disponibile un server di backup. Con tre o quattro server è possibile preparare un set di server primari o di standby con la nuova versione, per assicurare che sia sempre presente un server di staging pronto a sostituire il server attivo.
+> Alcuni clienti preferiscono avere tre o quattro server per questo scenario. Quando il server di staging viene aggiornato, in caso di [ripristino di emergenza](how-to-connect-sync-staging-server.md#disaster-recovery) non è disponibile un server di backup. Con tre o quattro server è possibile preparare un set di server primari o di standby con la nuova versione, per assicurare che sia sempre presente un server di staging pronto a sostituire il server attivo.
 
 Questa procedura è indicata anche per il passaggio da Azure AD Sync o da una soluzione con FIM e Azure AD Connector. Questa procedura non è indicata per DirSync, ma nell'argomento [Aggiornare il servizio di sincronizzazione di Microsoft Azure Active Directory (DirSync)](how-to-dirsync-upgrade-get-started.md) è disponibile lo stesso metodo con migrazione swing, chiamato anche distribuzione parallela, con i passaggi per DirSync.
 
@@ -71,8 +71,8 @@ Questa procedura è indicata anche per il passaggio da Azure AD Sync o da una so
 2. Se è stata eseguita una configurazione personalizzata che non è presente nel server di staging, seguire la procedura descritta in [Spostare la configurazione personalizzata dal server attivo al server di staging](#move-a-custom-configuration-from-the-active-server-to-the-staging-server).
 3. Se si esegue l'aggiornamento da una versione precedente di Azure AD Connect, aggiornare il server di staging alla versione più recente. Se si esegue lo spostamento da Azure AD Sync, installare Azure AD Connect nel server di staging.
 4. Consentire al motore di sincronizzazione di eseguire un'importazione completa e una sincronizzazione completa nel server di gestione temporanea.
-5. Verificare che la nuova configurazione non abbia causato modifiche impreviste seguendo la procedura descritta nella sezione "Verificare" in [Verificare la configurazione di un server](how-to-connect-sync-operations.md#verify-the-configuration-of-a-server). In caso di imprevisti, correggere la configurazione, eseguire l'importazione e la sincronizzazione, quindi verificare i dati fino a ottenere il risultato necessario, seguendo la procedura.
-6. Impostare il server di gestione temporanea come server attivo. Questo è il passaggio finale, dal titolo "Cambiare il server attivo", di [Verificare la configurazione di un server](how-to-connect-sync-operations.md#verify-the-configuration-of-a-server).
+5. Verificare che la nuova configurazione non abbia causato modifiche impreviste seguendo la procedura descritta nella sezione "Verificare" in [Verificare la configurazione di un server](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server). In caso di imprevisti, correggere la configurazione, eseguire l'importazione e la sincronizzazione, quindi verificare i dati fino a ottenere il risultato necessario, seguendo la procedura.
+6. Impostare il server di gestione temporanea come server attivo. Questo è il passaggio finale, dal titolo "Cambiare il server attivo", di [Verificare la configurazione di un server](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server).
 7. Se si esegue l'aggiornamento di Azure AD Connect, eseguire ora l'aggiornamento del server in modalità di staging alla versione più recente. Seguire gli stessi passaggi descritti in precedenza per aggiornare i dati e la configurazione. Se si esegue l'aggiornamento da Azure AD Sync, è possibile disattivare e rimuovere le autorizzazioni dal server precedente.
 
 ### <a name="move-a-custom-configuration-from-the-active-server-to-the-staging-server"></a>Spostare una configurazione personalizzata dal server attivo al server di staging

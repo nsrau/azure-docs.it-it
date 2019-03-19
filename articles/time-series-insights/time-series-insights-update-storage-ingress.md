@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6f0002c6aa98aaaddf50e4aac8929e8ddd379fd8
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: eba4c70a25cba2e456ed418a98b938f2029c4c1f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301673"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438364"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Archiviazione e ingresso dei dati nella versione di anteprima di Azure Time Series Insights
 
@@ -116,7 +116,7 @@ La versione di anteprima di Time Series Insights fornisce query ad alte prestazi
 
 Quando si crea un ambiente Time Series Insights con pagamento in base al consumo, si creano due risorse: un ambiente Time Series Insights e un account V1 per utilizzo generico di Archiviazione Azure in cui verranno archiviati i dati. La scelta è stata quella di rendere come predefinita la risorsa v1 per utilizzo generico di Archiviazione di Azure per la sua interoperabilità, il prezzo e le prestazioni. 
 
-Time Series Insights pubblica fino a due copie di ogni evento nell'account di archiviazione di Azure. La copia iniziale viene sempre conservata in modo da poter eseguire query con efficacia usando altri servizi. È possibile usare facilmente Spark, Hadoop e altri strumenti comuni tra gli ID serie temporale su file Parquet non elaborati, perché questi motori supportano il filtraggio di base dei nomi file. Il raggruppamento di BLOB per anno e mese è un modo utile per elencare i BLOB all'interno di un intervallo di tempo specifico per un processo personalizzato. 
+Time Series Insights pubblica fino a due copie di ogni evento nell'account di archiviazione di Azure. La copia iniziale viene mantenuta sempre in modo che si può effettuare rapidamente query, con altri servizi. È possibile usare facilmente Spark, Hadoop e altri strumenti comuni tra gli ID serie temporale su file Parquet non elaborati, perché questi motori supportano il filtraggio di base dei nomi file. Il raggruppamento di BLOB per anno e mese è un modo utile per elencare i BLOB all'interno di un intervallo di tempo specifico per un processo personalizzato. 
 
 Inoltre, Time Series Insights rieseguirà il partizionamento dei file Parquet per assicurarne l'ottimizzazione per le API di Time Series Insights. Viene salvato anche il file partizionato più recente.
 

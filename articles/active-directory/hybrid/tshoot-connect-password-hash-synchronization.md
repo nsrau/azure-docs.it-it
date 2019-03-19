@@ -16,12 +16,12 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29cb7f6799556406c4c5def12b1367bfd581d06b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 56fda1110218910f8fbd8aa9597195f37444e01c
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198661"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193326"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Risolvere i problemi di sincronizzazione dell'hash delle password con la sincronizzazione di Azure AD Connect
 Questo argomento descrive la procedura per risolvere i problemi di sincronizzazione dell'hash delle password. Se le password non vengono sincronizzate come previsto, il problema può riguardare un subset di utenti o tutti gli utenti.
@@ -225,7 +225,7 @@ Per risolvere i problemi per cui nessuna password viene sincronizzata per un ute
 ## <a name="no-passwords-are-synchronized-manual-troubleshooting-steps"></a>Nessuna password viene sincronizzata: passaggi per la risoluzione manuale dei problemi
 Per stabilire il motivo per cui nessuna password viene sincronizzata, seguire questi passaggi:
 
-1. Il server di connessione è in [modalità di gestione temporanea](how-to-connect-sync-operations.md#staging-mode)? Un server in modalità di gestione temporanea non sincronizza le password.
+1. Il server di connessione è in [modalità di gestione temporanea](how-to-connect-sync-staging-server.md)? Un server in modalità di gestione temporanea non sincronizza le password.
 
 2. Eseguire lo script nella sezione [Ottenere lo stato delle impostazioni di sincronizzazione password](#get-the-status-of-password-sync-settings). Fornisce una panoramica della configurazione della sincronizzazione password.  
 

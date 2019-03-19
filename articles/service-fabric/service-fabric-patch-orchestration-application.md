@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 717b895696ca93444744955937c6de23626c7835
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: d5d7f45b4833bb535e98542ee513e9ea8bf0f9e5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234749"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432992"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Windows nel cluster di Service Fabric
 
@@ -60,6 +60,9 @@ Patch Orchestration Application è costituita dai sottocomponenti seguenti:
 > Patch Orchestration App usa il sistema di servizio di gestione della riparazione di Service Fabric per disabilitare o abilitare il nodo ed eseguire i controlli di integrità. L'attività di riparazione creata da Patch Orchestration App tiene traccia dell'avanzamento di Windows Update per ogni nodo.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
+> [!NOTE]
+> Versione minima di .NET framework necessaria è 4.6.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Abilitare il servizio di gestione della riparazione (se non è già in esecuzione)
 
@@ -415,4 +418,4 @@ Un amministratore deve intervenire e stabilire perché l'applicazione o il clust
 - Modifica del valore predefinito di InstallWindowsOSOnlyUpdates su False.
 
 ### <a name="version-132"></a>Versione 1.3.2
-- Correzione di un problema che interessava il ciclo di vita dell'applicazione di patch su un nodo nel caso in cui sono presenti nodi con il nome come subset del nome del nodo corrente. Per tali nodi, è possibile che l'applicazione di patch non sia stata eseguita o il riavvio sia in sospeso. 
+- Correzione di un problema che effettua la cyle ciclo di vita dell'applicazione di patch su un nodo nel caso in cui sono presenti nodi con nome che sono subset del nome del nodo corrente. Per tali nodi, è possibile che l'applicazione di patch non sia stata eseguita o il riavvio sia in sospeso. 

@@ -1,5 +1,5 @@
 ---
-title: Monitorare le app per la logica con Log Analytics - App per la logica di Azure | Microsoft Docs
+title: Monitorare le App per la logica con log di monitoraggio di Azure - App per la logica di Azure | Microsoft Docs
 description: Ottenere informazioni dettagliati e dati di debug per la risoluzione dei problemi e la diagnostica delle esecuzioni di app per la logica con Azure Log Analytics
 services: logic-apps
 ms.service: logic-apps
@@ -9,21 +9,23 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 70242de62e976b05e2708dfd4991915c854d4bb4
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 3f890e6cabd757fdd38374befaaccd1a10c9bd96
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995651"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192463"
 ---
-# <a name="monitor-logic-apps-with-azure-log-analytics"></a>Monitorare le app per la logica con Azure Log Analytics
+# <a name="monitor-logic-apps-with-azure-monitor-logs"></a>Monitorare le app per la logica con i log di Monitoraggio di Azure
 
-Per monitorare le app per la logica e ottenere dettagli di debug più completi, attivare [Azure Log Analytics](../log-analytics/log-analytics-overview.md) quando si crea l'app per la logica. Log Analytics offre funzionalità di registrazione diagnostica e monitoraggio per le app per la logica quando si installa la soluzione di gestione delle app per la logica nel portale di Azure. Questa soluzione offre anche informazioni aggregate per le esecuzioni dell'app per la logica con dettagli specifici, ad esempio lo stato, il tempo di esecuzione, lo stato di un nuovo invio e gli ID di correlazione. Questo articolo illustra come attivare Log Analytics, in modo da poter visualizzare i dati e gli eventi di runtime per le esecuzioni dell'app per la logica.
+Per monitorare e ottenere i dettagli del debug più completi sulle App per la logica, attivare [monitoraggio di Azure registra](../log-analytics/log-analytics-overview.md) quando crei app per la logica. Log di monitoraggio di Azure offre funzionalità di diagnostica di registrazione e monitoraggio per le App per la logica quando si installa la soluzione di gestione delle App per la logica nel portale di Azure. Questa soluzione offre anche informazioni aggregate per le esecuzioni dell'app per la logica con dettagli specifici, ad esempio lo stato, il tempo di esecuzione, lo stato di un nuovo invio e gli ID di correlazione. Questo articolo viene illustrato come attivare i log di monitoraggio di Azure in modo che è possibile visualizzare gli eventi di runtime e i dati dell'app per la logica viene eseguita.
 
-Per attivare Azure Log Analytics per le app per la logica esistenti, seguire questa procedura per [attivare la registrazione diagnostica e inviare a Log Analytics i dati di runtime dell'app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+Per abilitare i log di monitoraggio di Azure per le App per la logica esistenti, seguire questa procedura per [abilitare la registrazione diagnostica e inviare i dati di runtime di app per la logica per i log di monitoraggio di Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 > [!NOTE]
 > Questa pagina offriva in precedenza una descrizione dei passaggi per eseguire queste attività con Microsoft Operations Management Suite (OMS), che verrà [ritirato nel gennaio 2019](../azure-monitor/platform/oms-portal-transition.md), mentre ora riguarda gli stessi passaggi in Azure Log Analytics. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -56,7 +58,7 @@ Prima di iniziare, è necessaria un'area di lavoro di Log Analytics. Informazion
 
 ## <a name="install-logic-apps-management-solution"></a>Installare la soluzione di gestione delle app per la logica
 
-Se Log Analytics è già stato attivato al momento della creazione dell'app per la logica, ignorare questo passaggio. In questo caso, infatti, la soluzione di gestione delle app per la logica è già installata.
+Se è già attivato i log di monitoraggio di Azure al momento della creazione di app per la logica, ignorare questo passaggio. In questo caso, infatti, la soluzione di gestione delle app per la logica è già installata.
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Tutti i servizi**. Nella casella di ricerca cercare "log analytics" e selezionare **Log Analytics**.
 
@@ -149,9 +151,9 @@ Dopo l'esecuzione dell'app per la logica, è possibile visualizzare lo stato e i
 
      ![Visualizzare azioni e i dettagli per un'esecuzione dell'app per la logica](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
      
-     Nella pagina di Azure Log Analytics è possibile aggiornare le query e visualizzare i risultati dalla tabella. Questa query usa [il linguaggio di query Kusto](https://aka.ms/LogAnalyticsLanguageReference), che può essere modificato se si preferisce visualizzare risultati diversi. 
+     Nella pagina log analitica, è possibile aggiornare le query e visualizzare i risultati dalla tabella. Questa query usa [il linguaggio di query Kusto](https://aka.ms/LogAnalyticsLanguageReference), che può essere modificato se si preferisce visualizzare risultati diversi. 
 
-     ![Azure Log Analytics - Visualizzazione Query](media/logic-apps-monitor-your-logic-apps-oms/query.png)
+     ![log analitica - visualizzazione query](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

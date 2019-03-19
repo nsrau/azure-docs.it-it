@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: c71822f50879404ba943ef6e703364a09a80fbf3
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 576a7948d4df7957d934fb4c8888712fa94cb202
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310936"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337076"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Esplora metriche di Monitoraggio di Azure
 
@@ -21,7 +21,7 @@ Esplora metriche di Monitoraggio di Azure è un componente del portale di Micros
 
 ## <a name="metrics-in-azure"></a>Metriche in Azure
 
-[In Monitoraggio di Azure le metriche](data-collection.md#metrics) sono la serie di valori e conteggi misurati che vengono raccolti e archiviati nel corso del tempo. Sono disponibili metriche standard (o di "piattaforma") e metriche personalizzate. Le metriche standard appartengono alla piattaforma stessa di Azure. Esse riflettono le statistiche sull'integrità e l'utilizzo delle risorse di Azure. Le metriche personalizzate vengono invece inviate ad Azure dalle applicazioni che usano l'[API di Application Insights per gli eventi personalizzati](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Le metriche personalizzate vengono archiviate nelle risorse di Application Insights insieme alle altre metriche specifiche delle applicazioni.
+[In Monitoraggio di Azure le metriche](data-collection.md#metrics) sono la serie di valori e conteggi misurati che vengono raccolti e archiviati nel corso del tempo. Sono disponibili metriche standard (o di "piattaforma") e metriche personalizzate. Le metriche standard appartengono alla piattaforma stessa di Azure. Esse riflettono le statistiche sull'integrità e l'utilizzo delle risorse di Azure. Mentre le metriche personalizzate vengono inviate ad Azure dalle applicazioni che usano il [API di Application Insights per metriche ed eventi personalizzati](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [estensione diagnostica di Azure di Windows (WAD)](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), o da [Azure Monitorare l'API REST](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
 
 ## <a name="create-a-new-chart"></a>Creare un nuovo grafico
 
@@ -76,16 +76,16 @@ Esplora metriche di Monitoraggio di Azure è un componente del portale di Micros
 
 5. È possibile ripetere i passaggi da 1 a 4 per applicare più filtri agli stessi grafici.
 
-## <a name="segment-a-chart"></a>Segmentare un grafico
+## <a name="apply-splitting-to-a-chart"></a>Applicare la suddivisione in un grafico
 
 È possibile suddividere una metrica per dimensione in modo da confrontare visivamente i diversi segmenti e identificare i segmenti esterni di una dimensione. 
 
-### <a name="to-segment-a-chart"></a>Per segmentare un grafico
+### <a name="to-apply-splitting"></a>Per applicare la suddivisione
 
 1. Fare clic su **Applicare separazione** sopra il grafico.
  
    > [!NOTE]
-   > È possibile avere più filtri, ma un solo valore di separazione/segmentazione in ogni singolo grafico.
+   > La divisione non è utilizzabile con i grafici con più metriche. Inoltre, è possibile avere più filtri ma solo una dimensione di suddivisione applicato a ogni singolo grafico.
 
 2. Scegliere una dimensione in cui si desidera segmentare il grafico:
 

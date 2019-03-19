@@ -5,24 +5,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 02/28/2019
 ms.author: tamram
-ms.openlocfilehash: 500d5217a35cdc569964195558b6e4a2c023c614
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: d57023063fe23db9f57d52ab9cdf99e0687c1fdf
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352139"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217292"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Eseguire l'aggiornamento a un account di archiviazione per utilizzo generico v2
 
 Gli account di archiviazione per utilizzo generico v2 supportano le funzionalità di archiviazione di Azure più recenti e incorporano tutte le funzionalità degli account di archiviazione BLOB e per utilizzo generico v1. Gli account per utilizzo generico v2 rappresentano la scelta consigliata per la maggior parte degli scenari. Gli account per utilizzo generico v2 offrono i prezzi per gigabyte più bassi per Archiviazione di Azure, oltre a prezzi per transazione competitivi a livello di settore.
 
-L'aggiornamento a un account di archiviazione per utilizzo generico v2 da un account per utilizzo generico v1 o un account di archiviazione BLOB è semplice. È possibile eseguire l'aggiornamento tramite il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure. 
+L'aggiornamento a un account di archiviazione per utilizzo generico v2 da un account per utilizzo generico v1 o un account di archiviazione BLOB è semplice. È possibile eseguire l'aggiornamento tramite il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure.
 
-> [!NOTE]
-> L'aggiornamento dell'account di archiviazione a un account per utilizzo generico v2 è gratuito.
-> La modifica del livello di accesso alla risorsa di archiviazione può comportare modifiche alla fattura. Per altre informazioni, vedere la sezione [Prezzi e fatturazione](#pricing-and-billing).
+> [!IMPORTANT]
+> L'aggiornamento di un account di archiviazione v1 a per utilizzo generico v2 è permanente e non può essere annullata.
 
 ## <a name="upgrade-using-the-azure-portal"></a>Aggiornamento con il portale di Azure
 
@@ -68,8 +67,10 @@ Per impostazione predefinita, viene creato un nuovo account di archiviazione nel
 
 In entrambi i casi, è prioritario stimare il costo di archiviazione, accesso e gestione dei dati archiviati in un account di archiviazione per utilizzo generico v2 e confrontarlo con i costi attuali.
 
-
 ## <a name="pricing-and-billing"></a>Prezzi e fatturazione
+
+L'aggiornamento di un account di archiviazione v1 a un account per utilizzo generico v2 è gratuito. Tuttavia, la modifica del livello di accesso di archiviazione può comportare modifiche alla fattura. 
+
 Tutti gli account di archiviazione usano per l'archivio BLOB un modello di determinazione prezzi basato sul livello di ogni BLOB. Quando si usa un account di archiviazione, tenere conto delle considerazioni seguenti relative alla fatturazione:
 
 * **Costi della risorsa di archiviazione**: Oltre alla quantità di dati archiviati, il costo per l'archiviazione dei dati varia a seconda del livello di accesso alla risorsa di archiviazione. Il costo per gigabyte diminuisce passando a un livello ad accesso più sporadico.

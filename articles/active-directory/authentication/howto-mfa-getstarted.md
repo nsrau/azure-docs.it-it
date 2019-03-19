@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbfade56ff12aa719927d496606a6ce4b4fe5a38
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 07e98d5a93b8576c06e9be8274a974b1b574da4b
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167151"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217744"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Implementare Azure Multi-Factor Authentication basato su cloud
 
@@ -42,6 +42,9 @@ Prima di iniziare, verificare che i prerequisiti seguenti siano disponibili:
 ## <a name="choose-authentication-methods"></a>Scegliere i metodi di autenticazione
 
 Abilitare almeno un metodo di autenticazione per gli utenti in base ai requisiti dell'organizzazione. Si è notato che, quando è abilitata per gli utenti, l'app Microsoft Authenticator offre la migliore esperienza utente. Per sapere quali metodi sono disponibili e come impostarli, vedere l'articolo [Cosa si intende per metodi di autenticazione?](concept-authentication-methods.md).
+
+> [!IMPORTANT]
+> A partire da marzo del 2019 le opzioni telefonata non sarà disponibile per gli utenti MFA e SSPR nei tenant gratuiti/versione di valutazione AD Azure. Messaggi SMS non sono interessati da questa modifica. Chiamata telefonica continuerà a essere disponibile per gli utenti a pagamento di tenant di Azure AD. Questa modifica interessa solo i tenant gratuiti/versione di valutazione AD Azure.
 
 ## <a name="get-users-to-enroll"></a>Indurre gli utenti a registrarsi
 

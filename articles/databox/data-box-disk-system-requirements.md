@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 0effc6af1ddc3273f0c6e2bf9cbfd0f2ecadf0a2
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 067bb6b806ddd9b83d4ea755876a980ca45d76e9
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747323"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407630"
 ---
 # <a name="azure-data-box-disk-system-requirements"></a>Requisiti di sistema di Azure Data Box Disk
 
@@ -29,7 +29,7 @@ Di seguito è riportato l'elenco dei sistemi operativi supportati per lo sblocco
 | **Sistema operativo** | **Versioni testate** |
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
-|  Windows |7, 8, 10 |
+| Windows |7, 8, 10 |
 |Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8.11, 9 <br> 7.0 <br> 6.5, 6.9, 7.0, 7.5 |  
 
 ## <a name="other-required-software-for-windows-clients"></a>Altri software obbligatori per i client Windows
@@ -52,7 +52,7 @@ Per client Linux, il set di strumenti di Data Box Disk installa il seguente soft
 
 ## <a name="supported-connection"></a>Connessione supportata
 
-Il computer client che contiene i dati deve avere una porta USB 3.0 o versioni successive. I dischi sono connessi al cliente tramite il cavo fornito. 
+Il computer client che contiene i dati deve avere una porta USB 3.0 o versioni successive. I dischi sono connessi al cliente tramite il cavo fornito.
 
 ## <a name="supported-storage-accounts"></a>Account di archiviazione supportati
 
@@ -62,19 +62,22 @@ Di seguito è riportato un elenco dei tipi di archiviazione supportati per Data 
 | --- | --- |
 | Classico | Standard |
 | Utilizzo generico  |Standard; sono supportati sia V1 che V2. Sono supportati livelli ad accesso frequente e sporadico. |
+| Account di archiviazione BLOB | |
 
 >[!NOTE]
 > Gli account di Azure Data Lake Storage Gen 2 non sono supportati.
 
 
-## <a name="supported-storage-types"></a>Tipi di archiviazione supportati
+## <a name="supported-storage-types-for-upload"></a>Tipi di archiviazione supportati per il caricamento
 
-Di seguito è riportato un elenco dei tipi di archiviazione supportati per Data Box Disk.
+Ecco un elenco dei tipi di archiviazione supportati per caricato in Azure usando Data Box Disk.
 
 | **Formato file** | **Note** |
 | --- | --- |
 | BLOB in blocchi di Azure | |
 | BLOB di pagine di Azure  | |
+| File di Azure  | |
+| Managed Disks | |
 
 
 ## <a name="next-step"></a>Passaggio successivo

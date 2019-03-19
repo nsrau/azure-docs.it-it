@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: 6a4af0efb14d8ad45add906262ffd2121e8b78d0
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
-ms.translationtype: HT
+ms.openlocfilehash: f94189e8f39771e0c3d7856ccbb8a23ba81d94aa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085829"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447275"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>Risoluzione dei problemi relativi alla distribuzione di OpenShift in Azure
 
 Se il cluster OpenShift non viene distribuito correttamente, il portale di Azure fornirà un output degli errori. L'output potrebbe risultare difficile da leggere, rendendo complicata l'identificazione del problema. Eseguire rapidamente un'analisi di questo output per il codice di uscita 3, 4 o 5. Di seguito vengono fornite informazioni su questi tre codici di uscita:
 
-- Codice di uscita 3: nome utente/password oppure ID organizzazione/chiave di attivazione di Red Hat non sono corretti
-- Codice di uscita 4: l'ID del Pool di Red Hat non è corretto o non ci sono diritti disponibili
-- Codice di uscita 5: non è possibile effettuare il provisioning del volume del thin pool Docker
+- Codice di uscita 3: Il nome di Red Hat sottoscrizione utente / Password oppure ID organizzazione / chiave di attivazione non è corretto
+- Codice di uscita 4: L'ID del Pool di Red Hat non è corretto o non sono diritti disponibili
+- Codice di uscita 5: Non è possibile eseguire il provisioning Volume del Thin Pool Docker
 
 Per tutti gli altri codici di uscita, connettersi agli host tramite ssh per visualizzare i file di log.
 

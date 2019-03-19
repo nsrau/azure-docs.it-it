@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1285a9262221dbd8e46d07e384697ddea853f9fc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ee64fe8643362c6a75e288d78e163317fd8a44d8
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163054"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193153"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Roadmap di installazione di Azure AD Connect e Azure AD Connect Health
 
@@ -46,10 +46,10 @@ Il download per Azure AD Connect è disponibile nell' [Area download Microsoft](
 |Eseguire l'installazione con le Impostazioni rapide | [Installazione rapida di Azure AD Connect](./how-to-connect-install-express.md)|
 |Eseguire l'installazione mediante le impostazioni personalizzate | [Installazione personalizzata di Azure AD Connect](./how-to-connect-install-custom.md)|
 |Aggiornamento da DirSync | [Aggiornamento dallo strumento di sincronizzazione di Azure AD (DirSync)](./how-to-dirsync-upgrade-get-started.md)|
-|Dopo l'installazione | [Verificare l'installazione e assegnare le licenze ](how-to-connect-post-installation.md)|
+|Dopo l'installazione | [Verificare l'installazione e assegnare le licenze](how-to-connect-post-installation.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>Altre informazioni su come installare Azure AD Connect
-Preparazione per la gestione delle attività [operative](how-to-connect-sync-operations.md) . È consigliabile avere un server di standby per agevolare il failover in caso di [emergenza](how-to-connect-sync-operations.md#disaster-recovery). Se si prevede di apportare modifiche frequenti alla configurazione, è consigliabile valutare l'uso di un server in [modalità di staging](how-to-connect-sync-operations.md#staging-mode) .
+Preparazione per la gestione delle attività [operative](how-to-connect-sync-operations.md) . È consigliabile avere un server di standby per agevolare il failover in caso di [emergenza](how-to-connect-sync-staging-server.md#disaster-recovery). Se si prevede di apportare modifiche frequenti alla configurazione, è consigliabile valutare l'uso di un server in [modalità di staging](how-to-connect-sync-staging-server.md) .
 
 |Argomento |Collegamento|  
 | --- | --- |
@@ -168,7 +168,7 @@ Il portale di Azure AD Connect Health visualizza gli avvisi, il monitoraggio del
   - La voce **Impostazioni** include le configurazioni di base degli agenti. Aggiornamento automatico dell'agente di Azure AD Connect Health alla versione più recente: l'agente di Azure AD Connect Health viene aggiornato automaticamente ogni volta che sono disponibili nuove versioni. Questa opzione è abilitata per impostazione predefinita. Accesso ai dati di integrità della directory di Azure AD da parte di Microsoft solo ai fini della risoluzione dei problemi: se questa opzione è abilitata, Microsoft può accedere agli stessi dati visualizzati dall'utente. Queste informazioni possono essere utili per la risoluzione dei problemi e per fornire l'assistenza necessaria. Questa opzione è disabilitata per impostazione predefinita.
 * **Controllo degli accessi in base al ruolo (IAM)** è la sezione per gestire l'accesso ai dati di Connect Health data in base al ruolo. 
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 - [Hardware e prerequisiti](how-to-connect-install-prerequisites.md) 
 - [Impostazioni rapide](how-to-connect-install-express.md)

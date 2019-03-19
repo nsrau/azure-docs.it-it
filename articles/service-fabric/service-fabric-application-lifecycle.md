@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 1e714faa04717ac8e6687db3c074b8a77d649fb2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 65104503af2e177f1898d8509c2d82bd9b58c266
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217208"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446963"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Ciclo di vita dell'applicazione Service Fabric
 Analogamente ad altre piattaforme, un'applicazione su Service Fabric di Azure in genere passa attraverso le fasi seguenti: progettazione, sviluppo, test, distribuzione, aggiornamento, manutenzione e rimozione. Service Fabric di Azure offre un supporto di prima categoria per l'intero ciclo di vita delle applicazioni cloud, dallo sviluppo alla distribuzione, alla gestione giornaliera, alla manutenzione e infine alla rimozione delle autorizzazioni. Il modello di servizio abilita diversi ruoli per la partecipazione indipendente al ciclo di vita delle applicazioni. Questo articolo offre una panoramica delle interfacce API e del modo in cui vengono utilizzate dai diversi ruoli nelle fasi del ciclo di vita di un'applicazione di Service Fabric.
@@ -29,7 +29,7 @@ Analogamente ad altre piattaforme, un'applicazione su Service Fabric di Azure in
 ## <a name="service-model-roles"></a>Ruoli del modello di servizio
 I ruoli del modello di servizio sono i seguenti:
 
-* **Sviluppatore di servizi**: sviluppa servizi modulari e generici che possono essere rimaneggiati per modificarne i fini e usati in più applicazioni dello stesso tipo o di tipi diversi. Un servizio di accodamento ad esempio può essere usato per creare un'applicazione di controllo di attività e richieste basata su ticket (supporto tecnico) o un'applicazione di e-commerce (carrello acquisti).
+* **Sviluppatore di servizi**: Sviluppa servizi modulari e generici che possono essere reimpiegati e usati in più applicazioni dello stesso tipo o di tipi diversi. Un servizio di accodamento ad esempio può essere usato per creare un'applicazione di controllo di attività e richieste basata su ticket (supporto tecnico) o un'applicazione di e-commerce (carrello acquisti).
 * **Sviluppatore di applicazioni**: crea applicazioni integrando una raccolta di servizi per soddisfare requisiti o scenari specifici. Un sito Web di e-commerce ad esempio può integrare i servizi "JSON Stateless Front-end Service", "Auction Stateful Service" e "Queue Stateful Service" per creare una soluzione per vendite all'asta.
 * **Amministratore di applicazioni**: prende decisioni relative alla configurazione (specificando i parametri del modello di configurazione), alla distribuzione (eseguendo il mapping con le risorse disponibili) e alla qualità del servizio delle applicazioni. Un amministratore di applicazioni ad esempio decide le impostazioni locali della lingua (come inglese per gli Stati Uniti o giapponese per Giappone) dell'applicazione. Un'altra applicazione distribuita può avere impostazioni diverse.
 * **Operatore**: distribuisce le applicazioni in base alla configurazione e ai requisiti specificati dall'amministratore di applicazioni. Un operatore ad esempio effettua il provisioning e la distribuzione dell'applicazione e verifica che sia in esecuzione in Azure. Gli operatori monitorano l'integrità e le informazioni sulle prestazioni delle applicazioni e gestiscono l'infrastruttura fisica a seconda delle esigenze.

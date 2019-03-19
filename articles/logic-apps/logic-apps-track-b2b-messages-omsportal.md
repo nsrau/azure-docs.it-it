@@ -1,5 +1,5 @@
 ---
-title: Tracciare i messaggi B2B con Log Analytics - App per la logica di Azure | Microsoft Docs
+title: Tenere traccia dei messaggi B2B con i log di monitoraggio di Azure - App per la logica di Azure | Microsoft Docs
 description: Tenere traccia delle comunicazioni B2B per gli account di integrazione e App per la logica di Azure con Azure Log Analytics
 services: logic-apps
 ms.service: logic-apps
@@ -9,16 +9,16 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: ad58257313c60b4757c83793886ce32a2997332b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 8cf5d9f3ee1503769a2ec199847175899bcd86bf
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996525"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193212"
 ---
-# <a name="track-b2b-messages-with-azure-log-analytics"></a>Tenere traccia dei messaggi B2B con Azure Log Analytics
+# <a name="track-b2b-messages-with-azure-monitor-logs"></a>Tenere traccia dei messaggi B2B con i log di Monitoraggio di Azure
 
-Dopo aver configurato la comunicazione B2B tra partner commerciali nell'account di integrazione, i partner possono scambiare messaggi con protocolli, ad esempio AS2, X12 ed EDIFACT. Per controllare che questi messaggi vengano elaborati correttamente, è possibile tenere traccia di tali messaggi con [Azure Log Analytics](../log-analytics/log-analytics-overview.md). È ad esempio possibile usare queste funzionalità di rilevamento basate sul Web per tenere traccia dei messaggi:
+Dopo aver configurato la comunicazione B2B tra partner commerciali nell'account di integrazione, i partner possono scambiare messaggi con protocolli, ad esempio AS2, X12 ed EDIFACT. Per verificare che questi messaggi vengono elaborati correttamente, è possibile tenere traccia di questi messaggi con [monitoraggio di Azure registra](../log-analytics/log-analytics-overview.md). È ad esempio possibile usare queste funzionalità di rilevamento basate sul Web per tenere traccia dei messaggi:
 
 * Conteggio e stato dei messaggi
 * Stato degli acknowledgment
@@ -29,19 +29,21 @@ Dopo aver configurato la comunicazione B2B tra partner commerciali nell'account 
 > [!NOTE]
 > Questa pagina offriva in precedenza una descrizione dei passaggi per eseguire queste attività con Microsoft Operations Management Suite (OMS), che verrà [ritirato nel gennaio 2019](../azure-monitor/platform/oms-portal-transition.md), mentre ora riguarda gli stessi passaggi in Azure Log Analytics. 
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un'app per la logica configurata con la registrazione diagnostica. Informazioni su [come creare un'app per la logica](quickstart-create-first-logic-app-workflow.md) e [come configurare la registrazione per tale app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 * Un account di integrazione configurato con il monitoraggio e la registrazione. Informazioni su [come creare un account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) e [come configurare il monitoraggio e la registrazione per tale account](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* Se non è già stato fatto, [pubblicare i dati di diagnostica in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Se non già [pubblicare i dati di diagnostica in Monitoraggio di Azure log](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 * Una volta soddisfatti i requisiti precedenti, è necessaria anche un'area di lavoro di Log Analytics, che verrà usato per il rilevamento della comunicazione B2B tramite Log Analytics. Se non si dispone di un'area di lavoro di Log Analytics, vedere [Creare un'area di lavoro di Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 ## <a name="install-logic-apps-b2b-solution"></a>Installare la soluzione di App per la logica B2B
 
-Per fare in modo che Log Analytics tenga traccia dei messaggi B2B per l'app per la logica, aggiungere la soluzione **App per la logica B2B** a Log Analytics. Informazioni sull'[aggiunta di soluzioni a Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
+Prima che sia i log di monitoraggio di Azure è possibile tenere traccia dei messaggi B2B per app per la logica, aggiungere il **B2B di App per la logica** soluzioni per i log di monitoraggio di Azure. Altre informazioni sulle [aggiunta di soluzioni per i log di monitoraggio di Azure](../azure-monitor/learn/quick-create-workspace.md).
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Tutti i servizi**. Nella casella di ricerca cercare "log analytics" e selezionare **Log Analytics**.
 
@@ -128,7 +130,7 @@ Dopo che i messaggi B2B sono stati elaborati, è possibile visualizzarne lo stat
    * Per cercare i risultati con le query predefinite, scegliere **Preferiti**.
 
    * Informazioni su [come creare le query aggiungendo i filtri](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md). 
-   Altre informazioni su [come trovare i dati con le ricerche log in Log Analytics](../log-analytics/log-analytics-log-searches.md).
+   Altre informazioni sul [come trovare i dati con ricerche nei log in Monitoraggio di Azure log](../log-analytics/log-analytics-log-searches.md).
 
    * Per modificare la query nella casella di ricerca, aggiornare la query con le colonne e i valori che si vogliono usare come filtri.
 
@@ -149,7 +151,7 @@ Ecco le descrizioni delle proprietà per ogni messaggio AS2.
 | Mittente | Partner guest specificato in **Impostazioni di ricezione** o partner host specificato in **Impostazioni di invio** di un accordo AS2 |
 | Ricevitore | Partner host specificato in **Impostazioni di ricezione** o partner guest specificato in **Impostazioni di invio** di un accordo AS2 |
 | App per la logica | App per la logica in cui sono configurate le azioni AS2 |
-| Status | Stato dei messaggi AS2 <br>Operazione completata = ricevuto o inviato un messaggio AS2 valido. Non sono configurate notifiche sulla ricezione del messaggio. <br>Operazione completata = ricevuto o inviato un messaggio AS2 valido. La notifica sulla ricezione del messaggio è stata configurata e ricevuta o è stata inviata. <br>Operazione non riuscita = ricevuto un messaggio AS2 non valido. Non sono configurate notifiche sulla ricezione del messaggio. <br>In sospeso = ricevuto o inviato un messaggio AS2 valido. La notifica sulla ricezione del messaggio è stata configurata ed è prevista. |
+| Stato | Stato dei messaggi AS2 <br>Operazione completata = ricevuto o inviato un messaggio AS2 valido. Non sono configurate notifiche sulla ricezione del messaggio. <br>Operazione completata = ricevuto o inviato un messaggio AS2 valido. La notifica sulla ricezione del messaggio è stata configurata e ricevuta o è stata inviata. <br>Operazione non riuscita = ricevuto un messaggio AS2 non valido. Non sono configurate notifiche sulla ricezione del messaggio. <br>In sospeso = ricevuto o inviato un messaggio AS2 valido. La notifica sulla ricezione del messaggio è stata configurata ed è prevista. |
 | Ack | Stato dei messaggi di notifica sulla ricezione del messaggio <br>Accettato = ricevuto o inviato un messaggio di notifica sulla ricezione del messaggio positivo. <br>In sospeso = in attesa di ricevere o inviare un messaggio di notifica sulla ricezione del messaggio. <br>Rifiutato = ricevuto o inviato un messaggio di notifica sulla ricezione del messaggio negativo. <br>Non richiesto = notifica sulla ricezione del messaggio non configurata nell'accordo. |
 | Direzione | Direzione dei messaggi AS2 |
 | ID correlazione | ID che correla tutti i trigger e le azioni in un'app per la logica |
@@ -180,7 +182,7 @@ Ecco le descrizioni delle proprietà per ogni messaggio X12.
 | Mittente | Partner guest specificato in **Impostazioni di ricezione** o partner host specificato in **Impostazioni di invio** di un accordo X12 |
 | Ricevitore | Partner host specificato in **Impostazioni di ricezione** o partner host specificato in **Impostazioni di invio** di un accordo X12 |
 | App per la logica | App per la logica in cui sono configurate le azioni X12 |
-| Status | Stato dei messaggi X12 <br>Operazione completata = ricevuto o inviato un messaggio X12 valido. Non sono configurati ack funzionali. <br>Operazione completata = ricevuto o inviato un messaggio X12 valido. L'ack funzionale è stato configurato e ricevuto o inviato. <br>Operazione non riuscita = ricevuto o inviato un messaggio X12 non valido. <br>In sospeso = ricevuto o inviato un messaggio X12 valido. L'ack funzionale è stato configurato ed è previsto. |
+| Stato | Stato dei messaggi X12 <br>Operazione completata = ricevuto o inviato un messaggio X12 valido. Non sono configurati ack funzionali. <br>Operazione completata = ricevuto o inviato un messaggio X12 valido. L'ack funzionale è stato configurato e ricevuto o inviato. <br>Operazione non riuscita = ricevuto o inviato un messaggio X12 non valido. <br>In sospeso = ricevuto o inviato un messaggio X12 valido. L'ack funzionale è stato configurato ed è previsto. |
 | Ack | Stato ACK funzionale (997) <br>Accettato = ricevuto o inviato un ack funzionale positivo. <br>Rifiutato = ricevuto o inviato un ack funzionale negativo. <br>In sospeso = in attesa di un ack funzionale non ricevuto. <br>In sospeso = ack funzionale generato, ma impossibile inviarlo al partner. <br>Non richiesto = ack funzionale non configurato. |
 | Direzione | Direzione dei messaggi X12 |
 | ID correlazione | ID che correla tutti i trigger e le azioni in un'app per la logica |
@@ -213,7 +215,7 @@ Ecco le descrizioni delle proprietà per ogni messaggio EDIFACT.
 | Mittente | Partner guest specificato in **Impostazioni di ricezione** o partner host specificato in **Impostazioni di invio** di un accordo EDIFACT |
 | Ricevitore | Partner host specificato in **Impostazioni di ricezione** o partner guest specificato in **Impostazioni di invio** di un accordo EDIFACT |
 | App per la logica | App per la logica in cui sono configurate le azioni EDIFACT |
-| Status | Stato dei messaggi EDIFACT <br>Operazione completata = ricevuto o inviato un messaggio EDIFACT valido. Non sono configurati ack funzionali. <br>Operazione completata = ricevuto o inviato un messaggio EDIFACT valido. L'ack funzionale è stato configurato e ricevuto o inviato. <br>Operazione non riuscita = ricevuto o inviato un messaggio EDIFACT non valido <br>In sospeso = ricevuto o inviato un messaggio EDIFACT valido. L'ack funzionale è stato configurato ed è previsto. |
+| Stato | Stato dei messaggi EDIFACT <br>Operazione completata = ricevuto o inviato un messaggio EDIFACT valido. Non sono configurati ack funzionali. <br>Operazione completata = ricevuto o inviato un messaggio EDIFACT valido. L'ack funzionale è stato configurato e ricevuto o inviato. <br>Operazione non riuscita = ricevuto o inviato un messaggio EDIFACT non valido <br>In sospeso = ricevuto o inviato un messaggio EDIFACT valido. L'ack funzionale è stato configurato ed è previsto. |
 | Ack | Stato ACK funzionale (997) <br>Accettato = ricevuto o inviato un ack funzionale positivo. <br>Rifiutato = ricevuto o inviato un ack funzionale negativo. <br>In sospeso = in attesa di un ack funzionale non ricevuto. <br>In sospeso = ack funzionale generato, ma impossibile inviarlo al partner. <br>Non richiesto = ack funzionale non configurato. |
 | Direzione | Direzione dei messaggi EDIFACT |
 | ID correlazione | ID che correla tutti i trigger e le azioni in un'app per la logica |
@@ -237,7 +239,7 @@ Ecco i formati dei nomi per ogni cartella e file di messaggi EDIFACT scaricati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Query per i messaggi B2B in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
+* [Cercare messaggi B2B in log di monitoraggio di Azure](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [Schemi di rilevamento AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [Schemi di rilevamento X12](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
 * [Schemi di rilevamento personalizzati](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)

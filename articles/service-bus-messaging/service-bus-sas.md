@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: d70b7acb906c60001ad005a0fe9361950bc029b7
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 8f5c1755462d2bbd28dd7f8db427cda141817588
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895857"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308857"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controllo degli accessi del bus di servizio con firme di accesso condiviso
 
@@ -84,7 +84,7 @@ Il calcolo del codice hash è simile allo pseudo codice seguente e restituisce u
 SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 ```
 
-Il token contiene i valori non hash in modo che il destinatario possa ricalcolare il codice hash con gli stessi parametri, verificando che l'autorità di certificazione sia in possesso di una chiave di firma valida. 
+Il token contiene i valori non hash in modo che il destinatario possa ricalcolare il codice hash con gli stessi parametri, verificando che l'autorità di certificazione sia in possesso di una chiave di firma valida.
 
 L'URI di risorsa è l'URI completo della risorsa del bus di servizio a cui si richiede l'accesso. Ad esempio `http://<namespace>.servicebus.windows.net/<entityPath>` o `sb://<namespace>.servicebus.windows.net/<entityPath>`, ovvero `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. L'URI deve essere [codificato in percentuale](https://msdn.microsoft.com/library/4fkewx0t.aspx).
 
@@ -156,7 +156,7 @@ helloMessage.MessageId = "SAS-Sample-Message";
 sendClient.Send(helloMessage);
 ```
 
-È anche possibile utilizzare direttamente il provider di token per il rilascio di token da passare ad altri client. 
+È anche possibile utilizzare direttamente il provider di token per il rilascio di token da passare ad altri client.
 
 Le stringhe di connessione possono includere un nome di regola (*SharedAccessKeyName*) e una chiave di regola (*SharedAccessKey*) o un token rilasciato in precedenza (*SharedAccessSignature*). Quando sono presenti nella stringa di connessione passata a un costruttore o a un metodo factory che accetta una stringa di connessione, il provider di token di firma di accesso condiviso viene automaticamente creato e popolato.
 
@@ -171,7 +171,7 @@ POST https://<yournamespace>.servicebus.windows.net/<yourentity>/messages
 Content-Type: application/json
 Authorization: SharedAccessSignature sr=https%3A%2F%2F<yournamespace>.servicebus.windows.net%2F<yourentity>&sig=<yoursignature from code above>&se=1438205742&skn=KeyName
 ContentType: application/atom+xml;type=entry;charset=utf-8
-``` 
+```
 
 Questa procedura funziona per ogni elemento. È possibile creare una firma di accesso condiviso per una coda, un argomento o una sottoscrizione.
 
@@ -183,7 +183,7 @@ Nella sezione precedente, è stato illustrato come utilizzare il token SAS con u
 
 Prima di iniziare a inviare i dati al bus di servizio, il server di pubblicazione deve inviare il token di firma di accesso condiviso all'interno di un messaggio AMQP a un nodo AMQP ben definito denominato **"$cbs"**. Può essere visualizzato come una coda "speciale" usata dal servizio per acquisire e convalidare tutti i token di firma di accesso condiviso. Il server di pubblicazione deve specificare il campo **ReplyTo** all'interno del messaggio AMQP. Si tratta del nodo in cui il servizio invia una risposta al server di pubblicazione con il risultato della convalida del token. È un modello di richiesta/risposta semplice tra il server di pubblicazione e il servizio. Questo nodo risposta viene creato al momento in quanto "creazione dinamica di nodo remoto" come descritto nella specifica di AMQP 1.0. Dopo avere verificato che il token di firma di accesso condiviso è valido, il server di pubblicazione può andare avanti e iniziare a inviare dati al servizio.
 
-La procedura seguente illustra come inviare il token SAS con il protocollo AMQP usando la libreria [AMQP.Net Lite](https://github.com/Azure/amqpnetlite) . È utile se non è possibile usare la versione ufficiale di Service Bus SDK (ad esempio su WinRT, .Net Compact Framework, .Net Micro Framework e Mono) che si sviluppa in C\#. Naturalmente, questa libreria è utile per comprendere il funzionamento della sicurezza basata sulle attestazioni a livello AMQP, dopo aver visto il funzionamento a livello HTTP (con una richiesta HTTP POST e il token SAS inviati all'interno dell'intestazione "Authorization"). Se non sono necessarie tali informazioni approfondite su AMQP, è possibile usare l'SDK ufficiale del bus di servizio con le applicazioni .Net Framework che eseguiranno l'operazione in modo automatico.
+La procedura seguente illustra come inviare il token di firma di accesso condiviso con protocollo AMQP usando la [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) libreria. Ciò è utile se non è possibile usare lo sviluppo di Service Bus SDK (ad esempio su WinRT, .NET Compact Framework, .NET Micro Framework e Mono) ufficiali in C\#. Naturalmente, questa libreria è utile per comprendere il funzionamento della sicurezza basata sulle attestazioni a livello AMQP, dopo aver visto il funzionamento a livello HTTP (con una richiesta HTTP POST e il token SAS inviati all'interno dell'intestazione "Authorization"). Se non sono necessarie tali informazioni approfondite su AMQP, è possibile utilizzare la versione ufficiale SDK del Bus di servizio con le applicazioni .NET Framework, che eseguiranno automaticamente.
 
 ### <a name="c35"></a>C&#35;
 
@@ -236,12 +236,12 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-Il metodo `PutCbsToken()` riceve la *connessione*, vale a dire l'istanza della classe di connessione AMQP indicata dalla [libreria AMQP .NET Lite](https://github.com/Azure/amqpnetlite), che rappresenta la connessione TCP al servizio e il parametro *sasToken*, ovvero il token di firma di accesso condiviso da inviare. 
+Il metodo `PutCbsToken()` riceve la *connessione*, vale a dire l'istanza della classe di connessione AMQP indicata dalla [libreria AMQP .NET Lite](https://github.com/Azure/amqpnetlite), che rappresenta la connessione TCP al servizio e il parametro *sasToken*, ovvero il token di firma di accesso condiviso da inviare.
 
 > [!NOTE]
 > È importante che la connessione venga creata con il **meccanismo di autenticazione SASL impostato su ANONYMOUS** (e non sul valore predefinito PLAIN con nome utente e password usato quando non è necessario inviare il token SAS).
-> 
-> 
+>
+>
 
 Successivamente, il server di pubblicazione crea due collegamenti AMQP per inviare il token SAS e ricevere la risposta (il risultato di convalida del token) dal servizio.
 
@@ -295,7 +295,7 @@ La tabella seguente illustra i diritti di accesso necessari per l'esecuzione di 
 | **Regole** | | |
 | Creare una regola |Gestisci |../myTopic/Subscriptions/mySubscription |
 | Eliminare una regola |Gestisci |../myTopic/Subscriptions/mySubscription |
-| Enumerare le regole |Manage o Listen |../myTopic/Subscriptions/mySubscription/Rules 
+| Enumerare le regole |Manage o Listen |../myTopic/Subscriptions/mySubscription/Rules
 
 ## <a name="next-steps"></a>Passaggi successivi
 

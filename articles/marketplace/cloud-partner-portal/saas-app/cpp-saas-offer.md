@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 74f6d5989d86cc92371b060caf164f895b75511f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: 9d8b425ff73672ce8989e235c4a2c130c763716c
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263629"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213552"
 ---
 # <a name="azure-saas-application-offer"></a>Offerta di applicazioni SaaS di Azure
 
@@ -36,6 +36,9 @@ I vantaggi della presenza delle applicazioni in un marketplace di Microsoft incl
 - Espandere il team di vendita: raggiungere utenti aziendali in tutto il mondo e ottenere un canale di vendita che coinvolge gli utenti finali, aiuta a generare clienti potenziali e avvia conversazioni con nuovi clienti di diversi settori.
 
 - Ottenere informazioni dettagliate di utilità pratica: verranno condivise informazioni sulle prestazioni dell'app in AppSource, cosa funziona e come migliorare ulteriormente le procedure di vendita.
+ 
+>[!Note]
+>Cloud Solution Provider (CSP) partner canale acconsentire esplicitamente a questo punto è disponibile.  Vedi [Cloud Solution Provider](../../cloud-solution-providers.md) per altre informazioni sul marketing dell'offerta tramite Microsoft CSP partner canali.
 
 ## <a name="publishing-process-workflow"></a>Flusso di lavoro del processo di pubblicazione 
 

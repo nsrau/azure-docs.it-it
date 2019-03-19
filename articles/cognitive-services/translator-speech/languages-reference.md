@@ -8,14 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: conceptual
-ms.date: 05/18/18
+ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: 12f989137c3aea57bdcde0d50315ad157898cd28
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 7498ba08b9ce7b6aae10f38a393eb8cba37f3f4e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862752"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435763"
 ---
 # <a name="translator-speech-api-languages"></a>API Traduzione vocale: Languages
 
@@ -27,7 +28,7 @@ Nel [sito GitHub di Microsoft Translator](https://github.com/MicrosoftTranslator
 
 ## <a name="implementation-notes"></a>Note sull'implementazione
 
-### <a name="get-languages"></a>GET /languages 
+### <a name="get-languages"></a>GET /languages
 
 È disponibile una vasta gamma di lingue per la trascrizione di contenuti vocali, la traduzione del testo trascritto e la produzione di un output vocale sintetizzato della traslazione.
 
@@ -64,7 +65,7 @@ Di seguito è indicato il valore fornito con ogni proprietà.
 Il valore associato alla proprietà di conversione della voce in testo scritto, `speech`, è un dizionario di coppie (chiave, valore). Ogni chiave identifica una lingua supportata per la conversione della voce in testo scritto. La chiave è l'identificatore che il client passa all'API. Il valore associato alla chiave è un oggetto con le proprietà seguenti:
 
 * `name`: nome visualizzato della lingua.
-* `language`: tag della lingua scritta associata. Vedere "Traduzione testuale", più avanti.
+* `language`: tag della lingua scritta associata. Vedere "Transazioni di testo" più avanti.
 Di seguito è riportato un esempio:
 
 ```
@@ -125,7 +126,7 @@ Il servizio restituisce tutti i nomi nella lingua dell'intestazione "Accept-Lang
 ### <a name="response-class-status-200"></a>Classe di risposta (stato 200)
 Oggetto che descrive il set di lingue supportate.
 
-Valore di esempio del modello: 
+Valore di esempio del modello:
 
 Langagues { speech (oggetto, facoltativo), text (oggetto, facoltativo), tts (oggetto, facoltativo) }
 
@@ -143,7 +144,7 @@ X-RequestId|Valore generato dal server per identificare la richiesta e usato per
 |scope  |Set di lingue o voci supportate da restituire al client. Questo parametro viene specificato come elenco di parole chiave delimitato da virgole. Sono disponibili le parole chiave seguenti:<ul><li>`speech`: fornisce il set di lingue supportate per la trascrizione di contenuti vocali.</li><li>`tts`: fornisce il set di voci supportato per la sintesi vocale.</li><li>`text`: fornisce il set di lingue supportate per la traduzione di testo.</li></ul>Se non viene specificato un valore, il valore predefinito di `scope` è `text`.|query|stringa|
 |X-ClientTraceId    |GUID generato dal client per tenere traccia di una richiesta. Per semplificare la risoluzione dei problemi, i client devono fornire un nuovo valore con ogni richiesta e registrarlo.|intestazione|stringa|
 |Accept-Language    |Alcuni campi nella risposta sono nomi di lingue o di aree. Usare questo parametro per definire la lingua in cui vengono restituiti i nomi. La lingua viene specificata tramite un tag di lingua BCP 47 ben formato. Selezionare un tag nell'elenco di identificatori di lingua restituito con l'ambito `text`. Per le lingue non supportate, i nomi vengono forniti in lingua inglese.<br/>Usare ad esempio il valore `fr` per richiedere i nomi in francese oppure `zh-Hant` per richiedere i nomi in cinese tradizionale.|intestazione|stringa|
-    
+
 ### <a name="response-messages"></a>Messaggi di risposta
 
 |Codice di stato HTTP|Motivo|

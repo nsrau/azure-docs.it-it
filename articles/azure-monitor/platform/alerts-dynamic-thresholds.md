@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 92a6d0f0cd9ef9a7d246624f89315a87a7fb26f9
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: c28bf3ac85709fb996cfb067b83530645fdccba1
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097810"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008906"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Avvisi delle metriche con soglie dinamiche in Monitoraggio di Azure (anteprima pubblica)
 
@@ -79,7 +79,11 @@ La risposta è probabilmente negativa. Le soglie dinamiche sono utili per rileva
 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>Quanti dati vengono usati per visualizzare in anteprima le soglie e quindi calcolarle?
 
-Le soglie visualizzate nel grafico, prima della creazione di una regola di avviso per la metrica, vengono calcolate in base agli ultimi 10 giorni di dati cronologici. Una volta creata una regola di avviso, le soglie dinamiche acquisiranno altri dati cronologici disponibili e apprenderanno continuamente dai nuovi dati per raggiungere un maggiore livello di accuratezza.
+Le soglie visualizzati nel grafico, prima che venga creata una regola di avviso sulla metrica, vengono calcolate in base a dati cronologici sufficienti per calcolare l'ora o quotidianamente modelli stagionali (10 giorni). Premendo su 'Pattern settimanale Display' acquisirà dati cronologici sufficienti per calcolare settimanali modelli stagionali (28 giorni). Dopo aver creata una regola di avviso, le soglie dinamiche utilizzerà necessari tutti i dati cronologici che sono disponibile e verranno illustrato in modo continuo e TEPSA basate sui nuovi dati per rendere più precisi le soglie.
+
+## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>Quanti dati sono necessarie per attivare un avviso?
+
+Soglie dinamiche richiede almeno tre giorni di dati per assicurarsi che le soglie accurate prima di attivare avvisi.
 
 ## <a name="dynamic-thresholds-best-practices"></a>Procedure consigliate per le soglie dinamiche
 

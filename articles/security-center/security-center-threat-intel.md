@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 07592c6852a7fce057381cb9086baedc9d2b1bd6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: f1e238890b777e2816648ec407e2581f636d1c12
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111748"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57239828"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Mappa degli avvisi di sicurezza e intelligence per le minacce
 Questo articolo illustra come usare la mappa degli avvisi di sicurezza e la mappa dell'intelligence per le minacce basata su eventi di sicurezza del Centro sicurezza di Azure per risolvere i problemi relativi alla sicurezza.
@@ -62,7 +62,7 @@ Per visualizzare la mappa dell'intelligence per le minacce basata su eventi di s
 4. Nella parte superiore della mappa, selezionare **Visualizza Intelligence per le minacce classico**. Verrà visualizzato il dashboard **Intelligence per le minacce**.
 
    > [!NOTE]
-   > Se nella colonna a destra viene visualizzato **PIANO DI AGGIORNAMENTO**, questa area di lavoro usa una sottoscrizione gratuita. Eseguire l'aggiornamento al piano Standard per usare questa funzionalità. Se nella colonna a destra viene visualizzato **RICHIEDE L'AGGIORNAMENTO** aggiornare [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) per usare questa funzionalità. Per altre informazioni sul piano tariffario, vedere i prezzi del Centro sicurezza di Azure.
+   > Se nella colonna a destra viene visualizzato **PIANO DI AGGIORNAMENTO**, questa area di lavoro usa una sottoscrizione gratuita. Eseguire l'aggiornamento al piano Standard per usare questa funzionalità. Se la colonna all'estrema destra mostra **richiede l'aggiornamento**, aggiornare [monitoraggio di Azure registra](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) per usare questa funzionalità. Per altre informazioni sul piano tariffario, vedere i prezzi del Centro sicurezza di Azure.
    >
 5. Se sono presenti più aree di lavoro da analizzare, classificare l'indagine in ordine di priorità in base alla colonna **Indirizzi IP dannosi**. Mostra il numero attuale di indirizzi IP dannosi nell'area di lavoro. Selezionare l'area di lavoro da usare per visualizzare il dashboard **Intelligence per le minacce**.
 

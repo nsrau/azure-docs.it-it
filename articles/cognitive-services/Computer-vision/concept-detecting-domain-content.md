@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 66137f01672820584f97273ddca26a66ada781ba
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 92859667e1dc53b9c6ca9e46a2db1c6dc335ae37
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312535"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339012"
 ---
 # <a name="detect-domain-specific-content"></a>Rilevare contenuti specifici di dominio
 
-Oltre all'assegnazione di tag e alla classificazione di primo livello, Visione artificiale supporta anche un'ulteriore analisi specifica di dominio tramite modelli di cui è stato effettuato il training su dati specializzati. 
+Oltre all'assegnazione di tag e alla classificazione di primo livello, Visione artificiale supporta anche un'ulteriore analisi specifica di dominio tramite modelli di cui è stato effettuato il training su dati specializzati.
 
 È possibile usare i modelli specifici di dominio in due modi: autonomamente (analisi con ambito) o come miglioramento per la funzionalità di categorizzazione.
 
 ### <a name="scoped-analysis"></a>Analisi con ambito
 
-È possibile analizzare un'immagine usando solo il modello specifico di dominio scelto chiamando l'API [Models/\<modello\>/Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200). 
+È possibile analizzare un'immagine usando solo il modello specifico di dominio scelto chiamando l'API [Models/\<modello\>/Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200).
 
 Di seguito è riportata una risposta JSON di esempio restituita dall'API **models/celebrities/analyze** per l'immagine specificata:
 
@@ -55,28 +55,28 @@ Di seguito è riportata una risposta JSON di esempio restituita dall'API **model
 }
 ```
 
-### <a name="enhanced-categorization-analysis"></a>Analisi avanzata della categorizzazione  
+### <a name="enhanced-categorization-analysis"></a>Analisi avanzata della categorizzazione
 
-È anche possibile usare i modelli specifici di dominio per integrare l'analisi generale delle immagini. È possibile eseguire questa operazione come parte della [categorizzazione di alto livello](concept-categorizing-images.md) indicando modelli specifici di dominio nel parametro *details* della chiamata API [Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). 
+È anche possibile usare i modelli specifici di dominio per integrare l'analisi generale delle immagini. È possibile eseguire questa operazione come parte della [categorizzazione di alto livello](concept-categorizing-images.md) indicando modelli specifici di dominio nel parametro *details* della chiamata API [Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).
 
-In questo caso, viene chiamato per primo lo strumento di classificazione della tassonomia di 86 categorie. Se per una delle categorie è presente un modello specifico di dominio corrispondente, l'immagine viene passata anche attraverso il modello e vengono aggiunti i risultati. 
+In questo caso, viene chiamato per primo lo strumento di classificazione della tassonomia di 86 categorie. Se per una delle categorie è presente un modello specifico di dominio corrispondente, l'immagine viene passata anche attraverso il modello e vengono aggiunti i risultati.
 
 La risposta JSON seguente mostra come includere l'analisi specifica di dominio come nodo `detail` in un'analisi della categorizzazione più ampia.
 
 ```json
-"categories":[  
-  {  
+"categories":[
+  {
     "name":"abstract_",
     "score":0.00390625
   },
-  {  
+  {
     "name":"people_",
     "score":0.83984375,
-    "detail":{  
-      "celebrities":[  
-        {  
+    "detail":{
+      "celebrities":[
+        {
           "name":"Satya Nadella",
-          "faceRectangle":{  
+          "faceRectangle":{
             "left":597,
             "top":162,
             "width":248,
@@ -85,8 +85,8 @@ La risposta JSON seguente mostra come includere l'analisi specifica di dominio c
           "confidence":0.999028444
         }
       ],
-      "landmarks":[  
-        {  
+      "landmarks":[
+        {
           "name":"Forbidden City",
           "confidence":0.9978346
         }
@@ -108,20 +108,20 @@ Visione artificiale supporta attualmente i modelli specifici di dominio seguenti
 La chiamata dell'API [Models](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) restituisce queste informazioni insieme alle categorie cui può essere applicato ogni modello:
 
 ```json
-{  
-  "models":[  
-    {  
+{
+  "models":[
+    {
       "name":"celebrities",
-      "categories":[  
+      "categories":[
         "people_",
         "人_",
         "pessoas_",
         "gente_"
       ]
     },
-    {  
+    {
       "name":"landmarks",
-      "categories":[  
+      "categories":[
         "outdoor_",
         "户外_",
         "屋外_",

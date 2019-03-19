@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 86ccd35d14df529a22bd4cdcd50566e7dc0c1375
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: ecf19da59e91edd08953296d96ca68ca62f008e1
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983714"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195354"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Eseguire gli script di PowerShell nella macchina virtuale Linux con Esegui comando
 
@@ -85,7 +85,7 @@ Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' 
 
 Elencare i comandi di esecuzione o mostrare i dettagli di un comando richiede l'`Microsoft.Compute/locations/runCommands/read` autorizzazione che il ruolo dell'elemento predefinito [Lettore](../../role-based-access-control/built-in-roles.md#reader) e versioni successive hanno.
 
-L'esecuzione di un comando richiede l'`Microsoft.Compute/virtualMachines/runCommand/action` autorizzazione, che il ruolo [Collaboratore](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) ha e versioni successive.
+Richiede l'esecuzione di un comando il `Microsoft.Compute/virtualMachines/runCommand/action` l'autorizzazione, che il [collaboratore macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) ruolo e versioni successive.
 
 È possibile usare uno dei ruoli [incorporati](../../role-based-access-control/built-in-roles.md) o creare un ruolo [personalizzato](../../role-based-access-control/custom-roles.md) per usare Esegui del comando.
 

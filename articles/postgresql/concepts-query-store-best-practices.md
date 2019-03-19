@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 0c962dc6d8aff63a3b7dd34133a40c7ff9feec4c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: c4fcdc43e8c88bf307e4de5727df0641616d7b78
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540742"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448136"
 ---
 # <a name="best-practices-for-query-store"></a>Procedure consigliate per Query Store
 
@@ -28,7 +28,7 @@ Consentire a Query Store di acquisire i dati importanti.
 
 |**pg_qs.query_capture_mode** | **Scenario**|
 |---|---|
-|_Tutti_  |Analizzare l'intero carico di lavoro esaminando tutte le query, la rispettiva frequenza di esecuzione e altre statistiche. Identificare le nuove query nel carico di lavoro. Stabilire se vengono usate query ad hoc per identificare le opportunità di parametrizzazione automatica o da parte dell'utente. La modalità _All_ comporta un costo maggiore per il consumo delle risorse. |
+|_Tutti_  |Analizzare l'intero carico di lavoro esaminando tutte le query, la rispettiva frequenza di esecuzione e altre statistiche. Identificare le nuove query nel carico di lavoro. Rilevare se le query ad hoc vengono usate per identificare le opportunità di parametrizzazione automatica o dell'utente. La modalità _All_ comporta un costo maggiore per il consumo delle risorse. |
 |_Top_  |Concentrare l'attenzione sulle query più frequenti, ovvero quelle emesse dai client.
 |_Nessuno_ |Sono già stati acquisiti un set di query e un intervallo di tempo da analizzare e si vogliono eliminare eventuali distrazioni causate da altre query. La modalità _None_ è adatta agli ambienti di test e di benchmark. La modalità _None_ deve essere usata con attenzione perché potrebbe impedire di tenere traccia di nuove query importanti e di ottimizzarle. Non è possibile ripristinare i dati negli intervalli di tempo trascorsi. |
 

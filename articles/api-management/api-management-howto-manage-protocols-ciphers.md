@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2018
+ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: a55d16a35b5eec1af2b24d02e158905493615999
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: 91b6cd64a42319b2a5307919c2efe6bc8e5dcd64
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441113"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983201"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>Gestire i protocolli e la crittografia in Gestione API di Azure
 
@@ -39,11 +39,9 @@ Per eseguire i passaggi in questo articolo è necessario avere quanto segue:
 ## <a name="how-to-manage-tls-protocols-and-3des-cipher"></a>Modalità di gestione dei protocolli TLS e della crittografia 3DES
 
 1. Accedere all'**istanza di Gestione API** nel portale di Azure.
-2. Selezionare **SSL** dal menu.  
-    ![Gestire i protocolli e la crittografia in APIM - menu](./media/api-management-howto-manage-protocols-ciphers/api-management-menu.png)
+2. Selezionare **impostazioni del protocollo** dal menu di scelta.  
 3. Abilitare o disabilitare i protocolli o le crittografie desiderate.
 4. Fare clic su **Save**. Le modifiche verranno applicate entro un'ora.  
-    ![Gestire i protocolli e la crittografia in APIM - Salva](./media/api-management-howto-manage-protocols-ciphers/api-management-protocols-ciphers-save.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

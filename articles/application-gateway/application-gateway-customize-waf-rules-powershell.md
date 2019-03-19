@@ -1,32 +1,19 @@
 ---
-title: Personalizzare le regole del web application firewall nel gateway applicazione Azure - PowerShell | Microsoft Docs
+title: Personalizzare le regole di web application firewall nel Gateway applicazione di Azure - PowerShell
 description: Questo articolo descrive come personalizzare le regole del web application firewall nel gateway applicazione con PowerShell.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom: ''
-ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 2/22/2019
 ms.author: victorh
-ms.openlocfilehash: dfcd82a17a399f213f5c4e32326a8995d26e8458
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: f96395a54f66b787878faeee057f02818f956ade
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218270"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317000"
 ---
 # <a name="customize-web-application-firewall-rules-through-powershell"></a>Personalizzare le regole del web application firewall con PowerShell
-
-> [!div class="op_single_selector"]
-> * [Portale di Azure](application-gateway-customize-waf-rules-portal.md)
-> * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
-> * [Interfaccia della riga di comando di Azure](application-gateway-customize-waf-rules-cli.md)
 
 Il Web application firewall del gateway applicazione di Azure (WAF) fornisce la protezione per le Applicazioni Web. Queste protezioni vengono fornite dal Set di regole principali (CRS) di Open Web Application Security Project (OWASP). Alcune regole possono generare falsi positivi e bloccare il traffico reale. Per questo motivo, il gateway applicazione offre la possibilità di personalizzare regole e gruppi di regole. Per altre informazioni su regole e gruppi di regole specifici, vedere l'[Elenco di regole e gruppi di regole CRS del Web application firewall](application-gateway-crs-rulegroups-rules.md).
 
@@ -39,7 +26,7 @@ Gli esempi di codice seguenti illustrano come visualizzare le regole e i gruppi 
 L'esempio seguente mostra come visualizzare i gruppi di regole:
 
 ```powershell
-Get-AzureRmApplicationGatewayAvailableWafRuleSets
+Get-AzApplicationGatewayAvailableWafRuleSets
 ```
 
 Di seguito è riportata una parte di risposta dell'esempio precedente:
@@ -99,10 +86,23 @@ OWASP (Ver. 3.0):
 L'esempio seguente disabilita le regole `911011` e `911012` in un gateway applicazione:
 
 ```powershell
-$disabledrules=New-AzureRmApplicationGatewayFirewallDisabledRuleGroupConfig -RuleGroupName REQUEST-911-METHOD-ENFORCEMENT -Rules 911011,911012
-Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGateway $gw -Enabled $true -FirewallMode Detection -RuleSetVersion 3.0 -RuleSetType OWASP -DisabledRuleGroups $disabledrules
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+$disabledrules=New-AzApplicationGatewayFirewallDisabledRuleGroupConfig -RuleGroupName REQUEST-911-METHOD-ENFORCEMENT -Rules 911011,911012
+Set-AzApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGateway $gw -Enabled $true -FirewallMode Detection -RuleSetVersion 3.0 -RuleSetType OWASP -DisabledRuleGroups $disabledrules
+Set-AzApplicationGateway -ApplicationGateway $gw
 ```
+
+## <a name="mandatory-rules"></a>Regole obbligatorie
+
+Nell'elenco seguente contiene le condizioni che causano il firewall WAF bloccare la richiesta in modalità di prevenzione (in modalità di rilevamento vengono registrati come eccezioni). Questi non può essere configurati o disabilitati:
+
+* Impossibile analizzare il corpo della richiesta comporta la richiesta viene bloccata, a meno che non ispezione del corpo è disattivata (XML, JSON, i dati del modulo)
+* Lunghezza dei dati del corpo (con nessun file) della richiesta è supera al limite configurato
+* Request body (inclusi i file) è superiore al limite
+* Si è verificato un errore interno nel motore di Web Application firewall
+
+CRS 3.x specifico:
+
+* Connessioni in entrata soglia superata punteggio delle anomalie
 
 ## <a name="next-steps"></a>Passaggi successivi
 

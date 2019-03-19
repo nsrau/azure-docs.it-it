@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 1a21ab5af8c0dc5fbbe2c1dbab8931bd903df4ff
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 121226ad9ca1ea0c29dd192ed69797b37245da46
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235989"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213926"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Panoramica della funzionalità di sicurezza del database SQL di Azure
 
@@ -84,7 +84,7 @@ Per una panoramica di autorizzazioni nel database SQL di Azure, vedere [Accessi 
 
 Il database SQL protegge i dati dei clienti fornendo funzionalità di controllo e di rilevamento delle minacce.
 
-### <a name="sql-auditing-in-log-analytics-and-event-hubs"></a>Controllo di SQL in Log Analytics e Hub eventi
+### <a name="sql-auditing-in-azure-monitor-logs-and-event-hubs"></a>Servizio di controllo SQL in hub eventi e registri di monitoraggio di Azure
 
 Il servizio di controllo del database SQL tiene traccia delle attività del database e consente di garantire la conformità agli standard di sicurezza tramite la registrazione degli eventi del database in un log di controllo in un account di archiviazione di Azure, di proprietà del cliente. Il servizio di controllo consente agli utenti di monitorare le attività del database in corso e di analizzare ed esaminare l'attività cronologica per identificare potenziali minacce o uso improprio sospetto e violazioni della sicurezza. Per altre informazioni, vedere [Introduzione al controllo del database SQL](sql-database-auditing.md).  
 

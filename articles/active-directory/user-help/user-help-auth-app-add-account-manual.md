@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e82e8f6caafb38b758f552913def234a92a0d83
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 696b6b14b2a369e8b80ac615fc77fa7f48f51c57
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454651"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959936"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Aggiungere manualmente un account all'app
 Se la fotocamera non è in grado di acquisire il codice a matrice, è possibile aggiungere manualmente le informazioni dell'account all'app Microsoft Authenticator per la verifica a due fattori. Questa opzione funziona per gli account aziendali o degli istituti di istruzione e per gli account non Microsoft.
@@ -102,5 +102,7 @@ I codici forniti per gli account non fanno distinzione tra maiuscole e minuscole
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Dopo aver aggiunto gli account all'app, è possibile accedere usando l'app Microsoft Authenticator nel dispositivo. Per altre informazioni, consultare [Accedere con l'app](user-help-auth-app-sign-in.md).
+
+- Se si verificano problemi durante il recupero del codice di verifica per l'account Microsoft personale, vedere la **risoluzione dei problemi di codice di verifica** sezione il [info di sicurezza di account Microsoft e verifica i codici](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) articolo.
 
 - Per i dispositivi che eseguono iOS, è anche possibile eseguire il backup nel cloud delle credenziali dell'account e delle relative impostazioni dell'app, ad esempio l'ordine degli account. Per altre informazioni, consultare [Eseguire il backup e il ripristino con l'app Microsoft Authenticator](user-help-auth-app-backup-recovery.md).

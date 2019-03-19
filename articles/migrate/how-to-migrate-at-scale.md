@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: snehaa
-ms.openlocfilehash: c0fc4fa0bdd58b8ecdf4f26051d60324118c4b21
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 74dabc49dd3d0e38f43dc758204c35ea1c0efd99
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55896589"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438483"
 ---
 # <a name="scale-migration-of-vms-using-azure-site-recovery"></a>Migrazione su vasta scala di macchine virtuali con Azure Site Recovery
 
@@ -30,8 +30,8 @@ Prima di iniziare, è necessario seguire questi passaggi:
 - Assicurarsi di creare l'Insieme di credenziali di Site Recovery nella sottoscrizione di Azure
 - Assicurarsi che il server di configurazione e il server di elaborazione siano installati nell'ambiente di origine e che l'insieme di credenziali sia in grado di individuare l'ambiente
 - Assicurarsi di creare criteri di replica e associarli al server di configurazione
-- Assicurarsi di aggiungere l'account amministratore della macchina virtuale nel server di configurazione (che si userà per la replica delle macchine virtuali locali)
-- Assicurarsi di creare gli elementi di destinazione in Azure
+- Assicurarsi di che aver aggiunto l'account di amministratore della macchina virtuale nel server di configurazione (che verrà utilizzata per replicare le VM locale)
+- Assicurarsi che vengono creati gli elementi di destinazione in Azure
     - Gruppo di risorse di destinazione
     - Account di archiviazione di destinazione (e relativo gruppo di risorse)
     - Rete virtuale di destinazione per il failover (e relativo gruppo di risorse)
@@ -59,10 +59,10 @@ Una volta pronto il file CSV, è possibile seguire la procedura illustrata di se
 4 | asr_propertiescheck.ps1 | Verificare se le proprietà vengono aggiornate in modo appropriato.
 5 | asr_testmigration.ps1 |  Avviare il failover di test delle macchine virtuali elencate nel file CSV. Lo script crea un output CSV con i dettagli del processo per ogni macchina virtuale.
 6 | asr_cleanuptestmigration.ps1 | Una volta convalidate manualmente le macchine virtuali che sono state sottoposte al failover di test, è possibile usare questo script per eseguire la pulizia delle macchine virtuali usate per il failover di test.
-7 | asr_migration.ps1 | Eseguire un failover non pianificato per le macchine virtuali elencate nel file CSV. Lo script crea un output CSV con i dettagli del processo per ogni macchina virtuale. Lo script non arresta le macchine virtuali locali prima di attivare il failover, pertanto per la coerenza dell'applicazione è consigliabile arrestare manualmente le macchine virtuali prima di eseguire lo script.
+7 | asr_migration.ps1 | Eseguire un failover non pianificato per le macchine virtuali elencate nel file CSV. Lo script crea un output CSV con i dettagli del processo per ogni macchina virtuale. Lo script non è stato arrestato locale le macchine virtuali prima di attivare il failover, per coerenza con l'applicazione, è consigliabile che è stato arrestato manualmente le macchine virtuali prima di eseguire lo script.
 8 | asr_completemigration.ps1 | Eseguire l'operazione di commit nelle macchine virtuali ed eliminare le entità di Azure Site Recovery.
 9 | asr_postmigration.ps1 | Se si prevede di assegnare gruppi di sicurezza di rete alle schede di interfaccia di rete dopo il failover, è possibile usare questo script a tale scopo. Lo script assegna un gruppo di sicurezza di rete a ogni scheda di interfaccia di rete nella macchina virtuale di destinazione.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 [Leggere altre informazioni](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) sulla migrazione di server in Azure con Azure Site Recovery

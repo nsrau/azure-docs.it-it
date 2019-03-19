@@ -2,18 +2,18 @@
 title: Aggiornare l'hub IoT di Azure | Microsoft Docs
 description: Modificare il piano tariffario e il livello di scalabilità dell'hub IoT per ottenere funzionalità aggiuntive di gestione del dispositivo e di messaggistica.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/02/2018
+ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 1f60b7d30c073c49d5e0a7d35e7263c2181ed744
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
-ms.translationtype: HT
+ms.openlocfilehash: 4acd4f3fd9c013d622a23853dc2f0d02b8b753d9
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903065"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985785"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>Come aggiornare l'hub IoT
 
@@ -22,14 +22,14 @@ Con l'aumentare della soluzione IoT, l'hub IoT di Azure offre opzioni di scalabi
 Quando si dispone di più dispositivi e si necessita di altre funzionalità, esistono tre modi per regolare l'hub IoT in base alle proprie esigenze:
 
 * Aggiungere unità nell'hub IoT. Ad esempio, ogni unità aggiuntiva in un hub IoT B1 offre 400.000 messaggi aggiuntivi al giorno. 
-* Modificare le dimensioni dell'hub IoT. Ad esempio, eseguire la migrazione dal livello B1 al livello B2 per aumentare la quantità di messaggi supportata da ciascuna unità al giorno.
-* Eseguire l'aggiornamento a un livello superiore. Ad esempio, eseguire l'aggiornamento dal livello B1 al livello S1 per la stessa capacità di messaggistica, ma con funzionalità avanzate fornite nel livello standard.
+* Modificare le dimensioni dell'hub IoT. Ad esempio, eseguire la migrazione dal livello B1 al livello B2 per aumentare il numero di messaggi in grado di supportare ogni unità al giorno.
+* Eseguire l'aggiornamento a un livello superiore. Ad esempio, eseguire l'aggiornamento dal livello B1 al livello S1 per l'accesso a funzionalità avanzate con la stessa capacità di messaggistica.
 
 Queste modifiche possono essere apportate senza interrompere le operazioni esistenti.
 
-Se si vuole effettuare il downgrade dell'hub IoT, è possibile rimuovere le unità e ridurre le dimensioni dell'hub IoT. Non è tuttavia possibile effettuare il downgrade a un livello inferiore. Ad esempio, è possibile passare dal livello S2 al livello S1, ma non dal livello S2 al livello B1. 
+Se si vuole effettuare il downgrade dell'hub IoT, è possibile rimuovere le unità e ridurre le dimensioni dell'hub IoT, ma è possibile effettuare il downgrade a un livello inferiore. Ad esempio, è possibile passare dal livello S2 al livello S1, ma non dal livello S2 al livello B1. Per ogni hub IoT è possibile scegliere un solo tipo di [edizione](https://azure.microsoft.com/pricing/details/iot-hub/) all'interno di un livello. Ad esempio, è possibile creare un hub IoT con più unità di S1, ma non con una combinazione di unità appartenenti a edizioni diverse, ad esempio, S1, B3 o S1 e S2.
 
-Questi esempi consentono di comprendere come regolare l'hub IoT in base ai cambiamenti della soluzione. Per informazioni specifiche sulle funzionalità di ogni livello, fare sempre riferimento a [Prezzi di Hub IoT](https://azure.microsoft.com/pricing/details/iot-hub/). 
+Questi esempi consentono di comprendere come regolare l'hub IoT in base ai cambiamenti della soluzione. Per informazioni specifiche sulle funzionalità di ogni livello, è consigliabile vedere sempre [prezzi dell'IoT Hub di Azure](https://azure.microsoft.com/pricing/details/iot-hub/). 
 
 ## <a name="upgrade-your-existing-iot-hub"></a>Aggiornare l'hub IoT esistente 
 
@@ -40,12 +40,14 @@ Questi esempi consentono di comprendere come regolare l'hub IoT in base ai cambi
 
 3. Per modificare il livello dell'hub, selezionare **Piano tariffario e livello di scalabilità**. Scegliere il nuovo livello e quindi fare clic su **Seleziona**.
 
-   ![Prezzi e scalabilità](./media/iot-hub-upgrade/select-tier.png)
+   ![Piano tariffario e livello di scalabilità](./media/iot-hub-upgrade/select-tier.png)
 
 4. Per modificare il numero di unità nell'hub, immettere un nuovo valore in **Unità di hub IoT**. 
 5. Fare clic su **Salva** per salvare le modifiche. 
 
-L'hub IoT viene ora regolato e le configurazioni rimangono invariate. Si noti che il limite di partizioni per il livello di base dell'hub IoT è 8. Questo limite rimarrà invariato con la migrazione dal livello di base al livello standard.
+L'hub IoT viene ora regolato e le configurazioni rimangono invariate. 
+
+Il limite massimo di partizioni per IoT Hub di livello basic e livello standard dell'IoT Hub è 32. La maggior parte degli hub IoT richiede solo 4 partizioni. Il limite partizioni mette viene scelto quando l'hub IoT viene creato e associa i messaggi da dispositivo a cloud al numero di lettori simultanei di tali messaggi. Questo valore rimarrà invariato con la migrazione dal livello di base al livello standard. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

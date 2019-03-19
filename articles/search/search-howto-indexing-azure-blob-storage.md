@@ -1,7 +1,7 @@
 ---
 title: Indicizzare il contenuto dell'Archiviazione BLOB di Azure per la ricerca full-text - Ricerca di Azure
 description: Informazioni su come indicizzare Archiviazione BLOB di Azure ed estrarre il testo dai documenti con Ricerca di Azure.
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 2a282b76805ab91215d6b34ea30a7008d8c8244b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 87dc1dab0670f69ff8c418be476986baec2821fb
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467979"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310880"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indicizzazione di documenti in Archiviazione BLOB di Azure con Ricerca di Azure
 Questo articolo illustra come usare Ricerca di Azure per indicizzare documenti (ad esempio PD, documenti di Microsoft Office e numerosi altri formati comuni) salvati nell'archivio BLOB di Azure. In primo luogo, vengono illustrate le nozioni di base per l'impostazione e la configurazione di un indicizzatore BLOB. Vengono inoltre descritti in modo più dettagliato i comportamenti e gli scenari che possono verificarsi.
@@ -68,7 +68,7 @@ Per altre informazioni sull'API di creazione dell'origine dati, vedere [Creare u
 
 Per specificare le credenziali per il contenitore BLOB, sono disponibili questi modi:
 
-- **Stringa di connessione dell'account di archiviazione per accesso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. Per ottenere la stringa di connessione dal portale di Azure, passare al pannello dell'account di archiviazione e quindi selezionare Impostazioni > Chiavi (per gli account di archiviazione della versione classica) oppure Impostazioni > Chiavi di accesso (per gli account di archiviazione di Azure Resource Manager).
+- **Stringa di connessione dell'account di archiviazione per accesso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` È possibile ottenere la stringa di connessione dal portale di Azure passando al pannello dell'account di archiviazione > Impostazioni > chiavi (per gli account di archiviazione classico) o le impostazioni > chiavi (per gli account di archiviazione di Azure Resource Manager) di accesso.
 - Stringa di connessione della **firma di accesso condiviso dell'account di archiviazione**: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` la firma di accesso condiviso deve avere le autorizzazioni per le operazioni di elenco e lettura per i contenitori e gli oggetti (BLOB).
 -  **Firma di accesso condiviso per il contenitore**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` la firma di accesso condiviso deve avere le autorizzazioni per le operazioni di elenco e lettura sul contenitore.
 
@@ -333,7 +333,7 @@ L'indicizzazione di BLOB può richiedere molto tempo. Quando si hanno milioni di
 
 Si consiglia di "comporre" i documenti da più origini nell'indice. Ad esempio, è possibile unire testo dagli oggetti binari di grandi dimensioni con altri metadati archiviati in Cosmos DB. È anche possibile utilizzare l'API di indicizzazione push insieme a diversi indicizzatori per compilare i documenti di ricerca da più parti. 
 
-Per funzionare, tutti gli indicizzatori e altri componenti devono concordare sulla chiave del documento. Per una procedura dettagliata, vedere questo articolo esterno: [Combinare documenti con altri dati in Ricerca di Azure ](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+Per funzionare, tutti gli indicizzatori e altri componenti devono concordare sulla chiave del documento. Per una procedura dettagliata, vedere questo articolo esterno: [Combinare documenti con altri dati in ricerca di Azure](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Indicizzazione di testo normale 

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 02/21/2019
 ms.author: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b7604fbe306e606e56c9dd0a2b09b4641257dbc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a354fdf8ea75d9446c2a5e5ee6a70489cf9dbfb5
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203355"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990519"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Configurare l'attestazione basata su ruolo rilasciata nel token SAML per applicazioni aziendali
 
@@ -157,6 +157,9 @@ Se l'applicazione prevede che vengano passati ruoli personalizzati in una rispos
     | Nome attributo | Valore attributo |
     | -------------- | ----------------|
     | Nome del ruolo  | user.assignedroles |
+
+    >[!NOTE]
+    >Se il valore di attestazione di ruolo è null, quindi Azure AD non le invia questo valore nel token e questo è l'impostazione predefinita in base alla progettazione.
 
     a. Fare clic su **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 

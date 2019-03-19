@@ -4,29 +4,27 @@ description: Procedura per la distribuzione del cluster Avere vFXT in Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 972ba937ad15fa9a6d2eb74e3e4c9e6e8f3923a4
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 7dbfc39075bb42b1ec13823849eb769e117ddd4a
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745436"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409687"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Distribuire il cluster vFXT
 
-Questo articolo illustra come usare la procedura guidata per la distribuzione disponibile in Azure Marketplace. La procedura guidata distribuisce automaticamente il cluster usando un modello di Azure Resource Manager. Dopo che si sono immessi i parametri nel modulo e si è fatto clic su **Crea**, Azure completa automaticamente questi passaggi: 
+Questo articolo illustra come usare la procedura guidata per la distribuzione disponibile in Azure Marketplace. La procedura guidata distribuisce automaticamente il cluster usando un modello di Azure Resource Manager. Dopo che si sono immessi i parametri nel modulo e si è fatto clic su **Crea**, Azure completa automaticamente questi passaggi:
 
-* Crea il controller del cluster, ovvero una macchina virtuale di base contenente il software necessario per distribuire e gestire il cluster.
-* Configura il gruppo di risorse e l'infrastruttura di rete virtuale e, se necessario, crea nuovi elementi.
-* Crea le macchine virtuali del nodo del cluster e le configura come il cluster Avere.
-* Se necessario, crea un nuovo contenitore BLOB di Azure e lo configura come un core filer del cluster.
+* Crea il controller del cluster, ovvero una VM di base che contiene il software necessario per distribuire e gestire il cluster.
+* Configura gruppo di risorse e l'infrastruttura di rete virtuale, inclusa la creazione di nuovi elementi.
+* Crea il cluster di macchine virtuali del nodo e li configura come cluster di Avere.
+* Se richiesto, crea un nuovo contenitore Blob di Azure e lo configura come un filtro di base del cluster.
 
-Dopo aver seguito le istruzioni in questo documento, si disporrà di una rete virtuale, una subnet, un controller e un cluster vFXT, come illustrato nel diagramma seguente:
+Dopo aver seguito le istruzioni riportate in questo documento, si avrà una rete virtuale, una subnet, un controller e un cluster vFXT come illustrato nel diagramma seguente. Questo diagramma Mostra filtro core, facoltativo Blob di Azure che include un nuovo contenitore di archiviazione Blob (in un nuovo account di archiviazione, non mostrato) e un endpoint del servizio per archiviazione di Microsoft all'interno della subnet. 
 
-![Diagramma che mostra la rete virtuale contenente l'archiviazione BLOB facoltativa e una subnet contenente tre macchine virtuali raggruppate etichettate come nodi vFXT/cluster vFXT e una macchina virtuale etichettata come controller del cluster](media/avere-vfxt-deployment.png)
-
-Se si usa l'archiviazione BLOB, dopo aver creato il cluster, è necessario [creare un endpoint di archiviazione](#create-a-storage-endpoint-if-using-azure-blob) nella propria rete virtuale. 
+![diagramma che mostra tre concentrici rettangoli per Avere i componenti del cluster. Il rettangolo esterno è denominato "Gruppo di risorse" e contiene un esagono con etichettato "Blob di archiviazione (facoltativo)". Il rettangolo in avanti con l'etichetta ' rete virtuale: 10.0.0.0/16' e non contiene tutti i componenti univoci. Il rettangolo più interno è denominato 'Subnet:10.0.0.0/24' e contiene una macchina virtuale con l'etichetta 'Del Cluster controller', uno stack di tre macchine virtuali con l'etichetta 'vFXT nodi (cluster vFXT)' e un esagono etichettata 'Endpoint servizio'. È presente una freccia che collega l'endpoint del servizio, ovvero all'interno della subnet, e l'archiviazione blob (che è di fuori di subnet e la rete virtuale, nel gruppo di risorse). La freccia passa attraverso la subnet e i limiti di rete virtuale.](media/avere-vfxt-deployment.png)  
 
 Prima di usare il modello di creazione, verificare che siano soddisfatti i prerequisiti seguenti:  
 
@@ -34,6 +32,7 @@ Prima di usare il modello di creazione, verificare che siano soddisfatti i prere
 1. [Autorizzazioni di proprietario della sottoscrizione](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [Quota per il cluster vFXT](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
 1. [Ruoli personalizzati di accesso](avere-vfxt-prereqs.md#create-access-roles): è necessario creare un ruolo di controllo degli accessi in base al ruolo da assegnare ai nodi del cluster. È possibile anche creare un ruolo personalizzato di accesso per il controller del cluster, ma la maggior parte degli utenti sceglierà il ruolo predefinito di proprietario, che concede sul controller i privilegi corrispondenti al proprietario di un gruppo di risorse. Per altre informazioni, vedere [Ruoli predefiniti per le risorse di Azure](../role-based-access-control/built-in-roles.md#owner).
+1. [Endpoint di servizio di archiviazione (se necessario)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) : obbligatorio per la distribuisce nell'archiviazione blob e usando una rete virtuale esistente
 
 Per altre informazioni sulla procedura di distribuzione e sulla pianificazione del cluster, vedere [Pianificare il sistema Avere vFXT](avere-vfxt-deploy-plan.md) e [Panoramica della distribuzione](avere-vfxt-deploy-overview.md).
 
@@ -105,13 +104,13 @@ La seconda pagina del modello di distribuzione consente di configurare le dimens
 
 * **Avere vFXT cluster name** (Nome del cluster Avere vFXT): assegnare al cluster un nome univoco. 
 
-* **Size** (Dimensione): specificare il tipo di macchina virtuale da usare durante la creazione dei nodi del cluster. 
+* **Dimensioni** -in questa sezione mostra il tipo di macchina virtuale che verrà usato per i nodi del cluster. Anche se è disponibile una sola opzione consigliata, il **modificare le dimensioni** collegamento apre una tabella con informazioni dettagliate su questo tipo di istanza e un collegamento a un calcolatore dei prezzi.  
 
 * **Cache size per node** (Dimensione della cache per ogni nodo): la cache del cluster viene distribuita tra i nodi del cluster, in modo che la dimensione totale della cache disponibile nel cluster Avere vFXT possa essere ottenuta moltiplicando la dimensione della cache assegnata a ogni nodo per il numero di nodi. 
 
-  La configurazione consigliata prevede di usare 1 TB per nodo se si usano nodi del cluster Standard_D16s_v3 e 4 TB per nodo se si usano nodi Standard_E32s_v3.
+  La configurazione consigliata consiste nell'utilizzare da 4 TB per ogni nodo per i nodi Standard_E32s_v3.
 
-* **Virtual network** (Rete virtuale): selezionare una rete virtuale esistente in cui ospitare il cluster o definire una nuova rete virtuale da creare. 
+* **Rete virtuale** : definire una nuova rete virtuale per ospitare il cluster o selezionare una rete virtuale esistente che soddisfi i prerequisiti descritti nella [pianificazione del sistema vFXT Avere](avere-vfxt-deploy-plan.md#resource-group-and-network-infrastructure). 
 
   > [!NOTE]
   > Se si crea una nuova rete virtuale, al controller del cluster verrà assegnato un indirizzo IP pubblico in modo che sia possibile accedere alla nuova rete privata. Se invece si sceglie una rete virtuale esistente, il controller del cluster viene configurato senza un indirizzo IP pubblico. 
@@ -121,17 +120,21 @@ La seconda pagina del modello di distribuzione consente di configurare le dimens
   >  * Se non si configura un indirizzo IP pubblico nel controller, è necessario usare un altro host di collegamento, una connessione VPN oppure ExpressRoute per accedere al cluster. È possibile, ad esempio, creare il controller all'interno di una rete virtuale con una connessione VPN già configurata.
   >  * Se si crea un controller con un indirizzo IP pubblico, è consigliabile proteggere la macchina virtuale controller con un gruppo di sicurezza di rete. Per impostazione predefinita, la distribuzione di Avere vFXT per Azure crea un gruppo di sicurezza di rete e limita l'accesso in ingresso alla porta 22 per i controller con indirizzi IP pubblici. È possibile proteggere ulteriormente il sistema limitando l'accesso al proprio intervallo di indirizzi di origine IP, ovvero consentendo solo connessioni provenienti dai computer che si intende usare per l'accesso al cluster.
 
+  Il modello di distribuzione configura inoltre la nuova rete virtuale con un endpoint di servizio di archiviazione per archiviazione Blob di Azure e con controllo di accesso alla rete limitata al solo indirizzi IP dalla subnet del cluster. 
+
 * **Subnet**: scegliere una subnet da una rete virtuale esistente oppure crearne una nuova. 
 
-* **Use blob storage** (Usa l'archiviazione BLOB): scegliere **true** per creare un nuovo contenitore BLOB di Azure e configurarlo come risorsa di archiviazione back-end per il nuovo cluster Avere vFXT. Questa opzione inoltre crea un nuovo account di archiviazione nello stesso gruppo di risorse del cluster. 
+* **Creare e usare l'archiviazione blob** -scegliere **true** per creare un nuovo contenitore Blob di Azure e configurarla come archiviazione back-end per il nuovo cluster vFXT Avere. Questa opzione crea anche un nuovo account di archiviazione nello stesso gruppo di risorse come il cluster e un endpoint di servizio di archiviazione di Microsoft all'interno della subnet del cluster. 
+  
+  Se si specifica una rete virtuale esistente, è necessario un endpoint di servizio di archiviazione prima di creare il cluster. (Per altre informazioni, leggere [pianificare il sistema vFXT Avere](avere-vfxt-deploy-plan.md).)
 
   Impostare questo campo su **false** se non si vuole creare un nuovo contenitore. In questo caso è necessario associare e configurare la risorsa di archiviazione dopo la creazione del cluster. Per le istruzioni, leggere [Configurare l'archivio](avere-vfxt-add-storage.md). 
 
-* **Account di archiviazione**: se si crea un nuovo contenitore BLOB di Azure, immettere un nome per il nuovo account di archiviazione. 
+* **(Nuovo) Account di archiviazione** : se la creazione di un nuovo contenitore Blob di Azure, immettere un nome per il nuovo account di archiviazione. 
 
 ## <a name="validation-and-purchase"></a>Convalida e acquisto
 
-La terza pagina offre un riepilogo della configurazione e consente di convalidare i parametri. Al termine del processo di convalida, fare clic sul pulsante **OK** per continuare. 
+Pagina 3 viene riepilogata la configurazione e convalida i parametri. Al termine del processo di convalida, fare clic sul pulsante **OK** per continuare. 
 
 ![Terza pagina del modello di distribuzione - convalida](media/avere-vfxt-deploy-3.png)
 
@@ -159,20 +162,6 @@ Per trovare queste informazioni, seguire questa procedura:
 1. A sinistra fare clic su **Output**. Copiare i valori in ognuno dei campi. 
 
    ![Pagina dell'output con i valori SSHSTRING, RESOURCE_GROUP, LOCATION, NETWORK_RESOURCE_GROUP, NETWORK, SUBNET, SUBNET_ID, VSERVER_IPs e MGMT_IP nei campi a destra delle etichette](media/avere-vfxt-outputs-values.png)
-
-
-## <a name="create-a-storage-endpoint-if-using-azure-blob"></a>Creare un endpoint di archiviazione (se si usa l'archiviazione BLOB di Azure)
-
-Se si usa l'archiviazione BLOB di Azure per l'archivio dati back-end, è necessario creare un endpoint di servizio di archiviazione nella rete virtuale. Questo [endpoint di servizio](../virtual-network/virtual-network-service-endpoints-overview.md) mantiene il traffico BLOB di Azure in locale invece di instradarlo al di fuori della rete virtuale.
-
-1. Nel portale fare clic su **Reti virtuali** a sinistra.
-1. Selezionare la rete virtuale per il controller. 
-1. Fare clic su **Endpoint servizio** a sinistra.
-1. Fare clic su **Aggiungi** nella parte superiore.
-1. Lasciare il servizio ``Microsoft.Storage`` e scegliere la subnet del controller.
-1. Nella parte inferiore fare clic su **Aggiungi**.
-
-  ![Screenshot del portale di Azure con annotazioni per la procedura di creazione dell'endpoint di servizio](media/avere-vfxt-service-endpoint.png)
 
 ## <a name="next-step"></a>Passaggio successivo
 

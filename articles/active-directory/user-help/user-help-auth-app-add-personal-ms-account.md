@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67cb3d049cc2d2f26be6d62270e677a5cbcd39cc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: bcb49048fa9200b8970f37a4f187ca995d208cc2
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455042"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961585"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>Aggiungere l'account Microsoft personale
 Aggiungere gli account Microsoft personali, ad esempio per Outlook.com e Xbox LIVE all'app Microsoft Authenticator per il processo di verifica a due fattori standard e il metodo di accesso telefono senza password.
@@ -67,5 +67,7 @@ Aggiungere gli account Microsoft personali, ad esempio per Outlook.com e Xbox LI
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Dopo aver aggiunto gli account all'app, è possibile accedere usando l'app Authenticator nel dispositivo. Per altre informazioni, consultare [Accedere con l'app](user-help-auth-app-sign-in.md).
+
+- Se si verificano problemi durante il recupero del codice di verifica per l'account Microsoft personale, vedere la **risoluzione dei problemi di codice di verifica** sezione il [info di sicurezza di account Microsoft e verifica i codici](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) articolo.
 
 - Per i dispositivi che eseguono iOS, è anche possibile eseguire il backup nel cloud delle credenziali dell'account e delle relative impostazioni dell'app, ad esempio l'ordine degli account. Per altre informazioni, consultare [Eseguire il backup e il ripristino con l'app Microsoft Authenticator](user-help-auth-app-backup-recovery.md).
