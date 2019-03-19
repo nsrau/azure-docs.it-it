@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 8ff100cd3fc1c9def10b4e585119414281b90d92
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 4a3d1c513bcfb6449ca73d873c0dd9831c6fe01d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017379"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540131"
 ---
 # <a name="use-case---product-recommendations"></a>Caso d'uso - Consigli sui prodotti
 Azure Data Factory è uno dei numerosi servizi usati per implementare i Solution Accelerator di Cortana Intelligence Suite.  Per i dettagli sulla suite, vedere la pagina [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) . Questo documento descrive un caso d'uso comune risolto e implementato da alcuni utenti di Azure usando Azure Data Factory e altri servizi del componente Cortana Intelligence.
@@ -50,7 +50,7 @@ Tutti i dati vengono combinati e inseriti in un sistema di raccomandazione dei p
 
 Ogni giorno, gigabyte di file di log Web non elaborati vengono generati dal sito Web del rivenditore online come file semistrutturati. I file di blog non elaborati e i dati sugli utenti e del catalogo prodotti vengono integrati a intervalli regolari in un account di archiviazione BLOB di Azure mediante servizi di spostamento dei dati distribuiti globalmente da Data Factory. I file di log non elaborati relativi a un dato giorno vengono partizionati (per anno e mese) nell'archiviazione BLOB per l'archiviazione a lungo termine.  [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) viene usato per partizionare i file di log non elaborati nell'archiviazione BLOB ed elaborare i log acquisiti scalandoli mediante gli script Hive e Pig. I blog partizionati vengono quindi elaborati per estrarre gli input necessari per un sistema di raccomandazione Machine Learning per generare consigli personalizzati sui prodotti.
 
-Il sistema di raccomandazione usato in questo esempio per l'apprendimento automatico è una piattaforma di raccomandazione open source ricavata da [Apache Mahout](http://mahout.apache.org/).  È possibile applicare allo scenario qualsiasi modello [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) o personalizzato.  Il modello Mahout consente di stimare la somiglianza tra gli articoli presenti nel sito Web sulla base di modelli di uso generali e di generare consigli personalizzati per ogni utente.
+Il sistema di raccomandazione usato in questo esempio per l'apprendimento automatico è una piattaforma di raccomandazione open source ricavata da [Apache Mahout](https://mahout.apache.org/).  È possibile applicare allo scenario qualsiasi modello [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) o personalizzato.  Il modello Mahout consente di stimare la somiglianza tra gli articoli presenti nel sito Web sulla base di modelli di uso generali e di generare consigli personalizzati per ogni utente.
 
 Il set di risultati ottenuto dai consigli personalizzati sui prodotti viene infine spostato in un data mart relazionale che verrà usato dal sito Web del rivenditore.  È possibile accedere direttamente al set di risultati anche dall'archivio BLOB di un'altra applicazione oppure è possibile spostarlo in archivi aggiuntivi per metterlo a disposizione di altri consumer e casi d'uso.
 

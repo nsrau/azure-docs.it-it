@@ -3,20 +3,20 @@ title: Copiare o clonare una data factory in Azure Data Factory | Microsoft Docs
 description: Informazioni su come copiare o clonare una data factory in Azure Data Factory
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.author: douglasl
-ms.openlocfilehash: c62581447cd395bd48a787fa7dc89659d5172486
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+author: sharonlo101
+ms.author: shlo
+manager: craigg
+ms.openlocfilehash: 96ea8142e2f7794d3c15c6efb436eafa585bc8fd
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192740"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575614"
 ---
 # <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Copiare o clonare una data factory in Azure Data Factory
 
@@ -35,6 +35,8 @@ Ecco alcune delle circostanze in cui potrebbe essere utile copiare o clonare una
 1. L'interfaccia utente di Data Factory nel portale di Azure consente di esportare l'intero payload della data factory in un modello di Resource Manager, assieme a un file di parametro che consente di modificare i valori desiderati durante la clonazione della factory.
 
 1. Il prerequisito consiste nel creare la data factory di destinazione dal portale di Azure.
+
+1. Se hai un SelfHosted IntegrationRuntime nella factory origine, è necessario creazione preliminare, con lo stesso nome nell'ambiente di produzione di destinazione. Se si desidera condividere tra diverse factory IRs del proprio sito, è possibile usare il modello pubblicato [qui](author-visually.md#best-practices-for-git-integration).
 
 1. Ogni volta che si pubblica dal portale in modalità GIT, il modello di Resource Manager della factory viene salvato in GIT nel ramo adf_publish del repository.
 

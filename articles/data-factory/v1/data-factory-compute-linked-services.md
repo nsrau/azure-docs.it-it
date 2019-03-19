@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fea90d273d156eec3bf29f376e4cf6668c68170f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 0e0a249c53c90d3d8d03dcdb5fbb4f11f31c54df
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697518"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545151"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambienti di calcolo supportati da Azure Data Factory
 > [!NOTE]
@@ -116,7 +116,7 @@ Il codice JSON seguente definisce un servizio collegato HDInsight su richiesta b
 > [!IMPORTANT]
 > Il cluster HDInsight crea un *contenitore predefinito* nell'archivio BLOB di Azure specificato nella proprietà JSON **linkedServiceName**. Per impostazione predefinita, HDInsight non elimina il contenitore quando viene eliminato il cluster. In un servizio collegato HDInsight on demand viene creato un cluster HDInsight ogni volta che è necessario elaborare una sezione, a meno che non esista un cluster attivo (**timeToLive**). Il cluster viene eliminato al termine dell'elaborazione. 
 >
-> Man mano che vengono elaborate più sezioni, vengono visualizzati numerosi contenitori nell'archivio BLOB. Se i contenitori non sono necessari per risolvere i problemi relativi ai processi, è possibile eliminarli per ridurre i costi di archiviazione. I nomi dei contenitori seguono il modello `adf<your Data Factory name>-<linked service name>-<date and time>`. È possibile usare uno strumento come [Microsoft Azure Storage Explorer](http://storageexplorer.com/) per eliminare i contenitori nell'archivio BLOB.
+> Man mano che vengono elaborate più sezioni, vengono visualizzati numerosi contenitori nell'archivio BLOB. Se i contenitori non sono necessari per risolvere i problemi relativi ai processi, è possibile eliminarli per ridurre i costi di archiviazione. I nomi dei contenitori seguono il modello `adf<your Data Factory name>-<linked service name>-<date and time>`. È possibile usare uno strumento come [Microsoft Azure Storage Explorer](https://storageexplorer.com/) per eliminare i contenitori nell'archivio BLOB.
 >
 > 
 
@@ -144,7 +144,7 @@ Il codice JSON seguente definisce un servizio collegato HDInsight su richiesta b
 ### <a name="advanced-properties"></a>Proprietà avanzate
 Per la configurazione granulare del cluster HDInsight on demand, è anche possibile specificare le proprietà seguenti:
 
-| Proprietà               | Descrizione                              | Obbligatoria |
+| Proprietà               | Descrizione                              | Obbligatorio |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | Specifica i parametri di configurazione di base (core-site.xml) per il cluster HDInsight da creare. | No        |
 | hBaseConfiguration     | Specifica i parametri di configurazione HBase (hbase-site.xml) per il cluster HDInsight. | No        |
@@ -197,7 +197,7 @@ Per la configurazione granulare del cluster HDInsight on demand, è anche possib
 ### <a name="node-sizes"></a>Dimensioni dei nodi
 Per specificare le dimensioni dei nodi head, di dati e ZooKeeper, usare le proprietà seguenti: 
 
-| Proprietà          | Descrizione                              | Obbligatoria |
+| Proprietà          | Descrizione                              | Obbligatorio |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | Imposta le dimensioni del nodo head. Il valore predefinito è **Standard_D3**. Per informazioni dettagliate, vedere [Specificare le dimensioni dei nodi](#specify-node-sizes). | No        |
 | dataNodeSize      | Imposta le dimensioni del nodo di dati. Il valore predefinito è **Standard_D3**. | No        |
@@ -271,7 +271,7 @@ Questo tipo di configurazione è supportato per gli ambienti di calcolo seguenti
 Se non si ha familiarità con l'uso del servizio Batch:
 
 * Vedere [Informazioni su Azure Batch](../../batch/batch-technical-overview.md).
-* Vedere le informazioni sul cmdlet [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx). Usare questo cmdlet per creare un account Batch oppure creare l'account Batch usando il [portale di Azure](../../batch/batch-account-create-portal.md). Per informazioni dettagliate sull'uso del cmdlet, vedere [Using PowerShell to manage a Batch account](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) (Uso di PowerShell per gestire un account Batch).
+* Vedere le informazioni sul cmdlet [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx). Usare questo cmdlet per creare un account Batch oppure creare l'account Batch usando il [portale di Azure](../../batch/batch-account-create-portal.md). Per informazioni dettagliate sull'uso del cmdlet, vedere [Using PowerShell to manage a Batch account](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) (Uso di PowerShell per gestire un account Batch).
 * Vedere le informazioni sul cmdlet [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx). Usare questo cmdlet per creare un pool di Batch.
 
 ### <a name="example"></a>Esempio
@@ -332,7 +332,7 @@ Un'altra opzione consiste nello specificare l'endpoint **batchUri**. Ad esempio:
 ```
 
 ### <a name="properties"></a>Properties
-| Proprietà   | Descrizione                              | Obbligatoria |
+| Proprietà   | Descrizione                              | Obbligatorio |
 | ---------- | ---------------------------------------- | -------- |
 | Type       | Impostare la proprietà type su **AzureML**. | Sì      |
 | mlEndpoint | L’URL del batch punteggio.                   | Sì      |
@@ -362,7 +362,7 @@ Per usare l'autenticazione basata su entità servizio, registrare un'entità app
 
 Usare l'autenticazione basata su entità servizio specificando le proprietà seguenti:
 
-| Proprietà                | Descrizione                              | Obbligatoria |
+| Proprietà                | Descrizione                              | Obbligatorio |
 | :---------------------- | :--------------------------------------- | :------- |
 | servicePrincipalId  | ID client dell'applicazione.     | Sì      |
 | servicePrincipalKey | Chiave dell'applicazione.           | Sì      |
@@ -390,7 +390,7 @@ Usare l'autenticazione basata su entità servizio specificando le proprietà seg
 #### <a name="user-credential-authentication"></a>Autenticazione basata su credenziali utente
 Per l'autenticazione delle credenziali utente per Data Lake Analytics, specificare le proprietà seguenti:
 
-| Proprietà          | Descrizione                              | Obbligatoria |
+| Proprietà          | Descrizione                              | Obbligatorio |
 | :---------------- | :--------------------------------------- | :------- |
 | authorization | Nell'editor di Data Factory selezionare il pulsante **Autorizza**. Immettere le credenziali che assegnano l'URL dell'autorizzazione generato automaticamente a questa proprietà. | Sì      |
 | sessionId     | ID sessione OAuth dalla sessione di autorizzazione OAuth. Ogni ID di sessione è univoco e può essere usato solo una volta. Questa impostazione viene generata automaticamente quando si usa l'editor di Data Factory. | Sì      |

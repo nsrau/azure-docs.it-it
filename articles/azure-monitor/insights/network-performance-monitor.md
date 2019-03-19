@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: cff96ecb4f4b20e7e3542f6ae6e3e7740b750235
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: d35918659acb899e43f76e94168abcba080aa006
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729796"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452131"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Soluzione Monitoraggio prestazioni rete in Azure
 
@@ -119,19 +119,13 @@ Monitoraggio prestazioni rete usa le transazioni sintetiche per monitorare le pr
 
    **Monitoraggio di ExpressRoute**: Selezionare **Individua adesso** per individuare tutti i peering ExpressRoute privati connessi alle reti virtuali nella sottoscrizione di Azure collegata all'area di lavoro di Log Analytics. 
 
-   >[!NOTE] 
-   > La soluzione attualmente individua solo peering ExpressRoute privati 
-
-   >[!NOTE] 
-   > Vengono individuati solo i peering privati connessi alle reti virtuali associate alla sottoscrizione collegata all'area di lavoro di Log Analytics. Se ExpressRoute è connesso a reti virtuali esterne alla sottoscrizione collegata a questa area di lavoro, creare un'area di lavoro di Log Analytics in queste sottoscrizioni. Usare Monitoraggio prestazioni rete per monitorare questi peering.
-
    ![Visualizzazione Monitoraggio di ExpressRoute](media/network-performance-monitor/npm-express-route.png)
 
-   Al termine dell'individuazione, i peering privati individuati vengono elencati in una tabella. 
+   Una volta completata l'individuazione, i circuiti individuati e i peering sono elencati in una tabella. 
 
    ![Pagina di configurazione di Monitoraggio prestazioni rete](media/network-performance-monitor/npm-private-peerings.png)
     
-Il monitoraggio di questi peering è inizialmente disabilitato. Selezionare ogni peering che si desidera monitorare e configurarne il monitoraggio nella visualizzazione dettagli a destra. Selezionare **Salva** per salvare la configurazione. Per altre informazioni, vedere l'articolo "Configurare Monitoraggio di ExpressRoute". 
+Il monitoraggio di questi circuiti e i peering è inizialmente in uno stato disabilitato. Selezionare ogni risorsa che si desidera monitorare e configurare il monitoraggio dalla visualizzazione dettagli a destra. Selezionare **Salva** per salvare la configurazione. Per altre informazioni, vedere l'articolo "Configurare Monitoraggio di ExpressRoute". 
 
 Dopo aver completato la configurazione, il popolamento dei dati richiede da 30 minuti a un'ora. Mentre la soluzione aggrega i dati dalla rete, nel riquadro **Panoramica** di Monitoraggio prestazioni rete viene visualizzato il messaggio *La soluzione richiede una configurazione aggiuntiva*. Al termine della raccolta e dell'indicizzazione dei dati, il riquadro **Panoramica** cambia e mostra un riepilogo dell'integrità della rete. È quindi possibile modificare il monitoraggio dei nodi in cui sono installati gli agenti di Log Analytics, nonché delle subnet individuate dall'ambiente.
 
@@ -170,7 +164,7 @@ Nella tabella seguente vengono illustrati i metodi di raccolta dei dati e altri 
 
 | Piattaforma | Agente diretto | Agente di System Center Operations Manager | Archiviazione di Azure | È necessario Operations Manager? | Dati dell'agente Operations Manager inviati con il gruppo di gestione | Frequenza della raccolta |
 | --- | --- | --- | --- | --- | --- | --- |
-|  Windows | &#8226; | &#8226; |  |  |  |Handshake TCP/messaggi ICMP ECHO ogni 5 secondi, dati inviati ogni 3 minuti |
+| Windows | &#8226; | &#8226; |  |  |  |Handshake TCP/messaggi ICMP ECHO ogni 5 secondi, dati inviati ogni 3 minuti |
  
 
  
@@ -269,7 +263,7 @@ Per gli utenti di NPM che creano un avviso tramite il portale di Azure:
 3. Se si sceglie di usare gruppi di azioni, è necessario selezionare un gruppo di azioni creato in precedenza. È possibile imparare a creare un gruppo di azioni [qui.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
 4. Una volta creato correttamente l'avviso è possibile usare il collegamento Gestisci avvisi per gestire gli avvisi. 
 
-Ogni volta che si crea un avviso, NPM crea una regola di avviso log basata su query in Monitoraggio di Azure. Per impostazione predefinita, questa query viene attivata ogni 5 minuti. Monitoraggio di Azure non prevede addebiti per le prime 250 regole di avviso log create. Superato questo limite, ogni regola di avviso viene addebitata in base ai [prezzi per gli avvisi riportati nella pagina dei prezzi di Monitoraggio di Azure](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+Ogni volta che si crea un avviso, NPM crea una regola di avviso log basata su query in Monitoraggio di Azure. Questa query viene attivata ogni 5 minuti per impostazione predefinita. Monitoraggio di Azure non prevede addebiti per le prime 250 regole di avviso log create. Superato questo limite, ogni regola di avviso viene addebitata in base ai [prezzi per gli avvisi riportati nella pagina dei prezzi di Monitoraggio di Azure](https://azure.microsoft.com/en-us/pricing/details/monitor/).
 Le notifiche vengono addebitate separatamente in base ai [prezzi per le notifiche riportati nella pagina dei prezzi di Monitoraggio di Azure](https://azure.microsoft.com/en-us/pricing/details/monitor/).
 
 
