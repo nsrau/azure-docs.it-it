@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef9dbe1bb0ed9e5aad545453c409b0959bdd3fd4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7bb9fc806779565581fa7667749402f5608edd80
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207229"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438075"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considerazioni relative alla sicurezza quando si accede alle app in remoto usando il proxy applicazione di Azure AD
 
@@ -61,7 +61,7 @@ Il proxy applicazione di Azure AD è un proxy inverso, quindi tutto il traffico 
 
 Non è necessario aprire alcuna connessione in ingresso nella rete aziendale.
 
-I connettori proxy di applicazione usano solo connessioni in uscita per il servizio proxy di applicazione di Azure AD e, pertanto, non è necessario aprire le porte del firewall per le connessioni in ingresso. I proxy tradizionali richiedono una rete perimetrale e consentono l'accesso a connessioni non autenticate al perimetro della rete. Questo scenario richiede investimenti in prodotti web application firewall per analizzare il traffico e proteggere l'ambiente. Con il proxy applicazione non è necessario disporre di una rete perimetrale perché tutte le connessioni sono in uscita e su un canale sicuro.
+I connettori proxy di applicazione usano solo connessioni in uscita per il servizio proxy di applicazione di Azure AD e, pertanto, non è necessario aprire le porte del firewall per le connessioni in ingresso. I proxy tradizionali richiedono una rete *perimetrale* e consentono l'accesso a connessioni *non autenticate* al *perimetro* della rete. Questo scenario richiede investimenti in prodotti web application firewall per analizzare il traffico e proteggere l'ambiente. Con il proxy applicazione non è necessario disporre di una rete perimetrale perché tutte le connessioni sono in uscita e su un canale sicuro.
 
 Per altre informazioni sui connettori, vedere [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md) (Informazioni sui connettori proxy di applicazione di Azure AD).
 
@@ -69,7 +69,7 @@ Per altre informazioni sui connettori, vedere [Understand Azure AD Application P
 
 Ottenere una protezione all'avanguardia.
 
-Dal momento che fa parte di Azure Active Directory, il proxy applicazione può sfruttare [Azure AD Identity Protection](../active-directory-identityprotection.md) con i dati provenienti da Microsoft Security Response Center e dalla Digital Crimes Unit. Insieme si possono identificare gli account compromessi e offrire protezione contro gli accessi ad alto rischio. Per determinare quali tentativi di accesso sono ad alto rischio, si prendono in considerazione diversi fattori. Questi fattori includono l'uso di flag per contrassegnare i dispositivi infettati, l'anonimizzazione delle reti e i percorsi atipici o improbabili.
+Dal momento che fa parte di Azure Active Directory, il proxy applicazione può sfruttare [Azure AD Identity Protection](../active-directory-identityprotection.md) con i dati provenienti da Microsoft Security Response Center e dalla Digital Crimes Unit. Insieme si possono identificare gli account compromessi e offrire protezione contro gli accessi ad alto rischio. Vengono presi in considerazione diversi fattori per determinare quali tentativi di accesso sono ad alto rischio. Questi fattori includono l'uso di flag per contrassegnare i dispositivi infettati, l'anonimizzazione delle reti e i percorsi atipici o improbabili.
 
 Molti di questi eventi e segnalazioni sono già disponibili tramite un'API per l'integrazione con i sistemi SIEM (Security Information and Event Management, Sistema di gestione delle informazioni e degli eventi di sicurezza).
 

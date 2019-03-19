@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0b4e2d3e7c75e6d25c7d519d4179a635a7833b6b
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: fe1ac091b1aecc6f6242cdeaf6b886bf67d2a91b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695322"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878235"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Connettere Excel ad Apache Hadoop in HDInsight mediante Microsoft Hive ODBC Driver
 
@@ -41,17 +41,17 @@ I passaggi seguenti mostrano come creare un'origine dati Hive ODBC.
 
 1. In Windows scegliere Start > Strumenti di amministrazione Windows > Origine dati (ODBC) (32 bit)/(64 bit).  Verrà aperta la finestra **Amministratore origine dati ODBC**.
    
-    ![Amministratore origine dati ODBC](./media/apache-hadoop-connect-excel-hive-odbc-driver/HDI.SimbaHiveOdbc.DataSourceAdmin1.png "Configurare un DSN usando l'amministrazione origine dati ODBC")
+    ![Amministrazione origine dati ODBC](./media/apache-hadoop-connect-excel-hive-odbc-driver/HDI.SimbaHiveOdbc.DataSourceAdmin1.png "Configurare un DSN usando l'amministrazione origine dati ODBC")
 
 2. Nella scheda **DSN utente** selezionare **Aggiungi** per aprire la finestra **Crea nuova origine dati**.
 
-3. Selezionare **Microsoft Hive ODBC Driver** e quindi selezionare **Fine** per aprire la finestra di configurazione del**** DSN per Microsoft Hive ODBC Driver.
+3. Selezionare **Microsoft Hive ODBC Driver** e quindi selezionare **Fine** per aprire la finestra di configurazione del **DSN per Microsoft Hive ODBC Driver**.
 
 4. Digitare o selezionare i valori seguenti:
    
-   | Proprietà | Descrizione |
+   | Proprietà | DESCRIZIONE |
    | --- | --- |
-   |  Nome origine dati |Assegnare un nome all'origine dati |
+   |  Data Source Name |Assegnare un nome all'origine dati |
    |  Host |Immettere &lt;HDInsightClusterName&gt;.azurehdinsight.net. Ad esempio, myHDICluster.azurehdinsight.net |
    |  Porta |Utilizzare <strong>443</strong>. Questa porta è passata da 563 a 443. |
    |  Database |Usare l'<strong>impostazione predefinita</strong>. |
@@ -62,7 +62,7 @@ I passaggi seguenti mostrano come creare un'origine dati Hive ODBC.
    
 5. Facoltativo: selezionare **Opzioni avanzate**  
    
-   | Parametro | Descrizione |
+   | Parametro | DESCRIZIONE |
    | --- | --- |
    |  Use Native Query |Quando viene selezionato, il driver ODBC NON cerca di convertire TSQL in HiveQL. Deve essere usato solo se si è assolutamente certi di inviare istruzioni HiveQL pure. Quando ci si connette al database SQL Server o SQL di Azure, è consigliabile lasciarlo deselezionato. |
    |  Rows fetched per block |Quando si recupera un numero elevato di record, potrebbe essere necessario ottimizzare questo parametro per assicurare prestazioni ottimali. |
@@ -74,7 +74,7 @@ I passaggi seguenti mostrano come creare un'origine dati Hive ODBC.
 
 6. Selezionare **OK** per chiudere la finestra Test.  
 
-7. Selezionare **OK** per chiudere la finestra di configurazione del **** DSN per Microsoft Hive ODBC Driver.  
+7. Selezionare **OK** per chiudere la finestra di configurazione del **DSN per Microsoft Hive ODBC Driver**.  
 
 8. Selezionare **OK** per chiudere la finestra **Amministratore origine dati ODBC**.  
 

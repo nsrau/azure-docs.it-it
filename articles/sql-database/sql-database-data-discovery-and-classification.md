@@ -12,16 +12,16 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 3c5f087ed44c252737e7f45fde12a4b509637499
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 8417b849ad7589ce6a770eb805c38a13e3c672dd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892882"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448765"
 ---
 # <a name="azure-sql-database-data-discovery--classification"></a>Individuazione dati e classificazione nel database SQL di Azure
 
-Individuazione dati e classificazione (attualmente in anteprima) offre funzionalità avanzate incorporate nel database SQL di Azure per l'**individuazione**, la **classificazione**, l'**aggiunta di etichette** e la **protezione** dei dati sensibili presenti nei database.
+Individuazione dati e classificazione (attualmente in anteprima) offre funzionalità avanzate incorporate nel database SQL di Azure per l'**individuazione**, la **classificazione**, l'**aggiunta di etichette**  & (e) la **protezione** dei dati sensibili presenti nei database.
 L'individuazione e la classificazione dei dati più sensibili (dati commerciali, finanziari e relativi all'assistenza sanitaria, informazioni personali e così via) possono svolgere un ruolo fondamentale per il livello di protezione delle informazioni aziendali. Individuazione dati e classificazione può svolgere la funzione di infrastruttura per:
 
 - Contribuire a soddisfare gli standard e i requisiti di conformità alle normative sulla privacy dei dati.
@@ -31,7 +31,7 @@ L'individuazione e la classificazione dei dati più sensibili (dati commerciali,
 Individuazione dati e classificazione fa parte dell'offerta [Sicurezza dei dati avanzata](sql-database-advanced-data-security.md) (ADS), un pacchetto unificato che raccoglie le funzionalità di sicurezza avanzate di SQL. È possibile accedere e gestire Individuazione dati e classificazione tramite il portale centrale di Sicurezza dei dati avanzata di SQL.
 
 > [!NOTE]
-> Questo documento si riferisce solo al database SQL di Azure. Per SQL Server (locale), vedere [SQL Data Discovery and Classification](https://go.microsoft.com/fwlink/?linkid=866999) (Individuazione e classificazione dei dati SQL).
+> Questo documento si riferisce solo al database SQL di Azure. Per SQL Server (locale), vedere [individuazione dati di SQL e la classificazione](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="subheading-1"></a>Informazioni su Individuazione dati e classificazione
 
@@ -144,7 +144,7 @@ Un aspetto importante del paradigma di Information Protection è la possibilità
 - [Eliminazione](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete): elimina l'etichetta Riservatezza di una colonna specifica
 - [Recupero](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): ottiene l'etichetta Riservatezza di una colonna specifica
 - [List Current By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) - (Elenca elementi correnti per database): consente di ottenere le etichette Riservatezza correnti di un database specifico
-- [List Recommended By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) - (Elenca elementi consigliati per database): consente di ottenere le etichette Riservatezza correnti di un database specifico
+- [Elenco consigliato dal Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -Ottiene le etichette di riservatezza consigliato di un determinato database
 
 ## <a id="subheading-5"></a>Passaggi successivi
 

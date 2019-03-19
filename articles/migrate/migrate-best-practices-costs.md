@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 974ea5803b6e31ad8f940265071f41440d5355da
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 6f6440e12840538614b4092b173ab25ae37a68a6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700639"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110282"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Procedure consigliate per la determinazione dei costi e il ridimensionamento dei carichi di lavoro migrati in Azure
 
@@ -40,17 +40,18 @@ Per prevedere i costi mensili per i carichi di lavoro migrati sono disponibili n
 
 - **Calcolatore prezzi di Azure**: Selezionare i prodotti per cui si desidera calcolare una stima, ad esempio le macchine virtuali e le risorse di archiviazione. La stima viene calcolata immettendo i costi nel calcolatore prezzi.
 
- ![Calcolatore prezzi di Azure](./media/migrate-best-practices-costs/pricing.png) *Calcolatore prezzi di Azure*
+  ![Calcolatore prezzi di Azure](./media/migrate-best-practices-costs/pricing.png) *Calcolatore prezzi di Azure*
 
 - **Azure Migrate**: Per stimare i costi è necessario esaminare e calcolare tutte le risorse necessarie all'esecuzione dei carichi di lavoro in Azure. Per acquisire questi dati si crea un inventario degli asset, inclusi server, macchine virtuali, database e risorse di archiviazione. Per raccogliere queste informazioni è possibile usare Azure Migrate.
 
- - Con Azure Migrate l'ambiente locale viene individuato e valutato allo scopo di fornire un inventario.
- - Azure Migrate può eseguire il mapping e mostrare le dipendenze tra macchine virtuali in modo da offrire all'utente un quadro completo.
- - Una valutazione di Azure Migrate contiene il costo stimato.
+  - Con Azure Migrate l'ambiente locale viene individuato e valutato allo scopo di fornire un inventario.
+  - Azure Migrate può eseguire il mapping e mostrare le dipendenze tra macchine virtuali in modo da offrire all'utente un quadro completo.
+  - Una valutazione di Azure Migrate contiene il costo stimato.
     - Costi di calcolo: Se durante la creazione di una valutazione si usano le dimensioni consigliate della macchina virtuale di Azure, Azure Migrate userà l'API di fatturazione per calcolare i costi mensili stimati della macchina virtuale. Per il calcolo vengono prese in considerazione le impostazioni relative al sistema operativo, al programma Software Assurance, alle istanze riservate, al tempo di attività della macchina virtuale, alla posizione e alla valuta. Nella valutazione vengono aggregati i costi di tutte le macchine virtuali e calcolato il costo di calcolo totale mensile.
     - Costi di archiviazione: Azure Migrate calcola i costi di archiviazione mensili totali aggregando i costi di archiviazione di tutte le macchine virtuali comprese in una valutazione. È possibile calcolare il costo di archiviazione mensile di una macchina virtuale aggregando il costo mensile di tutti i dischi a essa collegati. 
 
-    ![Azure Migrate](./media/migrate-best-practices-costs/assess.png) *Valutazione di Azure Migrate*
+    ![Azure Migrate](./media/migrate-best-practices-costs/assess.png)
+    *valutazione di Azure Migrate*
 
 **Altre informazioni:**
 - [Usare](https://azure.microsoft.com/pricing/calculator/) il calcolatore prezzi di Azure.
@@ -92,13 +93,13 @@ L'ottimizzazione e la gestione delle risorse di archiviazione locali (SAN o NAS)
 
 Azure offre diversi tipi di dati di archiviazione.
 
-**Tipo di dati** | **Dettagli** | **Utilizzo** 
---- | --- |  ---
-**BLOB** | Ottimizzati per archiviare enormi quantità di oggetti non strutturati, come testo o dati binari<br/><br/> | Accedere ai dati tramite HTTP/HTTPS da qualsiasi posizione. | Uso per gli scenari di accesso casuale e streaming. Ad esempio, per rendere direttamente disponibili in un browser immagini e documenti, per eseguire lo streaming di video e audio e per archiviare i dati di ripristino di emergenza e backup.
-**File** | Condivisioni di file gestite accessibili tramite SMB 3.0 | Per la migrazione delle condivisioni file in locale e per fornire più connessioni/accessi ai dati dei file.
-**Dischi** | Basati su BLOB di pagine.<br/><br/> Tipo di disco (velocità): Standard (HDD o SSD) o Premium (SSD).<br/><br/>Gestione disco: Non gestito (l'utente sceglie le impostazioni del disco e di archiviazione) o gestito (l'utente seleziona il tipo di disco e Azure si occupa della gestione del disco). | Per le macchine virtuali, usare dischi Premium. Usare i dischi gestiti per gestione e scalabilità semplificate.
-**Code** | Consentono di archiviare e recuperare grandi quantità di messaggi accessibili mediante chiamate autenticate (HTTP o HTTPS) | Connettere i componenti delle app con accodamento asincrono dei messaggi.
-**Tabelle** | Archiviazione di tabelle. | Ora parte dell'API Tabella di Azure Cosmos DB.
+| **Tipo di dati** | **Dettagli** | **Utilizzo** |
+|--- | --- |  --- |
+|**BLOB** | Ottimizzati per archiviare enormi quantità di oggetti non strutturati, come testo o dati binari<br/>Accedere ai dati tramite HTTP/HTTPS da qualsiasi posizione. | Uso per gli scenari di accesso casuale e streaming. Ad esempio, per rendere direttamente disponibili in un browser immagini e documenti, per eseguire lo streaming di video e audio e per archiviare i dati di ripristino di emergenza e backup.|
+|**File** | Condivisioni di file gestite accessibili tramite SMB 3.0 | Per la migrazione delle condivisioni file in locale e per fornire più connessioni/accessi ai dati dei file.|
+|**Dischi** | Basati su BLOB di pagine.<br/><br/> Tipo di disco (velocità): Standard (HDD o SSD) o Premium (SSD).<br/><br/>Gestione disco: Non gestito (l'utente sceglie le impostazioni del disco e di archiviazione) o gestito (l'utente seleziona il tipo di disco e Azure si occupa della gestione del disco). | Per le macchine virtuali, usare dischi Premium. Usare i dischi gestiti per gestione e scalabilità semplificate.|
+|**Code** | Consentono di archiviare e recuperare grandi quantità di messaggi accessibili mediante chiamate autenticate (HTTP o HTTPS) | Connettere i componenti delle app con accodamento asincrono dei messaggi.|
+|**Tabelle** | Archiviazione di tabelle. | Ora parte dell'API Tabella di Azure Cosmos DB.|
 
 
 
@@ -211,19 +212,21 @@ Con Gestione costi è possibile:
 
 
 - **Creare un budget**: Creare un budget per la responsabilità finanziaria.
-    - È possibile considerare i servizi che si usano o per cui si effettua una sottoscrizione per un periodo specifico (mensile, trimestrale, annuale) e un ambito (sottoscrizioni/gruppi di risorse). Ad esempio, è possibile creare il budget per una sottoscrizione di Azure per un periodo di un mese, un trimestre o un anno.
-    - Dopo la creazione, il budget viene visualizzato nell'analisi dei costi. Il confronto tra il budget e la spesa corrente è uno dei primi passaggi necessari per l'analisi di costi e spesa.
-    - Quando le soglie massime del budget vengono raggiunte, è possibile inviare delle notifiche e-mail.
-    - È possibile esportare i dati di gestione dei costi nella risorsa di archiviazione di Azure per analizzarli.
+  - È possibile considerare i servizi che si usano o per cui si effettua una sottoscrizione per un periodo specifico (mensile, trimestrale, annuale) e un ambito (sottoscrizioni/gruppi di risorse). Ad esempio, è possibile creare il budget per una sottoscrizione di Azure per un periodo di un mese, un trimestre o un anno.
+  - Dopo la creazione, il budget viene visualizzato nell'analisi dei costi. Il confronto tra il budget e la spesa corrente è uno dei primi passaggi necessari per l'analisi di costi e spesa.
+  - Quando le soglie massime del budget vengono raggiunte, è possibile inviare delle notifiche e-mail.
+  - È possibile esportare i dati di gestione dei costi nella risorsa di archiviazione di Azure per analizzarli.
 
-    ![Budget di Gestione costi](./media/migrate-best-practices-costs/budget.png) *Budget di Gestione costi di Azure*
+    ![Budget di gestione dei costi](./media/migrate-best-practices-costs/budget.png)
+    *budget per gestione costi di Azure*
 
 - **Eseguire un'analisi dei costi**: L'analisi dei costi consente di esplorare e analizzare i costi dell'organizzazione per comprendere come vengono derivati e identificare le tendenze di spesa.
-    - L'analisi dei costi è disponibile per gli utenti con contratto Enterprise.
-    - È possibile visualizzare i dati di analisi dei costi per diversi ambiti, tra cui per dipartimento, account, sottoscrizione o gruppo di risorse.
-    - È possibile ottenere un'analisi dei costi per visualizzare i costi totali per il mese corrente e i costi giornalieri accumulati. 
+  - L'analisi dei costi è disponibile per gli utenti con contratto Enterprise.
+  - È possibile visualizzare i dati di analisi dei costi per diversi ambiti, tra cui per dipartimento, account, sottoscrizione o gruppo di risorse.
+  - È possibile ottenere un'analisi dei costi per visualizzare i costi totali per il mese corrente e i costi giornalieri accumulati. 
 
-    ![Analisi di Gestione costi](./media/migrate-best-practices-costs/analysis.png) *Analisi di Gestione costi di Azure*
+    ![Analisi di gestione dei costi](./media/migrate-best-practices-costs/analysis.png)
+    *analisi gestione costi di Azure*
 - **Ottenere consigli**: Ottenere consigli di Advisor che mostrano come ottimizzare e migliorare l'efficienza.
 
 

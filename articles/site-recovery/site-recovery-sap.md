@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 9399f9d47d89215080b1f633423843f501fefb7b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 68efc039c5de5d7f61b7ce34e74c6c2cf4bad027
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850432"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670877"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurare il ripristino di emergenza per una distribuzione di applicazioni SAP NetWeaver multilivello
 
@@ -44,7 +44,7 @@ Con Site Recovery è possibile implementare una soluzione di ripristino di emerg
 * Sistemi SAP in esecuzione su server VMware (o fisici) locali che eseguono la replica a un sito di ripristino di emergenza in un data Center di Azure (ripristino di emergenza da VMware ad Azure). Questo scenario prevede alcuni componenti aggiuntivi. Per altre informazioni, vedere [VMware-to-Azure replication architecture](https://aka.ms/asr-v2a-architecture) (Architettura di replica da VMware ad Azure).
 * Sistemi SAP in esecuzione su server Hyper-V locali che eseguono la replica a un sito di ripristino di emergenza in un data Center di Azure (ripristino di emergenza da Hyper-V ad Azure). Questo scenario prevede alcuni componenti aggiuntivi. Per altre informazioni, vedere [Hyper-V-to-Azure replication architecture](https://aka.ms/asr-h2a-architecture) (Architettura di replica da Hyper-V ad Azure).
 
-In questo articolo viene usato un scenario di ripristino di emergenza da Azure ad Azure per illustrare le funzionalità di ripristino di emergenza SAP di Site Recovery. Poiché la replica di Site Recovery non varia in base all'applicazione, il processo descritto dovrebbe applicarsi anche ad altri scenari.
+In questo articolo viene usato un scenario di ripristino di emergenza da **Azure ad Azure** per illustrare le funzionalità di ripristino di emergenza SAP di Site Recovery. Poiché la replica di Site Recovery non varia in base all'applicazione, il processo descritto dovrebbe applicarsi anche ad altri scenari.
 
 ### <a name="required-foundation-services"></a>Servizi di base necessari
 Nello scenario affrontato in questo articolo vengono distribuiti i servizi di base seguenti:
@@ -80,7 +80,7 @@ Per supportare l'ambiente cluster di failover, [SIOS DataKeeper Cluster Edition]
 
 Un altro modo di gestire il clustering consiste nell'implementare un cluster di condivisioni file. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) ha di recente modificato il modello di distribuzione di Central Services in modo da permettere l'accesso alle directory globali /sapmnt tramite un percorso UNC. È comunque consigliabile assicurarsi che la condivisione UNC/sapmnt abbia disponibilità elevata. A questo scopo, nell'istanza di Central Services usare Windows Server Failover Cluster con File server di scalabilità orizzontale e la funzionalità Storage Spaces Direct in Windows Server 2016. 
  > [!NOTE]
- > Attualmente il supporto di Azure Site Recovery arresta solo la replica del punto consistente delle macchine virtuali tramite gli spazi di archiviazione diretti 
+ > Attualmente il supporto di Azure Site Recovery crash solo il punto coerente con la replica di macchine virtuali tramite archiviazione spazi diretti e passivi del nodo di SIOS Datakeeper
 
 
 ## <a name="disaster-recovery-considerations"></a>Considerazioni sul ripristino di emergenza
@@ -100,7 +100,7 @@ Di seguito è presente l'indicazione per il ripristino di emergenza di ogni live
  **Livelli di SAP** | **Consiglio**
  --- | ---
 **Pool di componenti SAP Web Dispatcher** |  Replica con Site Recovery 
-Pool di server applicazioni SAP |  Replica con Site Recovery 
+**Pool di server applicazioni SAP** |  Replica con Site Recovery 
 **Cluster SAP Central Services** |  Replica con Site Recovery 
 **Macchine virtuali di Active directory** |  Replica di Active Directory 
 **Server di database SQL** |  Replica di SQL AlwaysOn

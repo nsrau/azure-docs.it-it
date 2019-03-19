@@ -3,17 +3,17 @@ title: Caricare immagini nell'applicazione Azure IoT Central | Microsoft Docs
 description: Informazioni su come preparare e caricare immagini nell'applicazione Azure IoT Central in qualità di costruttore.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/31/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 9d4de2a8be13718f7989f064b76b586407ca3a48
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: c8444fd57fe939dfb212d88c22a071c13dac691e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198610"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767329"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Preparare e caricare immagini nell'applicazione Azure IoT Central
 
@@ -30,13 +30,13 @@ Per seguire la procedura descritta in questo articolo, sono necessari gli elemen
 
 È possibile aggiungere immagini personalizzate nelle posizioni seguenti di un'applicazione Azure IoT Central:
 
-* La pagina **Application Manager**
+* Il **mie applicazioni** pagina
 
     ![Immagine sulla pagina Application Manager](media/howto-prepare-images/applicationmanager.png)
 
-* La home page
+* Il dashboard delle applicazioni
 
-    ![Immagine sulla home page](media/howto-prepare-images/homepage.png)
+    ![Immagine nel dashboard dell'applicazione](media/howto-prepare-images/homepage.png)
 
 * Un modello di dispositivo
 
@@ -60,7 +60,7 @@ La tabella seguente riepiloga le dimensioni di immagine ammesse:
 | -------- | ------ |
 | Application Manager | 268 x 160 px |
 | Modello di dispositivo | 64 x 64 px |
-| Home page e riquadri del dashboard | Il riquadro con le minime dimensioni è 200 x 200 px, i riquadri più grandi possono essere quadrati o rettangoli che siano multipli dei riquadri piccoli. Ad esempio 200 x 400 px, 400 x 200 px o 400 x 400 px |
+| Riquadri del dashboard | Il riquadro con le minime dimensioni è 200 x 200 px, i riquadri più grandi possono essere quadrati o rettangoli che siano multipli dei riquadri piccoli. Ad esempio 200 x 400 px, 400 x 200 px o 400 x 400 px |
 
 Per la visualizzazione ottimale nell'applicazione, è consigliabile creare immagini con le dimensioni indicate nella tabella precedente.
 
@@ -70,49 +70,49 @@ Le sezioni seguenti descrivono come caricare le immagini nelle diverse posizioni
 
 ### <a name="application-manager"></a>Application Manager
 
-Per caricare un'immagine in **Application Manager**, passare alla pagina **Application Settings** (Impostazioni applicazione) nella sezione **Administration** (Amministrazione). È necessario essere un amministratore per poter eseguire questa attività:
+Per caricare un'immagine da utilizzare nel **applicazioni personali** pagina, passare al **le impostazioni dell'applicazione** nella pagina il **amministrazione** sezione. È necessario essere un amministratore per poter eseguire questa attività:
 
 ![Caricare l'immagine dell'applicazione](media/howto-prepare-images/uploadapplicationmanager.png)
 
-Fare clic sul riquadro Immagine applicazione per caricare l'immagine preparata (268 x 160 px) dal computer locale.
+Selezionare il riquadro immagine dell'applicazione per caricare l'immagine preparata (268 x 160 px) dal computer locale.
 
-### <a name="home-page"></a>Home page
+### <a name="application-dashboard"></a>Dashboard dell'applicazione
 
-Per caricare un'immagine nella home page, passare alla **home page** dell'applicazione e fare clic su **Modifica**. Per poter completare questa attività è necessario essere un costruttore:
+Per caricare un'immagine nel dashboard dell'applicazione, passare al **Dashboard** pagina dell'applicazione e selezionare **modificare**. Per poter completare questa attività è necessario essere un costruttore:
 
-![Caricare l'immagine della home page](media/howto-prepare-images/uploadhomepage.png)
+![Caricare l'immagine del dashboard](media/howto-prepare-images/uploadhomepage.png)
 
-In Configura immagine fare clic sul riquadro Immagine per caricare l'immagine preparata dal computer locale. Il riquadro con le minime dimensioni è 200 x 200 px, i riquadri più grandi possono essere quadrati o rettangoli che siano multipli dei riquadri piccoli. Ad esempio 200 x 400 px, 400 x 200 px o 400 x 400 px.
+In Configura immagine, selezionare il riquadro immagine a caricare l'immagine preparata dal computer locale. Il riquadro con le minime dimensioni è 200 x 200 px, i riquadri più grandi possono essere quadrati o rettangoli che siano multipli dei riquadri piccoli. Ad esempio 200 x 400 px, 400 x 200 px o 400 x 400 px.
 
-**Salvare** l'immagine caricata. È possibile ridimensionarla in modalità di modifica. Al termine, fare clic su **Done** (Operazione completata). 
+**Salvare** l'immagine caricata. È possibile ridimensionarla in modalità di modifica. Selezionare **al termine**.
 
 ### <a name="device-template"></a>Modello di dispositivo
 
-Per caricare un'immagine in un modello di dispositivo, passare a **Device Explorer**, scegliere il modello di dispositivo e poi un dispositivo. Per poter completare questa attività è necessario essere un costruttore:
+Per caricare un'immagine in un modello di dispositivo, passare a **Modelli di dispositivi** e scegliere il modello di dispositivo. Per poter completare questa attività è necessario essere un costruttore:
 
 ![Caricare un'immagine di modello di dispositivo](media/howto-prepare-images/uploaddevicetemplate.png)
 
-Fare clic sul riquadro immagine per caricare l'immagine preparata (64 x 64 px) dal computer locale. 
+Selezionare il riquadro immagine a caricare l'immagine preparata (64x64 px) dal computer locale.
 
 ### <a name="device-dashboard"></a>Pagina dashboard
 
-Per caricare un'immagine in un dashboard di dispositivo, passare a **Device Explorer**, scegliere il modello di dispositivo e poi un dispositivo. Quindi scegliere la pagina **Dashboard** e fare clic su **Modifica modello**. Per poter completare questa attività è necessario essere un costruttore:
+Per caricare un'immagine in un dashboard di dispositivo, passare a **Modelli di dispositivi** e scegliere il modello di dispositivo. Quindi selezionare la scheda **Dashboard**. Per poter completare questa attività è necessario essere un costruttore:
 
 ![Caricare un'immagine del dashboard di dispositivo](media/howto-prepare-images/uploaddevicedashboard.png)
 
-In Configura immagine fare clic sul riquadro Immagine e scegliere il file da caricare dal computer locale. Il riquadro con le minime dimensioni è 200 x 200 px, i riquadri più grandi possono essere quadrati o rettangoli che siano multipli dei riquadri piccoli. Ad esempio 200 x 400 px, 400 x 200 px o 400 x 400 px.
+Selezionare il riquadro immagine in immagine, configurare e quindi scegliere il file da caricare dal computer locale. Il riquadro con le minime dimensioni è 200 x 200 px, i riquadri più grandi possono essere quadrati o rettangoli che siano multipli dei riquadri piccoli. Ad esempio 200 x 400 px, 400 x 200 px o 400 x 400 px.
 
-**Salvare** l'immagine caricata. È possibile ridimensionarla e riposizionarla in modalità di modifica. Al termine, fare clic su **Done** (Operazione completata).
+**Salvare** l'immagine caricata. È possibile ridimensionarla e riposizionarla in modalità di modifica. Selezionare **al termine**.
 
 ### <a name="device-set-dashboard"></a>Dashboard del set di dispositivi
 
-Per caricare un'immagine in un dashboard del set di dispositivi, passare a **Device Sets** (Set di dispositivi), scegliere il set di dispositivi e poi un dispositivo. Quindi scegliere la pagina **Dashboard** e fare clic su **Modifica**:
+Per caricare un'immagine in un dashboard del set di dispositivi, passare a **Device Sets** (Set di dispositivi), scegliere il set di dispositivi e poi un dispositivo. Quindi scegliere il **Dashboard** pagina e selezionare **modificare**:
 
 ![Caricare un'immagine per il dashboard del set di dispositivi](media/howto-prepare-images/uploaddevicesetdashboard.png)
 
-In Configura immagine fare clic sul riquadro Immagine per caricare l'immagine preparata dal computer locale. Il riquadro con le minime dimensioni è 200 x 200 px, i riquadri più grandi possono essere quadrati o rettangoli che siano multipli dei riquadri piccoli. Ad esempio 200 x 400 px, 400 x 200 px o 400 x 400 px.
+In Configura immagine, selezionare il riquadro immagine a caricare l'immagine preparata dal computer locale. Il riquadro con le minime dimensioni è 200 x 200 px, i riquadri più grandi possono essere quadrati o rettangoli che siano multipli dei riquadri piccoli. Ad esempio 200 x 400 px, 400 x 200 px o 400 x 400 px.
 
-**Salvare** l'immagine caricata. È possibile ridimensionarla e riposizionarla in modalità di modifica. Al termine, fare clic su **Done** (Operazione completata).
+**Salvare** l'immagine caricata. È possibile ridimensionarla e riposizionarla in modalità di modifica. Selezionare **al termine**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
