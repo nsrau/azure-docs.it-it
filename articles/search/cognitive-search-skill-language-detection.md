@@ -8,24 +8,26 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/25/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 088a147bbcf4f94209ce9faf62e14833a818408c
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: 605f4c639cfc8c0f9732f7347532e1bd7edc055f
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411307"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404655"
 ---
 #   <a name="language-detection-cognitive-skill"></a>Competenza cognitiva di rilevamento lingua
 
-La competenza **rilevamento lingua**, per un massimo di 120 lingue, rileva la lingua del testo di input e restituisce un codice lingua singolo per ogni documento inviato nella richiesta. Il codice lingua è associato a un punteggio che indica il livello di attendibilità dell'analisi. Questa competenza usa i modelli di Machine Learning forniti da [Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) in Servizi cognitivi.
+Il **rilevamento lingua** competenza rileva la lingua del testo di input e segnala il codice una sola lingua per ogni documento inviato nella richiesta. Il codice lingua è associato a un punteggio che indica il livello di attendibilità dell'analisi. Questa competenza usa i modelli di Machine Learning forniti da [Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) in Servizi cognitivi.
 
 Questa funzionalità è particolarmente utile quando è necessario specificare la lingua del testo come input per altre competenze (ad esempio, la competenza [Analisi del sentiment](cognitive-search-skill-sentiment.md) o la competenza [Divisione del testo](cognitive-search-skill-textsplit.md)).
 
+Rilevamento della lingua si basa su librerie di elaborazione in linguaggio naturale di Bing, che supera il numero del [lingue e aree geografiche supportate](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support) elencati per testo Analitica. L'elenco esatto delle lingue non è pubblicato, ma include tutte le lingue, diffuse in più varianti, dialetti e alcune lingue internazionali e relative alla lingua. Se si dispone di contenuto espresso in un linguaggio usato meno frequentemente, è possibile [provare l'API di rilevamento lingua](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) per vedere se viene restituito un codice. La risposta per le lingue che non può essere rilevato è `unknown`.
+
 > [!NOTE]
-> Dal 21 dicembre 2018 è possibile [collegare una risorsa Servizi cognitivi](cognitive-search-attach-cognitive-services.md) a un set di competenze di Ricerca di Azure. Ciò consente anche di addebitare l'esecuzione del set di competenze. In questa data è iniziato anche l'addebito dell'estrazione delle immagini come parte della fase di individuazione dei documenti. L'estrazione di testo dai documenti continua a essere offerta gratuitamente.
+> Dal 21 dicembre 2018 è possibile [collegare una risorsa di Servizi cognitivi](cognitive-search-attach-cognitive-services.md) a un set di competenze di Ricerca di Azure. Ciò consente anche di addebitare l'esecuzione del set di competenze. In questa data è iniziato anche l'addebito dell'estrazione delle immagini come parte della fase di individuazione dei documenti. L'estrazione di testo dai documenti continua a essere offerta gratuitamente.
 >
 > L'esecuzione delle [competenze cognitive predefinite](cognitive-search-predefined-skills.md) viene addebitata in base ai [prezzi con pagamento a consumo di Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services), alla stessa tariffa che verrebbe usata se fosse stata eseguita l'attività direttamente. L'estrazione di immagini è un addebito previsto in Ricerca di Azure, attualmente offerto al prezzo di anteprima. Per informazioni dettagliate, vedere la [pagina dei prezzi di Ricerca di Azure](https://go.microsoft.com/fwlink/?linkid=2042400) oppure [Come funziona la fatturazione](search-sku-tier.md#how-billing-works).
 
@@ -39,13 +41,13 @@ Le dimensioni massime di un record devono essere di 50.000 caratteri in base all
 
 I parametri fanno distinzione tra maiuscole e minuscole.
 
-| Input     | Descrizione |
+| Input     | DESCRIZIONE |
 |--------------------|-------------|
 | text | Testo da analizzare.|
 
 ## <a name="skill-outputs"></a>Output competenze
 
-| Nome output    | Descrizione |
+| Nome output    | DESCRIZIONE |
 |--------------------|-------------|
 | languageCode | Il codice di lingua ISO 6391 per la lingua identificata. Ad esempio, "en". |
 | languageName | Il nome della lingua. Ad esempio, "Inglese". |

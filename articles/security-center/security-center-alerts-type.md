@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1f9ea2fd1e9a346046c55db451bc333373896db5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 6bd05a417bfb011dd86b61d654be836ef76099b7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118089"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439684"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure
 Questo articolo consente di comprendere i diversi tipi di avvisi di sicurezza e le informazioni significative che ne derivano disponibili nel Centro sicurezza di Azure. Per altre informazioni sulla gestione degli avvisi e degli eventi imprevisti, vedere [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md).
@@ -96,7 +96,7 @@ Il Centro sicurezza usa l'analisi avanzata per identificare le risorse compromes
 * **Tutte le copie shadow dei file sono state eliminate**: un avviso simile a questo indica che le copie shadow sono state eliminate.
 * **Comandi sospetti di pulizia file**: un avviso simile a questo indica una combinazione di comandi systeminfo usati per eseguire un'attività di pulizia automatica successiva a una compromissione.  Anche se *systeminfo.exe* è uno strumento legittimo di Windows, è raro che venga eseguito due volte in successione, seguito da una comando di eliminazione come in questo caso.
 * **Creazione sospetta di account**: un avviso simile a questo indica che è stato creato un account molto somigliante a un account predefinito esistente con privilegi amministrativi. Questa tecnica può essere usata da utenti malintenzionati per creare un account non autorizzato senza essere rilevati.
-* **Attività di copia shadow del volume sospetta**: un avviso simile a questo indica un'attività di eliminazione della copia shadow sulla risorsa. Copia Shadow del volume è un importante elemento che archivia gli snapshot di dati. Questa attività, anche se è associata a Ransowmare, può tuttavia essere legittima.
+* **Attività di copia shadow del volume sospetta**: un avviso simile a questo indica un'attività di eliminazione della copia shadow sulla risorsa. Copia Shadow del volume è un importante elemento che archivia gli snapshot di dati. Questa attività viene associata a Ransomware, ma potrebbe anche essere legittima.
 * **Metodo di salvataggio permanente del Registro di sistema di Windows**: un avviso simile a questo indica un tentativo di salvare in modo permanente un file eseguibile nel Registro di sistema di Windows. Il malware usa spesso tale tecnica per superare un avvio.
 * **Nuova regola del firewall sospetta**: un avviso simile a questo indica che è stata aggiunta una nuova regola del firewall tramite *netsh.exe* per consentire il traffico da un file eseguibile in una posizione sospetta.
 * **Esecuzioni XCOPY sospette**: un avviso simile a questo indica una serie di esecuzioni XCOPY che potrebbero segnalare che uno dei computer è stato compromesso ed è stato usato per propagare il malware.

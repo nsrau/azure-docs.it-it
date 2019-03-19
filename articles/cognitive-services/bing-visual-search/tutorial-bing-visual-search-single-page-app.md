@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: cf8525d4cc829805532210bf09e9ea9da240405d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: e06fd7a4b2d072e5528643c2c8517d7545c36ef3
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857750"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338655"
 ---
 # <a name="create-a-visual-search-single-page-web-app"></a>Creare un'app Web a pagina singola con Ricerca visiva 
 
-L'API Ricerca visiva Bing restituisce un'esperienza simile ai dettagli delle immagini visualizzati in Bing.com/images. Con Ricerca visiva è possibile specificare un'immagine e ottenere informazioni correlate dettagliate, ad esempio immagini visivamente simili, venditori degli oggetti raffigurati nelle immagini, pagine Web che includono l'immagine e altro ancora. 
+L'API ricerca visiva Bing offre un'esperienza simile ai Dettagli immagine visualizzati sulla Bing.com/images. Con Ricerca visiva è possibile specificare un'immagine e ottenere informazioni correlate dettagliate, ad esempio immagini visivamente simili, venditori degli oggetti raffigurati nelle immagini, pagine Web che includono l'immagine e altro ancora. 
 
 Questo articolo illustra come estendere un'app Web a pagina singola per l'API Ricerca immagini Bing. Per visualizzare l'esercitazione o ottenere il codice sorgente utilizzato qui, vedere Esercitazione [: Creare un'app a pagina singola con l'API Ricerca immagini Bing](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md). 
 

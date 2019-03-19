@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61603ad5920b6242c3e36429173744125b9eb59e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 41c514706a671f755eb5b0efd5e3eefa5052c6e2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206745"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450023"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>Esercitazione: Integrazione di Azure Active Directory con Palo Alto Networks - Aperture
 
@@ -149,7 +149,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     ![Scheda Authentication (Autenticazione)](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_singlesignon.png)
 
-    a. Spuntare **Enable Single Sign-On(Supported SSP Providers are Okta, Onelogin)** (Abilitare Single Sign-On: i provider SSP supportati sono Okta, Onelogin) nel campo **Single Sign-On**.
+    a. Verificare i **Abilita Single Sign-On(Supported SSP Providers are Okta, One login)** dalla **Single Sign-On** campo.
 
     b. Nella casella di testo **Identity Provider ID** (ID provider di identità) incollare il valore dell'**ID di entità SAML** copiato dal portale di Azure.
 

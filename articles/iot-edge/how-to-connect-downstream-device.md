@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d41ec0bc959eb264564d49ae6ac31aa30b3be98a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 32b9a00aa943813bec3c518c3c9dbf0e37a9bc63
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492760"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445926"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Connettere un dispositivo downstream a un gateway Azure IoT Edge
 
@@ -40,7 +40,10 @@ Prima di seguire le istruzioni contenute in questo articolo, è necessario prepa
 2. Un dispositivo downstream con un'identità del dispositivo proveniente dall'hub IoT. 
     Non è possibile usare un dispositivo IoT Edge come dispositivo downstream. Usare invece un dispositivo registrato come dispositivo IoT normale nell'hub IoT. Nel portale è possibile registrare un nuovo dispositivo nella sezione **Dispositivi IoT**. In alternativa, è possibile usare l'interfaccia della riga di comando di Azure per [registrare un dispositivo](../iot-hub/quickstart-send-telemetry-c.md#register-a-device). Copiare la stringa di connessione e renderla disponibile per l'uso nelle sezioni successive. 
 
-    Attualmente solo i dispositivi downstream con autenticazione con chiave simmetrica possono connettersi tramite gateway IoT Edge. Le autorità di certificazione X.509 e i certificati autofirmati X.509 non sono attualmente supportati. 
+    Attualmente solo i dispositivi downstream con autenticazione con chiave simmetrica possono connettersi tramite gateway IoT Edge. Le autorità di certificazione X.509 e i certificati autofirmati X.509 non sono attualmente supportati.
+    
+> [!NOTE]
+> Il "nome del gateway" utilizzato per creare i certificati in questa istruzione, deve essere lo stesso nome usato come nome host nel file config. yaml di IoT Edge e come GatewayHostName nella stringa di connessione del dispositivo downstream. Deve essere risolvibile in un indirizzo IP, DNS o una voce del file host utilizzando il nome del gateway"". Comunicazione basata sul protocollo usato (MQTTS:8883 / AMQPS:5671 / HTTPS:433) deve essere possibile tra dispositivi downstream e trasparente IoT Edge. Se un firewall è compreso tra, la rispettiva porta deve essere aperta.
 
 ## <a name="prepare-a-downstream-device"></a>Preparare un dispositivo downstream
 

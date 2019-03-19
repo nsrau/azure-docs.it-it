@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: kumud
-ms.openlocfilehash: f0ebb5cc913dda99d7e927ccf45c0f1478fa86c5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: a42a56b8a4a54c33297461a427a2b64b72357020
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814827"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194079"
 ---
 # <a name="outbound-connections-in-azure"></a>Connessioni in uscita in Azure
 
@@ -40,7 +40,7 @@ Sono presenti più [scenari in uscita](#scenarios). È possibile combinare quest
 
 Quando si usa [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), vengono definiti in modo esplicito il servizio Azure Load Balancer e le risorse correlate.  Attualmente, Azure offre tre diversi metodi per ottenere la connettività in uscita per le risorse di Azure Resource Manager. 
 
-| SKU | Scenario | Metodo | Protocolli IP | Descrizione |
+| SKU | Scenario | Metodo | Protocolli IP | DESCRIZIONE |
 | --- | --- | --- | --- | --- |
 | Standard, di base | [1. Macchina virtuale con indirizzo IP pubblico a livello di istanza (con o senza Load Balancer)](#ilpip) | SNAT, il mascheramento delle porte non viene usato | TCP, UDP, ICMP, ESP | Azure usa l'indirizzo IP pubblico assegnato alla configurazione IP della scheda di interfaccia di rete dell'istanza. L'istanza ha tutte le porte temporanee disponibili. Quando si usa Load Balancer Standard, è consigliabile usare le [regole in uscita](load-balancer-outbound-rules-overview.md) per definire in modo esplicito la connettività in uscita. |
 | Standard, di base | [2. Servizio Load Balancer pubblico associato a una macchina virtuale (nessun indirizzo IP pubblico a livello di istanza per l'istanza)](#lb) | SNAT con mascheramento delle porte (PAT) tramite i front-end di Load Balancer | TCP, UDP |Azure condivide l'indirizzo IP pubblico dei front-end di Load Balancer pubblici con più IP privati. Azure usa le porte temporanee dei front-end per PAT. |
@@ -70,7 +70,7 @@ Le porte SNAT vengono preallocate come descritto nella sezione [Informazioni su 
 
 Se a [Load Balancer Basic vengono associati più indirizzi IP pubblici](load-balancer-multivip-overview.md), uno qualsiasi di questi indirizzi IP pubblici è un candidato per i flussi in uscita e ne viene selezionato uno in modo casuale.  
 
-Per monitorare l'integrità delle connessioni in uscita con Load Balancer Basic, è possibile usare [Log Analytics per Load Balancer](load-balancer-monitor-log.md) e il [log eventi di avviso](load-balancer-monitor-log.md#alert-event-log) per monitorare i messaggi relativi all'esaurimento delle porte SNAT.
+Per monitorare l'integrità delle connessioni in uscita con Load Balancer Basic, è possibile usare [log di monitoraggio di Azure per Load Balancer](load-balancer-monitor-log.md) e [log eventi di avviso](load-balancer-monitor-log.md#alert-event-log) da monitorare per i messaggi di esaurimento delle porte SNAT.
 
 ### <a name="defaultsnat"></a>Scenario 3: Macchina virtuale autonoma senza indirizzo IP pubblico a livello di istanza
 

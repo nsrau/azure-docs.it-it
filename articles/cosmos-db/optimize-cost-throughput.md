@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 32c0ee4764c7c2b541428c63857286a45a09a634
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: e4d4d15ebb8200f16be8953e955b2e793be03c3a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733122"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452188"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Ottimizzare il costo della velocità effettiva con provisioning in Azure Cosmos DB
 
@@ -159,7 +159,7 @@ La procedura seguente consente di rendere le soluzioni altamente scalabili ed ec
 
 2. Un metodo per stimare la quantità di velocità effettiva riservata richiesta dall'applicazione consiste nel registrare l'addebito di UR associato all'esecuzione di operazioni tipiche rispetto a un database o a un contenitore di Azure Cosmos rappresentativo usato dall'applicazione e quindi nello stimare il numero di operazioni che si prevede di eseguire al secondo. Assicurarsi di misurare e includere anche le query tipiche e il loro utilizzo. Per informazioni su come stimare in modo programmatico o con il portale i costi di UR per le query, vedere [Ottimizzare il costo delle query](online-backup-and-restore.md). 
 
-3. Un altro modo per ottenere le operazioni e i relativi costi in UR è abilitando Log Analytics, che fornirà la suddivisione operazione/durata e l'addebito per la richiesta. Azure Cosmos DB offre l'addebito per la richiesta per ogni operazione, in modo che ogni addebito per le operazioni possa essere archiviato dalla risposta e quindi usato per l'analisi. 
+3. Un altro modo per ottenere le operazioni e i relativi costi in unità riservate è attivando i log, monitoraggio di Azure che fornirà la suddivisione della durata dell'operazione/e l'addebito richiesta. Azure Cosmos DB offre l'addebito per la richiesta per ogni operazione, in modo che ogni addebito per le operazioni possa essere archiviato dalla risposta e quindi usato per l'analisi. 
 
 4. È possibile aumentare e ridurre la velocità effettiva con provisioning in modo elastico in base alle esigenze di soddisfare le richieste del carico di lavoro. 
 

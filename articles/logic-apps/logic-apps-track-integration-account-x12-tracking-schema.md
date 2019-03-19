@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: a5413f80-eaad-4bcf-b371-2ad0ef629c3d
 ms.date: 01/27/2017
-ms.openlocfilehash: cfd195f2f812c8b2e09058d325d0dbb6f7a60d59
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: 1db324006e1e6332b5fdd8afd28ebed8a32ac707
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125602"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195184"
 ---
 # <a name="create-schemas-for-tracking-x12-messages-in-integration-accounts-for-azure-logic-apps"></a>Creare schemi per il rilevamento di messaggi X12 negli account di integrazione per App per la logica di Azure
 
@@ -57,7 +57,7 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 }
 ```
 
-| Proprietà | Tipo | Descrizione |
+| Proprietà | Type | DESCRIZIONE |
 | --- | --- | --- |
 | senderPartnerName | string | Nome partner del mittente del messaggio X12. Facoltativa |
 | receiverPartnerName | string | Nome partner del destinatario del messaggio X12. Facoltativa |
@@ -72,10 +72,10 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 | transactionSetControlNumber | string | Numero di controllo set transazioni. Facoltativa |
 | CorrelationMessageId | string | ID messaggio di correlazione. Una combinazione di {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber}. Facoltativa |
 | messageType | string | Set di transazioni o tipo di documento. Facoltativa |
-| isMessageFailed | boolean | Indica se il messaggio X12 non è riuscito. Obbligatoria |
-| isTechnicalAcknowledgmentExpected | boolean | Indica se l'acknowledgement tecnico è configurato nel contratto X12. Obbligatoria |
-| isFunctionalAcknowledgmentExpected | boolean | Indica se l'acknowledgement funzionale è configurato nel contratto X12. Obbligatoria |
-| needAk2LoopForValidMessages | boolean | Indica se il ciclo AK2 è necessario per un messaggio valido. Obbligatoria |
+| isMessageFailed | Boolean | Indica se il messaggio X12 non è riuscito. Obbligatoria |
+| isTechnicalAcknowledgmentExpected | Boolean | Indica se l'acknowledgement tecnico è configurato nel contratto X12. Obbligatoria |
+| isFunctionalAcknowledgmentExpected | Boolean | Indica se l'acknowledgement funzionale è configurato nel contratto X12. Obbligatoria |
+| needAk2LoopForValidMessages | Boolean | Indica se il ciclo AK2 è necessario per un messaggio valido. Obbligatoria |
 | segmentsCount | Integer | Numero di segmenti nel set di transazioni X12. Facoltativa |
 ||||
 
@@ -113,7 +113,7 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 }
 ```
 
-| Proprietà | Tipo | Descrizione |
+| Proprietà | Type | DESCRIZIONE |
 | --- | --- | --- |
 | senderPartnerName | string | Nome partner del mittente del messaggio X12. Facoltativa |
 | receiverPartnerName | string | Nome partner del destinatario del messaggio X12. Facoltativa |
@@ -131,11 +131,11 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 | respondingFunctionalGroupId | string | ID del gruppo funzionale di risposta, che esegue il mapping ad AK101 nell'acknowledgement. Facoltativa |
 | respondingtransactionSetControlNumber | string | Numero di controllo set transazioni di risposta. Facoltativa |
 | respondingTransactionSetId | string | ID del set di transazioni di risposta, che esegue il mapping ad AK201 nell'acknowledgement. Facoltativa |
-| statusCode | boolean | Codice di stato dell'acknowledgement del set di transazioni. Obbligatoria |
+| statusCode | Boolean | Codice di stato dell'acknowledgement del set di transazioni. Obbligatoria |
 | segmentsCount | Enum | Codice di stato dell'acknowledgement. I valori consentiti sono **Accepted**, **Rejected** e **AcceptedWithErrors**. Obbligatoria |
 | processingStatus | Enum | Stato di elaborazione dell'acknowledgement. I valori consentiti sono **Received**, **Generated** e **Sent**. Obbligatoria |
 | CorrelationMessageId | string | ID messaggio di correlazione. Una combinazione di {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber}. Facoltativa |
-| isMessageFailed | boolean | Indica se il messaggio X12 non è riuscito. Obbligatoria |
+| isMessageFailed | Boolean | Indica se il messaggio X12 non è riuscito. Obbligatoria |
 | ak2Segment | string | Acknowledgement per un set di transazioni nel gruppo funzionale ricevuto. Facoltativa |
 | ak3Segment | string | Segnala gli errori in un segmento di dati. Facoltativa |
 | ak5Segment | string | Indica se il set di transazioni identificato nel segmento AK2 è accettato o rifiutato e il motivo. Facoltativa |
@@ -171,7 +171,7 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 }
 ```
 
-| Proprietà | Tipo | Descrizione |
+| Proprietà | Type | DESCRIZIONE |
 | --- | --- | --- |
 | senderPartnerName | string | Nome partner del mittente del messaggio X12. Facoltativa |
 | receiverPartnerName | string | Nome partner del destinatario del messaggio X12. Facoltativa |
@@ -183,8 +183,8 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 | direction | Enum | Direzione del flusso dei messaggi, ricezione o invio. Obbligatoria |
 | interchangeControlNumber | string | Numero di controllo interscambio. Facoltativa |
 | isaSegment | string | Segmento ISA del messaggio. Facoltativa |
-| isTechnicalAcknowledgmentExpected | boolean | Indica se l'acknowledgement tecnico è configurato nel contratto X12. Obbligatoria |
-| isMessageFailed | boolean | Indica se il messaggio X12 non è riuscito. Obbligatoria |
+| isTechnicalAcknowledgmentExpected | Boolean | Indica se l'acknowledgement tecnico è configurato nel contratto X12. Obbligatoria |
+| isMessageFailed | Boolean | Indica se il messaggio X12 non è riuscito. Obbligatoria |
 | isa09 | string | Data di interscambio del documento X12. Facoltativa |
 | isa10 | string | Ora di interscambio del documento X12. Facoltativa |
 | isa11 | string | Identificatore standard del controllo di interscambio X12. Facoltativa |
@@ -222,7 +222,7 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 }
 ```
 
-| Proprietà | Tipo | Descrizione |
+| Proprietà | Type | DESCRIZIONE |
 | --- | --- | --- |
 | senderPartnerName | string | Nome partner del mittente del messaggio X12. Facoltativa |
 | receiverPartnerName | string | Nome partner del destinatario del messaggio X12. Facoltativa |
@@ -235,7 +235,7 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 | interchangeControlNumber | string | Numero di controllo interscambio dell'acknowledgement tecnico ricevuto dai partner. Facoltativa |
 | isaSegment | string | Segmento ISA per l'acknowledgement tecnico ricevuto dai partner. (Facoltativa) |
 | respondingInterchangeControlNumber |string | Numero di controllo interscambio per l'acknowledgement tecnico ricevuto dai partner. Facoltativa |
-| isMessageFailed | boolean | Indica se il messaggio X12 non è riuscito. Obbligatoria |
+| isMessageFailed | Boolean | Indica se il messaggio X12 non è riuscito. Obbligatoria |
 | statusCode | Enum | Codice di stato dell'acknowledgement di interscambio. I valori consentiti sono **Accepted**, **Rejected** e **AcceptedWithErrors**. Obbligatoria |
 | processingStatus | Enum | Stato dell'acknowledgement. I valori consentiti sono **Received**, **Generated** e **Sent**. Obbligatoria |
 | ta102 | string | Data di interscambio. Facoltativa |
@@ -275,7 +275,7 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 }
 ```
 
-| Proprietà | Tipo | Descrizione |
+| Proprietà | Type | DESCRIZIONE |
 | --- | --- | --- |
 | senderPartnerName | string | Nome partner del mittente del messaggio X12. Facoltativa |
 | receiverPartnerName | string | Nome partner del destinatario del messaggio X12. Facoltativa |
@@ -288,9 +288,9 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 | interchangeControlNumber | string | Numero di controllo interscambio. Facoltativa |
 | functionalGroupControlNumber | string | Numero di controllo funzionale. Facoltativa |
 | gsSegment | string | Segmento GS del messaggio. Facoltativa |
-| isTechnicalAcknowledgmentExpected | boolean | Indica se l'acknowledgement tecnico è configurato nel contratto X12. Obbligatoria |
-| isFunctionalAcknowledgmentExpected | boolean | Indica se l'acknowledgement funzionale è configurato nel contratto X12. Obbligatoria |
-| isMessageFailed | boolean | Indica se il messaggio X12 non è riuscito. Obbligatoria|
+| isTechnicalAcknowledgmentExpected | Boolean | Indica se l'acknowledgement tecnico è configurato nel contratto X12. Obbligatoria |
+| isFunctionalAcknowledgmentExpected | Boolean | Indica se l'acknowledgement funzionale è configurato nel contratto X12. Obbligatoria |
+| isMessageFailed | Boolean | Indica se il messaggio X12 non è riuscito. Obbligatoria|
 | gs01 | string | Codice identificatore funzionale. Facoltativa |
 | gs02 | string | Codice del mittente dell'applicazione. Facoltativa |
 | gs03 | string | Codice del ricevitore dell'applicazione. Facoltativa |
@@ -331,7 +331,7 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 }
 ```
 
-| Proprietà | Tipo | Descrizione |
+| Proprietà | Type | DESCRIZIONE |
 | --- | --- | --- |
 | senderPartnerName | string | Nome partner del mittente del messaggio X12. Facoltativa |
 | receiverPartnerName | string | Nome partner del destinatario del messaggio X12. Facoltativa |
@@ -347,7 +347,7 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 | gsSegment | string | Come il numero di controllo gruppo funzionale, ma viene popolato solo in casi specifici. Facoltativa |
 | respondingfunctionalGroupControlNumber | string | Numero di controllo del gruppo funzionale originale. Facoltativa |
 | respondingFunctionalGroupId | string | Esegue il mapping ad AK101 nell'ID del gruppo funzionale dell'acknowledgement. Facoltativa |
-| isMessageFailed | boolean | Indica se il messaggio X12 non è riuscito. Obbligatoria |
+| isMessageFailed | Boolean | Indica se il messaggio X12 non è riuscito. Obbligatoria |
 | statusCode | Enum | Codice di stato dell'acknowledgement. I valori consentiti sono **Accepted**, **Rejected** e **AcceptedWithErrors**. Obbligatoria |
 | processingStatus | Enum | Stato di elaborazione dell'acknowledgement. I valori consentiti sono **Received**, **Generated** e **Sent**. Obbligatoria |
 | ak903 | string | Numero di set transazioni ricevuti. Facoltativa |
@@ -365,4 +365,4 @@ Per informazioni sugli schemi di rilevamento per il protocollo B2B, vedere:
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Altre informazioni sul [monitoraggio dei messaggi B2B](logic-apps-monitor-b2b-message.md).
-* Altre informazioni sul [rilevamento dei messaggi B2B in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Scopri [rilevamento dei messaggi B2B in log di monitoraggio di Azure](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).

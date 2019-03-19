@@ -5,18 +5,20 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: dcae78e507597ae2b7f79cc1d6cbb326ee535696
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: d9c607114d6c6c56c25303a88dcc11f4ab804eb4
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076594"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404339"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Informazioni sui gateway di rete virtuale per ExpressRoute
 Il gateway di rete virtuale viene usato per inviare il traffico di rete tra le reti virtuali di Azure e i percorsi locali. È possibile usare un gateway di rete virtuale per il traffico di ExpressRoute o il traffico VPN. Questo articolo è incentrato sui gateway di rete virtuale ExpressRoute e contiene informazioni su SKU, prestazioni stimate per SKU e tipi di gateway.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="gateway-types"></a>Tipi di gateway
 
@@ -31,7 +33,7 @@ Ogni rete virtuale può avere un solo gateway di rete virtuale per tipo di gatew
 ## <a name="gwsku"></a>SKU del gateway
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-Se si vuole aggiornare il gateway a uno SKU più potente, nella maggior parte dei casi è possibile usare il cmdlet PowerShell 'Resize-AzureRmVirtualNetworkGateway'. Questa tecnica funziona per gli aggiornamenti agli SKU Standard e HighPerformance. Tuttavia, per eseguire l'aggiornamento per allo SKU UltraPerformance sarà necessario ricreare il gateway. La ricreazione di un gateway comporta tempi di inattività.
+Se si desidera aggiornare il gateway a uno SKU del gateway più potente, nella maggior parte dei casi è possibile usare il cmdlet di PowerShell 'Resize-AzVirtualNetworkGateway'. Questa tecnica funziona per gli aggiornamenti agli SKU Standard e HighPerformance. Tuttavia, per eseguire l'aggiornamento per allo SKU UltraPerformance sarà necessario ricreare il gateway. La ricreazione di un gateway comporta tempi di inattività.
 
 ### <a name="aggthroughput"></a>Prestazioni stimate in base allo SKU del gateway
 La tabella seguente illustra i tipi di gateway e le prestazioni stimate. La tabella è valida per entrambi i modelli di distribuzione classica e di Gestione risorse.
@@ -62,7 +64,7 @@ Per altre risorse tecniche e requisiti di sintassi specifici quando si usano le 
 
 | **Classico** | **Gestione risorse** |
 | --- | --- |
-| [PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure) |[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network#networking) |
+| [PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure) |[PowerShell](https://docs.microsoft.com/powershell/module/az.network#networking) |
 | [API REST](https://msdn.microsoft.com/library/jj154113.aspx) |[API REST](https://msdn.microsoft.com/library/mt163859.aspx) |
 
 ## <a name="next-steps"></a>Passaggi successivi

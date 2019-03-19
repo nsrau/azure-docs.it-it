@@ -6,16 +6,16 @@ services: cognitive-services
 author: lewlu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
-ms.openlocfilehash: 5eb198ecf76556e632c5f42bc22362b2f20f8916
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 95b339e8d7f2c5c63c30e002411152b50cece2a5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55771531"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448782"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Eseguire la migrazione dei dati sui visi in una sottoscrizione dell'API Viso diversa
 
@@ -67,7 +67,7 @@ Sarà necessario compilare i valori delle chiavi di sottoscrizione e gli URL del
 
 ## <a name="take-snapshot-of-persongroup"></a>Creare uno snapshot di PersonGroup
 
-Uno snapshot è un archivio remoto temporaneo per determinati tipi di dati sui visi. Funziona come una specie di Appunti per copiare dati da una sottoscrizione a un'altra. Prima di tutto l'utente crea uno snapshot dei dati nella sottoscrizione di origine e quindi lo applica a un nuovo oggetto di dati nella sottoscrizione di destinazione.
+Uno snapshot è un archivio remoto temporaneo per determinati tipi di dati sui visi. Agisce come una sorta di area appunti per copiare i dati da una sottoscrizione a un'altra. Prima di tutto l'utente crea uno snapshot dei dati nella sottoscrizione di origine e quindi lo applica a un nuovo oggetto di dati nella sottoscrizione di destinazione.
 
 Usare l'istanza **FaceClient** della sottoscrizione di origine per creare uno snapshot di **PersonGroup** usando **[TakeAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperationsextensions.takeasync?view=azure-dotnet)** con l'ID di **PersonGroup** e l'ID della sottoscrizione di destinazione. In presenza di più sottoscrizioni di destinazione, è possibile aggiungerle come voci di matrice nel terzo parametro.
 
@@ -83,7 +83,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 
 ## <a name="retrieve-the-snapshot-id"></a>Recuperare l'ID dello snapshot
 
-Il metodo per la creazione dello snapshot è asincrono, pertanto sarà necessario attendere il completamento (le operazioni di snapshot non possono essere annullate). In questo codice, il metodo `WaitForOperation` esegue il monitoraggio della chiamata asincrona, controllando lo stato ogni 100 ms. Al termine dell'operazione, sarà possibile recuperare un ID dell'operazione. È possibile ottenerlo analizzando il campo `OperationLocation`. 
+Lo snapshot accettando metodo è asincrono, pertanto sarà necessario attendere il completamento (snapshot operazioni non possono essere annullate). In questo codice, il metodo `WaitForOperation` esegue il monitoraggio della chiamata asincrona, controllando lo stato ogni 100 ms. Al termine dell'operazione, sarà possibile recuperare un ID dell'operazione. È possibile ottenerlo analizzando il campo `OperationLocation`. 
 
 ```csharp
 var takeOperationId = Guid.Parse(takeSnapshotResult.OperationLocation.Split('/')[2]);

@@ -8,35 +8,34 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 55d0269aaa330f928a9d037eec6a3445825a5ed3
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 4d82cc59eb1098451a263957aa028b66996bb072
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470342"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307183"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Eseguire la migrazione di avvisi di Azure su eventi di gestione in avvisi del log attività
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!WARNING]
 > A partire dal 1° ottobre verranno disattivati gli avvisi relativi agli eventi di gestione. Usare le istruzioni seguenti per capire se si hanno questi avvisi ed eventualmente eseguirne la migrazione.
->
-> 
 
 ## <a name="what-is-changing"></a>Cosa cambierà
 
 Monitoraggio di Azure (in precedenza Azure Insights) offriva una funzionalità per la creazione di un avviso che attivasse eventi di gestione e generasse notifiche all'URL di un webhook o a un indirizzo di posta elettronica. È possibile aver creato uno di questi avvisi in uno dei modi seguenti:
 * Nel portale di Azure per determinati tipi di risorsa, in Monitoraggio -> Avvisi -> Aggiungi avviso, impostando "Avviso per" su "Eventi"
-* Eseguendo il cmdlet di PowerShell Add-AzureRmLogAlertRule
+* Eseguendo il cmdlet di PowerShell Add-AzLogAlertRule
 * Usando direttamente l'[API REST per gli avvisi](https://docs.microsoft.com/rest/api/monitor/alertrules) con odata.type = "ManagementEventRuleCondition" e dataSource.odata.type = "RuleManagementEventDataSource"
  
 Lo script di PowerShell seguente restituisce un elenco di tutti gli avvisi relativi ad eventi di gestione presenti nella sottoscrizione personale, oltre alle condizioni impostate su ogni avviso.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 $alerts = $null
-foreach ($rg in Get-AzureRmResourceGroup ) {
-  $alerts += Get-AzureRmAlertRule -ResourceGroup $rg.ResourceGroupName
+foreach ($rg in Get-AzResourceGroup ) {
+  $alerts += Get-AzAlertRule -ResourceGroup $rg.ResourceGroupName
 }
 foreach ($alert in $alerts) {
   if($alert.Properties.Condition.DataSource.GetType().Name.Equals("RuleManagementEventDataSource")) {

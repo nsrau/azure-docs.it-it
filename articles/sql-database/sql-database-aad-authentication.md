@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 4f8ee5a3a72fc143822a71bcb933f34e2f371019
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 1318cd3d1c0c51889cc70b6836d06d6d6ee70c24
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453138"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308381"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Usare l'autenticazione di Azure Active Directory per l'autenticazione con SQL
 
@@ -81,7 +81,7 @@ Per creare un utente di database indipendente nel database SQL di Azure, in Ista
 - È possibile eseguire il provisioning dei membri di Azure AD seguenti nel server di Azure SQL o in SQL Data Warehouse:
 
   - Membri nativi: un membro creato in Azure AD nel dominio gestito o in un dominio del cliente. Per altre informazioni, vedere [Aggiungere un nome di dominio personalizzato ad Azure AD](../active-directory/active-directory-domains-add-azure-portal.md).
-  - Membri del dominio federato: un membro creato in Azure AD con un dominio federato. Per altre informazioni, vedere il post di blog relativo al [nuovo supporto per la federazione in Microsoft Azure con Active Directory di Windows Server](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
+  - Membri del dominio federato: un membro creato in Azure AD con un dominio federato. Per altre informazioni, vedere il post di blog relativo al [nuovo supporto per la federazione in Microsoft Azure con Active Directory di Windows Server](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/).
   - Membri importati da altre istanze di Azure AD che sono membri nativi o del dominio federato.
   - Gruppi di Active Directory creati come gruppi di sicurezza.
 

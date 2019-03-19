@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e81e842e059e09f24627138ba9fbf6510a603efe
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: d225ece7b8a8841d17f20bc27de3aa640fa7d37b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353295"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436426"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Timer in Funzioni permanenti (Funzioni di Azure)
 
@@ -132,7 +132,7 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!WARNING]
-> Usare `CancellationTokenSource` per annullare un timer permanente (C#) o una chiamata `cancel()` sull'oggetto restituito `TimerTask` (JavaScript) se il codice non attenderà il completamento. Durable Task Framework non imposterà come completato lo stato di un'orchestrazione finché tutte le attività in sospeso non sono state completate o annullate.
+> Usare `CancellationTokenSource` per annullare un timer permanente (C#) o una chiamata `cancel()` sull'oggetto restituito `TimerTask` (JavaScript) se il codice non attenderà il completamento. Durable Task Framework non modificherà lo stato di un'orchestrazione su "completato" fino a quando non sono state completate o annullate tutte le attività in sospeso.
 
 Questo meccanismo non termina effettivamente l'esecuzione della funzione di attività in corso, ma consente semplicemente alla funzione di orchestrazione di ignorare il risultato e continuare. Se l'app per le funzioni usa il piano a consumo, verranno comunque addebitati il tempo e la memoria utilizzati dalla funzione di attività abbandonata. Per impostazione predefinita, le funzioni in esecuzione nel piano a consumo hanno un timeout di cinque minuti. Se questo limite viene superato, l'host di Funzioni di Azure viene riciclato per interrompere ogni esecuzione e impedire una fatturazione eccessiva. Il [timeout delle funzioni è configurabile](../functions-host-json.md#functiontimeout).
 

@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: c4776d2c6f8ca2b23ba2df379b2682a6844f9a1b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: a49d30d3058a6cf3ce82d56076f348861ad631ff
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461594"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438611"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Ottimizzazione manuale delle prestazioni delle query in Database SQL di Azure
 
@@ -38,7 +38,7 @@ Anche se i livelli di servizio del database SQL di Azure sono progettati per mig
 
 - **Applicazioni con prestazioni ridotte a causa di un comportamento "eccessivamente comunicativo"**
 
-  Le applicazioni con un livello di comunicazioni elevato eseguono un numero eccessivo di operazioni di accesso ai dati, sensibili alla latenza di rete. Potrebbe essere necessario modificare questi tipi di applicazioni, in modo da ridurre il numero di operazioni di accesso ai dati nel database SQL. È ad esempio possibile migliorare le prestazioni dell'applicazione usando tecniche come l'invio in batch di query ad hoc o lo spostamento delle query in stored procedure. Per altre informazioni, vedere [Invio di query in batch](#batch-queries).
+  Le applicazioni con un livello di comunicazioni elevato eseguono un numero eccessivo di operazioni di accesso ai dati, sensibili alla latenza di rete. Potrebbe essere necessario modificare questi tipi di applicazioni, in modo da ridurre il numero di operazioni di accesso ai dati nel database SQL. Ad esempio, si potrebbero migliorare le prestazioni dell'applicazione usando tecniche come l'invio in batch di query ad hoc o lo spostamento delle query alle stored procedure. Per altre informazioni, vedere [Invio di query in batch](#batch-queries).
 
 - **Database con un carico di lavoro elevato che non possono essere supportati da una singola macchina virtuale intera**
 

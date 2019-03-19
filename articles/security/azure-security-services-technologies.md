@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: barclayn
-ms.openlocfilehash: 7577a05302dcf23cc68666685c1537c0eb31f831
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 13183282e5e607f0052194a474203f97e0160adb
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115573"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246135"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Servizi e tecnologie per la sicurezza disponibili in Azure
 
@@ -34,7 +34,7 @@ L'elenco verrà modificato e accresciuto nel corso del tempo, parallelamente ad 
 |--------|--------|
 |[Centro&nbsp;sicurezza&nbsp;di Azure](../security-center/security-center-intro.md)| Soluzione di protezione dei carichi di lavoro nel cloud che supporta la gestione della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro cloud ibridi.|
 |[Insieme di credenziali chiave Azure](../key-vault/key-vault-overview.md)| Archivio di segreti sicuro per password, stringhe di connessione e altre informazioni necessarie per il funzionamento delle app. |
-|[Log Analytics](../log-analytics/log-analytics-overview.md)|Servizio di monitoraggio che raccoglie dati di telemetria e altri dati e fornisce un linguaggio di query e un motore di analisi per offrire informazioni dettagliate operative per le app e le risorse. Può essere usato da solo o con altri servizi, come il Centro sicurezza. |
+|[Log di Monitoraggio di Azure](../log-analytics/log-analytics-overview.md)|Servizio di monitoraggio che raccoglie dati di telemetria e altri dati e fornisce un linguaggio di query e un motore di analisi per offrire informazioni dettagliate operative per le app e le risorse. Può essere usato da solo o con altri servizi, come il Centro sicurezza. |
 |[Lab di sviluppo/test Azure](../devtest-lab/devtest-lab-overview.md)|Servizio che consente agli sviluppatori e ai tester di creare rapidamente ambienti in Azure riducendo al minimo gli sprechi e i costi di controllo.  |
 
 <!---|[Azure&nbsp;Disk&nbsp;Encryption](azure-security-disk-encryption-overview.md)| THIS WILL GO TO THE NEW OVERVIEW TOPIC MEGHAN STEWART IS WRITING|--->

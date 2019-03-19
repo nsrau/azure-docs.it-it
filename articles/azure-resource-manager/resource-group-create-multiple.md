@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: c343dfa3c0eac4aeabaa9244c6675b235fc95552
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: c60983dbbe72515fd8f0f4860e169ce1ba69ed45
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311717"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407086"
 ---
 # <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Distribuire più istanze di una risorsa o di una proprietà nei modelli di Azure Resource Manager
 
-Questo articolo illustra come eseguire un'iterazione del modello di Azure Resource Manager per creare più istanze di una risorsa. Se è necessario specificare se una risorsa viene distribuita, vedere l'[elemento condizionale](resource-manager-templates-resources.md#condition).
+Questo articolo illustra come eseguire un'iterazione del modello di Azure Resource Manager per creare più istanze di una risorsa. Se è necessario specificare se una risorsa viene distribuita, vedere l'[elemento condizionale](resource-group-authoring-templates.md#condition).
 
 Per un'esercitazione, vedere [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md) (Esercitazione: Creare più istanze di risorse usando i modelli di Resource Manager).
 
@@ -272,6 +272,8 @@ L'elemento di copia è una matrice, pertanto è possibile specificare più di un
 
 Per creare più istanze di una variabile, usare la proprietà `copy` nella sezione variables. Si crea una matrice di elementi costruita dal valore della proprietà `input`. È possibile usare la proprietà `copy` all'interno di una variabile o al livello superiore della sezione variables. Quando si usa `copyIndex` all'interno di un'iterazione delle variabili, è necessario specificare il nome dell'iterazione.
 
+Per un semplice esempio di creazione di una matrice di valori stringa, vedere [modello di matrice di copia](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
+
 L'esempio seguente illustra diversi modi per creare variabili di matrice con elementi costruiti in modo dinamico. Mostra come usare copy all'interno di una variabile per creare matrici di oggetti e stringhe. Viene inoltre illustrato l'uso di copy al livello superiore per creare matrici di oggetti, stringhe e numeri interi.
 
 ```json
@@ -344,6 +346,50 @@ L'esempio seguente illustra diversi modi per creare variabili di matrice con ele
     }
   }
 }
+```
+
+Il tipo della variabile che viene creato dipende l'oggetto di input. Ad esempio, la variabile denominata **top-livello--matrice di oggetti** nell'esempio precedente restituisce:
+
+```json
+[
+  {
+    "name": "myDataDisk1",
+    "diskSizeGB": "1",
+    "diskIndex": 0
+  },
+  {
+    "name": "myDataDisk2",
+    "diskSizeGB": "1",
+    "diskIndex": 1
+  },
+  {
+    "name": "myDataDisk3",
+    "diskSizeGB": "1",
+    "diskIndex": 2
+  },
+  {
+    "name": "myDataDisk4",
+    "diskSizeGB": "1",
+    "diskIndex": 3
+  },
+  {
+    "name": "myDataDisk5",
+    "diskSizeGB": "1",
+    "diskIndex": 4
+  }
+]
+```
+
+E, la variabile denominata **top-livello--matrice di stringhe** restituisce:
+
+```json
+[
+  "myDataDisk1",
+  "myDataDisk2",
+  "myDataDisk3",
+  "myDataDisk4",
+  "myDataDisk5"
+]
 ```
 
 ## <a name="depend-on-resources-in-a-loop"></a>In base alle risorse in un ciclo

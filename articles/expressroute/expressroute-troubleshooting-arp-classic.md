@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 367a79b04a8736e2eafb6851b682f2c244e80522
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: 3e49a1da0e8ea83faf5fc5a10d4c01a41d62fa88
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272287"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439639"
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>Recupero di tabelle ARP nel modello di distribuzione classica
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ La sezione seguente fornisce informazioni su come visualizzare le tabelle ARP vi
 Prima di continuare, verificare che siano presenti gli elementi seguenti:
 
 * Un circuito ExpressRoute valido configurato con almeno un peer. Il circuito deve essere completamente configurato dal provider di connettività. L'utente o il provider di connettività deve configurare almeno un peer (privato di Azure, pubblico di Azure e Microsoft) su questo circuito.
-* Gli intervalli degli indirizzi IP usati per la configurazione del peer (privato di Azure, pubblico di Azure e Microsoft). Consultare gli esempi di assegnazione dell'indirizzo IP in [Requisiti per il routing di ExpressRoute](expressroute-routing.md) per ottenere informazioni sul mapping degli indirizzi IP verso le interfacce sul lato utente e sul lato ExpressRoute. È possibile ottenere informazioni sulla configurazione del peering consultando la [pagina sulla configurazione del peering di ExpressRoute](expressroute-howto-routing-classic.md).
+* Gli intervalli degli indirizzi IP usati per la configurazione del peer (privato di Azure, pubblico di Azure e Microsoft). Consultare gli esempi di assegnazione di indirizzi IP nel [pagina requisiti di routing ExpressRoute](expressroute-routing.md) per ottenere le informazioni di mapping di indirizzi IP e le interfacce sul lato dell'utente e sul lato ExpressRoute. È possibile ottenere informazioni sulla configurazione del peering consultando la [pagina sulla configurazione del peering di ExpressRoute](expressroute-howto-routing-classic.md).
 * Informazioni dal team di rete o provider di connettività sugli indirizzi MAC delle interfacce usate con questi indirizzi IP.
 * Il più recente modulo PowerShell per Azure (versione 1.50 o successiva).
 

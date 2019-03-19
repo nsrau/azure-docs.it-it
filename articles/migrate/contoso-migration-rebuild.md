@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: a4e5087e53d4505d54b5ff4b8d17ad6166c6174b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.openlocfilehash: c0e953434e947703308ff8d796107838df8cc979
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002502"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437315"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Migrazione di Contoso: Ricompilare un’app locale in Azure
 
@@ -33,7 +33,7 @@ Questo documento fa parte di una serie di articoli che descrivono in che modo la
 [Articolo 7: Eseguire il rehosting di un'app Linux in macchine virtuali di Azure](contoso-migration-rehost-linux-vm.md) | Spiega in che modo Contoso esegue una migrazione in modalità lift-and-shift dell'app osTicket di Linux alle VM di Azure usando Site Recovery. | Disponibile
 [Articolo 8: Eseguire il rehosting di un'app Linux in VM di Azure e Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Spiega in che modo Contoso esegue la migrazione dell'app osTicket di Linux alle VM di Azure usando Site Recovery e del database dell'app a un'istanza di Azure MySQL Server mediante MySQL Workbench. | Disponibile
 [Articolo 9: Effettuare il refactoring di un'app in app Web di Azure e in un database SQL di Azure](contoso-migration-refactor-web-app-sql.md) | Illustra come Contoso esegue la migrazione dell'app SmartHotel360 a un'app Web di Azure, e come esegue la migrazione del database di app per istanza del Server SQL di Azure | Disponibile
-[Articolo 10: Effettuare il refactoring di un'app Linux in app Web di Azure e MySQL di Azure](contoso-migration-refactor-linux-app-service-mysql.md) | Viene illustrato come Contoso esegue la migrazione dell'app Linux osTicket alle app Web di Azure in più siti integrati con GitHub per il recapito continuo. Il database di app viene fatto migrare a un'istanza di MySQL di Azure. | Disponibile
+[Articolo 10: Eseguire il refactoring di un'app Linux in app Web di Azure e MySQL di Azure](contoso-migration-refactor-linux-app-service-mysql.md) | Viene illustrato come Contoso esegue la migrazione dell'app Linux osTicket alle app Web di Azure in più siti integrati con GitHub per il recapito continuo. Il database di app viene fatto migrare a un'istanza di MySQL di Azure. | Disponibile
 [Articolo 11: Effettuare il refactoring di Team Foundation Server in Azure DevOps Services](contoso-migration-tfs-vsts.md) | Illustra come Contoso esegue la migrazione della distribuzione di Team Foundation Server (TFS) locale tramite la migrazione ad Azure DevOps Services in Azure. | Disponibile
 [Articolo 12: Riprogettare un'app in contenitori di Azure e nel database SQL](contoso-migration-rearchitect-container-sql.md) | Illustra come Contoso esegue la migrazione e riprogetta l'app SmartHotel in Azure. Il livello dell'app Web viene riprogettato come un contenitore di Windows e il database di app come un database SQL di Azure. | Disponibile
 Articolo 13: Ricompilare un'app in Azure | Illustra come Contoso ricompila l'app SmartHotel usando una gamma di funzionalità e servizi di Azure, tra cui Servizi app, Azure Kubernetes, Funzioni di Azure, servizi cognitivi e Cosmos DB. | Questo articolo
@@ -114,9 +114,9 @@ Contoso valuta la progettazione proposta elaborando un elenco di vantaggi e svan
 
 **Servizio** | **Descrizione** | **Costii**
 --- | --- | ---
-[AKS](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Semplifica la gestione, la distribuzione e le operazioni di Kubernetes. Offre un servizio di orchestrazione di contenitori Kubernetes completamente gestito.  | servizio Azure Kubernetes è un servizio gratuito.  Si paga solo per le macchine virtuali e le risorse di archiviazione e di rete associate usate. [Altre informazioni](https://azure.microsoft.com/pricing/details/kubernetes-service/)
+[servizio Azure Kubernetes](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Semplifica la gestione, la distribuzione e le operazioni di Kubernetes. Offre un servizio di orchestrazione di contenitori Kubernetes completamente gestito.  | servizio Azure Kubernetes è un servizio gratuito.  Si paga solo per le macchine virtuali e le risorse di archiviazione e di rete associate usate. [Altre informazioni](https://azure.microsoft.com/pricing/details/kubernetes-service/)
 [Funzioni di Azure](https://azure.microsoft.com/services/functions/) | Accelera lo sviluppo con un'esperienza di elaborazione senza server basata su eventi. Scalabilità su richiesta.  | Si paga solo per le risorse usate. Il piano viene fatturato in base al consumo di risorse e di esecuzioni al secondo. [Altre informazioni](https://azure.microsoft.com/pricing/details/functions/)
-[Registro contenitori di Azure](https://azure.microsoft.com/services/container-registry/) | Archivia le immagini per tutti i tipi di distribuzioni di contenitori. | Costo in base a funzionalità, archiviazione e durata dell'uso. [Altre informazioni](https://azure.microsoft.com/pricing/details/container-registry/)
+[Registro Azure Container](https://azure.microsoft.com/services/container-registry/) | Archivia le immagini per tutti i tipi di distribuzioni di contenitori. | Costo in base a funzionalità, archiviazione e durata dell'uso. [Altre informazioni](https://azure.microsoft.com/pricing/details/container-registry/)
 [Servizio app di Azure](https://azure.microsoft.com/services/app-service/containers/) | È possibile creare, distribuire e ridimensionare rapidamente app Web, dispositivi mobili e API di livello aziendale in esecuzione su qualsiasi piattaforma. | I piani di servizio app vengono fatturati al secondo. [Altre informazioni](https://azure.microsoft.com/pricing/details/app-service/windows/)
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -154,7 +154,7 @@ Gli amministratori di Contoso eseguono uno script di distribuzione per creare il
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-1. Prima di iniziare, gli amministratori di Contoso verificano che tutti i software necessari siano installati nel computer di sviluppo usato per la distribuzione.
+1. Prima di avviare, gli amministratori di Contoso assicurarsi che tutti i prerequisiti software in installato nel computer di sviluppo in uso per la distribuzione.
 2. Clonano il repository locale nel computer di sviluppo tramite Git: **git clone https://github.com/Microsoft/SmartHotel360-Azure-backend.git**
 
 
@@ -196,7 +196,7 @@ Gli amministratori di Contoso effettuano il provisioning come indicato di seguit
 
 9. Dopo il completamento della distribuzione, Contoso installa lo strumento da riga di comando **kubectl**. Lo strumento è già installato nel CloudShell di Azure.
 
-    **az aks install-cli**
+    **az servizio Azure Kubernetes install-cli**
 
 10. Per verificare la connessione al cluster, Contoso esegue il comando **kubectl get nodes**. Il nodo è lo stesso nome della macchina virtuale del gruppo di risorse creato automaticamente.
 
@@ -204,7 +204,7 @@ Gli amministratori di Contoso effettuano il provisioning come indicato di seguit
 
 11. Contoso usa il comando seguente per avviare il dashboard di Kubernetes: 
 
-    **az aks browse --resource-group ContosoRG --name smarthotelakseus2**
+    **az servizio Azure Kubernetes browse --resource-group ContosoRG --name smarthotelservizio Azure Kuberneteseus2**
 
 12. Una scheda del browser si apre sul dashboard. Si tratta di una connessione con tunnel tramite l'interfaccia della riga di comando di Azure. 
 
@@ -632,7 +632,7 @@ Gli amministratori di Contoso distribuiscono l'app nel modo seguente.
 
 Al termine della migrazione delle risorse in Azure, Contoso deve rendere pienamente operativa la nuova infrastruttura e proteggerla.
 
-### <a name="security"></a>Sicurezza
+### <a name="security"></a>Security
 
 - Contoso deve garantire che i nuovi database siano sicuri. [Altre informazioni](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview)
 - L'app deve essere aggiornata per usare SSL con certificati. L'istanza di contenitore deve essere ridistribuita per rispondere sulla porta 443.

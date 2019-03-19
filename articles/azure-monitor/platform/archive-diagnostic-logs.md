@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: b01afe1626fe27a20e7b7103ccb020e4414f774f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 0d23509d4efb0385770811e004bb2599c3866847
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476463"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313342"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Archiviare i log di diagnostica di Azure
 
@@ -68,16 +68,18 @@ Dopo qualche istante, la nuova impostazione viene visualizzata nell'elenco delle
 
 ## <a name="archive-diagnostic-logs-via-azure-powershell"></a>Archiviare i log di diagnostica tramite Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ```
-Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg -StorageAccountId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Categories networksecuritygroupevent,networksecuritygrouprulecounter -Enabled $true -RetentionEnabled $true -RetentionInDays 90
+Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg -StorageAccountId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Categories networksecuritygroupevent,networksecuritygrouprulecounter -Enabled $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
-| Proprietà | Obbligatoria | DESCRIZIONE |
+| Proprietà | Obbligatorio | DESCRIZIONE |
 | --- | --- | --- |
-| ResourceId |Yes |ID risorsa della risorsa in cui si vuole definire un'impostazione di diagnostica. |
+| ResourceId |Sì |ID risorsa della risorsa in cui si vuole definire un'impostazione di diagnostica. |
 | StorageAccountId |No  |ID risorsa dell'account di archiviazione in cui devono essere salvati i log di diagnostica. |
 | Categorie |No  |Elenco delimitato da virgole di categorie di log da abilitare. |
-| Attivato |Yes |Valore booleano che indica se la diagnostica viene abilitata o disabilitata per questa risorsa. |
+| Attivato |Sì |Valore booleano che indica se la diagnostica viene abilitata o disabilitata per questa risorsa. |
 | RetentionEnabled |No  |Valore booleano che indica se un criterio di conservazione è abilitato per questa risorsa. |
 | RetentionInDays |No  |Numero di giorni per cui gli eventi devono essere conservati, compreso tra 1 e 2147483647. Se il valore è zero, i log vengono conservati all'infinito. |
 

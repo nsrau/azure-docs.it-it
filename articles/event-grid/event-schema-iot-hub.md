@@ -10,12 +10,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: kgremban
-ms.openlocfilehash: df1c0f8256b49e23b720df47c513fba8c62677b5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 5fcd7c10002e7e1ae9683fdd89d3af14a1500050
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475204"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449190"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Schema di eventi di Griglia di eventi di Azure per l'hub IoT
 
@@ -111,7 +111,7 @@ Lo schema per gli eventi DeviceCreated e DeviceDeleted ha la stessa struttura. Q
 
 Tutti gli eventi contengono gli stessi dati di livello principale: 
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | id | stringa | Identificatore univoco dell'evento. |
 | argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
@@ -124,14 +124,14 @@ Tutti gli eventi contengono gli stessi dati di livello principale:
 
 Per tutti gli eventi dell'hub IoT, l'oggetto dati contiene le proprietà seguenti:
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | hubName | stringa | Nome dell'hub IoT in cui il dispositivo è stato creato o eliminato. |
 | deviceId | stringa | Identificatore univoco del dispositivo. Questa stringa con distinzione tra maiuscole e minuscole può avere una lunghezza di massimo 128 caratteri e supporta i caratteri alfanumerici ASCII a 7 bit e i caratteri speciali seguenti: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 
 Il contenuto dell'oggetto dati è diverso per ogni autore di eventi. Per gli eventi **Device Connected** e **Device Disconnected** dell'hub IoT, l'oggetto dati contiene le proprietà seguenti:
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | moduleId | stringa | Identificatore univoco del modulo. Questo è un campo di output solo per i dispositivi di modulo. Questa stringa con distinzione tra maiuscole e minuscole può avere una lunghezza di massimo 128 caratteri e supporta i caratteri alfanumerici ASCII a 7 bit e i caratteri speciali seguenti: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | deviceConnectionStateEventInfo | object | Informazioni sugli eventi dello stato di connessione del dispositivo
@@ -139,7 +139,7 @@ Il contenuto dell'oggetto dati è diverso per ogni autore di eventi. Per gli eve
 
 Il contenuto dell'oggetto dati è diverso per ogni autore di eventi. Per gli eventi **Device Created** e **Device Deleted** dell'hub IoT, l'oggetto dati contiene le proprietà seguenti:
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | twin | object | Informazioni sul dispositivo gemello, ovvero la rappresentazione nel cloud dei metadati del dispositivo dell'applicazione. | 
 | deviceID | stringa | Identificatore univoco del dispositivo gemello. | 

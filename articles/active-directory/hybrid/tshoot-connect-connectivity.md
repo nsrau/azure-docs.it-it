@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57f7d72be86a05b9785f7714380363d9c6ddb5c6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c0afc31bf08a5037d91885bc6a85c6aeaf858825
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205699"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436656"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Risolvere i problemi di connettività con Azure AD Connect
 Questo articolo illustra il funzionamento della connettività tra Azure AD Connect e Azure AD e come risolverne i problemi. Questi problemi si verificano con maggiore probabilità in un ambiente con un server proxy.
@@ -76,7 +76,7 @@ Questo errore viene visualizzato se l'endpoint **https://secure.aadcdn.microsoft
 
 ### <a name="the-password-cannot-be-verified"></a>La password non può essere verificata
 Se l'Installazione guidata riesce a connettersi ad Azure AD, ma non è possibile verificare la password, viene visualizzato questo errore:  
-![badpassword](./media/tshoot-connect-connectivity/badpassword.png)
+![Password errata.](./media/tshoot-connect-connectivity/badpassword.png)
 
 * È una password temporanea e deve essere modificata? È effettivamente la password corretta? Provare ad accedere a https://login.microsoftonline.com da un computer diverso dal server di Azure AD Connect e verificare che l'account sia utilizzabile.
 
@@ -165,8 +165,8 @@ Le credenziali sono scadute. Modificare la password.
 ### <a name="authorization-failure"></a>Errore di autorizzazione
 Non è stato possibile autorizzare l'utente a eseguire azioni in Azure AD.
 
-### <a name="authentication-cancelled"></a>Autenticazione annullata
-La richiesta di autenticazione a più fattori (MFA) è stata annullata.
+### <a name="authentication-canceled"></a>Autenticazione annullata
+La sfida di multi-factor authentication (MFA) è stata annullata.
 
 <div id="connect-msolservice-failed">
 <!--

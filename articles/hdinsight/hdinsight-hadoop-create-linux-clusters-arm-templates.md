@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: d40d3b32f3af8e50079de0a5988584427ea6777c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: cd02930394fd4cd09808a808765e54ff9ea6b4ea
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819808"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57434302"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Creare cluster Apache Hadoop in HDInsight mediante modelli di Resource Manager
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -30,7 +30,7 @@ Per seguire le istruzioni di questo articolo sono necessari:
 * Azure PowerShell e/o l'interfaccia della riga di comando classica di Azure.
 
 ### <a name="resource-manager-templates"></a>Modelli di Gestione risorse
-Un modello di Gestione risorse consente di creare facilmente le risorse seguenti per l'applicazione in un'unica operazione coordinata:
+Un modello di Resource Manager semplifica creare le risorse seguenti per l'applicazione in un'unica operazione coordinata:
 * Cluster HDInsight e le relative risorse dipendenti, ad esempio l'account di archiviazione predefinito.
 * Altre risorse, ad esempio il database SQL di Azure per usare [Apache Sqoop](https://sqoop.apache.org/).
 
@@ -47,11 +47,7 @@ Per altre informazioni sui modelli di Resource Manager, consultare gli articoli 
 
 ## <a name="generate-templates"></a>Generare modelli
 
-Gestione risorse consente di esportare un modello di Gestione risorse dalle risorse esistenti nella sottoscrizione usando diversi strumenti. Il modello generato può essere usato per ottenere informazioni sulla sintassi del modello o per automatizzare la ridistribuzione della soluzione in base alle esigenze.
-
-- Portale di Azure: vedere [Esportare un modello di Azure Resource Manager da risorse esistenti](../azure-resource-manager/resource-manager-export-template.md).
-- Azure PowerShell: vedere [Esportare modelli di Azure Resource Manager con PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md).
-- Interfaccia della riga di comando classica di Azure: vedere [Esportare il modello di Azure Resource Manager con l'interfaccia della riga di comando di Azure](../azure-resource-manager/resource-manager-export-template-cli.md).
+Gestione risorse consente di esportare un modello di Gestione risorse dalle risorse esistenti nella sottoscrizione usando diversi strumenti. Il modello generato può essere usato per ottenere informazioni sulla sintassi del modello o per automatizzare la ridistribuzione della soluzione in base alle esigenze. Per altre informazioni, vedere [esportare modelli](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
 
 ## <a name="deploy-using-the-portal"></a>Distribuire tramite il portale
 

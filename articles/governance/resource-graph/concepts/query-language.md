@@ -1,6 +1,6 @@
 ---
 title: Informazioni sul linguaggio di query
-description: Descrive il funzionamento del linguaggio di query Kusto usato da Azure Resource Graph.
+description: Descrive gli operatori di Kusto disponibili e funzioni utilizzabili con Graph di Azure Resource.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: cc792d27890b5d994b62784eaa511df990f9b5ec
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 618445c5b792317d4de4b668e7ea1a186707007c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339975"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317918"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Informazioni sul linguaggio di query di Azure Resource Graph
 

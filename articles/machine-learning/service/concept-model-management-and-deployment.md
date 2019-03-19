@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: chris-lauren
 ms.author: clauren
-ms.date: 09/24/2018
+ms.date: 1/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7f24e242168fc969d0f0d920dce0e6d9562a295
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 8dea667b15471accd4fc8b09d0ff1eb7aa5daed5
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241841"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403686"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Gestire e distribuire modelli con il servizio Azure Machine Learning
 
 Questo articolo offre informazioni su come usare il servizio Azure Machine Learning per distribuire, gestire e monitorare i modelli per garantirne un miglioramento costante. È possibile distribuire i modelli di cui si è effettuato il training con Azure Machine Learning sul computer locale o da altre origini. 
 
-Il diagramma seguente illustra il flusso di lavoro di distribuzione completo: [ ![Flusso di lavoro di distribuzione per Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
+Il diagramma seguente illustra il flusso di lavoro di distribuzione completo: [![Flusso di lavoro di distribuzione per Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png)](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
 Il flusso di lavoro di distribuzione comprende i passaggi seguenti:
 1. **Registrazione del modello** in un registro ospitato nell'area di lavoro del servizio Azure Machine Learning
@@ -33,7 +33,7 @@ Il flusso di lavoro di distribuzione comprende i passaggi seguenti:
 
 Ogni passaggio può essere eseguito in modo indipendente o come parte di un comando di distribuzione singolo. Inoltre, è possibile integrare la distribuzione in un **flusso di lavoro CI/CD** come illustrato in questo grafico.
 
-[ !['Ciclo di integrazione continua/distribuzione continua (CI/CD) di Azure Machine Learning'](media/concept-model-management-and-deployment/model-ci-cd.png) ](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+[!['Azure Machine Learning/integrazione continua (CI/CD) ciclo di distribuzione'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
 ## <a name="step-1-register-model"></a>Passaggio 1: Registrare il modello
 
@@ -73,7 +73,7 @@ Per altre informazioni, vedere la sezione relativa alla configurazione e alla re
 
 È anche possibile cercare le distribuzioni dei servizi Web. Ad esempio, è possibile cercare tutte le distribuzioni di un modello o immagini specifici.
 
-[ ![Destinazioni di inferenza](media/concept-model-management-and-deployment/inferencing-targets.png) ](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
+[![Destinazioni di inferenza](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
 È possibile distribuire le immagini nelle destinazioni di distribuzione seguenti nel cloud:
 
@@ -105,6 +105,6 @@ Gli aggiornamenti al modello non vengono registrati automaticamente. In modo ana
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulle [come e dove è possibile distribuire modelli](how-to-deploy-and-where.md) con il servizio di Azure Machine Learning.
+Altre informazioni sulle [come e dove è possibile distribuire modelli](how-to-deploy-and-where.md) con il servizio di Azure Machine Learning. Per un esempio di distribuzione, vedere [esercitazione: Distribuire un modello di classificazione di immagini in istanze di contenitore di Azure](tutorial-deploy-models-with-aml.md).
 
 Informazioni su come creare servizi e applicazioni client che [utilizzano un modello distribuito come servizio Web](how-to-consume-web-service.md).
