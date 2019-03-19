@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 2f7d671dd70571ce167d9c5abd632cdebff329da
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 63c649f0850c4ffc60ce2087e91f3f69917e4837
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888142"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868545"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schema degli eventi del log attività di Azure
 Il **log attività di Azure** fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Questo articolo descrive lo schema degli eventi per ogni categoria di dati. Lo schema dei dati varia a seconda che si stiano leggendo i dati nel portale, in PowerShell, nell'interfaccia della riga di comando o direttamente tramite l'API REST rispetto allo [streaming dei dati nella risorsa di archiviazione o in Hub eventi usando un profilo di log](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Gli esempi seguenti mostrano lo schema reso disponibile tramite il portale, PowerShell, l'interfaccia della riga di comando e l'API REST. Un mapping di queste proprietà allo [schema di log di diagnostica di Azure](./diagnostic-logs-schema.md) è disponibile alla fine dell'articolo.
@@ -119,10 +119,13 @@ Questa categoria contiene il record di tutte le operazioni di creazione, aggiorn
 | correlationId |In genere un GUID in formato stringa. Gli eventi che condividono un elemento correlationId appartengono alla stessa azione. |
 | description |Testo statico che descrive un evento. |
 | eventDataId |Identificatore univoco di un evento. |
+| eventName | Nome descrittivo dell'evento amministrativo. |
+| category | Sempre "amministrativo" |
 | httpRequest |BLOB che descrive la richiesta HTTP. In genere include "clientRequestId", "clientIpAddress" e "method" (metodo HTTP, ad esempio PUT). |
 | level |Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning" e "Informational" |
 | resourceGroupName |Nome del gruppo di risorse della risorsa interessata. |
 | resourceProviderName |Nome del provider di risorse della risorsa interessata. |
+| resourceType | Il tipo di risorsa che è stata interessata da un evento amministrativo. |
 | resourceId |ID della risorsa interessata. |
 | operationId |GUID condiviso tra gli eventi che corrispondono a una singola operazione. |
 | operationName |Nome dell'operazione. |

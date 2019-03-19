@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: e1545e830ac04000920c3881486b2add79744201
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: d76a644de8cb55da5e743e482d14946d371c3dfe
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548868"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867236"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Come eseguire il backup e il ripristino di un server in Database di Azure per MySQL tramite il portale di Azure
 
@@ -61,7 +61,7 @@ La procedura seguente consente di ripristinare il server di esempio a un momento
 
 3. Compilare il modulo Ripristina con le informazioni obbligatorie:
 
-   ![Database di Azure per MySQL - Informazioni di ripristino ](./media/howto-restore-server-portal/3-restore.png)
+   ![Database di Azure per MySQL - Informazioni di ripristino](./media/howto-restore-server-portal/3-restore.png)
    - **Punto di ripristino**: selezionare il punto di ripristino temporizzato desiderato.
    - **Server di destinazione**: Specificare un nome per il nuovo server.
    - **Posizione**: non è possibile selezionare l'area. Per impostazione predefinita è uguale al server di origine.

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f4838f688210f9017d691bd6a463217a75fc90d4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: a19153677e691d2681c131df67100a43ef9532a0
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447515"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889325"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Amministratori della sottoscrizione classica di Azure
 
@@ -91,7 +91,7 @@ Esistono due modi per modificare l'amministratore del servizio. È possibile mod
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-1. Verificare che lo scenario sia supportato esaminando le [limitazioni per la modifica degli amministratori del servizio](#limits).
+1. Assicurarsi che lo scenario sia supportato verificando le limitazioni per la modifica degli amministratori del servizio.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore account.
 
@@ -109,7 +109,7 @@ Esistono due modi per modificare l'amministratore del servizio. È possibile mod
 
 ### <a name="account-center"></a>Centro account
 
-1. Verificare che lo scenario sia supportato esaminando le [limitazioni per la modifica degli amministratori del servizio](#limits).
+1. Assicurarsi che lo scenario sia supportato verificando le limitazioni per la modifica degli amministratori del servizio.
 
 1. Accedere al [Centro account](https://account.windowsazure.com/subscriptions) come amministratore account.
 
@@ -156,3 +156,4 @@ Seguire questi passaggi per visualizzare l'amministratore account.
 
 * [Comprendere i diversi ruoli in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e il portale di Azure](../role-based-access-control/role-assignments-portal.md)
+* [Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure](../billing/billing-add-change-azure-subscription-administrator.md)

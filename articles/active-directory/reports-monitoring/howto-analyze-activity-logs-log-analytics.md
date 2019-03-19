@@ -17,18 +17,20 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2e565f5b9bcd9e3e79423c742b2c95c00abd97b
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: aca7f0dbe0906ea0e1572f4580d8937ebf3eee64
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454759"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823255"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs-preview"></a>Analizzare i log attività di Azure AD con i log di Monitoraggio di Azure (anteprima)
 
 Dopo aver [integrato i log attività di Azure AD con i log di Monitoraggio di Azure](howto-integrate-activity-logs-with-log-analytics.md), è possibile usare le funzionalità dei log di Monitoraggio di Azure per ottenere informazioni dettagliate sull'ambiente. È anche possibile installare le [viste di analisi dei log per i log attività di Azure AD](howto-install-use-log-analytics-views.md) per ottenere l'accesso a report predefiniti sugli eventi di controllo e di accesso nell'ambiente in uso.
 
 Questo articolo descrive come analizzare i log attività di Azure AD nell'area di lavoro di Log Analytics. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti 
 

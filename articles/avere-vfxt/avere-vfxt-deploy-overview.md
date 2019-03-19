@@ -4,14 +4,14 @@ description: Panoramica della distribuzione di Avere vFXT per Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 1be11fff7139b250e85fe15cec9082a2c85cf857
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 0c61db5e34ba58bb767b0bda773a54c8e65cd404
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298535"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991802"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Avere vFXT per Azure - Panoramica della distribuzione
 
@@ -29,7 +29,7 @@ Quando il cluster vFXT è operativo, sarà necessario sapere come connettere i c
 
 Ecco una panoramica di tutti i passaggi.
 
-1. Configurare i prerequisiti 
+1. Configurazione dei prerequisiti 
 
    Prima di creare una macchina virtuale, è necessario creare una nuova sottoscrizione per il progetto Avere vFXT, configurare la proprietà della sottoscrizione, verificare le quote e richiedere un aumento, se necessario, oltre che accettare le condizioni per l'uso del software Avere vFXT. Per istruzioni dettagliate, vedere [Preparare la creazione di Avere vFXT](avere-vfxt-prereqs.md).
 
@@ -52,10 +52,12 @@ Ecco una panoramica di tutti i passaggi.
 
      Il controller del cluster è una semplice macchina virtuale che si trova nella stessa rete virtuale del cluster Avere vFXT e dispone del software necessario per creare e gestire il cluster. Il controller crea i nodi vFXT e forma il cluster, oltre a fornire un'interfaccia della riga di comando per gestire il cluster durante il suo ciclo di vita.
 
-     Se si configura il controller con un indirizzo IP pubblico, può fungere anche da host di collegamento per la connessione al cluster dall'esterno della rete virtuale.
+     Se si crea una nuova rete virtuale durante la distribuzione, il controller avrà un indirizzo IP pubblico. Ciò significa che il controller può essere utilizzato come un host di salto per la connessione al cluster dall'esterno della rete virtuale.
 
    * Creazione delle macchine virtuali del nodo del cluster
-   * Configurazione delle macchine virtuali del nodo del cluster come cluster
+
+   * Configurazione delle macchine virtuali per formare il cluster del nodo cluster
+
    * Facoltativamente, creazione di un nuovo contenitore BLOB e configurazione di tale contenitore come risorsa di archiviazione back-end per il cluster
 
 1. Configurare il cluster 

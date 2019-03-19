@@ -14,18 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: 419e7b1ae05f92b5b97f5317c0315a71958eff9e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: a49ab9b045854c49785546ed17834169ec29f8b8
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005166"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816820"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Aggiornare Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione 
 
 Quando si crea un nuovo account di Servizi multimediali di Azure (AMS), viene chiesto di selezionare anche un account di archiviazione di Azure da usare per l'archiviazione dei contenuti multimediali. È possibile aggiungere più di un account di archiviazione all'account di Servizi multimediali. Questo articolo illustra come far ruotare le chiavi di archiviazione. Viene inoltre illustrato come aggiungere gli account di archiviazione a un account multimediale. 
 
-Per eseguire le operazioni descritte in questo articolo è necessario usare [Azure Resource Manager](/rest/api/media/operations/azure-media-services-rest-api-reference) e [Powershell](https://docs.microsoft.com/powershell/module/azurerm.media).  Per ulteriori informazioni, vedere [Gestire le risorse di Azure con PowerShell e Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md).
+Per eseguire le operazioni descritte in questo articolo è necessario usare [Azure Resource Manager](/rest/api/media/operations/azure-media-services-rest-api-reference) e [Powershell](https://docs.microsoft.com/powershell/module/az.media).  Per ulteriori informazioni, vedere [Gestire le risorse di Azure con PowerShell e Resource Manager](../../azure-resource-manager/manage-resource-groups-powershell.md).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Panoramica
 
@@ -42,15 +44,15 @@ Servizi multimediali dipende da una chiave di archiviazione fornita. In particol
 ## <a name="steps-to-rotate-storage-keys"></a>Passaggi per ruotare le chiavi di archiviazione 
  
  1. Modificare la chiave primaria dell'account di archiviazione tramite il cmdlet PowerShell o il portale di [Azure](https://portal.azure.com/).
- 2. Chiamare il cmdlet Sync-AzureRmMediaServiceStorageKeys con i parametri appropriati per forzare l'account multimediale a prendere le chiavi dell'account di archiviazione
+ 2. Chiamare il cmdlet Sync-AzMediaServiceStorageKeys con i parametri appropriati per forzare l'account multimediale a prendere le chiavi di account di archiviazione
  
     Nell'esempio seguente viene illustrato come sincronizzare le chiavi con gli account di archiviazione.
   
-         Sync-AzureRmMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
+         Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
   
  3. Attendere circa un'ora. Verificare che gli scenari di streaming funzionino.
  4. Modificare la chiave secondaria dell'account di archiviazione tramite il cmdlet PowerShell o il portale di Azure.
- 5. Chiamare il cmdlet PowerShell Sync-AzureRmMediaServiceStorageKeys con i parametri appropriati per forzare l'account multimediale a prendere le nuove chiavi dell'account di archiviazione. 
+ 5. Chiamare powershell Sync-AzMediaServiceStorageKeys con i parametri appropriati per forzare l'account multimediale a prendere le nuove chiavi di account di archiviazione. 
  6. Attendere circa un'ora. Verificare che gli scenari di streaming funzionino.
  
 ### <a name="a-powershell-cmdlet-example"></a>Esempio di cmdlet PowerShell 
@@ -63,7 +65,7 @@ Nell'esempio seguente viene illustrato come ottenere l'account di archiviazione 
     $storageAccountName = "skystorage"
     $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-    Sync-AzureRmMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
+    Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
 
  
 ## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>Passaggi per aggiungere gli account di archiviazione all'account AMS

@@ -4,18 +4,18 @@ description: Informazioni sulle attività di pianificazione da eseguire prima de
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: a097110bac7dad630f9a85dd8b20678db0c739cf
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 3212befac60e3677c0b556825560cc548df42969
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744657"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990986"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Pianificare il sistema Avere vFXT
 
-Questo articolo illustra come pianificare un nuovo cluster Avere vFXT per Azure così da assicurarsi che il cluster creato sia posizionato e dimensionato in modo appropriato per le esigenze specifiche. 
+Questo articolo illustra come pianificare una nuova vFXT Avere per cluster di Azure che è posizionare e ridimensionare in modo appropriato per le proprie esigenze. 
 
 Prima di passare ad Azure Marketplace o di creare macchine virtuali, valutare come interagirà il cluster con gli altri elementi in Azure. Pianificare la posizione delle risorse cluster nella rete privata e nelle subnet e stabilire la posizione dell'archiviazione back-end. Assicurarsi che i nodi del cluster creati siano sufficientemente potenti per supportare il flusso di lavoro. 
 
@@ -32,16 +32,22 @@ Seguire queste linee guida per la pianificazione dell'infrastruttura di rete del
 * Tutti gli elementi devono essere gestiti con una nuova sottoscrizione creata per la distribuzione di Avere vFXT. I vantaggi includono: 
   * Verifica semplificata dei costi: è possibile visualizzare e controllare tutti i costi relativi alle risorse, all'infrastruttura e ai calcoli in una sottoscrizione.
   * Pulizia più semplice: è possibile rimuovere l'intera sottoscrizione al termine del progetto.
-  * Partizionamento pratico delle quote di risorse: è possibile proteggere altri carichi di lavoro critici da una possibile limitazione delle risorse quando si richiama l'elevato numero di client usati per il flusso di lavoro di elaborazione ad alte prestazioni. A tale scopo, isolare i client e il cluster Avere vFXT in un singola sottoscrizione.
+  * Partizionamento pratico della risorsa quote - proteggere altri carichi di lavoro critici dalla limitazione delle richieste tramite l'isolamento Avere vFXT client e cluster in una singola sottoscrizione di risorse possibili. Questo modo si evitano conflitti quando riportano un numero elevato di client per un flusso di lavoro di calcolo ad alte prestazioni.
 
 * Posizionare i sistemi di calcolo client vicino al cluster vFXT. L'archiviazione back-end può avere una posizione più remota.  
 
-* Per semplicità, posizionare il cluster vFXT e la macchina virtuale controller del cluster nella stessa rete virtuale e nello stesso gruppo di risorse. Devono usare anche lo stesso account di archiviazione. Il controller del cluster consente di creare il cluster e può essere usato anche per la gestione del cluster da riga di comando.  
-
-  > [!NOTE] 
-  > Il modello di creazione del cluster può creare un nuovo gruppo di risorse e un nuovo account di archiviazione per il cluster. È possibile specificare un gruppo di risorse esistente, ma deve essere vuoto.
+* Il cluster vFXT e il controller del cluster macchina virtuale deve trovarsi nella stessa rete virtuale (vnet), nello stesso gruppo di risorse e usare lo stesso account di archiviazione. Il modello di creazione di cluster automatico viene gestita per la maggior parte delle situazioni.
 
 * Il cluster deve essere posizionato nella relativa subnet per evitare conflitti di indirizzi IP con i client o le risorse di calcolo. 
+
+* Il modello di creazione del cluster è possibile creare la maggior parte delle risorse dell'infrastruttura necessari per il cluster, inclusi i gruppi di risorse, le reti virtuali, subnet e gli account di archiviazione. Se si desidera usare le risorse già esistenti, verificare che soddisfino i requisiti in questa tabella. 
+
+  | Risorsa | Usa esistente? | Requisiti |
+  |----------|-----------|----------|
+  | Gruppo di risorse | Sì, se è vuota | Deve essere vuoto| 
+  | Account di archiviazione | Sì, se la connessione esistente di contenitore di Blob dopo la creazione del cluster <br/>  No se la creazione di un nuovo contenitore Blob durante la creazione del cluster | Contenitore Blob esistente deve essere vuoto <br/> &nbsp; |
+  | Rete virtuale | Sì | Deve includere un endpoint di servizio di archiviazione se la creazione di un nuovo contenitore Blob di Azure | 
+  | Subnet | Sì |   |
 
 ## <a name="ip-address-requirements"></a>Requisiti degli indirizzi IP 
 
@@ -62,22 +68,20 @@ Se si usa l'archiviazione BLOB di Azure, potrebbero essere anche necessari indir
 
 È possibile posizionare le risorse di rete e l'archiviazione BLOB (se in uso) in gruppi di risorse diversi rispetto al cluster.
 
-## <a name="vfxt-node-sizes"></a>Dimensioni dei nodi vFXT 
+## <a name="vfxt-node-size"></a>dimensioni del nodo vFXT
 
-Le macchine virtuali che fungono da nodi del cluster determinano la velocità effettiva delle richieste e la capacità di archiviazione della cache. È possibile scegliere tra due tipi di istanze, con caratteristiche di memoria, processore e archiviazione locale diverse. 
+Le macchine virtuali che fungono da nodi del cluster determinano la velocità effettiva delle richieste e la capacità di archiviazione della cache. <!-- The instance type offered has been chosen for its memory, processor, and local storage characteristics. You can choose from two instance types, with different memory, processor, and local storage characteristics. -->
 
 Ogni nodo vFXT sarà identico. Ciò significa che se si crea un cluster a tre nodi, si avranno tre macchine virtuali con tipo e dimensioni uguali. 
 
 | Tipo di istanza | vCPU | Memoria  | Archiviazione SSD locale  | Numero massimo di dischi dati | Velocità effettiva del disco senza memorizzazione nella cache | Scheda di rete (conteggio) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D16s_v3 | 16  | 64 GiB  | 128 GiB  | 32 | 25.600 operazioni di I/O al secondo <br/> 384 MBps | 8.000 MBps (8) |
 | Standard_E32s_v3 | 32  | 256 GiB | 512 GiB  | 32 | 51.200 operazioni di I/O al secondo <br/> 768 MBps | 16.000 MBps (8)  |
 
-La cache del disco per ogni nodo è configurabile e può andare da 1000 GB a 8000 GB. La dimensione della cache consigliata per i nodi Standard_D16s_v3 è di 1 TB per nodo, mentre per i nodi Standard_E32s_v3 è di 4 TB per nodo.
+La cache del disco per ogni nodo è configurabile e può andare da 1000 GB a 8000 GB. Da 4 TB per ogni nodo è la dimensione della cache consigliata per i nodi Standard_E32s_v3.
 
-Per altre informazioni su queste macchine virtuali, leggere i documenti di Microsoft Azure seguenti:
+Per altre informazioni su queste macchine virtuali, leggere la documentazione di Microsoft Azure:
 
-* [Dimensioni delle macchine virtuali per utilizzo generico](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general)
 * [Dimensioni delle macchine virtuali ottimizzate per la memoria](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
 
 ## <a name="account-quota"></a>Quota account
@@ -120,7 +124,7 @@ Per informazioni dettagliate su queste opzioni, vedere la [documentazione di Ret
 
 Se si imposta un indirizzo IP pubblico nel controller del cluster, è possibile usarlo come host di collegamento per contattare il cluster Avere vFXT dall'esterno della subnet privata. Tuttavia, poiché il controller ha privilegi di accesso per la modifica dei nodi del cluster, si presenta un lieve rischio per la sicurezza.  
 
-Per migliorare la sicurezza con un indirizzo IP pubblico, usare un gruppo di sicurezza di rete per consentire l'accesso in ingresso solo tramite la porta 22. Facoltativamente, è possibile proteggere ulteriormente il sistema limitando l'accesso al proprio intervallo di indirizzi IP di origine, ovvero consentendo solo connessioni provenienti dai computer che si intende usare per l'accesso al cluster.
+Per migliorare la sicurezza per un controller con un indirizzo IP pubblico, lo script di distribuzione crea automaticamente un gruppo di sicurezza di rete che limitano l'accesso in ingresso alla porta 22. È possibile proteggere ulteriormente il sistema limitando l'accesso al proprio intervallo di indirizzi di origine IP, ovvero consentendo solo connessioni provenienti dai computer che si intende usare per l'accesso al cluster.
 
 Quando si crea il cluster, è possibile scegliere se creare un indirizzo IP pubblico nel controller del cluster. 
 
