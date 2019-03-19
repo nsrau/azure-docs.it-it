@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 9c35a4a811925abaf8dcb64d3e7060bbb1f91cce
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 3daa71c91d1e49a497a979b9b5b89df1fcb9418c
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408324"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889682"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Usare gli archivi di metadati esterni in Azure HDInsight
 
@@ -68,7 +68,7 @@ Ecco alcune procedure consigliate generali per il metastore Hive di HDInsight:
 - Se si prevede l'accesso di più cluster HDInsight a dati separati, usare un database separato per il metastore in ogni cluster. Se un metastore è condiviso da più cluster HDInsight, significa che i cluster usano gli stessi metadati e file di dati utente sottostanti.
 - Eseguire periodicamente il backup del metastore personalizzato. Il database SQL di Azure genera automaticamente i backup, ma il periodo di conservazione dei backup varia. Per altre informazioni, vedere [Informazioni sui backup automatici del database SQL](../sql-database/sql-database-automated-backups.md).
 - Posizionare il metastore e il cluster HDInsight nella stessa area per ottenere le migliori prestazioni e ridurre i costi dei dati in uscita della rete.
-- Monitorare le prestazioni e la disponibilità del metastore usando gli strumenti di monitoraggio del Database SQL di Azure, ad esempio il portale di Azure o Azure Log Analytics.
+- Monitorare il metastore per prestazioni e disponibilità usando strumenti di monitoraggio di Azure SQL Database, ad esempio il portale di Azure o i registri di monitoraggio di Azure.
 - Quando una nuova versione di Azure HDInsight viene creata in un database del metastore personalizzato esistente, il sistema aggiorna lo schema del metastore che è irreversibile senza ripristino del database dal backup.
 - Se un metastore è condiviso da più cluster, assicurarsi che tutti i cluster abbiano la stessa versione HDInsight. Versioni Hive diverse usano schemi di database del metastore diversi. Ad esempio, non è possibile condividere un metastore tra cluster Hive 1.2 e Hive 2.1. 
 

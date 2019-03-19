@@ -17,12 +17,12 @@ ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d52d89d577d0bf50168104e9dae1ddc2a5278ff0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bc2f2f90029918955f00771acaac10b3cf5f4416
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201568"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868273"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Studio sulla protezione delle identità di Azure Active Directory
 
@@ -148,7 +148,7 @@ Per altre informazioni, vedere [Come configurare i criteri di rischio di accesso
 
 **Per testare i criteri di rischio di accesso, seguire questa procedura:**
 
-1. Accedere a [https://portal.azure.com ](https://portal.azure.com) con credenziali di amministratore globale per il tenant.
+1. Accedere a [https://portal.azure.com](https://portal.azure.com) con credenziali di amministratore globale per il tenant.
 
 2. Passare ad **Azure AD Identity Protection**.
 

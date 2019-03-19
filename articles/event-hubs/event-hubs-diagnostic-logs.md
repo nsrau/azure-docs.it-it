@@ -16,12 +16,12 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c32662b446df10649617570c63ce534071ed7d27
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: c8f2dba8ff30ceae4085d96640623a01b6784b1e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540317"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957522"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurare i log di diagnostica per un hub eventi di Azure
 
@@ -48,7 +48,7 @@ I log di diagnostica sono disabilitati per impostazione predefinita. Per abilita
 
     ![Modifica dello lo stato dei log di diagnostica](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  Impostare la destinazione di archiviazione desiderata, ad esempio un account di archiviazione, un hub eventi o Azure Log Analytics.
+5.  Impostare la destinazione di archiviazione che si desidera. ad esempio, un account di archiviazione, un hub eventi o monitoraggio di Azure Registra.
 
 6.  Salvare le nuove impostazioni di diagnostica.
 
@@ -76,7 +76,7 @@ NOME | DESCRIZIONE
 TaskName | Descrizione dell'attività non riuscita.
 ActivityId | ID interno, usato a scopo di rilevamento.
 trackingId | ID interno, usato a scopo di rilevamento.
-ResourceId | ID della risorsa di Azure Resource Manager.
+resourceId | ID della risorsa di Azure Resource Manager.
 eventHub | Nome completo dell'hub eventi, include il nome dello spazio dei nomi.
 partitionId | Partizione dell'hub eventi per l'operazione di scrittura.
 archiveStep | ArchiveFlushWriter
@@ -113,11 +113,11 @@ NOME | DESCRIZIONE
 ------- | -------
 ActivityId | ID interno, usato a scopo di rilevamento.
 EventName | Nome operazione.  
-ResourceId | ID della risorsa di Azure Resource Manager.
+resourceId | ID della risorsa di Azure Resource Manager.
 SubscriptionId | l'ID sottoscrizione.
 EventTimeString | Durata dell'operazione.
 EventProperties | Proprietà dell'operazione.
-Status | Stato dell'operazione.
+Stato | Stato dell'operazione.
 Chiamante | Chiamante dell'operazione (Portale di Azure o client di gestione).
 category | OperationalLogs
 

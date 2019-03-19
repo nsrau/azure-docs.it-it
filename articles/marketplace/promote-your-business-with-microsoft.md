@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: b02ab403c82fd781af72c3b1f08e843c3fc770e3
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
-ms.translationtype: HT
+ms.openlocfilehash: 3bd2361547a8210ae287eabaa67b60e8ba1f26e3
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094944"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738148"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Promuovere la propria attività con Microsoft  
 Microsoft ha l'obiettivo di supportare i partner (l'utente) e di semplificare la vendita di app o offerte nelle vetrine del Marketplace. La pubblicazione di un'inserzione nel Marketplace consente di accedere ai programmi e alle risorse nel Marketplace. 
@@ -40,4 +40,4 @@ Per promuovere un'offerta o un'app, usare la tabella seguente per accedere ad al
 | Ottenere la competenza per la piattaforma cloud | Ottenendo una competenza è possibile distinguersi dagli altri partner Microsoft. Una competenza consente inoltre di testimoniare la propria esperienza tecnica e il successo sul mercato. L'acquisizione di una competenza è un prerequisito per partecipare a molti dei principali programmi per partner come quello di co-selling.<ul> <li>Per altre informazioni sulle competenze per la piattaforma cloud visitare la pagina Competenza per la piattaforma cloud disponibile all'indirizzo [partner.microsoft.com/membership/cloud-platform-competency](https://partner.microsoft.com/membership/cloud-platform-competency).</li> </ul> |  
 | Acquisire l'idoneità per il programma di co-selling | Il programma di co-selling consente di collaborare direttamente con i venditori Microsoft e con altri partner alla realizzazione di opportunità di vendita e alla pianificazione di account. La soluzione verrà inserita nel catalogo di soluzioni dei venditori Microsoft, acquisendo visibilità. I venditori Microsoft a loro volta verranno ricompensati per l'avvio di una collaborazione di successo in collaborazione con l'editore.<ul> <li>Per altre informazioni sulla conformità al programma di co-selling, visitare la pagina Promuovere la propria attività disponibile all'indirizzo [partner.microsoft.com/reach-customers/promote-your-business](https://partner.microsoft.com/reach-customers/promote-your-business).</li> </ul> |  
 
----  
+---

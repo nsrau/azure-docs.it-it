@@ -5,15 +5,15 @@ services: storage
 author: cbrooksmsft
 ms.service: storage
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/22/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ce682263663c0547d9e35a4d29037fd125d8bc6c
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: c7f7768406ae64615b46abeb396b5469caf2f6e9
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699177"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750651"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
@@ -352,6 +352,7 @@ Se si abilita l'eccezione **Consenti ai servizi Microsoft attendibili...**, ai s
 |Backup di Azure|Microsoft.Backup|Eseguire il backup e il ripristino di dischi non gestiti nelle macchine virtuali IAAS (non obbligatorio per i dischi gestiti). [Altre informazioni](/azure/backup/backup-introduction-to-azure-backup)|
 |Azure Site Recovery|Microsoft.SiteRecovery |Configurare il ripristino di emergenza abilitando la replica delle macchine virtuali IaaS di Azure. Questa operazione è necessaria se si usa un account di archiviazione della cache abilitato per il firewall, un account di archiviazione di origine o un account di archiviazione di destinazione.  [Altre informazioni](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)|
 |Azure DevTest Labs|Microsoft.DevTestLab|Creazione di immagini personalizzate e installazione di artefatti. [Altre informazioni](/azure/devtest-lab/devtest-lab-overview)|
+|Azure Data Box|Microsoft.DataBox|Consente l'importazione di dati in Azure mediante Data Box. [Altre informazioni](/azure/databox/data-box-overview)|
 |Griglia di eventi di Azure|Microsoft.EventGrid|Abilitare la pubblicazione di eventi di archiviazione BLOB e consentire a Griglia di eventi la pubblicazione nelle code di archiviazione. Informazioni sugli [eventi di archiviazione BLOB](/azure/event-grid/event-sources) e sulla [pubblicazione nelle code](/azure/event-grid/event-handlers).|
 |Hub eventi di Azure|Microsoft.EventHub|Archiviare dati con Acquisizione di Hub eventi. [Altre informazioni](/azure/event-hubs/event-hubs-capture-overview).|
 |Rete di Azure|Microsoft.Networking|Archiviare e analizzare i log di traffico di rete. [Altre informazioni](/azure/network-watcher/network-watcher-packet-capture-overview)|

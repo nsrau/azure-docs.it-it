@@ -9,18 +9,20 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 2749a5c6c4e6003c51523d83c46b48d3b55b3d45
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
-ms.translationtype: HT
+ms.openlocfilehash: 23759a6c3d920e2b791a10ddd5ac5c5285ed1889
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807585"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959868"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Come configurare il monitoraggio in Gemelli digitali di Azure
 
-Gemelli digitali di Azure supporta potenti funzionalità di registrazione, monitoraggio e analisi. Gli sviluppatori di soluzioni possono usare Azure Log Analytics, i log di diagnostica, la registrazione delle attività e altri servizi per supportare le complesse esigenze di monitoraggio di un'app IoT. Le opzioni di registrazione possono essere combinate per eseguire query o visualizzare i record in diversi servizi e per fornire una copertura di registrazione granulare per numerosi servizi.
+Gemelli digitali di Azure supporta potenti funzionalità di registrazione, monitoraggio e analisi. Gli sviluppatori di soluzioni possono usare i log, i log di diagnostica, registrazione delle attività e altri servizi di monitoraggio di Azure per supportare le complesse esigenze di monitoraggio di un'app IoT. Le opzioni di registrazione possono essere combinate per eseguire query o visualizzare i record in diversi servizi e per fornire una copertura di registrazione granulare per numerosi servizi.
 
 Questo articolo fornisce un riepilogo delle opzioni di registrazione e monitoraggio e illustra come combinarle specificamente per Gemelli digitali di Azure.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="review-activity-logs"></a>Rivedere i log attività
 
@@ -75,7 +77,7 @@ Per abilitare i log di diagnostica per un'istanza:
 
     ![Impostazioni di diagnostica due][5]
 
-    I log di diagnostica vengono spesso salvati tramite [Archiviazione file di Azure](../storage/files/storage-files-deployment-guide.md) e condivisi con [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md). È possibile selezionare entrambe le opzioni.
+    I log di diagnostica vengono spesso salvati utilizzando [archiviazione File di Azure](../storage/files/storage-files-deployment-guide.md) e condivisi con [monitoraggio di Azure registra](../azure-monitor/log-query/get-started-portal.md). È possibile selezionare entrambe le opzioni.
 
 >[!TIP]
 >Usare i **log di diagnostica** per informazioni dettagliate sulle operazioni relative alle risorse.
@@ -84,7 +86,7 @@ Per abilitare i log di diagnostica per un'istanza:
 
 Le applicazioni IoT collegano numerosi dispositivi, risorse, posizioni e dati in un'unica piattaforma. La registrazione con granularità fine fornisce informazioni dettagliate su ogni parte, servizio o componente specifico dell'architettura complessiva dell'applicazione, ma è spesso necessaria una panoramica unificata per le attività di manutenzione e debug.
 
-Monitoraggio di Azure include il potente servizio Log Analytics che consente la registrazione delle origini da visualizzare e analizzare in un'unica posizione. Monitoraggio di Azure è pertanto estremamente utile per analizzare i log all'interno di app IoT avanzate.
+Monitoraggio di Azure include il servizio di analitica log potente, che consente la registrazione delle origini per essere visualizzati e analizzati in un'unica posizione. Monitoraggio di Azure è pertanto estremamente utile per analizzare i log all'interno di app IoT avanzate.
 
 Alcuni esempi d'uso sono:
 
@@ -92,32 +94,32 @@ Alcuni esempi d'uso sono:
 * La visualizzazione di log per diverse funzioni definite dall'utente
 * La visualizzazione di log per due o più servizi in un intervallo di tempo specifico
 
-La funzionalità completa per l'esecuzione di query sui log è disponibile tramite [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md). Per configurare queste funzionalità avanzate:
+L'esecuzione di query di log completo viene fornito tramite [monitoraggio di Azure registra](../azure-monitor/log-query/log-query-overview.md). Per configurare queste funzionalità avanzate:
 
 1. Cercare **Log Analytics** nel portale di Azure.
-1. Verranno visualizzate le istanze di **Log Analytics** disponibili. Sceglierne una e selezionare **Log** per eseguire query:
+1. Verrà visualizzato il disponibili **dell'area di lavoro di Log Analitica** istanze. Sceglierne una e selezionare **Log** per eseguire query:
 
     ![Log Analytics][6]
 
-1. Se non si ha ancora un'istanza di **Log Analytics**, è possibile creare un'area di lavoro facendo clic sul pulsante **Aggiungi**:
+1. Se si ha già un **dell'area di lavoro di Log Analitica** istanza, è possibile creare un'area di lavoro facendo il **Add** pulsante:
 
     ![Creare OMS][7]
 
-Dopo aver effettuato il provisioning dell'istanza di **Log Analytics**, è possibile usare query avanzate per trovare voci in più log o eseguire ricerche con criteri specifici usando **Gestione log**:
+Una volta il **dell'area di lavoro di Log Analitica** istanza viene eseguito il provisioning, è possibile usare query avanzate per trovare le voci nei log multipli o eseguire la ricerca usando i criteri specifici usando **Logmanagement**:
 
    ![Gestione log][8]
 
 Per altre informazioni sulle operazioni avanzate relative alle query, vedere [Introduzione alle query](../azure-monitor/log-query/get-started-queries.md).
 
 > [!NOTE]
-> Quando si inviano eventi a **Log Analytics** per la prima volta, può verificarsi un ritardo di 5 minuti.
+> Che si verifichi un ritardo di 5 minuti quando si inviano eventi a **dell'area di lavoro di Log Analitica** per la prima volta.
 
-Azure Log Analytics offre anche servizi avanzati di notifica di errori e avvisi, che possono essere visualizzati facendo clic su **Diagnostica e risoluzione dei problemi**:
+Log di monitoraggio di Azure offre anche potenti errore e i servizi di notifica di avviso, che possono essere visualizzati facendo clic **diagnosticare e risolvere i problemi**:
 
    ![Notifiche di avvisi ed errori][9]
 
 >[!TIP]
->Usare **Log Analytics** per eseguire query su cronologie di log per più funzionalità di app, sottoscrizioni o servizi.
+>Uso **dell'area di lavoro di Log Analitica** a cronologie dei log di query per più funzionalità di app, le sottoscrizioni o i servizi.
 
 ## <a name="other-options"></a>Altre opzioni
 
@@ -129,7 +131,7 @@ Gemelli digitali di Azure supporta anche la registrazione e il controllo di sicu
 
 - Approfondimento sulle impostazioni di diagnostica di Azure con la lettura di una [panoramica dei log di diagnostica](../azure-monitor/platform/diagnostic-logs-overview.md)
 
-- Altre informazioni su [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- Altre informazioni, vedere [monitoraggio di Azure registra](../azure-monitor/log-query/get-started-portal.md).
 
 <!-- Images -->
 [1]: media/how-to-configure-monitoring/activity-log.png

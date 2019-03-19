@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2017
 ms.author: ergreenl
-ms.openlocfilehash: 18c91b0bfee3f423e2d60e3c9893e8e5208aa292
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 801ba3b84ba9956ca8d13916ac4d90060a7f4037
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164606"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883454"
 ---
 # <a name="create-a-pfx-file-with-the-secure-ldap-ldaps-certificate-for-a-managed-domain"></a>Creare un file PFX con il certificato LDAP sicuro (LDAPS) per un dominio gestito
 
@@ -82,7 +82,7 @@ Per esportare il certificato LDAPS in un file PFX:
 
 14. Nella pagina **Sicurezza** selezionare l'opzione **Password** e digitare una password per proteggere il file con estensione pfx. Prendere nota della password perché sarà necessaria nell'attività successiva. Fare clic su **Avanti**.
 
-    ![Password per l'esportazione del certificato ](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
+    ![Password per l'esportazione del certificato](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
 
     > [!NOTE]
     > Prendere nota della password. Sarà necessaria per i passaggi descritti nell'[Attività 3: Abilitare l'accesso LDAP sicuro per il dominio gestito](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)

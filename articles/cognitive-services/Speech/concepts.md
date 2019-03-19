@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: b5e6853653bab96cd11196ba03fbeadbdc6b337f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: c114c726bea34465972a282acac6b8acbbf9a80f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816214"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670421"
 ---
 # <a name="basic-concepts"></a>Concetti di base
 
@@ -198,7 +199,7 @@ Il formato `detailed` contiene gli [N valori migliori](#n-best-values), oltre a 
 
 ### <a name="n-best-values"></a>N valori migliori
 
-Gli ascoltatori, sia umani che macchine, non possono mai essere certi di aver udito *esattamente* ciò che è stato detto. Un ascoltatore può assegnare una *probabilità* solo a un'interpretazione particolare di un'espressione. 
+Gli ascoltatori, sia umani che macchine, non possono mai essere certi di aver udito *esattamente* ciò che è stato detto. Un ascoltatore può assegnare una *probabilità* solo a un'interpretazione particolare di un'espressione.
 
 In condizioni normali, quando le persone parlano ad altri con cui interagiscono frequentemente, hanno un'elevata probabilità di riconoscere le parole che sono state dette. Gli ascoltatori basati su dispositivi di riconoscimento vocale cercano di raggiungere livelli di accuratezza analoghi e, in base a determinate condizioni, [raggiungono la parità con gli umani](https://blogs.microsoft.com/next/2016/10/18/historic-achievement-microsoft-researchers-reach-human-parity-conversational-speech-recognition/#sm.001ykosqs14zte8qyxj2k9o28oz5v).
 
@@ -308,7 +309,7 @@ Il servizio di riconoscimento vocale Microsoft riconosce tutte le forme del parl
 
 | Valore di *profanity* | DESCRIZIONE |
 | - | - |
-| `masked` | Maschera il contenuto volgare con asterischi. Questo è il comportamento predefinito. | 
+| `masked` | Maschera il contenuto volgare con asterischi. Questo è il comportamento predefinito. |
 | `removed` | Rimuove il contenuto volgare da tutti i risultati. |
 | `raw` | Riconosce e restituisce il contenuto volgare in tutti i risultati. |
 
@@ -322,7 +323,7 @@ Quando il parametro di query *profanity* assume il valore *removed*, il servizio
 
 #### <a name="profanity-only-utterances"></a>Espressioni di solo contenuto volgare
 
-Un utente potrebbe pronunciare *solo* parole volgari quando un'applicazione ha configurato il servizio in modo da rimuovere il contenuto volgare. In questo scenario, se la modalità di riconoscimento è *dictation* o *conversation*, il servizio non restituisce alcun messaggio *speech.result*. Se la modalità di riconoscimento è *interactive*, il servizio restituisce un messaggio *speech.result* con il codice di stato *NoMatch*. 
+Un utente potrebbe pronunciare *solo* parole volgari quando un'applicazione ha configurato il servizio in modo da rimuovere il contenuto volgare. In questo scenario, se la modalità di riconoscimento è *dictation* o *conversation*, il servizio non restituisce alcun messaggio *speech.result*. Se la modalità di riconoscimento è *interactive*, il servizio restituisce un messaggio *speech.result* con il codice di stato *NoMatch*.
 
 ### <a name="profanity-value-raw"></a>Valore di profanity `Raw`
 

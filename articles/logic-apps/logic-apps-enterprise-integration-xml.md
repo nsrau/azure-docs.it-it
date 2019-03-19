@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 47672dc4-1caa-44e5-b8cb-68ec3a76b7dc
 ms.date: 02/27/2017
-ms.openlocfilehash: 5f804bf656b423d6dbe8f5c2ed73ba54d8361000
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: a75ac9773072423c13eef85ecad29c632c13d024
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124536"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873254"
 ---
 # <a name="xml-messages-and-flat-files-in-azure-logic-apps-with-enterprise-integration-pack"></a>Messaggi XML e file flat in App per la logica di Azure con Enterprise Integration Pack
 
@@ -31,7 +31,7 @@ Enterprise Integration Pack include:
 * [XPath](https://msdn.microsoft.com/library/mt643789.aspx): consente di arricchire un messaggio ed estrarre le proprietà specifiche del messaggio. È possibile quindi usare le proprietà estratte per indirizzare il messaggio a un endpoint intermedio o di destinazione.
 
 ## <a name="try-it-out"></a>Provare il servizio
-[Distribuire un'app per la logica completamente operativa](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) (campione di GitHub) usando le funzionalità XML di App per la logica di Azure.
+[Distribuire un'app per la logica completamente operativa](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) (esempio di GitHub) usando le funzionalità XML nelle App per la logica di Azure.
 
 ## <a name="learn-more"></a>Altre informazioni
 [Altre informazioni su Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack")

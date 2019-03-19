@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 61225a63b1f26012325ea97ac9f812e06a0dbc33
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 87ce2019f85a2c1be742d3abf6c2fc61c5dcec10
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756683"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866930"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funzioni delle risorse per i modelli di Azure Resource Manager
 
@@ -47,7 +47,7 @@ La sintassi per questa funzione varia in base al nome delle operazioni list. Ogn
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | DESCRIZIONE |
+| Parametro | Obbligatorio | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | resourceName o resourceIdentifier |Sì |stringa |Identificatore univoco della risorsa. |
 | apiVersion |Sì |stringa |Versione dell'API dello stato di runtime della risorsa. In genere il formato è **aaaa-mm-gg**. |
@@ -269,7 +269,7 @@ Restituisce informazioni su un provider di risorse e i relativi tipi di risorse 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | DESCRIZIONE |
+| Parametro | Obbligatorio | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | providerNamespace |Sì |stringa |Spazio dei nomi del provider |
 | resourceType |No  |stringa |Il tipo di risorsa all'interno dello spazio dei nomi specificato. |
@@ -357,7 +357,7 @@ Restituisce un oggetto che rappresenta lo stato di runtime di una risorsa.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | DESCRIZIONE |
+| Parametro | Obbligatorio | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | resourceName o resourceIdentifier |Sì |stringa |Nome o identificatore univoco di una risorsa. |
 | apiVersion |No  |stringa |Versione dell'API della risorsa specificata. Includere questo parametro quando non viene effettuato il provisioning della risorsa nello stesso modello. In genere il formato è **aaaa-mm-gg**. |
@@ -656,7 +656,7 @@ Restituisce l'identificatore univoco di una risorsa. Questa funzione viene usata
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | DESCRIZIONE |
+| Parametro | Obbligatorio | Type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |No  |Stringa (in formato GUID) |Il valore predefinito è la sottoscrizione corrente. Specificare questo valore quando si vuole recuperare una risorsa in un'altra sottoscrizione. |
 | resourceGroupName |No  |stringa |Il valore predefinito è il gruppo di risorse corrente. Specificare questo valore quando si vuole recuperare una risorsa in un altro gruppo di risorse. |
@@ -727,8 +727,7 @@ Spesso è necessario usare questa funzione quando si usa un account di archiviaz
       }
   },
   "variables": {
-      "vnetID": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-      "subnet1Ref": "[concat(variables('vnetID'),'/subnets/', parameters('subnet1Name'))]"
+      "subnet1Ref": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnet1Name'))]"
   },
   "resources": [
   {

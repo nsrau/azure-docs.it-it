@@ -1,6 +1,6 @@
 ---
-title: Filtri nelle viste di Azure Log Analytics | Microsoft Docs
-description: Un filtro in una vista di Log Analytics consente agli utenti di filtrare i dati della vista in base al valore di una proprietà specifica senza modificare la vista stessa.  Questo articolo descrive come usare un filtro e aggiungerne uno a una vista personalizzata.
+title: Filtri nelle viste di monitoraggio di Azure | Microsoft Docs
+description: Un filtro in una vista di monitoraggio di Azure consente agli utenti di filtrare i dati nella visualizzazione per il valore di una proprietà specifica senza modificare la vista stessa.  Questo articolo descrive come usare un filtro e aggiungerne uno a una vista personalizzata.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 6a4ac2f26c01555ef54a4ee2248db7cd2818661e
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 31a902302ba806889854330c6517d9f5745f1c0c
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189422"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888347"
 ---
-# <a name="filters-in-log-analytics-views"></a>Filtri nelle viste di Log Analytics
-Un **filtro** in una [vista di Log Analytics](view-designer.md) consente agli utenti di filtrare i dati della vista in base al valore di una proprietà specifica senza modificare la vista stessa.  È ad esempio possibile consentire agli utenti della vista di filtrare solo i dati di un computer o un set di computer specifico.  È possibile creare più filtri in una singola vista per consentire agli utenti di filtrare in base a più proprietà.  Questo articolo descrive come usare un filtro e aggiungerne uno a una vista personalizzata.
+# <a name="filters-in-azure-monitor-views"></a>Filtri nelle viste di monitoraggio di Azure
+Oggetto **filtro** in un [visualizzazione di monitoraggio di Azure](view-designer.md) consente agli utenti di filtrare i dati nella visualizzazione per il valore di una proprietà specifica senza modificare la vista stessa.  È ad esempio possibile consentire agli utenti della vista di filtrare solo i dati di un computer o un set di computer specifico.  È possibile creare più filtri in una singola vista per consentire agli utenti di filtrare in base a più proprietà.  Questo articolo descrive come usare un filtro e aggiungerne uno a una vista personalizzata.
 
 ## <a name="using-a-filter"></a>Uso di un filtro
-Fare clic sull'intervallo di tempo relativo ai dati nella parte superiore della vista per aprire l'elenco a discesa dove è possibile modificare l'intervallo di dati dalla vista.
+Scegliere l'intervallo di tempo data all'inizio di una visualizzazione da aprire nell'elenco a discesa in cui è possibile modificare l'intervallo di tempo data per la visualizzazione.
 
 ![Esempio di filtro](media/view-designer-filters/filters-example-time.png)
 
@@ -46,8 +46,8 @@ La tabella seguente descrive le impostazioni per un filtro.
 
 | Impostazione | DESCRIZIONE |
 |:---|:---|
-| Nome campo | Nome del campo usato per filtrare.  Deve corrispondere al campo summarize in **Esegui query per valori**. |
-| Esegui query per valori | Query da eseguire per popolare l'elenco a discesa relativo al filtro per l'utente.  Per la query è necessario usare l'opzione [summarize](/azure/kusto/query/summarizeoperator) o [distinct](/azure/kusto/query/distinctoperator) per fornire valori univoci per un campo specifico e il campo deve corrispondere a **Nome campo**.  È possibile usare l'opzione [sort](/azure/kusto/query/sortoperator) per ordinare i valori visualizzati dall'utente. |
+| Nome campo | Nome del campo usato per filtrare.  Questo campo deve corrispondere al campo summarize in **eseguire una Query per valori**. |
+| Esegui query per valori | Query da eseguire per popolare l'elenco a discesa relativo al filtro per l'utente.  Questa query deve usare uno [riepilogare](/azure/kusto/query/summarizeoperator) o [distinti](/azure/kusto/query/distinctoperator) per specificare valori univoci per un determinato campo che deve corrispondere il **nome campo**.  È possibile usare l'opzione [sort](/azure/kusto/query/sortoperator) per ordinare i valori visualizzati dall'utente. |
 | Tag | Nome del campo usato nelle query che supportano il filtro e visualizzato dall'utente. |
 
 ### <a name="examples"></a>Esempi
@@ -64,13 +64,13 @@ La tabella seguente include alcuni esempi di filtri comuni.
 
 ## <a name="modify-view-queries"></a>Modificare le query della vista
 
-Affinché un filtro abbia effetto, è necessario modificare le query nella vista per filtrare i valori selezionati.  Se non si modificano le query nella vista, i valori selezionati dall'utente non avranno effetto.
+Affinché un filtro abbia effetto, è necessario modificare le query nella vista per filtrare i valori selezionati.  Se non si modificano le query nella vista, quindi eventuali valori che consente di selezionare l'utente avrà alcun effetto.
 
 La sintassi per l'uso di un valore di filtro in una query è: 
 
     where ${filter name}  
 
-Se, ad esempio, la vista ha una query che restituisce eventi e usa un filtro denominato Computers, è possibile usare quanto segue.
+Ad esempio, se la vista dispone di una query che restituisce gli eventi e Usa un filtro denominato _computer_, è possibile usare la query seguente.
 
     Event | where ${Computers} | summarize count() by EventLevelName
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9bd015076cdbd70768b1359fac0cfc893d871513
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 360fd8e7ab0f7a85dbeed2bdbc7da379cbcfe91a
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149595"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737026"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates e PredicateValidations
 
@@ -39,10 +39,10 @@ L'elemento **Predicates** contiene l'elemento seguente:
 
 L'elemento **Predicate** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| ID | Yes | Identificatore usato per il predicato. Altri elementi possono usare questo identificatore nei criteri. |
-| Metodo | Yes | Tipo di metodo da usare per la convalida. Valori possibili: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** e **IsDateRange**. Il valore **IsLengthRange** controlla se la lunghezza del valore di un'attestazione di tipo stringa rientra nell'intervallo di parametri minimo e massimo specificato. Il valore **MatchesRegex** controlla se il valore di un'attestazione di tipo stringa corrisponde a un'espressione regolare. Il valore **IncludesCharacters** controlla se il valore di un'attestazione di tipo stringa contiene un set di caratteri. Il valore **IsDateRange** controlla se il valore di un'attestazione di tipo data rientra nell'intervallo di parametri minimo e massimo specificato. |
+| ID | Sì | Identificatore usato per il predicato. Altri elementi possono usare questo identificatore nei criteri. |
+| Metodo | Sì | Tipo di metodo da usare per la convalida. Valori possibili: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** e **IsDateRange**. Il valore **IsLengthRange** controlla se la lunghezza del valore di un'attestazione di tipo stringa rientra nell'intervallo di parametri minimo e massimo specificato. Il valore **MatchesRegex** controlla se il valore di un'attestazione di tipo stringa corrisponde a un'espressione regolare. Il valore **IncludesCharacters** controlla se il valore di un'attestazione di tipo stringa contiene un set di caratteri. Il valore **IsDateRange** controlla se il valore di un'attestazione di tipo data rientra nell'intervallo di parametri minimo e massimo specificato. |
 
 L'elemento **Predicate** contiene gli elementi seguenti:
 
@@ -138,9 +138,9 @@ L'elemento **PredicateValidations** contiene l'elemento seguente:
 
 L'elemento **PredicateValidation** contiene l'attributo seguente:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| ID | Yes | Identificatore che viene usato per la convalida del predicato. L'elemento **ClaimType** può usare questo identificatore nei criteri. |
+| ID | Sì | Identificatore che viene usato per la convalida del predicato. L'elemento **ClaimType** può usare questo identificatore nei criteri. |
 
 L'elemento **PredicateValidation** contiene l'elemento seguente:
 
@@ -156,9 +156,9 @@ L'elemento **PredicateGroups** contiene l'elemento seguente:
 
 L'elemento **PredicateGroup** contiene l'attributo seguente:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| ID | Yes | Identificatore usato per il gruppo di predicati.  |
+| ID | Sì | Identificatore usato per il gruppo di predicati.  |
 
 L'elemento **PredicateGroup** contiene gli elementi seguenti:
 
@@ -169,7 +169,7 @@ L'elemento **PredicateGroup** contiene gli elementi seguenti:
 
 L'elemento **PredicateReferences** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
 | MatchAtLeast | No  | Specifica che il valore deve corrispondere almeno a quello di molte definizioni di predicato affinché l'input possa essere accettato. |
 
@@ -181,9 +181,9 @@ L'elemento **PredicateReferences** contiene gli elementi seguenti:
 
 L'elemento **PredicateReference** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| ID | Yes | Identificatore che viene usato per la convalida del predicato.  |
+| ID | Sì | Identificatore che viene usato per la convalida del predicato.  |
 
 
 ## <a name="configure-password-complexity"></a>Configurare la complessità delle password
@@ -350,7 +350,7 @@ Di seguito viene illustrato come vengono organizzati gli elementi quando Azure A
 
 ![Processo dei predicati](./media/predicates/predicates-pass.png)
 
- ## <a name="configure-a-date-range"></a>Configurare un intervallo di date
+## <a name="configure-a-date-range"></a>Configurare un intervallo di date
 
 Con gli elementi **Predicates** e **PredicateValidations** è possibile controllare i valori di data minimo e massimo di **UserInputType** usando un elemento `DateTimeDropdown`. Creare a tale scopo un elemento **Predicate** con il metodo `IsDateRange` e specificare i parametri minimo e massimo.
 

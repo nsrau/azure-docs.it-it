@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 36f919d1c22a88dfaf13079f09e6a43980a22828
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 4fedc5b8b3b69ff364374dbef0460930e1f631a6
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981781"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869072"
 ---
 # <a name="how-to-reprovision-devices"></a>Come rieffettuare il provisioning dei dispositivi
 
 Durante il ciclo di vita di una soluzione IoT, è comune spostare i dispositivi tra hub IoT. Le ragioni di questo spostamento possono includere gli scenari seguenti:
 
-* **Georilevazione**: quando un dispositivo viene spostato tra le posizioni, la latenza della rete viene migliorata migrando il dispositivo su un hub IoT più vicino a ciascuna posizione.
+* **Georilevazione**: Quando un dispositivo si sposta tra le posizioni, latenza di rete è stata migliorata facendo in modo che il dispositivo di eseguire la migrazione a un hub IoT più vicini a ogni posizione.
 
-* **Multi-tenancy**: un dispositivo può essere usato all'interno della stessa soluzione IoT ma riassegnato o concesso in lease a un nuovo cliente oppure al sito del cliente. Questo nuovo cliente può essere servito usando un hub IoT diverso.
+* **Multi-tenancy**: Un dispositivo è stato utilizzato all'interno della stessa soluzione IoT ma, riassegnato o assegnato in lease a un nuovo cliente, o di un sito cliente. Questo nuovo cliente può essere servito usando un hub IoT diverso.
 
-* **Modifica della soluzione**: è stato possibile spostare un dispositivo in una soluzione IoT nuova o aggiornata. Questa riassegnazione potrebbe richiedere al dispositivo di comunicare con un nuovo hub IoT collegato ad altri componenti di back-end. 
+* **Modifica di soluzione**: Un dispositivo potrebbe essere spostato in una soluzione IoT nuova o aggiornata. Questa riassegnazione potrebbe richiedere al dispositivo di comunicare con un nuovo hub IoT collegato ad altri componenti di back-end. 
 
-* **Quarantena**: simile a una modifica della soluzione. Un dispositivo malfunzionante, compromesso o obsoleto può essere riassegnato a un hub IoT in cui tutto ciò che può fare è aggiornare e ripristinare la conformità. Una volta che il dispositivo funziona correttamente, viene quindi migrato nuovamente al suo hub principale.
+* **Quarantine**: Simile a una modifica della soluzione. Un dispositivo malfunzionante, compromesso o obsoleto può essere riassegnato a un hub IoT in cui tutto ciò che può fare è aggiornare e ripristinare la conformità. Una volta che il dispositivo funziona correttamente, viene quindi migrato nuovamente al suo hub principale.
 
 Per una panoramica più dettagliata sul come rieffettuare il provisioning, vedere [Concetti per rieffettuare il provisoning del dispositivo in hub IoT](concepts-device-reprovision.md).
 
@@ -42,11 +42,11 @@ I passaggi seguenti consentono di configurare i criteri di allocazione per la re
 
 3. Alla voce **Seleziona come assegnare i dispositivi agli hub**, selezionare uno dei criteri di allocazione seguenti:
 
-    * **Latenza più bassa**: questo criterio assegna i dispositivi all'hub IoT collegato che genererà le comunicazioni di latenza più basse tra il dispositivo e l'hub IoT. Questa opzione consente al dispositivo di comunicare con l'hub IoT più vicino in base alla posizione. 
+    * **Latenza più bassa**: Questo criterio assegna i dispositivi all'IoT Hub collegato che genererà le comunicazioni di latenza più basse tra dispositivo e l'IoT Hub. Questa opzione consente al dispositivo di comunicare con l'hub IoT più vicino in base alla posizione. 
     
-    * **Distribuzione ponderata uniforme**: questo criterio distribuisce i dispositivi tra gli hub IoT collegati in base al peso di allocazione assegnato a ogni hub IoT collegato. Questo criterio consente di bilanciare il carico dei dispositivi in un gruppo di hub collegati in base ai pesi di allocazione assegnati a tali hub. Se si effettua il provisioning dei dispositivi in un solo hub IoT, è consigliabile utilizzare questa impostazione. Questa è l'impostazione predefinita. 
+    * **Distribuzione ponderata uniforme**: Questo criterio distribuisce i dispositivi tra l'hub IoT collegati in base al peso allocazione assegnato a ogni hub IoT collegato. Questo criterio consente di bilanciare il carico dei dispositivi in un gruppo di hub collegati in base ai pesi di allocazione assegnati a tali hub. Se si effettua il provisioning dei dispositivi in un solo hub IoT, è consigliabile utilizzare questa impostazione. Questa è l'impostazione predefinita. 
     
-    * **Configurazione statica**: questo criterio richiede che l'hub IoT sia elencato nella voce di registrazione affinché venga effettuato il provisioning del dispositivo. Questo criterio consente di designare un singolo hub IoT specifico a cui assegnare i dispositivi.
+    * **Configurazione statica**: Questo criterio richiede un IoT Hub desiderato elencati nella voce di registrazione per effettuarne il provisioning del dispositivo. Questo criterio consente di designare un singolo hub IoT specifico a cui assegnare i dispositivi.
 
 4. Alla voce **Seleziona gli hub IoT a cui questo gruppo può essere assegnato**, selezionare gli hub IoT collegati da includere con i criteri di allocazione. Facoltativamente, aggiungere un nuovo hub IoT collegato usando il pulsante **Collega un nuovo hub IoT**.
 
@@ -70,9 +70,9 @@ I passaggi seguenti consentono di configurare i criteri di allocazione per la re
 
 3. Alla voce **Seleziona come gestire i dati del dispositivo durante il provisioning a un hub diverso**, scegliere uno dei seguenti criteri per rieffettuare il provisioning:
 
-    * **Rieffettuare il provisioning e migrare i dati**: questi criteri intervengono quando i dispositivi associati alla voce di registrazione presentano una nuova richiesta di provisioning. A seconda della configurazione della voce di registrazione, il dispositivo può essere riassegnato a un altro hub IoT. Se il dispositivo sta cambiando hub IoT, la registrazione del dispositivo con l'hub IoT iniziale verrà rimossa. Tutte le informazioni sullo stato del dispositivo da tale hub IoT iniziale verranno migrate sul nuovo hub IoT. Durante la migrazione, lo stato del dispositivo risulterà come **In fase di assegnazione**
+    * **Rieseguire il provisioning e la migrazione dei dati**: Questo criterio interviene quando associati alla voce di registrazione dispositivi di inviano una nuova richiesta di provisioning. A seconda della configurazione della voce di registrazione, il dispositivo può essere riassegnato a un altro hub IoT. Se il dispositivo sta cambiando hub IoT, la registrazione del dispositivo con l'hub IoT iniziale verrà rimossa. Tutte le informazioni sullo stato del dispositivo da tale hub IoT iniziale verranno migrate sul nuovo hub IoT. Durante la migrazione, lo stato del dispositivo risulterà come **In fase di assegnazione**
 
-    * **Rieffettuare il provisioning e ripristinare la configurazione iniziale**: questo criterio interviene quando i dispositivi associati alla voce di registrazione presentano una nuova richiesta di provisioning. A seconda della configurazione della voce di registrazione, il dispositivo può essere riassegnato a un altro hub IoT. Se il dispositivo sta cambiando hub IoT, la registrazione del dispositivo con l'hub IoT iniziale verrà rimossa. I dati di configurazione iniziali che l'istanza del servizio di provisioning ha ricevuto durante il provisioning del dispositivo vengono forniti al nuovo hub IoT. Durante la migrazione, lo stato del dispositivo risulterà come **In fase di assegnazione**.
+    * **Rieseguire il provisioning e reimpostare la configurazione iniziale**: Questo criterio interviene quando associati alla voce di registrazione dispositivi di inviano una nuova richiesta di provisioning. A seconda della configurazione della voce di registrazione, il dispositivo può essere riassegnato a un altro hub IoT. Se il dispositivo sta cambiando hub IoT, la registrazione del dispositivo con l'hub IoT iniziale verrà rimossa. I dati di configurazione iniziali che l'istanza del servizio di provisioning ha ricevuto durante il provisioning del dispositivo vengono forniti al nuovo hub IoT. Durante la migrazione, lo stato del dispositivo risulterà come **In fase di assegnazione**.
 
 4. Fare clic su **Salva** per rieffettuare il provisioning del dispositivo in base alle modifiche apportate.
 
@@ -94,7 +94,7 @@ Per un esempio di codice di invio per le richieste di provisioning da un disposi
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni sulla ripetizione del provisioning, vedere [Concetti per la ripetizione del provisoning di dispositivo in hub IoT](concepts-device-reprovision.md) 
-- Per altre informazioni sul deprovisioning, vedere [Come effettuare il deprovisioning di dispositivi per cui è stato effettuato il provisioning automatico in precedenza ](how-to-unprovision-devices.md) 
+- Per informazioni su ulteriori il deprovisioning di utenti, vedere [come effettuare il deprovisioning di dispositivi che sono stati precedentemente sottoposti a provisioning](how-to-unprovision-devices.md) 
 
 
 

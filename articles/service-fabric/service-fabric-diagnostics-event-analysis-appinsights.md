@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: efcd2e279d1bf387bc11c238a0592ecee6545cc4
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 7a3abd854ec5e492407d1fbdc8d170f2a27ba1bc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053620"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816726"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Analisi e visualizzazione degli eventi con Application Insights
 
@@ -48,50 +48,6 @@ Application Insights include una visualizzazione designata per l'esecuzione di q
 ![Dettagli delle richieste di Application Insights](media/service-fabric-diagnostics-event-analysis-appinsights/ai-metrics-explorer.png)
 
 Per esplorare ulteriormente le funzionalità del portale di Application Insights, passare alla [documentazione del portale di Application Insights](../azure-monitor/app/app-insights-dashboards.md).
-
-### <a name="configuring-application-insights-with-wad"></a>Configurazione di Application Insights con WAD
-
->[!NOTE]
->Al momento, si applica solo ai cluster Windows.
-
-Per inviare i dati da WAD ad Azure Application Insights esistono due modalità, realizzabili aggiungendo un sink di Application Insights alla configurazione di WAD, come descritto in [questo articolo](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
-
-#### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Aggiungere una chiave di strumentazione di Application Insights durante la creazione di un cluster nel portale di Azure
-
-![Aggiunta di un AIKey](media/service-fabric-diagnostics-event-analysis-appinsights/azure-enable-diagnostics.png)
-
-Quando si crea un cluster, se la diagnostica è attiva, si visualizzerà un campo facoltativo per immettere una chiave di strumentazione di Application Insights. Se si incolla la chiave di Application Insights qui, il sink di Application Insights viene configurato automaticamente nel modello di Resource Manager usato per distribuire il cluster.
-
-#### <a name="add-the-application-insights-sink-to-the-resource-manager-template"></a>Aggiungere il sink di Application Insights al modello di Resource Manager
-
-Nel modello di Resource Manager, in "WadCfg" aggiungere un "Sink" apportando le due modifiche seguenti:
-
-1. Aggiungere la configurazione del sink direttamente dopo il completamento della dichiarazione di `DiagnosticMonitorConfiguration`:
-
-    ```json
-    "SinksConfig": {
-        "Sink": [
-            {
-                "name": "applicationInsights",
-                "ApplicationInsights": "***ADD INSTRUMENTATION KEY HERE***"
-            }
-        ]
-    }
-
-    ```
-
-2. Includere il sink in `DiagnosticMonitorConfiguration` aggiungendo la riga seguente nell'elemento `DiagnosticMonitorConfiguration` di `WadCfg` (subito prima della dichiarazione di `EtwProviders`):
-
-    ```json
-    "sinks": "applicationInsights"
-    ```
-
-In entrambi i frammenti di codice precedenti il nome "applicationInsights" è stato usato per descrivere il sink. Questo non è un requisito e fino a quando il nome del sink è incluso in "sink", è possibile impostare il nome per qualsiasi stringa.
-
-Attualmente, i log del cluster vengono mostrati come **tracce** nel visualizzatore di log di Application Insights. Dato che la maggior parte delle tracce provenienti dalla piattaforma è di tipo "Informazioni", è anche possibile modificare la configurazione del sink per inviare solo i log di tipo "Critico" o "Errore". Questa operazione può essere eseguita aggiungendo i "Canali" al sink, come illustrato in [questo articolo](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
-
->[!NOTE]
->Se si usa una chiave di Application Insights errata nel portale o nel modello di Resource Manager è necessario modificare la chiave e aggiornare il cluster o ridistribuirlo manualmente.
 
 ### <a name="configuring-application-insights-with-eventflow"></a>Configurazione di Application Insights con EventFlow
 

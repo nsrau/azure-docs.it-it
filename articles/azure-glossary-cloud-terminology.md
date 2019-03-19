@@ -1,5 +1,5 @@
 ---
-title: Glossario di Azure - Dizionario di Azure | Microsoft Docs
+title: Glossario di Azure - Dizionario di Azure | Documentazione Microsoft
 description: Usare il glossario di Azure per comprendere la terminologia cloud della piattaforma Azure. Questo breve dizionario di Azure include le definizioni dei termini comuni relativi al cloud usati in Azure.
 keywords: Dizionario di Azure, terminologia cloud, glossario di Azure, definizioni terminologiche, termini del cloud
 services: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 748a9c0c583d4e1af9626527a440b19900898b87
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 9a93786759941def4cf8677509b1b2565cac5090
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600305"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823859"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossario di Microsoft Azure: un dizionario di terminologia cloud sulla piattaforma Azure
 
@@ -78,7 +78,7 @@ Numero di risorse che è possibile creare o benchmark delle prestazioni che può
 Vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](azure-subscription-service-limits.md)
 
 ## <a name="load-balancer"></a>bilanciamento del carico
-Risorsa che distribuisce il traffico in ingresso nei computer di una rete. In Azure, il servizio di bilanciamento del carico distribuisce il traffico nelle macchine virtuali definite in un set di bilanciamento del carico. Il servizio di [bilanciamento del carico](load-balancer/load-balancer-overview.md) può essere connesso a Internet oppure interno.  
+Risorsa che distribuisce il traffico in ingresso nei computer di una rete. In Azure, il servizio di bilanciamento del carico distribuisce il traffico nelle macchine virtuali definite in un set di bilanciamento del carico . Il servizio di [bilanciamento del carico](load-balancer/load-balancer-overview.md) può essere connesso a Internet oppure interno.  
 
 ## <a name="mobile-app"></a>app per dispositivi mobili
 Nome alternativo per [app del servizio app](#app-service-app).
@@ -147,7 +147,7 @@ Risorsa che implementa comportamenti o funzionalità utili per il funzionamento 
 Vedere [Informazioni sulle estensioni e sulle funzionalità delle macchine virtuali (Windows)](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o [Informazioni sulle estensioni e sulle funzionalità delle macchine virtuali (Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="vnet"></a>rete virtuale
-Rete che offre la connettività tra le risorse di Azure e che è isolata da tutti gli altri tenant di Azure. [Gateway VPN di Azure](vpn-gateway/vpn-gateway-about-vpngateways.md) consente di stabilire connessioni tra reti virtuali e [tra una rete virtuale e una rete locale](vpn-gateway/vpn-gateway-plan-design.md). È possibile controllare completamente i blocchi di indirizzi IP, le impostazioni DNS, i criteri di sicurezza e le tabelle di route all'interno di una rete virtuale.  
+Rete che offre la connettività tra le risorse di Azure e che è isolata da tutti gli altri tenant di Azure. Un' [Gateway VPN di Azure](vpn-gateway/vpn-gateway-about-vpngateways.md) ti permette di stabilire connessioni tra reti virtuali e tra una rete virtuale e una rete locale. È possibile controllare completamente i blocchi di indirizzi IP, le impostazioni DNS, i criteri di sicurezza e le tabelle di route all'interno di una rete virtuale.  
 Vedere [Panoramica di Rete virtuale](virtual-network/virtual-networks-overview.md)  
 
 ## <a name="web-app"></a>app Web

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: c2c23b6709552d053ca8db5e32a045b416c1acfc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 642353218960e2e995d717260ae82b6dbd7c2612
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733417"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727061"
 ---
 # <a name="managing-azure-api-management-using-azure-automation"></a>Gestione di Gestione API di Azure usando Automazione di Azure
 Questa guida fornisce un'introduzione al servizio Automazione di Azure e ne illustra l'uso per semplificare la gestione di Gestione API di Azure.
@@ -32,13 +32,13 @@ Automazione di Azure offre un motore di esecuzione del flusso di lavoro a elevat
 Il servizio consente di ridurre i costi operativi e di liberare risorse dello staff IT e DevOp consentendo loro di concentrarsi su attività a valore aggiunto grazie al trasferimento delle attività di gestione del cloud all'esecuzione automatica di Automazione di Azure.
 
 ## <a name="how-can-azure-automation-help-manage-azure-api-management"></a>In che modo Gestione API di Azure può essere gestito con Automazione di Azure?
-Gestione API può essere gestito in Automazione di Azure tramite l' [API cmdlet di Windows PowerShell per Gestione API di Azure](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/?view=azurermps-5.5.0). All'interno di Automazione di Azure è possibile scrivere gli script dei flussi di lavoro di PowerShell per eseguire molte delle attività di Gestione API mediante i cmdlet. È anche possibile abbinare tali cmdlet in Automazione di Azure ai cmdlet per altri servizi di Azure per automatizzare attività complesse in tutti i servizi di Azure e nei sistemi di terze parti.
+Gestione API può essere gestito in Automazione di Azure tramite l' [API cmdlet di Windows PowerShell per Gestione API di Azure](https://docs.microsoft.com/powershell/module/az.apimanagement). All'interno di Automazione di Azure è possibile scrivere gli script dei flussi di lavoro di PowerShell per eseguire molte delle attività di Gestione API mediante i cmdlet. È anche possibile abbinare tali cmdlet in Automazione di Azure ai cmdlet per altri servizi di Azure per automatizzare attività complesse in tutti i servizi di Azure e nei sistemi di terze parti.
 
 Di seguito sono riportati alcuni esempi di utilizzo di Gestione API con Powershell:
 
 * [Esempi di Azure PowerShell per Gestione API](https://docs.microsoft.com/azure/api-management/powershell-samples)
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e del modo in cui può essere usato per gestire Gestione API di Azure, usare i collegamenti seguenti per altre informazioni su Automazione di Azure.
 
 * Vedere l' [esercitazione iniziale](../automation/automation-first-runbook-graphical.md)di Automazione di Azure.

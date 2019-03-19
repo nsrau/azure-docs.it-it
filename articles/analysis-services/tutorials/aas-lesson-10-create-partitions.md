@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 11be6d10589d981335d1f63d06933dba5265348a
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 91d34065753ae29b14aad8580bf922b8213a7988
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191837"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738624"
 ---
 # <a name="create-partitions"></a>Creare partizioni
 
@@ -108,5 +108,5 @@ In Gestione partizioni, si noti che la colonna **Ultima elaborazione** per ogni 
   
     ![aas-lesson10-process-complete](../tutorials/media/aas-lesson10-process-complete.png)
   
- ## <a name="whats-next"></a>Passaggi successivi
+## <a name="whats-next"></a>Passaggi successivi
 Passare alla lezione successiva: [Lezione 11: Creare ruoli](../tutorials/aas-lesson-11-create-roles.md). 

@@ -8,12 +8,12 @@ ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: dd3cb108844cd009d74de42630511073021d94b1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5513948a6611e93833c7e70fa4e5667b3901a9f3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238489"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880224"
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Introduzione ad Azure Data Catalog
 Azure Data Catalog è un servizio cloud completamente gestito che funge da sistema di registrazione e di individuazione per asset di dati aziendali. Per una panoramica dettagliata, vedere [Definizione di Azure Data Catalog](data-catalog-what-is-data-catalog.md).
@@ -82,7 +82,7 @@ Per altre informazioni, vedere [Configurazione dei criteri di autenticazione](ht
     ![Azure Data Catalog - Visualizzare il catalogo nell'elenco](media/data-catalog-get-started/data-catalog-azure-portal-show-catalog.png)
 3. Fare clic sul catalogo creato. Nel portale verrà visualizzato il pannello **Catalogo dati** .
    
-   ![Azure Data Catalog - Pannello nel portale ](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
+   ![Azure Data Catalog - Pannello nel portale](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
 4. È possibile visualizzare le proprietà del catalogo dati e aggiornarle. Fare ad esempio clic su **Piano tariffario** e modificare l'edizione.
    
     ![Azure Data Catalog - Piano tariffario](media/data-catalog-get-started/data-catalog-change-pricing-tier.png)
@@ -144,7 +144,7 @@ In questo esercizio si userà lo strumento di registrazione per registrare gli a
       ![Azure Data Catalog - Oggetti registrati](media/data-catalog-get-started/data-catalog-registered-objects.png)
    9. Per visualizzare gli oggetti origine dati registrati, fare clic su **Visualizza portale**. Nel portale di Azure Data Catalog verificare che tutte le quattro tabelle e il database siano visualizzati nella griglia.
       
-      ![Oggetti nel portale di Azure Data Catalog ](media/data-catalog-get-started/data-catalog-view-portal.png)
+      ![Oggetti nel portale di Azure Data Catalog](media/data-catalog-get-started/data-catalog-view-portal.png)
 
 In questo esercizio sono stati registrati gli oggetti dal database di esempio Adventure Works in modo che possano essere facilmente individuati dagli utenti dell'organizzazione. Nel prossimo esercizio verrà illustrato come individuare gli asset di dati registrati.
 

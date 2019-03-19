@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/19/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: e6ab51d568c950ca7fd503150557df288d84174f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0d6813c11b5b9ed4aef666f5eb3dc75d8c9de770
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867733"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593423"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Aggiungere finalità per determinare l'intenzione delle espressioni dell'utente
 
@@ -50,21 +50,14 @@ Un'espressione in una finalità potrebbe presentare una discrepanza nella stima 
 
 Selezionare **Eseguire il training** nella barra di spostamento superiore. La discrepanza di stima è adesso assente.
 
+> [!Note]
+> Se una riga rossa sotto una parola o frase in utterance l'esempio, un' [errore di previsione entità](luis-how-to-add-example-utterances.md#entity-status-predictions) si è verificato. È necessario correggere l'errore. 
+
 ## <a name="add-a-custom-entity"></a>Aggiungere un'entità personalizzata
 
 Dopo l'aggiunta di un'espressione a una finalità, è possibile selezionare un testo all'interno dell'espressione per creare un'entità personalizzata. Un'entità personalizzata è un modo per assegnare un tag al testo da estrarre, insieme alla finalità corretta. 
 
-1. Selezionare la parola `Seattle` nell'espressione. Verranno visualizzate alcune parentesi quadre intorno al testo e un menu a discesa. 
-
-    ![Schermata della pagina dei dettagli delle finalità, creazione dell'entità personalizzata](./media/luis-how-to-add-intents/create-custom-entity.png) 
-
-    In questo esempio, viene selezionata una singola parola da contrassegnare come entità. È possibile contrassegnare singole parole e le frasi come entità.
-
-1. Nella casella di testo superiore del menu, immettere `Location`, quindi selezionare **Crea nuova entità**. 
-
-    ![Schermata della pagina dei dettagli delle finalità, creazione del nome dell'entità personalizzata](./media/luis-how-to-add-intents/create-custom-entity-name.png) 
-
-1. Nel finestra popup **Quale tipo di entità si desidera creare?** per la creazione dell'entità, verificare che il **nome dell'entità** sia _Posizione_e il **tipo di entità**  sia _Semplice_. Selezionare **Operazione completata**.
+Visualizzare [aggiungere entità a utterance](luis-how-to-add-example-utterances.md) per altre informazioni.
 
 ## <a name="entity-prediction-discrepancy-errors"></a>Errori di discrepanza nella stima delle entità 
 
@@ -80,7 +73,7 @@ Per altre informazioni, vedere [Entità predefinita](luis-how-to-add-entities.md
 
 ## <a name="using-the-contextual-toolbar"></a>Usare la barra degli strumenti contestuale
 
-Quando si seleziona una o più espressioni di esempio nell'elenco selezionando la casella a sinistra di un'espressione, la barra degli strumenti sopra l'elenco delle espressioni consente di eseguire le azioni seguenti:
+Quando uno o più espressioni di esempio sono selezionati nell'elenco, selezionando la casella a sinistra di un utterance, la barra degli strumenti sopra l'elenco utterance consente di eseguire le azioni seguenti:
 
 * Riassegnare la finalità: spostare le espressioni per assegnare finalità diverse
 * Eliminare espressioni
