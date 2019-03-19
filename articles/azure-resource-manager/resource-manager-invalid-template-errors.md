@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 59f07b9ba8116cb1a4b5ab50382d89d01a78853b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: HT
+ms.openlocfilehash: ee4bce38e0fcde93ba0417617ae90dab2eefda67
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357691"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316201"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Risolvere errori dovuti a modelli non validi
 
@@ -134,7 +134,7 @@ for the template parameter {parameter name} is not valid. The parameter value is
 part of the allowed values
 ```
 
-Ricontrollare i valori consentiti nel modello e specificarne uno durante la distribuzione. Per altre informazioni sui valori di parametro consentiti, vedere [Sezione parameters dei modelli di Azure Resource Manager](resource-manager-templates-parameters.md).
+Ricontrollare i valori consentiti nel modello e specificarne uno durante la distribuzione. Per altre informazioni sui valori di parametro consentiti, vedere [Sezione parameters dei modelli di Azure Resource Manager](resource-group-authoring-templates.md#parameters).
 
 <a id="too-many-resource-groups" />
 
