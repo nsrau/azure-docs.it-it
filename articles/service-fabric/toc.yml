@@ -56,7 +56,7 @@ items:
       href: service-fabric-tutorial-monitoring-wincontainers.md
   - name: Creare un'app contenitore Linux
     items:
-    - name: '1: Creare immagini del contenitore'
+    - name: 1 - Creare immagini del contenitore
       href: service-fabric-tutorial-create-container-images.md
     - name: 2 - Pacchetto e contenitori di distribuzione
       href: service-fabric-tutorial-package-containers.md
@@ -66,11 +66,13 @@ items:
     items:
     - name: 1- Creare un cluster in Azure
       href: service-fabric-tutorial-create-vnet-and-windows-cluster.md
-    - name: 2- Ridimensionare il cluster
+    - name: 2 - Eseguire il monitoraggio di un cluster
+      href: service-fabric-tutorial-monitor-cluster.md
+    - name: 3 - Ridimensionare il cluster
       href: service-fabric-tutorial-scale-cluster.md
-    - name: 3- Aggiornare il runtime del cluster
+    - name: 4 - Aggiornare il runtime del cluster
       href: service-fabric-tutorial-upgrade-cluster.md
-    - name: 4 - Eliminare un cluster
+    - name: 5 - Eliminare un cluster
       href: service-fabric-tutorial-delete-cluster.md
   - name: Creare un cluster autonomo in AWS
     items:
@@ -138,9 +140,9 @@ items:
         href: service-fabric-concepts-partitioning.md
       - name: Riconfigurazione dei servizi con stato
         href: service-fabric-concepts-reconfiguration.md
-      - name: 'Ciclo di vita di Reliable Services: C#'
+      - name: Ciclo di vita di Reliable Services - C#
         href: service-fabric-reliable-services-lifecycle.md
-      - name: 'Ciclo di vita di Reliable Services: Java'
+      - name: Ciclo di vita di Reliable Services - Java
         href: service-fabric-reliable-services-lifecycle-java.md
       - name: Ciclo di vita dell'istanza e della replica
         href: service-fabric-concepts-replica-lifecycle.md
@@ -409,9 +411,9 @@ items:
         items:
         - name: Comunicare con Reliable Services
           href: service-fabric-reliable-services-communication.md
-        - name: 'Servizio remoto: C#'
+        - name: Servizio remoto - C#
           href: service-fabric-reliable-services-communication-remoting.md
-        - name: 'Servizio remoto: Java'
+        - name: Servizio remoto - Java
           href: service-fabric-reliable-services-communication-remoting-java.md
         - name: WCF
           href: service-fabric-reliable-services-communication-wcf.md
@@ -837,9 +839,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: 41e92402762d0adc63f374e49ef86d3e7e060fa5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bb1cfedbaf699ff951a03adc47b93332412d1e5a
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57873843"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225281"

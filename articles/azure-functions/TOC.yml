@@ -11,19 +11,19 @@ items:
     href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Guide introduttive
   items:
-  - name: 'Creare una funzione: Visual Studio'
+  - name: Creare una funzione - Visual Studio
     href: functions-create-your-first-function-visual-studio.md
-  - name: 'Creare una funzione: Visual Studio Code'
+  - name: Creare una funzione - Visual Studio Code
     href: functions-create-first-function-vs-code.md
   - name: Creare una funzione - Java/Maven
     href: functions-create-first-java-maven.md
   - name: Creare una funzione - Python
     href: functions-create-first-function-python.md
-  - name: 'Creare una funzione: interfaccia della riga di comando di Azure'
+  - name: Creare una funzione - Interfaccia della riga di comando di Azure
     href: functions-create-first-azure-function-azure-cli.md
-  - name: 'Creare una funzione: portale'
+  - name: Creare una funzione - Portale
     href: functions-create-first-azure-function.md
-  - name: 'Creare una funzione: Linux'
+  - name: Creare una funzione - Linux
     href: functions-create-first-azure-function-azure-cli-linux.md
   - name: Trigger
     items:
@@ -54,12 +54,10 @@ items:
     href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Creare un'app Web senza server
     href: https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database
-  - name: Funzioni in Linux
-    items:
-    - name: Immagine personalizzata
-      href: functions-create-function-linux-custom-image.md
-    - name: Dispositivo IoT Edge
-      href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
+  - name: Creare un'immagine Linux personalizzata
+    href: functions-create-function-linux-custom-image.md
+  - name: Funzioni nel dispositivo IoT Edge
+    href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Esempi
   items:
   - name: Esempi di codice
@@ -297,9 +295,9 @@ items:
     href: https://github.com/Azure/Azure-Functions/
   - name: Aggiornamenti del servizio
     href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: 12fed934b54c3295c5fec7f7b65cab9255f83d2b
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 45e4c6a93f9996c2cba46337d723dc1fc0349412
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791172"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224669"
