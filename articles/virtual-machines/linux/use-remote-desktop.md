@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 44b0f8b3d11b737ad88f7d33b036b52d24b70e33
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.openlocfilehash: dec0b8bcd5a0e0d20ead5b149405e3716589ba53
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960328"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995716"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installare e configurare Desktop remoto per connettersi a una VM Linux di Azure
 Le macchine virtuali Linux (VM) di Azure in genere vengono gestite dalla riga di comando tramite una connessione secure shell (SSH). Quando si è nuovi a Linux, o per scenari di risoluzione dei problemi rapidi, l'uso di desktop remoto potrebbe risultare più facile. Questo articolo illustra come installare e configurare un ambiente desktop ([xfce](https://www.xfce.org)) e desktop remoto ([xrdp](http://www.xrdp.org)) per VM Linux usando il modello di distribuzione Resource Manager.
@@ -103,7 +103,7 @@ Dopo l'autenticazione, l'ambiente desktop xfce verrà caricato e apparirà come 
 
 ![ambiente desktop xfce tramite xrdp](./media/use-remote-desktop/xfce-desktop-environment.png)
 
-Se il client RDP locale usa l'autenticazione di livello di rete (NLA), potrebbe essere necessario disattivare questa impostazione di connessione. XRDP attualmente non supporta NLA. È anche possibile considerare soluzione RDP alternative che supportano NLA, come [FreeRDP](http://www.freerdp.com).
+Se il client RDP locale usa l'autenticazione di livello di rete (NLA), potrebbe essere necessario disattivare questa impostazione di connessione. XRDP attualmente non supporta NLA. È anche possibile considerare soluzione RDP alternative che supportano NLA, come [FreeRDP](https://www.freerdp.com).
 
 
 ## <a name="troubleshoot"></a>Risolvere problemi

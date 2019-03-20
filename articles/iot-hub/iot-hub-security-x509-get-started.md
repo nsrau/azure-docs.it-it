@@ -1,19 +1,19 @@
 ---
 title: Esercitazione per la sicurezza X.509 nell'hub IoT di Azure | Microsoft Docs
 description: Introduzione alla sicurezza basata su X.509 nell'hub IoT di Azure in un ambiente simulato.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
-ms.author: dobett
-ms.openlocfilehash: b190390840a765953a2125348c3c9188f6bf7d37
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 80d3d3cf5f386c5f21e1e8fed1071a12c10235cd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452030"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091614"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configurare la sicurezza X.509 nell'hub IoT di Azure
 
@@ -65,7 +65,7 @@ Questi passaggi illustrano come aggiungere una nuova autorità di certificazione
 
 10. Al termine del caricamento del certificato fare clic su **Verifica**. Lo **STATO** del certificato diventa **_Verificato_** nel pannello **Certificati**. Fare clic su **Aggiorna** se non viene aggiornato automaticamente.
 
-   ![Caricare la verifica del certificato](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
+    ![Caricare la verifica del certificato](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
 
 
 <a id="createdevice"></a>

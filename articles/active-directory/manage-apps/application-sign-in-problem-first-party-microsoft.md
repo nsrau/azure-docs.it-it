@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bc5143803c7d031071cccbb9c6c3842bbdacd9c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0522311c12da8416504a6d502e1e2247ff8ce15b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177190"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104149"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemi di accesso a un'applicazione Microsoft
 
@@ -33,7 +33,7 @@ Vi sono tre principali modi con cui un utente può accedere a un'applicazione pu
 
 -   Per le applicazioni che Microsoft o una terza parte pubblica per l'utilizzo gratuito da parte di chiunque, gli utenti possono ottenere l'accesso tramite **consenso dell'utente**. Ciò significa che gli utenti accedono all'applicazione con il loro account Azure AD Work o School e consentono a tale applicazione di accedere a un set limitato di dati del loro account.
 
--   Per le applicazioni che Microsoft o una terza parte pubblica per l'utilizzo gratuito da parte di chiunque, gli utenti possono ottenere l'accesso tramite **consenso dell'amministratore**. Ciò significa che un amministratore ha determinato che l'applicazione può essere usata da qualsiasi utente dell'organizzazione e, tale scopo, ha effettuato l'accesso all'applicazione con un account di amministratore globale e ha consentito l'accesso a tutti gli utenti dell'organizzazione.
+-   Per le applicazioni Microsoft o un 3rd party pubblicati da gratuito a chiunque di usare, gli utenti possono ottenere l'accesso attraverso **il consenso dell'amministratore**. Ciò significa che un amministratore ha determinato che l'applicazione può essere usata da qualsiasi utente dell'organizzazione e, tale scopo, ha effettuato l'accesso all'applicazione con un account di amministratore globale e ha consentito l'accesso a tutti gli utenti dell'organizzazione.
 
 Per risolvere il problema, iniziare dalla sezione [Aree generali da considerare per i problemi di accesso alle applicazioni](#general-problem-areas-with-application-access-to-consider) e per altri dettagli consultare Procedura dettagliata: Passaggi per risolvere i problemi di accesso alle applicazioni Microsoft.
 
@@ -53,7 +53,7 @@ Di seguito è riportato un elenco delle aree problematiche generali che è possi
 
 Di seguito sono riportati alcuni problemi comuni che vengono riscontrati quando gli utenti non riescono ad accedere a un'applicazione Microsoft.
 
--   Problemi generali da verificare prima
+- Problemi generali da verificare prima
 
   * Verificare che l'utente acceda all'**URL corretto** e non a un URL dell'applicazione locale.
 
@@ -65,31 +65,31 @@ Di seguito sono riportati alcuni problemi comuni che vengono riscontrati quando 
 
   * Verificare che la **password dell'utente non sia scaduta o non sia stata dimenticata**. [Reimpostare la password di un utente](#reset-a-users-password) o [Abilitare la reimpostazione self-service delle password](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
-   * Verificare che **Multi-Factor Authentication** non blocchi l'accesso utente. [Controllare lo stato di autenticazione a più fattori di un utente](#check-a-users-multi-factor-authentication-status) o [Controllare le informazioni di contatto per l'autenticazione di un utente](#check-a-users-authentication-contact-info)
+  * Verificare che **Multi-Factor Authentication** non blocchi l'accesso utente. [Controllare lo stato di autenticazione a più fattori di un utente](#check-a-users-multi-factor-authentication-status) o [Controllare le informazioni di contatto per l'autenticazione di un utente](#check-a-users-authentication-contact-info)
 
-   * Verificare che un criterio di **accesso condizionale** o di **protezione delle identità** non blocchi l'accesso utente. [Controllare un criterio specifico di accesso condizionale](#problems-with-conditional-access-policies), [Controllare i criteri di accesso condizionale di un'applicazione specifica](#check-a-specific-applications-conditional-access-policy) o [Disabilitare un criterio specifico di accesso condizionale](#disable-a-specific-conditional-access-policy)
+  * Verificare che un criterio di **accesso condizionale** o di **protezione delle identità** non blocchi l'accesso utente. [Controllare un criterio specifico di accesso condizionale](#problems-with-conditional-access-policies), [Controllare i criteri di accesso condizionale di un'applicazione specifica](#check-a-specific-applications-conditional-access-policy) o [Disabilitare un criterio specifico di accesso condizionale](#disable-a-specific-conditional-access-policy)
 
-   * Verificare che le **informazioni di contatto per l'autenticazione** di un utente siano aggiornate per permettere l'applicazione di Multi-Factor Authentication o di criteri di accesso condizionale. [Controllare lo stato di autenticazione a più fattori di un utente](#check-a-users-multi-factor-authentication-status) o [Controllare le informazioni di contatto per l'autenticazione di un utente](#check-a-users-authentication-contact-info)
+  * Verificare che le **informazioni di contatto per l'autenticazione** di un utente siano aggiornate per permettere l'applicazione di Multi-Factor Authentication o di criteri di accesso condizionale. [Controllare lo stato di autenticazione a più fattori di un utente](#check-a-users-multi-factor-authentication-status) o [Controllare le informazioni di contatto per l'autenticazione di un utente](#check-a-users-authentication-contact-info)
 
--   Per le applicazioni **Microsoft** **che richiedono una licenza** (ad esempio Office365), di seguito sono riportati alcuni problemi specifici da verificare dopo aver escluso i problemi generali sopra elencati:
+- Per le applicazioni **Microsoft** **che richiedono una licenza** (ad esempio Office365), di seguito sono riportati alcuni problemi specifici da verificare dopo aver escluso i problemi generali sopra elencati:
 
-   * Assicurarsi che all'utente sia **assegnata una licenza**. [Controllare le licenze assegnate a un utente](#check-a-users-assigned-licenses) o [Controllare le licenze assegnate a un gruppo](#check-a-groups-assigned-licenses)
+  * Assicurarsi che all'utente sia **assegnata una licenza**. [Controllare le licenze assegnate a un utente](#check-a-users-assigned-licenses) o [Controllare le licenze assegnate a un gruppo](#check-a-groups-assigned-licenses)
 
-   * Se la licenza è **assegnata a un** **gruppo statico**, assicurarsi che l'**utente sia membro** di tale gruppo. [Controllare le appartenenze ai gruppi di un utente ](#check-a-users-group-memberships)
+  * Se la licenza è **assegnata a un** **gruppo statico**, assicurarsi che l'**utente sia membro** di tale gruppo. [Controllare le appartenenze ai gruppi di un utente ](#check-a-users-group-memberships)
 
-   * Se la licenza è **assegnata a un** **gruppo dinamico**, assicurarsi che **la regola di gruppo dinamico sia impostata correttamente**. [Controllare i criteri di appartenenza di un gruppo dinamico](#check-a-dynamic-groups-membership-criteria)
+  * Se la licenza è **assegnata a un** **gruppo dinamico**, assicurarsi che **la regola di gruppo dinamico sia impostata correttamente**. [Controllare i criteri di appartenenza di un gruppo dinamico](#check-a-dynamic-groups-membership-criteria)
 
-   * Se la licenza è **assegnata a un** **gruppo dinamico**, assicurarsi che il gruppo dinamico abbia **completato l'elaborazione** della propria appartenenza e che l'**utente sia un membro** (questa operazione può richiedere un certo tempo). [Controllare le appartenenze ai gruppi di un utente ](#check-a-users-group-memberships)
+  * Se la licenza è **assegnata a un** **gruppo dinamico**, assicurarsi che il gruppo dinamico abbia **completato l'elaborazione** della propria appartenenza e che l'**utente sia un membro** (questa operazione può richiedere un certo tempo). [Controllare le appartenenze ai gruppi di un utente ](#check-a-users-group-memberships)
 
-   *  Dopo aver verificato che la licenza è assegnata, assicurarsi che **non sia scaduta**.
+  *  Dopo aver verificato che la licenza è assegnata, assicurarsi che **non sia scaduta**.
 
-   *  Accertarsi che la licenza sia **relativa all'applicazione** a cui gli utenti stanno accedendo.
+  *  Accertarsi che la licenza sia **relativa all'applicazione** a cui gli utenti stanno accedendo.
 
--   Per le applicazioni **Microsoft** **che non richiedono una licenza**, di seguito sono riportati altri aspetti da controllare:
+- Per le applicazioni **Microsoft** **che non richiedono una licenza**, di seguito sono riportati altri aspetti da controllare:
 
-   * Se l'applicazione richiede **autorizzazioni a livello di utente** (ad esempio "Accesso alla cassetta postale di questo utente"), assicurarsi che l'utente abbia eseguito l'accesso all'applicazione e abbia eseguito un'**operazione di consenso a livello di utente** per permettere all'applicazione di accedere ai suoi dati.
+  * Se l'applicazione richiede **autorizzazioni a livello di utente** (ad esempio "Accesso alla cassetta postale di questo utente"), assicurarsi che l'utente abbia eseguito l'accesso all'applicazione e abbia eseguito un'**operazione di consenso a livello di utente** per permettere all'applicazione di accedere ai suoi dati.
 
-   * Se l'applicazione richiede **autorizzazioni a livello di amministratore** (ad esempio "Accesso alle cassette postali di tutti gli utenti"), assicurarsi che un amministratore globale abbia eseguito un'**operazione di consenso a livello di amministratore per conto di tutti gli utenti** dell'organizzazione.
+  * Se l'applicazione richiede **autorizzazioni a livello di amministratore** (ad esempio "Accesso alle cassette postali di tutti gli utenti"), assicurarsi che un amministratore globale abbia eseguito un'**operazione di consenso a livello di amministratore per conto di tutti gli utenti** dell'organizzazione.
 
 ## <a name="problems-with-the-users-account"></a>Problemi relativi all'account dell'utente
 
@@ -187,25 +187,25 @@ Per abilitare la reimpostazione self-service delle password, eseguire questa pro
 
 Per controllare lo stato di autenticazione a più fattori di un utente, seguire questa procedura:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
 
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
+2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  Fare clic su **Utenti e gruppi** nel menu di navigazione.
+4. Fare clic su **Utenti e gruppi** nel menu di navigazione.
 
-5.  Fare clic su **Tutti gli utenti**.
+5. Fare clic su **Tutti gli utenti**.
 
-6.  Fare clic sul pulsante **Multi-Factor Authentication** nella parte superiore del riquadro.
+6. Fare clic sul pulsante **Multi-Factor Authentication** nella parte superiore del riquadro.
 
-7.  Quando viene caricato il **portale di amministrazione di Multi-Factor Authentication**, assicurarsi di visualizzare la scheda **Utenti**.
+7. Quando viene caricato il **portale di amministrazione di Multi-Factor Authentication**, assicurarsi di visualizzare la scheda **Utenti**.
 
-8.  Trovare l'utente nell'elenco degli utenti tramite una ricerca, l'applicazione di un filtro o l'ordinamento.
+8. Trovare l'utente nell'elenco degli utenti tramite una ricerca, l'applicazione di un filtro o l'ordinamento.
 
-9.  Selezionare l'utente nell'elenco di utenti e scegliere **Abilita**, **Disabilita** o **Applica** per l'autenticazione a più fattori nel modo desiderato.
+9. Selezionare l'utente nell'elenco di utenti e scegliere **Abilita**, **Disabilita** o **Applica** per l'autenticazione a più fattori nel modo desiderato.
 
-  * **Nota**: Se lo stato di un utente è impostato su Applicato, è possibile impostarlo temporaneamente su **Disattivato** per permettere all'utente di accedere di nuovo al proprio account. Quando l'utente è connesso, è possibile modificarne di nuovo lo stato in **Attivato** per chiedergli di registrare di nuovo le informazioni di contatto durante il successivo accesso. In alternativa, è possibile eseguire la procedura descritta in [Controllare le informazioni di contatto per l'autenticazione di un utente](#check-a-users-authentication-contact-info) per verificare o impostare questi dati per l'utente.
+   * **Nota**: Se lo stato di un utente è impostato su Applicato, è possibile impostarlo temporaneamente su **Disattivato** per permettere all'utente di accedere di nuovo al proprio account. Quando l'utente è connesso, è possibile modificarne di nuovo lo stato in **Attivato** per chiedergli di registrare di nuovo le informazioni di contatto durante il successivo accesso. In alternativa, è possibile eseguire la procedura descritta in [Controllare le informazioni di contatto per l'autenticazione di un utente](#check-a-users-authentication-contact-info) per verificare o impostare questi dati per l'utente.
 
 ### <a name="check-a-users-authentication-contact-info"></a>Controllare le informazioni di contatto per l'autenticazione di un utente
 
@@ -365,21 +365,21 @@ Per controllare le licenze assegnate a un gruppo, seguire questa procedura:
 
 Per rielaborare le licenze assegnate a un gruppo, seguire questa procedura:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
 
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
+2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  Fare clic su **Utenti e gruppi** nel menu di navigazione.
+4. Fare clic su **Utenti e gruppi** nel menu di navigazione.
 
-5.  Fare clic su **Tutti i gruppi**.
+5. Fare clic su **Tutti i gruppi**.
 
-6.  **Cercare** il gruppo desiderato e **fare clic sulla relativa riga** per selezionarlo.
+6. **Cercare** il gruppo desiderato e **fare clic sulla relativa riga** per selezionarlo.
 
-7.  Fare clic su **Licenze** per visualizzare le licenze attualmente assegnate al gruppo.
+7. Fare clic su **Licenze** per visualizzare le licenze attualmente assegnate al gruppo.
 
-8.  Fare clic sul pulsante **Rielabora** per assicurarsi che le licenze assegnate ai membri di questo gruppo siano aggiornate. L'operazione potrebbe richiedere molto tempo a seconda della dimensione e della complessità del gruppo.
+8. Fare clic sul pulsante **Rielabora** per assicurarsi che le licenze assegnate ai membri di questo gruppo siano aggiornate. L'operazione potrebbe richiedere molto tempo a seconda della dimensione e della complessità del gruppo.
 
    >[!NOTE]
    >Per eseguire l'operazione più velocemente, è consigliabile assegnare temporaneamente una licenza direttamente all'utente. [Assegnare una licenza a un utente](#problems-with-application-consent).
@@ -390,32 +390,32 @@ Per rielaborare le licenze assegnate a un gruppo, seguire questa procedura:
 
 Per assegnare una licenza a un gruppo, seguire questa procedura:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
 
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
+2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  Fare clic su **Utenti e gruppi** nel menu di navigazione.
+4. Fare clic su **Utenti e gruppi** nel menu di navigazione.
 
-5.  Fare clic su **Tutti i gruppi**.
+5. Fare clic su **Tutti i gruppi**.
 
-6.  **Cercare** il gruppo desiderato e **fare clic sulla relativa riga** per selezionarlo.
+6. **Cercare** il gruppo desiderato e **fare clic sulla relativa riga** per selezionarlo.
 
-7.  Fare clic su **Licenze** per visualizzare le licenze attualmente assegnate al gruppo.
+7. Fare clic su **Licenze** per visualizzare le licenze attualmente assegnate al gruppo.
 
-8.  Fare clic sul pulsante **Assegna** .
+8. Fare clic sul pulsante **Assegna** .
 
-9.  Selezionare **uno o più prodotti** nell'elenco dei prodotti disponibili.
+9. Selezionare **uno o più prodotti** nell'elenco dei prodotti disponibili.
 
 10. **Facoltativo**: fare clic sulla voce **Opzioni di assegnazione** per assegnare in modo granulare i prodotti. Fare clic su **OK** al termine.
 
 11. Fare clic sul pulsante **Assegna** per assegnare queste licenze al gruppo. L'operazione potrebbe richiedere molto tempo a seconda della dimensione e della complessità del gruppo.
 
-   >[!NOTE]
-   >Per eseguire l'operazione più velocemente, è consigliabile assegnare temporaneamente una licenza direttamente all'utente. [Assegnare una licenza a un utente](#problems-with-application-consent).
-   > 
-   >
+    >[!NOTE]
+    >Per eseguire l'operazione più velocemente, è consigliabile assegnare temporaneamente una licenza direttamente all'utente. [Assegnare una licenza a un utente](#problems-with-application-consent).
+    > 
+    >
 
 ## <a name="problems-with-conditional-access-policies"></a>Problemi relativi ai criteri di accesso condizionale
 
@@ -423,19 +423,19 @@ Per assegnare una licenza a un gruppo, seguire questa procedura:
 
 Per verificare o convalidare un singolo criterio di accesso condizionale:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
 
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
+2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  Scegliere **Applicazioni aziendali** dal menu di navigazione.
+4. Scegliere **Applicazioni aziendali** dal menu di navigazione.
 
-5.  Fare clic sulla voce di navigazione **Accesso condizionale**.
+5. Fare clic sulla voce di navigazione **Accesso condizionale**.
 
-6.  Fare clic sul criterio che si desidera controllare.
+6. Fare clic sul criterio che si desidera controllare.
 
-7.  Verificare che non vi siano condizioni specifiche, assegnazioni o altre impostazioni che possano bloccare l'accesso dell'utente.
+7. Verificare che non vi siano condizioni specifiche, assegnazioni o altre impostazioni che possano bloccare l'accesso dell'utente.
 
    >[!NOTE]
    >Può essere opportuno disabilitare temporaneamente questo criterio per assicurarsi che non impedisca gli accessi. A tale scopo, impostare **Abilita criterio** su **No** e fare clic sul pulsante **Salva**.

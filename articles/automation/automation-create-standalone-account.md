@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1590a02503a12be870dab14a1ccffdd3cf64a282
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: cdffc339bee1f5456e4eeb619e566b1f9c34b143
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426608"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093178"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Creare un account di Automazione di Azure autonomo
 
-Questo articolo mostra come creare un account di Automazione di Azure nel portale di Azure. È possibile usare l'account di Automazione del portale per valutare il servizio Automazione e scoprire di più su questo servizio, senza dover usare soluzioni di gestione aggiuntive o l'integrazione con Azure Log Analytics. È possibile aggiungere tali soluzioni di gestione o attivare l'integrazione con Log Analytics per il monitoraggio avanzato di processi del runbook in qualsiasi momento in futuro.
+Questo articolo mostra come creare un account di Automazione di Azure nel portale di Azure. È possibile usare l'account di automazione del portale per valutare e ottenere informazioni su automazione di senza dover usare soluzioni di gestione aggiuntive o l'integrazione con i log di monitoraggio di Azure. È possibile aggiungere tali soluzioni di gestione o integrare i log di monitoraggio di Azure per il monitoraggio avanzato dei processi dei runbook in qualsiasi momento nel futuro.
 
 Con un account di Automazione è possibile autenticare i runbook gestendo le risorse in Azure Resource Manager o nel modello di distribuzione classico. Un account di Automazione può gestire le risorse in tutte le aree e le sottoscrizioni di uno specifico tenant.
 
@@ -62,12 +62,12 @@ Per creare un account di Automazione di Azure nel portale di Azure, seguire ques
 
 1. Nella schermata successiva selezionare **Crea**.
 
-  ![Aggiungi account di Automazione](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
+   ![Aggiungi account di Automazione](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
 
-  > [!NOTE]
-  > Se viene visualizzato il messaggio seguente nel riquadro **Aggiungi account di Automazione** l'account non è membro del ruolo Amministratori della sottoscrizione e coamministratore della sottoscrizione.
-  >
-  > ![Avviso per Aggiungi account di Automazione](media/automation-create-standalone-account/create-account-without-perms.png)
+   > [!NOTE]
+   > Se viene visualizzato il messaggio seguente nel riquadro **Aggiungi account di Automazione** l'account non è membro del ruolo Amministratori della sottoscrizione e coamministratore della sottoscrizione.
+   >
+   > ![Avviso per Aggiungi account di Automazione](media/automation-create-standalone-account/create-account-without-perms.png)
 
 1. Nella casella **Nome** del riquadro **Aggiungi account di Automazione** immettere un nome per il nuovo account di Automazione. Dopo che è stato scelto, questo nome non può essere modificato. *I nomi degli account di Automazione devono essere univoci in ogni area e gruppo di risorse. I nomi per gli account di Automazione che sono stati eliminati potrebbero non essere subito disponibili.*
 1. Se sono disponibili più sottoscrizioni, nella casella **Sottoscrizione** specificare la sottoscrizione che si vuole usare per il nuovo account.
@@ -75,13 +75,13 @@ Per creare un account di Automazione di Azure nel portale di Azure, seguire ques
 1. In **Località** selezionare una località per il data center di Azure.
 1. Per l'opzione **Crea un account RunAs di Azure**, assicurarsi che sia selezionato **Sì** e quindi selezionare **Crea**.
 
-  > [!NOTE]
-  > Se si sceglie di non creare l'account RunAs selezionando **No** per **Crea un account RunAs di Azure**, viene visualizzato un messaggio nel riquadro **Aggiungi account di Automazione**. Anche se l'account viene creato nel portale di Azure, l'account non ha un'identità di autenticazione corrispondente nella sottoscrizione del modello di distribuzione classico o nel servizio directory della sottoscrizione di Azure Resource Manager. Pertanto, l'account di Automazione non ha accesso alle risorse nella sottoscrizione. Questo impedirà ai runbook che fanno riferimento a questo account di completare l'autenticazione ed eseguire attività sulle risorse in tali modelli di distribuzione.
-  >
-  > ![Avviso per Aggiungi account di Automazione](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
-  >
-  > Se non viene creata l'entità servizio, il ruolo Collaboratore non viene assegnato.
-  >
+   > [!NOTE]
+   > Se si sceglie di non creare l'account RunAs selezionando **No** per **Crea un account RunAs di Azure**, viene visualizzato un messaggio nel riquadro **Aggiungi account di Automazione**. Anche se l'account viene creato nel portale di Azure, l'account non ha un'identità di autenticazione corrispondente nella sottoscrizione del modello di distribuzione classico o nel servizio directory della sottoscrizione di Azure Resource Manager. Pertanto, l'account di Automazione non ha accesso alle risorse nella sottoscrizione. Questo impedirà ai runbook che fanno riferimento a questo account di completare l'autenticazione ed eseguire attività sulle risorse in tali modelli di distribuzione.
+   >
+   > ![Avviso per Aggiungi account di Automazione](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
+   >
+   > Se non viene creata l'entità servizio, il ruolo Collaboratore non viene assegnato.
+   >
 
 1. Per tenere traccia dello stato della creazione dell'account di Automazione, scegliere **Notifiche** dal menu.
 

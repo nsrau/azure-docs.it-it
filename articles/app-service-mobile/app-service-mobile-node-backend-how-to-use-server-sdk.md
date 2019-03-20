@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 4e478c2559ac534f595393fdc36b95ad8e9c989a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 831f6b4bdc99e63859b390f8a9bb88d74301284e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725032"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997540"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Come usare Node.js SDK per App per dispositivi mobili
 
@@ -135,7 +135,7 @@ Visual Studio 2015 richiede un'estensione per lo sviluppo di applicazioni Node.j
 
     Salvare il file.
 
-1. Eseguire l'applicazione in locale, ovvero l'API viene eseguita in http://localhost:3000), o pubblicarla in Azure.
+1. Eseguire l'applicazione in locale (l'API viene eseguita in `http://localhost:3000`) o pubblicarla in Azure.
 
 ### <a name="create-node-backend-portal"></a>Creare un back-end Node.js usando il portale di Azure
 

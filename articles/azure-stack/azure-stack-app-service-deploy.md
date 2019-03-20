@@ -16,12 +16,12 @@ ms.date: 02/27/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: e8028bc9a4a6f3245dca61d6dd30db22dc295a7f
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: d66254cdad596e3b10482b2c937326162e2e075d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992448"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886831"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Aggiungere un provider di risorse del servizio App in Azure Stack
 
@@ -44,13 +44,13 @@ Usare le indicazioni fornite in questo articolo per distribuire il servizio App 
 
 L'installazione del provider di risorse del servizio App richiede almeno un'ora. Il periodo di tempo necessita dipende dal ruolo quante istanze è la distribuzione. Durante la distribuzione, il programma di installazione esegue le attività seguenti:
 
- - Creare un contenitore blob nell'account di archiviazione di Azure Stack specificato.
- - Creare una zona DNS e le voci per il servizio App.
- - Registrare il provider di risorse del servizio App.
- - Registrare gli elementi della raccolta di servizio App.
+- Creare un contenitore blob nell'account di archiviazione di Azure Stack specificato.
+- Creare una zona DNS e le voci per il servizio App.
+- Registrare il provider di risorse del servizio App.
+- Registrare gli elementi della raccolta di servizio App.
 
- > [!IMPORTANT]
- > Prima di distribuire il provider di risorse, esaminare le note sulla versione per informazioni sulle nuove funzionalità, correzioni e i problemi noti che potrebbero influire sulla distribuzione.
+  > [!IMPORTANT]
+  > Prima di distribuire il provider di risorse, esaminare le note sulla versione per informazioni sulle nuove funzionalità, correzioni e i problemi noti che potrebbero influire sulla distribuzione.
 
 Per distribuire il provider di risorse del servizio App, seguire questa procedura:
 
@@ -74,8 +74,8 @@ Per distribuire il provider di risorse del servizio App, seguire questa procedur
 
     a. Selezionare **Connect** accanto al **sottoscrizioni di Azure Stack**.
 
-     - Se si usa Azure Active Directory (Azure AD), immettere l'account amministratore di Azure AD e la password specificata quando è stato distribuito Azure Stack. Selezionare **Accedi**.
-     - Se si usa Active Directory Federation Services (ADFS), specificare l'account di amministratore. Ad esempio: cloudadmin@azurestack.local. Immettere la password e quindi selezionare **Accedi**.
+   - Se si usa Azure Active Directory (Azure AD), immettere l'account amministratore di Azure AD e la password specificata quando è stato distribuito Azure Stack. Selezionare **Accedi**.
+   - Se si usa Active Directory Federation Services (ADFS), specificare l'account di amministratore. Ad esempio: cloudadmin@azurestack.local. Immettere la password e quindi selezionare **Accedi**.
 
    b. Nelle **sottoscrizioni di Azure Stack**, selezionare la **sottoscrizione del Provider predefinito**.
 
@@ -243,7 +243,7 @@ Per creare un'app web di test, seguire questa procedura:
 
 1. Nel portale tenant di Azure Stack, selezionare **+**, aprire il Marketplace di Azure, distribuire un sito Web Django e quindi attendere il completamento della distribuzione. La piattaforma web di Django Usa un database di sistema in base al file. Non richiede alcun provider di risorse aggiuntive, ad esempio SQL o MySQL.
 
-2. Se è stata distribuita anche un provider di risorse MySQL, è possibile distribuire un sito Web WordPress dal Marketplace. Quando richiesto per i parametri del database, immettere il nome utente *User1@Server1*, con il nome utente e il nome del server di propria scelta.
+2. Se è stata distribuita anche un provider di risorse MySQL, è possibile distribuire un sito Web WordPress dal Marketplace. Quando richiesto per i parametri del database, immettere il nome utente *User1\@Server1*, con il nome utente e il nome del server di propria scelta.
 
 3. Se è stata distribuita anche un provider di risorse di SQL Server, è possibile distribuire un sito di rete neurale profonda dal Marketplace. Quando richiesto per i parametri del database, scegliere un database in computer che esegue SQL Server che è connesso al provider di risorse.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/21/2019
 ms.author: monhaber
-ms.openlocfilehash: d92d9c444985989cdec3e94840ff21f4a79fe3ad
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: cbda94b8ceeaf7a225117e1ca73445135a32a243
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104925"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088996"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Controlli delle applicazioni adattivi nel Centro sicurezza di Azure
 Questa procedura dettagliata fornisce informazioni su come configurare il controllo delle applicazioni nel Centro sicurezza di Azure.
@@ -60,33 +60,33 @@ La sezione **Groups of VMs** (Gruppi di macchine virtuali) contiene tre schede:
 ### <a name="configure-a-new-application-control-policy"></a>Configurare nuovi criteri di controllo delle applicazioni
 1. Fare clic sulla scheda **Consigliato** per un elenco dei gruppi con raccomandazioni per il controllo delle applicazioni:
 
-  ![Consigliato](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
+   ![Consigliato](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
 
-  L'elenco include:
+   L'elenco include:
 
-  - **NOME**: nome della sottoscrizione e del gruppo
-  - **MACCHINE VIRTUALI**: numero di macchine virtuali nel gruppo
-  - **STATO**: stato attuale delle raccomandazioni
-  - **GRAVITÀ**: livello di gravità delle raccomandazioni
+   - **NOME**: nome della sottoscrizione e del gruppo
+   - **MACCHINE VIRTUALI**: numero di macchine virtuali nel gruppo
+   - **STATO**: stato attuale delle raccomandazioni
+   - **GRAVITÀ**: livello di gravità delle raccomandazioni
 
 2. Fare clic su un gruppo per accedere all'opzione **Crea le regole di controllo delle applicazioni**.
 
-  ![Regole di controllo applicazioni](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
+   ![Regole di controllo applicazioni](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
 
 3. In **Seleziona macchine virtuali** esaminare l'elenco di macchine virtuali consigliate e deselezionare quelle a cui non si vogliono applicare i criteri di inserimento nell'elenco elementi consentiti. Verranno visualizzati due elenchi:
 
-  - **Applicazioni consigliate**: elenco di applicazioni frequenti nelle macchine virtuali all'interno del gruppo e la cui esecuzione è consigliata.
-  - **Altre applicazioni**: elenco di applicazioni meno frequenti nelle macchine virtuali all'interno del gruppo oppure note come sfruttabili (vedere più avanti) e per le quali è consigliato l'esame.
+   - **Applicazioni consigliate**: elenco di applicazioni frequenti nelle macchine virtuali all'interno del gruppo e la cui esecuzione è consigliata.
+   - **Altre applicazioni**: elenco di applicazioni meno frequenti nelle macchine virtuali all'interno del gruppo oppure note come sfruttabili (vedere più avanti) e per le quali è consigliato l'esame.
 
 4. Esaminare le applicazioni in ognuno degli elenchi e deselezionare quelle a cui non si vuole applicare il controllo delle applicazioni. Ogni elenco include:
 
-  - **NOME**: informazioni sul certificato o il percorso completo di un'applicazione
-  - **TIPI DI FILE**: tipo di file dell'applicazione. Può trattarsi di file EXE, Script, file MSI o qualsiasi permutazione di questi tipi.
-  - **SFRUTTABILE**: un'icona di avviso indica se un'applicazione specifica può essere usata da un utente malintenzionato per aggirare una soluzione di inserimento delle applicazioni nell'elenco elementi consentiti. È consigliabile esaminare queste applicazioni prima di approvarle.
-  - **UTENTI**: utenti ai quali è consigliabile consentire l'esecuzione di un'applicazione
+   - **NOME**: informazioni sul certificato o il percorso completo di un'applicazione
+   - **TIPI DI FILE**: tipo di file dell'applicazione. Può trattarsi di file EXE, Script, file MSI o qualsiasi permutazione di questi tipi.
+   - **SFRUTTABILE**: un'icona di avviso indica se un'applicazione specifica può essere usata da un utente malintenzionato per aggirare una soluzione di inserimento delle applicazioni nell'elenco elementi consentiti. È consigliabile esaminare queste applicazioni prima di approvarle.
+   - **UTENTI**: utenti ai quali è consigliabile consentire l'esecuzione di un'applicazione
 
 5. Dopo avere selezionato le opzioni desiderate, scegliere **Crea**. <br>
-Dopo aver selezionato Crea, il Centro sicurezza di Azure crea automaticamente le regole appropriate sopra la soluzione predefinita di inserimento delle applicazioni nell'elenco elementi consentiti disponibile nei server Windows (AppLocker).
+   Dopo aver selezionato Crea, il Centro sicurezza di Azure crea automaticamente le regole appropriate sopra la soluzione predefinita di inserimento delle applicazioni nell'elenco elementi consentiti disponibile nei server Windows (AppLocker).
 
 > [!NOTE]
 > - Il Centro sicurezza si basa su almeno due settimane di dati per creare una baseline e popolare le raccomandazioni univoche per ogni gruppo di VM. In base al comportamento previsto per i nuovi clienti del livello Standard del Centro sicurezza, i gruppi di VM vengono prima visualizzati nella scheda *Nessuna raccomandazione*.
@@ -98,23 +98,23 @@ Dopo aver selezionato Crea, il Centro sicurezza di Azure crea automaticamente le
 
 1. Per modificare e monitorare un gruppo configurato con i criteri di inserimento delle applicazioni nell'elenco elementi consentiti, tornare alla pagina **Controlli applicazione adattivi** e selezionare **CONFIGURATO** in **Gruppi di macchine virtuali**:
 
-  ![Gruppi](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
+   ![Gruppi](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
 
-  L'elenco include:
+   L'elenco include:
 
-  - **Nome**: nome della sottoscrizione e del gruppo
-  - **MACCHINE VIRTUALI**: numero di macchine virtuali nel gruppo
-  - **Modalità**: la modalità di controllo registra i tentativi di eseguire applicazioni non inserite nell'elenco elementi consentiti, mentre la modalità Applica impedisce l'esecuzione delle applicazioni non inserite nell'elenco elementi consentiti
-  - **Avvisi**: qualsiasi violazione corrente
+   - **Nome**: nome della sottoscrizione e del gruppo
+   - **MACCHINE VIRTUALI**: numero di macchine virtuali nel gruppo
+   - **Modalità**: la modalità di controllo registra i tentativi di eseguire applicazioni non inserite nell'elenco elementi consentiti, mentre la modalità Applica impedisce l'esecuzione delle applicazioni non inserite nell'elenco elementi consentiti
+   - **Avvisi**: qualsiasi violazione corrente
 
 2. Fare clic su un gruppo per apportare le modifiche nella pagina **Modifica il criterio del controllo applicazione**.
 
-  ![Protezione](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
+   ![Protezione](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
 
 3. In **Modalità di protezione** è possibile selezionare una delle opzioni seguenti:
 
-  - **Controllo**: in questa modalità, la soluzione di controllo delle applicazioni non applica le regole, ma controlla solo l'attività nelle macchine virtuali protette. Si tratta dell'opzione consigliata per scenari in cui si vuole osservare il comportamento generale prima di bloccare l'esecuzione di un'app nella macchina virtuale di destinazione.
-  - **Applica**: in questa modalità la soluzione di controllo delle applicazioni applica le regole e garantisce il blocco delle applicazioni la cui esecuzione non è consentita.
+   - **Controllo**: in questa modalità, la soluzione di controllo delle applicazioni non applica le regole, ma controlla solo l'attività nelle macchine virtuali protette. Si tratta dell'opzione consigliata per scenari in cui si vuole osservare il comportamento generale prima di bloccare l'esecuzione di un'app nella macchina virtuale di destinazione.
+   - **Applica**: in questa modalità la soluzione di controllo delle applicazioni applica le regole e garantisce il blocco delle applicazioni la cui esecuzione non è consentita.
 
    > [!NOTE]
    > -  La modalità di protezione**Applica** è disabilitata fino a nuovo avviso.
@@ -124,14 +124,14 @@ Dopo aver selezionato Crea, il Centro sicurezza di Azure crea automaticamente le
 4. In **Estensione dei criteri** aggiungere il percorso di qualsiasi applicazione da consentire. Dopo aver aggiunto tali percorsi, il Centro sicurezza aggiorna i criteri di inserimento nell'elenco elementi consentiti nelle macchine virtuali all'interno del gruppo selezionato e crea le regole appropriate per queste applicazioni, oltre a quelle già presenti.
 
 5. Esaminare le violazioni correnti elencate nella sezione **Avvisi recenti**. Fare clic su ogni riga da reindirizzare alla pagina **Avvisi** all'interno di Centro sicurezza di Azure e visualizzare tutti gli avvisi che sono stati rilevati dal Centro sicurezza di Azure nelle macchine virtuali associate.
-  - **Avvisi**: eventuali violazioni registrate.
-  - **N. di VM**: numero di macchine virtuali con questo tipo di avviso.
+   - **Avvisi**: eventuali violazioni registrate.
+   - **N. di VM**: numero di macchine virtuali con questo tipo di avviso.
 
 6. In **Regole di inserimento delle entità di pubblicazione nell'elenco elementi consentiti** e **Regole di inserimento dei percorsi nell'elenco elementi consentiti** e **Regole di inserimento degli hash nell'elenco elementi consentiti** è possibile visualizzare quali regole di inserimento delle applicazioni nell'elenco elementi consentiti sono attualmente configurate nelle macchine virtuali all'interno di un gruppo, in base al tipo di raccolta di regole. Per ogni regola è possibile visualizzare:
 
-  - **Regola**: i parametri specifici in base ai quali un'applicazione viene esaminata da AppLocker per determinare se può essere eseguita.
-  - **Tipo di file**: i tipi di file coperti da una specifica regola. Può trattarsi di uno dei seguenti: EXE, Script, file MSI o qualsiasi permutazione di questi tipi di file.
-  - **Utenti**: nome o numero di utenti autorizzati a eseguire un'applicazione che è coperta da una regola di inserimento delle applicazioni nell'elenco elementi consentiti.
+   - **Regola**: i parametri specifici in base ai quali un'applicazione viene esaminata da AppLocker per determinare se può essere eseguita.
+   - **Tipo di file**: i tipi di file coperti da una specifica regola. Può trattarsi di uno dei seguenti: EXE, Script, file MSI o qualsiasi permutazione di questi tipi di file.
+   - **Utenti**: nome o numero di utenti autorizzati a eseguire un'applicazione che è coperta da una regola di inserimento delle applicazioni nell'elenco elementi consentiti.
 
    ![Regole di inserimento nell'elenco elementi consentiti](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
 

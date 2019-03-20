@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 53ddea5426d2adfa7b0ddfcbda3375efae8d0859
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 42430c847149f7eda2f0dbed1cff006a92f372ee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250807"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845189"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Effettuare il provisioning di una macchina virtuale per l'apprendimento avanzato in Azure 
 
@@ -49,10 +49,10 @@ Ecco i passaggi necessari per creare un'istanza della macchina virtuale per l'ap
 > [!NOTE]
 > Il DLVM supporta tutte le istanze delle macchine virtuali GPU serie NC e ND. Durante il provisioning del DLVM, è necessario scegliere una delle posizioni in Azure che dispongono di GPU. Controllare la [pagina dei Prodotti Azure per area](https://azure.microsoft.com/regions/services/) per le posizioni disponibili e cercare **Serie NC**, **Serie NCv2**, **Serie NCv3** o **Serie ND** sotto **Calcolo**. 
 
-   2. **Impostazioni**: selezionare una macchina virtuale GPU serie NC (NC, NCv2, NCv3) o ND che soddisfi i requisiti funzionali e i vincoli di costo. Creare un account di archiviazione per la macchina virtuale.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+1. **Impostazioni**: selezionare una macchina virtuale GPU serie NC (NC, NCv2, NCv3) o ND che soddisfi i requisiti funzionali e i vincoli di costo. Creare un account di archiviazione per la macchina virtuale.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
-   3. **Riepilogo**: Verificare che tutte le informazioni immesse siano corrette.
-   5. **Acquisto**: fare clic su **Acquista** per avviare il provisioning. Viene fornito un collegamento alle condizioni della transazione. La macchina virtuale non prevede costi aggiuntivi oltre a quelli per il calcolo delle dimensioni del server scelto nel passaggio **Size** . 
+1. **Riepilogo**: Verificare che tutte le informazioni immesse siano corrette.
+1. **Acquisto**: fare clic su **Acquista** per avviare il provisioning. Viene fornito un collegamento alle condizioni della transazione. La macchina virtuale non prevede costi aggiuntivi oltre a quelli per il calcolo delle dimensioni del server scelto nel passaggio **Size** . 
 
 > [!NOTE]
 > Per il provisioning sono necessari circa 10-20 minuti. Lo stato del provisioning viene visualizzato nel portale di Azure.
@@ -66,7 +66,7 @@ Dopo aver creato la VM, è possibile connettersi tramite desktop remoto con le c
 
 ### <a name="linux-edition"></a>Edizione per Linux
 
-Dopo aver creato la VM, è possibile accedervi tramite SSH. Usare le credenziali dell'account creato nella sezione **Nozioni di base** del passaggio 3 per l'interfaccia della shell di testo. In un client Windows è possibile scaricare uno strumento client SSH come [Putty](http://www.putty.org). Se si preferisce un desktop con interfaccia grafica (X Windows System), è possibile usare X11 Forwarding su Putty o installare il client X2Go.
+Dopo aver creato la VM, è possibile accedervi tramite SSH. Usare le credenziali dell'account creato nella sezione **Nozioni di base** del passaggio 3 per l'interfaccia della shell di testo. In un client Windows è possibile scaricare uno strumento client SSH come [Putty](https://www.putty.org). Se si preferisce un desktop con interfaccia grafica (X Windows System), è possibile usare X11 Forwarding su Putty o installare il client X2Go.
 
 > [!NOTE]
 > Nei test Microsoft il client X2Go ha fornito prestazioni migliori di X11 Forwarding. È quindi consigliabile usare il client X2Go per un'interfaccia desktop grafica.
@@ -76,7 +76,7 @@ Dopo aver creato la VM, è possibile accedervi tramite SSH. Usare le credenziali
 #### <a name="installing-and-configuring-x2go-client"></a>Installazione e configurazione del client X2Go
 Per la DLVM Linux è già stato effettuato il provisioning con il server X2Go. La DLVM è pronta ad accettare connessioni client. Per connettersi al desktop con interfaccia grafica della VM Linux, è necessario completare la procedura seguente nel client:
 
-1. Scaricare e installare il client X2Go per la piattaforma client da [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+1. Scaricare e installare il client X2Go per la piattaforma client da [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 2. Eseguire il client X2Go e selezionare **New Session**(Nuova sessione). Viene visualizzata una finestra di configurazione con più schede. Immettere i parametri di configurazione seguenti:
    * **Scheda Session**(Sessione):
      * **Host**: nome host o indirizzo IP della Data Science VM per Linux.

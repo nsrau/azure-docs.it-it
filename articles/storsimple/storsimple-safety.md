@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2016
 ms.author: alkohli
-ms.openlocfilehash: 1be635826edbb60d50b06cc7c529e32b6280390b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 9d0c8c01ae0d87c944922dece74e13f00879b02f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249388"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010259"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Installazione sicura e funzionamento del dispositivo StorSimple
 ![Icona di avviso](./media/storsimple-safety/IC740879.png)
@@ -145,7 +145,7 @@ Per ridurre il rischio di cortometraggi, incendio, esplosione, ferite o morte:
 
 ![Icona di notifica](./media/storsimple-safety/IC740881.png)**NOTIFICA:**
 
-Al momento della spedizione o del trasporto delle batterie per via aerea, seguire il documento di istruzioni di batteria litio IATA disponibile all'indirizzo [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
+Al momento della spedizione o del trasporto delle batterie per via aerea, seguire il documento di istruzioni di batteria litio IATA disponibile all'indirizzo [https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
 Dopo aver esaminato questi avvisi sulla sicurezza, i passaggi successivi sono per decomprimere, togliere e cablare il vostro dispositivo.
 

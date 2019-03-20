@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 12589d9fa4623dbb6ebfd12d2e007eb9303ecdbf
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 4f06af8044a79a7dc54d6fde55992111d24d22a7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007599"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441561"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Sintassi di query semplice in Ricerca di Azure
 Ricerca di Azure implementa due linguaggi di query basate su Lucene: il [parser di query semplice](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) e il [parser di query Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). In Ricerca di Azure la sintassi di query semplice esclude le opzioni fuzzy/inclinazione.  
@@ -46,7 +46,7 @@ In genere, è più probabile osservare questi comportamenti nei modelli di inter
 
 ## <a name="operators-in-simple-search"></a>Operatori nella ricerca semplice
 
-È possibile incorporare gli operatori in una stringa di query per creare un esteso set di criteri in base al quale cercare i documenti corrispondenti. 
+È possibile incorporare gli operatori in una stringa di query per compilare un set completo di criteri con cui vengono trovati documenti corrispondenti. 
 
 ## <a name="and-operator-"></a>Operatore AND `+`
 

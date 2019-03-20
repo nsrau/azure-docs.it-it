@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: d4204d4937b8eca2dcb3f656659f185f30c8bddf
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: d433a480165424e47d4d84e67e7fd02648ebe2d1
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755027"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223428"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Connettere computer Windows al servizio Log Analytics in Azure
 
@@ -32,6 +32,10 @@ L'agente può essere installato usando uno dei metodi seguenti. La maggior parte
 * Configurazione dello stato desiderato (DSC) di Automazione di Azure. Uso di DSC in Automazione di Azure con uno script per i computer Windows già distribuiti nell'ambiente in uso.  
 * Script di PowerShell.
 * Modello di Resource Manager per le macchine virtuali con Windows in esecuzione in locale in Azure Stack.  
+
+>[!NOTE]
+>Centro sicurezza di Azure (ASC) dipende da Microsoft Monitoring Agent (detto anche l'agente di Log Analitica Windows) e verranno installati e configurarlo in modo da segnalare per un'area di lavoro di Log Analitica come parte della relativa distribuzione. Centro sicurezza di AZURE include un'opzione di provisioning automatico che consente l'installazione automatica dell'agente di Log Analitica Windows su tutte le macchine virtuali nella sottoscrizione e lo configura per fare riferimento a un'area di lavoro specifico. Per altre informazioni su questa opzione, vedere [abilitare il provisioning automatico dell'agente di Log Analitica](../../security-center/security-center-enable-data-collection.md#enable-automatic-provisioning-of-microsoft-monitoring-agent-).
+>
 
 Per comprendere la configurazione supportata, vedere i [sistemi operativi Windows supportati](log-analytics-agent.md#supported-windows-operating-systems) e la [configurazione del firewall di rete](log-analytics-agent.md#network-firewall-requirements).
 

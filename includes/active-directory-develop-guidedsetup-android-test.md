@@ -3,8 +3,8 @@ title: File di inclusione
 description: File di inclusione
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: danieldobalian
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -12,19 +12,19 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/13/2018
-ms.author: andret
+ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: e87a63a0dad5e1f93b1bea62039abee8ded78ab7
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: c8e5e4f826d7835a1fd38d1db5bfeab19b679b30
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988344"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203723"
 ---
 ## <a name="test-your-app"></a>Test dell'app
 
 1. Distribuire il codice al dispositivo/emulatore.
-2. Provare a eseguire l'accesso con un account Azure Active Directory (aziendale o dell'istituto di istruzione) o un account Microsoft (live.com, outlook.com). 
+2. Provare a eseguire l'accesso con un account di Azure Active Directory (account aziendale o dell'istituto di istruzione) o un account Microsoft (live.com, outlook.com). 
 
     ![Testare l'applicazione](media/active-directory-develop-guidedsetup-android-test/mainwindow.png)
     <br/><br/>

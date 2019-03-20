@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 17be364959c5cdc1beaf48aa86966ede5c7c7309
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: b90fc42aa56bfc813ec464670336dea75cff0f0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219363"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117439"
 ---
 # <a name="how-to-use-conversation-learner-with-other-bot-building-technologies"></a>Come usare Conversation Learner con altre tecnologie di creazione bot
 
@@ -119,11 +119,11 @@ A differenza dei bot dei singoli modelli di Conversation Leaner non sarà possib
 2. Immettere "hello".  Poiché il valore `isOpen` non è impostato, il bot invierà il messaggio "I'm sorry we're closed" (Spiacenti il negozio è chiuso) e terminerà la sessione.
 
 #### <a name="scenario-2-store-is-open"></a>Scenario 2: il negozio è aperto.
-3. Immettere "open store".  `isOpen` verrà impostato su true.
-4. Immettere "shop".
-5. Immettere "hello".  Poiché il valore `isOpen` è impostato su true, il bot invierà il messaggio "What would you like to buy?" (Cosa si desidera acquistare?)
-6. Immettere "chair". "chair" verrà salvato nella memoria CL come entità `purchaseItem`. Viene richiamato il callback di fine sessione che copia questo valore nell'archivio delle conversazioni.
-7. Immettere "history".  Il bot invierà il messaggio "You bought chair" (Hai acquistato una sedia) perché questo era l'ultimo `purchaseItem`.
+1. Immettere "open store".  `isOpen` verrà impostato su true.
+1. Immettere "shop".
+1. Immettere "hello".  Poiché il valore `isOpen` è impostato su true, il bot invierà il messaggio "What would you like to buy?" (Cosa si desidera acquistare?)
+1. Immettere "chair". "chair" verrà salvato nella memoria CL come entità `purchaseItem`. Viene richiamato il callback di fine sessione che copia questo valore nell'archivio delle conversazioni.
+1. Immettere "history".  Il bot invierà il messaggio "You bought chair" (Hai acquistato una sedia) perché questo era l'ultimo `purchaseItem`.
 
 ## <a name="conclusion"></a>Conclusioni
 

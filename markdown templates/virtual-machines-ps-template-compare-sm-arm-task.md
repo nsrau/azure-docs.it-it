@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: d168d543bc862e267f72bdf39cc44f9cc2a9fa13
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "58115294"
+---
 <!--save a copy of this file to your local repo. It's important that you follow the naming conventions by starting with the service name, and use lowercase only for the file name. See "file-names-and-locations.md" under the "contributor-guide" folder in your repo.
 
 Info to help you use the template are enclosed in the Markdown comments using the caret, hyphen, dash syntax. Delete these from your file.
@@ -13,7 +21,7 @@ Pay attention to spacing and indents. They affect formatting.
 # <a name="use-azure-powershell-to-task"></a>Usare Azure PowerShell per [attività]
 Questo articolo illustra come [attività], usando comandi dal modulo di Azure e dal modulo di Azure Resource Manager. L'articolo intende fornire informazioni utili per apprendere i nuovi comandi e per eseguire la migrazione degli script esistenti ai nuovi comandi.
 
-## <a name="prerequisite-install-a-recent-version-of-azure-powershell"></a>Prerequisito: installare una versione recente di Azure PowerShell
+## <a name="prerequisite-install-a-recent-version-of-azure-powershell"></a>Prerequisiti: Installare una versione recente di Azure PowerShell
 Se non è già stato fatto, installare almeno la versione [numero di versione] di Azure PowerShell nel computer locale. Se si usa una versione precedente, non saranno disponibili i cmdlet di Azure Resource Manager illustrati in questo articolo. Per informazioni dettagliate, vedere:
 
 * [Come installare e configurare Azure PowerShell](install-configure-powershell.md) per istruzioni sulla configurazione di Azure PowerShell.
@@ -56,7 +64,7 @@ Ecco un esempio che usa [nomi di cmdlet] per [attività]. Include comandi che:
 * [verbo breve, usa, ha, è e così via]
 * [verbo breve successivo] 
 
-<!--include this statement if it uses variables that weren't introduced earlier--> It includes the following variables:
+<!--include this statement if it uses variables that weren't introduced earlier--> Sono incluse le variabili seguenti:
 
 * [variabile 1]
 * [variabile 2]
@@ -94,8 +102,8 @@ Ecco un esempio che usa [nomi di cmdlet] per [attività]. Include comandi che:
 
 <!--To link to an ACOM page outside the /documentation/ subdomain (such as a pricing page, SLA page or anything else that is not a documentation article), use an absolute URL, but omit the locale:
 
-    [link text](http://azure.microsoft.com/pricing/details/virtual-machines/)-->
+    [link text](https://azure.microsoft.com/pricing/details/virtual-machines/)-->
 
 <!--use this for URLs outside of ACOM. Be sure to locale, and if you're linking to the Azure library on MSDN, include the '/azure/' part of the URL-->
-[Documentazione delle macchine virtuali](https://msdn.microsoft.com/library/azure/jj156003.aspx)
+[Documentazione su macchine virtuali](https://msdn.microsoft.com/library/azure/jj156003.aspx)
 

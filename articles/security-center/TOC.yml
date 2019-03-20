@@ -88,6 +88,8 @@ items:
       href: security-center-adaptive-application.md
     - name: Monitoraggio dell'integrità dei file
       href: security-center-file-integrity-monitoring.md
+    - name: Protezione adattiva della rete
+      href: security-center-adaptive-network-hardening.md
   - name: Rilevare le minacce
     href: security-center-detection-capabilities.md
     items:
@@ -180,7 +182,7 @@ items:
   - name: Guida di orientamento per l'idoneità
     href: security-center-readiness-roadmap.md
   - name: Blog su sicurezza, privacy e conformità per Azure
-    href: http://blogs.msdn.com/b/azuresecurity/
+    href: https://blogs.msdn.com/b/azuresecurity/
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=security-center
   - name: Video
@@ -191,9 +193,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Risolvere problemi
     href: security-center-troubleshooting-guide.md
-ms.openlocfilehash: 4c68265d59ab40ed93ceb7b1961520866d89129f
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: b0acd0948589e4045e7c9dbd9cc423bfd0ae1e3d
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889393"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201178"

@@ -7,19 +7,19 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c84aedbdb306bbd7432c3c0b611e6e58243624e2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 298bf10cf07467de897c7e38af9539fc71375eab
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999369"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776649"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Creazione di un file per soluzioni di gestione in Azure (anteprima)
 > [!NOTE]
@@ -229,13 +229,6 @@ L'entità **plan** della risorsa soluzione ha le proprietà descritte nella tabe
 | product |Stringa univoca che identifica la soluzione. |
 | publisher |Autore della soluzione. |
 
-
-
-## <a name="sample"></a>Esempio
-Esempi di file di soluzioni con una risorsa "soluzione" sono disponibili negli articoli seguenti.
-
-- [Risorse di Automazione](solutions-resources-automation.md#sample)
-- [Risorse di ricerca e di avviso](solutions-resources-searches-alerts.md#sample)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

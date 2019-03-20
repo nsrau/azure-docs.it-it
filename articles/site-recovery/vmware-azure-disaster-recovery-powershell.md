@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 1b97ff461dc3a4f7dcba0a3dbfad71a25cb3f1e9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: aa8292aac82f478422f9214c26d974825872eed6
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840206"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226336"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Configurare il ripristino di emergenza di VM VMware in Azure con PowerShell
 
@@ -26,7 +26,7 @@ Si apprenderà come:
 > - Configurare la replica, tra cui un criterio di replica. Aggiungere il server vCenter e individuare le macchine virtuali. 
 > - Aggiungere un server vCenter e individuare 
 > - Creare gli account di archiviazione per conservare i dati di replica e replicare le macchine virtuali.
-> - Eseguire un failover. Configurare le impostazioni di failover ed eseguire le impostazioni per la replica di macchine virtuali.
+> - Eseguire un failover. Configurare le impostazioni di failover, eseguire delle impostazioni per la replica di macchine virtuali.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -61,7 +61,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    ProvisioningState : Succeeded
    Tags              :
    ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VMwareDRtoAzurePS
-```
+   ```
    
 2. Creare un insieme di credenziali di Servizi di ripristino. Nell'esempio seguente, l'insieme di credenziali di Servizi di ripristino è denominato VMwareDRToAzurePs ed è stato creato nell'area Asia orientale, nel gruppo di risorse creato nel passaggio precedente.
 
@@ -487,4 +487,4 @@ In questo passaggio viene eseguito il failover della macchina virtuale Win2K12VM
 2. Al termine del failover, è possibile eseguire il commit dell'operazione di failover e configurare la replica inversa da Azure al sito VMware locale.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni su come automatizzare altre attività, vedere la [documentazione di riferimento di PowerShell per Azure Site Recovery](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery).
+Informazioni su come automatizzare le attività più utilizzando il [riferimento di PowerShell per Azure Site Recovery](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery).

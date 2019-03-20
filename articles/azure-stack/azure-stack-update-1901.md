@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/20/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 0bbf76e16334ae4847ec6f7fbf3aa88fb508e84d
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.lastreviewed: 03/20/2019
+ms.openlocfilehash: e02a09bdc8bd80b93f7fa33632c32a75c1d705bd
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731137"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226862"
 ---
 # <a name="azure-stack-1901-update"></a>Aggiornamento di Azure Stack 1901
 
@@ -58,12 +58,12 @@ Azure Stack hotfix sono applicabili solo ai sistemi integrati di Azure Stack. no
 
 - **1809**: [KB 4481548 – aggiornamento rapido di Azure Stack 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811**: Nessun hotfix corrente disponibile.
-- **1901**: Nessun hotfix corrente disponibile.
+- **1901**: [KB 4481548 – aggiornamento rapido di Azure Stack 1.1901.2.103](https://support.microsoft.com/help/4494720)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 > [!IMPORTANT]
-- Installare il [hotfix più recente di Azure Stack](#azure-stack-hotfixes) per 1811 (se presente) prima di aggiornare a 1901.
+> - Installare il [hotfix più recente di Azure Stack](#azure-stack-hotfixes) per 1811 (se presente) prima di aggiornare a 1901.
 
 - Prima di iniziare l'installazione di questo aggiornamento, eseguire [Test-AzureStack](azure-stack-diagnostic-test.md) con i parametri seguenti per convalidare lo stato di Azure Stack e risolvere eventuali problemi operativi trovati, inclusi tutti gli avvisi e gli errori. Anche gli avvisi attivi rivedere e risolvere gli eventuali che richiedono un'azione:
 
@@ -89,7 +89,7 @@ Questo aggiornamento include le seguenti nuove funzionalità e miglioramenti per
    * **AzureRm.Storage**  
          Modulo di rollup AzureRm ora include la versione già pubblicata 5.0.4 che supportano il **2017-10-01 versione api-version**.  
    * **AzureRm.Compute**  
-         Nei set di parametri semplici aggiunto `New-AzureRMVM` e `NewAzureRMVMSS`, `-ImageName` parametro supporta la specifica immagini dell'utente.  
+         Nei set di parametri semplici aggiunto `New-AzureRmVM` e `New-AzureRmVmss`, `-Image` parametro supporta la specifica immagini dell'utente.  
    * **AzureRm.Insights**  
          Modulo di rollup AzureRm ora include la versione già pubblicata 5.1.5 che supportano il **2018-01 01 api-version** per le metriche, i tipi di risorsa delle definizioni delle metriche.
 
@@ -115,7 +115,8 @@ Per esaminare le informazioni di riferimento per i moduli aggiornati, vedere [ri
 <!-- 16523695 – IS, ASDK -->
 - Risolto un problema in cui dopo l'aggiornamento delle impostazioni DNS per la rete virtuale **usare DNS di Azure Stack** al **DNS personalizzato**, le istanze non sono state aggiornate con la nuova impostazione.
 
-- <!-- 3235634 – IS, ASDK --> Risolto un problema in cui distribuire le macchine virtuali con dimensioni che contiene un **v2** suffisso; ad esempio, **Standard_A2_v2**, che specifica il suffisso come obbligatorio **Standard_A2_v2** ( v lettere minuscole). Come con Azure globale, è ora possibile usare **Standard_A2_V2** (lettere maiuscole V).
+- <!-- 3235634 – IS, ASDK -->
+  Risolto un problema in cui distribuire le macchine virtuali con dimensioni che contiene un **v2** suffisso; ad esempio, **Standard_A2_v2**, che specifica il suffisso come obbligatorio **Standard_A2_v2** ( v lettere minuscole). Come con Azure globale, è ora possibile usare **Standard_A2_V2** (lettere maiuscole V).
 
 <!-- 2869209 – IS, ASDK --> 
 - Risolto un problema quando si usa la [cmdlet Add-AzsPlatformImage](/powershell/module/azs.compute.admin/add-azsplatformimage), in cui era necessario utilizzare il **- OsUri** parametro come URI in cui è stato caricato il disco dell'account di archiviazione. È ora possibile usare anche il percorso locale su disco.
@@ -291,9 +292,9 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 <!-- 3632798 - IS, ASDK -->
 - Nel portale, se si aggiunge una regola di sicurezza in ingresso e selezionare **Tag del servizio** come origine, vengono visualizzate le opzioni diverse nel **Tag origine** elenco che non sono disponibili per Azure Stack. Le uniche opzioni valide in Azure Stack sono come segue:
 
-    - **Internet**
-    - **VirtualNetwork**
-    - **AzureLoadBalancer**
+  - **Internet**
+  - **VirtualNetwork**
+  - **AzureLoadBalancer**
   
     Le altre opzioni non sono supportate come i tag di origine in Azure Stack. Analogamente, se si aggiunge una regola di sicurezza in uscita e selezionare **Tag del servizio** come destinazione, lo stesso elenco di opzioni per **Tag origine** viene visualizzato. Le uniche opzioni valide sono uguali a quelle per **Tag origine**, come descritto nell'elenco precedente.
 

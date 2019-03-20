@@ -1,5 +1,5 @@
 ---
-title: Cos'è il portale delle app personali in Azure Active Directory? | Microsoft Docs
+title: Che cos'è il portale MyApps - Azure Active Directory? | Microsoft Docs
 description: Informazioni su come usare le varianti del portale delle app personali, come Web browser, app per Android e app per iPhone e iPad, per accedere alle app SaaS.
 services: active-directory
 author: eross-msft
@@ -12,13 +12,14 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9682611467311f06d60f6f393ebd7788f95f7f12
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 47c624a9f1d3989e9146f7c32745ca892f6467e0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177870"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58114752"
 ---
 # <a name="what-is-the-myapps-portal"></a>Che cos'è il portale App personali?
 
@@ -81,11 +82,11 @@ Per usare l'accesso Single Sign-On basato su password, è necessario usare l'est
 
 > [!NOTE]
 > Sono disponibili funzionalità aggiuntive solo per Microsoft Edge, Chrome e Firefox.
->
-È possibile scaricare l'estensione direttamente dai siti seguenti:
-- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
-- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
+> 
+> È possibile scaricare l'estensione direttamente dai siti seguenti:
+> - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+> - [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+> - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 Se si usa un URL delle app personali diverso da `https://myapps.microsoft.com`, configurare l'URL predefinito seguendo questa procedura:
 1. *Senza* accedere all'estensione, fare clic con il pulsante destro del mouse sull'icona dell'estensione.

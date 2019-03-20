@@ -15,12 +15,12 @@ ms.date: 03/04/2018
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 1115e11d6bf830afad3746eb41d6368cb89bdbf3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c3ea877e3271dcb5bea527d661e12827eb64fa0c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534377"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997412"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Esercitazione: Creare una soluzione analitica di dati di staging con Azure e Azure Stack 
 
@@ -175,25 +175,25 @@ Creare una nuova funzione di Azure Stack per spostare pulire i dati da Azure Sta
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Creare una funzione attivata dall'archiviazione BLOB
 
-1.  Espandere l'app per le funzioni e selezionare il **+** accanto alla **funzioni**.
+1. Espandere l'app per le funzioni e selezionare il **+** accanto alla **funzioni**.
 
-2.  Nel campo di ricerca, digitare `blob` e quindi scegliere la lingua da usare per il **trigger di Blob** modello.
+2. Nel campo di ricerca, digitare `blob` e quindi scegliere la lingua da usare per il **trigger di Blob** modello.
 
-  ![Scegliere il modello di attivazione dell'archiviazione BLOB.](media/azure-stack-solution-staged-data-analytics/image10.png)
+   ![Scegliere il modello di attivazione dell'archiviazione BLOB.](media/azure-stack-solution-staged-data-analytics/image10.png)
 
-3.  Usare le impostazioni specificate nella tabella seguente:
+3. Usare le impostazioni specificate nella tabella seguente:
 
-    | Impostazione | Valore consigliato | DESCRIZIONE |
-    | ------- | ------- | ------- |
-    | NOME | Univoco nell'app per le funzioni | Nome della funzione attivata dal BLOB. |
-    | path | \<percorso dalla posizione di archiviazione precedente > | Percorso da monitorare nell'archiviazione BLOB. Il nome del file del blob viene passato nel binding come parametro del nome. |
-    | Connessione dell'account di archiviazione | Connessione dell'App (funzione) | È possibile usare la connessione dell'account di archiviazione già usata da app per le funzioni o crearne uno nuovo. |
+   | Impostazione | Valore consigliato | DESCRIZIONE |
+   | ------- | ------- | ------- |
+   | NOME | Univoco nell'app per le funzioni | Nome della funzione attivata dal BLOB. |
+   | path | \<percorso dalla posizione di archiviazione precedente > | Percorso da monitorare nell'archiviazione BLOB. Il nome del file del blob viene passato nel binding come parametro del nome. |
+   | Connessione dell'account di archiviazione | Connessione dell'App (funzione) | È possibile usare la connessione dell'account di archiviazione già usata da app per le funzioni o crearne uno nuovo. |
 
-    **Esempio:**
+   **Esempio:**
 
-    ![Creare una funzione attivata dall'archiviazione BLOB.](media/azure-stack-solution-staged-data-analytics/image11.png)
+   ![Creare una funzione attivata dall'archiviazione BLOB.](media/azure-stack-solution-staged-data-analytics/image11.png)
 
-4.  Selezionare **Crea** per creare la funzione.
+4. Selezionare **Crea** per creare la funzione.
 
 ### <a name="test-the-function"></a>Testare la funzione
 
@@ -253,21 +253,21 @@ Usare i passaggi e le impostazioni indicate sopra per creare un altro contenitor
 
 ## <a name="test-the-queue-triggered-function"></a>Funzione attivata da un test della coda
 
-1.  Nel portale di Azure Stack, passare alla funzione. Espandere la **registri** nella parte inferiore della pagina e assicurarsi che lo streaming dei log non viene sospesa.
+1. Nel portale di Azure Stack, passare alla funzione. Espandere la **registri** nella parte inferiore della pagina e assicurarsi che lo streaming dei log non viene sospesa.
 
-2.  Aprire Storage Explorer e connettersi all'account di archiviazione creato all'inizio di questa sezione.
+2. Aprire Storage Explorer e connettersi all'account di archiviazione creato all'inizio di questa sezione.
 
-3.  Espandere l'account di archiviazione **contenitori Blob**, e il blob creato in precedenza. Selezionare **caricare** e quindi **caricare i file.**
+3. Espandere l'account di archiviazione **contenitori Blob**, e il blob creato in precedenza. Selezionare **caricare** e quindi **caricare i file.**
 
-    ![Caricare un file nel contenitore BLOB.](media/azure-stack-solution-staged-data-analytics/image12.png)
+   ![Caricare un file nel contenitore BLOB.](media/azure-stack-solution-staged-data-analytics/image12.png)
 
-4.  Nella finestra di dialogo Caricamento file, selezionare il campo di file. Passare a un file in un computer locale, ad esempio un file di immagine, selezionarlo e selezionare **aperto** e quindi **caricare**.
+4. Nella finestra di dialogo Caricamento file, selezionare il campo di file. Passare a un file in un computer locale, ad esempio un file di immagine, selezionarlo e selezionare **aperto** e quindi **caricare**.
 
-5.  Tornare ai log di funzione e verificare che il blob è stato letto.
+5. Tornare ai log di funzione e verificare che il blob è stato letto.
 
-  **Esempio:**
+   **Esempio:**
 
-    ![Visualizzare il messaggio nei log.](media/azure-stack-solution-staged-data-analytics/image13.png)
+   ![Visualizzare il messaggio nei log.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="securely-stored-and-accessed-compliant-data"></a>Dati conformi a cui si accede e archiviati in modo sicuro
 

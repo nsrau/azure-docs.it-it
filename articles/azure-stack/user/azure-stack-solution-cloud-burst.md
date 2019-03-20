@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a8c4ef5df586c87862ea8e1634e9a72356401d0b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: bcb538cf2e546e4913ccb223e143c2343e114de7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247426"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896195"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Esercitazione: Creare soluzioni di scalabilità tra cloud con Azure
 
@@ -128,7 +128,7 @@ Azure Repos
 
 1. Accedere alla pipeline di Azure per confermare possibilità di creare le definizioni di compilazione.
 
-2. Aggiungere **- r win10-x64** codice. Questa operazione è necessaria attivare una distribuzione autonoma con.NET Core.
+2. Aggiungere **- r win10-x64** codice. Ciò è necessario attivare una distribuzione autonoma con .NET Core.
 
     ![Alt text](media/azure-stack-solution-cloud-burst/image4.png)
 
@@ -266,7 +266,7 @@ Ora che le informazioni sull'endpoint esistente, le pipeline di Azure alla conne
 
 Uso [modelli di Azure Resource Manager, ad esempio web](https://azure.microsoft.com/resources/templates/) codice dell'app da archivi di Azure per distribuire in entrambi i cloud.
 
-### <a name="add-code-to-a-azure-repos-project"></a>Aggiungere codice al progetto repository di Azure
+### <a name="add-code-to-an-azure-repos-project"></a>Aggiungere codice al progetto repository di Azure
 
 1.  Accedere al repository di Azure con un account dotato dei diritti di creazione progetto in Azure Stack. La schermata successiva mostra come connettersi al progetto HybridCICD.
 
@@ -286,7 +286,7 @@ Uso [modelli di Azure Resource Manager, ad esempio web](https://azure.microsoft.
 
 2.  Passare il **compilazione dell'applicazione Web** pagina per il progetto.
 
-3.  Nelle **argomenti**, aggiungere **- r win10-x64** codice. Questa operazione è necessaria per attivare una distribuzione autonoma con.NET Core.
+3.  Nelle **argomenti**, aggiungere **- r win10-x64** codice. Ciò è necessario per attivare una distribuzione autonoma con .NET Core.
 
 4.  Eseguire la compilazione. Il [compilazione di distribuzione autonoma](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) processo verrà pubblicati gli artefatti che è possono eseguire in Azure e Azure Stack.
 

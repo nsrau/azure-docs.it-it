@@ -3,21 +3,20 @@ title: Panoramica dei modelli per Azure Data Factory | Microsoft Docs
 description: Informazioni su come usare un modello predefinito per iniziare rapidamente con Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/04/2019
-ms.author: douglasl
-ms.reviewer: douglasl
-ms.openlocfilehash: c3571aec55d5050df01f740a163db18e9c6c1095
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: 4bd38991b2452bdda65a7647f844dcc17fdfb125
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55966763"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003543"
 ---
 # <a name="templates"></a>Modelli
 
@@ -41,11 +40,13 @@ I modelli sono pipeline predefinite della Data Factory di Azure che consentono d
 
 ### <a name="out-of-the-box-data-factory-templates"></a>Modelli predefiniti di Data Factory
 
-Data Factory usa modelli di Azure Resource Manager per salvare i modelli di pipeline di Data Factory. È possibile visualizzare tutti i modelli di Resource Manager, tra cui il file manifesto, utilizzati per i modelli predefiniti di Data Factory, nell'[archivio ufficiale Github di Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/templates). I modelli predefiniti forniti da Microsoft includono ma non sono limitati agli elementi seguenti:
+Data Factory usa modelli di Azure Resource Manager per salvare i modelli di pipeline di Data Factory. È possibile visualizzare tutti i modelli di Resource Manager, insieme al file manifesto utilizzati per i modelli di Data Factory di finestra, nelle [repository GitHub di Azure Data Factory ufficiale](https://github.com/Azure/Azure-DataFactory/tree/master/templates). I modelli predefiniti forniti da Microsoft includono ma non sono limitati agli elementi seguenti:
 
 -   Copiare modelli:
 
     -   [Copia bulk dal database](solution-template-bulk-copy-with-control-table.md)
+    
+    -   [Copia i nuovi file da LastModifiedDate & lt](solution-template-copy-new-files-lastmodifieddate.md)
 
     -   [Copia più contenitori di file tra archivi basati su file](solution-template-copy-files-multiple-containers.md)
 

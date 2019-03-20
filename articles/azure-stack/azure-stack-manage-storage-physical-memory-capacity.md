@@ -16,12 +16,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 875e823aa2958ee38b3510e93ffac7918be661cb
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: cb5b64869a26133e1c08095a816c2d2854f85b94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774014"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103503"
 ---
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>Gestire la capacità di memoria fisica per Azure Stack
 
@@ -39,11 +39,11 @@ Il diagramma di flusso seguente illustra il processo generale di aggiungere memo
 ## <a name="add-memory-to-an-existing-node"></a>Aggiungere memoria a un nodo esistente
 I passaggi seguenti offrono una panoramica generale del processo di memoria di aggiunta. 
 
-> [!Warning]  
-Seguire questi passaggi senza fare riferimento alla documentazione fornita dall'OEM.
-
-> [!Warning]  
-L'intera unità di scala deve essere arrestato perché non è supportato un aggiornamento in sequenza di memoria.
+> [!Warning]
+> Seguire questi passaggi senza fare riferimento alla documentazione fornita dall'OEM.
+> 
+> [!Warning]
+> L'intera unità di scala deve essere arrestato perché non è supportato un aggiornamento in sequenza di memoria.
 
 1. Arrestare Azure Stack tramite la procedura documentata nel [Start e stop Azure Stack](azure-stack-start-and-stop.md) articolo.
 2. Aggiornare la memoria in ogni computer fisico con la documentazione del produttore dell'hardware.

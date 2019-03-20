@@ -3,26 +3,28 @@ title: Integrazione e recapito continui in Azure Data Factory | Microsoft Docs
 description: Informazioni su come usare l'integrazione e il recapito continui per spostare le pipeline di Data Factory da un ambiente (sviluppo, test, produzione) a un altro.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
+author: gauravmalhot
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2019
-ms.author: douglasl
-ms.openlocfilehash: 0d7c8640cb2a3f6d4d1a32a555c03dc2eca48b9a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: 5f5a9ef689fefd5683f7b6f1ebc9b2193ce020e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901225"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995781"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integrazione e recapito continui (CI/CD) in Azure Data Factory
 
 L'integrazione continua è la procedura che permette di testare ogni modifica apportata alla base di codici automaticamente e quanto prima possibile. Il recapito continuo segue i test effettuati durante l'integrazione continua ed esegue il push delle modifiche in un sistema di gestione temporanea o di produzione.
 
 In Azure Data Factory per integrazione e recapito continui si intende lo spostamento delle pipeline di Data Factory da un ambiente (sviluppo, test, produzione) a un altro. Per eseguire l'integrazione e il recapito continui, è possibile usare l'integrazione dell'interfaccia utente di Data Factory con i modelli di Azure Resource Manager. L'interfaccia utente di Data Factory può generare un modello di Resource Manager quando si selezionano le opzioni di **Modello ARM**. Quando si seleziona **Export ARM template** (Esporta modello di Azure Resource Manager), il portale genera il modello di Resource Manager per la data factory e un file di configurazione che include tutte le stringhe di connessioni e altri parametri. È quindi necessario creare un file di configurazione per ogni ambiente (sviluppo, test, produzione). Il file di modello di Resource Manager principale rimane lo stesso per tutti gli ambienti.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Per un'introduzione di nove minuti e una dimostrazione di questa funzionalità, guardare il video seguente:
 
@@ -161,7 +163,7 @@ Esistono due modi per gestire i segreti:
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Concedere le autorizzazioni all'agente di Azure Pipelines
-Il runtime di integrazione dell'attività Azure Key Vault potrebbe avere esito negativo con un errore di accesso negato. Scaricare i log per la versione e individuare il file `.ps1` con il comando per concedere le autorizzazioni all'agente di Azure Pipelines. È possibile eseguire il comando direttamente oppure è possibile copiare l'ID dell'entità di sicurezza dal file e aggiungere manualmente il criterio di accesso nel portale di Azure. *Get* e *List* sono le autorizzazioni minime necessarie.
+L'attività di Azure Key Vault potrebbe non riuscire il runtime di integrazione fIntegration con un errore di accesso negato. Scaricare i log per la versione e individuare il file `.ps1` con il comando per concedere le autorizzazioni all'agente di Azure Pipelines. È possibile eseguire il comando direttamente oppure è possibile copiare l'ID dell'entità di sicurezza dal file e aggiungere manualmente il criterio di accesso nel portale di Azure. *Get* e *List* sono le autorizzazioni minime necessarie.
 
 ### <a name="update-active-triggers"></a>Aggiornare i trigger attivi
 La distribuzione può non riuscire se si prova ad aggiornare i trigger attivi. Per aggiornare i trigger attivi, è necessario arrestarli e avviarli manualmente dopo la distribuzione. A questo scopo è possibile aggiungere un'attività Azure PowerShell, come illustrato nell'esempio seguente:
@@ -173,14 +175,14 @@ La distribuzione può non riuscire se si prova ad aggiornare i trigger attivi. P
 1.  Scegliere **Script inline** come tipo di script e quindi fornire il codice. L'esempio seguente arresta i trigger:
 
     ```powershell
-    $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+    $triggersADF = Get-AzDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
 
-    $triggersADF | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
+    $triggersADF | ForEach-Object { Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
     ```
 
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)
 
-È possibile seguire una procedura simile e usare un codice simile (con la funzione `Start-AzureRmDataFactoryV2Trigger`) per riavviare i trigger dopo la distribuzione.
+È possibile seguire una procedura simile e usare un codice simile (con la funzione `Start-AzDataFactoryV2Trigger`) per riavviare i trigger dopo la distribuzione.
 
 > [!IMPORTANT]
 > Negli scenari di integrazione e recapito continui, il tipo di runtime di integrazione in diversi ambienti deve essere lo stesso. Ad esempio, se si dispone di un runtime di integrazione *self-hosted* nell'ambiente di sviluppo, il runtime di integrazione stesso deve essere di tipo *self-hosted* in altri ambienti, come quelli di test e produzione. Analogamente, se si condividono i runtime di integrazione tra più fasi, è necessario configurarli come *self-hosted collegati* in tutti gli ambienti, ad esempio quelli di sviluppo, test e produzione.
@@ -727,7 +729,7 @@ Ecco un modello di distribuzione di esempio che è possibile importare in Azure 
 
 ## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>Script di esempio per arrestare e riavviare i trigger ed eseguire la pulizia
 
-Ecco uno script di esempio per arrestare i trigger prima della distribuzione e riavviarli in seguito. Lo script include anche il codice per eliminare le risorse che sono state rimosse. Per installare la versione più recente di Azure PowerShell, vedere [Installare Azure PowerShell in Windows con PowerShellGet](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.9.0).
+Ecco uno script di esempio per arrestare i trigger prima della distribuzione e riavviarli in seguito. Lo script include anche il codice per eliminare le risorse che sono state rimosse. Per installare la versione più recente di Azure PowerShell, vedere [Installare Azure PowerShell in Windows con PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 ```powershell
 param
@@ -745,7 +747,7 @@ $resources = $templateJson.resources
 
 #Triggers 
 Write-Host "Getting triggers"
-$triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+$triggersADF = Get-AzDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
 $triggersTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/triggers" }
 $triggerNames = $triggersTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
 $activeTriggerNames = $triggersTemplate | Where-Object { $_.properties.runtimeState -eq "Started" -and ($_.properties.pipelines.Count -gt 0 -or $_.properties.pipeline.pipelineReference -ne $null)} | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
@@ -757,32 +759,32 @@ if ($predeployment -eq $true) {
     Write-Host "Stopping deployed triggers"
     $triggerstostop | ForEach-Object { 
         Write-host "Disabling trigger " $_
-        Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+        Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
     }
 }
 else {
     #Deleted resources
     #pipelines
     Write-Host "Getting pipelines"
-    $pipelinesADF = Get-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+    $pipelinesADF = Get-AzDataFactoryV2Pipeline -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
     $pipelinesTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/pipelines" }
     $pipelinesNames = $pipelinesTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
     $deletedpipelines = $pipelinesADF | Where-Object { $pipelinesNames -notcontains $_.Name }
     #datasets
     Write-Host "Getting datasets"
-    $datasetsADF = Get-AzureRmDataFactoryV2Dataset -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+    $datasetsADF = Get-AzDataFactoryV2Dataset -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
     $datasetsTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/datasets" }
     $datasetsNames = $datasetsTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40) }
     $deleteddataset = $datasetsADF | Where-Object { $datasetsNames -notcontains $_.Name }
     #linkedservices
     Write-Host "Getting linked services"
-    $linkedservicesADF = Get-AzureRmDataFactoryV2LinkedService -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+    $linkedservicesADF = Get-AzDataFactoryV2LinkedService -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
     $linkedservicesTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/linkedservices" }
     $linkedservicesNames = $linkedservicesTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
     $deletedlinkedservices = $linkedservicesADF | Where-Object { $linkedservicesNames -notcontains $_.Name }
     #Integrationruntimes
     Write-Host "Getting integration runtimes"
-    $integrationruntimesADF = Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+    $integrationruntimesADF = Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
     $integrationruntimesTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/integrationruntimes" }
     $integrationruntimesNames = $integrationruntimesTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
     $deletedintegrationruntimes = $integrationruntimesADF | Where-Object { $integrationruntimesNames -notcontains $_.Name }
@@ -791,112 +793,182 @@ else {
     Write-Host "Deleting triggers"
     $deletedtriggers | ForEach-Object { 
         Write-Host "Deleting trigger "  $_.Name
-        $trig = Get-AzureRmDataFactoryV2Trigger -name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName
+        $trig = Get-AzDataFactoryV2Trigger -name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName
         if ($trig.RuntimeState -eq "Started") {
-            Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name -Force 
+            Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name -Force 
         }
-        Remove-AzureRmDataFactoryV2Trigger -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+        Remove-AzDataFactoryV2Trigger -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
     }
     Write-Host "Deleting pipelines"
     $deletedpipelines | ForEach-Object { 
         Write-Host "Deleting pipeline " $_.Name
-        Remove-AzureRmDataFactoryV2Pipeline -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+        Remove-AzDataFactoryV2Pipeline -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
     }
     Write-Host "Deleting datasets"
     $deleteddataset | ForEach-Object { 
         Write-Host "Deleting dataset " $_.Name
-        Remove-AzureRmDataFactoryV2Dataset -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+        Remove-AzDataFactoryV2Dataset -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
     }
     Write-Host "Deleting linked services"
     $deletedlinkedservices | ForEach-Object { 
         Write-Host "Deleting Linked Service " $_.Name
-        Remove-AzureRmDataFactoryV2LinkedService -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+        Remove-AzDataFactoryV2LinkedService -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
     }
     Write-Host "Deleting integration runtimes"
     $deletedintegrationruntimes | ForEach-Object { 
         Write-Host "Deleting integration runtime " $_.Name
-        Remove-AzureRmDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+        Remove-AzDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
     }
 
     if ($deleteDeployment -eq $true) {
         Write-Host "Deleting ARM deployment ... under resource group: " $ResourceGroupName
-        $deployments = Get-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName
+        $deployments = Get-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName
         $deploymentsToConsider = $deployments | Where { $_.DeploymentName -like "ArmTemplate_master*" -or $_.DeploymentName -like "ArmTemplateForFactory*" } | Sort-Object -Property Timestamp -Descending
         $deploymentName = $deploymentsToConsider[0].DeploymentName
 
        Write-Host "Deployment to be deleted: " $deploymentName
-        $deploymentOperations = Get-AzureRmResourceGroupDeploymentOperation -DeploymentName $deploymentName -ResourceGroupName $ResourceGroupName
+        $deploymentOperations = Get-AzResourceGroupDeploymentOperation -DeploymentName $deploymentName -ResourceGroupName $ResourceGroupName
         $deploymentsToDelete = $deploymentOperations | Where { $_.properties.targetResource.id -like "*Microsoft.Resources/deployments*" }
 
         $deploymentsToDelete | ForEach-Object { 
             Write-host "Deleting inner deployment: " $_.properties.targetResource.id
-            Remove-AzureRmResourceGroupDeployment -Id $_.properties.targetResource.id
+            Remove-AzResourceGroupDeployment -Id $_.properties.targetResource.id
         }
         Write-Host "Deleting deployment: " $deploymentName
-        Remove-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -Name $deploymentName
+        Remove-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName -Name $deploymentName
     }
 
     #Start Active triggers - After cleanup efforts
     Write-Host "Starting active triggers"
     $activeTriggerNames | ForEach-Object { 
         Write-host "Enabling trigger " $_
-        Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+        Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
     }
 }
 ```
 
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Usare i parametri personalizzati con il modello di Resource Manager
 
-È possibile definire i parametri personalizzati con il modello di Resource Manager. È sufficiente creare un file denominato `arm-template-parameters-definition.json` nella cartella radice del repository. (Il nome del file deve corrispondere esattamente al nome visualizzato qui). Data Factory tenta di leggere il file da qualsiasi ramo nel quale si sta lavorando, non solo da quello di collaborazione. Se non viene trovato alcun file, Data Factory usa i parametri e i valori predefiniti.
+Se si è in modalità GIT, è possibile ignorare le proprietà predefinite nel modello di Resource Manager per impostare le proprietà che sono parametri del modello e le proprietà che sono impostati come hardcoded. È possibile sostituire il modello di parametrizzazione predefinita in questi scenari:
+
+* Usare CI/CD automatizzata e si desidera modificare alcune proprietà durante la distribuzione di Resource Manager, ma non vengono parametrizzate le proprietà per impostazione predefinita.
+* La factory è talmente elevata che il modello di Resource Manager predefinito non è valido perché contiene più supera il limite massimo consentito di parametri (256).
+
+In queste condizioni, per sostituire il modello di parametrizzazione predefinita, creare un file denominato *Gestione risorse di Azure-modelli-parametri-definition.json* nella cartella radice del repository. Il nome del file deve corrispondere esattamente. Data Factory tenta di leggere il file da qualsiasi ramo attualmente presenti nel portale di Azure Data Factory, non solo dal ramo di collaborazione. È possibile creare o modificare il file da un branch privato, in cui è possibile testare le modifiche utilizzando il **modello di esportazione ARM** nell'interfaccia utente. Quindi, è possibile unire i file nel ramo di collaborazione. Se viene trovato alcun file, viene utilizzato il modello predefinito.
+
 
 ### <a name="syntax-of-a-custom-parameters-file"></a>Sintassi di un file dei parametri personalizzati
 
-Ecco alcune linee guida da usare per la creazione di file dei parametri personalizzati. Per alcuni esempi di questa sintassi, vedere la sezione [File dei parametri personalizzati di esempio](#sample) seguente.
+Di seguito sono riportate alcune linee guida da utilizzare quando si crea il file dei parametri personalizzati. Il file è costituito da una sezione per ogni tipo di entità: trigger, pipeline, linkedservice, dataset, integrationruntime e così via.
+* Immettere il percorso della proprietà sotto il tipo di entità rilevanti.
+* Quando si imposta il nome della proprietà su '\*', si indica che si desidera impostare i parametri per tutte le proprietà sottostanti (solo fino al primo livello, in modo ricorsivo). È anche possibile fornire eventuali eccezioni a questa.
+* Quando si imposta il valore di una proprietà come stringa, si indica che si vuole parametrizzare la proprietà. Usare il formato `<action>:<name>:<stype>`.
+   *  `<action>` può essere uno dei seguenti caratteri:
+      * `=` significa che mantenere il valore corrente come valore predefinito per il parametro.
+      * `-` significa che non mantiene il valore predefinito per il parametro.
+      * `|` è un caso speciale per i segreti da Azure Key Vault per le stringhe di connessione o le chiavi.
+   * `<name>` È il nome del parametro. Se è vuota, accetta il nome della proprietà. Se il valore inizia con un `-` character, il nome è passato. Ad esempio, `AzureStorage1_properties_typeProperties_connectionString` potrebbe essere abbreviato in `AzureStorage1_connectionString`.
+   * `<stype>` è il tipo del parametro. Se `<stype>` è vuoto, il tipo predefinito è `string`. Valori supportati: `string`, `bool`, `number`, `object`, e `securestring`.
+* Quando si specifica una matrice nel file di definizione, si indica che la proprietà corrispondente nel modello è una matrice. Data Factory esegue l'iterazione tra tutti gli oggetti nella matrice usando la definizione specificata nell'oggetto Runtime di integrazione della matrice. Il secondo oggetto, una stringa, diventa il nome della proprietà, che viene usato come nome per il parametro per ogni iterazione.
+* Non è possibile disporre di una definizione di specifiche per un'istanza di risorsa. Qualsiasi definizione si applica a tutte le risorse di quel tipo.
+* Per impostazione predefinita, vengono parametrizzate tutte le stringhe sicure, ad esempio segreti di Key Vault e stringhe sicure, ad esempio le stringhe di connessione, chiavi e token.
+ 
+## <a name="sample-parameterization-template"></a>Esempio di modello di parametrizzazione
 
-1. Quando si specifica una matrice nel file di definizione, si indica che la proprietà corrispondente nel modello è una matrice. Data Factory esegue l'iterazione tra tutti gli oggetti della matrice usando la definizione specificata nell'oggetto Integration Runtime della matrice. Il secondo oggetto, una stringa, diventa il nome della proprietà, che viene usato come nome per il parametro per ogni iterazione.
-
-    ```json
-    ...
+```json
+{
+    "Microsoft.DataFactory/factories/pipelines": {
+        "properties": {
+            "activities": [{
+                "typeProperties": {
+                    "waitTimeInSeconds": "-::number",
+                    "headers": "=::object"
+                }
+            }]
+        }
+    },
+    "Microsoft.DataFactory/factories/integrationRuntimes": {
+        "properties": {
+            "typeProperties": {
+                "*": "="
+            }
+        }
+    },
     "Microsoft.DataFactory/factories/triggers": {
         "properties": {
-            "pipelines": [{
-                    "parameters": {
-                        "*": "="
-                    }
+            "typeProperties": {
+                "recurrence": {
+                    "*": "=",
+                    "interval": "=:triggerSuffix:number",
+                    "frequency": "=:-freq"
                 },
-                "pipelineReference.referenceName"
-            ],
-            "pipeline": {
-                "parameters": {
-                    "*": "="
+                "maxConcurrency": "="
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/linkedServices": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "accountName": "=",
+                    "username": "=",
+                    "connectionString": "|:-connectionString:secureString",
+                    "secretAccessKey": "|"
+                }
+            }
+        },
+        "AzureDataLakeStore": {
+            "properties": {
+                "typeProperties": {
+                    "dataLakeStoreUri": "="
                 }
             }
         }
     },
-    ...
-    ```
+    "Microsoft.DataFactory/factories/datasets": {
+        "properties": {
+            "typeProperties": {
+                "*": "="
+            }
+        }
+    }
+}
+```
 
-2. Quando si imposta un nome di proprietà su `*`, si indica che il modello deve usare tutte le proprietà a questo livello, ad eccezione di quelle definite in modo esplicito.
+### <a name="explanation"></a>Spiegazione:
 
-3. Quando si imposta il valore di una proprietà come stringa, si indica che si vuole parametrizzare la proprietà. Usare il formato `<action>:<name>:<stype>`.
-    1.  `<action>` può essere uno dei caratteri seguenti: 
-        1.  `=` specifica di mantenere il valore corrente come valore predefinito per il parametro.
-        2.  `-` specifica di mantenere il valore predefinito per il parametro.
-        3.  `|` è un caso speciale per i segreti di Azure Key Vault per una stringa di connessione.
-    2.  `<name>` è il nome del parametro. Se `<name`> è vuoto, viene usato il nome del parametro 
-    3.  `<stype>` è il tipo del parametro. Se `<stype>` è vuoto, il tipo predefinito è una stringa.
-4.  Se si immette un carattere `-` all'inizio di un nome di parametro, il nome completo del parametro di Resource Manager viene abbreviato in `<objectName>_<propertyName>`.
-Ad esempio, `AzureStorage1_properties_typeProperties_connectionString` viene abbreviato in `AzureStorage1_connectionString`.
+#### <a name="pipelines"></a>Pipeline
+    
+* Qualsiasi proprietà nel percorso attività/typeProperties/waitTimeInSeconds è con parametri. Ciò significa che qualsiasi attività in una pipeline che include una proprietà a livello di codice denominata `waitTimeInSeconds` (ad esempio, il `Wait` attività) con i parametri sotto forma di numero, con un nome predefinito. Tuttavia, non avrà un valore predefinito nel modello di Resource Manager. Durante la distribuzione di Resource Manager sarà un input obbligatorio.
+* Analogamente, una proprietà denominata `headers` (ad esempio, in un `Web` attività) è con parametri con tipo `object` (JObject). Ha un valore predefinito, ovvero lo stesso valore come la factory dell'origine.
 
+#### <a name="integrationruntimes"></a>IntegrationRuntimes
 
-### <a name="sample"></a> File dei parametri personalizzati di esempio
+* Solo le proprietà e tutte le proprietà, in un percorso `typeProperties` vengono parametrizzate, con i rispettivi valori predefiniti. Ad esempio, al momento della stesura dello schema di oggi, sono disponibili due proprietà sotto **IntegrationRuntimes** proprietà del tipo: `computeProperties` e `ssisProperties`. Entrambi i tipi di proprietà vengono creati con i rispettivi valori predefiniti e i tipi (oggetto).
 
-L'esempio seguente mostra un file di parametri di esempio. Usare questo esempio come riferimento per creare il proprio file di parametri personalizzato. Se il file specificato non è nel formato JSON corretto, Data Factory genera un messaggio di errore nella console del browser e ripristina i parametri e i valori predefiniti illustrati nell'interfaccia utente di Data Factory.
+#### <a name="triggers"></a>Trigger
+
+* In `typeProperties`, due proprietà vengono parametrizzate. La prima consiste `maxConcurrency`, che viene specificato ha un valore predefinito e il tipo di `string`. Include il nome del parametro predefinito di `<entityName>_properties_typeProperties_maxConcurrency`.
+* Il `recurrence` proprietà inoltre dispone di parametri. Sotto di essa, tutte le proprietà in tale livello vengono specificate per aggiungere parametri come stringhe, con i valori predefiniti e i nomi dei parametri. Un'eccezione è il `interval` proprietà, che è con parametri come tipo di numero e con il nome del parametro con suffisso `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Analogamente, il `freq` proprietà è una stringa e con i parametri come stringa. Tuttavia, il `freq` proprietà con parametri senza un valore predefinito. Il nome è abbreviato e il suffisso. Ad esempio: `<entityName>_freq`.
+
+#### <a name="linkedservices"></a>LinkedServices
+
+* Servizi collegati è univoco. Poiché i servizi collegati e set di dati possono essere di tipi diversi, è possibile fornire specifici del tipo personalizzazione. Ad esempio, si può obiettare che per tutti i servizi collegati di tipo `AzureDataLakeStore`, un modello specifico sarà applicato e per tutti gli altri utenti (tramite \*) verrà applicato un modello diverso.
+* Nell'esempio precedente, il `connectionString` verrà parametrizzata proprietà come un `securestring` valore, non avrà un valore predefinito e avrà un nome di parametro abbreviata che viene aggiunto il suffisso `connectionString`.
+* La proprietà `secretAccessKey`, tuttavia, si trova un' `AzureKeyVaultSecret` (ad esempio, un `AmazonS3` servizio collegato). In questo modo, viene parametrizzato automaticamente come un segreto di Azure Key Vault e vengono recuperati dall'insieme di credenziali chiave con cui è configurato nell'ambiente di produzione di origine. È anche possibile parametrizzare stesso insieme di credenziali chiave.
+
+#### <a name="datasets"></a>Set di dati
+
+* Anche se è disponibile per i set di dati specifici del tipo personalizzazione, configurazione può essere specificata senza che sia in modo esplicito un \*-configurazione del livello. Nell'esempio precedente, tutte le proprietà di set di dati in `typeProperties` vengono parametrizzate.
+
+Può modificare il modello di parametrizzazione predefinita, ma si tratta del modello corrente. Ciò potrebbe risultare utile se è sufficiente aggiungere una proprietà aggiuntiva come parametro, ma anche se non si vuole perdere le parametrizzazioni esistenti ed è necessario ricrearli.
+
 
 ```json
 {
-    "Microsoft.DataFactory/factories/pipelines": {},
-    "Microsoft.DataFactory/factories/integrationRuntimes": {
+    "Microsoft.DataFactory/factories/pipelines": {
+    },
+    "Microsoft.DataFactory/factories/integrationRuntimes":{
         "properties": {
             "typeProperties": {
                 "ssisProperties": {
@@ -916,7 +988,8 @@ L'esempio seguente mostra un file di parametri di esempio. Usare questo esempio 
                 "linkedInfo": {
                     "key": {
                         "value": "-::secureString"
-                    }
+                    },
+                    "resourceId": "="
                 }
             }
         }
@@ -927,14 +1000,18 @@ L'esempio seguente mostra un file di parametri di esempio. Usare questo esempio 
                     "parameters": {
                         "*": "="
                     }
-                },
+                },  
                 "pipelineReference.referenceName"
             ],
             "pipeline": {
                 "parameters": {
                     "*": "="
                 }
+            },
+            "typeProperties": {
+                "scope": "="
             }
+
         }
     },
     "Microsoft.DataFactory/factories/linkedServices": {
@@ -957,7 +1034,25 @@ L'esempio seguente mostra un file di parametri di esempio. Usare questo esempio 
                     "tenant": "=",
                     "dataLakeStoreUri": "=",
                     "baseUrl": "=",
+                    "database": "=",
+                    "serviceEndpoint": "=",
+                    "batchUri": "=",
+                    "databaseName": "=",
+                    "systemNumber": "=",
+                    "server": "=",
+                    "url":"=",
+                    "aadResourceId": "=",
                     "connectionString": "|:-connectionString:secureString"
+                }
+            }
+        },
+        "Odbc": {
+            "properties": {
+                "typeProperties": {
+                    "userName": "=",
+                    "connectionString": {
+                        "secretName": "="
+                    }
                 }
             }
         }
@@ -970,10 +1065,118 @@ L'esempio seguente mostra un file di parametri di esempio. Usare questo esempio 
                     "fileName": "="
                 }
             }
-        }
-    }
+        }}
 }
 ```
+
+**Esempio**: Aggiungere un ID cluster interattivi di Databricks (da un servizio collegato Databricks) per il file dei parametri:
+
+```
+{
+    "Microsoft.DataFactory/factories/pipelines": {
+    },
+    "Microsoft.DataFactory/factories/integrationRuntimes":{
+        "properties": {
+            "typeProperties": {
+                "ssisProperties": {
+                    "catalogInfo": {
+                        "catalogServerEndpoint": "=",
+                        "catalogAdminUserName": "=",
+                        "catalogAdminPassword": {
+                            "value": "-::secureString"
+                        }
+                    },
+                    "customSetupScriptProperties": {
+                        "sasToken": {
+                            "value": "-::secureString"
+                        }
+                    }
+                },
+                "linkedInfo": {
+                    "key": {
+                        "value": "-::secureString"
+                    },
+                    "resourceId": "="
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/triggers": {
+        "properties": {
+            "pipelines": [{
+                    "parameters": {
+                        "*": "="
+                    }
+                },  
+                "pipelineReference.referenceName"
+            ],
+            "pipeline": {
+                "parameters": {
+                    "*": "="
+                }
+            },
+            "typeProperties": {
+                "scope": "="
+            }
+ 
+        }
+    },
+    "Microsoft.DataFactory/factories/linkedServices": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "accountName": "=",
+                    "username": "=",
+                    "userName": "=",
+                    "accessKeyId": "=",
+                    "servicePrincipalId": "=",
+                    "userId": "=",
+                    "clientId": "=",
+                    "clusterUserName": "=",
+                    "clusterSshUserName": "=",
+                    "hostSubscriptionId": "=",
+                    "clusterResourceGroup": "=",
+                    "subscriptionId": "=",
+                    "resourceGroupName": "=",
+                    "tenant": "=",
+                    "dataLakeStoreUri": "=",
+                    "baseUrl": "=",
+                    "database": "=",
+                    "serviceEndpoint": "=",
+                    "batchUri": "=",
+                    "databaseName": "=",
+                    "systemNumber": "=",
+                    "server": "=",
+                    "url":"=",
+                    "aadResourceId": "=",
+                    "connectionString": "|:-connectionString:secureString",
+                    "existingClusterId": "-"
+                }
+            }
+        },
+        "Odbc": {
+            "properties": {
+                "typeProperties": {
+                    "userName": "=",
+                    "connectionString": {
+                        "secretName": "="
+                    }
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/datasets": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "folderPath": "=",
+                    "fileName": "="
+                }
+            }
+        }}
+}
+```
+
 
 ## <a name="linked-resource-manager-templates"></a>Modelli di Resource Manager collegati
 

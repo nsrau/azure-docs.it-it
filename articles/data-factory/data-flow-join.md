@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 517afe21fbf9241e2b2423525e9caee12a5603f6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 204ee1b812949311258be968de387dc5b66c4fc0
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56271187"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726873"
 ---
-# <a name="azure-data-factory-data-flow-join-transformation"></a>Trasformazione Join del flusso di dati di Azure Data Factory
+# <a name="mapping-data-flow-join-transformation"></a>Mapping dei dati del flusso di Join-trasformazione
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -24,11 +24,11 @@ Usare Join per combinare dati appartenenti a due tabelle all'interno del flusso 
 
 ## <a name="join-types"></a>Tipi di join
 
-È necessario selezionare il tipo di join per la trasformazione Join
+Selezione tipo di Join è obbligatorio per la trasformazione di Join.
 
 ### <a name="inner-join"></a>Inner join
 
-Un inner join prende in analisi le righe che soddisfano le condizioni delle colonne di entrambe le tabelle
+Inner join passerà solo le righe che soddisfano le condizioni di colonne di entrambe le tabelle.
 
 ### <a name="left-outer"></a>Left outer join
 
@@ -40,11 +40,11 @@ Tutte le righe del flusso di dati di destra che non soddisfano le condizioni di 
 
 ### <a name="full-outer"></a>Full outer join
 
-I full outer join producono tutte le colonne e le righe di entrambi i lati con valori NULL in relazione alle colonne che non sono presenti nell'altra tabella
+Full Outer produce tutte le colonne e righe da entrambe le parti con i valori NULL per le colonne che sono presentano in altra tabella.
 
 ### <a name="cross-join"></a>Cross join
 
-Specificare i prodotti trasversali dei due flussi con un'espressione
+Specificare il prodotto incrociato di due flussi con un'espressione. Ciò consente di creare condizioni di join personalizzate.
 
 ## <a name="specify-join-conditions"></a>Specificare le condizioni di join
 
@@ -67,3 +67,7 @@ Se il set di dati è compatibile con la memoria nodo del ruolo di lavoro Databri
 ![Self-join](media/data-flow/selfjoin.png "Self-join")
 
 Nel diagramma precedente, la trasformazione Select si trova nella parte superiore. Non si tratta di altro che creare un alias del flusso originale in "OrigSourceBatting". Nella trasformazione Join evidenziata sotto, è possibile vedere che viene usato un flusso alias Select come join di destra, consentendo di fare riferimento alla medesima chiave relativamente agli inner Join di destra e di sinistra.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Dopo l'aggiunta dei dati, è quindi possibile [creare nuove colonne](data-flow-derived-column.md) e [i dati di sink a un archivio dati di destinazione](data-flow-sink.md).

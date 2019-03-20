@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti su Project Acoustics
+title: Domande frequenti su acustica progetto
 titlesuffix: Azure Cognitive Services
 description: Questa pagina fornisce risposte alle domande frequenti su Project Acoustics, incluse istruzioni per il download e il processo di bake.
 services: cognitive-services
@@ -7,25 +7,29 @@ author: kegodin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
-ms.topic: conceptual
+ms.topic: resources
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 12dda5d7af1236ec2d7eddbe025b8fdba47d7bca
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c43c81d42a39bda504b02eb6c053a16a2cf53aec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881075"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58138049"
 ---
-# <a name="frequently-asked-questions"></a>Domande frequenti
+# <a name="project-acoustics-frequently-asked-questions"></a>Domande frequenti su acustica progetto
 
 ## <a name="what-is-project-acoustics"></a>Informazioni su Project Acoustics
 
-Il plug-in per Unity Project Acoustics è un sistema di acustica che calcola il comportamento delle onde sonore prima della fase di esecuzione, come se si trattasse di illuminazione statica. Il cloud svolge le attività più complesse di calcolo della fisica delle onde, pertanto i costi CPU di runtime sono ridotti.  
+Il gruppo di progetto acustica dei plug-in è un sistema acustica che calcola il comportamento di audio wave prima della fase di esecuzione, simile a illuminazione statico. Il cloud svolge le attività più complesse di calcolo della fisica delle onde, pertanto i costi CPU di runtime sono ridotti.  
 
 ## <a name="where-can-i-download-the-plugin"></a>Dove si può scaricare il plug-in?
 
-Se si è interessati a valutare il plug-in di acustica, registrarsi [qui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) per partecipare alla Designer Preview.
+È possibile scaricare progetto acustica dal [pagina dell'area Download di progetto acustica](https://www.microsoft.com/en-us/download/details.aspx?id=57346).
+
+## <a name="does-project-acoustics-support-x-platform"></a>Supporta progetti acustica <x> piattaforma?
+
+Supporto della piattaforma acustica progetto si evolve in base alle esigenze dei clienti. Contattaci sul [forum di Project acustica](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics) per richiedere informazioni sul supporto per altre piattaforme.
 
 ## <a name="is-azure-used-at-runtime"></a>Azure viene usato in fase di esecuzione?
 
@@ -45,17 +49,17 @@ Acoustics utilizza circa lo 0,01% della CPU per ogni sorgente per ogni fotogramm
  
 ## <a name="whats-in-the-runtime-lookup-table"></a>Cosa contiene la tabella di ricerca di runtime?
 
-Il file ACE è una tabella di parametri acustici tra numerose coppie di posizioni della sorgente e dell'ascoltatore
+Include il file di voce ACE è una tabella di parametri di modello acustici tra numerosi origine e le coppie di percorso del listener, nonché geometria scena voxelized usata per l'interpolazione di parametro.
  
-## <a name="can-it-handle-moving-sources"></a>È possibile gestire le sorgenti in movimento?
+## <a name="can-project-acoustics-handle-moving-sources"></a>Progetto acustica può gestire lo spostamento di origini?
 
-Sì, il plug-in di spazializzazione di Unity **Microsoft Acoustics** consulta la tabella di ricerca in ogni tick di elaborazione audio confrontandola con le posizioni correnti della sorgente e dell'ascoltatore. Il DSP dello spazializzatore aggiorna senza soluzione di continuità i parametri di elaborazione dell'acustica in ogni tick.
+Sì, progetto acustica consulta la tabella di ricerca e aggiorna il DSP audio su ciascun tick, in modo che possa gestire lo spostamento di origini e il listener.
  
-## <a name="can-it-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>È possibile gestire geometria dinamica? Porte che si chiudono? Muri che esplodono?
+## <a name="can-project-acoustics-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>Progetto acustica gestibili geometry dinamica? Porte che si chiudono? Muri che esplodono?
 
- No. I parametri acustici vengono pre-calcolati secondo lo stato statico di un livello di gioco. È consigliabile escludere la geometria delle porte dall'acustica e quindi applicare ulteriore occlusione in base allo stato degli oggetti di gioco mobili e distruttibili usando tecniche collaudate.
+ No. I parametri acustici vengono pre-calcolati secondo lo stato statico di un livello di gioco. È consigliabile lasciando lo sportello della geometria da acustica e applicando quindi aggiuntive relative all'occlusione basata sullo stato di distruttibile e gli oggetti gioco mobili usando stabilita tecniche.
  
-## <a name="does-it-handle-materials"></a>Gestisce i materiali?
+## <a name="does-project-acoustics-use-acoustic-materials"></a>Progetto acustica Usa materiali acustici?
 
 Sì. I materiali vengono prelevati dai nomi dei materiali fisici nel livello, per gestire l'assorbività.
  
@@ -65,12 +69,12 @@ Si tratta di campionamenti di possibili posizioni del giocatore. Ogni probe rapp
  
 ## <a name="why-spend-so-much-compute-in-the-cloud-what-does-it-buy-me"></a>Perché eseguire così tanta elaborazione nel cloud? A cosa serve?
 
-Project Acoustics fornisce parametri acustici accurati e affidabili anche per ambienti virtuali estremamente complessi, tenendo conto di tutti gli aspetti dell'architettura. Fornisce occlusione/ostruzione morbide senza bisogno di operazioni manuali e variazione dinamica del riverbero senza bisogno di disegnare i volumi, tutto senza pesare eccessivamente sulla CPU in fase di esecuzione.
+Project Acoustics fornisce parametri acustici accurati e affidabili anche per ambienti virtuali estremamente complessi, tenendo conto di tutti gli aspetti dell'architettura. Offre smooth occlusione e ostruzione e variazione riverbero dinamico senza interventi manuali dei volumi di disegno. tutto senza pesare eccessivamente sulla CPU in fase di esecuzione.
 
 ## <a name="what-exactly-happens-during-baking"></a>Cosa accade esattamente durante il "baking"?
 
-Il sistema considera le potenziali posizioni del giocatore per generare un set di posizioni di campionamento dei probe distribuite in modo uniforme. Il bake per un livello è costituito da attività indipendenti per ogni probe: il sistema prende in considerazione un cuboide "area di simulazione" con al centro il probe ed esegue una simulazione dettagliata delle onde all'interno di tale area con risoluzione fino a 25 cm.
+Un bake è costituito da simulazioni wave acustico delle aree di simulazione cuboid centrate al probe ogni listener.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Esplorare la [scena di esempio](sample-walkthrough.md)
+* Provare il [contenuto di esempio di progetto acustica Unity](unity-quickstart.md) o [contenuto di esempio Unreal](unreal-quickstart.md)
 

@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: b13becf8530f478a5e58b46a1b422593051c95cf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.date: 03/06/2019
+ms.openlocfilehash: e872c29712c3fadca676ec87870bcc5c4eb58565
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478169"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727400"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ottimizzazione automatica nel database SQL di Azure
 
@@ -66,11 +66,13 @@ Per una panoramica del funzionamento dell'ottimizzazione automatica e per gli sc
 
 Le opzioni di ottimizzazione automatica disponibili nel database SQL di Azure sono le seguenti:
 
- 1. **CREATE INDEX** (Crea indice), che identifica quali sono gli indici in grado di migliorare le prestazioni del carico di lavoro, li crea e verifica automaticamente il miglioramento delle prestazioni delle query.
- 2. **DROP INDEX** (Elimina indice), che identifica gli indici ridondanti e duplicati ogni giorno, ad eccezione degli indici univoci e di quelli non usati per molto tempo (intervallo maggiore di 90 giorni). Si noti che al momento l'opzione non è compatibile con le applicazioni che usano hint di indice e cambi di partizione.
- 3. **FORCE LAST GOOD PLAN** (Forza piano valido più recente), che identifica le query SQL che usano un piano di esecuzione, ma che sono più lente rispetto a un piano valido precedente e le query che usano l'ultimo piano valido noto invece del piano con regressione.
+| Opzione di ottimizzazione automatica | Supporto dei database singoli e in pool | Supporto dell'istanza del database |
+| :----------------------------- | ----- | ----- |
+| **CREATE INDEX** -identifica gli indici che potrebbero migliorare le prestazioni del carico di lavoro, consente di creare indici e verifica automaticamente che sono migliorate le prestazioni delle query. | Sì | No  | 
+| **DROP INDEX** -identifica gli indici ridondanti e duplicati ogni giorno, ad eccezione di indici univoci e gli indici non utilizzati per molto tempo (> 90 giorni). Si noti che al momento l'opzione non è compatibile con le applicazioni che usano hint di indice e cambi di partizione. | Sì | No  |
+| **IMPOSIZIONE dell'ultimo piano valido** - query SQL identifica tramite piano di esecuzione che è più lento rispetto al precedente piano valido e di query con l'ultimo piano valido noto anziché il piano con regressione. | Sì | Sì |
 
-L'ottimizzazione automatica identifica le opzioni **CREATE INDEX** (Crea indice), **DROP INDEX** (Elimina indice) e **FORCE LAST GOOD PLAN** (Forza piano valido più recente) che consentono di ottimizzare le prestazioni del database, di visualizzarle nel [portale di Azure](sql-database-advisor-portal.md) e di esporle tramite [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) e l'[API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
+L'ottimizzazione automatica identifica le opzioni **CREATE INDEX** (Crea indice), **DROP INDEX** (Elimina indice) e **FORCE LAST GOOD PLAN** (Forza piano valido più recente) che consentono di ottimizzare le prestazioni del database, di visualizzarle nel [portale di Azure](sql-database-advisor-portal.md) e di esporle tramite [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) e l'[API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning). 
 
 È possibile applicare manualmente le opzioni di ottimizzazione usando il portale o è possibile consentirne l'applicazione autonoma da parte dell'ottimizzazione automatica. I vantaggi di consentire al sistema di applicare in modo autonomo le opzioni di ottimizzazione consistono nella convalida automatica della presenza di un aumento delle prestazioni del carico di lavoro e, se non vengono rilevati miglioramenti significativi delle prestazioni, nel ripristino dello stato prima dell'applicazione delle opzioni di ottimizzazione. Si noti che, in caso di query interessate da opzioni di ottimizzazione che non vengono eseguite di frequente, la fase di convalida può richiedere fino a 72 ore per impostazione predefinita. Nel caso in cui si applichino manualmente le opzioni di ottimizzazione, la convalida automatica delle prestazioni e i meccanismi di inversione non sono disponibili.
 

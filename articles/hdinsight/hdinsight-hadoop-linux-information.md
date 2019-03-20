@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: c6763580a6693020c497c500342ff3ae4dc840d4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 43b672569b398f636b2e02172428cf072febb156
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339229"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202453"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informazioni sull'uso di HDInsight in Linux
 
@@ -57,7 +57,7 @@ Questo comando restituisce un documento JSON che descrive il servizio e quindi j
 
 * **Ambari (Web)**: https://&lt;nomecluster>.azurehdinsight.net
 
-    Eseguire l'autenticazione usando il nome utente e la password di amministratore cluster, quindi accedere ad Ambari.
+    Eseguire l'autenticazione con l'utente amministratore del cluster e la password e quindi accedere ad Ambari.
 
     L'autenticazione è in testo non crittografato. Usare sempre HTTPS per garantire che la connessione sia protetta.
 
@@ -114,7 +114,8 @@ Quando si usa Archiviazione di Azure o Data Lake Storage, non è necessario eseg
 
 In HDInsight le risorse di archiviazione dati (Archiviazione BLOB di Azure e Azure Data Lake Storage) sono separate dalle risorse di calcolo. Pertanto è possibile creare dei cluster HDInsight per eseguire i calcoli in base alle esigenze ed eliminare il cluster al termine del lavoro mantenendo i file di dati in modo sicuro nell'archiviazione cloud per tutto il tempo necessario.
 
-### <a name="uri-and-scheme"></a>URI e schema
+
+### <a name="URI-and-scheme"></a>URI e schema
 
 Alcuni comandi richiedono di specificare lo schema come parte dell'URI quando si accede a un file. Ad esempio, il componente Storm-HDFS richiede di specificare lo schema. Quando si usa un archivio non predefinito (aggiunto al cluster come spazio di archiviazione "aggiuntivo"), è sempre necessario usare lo schema come parte dell'URI.
 
@@ -248,7 +249,7 @@ Per informazioni specifiche sul ridimensionamento del cluster HDInsight, vedere:
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>Come si installa Hue (o un altro componente Hadoop)?
 
-HDInsight è un servizio gestito. Se Azure rileva un problema con il cluster, è possibile eliminare il nodo con l'errore e creare un nodo per sostituirlo. Se si esegue l'installazione manuale degli elementi nel cluster, questi non vengono salvati in modo permanente quando si esegue questa operazione. Usare invece le [azioni script di HDInsight](hdinsight-hadoop-customize-cluster.md). Un'azione script può essere usata per apportare le modifiche seguenti:
+HDInsight è un servizio gestito. Se Azure rileva un problema con il cluster, è possibile eliminare il nodo con l'errore e creare un nodo per sostituirlo. Se si esegue l'installazione manuale degli elementi nel cluster, questi non vengono salvati in modo permanente quando si esegue questa operazione. Usare invece le [azioni script di HDInsight](hdinsight-hadoop-customize-cluster-linux.md). Un'azione script può essere usata per apportare le modifiche seguenti:
 
 * Installare e configurare un servizio o un sito Web.
 * Installare o configurare un componente che richiede modifiche di configurazione in più nodi del cluster,
@@ -256,7 +257,6 @@ HDInsight è un servizio gestito. Se Azure rileva un problema con il cluster, è
 Le azioni script sono script Bash. Gli script vengono eseguiti durante la creazione del cluster e possono essere usati per installare e configurare componenti aggiuntivi. Sono disponibili script di esempio per installare i componenti seguenti:
 
 * [Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
-* [Apache Solr](hdinsight-hadoop-solr-install-linux.md)
 
 Per informazioni su come sviluppare azioni script personalizzate, vedere [Sviluppo di azioni script con HDInsight](hdinsight-hadoop-script-actions-linux.md).
 

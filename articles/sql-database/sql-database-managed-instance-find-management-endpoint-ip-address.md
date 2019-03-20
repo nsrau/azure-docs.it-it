@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 83eea565a12ee5201c42b543cdbdad72ddc28ca9
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 542db0200229b4fea4ac67ad19c468f2b9dc67d1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345794"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772780"
 ---
 # <a name="determine-the-management-endpoint-ip-address"></a>Determinare l'indirizzo IP dell'endpoint di gestione
 
@@ -29,7 +29,7 @@ Si supponga che l'host di Istanza gestita sia `mi-demo.xxxxxx.database.windows.n
 
 ![Risoluzione del nome host interno](./media/sql-database-managed-instance-management-endpoint/01_find_internal_host.png)
 
-Eseguire ora un altro comando `nslookup` per il nome evidenziato rimuovendo il segmento `.vnet.`. L'esecuzione di questo comando restituirà l'indirizzo IP pubblico.
+Eseguire ora un altro comando `nslookup` per il nome evidenziato rimuovendo il segmento `.vnet.`. Quando si esegue questo comando, si otterrà l'indirizzo IP pubblico.
 
 ![Risoluzione dell'indirizzo IP pubblico](./media/sql-database-managed-instance-management-endpoint/02_find_public_ip.png)
 

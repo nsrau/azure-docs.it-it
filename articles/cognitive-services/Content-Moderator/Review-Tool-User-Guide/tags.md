@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 942b30ab9949a28c42949913d90e7448c22b658f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: fa3b7be6ac7cc398685bf5ad7d21173bcb072b69
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206278"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118409"
 ---
 # <a name="create-and-use-moderation-tags"></a>Creare e usare i tag di moderazione
 
@@ -23,15 +23,15 @@ Oltre ai due tag predefiniti, **isadult** (**a**) e **isracy** (**r**), è possi
 
 ## <a name="create-tags"></a>Creare tag
 
-1.  Selezionare Tag nella scheda Impostazioni.
+1. Selezionare Tag nella scheda Impostazioni.
 
-  ![Tag in Content Moderator](images/tags-1.png)
+   ![Tag in Content Moderator](images/tags-1.png)
 
-2.  Immettere un codice breve di due lettere per il tag.
-3.  Immettere un nome per il tag. Usare un nome descrittivo e mantenerlo breve, Ad esempio, **isbullying**.
-4.  Immettere una descrizione.
-5.  Fare clic su Aggiungi.
-6.  Al termine della creazione del tag, fare clic su Salva.
+2. Immettere un codice breve di due lettere per il tag.
+3. Immettere un nome per il tag. Usare un nome descrittivo e mantenerlo breve, Ad esempio, **isbullying**.
+4. Immettere una descrizione.
+5. Fare clic su Aggiungi.
+6. Al termine della creazione del tag, fare clic su Salva.
 
 ![Definizione di tag di moderazione del contenuto](images/tags-2-define.png)
 

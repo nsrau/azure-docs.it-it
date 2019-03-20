@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8cbe391f756dab35abda411c3a6c943a51eae302
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: fcec410df631a58b76878a4cb327ca2fb04a2105
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115981"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117852"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Gestire i dati degli utenti nel Centro sicurezza di Azure
 Questo articolo fornisce informazioni su come è possibile gestire i dati degli utenti nel Centro sicurezza di Azure. La gestione dei dati degli utenti include la possibilità di accedere ai dati, eliminarli o esportarli.
@@ -68,25 +68,25 @@ Un utente del Centro sicurezza a cui è assegnato il ruolo Lettore, Proprietario
 
 - Esecuzione di una copia dal portale di Azure
 - Esecuzione della chiamata API REST di Azure, GET HTTP:
-```HTTP
-GET https://<endpoint>/subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts?api-version={api-version}
-```
+  ```HTTP
+  GET https://<endpoint>/subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts?api-version={api-version}
+  ```
 
 Un utente del Centro sicurezza a cui è assegnato il ruolo Amministratore dell'account può esportare i criteri [Just-In-Time](security-center-just-in-time.md) contenenti gli indirizzi IP, tramite:
 
 - Esecuzione di una copia dal portale di Azure
 - Esecuzione della chiamata API REST di Azure, GET HTTP:
-```HTTP
-GET https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Security/locations/{location}/jitNetworkAccessPolicies/default?api-version={api-version}
-```
+  ```HTTP
+  GET https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Security/locations/{location}/jitNetworkAccessPolicies/default?api-version={api-version}
+  ```
 
 Un utente con ruolo Amministratore dell'account può esportare i dettagli dell'avviso tramite:
 
 - Esecuzione di una copia dal portale di Azure
 - Esecuzione della chiamata API REST di Azure, GET HTTP:
-```HTTP
-GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
-```
+  ```HTTP
+  GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
+  ```
 
 Per altre informazioni, vedere [Get Security Alerts (GET Collection)](https://msdn.microsoft.com/library/mt704050.aspx) (Ottenere avvisi di sicurezza (raccolta GET)).
 

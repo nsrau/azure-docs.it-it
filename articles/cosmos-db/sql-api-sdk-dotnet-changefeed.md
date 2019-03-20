@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 0f6fff5047bc72fa1171e06bb2f160196ecef807
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: a878ab1937b06f06a27b18f793fc1bfa190969ed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300609"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090339"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET Change Feed Processor SDK: download e note sulla versione
 > [!div class="op_single_selector"]
@@ -44,8 +44,8 @@ ms.locfileid: "55300609"
 ### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
 * Gestione delle eccezioni di Observer migliorata.
 * Informazioni più dettagliate sugli errori di Observer:
- * Quando un'istanza di Observer viene chiusa a causa di un'eccezione generata da ProcessChangesAsync di Observer, CloseAsync riceverà il parametro del motivo impostato su ChangeFeedObserverCloseReason.ObserverError.
- * Sono state aggiunte funzionalità di analisi per identificare errori nel codice utente in un'istanza di Observer.
+  * Quando un'istanza di Observer viene chiusa a causa di un'eccezione generata da ProcessChangesAsync di Observer, CloseAsync riceverà il parametro del motivo impostato su ChangeFeedObserverCloseReason.ObserverError.
+  * Sono state aggiunte funzionalità di analisi per identificare errori nel codice utente in un'istanza di Observer.
 
 ### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
 * Aggiunta del supporto per la gestione della suddivisione nelle raccolte che usano la velocità effettiva per database condivisi.
@@ -130,7 +130,7 @@ ms.locfileid: "55300609"
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * Miglioramenti della stabilità.
-  * Correzione per la gestione del problema delle attività annullate che potrebbe comportare l'arresto degli osservatori in alcune partizioni.
+  * Correzione di gestione delle attività annullate che potrebbe causare agli Observer arrestate in alcune partizioni.
 * Supporto per la creazione di checkpoint manuale.
 * Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21 e versioni successive.
 

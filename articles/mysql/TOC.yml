@@ -1,5 +1,5 @@
 items:
-- name: Documentazione di Database di Azure per MySQL
+- name: Documentazione del database di Azure per MySQL
   href: index.yml
 - name: Panoramica
   items:
@@ -11,6 +11,8 @@ items:
     href: quickstart-create-mysql-server-database-using-azure-portal.md
   - name: 'Creare un database: interfaccia della riga di comando di Azure'
     href: quickstart-create-mysql-server-database-using-azure-cli.md
+  - name: "Creare un database: comando up dell'interfaccia della riga di comando di Azure"
+    href: quickstart-create-server-up-azure-cli.md
   - name: Connettersi ed eseguire query
     items:
     - name: PHP
@@ -244,9 +246,9 @@ items:
     href: partners-migration-mysql.md
   - name: Guida alla migrazione di database
     href: https://datamigration.microsoft.com/
-ms.openlocfilehash: f32f4fa87e8d770875c06462c32e984a72afdb92
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 32343d73c18be4ddd7823ba710bed0eaad6d07ff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887370"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900812"

@@ -1,19 +1,19 @@
 ---
 title: Conoscere gli endpoint di Azure IoT Hub | Documentazione Microsoft
 description: "Guida per gli sviluppatori: informazioni di riferimento sugli endpoint dell'hub IoT per dispositivi e per servizi."
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.author: dobett
-ms.openlocfilehash: 43e2101f413985974b964f2261d852692bcac61d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 085a4ffbe0b615408bfd8aa70c027013e16f0136
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251441"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201433"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Informazioni di riferimento - Endpoint dell'hub IoT
 
@@ -22,8 +22,6 @@ ms.locfileid: "51251441"
 ## <a name="iot-hub-names"></a>Nomi dell'hub IoT
 
 È possibile trovare il nome host dell'hub IoT che ospita gli endpoint nel portale nella pagina **Panoramica** dell'hub. Per impostazione predefinita, il nome DNS di un hub IoT è simile al seguente: `{your iot hub name}.azure-devices.net`.
-
-È possibile usare il DNS di Azure per creare un nome DNS personalizzato per l'hub IoT. Per altre informazioni, vedere [Usare il servizio DNS di Azure per specificare impostazioni di dominio personalizzate per un servizio di Azure](../dns/dns-custom-domain.md).
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>Elenco di endpoint dell'hub IoT incorporati
 
@@ -53,7 +51,7 @@ L'elenco seguente offre una descrizione degli endpoint:
 
   * *Ricezione di richieste di metodi diretti*. Un dispositivo usa questo endpoint per ascoltare le richieste di [metodi diretti](iot-hub-devguide-direct-methods.md).
 
-    Questi endpoint vengono esposti con i protocolli [MQTT v3.1.1](http://mqtt.org/), HTTPS 1.1 e [AMQP 1.0](https://www.amqp.org/). AMQP è disponibile anche su [WebSocket](https://tools.ietf.org/html/rfc6455) sulla porta 443.
+    Questi endpoint vengono esposti con i protocolli [MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1 e [AMQP 1.0](https://www.amqp.org/). AMQP è disponibile anche su [WebSocket](https://tools.ietf.org/html/rfc6455) sulla porta 443.
 
 * **Endpoint di servizio**. Ogni hub IoT espone un set di endpoint per il back-end della soluzione per comunicare con i dispositivi. Con una eccezione, questi endpoint sono esposti solo tramite il protocollo [AMQP](https://www.amqp.org/). Tramite il protocollo HTTPS viene esposto l'endpoint di chiamata del metodo.
   
@@ -83,6 +81,15 @@ Hub IoT supporta attualmente i servizi di Azure seguenti come endpoint aggiuntiv
 * Argomenti del bus di servizio
 
 Per i limiti sul numero di endpoint che è possibile aggiungere, vedere [Quotas and throttling](iot-hub-devguide-quotas-throttling.md) (Quote e limitazioni).
+
+È possibile usare l'API REST [integrità degli Endpoint ottenere](https://docs.microsoft.com/de-de/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) per ottenere lo stato di integrità degli endpoint. È consigliabile usare la [le metriche dell'IoT Hub](iot-hub-metrics.md) relativi alla latenza di routing di messaggi per identificare e il debug degli errori quando l'integrità dell'endpoint è inattivo o non integro.
+
+|Stato integrità|DESCRIZIONE|
+|---|---|
+|healthy|L'endpoint accetta i messaggi nel modo previsto.|
+|Tipo non integro|L'endpoint non accetta i messaggi come previsto e nuovo tentativo dell'IoT Hub per inviare dati a questo endpoint. Lo stato di un endpoint integro verrà aggiornato in integro quando l'IoT Hub ha stabilito uno stato di integrità con coerenza finale.|
+|unknown|L'IoT Hub non ha stabilito una connessione con l'endpoint. Nessun messaggio è stato recapitato o rifiutato da questo endpoint.|
+|Dead|L'endpoint non accetta i messaggi, dopo che l'IoT Hub ritentare l'invio di messaggi per il periodo retrial.|
 
 ## <a name="field-gateways"></a>Gateway sul campo
 

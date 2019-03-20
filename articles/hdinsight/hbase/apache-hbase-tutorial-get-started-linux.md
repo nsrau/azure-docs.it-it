@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: af604dbabe9df56322342230eaec70548f53c927
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 7f162412a099078302bb348dab9ad3171f9e2913
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794499"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199495"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Iniziare a usare un esempio di Apache HBase in HDInsight
 
@@ -33,7 +33,7 @@ Prima di iniziare a provare questo esempio di HBase, sono necessari gli elementi
 ## <a name="create-apache-hbase-cluster"></a>Creare un cluster Apache HBase
 La procedura seguente usa un modello di Azure Resource Manager per creare un cluster HBase e il valore predefinito dipendente dall'account di archiviazione di Azure. Per comprendere i parametri usati nella procedure e altri metodi di creazione del cluster, vedere [Creare cluster Hadoop basati su Linux in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Per altre informazioni sull'uso di Data Lake Storage Gen2, vedi [Avvio rapido: impostazione dei cluster in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
-1. Fare clic sull'immagine seguente per aprire il modello nel portale di Azure. Il modello è disponibile in [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/).
+1. Fare clic sull'immagine seguente per aprire il modello nel portale di Azure. Il modello è disponibile nel [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/).
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Compilare i campi seguenti del pannello **Distribuzione personalizzata**:
@@ -111,7 +111,7 @@ In HBase, che rappresenta un'implementazione di [Cloud BigTable](https://cloud.g
 
 HBase include diversi metodi di caricamento dei dati nelle tabelle.  Per altre informazioni, vedere [Caricamento bulk](https://hbase.apache.org/book.html#arch.bulk.load).
 
-Un file di dati di esempio è disponibile in un contenitore BLOB pubblico, *wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Il contenuto del file di dati è il seguente:
+È disponibili in un contenitore blob pubblico, un file di dati di esempio *wasb://hbasecontacts\@hditutorialdata.blob.core.windows.net/contacts.txt*.  Il contenuto del file di dati è il seguente:
 
     8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
     16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
@@ -175,14 +175,14 @@ Un file di dati di esempio è disponibile in un contenitore BLOB pubblico, *wasb
 
 L'API REST viene protetta tramite l' [autenticazione di base](https://en.wikipedia.org/wiki/Basic_access_authentication). Le richieste vengono sempre eseguite usando il protocollo HTTPS (Secure HTTP) per essere certi che le credenziali vengano inviate in modo sicuro al server.
 
-2. Usare il comando seguente per ottenere l'elenco delle tabelle HBase esistenti:
+1. Usare il comando seguente per ottenere l'elenco delle tabelle HBase esistenti:
 
     ```bash
     curl -u <UserName>:<Password> \
     -G https://<ClusterName>.azurehdinsight.net/hbaserest/
     ```
 
-3. Usare il comando seguente per creare una nuova tabella HBase con famiglie di due colonne:
+1. Usare il comando seguente per creare una nuova tabella HBase con famiglie di due colonne:
 
     ```bash   
     curl -u <UserName>:<Password> \
@@ -194,7 +194,7 @@ L'API REST viene protetta tramite l' [autenticazione di base](https://en.wikiped
     ```
 
     Lo schema viene fornito nel formato JSON.
-4. Usare il comando seguente per inserire alcuni dati:
+1. Usare il comando seguente per inserire alcuni dati:
 
     ```bash   
     curl -u <UserName>:<Password> \
@@ -212,7 +212,7 @@ L'API REST viene protetta tramite l' [autenticazione di base](https://en.wikiped
    * Sm9obiBEb2xl: John Dole
      
      [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) consente di inserire più valori in batch.
-5. Usare il comando seguente per ottenere una riga:
+1. Usare il comando seguente per ottenere una riga:
    
     ```bash 
     curl -u <UserName>:<Password> \
@@ -247,15 +247,15 @@ HBase in HDInsight viene fornito con un'interfaccia utente Web per il monitoragg
 2. Fare clic su **HBase** nel menu di sinistra.
 3. Fare clic su **Quick links** (Collegamenti rapidi) nella parte superiore della pagina, scegliere il collegamento di nodo Zookeeper attivo e quindi fare clic su **HBase Master UI** (Interfaccia utente master HBase).  L'interfaccia utente viene aperta in un'altra scheda del browser:
 
-  ![Interfaccia utente master HBase di HDInsight](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
+   ![Interfaccia utente master HBase di HDInsight](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
-  L'interfaccia utente master HBase contiene le sezioni seguenti:
+   L'interfaccia utente master HBase contiene le sezioni seguenti:
 
-  - server di zona
-  - master di backup
-  - tables
-  - attività
-  - attributi di software
+   - server di zona
+   - master di backup
+   - tables
+   - attività
+   - attributi di software
 
 ## <a name="delete-the-cluster"></a>Eliminare il cluster
 Per evitare incoerenze, è consigliabile disabilitare le tabelle HBase prima di eliminare il cluster.
@@ -272,8 +272,6 @@ In questo articolo si è appreso come creare tabelle e un cluster Apache HBase e
 Per altre informazioni, vedere:
 
 * [Panoramica di HBase di HDInsight][hdinsight-hbase-overview]: Apache HBase è un database NoSQL open source Apache basato su Apache Hadoop che fornisce accesso rapido e coerenza assoluta per quantità elevate di dati non strutturati e semi-strutturati.
-
-[hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
 [hbase-reference]: https://hbase.apache.org/book.html#importtsv

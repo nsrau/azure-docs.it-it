@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9e972ee64d60f0fc9703e766c3ab45c3057c32a2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 1823c2ec28b342d41371eb6677e0330d7f885087
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019878"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893255"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Spostare dati da SAP Business Warehouse usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -62,17 +62,17 @@ Nelle sezioni seguenti sono disponibili le informazioni dettagliate sulle propri
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente fornisce la descrizione degli elementi JSON specifici del servizio collegato SAP Business Warehouse (BW).
 
-Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
+Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | --------
-server | Nome del server in cui si trova l'istanza di SAP BW. | stringa | Yes
-systemNumber | Numero del sistema SAP BW. | Numero decimale a due cifre rappresentato come stringa. | Yes
-clientId | ID del client nel sistema SAP BW. | Numero decimale a tre cifre rappresentato come stringa. | Yes
-username | Nome dell'utente che ha accesso al server SAP | stringa | Yes
-password | Password per l'utente. | stringa | Yes
-gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi all'istanza di SAP BW locale. | stringa | Yes
+server | Nome del server in cui si trova l'istanza di SAP BW. | stringa | Sì
+systemNumber | Numero del sistema SAP BW. | Numero decimale a due cifre rappresentato come stringa. | Sì
+clientId | ID del client nel sistema SAP BW. | Numero decimale a tre cifre rappresentato come stringa. | Sì
+username | Nome dell'utente che ha accesso al server SAP | stringa | Sì
+password | Password per l'utente. | stringa | Sì
+gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi all'istanza di SAP BW locale. | stringa | Sì
 encryptedCredential | Stringa di credenziali crittografata. | stringa | No 
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. Il set di dati SAP BW di tipo **RelationalTable** non supporta alcuna proprietà specifica del tipo. 
@@ -85,9 +85,9 @@ Le proprietà disponibili nella sezione **typeProperties** dell'attività varian
 
 Se l'origine nell'attività di copia è di tipo **RelationalSource** (che include SAP BW), nella sezione typeProperties sono disponibili le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
+| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| query | Specifica la query MDX che consente di leggere i dati dall'istanza di SAP BW. | Query MDX. | Yes |
+| query | Specifica la query MDX che consente di leggere i dati dall'istanza di SAP BW. | Query MDX. | Sì |
 
 
 ## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>Esempio di JSON: Copiare dati da SAP Business Warehouse a BLOB di Azure
@@ -289,29 +289,29 @@ Come accennato nell'articolo [Attività di spostamento dei dati](data-factory-da
 
 Quando si spostano dati da SAP BW, vengono usati i mapping seguenti tra i tipi SAP BW e i tipi .NET.
 
-Tipo di dati nel dizionario ABAP | Tipo di dati .Net
+Tipo di dati nel dizionario ABAP | Tipo di dati .NET
 -------------------------------- | --------------
-ACCP |  int
-CHAR | string
-CLNT | string
-CURR | Decimale
-CUKY | string
+ACCP |  Int
+CHAR | String
+CLNT | String
+CURR | Decimal
+CUKY | String
 DEC | Decimal
 FLTP | Double
 INT1 | Byte
 INT2 | Int16
-INT4 | int
-LANG | string
-LCHR | string
+INT4 | Int
+LANG | String
+LCHR | String
 LRAW | Byte[]
 PREC | Int16
 QUAN | Decimal
 RAW | Byte[]
 RAWSTRING | Byte[]
-STRING | string
-UNITÀ | string
-DATS | string
-NUMC | string
+STRING | String
+UNITÀ | String
+DATS | String
+NUMC | String
 TIMS | string
 
 > [!NOTE]

@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ce6dc4cf98f2886eb4eed7049048d67599ac42e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: adad43f337d4cf026ca8f48976a9fc713fd52200
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207484"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077412"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Abilitare Enterprise State Roaming in Azure Active Directory
 Enterprise State Roaming è disponibile per qualsiasi organizzazione con una licenza Azure AD Premium o Enterprise Mobility + Security (EMS). Per altre informazioni su come ottenere una sottoscrizione di Azure AD, vedere la [pagina del prodotto Azure AD](https://azure.microsoft.com/services/active-directory) .
@@ -37,7 +37,7 @@ Quando si abilita il servizio Enterprise State Roaming, all'organizzazione viene
 
 1. Selezionare **Gli utenti possono sincronizzare le impostazioni e i dati delle app su tutti i dispositivi**. Per altre informazioni, vedere [Configurare le impostazioni dei dispositivi](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
   
-  ![Immagine dell'impostazione del dispositivo Gli utenti possono sincronizzare le impostazioni e i dati delle app su tutti i dispositivi](./media/enterprise-state-roaming-enable/device-settings.png)
+   ![Immagine dell'impostazione del dispositivo Gli utenti possono sincronizzare le impostazioni e i dati delle app su tutti i dispositivi](./media/enterprise-state-roaming-enable/device-settings.png)
   
 Per consentire a un dispositivo Windows 10 di usare il servizio Enterprise State Roaming, è necessario che il dispositivo effettui l'autenticazione con un'identità di Azure AD. Per i dispositivi aggiunti ad Azure AD, l'identità di accesso principale dell'utente è l'identità di Azure AD, quindi non sono necessarie operazioni aggiuntive di configurazione. Per i dispositivi che usano Active Directory in locale, l'amministratore IT deve [configurare i dispositivi ibridi aggiunti ad Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual-steps). 
 
@@ -64,11 +64,11 @@ Seguire questi passaggi per visualizzare un report di stato della sincronizzazio
 
 1. In **Mostra** selezionare **Impostazioni di sincronizzazione dispositivi e dati dell'app aziendali** per mostrare lo stato della sincronizzazione.
   
-  ![Immagine dell'impostazione per la sincronizzazione di dispositivi e dati](./media/enterprise-state-roaming-enable/sync-status.png)
+   ![Immagine dell'impostazione per la sincronizzazione di dispositivi e dati](./media/enterprise-state-roaming-enable/sync-status.png)
   
 1. Se sono presenti dispositivi inclusi nella sincronizzazione per questo utente, tali dispositivi vengono visualizzati, come illustrato di seguito.
   
-  ![Immagine dei dati a colonne relativi alla sincronizzazione dei dispositivi](./media/enterprise-state-roaming-enable/device-status-row.png)
+   ![Immagine dei dati a colonne relativi alla sincronizzazione dei dispositivi](./media/enterprise-state-roaming-enable/device-status-row.png)
 
 ## <a name="data-retention"></a>Conservazione dei dati
 I dati sincronizzati con il cloud Microsoft tramite Enterprise State Roaming vengono mantenuti fino alla loro eliminazione manuale o fino a quando non viene determinato che non sono aggiornati. 

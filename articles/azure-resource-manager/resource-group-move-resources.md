@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 02/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: ddbd77cbc199e78e74324c87d49155f27d6edeea
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 80577b4585a6c9e4ec83a8f21b358b7609d85268
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417092"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081254"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -57,6 +57,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * Certificati del servizio app - vedere [Limitazioni del certificato del servizio app](#app-service-certificate-limitations)
 * Automazione - i runbook devono esistere nello stesso gruppo di risorse dell'account di automazione.
 * Azure Active Directory B2C
+* Cache Redis di Azure: se l'istanza di Cache Redis di Azure è configurata con una rete virtuale, l'istanza non può essere spostata in una sottoscrizione diversa. Vedere [Limitazioni delle reti virtuali](#virtual-networks-limitations).
 * Azure Cosmos DB
 * Esplora dati di Azure
 * Database di Azure per MariaDB
@@ -64,6 +65,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * Database di Azure per PostgreSQL
 * Azure DevOps: le organizzazioni di Azure DevOps con gli acquisti di estensione non Microsoft devono [annullare gli acquisti](https://go.microsoft.com/fwlink/?linkid=871160) prima di spostare l'account tra le sottoscrizioni.
 * Mappe di Azure
+* Log di Monitoraggio di Azure
 * Servizio di inoltro di Azure
 * Azure Stack - registrazioni
 * Batch
@@ -89,10 +91,9 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * Hub IoT
 * Key Vault: le istanze di Key Vault usate per la crittografia dei dischi non possono essere spostate in gruppi di risorse presenti nella stessa sottoscrizione o in sottoscrizioni diverse.
 * Servizi di bilanciamento del carico: è possibile spostare il servizio di bilanciamento del carico con SKU Basic. Il servizio di bilanciamento del carico dello SKU Standard non può essere spostato.
-* Log Analytics
 * App per la logica
 * Machine Learning: i servizi Web di Machine Learning Studio possono essere spostati in un nuovo gruppo di risorse nella stessa sottoscrizione, ma non in un'altra sottoscrizione. Altre risorse di Machine Learning possono essere spostate da una sottoscrizione all'altra.
-* Dischi gestiti: vedere [Limitazioni delle macchine virtuali](#virtual-machines-limitations)
+* Managed Disks - Managed Disks in zone di disponibilità non è possibile spostare una sottoscrizione diversa
 * Identità gestita assegnata dall'utente
 * Servizi multimediali
 * Monitoraggio: verificare che lo spostamento nella nuova sottoscrizione non comporti il superamento delle [quote di sottoscrizione](../azure-subscription-service-limits.md#monitor-limits).
@@ -103,7 +104,6 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * Power BI - sia Power BI Embedded che Raccolta di aree di lavoro di Power BI
 * IP pubblico: è possibile spostare l'IP pubblico con SKU Basic. L'indirizzo IP pubblico dello SKU Standard non può essere spostato.
 * Insieme di credenziali di Servizi di ripristino: registrarsi in un'[anteprima](#recovery-services-limitations).
-* Cache Redis di Azure: se l'istanza di Cache Redis di Azure è configurata con una rete virtuale, l'istanza non può essere spostata in una sottoscrizione diversa. Vedere [Limitazioni delle reti virtuali](#virtual-networks-limitations).
 * Utilità di pianificazione
 * Ricerca: non è possibile spostare più risorse di Ricerca in aree diverse in un'unica operazione. Al contrario, è possibile spostarle con operazioni separate.
 * Bus di servizio
@@ -116,7 +116,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * Server di database SQL: il database e il server devono trovarsi nello stesso gruppo di risorse. Quando si sposta un server SQL, quindi, vengono spostati anche tutti i relativi database. Questo comportamento si applica al database SQL di Azure e ai database di Azure SQL Data Warehouse.
 * Time Series Insights
 * Gestione traffico
-* Macchine virtuali: per le macchine virtuali con dischi gestiti vedere [Limitazioni delle macchine virtuali](#virtual-machines-limitations)
+* Le macchine virtuali - vedere [limitazioni delle macchine virtuali](#virtual-machines-limitations)
 * Macchine virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 * Set di scalabilità di macchine virtuali: vedere [Limitazioni delle macchine virtuali](#virtual-machines-limitations)
 * Reti virtuali, vedere [Limitazioni delle reti virtuali](#virtual-networks-limitations)
@@ -133,6 +133,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che non po
 * Azure Databricks
 * Firewall di Azure
 * Azure Migrate
+* Azure NetApp Files
 * Certificati: i certificati del servizio app possono essere spostati, ma i certificati caricati presentano alcune [limitazioni](#app-service-limitations).
 * Applicazioni classiche
 * Istanze di Container
@@ -145,7 +146,6 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che non po
 * Servizi lab: lo spostamento in un nuovo gruppo di risorse nella stessa sottoscrizione è abilitato, ma lo spostamento tra sottoscrizioni non lo è.
 * Applicazioni gestite
 * Genomica di Microsoft
-* NetApp
 * SAP HANA in Azure
 * Security
 * Site Recovery
@@ -166,13 +166,12 @@ Questa sezione illustra come gestire scenari complessi per lo spostamento di ris
 
 ### <a name="virtual-machines-limitations"></a>Limitazioni delle macchine virtuali
 
-Dal 24 settembre 2018 è possibile spostare i dischi gestiti. È supportato lo spostamento di macchine virtuali con dischi gestiti, immagini gestite, snapshot gestiti e set di disponibilità con macchine virtuali che usano dischi gestiti.
+È possibile spostare le macchine virtuali con i dischi gestiti, immagini gestite, gli snapshot gestiti e i set di disponibilità con macchine virtuali che usano dischi gestiti. I dischi gestiti in zone di disponibilità non è possibile spostare una sottoscrizione diversa.
 
 Non sono ancora supportati gli scenari seguenti:
 
 * Le macchine virtuali con certificato archiviato in Key Vault possono essere spostate in un nuovo gruppo di risorse nella stessa sottoscrizione, ma non da una sottoscrizione a un'altra.
-* I dischi gestiti in zone di disponibilità non possono essere spostati in una sottoscrizione diversa.
-* Il set di scalabilità di macchine virtuali con il servizio di bilanciamento del carico dello SKU Standard o l'indirizzo IP pubblico dello SKU Standard non può essere spostato.
+* Set di scalabilità di macchine virtuali con Load Balancer Standard SKU o un indirizzo IP pubblico dello SKU Standard non può essere spostato.
 * Non è possibile spostare da un gruppo di risorse o una sottoscrizione a un'altra macchine virtuali create a partire da risorse Marketplace con piani assegnati. Sottoporre a deprovisioning le macchine virtuali nella sottoscrizione in cui si trovano e distribuirle di nuovo nella nuova sottoscrizione.
 
 Per spostare le macchine virtuali configurate con Backup di Azure, usare la soluzione alternativa seguente:
@@ -190,6 +189,8 @@ Per spostare le macchine virtuali configurate con Backup di Azure, usare la solu
 ### <a name="virtual-networks-limitations"></a>Limitazioni delle reti virtuali
 
 Quando si esegue lo spostamento di una rete virtuale, è necessario spostare anche le relative risorse dipendenti. Per i gateway VPN, è necessario spostare gli indirizzi IP, i gateway di rete virtuale e tutte le risorse di connessione associata. I gateway di rete locali possono trovarsi in un gruppo di risorse diverso.
+
+Per spostare una macchina virtuale con una scheda di interfaccia di rete, è necessario spostare tutte le risorse dipendenti. È necessario spostare la rete virtuale per la scheda di interfaccia di rete, tutte le altre schede di interfaccia di rete per la rete virtuale e i gateway VPN.
 
 Per spostare una rete virtuale con peering, è prima necessario disabilitare il peering. Dopo la disabilitazione del peering è possibile spostare la rete virtuale. Riabilitare il peering della rete virtuale dopo lo spostamento.
 
@@ -254,58 +255,58 @@ Per spostare le risorse classiche in una nuova sottoscrizione, usare le operazio
 
 1. Controllare se la sottoscrizione di origine può partecipare a un'operazione di spostamento tra sottoscrizioni. Usare l'operazione seguente:
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+   ```
 
      Nel corpo della richiesta includere:
 
-  ```json
-  {
+   ```json
+   {
     "role": "source"
-  }
-  ```
+   }
+   ```
 
      La risposta per l'operazione di convalida ha il formato seguente:
 
-  ```json
-  {
+   ```json
+   {
     "status": "{status}",
     "reasons": [
       "reason1",
       "reason2"
     ]
-  }
-  ```
+   }
+   ```
 
 2. Controllare se la sottoscrizione di destinazione può partecipare a un'operazione di spostamento tra sottoscrizioni. Usare l'operazione seguente:
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+   ```
 
      Nel corpo della richiesta includere:
 
-  ```json
-  {
+   ```json
+   {
     "role": "target"
-  }
-  ```
+   }
+   ```
 
      La risposta ha lo stesso formato della convalida della sottoscrizione di origine.
 3. Se entrambe le sottoscrizioni superano la convalida, spostare tutte le risorse classiche da una sottoscrizione a un'altra usando l'operazione seguente:
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
+   ```
 
     Nel corpo della richiesta includere:
 
-  ```json
-  {
+   ```json
+   {
     "target": "/subscriptions/{target-subscription-id}"
-  }
-  ```
+   }
+   ```
 
 Questa operazione potrebbe richiedere alcuni minuti.
 
@@ -344,52 +345,52 @@ Prima di spostare una risorsa, è necessario eseguire alcuni passi importanti. L
 
 1. Le sottoscrizioni di origine e di destinazione devono trovarsi nello stesso [tenant di Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md). Per verificare che entrambe le sottoscrizioni contengano lo stesso ID tenant, usare Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
-  Per Azure PowerShell usare:
+   Per Azure PowerShell usare:
 
-  ```azurepowershell-interactive
-  (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
-  (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
-  ```
+   ```azurepowershell-interactive
+   (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
+   (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
+   ```
 
-  Per l'interfaccia della riga di comando di Azure usare:
+   Per l'interfaccia della riga di comando di Azure usare:
 
-  ```azurecli-interactive
-  az account show --subscription <your-source-subscription> --query tenantId
-  az account show --subscription <your-destination-subscription> --query tenantId
-  ```
+   ```azurecli-interactive
+   az account show --subscription <your-source-subscription> --query tenantId
+   az account show --subscription <your-destination-subscription> --query tenantId
+   ```
 
-  Se gli ID tenant per le sottoscrizioni di origine e di destinazione non sono uguali, usare i metodi descritti di seguito per risolvere le differenze degli ID tenant:
+   Se gli ID tenant per le sottoscrizioni di origine e di destinazione non sono uguali, usare i metodi descritti di seguito per risolvere le differenze degli ID tenant:
 
-  * [Trasferimento della proprietà di una sottoscrizione di Azure a un altro account](../billing/billing-subscription-transfer.md)
-  * [Come associare o aggiungere una sottoscrizione di Azure ad Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+   * [Trasferimento della proprietà di una sottoscrizione di Azure a un altro account](../billing/billing-subscription-transfer.md)
+   * [Come associare o aggiungere una sottoscrizione di Azure ad Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 1. Il provider di risorse della risorsa da spostare deve essere registrato nella sottoscrizione di destinazione, altrimenti un errore indica che la **sottoscrizione non è registrata per un tipo di risorsa**. Questo errore può verificarsi se si sposta una risorsa in una nuova sottoscrizione, ma la sottoscrizione non è mai stata usata con tale tipo di risorsa.
 
-  In PowerShell, per ottenere lo stato della registrazione usare i comandi seguenti:
+   In PowerShell, per ottenere lo stato della registrazione usare i comandi seguenti:
 
-  ```azurepowershell-interactive
-  Set-AzContext -Subscription <destination-subscription-name-or-id>
-  Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
-  ```
+   ```azurepowershell-interactive
+   Set-AzContext -Subscription <destination-subscription-name-or-id>
+   Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+   ```
 
-  Per registrare un provider di risorse, usare:
+   Per registrare un provider di risorse, usare:
 
-  ```azurepowershell-interactive
-  Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
-  ```
+   ```azurepowershell-interactive
+   Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
+   ```
 
-  Nell'interfaccia della riga di comando di Azure, per ottenere lo stato della registrazione usare i comandi seguenti:
+   Nell'interfaccia della riga di comando di Azure, per ottenere lo stato della registrazione usare i comandi seguenti:
 
-  ```azurecli-interactive
-  az account set -s <destination-subscription-name-or-id>
-  az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
-  ```
+   ```azurecli-interactive
+   az account set -s <destination-subscription-name-or-id>
+   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
+   ```
 
-  Per registrare un provider di risorse, usare:
+   Per registrare un provider di risorse, usare:
 
-  ```azurecli-interactive
-  az provider register --namespace Microsoft.Batch
-  ```
+   ```azurecli-interactive
+   az provider register --namespace Microsoft.Batch
+   ```
 
 1. L'account che sposta le risorse deve avere almeno le autorizzazioni seguenti:
 
@@ -513,7 +514,7 @@ Nel corpo della richiesta specificare il gruppo di risorse di destinazione e le 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sui cmdlet di PowerShell per la gestione della sottoscrizione, vedere [Uso di Azure PowerShell con Resource Manager](powershell-azure-resource-manager.md).
-* Per informazioni sui comandi dell'interfaccia della riga di comando di Azure per la gestione della sottoscrizione, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).
+* Per altre informazioni sui cmdlet di PowerShell per la gestione delle risorse, vedere [usando Azure PowerShell con Resource Manager](manage-resources-powershell.md).
+* Per altre informazioni sui comandi della CLI di Azure per la gestione delle risorse, vedere [tramite la CLI di Azure con Resource Manager](manage-resources-cli.md).
 * Per informazioni sulle funzionalità del portale per la gestione della sottoscrizione, vedere [Gestire le risorse di Azure mediante il portale](resource-group-portal.md).
 * Per informazioni sull'organizzazione logica delle risorse, vedere [Uso dei tag per organizzare le risorse di Azure](resource-group-using-tags.md).

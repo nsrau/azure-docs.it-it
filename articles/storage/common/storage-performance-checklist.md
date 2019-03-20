@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 010a9f4e5be34986c1098f403e4df0ccf569838c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 1b6c8b1af00c2819632c60a27d61d7cf8db44885
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821668"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012324"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure
 ## <a name="overview"></a>Panoramica
@@ -122,7 +122,7 @@ Alcune procedure consigliate consentono di ridurre la frequenza di queste operaz
 
 * Esaminare nel dettaglio le convenzioni di denominazione usate per account, contenitori, BLOB, tabelle e code. Considerare l'aggiunta di un prefisso ai nomi di account con un hash di 3 cifre, mediante la funzione di hashing più adatta alle esigenze.  
 * Se si organizzano i dati con timestamp o identificatori numerici, assicurarsi di non usare modelli di traffico Solo accodamenti (o Solo anteposizioni). Questi modelli non sono adatti a un sistema di partizionamento basato su intervalli e potrebbero indirizzare tutto il traffico a una singola partizione, impedendo un bilanciamento del carico efficiente nel sistema. Ad esempio, se sono presenti operazioni giornaliere che usano un oggetto BLOB con un timestamp quale aaaammgg, tutto il traffico dell'operazione giornaliera viene indirizzato a un singolo oggetto, gestito da un unico server di partizioni. Verificare se i limiti per BLOB e i limiti per partizione soddisfano le esigenze e, se necessario, considerare la possibilità di suddividere l'operazione in più BLOB. In modo analogo, se si archiviano dati della serie temporale nelle tabelle, è possibile che tutto il traffico venga indirizzato all'ultima parte dello spazio dei nomi della chiave. Se l'uso di timestamp o ID numerici è imprescindibile, aggiungere un hash di 3 cifre come prefisso dell'ID. Nel caso dei timestamp, aggiungere come prefisso i secondi nella stringa di data/ora, ad esempio ssaaaammgg. Se vengono eseguite regolarmente operazioni di query e creazione elenchi, scegliere una funzione di hashing che limiti il numero di query. In altri casi può essere sufficiente un prefisso casuale.  
-* Per altre informazioni sullo schema di partizionamento usato in Archiviazione di Azure, leggere il documento SOSP [qui](http://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
+* Per altre informazioni sullo schema di partizionamento usato in Archiviazione di Azure, leggere il documento SOSP [qui](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
 
 ### <a name="networking"></a>Rete
 Oltre alle chiamate API, anche i vincoli fisici della rete dell'applicazione hanno spesso effetti significativi sulle prestazioni. Di seguito vengono descritte alcune limitazioni che gli utenti possono incontrare.  

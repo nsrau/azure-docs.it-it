@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d48ad97d50c413c4530e54f2538fda9cd0e31b8f
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 09cc38cd5343e8b01b3e704191ea40c133d724f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342678"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103724"
 ---
 # <a name="try-speech-services-for-free"></a>Provare gratuitamente i servizi di riconoscimento vocale
 
@@ -87,19 +87,19 @@ Per aggiungere una risorsa del servizio di riconoscimento vocale (gratuita o a p
 
 1. Sotto **Crea**, immettere:
 
-    * Un nome per la nuova risorsa. Il nome consente di distinguere tra più sottoscrizioni per il servizio stesso.
-    * Scegliere la sottoscrizione di Azure a cui è associata la nuova risorsa per determinare le modalità di fatturazione.
-    * Scegliere l'area in cui verrà usata la risorsa. Attualmente, il servizio di riconoscimento vocale è disponibile nelle aree Asia orientale, Europa settentrionale e Stati Uniti occidentali.
-    * Scegliere un piano tariffario gratuito o a pagamento. Fare clic su **Visualizza i dettagli completi sui prezzi** per informazioni complete sulle quote di utilizzo e sui prezzi per ogni livello.
-    * Creare un nuovo gruppo di risorse per questa sottoscrizione di riconoscimento vocale o assegnarla a un gruppo di risorse esistente. I gruppi di risorse consentono di mantenere organizzate le diverse sottoscrizioni di Azure.
-    * Per un rapido accesso alla sottoscrizione in futuro, selezionare la casella di controllo **Aggiungi al dashboard**.
-    * Selezionare **Crea.**
+   * Un nome per la nuova risorsa. Il nome consente di distinguere tra più sottoscrizioni per il servizio stesso.
+   * Scegliere la sottoscrizione di Azure a cui è associata la nuova risorsa per determinare le modalità di fatturazione.
+   * Scegliere l'area in cui verrà usata la risorsa. Attualmente, il servizio di riconoscimento vocale è disponibile nelle aree Asia orientale, Europa settentrionale e Stati Uniti occidentali.
+   * Scegliere un piano tariffario gratuito o a pagamento. Fare clic su **Visualizza i dettagli completi sui prezzi** per informazioni complete sulle quote di utilizzo e sui prezzi per ogni livello.
+   * Creare un nuovo gruppo di risorse per questa sottoscrizione di riconoscimento vocale o assegnarla a un gruppo di risorse esistente. I gruppi di risorse consentono di mantenere organizzate le diverse sottoscrizioni di Azure.
+   * Per un rapido accesso alla sottoscrizione in futuro, selezionare la casella di controllo **Aggiungi al dashboard**.
+   * Selezionare **Crea.**
 
-    ![Selezionare il pulsante Crea](media/index/try-speech-api-create-speech4.png)
+     ![Selezionare il pulsante Crea](media/index/try-speech-api-create-speech4.png)
 
-    È necessario qualche secondo per creare e distribuire la nuova risorsa di Riproduzione vocale. Selezionare **Avvio rapido** per visualizzare le informazioni sulla nuova risorsa.
+     È necessario qualche secondo per creare e distribuire la nuova risorsa di Riproduzione vocale. Selezionare **Avvio rapido** per visualizzare le informazioni sulla nuova risorsa.
 
-    ![Pannello di avvio rapido](media/index/try-speech-api-create-speech5.png)
+     ![Pannello di avvio rapido](media/index/try-speech-api-create-speech5.png)
 
 1. Sotto **Avvio rapido**, fare clic sul collegamento **Chiavi** nel passaggio 1 per visualizzare le chiavi di sottoscrizione. Ogni sottoscrizione dispone di due chiavi, entrambi utilizzabili nell'applicazione. Selezionare pulsante accanto a ogni chiave per copiarla negli Appunti e incollarla quindi nel codice.
 

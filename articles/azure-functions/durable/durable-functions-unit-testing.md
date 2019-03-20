@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: kadimitr
-ms.openlocfilehash: 38db54889c1fff0406f4e21cea80e16b6fdc25d1
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 69cf91f1448e36353f83de7a271abb3b53858bb0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105509"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094076"
 ---
 # <a name="durable-functions-unit-testing"></a>Testing unità di Funzioni durevoli
 
@@ -185,5 +185,5 @@ Lo unit test verificherà il formato dell'output. Gli unit test possono usare i 
 
 > [!div class="nextstepaction"]
 > [Altre informazioni su xUnit](https://xunit.github.io/docs/getting-started-dotnet-core)
-
+> 
 > [Altre informazioni su moq](https://github.com/Moq/moq4/wiki/Quickstart)

@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 7d069d86-660f-4c94-b6e3-0c0f38c52d0e
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 18b698861a791174f2e254543d5d3b7a54052574
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 4186abd215509e0ae9ced50340fb1f3d3b5f9676
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854166"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765918"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Profilo e ID utente per i Azure Notebooks
 
@@ -46,7 +46,7 @@ Accanto al nome utente temporaneo compare anche il comando **Configura ID utente
 
 È anche possibile modificare l'ID utente in qualsiasi momento nella pagina del profilo.
 
-Un ID utente deve essere composto da almeno quattro lettere, numeri e trattini. Non sono consentiti altri caratteri e l'ID utente non può iniziare o terminare con un trattino né è possibile utilizzare più trattini in fila.
+Un ID utente deve essere composto tra quattro e disporre di sedici lettere, numeri e trattini. Non sono consentiti altri caratteri e l'ID utente non può iniziare o terminare con un trattino né è possibile utilizzare più trattini in fila. Poiché gli ID utente sono univoci per tutti gli account Azure Notebooks, si potrebbe essere visualizzato il messaggio, "ID utente è già in uso." (Il messaggio viene visualizzato anche se si prova a usare un marchio registrato di Microsoft come un ID utente.) In questi casi, scegliere un ID utente diversi.
 
 > [!Important]
 > La modifica del proprio ID rende non valido qualsiasi URL eventualmente condiviso con l'ID precedente. È possibile modificare l'ID usando l'ID precedente per riconvalidare i collegamenti. Tuttavia, nel frattempo un altro utente può richiedere un ID inutilizzato.

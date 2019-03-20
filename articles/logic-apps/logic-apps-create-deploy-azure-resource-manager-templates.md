@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 3abe7bae5506b721d4baf1e18da390b3e67977d8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 5a1cae376ab9db2b0c4b5e0e5514bf7745593433
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242938"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894581"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Creare e distribuire app con i modelli di Azure Resource Manager
 
@@ -82,7 +82,7 @@ Di seguito sono riportate le descrizioni dei parametri disponibili nel modello:
 | Parametro | DESCRIZIONE | Esempio di definizione JSON | 
 | --------- | ----------- | ----------------------- | 
 | `logicAppName` | Definisce il nome dell'app per la logica creata dal modello. | "logicAppName": { "type": "string", "metadata": { "description": "myExampleLogicAppName" } } |
-| `testUri` | Definisce il percorso in cui effettuare il ping per il test. | "testUri": { "type": "string", "defaultValue": "http://azure.microsoft.com/status/feed/"} | 
+| `testUri` | Definisce il percorso in cui effettuare il ping per il test. | "testUri": { "type": "string", "defaultValue": "https://azure.microsoft.com/status/feed/"} | 
 ||||
 
 Altre informazioni sull'[API REST per la definizione e le proprietà del flusso di lavoro delle app per la logica](https://docs.microsoft.com/rest/api/logic/workflows) e sulla [creazione di definizioni di app per la logica con JSON](logic-apps-author-definitions.md).

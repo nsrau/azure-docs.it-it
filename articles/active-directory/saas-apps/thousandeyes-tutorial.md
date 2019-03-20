@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43aa43d37099d69441a5dde47327e784d67fa9ac
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5d85c4dbd3cc1c3d827a3f8324e63f75eb942425
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189447"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892983"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thousandeyes"></a>Esercitazione: Integrazione di Azure Active Directory con ThousandEyes
 
@@ -214,7 +214,7 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in ThousandE
 
     a. Nella casella di testo **Name** (Nome) digitare il nome dell'utente, ad esempio **Britta Simon**.
 
-    b. Nella casella di testo **Email** (Posta elettronica) digitare l'indirizzo di posta elettronica di un utente, ad esempio **brittasimon@contoso.com**.
+    b. Nelle **messaggio di posta elettronica** digitare l'indirizzo di posta elettronica dell'utente, ad esempio di casella di testo **brittasimon\@contoso.com**.
 
     b. Fare clic su **Add New User to Account**.
 

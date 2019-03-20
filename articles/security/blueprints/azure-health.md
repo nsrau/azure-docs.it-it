@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 6787f347661db61806180edde5c091a865051748
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 5f23435a43d139ecb9f20e5036124f175b1830c9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103073"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225366"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Progetto per la sicurezza e la conformità di Azure: HIPAA/HITRUST per dati del settore sanitario e intelligenza artificiale
 
@@ -48,7 +48,7 @@ Questo progetto è pensato come base modulare per i clienti, che possono apporta
 
 -   **Diagramma dell'architettura.** Il diagramma illustra l'architettura di riferimento usata per il progetto e lo scenario del caso d'uso di esempio.
 
--   [Estensione IaaS](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) Questa soluzione illustrerà come eseguire la migrazione in Azure di una soluzione locale basata su SQL e come implementare una workstation con accesso con privilegi per gestire in modo sicuro le soluzioni e i servizi basati sul cloud. 
+-   [Estensione IaaS](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) questa soluzione illustra come eseguire la migrazione di una soluzione basata su SQL in locale in Azure e implementare una Workstation amministrativa con privilegi per gestire in modo sicuro le soluzioni e servizi basati su cloud. 
 
 ## <a name="solution-components"></a>Componenti della soluzione
 
@@ -93,7 +93,7 @@ Non ha accesso ai record dei pazienti.
 
 -   Ambito: ResourceGroup
 
- ### <a name="data-scientist"></a>Data scientist
+### <a name="data-scientist"></a>Data scientist
 
 
 Il data scientist gestisce Azure Machine Learning Studio. Può importare, esportare e gestire i dati ed eseguire report. Il data scientist ha accesso ai dati dei pazienti, ma non ha privilegi amministrativi.
@@ -272,7 +272,7 @@ Quando si usa lo script di demo. .\\HealthcareDemo.ps1 con l'opzione **BulkPatie
 
 **2. Key Vault** richiesto per un segreto associato al token richiesto.
 
-\*\*3. I ruoli di Azure convalidano la richiesta e autorizzano la richiesta di accesso a Key Vault.
+**3. I ruoli Azure** convaliderà la richiesta e autorizzano la richiesta di accesso a Key Vault.
 
 **4. Key Vault** restituisce il segreto, in questo caso la stringa di connessione al database SQL.
 
@@ -359,10 +359,10 @@ La soluzione supporta Griglia di eventi di Azure, un singolo servizio per la ges
 - [Application Insights](/azure/application-insights/app-insights-overview) è un servizio estendibile di gestione delle prestazioni delle applicazioni per sviluppatori Web su più piattaforme, che consente di monitorare un'applicazione Web live. Questo servizio rileva le anomalie nelle prestazioni. e include avanzati strumenti di analisi che consentono di diagnosticare i problemi e conoscere come viene effettivamente usata l'app dagli utenti. Il servizio è progettato per supportare il miglioramento continuo delle prestazioni e dell'usabilità.
 
 ### <a name="azure-alerts"></a>Avvisi di Azure
-- Gli avvisi consentono di monitorare i servizi Azure e di configurare le condizioni sui dati. Gli avvisi forniscono anche le notifiche quando c'è una corrispondenza tra una condizione di avviso e i dati di monitoraggio.
+- [Gli avvisi](/azure/azure-monitor/platform/alerts-metric) offrono un metodo per monitorare i servizi di Azure e consentono di configurare le condizioni sui dati. Gli avvisi forniscono anche le notifiche quando c'è una corrispondenza tra una condizione di avviso e i dati di monitoraggio.
 
-### <a name="log-analytics"></a>Log Analytics
-[Log Analytics](/azure/operations-management-suite/operations-management-suite-overview) è una raccolta di servizi di gestione.
+### <a name="azure-monitor-logs"></a>Log di Monitoraggio di Azure
+[Log di monitoraggio di Azure](/azure/operations-management-suite/operations-management-suite-overview) è una raccolta di servizi di gestione.
 
 -   L'area di lavoro è abilitata per il Centro sicurezza
 

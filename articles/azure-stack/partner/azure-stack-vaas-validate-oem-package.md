@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c2b0343ff472fe380750152712ca88d9ebb404e2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: aae3ec8ff713959c5cc2485951aba025a6f89a1e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782786"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113283"
 ---
 # <a name="validate-oem-packages"></a>Convalidare i pacchetti dell'OEM
 
@@ -185,30 +185,30 @@ I test seguenti sono necessari per la convalida del pacchetto OEM:
 
     Verifica del pacchetto estensione OEM è suddiviso in due passaggi manuali: Aggiornamento di Azure Stack e aggiornamento OEM.
 
-    1. **Selezionare** "Run" nell'interfaccia utente per eseguire lo script relativi alle verifiche preliminari. Si tratta di un test automatizzato che richiede circa 5 minuti e non richiede alcun intervento.
+   1. **Selezionare** "Run" nell'interfaccia utente per eseguire lo script relativi alle verifiche preliminari. Si tratta di un test automatizzato che richiede circa 5 minuti e non richiede alcun intervento.
 
-    1. Dopo aver completato lo script relativi alle verifiche preliminari, eseguire il passaggio manuale: **installare** l'aggiornamento più recente dello Stack di Azure usando il portale di Azure Stack.
+   1. Dopo aver completato lo script relativi alle verifiche preliminari, eseguire il passaggio manuale: **installare** l'aggiornamento più recente dello Stack di Azure usando il portale di Azure Stack.
 
-    1. **Eseguire** Test-AzureStack sul modulo. Se si verificano problemi, non continuare con il test e contattare [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com).
+   1. **Eseguire** Test-AzureStack sul modulo. Se si verificano problemi, non continuare con il test e contattare [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com).
 
-        Per informazioni su come eseguire il comando Test-AzureStack, vedere [lo stato del sistema Azure Stack convalidare](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test).
+       Per informazioni su come eseguire il comando Test-AzureStack, vedere [lo stato del sistema Azure Stack convalidare](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test).
 
-    1. **Selezionare** "Avanti" per eseguire lo script postcheck. Si tratta di un test automatizzato che contrassegna la fine del processo di aggiornamento di Azure Stack.
+   1. **Selezionare** "Avanti" per eseguire lo script postcheck. Si tratta di un test automatizzato che contrassegna la fine del processo di aggiornamento di Azure Stack.
 
-    1. **Selezionare** "Esegui" per eseguire lo script relativi alle verifiche preliminari per l'aggiornamento di OEM.
+   1. **Selezionare** "Esegui" per eseguire lo script relativi alle verifiche preliminari per l'aggiornamento di OEM.
 
-    1. Dopo aver completato la verifica preliminare, eseguire il passaggio manuale: **installare** il pacchetto di estensione OEM tramite il portale.
+   1. Dopo aver completato la verifica preliminare, eseguire il passaggio manuale: **installare** il pacchetto di estensione OEM tramite il portale.
 
-    1. **Eseguire** Test-AzureStack sul modulo.
+   1. **Eseguire** Test-AzureStack sul modulo.
 
-        > [!NOTE]
-        > Come in precedenza, non continuare con il test e contattare [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) se ha esito negativo. Questo passaggio è fondamentale poiché consentirà di risparmiare è una ridistribuzione.
+      > [!NOTE]
+      > Come in precedenza, non continuare con il test e contattare [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) se ha esito negativo. Questo passaggio è fondamentale poiché consentirà di risparmiare è una ridistribuzione.
 
-    1. **Selezionare** "Avanti" per eseguire lo script postcheck. Ciò contrassegna la fine del passaggio di aggiornamento dell'OEM.
+   1. **Selezionare** "Avanti" per eseguire lo script postcheck. Ciò contrassegna la fine del passaggio di aggiornamento dell'OEM.
 
-    1. Rispondere a eventuali domande rimanenti alla fine del test e **seleziona** "Submit".
+   1. Rispondere a eventuali domande rimanenti alla fine del test e **seleziona** "Submit".
 
-    1. Ciò contrassegna la fine del test interattiva.
+   1. Ciò contrassegna la fine del test interattiva.
 
 5. Esaminare il risultato per la verifica del pacchetto di estensione OEM. Il test è stato completato correttamente, pianificare il motore di simulazione del Cloud per l'esecuzione.
 

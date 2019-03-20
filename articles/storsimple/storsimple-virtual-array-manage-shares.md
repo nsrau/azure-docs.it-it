@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: e5c62689de36baa175001f5f4f70d87568876ef0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 82a6cdb6c9a39a0d196049a7ba662681ea06b36a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110589"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092430"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare le condivisioni sull'array virtuale StorSimple
 
@@ -33,8 +33,8 @@ Il servizio Gestione dispositivi StorSimple è un'estensione del portale di Azur
 
 Le condivisioni StorSimple possono essere:
 
-* **Aggiunto in locale**: i dati in queste condivisioni rimangono sempre nell'array e non vengono distribuiti nel cloud.
-* **A livelli**: i dati in queste condivisioni possono essere distribuiti nel cloud. Quando si crea una condivisione a livelli, viene eseguito il provisioning di circa il 10% dello spazio a livello locale e del 90% dello spazio nel cloud. Ad esempio, se si esegue il provisioning di una condivisione da 1 TB, 100 GB si trovano nello spazio locale e 900 GB vengono usati nel cloud quando i dati sono disposti a livelli. Questo implica che, se si esaurisce tutto lo spazio locale nel dispositivo, non è possibile eseguire il provisioning di una condivisione a livelli perché il 10% necessario a livello locale non è disponibile.
+* **Aggiunto in locale**: I dati in queste condivisioni rimangono sempre nell'array e non vengono distribuiti nel cloud.
+* **A livelli**: I dati in queste condivisioni possono essere distribuiti nel cloud. Quando si crea una condivisione a livelli, viene eseguito il provisioning di circa il 10% dello spazio a livello locale e del 90% dello spazio nel cloud. Ad esempio, se si esegue il provisioning di una condivisione da 1 TB, 100 GB si trovano nello spazio locale e 900 GB vengono usati nel cloud quando i dati sono disposti a livelli. Questo implica che, se si esaurisce tutto lo spazio locale nel dispositivo, non è possibile eseguire il provisioning di una condivisione a livelli perché il 10% necessario a livello locale non è disponibile.
 
 ### <a name="provisioned-capacity"></a>Capacità con provisioning
 
@@ -80,15 +80,15 @@ Usare le istruzioni di questa esercitazione per eseguire le attività seguenti:
 
 2. Nel pannello **Aggiungi condivisione** eseguire le operazioni seguenti:
    
-    1. Nel campo **Nome della condivisione** immettere un nome univoco per la condivisione. Il nome deve essere una stringa contenente da 3 a 127 caratteri.
+   1. Nel campo **Nome della condivisione** immettere un nome univoco per la condivisione. Il nome deve essere una stringa contenente da 3 a 127 caratteri.
 
-    2. Una **Descrizione** facoltativa per la condivisione. La descrizione consente di identificare i proprietari della condivisione.
+   2. Una **Descrizione** facoltativa per la condivisione. La descrizione consente di identificare i proprietari della condivisione.
 
-    3. Nell'elenco a discesa **Tipo** specificare se creare una condivisione **A livelli** o **Aggiunto in locale**. Per carichi di lavoro che richiedono garanzie locali, latenze basse e prestazioni di livello superiore, selezionare la condivisione **Aggiunto in locale**. Per tutti gli altri dati, selezionare una condivisone **A livelli** .
+   3. Nell'elenco a discesa **Tipo** specificare se creare una condivisione **A livelli** o **Aggiunto in locale**. Per carichi di lavoro che richiedono garanzie locali, latenze basse e prestazioni di livello superiore, selezionare la condivisione **Aggiunto in locale**. Per tutti gli altri dati, selezionare una condivisone **A livelli** .
 
-    4. Nel campo **Capacità** specificare le dimensioni della condivisione. Una condivisione a livelli deve essere compresa tra 500 GB e 20 TB e una condivisione aggiunta in locale deve essere compresa tra 50 GB e 2 TB.
+   4. Nel campo **Capacità** specificare le dimensioni della condivisione. Una condivisione a livelli deve essere compresa tra 500 GB e 20 TB e una condivisione aggiunta in locale deve essere compresa tra 50 GB e 2 TB.
 
-    5. Nel campo **Set default full permissions to** (Imposta le autorizzazioni complete predefinite su) assegnare le autorizzazioni all'utente o al gruppo che avrà accesso a questa condivisione. Specificare il nome dell'utente o del gruppo di utenti nel formato _john@contoso.com_. Si consiglia di usare un gruppo di utenti (anziché un singolo utente) per consentire ai privilegi amministratore di accedere a queste condivisioni. Dopo aver assegnato le autorizzazioni in questa fase, è possibile modificarle con Esplora file.
+   5. Nel campo **Set default full permissions to** (Imposta le autorizzazioni complete predefinite su) assegnare le autorizzazioni all'utente o al gruppo che avrà accesso a questa condivisione. Specificare il nome dell'utente o del gruppo di utenti nel formato _john@contoso.com_. Si consiglia di usare un gruppo di utenti (anziché un singolo utente) per consentire ai privilegi amministratore di accedere a queste condivisioni. Dopo aver assegnato le autorizzazioni in questa fase, è possibile modificarle con Esplora file.
 3. Al termine della configurazione della condivisione fare clic su **Crea**. Verrà creata una condivisione con le impostazioni specificate e verrà visualizzata una notifica. Per impostazione predefinita, il backup verrà abilitato per la condivisione.
 4. Per verificare che la condivisione sia stata creata, passare al pannello **Condivisioni**. La condivisione viene visualizzata nell'elenco.
    

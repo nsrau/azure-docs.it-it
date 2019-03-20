@@ -16,12 +16,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: klam; LADocs
-ms.openlocfilehash: 7920fee1bacf569ac41c36142fc68080b4de5780
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: c58b39f8e2d49eeb3e64c7ffce1d34d7a7b7b780
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230489"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904372"
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Chiamare, attivare o annidare i flussi di lavoro con endpoint HTTP in app per la logica
 
@@ -71,7 +71,7 @@ Per creare un endpoint HTTP, aggiungere un trigger in grado di ricevere le richi
 
     > [!TIP]
     > 
-    > È possibile generare uno schema per un payload JSON di esempio da uno strumento come [jsonschema.net](http://jsonschema.net/), o nel trigger **Richiesta** scegliendo **Usare il payload di esempio per generare lo schema**. 
+    > È possibile generare uno schema per un payload JSON di esempio da uno strumento come [jsonschema.net](https://jsonschema.net/), o nel trigger **Richiesta** scegliendo **Usare il payload di esempio per generare lo schema**. 
     > Immettere il payload di esempio e scegliere **Fine**.
 
     Ad esempio, questo payload di esempio:
@@ -275,9 +275,9 @@ Di seguito viene riportato l'aspetto che lo schema JSON dovrebbe avere ora per l
 
 ## <a name="q--a"></a>Domande e risposte
 
-#### <a name="q-what-about-url-security"></a>D: Come viene garantita la sicurezza degli URL?
+#### <a name="q-what-about-url-security"></a>D: Per quanto riguarda sicurezza URL?
 
-R: Azure genera in modo sicuro gli URL di callback dell'app per la logica mediante una firma di accesso condiviso (SAS). La firma viene trasmessa come parametro di query e deve essere convalidata prima dell'attivazione dell'app per la logica. Azure genera la firma con una combinazione univoca che include la chiave privata per ogni app per la logica, il nome del trigger e l'operazione in esecuzione. Pertanto, a meno che un utente non ottenga l'accesso alla chiave privata dell'app per la logica, non potrà generare una firma valida.
+R: Azure genera in modo sicuro gli URL callback delle app per la logica usando una firma di accesso condiviso (SAS). La firma viene trasmessa come parametro di query e deve essere convalidata prima dell'attivazione dell'app per la logica. Azure genera la firma con una combinazione univoca che include la chiave privata per ogni app per la logica, il nome del trigger e l'operazione in esecuzione. Pertanto, a meno che un utente non ottenga l'accesso alla chiave privata dell'app per la logica, non potrà generare una firma valida.
 
    > [!IMPORTANT]
    > Per i sistemi di produzione e protezione, è consigliabile evitare la chiamata dell'app per la logica direttamente dal browser in quanto:
@@ -287,16 +287,16 @@ R: Azure genera in modo sicuro gli URL di callback dell'app per la logica median
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>D: È possibile configurare ulteriormente gli endpoint HTTP?
 
-R: Sì, gli endpoint HTTP supportano configurazioni più avanzate tramite la [**Gestione API**](../api-management/api-management-key-concepts.md). Questo servizio offre inoltre la possibilità di gestire tutte le API in modo coerente, incluse le app per la logica, di impostare i nomi di dominio personalizzato, usare più metodi di autenticazione e altro ancora, ad esempio:
+R: Sì, gli endpoint HTTP supportano configurazioni più avanzate tramite [ **gestione API**](../api-management/api-management-key-concepts.md). Questo servizio offre inoltre la possibilità di gestire tutte le API in modo coerente, incluse le app per la logica, di impostare i nomi di dominio personalizzato, usare più metodi di autenticazione e altro ancora, ad esempio:
 
 * [Impostare il metodo della richiesta](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
 * [Modificare i segmenti dell'URL della richiesta](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
 * Configurare i domini di Gestione API nel [portale di Azure](https://portal.azure.com/ "portale di Azure")
 * Impostare la norma per verificare l'autenticazione di base
 
-#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>D: Che cosa è cambiato con la migrazione dello schema dall'anteprima del 1 dicembre 2014?
+#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>D: Che cosa è cambiato la migrazione dello schema dalla versione di anteprima 1 dicembre 2014?
 
-R: Di seguito è riportato un riepilogo di queste modifiche:
+R: Ecco un riepilogo di queste modifiche:
 
 | Anteprima del 1 dicembre 2014 | 1 giugno 2016 |
 | --- | --- |

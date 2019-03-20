@@ -5,24 +5,24 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 2/28/2018
 ms.author: mayg
-ms.openlocfilehash: fccc7379794b4b75ff53e517eddd95ff0f7db0e9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 99c7309e22d8ebe61a0a85b38c92bd3027977848
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223783"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013121"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurare il mapping di rete e gli indirizzi IP per reti virtuali
 
-Questo articolo descrive come eseguire il mapping tra due istanze delle reti virtuali di Azure (VNet) di due aree di Azure diverse e come configurare gli indirizzi IP tra le reti. Il mapping della rete assicura che una machina virtuale (VM) replicata sia creata nell’area di destinazione Azure e sia creata nella VNet che è mappata sulla VNet della VM sorgente.
+Questo articolo descrive come eseguire il mapping tra due istanze delle reti virtuali di Azure (VNet) di due aree di Azure diverse e come configurare gli indirizzi IP tra le reti. Mapping di rete fornisce un comportamento predefinito per la selezione della rete di destinazione in base alla rete di origine al momento dell'abilitazione della replica.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima eseguire il mapping di reti, è necessario disporre di [reti virtuali di Azure](../virtual-network/virtual-networks-overview.md) nelle aree di origine e di destinazione di Azure. 
 
-## <a name="set-up-network-mapping"></a>Configurare il mapping di rete
+## <a name="set-up-network-mapping-manually-optional"></a>Configurare manualmente il mapping di rete (facoltativo)
 
 Eseguire il mapping delle reti nel modo seguente:
 
@@ -32,7 +32,7 @@ Eseguire il mapping delle reti nel modo seguente:
 
 3. In **Aggiungi mapping di rete** selezionare le posizioni di origine e di destinazione. In questo esempio, l'origine della macchina virtuale è in esecuzione nell'area dell’Asia orientale e replicata nell'area dell’Asia sudorientale.
 
-    ![Selezionare origine e destinazione ](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+    ![Selezionare origine e destinazione](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 3. Creare ora un mapping di rete nella directory opposta. In questo esempio, l'origine sarà ora Asia sudorientale e la destinazione sarà Asia orientale.
 
     ![Dal riquadro Aggiungi mapping di rete, selezionare i percorsi di origine e di destinazione per la rete di destinazione](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
@@ -44,8 +44,13 @@ Se non è stato preparato il mapping della rete prima di configurare il ripristi
 
 - A seconda della destinazione selezionata, Site Recovery crea automaticamente i mapping di rete dall'origine all'area di destinazione e dalla destinazione all'area di origine.
 - Per impostazione predefinita, Site Recovery crea nell'area di destinazione una rete identica alla rete di origine. Site Recovery aggiunge **-asr** come suffisso al nome della rete di origine. È possibile personalizzare la rete di destinazione.
-- Se il mapping di rete è già stato eseguito, non è possibile modificare la rete virtuale di destinazione durante l'abilitazione della replica. Per modificare la rete virtuale di destinazione, è necessario modificare il mapping di rete esistente.
-- Se si modifica un mapping di rete dall'area A all'area B, assicurarsi di modificare anche il mapping di rete dall'area B all'area A. ]
+- Se il mapping di rete è già verificato per una rete di origine, la rete di destinazione mappata sarà sempre il valore predefinito al momento dell'abilitazione della replica per le altre macchine virtuali. È possibile scegliere di modificare la rete virtuale di destinazione, scegliere altre opzioni disponibili nel menu a discesa. 
+- Per modificare la rete virtuale di destinazione predefinita per nuove repliche, è necessario modificare il mapping di rete esistente.
+- Se si vuole modificare un mapping di rete da un'area all'area B, assicurarsi che è prima di tutto eliminare il mapping di rete dall'area B all'area A. Dopo l'eliminazione di mapping inverso, modificare il mapping di rete da un'area all'area B e quindi creare il mapping inverso pertinente.
+
+>[!NOTE]
+>* Modifica il mapping di rete cambia solo le impostazioni predefinite per nuove repliche della macchina virtuale. Non impedisce le selezioni di rete virtuale di destinazione per le repliche esistenti. 
+>* Se si vuole modificare la rete di destinazione per la replica esistente, passare a calcolo e le impostazioni di rete dell'elemento replicato.
 
 ## <a name="specify-a-subnet"></a>Specificare una subnet
 
@@ -71,6 +76,7 @@ L'indirizzo IP per ogni scheda NIC in una macchina virtuale di destinazione è c
 **Subnet di origine e di destinazione** | **Dettagli**
 --- | ---
 Stesso spazio di indirizzi | L'indirizzo IP della scheda NIC della macchia virtuale di origine è impostato come indirizzo IP della scheda NIC della macchia virtuale di destinazione.<br/><br/> Se lo stesso non è disponibile, verrà impostato come indirizzo IP di destinazione il successivo disponibile.
+
 Spazio di indirizzi diverso<br/><br/> Il successivo indirizzo IP disponibile nella subnet di destinazione viene impostato come indirizzo NIC della macchina virtuale di destinazione.
 
 

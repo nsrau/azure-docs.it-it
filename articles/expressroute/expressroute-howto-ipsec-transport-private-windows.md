@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: fabferri
 ms.custom: seodec18
-ms.openlocfilehash: 39bbe8a0ec11b90d506ce0d1c0bad37ddba46a5d
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.openlocfilehash: d728980517988e2dc39be4e4b64d20157a1aef54
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139121"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121180"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configurare la modalità trasporto IPSec per il peering privato ExpressRoute
 
@@ -103,13 +103,13 @@ Accertarsi che siano soddisfatti i prerequisiti seguenti:
 
 1. Per creare un nuovo oggetto Criteri di gruppo collegato a un'unità organizzativa, aprire lo snap-in Gestione Criteri di gruppo e individuare l'unità organizzativa a cui l'oggetto Criteri di gruppo verrà collegato. Nell'esempio il nome dell'unità organizzativa è **IPSecOU**. 
 
-  [![9]][9]
+   [![9]][9]
 2. Nello snap-in Gestione Criteri di gruppo selezionare l'unità organizzativa e fare clic con il pulsante destro del mouse. Dal menu a discesa scegliere "**Crea un oggetto Criteri di gruppo in questo dominio e crea qui un collegamento**".
 
-  [![10]][10]
+   [![10]][10]
 3. Assegnare all'oggetto Criteri di gruppo un nome intuitivo in modo che sia possibile individuarlo facilmente in seguito. Fare clic su **OK** per creare l'oggetto Criteri di gruppo e il collegamento.
 
-  [![11]][11]
+   [![11]][11]
 
 ## <a name="enablelink"></a>2. Abilitare il collegamento dell'oggetto Criteri di gruppo
 
@@ -118,38 +118,38 @@ Per applicare l'oggetto Criteri di gruppo all'unità organizzativa, non è suffi
 1. Individuare l'oggetto Criteri di gruppo creato, fare clic con pulsante destro del mouse e scegliere **Modifica** dal menu a discesa.
 2. Per applicare l'oggetto Criteri di gruppo all'unità organizzativa, selezionare **Collegamento abilitato**.
 
-  [![12]][12]
+   [![12]][12]
 
 ## <a name="filteraction"></a>3. Definire l'operazione di filtro IP
 
 1. Nell'elenco a discesa fare clic con il pulsante destro del mouse su **Criteri di sicurezza IP su Active Directory** e quindi scegliere **Gestisci elenchi filtri IP e operazioni filtro**.
 
-  [![15]][15]
+   [![15]][15]
 2. Nella scheda "**Gestione operazioni filtro**" fare clic su **Aggiungi**.
 
-  [![16]][16]
+   [![16]][16]
 
 3. Nella pagina **Impostazione guidata operazione filtro sicurezza IP** fare clic su **Avanti**.
 
-  [![17]][17]
+   [![17]][17]
 4. Assegnare all'operazione di filtro un nome intuitivo in modo che sia possibile trovarla in seguito. In questo esempio il nome dell'operazione di filtro è **myEncryption**. È anche possibile aggiungere una descrizione. Quindi fare clic su **Next**.
 
-  [![18]][18]
+   [![18]][18]
 5. L'opzione **Negozia sicurezza** consente di definire il comportamento se non è possibile abilitare IPSec per la comunicazione con un altro computer. Selezionare **Negozia sicurezza** e quindi fare clic su **Avanti**.
 
-  [![19]][19]
+   [![19]][19]
 6. Nella pagina **Comunicazione con computer che non supportano IPSec** selezionare **Non consentire comunicazioni non sicure** e quindi fare clic su **Avanti**.
 
-  [![20]][20]
+   [![20]][20]
 7. Nella pagina **Sicurezza traffico IP** selezionare **Personalizzata** e quindi fare clic su **Impostazioni**.
 
-  [![21]][21]
+   [![21]][21]
 8. Nella pagina **Impostazioni personalizzate metodo di sicurezza** selezionare **Integrità dati con crittografia (ESP): SHA1, 3DES**. Fare quindi clic su **OK**.
 
-  [![22]][22]
+   [![22]][22]
 9. Nella pagina **Gestione operazioni filtro** è possibile vedere che il filtro **myEncryption** è stato aggiunto correttamente. Fare clic su **Close**.
 
-  [![23]][23]
+   [![23]][23]
 
 ## <a name="filterlist1"></a>4. Definire un elenco di filtri IP
 
@@ -157,36 +157,36 @@ Creare un elenco di filtri che specifica il traffico HTTP crittografato destinat
 
 1. Per definire il tipo di traffico che deve essere crittografato, usare un **elenco di filtri IP**. Nella scheda **Gestione elenchi filtri IP** fare clic su **Aggiungi** per aggiungere un nuovo elenco di filtri IP.
 
-  [![24]][24]
+   [![24]][24]
 2. Nel campo **Nome** digitare un nome per l'elenco di filtri IP. Ad esempio, **azure-onpremises-HTTP8080**. Fare quindi clic su **Aggiungi**.
 
-  [![25]][25]
+   [![25]][25]
 3. Nella pagina **Descrizione filtro IP e proprietà Speculare** selezionare **Speculare**. L'impostazione speculare consente di definire una corrispondenza con i pacchetti che viaggiano in entrambe le direzioni, permettendo la comunicazione bidirezionale. Quindi fare clic su **Next**.
 
-  [![26]][26]
+   [![26]][26]
 4. Nella pagina **Origine traffico IP**, nell'elenco a discesa **Indirizzo origine** scegliere **Subnet o indirizzo IP specifico**. 
 
-  [![27]][27]
+   [![27]][27]
 5. Specificare l'indirizzo di origine in **Subnet o indirizzo IP** per il traffico IP e quindi fare clic su **Avanti**.
 
-  [![28]][28]
+   [![28]][28]
 6. Specificare il **Tipo di indirizzo di destinazione:** indirizzo IP o subnet. Quindi fare clic su **Next**.
 
-  [![29]][29]
+   [![29]][29]
 7. Nella pagina **Tipo protocollo IP** selezionare **TCP**. Quindi fare clic su **Next**.
 
-  [![30]][30]
+   [![30]][30]
 8. Nella pagina **Porta protocollo IP** selezionare **Da qualsiasi porta** e **A questa porta**. Digitare **8080** nella casella di testo. Queste impostazioni specificano che solo il traffico HTTP destinato alla porta 8080 verrà crittografato. Quindi fare clic su **Next**.
 
-  [![31]][31]
+   [![31]][31]
 9. Visualizzare l'elenco di filtri IP.  La configurazione dell'elenco di filtri IP **azure-onpremises-HTTP8080** attiva la crittografia per tutto il traffico che soddisfa i criteri seguenti:
 
-  * Qualsiasi indirizzo di origine in 10.0.1.0/24 (Subnet2 Azure)
-  * Qualsiasi indirizzo di destinazione in 10.2.27.0/25 (subnet locale)
-  * Protocollo TCP
-  * Porta di destinazione 8080
+   * Qualsiasi indirizzo di origine in 10.0.1.0/24 (Subnet2 Azure)
+   * Qualsiasi indirizzo di destinazione in 10.2.27.0/25 (subnet locale)
+   * Protocollo TCP
+   * Porta di destinazione 8080
 
-  [![32]][32]
+   [![32]][32]
 
 ## <a name="filterlist2"></a>5. Modificare l'elenco di filtri IP
 
@@ -194,16 +194,16 @@ Per crittografare lo stesso tipo di traffico nella direzione opposta (dall'host 
 
 1. Per aggiungere un nuovo filtro IP all'elenco di filtri IP, selezionare **Modifica**.
 
-  [![33]][33]
+   [![33]][33]
 2. Nella pagina **Elenco filtri IP** fare clic su **Aggiungi**.
 
-  [![34]][34]
+   [![34]][34]
 3. Creare un secondo filtro IP usando le impostazioni nell'esempio seguente:
 
-  [![35]][35]
+   [![35]][35]
 4. Dopo aver creato il secondo filtro IP, l'elenco di filtri IP sarà simile al seguente:
 
-  [![36]][36]
+   [![36]][36]
 
 Se è necessaria la crittografia tra una posizione locale e una subnet di Azure per proteggere un'applicazione, invece di modificare l'elenco di filtri IP esistente è possibile aggiungere un nuovo elenco di filtri IP. L'associazione di due elenchi di filtri IP allo stesso criterio IPSec offre una maggiore flessibilità, perché un elenco di filtri IP specifico può essere modificato o rimosso in qualsiasi momento senza alcun impatto sugli altri elenchi di filtri IP.
 
@@ -213,16 +213,16 @@ Creare un criterio IPSec con regole di sicurezza.
 
 1. Selezionare la voce **Criteri di sicurezza IP su Active Directory** associata all'unità organizzativa. Fare clic con il pulsante destro del mouse e scegliere **Crea criterio di sicurezza IP**.
 
-  [![37]][37]
+   [![37]][37]
 2. Assegnare un nome al criterio di sicurezza. Ad esempio, **policy-azure-onpremises**. Quindi fare clic su **Next**.
 
-  [![38]][38]
+   [![38]][38]
 3. Fare clic su **Avanti** senza selezionare la casella di controllo.
 
-  [![39]][39]
+   [![39]][39]
 4. Verificare che la casella di controllo **Modifica proprietà** sia selezionata e quindi fare clic su **Fine**.
 
-  [![40]][40]
+   [![40]][40]
 
 ## <a name="editipsec"></a>7. Modificare i criteri di sicurezza IPSec
 
@@ -230,34 +230,34 @@ Aggiungere i criteri IPSec all'**elenco di filtri IP** e all'**operazione di fil
 
 1. Nella scheda **Regole** della finestra delle proprietà dei criteri HTTP fare clic su **Aggiungi**.
 
-  [![41]][41]
+   [![41]][41]
 2. Nella pagina di benvenuto fare clic su **Avanti**.
 
-  [![42]][42]
+   [![42]][42]
 3. Una regola consente di definire la modalità IPSec: modalità tunnel o modalità trasporto.
 
-  * In modalità tunnel il pacchetto originale viene incapsulato da un set di intestazioni IP. La modalità tunnel protegge le informazioni di routing interne crittografando l'intestazione IP del pacchetto originale. La modalità tunnel viene spesso implementata tra i gateway in scenari VPN da sito a sito. La modalità tunnel nella maggior parte dei casi viene usata per la crittografia end-to-end tra host.
+   * In modalità tunnel il pacchetto originale viene incapsulato da un set di intestazioni IP. La modalità tunnel protegge le informazioni di routing interne crittografando l'intestazione IP del pacchetto originale. La modalità tunnel viene spesso implementata tra i gateway in scenari VPN da sito a sito. La modalità tunnel nella maggior parte dei casi viene usata per la crittografia end-to-end tra host.
 
-  * La modalità trasporto crittografa solo il payload e il trailer ESP, mentre l'intestazione IP del pacchetto originale non viene crittografata. Nella modalità trasporto, l'origine IP e la destinazione IP dei pacchetti restano invariate.
+   * La modalità trasporto crittografa solo il payload e il trailer ESP, mentre l'intestazione IP del pacchetto originale non viene crittografata. Nella modalità trasporto, l'origine IP e la destinazione IP dei pacchetti restano invariate.
 
-  Selezionare **Questa regola non specifica un tunnel** e quindi fare clic su **Avanti**.
+   Selezionare **Questa regola non specifica un tunnel** e quindi fare clic su **Avanti**.
 
-  [![43]][43]
+   [![43]][43]
 4. **Tipo di rete** definisce la connessione di rete associata ai criteri di sicurezza. Selezionare **Tutte le connessioni di rete** e quindi fare clic su **Avanti**.
 
-  [![44]][44]
+   [![44]][44]
 5. Selezionare l'elenco di filtri IP creato in precedenza, **azure-onpremises-HTTP8080** e quindi fare clic su **Avanti**.
 
-  [![45]][45]
+   [![45]][45]
 6. Selezionare l'operazione di filtro esistente **myEncryption** creata in precedenza.
 
-  [![46]][46]
+   [![46]][46]
 7. Windows supporta quattro diversi tipi di autenticazione: Kerberos, con certificati, NTLMv2 e con chiave precondivisa. Poiché si stanno usando host aggiunti al dominio, selezionare **Impostazione predefinita di Active Directory (protocollo V5 Kerberos)** e quindi fare clic su **Avanti**.
 
-  [![47]][47]
+   [![47]][47]
 8. Il nuovo criterio crea la regola di sicurezza: **azure-onpremises-HTTP8080**. Fare clic su **OK**.
 
-  [![48]][48]
+   [![48]][48]
 
 Il criterio IPSec richiede che tutte le connessioni HTTP sulla porta di destinazione 8080 usino la modalità trasporto IPSec. Poiché HTTP è un protocollo di testo non crittografato, l'abilitazione del criterio di sicurezza garantisce che i dati vengano crittografati quando vengono trasferiti tramite il peering privato ExpressRoute. I criteri di sicurezza IP per Active Directory sono più complessi da configurare rispetto a Windows Firewall con sicurezza avanzata, ma consentono una maggiore personalizzazione della connessione IPSec.
 
@@ -265,11 +265,11 @@ Il criterio IPSec richiede che tutte le connessioni HTTP sulla porta di destinaz
 
 1. Visualizzare il criterio. Il criterio di gruppo di sicurezza è definito ma non ancora assegnato.
 
-  [![49]][49]
+   [![49]][49]
 2. Per assegnare il criterio di gruppo di sicurezza all'unità organizzativa **IPSecOU**, fare clic con il pulsante destro del mouse sul criterio di sicurezza e scegliere **Assegna**.
-Il criterio di gruppo di sicurezza verrà assegnato a ogni computer appartenente all'unità organizzativa.
+   Il criterio di gruppo di sicurezza verrà assegnato a ogni computer appartenente all'unità organizzativa.
 
-  [![50]][50]
+   [![50]][50]
 
 ## <a name="checktraffic"></a>Controllare la crittografia del traffico
 

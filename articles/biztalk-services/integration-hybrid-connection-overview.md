@@ -11,15 +11,15 @@ ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: fa38d0ef3d00bf5fdb886703cd882ec5ba552b95
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 18e65fc51f99aa19162daa3f6e5b9b7012214f64
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234035"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765544"
 ---
 # <a name="hybrid-connections-overview"></a>Panoramica delle connessioni ibride
 
@@ -95,8 +95,8 @@ Le seguenti porte TCP vengono usate dalle connessioni ibride:
 
 ## <a name="see-also"></a>Vedere anche
 [REST API for Managing BizTalk Services on Microsoft Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx) (API REST per la gestione dei servizi BizTalk in Microsoft Azure)  
-[Servizi BizTalk: tabella delle edizioni](biztalk-editions-feature-chart.md)  
+[Servizi BizTalk: Grafico edizioni](biztalk-editions-feature-chart.md)  
 [Creare un servizio BizTalk](biztalk-provision-services.md)  
-[Servizi BizTalk: Schede Dashboard, Monitoraggio, Scalabilità](biztalk-dashboard-monitor-scale-tabs.md)  
+[Servizi BizTalk: Schede dashboard, monitoraggio e scalabilità](biztalk-dashboard-monitor-scale-tabs.md)  
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png

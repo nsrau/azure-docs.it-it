@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: b2330d322c6939ba6d9581c125c512fcea9f924b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 1ea34d69c867d2d14496320f497df2ece5280e0c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242752"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009346"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Come usare il riconoscimento delle entità denominate in Analisi del testo (anteprima)
 
@@ -23,7 +23,7 @@ L'[API di riconoscimento entità denominate](https://westus.dev.cognitive.micros
 
 ## <a name="entity-linking-and-named-entity-recognition"></a>Collegamento di entità e riconoscimento di entità denominate
 
-L'endpoint `entities` di Analisi del testo supporta sia il riconoscimento delle entità denominate (NER) sia il collegamento di entità.
+Il testo Analitica `entities` supporta l'endpoint sia denominate (NER) riconoscimento di entità e collegamento delle entità.
 
 ### <a name="entity-linking"></a>Collegamento delle entità
 Per collegamento delle entità si intende la capacità di identificare senza ambiguità l'identità di un'entità trovata nel testo, ad esempio per determinare se "Marte" viene usato per indicare il pianeta o il dio romano della guerra. Questo processo richiede la presenza di una knowledge base a cui sono collegate le entità riconosciute. Wikipedia è usata come knowledge base per l'endpoint `entities` di Analisi del testo.
@@ -62,8 +62,9 @@ L'uso del collegamento delle entità in varie lingue richiede l'uso di una corri
 | DateTime      | Duration      | "1 minuto e 45 secondi"   | 
 | DateTime      | Configurazione           | "ogni martedì"     | 
 | DateTime      | TimeZone      |    | 
-| URL           | N/D\*         | "http://www.bing.com"    |
+| URL           | N/D\*         | "<https://www.bing.com>"    |
 | Email         | N/D\*         | "support@contoso.com" |
+
 \*A seconda delle entità immesse ed estratte, alcune entità possono omettere `SubType`.
 
 
@@ -74,7 +75,7 @@ L'uso del collegamento delle entità in varie lingue richiede l'uso di una corri
 
 Per le lingue attualmente supportate, vedere [questo elenco](../text-analytics-supported-languages.md).
 
-Le dimensioni dei documenti devono essere inferiori a 5.000 caratteri per documento e si possono avere fino a 1.000 elementi (ID) per ogni raccolta. La raccolta viene inviata nel corpo della richiesta. L'esempio seguente illustra il contenuto che è possibile inviare al collegamento delle entità.
+Le dimensioni dei documenti devono essere inferiori a 5.120 caratteri per documento e ogni raccolta può contenere fino a 1.000 elementi (ID). La raccolta viene inviata nel corpo della richiesta. L'esempio seguente illustra il contenuto che è possibile inviare al collegamento delle entità.
 
 ```
 {"documents": [{"id": "1",

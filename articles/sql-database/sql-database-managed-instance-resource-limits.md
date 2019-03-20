@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: c2cc1b5829f3bb530c01e2bfc3538006bb8663cb
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.date: 02/27/2019
+ms.openlocfilehash: 09ab154494ad3e1276239e36068255c2042358c5
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339312"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223819"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse del database SQL di Azure per le istanze gestite
 
@@ -55,8 +55,8 @@ Istanza gestita ha due livelli di servizio: per utilizzo generico e business cri
 | Quantità massima di risorse di archiviazione per database | Determinata dalla dimensione massima di archiviazione per ogni istanza | Determinata dalla dimensione massima di archiviazione per ogni istanza |
 | Numero massimo di database per istanza | 100 | 100 |
 | Numero massimo di file di database per istanza | Fino a 280 | 32.767 file per ogni database |
-| Dati/Log di IOPS (approssimativi) | 500 - 7.500 per file<br/>\*[In base alle dimensioni del file di dati](https://docs.microsoft.com/azure/virtual-machines).| 11 K - 110 K (1.375 per vCore) |
-|Velocità effettiva di log | 22 MB/s per ogni istanza | 3 MB/s per ogni vCore<br/>Max 48 MB/s |
+| Dati/Log di IOPS (approssimativi) | 500 - 7.500 per file<br/>\*[In base alle dimensioni del file di dati](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes).| 11 K - 110 K (1.375 per vCore) |
+| Velocità effettiva di log | 22 MB/s per ogni istanza | 3 MB/s per ogni vCore<br/>Numero massimo 48 MB/s per ogni istanza|
 | Dati effettivi (approssimativi) | 100 - 250 MB/s per ogni file<br/>\*[In base alle dimensioni del file di dati](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes). | 24 - 48 MB/s per ogni vCore |
 | Latenza di I/O (approssimativa) | 5-10 ms | 1-2 ms |
 | Dimensioni max di tempDB | 192 - 1.920 GB (24 GB per vCore) | Nessun vincolo; limitato dalla dimensione massima di archiviazione dell'istanza |
@@ -90,6 +90,9 @@ I tipi di sottoscrizioni supportati possono contenere un numero limitato di riso
 - **Limite di subnet**: numero massimo di subnet in cui vengono distribuite le istanze gestite in una singola area.
 - **Limite del numero di istanze**: numero massimo di istanze che possono essere distribuite in una singola area.
 
+> [!Note]
+> Questi limiti sono le impostazioni predefinite e limiti tecnici non. I limiti possono essere maggiori su richiesta tramite la creazione di speciali [richiesta di supporto nel portale di Azure](#obtaining-a-larger-quota-for-sql-managed-instance) se sono necessarie altre istanze gestite nell'area corrente. In alternativa, è possibile creare nuove istanze gestite in un'altra area di Azure senza inviare richieste di supporto.
+
 La tabella seguente indica i limiti predefiniti a livello di area per le sottoscrizioni supportate:
 
 |Tipo di sottoscrizione| Numero massimo di subnet dell'istanza gestita | Numero massimo di istanze |Numero massimo di istanze gestite GP*|Numero massimo di istanze gestite BC*|
@@ -104,7 +107,7 @@ La tabella seguente indica i limiti predefiniti a livello di area per le sottosc
 
 ** Viene applicato il numero massimo di istanze in un livello di servizio se non sono presenti istanze in un altro livello di servizio. Se si prevede di combinare istanze per utilizzo generico e business critical nella stessa subnet, usare la sezione seguente come riferimento per le combinazioni consentite. Il numero totale di subnet non può essere superiore a 3 e il numero totale di unità di istanza non può essere superiore a 12.
 
-Questi limiti possono essere aumentati creando speciali [richieste di supporto nel portale di Azure](#obtaining-a-larger-quota-for-sql-managed-instance), se servono più istanze gestite nell'area corrente. In alternativa, è possibile creare nuove istanze gestite in un'altra area di Azure senza inviare richieste di supporto.
+
 
 > [!IMPORTANT]
 > Durante la pianificazione delle distribuzioni, tenere presente che un'istanza business critical (BC) (a causa della maggiore ridondanza) generalmente consuma 4 volte la capacità di un'istanza per utilizzo generico (GP). Quindi, ai fini dei calcoli, 1 istanza per utilizzo generico = 1 unità di istanza e 1 istanza business critical = 4 unità di istanza. Per semplificare l'analisi del consumo in base ai limiti predefiniti, riepilogare le unità di istanza in tutte le subnet nell'area in cui vengono distribuite istanze gestite e confrontare i risultati con i limiti di unità di istanza per il tipo di sottoscrizione.

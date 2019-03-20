@@ -3,8 +3,8 @@ title: File di inclusione
 description: File di inclusione
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -12,14 +12,14 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/19/2018
-ms.author: andret
+ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: d3f2efc0ae3dcf9bdcae3f82258b28b761944487
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 4c4870dc0f5a423288e6cb561b985501414e8525
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988535"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203633"
 ---
 ## <a name="test-your-code"></a>Testare il codice
 
@@ -80,20 +80,20 @@ Per impostazione predefinita, quando viene compilata l'applicazione creata con l
 
 Per limitare l'accesso degli utenti all'applicazione, sono disponibili diverse opzioni:
 
-#### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>Opzione 1: limitare l'accesso all'applicazione solo agli utenti di una specifica istanza di Active Directory dell'organizzazione (tenant singolo)
+#### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>Opzione 1: Limitare l'accesso all'applicazione solo agli utenti di una specifica istanza di Active Directory dell'organizzazione (tenant singolo)
 
-Questa opzione è uno scenario comune per *applicazioni line-of-business*: se si vuole che l'applicazione accetti gli accessi solo da account appartenenti a una specifica istanza di Azure Active Directory (inclusi gli *account Guest*dell'istanza), procedere come segue:
+Questa opzione è uno scenario comune per *applicazioni LOB*: Se si desidera che l'applicazione accetti accessi solo da account appartenenti a una specifica istanza di Azure Active Directory (inclusi *gli account guest* di quell'istanza) eseguire le operazioni seguenti:
 
 1. Nel file **web.config**, modificare il valore del parametro `Tenant` da `Common` con il nome del tenant dell'organizzazione, ad esempio `contoso.onmicrosoft.com`.
 2. Nella [classe OWIN Startup](#configure-the-authentication-pipeline) impostare l'argomento `ValidateIssuer` su `true`.
 
-#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>Opzione 2: limitare l'accesso all'applicazione ai soli utenti contenuti in un elenco specifico di organizzazioni
+#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>Opzione 2: Limitare l'accesso all'applicazione agli utenti in un elenco specifico di organizzazioni
 
 È possibile limitare l'accesso ai soli account utente inclusi in un'organizzazione di Azure AD che fa parte dell'elenco di organizzazioni consentite:
 1. Nella [classe OWIN Startup](#configure-the-authentication-pipeline) impostare l'argomento `ValidateIssuer` su `true`.
 2. Impostare il valore del parametro `ValidIssuers` sull'elenco di organizzazioni consentite.
 
-#### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Opzione 3: usare un metodo personalizzato per convalidare le autorità di certificazione
+#### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Opzione 3: Usare un metodo personalizzato per convalidare le autorità di certificazione
 
 È possibile implementare un metodo personalizzato per convalidare le autorità di certificazione usando il parametro **IssuerValidator**. Per altre informazioni su come usare questo parametro, vedere [TokenValidationParameters class](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) (Classe TokenValidationParameters) su MSDN.
 

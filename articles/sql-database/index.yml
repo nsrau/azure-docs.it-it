@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: ba32f17ac596a21614c1e18a01f622defb069a8e
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: dad3d16ad6d630bd57e6e5d196d16d45692935d9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338417"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58167967"
 documentType: LandingData
 title: Documentazione sul database SQL di Azure
 metadata:
@@ -65,7 +65,7 @@ sections:
         src: media/index/i_elasticpool.svg
       title: Pool elastici
     - href: /azure/sql-database/sql-database-managed-instance-index
-      html: <p>Usare l'istanza gestita per eseguire in modo semplice la migrazione dei database locali nel servizio database completamente gestito di Azure PaaS senza modifiche del codice del database oppure con modifiche minime.</p>
+      html: <p>Usare Istanza gestita per ottenere un'istanza del motore di database di SQL Server completamente gestita ospitata nel cloud di Azure, apportando modifiche minime o addirittura nessuna modifica al codice del database per la migrazione da database locali.</p>
       image:
         src: media/index/i_mi.svg
       title: Istanza gestita
@@ -129,7 +129,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Iniziare a usare un <a href="/azure/sql-database/sql-database-single-database-quickstart-guide">database singleton</a> e <a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">Istanza gestita</a> usando le guide introduttive.
+    - html: Guide introduttive per iniziare a usare un <a href="/azure/sql-database/sql-database-single-database-quickstart-guide">database singolo</a> e un'<a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">istanza gestita</a>.
     - html: Creare e progettare lo schema di un nuovo database singolo con <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> o <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
     - html: Eseguire la migrazione di un database esistente ad Azure usando un <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">file di backup di SQL Server nativo</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Database Migration Assistant</a> oppure <a href="/azure/sql-database/sql-database-import">importando un file BACPAC</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Proteggere il database SQL</a>

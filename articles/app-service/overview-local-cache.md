@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ea17db9af92887ff775e580224b66fed22c65d41
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 1d6e233509b50f0b03678f2e62267169d02133a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963863"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990774"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Panoramica della cache locale del servizio app di Azure
 
@@ -35,7 +35,7 @@ Il contenuto del Servizio app di Azure viene memorizzato in Archiviazione di Azu
 * Il contenuto è condiviso tra più istanze di macchina virtuale (VM) dell'app.
 * Il contenuto è permanente e può essere modificato dalle app in esecuzione.
 * I file di log e file dei dati di diagnostica sono disponibili nella stessa cartella del contenuto condivisa.
-* La pubblicazione di nuovo contenuto aggiorna direttamente la cartella del contenuto. È possibile visualizzare immediatamente il contenuto stesso tramite il sito Web di Gestione controllo servizi e l'app in esecuzione (alcune tecnologie, ad esempio ASP.NET, in genere eseguono il riavvio dell'app quando vengono apportate modifiche ai file per ottenere il contenuto più recente).
+* La pubblicazione di nuovo contenuto aggiorna direttamente la cartella del contenuto. È possibile visualizzare immediatamente il contenuto stesso tramite il sito Web di Gestione controllo servizi e l'esecuzione dell'applicazione (in genere alcune tecnologie quali ASP.NET avvia un riavvio dell'app su alcune modifiche ai file per ottenere il contenuto più recente).
 
 Mentre molte app usano una o tutte queste funzionalità, alcune richiedono solo un archivio del contenuto di sola lettura ad alte prestazioni da cui poterle eseguire con disponibilità elevata. Queste applicazioni possono trarre vantaggio da un'istanza di VM di una cache locale specifica.
 

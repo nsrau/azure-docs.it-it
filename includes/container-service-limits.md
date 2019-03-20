@@ -8,21 +8,21 @@ ms.topic: include
 ms.date: 10/11/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 23c25953d2f493d2dd799bfd11dbbb69db002d1b
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 62eb75ef18d3ac81be65783e57c21c0aefd7a429
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736256"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554732"
 ---
 | Risorsa | Limite predefinito |
 | --- | :--- |
-| Numero massimo cluster per sottoscrizione | 100 |
-| Numero massimo nodi per cluster | 100 |
-| Numero massimo di pod per nodo: [rete di base][basic-networking] con Kubenet | 110 |
-| Numero massimo di pod per nodo: [rete avanzata ][advanced-networking] con Azure CNI | Distribuzione con l'interfaccia della riga di comando di Azure: 30<sup>1</sup><br />Modello di Resource Manager: 30<sup>1</sup><br />Distribuzione con il portale: 30 |
+| Numero massimo cluster per ogni sottoscrizione | 100 |
+| Numero massimo di nodi al cluster | 100 |
+| Numero massimo POD per ogni nodo: [rete di base][basic-networking] con Kubenet | 110 |
+| Numero massimo POD per ogni nodo: [Advanced networking] [ advanced-networking] con interfaccia di rete di contenitori di Azure | Distribuzione con l'interfaccia della riga di comando di Azure: 30<sup>1</sup><br />Modello di Azure Resource Manager: 30<sup>1</sup><br />Distribuzione con il portale: 30 |
 
-<sup>1</sup> Quando si distribuisce un cluster servizio Azure Kubernetes con l'interfaccia della riga di comando di Azure o con un modello di Resource Manager, è possibile configurare questo valore fino a un massimo di **110 pod per nodo**. Dopo che un cluster servizio Azure Kubernetes è stato distribuito o se si distribuisce un cluster usando il portale di Azure, non è possibile configurare il numero massimo di pod per nodo.<br />
+<sup>1</sup>quando si distribuisce un cluster Azure Kubernetes Service (AKS) con la CLI di Azure o un modello di Resource Manager, questo valore è configurabile fino a 110 POD per ogni nodo. Dopo che è già stato distribuito un cluster AKS, o se si distribuisce un cluster usando il portale di Azure, è possibile configurare il numero massimo POD per ogni nodo.<br />
 
 <!-- LINKS - Internal -->
 [basic-networking]: ../articles/aks/concepts-network.md#kubenet-basic-networking

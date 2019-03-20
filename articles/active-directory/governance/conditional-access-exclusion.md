@@ -1,6 +1,6 @@
 ---
 title: Usare le verifiche di accesso di Azure AD per gestire gli utenti esclusi dai criteri di accesso condizionale | Microsoft Docs
-description: Usare le verifiche di accesso di Azure Active Directory (Azure AD) per gestire gli utenti esclusi dai criteri di accesso condizionale
+description: Informazioni su come usare le verifiche di accesso di Azure Active Directory (Azure AD) per gestire gli utenti che sono stati esclusi dai criteri di accesso condizionale
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a82fdfe598e11415130950443fb0d3e27f5d9d01
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a197a6c27b337d7aa97667dc07b1059e82050549
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168541"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892720"
 ---
-# <a name="use-azure-ad-access-reviews-to-manage-users-that-have-been-excluded-from-conditional-access-policies"></a>Usare le verifiche di accesso di Azure AD per gestire gli utenti esclusi dai criteri di accesso condizionale
+# <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Usare le verifiche di accesso di Azure AD per gestire gli utenti esclusi dai criteri di accesso condizionale
 
-In una situazione ideale, tutti gli utenti seguono gli stessi criteri di accesso per proteggere l'accesso alle risorse dell'organizzazione. Esistono tuttavia casi aziendali che richiedono di introdurre eccezioni. Questo articolo descrive alcuni esempi in cui potrebbero essere necessarie delle esclusioni e come può l'amministratore IT gestire questa esigenza, evitare sviste nelle eccezioni dei criteri e offrire ai revisori una prova della revisione regolare di tali eccezioni tramite le verifiche di accesso di Azure Active Directory (Azure AD).
+In una situazione ideale, tutti gli utenti seguono gli stessi criteri di accesso per proteggere l'accesso alle risorse dell'organizzazione. Esistono tuttavia casi aziendali che richiedono di introdurre eccezioni. Questo articolo vengono descritti alcuni esempi in cui le esclusioni potrebbero essere necessarie se e come è, l'amministratore IT può gestire questa attività, evitare supervisione delle eccezioni dei criteri e avere a disposizione i revisori come prova che queste eccezioni vengono esaminate regolarmente con Azure Verifiche di accesso di Active Directory (Azure AD).
 
 > [!NOTE]
 > Per usare le verifiche di accesso di Azure AD è necessaria una licenza di valutazione o una licenza a pagamento Azure Premium P2 o Enterprise Mobility + Security E5 valida. Per altre informazioni, vedere [Edizioni di Azure Active Directory](../fundamentals/active-directory-whatis.md).
@@ -102,7 +102,7 @@ Di seguito verranno illustrati due esempi in cui è possibile usare le verifiche
 Si supponga che esistano criteri di accesso condizionale per bloccare l'accesso da determinati paesi. I criteri includono un gruppo escluso dai criteri. Ecco una verifica di accesso consigliata per controllare i membri del gruppo.
 
 > [!NOTE]
-> È richiesto il ruolo Amministratore globale o Amministratore account utente per creare le verifiche di accesso.
+> Un amministratore globale o un ruolo utente amministratore deve creare verifiche di accesso.
 
 1. La verifica verrà eseguita ogni settimana.
 
@@ -158,5 +158,5 @@ Gli amministratori IT sanno che gestire gruppi di esclusione per i criteri è ta
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare una verifica di accesso dei membri del gruppo o dell'accesso all'applicazione con Azure AD](create-access-review.md)
+- [Creare una verifica di accesso di gruppi o applicazioni](create-access-review.md)
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)

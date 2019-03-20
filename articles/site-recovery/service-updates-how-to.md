@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: 67fe5da86b4736daa43a85a7a1a077c329732b60
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 36d0a976b73fe5b6f89755ce790b919468744179
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890461"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091648"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Aggiornamenti del servizio in Azure Site Recovery
 Un'organizzazione deve sapere come si intende proteggere i dati e preservare l'esecuzione di applicazioni e carichi di lavoro quando si verificano interruzioni pianificate e impreviste. Azure Site Recovery contribuisce al buon esito della strategia di continuità aziendale e ripristino di emergenza (BCDR) mantenendo le app in esecuzione nelle macchine virtuali e nei server fisici disponibili in caso di arresto di un sito. Site Recovery replica i carichi di lavoro in esecuzione in macchine virtuali e server fisici in modo che rimangano disponibili in una posizione secondaria se il sito primario non è raggiungibile. Ripristina i carichi di lavoro nel sito primario quando è di nuovo attivo.
@@ -108,7 +108,7 @@ Prima di procedere con gli aggiornamenti, vedere la [dichiarazione relativa al s
 È consigliabile eseguire un riavvio dopo ogni aggiornamento dell'agente di Mobility per essere certi che tutte le modifiche più recenti vengano caricate nella macchina di origine. È tuttavia **non obbligatorio**. Se la differenza tra la versione dell'agente durante l'ultimo riavvio e la versione corrente è superiore a 4, è obbligatorio eseguire un riavvio. Per una spiegazione dettagliata, fare riferimento alla tabella seguente.
 
 |**Versione dell'agente durante l'ultimo riavvio** | **Aggiornamento a** | **Il riavvio è obbligatorio?**|
-|---------|---------|---------|--------|
+|---------|---------|---------|
 |9.16 |  9.18 | Non obbligatorio|
 |9.16 | 9.19 | Non obbligatorio|
 | 9.16 | 9.20 | Non obbligatorio

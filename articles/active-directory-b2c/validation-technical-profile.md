@@ -1,6 +1,6 @@
 ---
 title: Definire un profilo tecnico di convalida in un criterio personalizzato di Azure Active Directory B2C | Microsoft Docs
-description: Definire un profilo tecnico di Azure Active Directory in un criterio personalizzato di Azure Active Directory B2C.
+description: Definire un profilo tecnico di Azure Active Directory in un criterio personalizzato in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 220a95f1bc95a8866a459eb878047e7f47920bd1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 3172354752e2c6a1a7368b297e3cc6e763cd2fcb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175095"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900574"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di convalida in un criterio personalizzato di Azure Active Directory B2C
 
@@ -49,10 +49,10 @@ L'elemento **ValidationTechnicalProfiles** contiene gli elementi seguenti:
 
 L'elemento **ValidationTechnicalProfile** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| ReferenceId | Yes | Identificatore di un profilo tecnico già definito nei criteri o nei criteri padre. |
-|ContinueOnError|No | Indica se la convalida di tutti i profili tecnici successivi deve continuare nel caso in cui il profilo tecnico di convalida corrente generi un errore. Valori possibili: `true` o `false` (valore predefinito, l'elaborazione di ulteriori profili di convalida verrà arrestata e verrà restituito un errore). |
+| ReferenceId | Sì | Identificatore di un profilo tecnico già definito nei criteri o nei criteri padre. |
+|ContinueOnError|No | Che indica se la convalida di tutti i profili tecnici convalida successiva deve continuare se questo profilo tecnico convalida genera un errore. Valori possibili: `true` o `false` (valore predefinito, l'elaborazione di ulteriori profili di convalida verrà arrestata e verrà restituito un errore). |
 |ContinueOnSuccess | No  | Indica se la convalida di tutti i profili tecnici successivi deve continuare nel caso in cui il profilo tecnico di convalida corrente abbia esito positivo. I valori possibili sono: `true` o `false`. Il valore predefinito è `true`, che significa che continuerà l'elaborazione di ulteriori profili di convalida. |
 
 L'elemento **ValidationTechnicalProfile** contiene l'elemento seguente:
@@ -63,10 +63,10 @@ L'elemento **ValidationTechnicalProfile** contiene l'elemento seguente:
 
 L'elemento **Precondition** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| Type | Yes | Tipo di controllo o query da eseguire per la precondizione. Il valore specificato può essere `ClaimsExist`, a indicare che le azioni devono essere eseguite se le attestazioni specificate esistono nel set di attestazioni corrente dell'utente, oppure `ClaimEquals`, a indicare che le azioni devono essere eseguite se l'attestazione specificata esiste e il relativo valore corrisponde al valore specificato. |
-| ExecuteActionsIf | Yes | Indica se le azioni incluse nella precondizione devono essere eseguite nel caso in cui il test sia true o false. |
+| Type | Sì | Tipo di controllo o query da eseguire per la precondizione. Il valore specificato può essere `ClaimsExist`, a indicare che le azioni devono essere eseguite se le attestazioni specificate esistono nel set di attestazioni corrente dell'utente, oppure `ClaimEquals`, a indicare che le azioni devono essere eseguite se l'attestazione specificata esiste e il relativo valore corrisponde al valore specificato. |
+| ExecuteActionsIf | Sì | Indica se le azioni incluse nella precondizione devono essere eseguite nel caso in cui il test sia true o false. |
 
 L'elemento **Precondition** contiene gli elementi seguenti:
 

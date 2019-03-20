@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: bb1616c7cbf5c9c4620aed3e31896e32fe0163f9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 6d11961f06a75341e633c7a8963e6b83ed37cf13
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606215"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076735"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Supporto per metadati OpenAPI 2.0 in Funzioni di Azure (anteprima)
 Il supporto per metadati OpenAPI 2.0 (in precedenza Swagger) in Funzioni di Azure è una funzionalità di anteprima che consente di scrivere una definizione di OpenAPI 2.0 all'interno di un'app per le funzioni. Con l'app per le funzioni è poi possibile ospitare quel file.
@@ -72,9 +72,9 @@ La tabella seguente include le impostazioni del portale di Azure e i dati corris
  È necessario abilitare l'hosting di definizione dell'API nel portale prima di attivare il controllo del codice sorgente per modificare la definizione dal codice sorgente. Seguire queste istruzioni:
 
 1. Passare a **Definizione API (anteprima)** nelle impostazioni dell'app per le funzioni.
-  1. Impostare **Origine della definizione dell'API** su **Funzione**.
-  1. Fare clic su **Genera modello di definizione dell'API** e su **Salva** per creare una definizione del modello da modificare in un secondo momento.
-  1. Prendere nota dell'URL di definizione dell'API e della chiave.
+   1. Impostare **Origine della definizione dell'API** su **Funzione**.
+   1. Fare clic su **Genera modello di definizione dell'API** e su **Salva** per creare una definizione del modello da modificare in un secondo momento.
+   1. Prendere nota dell'URL di definizione dell'API e della chiave.
 1. [Impostare l'integrazione continuata e la distribuzione continua (CI/CD)](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#continuous-deployment-requirements).
 2. Modificare il file swagger.json nel controllo del codice sorgente in \site\wwwroot\.azurefunctions\swagger\swagger.json.
 

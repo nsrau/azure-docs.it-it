@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 46d51e787a388f0963788c6419a2d9e3af89bc4f
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 6f064bb875786fc50073ab4216bc1c52ace294bf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456657"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113266"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Domande frequenti su SQL Server in esecuzione in macchine virtuali Windows in Azure
 
@@ -82,7 +82,7 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
 1. **È necessario pagare la licenza di SQL Server in una VM di Azure se viene utilizzata solo per standby/failover?**
 
-   Se è disponibile Software Assurance e si usa la mobilità delle licenze come descritto in Domande frequenti sulle licenze di Macchine virtuali (https://azure.microsoft.com/pricing/licensing-faq/)), non è necessario pagare la licenza per un’istanza di SQL Server che funge da replica secondaria passiva in una distribuzione a disponibilità elevata. In caso contrario, è necessario pagare la licenza.
+   Se si dispone di Software Assurance e si usa la mobilità delle licenze come descritto in [domande frequenti sulle licenze di macchine virtuali](https://azure.microsoft.com/pricing/licensing-faq/), quindi non devi pagare per concedere in licenza a un'istanza di SQL Server che funge da replica secondaria passiva in una distribuzione a disponibilità elevata. In caso contrario, è necessario pagare la licenza.
 
 1. **È possibile modificare una VM per l'uso di una licenza di SQL Server, se è stata creata da una delle immagini della raccolta con pagamento in base al consumo?**
 
@@ -111,31 +111,40 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
  
    Sì. Tutti i clienti possono registrarsi al nuovo provider di risorse di macchine virtuali SQL. Tuttavia, solo i clienti con il vantaggio Software Assurance possono attivare [Vantaggio Azure Hybrid (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (o BYOL) in una macchina virtuale SQL Server. 
 
-1. **Cosa accade alla risorsa  _* Microsoft.SqlVirtualMachine_* se la risorsa della macchina virtuale viene spostata o eliminata?** 
+1. **Cosa accade per i _Microsoft.SqlVirtualMachine_ risorsa se la risorsa di macchina virtuale è stata spostata o eliminata?** 
 
    Quando la risorsa Microsoft.Compute/VirtualMachine viene eliminata o spostata, alla risorsa Microsoft.SqlVirtualMachine associata viene notificata la necessità di replicare in modo asincrono l'operazione.
 
-1. **Cosa accade alla macchina virtuale se la risorsa  _* Microsoft.SqlVirtualMachine_* viene eliminata?**
+1. **Cosa accade alla macchina virtuale se la _Microsoft.SqlVirtualMachine_ risorsa viene eliminata?**
 
-   Quando viene eliminata la risorsa Microsoft.SqlVirtualMachine, la risorsa Microsoft.Compute/VirtualMachine non è compromessa. Tuttavia, le modifiche della licenza verranno riportate all’immagine originale. 
+    Quando viene eliminata la risorsa Microsoft.SqlVirtualMachine, la risorsa Microsoft.Compute/VirtualMachine non è compromessa. Tuttavia, le modifiche della licenza verranno riportate all’immagine originale. 
 
 1. **È possibile registrare macchine virtuali SQL Server distribuite autonomamente con il provider di risorse di macchine virtuali SQL?**
 
-   Sì. Se SQL Server è stato distribuito dal proprio supporto e l'estensione di SQL IaaS è stata installata, è possibile registrare la macchina virtuale di SQL Server sul provider di risorse per migliorare la gestione con l’estensione IaaS di SQL. Non è però possibile convertire una macchina virtuale SQL distribuita autonomamente al pagamento in base al consumo.  
+    Sì. Se SQL Server è stato distribuito dal proprio supporto e l'estensione di SQL IaaS è stata installata, è possibile registrare la macchina virtuale di SQL Server sul provider di risorse per migliorare la gestione con l’estensione IaaS di SQL. Non è però possibile convertire una macchina virtuale SQL distribuita autonomamente al pagamento in base al consumo.
 
 ## <a name="administration"></a>Administration
 
 1. **È possibile installare una seconda istanza di SQL Server nella stessa VM? È possibile modificare le funzionalità installate nell'istanza predefinita?**
 
-   Sì. Il supporto di installazione di SQL Server si trova in una cartella nell'unità **C** . Eseguire **Setup.exe** da tale percorso per aggiungere nuove istanze di SQL Server o per modificare altre funzionalità di SQL Server installate nella macchina virtuale. Si noti che alcune funzionalità, ad esempio Backup automatizzato, Applicazione automatica delle patch e Integrazione di Azure Key Vault, funzionano solo nell'istanza predefinita.
+   Sì. Il supporto di installazione di SQL Server si trova in una cartella nell'unità **C** . Eseguire **Setup.exe** da tale percorso per aggiungere nuove istanze di SQL Server o per modificare altre funzionalità di SQL Server installate nella macchina virtuale. Si noti che alcune funzionalità, ad esempio Backup automatizzato, applicazione automatica delle patch e integrazione di Azure Key Vault, funzionano solo nell'istanza predefinita o istanza una denominata che è stato configurato correttamente (vedere domanda 3). 
 
 1. **È possibile disinstallare l'istanza predefinita di SQL Server?**
 
-   Sì, ma ci sono alcune considerazioni di cui tenere conto. Come indicato nella risposta precedente, le funzionalità che si basano sull'[estensione SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md) funzionano solo nell'istanza predefinita. Se si disinstalla l'istanza predefinita, l'estensione continua a cercarla e può generare errori del log eventi. Questi errori provengono dalle due origini seguenti: **Microsoft SQL Server Credential Management** e **Microsoft SQL Server IaaS Agent**. Uno degli errori potrebbe essere simile al seguente:
+   Sì, ma ci sono alcune considerazioni di cui tenere conto. Come indicato nella risposta precedente, sono disponibili funzionalità da cui dipendono le [estensione di SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md).  Se si disinstalla l'istanza predefinita senza rimuovere l'estensione IaaS, inoltre, l'estensione continua a cercarla e può generare errori nel log eventi. Questi errori provengono dalle due origini seguenti: **Microsoft SQL Server Credential Management** e **Microsoft SQL Server IaaS Agent**. Uno degli errori potrebbe essere simile al seguente:
 
       Si è verificato un errore di rete o specifico dell'istanza mentre veniva stabilita la connessione a SQL Server. Il server non è stato trovato o non è accessibile.
 
    Se si decide di disinstallare l'istanza predefinita, disinstallare anche l'[estensione SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md).
+
+1. **È possibile usare un'istanza denominata di SQL Server con l'estensione IaaS**?
+   
+   Sì, se l'istanza denominata è l'unica istanza in SQL Server e se l'istanza predefinita originale è stato disinstallato correttamente. Per usare un'istanza denominata, eseguire le operazioni seguenti:
+    1. Distribuire una VM di SQL Server dal marketplace. 
+    1. Disinstallare l'estensione IaaS.
+    1. Disinstallare completamente SQL Server.
+    1. Installare SQL Server con un'istanza denominata. 
+    1. Installare l'estensione IaaS. 
 
 1. **È possibile rimuovere completamente SQL Server da una VM di SQL?**
 
@@ -143,9 +152,9 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
    
 ## <a name="updating-and-patching"></a>Aggiornamento e applicazione di patch
 
-1. **Come si esegue l'aggiornamento a una nuova versione o a una nuova edizione di SQL Server in una VM di Azure?**
+1. **Come si modifica a una nuova versione/edizione di SQL Server in una VM di Azure?**
 
-   Attualmente non è disponibile alcun aggiornamento sul posto per SQL Server in esecuzione in una VM di Azure. Creare una nuova macchina virtuale di Azure con la versione o l'edizione di SQL Server voluta, quindi eseguire la migrazione dei database nel nuovo server tramite [tecniche di migrazione dati](virtual-machines-windows-migrate-sql.md) standard.
+   I clienti con Software Assurance sono in grado di aggiornamenti sul posto di SQL Server in esecuzione in una VM di Azure usando il supporto di installazione nel portale di gestione delle licenze di Volume. Tuttavia, attualmente, non alcuna possibilità di modificare l'edizione di un'istanza di SQL Server. Creare una nuova macchina virtuale di Azure con l'edizione di SQL Server desiderata e quindi eseguire la migrazione dei database nel nuovo server usando standard [tecniche di migrazione dati](virtual-machines-windows-migrate-sql.md).
 
 1. **Come si applicano gli aggiornamenti e i Service Pack a una VM di SQL Server?**
 

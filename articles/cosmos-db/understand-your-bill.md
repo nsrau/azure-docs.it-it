@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 5c3da9a69204d7229ddcbbf39ec389684258e389
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 9411cc42f2fbc12348b4d841174edbe75c584247
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470689"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890560"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Informazioni sulla fattura di Azure Cosmos DB
 
@@ -122,7 +122,7 @@ Si supponga di creare un contenitore Azure Cosmos negli Stati Uniti occidentali.
 
 Si consideri l'esempio seguente, un account di Azure Cosmos multiarea in cui tutte le aree sono scrivibili (configurazione multimaster). Per semplicità, si suppone che le dimensioni delle risorse di archiviazione rimangano costanti e non cambino. Nel corso del mese, la velocità effettiva di cui è stato effettuato il provisioning è variata nel modo seguente (presupponendo 30 giorni o 720 ore): 
 
-[0-100 ore]:  
+[0-100 ore]  
 
 * È stato creato un account di Azure Cosmos per tre aree (Stati Uniti occidentali, Stati Uniti orientali, Europa settentrionale), in cui tutte le aree sono scrivibili 
 
@@ -132,7 +132,7 @@ Si consideri l'esempio seguente, un account di Azure Cosmos multiarea in cui tut
 
 * È stato creato un contenitore (C1) con 20 K UR/sec di velocità effettiva dedicata 
 
-[101-200 ore]:  
+[101-200 ore]  
 
 * Il database (D1) è stato aumentato a 50 K UR/sec 
 
@@ -140,11 +140,11 @@ Si consideri l'esempio seguente, un account di Azure Cosmos multiarea in cui tut
 
 * Il contenitore (C1) è stato eliminato  
 
-[201-300 ore]:  
+[201-300 ore]  
 
 * È stato creato di nuovo il contenitore (C1) con 20 K UR/sec di velocità effettiva dedicata 
 
-[301-400 ore]:  
+[301-400 ore]  
 
 * È stata rimossa una delle aree dall'account di Azure Cosmos (il numero di aree scrivibili ora è 2) 
 
@@ -154,13 +154,13 @@ Si consideri l'esempio seguente, un account di Azure Cosmos multiarea in cui tut
 
 * Il contenitore (C1) è stato eliminato di nuovo 
 
-[401-500 ore]:  
+[401-500 ore]  
 
 * Il database (D2) è stato ridotto a 10 K UR/sec  
 
 * È stato creato di nuovo il contenitore (C1) con 20 K UR/sec di velocità effettiva dedicata 
 
-[501-700 ore]:  
+[501-700 ore]  
 
 * Il database (D1) è stato aumentato a 20 K UR/sec  
 
@@ -168,7 +168,7 @@ Si consideri l'esempio seguente, un account di Azure Cosmos multiarea in cui tut
 
 * Il contenitore (C1) è stato eliminato di nuovo  
 
-[701-720 ore]:  
+[701-720 ore]  
 
 * Il database (D2) è stato ridotto a 50 K UR/sec  
 
@@ -184,7 +184,7 @@ La fattura mensile totale (presupponendo 30 giorni/720 ore al mese) verrà calco
 | | |Fattura per la velocità effettiva per 2 aree aggiuntive: Stati Uniti orientali, Europa settentrionale (tutte le aree sono scrivibili)  |`(2 + 1) * (60 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$ 2.880  |
 |[101-200] |D1: 50 K <br/>D2: 70 K <br/>C1: -- |Fattura per la velocità effettiva per un contenitore negli Stati Uniti occidentali (operazioni di scrittura in tutte le aree)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` |$ 1920  |
 | | |Fattura per la velocità effettiva per 2 aree aggiuntive: Stati Uniti orientali, Europa settentrionale (tutte le aree sono scrivibili)  |`(2 + 1) * (120 K RU/sec /100 * $0.016) * 100 hours = $5,760`  |$ 5.760  |
-|[201-300]  |D1: 50 K <br/>D2: 70 K <br/>C1: 20 K |Fattura per la velocità effettiva per un contenitore negli Stati Uniti occidentali (operazioni di scrittura in tutte le aree)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` <br/>'C1: 20 K UR/sec/100 * $ 0,016 * 100 ore = $ 320 |$ 2240'  |
+|[201-300]  |D1: 50 K <br/>D2: 70 K <br/>C1: 20 K |Fattura per la velocità effettiva per un contenitore negli Stati Uniti occidentali (operazioni di scrittura in tutte le aree)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$2,240  |
 | | |Fattura per la velocità effettiva per 2 aree aggiuntive: Stati Uniti orientali, Europa settentrionale (tutte le aree sono scrivibili)  |`(2 + 1) * (140 K RU/sec /100 * $0.016-) * 100 hours = $6,720` |$ 6.720 |
 |[301-400] |D1: 10 K <br/>D2: 80 K <br/>C1: -- |Fattura per la velocità effettiva per un contenitore negli Stati Uniti occidentali (operazioni di scrittura in tutte le aree)  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 80 K RU/sec/100 * $0.016 * 100 hours = $1,280`  |$ 1.440   |
 | | |Fattura per la velocità effettiva per 2 aree aggiuntive: Stati Uniti orientali, Europa settentrionale (tutte le aree sono scrivibili)  |`(1 + 1) * (90 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$ 2.880  |
@@ -256,7 +256,7 @@ Ciò che si è effettivamente acquistato è un credito di 8 dollari all'ora, per
 |Capacità riservata acquistata|$ 0,0064 (20% di sconto) |100 UR/sec o $ 8 di capacità preacquistata |-$ 8|-$ 5.760 |
 |Fattura netta|||$ 0.50 |$ 360 |
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 È ora possibile passare alle informazioni sull'ottimizzazione dei costi in Azure Cosmos DB con gli articoli seguenti:
 

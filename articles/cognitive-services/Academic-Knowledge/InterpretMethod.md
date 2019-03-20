@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 6db9a5b65fc2723af2eae006ad81716e23e52133
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b679f1da0ada3e61fca79cdb985a43dc445877ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860525"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57975492"
 ---
 # <a name="interpret-method"></a>Metodo Interpret
 
@@ -37,9 +37,11 @@ NOME     | Valore | Obbligatorio?  | DESCRIZIONE
 **count**    | Number | No <br>valore predefinito: 10 | Numero massimo di interpretazioni da restituire.         
 **offset**   | Number | No <br>valore predefinito: 0  | Indice della prima interpretazione da restituire. Ad esempio, *count=2&offset=0* restituisce le interpretazioni 0 e 1. *count=2&offset=2* restituisce le interpretazioni 2 e 3.       
 **timeout**  | Number | No <br>valore predefinito: 1000 | Timeout in millisecondi. Vengono restituite solo le interpretazioni trovate prima del timeout.
+
 <br>
   
 ## <a name="response-json"></a>Risposta (JSON)
+
 NOME     | DESCRIZIONE
 ---------|---------
 **query** |Parametro *query* della richiesta.
@@ -54,6 +56,7 @@ NOME     | DESCRIZIONE
 **aborted** | True se si è verificato il timeout della richiesta.
 
 <br>
+
 #### <a name="example"></a>Esempio:
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/interpret?query=papers by jaime&complete=1&count=2

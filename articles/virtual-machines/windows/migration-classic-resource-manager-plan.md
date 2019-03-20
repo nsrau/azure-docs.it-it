@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 76059c587a6378ccfe16c0a633bea0c6c7a8a57d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: b8bb3db58538263ea60520d4537a76c6ebb6abf7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340094"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112518"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager
 Anche se Azure Resource Manager offre molte funzionalità straordinarie, è fondamentale pianificare la migrazione in modo che avvenga senza problemi. Dedicare tempo alla pianificazione garantisce che non si verifichino problemi durante l'esecuzione delle attività di migrazione.
@@ -79,8 +79,8 @@ I clienti di successo hanno piani dettagliati in cui le domande precedenti sono 
 
   L'esecuzione di un test di laboratorio dello scenario esatto ossia calcolo, rete e archiviazione è il modo migliore per garantire una migrazione senza problemi. In modo da garantire:
 
-  - Un laboratorio completamente separato o un ambiente non di produzione esistente su cui eseguire test. È consigliabile un laboratorio totalmente separato che possa essere migrato ripetutamente e modificato in modo distruttivo.  Gli script per raccogliere/idratare i metadati delle sottoscrizioni reali sono elencati di seguito.
-  - È consigliabile creare il laboratorio in una sottoscrizione separata. Il motivo è che il lab verrà ripetutamente rimosso e avere una sottoscrizione separata riduce il rischio di eliminare accidentalmente componenti reali.
+- Un laboratorio completamente separato o un ambiente non di produzione esistente su cui eseguire test. È consigliabile un laboratorio totalmente separato che possa essere migrato ripetutamente e modificato in modo distruttivo.  Gli script per raccogliere/idratare i metadati delle sottoscrizioni reali sono elencati di seguito.
+- È consigliabile creare il laboratorio in una sottoscrizione separata. Il motivo è che il lab verrà ripetutamente rimosso e avere una sottoscrizione separata riduce il rischio di eliminare accidentalmente componenti reali.
 
   Questa operazione si può fare usando lo strumento AsmMetadataParser. [Per altre informazioni su questo strumento vedere qui](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
@@ -122,13 +122,13 @@ Di seguito sono elencati i problemi rilevati in molte migrazioni di grandi dimen
     > Questi limiti devono essere aumentati nella stessa area dell'ambiente di cui eseguire la migrazione.
     >
 
-    - Interfacce di rete
-    - Servizi di bilanciamento del carico
-    - Indirizzi IP pubblici
-    - Indirizzi IP pubblici statici
-    - Core
-    - Gruppi di sicurezza di rete
-    - Tabelle di route
+  - Interfacce di rete
+  - Servizi di bilanciamento del carico
+  - Indirizzi IP pubblici
+  - Indirizzi IP pubblici statici
+  - Core
+  - Gruppi di sicurezza di rete
+  - Tabelle di route
 
     È possibile controllare le quote correnti di Azure Resource Manager usando i comandi seguenti con la versione più recente di Azure PowerShell.
     

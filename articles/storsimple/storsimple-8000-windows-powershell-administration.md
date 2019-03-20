@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 449c65d0ed746664b75bf8775dda695f569b3eb0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e6053ef9b5e1fc113e3bd3057d627347f285cd99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228386"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003128"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utilizzo di Windows PowerShell per StorSimple per amministrare il dispositivo
 
@@ -47,7 +47,7 @@ Dopo aver letto l'articolo, l'utente sarà in grado di:
 
 ## <a name="connect-to-windows-powershell-for-storsimple-via-the-device-serial-console"></a>Connessione a Windows PowerShell per StorSimple tramite la console seriale del dispositivo
 
-È possibile [scaricare PuTTY](http://www.putty.org/) o software di emulazione di terminale simili per connettersi a Windows PowerShell per StorSimple. È necessario configurare PuTTY in modo specifico per accedere al dispositivo Microsoft Azure StorSimple. Nei seguenti argomenti vengono descritti i passaggi dettagliati su come configurare PuTTy e connettersi al dispositivo. Vengono anche illustrate varie opzioni di menu sulla console seriale.
+È possibile [scaricare PuTTY](https://www.putty.org/) o software di emulazione di terminale simili per connettersi a Windows PowerShell per StorSimple. È necessario configurare PuTTY in modo specifico per accedere al dispositivo Microsoft Azure StorSimple. Nei seguenti argomenti vengono descritti i passaggi dettagliati su come configurare PuTTy e connettersi al dispositivo. Vengono anche illustrate varie opzioni di menu sulla console seriale.
 
 ### <a name="putty-settings"></a>Impostazioni puTTY
 
@@ -110,8 +110,8 @@ Nell'immagine seguente vengono illustrate le varie opzioni di spazio di esecuzio
    * Applicazione degli aggiornamenti
    * Installazione degli aggiornamenti rapidi
 
-    > [!NOTE]
-    > Questa è l'opzione consigliata se si dimentica la password di amministratore del dispositivo e non è possibile connettersi tramite l'opzione 1 o 2.
+     > [!NOTE]
+     > Questa è l'opzione consigliata se si dimentica la password di amministratore del dispositivo e non è possibile connettersi tramite l'opzione 1 o 2.
 
 4. **Modifica lingua** Questa opzione consente di modificare la lingua di visualizzazione nell'interfaccia Windows PowerShell. Le lingue supportate sono inglese, giapponese, russo, francese, sudcoreano, spagnolo, italiano, tedesco, cinese e portoghese (Brasile).
 
@@ -147,11 +147,11 @@ La tabella seguente illustra un riepilogo di tutte le attività di gestione comu
 | Se si desidera eseguire questa operazione... | Usare questa procedura. |
 | --- | --- |
 | Registrazione del dispositivo |[Configurare e registrare il dispositivo tramite Windows PowerShell per StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |
-| Configurare il proxy web </br>Visualizzare le impostazioni del proxy web |[Configurare il proxy web per il dispositivo StorSimple](storsimple-8000-configure-web-proxy.md) |
+| Configurare il proxy web </br> Visualizzare le impostazioni del proxy web |[Configurare il proxy web per il dispositivo StorSimple](storsimple-8000-configure-web-proxy.md) |
 | Modifica delle impostazioni dell'interfaccia di rete DATA 0 sul dispositivo |[Modificare le impostazioni dell'interfaccia di rete DATA 0 per il dispositivo StorSimple](storsimple-8000-modify-data-0.md) |
 | Arrestare un controller  </br> Riavviare o arrestare un controller </br> Arrestare un dispositivo</br>Ripristinare le impostazioni predefinite di fabbrica del dispositivo |[Gestire i controller dei dispositivi](storsimple-8000-manage-device-controller.md) |
 | Installazione degli aggiornamenti in modalità di manutenzione e rapidi |[Aggiornare il dispositivo](storsimple-update-device.md) |
-| Inserire la modalità di manutenzione  </br>Uscire dalla modalità di manutenzione |[Modalità del dispositivo StorSimple](storsimple-8000-device-modes.md) |
+| Inserire la modalità di manutenzione  </br> Uscire dalla modalità di manutenzione |[Modalità del dispositivo StorSimple](storsimple-8000-device-modes.md) |
 | Creare un pacchetto di supporto</br>Decrittografare e modificare un pacchetto di supporto |[Creare e gestire un pacchetto di supporto](storsimple-8000-create-manage-support-package.md) |
 | Avviare una sessione di supporto </br> |[Avviare una sessione di supporto in Windows PowerShell per StorSimple](storsimple-8000-create-manage-support-package.md#create-a-support-package) |
 
@@ -159,7 +159,7 @@ La tabella seguente illustra un riepilogo di tutte le attività di gestione comu
 
 In Windows PowerShell per StorSimple è disponibile la guida per i cmdlet. È inoltre disponibile una versione aggiornata in linea di questa guida, che è possibile utilizzare per aggiornare la guida del sistema.
 
-La guida in questa interfaccia si ottiene in modo simile a quella in Windows PowerShell e la maggior parte dei cmdlet correlati alla guida funzionerà. È possibile trovare la guida in linea per Windows PowerShell in linea nella libreria TechNet: [Utilizzo degli script con Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=108518).
+La guida in questa interfaccia si ottiene in modo simile a quella in Windows PowerShell e la maggior parte dei cmdlet correlati alla guida funzionerà. È possibile trovare utili per Windows PowerShell online nella libreria TechNet: [Scripting con Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=108518).
 
 Di seguito viene riportata una breve descrizione dei tipi di guida per l'interfaccia di Windows PowerShell, tra cui come aggiornare la guida.
 

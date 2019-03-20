@@ -1,26 +1,26 @@
 ---
 title: Pubblicare una knowledge base
-titleSuffix: QnA Maker - Azure Cognitive Services
-description: La pubblicazione della Knowledge Base è il passaggio finale per rendere disponibile la Knowledge Base come endpoint di domande e risposte. Quando si pubblica una Knowledge Base, il contenuto di domande e risposte della Knowledge Base si sposta dall'indice di test a un indice di produzione in Ricerca di Azure.
+titleSuffix: QnA Maker API - Azure Cognitive Services
+description: Pubblicare la knowledge base con il servizio API QnA Maker è il passaggio finale per rendere disponibili come endpoint di rispondere alle domanda la knowledge base. Quando si pubblica una Knowledge Base, il contenuto di domande e risposte della Knowledge Base si sposta dall'indice di test a un indice di produzione in Ricerca di Azure.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 03/11/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 585e5f8f955a405b08bef42588ab5caff71c7bba
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c65654e7d6b2e66a07116ea9555ed316ace88912
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865914"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091954"
 ---
-# <a name="publish-a-knowledge-base-using-the-qna-maker-portal"></a>Pubblicare una knowledge base con il portale di QnA Maker
+# <a name="publish-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Pubblicare una knowledge base tramite il portale di servizi API QnA Maker
 
-La pubblicazione della propria knowledge base è il passaggio finale per renderla disponibile come endpoint di domande e risposte a un'applicazione client. 
+Pubblicare la knowledge base con il servizio API QnA Maker è il passaggio finale per rendere disponibili come endpoint di rispondere alle domanda la knowledge base. 
 
 Quando si pubblica una knowledge base, il contenuto di domande e risposte della knowledge base passa dall'indice di test a un indice di produzione in Ricerca di Azure.
 

@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 90f9a13882e370d6d0c67826750b3edd27603ede
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 50ae4de8c9c1d10b0b17a9744ffa2340059fc298
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862293"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120517"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Usare il feed di modifiche di Azure Cosmos DB per visualizzare l'analisi dei dati in tempo reale
 
@@ -105,7 +105,7 @@ Ora sarà possibile creare una raccolta per memorizzare gli eventi del sito di e
 
 3. Creare quindi un'altra raccolta denominata **lease** per l'elaborazione del feed di modifiche. La raccolta di lease coordina l'elaborazione del feed di modifiche in più processi di lavoro. Una raccolta separata viene usata per archiviare i lease con un lease per partizione.  
 
-4.  Ritornare al riquadro **Esplora dati**, selezionare **Nuova raccolta** e compilare il modulo con i dettagli seguenti:
+4. Ritornare al riquadro **Esplora dati**, selezionare **Nuova raccolta** e compilare il modulo con i dettagli seguenti:
 
    * Per il campo **id database**, selezionare **Usa esistente**, quindi inserire **changefeedlabdatabase**.  
    * Per il campo **id raccolta**, inserire **lease**.  

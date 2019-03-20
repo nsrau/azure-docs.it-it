@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 3/14/2019
 ms.author: mayg
-ms.openlocfilehash: 7504d23cbaf8a497e6ea86b5a383413474c0d034
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: cd486fa504ac819684d8c547e7a0f740b3eed4e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329968"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109628"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analizzare il report di Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure
 
@@ -41,6 +41,9 @@ Il foglio di lavoro On-premises summary (Riepilogo ambiente locale) offre una pa
 **La varianza tipica dei dati osservata al giorno (GB)**: La varianza media dei dati osservata in tutti i giorni di profilatura. Questo numero viene usato come uno degli input per stabilire il numero di server di configurazione e di server di elaborazione aggiuntivi da usare nella distribuzione.
 
 ## <a name="recommendations"></a>Consigli
+
+>[!Note]
+>Quando la replica direttamente in dischi gestiti, ignorare la raccomandazione per il numero di account di archiviazione.
 
 Il foglio Recommendations (Raccomandazioni) del report per lo scenario da VMware ad Azure contiene i dettagli seguenti, in base al valore RPO desiderato che è stato selezionato:
 
@@ -155,6 +158,9 @@ Si possono verificare situazioni in cui non è possibile impostare una larghezza
 ![Valore RPO ottenibile per 500 Mbps di larghezza di banda](media/site-recovery-vmware-deployment-planner-analyze-report/achievable-rpo-v2a.png)
 
 ## <a name="vm-storage-placement"></a>Selezione host di archiviazione delle VM
+
+>[!Note]
+>Quando la replica direttamente in dischi gestiti, non occorre preoccuparsi di numero di account di archiviazione. Per l'archiviazione, usare solo le indicazioni sul tipo di archiviazione (Standard o Premium). È applicabile per i dischi gestiti dello stesso tipo.
 
 ![Selezione host di archiviazione delle VM](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 

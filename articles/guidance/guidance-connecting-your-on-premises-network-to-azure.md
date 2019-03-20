@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2016
 ms.author: cherylmc
-ms.openlocfilehash: 37d83d3b6dea1763d85f2411816ba2fee4279100
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
-ms.translationtype: HT
+ms.openlocfilehash: 9361c0b2ee84d7459bd432f5a8ce13fc5fd85ef8
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/19/2019
 ms.locfileid: "26730334"
 ---
 # <a name="connecting-your-on-premises-network-to-azure"></a>Connessione della rete locale ad Azure

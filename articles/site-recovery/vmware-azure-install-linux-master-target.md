@@ -6,14 +6,14 @@ services: site-recovery
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 68892faf707a767ba9c25ce7317f775708e61a90
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 98718709038d7fd753e5eb3d45c130085c5accd9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217986"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099053"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installare un server di destinazione master Linux per il failback
 Dopo avere effettuato il failover delle macchine virtuali in Azure, è possibile eseguirne il failback nel sito locale. Per eseguire il failback, è necessario riproteggere la macchina virtuale da Azure al sito locale. A tale scopo, è necessario un server di destinazione master locale che riceva il traffico. 
@@ -62,7 +62,7 @@ Sono supportati i kernel Ubuntu seguenti.
 
 Attenersi ai passaggi seguenti per installare il sistema operativo a 64 bit di Ubuntu 16.04.2.
 
-1.   Andare al [collegamento per il download](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), scegliere il mirror più vicino e scaricare un file ISO di Ubuntu 16.04.2 Minimal a 64 bit.
+1.   Andare alla [collegamento di download](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), scegliere il mirror più vicino e scaricare un file ISO di Ubuntu 16.04.2 minimal a 64 bit.
 Mantenere l'ISO di Ubuntu 16.04.2 Minimal a 64 bit nell'unità DVD e avviare il sistema.
 
 1.  Selezionare **English** (Inglese) come lingua preferita e premere **Invio**.
@@ -168,15 +168,15 @@ Per ottenere l'ID per ogni disco rigido SCSI in una macchina virtuale Linux, il 
 
 5. Controllare se esiste già una riga con il valore **disk.EnableUUID**.
 
-    - Se il valore esiste ed è impostato su **False**, modificarlo in **True**. (I valori non fanno distinzione tra maiuscole e minuscole.)
+   - Se il valore esiste ed è impostato su **False**, modificarlo in **True**. (I valori non fanno distinzione tra maiuscole e minuscole.)
 
-    - Se il valore è presente ed è impostato su **True**, selezionare **Cancel** (Annulla).
+   - Se il valore è presente ed è impostato su **True**, selezionare **Cancel** (Annulla).
 
-    - Se il valore non esiste, selezionare **Add Row**(Aggiungi riga).
+   - Se il valore non esiste, selezionare **Add Row**(Aggiungi riga).
 
-    - Nella colonna del nome, aggiungere **disk.EnableUUID**, quindi impostare il valore su **TRUE**.
+   - Nella colonna del nome, aggiungere **disk.EnableUUID**, quindi impostare il valore su **TRUE**.
 
-    ![Controllare se esiste già una riga con il valore disk.EnableUUID](./media/vmware-azure-install-linux-master-target/image25.png)
+     ![Controllare se esiste già una riga con il valore disk.EnableUUID](./media/vmware-azure-install-linux-master-target/image25.png)
 
 #### <a name="disable-kernel-upgrades"></a>Disabilitare gli aggiornamenti del kernel
 
@@ -287,7 +287,6 @@ Per creare un disco di conservazione, attenersi alla procedura seguente:
 2. Prendere nota dell'indirizzo IP del server di configurazione. Eseguire il comando seguente per installare il server di destinazione master e registrarlo con il server di configurazione.
 
     ```
-    ./install -q -d /usr/local/ASR -r MT -v VmWare
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
     ```
 

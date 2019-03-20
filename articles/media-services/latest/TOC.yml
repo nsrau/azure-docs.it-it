@@ -74,7 +74,8 @@ items:
         href: filters-concept.md
     - name: Protezione del contenuto
       items:
-      - name: Panoramica
+      - name: Protocolli di streaming e tipi di crittografia
+        displayName: Dynamic encryption
         href: content-protection-overview.md
       - name: Sistema con più tecnologie DRM e controllo di accesso
         href: design-multi-drm-system-with-access-control.md
@@ -105,6 +106,7 @@ items:
     - name: Codificatori live consigliati
       href: recommended-on-premises-live-encoders.md
     - name: Utilizzo di un DVR cloud
+      displayName: archive
       href: live-event-cloud-dvr.md
     - name: Confronto tra le funzionalità
       href: live-event-types-comparison.md
@@ -165,9 +167,14 @@ items:
     - name: File locale come input del processo - .NET
       displayName: encode, encoding
       href: job-input-from-local-file-how-to.md
-    - name: Usare una trasformazione personalizzata - .NET
-      displayName: encode, encoding, tranform
-      href: customize-encoder-presets-how-to.md
+    - name: Codificare con una trasformazione personalizzata
+      items:
+      - name: Con .NET
+        href: customize-encoder-presets-how-to.md
+      - name: Con l'interfaccia della riga di comando
+        href: custom-preset-cli-howto.md
+      - name: Con REST
+        href: custom-preset-rest-howto.md
   - name: Usare Griglia di eventi
     items:
     - name: Monitorare gli eventi - Portale
@@ -250,9 +257,9 @@ items:
     href: frequently-asked-questions.md
   - name: Aree e cloud di Azure
     href: azure-clouds-regions.md
-ms.openlocfilehash: 5a25312b9a66bcde3523735046ed1df6661f7c61
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f67429869b07eba8deafec29189b6784a0eae9db
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532803"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187711"

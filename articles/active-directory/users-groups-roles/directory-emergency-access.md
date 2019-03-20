@@ -1,23 +1,23 @@
 ---
-title: Gestire gli account di accesso di emergenza in Azure AD | Microsoft Docs
+title: Gestire gli account amministratore di accesso di emergenza - Azure Active Directory | Microsoft Docs
 description: Questo articolo descrive come usare gli account di accesso di emergenza per evitare di rimanere inavvertitamente bloccati fuori dal proprio tenant di Azure Active Directory (Azure AD).
 services: active-directory
 author: markwahl-msft
 ms.author: curtand
-ms.date: 12/21/2018
-ms.topic: article-type-from-white-list
+ms.date: 03/19/2019
+ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 974e00ce877dcf3b15dc7ce6d73f7d1331e20bb5
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: f430a832ffb35b95d0bf4eff2d82be5ecc3d865c
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429127"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224941"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gestire gli account di accesso di emergenza in Azure AD
 

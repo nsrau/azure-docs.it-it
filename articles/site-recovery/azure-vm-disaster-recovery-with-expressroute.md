@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 16b4031c0242d79b6d866d612a4d4f594dc608fa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 4622809f0e261236d6753daf5bb2e00ff814c849
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821950"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087874"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrare Azure ExpressRoute con il ripristino di emergenza per le macchine virtuali di Azure
 
@@ -91,11 +91,11 @@ In genere, le distribuzioni aziendali presentano carichi di lavoro suddivisi tra
     - **Rete virtuale 2 di origine**: 10.2.0.0/24.
     - Ogni rete virtuale spoke è connessa alla **rete virtuale dell'hub**.
 - **Rete virtuale dell'hub**. È presente la rete virtuale hub **Source Hub vNet**: 10.10.10.0/24.
-    - Questa rete virtuale hub opera come gatekeeper.
-    - Tutte le comunicazioni tra le subnet passano attraverso questo hub.
- - ****Subnet della rete virtuale hub**. La rete virtuale hub comprende due subnet:
-     - **NVA subnet**: 10.10.10.0/25. Questa subnet contiene un'appliance virtuale di rete (10.10.10.10).
-     - **Subnet del gateway**: 10.10.10.128/25. Questa subnet contiene un gateway ExpressRoute collegato a una connessione ExpressRoute che indirizza al sito locale tramite un dominio di routing di peering privato.
+  - Questa rete virtuale hub opera come gatekeeper.
+  - Tutte le comunicazioni tra le subnet passano attraverso questo hub.
+    - ****Subnet della rete virtuale hub**. La rete virtuale hub comprende due subnet:
+    - **NVA subnet**: 10.10.10.0/25. Questa subnet contiene un'appliance virtuale di rete (10.10.10.10).
+    - **Subnet del gateway**: 10.10.10.128/25. Questa subnet contiene un gateway ExpressRoute collegato a una connessione ExpressRoute che indirizza al sito locale tramite un dominio di routing di peering privato.
 - Il data center locale dispone di una connessione al circuito ExpressRoute tramite un'appliance perimetrale partner a Hong Kong.
 - Tutto il routing è controllato tramite le tabelle di route di Azure (routing definito dall'utente).
 - Tutto il traffico in uscita tra le reti virtuali o al data center locale viene instradato tramite NVA Subnet.

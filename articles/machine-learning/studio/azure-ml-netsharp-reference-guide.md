@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 2051a14532f00f24be0c8cb0ca03a7b2b4078a45
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: d667dadeb2e7c9d0005ab8d1a565017973038aaa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457014"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905155"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guida al linguaggio di specifica Net# delle reti neurali per Azure Machine Learning Studio
 
@@ -216,17 +216,16 @@ Sono disponibili due set di proprietà che controllano la spaziatura interna. Le
 + **UpperPad** e **LowerPad**: (facoltativi) consentono un maggiore controllo sulla quantità di riempimento da usare. **Importante:** questi attributi possono essere definiti solo se la proprietà **Padding** precedente ***non*** è definita. I valori devono essere tuple con numeri interi con lunghezza corrispondente al grado dell'aggregazione. Quando questi attributi sono specificati, i nodi "fittizi" vengono aggiunti alle estremità superiori e inferiori di ogni dimensione del livello di input. Il numero di nodi aggiunti alle estremità inferiori e superiori di ogni dimensione è determinato rispettivamente da **LowerPad**[i] e **UpperPad**[i].
 
     Per assicurare che i kernel corrispondano solo a nodi "effettivi" e non a nodi "fittizi", è necessario che siano soddisfatte le condizioni seguenti:
-      - Ogni componente di**LowerPad** deve essere rigorosamente minore di `KernelShape[d]/2`.
-      - Ogni componente di **UpperPad** non deve essere maggiore di `KernelShape[d]/2`.
-      - Il valore predefinito di questi attributi è una tupla con tutti i componenti uguali a 0.
+  - Ogni componente di**LowerPad** deve essere rigorosamente minore di `KernelShape[d]/2`.
+  - Ogni componente di **UpperPad** non deve essere maggiore di `KernelShape[d]/2`.
+  - Il valore predefinito di questi attributi è una tupla con tutti i componenti uguali a 0.
 
     L'impostazione **Padding** = true consente tutto il riempimento necessario per mantenere il "centro" del kernel all'interno dell'input "reale". In questo modo i calcoli matematici variano un po' per calcolare le dimensioni di output. In genere, le dimensioni di output *D* vengono calcolate come `D = (I - K) / S + 1`, dove `I` è la dimensione di input, `K` è la dimensione del kernel, `S` è lo stride e `/` è la divisione intera (con arrotondamento a zero). Se si imposta UpperPad = [1, 1], la dimensione di input `I` è in realtà 29, ovvero `D = (29 - 5) / 2 + 1 = 13`. Se **Padding è true**, `I` viene essenzialmente incrementato di `K - 1`, ovvero `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14`. Specificando i valori per **UpperPad** e **LowerPad** si ottiene un maggiore controllo sul riempimento rispetto all'impostazione **Padding** = true.
 
 Per altre informazioni sulle reti convoluzionali e le relative applicazioni, vedere gli articoli seguenti:
 
-+ [http://deeplearning.net/tutorial/lenet.html ](http://deeplearning.net/tutorial/lenet.html)
-+ [http://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf)
-+ [http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)
++ [http://deeplearning.net/tutorial/lenet.html](http://deeplearning.net/tutorial/lenet.html)
++ [https://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf)
 
 ## <a name="pooling-bundles"></a>Aggregazioni di pooling
 
@@ -252,13 +251,13 @@ hidden P1 [5, 12, 12]
 
 Per altre informazioni sui livelli di pooling, vedere gli articoli seguenti:
 
-+ [http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Sezione 3.4)
-+ [http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf)
-+ [http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
++ [https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Sezione 3.4)
++ [https://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](https://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf)
++ [https://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](https://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 
 ## <a name="response-normalization-bundles"></a>Aggregazioni di normalizzazione delle risposte
 
-La **normalizzazione delle risposte** è uno schema di normalizzazione locale introdotto per la prima volta da Geoffrey Hinton e altri, nel documento [ImageNet Classiﬁcation with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Classificazione ImageNet con reti neurali convoluzionali profonde).
+La **normalizzazione delle risposte** è uno schema di normalizzazione locale introdotto per la prima volta da Geoffrey Hinton e altri, nel documento [ImageNet Classiﬁcation with Deep Convolutional Neural Networks](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Classificazione ImageNet con reti neurali convoluzionali profonde).
 
 La normalizzazione delle risposte viene usata per semplificare la generalizzazione nelle reti neurali. Quando un neurone opera a un livello di attivazione molto elevato, un livello di normalizzazione delle risposte locale sopprime il livello di attivazione dei neuroni circostanti. Ciò avviene tramite tre parametri (`α`, `β` e `k`) e una struttura convoluzionale (o forma di vicinato). Ogni neurone nel livello di destinazione **y** corrisponde a un neurone **x** nel livello di origine. Il livello di attivazione di **y** è dato dalla formula seguente, dove `f` corrisponde al livello di attivazione di un neurone e `Nx` è il kernel o l'insieme contenente i neuroni nel vicinato di **x**, come definito dalla struttura convoluzionale seguente:
 
@@ -463,4 +462,4 @@ output Digit [10] from Hid3 all;
 
 ## <a name="acknowledgements"></a>Riconoscimenti
 
-Il linguaggio Net # per personalizzare l'architettura delle reti neurali è stato sviluppato presso Microsoft da Shon Katzenberger (progettista, Machine Learning) e Alexey Kamenev (ingegnere di software, Microsoft Research). Viene usato internamente per progetti Machine Learning e le applicazioni che vanno dal rilevamento immagine alle analisi di testo. Per altre informazioni, vedere [Neural Nets in Azure Machine Learning Studio - Introduction to Net#](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx) (Reti neurali in Azure Machine Learning Studio - Introduzione a Net #)
+Il linguaggio Net # per personalizzare l'architettura delle reti neurali è stato sviluppato presso Microsoft da Shon Katzenberger (progettista, Machine Learning) e Alexey Kamenev (ingegnere di software, Microsoft Research). Viene usato internamente per progetti Machine Learning e le applicazioni che vanno dal rilevamento immagine alle analisi di testo. Per altre informazioni, vedere [Neural Nets in Azure Machine Learning Studio - Introduction to Net#](https://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx) (Reti neurali in Azure Machine Learning Studio - Introduzione a Net #)

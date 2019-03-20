@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/01/2017
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 075f08f89e0bbdefa76623a284971f46a1b3966a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 13379111706eaa816a8fa16cfe72711b7bf4d739
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119799"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013303"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorare servizi e app Node.js con Application Insights
 
@@ -28,8 +28,6 @@ Per ricevere, archiviare ed esplorare i dati di monitoraggio, includere l'SDK ne
 Node.js SDK può monitorare automaticamente le richieste HTTP in ingresso e in uscita, le eccezioni e alcune metriche di sistema. A partire dalla versione 0.20, l'SDK può anche monitorare alcuni pacchetti comuni di terze parti, ad esempio MongoDB, MySQL e Redis. Tutti gli eventi relativi a una richiesta HTTP in ingresso vengono correlati per velocizzare la risoluzione dei problemi.
 
 È possibile usare l'API TelemetryClient per instrumentare e monitorare manualmente altri aspetti dell'app e del sistema. L'API TelemetryClient viene descritta in modo più dettagliato più avanti nell'articolo.
-
-![Grafici di monitoraggio delle prestazioni di esempio](./media/nodejs/10-perf.png)
 
 ## <a name="get-started"></a>Attività iniziali
 
@@ -49,11 +47,7 @@ Prima di iniziare, verificare di avere una sottoscrizione di Azure oppure [otten
 1. Accedere al [portale di Azure][portal].
 2. Selezionare **Crea una risorsa** > **Strumenti di sviluppo** > **Application Insights**. La risorsa include un endpoint per la ricezione dei dati di telemetria, l'archiviazione di tali dati, dei report salvati e dei dashboard, la configurazione di regole e avvisi e altro ancora.
 
-  ![Creare una risorsa di Application Insights](./media/nodejs/03-new_appinsights_resource.png)
-
 3. Nella pagina di creazione della risorsa scegliere **Applicazione Node.js** nella casella **Tipo di applicazione**. Il tipo di app determina i dashboard e i report predefiniti che vengono creati. Qualsiasi risorsa di Application Insights può raccogliere dati da qualsiasi linguaggio e piattaforma.
-
-  ![Modulo per la nuova risorsa di Application Insights](./media/nodejs/04-create_appinsights_resource.png)
 
 ### <a name="sdk"></a> Configurare Node.js SDK
 
@@ -61,29 +55,29 @@ Includere l'SDK nell'app affinché possa raccogliere i dati.
 
 1. Copiare la chiave di strumentazione della risorsa (detta anche *ikey*) dal portale di Azure. Application Insights usa la chiave di strumentazione per eseguire il mapping dei dati alla risorsa di Azure. Affinché l'SDK possa usare la chiave di strumentazione, è necessario specificare tale chiave in una variabile di ambiente o nel codice.  
 
-  ![Copiare la chiave di strumentazione](./media/nodejs/05-appinsights_ikey_portal.png)
+   ![Copiare la chiave di strumentazione](./media/nodejs/instrumentation-key-001.png)
 
 2. Aggiungere la libreria Node.js SDK alle dipendenze dell'app tramite package.json. Dalla cartella radice dell'app eseguire:
 
-  ```bash
-  npm install applicationinsights --save
-  ```
+   ```bash
+   npm install applicationinsights --save
+   ```
 
 3. Caricare in modo esplicito la libreria nel codice. Dato che l'SDK inserisce la strumentazione in molte altre librerie, caricare la libreria il prima possibile, anche prima di altre istruzioni `require`. 
 
-  All'inizio del primo file con estensione js aggiungere il codice seguente. Il metodo `setup` configura la chiave di strumentazione, e quindi la risorsa di Azure, da usare per impostazione predefinita per tutti gli elementi monitorati.
+   All'inizio del primo file con estensione js aggiungere il codice seguente. Il metodo `setup` configura la chiave di strumentazione, e quindi la risorsa di Azure, da usare per impostazione predefinita per tutti gli elementi monitorati.
 
-  ```javascript
-  const appInsights = require("applicationinsights");
-  appInsights.setup("<instrumentation_key>");
-  appInsights.start();
-  ```
+   ```javascript
+   const appInsights = require("applicationinsights");
+   appInsights.setup("<instrumentation_key>");
+   appInsights.start();
+   ```
    
-  È anche possibile specificare una chiave di strumentazione tramite la variabile di ambiente APPINSIGHTS\_INSTRUMENTATIONKEY, invece di passarla manualmente a `setup()` o `new appInsights.TelemetryClient()`. Questa procedura consente di non includere le chiavi di strumentazione nel codice sorgente sottoposto a commit e di specificare chiavi di strumentazione diverse per ambienti diversi.
+   È anche possibile specificare una chiave di strumentazione tramite la variabile di ambiente APPINSIGHTS\_INSTRUMENTATIONKEY, invece di passarla manualmente a `setup()` o `new appInsights.TelemetryClient()`. Questa procedura consente di non includere le chiavi di strumentazione nel codice sorgente sottoposto a commit e di specificare chiavi di strumentazione diverse per ambienti diversi.
 
-  Per altre opzioni di configurazione, vedere le sezioni seguenti.
+   Per altre opzioni di configurazione, vedere le sezioni seguenti.
 
-  È possibile provare l'SDK senza inviare i dati di telemetria impostando `appInsights.defaultClient.config.disableAppInsights = true`.
+   È possibile provare l'SDK senza inviare i dati di telemetria impostando `appInsights.defaultClient.config.disableAppInsights = true`.
 
 ### <a name="monitor"></a> Monitorare l'app
 
@@ -91,15 +85,13 @@ L'SDK raccoglie automaticamente dati di telemetria sul runtime Node.js e su alcu
 
 Nel [portale di Azure][portal] passare quindi alla risorsa di Application Insights creata in precedenza. In **Panoramica sequenza temporale** cercare i primi punti dati. Per visualizzare altri dati dettagliati, selezionare diversi componenti nei grafici.
 
-![Primi punti dati](./media/nodejs/12-first-perf.png)
-
 Per visualizzare la topologia individuata per l'app, fare clic sul pulsante **Mappa delle applicazioni**. Selezionare i componenti nella mappa per vedere altri dettagli.
 
-![Mappa app di esempio](./media/nodejs/06-appinsights_appmap.png)
+![Mappa app di esempio](./media/nodejs/application-map-002.png)
 
 Per altre informazioni sull'app e per risolvere i problemi, nella sezione **RICERCA CAUSA** selezionare le altre visualizzazioni disponibili.
 
-![Sezione Analisi](./media/nodejs/07-appinsights_investigate_blades.png)
+![Sezione Analisi](./media/nodejs/007-investigate-pane.png)
 
 #### <a name="no-data"></a>Dati non visualizzati
 

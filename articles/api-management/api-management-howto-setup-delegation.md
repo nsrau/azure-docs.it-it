@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: f0050a91ca8ed380c838c96cf1e485a80a0c9297
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: c15dc83929aeaf6811f4d19bfca462abfacf4014
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445396"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892456"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Come delegare la registrazione utente e la sottoscrizione ai prodotti
 La delega consente di usare il sito Web esistente per gestire l'accesso e l'iscrizione degli sviluppatori e la sottoscrizione ai prodotti invece di usare la funzionalità incorporata nel portale per sviluppatori. Ciò consente al sito Web di avere la proprietà dei dati utente e di eseguire la convalida di questi passaggi in modo personalizzato.
@@ -47,7 +47,7 @@ Per iniziare, configurare innanzitutto Gestione API per indirizzare le richieste
 
 1. Ricevere una richiesta nel formato seguente:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL della pagina di origine}&salt={string}&sig={string}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
    > 
    > 
    
@@ -104,7 +104,7 @@ Assicurarsi quindi che l'endpoint di delega esegua le operazioni seguenti:
 
 1. Ricevere una richiesta nel formato seguente:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product per eseguire la sottoscrizione a}&userId={user making request}&salt={string}&sig={string}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation= {operazione} & productId = {prodotto per la sottoscrizione a} & userId = {utente che effettua richiesta} & salt = {string} & sig = {string}*
    > 
    > 
    
@@ -120,7 +120,7 @@ Assicurarsi quindi che l'endpoint di delega esegua le operazioni seguenti:
    * **sig**: hash di sicurezza calcolato da usare per il confronto con il proprio hash calcolato
 2. Verificare che la richiesta provenga da Gestione API di Azure. Questa operazione è facoltativa ma altamente consigliata per motivi di sicurezza.
    
-   * Calcolare un hash HMAC-SHA512 di una stringa in base ai parametri di query **productId**, **userId e **salt**:
+   * Calcolare un hash HMAC-SHA512 di una stringa in base il **productId**, **userId**, e **salt** parametri di query:
      
      > HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
      > 

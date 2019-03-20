@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 6ac36fed8f9d3220e6caf6eba94a62d1ec8372c7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 7d4cb8e55c5d1561c09cf85122550a66e3671f17
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846660"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216340"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Log di diagnostica del bus di servizio
 
@@ -46,7 +46,7 @@ I log di diagnostica sono disabilitati per impostazione predefinita. Per abilita
 
     ![modifica dello stato dei log di diagnostica](./media/service-bus-diagnostic-logs/image3.png)
 
-5.  Impostare la destinazione di archiviazione desiderata, ad esempio un account di archiviazione, un hub eventi o Azure Log Analytics.
+5.  Impostare la destinazione di archiviazione che si desidera. ad esempio, un account di archiviazione, un hub eventi o monitoraggio di Azure Registra.
 
 6.  Salvare le nuove impostazioni di diagnostica.
 

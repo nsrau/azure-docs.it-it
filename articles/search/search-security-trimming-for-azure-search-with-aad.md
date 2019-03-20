@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 3f55b3b099cc22fda2bebf0dcb8d3e9c1a580f02
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 410727022b092e2dd8ab8b05e628e25fd60ab833
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099695"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102527"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtri di sicurezza per limitare i risultati di Ricerca di Azure usando le identità di Active Directory
 
@@ -22,13 +22,13 @@ Questo articolo illustra come usare le identità di sicurezza di Azure Active Di
 
 Questo articolo illustra le attività seguenti:
 > [!div class="checklist"]
-- Creare gruppi e utenti AAD
-- Associare l'utente al gruppo creato
-- Memorizzare i nuovi gruppi nella cache
-- Indicizzare i documenti con i gruppi associati
-- Emettere una richiesta di ricerca con il filtro degli identificatori di gruppo
-
->[!NOTE]
+> - Creare gruppi e utenti AAD
+> - Associare l'utente al gruppo creato
+> - Memorizzare i nuovi gruppi nella cache
+> - Indicizzare i documenti con i gruppi associati
+> - Emettere una richiesta di ricerca con il filtro degli identificatori di gruppo
+> 
+> [!NOTE]
 > I frammenti di codice di esempio in questo articolo sono scritti in C#. Il codice sorgente completo è disponibile [in GitHub](https://aka.ms/search-dotnet-howto). 
 
 ## <a name="prerequisites"></a>Prerequisiti

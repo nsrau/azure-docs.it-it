@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 03/14/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d22b181baa9b9e6d01fb92a3644078ecbd6af7be
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 73175b326c25d5d9a78155d0d9d888b655da1bfd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191599"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124134"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerazioni sulla rete per un ambiente del servizio app #
 
@@ -54,6 +54,7 @@ Le porte di accesso alle app normali sono:
 |  HTTP/HTTPS  | Configurabile dall'utente |  80, 443 |
 |  FTP/FTPS    | Configurabile dall'utente |  21, 990, 10001-10020 |
 |  Debug remoto in Visual Studio  |  Configurabile dall'utente |  4020, 4022, 4024 |
+|  Distribuisci servizio Web | Configurabile dall'utente | 8172 |
 
 Ciò vale se si usa un ambiente del servizio app esterno o con bilanciamento del carico. Se si è su un ambiente del servizio app esterno, tali porte possono essere raggiunte sul VIP pubblico. Se si è su un ambiente del servizio app con bilanciamento del carico interno, tali porte possono essere raggiunte sul servizio di bilanciamento del carico interno. Il blocco della porta 443 ha un possibile impatto su alcune funzionalità esposte nel portale. Per altre informazioni, vedere [Dipendenze per il portale](#portaldep).
 

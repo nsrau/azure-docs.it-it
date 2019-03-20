@@ -78,6 +78,7 @@
 #### [Disponibilità elevata in Windows con disco condiviso per l'istanza (A)SCS](sap-high-availability-guide-wsfc-shared-disk.md)
 #### [Disponibilità elevata in Windows con condivisione file SOFS per l'istanza (A)SCS](sap-high-availability-guide-wsfc-file-share.md)
 #### [Disponibilità elevata in SUSE Linux per l'istanza (A)SCS](high-availability-guide-suse.md)
+#### [Disponibilità elevata in SUSE Linux per l'istanza (A)SCS con Azure NetApp Files](high-availability-guide-suse-netapp-files.md)
 #### [Disponibilità elevata in Red Hat Enterprise Linux per l'istanza (A)SCS](high-availability-guide-rhel.md)
 ### Preparazione dell'infrastruttura di Azure
 #### [Windows con disco condiviso per l'istanza (A)SCS](sap-high-availability-infrastructure-wsfc-shared-disk.md)
@@ -90,6 +91,7 @@
 #### [Windows con disco condiviso per l'istanza (A)SCS](sap-high-availability-installation-wsfc-shared-disk.md)
 #### [Windows con condivisione file SOFS per l'istanza (A)SCS](sap-high-availability-installation-wsfc-file-share.md)
 #### [SUSE Linux con NFS per l'istanza (A)SCS](high-availability-guide-suse.md)
+#### [SUSE Linux con NFS per l'istanza (A)SCS con Azure NetApp Files](high-availability-guide-suse-netapp-files.md)
 #### [Disponibilità elevata per SAP NetWeaver in Red Hat Enterprise Linux](high-availability-guide-rhel.md)
 ### Configurazione SAP a più SID
 #### [Windows con disco condiviso per l'istanza (A)SCS](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)

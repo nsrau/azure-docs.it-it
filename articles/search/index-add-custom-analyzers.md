@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 957c8033efc386d8e8cb13cbed921c597af4f11b
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 8eb762e8a18ea5de25413681894f692628493a2f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302081"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842856"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Aggiungere analizzatori personalizzati a un indice di Ricerca di Azure
 
@@ -42,17 +42,17 @@ Un *analizzatore personalizzato* è un tipo specifico di [analizzatore di testo]
 
  Gli scenari comuni abilitati dagli analizzatori personalizzati includono:  
 
--   Ricerca fonetica. Aggiungere un filtro fonetico per abilitare la ricerca basata sul suono e sulla compitazione di una parola.  
+- Ricerca fonetica. Aggiungere un filtro fonetico per abilitare la ricerca basata sul suono e sulla compitazione di una parola.  
 
--   Disabilitare l'analisi lessicale. Usare l'analizzatore Keyword per creare campi ricercabili che non vengono analizzati.  
+- Disabilitare l'analisi lessicale. Usare l'analizzatore Keyword per creare campi ricercabili che non vengono analizzati.  
 
--   Ricerca rapida di prefissi/suffissi. Aggiungere il filtro di token di n-grammi di Edge per indicizzare i prefissi delle parole per poter abilitare la corrispondenza rapida dei prefissi. Combinarlo con il filtro di token Reverse per eseguire la corrispondenza dei suffissi.  
+- Ricerca rapida di prefissi/suffissi. Aggiungere il filtro di token di n-grammi di Edge per indicizzare i prefissi delle parole per poter abilitare la corrispondenza rapida dei prefissi. Combinarlo con il filtro di token Reverse per eseguire la corrispondenza dei suffissi.  
 
--   Tokenizzazione personalizzata. Usare, ad esempio, il tokenizer Whitespace per suddividere le frasi in token usando lo spazio vuoto come delimitatore  
+- Tokenizzazione personalizzata. Usare, ad esempio, il tokenizer Whitespace per suddividere le frasi in token usando lo spazio vuoto come delimitatore  
 
--   ASCII folding. Aggiungere il filtro ASCII Folding Standard per normalizzare i segni diacritici come ö o ê nei termini di ricerca.  
+- ASCII folding. Aggiungere il filtro ASCII Folding Standard per normalizzare i segni diacritici come ö o ê nei termini di ricerca.  
 
- Questa pagina fornisce un elenco di analizzatori, tokenizer, filtri di token e filtri di caratteri supportati. È disponibile anche una descrizione delle modifiche apportate alla definizione di indice con un esempio di utilizzo. Per altre informazioni sulla tecnologia sottostante sfruttata nell'implementazione di Ricerca di Azure, vedere il [riepilogo del pacchetto di analisi (Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html). Per esempi di configurazioni degli analizzatori, vedere [Aggiungere analizzatori in Ricerca di Azure](search-analyzers.md#examples).
+  Questa pagina fornisce un elenco di analizzatori, tokenizer, filtri di token e filtri di caratteri supportati. È disponibile anche una descrizione delle modifiche apportate alla definizione di indice con un esempio di utilizzo. Per altre informazioni sulla tecnologia sottostante sfruttata nell'implementazione di Ricerca di Azure, vedere il [riepilogo del pacchetto di analisi (Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html). Per esempi di configurazioni degli analizzatori, vedere [Aggiungere analizzatori in Ricerca di Azure](search-analyzers.md#examples).
 
 ## <a name="validation-rules"></a>Regole di convalida  
  I nomi di analizzatori, tokenizer, filtri di token e filtri di caratteri devono essere univoci e non possono essere uguali a quelli di analizzatori, tokenizer, filtri di token o filtri di caratteri predefiniti. Per i nomi già in uso, vedere [Informazioni di riferimento sulle proprietà](#PropertyReference).
@@ -62,81 +62,81 @@ Un *analizzatore personalizzato* è un tipo specifico di [analizzatore di testo]
 
  La definizione di un analizzatore include un nome, un tipo, uno o più filtri di caratteri, un massimo di un tokenizer e uno o più filtri di token per l'elaborazione post tokenizzazione. I filtri di caratteri vengono applicati prima della tokenizzazione. I filtri di token e i filtri di caratteri vengono applicati da sinistra a destra.
 
- `tokenizer_name` è il nome di un tokenizer, `token_filter_name_1` e `token_filter_name_2` sono i nomi dei filtri di token e `char_filter_name_1` e `char_filter_name_2` sono i nomi dei filtri di caratteri. Per i valori validi, vedere le tabelle [Tokenizer](#Tokenizers), [Filtri di token](#TokenFilters) e [Filtri di caratteri](#CharFilters).
+ Il `tokenizer_name` è il nome di un tokenizer `token_filter_name_1` e `token_filter_name_2` sono i nomi dei filtri di token, e `char_filter_name_1` e `char_filter_name_2` sono i nomi di char filtri (vedere la [tokenizer](#Tokenizers), [ I filtri di token](#TokenFilters) e tabelle per i valori validi di filtri Char).
 
 La definizione di un analizzatore è una parte dell'indice più grande. Per informazioni sul resto dell'indice, vedere [Create Index API](https://docs.microsoft.com/rest/api/searchservice/create-index) (Creare l'API dell'indice).
 
-```  
-"analyzers":(optional)[  
-   {  
-      "name":"name of analyzer",  
-      "@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer",  
-      "charFilters":[  
-         "char_filter_name_1",  
-         "char_filter_name_2"  
-      ],  
-      "tokenizer":"tokenizer_name",  
-      "tokenFilters":[  
-         "token_filter_name_1",  
-         "token_filter_name_2"  
-      ]  
-   },  
-   {  
-      "name":"name of analyzer",  
-      "@odata.type":"#analyzer_type",  
-      "option1":value1,  
-      "option2":value2,  
-      ...  
-   }  
-],  
-"charFilters":(optional)[  
-   {  
-      "name":"char_filter_name",  
-      "@odata.type":"#char_filter_type",  
-      "option1":value1,  
-      "option2":value2,  
-      ...  
-   }  
-],  
-"tokenizers":(optional)[  
-   {  
-      "name":"tokenizer_name",  
-      "@odata.type":"#tokenizer_type",  
-      "option1":value1,  
-      "option2":value2,  
-      ...  
-   }  
-],  
-"tokenFilters":(optional)[  
-   {  
-      "name":"token_filter_name",  
-      "@odata.type":"#token_filter_type",  
-      "option1":value1,  
-      "option2":value2,  
-      ...  
-   }  
-]  
-```  
+```
+"analyzers":(optional)[
+   {
+      "name":"name of analyzer",
+      "@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer",
+      "charFilters":[
+         "char_filter_name_1",
+         "char_filter_name_2"
+      ],
+      "tokenizer":"tokenizer_name",
+      "tokenFilters":[
+         "token_filter_name_1",
+         "token_filter_name_2"
+      ]
+   },
+   {
+      "name":"name of analyzer",
+      "@odata.type":"#analyzer_type",
+      "option1":value1,
+      "option2":value2,
+      ...
+   }
+],
+"charFilters":(optional)[
+   {
+      "name":"char_filter_name",
+      "@odata.type":"#char_filter_type",
+      "option1":value1,
+      "option2":value2,
+      ...
+   }
+],
+"tokenizers":(optional)[
+   {
+      "name":"tokenizer_name",
+      "@odata.type":"#tokenizer_type",
+      "option1":value1,
+      "option2":value2,
+      ...
+   }
+],
+"tokenFilters":(optional)[
+   {
+      "name":"token_filter_name",
+      "@odata.type":"#token_filter_type",
+      "option1":value1,
+      "option2":value2,
+      ...
+   }
+]
+```
 
 > [!NOTE]  
 >  Gli analizzatori personalizzati creati non vengono esposti nel portale di Azure. Il solo modo per aggiungere un analizzatore personalizzato consiste nell'usare il codice che effettua le chiamate all'API quando si definisce un indice.  
 
  All'interno di una definizione di indice è possibile inserire questa sezione in un punto qualsiasi del corpo di una richiesta di creazione dell'indice, ma in genere viene inserita alla fine:  
 
-```  
-{  
-  "name": "name_of_index",  
-  "fields": [ ],  
-  "suggesters": [ ],  
-  "scoringProfiles": [ ],  
-  "defaultScoringProfile": (optional) "...",  
-  "corsOptions": (optional) { },  
-  "analyzers":(optional)[ ],  
-  "charFilters":(optional)[ ],  
-  "tokenizers":(optional)[ ],  
-  "tokenFilters":(optional)[ ]  
-}  
-```  
+```
+{
+  "name": "name_of_index",
+  "fields": [ ],
+  "suggesters": [ ],
+  "scoringProfiles": [ ],
+  "defaultScoringProfile": (optional) "...",
+  "corsOptions": (optional) { },
+  "analyzers":(optional)[ ],
+  "charFilters":(optional)[ ],
+  "tokenizers":(optional)[ ],
+  "tokenFilters":(optional)[ ]
+}
+```
 
 Le definizioni per filtri di caratteri, tokenizer e filtri di token vengono aggiunte all'indice solo se si stanno impostando opzioni personalizzate. Per usare un filtro o un tokenizer esistente così com'è, specificarlo per nome nella definizione dell'analizzatore.
 
@@ -189,7 +189,7 @@ Le definizioni per filtri di caratteri, tokenizer e filtri di token vengono aggi
   }
 ```
 
- ## <a name="update-custom-analyzers"></a>Aggiornare gli analizzatori personalizzati
+## <a name="update-custom-analyzers"></a>Aggiornare gli analizzatori personalizzati
 
 Dopo che un analizzatore, un tokenizer, un filtro di token o un filtro di carattere è stato definito, non può essere modificato. È possibile aggiungerne di nuovi a un indice esistente solo se il flag `allowIndexDowntime` è impostato su true nella richiesta di aggiornamento dell'indice:
 
@@ -205,7 +205,7 @@ Questa operazione porta l'indice offline almeno per alcuni secondi, causando la 
 
 La tabella seguente elenca le proprietà di configurazione per la sezione degli analizzatori, dei tokenizer, dei filtri di token e dei filtri di caratteri di una definizione di indice. La struttura di un analizzatore, un tokenizer o un filtro nell'indice è costituita da questi attributi. Per informazioni sull'assegnazione dei valori, vedere le [informazioni di riferimento sulle proprietà](#PropertyReference).
 
- ### <a name="analyzers"></a>Analizzatori
+### <a name="analyzers"></a>Analizzatori
 
 Per gli analizzatori, gli attributi dell'indice variano a seconda che si usino gli analizzatori predefiniti o personalizzati.
 
@@ -229,7 +229,7 @@ Per gli analizzatori, gli attributi dell'indice variano a seconda che si usino g
 
 <a name="CharFilter"></a>
 
- ### <a name="char-filters"></a>Filtri di caratteri
+### <a name="char-filters"></a>Filtri di caratteri
 
  Un filtro di carattere viene usato per preparare il testo di input prima che venga elaborato dal tokenizer, ad esempio per sostituire determinati caratteri o simboli. In un analizzatore personalizzato possono essere presenti più filtri di caratteri. I filtri di caratteri vengono eseguiti nello stesso ordine in cui sono elencati.  
 
@@ -239,7 +239,7 @@ Per gli analizzatori, gli attributi dell'indice variano a seconda che si usino g
 |Type|Tipo di filtro di caratteri incluso nell'elenco di filtri di caratteri supportati. Vedere più avanti la colonna **char_filter_type** nella tabella [Filtri di caratteri](#CharFilter).|  
 |Opzioni|Devono essere opzioni valide di un determinato tipo di [Filtri di caratteri](#CharFilter).|  
 
- ### <a name="tokenizers"></a>Tokenizer
+### <a name="tokenizers"></a>Tokenizer
 
  Un tokenizer divide un testo continuo in una sequenza di token, ad esempio suddividendo una frase in parole.  
 
@@ -252,7 +252,7 @@ Un analizzatore personalizzato può usare un tokenizer predefinito con opzioni p
 |Type|Nome del tokenizer incluso nell'elenco di tokenizer supportati. Vedere più avanti la colonna **tokenizer_type** nella tabella [Tokenizer](#Tokenizers).|  
 |Opzioni|Devono essere opzioni valide di un determinato tipo di tokenizer elencato più avanti nella tabella [Tokenizer](#Tokenizers).|  
 
- ### <a name="token-filters"></a>Filtri di token
+### <a name="token-filters"></a>Filtri di token
 
  Un filtro di token viene usato per filtrare o modificare i token generati da un tokenizer. È possibile, ad esempio, specificare un filtro lowercase che converte tutti i caratteri in lettere minuscole.   
 In un analizzatore personalizzato possono essere presenti più filtri di token. I filtri di token vengono eseguiti nello stesso ordine in cui sono elencati.  
@@ -344,7 +344,7 @@ Nella tabella seguente i filtri di token che vengono implementati usando Apache 
 |[dictionary_decompounder](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/compound/DictionaryCompoundWordTokenFilter.html)|DictionaryDecompounderTokenFilter|Scompone le parole composte presenti in molte lingue germaniche.<br /><br /> **Opzioni**<br /><br /> wordList (tipo: matrice di stringhe): elenco di parole con cui eseguire il confronto. Il valore predefinito è un elenco vuoto. Richiesto.<br /><br /> minWordSize (tipo: int): vengono elaborate solo parole di lunghezza superiore a quella specificata. Il valore predefinito è 5.<br /><br /> minSubwordSize (tipo: int): vengono visualizzate solo sottoparole di lunghezza superiore a quella specificata. Il valore predefinito è 2.<br /><br /> maxSubwordSize (tipo: int): vengono visualizzate solo sottoparole di lunghezza inferiore a quella specificata. Il valore predefinito è 15.<br /><br /> onlyLongestMatch (tipo: booleano): aggiunge all'output solo la sottoparola con corrispondenza più lunga. Il valore predefinito è false.|  
 |[edgeNGram_v2](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenFilter.html)|EdgeNGramTokenFilterV2|Genera n-grammi delle dimensioni specificate a partire dall'inizio o dalla fine di un token di input.<br /><br /> **Opzioni**<br /><br /> minGram (tipo: int): valore predefinito: 1, valore massimo: 300.<br /><br /> maxGram (tipo: int): valore predefinito: 2, valore massimo: 300. Deve essere maggiore di minGram.<br /><br /> side (tipo: stringa): specifica da quale lato dell'input deve essere generato l'n-gramma. Valori consentiti: "front", "back" |  
 |[elision](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/util/ElisionFilter.html)|ElisionTokenFilter|Rimuove le elisioni. Ad esempio, "l'avion" (l'aereo) viene convertito in "avion" (aereo).<br /><br /> **Opzioni**<br /><br /> articles (tipo: matrice di stringhe): set di articoli da rimuovere. Il valore predefinito è un elenco vuoto. Se non è impostato alcun elenco di articoli, per impostazione predefinita vengono rimossi tutti gli articoli del francese.|  
-|[german_normalization](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/de/GermanNormalizationFilter.html)|Il tipo si applica solo quando sono disponibili le opzioni  |Normalizza i caratteri del tedesco in base all'euristica dell'[algoritmo snowball German2](https://snowball.tartarus.org/algorithms/german2/stemmer.html) .|  
+|[german_normalization](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/de/GermanNormalizationFilter.html)|Il tipo si applica solo quando sono disponibili le opzioni  |Normalizza i caratteri del tedesco in base all'euristica dell'[algoritmo snowball German2](https://snowballstem.org/algorithms/german2/stemmer.html) .|  
 |[hindi_normalization](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/hi/HindiNormalizationFilter.html)|Il tipo si applica solo quando sono disponibili le opzioni  |Normalizza il testo in hindi per rimuovere alcune differenze nelle varianti di ortografia. |  
 |[indic_normalization](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/in/IndicNormalizationFilter.html)|IndicNormalizationTokenFilter|Normalizza la rappresentazione Unicode del testo nelle lingue indiane.
 |[keep](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/KeepWordFilter.html)|KeepTokenFilter|Filtro di token che mantiene solo i token con testo contenuto nell'elenco di parole specificato.<br /><br /> **Opzioni**<br /><br /> keepWords (tipo: matrice di stringhe): elenco di parole da mantenere. Il valore predefinito è un elenco vuoto. Richiesto.<br /><br /> keepWordsCase (tipo: booleano): se true, applica prima il minuscolo a tutte le parole. Il valore predefinito è false.|  
@@ -366,7 +366,7 @@ Nella tabella seguente i filtri di token che vengono implementati usando Apache 
 |[shingle](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/shingle/ShingleFilter.html)|ShingleTokenFilter|Crea combinazioni di token come token singolo.<br /><br /> **Opzioni**<br /><br /> maxShingleSize (tipo: int): il valore predefinito è 2.<br /><br /> minShingleSize (tipo: int): il valore predefinito è 2.<br /><br /> outputUnigrams (tipo: booleano): se true, il flusso di output contiene i token di input (unigrammi), oltre agli n-grammi. Il valore predefinito è true.<br /><br /> outputUnigramsIfNoShingles (tipo: booleano): se true, esegue l'override del comportamento outputUnigrams==false quando non sono disponibili n-grammi. Il valore predefinito è false.<br /><br /> tokenSeparator (tipo: stringa): stringa da usare quando si uniscono token adiacenti per formare un n-gramma. Il valore predefinito è " ".<br /><br /> filterToken (tipo: stringa): stringa da inserire per ogni posizione in cui non sono presenti token. Il valore predefinito è "_".|  
 |[snowball](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/snowball/SnowballFilter.html)|SnowballTokenFilter|Filtro di token Snowball.<br /><br /> **Opzioni**<br /><br /> language (tipo: stringa): i valori consentiti includono: "armenian", "basque", "catalan", "danish", "dutch", "english", "finnish", "french", "german", "german2", "hungarian", "italian", "kp", "lovins", "norwegian", "porter", "portuguese", "romanian", "russian", "spanish", "swedish", "turkish"|  
 |[sorani_normalization](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/ckb/SoraniNormalizationFilter.html)|SoraniNormalizationTokenFilter|Normalizza la rappresentazione Unicode del testo in sorani.<br /><br /> **Opzioni**<br /><br /> No.|  
-|stemmer|StemmerTokenFilter|Filtro di stemming specifico della lingua.<br /><br /> **Opzioni**<br /><br /> language (tipo: stringa): i valori consentiti includono: <br /> -   ["arabic"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/ar/ArabicStemmer.html)<br />-   ["armenian"](https://snowball.tartarus.org/algorithms/armenian/stemmer.html)<br />-   ["basque"](https://snowball.tartarus.org/algorithms/basque/stemmer.html)<br />-   ["brazilian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/br/BrazilianStemmer.html)<br />-   ["bulgarian"](https://members.unine.ch/jacques.savoy/Papers/BUIR.pdf)<br />-   ["catalan"](https://snowball.tartarus.org/algorithms/catalan/stemmer.html)<br />-   ["czech"](https://portal.acm.org/citation.cfm?id=1598600)<br />-   ["danish"](https://snowball.tartarus.org/algorithms/danish/stemmer.html)<br />-   ["dutch"](https://snowball.tartarus.org/algorithms/dutch/stemmer.html)<br />-   ["dutchKp"](https://snowball.tartarus.org/algorithms/kraaij_pohlmann/stemmer.html)<br />-   ["english"](https://snowball.tartarus.org/algorithms/porter/stemmer.html)<br />-   ["lightEnglish"](https://ciir.cs.umass.edu/pubfiles/ir-35.pdf)<br />-   ["minimalEnglish"](https://www.researchgate.net/publication/220433848_How_effective_is_suffixing)<br />-   ["possessiveEnglish"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/en/EnglishPossessiveFilter.html)<br />-   ["porter2"](https://snowball.tartarus.org/algorithms/english/stemmer.html)<br />-   ["lovins"](https://snowball.tartarus.org/algorithms/lovins/stemmer.html)<br />-   ["finnish"](https://snowball.tartarus.org/algorithms/finnish/stemmer.htm)<br />-   ["lightFinnish"](https://clef.isti.cnr.it/2003/WN_web/22.pdf)<br />-   ["french"](https://snowball.tartarus.org/algorithms/french/stemmer.html)<br />-   ["lightFrench"](https://dl.acm.org/citation.cfm?id=1141523)<br />-   ["minimalFrench"](https://dl.acm.org/citation.cfm?id=318984)<br />-   ["galician"](https://bvg.udc.es/recursos_lingua/stemming.jsp)<br />-   ["minimalGalician"](https://bvg.udc.es/recursos_lingua/stemming.jsp)<br />-   ["german"](https://snowball.tartarus.org/algorithms/german/stemmer.html)<br />-   ["german2"](https://snowball.tartarus.org/algorithms/german2/stemmer.html)<br />-   ["lightGerman"](https://dl.acm.org/citation.cfm?id=1141523)<br />-   ["minimalGerman"](https://members.unine.ch/jacques.savoy/clef/morpho.pdf)<br />-   ["greek"](https://sais.se/mthprize/2007/ntais2007.pdf)<br />-   ["hindi"](https://computing.open.ac.uk/Sites/EACLSouthAsia/Papers/p6-Ramanathan.pdf)<br />-   ["hungarian"](https://snowball.tartarus.org/algorithms/hungarian/stemmer.html)<br />-   ["lightHungarian"](https://dl.acm.org/citation.cfm?id=1141523&dl=ACM&coll=DL&CFID=179095584&CFTOKEN=80067181)<br />-   ["indonesian"](https://www.illc.uva.nl/Publications/ResearchReports/MoL-2003-02.text.pdf)<br />-   ["irish"](https://snowball.tartarus.org/otherapps/oregan/intro.html)<br />-   ["italian"](https://snowball.tartarus.org/algorithms/italian/stemmer.html)<br />-   ["lightItalian"](https://www.ercim.eu/publication/ws-proceedings/CLEF2/savoy.pdf)<br />-   ["sorani"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/ckb/SoraniStemmer.html)<br />-   ["latvian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/lv/LatvianStemmer.html)<br />-   ["norwegian"](https://snowball.tartarus.org/algorithms/norwegian/stemmer.html)<br />-   ["lightNorwegian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianLightStemmer.html)<br />-   ["minimalNorwegian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianMinimalStemmer.html)<br />-   ["lightNynorsk"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianLightStemmer.html)<br />-   ["minimalNynorsk"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianMinimalStemmer.html)<br />-   ["portuguese"](https://snowball.tartarus.org/algorithms/portuguese/stemmer.html)<br />-   ["lightPortuguese"](https://dl.acm.org/citation.cfm?id=1141523&dl=ACM&coll=DL&CFID=179095584&CFTOKEN=80067181)<br />-   ["minimalPortuguese"](https://www.inf.ufrgs.br/~buriol/papers/Orengo_CLEF07.pdf)<br />-   ["portugueseRslp"](https://www.inf.ufrgs.br//~viviane/rslp/index.htm)<br />-   ["romanian"](https://snowball.tartarus.org/algorithms/romanian/stemmer.html)<br />-   ["russian"](https://snowball.tartarus.org/algorithms/russian/stemmer.html)<br />-   ["lightRussian"](https://doc.rero.ch/lm.php?url=1000%2C43%2C4%2C20091209094227-CA%2FDolamic_Ljiljana_-_Indexing_and_Searching_Strategies_for_the_Russian_20091209.pdf)<br />-   ["spanish"](https://snowball.tartarus.org/algorithms/spanish/stemmer.html)<br />-   ["lightSpanish"](https://www.ercim.eu/publication/ws-proceedings/CLEF2/savoy.pdf)<br />-   ["swedish"](https://snowball.tartarus.org/algorithms/swedish/stemmer.html)<br />-   ["lightSwedish"](https://clef.isti.cnr.it/2003/WN_web/22.pdf)<br />-   ["turkish"](https://snowball.tartarus.org/algorithms/turkish/stemmer.html)|  
+|stemmer|StemmerTokenFilter|Filtro di stemming specifico della lingua.<br /><br /> **Opzioni**<br /><br /> language (tipo: stringa): i valori consentiti includono: <br /> -   ["arabic"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/ar/ArabicStemmer.html)<br />-   ["armenian"](https://snowballstem.org/algorithms/armenian/stemmer.html)<br />-   ["basque"](https://snowballstem.org/algorithms/basque/stemmer.html)<br />-   ["brazilian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/br/BrazilianStemmer.html)<br />-"bulgaro"<br />-   ["catalan"](https://snowballstem.org/algorithms/catalan/stemmer.html)<br />-   ["czech"](https://portal.acm.org/citation.cfm?id=1598600)<br />-   ["danish"](https://snowballstem.org/algorithms/danish/stemmer.html)<br />-   ["dutch"](https://snowballstem.org/algorithms/dutch/stemmer.html)<br />-   ["dutchKp"](https://snowballstem.org/algorithms/kraaij_pohlmann/stemmer.html)<br />-   ["english"](https://snowballstem.org/algorithms/porter/stemmer.html)<br />-   ["lightEnglish"](https://ciir.cs.umass.edu/pubfiles/ir-35.pdf)<br />-   ["minimalEnglish"](https://www.researchgate.net/publication/220433848_How_effective_is_suffixing)<br />-   ["possessiveEnglish"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/en/EnglishPossessiveFilter.html)<br />-   ["porter2"](https://snowballstem.org/algorithms/english/stemmer.html)<br />-   ["lovins"](https://snowballstem.org/algorithms/lovins/stemmer.html)<br />-   ["finnish"](https://snowballstem.org/algorithms/finnish/stemmer.html)<br />-"lightFinnish"<br />-   ["french"](https://snowballstem.org/algorithms/french/stemmer.html)<br />-   ["lightFrench"](https://dl.acm.org/citation.cfm?id=1141523)<br />-   ["minimalFrench"](https://dl.acm.org/citation.cfm?id=318984)<br />-"Gallego"<br />-"minimalGalician"<br />-   ["german"](https://snowballstem.org/algorithms/german/stemmer.html)<br />-   ["german2"](https://snowballstem.org/algorithms/german2/stemmer.html)<br />-   ["lightGerman"](https://dl.acm.org/citation.cfm?id=1141523)<br />-"minimalGerman"<br />-   ["greek"](https://sais.se/mthprize/2007/ntais2007.pdf)<br />-"hindi"<br />-   ["hungarian"](https://snowballstem.org/algorithms/hungarian/stemmer.html)<br />-   ["lightHungarian"](https://dl.acm.org/citation.cfm?id=1141523&dl=ACM&coll=DL&CFID=179095584&CFTOKEN=80067181)<br />-   ["indonesian"](https://www.illc.uva.nl/Publications/ResearchReports/MoL-2003-02.text.pdf)<br />-   ["irish"](https://snowballstem.org/otherapps/oregan/)<br />-   ["italian"](https://snowballstem.org/algorithms/italian/stemmer.html)<br />-   ["lightItalian"](https://www.ercim.eu/publication/ws-proceedings/CLEF2/savoy.pdf)<br />-   ["sorani"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/ckb/SoraniStemmer.html)<br />-   ["latvian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/lv/LatvianStemmer.html)<br />-   ["norwegian"](https://snowballstem.org/algorithms/norwegian/stemmer.html)<br />-   ["lightNorwegian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianLightStemmer.html)<br />-   ["minimalNorwegian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianMinimalStemmer.html)<br />-   ["lightNynorsk"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianLightStemmer.html)<br />-   ["minimalNynorsk"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianMinimalStemmer.html)<br />-   ["portuguese"](https://snowballstem.org/algorithms/portuguese/stemmer.html)<br />-   ["lightPortuguese"](https://dl.acm.org/citation.cfm?id=1141523&dl=ACM&coll=DL&CFID=179095584&CFTOKEN=80067181)<br />-   ["minimalPortuguese"](https://www.inf.ufrgs.br/~buriol/papers/Orengo_CLEF07.pdf)<br />-   ["portugueseRslp"](https://www.inf.ufrgs.br//~viviane/rslp/index.htm)<br />-   ["romanian"](https://snowballstem.org/otherapps/romanian/)<br />-   ["russian"](https://snowballstem.org/algorithms/russian/stemmer.html)<br />-   ["lightRussian"](https://doc.rero.ch/lm.php?url=1000%2C43%2C4%2C20091209094227-CA%2FDolamic_Ljiljana_-_Indexing_and_Searching_Strategies_for_the_Russian_20091209.pdf)<br />-   ["spanish"](https://snowballstem.org/algorithms/spanish/stemmer.html)<br />-   ["lightSpanish"](https://www.ercim.eu/publication/ws-proceedings/CLEF2/savoy.pdf)<br />-   ["swedish"](https://snowballstem.org/algorithms/swedish/stemmer.html)<br />-   "lightSwedish"<br />-   ["turkish"](https://snowballstem.org/algorithms/turkish/stemmer.html)|  
 |[stemmer_override](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/StemmerOverrideFilter.html)|StemmerOverrideTokenFilter|I termini di stemming del dizionario vengono contrassegnati come parole chiave, impedendo lo stemming verso il basso della catena. Da inserire prima dei filtri di stemming.<br /><br /> **Opzioni**<br /><br /> rules (tipo: matrice di stringhe): regole di stemming nel formato "word => stem", ad esempio "ran => run". Il valore predefinito è un elenco vuoto.  Richiesto.|  
 |[stopwords](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/StopFilter.html)|StopwordsTokenFilter|Rimuove le parole non significative da un flusso di token. Per impostazione predefinita, il filtro usa un elenco di parole non significative predefinite per la lingua inglese.<br /><br /> **Opzioni**<br /><br /> stopwords (tipo: matrice di stringhe): elenco di parole non significative. Non può essere specificato se viene specificato stopwordsList.<br /><br /> stopwordsList (tipo: stringa): elenco predefinito di parole non significative. Non può essere specificato se viene specificato stopwords. I valori consentiti includono: "arabic", "armenian", "basque", "brazilian", "bulgarian", "catalan", "czech", "danish", "dutch", "english", "finnish", "french", "galician", "german", "greek", "hindi", "hungarian", "indonesian", "irish", "italian", "latvian", "norwegian", "persian", "portuguese", "romanian", "russian", "sorani", "spanish", "swedish", "thai", "turkish". Valore predefinito: "english". Non può essere specificato se viene specificato stopwords. <br /><br /> ignoreCase (tipo: booleano): se true, viene applicato prima il minuscolo a tutte le parole. Il valore predefinito è false.<br /><br /> removeTrailing (tipo: booleano): se true, ignora l'ultimo termine di ricerca se è una parola non significativa. Il valore predefinito è true.
 |[synonym](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/synonym/SynonymFilter.html)|SynonymTokenFilter|Trova i sinonimi corrispondenti costituiti da una o più parole in un flusso di token.<br /><br /> **Opzioni**<br /><br /> synonyms (tipo: matrice di stringhe): obbligatorio. Elenco di sinonimi in uno dei due formati seguenti:<br /><br /> -incredible, unbelievable, fabulous => amazing: tutti i termini a sinistra del simbolo => vengono sostituiti con tutti i termini a destra del simbolo.<br /><br /> -incredible, unbelievable, fabulous, amazing: elenco di parole equivalenti separate da virgole. Impostare l'opzione expand per modificare la modalità di interpretazione di questo elenco.<br /><br /> ignoreCase (tipo: booleano): riduce le lettere maiuscole dell'input per la corrispondenza. Il valore predefinito è false.<br /><br /> expand (tipo: booleano): se true, tutte le parole nell'elenco di sinonimi (se la notazione => non viene usata) eseguono il mapping reciproco. <br />L'elenco seguente: incredible, unbelievable, fabulous, amazing equivale a: incredible, unbelievable, fabulous, amazing => incredible, unbelievable, fabulous, amazing<br /><br />- Se false, l'elenco seguente: incredible, unbelievable, fabulous, amazing equivale a: incredible, unbelievable, fabulous, amazing => incredible.|  

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: ba332bb0f77dc198abdd76ccf024336788a77a33
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1c863bc3b0ded0558e052ee3d98586ad815a0cfd
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435032"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202742"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Ottimizzare le query Apache Hive in Azure HDInsight
 
@@ -196,10 +196,8 @@ Esistono altri metodi di ottimizzazione che è possibile considerare, ad esempio
 In questo articolo sono stati illustrati vari metodi di ottimizzazione delle query comuni di Hive. Per altre informazioni, vedere gli articoli seguenti:
 
 * [Usare Apache Hive in HDInsight](hadoop/hdinsight-use-hive.md)
-* [Analizzare i dati sui ritardi dei voli mediante Apache Hive in HDInsight](hdinsight-analyze-flight-delay-data.md)
-* [Analizzare i dati Twitter mediante Apache Hive in HDInsight](hdinsight-analyze-twitter-data.md)
-* [Analizzare i dati dei sensori mediante Console query di Apache Hive su Apache Hadoop in HDInsight](hadoop/apache-hive-analyze-sensor-data.md)
-* [Usare Apache Hive con HDInsight per analizzare i log dei siti Web](hadoop/apache-hive-analyze-website-log.md)
+* [Analizzare i dati sui ritardi dei voli mediante Apache Hive in HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
+* [Analizzare i dati Twitter mediante Apache Hive in HDInsight](hdinsight-analyze-twitter-data-linux.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png

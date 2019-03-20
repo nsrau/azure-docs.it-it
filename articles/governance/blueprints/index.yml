@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7d0947450352907eb90af748e8ced4a8bea67471
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: c4aeb25530739931a18f010a579bd8354d6fdc5a
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337886"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223292"
 documentType: LandingData
 title: Documentazione di Progetti di Azure
 metadata:
@@ -15,10 +15,10 @@ metadata:
   manager: carmonm
   ms.service: blueprints
   ms.topic: landing-page
-  ms.date: 10/30/2018
+  ms.date: 03/18/2019
   ms.author: dacoulte
 abstract:
-  description: Azure Blueprint consente di distribuire e aggiornare ambienti cloud in modo ripetibile usando artefatti componibili come criteri, controllo degli accessi in base al ruolo e modelli di Azure Resource Manager.
+  description: Azure Blueprints consente di distribuire e aggiornare ambienti cloud in modo ripetibile usando artefatti componibili come modelli di Azure Resource Manager per il provisioning delle risorse, controllo degli accessi in base al ruolo e criteri.
 sections:
 - title: Guide introduttive di 5 minuti
   items:
@@ -33,9 +33,9 @@ sections:
       text: Portale di Azure
       href: create-blueprint-portal.md
     - image:
-        alt: API REST
+        alt: REST
         src: ./media/rest.svg
-      text: API REST
+      text: REST
       href: create-blueprint-rest-api.md
 - title: riferimento
   items:
@@ -43,5 +43,7 @@ sections:
     style: cards
     className: cardsD
     items:
-    - title: API REST
-      html: <p><a href="/rest/api/blueprints/">Progetti</a></p>
+    - title: Languages
+      html: <p><a href="/dotnet/api/overview/azure/blueprints/management">Azure SDK per .NET</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/blueprints/">Informazioni di riferimento sulle API</a></p>

@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 62a953467e212d0cb78686e9b0d98a7f1fcb5135
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 60489e3fc7fc6482a14a241e777066b3805a4d5e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699011"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095110"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Come eseguire la procedura di backup e ripristino di un server in Database di Azure per PostgreSQL usando il portale di Azure
 
@@ -57,11 +57,11 @@ La procedura seguente consente di ripristinare il server di esempio a un momento
 
 3. Compilare il modulo Ripristina con le informazioni obbligatorie:
 
-   ![Database di Azure per PostgreSQL - Informazioni di ripristino ](./media/howto-restore-server-portal/3-restore.png)
-  - **Punto di ripristino**: selezionare il punto di ripristino temporizzato desiderato.
-  - **Server di destinazione**: Specificare un nome per il nuovo server.
-  - **Posizione**: non è possibile selezionare l'area. Per impostazione predefinita è uguale al server di origine.
-  - **Piano tariffario**: non è possibile modificare questi parametri quando si esegue un ripristino temporizzato. È uguale al server di origine. 
+   ![Database di Azure per PostgreSQL - Informazioni di ripristino](./media/howto-restore-server-portal/3-restore.png)
+   - **Punto di ripristino**: selezionare il punto di ripristino temporizzato desiderato.
+   - **Server di destinazione**: Specificare un nome per il nuovo server.
+   - **Posizione**: non è possibile selezionare l'area. Per impostazione predefinita è uguale al server di origine.
+   - **Piano tariffario**: non è possibile modificare questi parametri quando si esegue un ripristino temporizzato. È uguale al server di origine. 
 
 4. Fare clic su **OK** per ripristinare il server a un momento specifico. 
 

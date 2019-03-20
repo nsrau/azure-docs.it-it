@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2018
 ms.author: rkarlin
-ms.openlocfilehash: a5ca8efd43244825eef412cf3c05c8df20094112
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: e3b4da1c1d835e9d630c000055af058aa7b45968
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109540"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109189"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure
 Questo documento illustra come usare le raccomandazioni presenti nel Centro sicurezza di Azure per la protezione delle risorse di Azure.
@@ -53,27 +53,25 @@ Per visualizzare i dettagli di ogni raccomandazione, selezionare il **riquadro R
 
 È possibile filtrare le raccomandazioni. Per filtrare le raccomandazioni, selezionare **Filtro** nel pannello **Raccomandazioni**. Viene visualizzato il pannello **Filtro** in cui è possibile selezionare i valori relativi a gravità e stato da visualizzare.
 
-Le raccomandazioni vengono visualizzate sotto forma di tabella, in cui ogni riga rappresenta una particolare raccomandazione. Le colonne della tabella sono:
 
-* **DESCRIZIONE**: spiega la raccomandazione e cosa occorre fare per metterla in pratica.
+* **RACCOMANDAZIONI**: La raccomandazione.
+* **SECURE SCORE IMPATTO**:
 * **RISORSA**: elenca le risorse a cui si applica la raccomandazione.
-* **STATO**: descrive lo stato attuale della raccomandazione:
-  * **Aperto**: la raccomandazione non è ancora stata applicata.
-  * **In corso**: è in corso l'applicazione della raccomandazione alle risorse e non è richiesta alcuna azione da parte dell'utente.
-  * **Risolto**: la raccomandazione è già stata completata. In questo caso, la riga viene visualizzata in grigio.
-* **GRAVITÀ**: descrive il livello di gravità della raccomandazione:
-  * **Alta**: è presente una vulnerabilità associata a una risorsa significativa, ad esempio un'applicazione, una macchina virtuale o un gruppo di sicurezza di rete, che richiede attenzione.
-  * **Medium**: è presente una vulnerabilità e sono necessari passaggi aggiuntivi, o non critici, per eliminarla o completare un processo.
-  * **Bassa**: è presente una vulnerabilità che deve essere risolta ma non richiede attenzione immediata. Per impostazione predefinita, le raccomandazioni con gravità bassa non appaiono, ma è possibile visualizzarle applicando il filtro corrispondente.
+* **BARRE DI STATO**:  descrive il livello di gravità della raccomandazione:
+   * **Alta (rosso)**: è presente una vulnerabilità associata a una risorsa significativa, ad esempio un'applicazione, una macchina virtuale o un gruppo di sicurezza di rete, che richiede attenzione.
+   * **Medium (arancione)**: è presente una vulnerabilità e sono necessari passaggi aggiuntivi, o non critici, per eliminarla o completare un processo.
+   * **Basso (blu)**: è presente una vulnerabilità che deve essere risolta ma non richiede attenzione immediata. Per impostazione predefinita, le raccomandazioni con gravità bassa non appaiono, ma è possibile visualizzarle applicando il filtro corrispondente. 
+   * **Integro (verde)**:
+   * **Non è disponibile (grigio)**:
+ 
 
-Usare la tabella seguente come riferimento per conoscere le raccomandazioni disponibili e gli effetti che producono se si decide di metterle in pratica.
 
 > [!NOTE]
 > È necessario conoscere i [modelli di distribuzione di Resource Manager e classici](../azure-classic-rm.md) per le risorse di Azure.
->
->
-### <a name="apply-recommendations"></a>Applicare le raccomandazioni
-Dopo aver esaminato tutte le raccomandazioni, decidere quale applicare per prima. È consigliabile usare la classificazione di gravità come parametro principale per valutare quali raccomandazioni applicare per prime.
+> 
+> 
+> ### <a name="apply-recommendations"></a>Applicare le raccomandazioni
+> Dopo aver esaminato tutte le raccomandazioni, decidere quale applicare per prima. È consigliabile usare la classificazione di gravità come parametro principale per valutare quali raccomandazioni applicare per prime.
 
 
 

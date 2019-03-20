@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: e91f36c9d6f0cb3195e6903d55cd676f1e9ccf5a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 7d4e95d066e191e1d5b6d083ede65843dbe73f31
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626551"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010073"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalizzare la modalità di visualizzazione dei dati dai server OPC UA da parte della soluzione Connected Factory
 
@@ -75,13 +75,13 @@ Dopo avere apportato le modifiche al file **ContosoTopologyDescription.json**, �
 
 Il repository **azure-iot-connected-factory** include uno script PowerShell **build.ps1** che è possibile usare per ricompilare e distribuire la soluzione.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Altre informazioni sull'acceleratore di soluzioni di connected factory sono disponibili negli articoli seguenti:
 
 * [Procedura dettagliata dell'acceleratore di soluzioni di connected factory ][lnk-rm-walkthrough]
 * [Distribuire un gateway per Connected Factory][lnk-connect-cf]
-* [Autorizzazioni per il sito azureiotsuite.com][lnk-permissions]
+* [Autorizzazioni per il sito azureiotsolutions.com][lnk-permissions]
 * [Domande frequenti su Connected Factory](iot-accelerators-faq-cf.md)
 * [Domande frequenti][lnk-faq]
 

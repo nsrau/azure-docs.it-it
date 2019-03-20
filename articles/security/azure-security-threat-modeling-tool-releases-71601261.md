@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: jegeib
-ms.openlocfilehash: 55c781d0c6284de1382c9d3e614621c40963194b
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: c96b924294286be57de90dae7e6534b5ed9306ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302962"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57874573"
 ---
 # <a name="threat-modeling-tool-update-release-71601261---1292019"></a>Aggiornamento di Threat Modeling Tool versione 7.1.60126.1 - 29/01/2019
 
 La versione 7.1.60126.1 di Microsoft Threat Modeling Tool è stata rilasciata il 29 gennaio 2019 e contiene le modifiche seguenti:
 
-- La versione minima richiesta di .NET è stata incrementata a [.Net 4.7.1](http://go.microsoft.com/fwlink/?LinkId=863262).
+- La versione minima richiesta di .NET è stata aumentata a [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262).
 - La versione minima richiesta di Windows è stata incrementata a [Windows 10 Anniversary Update](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) a causa della dipendenza .NET.
 - Una funzionalità di attivazione/disattivazione della convalida del modello è stata aggiunta al menu Options (Opzioni) dello strumento.
 - Sono stati aggiornati alcuni collegamenti nelle Proprietà della minaccia.
@@ -47,7 +47,7 @@ L'opzione per abilitare e disabilitare la convalida del modello è reperibile in
 - Sistemi operativi supportati
   - [Microsoft Windows 10 Anniversary Update](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) o versione successiva
 - Versione .NET richiesta
-  - [.Net 4.7.1](http://go.microsoft.com/fwlink/?LinkId=863262) o versione successiva
+  - [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) o versione successiva
 - Requisiti aggiuntivi
   - Per ricevere aggiornamenti dello strumento e dei modelli, è necessaria una connessione Internet.
 

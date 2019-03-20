@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 139fe946b013b1c86404bdef6ed06314af349c89
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: df8196389ecb92229ff9495002c4bce394d7c048
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343137"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202708"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Usare le funzioni definite dall'utente C# con lo streaming Apache Hive e Apache Pig in Apache Hadoop in HDInsight
 
@@ -172,13 +172,13 @@ Per altre informazioni sulla versione del framework .NET e di Mono compresa nell
 
 6. Per caricare i file con estensione .exe, usare uno dei metodi seguenti:
 
-    * Se si usa un __Account di Archiviazione di Azure__, fare clic sull'icona per il caricamento, quindi passare alla cartella **bin\debug** per il progetto **HiveCSharp**. Selezionare infine il file **HiveCSharp.exe** e fare clic su **Ok**.
+   * Se si usa un __Account di Archiviazione di Azure__, fare clic sull'icona per il caricamento, quindi passare alla cartella **bin\debug** per il progetto **HiveCSharp**. Selezionare infine il file **HiveCSharp.exe** e fare clic su **Ok**.
 
-        ![icona relativa al caricamento](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
+       ![icona relativa al caricamento](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
     
-    * Se si usa __Azure Data Lake Storage__, fare clic con il pulsante destro del mouse su un'area vuota nell'elenco di file e quindi scegliere __Carica__. Selezionare infine il file **HiveCSharp.exe** e fare clic su **Apri**.
+   * Se si usa __Azure Data Lake Storage__, fare clic con il pulsante destro del mouse su un'area vuota nell'elenco di file e quindi scegliere __Carica__. Selezionare infine il file **HiveCSharp.exe** e fare clic su **Apri**.
 
-    Una volta terminato il caricamento di __HiveCSharp.exe__, ripetere il processo di caricamento per il file __PigUDF.exe__.
+     Una volta terminato il caricamento di __HiveCSharp.exe__, ripetere il processo di caricamento per il file __PigUDF.exe__.
 
 ## <a name="run-an-apache-hive-query"></a>Eseguire una query Apache Hive
 
@@ -216,11 +216,7 @@ Per altre informazioni sulla versione del framework .NET e di Mono compresa nell
 
 ## <a name="run-an-apache-pig-job"></a>Eseguire un processo Apache Pig
 
-1. Per connettersi al cluster HDInsight, usare uno dei metodi seguenti:
-
-    * Se si usa un cluster HDInsight __basato su Linux__, usare SSH. Ad esempio: `ssh sshuser@mycluster-ssh.azurehdinsight.net`. Per altre informazioni, vedere [Connettersi a HDInsight (Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
-    
-    * Se viene usato un cluster HDInsight __basato su Windows__, [Connettersi a cluster con RDP](../hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
+1. Connettersi al cluster HDInsight usando SSH. Ad esempio: `ssh sshuser@mycluster-ssh.azurehdinsight.net`. Per altre informazioni, vedere [Connettersi a HDInsight (Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
 
 2. Usare uno dei comandi seguenti per avviare la riga di comando di Pig:
 

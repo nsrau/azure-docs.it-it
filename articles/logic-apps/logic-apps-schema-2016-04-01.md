@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
 ms.topic: article
 ms.date: 07/25/2016
-ms.openlocfilehash: c1ef71ea2ec551335c3681760c181624334c3229
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
-ms.translationtype: HT
+ms.openlocfilehash: 6df29543df2b7b2609582f7e8dd9a0629182760c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043202"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849781"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Aggiornamenti dello schema per App per la logica di Azure: 1° giugno 2016
 
@@ -42,7 +42,7 @@ Questo schema include gli ambiti, che consentono di raggruppare le azioni o anni
             "Http": {
                "inputs": {
                    "method": "GET",
-                   "uri": "http://www.bing.com"
+                   "uri": "https://www.bing.com"
                },
                "runAfter": {},
                "type": "Http"
@@ -69,7 +69,7 @@ Nelle versioni precedenti dello schema, le condizioni e i cicli sono parametri a
          "Http_2": {
             "inputs": {
                 "method": "GET",
-                "uri": "http://www.bing.com"
+                "uri": "https://www.bing.com"
             },
             "runAfter": {},
             "type": "Http"
@@ -162,7 +162,7 @@ Le azioni possono ora includere una proprietà aggiuntiva denominata `trackedPro
    "Http": {
       "inputs": {
          "method": "GET",
-         "uri": "http://www.bing.com"
+         "uri": "https://www.bing.com"
       },
       "runAfter": {},
       "type": "Http",
@@ -174,7 +174,7 @@ Le azioni possono ora includere una proprietà aggiuntiva denominata `trackedPro
 }
 ```
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 * [Creare definizioni dei flussi di lavoro per le app per la logica](../logic-apps/logic-apps-author-definitions.md)
 * [Creare modelli di distribuzione per le app per la logica](../logic-apps/logic-apps-create-deploy-template.md)
 

@@ -18,7 +18,7 @@ items:
   expanded: true
 - name: Esercitazioni
   items:
-  - name: 1. Progettare un database
+  - name: Progettare un database
     items:
     - name: Portale di Azure
       href: tutorial-design-database-using-portal.md
@@ -66,6 +66,8 @@ items:
       href: concepts-server-logs.md
   - name: Sviluppo.
     items:
+    - name: Compatibilità di driver e strumenti
+      href: concepts-compatibility.md
     - name: Resilienza delle connessioni
       href: concepts-connectivity.md
   - name: Replica
@@ -162,9 +164,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Opzioni di supporto
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: a8fadb5d0fdcc8f89c4dfe79b0c87a1cca704766
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 0d017c688fa5ff6050d43393fb55a31f4bf88c97
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886639"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223734"

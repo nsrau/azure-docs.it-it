@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: cb2c548a94a91fe9126f684e382e9626adb93dd6
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: ed3d89bc15f960947a48ac4364bd14f3fdf50cc2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "52319060"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853070"
 ---
-# <a name="enable-or-disable-a-firewall-rule-on-a-azure-vm-guest-os"></a>Abilitare o disabilitare una regola del firewall in un sistema operativo guest in una macchina virtuale di Azure
+# <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Abilitare o disabilitare una regola del firewall in un sistema operativo Guest della macchina virtuale di Azure
 
 Questo articolo fornisce informazioni di riferimento per la risoluzione dei problemi in una situazione in cui si sospetta che il firewall del sistema operativo guest filtri il traffico parziale in una macchina virtuale. Questo può essere utile per i motivi seguenti:
 
@@ -107,7 +107,7 @@ Se la macchina virtuale è online ed è accessibile su un'altra macchina virtual
     
         Cambiare quindi **Active=FALSE** in **Active=TRUE** nella stringa:
 
-        **v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
+        **v2.22 | Azione = consentire | Attiva = TRUE | Dir = In | Protocollo = 6 | Profilo = Domain | Profilo = privata | Profilo = Public | LPort = 3389 | App=%Systemroot%\System32\Svchost.exe| SVC = termservice | Nome =\@FirewallAPI. dll,-28775 | Desc =\@FirewallAPI. dll,-28756 | EmbedCtxt =\@FirewallAPI. dll,-28752 |**
     
     * Per disabilitare una regola, aprire il valore del Registro di sistema seguente:
     
@@ -115,7 +115,7 @@ Se la macchina virtuale è online ed è accessibile su un'altra macchina virtual
 
         Cambiare quindi **Active=TRUE** in **Active=FALSE**:
         
-        **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
+        **v2.22 | Azione = consentire | Attiva = FALSE | Dir = In | Protocollo = 6 | Profilo = Domain | Profilo = privata | Profilo = Public | LPort = 3389 | App=%Systemroot%\System32\Svchost.exe| SVC = termservice | Nome =\@FirewallAPI. dll,-28775 | Desc =\@FirewallAPI. dll,-28756 | EmbedCtxt =\@FirewallAPI. dll,-28752 |**
 
 3.  Riavviare la macchina virtuale per applicare le modifiche.
 
@@ -154,7 +154,7 @@ Prima di seguire questa procedura, creare uno snapshot del disco di sistema dell
         
         Cambiare quindi **Active=FALSE** in **Active=TRUE**.
         
-        **v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
+        **v2.22 | Azione = consentire | Attiva = TRUE | Dir = In | Protocollo = 6 | Profilo = Domain | Profilo = privata | Profilo = Public | LPort = 3389 | App=%Systemroot%\System32\Svchost.exe| SVC = termservice | Nome =\@FirewallAPI. dll,-28775 | Desc =\@FirewallAPI. dll,-28756 | EmbedCtxt =\@FirewallAPI. dll,-28752 |**
 
     3.  Per disabilitare una regola, aprire la chiave del Registro di sistema seguente:
 
@@ -162,7 +162,7 @@ Prima di seguire questa procedura, creare uno snapshot del disco di sistema dell
 
         Cambiare quindi **Active=TRUE** in **Active=FALSE**.
         
-        **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
+        **v2.22 | Azione = consentire | Attiva = FALSE | Dir = In | Protocollo = 6 | Profilo = Domain | Profilo = privata | Profilo = Public | LPort = 3389 | App=%Systemroot%\System32\Svchost.exe| SVC = termservice | Nome =\@FirewallAPI. dll,-28775 | Desc =\@FirewallAPI. dll,-28756 | EmbedCtxt =\@FirewallAPI. dll,-28752 |**
 
 9.  Evidenziare  **BROKENSYSTEM** e quindi scegliere  **File** > **Scarica hive**  dal menu.
 

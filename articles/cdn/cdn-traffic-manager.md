@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2018
-ms.author: kumud
+ms.date: 03/18/2019
+ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: 4c072ef63c0d4961fba695fc8d9be1d12b4b0e8b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: afadef8b29927f909af5be1e1204180724258b74
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749215"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58167066"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurare il failover in più endpoint della rete CDN di Azure con Gestione traffico di Azure
 
@@ -77,7 +77,7 @@ Dopo aver configurato i profili della rete CDN e di Gestione traffico, seguire q
     >
 
 
-2.  Dal profilo della rete CDN di Azure selezionare il primo endpoint della rete CDN (Akamai). Selezionare **Add custom domain** (Aggiungi dominio personalizzato) e immettere *cdndemo101akamai.azureedge.net*. Verificare che il segno di spunta per convalidare il dominio personalizzato sia verde. 
+2.  Dal profilo della rete CDN di Azure selezionare il primo endpoint della rete CDN (Akamai). Selezionare **Aggiungi dominio personalizzato** e di input *cdndemo101.dustydogpetcare.online*. Verificare che il segno di spunta per convalidare il dominio personalizzato sia verde. 
 
     La rete CDN di Azure usa il sottodominio *cdnverify* per convalidare il mapping DNS per completare questo processo di registrazione. Per altre informazioni, vedere [Creare un record DNS CNAME](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Questo passaggio consente alla rete CDN di Azure di riconoscere il dominio personalizzato in modo da rispondere alle sue richieste.
 
@@ -87,7 +87,7 @@ Dopo aver configurato i profili della rete CDN e di Gestione traffico, seguire q
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 
-4. Dal profilo della rete CDN di Azure selezionare il secondo endpoint della rete CDN, Verizon, e ripetere il passaggio 2. Selezionare **Add custom domain** (Aggiungi dominio personalizzato) e immettere *cdndemo101akamai.azureedge.net*.
+4. Dal profilo della rete CDN di Azure selezionare il secondo endpoint della rete CDN, Verizon, e ripetere il passaggio 2. Selezionare **Aggiungi dominio personalizzato**e di input *cdndemo101.dustydogpetcare.online*.
  
 Dopo aver completato questi passaggi, il servizio con più reti CDN e funzionalità di failover è configurato con Gestione traffico di Azure. Si potrà accedere agli URL di test dal dominio personalizzato. Per testare la funzionalità, disabilitare l'endpoint primario della rete CDN e verificare che la richiesta sia spostata correttamente all'endpoint secondario della rete CDN. 
 
