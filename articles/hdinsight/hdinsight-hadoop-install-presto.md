@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 60ff63a049f225886d69c1a89a2930671e533d78
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 6fdeab56523d05232dd4e6a720de0be9866a4801
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910914"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084828"
 ---
 # <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>Installare e usare Presto nei cluster HDInsight basati su Hadoop
 
@@ -42,11 +42,11 @@ Questa sezione illustra come usare lo script di esempio quando si crea un nuovo 
 
 1. Iniziare a eseguire il provisioning di un cluster seguendo la procedura in [Creare cluster basati su Linux in HDInsight tramite il portale di Azure](hdinsight-hadoop-create-linux-clusters-portal.md). Assicurarsi di creare il cluster usando il flusso di creazione del cluster **personalizzato**. Il cluster deve soddisfare i requisiti seguenti:
 
-    * Deve essere un cluster Hadoop con HDInsight versione 3.6.
+   * Deve essere un cluster Hadoop con HDInsight versione 3.6.
 
-    * Deve usare Archiviazione di Azure come archivio dati. L'uso di Presto in un cluster con Azure Data Lake Storage come opzione di archiviazione non è ancora supportato.
+   * Deve usare Archiviazione di Azure come archivio dati. L'uso di Presto in un cluster con Azure Data Lake Storage come opzione di archiviazione non è ancora supportato.
 
-    ![HDInsight, Personalizzate (dimensioni, impostazioni, app)](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
+     ![HDInsight, Personalizzate (dimensioni, impostazioni, app)](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
 2. Nell'area **Impostazioni avanzate** selezionare **Azioni script**. Fornire le informazioni seguenti. È anche possibile scegliere l'opzione **Installa Presto** per il tipo di script:
    
@@ -162,7 +162,6 @@ Per personalizzare l'installazione, seguire questa procedura:
     `sudo slider create presto1 --template /var/lib/presto/presto-hdinsight-master/appConfig-default.json --resources /var/lib/presto/presto-hdinsight-master/resources-default.json`
 
 5. Attendere che la nuova istanza sia pronta. Prendere nota dell'indirizzo del coordinatore di Presto:
-
 
     `sudo slider registry --name presto1 --getexp presto`
 

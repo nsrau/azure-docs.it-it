@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d10d39a65acd3664c99e8b5aa5cc015a76d9d1aa
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 89ae8bd4139623cfafe811b7c82433cfb8400611
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209378"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189666"
 ---
 # <a name="troubleshoot-failure-to-connect-to-a-cluster-in-azure-data-explorer"></a>Risoluzione dei problemi: Errore durante la connessione a un cluster in Esplora dati di Azure
 
@@ -27,7 +27,7 @@ Se non si riesce a connettersi a un cluster in Esplora dati di Azure, seguire qu
 
 1. Assicurarsi che il cluster non sia stato eliminato: rivedere il log attività nella sottoscrizione.
 
-1. Controllare il [dashboard di integrità dei servizi di Azure](https://azure.microsoft.com/status/>). Cercare lo stato di Esplora dati di Azure nell'area in cui si sta cercando di connettersi al cluster.
+1. Controllare il [dashboard di integrità dei servizi di Azure](https://azure.microsoft.com/status/). Cercare lo stato di Esplora dati di Azure nell'area in cui si sta cercando di connettersi al cluster.
 
     Se lo stato è diverso da **Buono**, valore indicato dal segno di spunta verde, provare a connettersi al cluster dopo che lo stato è migliorato.
 

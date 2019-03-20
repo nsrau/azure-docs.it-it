@@ -1,5 +1,5 @@
 ---
-title: Diagnosi dei problemi delle notifiche non recapitate da Hub di notifica di Azure
+title: Hub di notifica di Azure - diagnosticare notifiche eliminate
 description: Informazioni su come diagnosticare i problemi comuni relativi alle notifiche non recapitate in Hub di notifica di Azure.
 services: notification-hubs
 documentationcenter: Mobile
@@ -14,14 +14,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 9dd6a66ea416ad61682b8e33c6163db3ac345d92
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: c0fd7dec31a2c4054c59db3bae52cdb15ba01eed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447718"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884422"
 ---
-# <a name="diagnose-dropped-notifications-in-notification-hubs"></a>Diagnosticare le notifiche non recapitate in Hub di notifica
+# <a name="azure-notification-hubs---diagnose-dropped-notifications"></a>Hub di notifica di Azure - diagnosticare notifiche eliminate
 
 Una delle domande più comuni dei clienti di Hub di notifica di Azure è come risolvere i problemi quando le notifiche inviate da un'applicazione non vengono visualizzate nei dispositivi client. I clienti desiderano sapere dove si è verificato l'errore e perché le notifiche non sono state recapitate e come risolvere il problema. Questo articolo illustra i motivi per cui le notifiche possono essere eliminate o non essere ricevute dai dispositivi. Informazioni su come analizzare e determinare la causa principale.
 
@@ -246,10 +246,7 @@ Nel portale è possibile ottenere una rapida panoramica di tutte le attività ne
 
 * **Accesso a livello di codice**
 
-Per altre informazioni sull'accesso programmatico, vedere questi articoli:
-
-* [Accesso alla telemetria a livello di codice]  
-* [Esempio di accesso alla telemetria tramite API]
+Per altre informazioni sull'accesso a livello di codice, vedere [accesso alla telemetria a livello di codice]
 
 > [!NOTE]
 > Diverse funzionalità correlate alla telemetria, come l'esportazione e importazione di registrazioni e l'accesso ai dati di telemetria tramite le API, sono disponibili solo con il livello di servizio Standard. Se si tenta di usare queste funzionalità dal livello di servizio Gratuito o Basic, viene visualizzato un messaggio di eccezione se si usa l'SDK e un errore HTTP 403 (accesso negato) se si usano le funzionalità direttamente dalle API REST.
@@ -274,12 +271,11 @@ Per altre informazioni sull'accesso programmatico, vedere questi articoli:
 [Templates]: https://msdn.microsoft.com/library/dn530748.aspx
 [APNs overview]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html (Panoramica del servizio di notifica push)
 [About FCM messages]: https://firebase.google.com/docs/cloud-messaging/concept-options (Informazioni sui messaggi FCM)
-[Export and modify registrations in bulk]: http://msdn.microsoft.com/library/dn790624.aspx
+[Export and modify registrations in bulk]: https://msdn.microsoft.com/library/dn790624.aspx
 [Service Bus Explorer]: https://msdn.microsoft.com/library/dn530751.aspx#sb_explorer
 [Codice di Service Bus Explorer]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
-[Come visualizzare le registrazioni di dispositivi per gli hub di notifica]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
-[Approfondimento: Visual Studio 2013 Update 2 RC and Azure SDK 2.3]: http://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs (Approfondimento: Visual Studio 2013 Update 2 RC e Azure SDK 2.3)
-[Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4]: http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/ (Annuncio del rilascio di Visual Studio 2013 Update 3 e Azure SDK 2.4)
+[Come visualizzare le registrazioni di dispositivi per gli hub di notifica]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
+[Approfondimento: Visual Studio 2013 Update 2 RC and Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs (Approfondimento: Visual Studio 2013 Update 2 RC e Azure SDK 2.3)
+[Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/ (Annuncio del rilascio di Visual Studio 2013 Update 3 e Azure SDK 2.4)
 [EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
-[Accesso alla telemetria a livello di codice]: http://msdn.microsoft.com/library/azure/dn458823.aspx
-[Esempio di accesso alla telemetria tramite API]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
+[Accesso alla telemetria a livello di codice]: https://msdn.microsoft.com/library/azure/dn458823.aspx

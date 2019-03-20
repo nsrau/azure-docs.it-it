@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 703b8a7a094d0ea6f5b5dedaf02a218b407269d3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 9cfec02e2ea3496589474e61f583fb840a70f78d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813807"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881324"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
 
@@ -93,8 +93,8 @@ La procedura seguente usa [APT](https://wiki.debian.org/Apt) per installare gli 
 
     | Distribuzione Linux | Versione |
     | --------------- | ----------- |
+    | Ubuntu 18.10    | `cosmic`    |
     | Ubuntu 18.04    | `bionic`    |
-    | Ubuntu 17.10    | `artful`    |
     | Ubuntu 17.04    | `zesty`     |
     | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
 
@@ -156,7 +156,7 @@ Nella versione 2.x del runtime di Funzioni di Azure è necessario registrare in 
 
 [!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
 
-Per altre informazioni, vedere [Concetti relativi a trigger e associazioni in Funzioni di Azure](functions-triggers-bindings.md#register-binding-extensions).
+Per altre informazioni, vedere [Concetti relativi a trigger e associazioni in Funzioni di Azure](./functions-bindings-expressions-patterns.md).
 
 ## <a name="local-settings-file"></a>File di impostazioni locali
 
@@ -183,22 +183,22 @@ Il file local.settings.json archivia le impostazioni di app, le stringhe di conn
 
 | Impostazione      | DESCRIZIONE                            |
 | ------------ | -------------------------------------- |
-| **IsEncrypted** | Se impostato su **true**, tutti i valori sono crittografati tramite una chiave del computer locale. Usato con i comandi `func settings`. Il valore predefinito è **false**. |
-| **Valori** | Raccolta di impostazioni dell'applicazione e stringhe di connessioni usate durante l'esecuzione in locale. Questi valori corrispondono alle impostazioni delle app nell'app in Azure, funzione, ad esempio **AzureWebJobsStorage** e **AzureWebJobsDashboard**. Molti trigger e associazioni includono una proprietà che fa riferimento a un'impostazione della stringa di connessione, ad esempio **Connection** per [Trigger di archiviazione del BLOB](functions-bindings-storage-blob.md#trigger---configuration). Per tali proprietà, è necessaria un'impostazione dell'applicazione definita nella matrice **Values**. <br/>**AzureWebJobsStorage** è un'impostazione di app obbligatoria per i trigger diversi da HTTP. Quando si dispone dell'[emulatore di archiviazione di Azure](../storage/common/storage-use-emulator.md) installato localmente, è possibile impostare **AzureWebJobsStorage** su `UseDevelopmentStorage=true` e gli strumenti di base usano l'emulatore. Ciò è utile durante lo sviluppo, ma è consigliabile testare con una connessione di archiviazione reale prima della distribuzione. |
-| **Host** | Le impostazioni in questa sezione consentono di personalizzare il processo host di Funzioni durante l'esecuzione in locale. |
-| **LocalHttpPort** | Consente di impostare la porta predefinita usata durante l'esecuzione nell'host locale di Funzioni, ovvero `func host start` e `func run`. L'opzione `--port` della riga di comando ha la precedenza su questo valore. |
-| **CORS** | Definisce le origini consentite per la [condivisione di risorse tra le origini (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Le origini sono elencate in un elenco delimitato dalla virgola senza spazi. È supportato il valore del carattere jolly (\*) che consente le richieste di qualsiasi origine. |
-| **ConnectionStrings** | Non usare questa raccolta per le stringhe di connessione usate per l'associazione di funzione. Questa raccolta viene usata solo dai framework che in genere ottengono le stringhe di connessione dalla sezione **ConnectionStrings** di un file di configurazione, ad esempio [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Le stringhe di connessione in questo oggetto vengono aggiunte all'ambiente con il tipo di provider di [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Gli elementi in questa raccolta non vengono pubblicati in Azure con altre impostazioni di app. È necessario aggiungere questi valori in modo esplicito alla raccolta di **stringhe di connessione** delle impostazioni dell'app per le funzioni. Se si crea una connessione [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) nel codice di funzione, è consigliabile archiviare il valore della stringa di connessione nelle **impostazioni dell'applicazione** con le altre connessioni. |
+| **`IsEncrypted`** | Se impostato su `true`, tutti i valori sono crittografati usando una chiave del computer locale. Usato con i comandi `func settings`. Il valore predefinito è `false`. |
+| **`Values`** | Raccolta di impostazioni dell'applicazione e stringhe di connessioni usate durante l'esecuzione in locale. Questi valori corrispondono alle impostazioni dell'app nell'app per le funzioni in Azure, ad esempio [ `AzureWebJobsStorage` ]. Molti trigger e associazioni presentano una proprietà che fa riferimento a un'impostazione app stringa di connessione, ad esempio `Connection` per il [trigger di archiviazione Blob](functions-bindings-storage-blob.md#trigger---configuration). Per tali proprietà, è necessario un'impostazione dell'applicazione definita nel `Values` matrice. <br/>[`AzureWebJobsStorage`] è l'impostazione app obbligatoria per i trigger diversi da HTTP. <br/>Versione 2.x del runtime di funzioni richiede la [ `FUNCTIONS_WORKER_RUNTIME` ] impostazione, che viene generato per il progetto da strumenti di base. <br/> Quando si dispone di [emulatore di archiviazione di Azure](../storage/common/storage-use-emulator.md) installato in locale, è possibile impostare [ `AzureWebJobsStorage` ] a `UseDevelopmentStorage=true` e strumenti di base usa l'emulatore. Ciò è utile durante lo sviluppo, ma è consigliabile testare con una connessione di archiviazione reale prima della distribuzione. |
+| **`Host`** | Le impostazioni in questa sezione consentono di personalizzare il processo host di Funzioni durante l'esecuzione in locale. |
+| **`LocalHttpPort`** | Consente di impostare la porta predefinita usata durante l'esecuzione nell'host locale di Funzioni, ovvero `func host start` e `func run`. L'opzione `--port` della riga di comando ha la precedenza su questo valore. |
+| **`CORS`** | Definisce le origini consentite per la [condivisione di risorse tra le origini (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Le origini sono elencate in un elenco delimitato dalla virgola senza spazi. È supportato il valore del carattere jolly (\*) che consente le richieste di qualsiasi origine. |
+| **`ConnectionStrings`** | Non usare questa raccolta per le stringhe di connessione usate per l'associazione di funzione. Questa raccolta viene usata solo da parte di Framework che in genere ottengono le stringhe di connessione dal `ConnectionStrings` sezione di configurazione di una file, ad esempio [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Le stringhe di connessione in questo oggetto vengono aggiunte all'ambiente con il tipo di provider di [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Gli elementi in questa raccolta non vengono pubblicati in Azure con altre impostazioni di app. È necessario aggiungere in modo esplicito questi valori per il `Connection strings` raccolta di impostazioni dell'app di funzione. Se si sta creando un [ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) nel codice della funzione, è consigliabile archiviare il valore di stringa di connessione nel **le impostazioni dell'applicazione** nel portale con le altre connessioni. |
 
 I valori delle impostazioni dell'app di funzione possono anche essere letti nel codice come variabili di ambiente. Per altre informazioni, vedere la sezione Variabili di ambiente negli argomenti di riferimento specifici del linguaggio seguenti:
 
-+ [C# precompilato](functions-dotnet-class-library.md#environment-variables)
-+ [Script C# (file con estensione csx)](functions-reference-csharp.md#environment-variables)
-+ [Script F# (file con estensione fsx)](functions-reference-fsharp.md#environment-variables)
-+ [Java](functions-reference-java.md#environment-variables)
-+ [JavaScript](functions-reference-node.md#environment-variables)
+* [C# precompilato](functions-dotnet-class-library.md#environment-variables)
+* [Script C# (file con estensione csx)](functions-reference-csharp.md#environment-variables)
+* [Script F# (file con estensione fsx)](functions-reference-fsharp.md#environment-variables)
+* [Java](functions-reference-java.md#environment-variables)
+* [JavaScript](functions-reference-node.md#environment-variables)
 
-Quando non è impostata alcuna stringa di connessione di archiviazione valida per **AzureWebJobsStorage** e non viene usato l'emulatore, viene visualizzato il messaggio di errore seguente:
+Quando non è impostata alcuna stringa di connessione di archiviazione valida per [ `AzureWebJobsStorage` ] e l'emulatore non viene usata, viene visualizzato il messaggio di errore seguente:
 
 > Valore mancante per AzureWebJobsStorage in local.settings.json. È necessario per tutti i trigger diversi da HTTP. È possibile eseguire 'func azure functionapp fetch-app-settings \<functionAppName\>' o specificare una stringa di connessione in local.settings.json.
 
@@ -216,12 +216,12 @@ Anche quando si usa l'emulatore di archiviazione per lo sviluppo, si può deside
 
 + Usare strumenti di base per scaricare la stringa di connessione da Azure con uno dei seguenti comandi:
 
-    + Scaricare tutte le impostazioni di un'app di funzione esistente:
+  + Scaricare tutte le impostazioni di un'app di funzione esistente:
 
     ```bash
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
-    + Ottenere la stringa di connessione per uno specifico account di archiviazione:
+  + Ottenere la stringa di connessione per uno specifico account di archiviazione:
 
     ```bash
     func azure storage fetch-connection-string <StorageAccountName>
@@ -481,3 +481,5 @@ Per registrare una richiesta per un bug o una funzionalità [aprire un problema 
 [Strumenti di base di Funzioni di Azure]: https://www.npmjs.com/package/azure-functions-core-tools
 [Portale di Azure]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
+[`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
+[`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage

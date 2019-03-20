@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: 309c69862d475a0ef76ab0a24ed804b363ba33c0
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: c26117bf298d5fe7fd8a14e0aa2b14834e412328
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696797"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009938"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Domande frequenti (FAQ) su Gestione traffico
 
@@ -59,14 +59,7 @@ Il metodo Prestazioni instrada il traffico all'endpoint disponibile più vicino.
 Come spiegato nella sezione [Modalità di funzionamento di Gestione traffico](../traffic-manager/traffic-manager-how-it-works.md), Gestione traffico funziona a livello di DNS. Dopo il completamento della ricerca DNS, i client si connettono all'endpoint dell'applicazione direttamente, non tramite Gestione traffico. La connessione può pertanto usare qualsiasi protocollo dell'applicazione. Se come protocollo di monitoraggio si seleziona TCP, i controlli dell'integrità dell'endpoint eseguiti da Gestione traffico non richiedono l'uso dei protocolli dell'applicazione. Se si sceglie di verificare l'integrità usando un protocollo dell'applicazione, l'endpoint deve poter rispondere alle richieste HTTP o HTTPS GET.
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>È possibile usare Gestione traffico con un nome di dominio di tipo "naked" (senza www)?
-
- No. Gli standard DNS non consentono la coesistenza tra record CNAME e altri record DNS dello stesso nome. Il vertice o la radice di una zona DNS contiene sempre due record DNS preesistenti: il record SOA e quello del server dei nomi autorevole. Non è quindi possibile creare un record CNAME al vertice della zona senza violare gli standard DNS.
-
-Gestione traffico richiede un record CNAME DNS per eseguire il mapping del nome DNS personalizzato. Ad esempio, eseguire il mapping `www.contoso.com` al nome DNS del profilo di traffico `contoso.trafficmanager.net`. Inoltre, il profilo di Gestione traffico restituisce un secondo record DNS CNAME per indicare l'endpoint a cui il client dovrebbe collegarsi.
-
-Per risolvere questo problema, è consigliabile usare un reindirizzamento HTTP per indirizzare il traffico dal nome di dominio naked a un URL differente, che può quindi usare Gestione traffico. Ad esempio, il dominio naked "contoso.com" può reindirizzare gli utenti al dominio "www.contoso.com" CNAME, che punta al nome DNS di Gestione traffico.
-
-Il supporto completo per i domini naked in Gestione traffico è riportato nel backlog delle funzionalità. È possibile registrare il supporto per questa funzionalità [votandolo sul sito dei commenti della community](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
+Sì. Per informazioni su come creare un record alias per il vertice di nome di dominio fare riferimento a un profilo di gestione traffico di Azure, vedere [configurare un record di alias per supportare i nomi di dominio di apex con gestione traffico](../dns/tutorial-alias-tm.md).
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>Gestione traffico tiene conto dell'indirizzo della subnet client quando si gestiscono query DNS? 
 Sì, oltre all'indirizzo IP di origine della query DNS che riceve (che è in genere l'indirizzo IP del sistema di risoluzione DNS), quando si eseguono ricerche per i metodi di routing Geografico, Prestazioni e Subnet, Gestione traffico considera anche l'indirizzo di subnet del client se viene incluso nella query dal resolver che effettua la richiesta per conto dell'utente finale.  
@@ -347,6 +340,7 @@ No, Gestione traffico non consente di combinare diversi tipi di indirizzamento d
 Quando si riceve una query per un profilo, Gestione traffico per prima cosa individua l'endpoint che deve essere restituito in base al metodo di routing specificato e allo stato di integrità degli endpoint. Quindi esamina il tipo di record richiesto nella query in ingresso e il tipo di record associato all'endpoint prima di restituire una risposta in base alla tabella che segue.
 
 Per i profili con metodo di routing diverso da Multivalore:
+
 |Richiesta query in ingresso|    Tipo di endpoint|  Risposta specificata|
 |--|--|--|
 |ANY |  A / AAAA / CNAME |  Endpoint di destinazione| 
@@ -357,6 +351,7 @@ Per i profili con metodo di routing diverso da Multivalore:
 |CNAME |    CNAME | Endpoint di destinazione|
 |CNAME  |A / AAAA | NODATA |
 |
+
 Per i profili con metodo di routing impostato su Multivalore:
 
 |Richiesta query in ingresso|    Tipo di endpoint | Risposta specificata|

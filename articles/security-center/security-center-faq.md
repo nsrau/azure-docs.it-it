@@ -3,7 +3,7 @@ title: Domande frequenti sul Centro sicurezza di Azure | Documentazione Microsof
 description: Queste FAQ rispondono alle domande sul Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2018
-ms.author: rkarlin
-ms.openlocfilehash: 61dac6bea6878630c05339778c717f7818c1c662
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.date: 02/25/2019
+ms.author: monhaber
+ms.openlocfilehash: ad676070bb684e459c0dae648443318199f77b6d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106648"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091529"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Domande frequenti sul Centro sicurezza di Azure
 Queste FAQ rispondono alle domande sul Centro sicurezza di Azure, un servizio che consente di prevenire, rilevare e rispondere alle minacce con visibilità e controllo maggiori sulla sicurezza delle risorse di Microsoft Azure.
@@ -42,7 +42,7 @@ Il Centro sicurezza è disponibile in due livelli:
 
 Il **livello gratuito** permette di conoscere lo stato di protezione delle risorse di Azure, i criteri di sicurezza di base, i consigli sulla sicurezza e l'aspetto di integrazione con i prodotti e i servizi dei partner.
 
-Il **livello standard** aggiunge funzionalità avanzate per il rilevamento delle minacce, tra cui intelligence per le minacce, analisi del comportamento, rilevamento delle anomalie, eventi imprevisti per la sicurezza e report di valutazione delle minacce. È possibile avviare una versione di valutazione tierfree Standard. Per eseguire l'aggiornamento, selezionare il [piano tariffario](https://docs.microsoft.com/azure/security-center/security-center-pricing) nei criteri di sicurezza. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
+Il **livello standard** aggiunge funzionalità avanzate per il rilevamento delle minacce, tra cui intelligence per le minacce, analisi del comportamento, rilevamento delle anomalie, eventi imprevisti per la sicurezza e report di valutazione delle minacce. È possibile avviare una versione di valutazione gratuita di livello Standard. Per eseguire l'aggiornamento, selezionare il [piano tariffario](https://docs.microsoft.com/azure/security-center/security-center-pricing) nei criteri di sicurezza. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="permissions"></a>Autorizzazioni
 Il Centro sicurezza di Azure usa il [controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md), con [ruoli predefiniti](../role-based-access-control/built-in-roles.md) che possono essere assegnati a utenti, gruppi e servizi in Azure.
@@ -54,8 +54,8 @@ Per altre informazioni sui ruoli e sulle azioni consentite in Centro sicurezza, 
 ## <a name="data-collection-agents-and-workspaces"></a>Raccolta di dati, agenti e aree di lavoro
 Il Centro sicurezza raccoglie i dati delle macchine virtuali di Azure e dei computer che non hanno Azure per monitorare le minacce e le vulnerabilità della sicurezza. I dati vengono raccolti tramite Microsoft Monitoring Agent, che legge diverse configurazioni correlate alla sicurezza oltre ai registri eventi del computer e copia i dati nell'area di lavoro per eseguire l'analisi.
 
-### <a name="am-i-billed-for-log-analytics-on-the-workspaces-created-by-security-center"></a>Vengono addebitati costi per Log Analytics nelle aree di lavoro create dal Centro sicurezza?
- No. Le aree di lavoro create dal Centro sicurezza non comportano addebiti di Log Analytics, benché siano configurate per la fatturazione di Log Analytics per nodo. La fatturazione del Centro sicurezza è sempre basata sui criteri di sicurezza del Centro sicurezza e sulle soluzioni installate in un'area di lavoro:
+### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Vengono fatturate per i log di monitoraggio di Azure nelle aree di lavoro create dal Centro sicurezza?
+ No. Aree di lavoro create dal Centro sicurezza, benché siano configurate per i log di monitoraggio di Azure per la fatturazione di nodo, non comportano addebiti di log di monitoraggio di Azure. La fatturazione del Centro sicurezza è sempre basata sui criteri di sicurezza del Centro sicurezza e sulle soluzioni installate in un'area di lavoro:
 
 - **Livello Gratuito**: il Centro sicurezza abilita la soluzione 'SecurityCenterFree' nell'area di lavoro predefinita. Non viene applicato alcun addebito per il livello Gratuito.
 - **Livello Standard**: il Centro sicurezza abilita la soluzione 'Security' nell'area di lavoro predefinita.
@@ -63,9 +63,11 @@ Il Centro sicurezza raccoglie i dati delle macchine virtuali di Azure e dei comp
 Per altre informazioni sui prezzi, vedere [Prezzi di Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/). La pagina relativa ai prezzi illustra le modifiche apportate alla fatturazione per l'archiviazione dei dati di sicurezza e alla fatturazione ripartita a partire da giugno 2017.
 
 > [!NOTE]
-> Il piano tariffario di Log Analytics per le aree di lavoro create dal Centro sicurezza non influisce sulla fatturazione del Centro sicurezza.
+> L'analitica log tariffario delle aree di lavoro create dal Centro sicurezza non influisce sulla fatturazione del Centro sicurezza.
 >
 >
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ### <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-microsoft-monitoring-agent-installation"></a>Che cosa determina il diritto di una macchina virtuale al provisioning automatico dell'installazione di Microsoft Monitoring Agent?
 Le macchine virtuali IaaS Windows o Linux hanno diritto al provisioning automatico se:
@@ -182,18 +184,18 @@ Il Centro sicurezza abiliterà la corretta soluzione nell'area di lavoro in base
 
 Per rimuovere manualmente l'agente:
 
-1.  Nel portale aprire **Log Analytics**.
-2.  Nel pannello di Log Analytics selezionare un'area di lavoro:
-3.  Selezionare ogni VM da escludere dal monitoraggio, quindi selezionare **Disconnetti**.
+1. Nel portale aprire **Log Analytics**.
+2. Nel pannello di Log Analytics selezionare un'area di lavoro:
+3. Selezionare ogni VM da escludere dal monitoraggio, quindi selezionare **Disconnetti**.
 
    ![Rimuovere l'agente][3]
 
 > [!NOTE]
 > Se una VM Linux include già un agente OMS non dell'estensione, la rimozione dell'estensione comporta anche la rimozione dell'agente e il cliente dovrà reinstallarlo.
->
->
-### <a name="how-do-i-disable-data-collection"></a>Come si disabilita la raccolta dati?
-Il provisioning automatico è disattivato per impostazione predefinita. È possibile disabilitare il provisioning automatico nelle risorse in qualsiasi momento disattivando questa impostazione nei criteri di sicurezza. Il provisioning automatico è fortemente consigliato per ottenere gli avvisi di sicurezza e i suggerimenti sugli aggiornamenti del sistema, le vulnerabilità del sistema operativo e la protezione degli endpoint.
+> 
+> 
+> ### <a name="how-do-i-disable-data-collection"></a>Come si disabilita la raccolta dati?
+> Il provisioning automatico è disattivato per impostazione predefinita. È possibile disabilitare il provisioning automatico nelle risorse in qualsiasi momento disattivando questa impostazione nei criteri di sicurezza. Il provisioning automatico è fortemente consigliato per ottenere gli avvisi di sicurezza e i suggerimenti sugli aggiornamenti del sistema, le vulnerabilità del sistema operativo e la protezione degli endpoint.
 
 Per disabilitare la raccolta di dati, [accedere al portale di Azure](https://portal.azure.com), selezionare **Sfoglia**, **Centro sicurezza**, quindi selezionare**Selezione criteri**. Selezionare la sottoscrizione per cui si desidera disabilitare il provisioning automatico. Quando si seleziona una sottoscrizione, si apre **Criteri di sicurezza - Raccolta dati**. In **Auto provisioning**, (Provisioning automatico) selezionare **Off**.
 
@@ -217,7 +219,7 @@ L'agente e usa una quantità nominale delle risorse di sistema e dovrebbe avere 
 ### <a name="where-is-my-data-stored"></a>Dove vengono archiviati i dati?
 I dati raccolti dall'agente vengono archiviati in un'area di lavoro di Log Analytics esistente associata alla sottoscrizione o in una nuova area di lavoro. Per altre informazioni, vedere [Sicurezza dei dati](security-center-data-security.md).
 
-## Clienti di Log Analytics esistenti<a name="existingloganalyticscust"></a>
+## I clienti di log di monitoraggio di Azure esistente<a name="existingloganalyticscust"></a>
 
 ### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>Il Centro sicurezza esegue l'override di eventuali connessioni esistenti tra le macchine virtuali e le aree di lavoro?
 Se in una VM è già installato Microsoft Monitoring Agent come estensione di Azure, il Centro sicurezza non esegue l'override della connessione all'area di lavoro esistente. Il Centro sicurezza usa l'area di lavoro esistente.
@@ -274,6 +276,9 @@ Il Centro sicurezza di Azure raccoglie, analizza e unisce automaticamente i dati
 * Malware avanzato rilevato mediante i report degli errori di Windows
 * Attacchi di forza bruta contro le macchine virtuali
 * Avvisi di sicurezza da soluzioni di sicurezza integrata dei partner, ad esempio antimalware o Web application firewall
+
+### Il motivo per cui è stata protetta modifica i valori dei punteggi? <a name="secure-score-faq"></a>
+A partire da febbraio 2019, Centro sicurezza di regolare il punteggio di alcune indicazioni, per adattarla alle loro gravità. In seguito a questa modifica, potrebbero esserci modifiche in generale secure score valori.  Per altre informazioni sul punteggio sicuro, vedere [proteggere il calcolo del punteggio](security-center-secure-score.md).
 
 ### <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Qual è la differenza tra le minacce rilevate e le minacce segnalate da Microsoft Security Response Center e dal Centro sicurezza di Azure?
 Microsoft Security Response Center (MSRC) esegue il monitoraggio selettivo della sicurezza della rete e dell'infrastruttura di Azure e riceve informazioni sulle minacce e segnalazioni di violazioni da terzi. Se MSRC rileva che un'entità illegale o non autorizzata ha ottenuto l'accesso a dati del cliente o che l'uso di Azure da parte del cliente non è conforme ai criteri d'uso, un responsabile della sicurezza segnala il problema al cliente. Come notifica viene in genere inviato un messaggio di posta elettronica ai contatti per la sicurezza specificati nel Centro sicurezza di Azure oppure al proprietario della sottoscrizione di Azure se non è specificato nessun contatto per la sicurezza.

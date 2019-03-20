@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2018
+ms.date: 02/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6083237426e86220f8a3cb7fbe0cdfc30f44f8cc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bfd61b78ca3027ade1f2f48dec33e0a8ed508d3d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208827"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003904"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: aggiornamento automatico
 Questa funzionalità è stata introdotta nella build [1.1.105.0 rilasciata nel mese di febbraio 2016](reference-connect-version-history.md#111050).  Questa funzionalità è stata aggiornata nella [build 1.1.561](reference-connect-version-history.md#115610) e ora supporta scenari aggiuntivi che non erano supportati in precedenza.
@@ -43,7 +43,7 @@ Lo stato corrente dell'aggiornamento automatico può essere visualizzato con il 
 | Suspended |Impostato solo dal sistema. Il sistema **non è attualmente idoneo** per la ricezione di aggiornamenti automatici. |
 | Disabled |L'aggiornamento automatico è disabilitato. |
 
-Per passare da **Enabled** a **Disabled**, è possibile usare `Set-ADSyncAutoUpgrade`. Lo stato **Suspended**deve essere impostato solo dal sistema.
+Per passare da **Enabled** a **Disabled**, è possibile usare `Set-ADSyncAutoUpgrade`. Lo stato **Suspended**deve essere impostato solo dal sistema.  Prima di 1.1.750.0 il cmdlet Set-ADSyncAutoUpgrade bloccherà Autoupgrade se lo stato di aggiornamento automatico è stato impostato su sospeso. Questa funzionalità è ora modificato in modo che non venga bloccato AutoUpgrade.
 
 L'aggiornamento automatico usa Azure AD Connect Health per l'infrastruttura di aggiornamento. Per il corretto funzionamento dell'aggiornamento automatico, assicurarsi di avere aperto gli URL nel server proxy per **Azure AD Connect Health** , come documentato in [URL e intervalli di indirizzi IP per Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
@@ -89,18 +89,18 @@ Ecco un elenco dei messaggi più comuni. L'elenco non include tutti i messaggi, 
 | UpgradeAbortedSyncExeInUse |L' [interfaccia utente di Synchronization Service Manager](how-to-connect-sync-service-manager-ui.md) è aperta nel server. |
 | UpgradeAbortedSyncOrConfigurationInProgress |L'installazione guidata è in esecuzione o è stata pianificata una sincronizzazione al di fuori dell'utilità di pianificazione. |
 | **UpgradeNotSupported** | |
-| UpgradeNotSupportedAdfsSignInMethod | È stato selezionato Adfs come metodo di accesso. | 
+| UpgradeNotSupportedAdfsSignInMethod | È stato selezionato Adfs come metodo di accesso. |
 | UpgradeNotSupportedCustomizedSyncRules |Sono state aggiunte regole personalizzate alla configurazione. |
 | UpgradeNotSupportedDeviceWritebackEnabled |È stata abilitata la funzionalità di [writeback dei dispositivi](how-to-connect-device-writeback.md) . |
 | UpgradeNotSupportedGroupWritebackEnabled |È stata abilitata la funzionalità di [writeback dei gruppi](how-to-connect-preview.md#group-writeback) . |
 | UpgradeNotSupportedInvalidPersistedState |L'installazione non è un aggiornamento delle impostazioni rapide o di DirSync. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |Il metaverse include più di 100.000 oggetti. |
 | UpgradeNotSupportedMultiForestSetup |Viene stabilita la connessione a più foreste. L'installazione rapida si connette a una sola foresta. |
-| UpgradeNotSupportedNonLocalDbInstall |Non si sta usando un database LocalDB di SQL Server Express. |d
+| UpgradeNotSupportedNonLocalDbInstall |Non si sta usando un database LocalDB di SQL Server Express. |
 | UpgradeNotSupportedNonMsolAccount |L'[account del connettore di Active Directory Domain Services](reference-connect-accounts-permissions.md#ad-ds-connector-account) non è più l'account MSOL_ predefinito. |
-| UpgradeNotSupportedNotConfiguredSignInMethod | Durante la configurazione di AAD Connect, nella selezione del metodo di accesso si è scelto *Non configurare*. | 
+| UpgradeNotSupportedNotConfiguredSignInMethod | Durante la configurazione di AAD Connect, nella selezione del metodo di accesso si è scelto *Non configurare*. |
 | UpgradeNotSupportedPtaSignInMethod | È stata selezionato Autenticazione pass-through come metodo di accesso. |
-| UpgradeNotSupportedStagingModeEnabled |Il server è in [modalità di staging](how-to-connect-sync-operations.md#staging-mode). |
+| UpgradeNotSupportedStagingModeEnabled |Il server è in [modalità di staging](how-to-connect-sync-staging-server.md). |
 | UpgradeNotSupportedUserWritebackEnabled |È stata abilitata la funzionalità di [writeback degli utenti](how-to-connect-preview.md#user-writeback) . |
 
 ## <a name="next-steps"></a>Passaggi successivi

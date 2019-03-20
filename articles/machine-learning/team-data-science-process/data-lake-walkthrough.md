@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2f47a145f00748a3366ea5bd1aa961f4b556a08f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: cc37109eda2690b4407f9cd0c92851b7c0e3f915
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474667"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835239"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Attività di data science scalabili con Azure Data Lake: procedura dettagliata end-to-end
 Questa procedura dettagliata illustra come usare Azure Data Lake per eseguire attività di esplorazione dei dati e di classificazione binaria su un campione del set di dati relativo alle corse e alle tariffe dei taxi di NYC, in modo da prevedere se un passeggero pagherà la mancia. Vengono esaminati i passaggi del [processo di analisi scientifica dei dati del team](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), end-to-end, dall'acquisizione dei dati al training modello e quindi alla distribuzione di un servizio Web che pubblica il modello.
@@ -72,17 +72,17 @@ Questa sezione fornisce istruzioni per la creazione di tutte queste risorse. Se 
 ### <a name="create-an-azure-data-lake-store"></a>Creare un Archivio Azure Data Lake
 
 
-Creare un archivio Azure Data Lake Store dal [portale di Azure](http://portal.azure.com). Per informazioni dettagliate, vedere [Creare un cluster HDInsight con Data Lake Store tramite il portale di Azure](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Assicurarsi di configurare l'identità di AAD del cluster nel pannello **Origine dati** del pannello **Configurazione facoltativa** come illustrato in questo articolo.
+Creare un archivio Azure Data Lake Store dal [portale di Azure](https://portal.azure.com). Per informazioni dettagliate, vedere [Creare un cluster HDInsight con Data Lake Store tramite il portale di Azure](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Assicurarsi di configurare l'identità di AAD del cluster nel pannello **Origine dati** del pannello **Configurazione facoltativa** come illustrato in questo articolo.
 
  ![3](./media/data-lake-walkthrough/3-create-ADLS.PNG)
 
 ### <a name="create-an-azure-data-lake-analytics-account"></a>Creare un account di Analisi Azure Data Lake
-Creare un account di Azure Data Lake Analytics dal [portale di Azure](http://portal.azure.com). Per informazioni dettagliate, vedere [Esercitazione: Introduzione ad Azure Data Lake Analytics con il portale di Azure](../../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+Creare un account di Azure Data Lake Analytics dal [portale di Azure](https://portal.azure.com). Per informazioni dettagliate, vedere [Esercitazione: Introduzione ad Azure Data Lake Analytics con il portale di Azure](../../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
  ![4](./media/data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 ### <a name="create-an-azure-blob-storage-account"></a>Creare un account di archiviazione BLOB di Azure
-Creare un account di archiviazione BLOB di Azure dal [portale di Azure](http://portal.azure.com). Per informazioni dettagliate, vedere la sezione Creare un account di archiviazione in [Informazioni sugli account di archiviazione di Azure](../../storage/common/storage-create-storage-account.md).
+Creare un account di archiviazione BLOB di Azure dal [portale di Azure](https://portal.azure.com). Per informazioni dettagliate, vedere la sezione Creare un account di archiviazione in [Informazioni sugli account di archiviazione di Azure](../../storage/common/storage-create-storage-account.md).
 
  ![5](./media/data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
@@ -99,7 +99,7 @@ Al termine dell'installazione, aprire Visual Studio. L'opzione Data Lake dovrebb
  ![7](./media/data-lake-walkthrough/7-install-ADL-tools-VS-done.PNG)
 
 ## <a name="the-nyc-taxi-trips-dataset"></a>Set di dati NYC Taxi Trip
-Il set di dati usato in questo articolo, ovvero il [set di dati NYC Taxi Trip](http://www.andresmh.com/nyctaxitrips/), è disponibile pubblicamente. I dati di NYC Taxi Trip sono costituiti da circa 20 GB di file compressi con estensione CSV (circa 48 GB non compressi) e registrano oltre 173 milioni di corse singole, nonché le tariffe pagate per ogni corsa. Il record di ogni corsa include le posizioni e l'ora di partenza e arrivo, il numero di patente (del tassista) in modalità anonima e il numero di licenza (ID univoco del taxi). I dati sono relativi a tutte le corse per l'anno 2013 e vengono forniti nei due set di dati seguenti per ciascun mese:
+Il set di dati usato in questo articolo, ovvero il [set di dati NYC Taxi Trip](https://www.andresmh.com/nyctaxitrips/), è disponibile pubblicamente. I dati di NYC Taxi Trip sono costituiti da circa 20 GB di file compressi con estensione CSV (circa 48 GB non compressi) e registrano oltre 173 milioni di corse singole, nonché le tariffe pagate per ogni corsa. Il record di ogni corsa include le posizioni e l'ora di partenza e arrivo, il numero di patente (del tassista) in modalità anonima e il numero di licenza (ID univoco del taxi). I dati sono relativi a tutte le corse per l'anno 2013 e vengono forniti nei due set di dati seguenti per ciascun mese:
 
 Il file CSV 'trip_data' contiene i dettagli delle corse, ad esempio il numero dei passeggeri, i punti partenza e arrivo, la durata e la lunghezza della corsa. Di seguito vengono forniti alcuni record di esempio:
 
@@ -147,7 +147,8 @@ Per eseguire U-SQL, aprire Visual Studio, fare clic su **File --> Nuovo --> Prog
 ![9](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
 
 ### <a name="ingest"></a>Inserimento di dati: leggere dati dal BLOB pubblico
-La posizione dei dati nel BLOB di Azure viene indicata come **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** e può essere estratta tramite **Extractors.Csv()**. Sostituire il nome del contenitore e il nome dell'account di archiviazione personali negli script seguenti per container_name@blob_storage_account_name nell'indirizzo wasb. Poiché i nomi di file hanno lo stesso formato, è possibile usare **trip\_data_{\*\}.csv** per leggere tutti i 12 file delle corse.
+
+La posizione dei dati nel blob di Azure viene indicata come **wasb://container\_name\@blob\_archiviazione\_account\_name.blob.core.windows.net/blob_name**e può essere estratta tramite **extractors**. Sostituire il proprio nome account di archiviazione negli script seguenti per il contenitore e il nome del contenitore\_name\@blob\_archiviazione\_account\_nome nell'indirizzo wasb. Poiché i nomi di file hanno lo stesso formato, è possibile usare **ottimizzazione dei viaggi\_data\_\{\*\}CSV** per leggere tutti i 12 file delle corse.
 
     ///Read in Trip data
     @trip0 =
@@ -170,7 +171,7 @@ La posizione dei dati nel BLOB di Azure viene indicata come **wasb://container_n
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-Poiché la prima riga include intestazioni, è necessario rimuovere le intestazioni e cambiare i tipi di colonna specificando i tipi appropriati. È possibile salvare i dati elaborati nell'archiviazione di Azure Data Lake usando **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ o nell'account di archiviazione BLOB di Azure usando **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
+Poiché la prima riga include intestazioni, è necessario rimuovere le intestazioni e cambiare i tipi di colonna specificando i tipi appropriati. È possibile salvare i dati elaborati all'uso di archiviazione di Azure Data Lake **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ o per l'account di archiviazione Blob di Azure usando **wasb: / / container_name\@blob_storage_account_name.blob.core.windows.net/blob_name**.
 
     // change data types
     @trip =
@@ -596,7 +597,7 @@ Si vuole rendere operativo il modello di Machine Learning dopo la compilazione. 
 Azure Machine Learning Studio può leggere i dati direttamente da Archivio Azure Data Lake e usarli quindi per creare e distribuire modelli. Questo approccio usa una tabella Hive che fa riferimento ad Archivio Azure Data Lake. In questo caso, tuttavia, è necessario eseguire il provisioning di un cluster Azure HDInsight separato in cui verrà creata la tabella Hive. Le sezioni seguenti mostrano come eseguire questa operazione.
 
 ### <a name="create-an-hdinsight-linux-cluster"></a>Creare un cluster HDInsight Linux
-Aprire il [Portale di Azure](http://portal.azure.com) per creare un cluster HDInsight (Linux). Per informazioni dettagliate, vedere la sezione **Creare un cluster Azure HDInsight con accesso a Azure Data Lake Store** in [Creare un cluster HDInsight con Data Lake Store tramite il portale di Azure](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Aprire il [Portale di Azure](https://portal.azure.com) per creare un cluster HDInsight (Linux). Per informazioni dettagliate, vedere la sezione **Creare un cluster Azure HDInsight con accesso a Azure Data Lake Store** in [Creare un cluster HDInsight con Data Lake Store tramite il portale di Azure](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
  ![18](./media/data-lake-walkthrough/18-create_HDI_cluster.PNG)
 

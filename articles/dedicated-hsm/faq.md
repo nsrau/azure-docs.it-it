@@ -2,7 +2,7 @@
 title: Domande frequenti - HSM dedicato di Azure | Microsoft Docs
 description: Domande frequenti che riguardano diversi argomenti relativi a HSM dedicato di Azure
 services: dedicated-hsm
-author: barclayn
+author: johndaw
 manager: barbkess
 tags: azure-resource-manager
 ms.custom: mvc
@@ -10,15 +10,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: concepts
-ms.date: 12/11/2018
+ms.topic: conceptual
+ms.date: 3/11/2019
 ms.author: barclayn
-ms.openlocfilehash: 5ea98f96fe10337e905270cf5da4847d825d6eb4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: cd3228b66dbbf19b574c390733340c0ea2fb5a78
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107804"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57846889"
 ---
 # <a name="frequently-asked-questions-faq"></a>Domande frequenti
 
@@ -164,19 +164,19 @@ Sì. È possibile inviare i log dall'appliance HSM a un server syslog
 
 ### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>D: È possibile configurare la disponibilità elevata nella stessa area o in più aree?
 
-Sì. L'impostazione e la configurazione della disponibilità elevata vengono eseguite nel software client HSM fornito da Gemalto. È possibile aggiungere alla stessa configurazione con disponibilità elevata i moduli di protezione hardware nella stessa rete virtuale o in altre reti virtuali nella stessa area o in aree geografiche diverse oppure i moduli di protezione hardware locali connessi a una rete virtuale usando una VPN da sito a sito o da punto a punto.
+Sì. L'impostazione e la configurazione della disponibilità elevata vengono eseguite nel software client HSM fornito da Gemalto. Moduli di protezione hardware dalla stessa rete virtuale o altre reti virtuali nella stessa area o in aree o in moduli di protezione hardware locale connesso a una rete virtuale usando site-to-site o VPN da punto a punto possono essere aggiunti alla stessa configurazione a disponibilità elevata.
 
-### <a name="can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>È possibile aggiungere moduli di protezione hardware dalla rete locale a un gruppo di disponibilità elevata con HSM dedicato di Azure?
+### <a name="q-can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>D: È possibile aggiungere moduli di protezione hardware dalla rete locale a un gruppo di disponibilità elevata con HSM dedicato di Azure?
 
 Sì. I moduli devono soddisfare i requisiti di disponibilità elevata per SafeNet Luna Network HSM 7.
 
-### <a name="can-i-add-luna-56-hsms-from-on-premises-networks-to-a-high-availability-group-with-azure-dedicated-hsm"></a>È possibile aggiungere moduli di protezione hardware Luna 5/6 da reti locali a un gruppo di disponibilità elevata con HSM dedicato di Azure?
+### <a name="q-can-i-add-luna-56-hsms-from-on-premises-networks-to-a-high-availability-group-with-azure-dedicated-hsm"></a>D: È possibile aggiungere moduli di protezione hardware Luna 5/6 da reti locali a un gruppo di disponibilità elevata con HSM dedicato di Azure?
 
  No.
 
 ### <a name="q-how-many-hsms-can-i-add-to-the-same-high-availability-configuration-from-one-single-application"></a>D: Quanti moduli di protezione hardware è possibile aggiungere alla stessa configurazione con disponibilità elevata da una singola applicazione?
 
-16.
+16\.
 
 ## <a name="support"></a>Supporto
 
@@ -246,7 +246,7 @@ Sì. Il servizio HSM dedicato effettua il provisioning di appliance SafeNet Netw
 
 Il servizio HSM dedicato effettua il provisioning di appliance SafeNet Luna Network HSM 7. Queste appliance usano moduli di protezione hardware convalidati in base agli standard FIPS 140-2 Livello 3. La configurazione predefinita distribuita, il sistema operativo e il firmware sono anch'essi convalidati FIPS. Non è richiesta alcuna azione per la conformità a FIPS 140-2 Livello 3.
 
-### <a name="how-does-a-customer-ensure-that-when-an-hsm-is-deprovisioned-all-the-key-material-is-wiped-out"></a>Come può un cliente assicurarsi che quando viene effettuato il deprovisioning di un modulo di protezione hardware tutto il materiale delle chiavi venga cancellato?
+### <a name="q-how-does-a-customer-ensure-that-when-an-hsm-is-deprovisioned-all-the-key-material-is-wiped-out"></a>D: Come può un cliente assicurarsi che quando viene effettuato il deprovisioning di un modulo di protezione hardware tutto il materiale delle chiavi venga cancellato?
 
 Prima di richiedere il deprovisioning, il cliente deve impostare su zero il modulo di protezione hardware usando gli strumenti del client HSM forniti da Gemalto.
 

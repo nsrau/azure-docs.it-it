@@ -5,17 +5,17 @@ description: Questo articolo illustra come valutare le prestazioni di un modello
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: e5c85451ca48aab8f980b89de41ebf40f1f97ff3
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 37ab56c377bc53a7300b51ffc709ea8d1b9d6f9b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453954"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891587"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Come valutare le prestazioni del modello in Azure Machine Learning Studio
 
@@ -83,7 +83,7 @@ Dopo aver eseguito l'esperimento, è possibile fare clic sulla porta di output d
 Figura 4. Risultati della convalida incrociata di un modello di regressione.
 
 ## <a name="evaluating-a-binary-classification-model"></a>Valutazione di un modello di classificazione binaria
-In uno scenario di classificazione binaria la variabile di destinazione ha solo due risultati possibili, ad esempio: {0, 1} o {false, true}, {negative, positive}. Si presupponga di ricevere un set di dati di un dipendente adulto con alcune variabili demografiche e occupazionali e di dover stimare il livello di reddito, una variabile binaria con i valori {"<=50.000", ">50.000"}. In altri termini, la classe negativa rappresenta il caso in cui il dipendente realizza un valore inferiore o uguale a 50.000 l'anno, mentre la classe positiva rappresenta tutti gli altri dipendenti. Come nello scenario della regressione, verrà eseguito il training di un modello, verrà calcolato il punteggio di alcuni dati e verranno valutati i risultati. In questo caso la differenza principale consiste nella scelta degli output e dei calcoli delle metriche in Azure Machine Learning Studio. Per illustrare lo scenario della stima del livello di reddito, verrà usato il set di dati [Adult](http://archive.ics.uci.edu/ml/datasets/Adult) per creare un esperimento in Studio e valutare le prestazioni di un modello di regressione logistica a due classi, un classificatore binario comunemente usato.
+In uno scenario di classificazione binaria la variabile di destinazione ha solo due risultati possibili, ad esempio: {0, 1} o {false, true}, {negative, positive}. Si presupponga di ricevere un set di dati di un dipendente adulto con alcune variabili demografiche e occupazionali e di dover stimare il livello di reddito, una variabile binaria con i valori {"<=50.000", ">50.000"}. In altri termini, la classe negativa rappresenta il caso in cui il dipendente realizza un valore inferiore o uguale a 50.000 l'anno, mentre la classe positiva rappresenta tutti gli altri dipendenti. Come nello scenario della regressione, verrà eseguito il training di un modello, verrà calcolato il punteggio di alcuni dati e verranno valutati i risultati. In questo caso la differenza principale consiste nella scelta degli output e dei calcoli delle metriche in Azure Machine Learning Studio. Per illustrare lo scenario della stima del livello di reddito, verrà usato il set di dati [Adult](https://archive.ics.uci.edu/ml/datasets/Adult) per creare un esperimento in Studio e valutare le prestazioni di un modello di regressione logistica a due classi, un classificatore binario comunemente usato.
 
 ### <a name="creating-the-experiment"></a>Creazione di un esperimento
 Aggiungere i seguenti moduli all'area di lavoro in Azure Machine Learning Studio:
@@ -133,7 +133,7 @@ Figura 8. Convalida incrociata di un modello di classificazione binaria.
 Figura 9. Risultati della convalida incrociata di un classificatore binario.
 
 ## <a name="evaluating-a-multiclass-classification-model"></a>Valutazione di un modello di classificazione multiclasse
-In questo esperimento verrà usato il comune set di dati [Iris](http://archive.ics.uci.edu/ml/datasets/Iris "Iris"), contenente istanze di 3 diversi tipi (classi) di iris. Esistono 4 valori caratteristici (lunghezza/larghezza sepalo e lunghezza/larghezza petalo) per ogni istanza. Negli esperimenti precedenti è stato eseguito il training e il test di modelli che usano gli stessi set di dati. In questo caso, viene usato il modulo [Split Data][split] per creare due subset di dati, eseguire il training sul primo e classificare e valutare il secondo. Il set di dati Iris è disponibile pubblicamente nel [repository di Machine Learning UCI](http://archive.ics.uci.edu/ml/index.html) e può essere scaricato usando un modulo [Import Data][import-data].
+In questo esperimento verrà usato il comune set di dati [Iris](https://archive.ics.uci.edu/ml/datasets/Iris "Iris"), contenente istanze di 3 diversi tipi (classi) di iris. Esistono 4 valori caratteristici (lunghezza/larghezza sepalo e lunghezza/larghezza petalo) per ogni istanza. Negli esperimenti precedenti è stato eseguito il training e il test di modelli che usano gli stessi set di dati. In questo caso, viene usato il modulo [Split Data][split] per creare due subset di dati, eseguire il training sul primo e classificare e valutare il secondo. Il set di dati Iris è disponibile pubblicamente nel [repository di Machine Learning UCI](https://archive.ics.uci.edu/ml/index.html) e può essere scaricato usando un modulo [Import Data][import-data].
 
 ### <a name="creating-the-experiment"></a>Creazione di un esperimento
 Aggiungere i seguenti moduli all'area di lavoro in Azure Machine Learning Studio:

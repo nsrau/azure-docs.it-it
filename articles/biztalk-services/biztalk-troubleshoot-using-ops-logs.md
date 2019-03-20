@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: f69035202a3358af38ebaf8e94abdd3b030e633f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e58a62761284e0671c0083d41f5dde4c13b32fe2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256069"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108257"
 ---
-# <a name="biztalk-services-troubleshoot-using-operation-logs"></a>Servizi BizTalk: Risoluzione dei problemi mediante i log operazioni
+# <a name="biztalk-services-troubleshoot-using-operation-logs"></a>Servizi BizTalk: risoluzione dei problemi mediante i log operazioni
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
-
+> 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## <a name="what-are-the-operation-logs"></a>Cosa sono i log operazioni
@@ -32,14 +32,14 @@ I log operazioni costituiscono una funzionalità dei servizi di gestione che con
 
 > [!NOTE]
 > Si tratta di una funzionalità che acquisisce i log unicamente per operazioni di gestione sui Servizi BizTalk, ad esempio quando il servizio è stato avviato, sottoposto a backup e così via. Tali operazioni vengono rilevate tramite le [API REST del servizio BizTalk](https://msdn.microsoft.com/library/azure/dn232347.aspx). Per un elenco completo delle operazioni di cui viene tenuta traccia tramite i servizi di gestione, vedere [Operazioni di cui viene tenuta traccia tramite i servizi di gestione di Azure](#bizops).<br/><br/>
-> Non vengono acquisiti log delle attività correlate al runtime del servizio BizTalk (ad esempio un messaggio elaborato da bridge e così via). Per visualizzare tali log, è utilizzare la visualizzazione Rilevamento del portale di Servizi BizTalk. Per ulteriori informazioni, vedere [Rilevamento di messaggi](https://msdn.microsoft.com/library/azure/hh949805.aspx).
+>  Non vengono acquisiti log delle attività correlate al runtime del servizio BizTalk (ad esempio un messaggio elaborato da bridge e così via). Per visualizzare tali log, è utilizzare la visualizzazione Rilevamento del portale di Servizi BizTalk. Per ulteriori informazioni, vedere [Rilevamento di messaggi](https://msdn.microsoft.com/library/azure/hh949805.aspx).
 > 
 > 
 
 ## <a name="view-biztalk-services-operation-logs"></a>Visualizzazione dei log operazioni di Servizi BizTalk
 1. Nel portale selezionare **Servizi di gestione** e quindi selezionare la scheda **Log operazioni**.
 2. È possibile filtrare i log in base a diversi parametri quali sottoscrizione, intervallo di date, tipo di servizio (ad esempio Servizi BizTalk), nome del servizio o stato dell'operazione (Completata, Non riuscita).
-3. Fare clic sul segno di spunta per visualizzare l'elenco filtrato. L'immagine seguente illustra le attività correlate a testbiztalkservice: ![Visualizzare i log delle operazioni][ViewLogs] 
+3. Fare clic sul segno di spunta per visualizzare l'elenco filtrato. Nell'immagine seguente sono mostrate le attività correlate a testbiztalkservice:  ![Visualizzazione dei log operazioni][ViewLogs] 
 4. Per visualizzare informazioni più dettagliate su una specifica operazione, selezionare la riga e fare clic su **Dettagli** nella barra delle attività nella parte inferiore.
 
 ## <a name="bizops"></a>Operazioni di cui viene tenuta traccia tramite i servizi di gestione di Azure
@@ -66,12 +66,12 @@ Nella tabella seguente sono elencate le operazioni di cui viene tenuta traccia t
 ## <a name="see-also"></a>Vedere anche
 * [Backup del servizio BizTalk](https://go.microsoft.com/fwlink/p/?LinkID=325584)
 * [Ripristino del servizio BizTalk da un backup](https://go.microsoft.com/fwlink/p/?LinkID=325582)
-* [Servizi BizTalk: Grafico edizioni Developer, Basic, Standard e Premium](https://go.microsoft.com/fwlink/p/?LinkID=302279)
+* [Servizi BizTalk: Developer, Basic, Standard e Premium dei servizi BizTalk](https://go.microsoft.com/fwlink/p/?LinkID=302279)
 * [Servizi BizTalk: Provisioning](https://go.microsoft.com/fwlink/p/?LinkID=302280)
-* [Servizi BizTalk: Grafico dello stato del provisioning](https://go.microsoft.com/fwlink/p/?LinkID=329870)
-* [Servizi BizTalk: Schede Dashboard, Monitoraggio, Scalabilità](https://go.microsoft.com/fwlink/p/?LinkID=302281)
-* [Servizi BizTalk: limitazione](https://go.microsoft.com/fwlink/p/?LinkID=302282)
-* [Servizi BizTalk: nome e chiave dell'autorità emittente](https://go.microsoft.com/fwlink/p/?LinkID=303941)
+* [Servizi BizTalk: Grafico dello stato di provisioning](https://go.microsoft.com/fwlink/p/?LinkID=329870)
+* [Servizi BizTalk: Schede dashboard, monitoraggio e scalabilità](https://go.microsoft.com/fwlink/p/?LinkID=302281)
+* [Servizi BizTalk: Throttling](https://go.microsoft.com/fwlink/p/?LinkID=302282)
+* [Servizi BizTalk: Nome dell'autorità emittente e chiave dell'autorità emittente](https://go.microsoft.com/fwlink/p/?LinkID=303941)
 * [Come iniziare a usare l'SDK di Servizi BizTalk di Azure](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
