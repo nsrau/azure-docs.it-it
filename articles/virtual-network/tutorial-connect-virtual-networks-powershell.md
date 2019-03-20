@@ -17,14 +17,16 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: a8a92645a0a0c4b35d06dc6397219e5ff25e25e9
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 49a6c91587905a8f7086b46b275a5078197939eb
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429521"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649952"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>Connettere reti virtuali con il peering reti virtuali usando PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 È possibile connettere due reti virtuali tra loro con il peering reti virtuali. Dopo che è stato eseguito il peering, le risorse delle due reti virtuali possono comunicare tra loro con la stessa larghezza di banda e la stessa latenza che sarebbero disponibili se si trovassero nella stessa rete virtuale. In questo articolo viene spiegato come:
 
@@ -37,91 +39,91 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questo articolo è necessario il modulo Azure PowerShell 5.4.1 o versione successiva. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure. 
+Se si sceglie di installare e usare PowerShell in locale, questo articolo richiede il modulo Azure PowerShell versione 1.0.0 o versione successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
 ## <a name="create-virtual-networks"></a>Creare reti virtuali
 
-Prima di creare una rete virtuale, è necessario creare un gruppo di risorse per la rete virtuale e tutte le altre risorse create in questo articolo. Creare un gruppo di risorse con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
+Prima di creare una rete virtuale, è necessario creare un gruppo di risorse per la rete virtuale e tutte le altre risorse create in questo articolo. Creare un gruppo di risorse con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
+New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
-Creare una rete virtuale con [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). L'esempio seguente crea una rete virtuale denominata *myVirtualNetwork1* con prefisso di indirizzo *10.0.0.0/16*.
+Creare una rete virtuale con [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). L'esempio seguente crea una rete virtuale denominata *myVirtualNetwork1* con prefisso di indirizzo *10.0.0.0/16*.
 
 ```azurepowershell-interactive
-$virtualNetwork1 = New-AzureRmVirtualNetwork `
+$virtualNetwork1 = New-AzVirtualNetwork `
   -ResourceGroupName myResourceGroup `
   -Location EastUS `
   -Name myVirtualNetwork1 `
   -AddressPrefix 10.0.0.0/16
 ```
 
-Creare una configurazione di subnet con [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). L'esempio seguente crea una configurazione di subnet con prefisso di indirizzo 10.0.0.0/24:
+Creare una configurazione di subnet con [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). L'esempio seguente crea una configurazione di subnet con prefisso di indirizzo 10.0.0.0/24:
 
 ```azurepowershell-interactive
-$subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
+$subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -Name Subnet1 `
   -AddressPrefix 10.0.0.0/24 `
   -VirtualNetwork $virtualNetwork1
 ```
 
-Scrivere la configurazione della subnet nella rete virtuale con [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork), che consente di creare la subnet:
+Scrivere la configurazione della subnet nella rete virtuale con [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork), che consente di creare la subnet:
 
 ```azurepowershell-interactive
-$virtualNetwork1 | Set-AzureRmVirtualNetwork
+$virtualNetwork1 | Set-AzVirtualNetwork
 ```
 
 Creare una rete virtuale con il prefisso di indirizzo 10.1.0.0/16 e una subnet:
 
 ```azurepowershell-interactive
 # Create the virtual network.
-$virtualNetwork2 = New-AzureRmVirtualNetwork `
+$virtualNetwork2 = New-AzVirtualNetwork `
   -ResourceGroupName myResourceGroup `
   -Location EastUS `
   -Name myVirtualNetwork2 `
   -AddressPrefix 10.1.0.0/16
 
 # Create the subnet configuration.
-$subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
+$subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -Name Subnet1 `
   -AddressPrefix 10.1.0.0/24 `
   -VirtualNetwork $virtualNetwork2
 
 # Write the subnet configuration to the virtual network.
-$virtualNetwork2 | Set-AzureRmVirtualNetwork
+$virtualNetwork2 | Set-AzVirtualNetwork
 ```
 
 ## <a name="peer-virtual-networks"></a>Eseguire il peering delle reti virtuali
 
-Creare un peering con [Add-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/add-azurermvirtualnetworkpeering). L'esempio seguente crea il peering da *myVirtualNetwork1* a *myVirtualNetwork2*.
+Creare un peering [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering). L'esempio seguente crea il peering da *myVirtualNetwork1* a *myVirtualNetwork2*.
 
 ```azurepowershell-interactive
-Add-AzureRmVirtualNetworkPeering `
+Add-AzVirtualNetworkPeering `
   -Name myVirtualNetwork1-myVirtualNetwork2 `
   -VirtualNetwork $virtualNetwork1 `
   -RemoteVirtualNetworkId $virtualNetwork2.Id
 ```
 
-Nell'output restituito dopo l'esecuzione del comando precedente si può osservare che il valore di **PeeringState** è *Initiated*. Il peering rimane nello stato *Initiated* finché non si crea il peering da *myVirtualNetwork2* a *myVirtualNetwork1*. Creare un peering da *myVirtualNetwork2* a *myVirtualNetwork1*. 
+Nell'output restituito dopo l'esecuzione del comando precedente si può osservare che il valore di **PeeringState** è *Initiated*. Il peering rimane nello stato *Initiated* finché non si crea il peering da *myVirtualNetwork2* a *myVirtualNetwork1*. Creare un peering da *myVirtualNetwork2* a *myVirtualNetwork1*.
 
 ```azurepowershell-interactive
-Add-AzureRmVirtualNetworkPeering `
+Add-AzVirtualNetworkPeering `
   -Name myVirtualNetwork2-myVirtualNetwork1 `
   -VirtualNetwork $virtualNetwork2 `
   -RemoteVirtualNetworkId $virtualNetwork1.Id
 ```
 
-Nell'output restituito dopo l'esecuzione del comando precedente si può osservare che il valore di **PeeringState** è *Connected*. Azure avrà modificato anche lo stato del peering *myVirtualNetwork1-myVirtualNetwork2* in *Connected*. Verificare che lo stato del peering *myVirtualNetwork1-myVirtualNetwork2* sia stato modificato in *Connected* con [Get-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering).
+Nell'output restituito dopo l'esecuzione del comando precedente si può osservare che il valore di **PeeringState** è *Connected*. Azure avrà modificato anche lo stato del peering *myVirtualNetwork1-myVirtualNetwork2* in *Connected*. Verificare che lo stato del peering per la *myVirtualNetwork1-myVirtualNetwork2* peering è diventato *connesso* con [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering).
 
 ```azurepowershell-interactive
-Get-AzureRmVirtualNetworkPeering `
+Get-AzVirtualNetworkPeering `
   -ResourceGroupName myResourceGroup `
   -VirtualNetworkName myVirtualNetwork1 `
   | Select PeeringState
 ```
 
-Le risorse in una rete virtuale non possono comunicare con le risorse nell'altra rete virtuale finché il valore di **PeeringState** relativo ai peering in entrambe le reti virtuali non è *Connected*. 
+Le risorse in una rete virtuale non possono comunicare con le risorse nell'altra rete virtuale finché il valore di **PeeringState** relativo ai peering in entrambe le reti virtuali non è *Connected*.
 
 ## <a name="create-virtual-machines"></a>Creare macchine virtuali
 
@@ -129,10 +131,10 @@ Creare una macchina virtuale in ogni rete virtuale per poter stabilire la comuni
 
 ### <a name="create-the-first-vm"></a>Creare la prima VM
 
-Creare una VM con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). L'esempio seguente crea una macchina virtuale denominata *myVm1* nella rete virtuale *myVirtualNetwork1*. L'opzione `-AsJob` crea la macchina virtuale in background, pertanto è possibile continuare con il passaggio successivo. Quando richiesto, immettere il nome utente e la password con cui si vuole accedere alla macchina virtuale.
+Creare una VM con [New-AzVM](/powershell/module/az.compute/new-azvm). L'esempio seguente crea una macchina virtuale denominata *myVm1* nella rete virtuale *myVirtualNetwork1*. L'opzione `-AsJob` crea la macchina virtuale in background, pertanto è possibile continuare con il passaggio successivo. Quando richiesto, immettere il nome utente e la password con cui si vuole accedere alla macchina virtuale.
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
   -ResourceGroupName "myResourceGroup" `
   -Location "East US" `
   -VirtualNetworkName "myVirtualNetwork1" `
@@ -145,7 +147,7 @@ New-AzureRmVm `
 ### <a name="create-the-second-vm"></a>Creare la seconda VM
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
   -ResourceGroupName "myResourceGroup" `
   -Location "East US" `
   -VirtualNetworkName "myVirtualNetwork2" `
@@ -158,10 +160,10 @@ La creazione della VM richiede alcuni minuti. Non procedere con i passaggi succe
 
 ## <a name="communicate-between-vms"></a>Stabilire la comunicazione tra le macchine virtuali
 
-È possibile connettersi all'indirizzo IP pubblico di una macchina virtuale da Internet. Usare [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) per restituire l'indirizzo IP pubblico di una VM. L'esempio seguente restituisce l'indirizzo IP pubblico della VM *myVm1*:
+È possibile connettersi all'indirizzo IP pubblico di una macchina virtuale da Internet. Usare [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) per restituire l'indirizzo IP pubblico di una macchina virtuale. L'esempio seguente restituisce l'indirizzo IP pubblico della VM *myVm1*:
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress `
+Get-AzPublicIpAddress `
   -Name myVm1 `
   -ResourceGroupName myResourceGroup | Select IpAddress
 ```
@@ -198,10 +200,10 @@ Si riceveranno quattro risposte. Disconnettere le sessioni RDP con *myVm1* e *my
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando il gruppo di risorse e tutte le risorse in esso contenute non sono più necessari, usare [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) per rimuoverli.
+Quando non è più necessario, usare [Remove-AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuovere il gruppo di risorse e tutte le risorse in esso contenute.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

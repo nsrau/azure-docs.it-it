@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 1d092f03013d98106138f35734d960567121a5bf
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: a35cba0ab7df80596ba1403765980809635c0249
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692722"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881856"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Estensioni e funzionalità delle macchine virtuali di Azure
 Le estensioni macchina virtuale (VM) di Azure sono piccole applicazioni che consentono di eseguire attività di configurazione e automazione post-distribuzione nelle VM di Azure. È possibile usare le immagini esistenti e quindi personalizzarle durante le distribuzioni, evitando così di dover compilare immagini personalizzate.
@@ -54,6 +54,6 @@ Le estensioni installano applicazioni. Per qualsiasi applicazione sono previsti 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sul funzionamento delle estensioni e dell'agente Linux, vedere [Azure VM extensions and features for Linux (Funzionalità ed estensioni VM di Azure per Linux)](features-linux.md).
 * Per altre informazioni sul funzionamento delle estensioni e dell'agente guest di Windows, vedere [Estensioni e funzionalità della macchina virtuale per Windows](features-windows.md).  
-* Per installare l'agente guest di Windows, vedere [Panoramica dell'agente di macchine virtuali Windows di Azure](agent-windows.md).  
-* Per installare l'agente Linux, vedere [Panoramica dell'agente di macchine virtuali Linux di Azure](agent-linux.md).  
+* Per installare l'agente Guest di Windows, vedere [panoramica dell'agente di macchine virtuali di Windows Azure](agent-windows.md).  
+* Per installare l'agente Linux, vedere [panoramica dell'agente di macchine virtuali Linux di Azure](agent-linux.md).  
 

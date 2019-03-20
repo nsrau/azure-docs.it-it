@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 89cc7906c0503daa11f0a34520c17552a4e6b5af
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d1960fbc9fc9e8c1d672b66d3cf1f41399842059
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454216"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083199"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Stored procedure, trigger e funzioni definite dall'utente
 
@@ -26,7 +26,7 @@ La scrittura di stored procedure, trigger e funzioni definite dall'utente (UDF) 
 
 * **Transazioni atomiche:** Azure Cosmos DB garantisce che le operazioni di database all'interno di una singola stored procedure o un trigger siano atomiche. Questa funzionalità atomica consente a un'applicazione di combinare le operazioni correlate in un unico batch, in modo che o nessuna o tutte abbiano esito positivo.
 
-- **Prestazioni:** i dati JSON sono intrinsecamente mappati al sistema di tipi di linguaggio JavaScript. Questo mapping consente un numero di ottimizzazioni, ad esempio la materializzazione differita dei documenti JSON nel pool di buffer e la relativa disponibilità su richiesta per il codice di esecuzione. Vi sono altri vantaggi relativi alle prestazioni associati all'integrazione della logica di business nel database, tra cui:
+* **Prestazioni:** i dati JSON sono intrinsecamente mappati al sistema di tipi di linguaggio JavaScript. Questo mapping consente un numero di ottimizzazioni, ad esempio la materializzazione differita dei documenti JSON nel pool di buffer e la relativa disponibilità su richiesta per il codice di esecuzione. Vi sono altri vantaggi relativi alle prestazioni associati all'integrazione della logica di business nel database, tra cui:
 
    * *Invio in batch:* è possibile raggruppare operazioni come gli inserimenti e inviarle in blocco. Ciò comporta una drastica riduzione dei costi legati alla latenza del traffico di rete e dei costi generali di archiviazione per la creazione di transazioni separate.
 
@@ -34,7 +34,7 @@ La scrittura di stored procedure, trigger e funzioni definite dall'utente (UDF) 
 
    * *Sequenziazione:* a volte le operazioni necessitano di un meccanismo di attivazione che possa eseguire uno o più aggiornamenti per i dati. Oltre all'atomicità, esistono anche vantaggi per le prestazioni durante l'esecuzione sul lato server.
 
-- **Incapsulamento:** è possibile usare le stored procedure per raggruppare la logica in un solo posto. L'incapsulamento aggiunge un livello di astrazione al di sopra dei dati, consentendo l'evoluzione delle applicazioni indipendentemente dai dati. Questo livello di astrazione è utile quando i dati sono senza schema e non è necessario gestire l'aggiunta di altra logica direttamente nell'applicazione. Questa astrazione consente di proteggere i dati semplificando l'accesso dagli script.
+* **Incapsulamento:** è possibile usare le stored procedure per raggruppare la logica in un solo posto. L'incapsulamento aggiunge un livello di astrazione al di sopra dei dati, consentendo l'evoluzione delle applicazioni indipendentemente dai dati. Questo livello di astrazione è utile quando i dati sono senza schema e non è necessario gestire l'aggiunta di altra logica direttamente nell'applicazione. Questa astrazione consente di proteggere i dati semplificando l'accesso dagli script.
 
 > [!TIP]
 > Le stored procedure sono più adatte per le operazioni che richiedono molte operazioni di scrittura. Quando si decide dove usare le stored procedure, eseguire l'ottimizzazione incapsulando la quantità massima di possibili operazioni di scrittura. In generale, le stored procedure non sono il modo più efficiente per eseguire un numero elevato di operazioni di lettura. Pertanto, l'uso delle stored procedure per inviare in batch un numero elevato di operazioni di lettura da restituire al client non produrrà i vantaggi desiderati.

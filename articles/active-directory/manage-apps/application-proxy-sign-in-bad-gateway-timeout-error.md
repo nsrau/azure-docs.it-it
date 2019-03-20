@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc032a15a2938333cd25d05c271187f218f9be4d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f8db5552ad81a1a47db72a5372e643a6fc167888
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206804"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091206"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Errore "Can't Access this Corporate Application" (Impossibile accedere all'applicazione aziendale) quando si usa un'applicazione Proxy di applicazione
 
@@ -69,25 +69,25 @@ Se l'utente risulta assegnato all'applicazione in Azure, controllare la configur
 
 ## <a name="check-the-applications-internal-url"></a>Controllare l'URL interno dell'applicazione
 
-Innanzitutto, controllare attentamente e correggere l'URL interno aprendo l'applicazione tramite **Applicazioni aziendali** e selezionando il menu **Proxy dell'applicazione**. Verificare che l'URL interno sia quello usato dalla rete locale per accedere all'applicazione.
+Innanzitutto, controllare attentamente e correggere l'URL interno aprendo l'applicazione tramite **Applicazioni aziendali** e selezionando il menu **Proxy dell'applicazione**. Verificare che l'URL interno è quello usato dalla rete locale per accedere all'applicazione.
 
 ## <a name="check-the-application-is-assigned-to-a-working-connector-group"></a>Controllare che l'applicazione sia assegnata a un gruppo di connettori funzionante
 
 Per verificare che l'applicazione sia assegnata a un gruppo di connettori funzionante:
 
-1.  Aprire l'applicazione nel portale selezionando **Azure Active Directory**, facendo cli csu **Applicazioni aziendali** e quindi su **Tutte le applicazioni**. Aprire l'applicazione, quindi selezionare **Proxy dell'applicazione** dal menu a sinistra.
+1. Aprire l'applicazione nel portale selezionando **Azure Active Directory**, facendo cli csu **Applicazioni aziendali** e quindi su **Tutte le applicazioni**. Aprire l'applicazione, quindi selezionare **Proxy dell'applicazione** dal menu a sinistra.
 
-2.  Osservare il campo Gruppo di connettori. Se nel gruppo non sono presenti connettori, viene visualizzato un avviso. Se non viene visualizzato alcun avviso, procedere con la sezione "Controllare che tutte le porte richieste siano inserite nell'elenco degli elementi consentiti".
+2. Osservare il campo Gruppo di connettori. Se nel gruppo non sono presenti connettori, viene visualizzato un avviso. Se non viene visualizzato alcun avviso, procedere con la sezione "Controllare che tutte le porte richieste siano inserite nell'elenco degli elementi consentiti".
 
-3.  Se compare il gruppo di connettori sbagliato, selezionare il gruppo corretto e verificare che non siano più visualizzati avvisi. Se compare il gruppo di connettori desiderato, fare clic sul messaggio di avviso per aprire la pagina con la gestione connettori.
+3. Se compare il gruppo di connettori sbagliato, selezionare il gruppo corretto e verificare che non siano più visualizzati avvisi. Se compare il gruppo di connettori desiderato, fare clic sul messaggio di avviso per aprire la pagina con la gestione connettori.
 
-4.  A questo punto, vi sono alcuni metodi per ulteriori approfondimenti:
+4. A questo punto, vi sono alcuni metodi per ulteriori approfondimenti:
 
-  * Spostare un connettore attivo nel gruppo: se è disponibile un connettore attivo che deve appartenere a questo gruppo e ha una linea di visuale sull'applicazione back-end, è possibile spostare il connettore nel gruppo assegnato. A tale scopo, fare clic sul connettore. Nel campo "Gruppo di connettori", usare l'elenco a discesa per selezionare il gruppo di connettori e fare clic su Salva.
+   * Spostare un connettore attivo nel gruppo: se è disponibile un connettore attivo che deve appartenere a questo gruppo e ha una linea di visuale sull'applicazione back-end, è possibile spostare il connettore nel gruppo assegnato. A tale scopo, fare clic sul connettore. Nel campo "Gruppo di connettori", usare l'elenco a discesa per selezionare il gruppo di connettori e fare clic su Salva.
 
-  * Scaricare un nuovo connettore per il gruppo: da questa pagina, è possibile accedere al collegamento per [scaricare un nuovo connettore](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Installare il connettore in un computer che comunica direttamente con l'applicazione back-end. Normalmente il connettore è installato nello stesso server dell'applicazione. Usare il collegamento di download del connettore per scaricare un connettore nel computer di destinazione. Quindi, fare clic sul connettore e usare l'elenco a discesa "Gruppo di connettori" per assicurarsi che appartenga al gruppo corretto.
+   * Scaricare un nuovo connettore per il gruppo: da questa pagina, è possibile accedere al collegamento per [scaricare un nuovo connettore](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Installare il connettore in un computer che comunica direttamente con l'applicazione back-end. In genere, il connettore viene installato nello stesso server dell'applicazione. Usare il collegamento di download del connettore per scaricare un connettore nel computer di destinazione. Quindi, fare clic sul connettore e usare l'elenco a discesa "Gruppo di connettori" per assicurarsi che appartenga al gruppo corretto.
 
-  * Verificare se è presente un connettore non attivo: se un connettore risulta inattivo, non riesce a raggiungere il servizio. Questo errore è dovuto in genere al fatto che alcune porte richieste sono bloccate. Per risolvere il problema, procedere con la sezione "Controllare che tutte le porte richieste siano inserite nell'elenco degli elementi consentiti".
+   * Verificare se è presente un connettore non attivo: se un connettore risulta inattivo, non riesce a raggiungere il servizio. Questo errore è dovuto in genere al fatto che alcune porte richieste sono bloccate. Per risolvere il problema, procedere con la sezione "Controllare che tutte le porte richieste siano inserite nell'elenco degli elementi consentiti".
 
 Dopo aver eseguito tutte queste operazioni per assicurarsi che l'applicazione sia assegnata a un gruppo con connettori funzionanti, provare di nuovo l'applicazione. Se ancora non funziona, passare alla sezione successiva.
 

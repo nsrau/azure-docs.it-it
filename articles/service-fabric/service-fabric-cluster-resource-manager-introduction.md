@@ -7,26 +7,26 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: cfab735b-923d-4246-a2a8-220d4f4e0c64
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f3f8cf88268498d20651eab40eb655313180cadc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 75aa960ff060d74d0a579b475e4334402992b3c3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203200"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903362"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Introduzione a Cluster Resource Manager di Service Fabric
 Tradizionalmente, la gestione dei sistemi IT o dei Servizi online comportava dedicare alcune macchine virtuali o fisiche a tali sistemi o servizi specifici. I servizi erano progettati come livelli. Era presente un livello "web" e un livello "dati" o "archiviazione". Le applicazioni avevano un livello di messaggistica con un flusso di richieste in entrata e in uscita, nonché un set di computer dedicati alla memorizzazione nella cache. A ogni livello o tipo di carico di lavoro veniva assegnato un computer dedicato. Al database venivano assegnati un paio di computer dedicati, ai server web qualcuno in più. Se un particolare tipo di carico di lavoro causava il surriscaldamento del computer su cui si trovava, si aggiungevano più computer con la medesima configurazione a quel livello. Non tutti i carichi di lavoro possono tuttavia essere scalati orizzontalmente facilmente, in particolare per il livello dati i computer vengono sostituiti con computer di dimensioni più grandi. Semplice. Se si verificava un problema su un computer, la parte dell'applicazione interessata veniva gestita con una capacità inferiore fino a quando il computer non veniva ripristinato. Ancora piuttosto semplice, anche se non necessariamente divertente.
 
 Ora il mondo dell'architettura dei servizi e del software è cambiato. È più comune l'adozione di una progettazione di scalabilità orizzontale da parte delle applicazioni. La creazione di applicazioni con contenitori o microservizi (o entrambi) è comune. Anche se è ancora possibile avere solo pochi computer, questi non eseguono una sola istanza di un carico di lavoro. Possono eseguire più carichi di lavoro diversi contemporaneamente. Ci sono dozzine di tipi di servizi diversi e nessuno usa le risorse di un intero computer. Sono presenti anche centinaia di istanze diverse di questi servizi. Ciascuna istanza denominata dispone di una o più istanze o repliche per la disponibilità elevata. A seconda delle dimensioni e delle misure di questi carichi di lavoro potrebbero essere presenti centinaia o migliaia di computer. 
 
-A un tratto, la gestione dell'ambiente non è più semplice come gestire alcuni computer dedicati a singoli tipi di carichi di lavoro. I server sono virtuali e non sono più riconoscibili per nome: è stato ultimato il passaggio da [animaletti da compagnia a capi di bestiame](http://www.slideshare.net/randybias/architectures-for-open-and-scalable-clouds/20). Ora, la configurazione riguarda più i servizi che i computer. L'hardware dedicato a una singola istanza di un carico di lavoro è principalmente un ricordo del passato. I servizi stessi sono diventati piccoli sistemi distribuiti che si dividono in più parti più piccole di hardware.
+A un tratto, la gestione dell'ambiente non è più semplice come gestire alcuni computer dedicati a singoli tipi di carichi di lavoro. I server sono virtuali e non sono più riconoscibili per nome: è stato ultimato il passaggio da [animaletti da compagnia a capi di bestiame](https://www.slideshare.net/randybias/architectures-for-open-and-scalable-clouds/20). Ora, la configurazione riguarda più i servizi che i computer. L'hardware dedicato a una singola istanza di un carico di lavoro è principalmente un ricordo del passato. I servizi stessi sono diventati piccoli sistemi distribuiti che si dividono in più parti più piccole di hardware.
 
 Poiché l'applicazione non è più composta da una serie di monoliti distribuiti su più livelli, ora si devono affrontare molte più combinazioni. Chi decide quali e quanti tipi di carichi di lavoro possono essere eseguiti su quale hardware? Quali carichi di lavoro funzionano correttamente con lo stesso hardware e quali sono in conflitto? Quando un computer smette di funzionare cosa era in funzione in quel momento? Chi è responsabile di assicurarsi che il carico di lavoro venga rimesso in funzione? Si attende che la macchina virtuale ritorni attiva oppure i carichi di lavoro effettuano automaticamente il failover su altri computer e proseguono l'esecuzione? È necessario l'intervento dell'utente? Come si gestiscono gli aggiornamenti in questo ambiente?
 
@@ -54,7 +54,7 @@ Anche se alcune di queste strategie sono interessanti, Cluster Resource Manager 
 Poiché Cluster Resource Manager è responsabile dello spostamento dei servizi contiene un set di funzionalità diverso rispetto a quello di un servizio di bilanciamento del carico di rete. Questo avviene perché i bilanciamenti del carico di rete inviano il traffico di rete dove già si trovano i servizi, anche se tale posizione non è ideale per l'esecuzione del servizio stesso. Cluster Resource Manager di Service Fabric impiega strategie essenzialmente diverse per garantire che le risorse del cluster vengano ben usate.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per informazioni sull'architettura e sul flusso di informazioni in Cluster Resource Manager, vedere [questo articolo](service-fabric-cluster-resource-manager-architecture.md)
+- Per informazioni sull'architettura e le informazioni sul flusso all'interno di Cluster Resource Manager, consultare [in questo articolo](service-fabric-cluster-resource-manager-architecture.md)
 - Cluster Resource Manager dispone di varie opzioni per descrivere il cluster. Per altre informazioni sulle metriche vedere l'articolo [Descrizione di un cluster di Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
 - Per altre informazioni sulla configurazione dei servizi, [Informazioni sulla configurazione dei servizi](service-fabric-cluster-resource-manager-configure-services.md)
 - Le metriche determinano il modo in cui Cluster Resource Manger di Service Fabric gestisce il consumo e la capacità del cluster. Per altre informazioni sulle metriche e su come configurarle, vedere [questo articolo](service-fabric-cluster-resource-manager-metrics.md)

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 04bb19c074edff08677d759fb386608f6905e979
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 4994063dfc3bce88489f70969c06bf36b591f907
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473436"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536250"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Schema di eventi di Griglia di eventi di Azure per le sottoscrizioni
 
@@ -234,7 +234,7 @@ L'esempio seguente illustra lo schema di un evento **ResourceActionSuccess**. Lo
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
 | subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
@@ -247,10 +247,10 @@ Un evento presenta i seguenti dati di primo livello:
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | -------- | ---- | ----------- |
 | authorization | object | L'autorizzazione richiesta per l'operazione. |
-| claims | object | Le proprietà delle attestazioni. Per altre informazioni, vedere [specifiche dei token JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
+| claims | object | Le proprietà delle attestazioni. Per altre informazioni, vedere [specifiche dei token JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | stringa | Un ID operazione per la risoluzione dei problemi. |
 | httpRequest | object | I dettagli dell'operazione. Questo oggetto è incluso soltanto quando si aggiorna una risorsa esistente o la si elimina. |
 | resourceProvider | stringa | Provider di risorse per l'operazione. |

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: crdun
-ms.openlocfilehash: e0eeee05ebad2e8148752f988bbbc2f6a0d7c296
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: HT
+ms.openlocfilehash: 8c1c52790065015977add7e32a06063057b24dad
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27592695"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445909"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Aggiungere l'autenticazione all'app iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -110,7 +110,7 @@ In Xcode fare clic su **Esegui** per avviare l'app. Viene generata un'eccezione 
     }
     ```
 
-   Aggiungere questo codice direttamente prima della riga `#pragma mark - Core Data stack`.  Sostituire _appname_ con il valore di urlScheme usato nel passaggio 1.
+   Aggiungere questo codice direttamente prima della riga `#pragma mark - Core Data stack`.  Sostituire il _NomeApp_ con il valore di urlScheme usato nel passaggio 1.
 
 5. Aprire il file `AppName-Info.plist` (sostituendo AppName con il nome dell'app) e aggiungere il codice seguente:
 
@@ -188,7 +188,7 @@ In Xcode fare clic su **Esegui** per avviare l'app. Viene generata un'eccezione 
     }
     ```
 
-    Sostituire _appname_ con il valore di urlScheme usato nel passaggio 1.
+    Sostituire il _NomeApp_ con il valore di urlScheme usato nel passaggio 1.
 
 4. Aprire il file `AppName-Info.plist` (sostituendo AppName con il nome dell'app) e aggiungere il codice seguente:
 
@@ -212,12 +212,12 @@ In Xcode fare clic su **Esegui** per avviare l'app. Viene generata un'eccezione 
 
 5. Fare clic su *Run* (Esegui) per avviare l'app e quindi accedere. Una volta eseguito l'accesso, dovrebbe essere possibile visualizzare l'elenco Todo e apportare modifiche.
 
-L'autenticazione del servizio app usa la comunicazione tra app di Apple.  Per altre informazioni su questo argomento, vedere la [documentazione Apple][2]
+L'autenticazione del servizio app usa la comunicazione tra app di Apple.  Per altre informazioni su questo argomento, consultare il [documentazione Apple][2]
 <!-- URLs. -->
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist
 [2]: https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html
-[portale di Azure]: https://portal.azure.com
+[Portale di Azure]: https://portal.azure.com
 
 [avvio rapido di iOS]: app-service-mobile-ios-get-started.md
 

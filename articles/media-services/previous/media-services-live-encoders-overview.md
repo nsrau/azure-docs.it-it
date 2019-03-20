@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 50e1d3c894455f31513f7bcd1bff42a9329b329a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 360b822bc78d353e91612459a70334a0bf3a56e6
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992875"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189632"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Come configurare i codificatori locali quando si usa Servizi multimediali di Azure per creare flussi a bitrate multipli
 Questo argomento elenca i codificatori live locali che è possibile usare per acquisire gli eventi live e inviare un flusso live a bitrate singolo ai canali di AMS con codifica live abilitata per un'ulteriore elaborazione. L'argomento contiene anche i collegamenti alle esercitazioni che illustrano come configurare i codificatori elencati.
@@ -28,19 +28,19 @@ Questo argomento elenca i codificatori live locali che è possibile usare per ac
 > Durante lo streaming tramite RTMP, controllare le impostazioni del firewall e/o del proxy per assicurarsi che le porte TCP in uscita 1935 e 1936 siano aperte.
 
 ## <a name="flash-media-live-encoder"></a>Flash Media Live Encoder
-Per informazioni su come configurare il codificatore [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) per inviare un singolo live stream a velocità in bit a un canale AMS, vedere [Configurazione di FMLE](media-services-configure-fmle-live-encoder.md).
+Per informazioni su come configurare il codificatore [Flash Media Live Encoder](https://www.adobe.com/products/flash-media-encoder.html) (FMLE) per inviare un singolo live stream a velocità in bit a un canale AMS, vedere [Configurazione di FMLE](media-services-configure-fmle-live-encoder.md).
 
 ## <a name="haivision-kb-encoder"></a>Codificatore Haivision KB
 Per informazioni su come configurare il codificatore [Haivision KB Encoder](https://www.haivision.com/products/kb-series/) per inviare un singolo live stream a velocità in bit a un canale AMS, vedere [Configuring Haivision KB Encoder](media-services-configure-kb-live-encoder.md) (Configurazione di Haivision KB Encoder).
 
 ## <a name="telestream-wirecast"></a>Telestream Wirecast
-Per informazioni su come configurare il codificatore [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) per inviare un singolo live stream a velocità in bit a un canale AMS, vedere [Configurazione Wirecast](media-services-configure-wirecast-live-encoder.md).
+Per informazioni su come configurare il codificatore [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) per inviare un singolo live stream a velocità in bit a un canale AMS, vedere [Configurazione Wirecast](media-services-configure-wirecast-live-encoder.md).
 
 ## <a name="newtek-tricaster"></a>NewTek TriCaster
 Per informazioni su come configurare il codificatore [Tricaster](http://newtek.com/products/tricaster-40.html) per inviare un singolo live stream a velocità in bit a un canale AMS, vedere [Configurazione Tricaster](media-services-configure-tricaster-live-encoder.md).
 
 ## <a name="elemental-live"></a>Elemental Live
-Per altre informazioni, vedere [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live).
+Per altre informazioni, vedere [Elemental Live](https://www.elementaltechnologies.com/products/elemental-live).
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

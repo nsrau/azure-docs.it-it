@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: e79ffba90f0812d79bcb7ab808e2b6ba80e1c61b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 14d763126cccadf8042da79b20d15e5c93a8ce62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756666"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094178"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Risolvere i problemi della replica e del failover da Hyper-V ad Azure
 
@@ -28,9 +28,9 @@ Se si verificano problemi quando si abilita la protezione per le macchine virtua
 3. Verificare che il servizio Virtual Machine Management di Hyper-V sia in esecuzione negli host Hyper-V.
 4. Controllare eventuali problemi che vengono visualizzati nell'accesso Hyper-V-VMMS\Admin alla macchina virtuale. Il log si trova in **Registri applicazioni e servizi** > **Microsoft** > **Windows**.
 5. Nella macchina virtuale guest verificare che WMI sia abilitato e accessibile.
-  - [Informazioni](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) sul test WMI di base.
-  - [Risolvere i problemi](https://aka.ms/WMiTshooting) di WMI.
-  - [Risolvere i problemi ](https://technet.microsoft.com/library/ff406382.aspx#H22) con gli script e i servizi WMI.
+   - [Informazioni](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) sul test WMI di base.
+   - [Risolvere i problemi](https://aka.ms/WMiTshooting) di WMI.
+   - [Risolvere i problemi di](https://technet.microsoft.com/library/ff406382.aspx#H22) problemi con gli script WMI e servizi.
 6. Nella macchina virtuale guest verificare che sia in esecuzione la versione più recente di Integration Services.
     - [Controllare](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) che sia disponibile l'ultima versione.
     - [Mantenere](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) aggiornato Integration Services.
@@ -41,9 +41,9 @@ Risolvere i problemi relativi alla replica iniziale e in corso come indicato di 
 
 1. Assicurarsi di eseguire la [versione più recente](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) dei servizi di Site Recovery.
 2. Verificare se la replica è stata sospesa:
-  - Controllare lo stato di integrità della macchina virtuale nella console Hyper-V Manager.
-  - Se è critico, fare clic con il pulsante destro del mouse sulla macchina virtuale > **Replica** > **Visualizza stato di replica**.
-  - Se la replica è sospesa, fare clic su **Riprendi replica**.
+   - Controllare lo stato di integrità della macchina virtuale nella console Hyper-V Manager.
+   - Se è critico, fare clic con il pulsante destro del mouse sulla macchina virtuale > **Replica** > **Visualizza stato di replica**.
+   - Se la replica è sospesa, fare clic su **Riprendi replica**.
 3. Controllare che siano in esecuzione i servizi necessari. Se non lo sono, riavviarli.
     - Se si esegue la replica di Hyper-V senza VMM, verificare che questi servizi siano in esecuzione nell'host Hyper-V:
         - Servizio Virtual Machine Management
@@ -65,10 +65,10 @@ Le limitazioni della larghezza di banda di rete possono influire sulla replica. 
 2. Eseguire il [profiler Deployment Planner](hyper-v-deployment-planner-run.md).
 3. Dopo avere eseguito il profiler, seguire le raccomandazioni per la [larghezza di banda](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) e l'[archiviazione](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation).
 4. Verificare le [limitazioni di varianza dati](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits). Se si riscontra una varianza dati elevata in una macchina virtuale, eseguire le operazioni seguenti:
-  - Controllare se la macchina virtuale è contrassegnata per la risincronizzazione.
-  - Seguire [questi passaggi](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/) per individuare l'origine della varianza.
-  - La varianza può verificarsi quando i file di log HRL superano il 50% dello spazio disponibile su disco. Se questo è il problema, eseguire il provisioning di ulteriore spazio di archiviazione per tutte le macchine virtuali in cui si verifica il problema.
-  - Verificare che la replica non sia sospesa. Se la replica è in pausa, continua a scrivere le modifiche nel file hrl, contribuendo ad aumentarne le dimensioni.
+   - Controllare se la macchina virtuale è contrassegnata per la risincronizzazione.
+   - Seguire [questi passaggi](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/) per individuare l'origine della varianza.
+   - La varianza può verificarsi quando i file di log HRL superano il 50% dello spazio disponibile su disco. Se questo è il problema, eseguire il provisioning di ulteriore spazio di archiviazione per tutte le macchine virtuali in cui si verifica il problema.
+   - Verificare che la replica non sia sospesa. Se la replica è in pausa, continua a scrivere le modifiche nel file hrl, contribuendo ad aumentarne le dimensioni.
  
 
 ## <a name="critical-replication-state-issues"></a>Problemi di stato della replica critico
@@ -91,17 +91,17 @@ Uno snapshot coerente con l'app è uno snapshot temporizzato dei dati dell'appli
 
 1. Verificare che sia installata e in esecuzione la versione più recente di Integration Services.  Controllare se è disponibile un aggiornamento eseguendo il comando seguente da un prompt di PowerShell con privilegi elevati nell'host Hyper-V: **get-vm | select Name, State, IntegrationServicesState**.
 2. Verificare che il servizio Copia Shadow del volume sia in esecuzione e integro:
-    - Per controllare i servizi, accedere alla macchina virtuale guest. Aprire quindi un prompt dei comandi come amministratore ed eseguire i comandi seguenti per verificare che tutti i VSS writer siano integri.
-        - **Vssadmin list writers**
-        - **Vssadmin list shadows**
-        - **Vssadmin list providers**
-    - Controllare l'output. Se i writer sono in uno stato di errore, eseguire le operazioni seguenti:
-        - Controllare il log eventi dell'applicazione nella macchina virtuale per individuare eventuali errori dell'operazione del servizio Copia Shadow del volume.
-    - Provare a riavviare questi servizi associati con il writer con errori:
-        - Copia Shadow del volume
-         - Provider VSS di Azure Site Recovery
-    - Al termine dell'operazione, attendere un paio d'ore per verificare se gli snapshot coerenti con l'app vengono generati correttamente.
-    - Come ultima risorsa provare a riavviare la macchina virtuale. Questa operazione potrebbe risolvere i servizi che si trovano in uno stato di mancata risposta.
+   - Per controllare i servizi, accedere alla macchina virtuale guest. Aprire quindi un prompt dei comandi come amministratore ed eseguire i comandi seguenti per verificare che tutti i VSS writer siano integri.
+       - **Vssadmin list writers**
+       - **Vssadmin list shadows**
+       - **Vssadmin list providers**
+   - Controllare l'output. Se i writer sono in uno stato di errore, eseguire le operazioni seguenti:
+       - Controllare il log eventi dell'applicazione nella macchina virtuale per individuare eventuali errori dell'operazione del servizio Copia Shadow del volume.
+   - Provare a riavviare questi servizi associati con il writer con errori:
+     - Copia Shadow del volume
+       - Provider VSS di Azure Site Recovery
+   - Al termine dell'operazione, attendere un paio d'ore per verificare se gli snapshot coerenti con l'app vengono generati correttamente.
+   - Come ultima risorsa provare a riavviare la macchina virtuale. Questa operazione potrebbe risolvere i servizi che si trovano in uno stato di mancata risposta.
 3. Verificare di non avere dischi dinamici nella macchina virtuale. Questa funzionalità non è supportata per gli snapshot coerenti con l'app. È possibile controllare in Gestione disco (diskmgmt.msc).
 
     ![Disco dinamico](media/hyper-v-azure-troubleshoot/dynamic-disk.png)

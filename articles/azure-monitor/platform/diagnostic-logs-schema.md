@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 6470e2e48854d091c219fb4ec3224e87b1567dd7
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 6e67b049ca179b1e93bcf645afd89b4a2eb0048d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300218"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436485"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Servizi, schemi e categorie supportati per i log di Diagnostica di Azure
 
@@ -25,12 +25,12 @@ Una combinazione del tipo di risorsa (disponibile nella proprietà `resourceId`)
 
 | NOME | Obbligatorio/Facoltativo | DESCRIZIONE |
 |---|---|---|
-| time | Obbligatoria | Il timestamp dell’evento (fuso UTC). |
-| resourceId | Obbligatoria | ID della risorsa che ha emesso l’evento. Per i servizi di tenant, questo ha la forma /tenants/tenant-id/providers/provider-name. |
+| time | Obbligatorio | Il timestamp dell’evento (fuso UTC). |
+| resourceId | Obbligatorio | ID della risorsa che ha emesso l’evento. Per i servizi di tenant, questo ha la forma /tenants/tenant-id/providers/provider-name. |
 | TenantId | Obbligatorio per i log di tenant | L'ID tenant del tenant di Active Directory associato a questo evento. Questa proprietà viene utilizzata solo per i log a livello di tenant, non viene visualizzata nei log a livello di risorsa. |
-| operationName | Obbligatoria | Il nome dell'operazione rappresentata da questo evento. Se l'evento rappresenta un'operazione RBAC, si tratta del nome di operazione RBAC (ad es. Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Tipicamente modellate sotto forma di operazione di Resource Manager, anche se non sono effettivamente operazioni documentate di Resource Manager (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
+| operationName | Obbligatorio | Il nome dell'operazione rappresentata da questo evento. Se l'evento rappresenta un'operazione RBAC, si tratta del nome di operazione RBAC (ad es. Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Tipicamente modellate sotto forma di operazione di Resource Manager, anche se non sono effettivamente operazioni documentate di Resource Manager (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | Facoltativo | La versione api associata all'operazione, se operationName è stato eseguito utilizzando un'API (ad es. `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Se non esiste un'API corrispondente a questa operazione, la versione rappresenta la versione di tale operazione nel caso in cui le proprietà associate all'operazione cambino in futuro. |
-| category | Obbligatoria | La categoria di log dell'evento. La categoria è la granularità con cui è possibile abilitare o disabilitare i log di una particolare risorsa. Le proprietà che appaiono all'interno del BLOB delle proprietà di un evento sono le stesse all'interno di una particolare categoria di log e tipo di risorsa. Tipiche categorie di log sono "Controllo" "Operativo" "Esecuzione" e "Richiesta". |
+| category | Obbligatorio | La categoria di log dell'evento. La categoria è la granularità con cui è possibile abilitare o disabilitare i log di una particolare risorsa. Le proprietà che appaiono all'interno del BLOB delle proprietà di un evento sono le stesse all'interno di una particolare categoria di log e tipo di risorsa. Tipiche categorie di log sono "Controllo" "Operativo" "Esecuzione" e "Richiesta". |
 | resultType | Facoltativo | Lo stato dell'evento. I valori tipici includono: Started, In Progress, Succeeded, Failed, Active e Resolved. |
 | resultSignature | Facoltativo | Lo stato secondario dell'evento. Se questa operazione corrisponde a una chiamata API REST, questo è il codice di stato HTTP della chiamata REST corrispondente. |
 | resultDescription | Facoltativo | Il testo statico che descrive questa operazione, ad es. "Recupera file di archiviazione". |
@@ -47,7 +47,7 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 
 | Service | Schema e documenti |
 | --- | --- |
-| Azure Active Directory | [Panoramica](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [schema del log di controllo](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) e [schema accessi](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Active Directory | [Cenni preliminari sulla](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [schema del log di controllo](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) e [schema accessi](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | Gestione API | [Log di diagnostica di Gestione API](../../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Gateway applicazione |[Registrazione diagnostica per il gateway applicazione](../../application-gateway/application-gateway-diagnostics.md) |
@@ -203,7 +203,7 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 |microsoft.web/sites|FunctionExecutionLogs|Log di esecuzione delle funzioni|
 |microsoft.web/sites/slots|FunctionExecutionLogs|Log di esecuzione delle funzioni|
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 * [Altre informazioni sui log di diagnostica](../../azure-monitor/platform/diagnostic-logs-overview.md)
 * [Trasmettere log di diagnostica di Azure a **Hub eventi**](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)

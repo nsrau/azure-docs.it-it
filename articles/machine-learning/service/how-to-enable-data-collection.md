@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 11/08/2018
+ms.date: 12/3/2018
 ms.custom: seodec18
-ms.openlocfilehash: 79a2c0c98cdee0532856a90ec4a7b98dda09cdb7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: a127a211157edb0b26d0495bc2ed05dd79323111
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247375"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842635"
 ---
 # <a name="collect-data-for-models-in-production"></a>Raccogliere i dati per i modelli nell'ambiente di produzione
 
@@ -50,7 +50,7 @@ La sintassi per il percorso dei dati di output nel BLOB è la seguente:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](http://aka.ms/AMLFree).
+- Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
 
 - Un'area di lavoro del servizio Azure Machine Learning, una directory locale contenente gli script e Azure Machine Learning SDK per Python installato. Informazioni su come ottenere questi prerequisiti usando il documento [Come configurare un ambiente di sviluppo](how-to-configure-environment.md).
 
@@ -136,15 +136,15 @@ Se si dispone già di un servizio con le dipendenze installate nel **file di amb
 
   1. Passare a **Distribuzioni** -> **Seleziona servizio** -> **Modifica**.
 
-    [![Opzione di modifica](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
+     [![Opzione di modifica](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
   1. In **Impostazioni avanzate** deselezionare **Abilita la raccolta dati del modello**. 
 
-    [![Deselezionare la raccolta dati](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
+     [![Deselezionare la raccolta dati](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
 
   1. Selezionare **Aggiorna** per applicare la modifica.
 
-* Opzione 2: uso di Python per disabilitare la raccolta dei dati:
++ Opzione 2: uso di Python per disabilitare la raccolta dei dati:
 
   ```python 
   ## replace <service_name> with the name of the web service

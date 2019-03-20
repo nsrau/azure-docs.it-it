@@ -5,17 +5,17 @@ description: Per usare Azure Machine Learning Studio, deve essere presente un'ar
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: bcd5b377f00ad43ff727c581471aad3ac651bdbb
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 7aeee4f24f6c7133ad978bc0c6c7fb8853bc4c35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270102"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086140"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-workspace"></a>Creare e condividere un'area di lavoro di Azure Machine Learning Studio
 
@@ -36,10 +36,10 @@ Per usare Azure Machine Learning Studio, deve essere presente un'area di lavoro 
 
 4. Immettere le informazioni sull'area di lavoro:
 
-    - Il *nome dell'area di lavoro* può contenere al massimo 260 caratteri e non può terminare con uno spazio. Il nome non può includere questi caratteri: `< > * % & : \ ? + /`
-    - Se si distribuiscono i servizi Web da quest'area di lavoro, vengono usati il *piano di servizio Web* che si sceglie (o si crea) e il *piano tariffario* selezionato.
+   - Il *nome dell'area di lavoro* può contenere al massimo 260 caratteri e non può terminare con uno spazio. Il nome non può includere questi caratteri: `< > * % & : \ ? + /`
+   - Se si distribuiscono i servizi Web da quest'area di lavoro, vengono usati il *piano di servizio Web* che si sceglie (o si crea) e il *piano tariffario* selezionato.
 
-    ![Creare una nuova area di lavoro di Studio](./media/create-workspace/create-new-workspace.png)
+     ![Creare una nuova area di lavoro di Studio](./media/create-workspace/create-new-workspace.png)
 
 5. Fare clic su **Create**(Crea).
 

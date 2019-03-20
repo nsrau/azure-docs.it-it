@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/08/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 8cd50cab555755a137114bf871cad57ddf7a9db5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 3e93e822c5764a23bba124152ef5dfabf2d3f94f
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872981"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223870"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Creare un contenitore di Service Fabric in esecuzione nel server Apache Tomcat su Linux
 Apache Tomcat è una nota implementazione open source delle tecnologie Java Servlet e Java Server. Questo articolo illustra come creare un contenitore con Apache Tomcat e una semplice applicazione Web, come distribuire il contenitore in un cluster di Service Fabric in esecuzione su Linux e come connettersi all'applicazione Web.  
@@ -153,12 +153,12 @@ Dopo aver eseguito il push dell'immagine Tomcat in un registro contenitori, è p
 
    ```xml
    <Resources>
-     <Endpoints>
-       <!-- This endpoint is used by the communication listener to obtain the port on which to 
-        listen. Please note that if your service is partitioned, this port is shared with 
-        replicas of different partitions that are placed in your code. -->
-       <Endpoint Name="endpointTest" Port="8080" Protocol="tcp"/>
-     </Endpoints>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+       listen. Please note that if your service is partitioned, this port is shared with 
+       replicas of different partitions that are placed in your code. -->
+      <Endpoint Name="endpointTest" Port="8080" Protocol="tcp"/>
+    </Endpoints>
    </Resources>
    ```
 
@@ -166,10 +166,10 @@ Dopo aver eseguito il push dell'immagine Tomcat in un registro contenitori, è p
 
    ```xml
    <Policies>
-     <ContainerHostPolicies CodePackageRef="Code">
-       <PortBinding ContainerPort="8080" EndpointRef="endpointTest"/>
-       <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-     </ContainerHostPolicies>
+    <ContainerHostPolicies CodePackageRef="Code">
+      <PortBinding ContainerPort="8080" EndpointRef="endpointTest"/>
+      <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
+    </ContainerHostPolicies>
    </Policies>
    ```
 
@@ -183,31 +183,31 @@ Dopo aver eseguito il push dell'immagine Tomcat in un registro contenitori, è p
 
    * Per connettersi al cluster locale di Service Fabric, eseguire:
 
-      ```bash
-      sfctl cluster select --endpoint http://localhost:19080
-      ```
+     ```bash
+     sfctl cluster select --endpoint http://localhost:19080
+     ```
     
    * Per connettersi a un cluster sicuro di Azure, assicurarsi che il certificato client sia presente come file con estensione pem nella directory *ServiceFabricTomcat* ed eseguire: 
 
-      ```bash
-      sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
-      ```
-      Nel comando precedente sostituire `your-certificate.pem` con il nome del file del certificato client. Negli ambienti di sviluppo e test, il certificato del cluster viene spesso usato come certificato client. Se il certificato non è autofirmato, omettere il parametro `-no-verify`. 
+     ```bash
+     sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
+     ```
+     Nel comando precedente sostituire `your-certificate.pem` con il nome del file del certificato client. Negli ambienti di sviluppo e test, il certificato del cluster viene spesso usato come certificato client. Se il certificato non è autofirmato, omettere il parametro `-no-verify`. 
        
-      I certificati del cluster vengono in genere scaricati in locale come file con estensione pfx. Se non si ha già il certificato in formato PEM, è possibile eseguire il comando seguente per creare un file con estensione pem da un file con estensione pfx:
+     I certificati del cluster vengono in genere scaricati in locale come file con estensione pfx. Se non si ha già il certificato in formato PEM, è possibile eseguire il comando seguente per creare un file con estensione pem da un file con estensione pfx:
 
-      ```bash
-      openssl pkcs12 -in your-certificate.pfx -out your-certificate.pem -nodes -passin pass:your-pfx-password
-      ```
+     ```bash
+     openssl pkcs12 -in your-certificate.pfx -out your-certificate.pem -nodes -passin pass:your-pfx-password
+     ```
 
-      Se il file con estensione pfx non è protetto da password, usare `-passin pass:` per l'ultimo parametro.
+     Se il file con estensione pfx non è protetto da password, usare `-passin pass:` per l'ultimo parametro.
 
 
 13. Eseguire lo script di installazione fornito nel modello per distribuire l'applicazione nel cluster. Lo script copia il pacchetto dell'applicazione nell'archivio immagini del cluster, registra il tipo di applicazione e crea un'istanza dell'applicazione.
 
-      ```bash
-      ./install.sh
-      ```
+     ```bash
+     ./install.sh
+     ```
 
    Dopo aver eseguito lo script di installazione, aprire un browser e passare a Service Fabric Explorer:
     

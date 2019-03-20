@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 430aa6e60efe63e6741436e53152126bc15798fc
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: ce9635c108a948b4773c7d27cb254f01d06896f8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327851"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544240"
 ---
 # <a name="azure-storage-account-overview"></a>Panoramica dell'account di archiviazione di Azure
 
@@ -38,7 +38,7 @@ Gli account di archiviazione per utilizzo generico v2 supportano le funzionalit�
 > [!NOTE]
 > Per la maggior parte degli scenari è consigliabile usare un account di archiviazione per utilizzo generico v2. È possibile eseguire facilmente l'aggiornamento di un account di archiviazione per utilizzo generico v1 o un account di archiviazione BLOB a un account per utilizzo generico v2, senza tempi di inattività e senza la necessità copiare i dati.
 >
-> Per altre informazioni sull'aggiornamento a un account per utilizzo generico v2, vedere [Eseguire l'aggiornamento a un account di archiviazione per utilizzo generico v2](storage-account-upgrade.md). 
+> Per altre informazioni sull'aggiornamento a un account per utilizzo generico v2, vedere [Eseguire l'aggiornamento a un account di archiviazione per utilizzo generico v2](storage-account-upgrade.md).
 
 Gli account di archiviazione per utilizzo generico v2 offrono più livelli di accesso per l'archiviazione dei dati in base ai modelli di utilizzo. Per altre informazioni, vedere [Livelli di accesso per i dati BLOB in blocchi](#access-tiers-for-block-blob-data).
 
@@ -60,11 +60,9 @@ Mentre gli account per utilizzo generico v2 rappresentano la scelta consigliata 
 
 * Si usa una versione dell'[API REST dei servizi di archiviazione](https://msdn.microsoft.com/library/azure/dd894041.aspx) precedente alla 2014-02-14 o una libreria client con una versione precedente alla 4.x e non è possibile aggiornare l'applicazione.
 
-### <a name="blob-storage-accounts"></a>Account di archiviazione BLOB
+### <a name="block-blob-storage-accounts"></a>Account di archiviazione blob di blocco
 
-Gli account di archiviazione BLOB sono account specializzati per l'archiviazione di oggetti dati non strutturati come BLOB in blocchi. Gli account di archiviazione BLOB offrono lo stesso livello di durabilità, disponibilità, scalabilità e prestazioni disponibile con gli account di archiviazione per utilizzo generico v2. Gli account di archiviazione BLOB supportano l'archiviazione dei BLOB in blocchi e dei BLOB di accodamento, ma non dei BLOB di pagine.
-
-Gli account di archiviazione BLOB offrono più livelli di accesso per l'archiviazione dei dati in base ai modelli di utilizzo. Per altre informazioni, vedere [Livelli di accesso per i dati BLOB in blocchi](#access-tiers-for-block-blob-data).
+Un account di archiviazione blob di blocco è un account di archiviazione specializzato per l'archiviazione dei dati non strutturati come BLOB in blocchi o BLOB di Accodamento. Blocco account di archiviazione blob offrono più livelli di accesso per l'archiviazione dei dati in base i modelli di utilizzo. Per altre informazioni, vedere [Livelli di accesso per i dati BLOB in blocchi](#access-tiers-for-block-blob-data).
 
 ## <a name="naming-storage-accounts"></a>Denominazione degli account di archiviazione
 
@@ -87,7 +85,7 @@ Archiviazione di Azure offre diverse opzioni per l'accesso ai dati BLOB in blocc
 I livelli di accesso disponibili sono i seguenti:
 
 > [!NOTE]
-> Il [livello di accesso Premium](../blobs/storage-blob-storage-tiers.md#premium-access-tier) è disponibile in anteprima limitata come un account di archiviazione con ridondanza locale nelle aree Europa settentrionale, Stati Uniti orientali 2, Stati Uniti centrali e Stati Uniti occidentali. Per informazioni su come registrarsi per l'anteprima, vedere [Introducing Azure Premium Blob Storage](https://aka.ms/premiumblob) (Presentazione dell'archiviazione BLOB Premium di Azure).
+> Il [livello di accesso premium (anteprima)](../blobs/storage-blob-storage-tiers.md#premium-access-tier), che è ottimizzata per applicazioni sensibili alle prestazioni, fornisce coerente e bassa latenza con frequenze elevate della velocità effettiva e delle transazioni. Il livello di accesso premium è disponibile solo con gli account di archiviazione di Blob in blocchi (anteprima). Per altre informazioni, vedere [versione di anteprima pubblica di archiviazione Blob di Azure Premium](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/).
 
 * Il livello ad **accesso frequente**, che è ottimizzato per l'accesso frequente degli oggetti nell'account di archiviazione. L'accesso ai dati nel livello ad accesso frequente è il più conveniente, mentre i costi di archiviazione sono leggermente superiori. I nuovi account di archiviazione vengono creati nel livello ad accesso frequente per impostazione predefinita.
 * Il livello ad **accesso sporadico**, che è ottimizzato per l'archiviazione di grandi quantità di dati a cui si accede poco frequentemente e che vengono archiviati per almeno 30 giorni. L'archiviazione dei dati nel livello ad accesso sporadico è più conveniente, ma l'accesso ai dati può risultare leggermente più costoso rispetto al livello ad accesso frequente.

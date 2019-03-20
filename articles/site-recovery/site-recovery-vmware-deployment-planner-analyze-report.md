@@ -9,7 +9,7 @@ ms.date: 3/14/2019
 ms.author: mayg
 ms.openlocfilehash: cd486fa504ac819684d8c547e7a0f740b3eed4e4
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58109628"

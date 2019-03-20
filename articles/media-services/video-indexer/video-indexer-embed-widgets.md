@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: cfefa8a1bfee03959d0f3b077d9915a6badb1ffd
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fd680b00feb8a75dfec952d7211554100fca00d8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55988086"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075067"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Incorporare i widget di Video Indexer nelle applicazioni
 
@@ -45,7 +45,7 @@ Un widget **Player** consente di eseguire lo streaming del video a bitrate adatt
 |t|Secondi dall'inizio|Fa partire il lettore dal tempo specificato.<br/>Esempio: t=60|
 |captions|Codice lingua|Recupera i sottotitoli nella lingua specificata durante il caricamento del widget in modo che siano disponibili nel menu dei sottotitoli.<br/>Esempio: captions=it-IT|
 |showCaptions|Valore booleano|Carica il lettore con i sottotitoli già abilitati.<br/>Esempio: showCaptions=true|
-|type||Attiva un'interfaccia del lettore audio (la parte video viene rimossa).<br/>Esempio: type=audio|"
+|type||Attiva un'interfaccia del lettore audio (la parte video viene rimossa).<br/>Esempio: type=audio|
 |autoplay|Valore booleano|Indica se il lettore deve iniziare la riproduzione del video al caricamento (il valore predefinito è true).<br/>Esempio: autoplay=false|
 |Linguaggio|Codice lingua|Controlla la lingua del lettore (il valore predefinito è en-US)<br/>Esempio: language=de-DE|
 

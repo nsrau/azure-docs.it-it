@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 18aa5ab16a1690fdcead46ebc15d72837f62612d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
+ms.openlocfilehash: 68ae01b814de08098c0ba6b5713f420cfebc3d97
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302470"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001268"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry in Azure
 
@@ -29,7 +29,7 @@ Cloud Foundry è una piattaforma distribuita come servizio (PaaS) open source pe
 
 ## <a name="cloud-foundry-offerings"></a>Offerte Cloud Foundry
 
-Esistono due soluzioni Cloud Foundry eseguibili in Azure: Open-Source Cloud Foundry (OSS CF) e Pivotal Cloud Foundry (PCF). OSS CF è una versione [open source](https://github.com/cloudfoundry) di Cloud Foundry gestita da Cloud Foundry Foundation. Pivotal Cloud Foundry è una distribuzione aziendale di Cloud Foundry fornita da Pivotal Software Inc. Verranno ora esaminate alcune differenze tra le due offerte.
+Esistono due soluzioni Cloud Foundry eseguibili in Azure: Open-Source Cloud Foundry (OSS CF) e Pivotal Cloud Foundry (PCF). OSS CF è una versione [open source](https://github.com/cloudfoundry) di Cloud Foundry gestita da Cloud Foundry Foundation. Pivotal Cloud Foundry è una distribuzione aziendale di Cloud Foundry fornita da Pivotal Software Inc. Si esamineranno alcune delle differenze tra le due offerte.
 
 ### <a name="open-source-cloud-foundry"></a>Open-Source Cloud Foundry
 
@@ -48,7 +48,7 @@ Microsoft offre il miglior supporto possibile per OSS CF tramite i canali di com
 
 Pivotal Cloud Foundry include la stessa piattaforma di base della distribuzione OSS, nonché un set di strumenti di gestione proprietari e supporto aziendale. Per eseguire PCF in Azure, è necessario acquisire una licenza da Pivotal. L'offerta PCF in Azure Marketplace include una licenza di valutazione di 90 giorni.
 
-Gli strumenti includono [Pivotal Operations Manager](http://docs.pivotal.io/pivotalcf/customizing/), un'applicazione Web che semplifica la distribuzione e la gestione di una base Cloud Foundry, e [Pivotal Apps Manager](https://docs.pivotal.io/pivotalcf/console/), un'applicazione Web per la gestione di utenti e applicazioni.
+Gli strumenti includono [Pivotal Operations Manager](https://docs.pivotal.io/pivotalcf/customizing/), un'applicazione Web che semplifica la distribuzione e la gestione di una base Cloud Foundry, e [Pivotal Apps Manager](https://docs.pivotal.io/pivotalcf/console/), un'applicazione Web per la gestione di utenti e applicazioni.
 
 Oltre ai canali di supporto elencati sopra per OSS CF, una licenza di PCF offre la possibilità di richiedere supporto a Pivotal. Microsoft e Pivotal hanno anche abilitato flussi di lavoro di supporto che consentono di rivolgersi per assistenza a una delle due parti usufruendo dell'instradamento appropriato della richiesta a seconda della causa del problema.
 

@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 7aa4492a22c8aca1e54570adb2811e4cb13caf7b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: acf338afdf33408637bf7cca79d28f5e90888eba
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900778"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224441"
 ---
 # <a name="what-is-speech-to-text"></a>Che cos'è riconoscimento vocale?
 
-Per il riconoscimento vocale da servizi di riconoscimento vocale di Azure, noto anche come per il riconoscimento vocale, la trascrizione in tempo reale consente di flussi audio in testo che possono utilizzare le applicazioni, dispositivi o gli strumenti, visualizzare e agire come input del comando. Questo servizio si basa sulla stessa tecnologia di riconoscimento che Microsoft Usa per i prodotti Cortana e Office e interagisce senza problemi con la conversione e la sintesi vocale.
+Per il riconoscimento vocale da servizi di riconoscimento vocale di Azure, noto anche come per il riconoscimento vocale, la trascrizione in tempo reale consente di flussi audio in testo che possono utilizzare le applicazioni, dispositivi o gli strumenti, visualizzare e agire come input del comando. Questo servizio si basa sulla stessa tecnologia di riconoscimento che Microsoft Usa per i prodotti Cortana e Office e interagisce senza problemi con la conversione e la sintesi vocale.  Per un elenco completo delle lingue disponibili per il riconoscimento vocale, vedere [lingue supportate](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
-Per impostazione predefinita, il servizio riconoscimento vocale Usa il modello di linguaggio universale. Questo modello è stato eseguito il training usando i dati di proprietà di Microsoft ed è distribuito nel cloud. È ottimale per la conversazione e gli scenari di dettatura. Se si usa per il riconoscimento vocale per il riconoscimento e trascrizione in un ambiente univoco, è possibile creare e il training dei modelli acustici, lingua e pronuncia personalizzati al rumore ambientale indirizzo o un vocabolario specifici del settore.
+Per impostazione predefinita, il servizio riconoscimento vocale Usa il modello di linguaggio universale. Questo modello è stato eseguito il training usando i dati di proprietà di Microsoft ed è distribuito nel cloud. È ottimale per la conversazione e gli scenari di dettatura. Se si usa per il riconoscimento vocale per il riconoscimento e trascrizione in un ambiente univoco, è possibile creare e il training dei modelli acustici, lingua e pronuncia personalizzati al rumore ambientale indirizzo o un vocabolario specifici del settore. 
 
 È facilmente possibile acquisire audio dal microfono, leggere da un flusso o accedere ai file audio da un archivio con Speech SDK e API REST. Speech SDK supporta WAV/PCM 16 bit, kHz 16, singolo canale audio per il riconoscimento vocale. Formati audio aggiuntivi sono supportati tramite il [endpoint REST per il riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-formats) o nella [trascrizione servizio batch](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 

@@ -15,12 +15,12 @@ ms.date: 02/28/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: eb5d1ca55efed7e83739f21a432b61b6aad25f70
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 68e8bfa16c56b8c864ac99cdf6c19243bc7e881c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194011"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101874"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Aggiungere server di hosting per il provider di risorse MySQL
 
@@ -44,9 +44,9 @@ Assicurarsi di avere le credenziali per un account con privilegi di amministrato
 4. Fornire i dettagli della connessione dell'istanza di MySQL Server.
 
    * Per la **nome del Server di Hosting MySQL**, fornire il nome di dominio completo (FQDN) o un indirizzo IPv4 valido. Non usare il nome breve della macchina virtuale.
-   - L'amministratore predefinito **nomeutente** per il Bitnami MySQL le immagini disponibili nel marketplace di Azure Stack viene *radice*. 
-   - Se non si conosce la radice **Password**, vedere la [documentazione Bitnami](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) per informazioni su come eseguire questa operazione. 
-   - Un'istanza di MySQL predefinita non è specificata, quindi è necessario specificare il **le dimensioni del Server di Hosting in GB**. Immettere una dimensione vicina al valore di capacità del server di database.
+   * L'amministratore predefinito **nomeutente** per il Bitnami MySQL le immagini disponibili nel marketplace di Azure Stack viene *radice*. 
+   * Se non si conosce la radice **Password**, vedere la [documentazione Bitnami](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) per informazioni su come eseguire questa operazione. 
+   * Un'istanza di MySQL predefinita non è specificata, quindi è necessario specificare il **le dimensioni del Server di Hosting in GB**. Immettere una dimensione vicina al valore di capacità del server di database.
    * Mantenere l'impostazione predefinita per **sottoscrizione**.
    * Per la **gruppo di risorse**, crearne uno nuovo o usare un gruppo esistente.
 
@@ -60,8 +60,8 @@ Assicurarsi di avere le credenziali per un account con privilegi di amministrato
    Lo SKU **nome** deve riflettere le proprietà dello SKU in modo che gli utenti possono distribuire i relativi database per lo SKU appropriato.
 
 6. Selezionare **OK** per creare lo SKU.
-> [!NOTE]
-> Gli SKU possono richiedere fino a un'ora siano visibili nel portale. È possibile creare un database fino a quando non lo SKU è distribuito e in esecuzione.
+   > [!NOTE]
+   > Gli SKU possono richiedere fino a un'ora siano visibili nel portale. È possibile creare un database fino a quando non lo SKU è distribuito e in esecuzione.
 
 7. Sotto **aggiungere un Server di Hosting MySQL**, selezionare **crea**.
 

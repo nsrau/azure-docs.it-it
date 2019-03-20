@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 318ec5a4f9aceaf02048768cbf630eff08feff6b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: a9d0daaacb046df7943202775adc77bc912cce11
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998009"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189513"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Panoramica dello streaming live con Servizi multimediali
 
@@ -146,7 +146,7 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 | Stato del canale | Indicatori dell'interfaccia utente del portale | Fatturazione? |
 | --- | --- | --- |
 | Avvio in corso |Avvio in corso |No (stato temporaneo) |
-| In esecuzione |Pronto (nessun programma in esecuzione)<br/>oppure<br/>Streaming (almeno un programma in esecuzione) |SÌ |
+| In esecuzione |Pronto (nessun programma in esecuzione)<br/>Oppure<br/>Streaming (almeno un programma in esecuzione) |SÌ |
 | Stopping |Stopping |No (stato temporaneo) |
 | Arrestato |Arrestato |No  |
 

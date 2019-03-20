@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4b737117880393e24fe6ea00223fb0f719be4e4
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: c07f01acb95523171f0297f7e2fd531713f1facf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980468"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550157"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Estensioni e funzionalità della macchina virtuale per Windows
 
@@ -34,7 +34,7 @@ Questo articolo offre una panoramica delle estensioni macchina virtuale, i prere
 Sono disponibili numerose estensioni della macchina virtuale di Azure, ognuna con uno specifico caso d'uso. Di seguito sono riportati alcuni esempi:
 
 - Applicare le configurazioni dello stato desiderato tramite PowerShell a una macchina virtuale usando l'estensione DSC per Windows. Per altre informazioni, vedere l'argomento relativo all'[Estensione DSC (Desired State Configuration) di Azure](dsc-overview.md).
-- Configurare il monitoraggio di una macchina virtuale con l'estensione macchina virtuale Microsoft Monitoring Agent. Per altre informazioni, vedere l'argomento [Connettere macchine virtuali di Azure a Log Analytics](../../log-analytics/log-analytics-azure-vm-extension.md).
+- Configurare il monitoraggio di una macchina virtuale con l'estensione macchina virtuale Microsoft Monitoring Agent. Per altre informazioni, vedere [connettere macchine virtuali di Azure per i log di monitoraggio di Azure](../../log-analytics/log-analytics-azure-vm-extension.md).
 - Configurare una macchina virtuale di Azure usando Chef. Per altre informazioni, vedere l'argomento [Automazione della distribuzione delle macchine virtuali di Azure con Chef](../windows/chef-automation.md).
 - Configurare il monitoraggio dell'infrastruttura di Azure con l'estensione Datadog. Per altre informazioni, vedere il [blog Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
@@ -366,7 +366,7 @@ I passaggi seguenti per la risoluzione dei problemi sono validi per tutte le est
 
 ### <a name="view-extension-status"></a>Visualizzare lo stato dell'estensione
 
-Dopo l'esecuzione di un'estensione della macchina virtuale in una macchina virtuale, usare [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) per restituire lo stato dell'estensione. *Substatuses[0]* indica che il provisioning dell'estensione ha avuto esito positivo, vale a dire che l'estensione è stata distribuita alla macchina virtuale, ma l'esecuzione dell'estensione nella macchina virtuale ha avuto esito negativo (*Substatuses[1]*).
+Dopo l'esecuzione di un'estensione macchina virtuale da una macchina virtuale, usare [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) per restituire lo stato dell'estensione. *Substatuses[0]* indica che il provisioning dell'estensione ha avuto esito positivo, vale a dire che l'estensione è stata distribuita alla macchina virtuale, ma l'esecuzione dell'estensione nella macchina virtuale ha avuto esito negativo (*Substatuses[1]*).
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status

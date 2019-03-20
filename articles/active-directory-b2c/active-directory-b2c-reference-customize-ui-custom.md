@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d222e398653487cb87525ac13ebe682e9c8a26ee
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: a51c2987781184539edfcc8be9b9f483a215a157
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195938"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122927"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalizzare l'interfaccia utente di un percorso utente con criteri personalizzati
 
@@ -66,7 +66,7 @@ Per assicurarsi che tutto funzioni come previsto, è necessario:
 - Assicurarsi che il contenuto sia conforme a HTML5 e accessibile
 - Assicurarsi che il server di contenuti sia abilitato per CORS.
 - Rendere disponibile il contenuto tramite HTTPS.
-- Usare URL assoluti, ad esempio https://yourdomain/content, per tutti i collegamenti e il contenuto CSS.
+- Usare URL assoluti, ad esempio `https://yourdomain/content`, per tutti i collegamenti e il contenuto CSS.
 
 > [!TIP]
 > Per verificare che CORS sia abilitato per il sito su cui si ospita il contenuto e per testare le richieste CORS, usare il sito https://test-cors.org/. Da questo sito è possibile inviare la richiesta CORS a un server remoto (per verificare se CORS è supportato) oppure a un server di test (per esplorare determinate funzionalità di CORS).
@@ -121,16 +121,16 @@ Per verificare che CORS sia abilitato per la risorsa di archiviazione in cui si 
 
 1. Aprire una sessione del browser e passare alla pagina *unified.html* usando l'URL completo del percorso nell'account di archiviazione, `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Ad esempio: https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
 2. Accedere a https://test-cors.org. Questo sito consente di verificare che CORS sia abilitato per la pagina in uso.  
-<!--
-![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
--->
+   <!--
+   ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
+   -->
 
 3. In **Remote URL** (URL remoto) immettere l'URL completo per il contenuto di unified.html e fare clic su **Send Request** (Invia richiesta).
 4. Verificare che l'output nella sezione **Results** (Risultati) contenga *XHR status: 200* (Stato XHR: 200), che indica che CORS è abilitato.
-<!--
-![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
--->
-L'account di archiviazione ora includerà un contenitore BLOB denominato *b2c* nella spiegazione, contenente i modelli wingtiptoys seguenti dello *starter pack*.
+   <!--
+   ![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
+   -->
+   L'account di archiviazione ora includerà un contenitore BLOB denominato *b2c* nella spiegazione, contenente i modelli wingtiptoys seguenti dello *starter pack*.
 
 <!--
 ![Correctly configured storage account](../../articles/active-directory-b2c/media/active-directory-b2c-reference-customize-ui-custom/storage-account-final.png)

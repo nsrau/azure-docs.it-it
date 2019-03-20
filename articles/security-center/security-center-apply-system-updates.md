@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: afd6ded48bc330032b77be4bc8cd186a6f71ee5f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: ebd9939128d1f2b870541e82710792d13b69728e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105128"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099002"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Applicare gli aggiornamenti del sistema nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure monitora ogni giorno le macchine virtuali e i computer Windows e Linux alla ricerca di eventuali aggiornamenti mancanti del sistema operativo. Il Centro sicurezza recupera un elenco di aggiornamenti di sicurezza e critici disponibili da Windows Update o Windows Server Update Services (WSUS), in base al servizio configurato nel computer Windows. Il Centro sicurezza cerca anche gli aggiornamenti più recenti nei sistemi Linux. Se nella macchina virtuale o nel computer non è stato eseguito un aggiornamento del sistema, il Centro sicurezza ne consiglierà l'applicazione.
@@ -43,7 +43,7 @@ In questo esempio si userà **Calcolo**.
     - Il numero totale di aggiornamenti critici mancanti nelle macchine virtuali e nei computer.
     - Il numero totale di aggiornamenti di sicurezza mancanti nelle macchine virtuali e nei computer.
 
-  Nella parte inferiore del dashboard vengono elencati tutti gli aggiornamenti mancanti nelle macchine virtuali e nei computer e la gravità dell'aggiornamento mancante.  L'elenco include:
+   Nella parte inferiore del dashboard vengono elencati tutti gli aggiornamenti mancanti nelle macchine virtuali e nei computer e la gravità dell'aggiornamento mancante.  L'elenco include:
 
     - NOME: nome dell'aggiornamento mancante.
     - N. DI VM E COMPUTER: numero totale di macchine virtuali e computer a cui manca l'aggiornamento.
@@ -63,13 +63,13 @@ In questo esempio si userà **Calcolo**.
 
    ![Aggiornamento della sicurezza mancante][3]
 
-4. Selezionare l'icona **Cerca** nella barra multifunzione superiore.  Si apre una query di ricerca di Log Analytics che filtra i computer in cui manca l'aggiornamento.
+4. Selezionare l'icona **Cerca** nella barra multifunzione superiore.  Una query di ricerca log di monitoraggio di Azure consente di aprire Filtra i computer in cui Manca l'aggiornamento.
 
-   ![Ricerca di Log Analytics][4]
+   ![Ricerca di log di monitoraggio di Azure][4]
 
 5. Selezionare un computer dall'elenco per avere maggiori informazioni. Verrà visualizzata un'altra finestra di risultati della ricerca contenente le informazioni filtrate solo per quel computer.
 
-    ![Ricerca di Log Analytics][5]
+    ![Ricerca di log di monitoraggio di Azure][5]
 
 ## <a name="reboot-after-system-updates"></a>Riavviare dopo gli aggiornamenti del sistema
 1. Tornare al pannello **Raccomandazioni** . Dopo l'applicazione degli aggiornamenti del sistema è stata generata una nuova voce, denominata **Riavvia dopo gli aggiornamenti del sistema**. Questa voce indica che è necessario avviare la VM per completare il processo di applicazione degli aggiornamenti del sistema.

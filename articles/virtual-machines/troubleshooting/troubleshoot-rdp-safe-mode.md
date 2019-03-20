@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 0ef4aa988f4adc855051b213013636b4a04f1cca
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 8e108d88282894a7b1bf014146083008bedd483d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316982"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095042"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Non è possibile stabilire una connessione RDP a una macchina virtuale perché questa viene avviata in modalità provvisoria
 
@@ -47,7 +47,7 @@ Per risolvere questo problema, usare il controllo seriale per configurare la mac
 ### <a name="use-serial-control"></a>Usare il controllo seriale
 
 1. Connettersi alla [console seriale e aprire un'istanza CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
-). Se la console seriale non è abilitata sulla macchina virtuale, vedere [Riparare la macchina virtuale in modalità offline](#repair-the-vm-offline).
+   ). Se la console seriale non è abilitata sulla macchina virtuale, vedere [Riparare la macchina virtuale in modalità offline](#repair-the-vm-offline).
 2. Controllare i dati della configurazione di avvio:
 
         bcdedit /enum
@@ -55,12 +55,12 @@ Per risolvere questo problema, usare il controllo seriale per configurare la mac
     Se la macchina virtuale è configurata per l'avvio in modalità provvisoria, nella sezione **Windows Boot Loader** verrà visualizzato un flag aggiuntivo denominato **safeboot**. Se il flag **safeboot** non viene visualizzato, la macchina virtuale non è in modalità provvisoria. Questo articolo non si applica allo specifico scenario.
 
     Il flag **safeboot** può avere uno dei valori seguenti:
-    - Minime
-    - Rete
+   - Minime
+   - Rete
 
-    In entrambe queste modalità, la connessione RDP non viene avviata e pertanto la correzione è la stessa.
+     In entrambe queste modalità, la connessione RDP non viene avviata e pertanto la correzione è la stessa.
 
-    ![Immagine del flag relativo alla modalità provvisoria](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
+     ![Immagine del flag relativo alla modalità provvisoria](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
 
 3. Eliminare il flag **safemode** in modo che la macchina virtuale venga avviata in modalità normale:
 

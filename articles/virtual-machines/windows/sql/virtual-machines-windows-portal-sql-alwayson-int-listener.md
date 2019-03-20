@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 5e665cd0bcfdea436c2f493187c5bbea756f8f09
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 3b90ae3e9808b22b6d6c41e3ac11bec0293bd4bf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248308"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107883"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Configurare un servizio di bilanciamento del carico interno per un gruppo di disponibilità Always On in Azure
 In questo articolo viene illustrato come creare un servizio di bilanciamento del carico per un gruppo di disponibilità SQL Server Always On nelle macchine virtuali in esecuzione con Azure Resource Manager. Un gruppo di disponibilità richiede un servizio di bilanciamento del carico quando le istanze di SQL Server sono in macchine virtuali di Azure. Il servizio di bilanciamento del carico archivia l'indirizzo IP per il listener del gruppo di disponibilità. Se un gruppo di disponibilità si estende su più aree, è necessario un servizio di bilanciamento del carico per ogni area.
@@ -50,7 +50,7 @@ In questa parte dell'attività eseguire questi passaggi:
 > 
 > 
 
-### <a name="step-1-create-the-load-balancer-and-configure-the-ip-address"></a>Passaggio1: Creare il servizio di bilanciamento del carico e configurare l'indirizzo IP
+### <a name="step-1-create-the-load-balancer-and-configure-the-ip-address"></a>Passaggio 1: Creare il servizio di bilanciamento del carico e configurare l'indirizzo IP
 Per prima cosa creare il servizio di bilanciamento del carico. 
 
 1. Nel portale di Azure aprire il gruppo di risorse contenente le macchine virtuali di SQL Server. 
@@ -66,7 +66,7 @@ Per prima cosa creare il servizio di bilanciamento del carico.
    | Impostazione | Valore |
    | --- | --- |
    | **Nome** |Nome che rappresenta il servizio di bilanciamento del carico. Ad esempio **sqlLB**. |
-   | **Tipo** |**Interno**: la maggior parte delle implementazioni usano un servizio di bilanciamento del carico interno, che consente alle applicazioni all'interno della stessa rete virtuale di connettersi al gruppo di disponibilità.  </br> **Esterno**: consente alle applicazioni di connettersi al gruppo di disponibilità tramite una connessione Internet pubblica. |
+   | **Tipo** |**Interna**: La maggior parte delle implementazioni usa un servizio di bilanciamento del carico interno, che consente alle applicazioni all'interno della stessa rete virtuale di connettersi al gruppo di disponibilità.  </br> **Esterna**: consente alle applicazioni di connettersi al gruppo di disponibilità tramite una connessione Internet pubblica. |
    | **Rete virtuale** |Selezionare la rete virtuale in cui si trovano le istanze di SQL Server. |
    | **Subnet** |Selezionare la subnet in cui si trovano le istanze di SQL Server. |
    | **Assegnazione indirizzi IP** |**Statico** |
@@ -235,18 +235,18 @@ Per aggiungere un indirizzo IP a un bilanciamento del carico con il portale di A
 
 10. Configurare la nuova regola di bilanciamento del carico con le seguenti impostazioni:
 
-   |Impostazione |Valore
-   |:-----|:----
-   |**Nome** |Un nome per identificare la regola di bilanciamento del carico. 
-   |**Indirizzo IP front-end IP** |Selezionare l'indirizzo IP che è stato creato. 
-   |**Protocollo** |TCP
-   |**Porta** |Usare la porta che viene utilizzata dalle istanze di SQL Server. Un'istanza predefinita utilizza la porta 1433, a meno che non venga modificata. 
-   |**Porta back-end** |Usare lo stesso valore di **Porta**.
-   |**Pool back-end** |Il pool che contiene le macchine virtuali con le istanze di SQL Server. 
-   |**Probe di integrità** |Scegliere il probe che è stato creato.
-   |**Persistenza della sessione** |Nessuna
-   |**Timeout di inattività (minuti)** |Valore predefinito (4)
-   |**IP mobile (Direct Server Return)** | Attivato
+    |Impostazione |Valore
+    |:-----|:----
+    |**Nome** |Un nome per identificare la regola di bilanciamento del carico. 
+    |**Indirizzo IP front-end IP** |Selezionare l'indirizzo IP che è stato creato. 
+    |**Protocollo** |TCP
+    |**Porta** |Usare la porta che viene utilizzata dalle istanze di SQL Server. Un'istanza predefinita utilizza la porta 1433, a meno che non venga modificata. 
+    |**Porta back-end** |Usare lo stesso valore di **Porta**.
+    |**Pool back-end** |Il pool che contiene le macchine virtuali con le istanze di SQL Server. 
+    |**Probe di integrità** |Scegliere il probe che è stato creato.
+    |**Persistenza della sessione** |Nessuna
+    |**Timeout di inattività (minuti)** |Valore predefinito (4)
+    |**IP mobile (Direct Server Return)** | Attivato
 
 ### <a name="configure-the-availability-group-to-use-the-new-ip-address"></a>Configurare il gruppo di disponibilità affinché usi il nuovo indirizzo IP
 

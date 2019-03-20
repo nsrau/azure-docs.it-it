@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
-ms.date: 12/05/2017
+ms.date: 03/04/2019
 ms.author: v-gedod
-ms.openlocfilehash: b997db319677f6904db7e2fdee4ef0c6bf76a180
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d01f863f0c42754e2dcc36f6cab1bed1f3dc3b6c
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859369"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337805"
 ---
 # <a name="custom-search"></a>Ricerca personalizzata
 Ricerca personalizzata Bing consente di creare esperienze di ricerca personalizzata per gli argomenti a cui si è interessati. Gli utenti visualizzano risultati della ricerca specifici per il contenuto a cui sono interessati anziché scorrere i risultati della ricerca che possono includere contenuto irrilevante.

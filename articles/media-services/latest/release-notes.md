@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 8f549c20480e3866725717aa054af6653ab5a913
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 236e4e7079da792d055a8de148d03852ca1012ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343996"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877361"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -180,9 +180,9 @@ Se sono stati creati filtri di asset o di account tra il 28/09 e il 12/10 con le
 
 ## <a name="may-2018---preview"></a>Maggio 2018 - Anteprima
 
-### <a name="net-sdk"></a>.Net SDK
+### <a name="net-sdk"></a>.NET SDK
 
-Le funzionalità seguenti sono presenti in .Net SDK:
+Le funzionalità seguenti sono disponibili in .NET SDK:
 
 * **Transforms** e **Jobs** per codificare o analizzare i contenuti multimediali. Per alcuni esempi, vedere [Eseguire lo streaming di file](stream-files-tutorial-with-api.md) e [Analyze](analyze-videos-tutorial-with-api.md) (Analizzare).
 * **Localizzatori di streaming** per pubblicare ed eseguire lo streaming dei contenuti ai dispositivi degli utenti finali

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 343ffb8daf19711d6c2a61b819ece92448146446
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.openlocfilehash: c97c94492417dcc87d34751908f1766393ad37ed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331131"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58115291"
 ---
 Quando un disco dati collegato a una macchina virtuale non è più necessario, è possibile scollegarlo con facilità. Quando si scollega un disco, viene rimosso il disco dalla macchina virtuale, ma non viene eliminato dall'account di Archiviazione Azure.
 
@@ -28,7 +28,7 @@ Se non si conosce il nome del disco o si vuole verificarlo prima di averlo scoll
 
 3. Fare clic su **Dischi** sul bordo sinistro del dashboard della macchina dashboard, in **Impostazioni**.
 
- Il dashboard della macchina virtuale elenca il nome e il tipo di tutti i dischi collegati. Ad esempio, in questa schermata è visualizzata una macchina virtuale con un solo disco del sistema operativo e un unico disco dati:
+   Il dashboard della macchina virtuale elenca il nome e il tipo di tutti i dischi collegati. Ad esempio, in questa schermata è visualizzata una macchina virtuale con un solo disco del sistema operativo e un unico disco dati:
 
     ![Ricerca di un disco dati](./media/howto-detach-disk-windows-linux/vmwithdisklist.png)
 
@@ -39,14 +39,14 @@ Se non si conosce il nome del disco o si vuole verificarlo prima di averlo scoll
 
 3. Fare clic sul disco che si desidera scollegare.
 
-  ![Identificare il disco da scollegare](./media/howto-detach-disk-windows-linux/disklist.png)
+   ![Identificare il disco da scollegare](./media/howto-detach-disk-windows-linux/disklist.png)
 
 4. Sulla barra dei comandi fare clic su **Disconnetti**.
 
-  ![Individuare il comando di disconnessione](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
+   ![Individuare il comando di disconnessione](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
 
 5. Nella finestra di conferma, fare clic su **Sì** per scollegare il disco.
 
-  ![Confermare la disconnessione del disco](./media/howto-detach-disk-windows-linux/confirmdetach.png)
+   ![Confermare la disconnessione del disco](./media/howto-detach-disk-windows-linux/confirmdetach.png)
 
 Il disco rimane nello spazio di archiviazione ma non è più collegato a una macchina virtuale.

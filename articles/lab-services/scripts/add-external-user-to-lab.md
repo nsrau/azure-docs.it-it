@@ -1,5 +1,5 @@
 ---
-title: 'Script di PowerShell: aggiungere un utente esterno a un lab in Azure DevTest Labs | Microsoft Docs'
+title: 'Script di PowerShell: Aggiungere un utente esterno a un lab in Azure DevTest Labs | Microsoft Docs'
 description: Questo script di PowerShell aggiunge un utente esterno a un lab in Azure DevTest Labs.
 services: lab-services
 author: spelluru
@@ -12,20 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: bd86e44c21ca3c0b9c061f9a5c24bd19c4b207f9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 042fa1e24ebadfb00a2d55cc97d742f198cb5662
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636444"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738352"
 ---
 # <a name="use-powershell-to-add-an-external-user-to-a-lab-in-azure-devtest-labs"></a>Usare PowerShell per aggiunge un utente esterno a un lab in Azure DevTest Labs
 
 Questo script di esempio di PowerShell aggiunge un utente esterno a un lab in Azure DevTest Labs. 
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * **Un lab**. Per usare lo script è necessario disporre di un lab esistente. 
 
 ## <a name="sample-script"></a>Script di esempio
@@ -38,8 +40,8 @@ Questo script usa i comandi seguenti:
 
 | Comando | Note |
 |---|---|
-| [Get-AzureRmADUser](/powershell/module/azurerm.resources/get-azurermaduser) | Prova di nuovo l'oggetto utente da Azure Active Directory. |
-| [New-AzureRmRoleAssignment](/module/azurerm.resources/new-azurermroleassignment) | Assegna il ruolo specificato all'entità specificata nell'ambito specificato. |
+| [Get-AzADUser](/powershell/module/az.resources/get-azaduser) | Prova di nuovo l'oggetto utente da Azure Active Directory. |
+| [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) | Assegna il ruolo specificato all'entità specificata nell'ambito specificato. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

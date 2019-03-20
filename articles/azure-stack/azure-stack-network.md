@@ -16,18 +16,18 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 97fcfa20e474edb8108474ef02c6542688d627ff
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 3705b2dda7da8df2e6e3c98d5f6003bd3d771daf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243486"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098577"
 ---
 # <a name="network-connectivity"></a>Connettività di rete
 Questo articolo fornisce informazioni sull'infrastruttura di rete di Azure Stack per decidere come per integrarsi al meglio Azure Stack nell'ambiente di rete esistente. 
 
 > [!NOTE]
-> Per risolvere i nomi DNS esterni dallo Stack di Azure (ad esempio, www.bing.com), è necessario fornire i server DNS per inoltrare le richieste DNS. Per altre informazioni sui requisiti di DNS di Azure Stack, vedere [integrazione di Data Center di Azure Stack - DNS](azure-stack-integrate-dns.md).
+> Per risolvere i nomi DNS esterni dallo Stack di Azure (ad esempio, www\.bing.com), è necessario fornire i server DNS per inoltrare le richieste DNS. Per altre informazioni sui requisiti di DNS di Azure Stack, vedere [integrazione di Data Center di Azure Stack - DNS](azure-stack-integrate-dns.md).
 
 ## <a name="physical-network-design"></a>Progettazione di rete fisica
 La soluzione Azure Stack richiede un'infrastruttura fisica resiliente e dalla disponibilità elevata per supportare il funzionamento e i servizi. Uplink da ToR alle opzioni del bordo sono limitati a SFP + o supporti SFP28 e 1 GB, 10 GB o velocità del 25 GB. Rivolgersi al fornitore dell'hardware (OEM) original equipment manufacturer per la disponibilità. Il diagramma seguente illustra la progettazione consigliata:

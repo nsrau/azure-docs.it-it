@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 8b37f86706e47e3998a4ba85e4416ce1a8a44c22
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: dd625dba0e125ccf993af524a0ab0c0cc66555fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567085"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834218"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Esercitazione: Eseguire il push di notifiche a dispositivi iOS specifici con Hub di notifica di Azure
 
@@ -49,14 +49,14 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 
 1. Nel file **MainStoryboard_iPhone.storyboard** aggiungere i componenti seguenti dalla libreria di oggetti:
 
-    * Un'etichetta con il testo "Breaking News".
-    * Etichette con il testo relativo alle categorie "World", "Politics", "Business", "Technology", "Science", "Sports".
-    * Sei opzioni, una per ogni categoria, impostare lo **stato** di ogni opzione su **Off** per impostazione predefinita.
-    * Un pulsante con l'etichetta "Subscribe".
+   * Un'etichetta con il testo "Breaking News".
+   * Etichette con il testo relativo alle categorie "World", "Politics", "Business", "Technology", "Science", "Sports".
+   * Sei opzioni, una per ogni categoria, impostare lo **stato** di ogni opzione su **Off** per impostazione predefinita.
+   * Un pulsante con l'etichetta "Subscribe".
 
-    L'aspetto dello storyboard dovrebbe essere simile al seguente:
+     L'aspetto dello storyboard dovrebbe essere simile al seguente:
 
-    ![Strumento di creazione di interfaccia Xcode][3]
+     ![Strumento di creazione di interfaccia Xcode][3]
 
 2. Nell'assistente dell'editor creare outlet per tutte le opzioni e denominarli "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch".
 3. Creare un'azione per il pulsante denominato `subscribe`. Il file `ViewController.h` deve contenere il codice seguente:
@@ -359,11 +359,11 @@ In questa esercitazione sono state inviate notifiche di trasmissione ai disposit
 [3]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
 
 <!-- URLs. -->
-[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
+[How To: Service Bus Notification Hubs (iOS Apps)]: https://msdn.microsoft.com/library/jj927168.aspx
 [Use Notification Hubs to broadcast localized breaking news]: notification-hubs-ios-xplat-localized-apns-push-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
-[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Notification Hubs Guidance]: https://msdn.microsoft.com/library/dn530749.aspx
+[Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
 [Portale di Azure]: https://portal.azure.com

@@ -2,22 +2,17 @@
 title: Analizzare i dati di log in Monitoraggio di Azure | Microsoft Docs
 description: È necessaria una query di log per recuperare i dati di log da Monitoraggio di Azure.  Questo articolo descrive come vengono usate le nuove query di log in Monitoraggio di Azure e illustra i concetti con cui avere familiarità prima di crearne una.
 services: log-analytics
-documentationcenter: ''
 author: bwren
-manager: carmonm
-editor: ''
 ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
-ms.openlocfilehash: 4c428372868e3d3fac58bc851de8c59ad01d1d8f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: b25bbc0c4beac12c0b0f693dd4e01ddb2896fa16
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269961"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857879"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Analizzare i dati di log in Monitoraggio di Azure
 
@@ -34,14 +29,19 @@ I dati del log raccolti da Monitoraggio di Azure vengono archiviati in un'area d
 
 ## <a name="where-log-queries-are-used"></a>Dove si utilizzano le query di log
 
-Di seguito sono indicati alcuni dei vari modi in cui verranno usate le query di log in Monitoraggio di Azure:
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+I diversi modi, che si userà le query in Monitoraggio di Azure includono quanto segue:
+
 
 - **Portale.** È possibile eseguire un'analisi interattiva dei dati di log nel [portale di Azure](portals.md).  In questo modo è possibile modificare le query e analizzare i risultati in una vasta gamma di formati e visualizzazioni.  
 - **Regole di avviso.** Le [regole di avviso](../platform/alerts-overview.md) consentono di identificare in modo proattivo i problemi dai dati nell'area di lavoro.  Ogni regola di avviso è basata su una ricerca log che viene eseguita automaticamente a intervalli regolari.  I risultati vengono esaminati per determinare se è necessario creare un avviso.
 - **Dashboard.** È possibile aggiungere i risultati di qualsiasi query in un [dashboard Azure](../learn/tutorial-logs-dashboards.md) che consente di visualizzare i dati di metriche e log insieme ed eventualmente condividerli con altri utenti di Azure. 
 - **Visualizzazioni.**  È possibile creare visualizzazioni dei dati da includere nei dashboard degli utenti con [Progettazione viste](../platform/view-designer.md).  Le query di log forniscono i dati usati da [riquadri](../platform/view-designer-tiles.md) e [parti della visualizzazione](../platform/view-designer-parts.md) in ogni vista.  
+
 - **Esportazione.**  Quando si importano dati di log da Monitoraggio di Azure in Excel o [Power BI](../platform/powerbi.md), si crea una query di log per definire i dati da esportare.
-- **PowerShell.** È possibile eseguire uno script di PowerShell da una riga di comando o un runbook di Automazione di Azure che usa [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) per recuperare dati di log da Monitoraggio di Azure.  Questo cmdlet richiede una query per determinare i dati da recuperare.
+- **PowerShell.** È possibile eseguire uno script di PowerShell da una riga di comando o un runbook di automazione di Azure che usa [Get-AzOperationalInsightsSearchResults](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) per recuperare i dati di log da monitoraggio di Azure.  Questo cmdlet richiede una query per determinare i dati da recuperare.
 - **API di log di Monitoraggio di Azure.**  L'[API di log di Monitoraggio di Azure](../platform/alerts-overview.md) consente a qualsiasi client API REST di recuperare dati di log dall'area di lavoro.  La richiesta dell'API include una query eseguita su Monitoraggio di Azure per determinare i dati da recuperare.
 
 ![Ricerche log](media/log-query-overview/queries-overview.png)
@@ -102,5 +102,5 @@ Sebbene [Application Insights](../app/app-insights-overview.md) archivi i dati d
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Vedere le informazioni su come usare [Log Analytics per creare e modificare le ricerche nei log](../log-query/portals.md).
+- Informazioni su come usare [ricerche nei log di Log Analitica per creare e modificare](../log-query/portals.md).
 - Vedere un'[esercitazione sulla scrittura di query](../log-query/get-started-queries.md) con il nuovo linguaggio di query.

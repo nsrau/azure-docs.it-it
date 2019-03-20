@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 82885c00557c85fefcf221789263632e21bd77da
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: ab6da597457fa94c171a1e2547c1d48cf35cd0f9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56344030"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893051"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Runtime di integrazione in Azure Data Factory
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le seguenti funzionalità di integrazione di dati in diversi ambienti di rete:
@@ -51,7 +51,7 @@ Il diagramma seguente mostra come è possibile usare runtime di integrazione div
 Un runtime di integrazione di Azure è in grado di eseguire queste operazioni:
 
 - Eseguire attività di copia tra archivi dati cloud
-- Invio delle seguenti attività di trasformazione nella rete pubblica: attività Hive di HDInsight, attività Pig di HDInsight, attività MapReduce di HDInsight, attività Spark di HDInsight , attività di streaming di HDInsight, attività di esecuzione batch di Machine Learning, attività della risorsa di aggiornamento di Machine Learning, attività stored procedure, attività U-SQL di Data Lake Analytics, attività personalizzate .Net, attività Web, attività di ricerca e attività GetMetadata.
+- Invio delle seguenti attività di trasformazione nella rete pubblica: Attività Hive di HDInsight, attività Pig di HDInsight, attività MapReduce di HDInsight, attività Spark di HDInsight, attività di Streaming di HDInsight, attività esecuzione Batch di Machine Learning, attività Aggiorna risorsa di Machine Learning, attività Stored Procedure, Attività di data Lake Analitica U-SQL, attività personalizzate .NET, attività Web, attività di ricerca e attività GetMetadata.
 
 ### <a name="azure-ir-network-environment"></a>Ambiente di rete del runtime di integrazione di Azure
 Il runtime di integrazione di Azure supporta la connessione agli archivi dati e ai servizi di calcolo nella rete pubblica con endpoint accessibili pubblici. Usare un runtime di integrazione self-hosted per l'ambiente di rete virtuale Azure.
@@ -69,7 +69,7 @@ Per maggiori dettagli, vedere le informazioni su come creare e configurare il ru
 Un runtime di integrazione self-hosted è in grado di eseguire queste operazioni:
 
 - Eseguire attività di copia tra gli archivi dati cloud e un archivio dati in una rete privata.
-- Invio delle seguenti attività di trasformazione a risorse di calcolo in locale o nella rete virtuale di Azure: attività Hive di HDInsight (BYOC, Bring Your Own Cluster), attività Pig di HDInsight (BYOC), attività MapReduce di HDInsight (BYOC), attività di HDInsight Spark (BYOC), attività di streaming di HDInsight (BYOC), attività di esecuzione batch di Machine Learning, attività della risorsa di aggiornamento di Machine Learning, attività stored procedure, attività U-SQL di Data Lake Analytics, attività personalizzate .Net, attività di ricerca e attività GetMetadata.
+- Invio delle seguenti attività di trasformazione a risorse di calcolo in locale o nella rete virtuale di Azure: Attività Hive di HDInsight (BYOC-Bring Your Own Cluster), attività Pig di HDInsight (BYOC), attività MapReduce di HDInsight (BYOC), attività Spark di HDInsight (BYOC), attività Streaming di HDInsight (BYOC), l'attività esecuzione Batch di Machine Learning, Machine Learning Aggiornare l'attività della risorsa, attività Stored Procedure, attività U-SQL di Data Lake Analitica, attività personalizzate .NET, attività di ricerca e attività GetMetadata.
 
 > [!NOTE] 
 > Usare il runtime di integrazione self-hosted per supportare gli archivi dati che necessitano dell'approccio Bring-Your-Own-Driver, ad esempio SAP Hana, MySQL e così via.  Per altre informazioni, vedere [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

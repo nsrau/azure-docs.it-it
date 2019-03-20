@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: daveba
 ms.custom: include file
-ms.openlocfilehash: 106c4796bde838e28b91771454e971f9999194e1
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
-ms.translationtype: HT
+ms.openlocfilehash: dc8f9797b7b4c04da27a54dfddc79bd96d6df88d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753779"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "58115395"
 ---
-Se si ha familiarità con la funzionalità Identità del servizio gestito, vedere la [panoramica di Identità del servizio gestito](~/articles/active-directory/managed-service-identity/overview.md) e **assicurarsi di verificare la [differenza tra identità del servizio gestito assegnata dal sistema e identità del servizio gestito assegnata dall'utente](~/articles/active-directory/managed-service-identity/overview.md#how-does-it-work)**. Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
+Se non si ha familiarità con le identità gestite per le risorse di Azure, consultare il [gestite le identità per una panoramica delle risorse di Azure](~/articles/active-directory/managed-identities-azure-resources/overview.md), e **assicurarsi di rivedere il [differenza tra sistema e utente assegnato le identità gestita](~/articles/active-directory/managed-identities-azure-resources/overview.md#how-does-it-work)**. Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.

@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 5f8f282db9468d84c3a1fa16c5cd481f2dd0970e
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 05b25a524894248152114ca9c756d4a0f8944ad8
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415919"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199631"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurare il transito nel gateway VPN per il peering di rete virtuale
 
@@ -37,8 +37,8 @@ In questo documento sono descritti due scenari:
 1. Entrambe le reti virtuali usano il modello di distribuzione di Resource Manager
 2. La rete virtuale spoke è classica e la rete virtuale hub con gateway è in Resource Manager
 
-> [!IMPORTANT]
-> Il transito nel gateway non è attualmente supportato con il peering di rete virtuale globale.
+> [!IMPORTANT]  
+> Il transito gateway è attualmente supportato con il peering di reti virtuali globale disponibile in anteprima. L'anteprima è disponibile in tutte le aree di Azure, aree del cloud della Cina e aree del cloud per enti pubblici, ma non tra cloud. Nessun inserimento nella whitelist è obbligatorio. È possibile testare in versione di anteprima tramite API, modelli, PowerShell o CLI. Portale non è supportato nell'anteprima. 
 
 ## <a name="requirements"></a>Requisiti
 
@@ -129,13 +129,13 @@ Add-AzVirtualNetworkPeering `
 I passaggi sono simili a quelli descritti nell'esempio su Resource Manager, ad eccezione del fatto le operazioni vengono applicate solo alla rete virtuale Hub RM.
 
 1. Creare o aggiornare il peering di rete virtuale da Hub-RM a Spoke RM dal portale di Azure. Passare alla risorsa di rete virtuale Hub-RM, fare clic su "Peer", quindi su "Aggiungi":
-    - Impostare l'opzione "Classica" per il modello di distribuzione di rete virtuale
-    - Selezionare la rete virtuale Spoke-Classic nella sottoscrizione corrispondente
-    - Assicurarsi che l'opzione "Consenti accesso alla rete virtuale" sia abilitata
-    - Impostare l'opzione "**Consenti transito gateway**"
-    - Fare clic su "OK"
+   - Impostare l'opzione "Classica" per il modello di distribuzione di rete virtuale
+   - Selezionare la rete virtuale Spoke-Classic nella sottoscrizione corrispondente
+   - Assicurarsi che l'opzione "Consenti accesso alla rete virtuale" sia abilitata
+   - Impostare l'opzione "**Consenti transito gateway**"
+   - Fare clic su "OK"
 
-    ![hubrm-to-spokeclassic](./media/vpn-gateway-peering-gateway-transit/hubrm-spokeclassic-peering.png)
+     ![hubrm-to-spokeclassic](./media/vpn-gateway-peering-gateway-transit/hubrm-spokeclassic-peering.png)
 
 2. Se il peering è già stato creato, passare alla risorsa di peering, quindi abilitare l'opzione "**Consenti transito gateway**" in modo simile a quanto mostrato nello screenshot al passaggio (1)
 

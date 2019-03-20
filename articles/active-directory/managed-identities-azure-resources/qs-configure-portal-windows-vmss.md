@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79ab1f046e5ab6c5b777e9253dd21e47fa9d593a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c922e0ef005b0e0b22af32f52d8bf28aff0e9515
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187934"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998691"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Configurare identità gestite per risorse di Azure in un set di scalabilità di macchine virtuali tramite il portale di Azure
 
@@ -59,7 +59,7 @@ Per abilitare l'identità gestita assegnata dal sistema in un set di scalabilit�
 
 3. In **Assegnata dal sistema**, **Stato**, selezionare **Abilita** e quindi fare clic su **Salva**:
 
-   ![Schermata della pagina Configurazione](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
+   ![Schermata della pagina Configurazione](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png) 
 
 ### <a name="remove-system-assigned-managed-identity-from-a-virtual-machine-scale-set"></a>Rimuovere un'identità gestita assegnata dal sistema da un set di scalabilità di macchine virtuali
 

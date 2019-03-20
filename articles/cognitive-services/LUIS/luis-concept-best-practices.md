@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 02/26/2019
 ms.author: diberry
-ms.openlocfilehash: 4a06b30c209828e7ffd9f59d1b4ece06cfe6e2dd
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: d7547ecf387e070efe788ba5f8582076388f422a
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428908"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984204"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Procedure consigliate per la creazione di un'app di riconoscimento vocale con Servizi cognitivi
 Usare il processo di creazione dell'app per compilare l'app LUIS. 
@@ -78,7 +78,9 @@ Per altre informazioni:
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>Aggiungere elenchi di frasi e criteri nelle iterazioni successive
 
-È consigliabile non applicare queste procedure prima che l'app sia stata testata. È necessario comprendere il comportamento dell'app prima che vengano aggiunti elenchi di frasi e criteri. Dopo aver compreso come si comporta l'app senza queste caratteristiche, aggiungerne una alla volta in base alle esigenze. Non è necessario aggiungere queste caratteristiche con ogni [iterazione](luis-concept-app-iteration.md) o modificarle con ogni versione. 
+È consigliabile non applicare queste procedure prima che l'app sia stata testata. È necessario comprendere il comportamento dell'app prima di aggiungere gli elenchi di frase e modelli in quanto queste funzionalità sono un peso maggiore rispetto a espressioni di esempio e sfaserà confidenza. 
+
+Dopo aver compreso come si comporta l'app senza queste caratteristiche, aggiungerne una alla volta in base alle esigenze. Non è necessario aggiungere queste caratteristiche con ogni [iterazione](luis-concept-app-iteration.md) o modificarle con ogni versione. 
 
 Non è sbagliato aggiungerle all'inizio della progettazione del modello, ma è più facile vedere come ogni caratteristica influisce sui risultati dopo che il modello è stato testato con le espressioni. 
 

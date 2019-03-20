@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2dbf63e745af102de05ec6dc3e3bcb3e98cd3a32
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 71a5233c6d5af21d7bc5430cda14e156e16d5cd4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563712"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001564"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Comprendere il ciclo di vita di un progetto di Azure
 
@@ -35,7 +35,7 @@ Per comprendere appieno i progetti e le relative fasi, illustriamo un ciclo di v
 
 Quando si crea un progetto, aggiungere artefatti, salvarli in un gruppo di gestione o in una sottoscrizione e fornire un nome univoco e una versione univoca. Il progetto è ora in modalità **Bozza** e non può ancora essere assegnato. Nella modalità **Bozza** può continuare a essere aggiornato e modificato.
 
-Un progetto mai pubblicato in modalità **Bozza** viene visualizzato con un'icona diversa nella pagina **Definizioni di progetto** rispetto a quelli che sono stati **Pubblicati**. La **versione più recente** viene inoltre visualizzata come **Bozza** per i progetti mai pubblicati.
+Un progetto mai pubblicato in modalità **Bozza** viene visualizzato con un'icona diversa nella pagina **Definizioni di progetto** rispetto a quelli che sono stati **Pubblicati**. Il **versione più recente** viene visualizzato come **bozza** per questi mai pubblicate linee guida.
 
 Creare e modificare un progetto tramite il [portale di Azure](../create-blueprint-portal.md#create-a-blueprint) o [API REST](../create-blueprint-rest-api.md#create-a-blueprint).
 
@@ -68,13 +68,13 @@ Ogni versione di un progetto è un oggetto univoco e può essere **Pubblicato** 
 > [!NOTE]
 > Non è possibile eliminare un progetto che ha assegnazioni attive. Eliminare prima le assegnazioni, quindi eliminare la versione che si desidera rimuovere.
 
-1. Fare clic su **Tutti i servizi** e quindi cercare e selezionare **Criteri** nel riquadro sinistro. Nella pagina **Criteri** fare clic su **Progetti**.
+1. Selezionare **Tutti i servizi** nel riquadro a sinistra. Cercare e selezionare **Progetti**.
 
-1. Selezionare **Definizioni di progetto** dalla pagina a sinistra e usare le opzioni di filtro per individuare il progetto di cui si desidera eliminare una versione. Fare clic su di esso per aprire la pagina di modifica.
+1. Selezionare **Blueprint definizioni** dalla pagina a sinistra e a usare le opzioni di filtro per individuare il progetto che si desidera eliminare una versione di. Fare clic su di esso per aprire la pagina di modifica.
 
 1. Scegliere la scheda **Versioni pubblicate** e individuare la versione da eliminare.
 
-1. Fare doppio clic sulla versione da eliminare e selezionare **Eliminare questa versione**.
+1. Fare doppio clic sulla versione da eliminare e scegliere **Elimina questa versione**.
 
 ## <a name="deleting-the-blueprint"></a>Eliminazione del progetto
 
@@ -103,8 +103,8 @@ Per informazioni, vedere [aggiornare assegnazioni esistenti](../how-to/update-ex
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come usare [parametri statici e dinamici](parameters.md)
-- Imparare a personalizzare l'[ordine in sequenza del progetto](sequencing-order.md)
-- Scoprire come usare in modo ottimale il [blocco delle risorse del progetto](resource-locking.md)
-- Informazioni su come [aggiornare assegnazioni esistenti](../how-to/update-existing-assignments.md)
-- Risolvere i problemi durante l'assegnazione di un progetto con la [risoluzione generale dei problemi](../troubleshoot/general.md)
+- Informazioni su come usare [parametri statici e dinamici](parameters.md).
+- Informazioni su come personalizzare l'[ordine di sequenziazione del progetto](sequencing-order.md).
+- Informazioni su come usare in modo ottimale il [blocco delle risorse del progetto](resource-locking.md).
+- Informazioni su come [aggiornare assegnazioni esistenti](../how-to/update-existing-assignments.md).
+- Risolvere i problemi durante l'assegnazione di un progetto con la [risoluzione generale dei problemi](../troubleshoot/general.md).

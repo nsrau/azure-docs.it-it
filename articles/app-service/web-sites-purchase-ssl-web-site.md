@@ -4,7 +4,7 @@ description: Informazioni su come acquistare un certificato del servizio app e a
 services: app-service
 documentationcenter: .net
 author: cephalin
-manager: cfowler
+manager: jpconnoc
 tags: buy-ssl-certificates
 ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
 ms.service: app-service
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 29e6215358eaf544f32f585744ed36f30822d134
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 3e113639dbe4220b943d49dc610ee22b6416e12a
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446750"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216578"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Acquistare e configurare un certificato SSL per il servizio app di Azure
 
@@ -54,7 +54,7 @@ Usare la tabella seguente per informazioni sulla configurazione del certificato.
 | Sottoscrizione | Data center in cui è ospitata l'app Web. |
 | Gruppo di risorse | Gruppo di risorse che contiene il certificato. È possibile usare un nuovo gruppo di risorse o selezionare lo stesso gruppo di risorse, ad esempio, dell'app del servizio app. |
 | Certificato SKU | Determina il tipo di certificato da creare, se si tratta di un certificato standard o di un [certificato con caratteri jolly](https://wikipedia.org/wiki/Wildcard_certificate). |
-| Note legali | Fare clic per confermare che si accettano le condizioni legali. |
+| Note legali | Fare clic per confermare che si accettano le condizioni legali. Vengono ottenuti i certificati di GoDaddy. |
 
 ## <a name="store-in-azure-key-vault"></a>Archiviare il certificato in Azure Key Vault
 
@@ -121,28 +121,35 @@ Usare la tabella seguente per informazioni sulla configurazione dell'associazion
 
 Visitare l'app usando `HTTPS://<domain_name>` invece di `HTTP://<domain_name>` per verificare che il certificato sia stato configurato correttamente.
 
-## <a name="rekey-and-sync-certificate"></a>Reimpostare la chiave e sincronizzare il certificato
+## <a name="rekey-certificate"></a>Reimposta chiavi certificato
 
-Se è necessario reimpostare la chiave del certificato, selezionare il certificato nella pagina [Certificati del servizio app](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), quindi selezionare **Reimposta chiavi e sincronizza** nel riquadro di spostamento a sinistra.
+Se si ritiene che privato del certificato chiave viene compromessa, è possibile reimpostare il certificato. Selezionare il certificato nel [certificati del servizio App](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) pagina, quindi selezionare **Reimposta e Sincronizza** dal riquadro di spostamento a sinistra.
 
-Fare clic sul pulsante **Reimposta chiavi** per avviare il processo. Questo processo può richiedere da 1 a 10 minuti.
+Fare clic su **reimpostare** per avviare il processo. Questo processo può richiedere da 1 a 10 minuti.
 
 ![inserire immagine della reimpostazione SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 
 Con la reimpostazione viene emesso un nuovo certificato da parte dell'autorità di certificazione.
 
+Una volta completata l'operazione di reimpostazione delle chiavi, fare clic su **sincronizzazione**. L'operazione di sincronizzazione aggiorna automaticamente le associazioni nome host per il certificato nel servizio App senza causare alcun tempo di inattività per le app.
+
+> [!NOTE]
+> Se non si sceglie **sincronizzazione**, servizio App esegue automaticamente la sincronizzazione del certificato entro 48 ore.
+
 ## <a name="renew-certificate"></a>Certificato da rinnovare
 
-Per attivare il rinnovo automatico del certificato in qualsiasi momento, selezionare il certificato nella pagina [Certificati del servizio app](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) e quindi fare clic su **Impostazioni di rinnovo automatico** nel riquadro di spostamento a sinistra. 
+Per attivare il rinnovo automatico del certificato in qualsiasi momento, selezionare il certificato nella pagina [Certificati del servizio app](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) e quindi fare clic su **Impostazioni di rinnovo automatico** nel riquadro di spostamento a sinistra.
 
 Selezionare **Attivato** e fare clic su **Salva**. Il rinnovo dei certificati può essere avviato automaticamente 60 giorni prima della scadenza se è attivato il rinnovo automatico.
 
-![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
+![rinnovare automaticamente certificati](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
 
 Per rinnovare il certificato manualmente, fare clic su **Rinnovo manuale**. È possibile richiedere di rinnovare il certificato manualmente 60 giorni prima della scadenza.
 
+Una volta completata l'operazione di rinnovo, fare clic su **sincronizzazione**. L'operazione di sincronizzazione aggiorna automaticamente le associazioni nome host per il certificato nel servizio App senza causare alcun tempo di inattività per le app.
+
 > [!NOTE]
-> Il certificato rinnovato, sia manualmente che automaticamente, non viene associato automaticamente all'app. Per associarlo all'app, vedere [Rinnovare i certificati](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
+> Se non si sceglie **sincronizzazione**, servizio App esegue automaticamente la sincronizzazione del certificato entro 48 ore.
 
 ## <a name="automate-with-scripts"></a>Automatizzazione con gli script
 

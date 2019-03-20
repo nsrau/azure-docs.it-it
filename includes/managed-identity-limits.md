@@ -9,14 +9,14 @@ ms.topic: include
 ms.date: 05/31/2018
 ms.author: daveba
 ms.custom: include file
-ms.openlocfilehash: 7cdd2ce44cfa24b2b6bad2bb45260299bc8eda5f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 887646c7e0ae87cd5e290a68ccc43b80dfbb109c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252371"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553755"
 ---
 | Categoria | Limite |
 | --- | --- |
-| Identità gestite assegnate dall'utente | <ul><li>Durante la creazione di identità assegnate gestite dall'utente, sono supportati solo caratteri alfanumerici (0-9, a-z, A-Z) e il trattino (-). Inoltre, il nome può avere al massimo 24 caratteri perché l'assegnazione alla macchina virtuale/set di scalabilità di macchine virtuali funzioni correttamente.</li><li>Se si usa l'estensione della macchina virtuale dell'identità gestita, il limite supportato è 32 utenti con identità gestite.  Senza l'estensione della macchina virtuale dell'identità gestita, il limite supportato è 512 utenti con identità.</li>|
+| Identità gestito assegnata dall'utente | <ul><li>Quando si crea assegnata dall'utente gestite le identità, solo caratteri alfanumerici (0-9, a-z e A-Z) e il trattino (-) sono supportati. Per l'assegnazione a una macchina virtuale o un set per il corretto funzionamento di scalabilità di macchine virtuali, il nome è limitato a 24 caratteri.</li><li>Se si usa l'estensione di macchina virtuale di identità gestita, il limite supportato è 32 identità gestita assegnata dall'utente. Senza l'estensione di macchina virtuale di identità gestita, il limite supportato è 512 identità assegnata dall'utente.</li>|
 

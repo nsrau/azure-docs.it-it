@@ -1,6 +1,6 @@
 ---
-title: Inoltrare dati dei processi di Automazione di Azure a Log Analytics
-description: Questo articolo illustra come inviare lo stato e i flussi del processo del runbook a Log Analytics di Azure per fornire informazioni e funzionalità di gestione aggiuntive.
+title: Inoltrare i dati dei processi di Automazione di Azure ai log di Monitoraggio di Azure
+description: Questo articolo illustra come inviare i flussi del processo di runbook e lo stato del processo nei log di monitoraggio di Azure di Azure per fornire informazioni aggiuntive e gestione delle funzionalità.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 34a695daa077e882e911d3fb59f8a30e39c3a9d2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 10497d40dcf67fb18d40eba02ec9e95c45be097b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756632"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820859"
 ---
-# <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Inoltrare lo stato e i flussi del processo da Automazione a Log Analytics
+# <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Inoltrare lo stato del processo e i flussi del processo da automazione a log di monitoraggio di Azure
 
-Automazione può inviare lo stato e i flussi del processo del runbook all'area di lavoro di Log Analytics. Questo processo non comporta il collegamento dell'area di lavoro ed è completamente indipendente. I log e i flussi di processo sono visibili nel portale di Azure o con PowerShell per i singoli processi e ciò consente di eseguire analisi semplici. Con Log Analytics è ora possibile:
+Automazione può inviare lo stato e i flussi del processo del runbook all'area di lavoro di Log Analytics. Questo processo non comporta il collegamento dell'area di lavoro ed è completamente indipendente. I log e i flussi di processo sono visibili nel portale di Azure o con PowerShell per i singoli processi e ciò consente di eseguire analisi semplici. Con i log di monitoraggio di Azure è ora possibile:
 
 * Ottenere informazioni dettagliate sui processi di Automazione.
 * Attivare un messaggio di posta elettronica o un avviso in base allo stato del processo del runbook, ad esempio non riuscito o sospeso.
@@ -26,12 +26,14 @@ Automazione può inviare lo stato e i flussi del processo del runbook all'area d
 * Correlare i processi tra account di Automazione.
 * Visualizzare la cronologia dei processi nel tempo.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="prerequisites-and-deployment-considerations"></a>Prerequisiti e considerazioni sulla distribuzione
 
-Per iniziare a inviare i log di Automazione a Log Analytics, sono necessari gli elementi seguenti:
+Per iniziare a inviare i log di automazione a log di monitoraggio di Azure, è necessario:
 
 * La versione di novembre 2016 o versioni successive di [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v 2.3.0).
-* Un'area di lavoro di Log Analytics. Per altre informazioni, vedere [Introduzione a Log Analytics](../log-analytics/log-analytics-get-started.md). 
+* Un'area di lavoro di Log Analytics. Per altre informazioni, vedere [Introduzione a monitoraggio di Azure log](../log-analytics/log-analytics-get-started.md). 
 * Il valore ResourceId dell'account di Automazione di Azure.
 
 Per trovare il valore ResourceId dell'account di Automazione di Azure:
@@ -52,7 +54,7 @@ Se si ha più di un account di automazione o area di lavoro, nell'output dei com
 
 Per trovare il *nome* dell'account di Automazione, nel portale di Azure selezionare l'account di Automazione dal pannello **Account di Automazione** e selezionare **Tutte le impostazioni**. Nel pannello **Tutte le impostazioni** selezionare **Proprietà** in **Impostazioni account**.  Nel pannello **Proprietà** è possibile prendere nota di questi valori.<br> ![Proprietà dell'account di Automazione](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
 
-## <a name="set-up-integration-with-log-analytics"></a>Configurare l'integrazione con Log Analytics
+## <a name="set-up-integration-with-azure-monitor-logs"></a>Configurare l'integrazione con i log di monitoraggio di Azure
 
 1. Nel computer locale avviare **Windows PowerShell** dalla schermata **Start**.
 2. Eseguire questo comando di PowerShell e sostituire il valore di `[your resource id]` e `[resource id of the log analytics workspace]` con i valori del passaggio precedente.
@@ -64,9 +66,9 @@ Per trovare il *nome* dell'account di Automazione, nel portale di Azure selezion
    Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled $true
    ```
 
-Dopo aver eseguito questo script, potrebbe essere necessaria un'ora per iniziare a visualizzare i record in Log Analytics dei nuovi log o flussi di processo in corso di scrittura.
+Dopo aver eseguito questo script, può richiedere un'ora prima di iniziare a visualizzare i record nei log di monitoraggio di Azure dei nuovi log o flussi di processo vengono scritti.
 
-Per visualizzare i log, eseguire la seguente query nella ricerca log Log Analytics: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Per visualizzare i log, eseguire la query seguente in ricerca di log di log analitica: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Verificare la configurazione
 
@@ -81,9 +83,9 @@ Nell'output verificare quanto segue:
 * In *Logs* il valore per *Enabled* deve essere impostato su *True*.
 * Il valore di *WorkspaceId* deve essere impostato sul valore ResourceId dell'area di lavoro di Log Analytics.
 
-## <a name="log-analytics-records"></a>Record di Log Analytics
+## <a name="azure-monitor-log-records"></a>Record di log di Monitoraggio di Azure
 
-La diagnostica di Automazione di Azure crea due tipi di record in Log Analytics che vengono contrassegnati con il tag **AzureDiagnostics**. Le query seguenti usano il linguaggio di query aggiornato per Log Analytics. Per informazioni sulle query comuni tra il linguaggio di query legacy e il nuovo linguaggio di query di Azure Log Analytics, vedere [Legacy to new Azure Log Analytics Query Language cheat sheet](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language) (Scheda di riferimento rapido per il passaggio dal linguaggio di query legacy al nuovo linguaggio di query di Azure Log Analytics)
+La diagnostica di automazione di Azure crea due tipi di record nel log di monitoraggio di Azure e vengono contrassegnata come **AzureDiagnostics**. Le query seguenti usano il linguaggio di query aggiornato per i log di monitoraggio di Azure. Per informazioni sulle query comuni tra il linguaggio di query legacy e il nuovo linguaggio di query Kusto Azure visitare [Legacy al nuovo foglio di riferimento rapido sul linguaggio di Query Kusto di Azure](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language)
 
 ### <a name="job-logs"></a>Log del processo
 
@@ -98,7 +100,7 @@ La diagnostica di Automazione di Azure crea due tipi di record in Log Analytics 
 | Categoria | La classificazione del tipo di dati. Per Automazione, il valore è JobLogs. |
 | OperationName | Specifica il tipo di operazione eseguita in Azure. Per Automazione, il valore è Job. |
 | Risorsa | Nome dell'account di Automazione |
-| SourceSystem | Modo in cui Log Analytics ha raccolto i dati. È sempre *Azure* per la diagnostica di Azure. |
+| SourceSystem | I log di monitoraggio di Azure come raccolti i dati. È sempre *Azure* per la diagnostica di Azure. |
 | ResultDescription |Descrive lo stato del risultato del processo di runbook. I valori possibili sono:<br>- Processo avviato<br>- Processo non riuscito<br>- Processo completato |
 | CorrelationId |Il GUID che rappresenta l'ID di correlazione del processo di runbook. |
 | ResourceId |Specifica l'ID risorsa dell'account di Automazione di Azure del runbook. |
@@ -121,7 +123,7 @@ La diagnostica di Automazione di Azure crea due tipi di record in Log Analytics 
 | Categoria | La classificazione del tipo di dati. Per Automazione, il valore è JobStreams. |
 | OperationName | Specifica il tipo di operazione eseguita in Azure. Per Automazione, il valore è Job. |
 | Risorsa | Nome dell'account di Automazione |
-| SourceSystem | Modo in cui Log Analytics ha raccolto i dati. È sempre *Azure* per la diagnostica di Azure. |
+| SourceSystem | I log di monitoraggio di Azure come raccolti i dati. È sempre *Azure* per la diagnostica di Azure. |
 | ResultDescription |Include il flusso di output dal runbook. |
 | CorrelationId |Il GUID che rappresenta l'ID di correlazione del processo di runbook. |
 | ResourceId |Specifica l'ID risorsa dell'account di Automazione di Azure del runbook. |
@@ -130,9 +132,9 @@ La diagnostica di Automazione di Azure crea due tipi di record in Log Analytics 
 | ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
 
-## <a name="viewing-automation-logs-in-log-analytics"></a>Visualizzazione dei log di Automazione in Log Analytics
+## <a name="viewing-automation-logs-in-azure-monitor-logs"></a>Visualizzazione dei log di automazione nei log di monitoraggio di Azure
 
-Dopo avere avviato l'invio di log di processo di Automazione a Log Analytics, si vedrà quali operazioni è possibile eseguire con questi log in Log Analytics.
+Ora che è stato avviato l'invio di log di processo di automazione a log di monitoraggio di Azure, si vedrà cosa è può eseguire con questi log in log di monitoraggio di Azure.
 
 Per visualizzare i log eseguire questa query: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
@@ -141,7 +143,7 @@ Uno dei clienti più importanti chiede di poter inviare un messaggio di posta el
 
 Per creare una regola di avviso, è necessario creare prima di tutto una ricerca nei log per trovare i record del processo del runbook che dovranno richiamare l'avviso. Fare clic su pulsante **Avviso** per creare e configurare la regola di avviso.
 
-1. Dalla pagina della panoramica di Log Analytics fare clic su **Ricerca log**.
+1. Dalla pagina di panoramica dell'area di lavoro di Log Analitica, fare clic su **visualizzare i log**.
 2. Creare una query di ricerca dei log per l'avviso digitando i criteri di ricerca seguenti nel campo query: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`  È anche possibile raggruppare per RunbookName usando: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Se sono stati configurati log da più account di Automazione o sottoscrizioni nell'area di lavoro, è possibile raggruppare gli avvisi per sottoscrizione o account di Automazione. Si può trovare il nome dell'account di automazione nel campo Risorsa nella ricerca di JobLogs.
@@ -150,7 +152,7 @@ Per creare una regola di avviso, è necessario creare prima di tutto una ricerca
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Trovare tutti i processi completati con errori
 Oltre agli avvisi per gli errori, è possibile determinare quando un processo del runbook presenta un errore non irreversibile. In questi casi PowerShell produce un flusso di errore, ma gli errori non irreversibili non comportano la sospensione o l'esito negativo del processo.    
 
-1. Nell'area di lavoro di Log Analytics fare clic su **Ricerca log**.
+1. Nell'area di lavoro di Log Analitica, fare clic su **registri**.
 2. Nel campo delle query digitare `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and StreamType_s == "Error" | summarize AggregatedValue = count() by JobId_g` e quindi fare clic sul pulsante **Cerca**.
 
 ### <a name="view-job-streams-for-a-job"></a>Visualizzare flussi del processo per un processo
@@ -176,15 +178,15 @@ Remove-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 
 ## <a name="summary"></a>Summary
 
-Inviando i dati di stato e flusso dei processi di Automazione a Log Analytics è possibile ottenere maggiori informazioni sullo stato dei processi di Automazione:
+Inviando dati dello stato e il flusso del processo di automazione a log di monitoraggio di Azure, è possibile ottenere maggiori informazioni sullo stato dei processi di automazione:
 + Configurando avvisi che segnalino la presenza di un problema.
 + Usando viste personalizzate e query di ricerca per visualizzare i risultati del runbook, lo stato dei processi del runbook e altri indicatori chiave o metriche correlati.  
 
-Log Analytics offre maggiore visibilità operativa ai processi di Automazione e può consentire di gestire gli eventi imprevisti in modo più veloce.  
+Log di monitoraggio di Azure offre maggiore visibilità operativa ai processi di automazione e consentono di gestire gli eventi imprevisti più veloci.  
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per altre informazioni su come creare query di ricerca diverse ed esaminare i log di processo di Automazione con Log Analytics, vedere [Ricerche log in Log Analytics](../log-analytics/log-analytics-log-searches.md).
+* Per altre informazioni su come creare query di ricerca diverse ed esaminare i log dei processi di automazione con log di monitoraggio di Azure, vedere [ricerche nei Log in Monitoraggio di Azure log](../log-analytics/log-analytics-log-searches.md).
 * Per informazioni su come creare e recuperare l'output e i messaggi di errore da runbook, vedere [Output di runbook e messaggi](automation-runbook-output-and-messages.md).
 * Per altre informazioni sull'esecuzione dei runbook, su come monitorare i processi dei runbook e su altri dettagli tecnici, vedere [Verifica di un processo di runbook](automation-runbook-execution.md).
-* Per altre informazioni su Log Analytics e sulle origini di raccolta dati, vedere [Panoramica della raccolta di dati di archiviazione di Azure in Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md).
+* Per altre informazioni sui log di monitoraggio di Azure e origini di raccolta dati, vedere [Panoramica del log dei dati di archiviazione la raccolta di Azure in Monitoraggio di Azure](../azure-monitor/platform/collect-azure-metrics-logs.md).
 

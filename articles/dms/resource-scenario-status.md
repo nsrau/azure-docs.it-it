@@ -2,21 +2,21 @@
 title: Stato degli scenari di migrazione del database | Microsoft Docs
 description: Informazioni sullo stato degli scenari di migrazione supportati dal Servizio Migrazione del database di Azure.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 02/11/2019
-ms.openlocfilehash: 39a7f7ce6660016f00e36c5f6619eba2fa461023
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: b07f36055f9c0690450e8d4ab5abacb8c84d9bf2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993164"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182541"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Stato degli scenari di migrazione supportati dal Servizio Migrazione del database di Azure
 Il Servizio Migrazione del database di Azure è progettato per supportare una varietà di scenari di migrazione (coppie origine/destinazione) per le migrazioni sia offline (uniche) che online (sincronizzazione continua). Gli scenari supportati dal Servizio Migrazione del database di Azure aumentano con il tempo. Nuovi scenari vengono aggiunti regolarmente. Questo articolo identifica gli scenari di migrazione attualmente supportati dal Servizio Migrazione del database di Azure e lo stato (Anteprima privata [o limitata], Anteprima pubblica o Disponibile a livello generale) per ogni scenario.

@@ -11,12 +11,12 @@ ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/28/2019
 keywords: ''
-ms.openlocfilehash: 7dff82538448b27f14dd81e2862cd63d4dd56a9b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a47b38acc372e6c1d215c7440657486b5babf3bb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247103"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009485"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Integrazione di Data Center di Azure Stack - l'inoltro di syslog
 
@@ -72,6 +72,7 @@ I parametri per *Set-SyslogServer* cmdlet:
 |*Rimuovi*| Rimuove la configurazione del server dai client e arrestare l'inoltro di syslog| Flag | no|
 
 I parametri per *Set-SyslogClient* cmdlet:
+
 | Parametro | DESCRIZIONE | Type |
 |---------|---------| ---------|
 | *pfxBinary* | file PFX contenente il certificato utilizzato dal client come identità per l'autenticazione con il server syslog  | Byte[] |
@@ -287,6 +288,7 @@ Tabella degli eventi per l'endpoint di ripristino:
 |RecoveryEndpointClosed |1016|RecoveryEndpointClosedEvent|5|
 
 Tabella REP Severity:
+
 | Gravità | Level | Valore numerico |
 |----------|-------| ----------------|
 |0|Undefined|Valore: 0. Indica i log a tutti i livelli|
@@ -306,6 +308,7 @@ Tabella REP Severity:
 ```
 
 Tabella livelli di gravità per gli eventi di Windows:
+
 | Valore di gravità CEF | Livello evento Windows | Valore numerico |
 |--------------------|---------------------| ----------------|
 |0|Undefined|Valore: 0. Indica i log a tutti i livelli|
@@ -316,6 +319,7 @@ Tabella livelli di gravità per gli eventi di Windows:
 |0|Dettagliato|Valore: 5. Indica i log a tutti i livelli|
 
 Tabella di estensione personalizzata per gli eventi di Windows in Azure Stack:
+
 | Nome dell'estensione personalizzata | Esempio di evento di Windows | 
 |-----------------------|---------|
 |MasChannel | Sistema|
@@ -352,6 +356,7 @@ Tabella di estensione personalizzata per gli eventi di Windows in Azure Stack:
 ```
 
 Tabella livelli di gravità degli avvisi:
+
 | Gravità | Level |
 |----------|-------|
 |0|Undefined|
@@ -359,6 +364,7 @@ Tabella livelli di gravità degli avvisi:
 |5|Avviso|
 
 Tabella di estensione personalizzata per gli avvisi creati in Azure Stack:
+
 | Nome dell'estensione personalizzata | Esempio | 
 |-----------------------|---------|
 |MasEventDescription|DESCRIZIONE: Un account utente \<TestUser\> è stato creato per \<DominioVerifica\>. È un potenziale rischio di sicurezza. -MONITORAGGIO E AGGIORNAMENTO: Contattare il supporto tecnico. È necessaria un'assistenza clienti per risolvere il problema. Non tentare di risolvere il problema senza l'assistenza fornita. Prima di aprire una richiesta di supporto, avviare il processo di raccolta di file di log usando le indicazioni fornite dalla https://aka.ms/azurestacklogfiles |

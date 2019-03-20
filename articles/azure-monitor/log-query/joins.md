@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 91ff85d8c32c0bcfa984cc690382d09765a068a2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 2ea5b4e3af6591e6e25a863998baa7cecb3e29e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004642"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079112"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Join nelle query di log di Monitoraggio di Azure
 
 > [!NOTE]
-> Prima di seguire questa lezione, è consigliabile completare [Getting started with Azure Monitor log analytics](get-started-portal.md) (Introduzione a Log Analytics in Monitoraggio di Azure) e [Query di log in Monitoraggio di Azure](get-started-queries.md).
+> È consigliabile completare [Introduzione a Azure Monitor Log Analitica](get-started-portal.md) e [query di log di monitoraggio di Azure](get-started-queries.md) prima di completare questa lezione.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -101,7 +101,7 @@ Per prestazioni ottimali, prendere in considerazione i punti seguenti:
 
 - Usare un filtro temporale in ogni tabella per ridurre i record che devono essere valutati per il join.
 - Usare `where` e `project` per ridurre i numeri di righe e colonne nelle tabelle di input prima del join.
-* Se una tabella è sempre più piccola dell'altra, usarla come lato sinistro del join.
+- Se una tabella è sempre più piccola dell'altra, usarla come lato sinistro del join.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

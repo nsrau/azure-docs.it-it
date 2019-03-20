@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 03/07/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6eb759928d504bf1a3ccac4bc1aa983bb6a47979
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 38d845e133b5ae1a091fd9fee698b2bf801135e1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339364"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880596"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Gestire i cluster HDInsight mediante l'API REST Apache Ambari
 
@@ -22,228 +22,186 @@ ms.locfileid: "56339364"
 
 Informazioni sull'uso dell'API REST Apache Ambari per gestire e monitorare i cluster Apache Hadoop in Azure HDInsight.
 
-Apache Ambari semplifica la gestione e il monitoraggio di un cluster Hadoop grazie a un'interfaccia utente Web facile da usare e alle API REST. Ambari è incluso nei cluster HDInsight che usano il sistema operativo Linux. È possibile usare Ambari per monitorare il cluster e apportare modifiche alla configurazione.
-
 ## <a id="whatis"></a>Che cos'è Apache Ambari?
+[Apache Ambari](https://ambari.apache.org) semplifica la gestione e monitoraggio dei cluster Hadoop, fornendo un'interfaccia utente supportato da web facile da usare relativi [le API REST](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  Ambari viene fornito per impostazione predefinita con i cluster HDInsight basati su Linux.
 
-[Apache Ambari](https://ambari.apache.org) fornisce l'interfaccia utente Web che può essere usata per la gestione e il monitoraggio dei cluster Hadoop. Gli sviluppatori possono integrare queste funzionalità nelle applicazioni usando le [API REST Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+## <a name="prerequisites"></a>Prerequisiti
+* **Un cluster Hadoop in HDInsight**. Visualizzare [Introduzione a HDInsight su Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-Ambari viene fornito per impostazione predefinita con i cluster HDInsight basati su Linux.
+* **Bash in Ubuntu in Windows 10**.  Gli esempi in questo articolo usano la shell di Bash in Windows 10. Visualizzare [sottosistema Windows per la Guida all'installazione di Linux per Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) per i passaggi di installazione.  Altri [shell Unix](https://www.gnu.org/software/bash/) funzioneranno anche.  Gli esempi, con alcune lievi modifiche, è possono lavorare in un prompt dei comandi di Windows.  In alternativa, è possibile usare Windows PowerShell.
 
-## <a name="how-to-use-the-ambari-rest-api"></a>Come usare l'API REST Ambari
+* **jq**, un processore JSON della riga di comando.  Vedere [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
-> [!IMPORTANT]  
-> Le informazioni e gli esempi descritti in questo documento richiedono un cluster HDInsight che usa il sistema operativo Linux. Per altre informazioni, vedere [Guida introduttiva di HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* **Windows PowerShell**.  In alternativa, è possibile usare [Bash](https://www.gnu.org/software/bash/).
 
-In questo documento vengono descritti gli esempi per Bourne shell (bash) e PowerShell. Gli esempi Bash sono stati testati con GNU bash versione 4.3.11 ma dovrebbero funzionare anche con altre shell Unix. Gli esempi PowerShell sono stati testati con PowerShell 5.0 ma dovrebbero funzionare anche con PowerShell 3.0 o versione successiva.
+## <a name="base-uri-for-ambari-rest-api"></a>URI di base per l'API REST Ambari
 
-Se si usa __Bourne shell__ (bash) è necessario disporre di:
+ È l'URI di base per l'API REST Ambari in HDInsight `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, dove `CLUSTERNAME` è il nome del cluster.  I nomi dei cluster negli URI vengono **distinzione maiuscole/minuscole**.  A differenza delle altre occorrenze nell'URI, nel nome del cluster nella parte del nome di dominio completo (FQDN) dell'URI (CLUSTERNAME.azurehdinsight.net) non viene fatta distinzione tra maiuscole e minuscole.
 
-* [cURL](https://curl.haxx.se/): cURL è un'utilità che può essere usata per lavorare con le API REST dalla riga di comando. In questo documento viene usata per comunicare con l'API REST Ambari.
-
-Sia con bash che con PowerShell è necessario che sia installato anche [jq](https://stedolan.github.io/jq/). Jq è un'utilità per lavorare con documenti JSON. Viene usata in **tutti** gli esempi bash e in **uno** degli esempi PowerShell.
-
-### <a name="base-uri-for-ambari-rest-api"></a>URI di base per l'API REST Ambari
-
-L'URI di base per l'API REST Ambari in HDInsight è https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME, dove **CLUSTERNAME** è il nome del cluster in uso.
-
-> [!IMPORTANT]  
-> A differenza delle altre occorrenze nell'URI, nel nome del cluster nella parte del nome di dominio completo (FQDN) dell'URI (CLUSTERNAME.azurehdinsight.net) non viene fatta distinzione tra maiuscole e minuscole. Ad esempio, se il cluster è denominato `MyCluster`, son validi gli URI seguenti:
-> 
-> `https://mycluster.azurehdinsight.net/api/v1/clusters/MyCluster`
->
-> `https://MyCluster.azurehdinsight.net/api/v1/clusters/MyCluster`
-> 
-> Gli URI seguenti restituiscono un errore perché nella seconda occorrenza del nome non vengono usate le maiuscole/minuscole corrette.
-> 
-> `https://mycluster.azurehdinsight.net/api/v1/clusters/mycluster`
->
-> `https://MyCluster.azurehdinsight.net/api/v1/clusters/mycluster`
-
-### <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentication
 
 La connessione ad Ambari su HDInsight richiede HTTPS. Usare il nome dell'account amministratore (il valore predefinito è **admin**) e la password forniti durante la creazione del cluster.
 
-## <a name="examples-authentication-and-parsing-json"></a>Esempi: Autenticazione e analisi di JSON
+## <a name="examples"></a>Esempi
 
-Gli esempi seguenti illustrano come effettuare una richiesta GET all'API REST Ambari di base:
+### <a name="setup-preserve-credentials"></a>Programma di installazione (Preserve credenziali)
+Mantenere le credenziali per evitare la reentrancy li per ogni esempio.  Il nome del cluster verrà mantenuto in un passaggio separato.
+
+**A. Bash**  
+Modificare lo script seguente sostituendo `PASSWORD` con la password corrente.  Immettere quindi il comando.
 
 ```bash
-curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME"
-```
+export password='PASSWORD'
+```  
 
-> [!IMPORTANT]  
-> Gli esempi bash in questo documento partono dai presupposti seguenti:
->
-> * Il nome di accesso per il cluster è il valore predefinito di `admin`.
-> * `$CLUSTERNAME` contiene il nome del cluster. È possibile impostare questo valore usando `set CLUSTERNAME='clustername'`
-> * Quando richiesto, immettere la password per l'accesso al cluster (amministratore).
+**B. PowerShell**  
 
 ```powershell
-$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" `
-    -Credential $creds
-$resp.Content
+$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 ```
 
-> [!IMPORTANT]  
-> Gli esempi PowerShell in questo documento partono dai presupposti seguenti:
->
-> * `$creds` è un oggetto credenziale che contiene la password e l'accesso dell'amministratore per il cluster. È possibile impostare questo valore usando `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` e specificando le credenziali quando richiesto.
-> * `$clusterName` è una stringa che contiene il nome del cluster. È possibile impostare questo valore usando `$clusterName="clustername"`.
+### <a name="identify-correctly-cased-cluster-name"></a>Identificare il nome del cluster in modo corretto maiuscole e minuscole
+Le effettive maiuscole e minuscole del nome del cluster possono essere diversa dal previsto a seconda del modo in cui è stato creato il cluster.  I passaggi indicati qui verranno visualizzare le maiuscole e minuscole effettiva e quindi archiviarla in una variabile per tutti gli esempi successivi.
 
-Entrambi gli esempi restituiscono un documento JSON che inizia con informazioni simili a quelle nell'esempio seguente:
+Modificare gli script seguenti per sostituire `CLUSTERNAME` con il nome del cluster. Immettere quindi il comando. (Il nome del cluster per il nome FQDN non distinzione maiuscole/minuscole).
 
-```json
-{
-"href" : "http://10.0.0.10:8080/api/v1/clusters/CLUSTERNAME",
-"Clusters" : {
-    "cluster_id" : 2,
-    "cluster_name" : "CLUSTERNAME",
-    "health_report" : {
-    "Host/stale_config" : 0,
-    "Host/maintenance_state" : 0,
-    "Host/host_state/HEALTHY" : 7,
-    "Host/host_state/UNHEALTHY" : 0,
-    "Host/host_state/HEARTBEAT_LOST" : 0,
-    "Host/host_state/INIT" : 0,
-    "Host/host_status/HEALTHY" : 7,
-    "Host/host_status/UNHEALTHY" : 0,
-    "Host/host_status/UNKNOWN" : 0,
-    "Host/host_status/ALERT" : 0
-    ...
+**A. Bash**  
+
+```bash
+export clusterName=$(curl -u admin:$password -sS -G "https://CLSUTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
+echo $clusterName
+```  
+
+```powershell
+# Identify properly cased cluster name
+$resp = Invoke-WebRequest -Uri "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" `
+    -Credential $creds -UseBasicParsing
+$clusterName = (ConvertFrom-Json $resp.Content).items.Clusters.cluster_name;
+
+# Show cluster name
+$clusterName
 ```
 
 ### <a name="parsing-json-data"></a>Analisi dei dati JSON
 
-L'esempio seguente usa `jq` per analizzare il documento di risposta JSON e visualizzare solo le informazioni `health_report` dai risultati.
+L'esempio seguente usa [jq](https://stedolan.github.io/jq/) oppure [ConvertFrom-Json](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) analizzare il documento di risposta JSON e visualizzare solo il `health_report` informazioni dai risultati.
 
 ```bash
-curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME" \
+curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" \
 | jq '.Clusters.health_report'
-```
-
-PowerShell 3.0 e versioni successive mette a disposizione il cmdlet `ConvertFrom-Json`, che converte il documento JSON in un oggetto più facile da usare da PowerShell. L'esempio seguente usa `ConvertFrom-Json` per visualizzare solo le informazioni `health_report` dai risultati.
+```  
 
 ```powershell
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" `
-    -Credential $creds
+    -Credential $creds -UseBasicParsing
 $respObj = ConvertFrom-Json $resp.Content
 $respObj.Clusters.health_report
-```
+```   
 
-> [!NOTE]  
-> Anche se nella maggior parte degli esempi in questo documento si usa `ConvertFrom-Json` per visualizzare gli elementi del documento di risposta, l'esempio sull'aggiornamento della configurazione di Ambari usa jq. Jq viene usato in questo esempio per creare un nuovo modello dal documento di risposta JSON.
-
-Per informazioni tecniche complete sull'API REST, vedere la pagina relativa alle [informazioni di riferimento per l'API Apache Ambari V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
-
-## <a name="example-get-the-fqdn-of-cluster-nodes"></a>Esempio: Ottenere il nome di dominio completo dei nodi del cluster
+### <a name="example-get-the-fqdn-of-cluster-nodes"></a> Ottenere il nome di dominio completo dei nodi del cluster
 
 Quando si usa HDInsight, potrebbe essere necessario conoscere il nome di dominio completo di un nodo del cluster. È possibile recuperare con facilità l'FQDN per i diversi nodi del cluster usando gli esempi seguenti:
 
-* **Tutti i nodi**
+**Tutti i nodi**  
 
-    ```bash
-    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/hosts" \
-    | jq '.items[].Hosts.host_name'
-    ```
+```bash
+curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/hosts" \
+| jq '.items[].Hosts.host_name'
+```  
 
-    ```powershell
-    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/hosts" `
-        -Credential $creds
-    $respObj = ConvertFrom-Json $resp.Content
-    $respObj.items.Hosts.host_name
-    ```
+```powershell
+$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/hosts" `
+    -Credential $creds -UseBasicParsing
+$respObj = ConvertFrom-Json $resp.Content
+$respObj.items.Hosts.host_name
+```
 
-* **Nodi head**
+**Nodi head**  
 
-    ```bash
-    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/HDFS/components/NAMENODE" \
-    | jq '.host_components[].HostRoles.host_name'
-    ```
+```bash
+curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/HDFS/components/NAMENODE" \
+| jq '.host_components[].HostRoles.host_name'
+```
 
-    ```powershell
-    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/HDFS/components/NAMENODE" `
-        -Credential $creds
-    $respObj = ConvertFrom-Json $resp.Content
-    $respObj.host_components.HostRoles.host_name
-    ```
+```powershell
+$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/HDFS/components/NAMENODE" `
+    -Credential $creds -UseBasicParsing
+$respObj = ConvertFrom-Json $resp.Content
+$respObj.host_components.HostRoles.host_name
+```
 
-* **Nodi di lavoro**
+**Nodi di lavoro**  
 
-    ```bash
-    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/HDFS/components/DATANODE" \
-    | jq '.host_components[].HostRoles.host_name'
-    ```
+```bash
+curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/HDFS/components/DATANODE" \
+| jq '.host_components[].HostRoles.host_name'
+```
 
-    ```powershell
-    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/HDFS/components/DATANODE" `
-        -Credential $creds
-    $respObj = ConvertFrom-Json $resp.Content
-    $respObj.host_components.HostRoles.host_name
-    ```
+```powershell
+$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/HDFS/components/DATANODE" `
+    -Credential $creds -UseBasicParsing
+$respObj = ConvertFrom-Json $resp.Content
+$respObj.host_components.HostRoles.host_name
+```
 
-* **Nodi Zookeeper**
+**Nodi Zookeeper**
 
-    ```bash
-    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" \
-    | jq '.host_components[].HostRoles.host_name'
-    ```
+```bash
+curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" \
+| jq ".host_components[].HostRoles.host_name"
+```
 
-    ```powershell
-    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" `
-        -Credential $creds
-    $respObj = ConvertFrom-Json $resp.Content
-    $respObj.host_components.HostRoles.host_name
-    ```
+```powershell
+$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" `
+    -Credential $creds -UseBasicParsing
+$respObj = ConvertFrom-Json $resp.Content
+$respObj.host_components.HostRoles.host_name
+```
 
-## <a name="example-get-the-internal-ip-address-of-cluster-nodes"></a>Esempio: Ottenere l'indirizzo IP interno dei nodi del cluster
+### <a name="example-get-the-internal-ip-address-of-cluster-nodes"></a> Ottenere l'indirizzo IP interno dei nodi del cluster
 
-> [!IMPORTANT]  
-> Gli indirizzi IP restituiti dagli esempi in questa sezione non sono direttamente accessibili tramite Internet. Sono accessibili solo all'interno della rete virtuale di Azure che contiene il cluster HDInsight.
->
-> Per altre informazioni sull'uso di HDInsight e delle reti virtuali vedere [Estendere le funzionalità di HDInsight usando una rete virtuale di Azure personalizzata](hdinsight-extend-hadoop-virtual-network.md).
+Gli indirizzi IP restituiti dagli esempi in questa sezione non sono direttamente accessibili tramite Internet. Sono accessibili solo all'interno della rete virtuale di Azure che contiene il cluster HDInsight.
+
+Per altre informazioni sull'uso di HDInsight e delle reti virtuali vedere [Estendere le funzionalità di HDInsight usando una rete virtuale di Azure personalizzata](hdinsight-extend-hadoop-virtual-network.md).
 
 Per trovare l'indirizzo IP, è necessario conoscere il nome di dominio completo (FQDN) interno dei nodi del cluster. Quando è stato ottenuto l'FQDN è possibile ottenere l'indirizzo IP dell'host. Negli esempi seguenti per prima cosa viene effettuata una query in Ambari per ottenere l'FQDN di tutti i nodi host, poi viene effettuata un'altra query in Ambari per ottenere l'indirizzo IP di ogni host.
 
 ```bash
-for HOSTNAME in $(curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/hosts" | jq -r '.items[].Hosts.host_name')
+for HOSTNAME in $(curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/hosts" | jq -r '.items[].Hosts.host_name')
 do
-    IP=$(curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/hosts/$HOSTNAME" | jq -r '.Hosts.ip')
+    IP=$(curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/hosts/$HOSTNAME" | jq -r '.Hosts.ip')
   echo "$HOSTNAME <--> $IP"
 done
-```
-
-> [!TIP]  
-> Negli esempi precedenti viene richiesta la password. Questo esempio esegue il comando `curl` più volte, pertanto la password viene fornita come `$PASSWORD` per evitare più richieste.
+```  
 
 ```powershell
-$uri = "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/hosts"
-$resp = Invoke-WebRequest -Uri $uri -Credential $creds
+$uri = "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/hosts" 
+$resp = Invoke-WebRequest -Uri $uri -Credential $creds -UseBasicParsing
 $respObj = ConvertFrom-Json $resp.Content
 foreach($item in $respObj.items) {
     $hostName = [string]$item.Hosts.host_name
     $hostInfoResp = Invoke-WebRequest -Uri "$uri/$hostName" `
-        -Credential $creds
+        -Credential $creds -UseBasicParsing
     $hostInfoObj = ConvertFrom-Json $hostInfoResp 
     $hostIp = $hostInfoObj.Hosts.ip
     "$hostName <--> $hostIp"
 }
 ```
 
-## <a name="example-get-the-default-storage"></a>Esempio: Ottenere l'archiviazione predefinita
+### <a name="get-the-default-storage"></a>Ottenere l'archiviazione predefinita
 
 Quando si crea un cluster HDInsight è necessario usare un account di Archiviazione di Azure oppure Data Lake Storage come risorsa di archiviazione predefinita per il cluster. È possibile usare Ambari per recuperare queste informazioni dopo la creazione del cluster, ad esempio se si desidera leggere o scrivere dati nel contenitore all'esterno di HDInsight.
 
 Negli esempi seguenti viene recuperata la configurazione di archiviazione predefinita dal cluster:
 
 ```bash
-curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
+curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
 | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
 ```
 
 ```powershell
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=1" `
-    -Credential $creds
+    -Credential $creds -UseBasicParsing
 $respObj = ConvertFrom-Json $resp.Content
 $respObj.items.configurations.properties.'fs.defaultFS'
 ```
@@ -262,13 +220,13 @@ Il valore restituito è simile a uno degli esempi seguenti:
     Per trovare il nome dell'account Data Lake Storage, usare gli esempi seguenti:
 
     ```bash
-    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
+    curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
     | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'
     ```
 
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=1" `
-        -Credential $creds
+        -Credential $creds -UseBasicParsing
     $respObj = ConvertFrom-Json $resp.Content
     $respObj.items.configurations.properties.'dfs.adls.home.hostname'
     ```
@@ -278,237 +236,214 @@ Il valore restituito è simile a uno degli esempi seguenti:
     Per trovare la directory all'interno di Data Lake Storage contenente la risorsa di archiviazione per il cluster, usare gli esempi seguenti:
 
     ```bash
-    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
+    curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
     | jq '.items[].configurations[].properties["dfs.adls.home.mountpoint"] | select(. != null)'
-    ```
+    ```  
 
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=1" `
-        -Credential $creds
+        -Credential $creds -UseBasicParsing
     $respObj = ConvertFrom-Json $resp.Content
     $respObj.items.configurations.properties.'dfs.adls.home.mountpoint'
     ```
 
-    Il valore restituito è simile a `/clusters/CLUSTERNAME/`. Questo valore è un percorso all'interno dell'account Data Lake Storage. Questo percorso è la radice del file system compatibile con HDFS per il cluster. 
+    Il valore restituito è simile a `/clusters/CLUSTERNAME/`. Questo valore è un percorso all'interno dell'account Data Lake Storage. Questo percorso è la radice del file system compatibile con HDFS per il cluster.  
 
 > [!NOTE]  
-> Il cmdlet `Get-AzureRmHDInsightCluster` messo a disposizione da [Azure PowerShell](/powershell/azure/overview) restituisce anche le informazioni di archiviazione per il cluster.
+> Il [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) cmdlet fornito dal [Azure PowerShell](/powershell/azure/overview) restituisce anche le informazioni sull'archiviazione per il cluster.
 
 
-## <a name="example-get-configuration"></a>Esempio: Ottenere la configurazione
+### <a name="get-all-configurations"></a> Ottenere tutte le configurazioni
 
-1. Consente di ottenere le configurazioni disponibili per il cluster.
+Consente di ottenere le configurazioni disponibili per il cluster.
 
-    ```bash
-    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_configs"
-    ```
+```bash
+curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName?fields=Clusters/desired_configs"
+```
 
-    ```powershell
-    $respObj = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName`?fields=Clusters/desired_configs" `
-        -Credential $creds
-    $respObj.Content
-    ```
+```powershell
+$respObj = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName`?fields=Clusters/desired_configs" `
+    -Credential $creds -UseBasicParsing
+$respObj.Content
+```
 
-    L'esempio restituisce un documento JSON contenente la configurazione corrente, identificata dal valore *tag*, per i componenti installati nel cluster. L'esempio di seguito rappresenta un estratto dei dati restituiti da un tipo di cluster Spark.
+L'esempio restituisce un documento JSON contenente la configurazione corrente, identificata dal valore *tag*, per i componenti installati nel cluster. L'esempio di seguito rappresenta un estratto dei dati restituiti da un tipo di cluster Spark.
    
-   ```json
-   "spark-metrics-properties" : {
-       "tag" : "INITIAL",
-       "user" : "admin",
-       "version" : 1
-   },
-   "spark-thrift-fairscheduler" : {
-       "tag" : "INITIAL",
-       "user" : "admin",
-       "version" : 1
-   },
-   "spark-thrift-sparkconf" : {
-       "tag" : "INITIAL",
-       "user" : "admin",
-       "version" : 1
-   }
-   ```
+```json
+"jupyter-site" : {
+  "tag" : "INITIAL",
+  "version" : 1
+},
+"livy2-client-conf" : {
+  "tag" : "INITIAL",
+  "version" : 1
+},
+"livy2-conf" : {
+  "tag" : "INITIAL",
+  "version" : 1
+},
+```
 
-2. Consente di ottenere la configurazione del componente a cui si è interessati. Nell'esempio seguente, sostituire `INITIAL` con il valore del tag restituito dalla richiesta precedente.
+### <a name="get-configuration-for-specific-component"></a>Ottenere la configurazione per il componente specifico
 
-    ```bash
-    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations?type=core-site&tag=INITIAL"
-    ```
+Consente di ottenere la configurazione del componente a cui si è interessati. Nell'esempio seguente, sostituire `INITIAL` con il valore del tag restituito dalla richiesta precedente.
 
-    ```powershell
-    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=core-site&tag=INITIAL" `
-        -Credential $creds
-    $resp.Content
-    ```
+```bash
+curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=livy2-conf&tag=INITIAL"
+```
 
-    Questo esempio restituisce un documento JSON che contiene la configurazione corrente del componente `core-site`.
+```powershell
+$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=livy2-conf&tag=INITIAL" `
+    -Credential $creds -UseBasicParsing
+$resp.Content
+```
 
-## <a name="example-update-configuration"></a>Esempio: Aggiornare la configurazione
+Questo esempio restituisce un documento JSON che contiene la configurazione corrente del componente `livy2-conf`.
 
-1. Ottenere la configurazione corrente, archiviata da Ambari come "configurazione desiderata":
+### <a name="update-configuration"></a>Aggiornare la configurazione
 
-    ```bash
-    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_configs"
-    ```
+1. Creare `newconfig.json`.  
+   Modificare e quindi immettere i comandi seguenti:
 
-    ```powershell
-    Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName`?fields=Clusters/desired_configs" `
-        -Credential $creds
-    ```
+   * Sostituire `livy2-conf` con il componente desiderato.
+   * Sostituire `INITIAL` con il valore effettivo per recuperare `tag` dalla [ottenere tutte le configurazioni](#Get-all-configurations).
 
-    L'esempio restituisce un documento JSON contenente la configurazione corrente, identificata dal valore *tag*, per i componenti installati nel cluster. L'esempio di seguito rappresenta un estratto dei dati restituiti da un tipo di cluster Spark.
-   
-    ```json
-    "spark-metrics-properties" : {
-        "tag" : "INITIAL",
-        "user" : "admin",
-        "version" : 1
-    },
-    "spark-thrift-fairscheduler" : {
-        "tag" : "INITIAL",
-        "user" : "admin",
-        "version" : 1
-    },
-    "spark-thrift-sparkconf" : {
-        "tag" : "INITIAL",
-        "user" : "admin",
-        "version" : 1
-    }
-    ```
-   
-    È necessario copiare il nome del componente, ad esempio **spark\_thrift\_sparkconf**, e il valore **tag** dall'elenco.
+     **A. Bash**  
+     ```bash
+     curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=livy2-conf&tag=INITIAL" \
+     | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
 
-2. Recuperare la configurazione del componente e del tag usando i comandi seguenti:
-   
-    ```bash
-    curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" \
-    | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
-    ```
+     ```
 
-    ```powershell
-    $epoch = Get-Date -Year 1970 -Month 1 -Day 1 -Hour 0 -Minute 0 -Second 0
-    $now = Get-Date
-    $unixTimeStamp = [math]::truncate($now.ToUniversalTime().Subtract($epoch).TotalMilliSeconds)
-    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=spark-thrift-sparkconf&tag=INITIAL" `
-        -Credential $creds
-    $resp.Content | jq --arg newtag "version$unixTimeStamp" '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
-    ```
+     **Powershell b.**  
+     Lo script di PowerShell Usa [jq](https://stedolan.github.io/jq/).  Modificare `C:\HD\jq\jq-win64` riportato di seguito in modo da riflettere il percorso effettivo e la versione dei [jq](https://stedolan.github.io/jq/).
 
-    > [!NOTE]  
-    > Sostituire **spark-thrift-sparkconf** e **INITIAL** con il componente e il tag di cui si vuole recuperare la configurazione.
-   
-    Jq viene usato per trasformare i dati recuperati da HDInsight in un nuovo modello di configurazione. In particolare, questi esempi eseguono le azioni seguenti:
-   
-    * Crea un valore univoco contenente la stringa "version" e la data, che viene archiviato in `newtag`.
+     ```powershell
+     $epoch = Get-Date -Year 1970 -Month 1 -Day 1 -Hour 0 -Minute 0 -Second 0
+     $now = Get-Date
+     $unixTimeStamp = [math]::truncate($now.ToUniversalTime().Subtract($epoch).TotalMilliSeconds)
+     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=livy2-conf&tag=INITIAL" `
+       -Credential $creds -UseBasicParsing
+     $resp.Content | C:\HD\jq\jq-win64 --arg newtag "version$unixTimeStamp" '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
+     ```
 
-    * Crea un documento radice per la nuova configurazione desiderata.
+     Jq viene usato per trasformare i dati recuperati da HDInsight in un nuovo modello di configurazione. In particolare, questi esempi eseguono le azioni seguenti:
 
-    * Ottiene i contenuti della matrice `.items[]` e li aggiunge sotto l'elemento **desired_config**.
+   * Crea un valore univoco contenente la stringa "version" e la data, che viene archiviato in `newtag`.
 
-    * Elimina gli elementi `href`, `version` e `Config` perché non sono necessari per l'invio di una nuova configurazione.
+   * Crea un documento radice per la nuova configurazione desiderata.
 
-    * Aggiunge un elemento `tag` con un valore di `version#################`. La parte numerica si basa sulla data corrente. Ogni configurazione deve avere un tag univoco.
-     
-    Infine i dati vengono salvati nel documento `newconfig.json`. La struttura del documento deve essere simile all'esempio di seguito:
-     
+   * Ottiene i contenuti della matrice `.items[]` e li aggiunge sotto l'elemento **desired_config**.
+
+   * Elimina gli elementi `href`, `version` e `Config` perché non sono necessari per l'invio di una nuova configurazione.
+
+   * Aggiunge un elemento `tag` con un valore di `version#################`. La parte numerica si basa sulla data corrente. Ogni configurazione deve avere un tag univoco.
+
+     Infine i dati vengono salvati nel documento `newconfig.json`. La struttura del documento deve essere simile all'esempio di seguito:
+
      ```json
-    {
-        "Clusters": {
-            "desired_config": {
-            "tag": "version1459260185774265400",
-            "type": "spark-thrift-sparkconf",
-            "properties": {
-                ....
-            },
-            "properties_attributes": {
-                ....
-            }
-        }
-    }
-    ```
+     {
+       "Clusters": {
+         "desired_config": {
+           "tag": "version1552064778014",
+           "type": "livy2-conf",
+           "properties": {
+             "livy.environment": "production",
+             "livy.impersonation.enabled": "true",
+             "livy.repl.enableHiveContext": "true",
+             "livy.server.csrf_protection.enabled": "true",
+               ....
+           },
+         },
+       }
+     }
+     ```
 
-3. Aprire il documento `newconfig.json` e modificare o aggiungere i valori nell'oggetto `properties`. L'esempio seguente modifica il valore di `"spark.yarn.am.memory"` da `"1g"` a `"3g"`. Aggiunge anche `"spark.kryoserializer.buffer.max"` con un valore di `"256m"`.
-   
-        "spark.yarn.am.memory": "3g",
-        "spark.kyroserializer.buffer.max": "256m",
-   
+2. Modifica `newconfig.json`.  
+   Aprire il documento `newconfig.json` e modificare o aggiungere i valori nell'oggetto `properties`. L'esempio seguente modifica il valore di `"livy.server.csrf_protection.enabled"` da `"true"` a `"false"`.
+
+        "livy.server.csrf_protection.enabled": "false",
+
     Al termine delle modifiche, salvare il file.
 
-4. Usare i comandi seguenti per inviare la configurazione aggiornata ad Ambari.
-   
+3. Inviare `newconfig.json`.  
+   Usare i comandi seguenti per inviare la configurazione aggiornata ad Ambari.
+
     ```bash
-    curl -u admin -sS -H "X-Requested-By: ambari" -X PUT -d @newconfig.json "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME"
+    curl -u admin:$password -sS -H "X-Requested-By: ambari" -X PUT -d @newconfig.json "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName"
     ```
 
     ```powershell
     $newConfig = Get-Content .\newconfig.json
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" `
-        -Credential $creds `
+        -Credential $creds -UseBasicParsing `
         -Method PUT `
         -Headers @{"X-Requested-By" = "ambari"} `
         -Body $newConfig
     $resp.Content
-    ```
-   
+    ```  
+
     Questi comandi inviano il contenuto del file **newconfig.json** al cluster come nuova configurazione desiderata. La richiesta restituisce un documento JSON. L'elemento **versionTag** di questo documento deve corrispondere alla versione inviata, mentre l'oggetto **configs** conterrà le modifiche di configurazione richieste.
 
-### <a name="example-restart-a-service-component"></a>Esempio: Riavviare un componente del servizio
+### <a name="restart-a-service-component"></a>Riavviare un componente del servizio
 
 A questo punto, se si osserva l'interfaccia utente di Ambari Web, il servizio Spark indicherà che è necessario il riavvio per rendere effettiva la nuova configurazione. Usare la procedura seguente per riavviare il servizio.
 
-1. Usare il codice seguente per attivare la modalità di manutenzione del servizio Spark:
+1. Per abilitare la modalità di manutenzione per il servizio Spark2, usare quanto segue:
 
     ```bash
-    curl -u admin -sS -H "X-Requested-By: ambari" \
-    -X PUT -d '{"RequestInfo": {"context": "turning on maintenance mode for SPARK"},"Body": {"ServiceInfo": {"maintenance_state":"ON"}}}' \
-    "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/SPARK"
+    curl -u admin:$password -sS -H "X-Requested-By: ambari" \
+    -X PUT -d '{"RequestInfo": {"context": "turning on maintenance mode for SPARK2"},"Body": {"ServiceInfo": {"maintenance_state":"ON"}}}' \
+    "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/SPARK2"
     ```
 
     ```powershell
-    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/SPARK" `
-        -Credential $creds `
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/SPARK2" `
+        -Credential $creds -UseBasicParsing `
         -Method PUT `
         -Headers @{"X-Requested-By" = "ambari"} `
-        -Body '{"RequestInfo": {"context": "turning on maintenance mode for SPARK"},"Body": {"ServiceInfo": {"maintenance_state":"ON"}}}'
+        -Body '{"RequestInfo": {"context": "turning on maintenance mode for SPARK2"},"Body": {"ServiceInfo": {"maintenance_state":"ON"}}}'
     $resp.Content
     ```
-   
+
+2. Verificare la modalità di manutenzione  
+
     Questi comandi inviano un documento JSON al server che attiva la modalità di manutenzione. È possibile verificare che il servizio sia in modalità di manutenzione usando la richiesta seguente:
-   
+
     ```bash
-    curl -u admin -sS -H "X-Requested-By: ambari" \
-    "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/SPARK" \
+    curl -u admin:$password -sS -H "X-Requested-By: ambari" \
+    "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/SPARK2" \
     | jq .ServiceInfo.maintenance_state
     ```
 
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/SPARK2" `
-        -Credential $creds
+        -Credential $creds -UseBasicParsing
     $respObj = ConvertFrom-Json $resp.Content
     $respObj.ServiceInfo.maintenance_state
     ```
-   
+
     Viene restituito il valore `ON`.
 
-2. Successivamente usare il codice seguente per disattivare il servizio:
+3. Per disattivare il servizio Spark2 successivamente, usare quanto segue:
 
     ```bash
-    curl -u admin -sS -H "X-Requested-By: ambari" \
+    curl -u admin:$password -sS -H "X-Requested-By: ambari" \
     -X PUT -d '{"RequestInfo":{"context":"_PARSE_.STOP.SPARK","operation_level":{"level":"SERVICE","cluster_name":"CLUSTERNAME","service_name":"SPARK"}},"Body":{"ServiceInfo":{"state":"INSTALLED"}}}' \
-    "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/SPARK"
+    "https://girouxSpark.azurehdinsight.net/api/v1/clusters/girouxspark/services/SPARK2"
     ```
 
     ```powershell
-    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/SPARK" `
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/SPARK2" `
         -Credential $creds `
         -Method PUT `
         -Headers @{"X-Requested-By" = "ambari"} `
         -Body '{"RequestInfo":{"context":"_PARSE_.STOP.SPARK","operation_level":{"level":"SERVICE","cluster_name":"CLUSTERNAME","service_name":"SPARK"}},"Body":{"ServiceInfo":{"state":"INSTALLED"}}}'
     $resp.Content
     ```
-    
+
     La risposta restituita è simile all'esempio seguente:
-   
+
     ```json
     {
         "href" : "http://10.0.0.18:8080/api/v1/clusters/CLUSTERNAME/requests/29",
@@ -518,58 +453,61 @@ A questo punto, se si osserva l'interfaccia utente di Ambari Web, il servizio Sp
         }
     }
     ```
-    
+
     > [!IMPORTANT]  
-    > Il valore `href` restituito dall'URI usa l'indirizzo IP interno del nodo del cluster. Per usarlo dall'esterno del cluster, sostituire la parte '10.0.0.18:8080' con il nome FQDN del cluster. 
-    
-    Il comando seguente recupera lo stato della richiesta:
+    > Il valore `href` restituito dall'URI usa l'indirizzo IP interno del nodo del cluster. Per usarlo dall'esterno del cluster, sostituire la parte '10.0.0.18:8080' con il nome FQDN del cluster.  
+
+4. Verificare di richiesta.  
+    Modificare il comando seguente sostituendo `29` con il valore effettivo per `id` restituiti nel passaggio precedente.  Il comando seguente recupera lo stato della richiesta:
 
     ```bash
-    curl -u admin -sS -H "X-Requested-By: ambari" \
-    "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/requests/29" \
+    curl -u admin:$password -sS -H "X-Requested-By: ambari" \
+    "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/requests/29" \
     | jq .Requests.request_status
     ```
 
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/requests/29" `
-        -Credential $creds
+        -Credential $creds -UseBasicParsing
     $respObj = ConvertFrom-Json $resp.Content
     $respObj.Requests.request_status
     ```
 
     La risposta `COMPLETED` indica che la richiesta è stata completata.
 
-3. Dopo aver completato la richiesta precedente, usare il codice seguente per avviare il servizio.
+5. Dopo aver completato la richiesta precedente, usare quanto segue per avviare il servizio Spark2.
    
     ```bash
-    curl -u admin -sS -H "X-Requested-By: ambari" \
+    curl -u admin:$password -sS -H "X-Requested-By: ambari" \
     -X PUT -d '{"RequestInfo":{"context":"_PARSE_.STOP.SPARK","operation_level":{"level":"SERVICE","cluster_name":"CLUSTERNAME","service_name":"SPARK"}},"Body":{"ServiceInfo":{"state":"STARTED"}}}' \
-    "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/SPARK"
+    "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/SPARK2"
     ```
-   
+
     ```powershell
-    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/SPARK" `
-        -Credential $creds `
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/SPARK2" `
+        -Credential $creds -UseBasicParsing `
         -Method PUT `
         -Headers @{"X-Requested-By" = "ambari"} `
         -Body '{"RequestInfo":{"context":"_PARSE_.STOP.SPARK","operation_level":{"level":"SERVICE","cluster_name":"CLUSTERNAME","service_name":"SPARK"}},"Body":{"ServiceInfo":{"state":"STARTED"}}}'
     ```
+
     Il servizio ora usa la nuova configurazione.
 
-4. Infine, usare il codice seguente per disattivare la modalità di manutenzione.
-   
+6. Infine, usare il codice seguente per disattivare la modalità di manutenzione.
+
     ```bash
-    curl -u admin -sS -H "X-Requested-By: ambari" \
-    -X PUT -d '{"RequestInfo": {"context": "turning off maintenance mode for SPARK"},"Body": {"ServiceInfo": {"maintenance_state":"OFF"}}}' \
-    "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/SPARK"
+    curl -u admin:$password -sS -H "X-Requested-By: ambari" \
+    -X PUT -d '{"RequestInfo": {"context": "turning off maintenance mode for SPARK2"},"Body": {"ServiceInfo": {"maintenance_state":"OFF"}}}' \
+    "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/SPARK2"
     ```
 
     ```powershell
-    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/SPARK" `
-        -Credential $creds `
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/SPARK2" `
+        -Credential $creds -UseBasicParsing `
         -Method PUT `
         -Headers @{"X-Requested-By" = "ambari"} `
-        -Body '{"RequestInfo": {"context": "turning off maintenance mode for SPARK"},"Body": {"ServiceInfo": {"maintenance_state":"OFF"}}}'
+        -Body '{"RequestInfo": {"context": "turning off maintenance mode for SPARK2"},"Body": {"ServiceInfo": {"maintenance_state":"OFF"}}}'
+
     ```
 
 ## <a name="next-steps"></a>Passaggi successivi

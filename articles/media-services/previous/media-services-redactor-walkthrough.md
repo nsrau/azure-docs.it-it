@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: rli; juliako;
-ms.openlocfilehash: 14a274dbbc45f00ecf914d5bb0a3e1c040fb3a89
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 70cd93e4f7984e938a67c799d632f653745a6c62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994524"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57870035"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Procedura dettagliata: offuscare i volti con Analisi Servizi multimediali di Azure
 
@@ -130,6 +130,6 @@ Se lo sviluppatore tenta di analizzare i dati delle annotazioni JSON, consultare
 ## <a name="related-links"></a>Collegamenti correlati
 [Panoramica di Analisi servizi multimediali di Azure](media-services-analytics-overview.md)
 
-[Demo di Analisi servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Demo di Analisi servizi multimediali di Azure](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
 [Presto sarà disponibile l'offuscamento dei volti per Analisi Servizi multimediali di Azure](https://azure.microsoft.com/blog/azure-media-redactor/)

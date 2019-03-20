@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: ff905f34ab63027e9708082c4690e4275220854f
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: b422074c33f52a6819d2a05144a85768a2e484a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53406794"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011923"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Esecuzione di processi MapReduce con Apache Hadoop in HDInsight usando REST
 
-Informazioni su come usare l'API REST WebHCat di Apache Hive per l'esecuzione di processi MapReduce in un cluster Apache Hadoop in HDInsight. Curl viene usato per illustrare come sia possibile interagire con HDInsight usando richieste HTTP non elaborate per eseguire processi MapReduce.
+Informazioni su come usare l'API di REST WebHCat Apache Hive per eseguire processi MapReduce in un Apache Hadoop nel cluster HDInsight. Curl viene usato per illustrare come sia possibile interagire con HDInsight usando richieste HTTP non elaborate per eseguire processi MapReduce.
 
 > [!NOTE]  
 > Se si ha già familiarità con l'uso di server Hadoop basati su Linux, ma non si ha esperienza con HDInsight, vedere il documento [Informazioni sull'uso di HDInsight in Linux](../hdinsight-hadoop-linux-information.md).
@@ -107,10 +107,10 @@ Informazioni su come usare l'API REST WebHCat di Apache Hive per l'esecuzione di
     La fine dell'URI (/mapreduce/jar) indica a WebHCat che la richiesta avvia un processo MapReduce da una classe in un file con estensione jar. I parametri usati in questo comando sono i seguenti:
 
    * **-d**: `-G` non viene usato, quindi la richiesta userà il metodo POST per impostazione predefinita. `-d` specifica i valori di dati che vengono inviati con la richiesta.
-    * **user.name**: l'utente che esegue il comando
-    * **jar**: il percorso del file con estensione jar che contiene la classe da eseguire
-    * **class**: la classe che contiene la logica MapReduce
-    * **arg**: gli argomenti da passare al processo MapReduce In questo caso, il file di testo di input e la directory usata per l'output
+     * **user.name**: l'utente che esegue il comando
+     * **jar**: il percorso del file con estensione jar che contiene la classe da eseguire
+     * **class**: la classe che contiene la logica MapReduce
+     * **arg**: gli argomenti da passare al processo MapReduce In questo caso, il file di testo di input e la directory usata per l'output
 
    Questo comando dovrebbe restituire un ID processo utilizzabile per verificare lo stato del processo:
 

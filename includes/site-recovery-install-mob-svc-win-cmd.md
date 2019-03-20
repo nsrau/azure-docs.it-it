@@ -4,32 +4,32 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
-ms.openlocfilehash: 65477f62af80511a73307204c2a6f4b5e0f409d6
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: 9fe3b66de83ebc2cd0bf3a56a45456668c069191
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164605"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116249"
 ---
 1. Copiare il programma di installazione in una cartella locale (ad esempio C:\Temp) sul server che si vuole proteggere. Eseguire i comandi seguenti come amministratore in un prompt dei comandi:
 
-  ```
-  cd C:\Temp
-  ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
-  MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
-  cd C:\Temp\Extracted.
-  ```
+   ```
+   cd C:\Temp
+   ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
+   MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
+   cd C:\Temp\Extracted.
+   ```
 2. Per installare il servizio Mobility, eseguire il comando seguente:
 
-  ```
-  UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
-  ```
+   ```
+   UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
+   ```
 3. A questo punto è necessario registrare l'agente nel server di configurazione.
 
-  ```
-  cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
-  UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
-  ```
+   ```
+   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
+   UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+   ```
 
 #### <a name="mobility-service-installer-command-line-arguments"></a>Argomenti della riga di comando del programma di installazione del servizio Mobility
 
@@ -38,11 +38,11 @@ Usage :
 UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
 ```
 
-| Parametro|type|DESCRIZIONE|Valori possibili|
+| Parametro|Type|DESCRIZIONE|Valori possibili|
 |-|-|-|-|
 |/Role|Mandatory|Specifica se installare il servizio Mobility (MS) o MasterTarget (MT).|MS </br> MT|
 |/InstallLocation|Facoltativo|Percorso in cui viene installato il servizio Mobility.|Qualsiasi cartella del computer|
-|/Platform|Mandatory|Specifica la piattaforma in cui viene installato il servizio Mobility. </br> </br>- **VMware**: usare questo valore se si installa il servizio Mobility in una macchina virtuale in esecuzione su *host VMware vSphere ESXi*, *host Hyper-V* e *server fisici*. </br> - **Azure**: usare questo valore se si installa un agente in una macchina virtuale IaaS di Azure. | VMware </br> Azure|
+|/Platform|Mandatory|Specifica la piattaforma in cui viene installato il servizio Mobility. </br> </br>- **VMware**: Usare questo valore se si installa il servizio Mobility in una macchina virtuale in esecuzione in *host VMware vSphere ESXi*, *gli host Hyper-V*, e *server fisici*. </br> - **Azure**: Utilizzare questo valore se si installa un agente in una macchina virtuale IaaS di Azure. | VMware </br> Azure|
 |/Silent|Facoltativo|Specifica l'esecuzione del programma di installazione in modalità non interattiva.| N/D|
 
 >[!TIP]
@@ -55,7 +55,7 @@ Usage :
 UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
 ```
 
-  | Parametro|type|DESCRIZIONE|Valori possibili|
+  | Parametro|Type|DESCRIZIONE|Valori possibili|
   |-|-|-|-|
   |/CSEndPoint |Mandatory|Indirizzo IP del server di configurazione| Qualsiasi indirizzo IP valido|
   |/PassphraseFilePath|Mandatory|Percorso della passphrase |Qualsiasi percorso file locale o UNC valido|

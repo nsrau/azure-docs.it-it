@@ -1,6 +1,6 @@
 ---
-title: Gestire l'accesso guest con le verifiche di accesso di Azure AD | Microsoft Docs
-description: Gestire gli utenti guest come membri di un gruppo o assegnati a un'applicazione con le verifiche di accesso di Azure Active Directory
+title: Gestire l'accesso guest con verifiche di accesso AD Azure | Microsoft Docs
+description: Gestire gli utenti guest come membri di un gruppo o assegnati a un'applicazione con verifiche di accesso di Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63acf3a91e7e121a807a44bed8506d05e71899d2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3bed8a5d20b50fd90922730c958cb1a36933776f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175184"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881045"
 ---
-# <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gestire l'accesso guest con le verifiche di accesso di Azure AD
+# <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gestire l'accesso guest con verifiche di accesso di Azure AD
 
 
 Con Azure Active Directory (Azure AD) è possibile abilitare facilmente la collaborazione all'interno dell'azienda usando la [funzionalità Azure AD B2B](../b2b/what-is-b2b.md). Gli utenti guest dagli altri tenant possono essere [invitati dagli amministratori](../b2b/add-users-administrator.md) o da [altri utenti](../b2b/what-is-b2b.md). Questa funzionalità si applica anche alle identità di social networking, ad esempio gli account Microsoft.
@@ -44,7 +44,7 @@ Le verifiche di accesso sono disponibili con Azure AD edizione Premium P2, inclu
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Creare ed eseguire una verifica di accesso per i guest
 
-Innanzitutto, come amministratore globale o amministratore dell'account utente, vedere la [pagina delle verifiche di accesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) per garantire che le stesse siano pronte per l'organizzazione. 
+Innanzitutto, un amministratore globale o un utente amministratore, vedere la [pagina delle verifiche di accesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) per garantire che le verifiche di accesso è pronto per l'organizzazione.
 
 Azure AD consente diversi scenari per la verifica degli utenti guest.
 
@@ -61,11 +61,11 @@ Azure AD consente diversi scenari per la verifica degli utenti guest.
 
 È possibile usare le verifiche di accesso per controllare se gli utenti invitati e aggiunti a un gruppo continuano ad avere necessità dell'accesso. È possibile chiedere facilmente ai guest di verificare la propria appartenenza a un gruppo.
 
-1. Per iniziare una verifica di accesso per il gruppo, selezionare la verifica in modo da includere solo i membri utenti guest e in modo che i membri stessi eseguano la verifica. Per altre informazioni, vedere l'articolo su come [creare una verifica di accesso](create-access-review.md).
+1. Per creare una verifica di accesso per il gruppo, selezionare la verifica in modo da includere solo i membri utenti guest e che i membri stessi eseguano la verifica. Per altre informazioni, vedere [creare una verifica di accesso di gruppi o applicazioni](create-access-review.md).
 
-2. Chiedere a ogni guest di verificare la propria appartenenza. Per impostazione predefinita, ogni guest che ha accettato un invito riceverà un messaggio di posta elettronica da Azure AD con un collegamento alla verifica di accesso. Azure AD include istruzioni per i guest su [come verificare l'accesso](perform-access-review.md).
+2. Chiedere a ogni guest di verificare la propria appartenenza. Per impostazione predefinita, ogni guest che ha accettato un invito riceverà un messaggio di posta elettronica da Azure AD con un collegamento alla verifica di accesso. Azure AD include istruzioni per gli utenti guest sul [verificare l'accesso a gruppi o applicazioni](perform-access-review.md).
 
-3. Dopo che i revisori avranno espresso il proprio giudizio, interrompere la verifica di accesso e applicare le modifiche. Per altre informazioni, vedere l'articolo su come [completare una verifica di accesso](complete-access-review.md).
+3. Dopo che i revisori avranno espresso il proprio giudizio, interrompere la verifica di accesso e applicare le modifiche. Per altre informazioni, vedere [completare una verifica di accesso dei gruppi o applicazioni](complete-access-review.md).
 
 4. Oltre agli utenti che hanno negato la necessità di un accesso continuo, è possibile rimuovere anche gli utenti che non hanno risposto. Gli utenti che non rispondono potenzialmente non ricevono più la posta elettronica.
 
@@ -75,21 +75,21 @@ Azure AD consente diversi scenari per la verifica degli utenti guest.
 
 È possibile chiedere a uno sponsor, ad esempio i proprietari di un gruppo, di verificare la necessità del guest di avere un'appartenenza continua al gruppo.
 
-1. Per iniziare una verifica di accesso per il gruppo, selezionare la verifica in modo da includere solo i membri utenti guest. Specificare quindi uno o più revisori. Per altre informazioni, vedere l'articolo su come [creare una verifica di accesso](create-access-review.md).
+1. Per creare una verifica di accesso per il gruppo, selezionare la verifica in modo da includere solo i membri utenti guest. Specificare quindi uno o più revisori. Per altre informazioni, vedere [creare una verifica di accesso di gruppi o applicazioni](create-access-review.md).
 
-2. Chiedere ai revisori di esprimere il proprio giudizio. Per impostazione predefinita, ognuno di essi riceve un messaggio di posta elettronica da Azure AD con un collegamento al pannello di accesso per [eseguire la verifica di accesso](perform-access-review.md).
+2. Chiedere ai revisori di esprimere il proprio giudizio. Per impostazione predefinita, ogni ricevono un messaggio di posta elettronica da Azure AD con un collegamento al pannello di accesso, in cui essi [verificare l'accesso a gruppi o applicazioni](perform-access-review.md).
 
-3. Dopo che i revisori avranno espresso il proprio giudizio, interrompere la verifica di accesso e applicare le modifiche. Per altre informazioni, vedere l'articolo su come [completare una verifica di accesso](complete-access-review.md).
+3. Dopo che i revisori avranno espresso il proprio giudizio, interrompere la verifica di accesso e applicare le modifiche. Per altre informazioni, vedere [completare una verifica di accesso dei gruppi o applicazioni](complete-access-review.md).
 
 ### <a name="ask-guests-to-review-their-own-access-to-an-application"></a>Chiedere ai guest di verificare il proprio accesso a un'applicazione
 
 È possibile usare le verifiche di accesso per controllare che gli utenti invitati per una specifica applicazione continuino ad avere necessità dell'accesso. È possibile chiedere semplicemente ai guest stessi di verificare la propria necessità di accesso.
 
-1. Per iniziare una verifica di accesso per l'applicazione, selezionare la verifica in modo da includere solo i guest e in modo che gli utenti verifichino il proprio accesso. Per altre informazioni, vedere l'articolo su come [creare una verifica di accesso](create-access-review.md).
+1. Per creare una verifica di accesso per l'applicazione, selezionare la verifica in modo da includere solo i guest e che gli utenti verifichino il proprio accesso. Per altre informazioni, vedere [creare una verifica di accesso di gruppi o applicazioni](create-access-review.md).
 
-2. Chiedere a ogni guest di verificare il proprio accesso all'applicazione. Per impostazione predefinita, ogni guest che ha accettato un invito riceverà un messaggio di posta elettronica da Azure AD. Quel messaggio di posta elettronica conterrà un collegamento alla verifica di accesso nel pannello di accesso dell'organizzazione. Azure AD include istruzioni per i guest su [come verificare l'accesso](perform-access-review.md).
+2. Chiedere a ogni guest di verificare il proprio accesso all'applicazione. Per impostazione predefinita, ogni guest che ha accettato un invito riceverà un messaggio di posta elettronica da Azure AD. Quel messaggio di posta elettronica conterrà un collegamento alla verifica di accesso nel pannello di accesso dell'organizzazione. Azure AD include istruzioni per gli utenti guest sul [verificare l'accesso a gruppi o applicazioni](perform-access-review.md).
 
-3. Dopo che i revisori avranno espresso il proprio giudizio, interrompere la verifica di accesso e applicare le modifiche. Per altre informazioni, vedere l'articolo su come [completare una verifica di accesso](complete-access-review.md).
+3. Dopo che i revisori avranno espresso il proprio giudizio, interrompere la verifica di accesso e applicare le modifiche. Per altre informazioni, vedere [completare una verifica di accesso dei gruppi o applicazioni](complete-access-review.md).
 
 4. Oltre agli utenti che hanno negato la necessità di un accesso continuo, è possibile rimuovere anche gli utenti guest che non hanno risposto. Gli utenti che non rispondono potenzialmente non ricevono più la posta elettronica. È possibile anche rimuovere gli utenti guest che non sono stati selezionati per partecipare, soprattutto se non sono stati invitati di recente. Questi utenti non hanno accettato l'invito e quindi non hanno accesso all'applicazione. 
 
@@ -97,11 +97,11 @@ Azure AD consente diversi scenari per la verifica degli utenti guest.
 
 È possibile chiedere a uno sponsor, ad esempio il proprietario di un'applicazione, di verificare la necessità del guest di un accesso continuo all'applicazione.
 
-1. Per iniziare una verifica di accesso per l'applicazione, selezionando la verifica in modo da includere solo i guest. Specificare quindi uno o più utenti come revisori. Per altre informazioni, vedere l'articolo su come [creare una verifica di accesso](create-access-review.md).
+1. Per creare una verifica di accesso per l'applicazione, selezionare la verifica in modo da includere solo i guest. Specificare quindi uno o più utenti come revisori. Per altre informazioni, vedere [creare una verifica di accesso di gruppi o applicazioni](create-access-review.md).
 
-2. Chiedere ai revisori di esprimere il proprio giudizio. Per impostazione predefinita, ognuno di essi riceve un messaggio di posta elettronica da Azure AD con un collegamento al pannello di accesso per [eseguire la verifica di accesso](perform-access-review.md).
+2. Chiedere ai revisori di esprimere il proprio giudizio. Per impostazione predefinita, ogni ricevono un messaggio di posta elettronica da Azure AD con un collegamento al pannello di accesso, in cui essi [verificare l'accesso a gruppi o applicazioni](perform-access-review.md).
 
-3. Dopo che i revisori avranno espresso il proprio giudizio, interrompere la verifica di accesso e applicare le modifiche. Per altre informazioni, vedere l'articolo su come [completare una verifica di accesso](complete-access-review.md).
+3. Dopo che i revisori avranno espresso il proprio giudizio, interrompere la verifica di accesso e applicare le modifiche. Per altre informazioni, vedere [completare una verifica di accesso dei gruppi o applicazioni](complete-access-review.md).
 
 ### <a name="ask-guests-to-review-their-need-for-access-in-general"></a>Chiedere ai guest di verificare la propria necessità di accesso in generale
 
@@ -112,17 +112,17 @@ In alcune organizzazioni i guest potrebbero non essere consapevoli delle proprie
 
 1. Creare un gruppo di sicurezza di Azure AD con i guest come membri, se non ne esiste già un gruppo appropriato. Ad esempio, è possibile creare un gruppo con un'appartenenza gestita manualmente di guest. In alternativa, è possibile creare un gruppo dinamico con un nome, ad esempio "Guest di Contoso" per gli utenti nel tenant Contoso con l'attributo UserType impostato su valore Guest.  Per una maggiore efficienza, verificare che il gruppo sia composto essenzialmente da membri guest: non selezionare un gruppo composto da utenti membri, in quanto questi ultimi non devono essere sottoposti a verifica.  Inoltre, tenere presente che un utente guest membro del gruppo può visualizzare gli altri membri dello stesso gruppo.
 
-2. Per iniziare una verifica di accesso per questo gruppo, selezionare come revisori i membri stessi. Per altre informazioni, vedere l'articolo su come [creare una verifica di accesso](create-access-review.md).
+2. Per creare una verifica di accesso per tale gruppo, selezionare come revisori i membri stessi. Per altre informazioni, vedere [creare una verifica di accesso di gruppi o applicazioni](create-access-review.md).
 
-3. Chiedere a ogni guest di verificare la propria appartenenza. Per impostazione predefinita, ogni guest che ha accettato un invito riceverà un messaggio di posta elettronica da Azure AD con un collegamento alla verifica di accesso nel pannello di accesso dell'organizzazione. Azure AD include istruzioni per i guest su [come verificare l'accesso](perform-access-review.md).  I guest che non hanno accettato l'invito verranno visualizzati nei risultati della verifica come "Senza notifica".
+3. Chiedere a ogni guest di verificare la propria appartenenza. Per impostazione predefinita, ogni guest che ha accettato un invito riceverà un messaggio di posta elettronica da Azure AD con un collegamento alla verifica di accesso nel pannello di accesso dell'organizzazione. Azure AD include istruzioni per gli utenti guest sul [verificare l'accesso a gruppi o applicazioni](perform-access-review.md).  I guest che non hanno accettato l'invito verranno visualizzati nei risultati della verifica come "Senza notifica".
 
-4. Dopo che i revisori avranno espresso il proprio giudizio, interrompere la verifica di accesso. Per altre informazioni, vedere l'articolo su come [completare una verifica di accesso](complete-access-review.md).
+4. Dopo che i revisori avranno espresso il proprio giudizio, interrompere la verifica di accesso. Per altre informazioni, vedere [completare una verifica di accesso dei gruppi o applicazioni](complete-access-review.md).
 
 5. Rimuovere l'accesso guest per i guest per cui è stato negato l'accesso, che non hanno completato la verifica o non hanno accettato in precedenza l'invito. Se alcuni guest sono contatti che erano stati selezionati per partecipare alla verifica o non avevano accettato un invito in precedenza, è possibile disabilitare i relativi account usando il portale di Azure o PowerShell. Se il guest non necessita più dell'accesso e non è un contatto, è possibile rimuovere il relativo oggetto utente dalla directory usando il portale di Azure o PowerShell per eliminare l'oggetto utente guest.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Creare una verifica di accesso per i membri di un gruppo o per l'accesso a un'applicazione](create-access-review.md)
+[Creare una verifica di accesso di gruppi o applicazioni](create-access-review.md)
 
 
 

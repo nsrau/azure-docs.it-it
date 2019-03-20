@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: fe4d332859b3ec0ba03e64f9a830b7710586aa17
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: c5ffe3ec2ec3cb06297df6be4ba7021f692633bf
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158818"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312492"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Panoramica della soluzione StorSimple Data Manager
 
@@ -68,7 +68,9 @@ Questo set di aree è più ampio perché la distribuzione delle risorse in una d
  - L'account di archiviazione di origine, ovvero quello associato al dispositivo StorSimple, e l'account di archiviazione di destinazione, in cui i dati verranno archiviati in formato nativo, devono trovarsi nella stessa area di Azure.
  - Data Manager e la definizione del processo devono essere attivati nell'area che contiene l'account di archiviazione StorSimple. Se questo non è possibile, attivare Data Manager nell'area di Azure più vicina e quindi creare la definizione del processo nella stessa area dell'account di archiviazione StorSimple. 
 
-    Se l'account di archiviazione StorSimple non è presente in una delle 26 aree che supportano la creazione di definizioni di processo, è consigliabile non eseguire StorSimple Data Manager poiché si riscontreranno lunghi tempi di latenza e costi del traffico in uscita potenzialmente elevati.
+    Se l'account di archiviazione di StorSimple non è disponibile in 26 aree che supportano la creazione di definizioni di processo, è consigliabile non eseguire StorSimple Data Manager come noterete lunghe latenze e potenziali costi di uscita.
+    
+Microsoft è impegnata garantire che servizi di Azure siano sempre disponibili in tutte le aree. Tuttavia, possono verificarsi interruzioni non pianificate dei servizi per brevi periodi, in una determinata area. In questi casi, è possibile visualizzare una definizione di gestione dati e processi in un'area non interessata dall'interruzione ed eseguire il processo di trasformazione. Potrebbero verificarsi latenza aggiuntiva in tale scenario, ma può trattarsi di una strategia di ripristino nel raro caso di un'interruzione di area.
 
 ## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 

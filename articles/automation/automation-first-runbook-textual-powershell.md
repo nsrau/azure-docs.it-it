@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 11/27/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f083a5a9fe8027467eb95711a15725859f59e4fa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: b08e1489cf337360e838a3b5d5531fa2d4c0073b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438049"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57846957"
 ---
 # <a name="my-first-powershell-runbook"></a>Il primo runbook PowerShell
 
@@ -56,7 +56,7 @@ Si inizia creando un runbook semplice che restituisce il testo *Hello World*.
 
 2. Salvare il runbook facendo clic su **Salva**.
 
-##<a name="a-namestep-3---test-the-runbook-test-the-runbook"></a><a name="step-3---test-the-runbook"> Testare il runbook
+## <a name="step-3---test-the-runbook"> </a> Testare il runbook
 
 Prima di pubblicare il runbook per renderlo disponibile nell'ambiente di produzione, occorre testarlo per verificare che funzioni correttamente. Quando si testa un runbook, è necessario eseguire la versione **Bozza** e visualizzarne l'output in modo interattivo.
 
@@ -107,6 +107,9 @@ Il runbook creato è ancora in modalità bozza. È necessario pubblicarlo prima 
 Il runbook è stato testato e pubblicato, ma finora non esegue alcuna attività utile. Si vuole fare in modo che gestisca le risorse di Azure. Non è in grado di eseguire questa operazione a meno che non venga autenticato con una connessione RunAs che viene creata automaticamente quando si crea l'account di Automazione. La connessione RunAs viene usata con il cmdlet **Connect-AzureRmAccount**. Se si gestiscono risorse in più sottoscrizioni, è necessario usare il parametro **-AzureRmContext** con [Get-AzureRmContext](/powershell/module/azurerm.profile/get-azurermcontext).
 
    ```powershell
+   # Ensures you do not inherit an AzureRMContext in your runbook
+   Disable-AzureRmContextAutosave –Scope Process
+   
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
 -ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
@@ -121,6 +124,9 @@ Il runbook è stato testato e pubblicato, ma finora non esegue alcuna attività 
 1. Digitare o copiare e incollare il codice seguente che gestisce l'autenticazione con l'account RunAs di Automazione:
 
    ```powershell
+   # Ensures you do not inherit an AzureRMContext in your runbook
+   Disable-AzureRmContextAutosave –Scope Process
+
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
    -ApplicationId $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
@@ -141,6 +147,9 @@ Ora che il runbook esegue l'autenticazione per la sottoscrizione di Azure è pos
 1. Dopo *Connect-AzureRmAccount* digitare *Start-AzureRmVM -Name 'NomeVM' -ResourceGroupName 'NomeGruppoDiRisorse'* specificando il nome e il nome del gruppo di risorse della macchina virtuale da avviare.  
 
    ```powershell
+   # Ensures you do not inherit an AzureRMContext in your runbook
+   Disable-AzureRmContextAutosave –Scope Process
+
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
    -ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
@@ -161,6 +170,9 @@ Ora il runbook avvia la macchina virtuale specificata nel runbook, ma sarebbe pi
     [string]$VMName,
     [string]$ResourceGroupName
    )
+   # Ensures you do not inherit an AzureRMContext in your runbook
+   Disable-AzureRmContextAutosave –Scope Process
+
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
    -ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint

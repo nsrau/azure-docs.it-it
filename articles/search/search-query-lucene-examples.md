@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 962c1cff91a5ac3f52dc67c30bd2c7a4e2e22b9d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 8ec6a6a24629f72199d5f5afa86200acf53aba01
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631839"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136547"
 ---
 # <a name="lucene-syntax-query-examples-for-building-advanced-queries-in-azure-search"></a>Esempi di query con sintassi Lucene per compilare query avanzate in Ricerca di Azure
 Quando si costruiscono query per Ricerca di Azure, è possibile sostituire il [parser di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) predefinito con il [parser di query Lucene in Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), più ampio, per formulare definizioni di query avanzate e specializzate. 
@@ -206,7 +206,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 Provare a specificare il parser di query Lucene nel codice. I collegamenti seguenti illustrano come configurare le query di ricerca per .NET e l'API REST. I collegamenti usano la sintassi semplice predefinita, quindi è necessario applicare quanto appreso in questo articolo per specificare il parametro **queryType**.
 
 * [Eseguire query su un indice di Ricerca di Azure con .NET SDK](search-query-dotnet.md)
-* [Eseguire query su un indice di Ricerca di Azure con l'API REST](search-query-rest-api.md)
+* [Eseguire query su un indice di Ricerca di Azure con l'API REST](search-create-index-rest-api.md)
 
 Un riferimento alla sintassi aggiuntivo, l'architettura di query ed esempi sono disponibili nei collegamenti seguenti:
 

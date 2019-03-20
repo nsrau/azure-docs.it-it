@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 02/12/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7818d184cd74da43ceac008331b4436979152557
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 0cfc31705909710e6a60e0d2fd3963e74e9397ee
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233174"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201263"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Informazioni sull'iscrizione self-service per Azure Active Directory.
 
-Questo articolo descrive il processo di iscrizione self-service e come supportarlo in Azure Active Directory (Azure AD). Se si intende sostituire un nome di dominio da un tenant di Azure AD non gestito, vedere [Take over an unmanaged directory as administrator](domains-admin-takeover.md) (Sostituire una directory non gestita come amministratore).
+Questo articolo illustra come usare l'iscrizione self-service per popolare un'organizzazione in Azure Active Directory (Azure AD). Se si vuole assumere un nome di dominio da un'istanza non gestita di Azure dell'organizzazione di Active Directory, vedere [assumere una directory non gestita come amministratore](domains-admin-takeover.md).
 
 ## <a name="why-use-self-service-signup"></a>Perché usare l'iscrizione self-service?
 * Acquisire più velocemente clienti su servizi da loro richiesti
@@ -71,7 +71,7 @@ Questi due parametri possono essere usati insieme per definire un controllo più
 
 Il diagramma di flusso seguente illustra le diverse combinazioni di questi parametri e le condizioni risultanti per la directory e l'iscrizione self-service.
 
-![controlli dell'iscrizione self-service](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
+![diagramma di flusso dei controlli di iscrizione self-service](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
 Per ulteriori informazioni ed esempi su come usare questi parametri, vedere [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 

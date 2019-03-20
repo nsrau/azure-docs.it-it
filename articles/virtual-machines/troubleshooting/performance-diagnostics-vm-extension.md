@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 415cf34a8b19400091807005e1e9943aa025f244
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980024"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002727"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Estensione per macchine virtuali Diagnostica prestazioni di Azure per Windows
 
@@ -89,7 +89,7 @@ Il codice JSON seguente illustra lo schema dell'estensione per macchine virtuali
 
 Per installare l'estensione in macchine virtuali Windows, seguire queste istruzioni:
 
-1. Accedere al [portale di Azure](http://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare la macchina virtuale in cui installare l'estensione.
 
     ![Screenshot del portale di Azure con "Macchine virtuali" evidenziato](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)
@@ -112,7 +112,7 @@ Per installare l'estensione in macchine virtuali Windows, seguire queste istruzi
 ## <a name="remove-the-extension"></a>Rimuovere l'estensione
 Per rimuovere l'estensione da una macchina virtuale, eseguire questa procedura:
 
-1. Accedere al [portale di Azure](http://portal.azure.com), selezionare la macchina virtuale da cui si vuole rimuovere l'estensione e quindi selezionare il pannello **Estensioni**. 
+1. Accedere al [portale di Azure](https://portal.azure.com), selezionare la macchina virtuale da cui si vuole rimuovere l'estensione e quindi selezionare il pannello **Estensioni**. 
 2. Selezionare (**…**) in corrispondenza della voce Performance Diagnostics Extension dell'elenco e scegliere **Disinstalla**.
 
     ![Screenshot del pannello Estensioni con Disinstalla evidenziato](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
@@ -125,7 +125,7 @@ Le estensioni per macchine virtuali di Azure possono essere distribuite con i mo
 
 ```
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vmName": {

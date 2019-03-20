@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 1/10/2019
 ms.author: victorh
-ms.openlocfilehash: 32dd31c659e1906e8cf59f4c6d06c2b4436284cd
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: 3da9982d1af886a4329ddc77a7b297e9e285453e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214063"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101551"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configurare SSL end-to-end usando un gateway applicazione con PowerShell
 
@@ -40,6 +40,8 @@ Questo scenario illustrerà come:
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Per configurare SSL end-to-end con un gateway applicazione, sono necessari un certificato per il gateway e i certificati per i server back-end. Il certificato del gateway viene usato per derivare una chiave simmetrica in base alla specifica del protocollo SSL. La chiave simmetrica viene quindi usata per crittografare e decrittografare il traffico inviato al gateway. Il certificato del gateway deve essere in formato PFX (Personal Information Exchange). Questo formato di file consente l'esportazione della chiave privata necessaria al gateway applicazione per eseguire la crittografia e la decrittografia del traffico.
 
 Per la crittografia SSL end-to-end, il back-end deve essere incluso nell'elenco elementi consentiti con il gateway applicazione. È necessario caricare il certificato pubblico dei server back-end nel gateway applicazione. L'aggiunta del certificato garantisce che il gateway applicazione comunichi solo con istanze di back-end note, proteggendo ulteriormente la comunicazione end-to-end.
@@ -51,24 +53,24 @@ Questo processo di configurazione viene descritto nelle sezioni seguenti.
 Questa sezione descrive la creazione di un gruppo di risorse che contiene il gateway applicazione.
 
 
-   1. Accedere all'account Azure.
+1. Accedere all'account Azure.
 
    ```powershell
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 
 
-   2. Selezionare la sottoscrizione da usare per questo scenario.
+2. Selezionare la sottoscrizione da usare per questo scenario.
 
    ```powershell
-   Select-AzureRmsubscription -SubscriptionName "<Subscription name>"
+   Select-Azsubscription -SubscriptionName "<Subscription name>"
    ```
 
 
-   3. Creare un gruppo di risorse. Se si usa un gruppo di risorse esistente, ignorare questo passaggio.
+3. Creare un gruppo di risorse. Se si usa un gruppo di risorse esistente, ignorare questo passaggio.
 
    ```powershell
-   New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
+   New-AzResourceGroup -Name appgw-rg -Location "West US"
    ```
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Creare una rete virtuale e una subnet per il gateway applicazione
@@ -76,10 +78,10 @@ Questa sezione descrive la creazione di un gruppo di risorse che contiene il gat
 Nell'esempio seguente viene creata una rete virtuale e due subnet. Una subnet viene usata per contenere il gateway applicazione. L'altra subnet viene usata per i back-end che ospitano l'applicazione Web.
 
 
-   1. Assegnare un intervallo di indirizzi per la subnet da usare per il gateway applicazione.
+1. Assegnare un intervallo di indirizzi per la subnet da usare per il gateway applicazione.
 
    ```powershell
-   $gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 10.0.0.0/24
+   $gwSubnet = New-AzVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 10.0.0.0/24
    ```
 
    > [!NOTE]
@@ -87,24 +89,24 @@ Nell'esempio seguente viene creata una rete virtuale e due subnet. Una subnet vi
    > 
    > 
 
-   2. Assegnare un intervallo di indirizzi da usare per il pool di indirizzi dei back-end.
+2. Assegnare un intervallo di indirizzi da usare per il pool di indirizzi dei back-end.
 
    ```powershell
-   $nicSubnet = New-AzureRmVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
+   $nicSubnet = New-AzVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
    ```
 
-   3. Creare una rete virtuale con le subnet definite nei passaggi precedenti.
+3. Creare una rete virtuale con le subnet definite nei passaggi precedenti.
 
    ```powershell
-   $vnet = New-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet, $nicSubnet
+   $vnet = New-AzvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet, $nicSubnet
    ```
 
-   4. Recuperare la risorsa di rete virtuale e le risorse della subnet da usare nei passaggi seguenti.
+4. Recuperare la risorsa di rete virtuale e le risorse della subnet da usare nei passaggi seguenti.
 
    ```powershell
-   $vnet = Get-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg
-   $gwSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -VirtualNetwork $vnet
-   $nicSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'appsubnet' -VirtualNetwork $vnet
+   $vnet = Get-AzvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg
+   $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name 'appgwsubnet' -VirtualNetwork $vnet
+   $nicSubnet = Get-AzVirtualNetworkSubnetConfig -Name 'appsubnet' -VirtualNetwork $vnet
    ```
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Creare un indirizzo IP pubblico per la configurazione front-end
@@ -112,7 +114,7 @@ Nell'esempio seguente viene creata una rete virtuale e due subnet. Una subnet vi
 Creare una risorsa IP pubblica da usare per il gateway applicazione. Questo indirizzo IP pubblico viene usato in uno dei passaggi seguenti.
 
 ```powershell
-$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'publicIP01' -Location "West US" -AllocationMethod Dynamic
+$publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name 'publicIP01' -Location "West US" -AllocationMethod Dynamic
 ```
 
 > [!IMPORTANT]
@@ -125,20 +127,20 @@ Tutti gli elementi di configurazione vengono impostati prima di creare il gatewa
 1. Creare una configurazione IP per il gateway applicazione. Questa impostazione configura le subnet usate dal gateway applicazione. All'avvio, il gateway applicazione seleziona un indirizzo IP dalla subnet configurata e instrada il traffico di rete agli indirizzi IP nel pool di indirizzi IP dei back-end. Tenere presente che ogni istanza ha un indirizzo IP.
 
    ```powershell
-   $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
+   $gipconfig = New-AzApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
    ```
 
 
 2. Creare una configurazione di indirizzi IP front-end. Questa impostazione esegue il mapping di un indirizzo IP pubblico o privato al front-end del gateway applicazione. Il passaggio seguente consente di associare l'indirizzo IP pubblico del passaggio precedente alla configurazione IP front-end.
 
    ```powershell
-   $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
+   $fipconfig = New-AzApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
    ```
 
 3. Configurare il pool di indirizzi IP dei back-end con gli indirizzi IP dei server Web back-end. Questi indirizzi IP saranno quelli che ricevono il traffico di rete proveniente dall'endpoint IP front-end. Sostituire gli indirizzi IP nell'esempio con gli endpoint di indirizzi IP dell'applicazione.
 
    ```powershell
-   $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 1.1.1.1, 2.2.2.2, 3.3.3.3
+   $pool = New-AzApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 1.1.1.1, 2.2.2.2, 3.3.3.3
    ```
 
    > [!NOTE]
@@ -148,14 +150,14 @@ Tutti gli elementi di configurazione vengono impostati prima di creare il gatewa
 4. Configurare la porta d indirizzo IP front-end con l'endpoint di indirizzo IP pubblico. Si tratta della porta a cui si connettono gli utenti finali.
 
    ```powershell
-   $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
+   $fp = New-AzApplicationGatewayFrontendPort -Name 'port01'  -Port 443
    ```
 
 5. Configurare il certificato per il gateway applicazione. Questo certificato viene usato per decrittografare e crittografare di nuovo il traffico nel gateway applicazione.
 
    ```powershell
    $passwd = ConvertTo-SecureString  <certificate file password> -AsPlainText -Force 
-   $cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password $passwd 
+   $cert = New-AzApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password $passwd 
    ```
 
    > [!NOTE]
@@ -164,18 +166,18 @@ Tutti gli elementi di configurazione vengono impostati prima di creare il gatewa
 6. Creare il listener HTTP per il gateway applicazione. Assegnare la configurazione IP, la porta e il certificato SSL del front-end da usare.
 
    ```powershell
-   $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
+   $listener = New-AzApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
    ```
 
 7. Caricare il certificato da usare per le risorse del pool back-end abilitate per SSL.
 
    > [!NOTE]
    > Il probe predefinito ottiene la chiave pubblica dall'associazione SSL *predefinita* nell'indirizzo IP del back-end e confronta il valore della chiave pubblica ricevuta con il valore della chiave pubblica specificata qui. 
-   
+   > 
    > Se si usano intestazioni host e la funzionalità Indicazione nome server (SNI) nel back-end, la chiave pubblica recuperata potrebbe non corrispondere al sito previsto in cui viene trasferito il traffico. In caso di dubbi, visitare la pagina all'indirizzo https://127.0.0.1/ nei server back-end per determinare il certificato usato per l'associazione SSL *predefinita*. In questa sezione usare la chiave pubblica ottenuta da tale richiesta. Se si usano intestazioni host e la funzionalità Indicazione nome server (SNI) nelle associazioni HTTPS e non si ricevono una risposta e un certificato da una richiesta manuale del browser all'indirizzo https://127.0.0.1/ nei server back-end, è necessario configurare un'associazione SSL predefinita nei server. In caso contrario, i probe hanno esito negativo e il back-end non è consentito.
 
    ```powershell
-   $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
+   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
    ```
 
    > [!NOTE]
@@ -184,31 +186,31 @@ Tutti gli elementi di configurazione vengono impostati prima di creare il gatewa
    Se si usa lo SKU v2 di gateway applicazione, creare un certificato radice attendibile anziché un certificato di autenticazione. Per altre informazioni, vedere [Panoramica di SSL end-to-end con il gateway applicazione](ssl-overview.md#end-to-end-ssl-with-the-v2-sku):
 
    ```powershell
-   $trustedRootCert01 = New-AzureRmApplicationGatewayTrustedRootCertificate -Name "test1" -CertificateFile  <path to root cert file>
+   $trustedRootCert01 = New-AzApplicationGatewayTrustedRootCertificate -Name "test1" -CertificateFile  <path to root cert file>
    ```
 
 8. Configurare le impostazioni HTTP per il back-end del gateway applicazione. Assegnare il certificato caricato nel passaggio precedente alle impostazioni HTTP.
 
    ```powershell
-   $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 'setting01' -Port 443 -Protocol Https -CookieBasedAffinity Enabled -AuthenticationCertificates $authcert
+   $poolSetting = New-AzApplicationGatewayBackendHttpSettings -Name 'setting01' -Port 443 -Protocol Https -CookieBasedAffinity Enabled -AuthenticationCertificates $authcert
    ```
 
    Per lo SKU v2 di gateway applicazione usare il comando seguente:
 
    ```powershell
-   $poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name “setting01” -Port 443 -Protocol Https -CookieBasedAffinity Disabled -TrustedRootCertificate $trustedRootCert01 -HostName "test1"
+   $poolSetting01 = New-AzApplicationGatewayBackendHttpSettings -Name “setting01” -Port 443 -Protocol Https -CookieBasedAffinity Disabled -TrustedRootCertificate $trustedRootCert01 -HostName "test1"
    ```
 
 9. Creare la regola di gestione del bilanciamento del carico per la configurazione del comportamento di bilanciamento del carico. In questo esempio viene creata una regola di round robin di base.
 
    ```powershell
-   $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
+   $rule = New-AzApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
    ```
 
 10. Configurare le dimensioni dell'istanza del gateway applicazione. Le dimensioni disponibili sono **Standard\_Small**, **Standard\_Medium** e **Standard\_Large**.  Per la capacità, i valori disponibili sono compresi tra **1** e **10**.
 
     ```powershell
-    $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
+    $sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
     ```
 
     > [!NOTE]
@@ -216,47 +218,47 @@ Tutti gli elementi di configurazione vengono impostati prima di creare il gatewa
 
 11. Configurare i criteri SSL da usare nel gateway applicazione. Il gateway applicazione supporta la funzionalità di impostazione di una versione minima per le versioni del protocollo SSL.
 
-   I valori seguenti rappresentano un elenco di versioni del protocollo che è possibile definire:
+    I valori seguenti rappresentano un elenco di versioni del protocollo che è possibile definire:
 
     - **TLSV1_0**
     - **TLSV1_1**
     - **TLSV1_2**
     
-   L'esempio seguente imposta la versione minima del protocollo su **TLSv1_2** e abilita solo **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** e **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256**.
+    L'esempio seguente imposta la versione minima del protocollo su **TLSv1_2** e abilita solo **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** e **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256**.
 
-   ```powershell
-   $SSLPolicy = New-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
-   ```
+    ```powershell
+    $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
+    ```
 
 ## <a name="create-the-application-gateway"></a>Creare il gateway applicazione
 
 Creare il gateway applicazione seguendo tutti i passaggi precedenti. La creazione del gateway è un processo a esecuzione prolungata.
 
 ```powershell
-$appgw = New-AzureRmApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
+$appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
 ```
 
 ## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>Limitare le versioni del protocollo SSL in un gateway applicazione esistente
 
 I passaggi precedenti descrivono la creazione di un'applicazione con SSL end-to-end e la disabilitazione di alcune versioni del protocollo SSL. Nell'esempio seguente alcuni criteri SSL vengono disabilitati su un gateway applicazione esistente.
 
-   1. Recuperare il gateway applicazione da aggiornare.
+1. Recuperare il gateway applicazione da aggiornare.
 
    ```powershell
-   $gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
+   $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
 
-   2. Definire un criterio SSL. Nell'esempio seguente **TLSv1.0** e **TLSv1.1** sono disabilitati e i pacchetti di crittografia **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** e **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** sono gli unici consentiti.
+2. Definire un criterio SSL. Nell'esempio seguente **TLSv1.0** e **TLSv1.1** sono disabilitati e i pacchetti di crittografia **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** e **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** sono gli unici consentiti.
 
    ```powershell
-   Set-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
+   Set-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
 
    ```
 
-   3. Infine, aggiornare il gateway. Questo ultimo passaggio rappresenta un'attività a esecuzione prolungata. Al termine, SSL end-to-end è configurato nel gateway applicazione.
+3. Infine, aggiornare il gateway. Questo ultimo passaggio rappresenta un'attività a esecuzione prolungata. Al termine, SSL end-to-end è configurato nel gateway applicazione.
 
    ```powershell
-   $gw | Set-AzureRmApplicationGateway
+   $gw | Set-AzApplicationGateway
    ```
 
 ## <a name="get-an-application-gateway-dns-name"></a>Ottenere un nome DNS del gateway applicazione
@@ -266,7 +268,7 @@ Dopo avere creato il gateway, il passaggio successivo prevede la configurazione 
 Per configurare un alias, recuperare i dettagli del gateway applicazione e il nome DNS/indirizzo IP associato usando l'elemento **PublicIPAddress** collegato al gateway applicazione. Usare il nome DNS del gateway applicazione per creare un record CNAME che associ le due applicazioni Web a questo nome DNS. Non è consigliabile usare record A perché l'indirizzo VIP può cambiare al riavvio del gateway applicazione.
 
 ```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
+Get-AzPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
 ```
 
 ```

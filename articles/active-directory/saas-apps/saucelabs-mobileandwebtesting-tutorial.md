@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c4e3d074ad241ec6add6fe43b77413ce283e389
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e99f794c4eb9db78f50f63f14ccfad08c65ddb07
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207008"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442057"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>Esercitazione: integrazione di Azure Active Directory con Sauce Labs - Mobile and Web Testing
 
@@ -138,7 +138,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     b. Selezionare la casella di controllo **CONSENTI IL PROVISIONING JIT**.
 
-    c. Fare clic su **Salva**.
+    c. Fare clic su **Save**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 70bae1558860b763d17d04e10d5d926b39300101
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: 48a84520a61d19968b467091871459e21898dd5e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321246"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548644"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introduzione allo sviluppo della rete CDN di Azure
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "54321246"
 
 È possibile usare [Azure CDN SDK per Node.js](https://www.npmjs.com/package/azure-arm-cdn) per automatizzare la creazione e la gestione dei profili e degli endpoint di rete CDN.  Questa esercitazione illustra nel dettaglio la creazione di una semplice applicazione console Node.js che dimostra varie operazioni tra quelle disponibili.  Lo scopo di questa esercitazione non è fornire una descrizione dettagliata di tutti gli aspetti di Azure CDN SDK per Node.js.
 
-Per completare questa esercitazione, è necessario che [Node.js](http://www.nodejs.org) **4.x.x** o versione successiva sia già installato e configurato.  Per creare l'applicazione Node.js è possibile usare qualsiasi editor di testo.  Per scrivere questa esercitazione è stato usato [Visual Studio Code](https://code.visualstudio.com).  
+Per completare questa esercitazione, è necessario che [Node.js](https://www.nodejs.org) **4.x.x** o versione successiva sia già installato e configurato.  Per creare l'applicazione Node.js è possibile usare qualsiasi editor di testo.  Per scrivere questa esercitazione è stato usato [Visual Studio Code](https://code.visualstudio.com).  
 
 > [!TIP]
 > Il [progetto completato di questa esercitazione](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74) è disponibile per il download in MSDN.
@@ -360,12 +360,12 @@ Infine, eliminare il profilo.
 
 ![Eliminare il profilo](./media/cdn-app-dev-node/cdn-delete-profile.png)
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Per vedere il progetto completato di questa procedura dettagliata, [scaricare l'esempio](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).
 
-Per informazioni su Azure CDN SDK per Node.js, vedere il [riferimento](http://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).
+Per informazioni su Azure CDN SDK per Node.js, vedere il [riferimento](https://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).
 
-Per altra documentazione su Azure SDK per Node.js, vedere il [riferimento completo](http://azure.github.io/azure-sdk-for-node/).
+Per altra documentazione su Azure SDK per Node.js, vedere il [riferimento completo](https://azure.github.io/azure-sdk-for-node/).
 
 Gestire le risorse della rete CDN con [PowerShell](cdn-manage-powershell.md).
 

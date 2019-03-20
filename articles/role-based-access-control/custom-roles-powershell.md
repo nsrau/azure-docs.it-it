@@ -11,19 +11,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/02/2019
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 92c061a7f854b46ab5aee07aa5e648ace8f9ae52
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: ad1185cab2b2bd2d0fea10f21b7859fd9ab1339f
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343843"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807610"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-azure-powershell"></a>Creare ruoli personalizzati per le risorse di Azure tramite Azure PowerShell
 
 Se i [ruoli predefiniti per le risorse di Azure](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati. Questo articolo descrive come creare e gestire ruoli personalizzati con Azure PowerShell.
+
+Per un'esercitazione dettagliata su come creare un ruolo personalizzato, vedere [Esercitazione: Creare un ruolo personalizzato per le risorse di Azure usando Azure PowerShell](tutorial-custom-role-powershell.md).
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -32,7 +34,7 @@ Se i [ruoli predefiniti per le risorse di Azure](built-in-roles.md) non soddisfa
 Per creare ruoli personalizzati è necessario:
 
 - Avere le autorizzazioni per creare ruoli personalizzati, ad esempio [Proprietario](built-in-roles.md#owner) o [Amministratore Accesso utenti](built-in-roles.md#user-access-administrator)
-- Avere [Azure PowerShell](/powershell/azure/install-az-ps) installato in locale
+- [Azure Cloud Shell](../cloud-shell/overview.md) o [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="list-custom-roles"></a>Elencare ruoli personalizzati
 
@@ -66,6 +68,65 @@ Virtual Machine Operator     True
 ```
 
 Se la sottoscrizione selezionata non è nel `AssignableScopes` del ruolo, il ruolo personalizzato non sarà elencato.
+
+## <a name="list-a-custom-role-definition"></a>Elenco di una definizione di ruolo personalizzata
+
+Per elencare una definizione di ruolo personalizzate, usare [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition). Questo è lo stesso comando quando si utilizza per un ruolo predefinito.
+
+```azurepowershell
+Get-AzRoleDefinition <role name> | ConvertTo-Json
+```
+
+```Example
+PS C:\> Get-AzRoleDefinition "Virtual Machine Operator" | ConvertTo-Json
+
+{
+  "Name": "Virtual Machine Operator",
+  "Id": "00000000-0000-0000-0000-000000000000",
+  "IsCustom": true,
+  "Description": "Can monitor and restart virtual machines.",
+  "Actions": [
+    "Microsoft.Storage/*/read",
+    "Microsoft.Network/*/read",
+    "Microsoft.Compute/*/read",
+    "Microsoft.Compute/virtualMachines/start/action",
+    "Microsoft.Compute/virtualMachines/restart/action",
+    "Microsoft.Authorization/*/read",
+    "Microsoft.ResourceHealth/availabilityStatuses/read",
+    "Microsoft.Resources/subscriptions/resourceGroups/read",
+    "Microsoft.Insights/alertRules/*",
+    "Microsoft.Support/*"
+  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/subscriptions/11111111-1111-1111-1111-111111111111"
+  ]
+}
+```
+
+Nell'esempio seguente vengono elencate solo le azioni del ruolo:
+
+```azurepowershell
+(Get-AzRoleDefinition <role name>).Actions
+```
+
+```Example
+PS C:\> (Get-AzRoleDefinition "Virtual Machine Operator").Actions
+
+"Microsoft.Storage/*/read",
+"Microsoft.Network/*/read",
+"Microsoft.Compute/*/read",
+"Microsoft.Compute/virtualMachines/start/action",
+"Microsoft.Compute/virtualMachines/restart/action",
+"Microsoft.Authorization/*/read",
+"Microsoft.ResourceHealth/availabilityStatuses/read",
+"Microsoft.Resources/subscriptions/resourceGroups/read",
+"Microsoft.Insights/alertRules/*",
+"Microsoft.Insights/diagnosticSettings/*",
+"Microsoft.Support/*"
+```
 
 ## <a name="create-a-custom-role"></a>Creare un ruolo personalizzato
 
@@ -111,6 +172,7 @@ $role.Actions.Add("Microsoft.Compute/*/read")
 $role.Actions.Add("Microsoft.Compute/virtualMachines/start/action")
 $role.Actions.Add("Microsoft.Compute/virtualMachines/restart/action")
 $role.Actions.Add("Microsoft.Authorization/*/read")
+$role.Actions.Add("Microsoft.ResourceHealth/availabilityStatuses/read")
 $role.Actions.Add("Microsoft.Resources/subscriptions/resourceGroups/read")
 $role.Actions.Add("Microsoft.Insights/alertRules/*")
 $role.Actions.Add("Microsoft.Support/*")
@@ -129,7 +191,9 @@ $role.Description = 'Can monitor and restart virtual machines.'
 $role.IsCustom = $true
 $perms = 'Microsoft.Storage/*/read','Microsoft.Network/*/read','Microsoft.Compute/*/read'
 $perms += 'Microsoft.Compute/virtualMachines/start/action','Microsoft.Compute/virtualMachines/restart/action'
-$perms += 'Microsoft.Authorization/*/read','Microsoft.Resources/subscriptions/resourceGroups/read'
+$perms += 'Microsoft.Authorization/*/read'
+$perms += 'Microsoft.ResourceHealth/availabilityStatuses/read'
+$perms += 'Microsoft.Resources/subscriptions/resourceGroups/read'
 $perms += 'Microsoft.Insights/alertRules/*','Microsoft.Support/*'
 $role.Actions = $perms
 $role.NotActions = (Get-AzRoleDefinition -Name 'Virtual Machine Contributor').NotActions
