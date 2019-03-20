@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/14/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: 2eb7fb82b358d4ec8628bfa546b572ee3cbe47fa
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
-ms.translationtype: HT
+ms.openlocfilehash: 136c7e497b24db99b230884514d4a286bbeb64be
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40209817"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58114856"
 ---
 Quando si crea una macchina virtuale (VM), si riavviano VM arrestate (deallocate) o si ridimensiona una VM, Microsoft Azure alloca risorse di calcolo alla sottoscrizione. Microsoft continua a investire in funzionalità e infrastrutture aggiuntive per garantire che tutti i tipi di VM supportino le richieste dei clienti. In alcuni casi possono, tuttavia, verificarsi errori di allocazione delle risorse a causa di un aumento senza precedenti delle richieste di servizi di Azure in aree specifiche. Questo problema può verificarsi quando si tenta di creare o avviare le VM in un'area e le VM visualizzano il codice di errore e il messaggio seguenti:
 
-**Codice di errore**: AllocationFailed o ZonalAllocationFailed
+**Codice errore**: AllocationFailed o ZonalAllocationFailed
 
 **Messaggio di errore**: "Allocazione non riuscita. Non è disponibile una capacità sufficiente per la dimensione di VM richiesta in quest'area. Altre informazioni su come aumentare la possibilità di eseguire correttamente l'allocazione sono disponibili in http://aka.ms/allocation-guidance"
 
@@ -41,7 +41,7 @@ La richiesta di ridimensionamento di una VM o di aggiunta di una VM a un set di 
 Se la VM può far parte di un set di disponibilità diverso, creare una VM in un altro set di disponibilità (nella stessa area). La nuova VM può quindi essere aggiunta alla stessa rete virtuale.
 
 Arrestare (deallocare) tutte le VM nello stesso set di disponibilità, quindi riavviarle tutte.
-Per arrestare: fare clic su Gruppi di risorse > [gruppo di risorse personale] > Risorse > [set di disponibilità personale] > Macchine virtuali > [macchina virtuale personale] > Arresta.
+Per arrestare: Fare clic su Gruppi di risorse > [il proprio gruppo di risorse] > Risorse > [il proprio set di disponibilità] > Macchine virtuali > [la propria macchina virtuale] > Arresta.
 Dopo l'arresto di tutte le VM, selezionare la prima e fare clic su Avvia.
 Questo passaggio garantisce che venga eseguito un nuovo tentativo di allocazione e che si possa selezionare un nuovo cluster con capacità sufficiente.
 
@@ -54,7 +54,7 @@ La deallocazione parziale significa che una o più VM in un set di disponibilit�
 ### <a name="workaround"></a>Soluzione alternativa
 
 Arrestare (deallocare) tutte le VM nello stesso set di disponibilità, quindi riavviarle tutte.
-Per arrestare: fare clic su Gruppi di risorse > [gruppo di risorse personale] > Risorse > [set di disponibilità personale] > Macchine virtuali > [macchina virtuale personale] > Arresta.
+Per arrestare: Fare clic su Gruppi di risorse > [il proprio gruppo di risorse] > Risorse > [il proprio set di disponibilità] > Macchine virtuali > [la propria macchina virtuale] > Arresta.
 Dopo l'arresto di tutte le VM, selezionare la prima e fare clic su Avvia.
 Questo passaggio garantisce che venga eseguito un nuovo tentativo di allocazione e che si possa selezionare un nuovo cluster con capacità sufficiente.
 
@@ -75,12 +75,12 @@ Se la richiesta di allocazione è di grandi dimensioni (oltre 500 core), consult
 
 ## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>Errori di allocazione per dimensioni di VM precedenti (Av1, Dv1, DSv1, D15v2, DS15v2 e così via)
 
-Con l'espansione dell'infrastruttura di Azure, viene distribuito hardware di nuova generazione progettato per supportare i tipi di macchina virtuale più recenti. Alcune delle serie di VM precedenti non vengono eseguite nell'infrastruttura di generazione più recente. Per questo motivo, è possibile che i clienti riscontrino occasionalmente errori di allocazione per queste SKU legacy. Per evitare questo problema, si consiglia ai clienti che usano le macchine virtuali serie legacy di provare a passare alle VM più recenti equivalenti in base alle indicazioni seguenti: queste VM sono ottimizzate per l'hardware più recente e consentiranno di sfruttare i vantaggi offerti da prezzi e prestazioni migliori. 
+Con l'espansione dell'infrastruttura di Azure, viene distribuito hardware di nuova generazione progettato per supportare i tipi di macchina virtuale più recenti. Alcune delle serie di VM precedenti non vengono eseguite nell'infrastruttura di generazione più recente. Per questo motivo, è possibile che i clienti riscontrino occasionalmente errori di allocazione per queste SKU legacy. Per evitare questo problema, consigliamo ai clienti che usano macchine virtuali serie legacy di valutare il passaggio a macchine virtuali più recenti equivalenti per i motivi seguenti: Queste macchine virtuali sono ottimizzate per l'hardware più recente e consentiranno di sfruttare un rapporto prezzo/prestazioni più vantaggioso. 
 
 |Dimensioni/Serie VM legacy|Dimensioni/Serie VM più recenti consigliate|Altre informazioni|
 |----------------------|----------------------------|--------------------|
 |Serie Av1|[Serie Av2](../articles/virtual-machines/windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
-|Serie Dv1 o DSv1 (da D1 a D5)|[Serie Dv3 o Dsv3](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-sup1sup)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
+|Serie Dv1 o DSv1 (da D1 a D5)|[Serie Dv3 o Dsv3](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-1)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
 |Serie Dv1 o DSv1 (da D11 a D14)|[Serie Ev3 o Esv3](../articles/virtual-machines/windows/sizes-memory.md#esv3-series)|
 |D15v2 o DS15v2|Se si usa il modello di distribuzione di Resource Manager per sfruttare i vantaggi offerti dalle dimensioni maggiori della VM, provare a passare a E16v3/E16sv3 o E32v3/E32sv3. Queste VM sono progettate per l'hardware di generazione più recente. Se si usa il modello di distribuzione di Resource Manager per assicurarsi che l'istanza di VM sia isolata all'hardware dedicato a un singolo cliente, provare a passare alle nuove dimensioni di VM isolate, E64i_v3 o E64is_v3, progettate per l'hardware di generazione più recente. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
 

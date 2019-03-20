@@ -3,21 +3,20 @@ title: Attività di impostazione della variabile in Azure Data Factory | Microso
 description: Informazioni su come usare l'attività di impostazione della variabile per configurare il valore di una variabile esistente definita in una pipeline di Data Factory
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/10/2018
-ms.author: douglasl
-ms.openlocfilehash: cc573028779bcd6b77394bbeefbea58f714b835c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+author: sharonlo101
+ms.author: shlo
+manager: craigg
+ms.openlocfilehash: 71abfdff629f36b278488851b546c7371353a4d9
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017345"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575291"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Attività di impostazione della variabile in Azure Data Factory
 
@@ -25,9 +24,9 @@ Usare l'attività di impostazione della variabile per impostare il valore di una
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | DESCRIZIONE | Obbligatoria
+Proprietà | Descrizione | Obbligatorio
 -------- | ----------- | --------
-name | Nome dell'attività nella pipeline | Yes
+name | Nome dell'attività nella pipeline | Sì
 description | Testo che descrive l'attività | no
 type | Il tipo di attività è SetVariable | Sì
 value | Valore letterale stringa o valore di oggetto espressione usato per impostare la variabile specificata | Sì

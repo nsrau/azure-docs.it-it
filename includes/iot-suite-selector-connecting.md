@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 64cbf8f8704dbb216a15247caf741ff43690496a
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54457075"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56751482"
 ---
 > [!div class="op_single_selector"]
 > * [C su Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -58,9 +58,9 @@ Al termine del processo di distribuzione della soluzione Monitoraggio remoto, fa
 
 Per connettere un dispositivo all'acceleratore di soluzioni, è necessario che identifichi se stesso nell'hub IoT mediante delle credenziali valide. Quando si aggiunge il dispositivo alla soluzione, si ha la possibilità di salvare la stringa di connessione del dispositivo che contiene queste credenziali. Le istruzioni per includere la stringa di connessione del dispositivo nell'applicazione client sono illustrate più avanti in questa esercitazione.
 
-Per aggiungere un dispositivo alla soluzione Monitoraggio remoto, completare i passaggi seguenti nella pagina **Dispositivi** della soluzione:
+Per aggiungere un dispositivo alla soluzione di monitoraggio remoto, completare i passaggi seguenti nel **Device Explorer** pagina nella soluzione:
 
-1. Scegliere **Nuovo dispositivo** e quindi come **Tipo di dispositivo** scegliere **Fisico**:
+1. Scegli **+ nuovo dispositivo**, quindi scegliere **reale** come il **tipo di dispositivo**:
 
     ![Aggiungere un dispositivo reale](media/iot-suite-selector-connecting/devicesprovision.png)
 

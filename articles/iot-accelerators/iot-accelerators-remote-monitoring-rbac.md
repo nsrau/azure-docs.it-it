@@ -6,14 +6,14 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 08/06/2018
+ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 56fbb5d45e55e63ae887d915367cfc649e531095
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
-ms.translationtype: HT
+ms.openlocfilehash: 9accb41cdb4d780bf137d6872cca022226f902e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820223"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180756"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configurare il controllo degli accessi in base al ruolo nell'acceleratore di soluzioni di monitoraggio remoto
 
@@ -21,26 +21,26 @@ Questo articolo illustra come configurare il controllo degli accessi in base al 
 
 ## <a name="default-settings"></a>Impostazioni predefinite
 
-Quando si distribuisce la soluzione di monitoraggio remoto per la prima volta, sono disponibili due ruoli: **Admin** e **Sola lettura**.
+Durante la prima distribuzione della soluzione di monitoraggio remoto, sono disponibili due ruoli: **Admin** e **di sola lettura**.
 
 Gli utenti con il ruolo **Admin** hanno accesso completo alla soluzione, incluse le autorizzazioni seguenti, mentre gli utenti con il ruolo **Sola lettura** possono accedere solo per visualizzare la soluzione.
 
 | Autorizzazione            | Admin | Sola lettura |
 |----------------       |-------|-----------|
-| Visualizza soluzione         | Yes   | Yes       |
-| Aggiornare avvisi         | Yes   | No         |
-| Eliminare avvisi         | Yes   | No         |
-| Creare dispositivi        | Yes   | No         |
-| Aggiornare dispositivi        | Yes   | No         |
-| Eliminare dispositivi        | Yes   | No         |
-| Creare gruppi di dispositivi  | Yes   | No         |
-| Aggiornare gruppi di dispositivi  | Yes   | No         |
-| Eliminare gruppi di dispositivi  | Yes   | No         |
-| Creazione di regole          | Yes   | No         |
-| Aggiornare regole          | Yes   | No         |
-| Eliminare regole          | Yes   | No         |
-| Creare processi           | Yes   | No         |
-| Aggiornare la gestione di SIM | Yes   | No         |
+| Visualizza soluzione         | Sì   | Sì       |
+| Aggiornare avvisi         | Sì   | No         |
+| Eliminare avvisi         | Sì   | No         |
+| Creare dispositivi        | Sì   | No         |
+| Aggiornare dispositivi        | Sì   | No         |
+| Eliminare dispositivi        | Sì   | No         |
+| Creare gruppi di dispositivi  | Sì   | No         |
+| Aggiornare gruppi di dispositivi  | Sì   | No         |
+| Eliminare gruppi di dispositivi  | Sì   | No         |
+| Creazione di regole          | Sì   | No         |
+| Aggiornare regole          | Sì   | No         |
+| Eliminare regole          | Sì   | No         |
+| Creare processi           | Sì   | No         |
+| Aggiornare la gestione di SIM | Sì   | No         |
 
 Per impostazione predefinita, l'utente che ha distribuito la soluzione viene assegnato automaticamente al ruolo **Admin** ed è proprietario di un'applicazione di Azure Active Directory. Come proprietario dell'applicazione, può anche assegnare ruoli ad altri utenti tramite il portale di Azure. Se si vuole consentire a un altro utente di assegnare ruoli nella soluzione, è necessario impostare anche tale utente come proprietario dell'applicazione nel portale di Azure.
 
@@ -249,5 +249,5 @@ Vedere [Configurare il controllo degli accessi in base al ruolo nell'accelerator
 
 Per altre informazioni concettuali sull'acceleratore di soluzioni di monitoraggio remoto, vedere [Architettura della soluzione di monitoraggio remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
-Per altre informazioni sulla personalizzazione della soluzione di monitoraggio remoto, vedere [Personalizzare e ridistribuire un microservizio](iot-accelerators-microservices-example.md)
+Per altre informazioni sulla personalizzazione della soluzione di monitoraggio remoto, vedere [Customize and redeploy a microservice](iot-accelerators-microservices-example.md) (Personalizzare e ridistribuire un microservizio)
 <!-- Next tutorials in the sequence -->

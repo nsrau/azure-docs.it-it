@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 7e84e8e99000e9d8bd7a21d343588b1df777b56d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 55b4cf6e621bc1e5bd3d8ba4718e5714ea652c27
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994545"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111481"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Guida di riferimento per gli sviluppatori C# di Funzioni di Azure
 
@@ -50,7 +50,7 @@ Quando si compila il progetto viene generata una struttura di cartelle simile al
  | - host.json
 ```
 
-Questa directory viene distribuita all'app per le funzioni in Azure. Le estensioni di associazione necessarie nella [versione 2.x](functions-versions.md) del runtime di Funzioni vengono [aggiunte al progetto come pacchetti NuGet](functions-triggers-bindings.md#c-class-library-with-visual-studio-2017).
+Questa directory viene distribuita all'app per le funzioni in Azure. Le estensioni di associazione necessarie nella [versione 2.x](functions-versions.md) del runtime di Funzioni vengono [aggiunte al progetto come pacchetti NuGet](./functions-bindings-register.md#c-class-library-with-visual-studio-2017).
 
 > [!IMPORTANT]
 > Il processo di compilazione crea un file *function.json* per ogni funzione. Il file *function.json* non viene modificato direttamente. Non è possibile modificare la configurazione di associazione o disabilitare la funzione modificando il file. Per informazioni su come disabilitare una funzione, vedere [Come disabilitare le funzioni](disable-function.md#functions-2x---c-class-libraries).
@@ -83,7 +83,7 @@ Method Signature può contenere parametri diversi da quelli usati con l'attribut
 * [Associazioni di input e output](functions-triggers-bindings.md) contrassegnate come tali tramite la decorazione con attributi.  
 * Un parametro `ILogger` o `TraceWriter` ([solo versione 1.x](functions-versions.md#creating-1x-apps)) per la [registrazione](#logging).
 * Un parametro `CancellationToken` per [arresto normale](#cancellation-tokens).
-* Parametri di [espressioni di associazione](functions-triggers-bindings.md#binding-expressions-and-patterns) per ottenere i metadati trigger.
+* Parametri di [espressioni di associazione](./functions-bindings-expressions-patterns.md) per ottenere i metadati trigger.
 
 L'ordine dei parametri nella firma della funzione non è rilevante. È ad esempio possibile inserire i parametri di trigger prima o dopo le altre associazioni e il parametro del logger prima o dopo i parametri di associazione o di trigger.
 
@@ -173,7 +173,7 @@ Per le versioni 1.x e 2.x del runtime di Funzioni viene usato lo stesso pacchett
 
 ```xml
 <PropertyGroup>
-  <TargetFramework>netstandard2.0</TargetFramework>
+  <TargetFramework>netcoreapp2.1</TargetFramework>
   <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 </PropertyGroup>
 <ItemGroup>
@@ -205,7 +205,7 @@ Ogni associazione supporta determinati tipi. Ad esempio è possibile applicare u
 
 ## <a name="binding-to-method-return-value"></a>Associazione al valore restituito dal metodo
 
-È possibile usare un valore restituito dal metodo per un'associazione di output applicando l'attributo a tale valore. Per alcuni esempi, vedere [Trigger e associazioni](functions-triggers-bindings.md#using-the-function-return-value). 
+È possibile usare un valore restituito dal metodo per un'associazione di output applicando l'attributo a tale valore. Per alcuni esempi, vedere [Trigger e associazioni](./functions-bindings-return-value.md). 
 
 Usare il valore restituito solo se la corretta esecuzione di una funzione restituisce sempre un valore da passare all'associazione di output. In caso contrario, usare `ICollector` o `IAsyncCollector`, come illustrato nella sezione seguente.
 

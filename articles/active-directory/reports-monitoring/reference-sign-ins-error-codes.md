@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7f3c50a272ef5cc0d4980cb4a623ac043d764dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0f1ce786b748fedd1ec4c722b28bc11c28672c2f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190909"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443403"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codici di errore del report delle attività di accesso 
 
@@ -79,7 +79,7 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |50027|Token JWT non valido a causa dei motivi seguenti:<ul><li>Non contiene un'attestazione nonce o un'attestazione secondaria</li><li>L'identificatore soggetto non corrisponde</li><li>Attestazione duplicata nelle attestazioni idToken</li><li>Autorità di certificazione imprevista</li><li>Destinatari imprevisti</li><li>Al di fuori dell'intervallo di tempo valido </li><li>Formato del token non corretto</li><li>Il token ID esterno dell'autorità di certificazione non ha superato la verifica della firma</li></ul>Contattare il proprietario dell'applicazione.|
 |50029|URI non valido. Il nome di dominio contiene caratteri non validi. Contattare l'amministratore del tenant.|
 |50034|L'utente non è presente nella directory. Contattare l'amministratore del tenant.|
-|50042|Il valore salt richiesto per generare un identificatore pairwise non è presente nell'entità di sicurezza. Contattare l'amministratore del tenant.|
+|50042|Il valore salt obbligatorio per generare un identificatore pairwise non è presente in linea di principio. Contattare l'amministratore del tenant.|
 |50048|Mancata corrispondenza tra soggetto e attestazione dell'autorità di certificazione nell'asserzione del client. Contattare l'amministratore del tenant.|
 |50050|Il formato della richiesta non è valido. Contattare il proprietario dell'applicazione.|
 |50053|L'account è bloccato perché l'utente ha cercato di accedere troppe volte con una combinazione non corretta di ID utente e password.|
@@ -129,7 +129,7 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |50180|È necessaria l'autenticazione integrata di Windows. Abilitare il tenant per Seamless SSO.|
 |51001|Non è presente il suggerimento di dominio con l'ID di sicurezza locale o l'UPN locale.|
 |51004|L'account utente non è presente nella directory.|
-|51006|È necessaria l'autenticazione integrata di Windows. L'utente ha eseguito l'accesso usando un token di sessione senza attestazione wia. Chiedere all'utente di eseguire di nuovo l'accesso.|
+|51006|È necessaria l'autenticazione integrata di Windows. L'accesso con token di sessione non è presente tramite attestazione utente. Chiedere all'utente di eseguire di nuovo l'accesso.|
 |52004|L'utente non ha fornito il consenso per l'accesso alle risorse di LinkedIn. |
 |53000|Il criterio di accesso condizionale richiede un dispositivo conforme e il dispositivo non è conforme. Chiedere all'utente di registrare il dispositivo con un provider MDM approvato, come Intune.|
 |53001|I criteri di accesso condizionale richiedono un dispositivo aggiunto al dominio e il dispositivo non è aggiunto al dominio. Chiedere all'utente di usare un dispositivo aggiunto al dominio.|
@@ -138,7 +138,7 @@ Selezionando un elemento dall'elenco filtrato, verrà aperto il pannello **Detta
 |53004|L'utente deve completare il processo di registrazione dell'autenticazione a più fattori prima di accedere al contenuto. L'utente deve eseguire la registrazione per l'autenticazione a più fattori.|
 |65001|L'applicazione X non è autorizzata ad accedere all'applicazione Y o l'autorizzazione è stata revocata. Oppure, l'utente o l'amministratore non ha acconsentito all'uso dell'applicazione con ID X. Inviare una richiesta di autorizzazione interattiva per questo utente e questa risorsa. Oppure, l'utente o l'amministratore non ha acconsentito all'uso dell'applicazione con ID X. Inviare all'amministratore del tenant una richiesta di autorizzazione ad agire per conto dell'applicazione Y per la risorsa Z.|
 |65004|L'utente ha rifiutato il consenso per l'accesso all'app. Chiedere all'utente di riprovare ad accedere e fornire il consenso per l'app.|
-|65005|L'elenco di accesso alle risorse necessarie per l'applicazione non contiene applicazioni individuabili dalla risorsa oppure l'applicazione client ha richiesto l'accesso a una risorsa non specificata nell'elenco di accesso alle risorse necessarie oppure il servizio Graph ha restituito una risposta di richiesta non valida o risorsa non trovata. Se l'applicazione supporta SAML, potrebbe essere stata configurata con l'identificatore errato (entità). Provare la soluzione indicata per SAML usando il collegamento seguente: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list)|
+|65005|L'elenco di accesso alle risorse necessarie per l'applicazione non contiene applicazioni individuabili dalla risorsa oppure l'applicazione client ha richiesto l'accesso a una risorsa non specificata nell'elenco di accesso alle risorse necessarie oppure il servizio Graph ha restituito una risposta di richiesta non valida o risorsa non trovata. Se l'applicazione supporta SAML, potrebbe essere stata configurata con l'identificatore errato (entità). Provare la soluzione indicata per SAML usando il collegamento seguente: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)|
 |70000|Concessione non valida a causa dei motivi seguenti:<ul><li>L'asserzione SAML 2.0 richiesta ha un metodo di conferma del soggetto non valido</li><li>Il flusso OnBehalfOf dell'app non è supportato nella versione V2</li><li>Il token di aggiornamento primario non è firmato con la chiave della sessione</li><li>Il token di aggiornamento esterno non è valido</li><li>La concessione di accesso è stata ottenuta per un tenant diverso</li></ul>|
 |70001|L'applicazione denominata X non è stata trovata nel tenant denominato Y. Ciò può verificarsi se l'applicazione con l'identificatore X non è stata installata dall'amministratore del tenant o non è consentita da uno degli utenti nel tenant. È possibile che il valore dell'identificatore per l'applicazione sia stato configurato in modo errato o che la richiesta di autenticazione sia stata inviata al tenant sbagliato.|
 |70002|L'applicazione ha restituito credenziali client non valide. Contattare il proprietario dell'applicazione.|

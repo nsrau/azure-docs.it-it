@@ -5,14 +5,14 @@ author: ganganarayanan
 ms.author: gangan
 ms.date: 1/31/2017
 ms.topic: article
-ms.service: microsoft-docs
+ms.service: azure
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-ms.openlocfilehash: c3557d54b9fb3fd0173eec1e327050ac7cc80fc2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: HT
+ms.openlocfilehash: d98d0637c6d520193b11f4267c59016772ef063a
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31392902"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792481"
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Controllo degli accessi in base al ruolo di Azure per controllare i diritti di accesso e gestire le richieste di supporto
 
@@ -20,7 +20,7 @@ Il [Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.co
 La creazione di richieste di supporto nel portale di Azure, [portal.azure.com](https://portal.azure.com), usa il modello di Controllo degli accessi in base al ruolo per definire chi può creare e gestire le richieste di supporto.
 L'accesso viene concesso assegnando ruoli di Controllo degli accessi in base al ruolo appropriati a utenti, gruppi e applicazioni in un ambito specifico: una sottoscrizione, un gruppo di risorse o una risorsa.
 
-Esaminiamo l'esempio di un proprietario di un gruppo di risorse con autorizzazioni di lettura nell'ambito della sottoscrizione che può gestire tutte le risorse nel gruppo di risorse, come siti Web, macchine virtuali e subnet.
+Esaminiamo un esempio: Come un proprietario del gruppo di risorse con autorizzazioni di lettura nell'ambito della sottoscrizione, è possibile gestire tutte le risorse nel gruppo di risorse, ad esempio siti Web, macchine virtuali e subnet.
 Quando tuttavia tenta di creare una richiesta di supporto per la risorsa macchina virtuale, si verifica l'errore seguente
 
 ![Errore relativo alla sottoscrizione](./media/create-manage-support-requests-using-access-control/subscription-error.png)

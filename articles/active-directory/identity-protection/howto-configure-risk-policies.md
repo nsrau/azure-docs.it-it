@@ -17,12 +17,12 @@ ms.date: 02/07/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9f759eb815e8d0d03d4cdd7fe4ed603ff39d34f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1b578c0187f7b804b6261fec9d299f83d7dc1832
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197539"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015151"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Procedura: Configurare i criteri di rischio in Azure Active Directory Identity Protection (procedura aggiornata)
 
@@ -31,6 +31,8 @@ Azure AD rileva eventi di rischio indicanti identità potenzialmente compromesse
 
 - Con i criteri di rischio di accesso è possibile configurare una risposta per eventi di rischio in tempo reale rilevati durante l'accesso dell'utente. 
 - Con i criteri di rischio utente è possibile configurare una risposta per tutti i rischi relativi a utenti attivi che sono stati rilevati per un utente nel corso del tempo.  
+
+> [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
 
 ## <a name="what-is-the-sign-in-risk-policy"></a>Cosa sono i criteri di rischio di accesso?

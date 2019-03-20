@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 74b21a9dd8faa8eb35aa8a2ef738bd6303e4cdd7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 1203f33458c83bbde7a263022b78563bad183143
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195805"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870738"
 ---
 # <a name="azure-application-marketplace-tab"></a>Scheda Marketplace per applicazioni di Azure
 
@@ -66,7 +66,7 @@ La tabella seguente descrive gli artefatti di marketing.
 
 La schermata successiva mostra un esempio di risultato di ricerca nel Marketplace.
 
-![Risultati della ricerca dell'offerta nel Marketplace ](./media/azureapp-marketplace-example-browse.png)
+![Risultati della ricerca dell'offerta nel Marketplace](./media/azureapp-marketplace-example-browse.png)
 
 L'immagine seguente mostra come viene visualizzata l'offerta nel Marketplace dopo che l'utente ha fatto clic sul riquadro dell'offerta nei risultati della ricerca.
 
@@ -113,7 +113,7 @@ Il modulo Gestione dei lead presenta un campo facoltativo per configurare la ges
 ![Selezionare la destinazione del lead](./media/azureapp-marketplace-leadmgmt.png)
 
 >[!TIP]
->Selezionare l'icona informazioni per visualizzare questo messaggio: "Selezionare il sistema nel quale archiviare i clienti potenziali. Informazioni su come connettersi al sistema CRM sono disponibili [qui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads)".
+>Selezionare l'icona informazioni per visualizzare questo messaggio: “Selezionare il sistema nel quale archiviare i clienti potenziali. Informazioni su come connettersi al sistema CRM sono disponibili [qui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads)".
 
 
 Per altre informazioni, vedere [Configurare lead relativi ai clienti](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads).

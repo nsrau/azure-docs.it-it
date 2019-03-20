@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: b0cd20278287b41dd953c64044b705aa2dba7557
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.openlocfilehash: a8856bd46f516aa3c64965648d4f23b9ba665b1b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318980"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820026"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Disabilitare il firewall del sistema operativo guest nella macchina virtuale di Azure
 
@@ -33,7 +33,7 @@ La procedura descritta in questo articolo deve essere usata come soluzione alter
 
 Se la macchina virtuale è online ed è accessibile su un'altra macchina virtuale nella stessa rete virtuale, è possibile apportare le mitigazioni seguenti usando l'altra macchina virtuale.
 
-#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Mitigazione 1: Estensione dello script personalizzata o funzionalità Comandi di esecuzione
+#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Mitigazione 1: Funzionalità di estensione di Script o eseguire un comando personalizzato
 
 Se è in funzione un agente di Azure, è possibile usare l'[estensione dello script personalizzata](../extensions/custom-script-windows.md) o la funzionalità [Comandi di esecuzione](../windows/run-command.md) (solo macchine virtuali di Resource Manager) per eseguire in remoto gli script seguenti.
 
@@ -70,7 +70,7 @@ Se è in funzione un agente di Azure, è possibile usare l'[estensione dello scr
     ```
 
 > [!Note]
-> Se il firewall è configurato tramite un oggetto Criteri di gruppo, questo metodo potrebbe non funzionare perché questo comando modifica solo le voci del Registro di sistema locale. Se è applicato un criterio, eseguirà l'override di questa modifica. 
+> Se il firewall viene impostato tramite un oggetto Criteri di gruppo, questo metodo potrebbe non funzionare perché questo comando modifica solo le voci del Registro di sistema locale. Se è applicato un criterio, eseguirà l'override di questa modifica. 
 
 #### <a name="mitigation-3-pstools-commands"></a>Mitigazione 3: Comandi PSTools
 

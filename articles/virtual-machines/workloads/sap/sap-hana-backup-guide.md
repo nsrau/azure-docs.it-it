@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 9d72bc885bdaaed521042df236dd722b80533186
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
-ms.translationtype: HT
+ms.openlocfilehash: 89896fab7b1c359007ed23d4f9d9771e366ca68a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867002"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013353"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guida del backup di SAP HANA in macchine virtuali di Azure
 
@@ -63,8 +63,8 @@ _No, attualmente è possibile eseguire solo backup di dati e log sul lato primar
 
 - [Introduction to SAP HANA Administration](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US) (Introduzione all'amministrazione di SAP HANA)
 - [Planning Your Backup and Recovery Strategy](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm) (Pianificazione del backup e strategia di ripristino)
-- [Schedule HANA Backup using ABAP DBACOCKPIT](http://www.hanatutorials.com/p/schedule-hana-backup-using-abap.html) (Pianificare il backup di HANA tramite ABAP DBACOCKPIT)
-- [Schedule Data Backups (SAP HANA Cockpit)](http://help.sap.com/saphelp_hanaplatform/helpdata/en/6d/385fa14ef64a6bab2c97a3d3e40292/frameset.htm) (Pianificare il backup dei dati (Pannello di controllo di SAP HANA)
+- [Schedule HANA Backup using ABAP DBACOCKPIT](https://www.hanatutorials.com/p/schedule-hana-backup-using-abap.html) (Pianificare il backup di HANA tramite ABAP DBACOCKPIT)
+- [Schedule Data Backups (SAP HANA Cockpit)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/6d/385fa14ef64a6bab2c97a3d3e40292/frameset.htm) (Pianificare il backup dei dati (Pannello di controllo di SAP HANA)
 - Domande frequenti sul backup di SAP HANA in [Nota SAP 1642148](https://launchpad.support.sap.com/#/notes/1642148)
 - Domande frequenti sugli snapshot di archiviazione e dei database di SAP HANA in [Nota SAP 2039883](https://launchpad.support.sap.com/#/notes/2039883)
 - File system di rete non appropriati per il backup e il ripristino in [Nota SAP 1820529](https://launchpad.support.sap.com/#/notes/1820529)
@@ -80,7 +80,7 @@ Quando si usano gli snapshot di archiviazione, è consigliabile eseguire un ripr
 
 Tenere presente che eseguire un semplice ripristino e verificare che HANA sia attivo e in esecuzione non è sufficiente. In teoria, si dovrebbe eseguire una verifica della coerenza della tabella per verificare che il database sia stato ripristinato correttamente. SAP HANA offre diversi tipi di verifiche della coerenza, descritti nella [Nota SAP 1977584](https://launchpad.support.sap.com/#/notes/1977584).
 
-Informazioni sulla verifica della coerenza della tabella sono reperibili anche nel sito Web di SAP in [Table and Catalog Consistency Checks](http://help.sap.com/saphelp_hanaplatform/helpdata/en/25/84ec2e324d44529edc8221956359ea/content.htm#loio9357bf52c7324bee9567dca417ad9f8b) (Verifiche della coerenza di tabelle e cataloghi).
+Informazioni sulla verifica della coerenza della tabella sono reperibili anche nel sito Web di SAP in [Table and Catalog Consistency Checks](https://help.sap.com/saphelp_hanaplatform/helpdata/en/25/84ec2e324d44529edc8221956359ea/content.htm#loio9357bf52c7324bee9567dca417ad9f8b) (Verifiche della coerenza di tabelle e cataloghi).
 
 Per il backup di file standard, non è necessario eseguire un ripristino di prova. Sono disponibili due strumenti di SAP HANA che consentono di controllare quale backup può essere usato per il ripristino: hdbbackupdiag e hdbbackupcheck. Vedere [Manually Checking Whether a Recovery is Possible](https://help.sap.com/saphelp_hanaplatform/helpdata/en/77/522ef1e3cb4d799bab33e0aeb9c93b/content.htm) (Verifica manuale della fattibilità di un ripristino) per altre informazioni su questi strumenti.
 
@@ -90,7 +90,7 @@ SAP non esprime preferenze tra l'esecuzione del backup di HANA e lo snapshot di 
 
 In Azure, tenere in considerazione il fatto che la funzionalità dello snapshot del BLOB di Azure non garantisce coerenza dei file system. Vedere [Using blob snapshots with PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)(Uso degli snapshot BLOB con PowerShell). Nella sezione successiva, _Coerenza dei dati SAP HANA durante l'esecuzione degli snapshot di archiviazione_, vengono presentate alcune considerazioni su questa funzionalità.
 
-È anche necessario comprendere le implicazioni di fatturazione quando si lavora spesso con gli snapshot del BLOB, come descritto in questo articolo: [Informazioni sull'incremento dei costi dovuto agli snapshot](/rest/api/storageservices/understanding-how-snapshots-accrue-charges). Non è scontato come per l'uso dei dischi virtuali di Azure.
+Inoltre, è necessario comprendere le implicazioni di fatturazione quando si lavora spesso con gli snapshot del blob come descritto in questo articolo: [Informazioni su come comportano un aumento dei costi dovuto agli snapshot](/rest/api/storageservices/understanding-how-snapshots-accrue-charges), non è&#39;scontato come per l'uso di dischi virtuali di Azure.
 
 ### <a name="sap-hana-data-consistency-when-taking-storage-snapshots"></a>Coerenza dei dati SAP HANA durante l'esecuzione degli snapshot di archiviazione
 
@@ -137,7 +137,7 @@ La guida all'amministrazione di HANA offre un elenco di esempio. Si consiglia di
 Per quanto riguarda una pianificazione esatta di quando e con quale frequenza deve essere svolto un tipo di backup specifico, non è possibile fornire linee guida generali: si tratta di un elemento specifico del cliente, che dipende dal numero di modifiche dei dati che si verifica nel sistema. Un consiglio di base dal lato SAP, che può essere considerato come linea guida generale, è quello di eseguire un backup HANA completo una volta alla settimana.
 Per quanto riguarda i backup dei log, vedere la documentazione di SAP HANA [Log Backups](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/bb7e33bb571014a03eeabba4e37541/content.htm) (Backup dei log).
 
-SAP consiglia anche di eseguire alcune attività di manutenzione del catalogo di backup per impedirgli di crescere all'infinito. Vedere [Housekeeping for Backup Catalog and Backup Storage](http://help.sap.com/saphelp_hanaplatform/helpdata/en/ca/c903c28b0e4301b39814ef41dbf568/content.htm) (Manutenzione del catalogo e dell'archiviazione dei backup).
+SAP consiglia anche di eseguire alcune attività di manutenzione del catalogo di backup per impedirgli di crescere all'infinito. Vedere [Housekeeping for Backup Catalog and Backup Storage](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ca/c903c28b0e4301b39814ef41dbf568/content.htm) (Manutenzione del catalogo e dell'archiviazione dei backup).
 
 ### <a name="sap-hana-configuration-files"></a>File di configurazione di SAP HANA
 

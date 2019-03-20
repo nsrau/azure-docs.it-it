@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 204898026dc55e7111d3810d4938101ffaddc3f9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 4d7f3c8d8efbdc658e4f7621a0606cb7fd92c88d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698327"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103486"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Migrazione Contoso: eseguire il rehosting di un'app Linux locale in macchine virtuali di Azure
 
@@ -314,17 +314,17 @@ A questo punto gli amministratori di Contoso possono iniziare a replicare la mac
 
 3. Selezionano la macchina virtuale **OSTICKETWEB** per la replica. 
 
-    - In questa fase selezionano solo **OSTICKETWEB** perché la rete virtuale e la subnet devono essere entrambe selezionate e le macchine virtuali non si trovano nella stessa subnet.
-    - Quando viene abilitata la replica, Site Recovery installa automaticamente il servizio Mobility nella macchina virtuale.
+   - In questa fase selezionano solo **OSTICKETWEB** perché la rete virtuale e la subnet devono essere entrambe selezionate e le macchine virtuali non si trovano nella stessa subnet.
+   - Quando viene abilitata la replica, Site Recovery installa automaticamente il servizio Mobility nella macchina virtuale.
 
-    ![Abilitare la replica](./media/contoso-migration-rehost-linux-vm/enable-replication3.png)
+     ![Abilitare la replica](./media/contoso-migration-rehost-linux-vm/enable-replication3.png)
 
 4. Nelle proprietà della macchina virtuale selezionano l'account usato dal server di elaborazione per installare automaticamente il servizio Mobility nel computer.
 
      ![Servizio Mobility](./media/contoso-migration-rehost-linux-vm/linux-mobility.png)
 
 5. In **Impostazioni della replica** > **Configurare le impostazioni di replica** verifica che siano selezionati i criteri di replica corretti e seleziona **Abilitazione della replica**.
-6.  Contoso tiene traccia dell'avanzamento della replica in **Processi**. Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover.
+6. Contoso tiene traccia dell'avanzamento della replica in **Processi**. Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover.
 
 
 
@@ -408,7 +408,7 @@ Gli amministratori di Contoso sono ora pronti per eseguire un failover sul piano
 
 ### <a name="connect-the-vm-to-the-database"></a>Connettere la macchina virtuale al database
 
-Come passaggio finale del processo di migrazione, gli amministratori di Contoso aggiornano la stringa di connessione dell'applicazione in modo che punti al database dell'app in esecuzione sulla macchina virtuale **OSTICKETMYSQL**. 
+Come passaggio finale del processo di migrazione, gli amministratori di Contoso aggiornare la stringa di connessione dell'applicazione in modo che punti al database di app in esecuzione sul **OSTICKETMYSQL** della macchina virtuale. 
 
 1. Crea una connessione SSH alla macchina virtuale **OSTICKETWEB** tramite Putty o un altro client SSH. La macchina virtuale è privata, pertanto Contoso si connette usando l'indirizzo IP privato.
 

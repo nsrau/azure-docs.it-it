@@ -1,5 +1,5 @@
 ---
-title: Proprietà di un utente di Collaborazione B2B di Azure Active Directory | Documentazione Microsoft
+title: Proprietà di un utente di collaborazione B2B - Azure Active Directory | Microsoft Docs
 description: Le proprietà di un utente di Collaborazione B2B di Azure Active Directory sono configurabili
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7ef27b1365078ea2c5a7b92338a6c10f8d05de0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 45e9553a3af8a09a6630efa771294661702feef5
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209252"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670704"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Proprietà di un utente di Collaborazione B2B di Azure Active Directory
 

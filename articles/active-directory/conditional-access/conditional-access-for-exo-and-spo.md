@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/15/2018
+ms.date: 02/27/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dad650ac1cc7ab8822925a4a9759b68ee0d0088
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b4015f99e9281285c530c6ae40dbda4e97846af8
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186000"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311034"
 ---
 # <a name="how-to-set-up-sharepoint-online-and-exchange-online-for-azure-active-directory-conditional-access"></a>Procedura: Configurare SharePoint Online ed Exchange Online per l'accesso condizionale di Azure Active Directory 
 
@@ -77,7 +77,7 @@ Quando si configurano i criteri di accesso condizionale per Exchange Online, è 
 
 Exchange Active Sync supporta l'autenticazione moderna, ma esistono alcune limitazioni relative al supporto per gli scenari di accesso condizionale:
 
-- È possibile configurare solo la condizione per le piattaforme del dispositivo.  
+- Quando si selezionano **i client di Exchange Active Sync** nel criterio, non è possibile configurare le altre condizioni.  
 
     ![Piattaforme del dispositivo](./media/conditional-access-for-exo-and-spo/05.png)
 
@@ -93,7 +93,7 @@ Per proteggere in modo efficace l'accesso a Exchange Online da Exchange ActiveSy
 
     ![Accesso condizionale](./media/conditional-access-for-exo-and-spo/04.png)
 
-    b. Selezionare **Exchange ActiveSync** come **app client** e quindi selezionare **Applica i criteri solo alle piattaforme supportate**.  
+    b. Selezionare **Exchange Active Sync** come **app client**.  
 
     ![Piattaforme del dispositivo](./media/conditional-access-for-exo-and-spo/03.png)
 

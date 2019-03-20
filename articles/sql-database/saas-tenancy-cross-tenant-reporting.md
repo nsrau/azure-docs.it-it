@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewers: billgib,ayolubek
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: ccf6ff75cb041c7d9998f67d579d1b392f83cee9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 9562d0cd1ad97a459c3630456a6070ac2b6e63f3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476248"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096028"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Reporting tra tenant tramite query distribuite
 
@@ -27,7 +27,7 @@ In questa esercitazione verranno eseguite query distribuite sull'intero set di d
 In questa esercitazione si apprenderà:
 
 > [!div class="checklist"]
-
+> 
 > * Come distribuire un database di reporting
 > * Come eseguire query distribuite su tutti i database tenant
 > * In che modo le viste globali in ogni database consentono l'esecuzione di query efficienti tra i tenant
@@ -106,7 +106,7 @@ Questo esercizio distribuisce il database _adhocreporting_, ovvero il database p
 
 1. In *PowerShell ISE* aprire ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReporting.ps1*. 
 
-1. Impostare **$DemoScenario = 2**, _Distribuire un database di reporting ad hoc_.
+1. Impostare **$DemoScenario scrittura=2**, _distribuzione Ad hoc reporting database_.
 
 1. Premere **F5** per eseguire lo script e creare il database *adhocreporting*.
 
@@ -148,7 +148,7 @@ Dopo avere configurato il database *adhocreporting*, è possibile procedere ed e
 
 Quando si esamina il piano di esecuzione, passare il mouse sulle icone del piano per visualizzare i dettagli. 
 
-È importante sottolineare che l'impostazione **DISTRIBUTION = SHARDED(VenueId)**, usata per la definizione dell'origine dati esterna, consente di migliorare le prestazioni in molti scenari. Dato che ogni *VenueId* corrisponde a un singolo database, è possibile filtrare facilmente i dati in remoto e restituire solo i dati necessari.
+È importante sottolineare che l'impostazione **DISTRIBUTION = SHARDED(VenueId)**, usata per la definizione dell'origine dati esterna, consente di migliorare le prestazioni in molti scenari. Dato che ogni *VenueId* corrisponde a un singolo database, il filtro viene eseguito facilmente in remoto, restituire solo i dati necessiti.
 
 1. Aprire ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql* in SQL Server Management Studio.
 2. Assicurarsi di essere connessi al database **adhocreporting**.
@@ -181,7 +181,7 @@ Quando si esamina il piano di esecuzione, passare il mouse sulle icone del piano
 In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
-
+> 
 > * Eseguire query distribuite su tutti i database tenant
 > * Distribuire un database di reporting e definire lo schema necessario per eseguire query distribuite.
 

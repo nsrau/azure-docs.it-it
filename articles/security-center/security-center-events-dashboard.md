@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: f1a3268fcacd4083b767a3fe89d6ab9b41b6cceb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 01f6da4f5ad6b618c444949fce8d2b7aa3367e17
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114060"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075766"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Monitoraggio ed elaborazione degli eventi di sicurezza nel Centro sicurezza di Azure
 Il dashboard degli eventi offre una panoramica del numero di eventi di sicurezza raccolti nel tempo e un elenco di eventi importanti che potrebbero richiedere l'attenzione dell'utente.  
@@ -28,6 +28,8 @@ Il dashboard degli eventi offre una panoramica del numero di eventi di sicurezza
 > Per usare questa funzionalità, l'area di lavoro deve eseguire la versione 2 di Log Analytics e trovarsi nel livello Standard del Centro sicurezza. Per altre informazioni sul livello Standard vedere la [pagina dei prezzi](security-center-pricing.md) del Centro sicurezza.
 >
 >
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="what-is-a-security-event"></a>Definizione di evento di sicurezza
 Il Centro sicurezza usa Microsoft Monitoring Agent per raccogliere diverse configurazione ed eventi correlati alla sicurezza dai computer e archivia questi eventi nelle aree di lavoro dell'utente. Ecco alcuni esempi di dati: registri del sistema operativo, ovvero registri eventi di Windows, processi in esecuzione ed eventi delle soluzioni di sicurezza integrati nel Centro sicurezza. Microsoft Monitoring Agent copia anche i file di dump di arresto anomalo del sistema nelle aree di lavoro.
@@ -55,30 +57,30 @@ Il **dashboard Eventi** offre una panoramica del numero di eventi elaborati nel 
 1. Scegliere **Eventi** dal menu principale del **Centro sicurezza**.
 2. Potrebbe aprirsi il selettore dell'area di lavoro **Dashboard Eventi**. Se si dispone solo di un'area di lavoro, questo selettore dell'area di lavoro non viene visualizzato. Se si dispone di più di un'area di lavoro, è necessario selezionare un'area di lavoro per visualizzarne i dettagli dell'evento elaborato. Se si dispone di più di un'area di lavoro, selezionare un'area di lavoro dall'elenco.
 
-  ![Elenco dell'area di lavoro][3]
+   ![Elenco dell'area di lavoro][3]
 
 3. Si apre **Dashboard Eventi** che mostra i dettagli dell'evento per l'area di lavoro selezionata. È possibile visualizzare gli eventi rilevanti e tutti gli eventi per tipo.  In questo esempio, è stato selezionato **Notable events** (Eventi rilevanti).
 
-  ![Eventi rilevanti][4]
+   ![Eventi rilevanti][4]
 
 4. È possibile eseguire una query per più dati nell'area di lavoro se si seleziona un tipo di evento. In questo esempio, è stato selezionato **SecurityEvent**.
 
-  ![Selezione di un tipo di evento][5]
+   ![Selezione di un tipo di evento][5]
 
 5. Si apre **Ricerca log** con dettagli aggiuntivi sul tipo di evento.
 
-  ![Ricerca log][6]
+   ![Ricerca log][6]
 
 ## <a name="add-a-notable-event"></a>Aggiungere un evento rilevante
-Il Centro sicurezza contiene eventi rilevanti predefiniti. È possibile aggiungere eventi rilevanti in base alle proprie query usando il [linguaggio di query di Log Analytics](../log-analytics/log-analytics-search-reference.md). Per aggiungere un evento significativo, è necessario tornare a **Dashboard Eventi**.
+Il Centro sicurezza contiene eventi rilevanti predefiniti. È possibile aggiungere eventi rilevanti basati alle proprie query usando il [linguaggio di query Kusto](../log-analytics/log-analytics-search-reference.md). Per aggiungere un evento significativo, è necessario tornare a **Dashboard Eventi**.
 
 1. Selezionare **Add Notable Event** (Aggiungi un evento rilevante).
 
-  ![Aggiungere un evento rilevante][7]
+   ![Aggiungere un evento rilevante][7]
 
 2. Si apre **Add custom notable event** (Aggiungi evento rilevante personalizzato).  In **Nome visualizzato** immettere un nome per l'evento rilevante. In **Query di ricerca** immettere la query per l'evento.
 
-  ![Immettere la query][8]
+   ![Immettere la query][8]
 
 4. Selezionare **OK**.
 
@@ -94,7 +96,7 @@ Se la riga dell'area di lavoro:
 - è vuoto, l'area di lavoro soddisfa i requisiti e per aprire il dashboard basta selezionare un'area di lavoro
 
 > [!NOTE]
-> In **Dashboard Eventi** la colonna **EVENTI** indica la quantità di eventi in ogni area di lavoro.  Questa colonna è vuota per alcune aree di lavoro perché il livello Gratuito del Centro sicurezza viene applicato all'area di lavoro. Nel livello Gratuito il Centro sicurezza raccoglierà gli eventi che però non vengono salvati in Log Analytics e non sono disponibili nel dashboard.
+> In **Dashboard Eventi** la colonna **EVENTI** indica la quantità di eventi in ogni area di lavoro.  Questa colonna è vuota per alcune aree di lavoro perché il livello Gratuito del Centro sicurezza viene applicato all'area di lavoro. Nel livello gratuito, Centro sicurezza raccoglierà gli eventi ma gli eventi non vengono salvati in log di monitoraggio di Azure e non sono disponibili nel dashboard.
 >
 >
 
@@ -102,26 +104,26 @@ Se la riga dell'area di lavoro:
 1. Selezionare un'area di lavoro con **REQUIRES UPDATE** (AGGIORNAMENTO NECESSARIO).
 2. Si apre **Cerca aggiornamento**. Selezionare **Upgrade Now** (Aggiorna ora).
 
-  ![Aggiorna ora][10]
+   ![Aggiorna ora][10]
 
 ## <a name="upgrade-to-security-centers-standard-tier"></a>Passare al piano Standard del Centro sicurezza
 1. Selezionare un'area di lavoro con **UPGRADE PLAN** (AGGIORNA PIANO).
 2. Viene aperto il **dashboard Eventi**. Selezionare **Try Events dashboard** (Prova il dashboard Eventi).
 
-  ![Prova il dashboard][11]
+   ![Prova il dashboard][11]
 
 3. In **Onboarding nella protezione avanzata** selezionare l'area di lavoro che si sta aggiornando.
 4. In **Prezzi** selezionare **Standard**.
 5. Selezionare **Salva**.
 
-  ![Passare al livello Standard][12]
+   ![Passare al livello Standard][12]
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stato descritto come usare il dashboard Eventi nel Centro sicurezza. Per altre informazioni sul funzionamento del dashboard e su come scrivere le proprie query di eventi, vedere:
 
-- [Che cos'è Log Analytics?](../log-analytics/log-analytics-overview.md) : panoramica di Log Analytics
-- [Informazioni sulle ricerche log in Log Analytics](../log-analytics/log-analytics-log-search-new.md): descrive come vengono usate le ricerche log in Log Analytics e illustra i concetti con cui occorre avere familiarità prima di creare una ricerca log
-- [Guida di riferimento alla ricerca in Log Analytics](../log-analytics/log-analytics-search-reference.md): informazioni su come scrivere le query di eventi usando il linguaggio di query in Log
+- [Che cos'è log di monitoraggio di Azure?](../log-analytics/log-analytics-overview.md) : I log Panoramica di monitoraggio di Azure
+- [Informazioni sulle ricerche log in Kusto](../log-analytics/log-analytics-log-search-new.md) : descrive come vengono usate le ricerche log in log di monitoraggio di Azure e illustra i concetti con cui occorre avere familiarità prima di creare una ricerca log
+- [Riferimento alla ricerca di Kusto](../log-analytics/log-analytics-search-reference.md) – informazioni su come scrivere le query di eventi usando il linguaggio di query nel registro eventi
 
 Per altre informazioni sul Centro sicurezza, vedere:
 

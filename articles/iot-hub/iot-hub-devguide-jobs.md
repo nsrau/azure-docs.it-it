@@ -1,19 +1,19 @@
 ---
 title: Informazioni sui processi hub IoT di Azure | Microsoft Docs
 description: Guida per sviluppatori - Pianificazione di processi da eseguire in più dispositivi connessi all'hub di IoT. I processi possono aggiornare i tag e le proprietà desiderate e richiamare metodi diretti su più dispositivi.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.author: dobett
-ms.openlocfilehash: b9ad7a0e1947c9ca95b343a443688e976c306f95
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: HT
+ms.openlocfilehash: c2b05b1854b4f1d7ee4ac65ebe635330ba8c604e
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884225"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011365"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Pianificare processi in più dispositivi
 
@@ -119,22 +119,22 @@ Di seguito è riportato un elenco di proprietà e corrispondenti descrizioni che
 | **startTime** |Ora di inizio fornita dall'applicazione (ISO 8601) per il processo. |
 | **endTime** |Data fornita dall'hub IoT (ISO 8601) per il completamento del processo. È valida solo quando il processo raggiunge lo stato di completamento. |
 | **type** |Tipi di processi: |
-| | **scheduledUpdateTwin**: un processo usato per aggiornare un set di proprietà o tag desiderati. |
-| | **scheduledDeviceMethod**: un processo usato per richiamare un metodo di dispositivo in un set di dispositivi gemelli. |
+| | **scheduledUpdateTwin**: Un processo usato per aggiornare un set di proprietà o tag desiderati. |
+| | **scheduledDeviceMethod**: Un processo usato per richiamare un metodo di dispositivo in un set di dispositivi gemelli. |
 | **Stato** |Stato corrente del processo. Valori possibili per lo stato: |
-| | **pending**: processo pianificato e in attesa del prelievo da parte del servizio del processo. |
-| | **scheduled**: processo pianificato per un'ora futura. |
-| | **running**: processo attualmente attivo. |
-| | **canceled**: il processo è stato annullato. |
-| | **failed**: processo non riuscito. |
-| | **completed**: processo completato. |
+| | **In sospeso**: Pianificata e in attesa di essere prelevati dal servizio del processo. |
+| | **scheduled**: Pianificati per un momento successivo. |
+| | **running**: Processo attualmente attivo. |
+| | **canceled**: Processo è stato annullato. |
+| | **failed**: Processo non riuscito. |
+| | **completed**: Completamento del processo. |
 | **deviceJobStatistics** |Statistiche sull'esecuzione del processo. |
 | | Proprietà **deviceJobStatistics**: |
-| | **deviceJobStatistics.deviceCount**: numero di dispositivi nel processo. |
-| | **deviceJobStatistics.deviceCount**: numero di dispositivi in cui il processo non è riuscito. |
-| | **deviceJobStatistics.succeededCount**: numero di dispositivi in cui il processo è riuscito. |
-| | **deviceJobStatistics.runningCount**: numero di dispositivi in cui il processo è in esecuzione. |
-| | **deviceJobStatistics.pendingCount**: numero di dispositivi in cui il processo è in sospeso. |
+| | **deviceJobStatistics.deviceCount**: Numero di dispositivi nel processo. |
+| | **deviceJobStatistics.failedCount**: Numero di dispositivi in cui il processo non è riuscito. |
+| | **deviceJobStatistics.succeededCount**: Numero di dispositivi in cui il processo è riuscito. |
+| | **deviceJobStatistics.runningCount**: Numero di dispositivi in cui il processo è in esecuzione. |
+| | **deviceJobStatistics.pendingCount**: Numero di dispositivi in cui il processo è in attesa. |
 
 ### <a name="additional-reference-material"></a>Materiale di riferimento
 

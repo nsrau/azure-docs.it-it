@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 993a8ca48df40b400c21852d3d28941d9d62affb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5b958a8d7aa8566c62d5fdaf6b5b51064e4e5123
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549018"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183748"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
 
@@ -230,7 +230,7 @@ L'opzione **Accessi** offre una panoramica completa di tutti gli eventi di acces
 
 ## <a name="office-365-activity-logs"></a>Log attività di Office 365
 
-È possibile visualizzare i log attività di Office 365 dall'[interfaccia di amministrazione di Office 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Sebbene i log attività di Office 365 e di Azure AD condividano numerose risorse della directory, solo l'interfaccia di amministrazione di Office 365 consente una visualizzazione completa dei log attività di Office 365. 
+È possibile visualizzare i log attività di Office 365 dal [interfaccia di amministrazione di Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Anche se le attività di Office 365 e i log attività di Azure AD condividano numerose risorse della directory, solo l'interfaccia di amministrazione di Microsoft 365 offre una visualizzazione completa dei log attività di Office 365. 
 
 È possibile accedere ai log attività di Office 365 anche a livello di codice tramite le [API di gestione di Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 

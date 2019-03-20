@@ -1,6 +1,6 @@
 ---
-title: Creare un endpoint personalizzato per il riconoscimento vocale con il Servizio di riconoscimento vocale in Azure | Microsoft Docs
-description: Informazioni su come creare un endpoint personalizzato per il riconoscimento vocale con il Servizio di riconoscimento vocale in Servizi cognitivi.
+title: Creare un endpoint di riconoscimento vocale personalizzato con i servizi di riconoscimento vocale in Azure | Microsoft Docs
+description: Informazioni su come creare un endpoint di riconoscimento vocale personalizzato usando servizi di riconoscimento vocale di Azure.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,19 +9,19 @@ ms.subservice: custom-speech
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: panosper
-ms.openlocfilehash: 63d2c15c14340b0d7407b0144a8b8c75a2634e6a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 1f7a84d187ba6279caad4926d54bfc56254152af
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220247"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862999"
 ---
 # <a name="create-a-custom-speech-to-text-endpoint"></a>Creare un endpoint personalizzato per il riconoscimento vocale
 
-Dopo aver creato modelli acustici o linguistici personalizzati, è possibile distribuirli in un endpoint personalizzato di riconoscimento vocale. 
+Dopo aver creato modelli acustici o linguistici personalizzati, è possibile distribuirli in un endpoint personalizzato di riconoscimento vocale.
 
 ## <a name="create-an-endpoint"></a>Creare un endpoint
-Per creare un nuovo endpoint personalizzato, selezionare **Endpoint** nel menu **Riconoscimento vocale personalizzato** all'inizio della pagina. Viene visualizzata la pagina **Endpoint**, che contiene una tabella degli endpoint personalizzati correnti. Se non sono stati ancora creati endpoint, la tabella è vuota. Le impostazioni locali correnti sono indicate nel titolo della tabella. 
+Per creare un nuovo endpoint personalizzato, selezionare **Endpoint** nel menu **Riconoscimento vocale personalizzato** all'inizio della pagina. Viene visualizzata la pagina **Endpoint**, che contiene una tabella degli endpoint personalizzati correnti. Se non sono stati ancora creati endpoint, la tabella è vuota. Le impostazioni locali correnti sono indicate nel titolo della tabella.
 
 Per creare una distribuzione per una lingua diversa, selezionare **Change Locale** (Cambia impostazioni locali). Per altre informazioni sui linguaggi supportati.
 
@@ -44,6 +44,6 @@ Quando la distribuzione è pronta, il nome dell'endpoint diventa un collegamento
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre esercitazioni, vedere:
-- [Ottenere una sottoscrizione di prova al servizio Voce](https://azure.microsoft.com/try/cognitive-services/)
+- [Ottenere una sottoscrizione di prova gratuita al Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
 - [Creare un modello acustico personalizzato](how-to-customize-acoustic-models.md)
 - [Creare un modello linguistico personalizzato](how-to-customize-language-model.md)

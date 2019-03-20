@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 02/05/2018
+ms.date: 03/11/2019
 ms.author: ramamill
-ms.openlocfilehash: fd434ed8d5b625a1a0ed1ff195da0f864a4024b0
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: ba80c8ce57495eaa46e915cb0c472eb4aabcee57
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769428"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863628"
 ---
 # <a name="manage-process-servers"></a>Gestire server di elaborazione
 
@@ -30,7 +30,7 @@ Aggiornare un server di elaborazione in esecuzione in locale o in Azure (per mot
 [!INCLUDE [site-recovery-vmware-upgrade -process-server](../../includes/site-recovery-vmware-upgrade-process-server-internal.md)]
 
 > [!NOTE]
-  In genere, quando si usa l'immagine della raccolta di Azure per creare un server di elaborazione in Azure per il failback, viene eseguita la versione più recente disponibile di tale server. I team di Site Recovery rilasciano correzioni e miglioramenti a intervalli regolari. È consigliabile mantenere aggiornati i server di elaborazione.
+>   In genere, quando si usa l'immagine della raccolta di Azure per creare un server di elaborazione in Azure per il failback, viene eseguita la versione più recente disponibile di tale server. I team di Site Recovery rilasciano correzioni e miglioramenti a intervalli regolari. È consigliabile mantenere aggiornati i server di elaborazione.
 
 ## <a name="balance-the-load-on-process-server"></a>Bilanciare il carico nel server di elaborazione
 
@@ -91,23 +91,23 @@ Se il server di elaborazione usa un proxy per la connessione a Site Recovery in 
 
 1. Accedere al computer del server di elaborazione. 
 2. Aprire una finestra di comando di PowerShell di amministratore ed eseguire il comando seguente:
-  ```powershell
-  $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-  Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $pwd
-  net stop obengine
-  net start obengine
-  ```
+   ```powershell
+   $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $pwd
+   net stop obengine
+   net start obengine
+   ```
 2. Passare alla cartella **%PROGRAMDATA%\ASR\Agent** ed eseguire il comando seguente:
-  ```
-  cmd
-  cdpcli.exe --registermt
+   ```
+   cmd
+   cdpcli.exe --registermt
 
-  net stop obengine
+   net stop obengine
 
-  net start obengine
+   net start obengine
 
-  exit
-  ```
+   exit
+   ```
 
 
 ## <a name="remove-a-process-server"></a>Rimuovere un server di elaborazione

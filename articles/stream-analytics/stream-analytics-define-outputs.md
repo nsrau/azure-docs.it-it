@@ -9,19 +9,19 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8ae55028bbc44a9383be6723f9bc6d39787cca45
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 0a3fd2cc66a066d2790d2e12822e3246dc3db382
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767304"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898874"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Informazioni sugli output di Analisi di flusso di Azure
 Questo articolo descrive i diversi tipi di output disponibili per un processo di Analisi di flusso di Azure. Gli output consentono di archiviare e salvare i risultati del processo di Analisi di flusso di Azure. Usando i dati di output, è possibile eseguire altre analisi di business e il data warehousing dei dati.
 
 Quando si progetta la query di Analisi di flusso, fare riferimento al nome dell'output usando la [clausola INTO](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). È possibile usare un singolo output per ogni processo o più output per ogni processo di streaming se occorre, specificando più clausole INTO nella query.
 
-Per creare, modificare e testare gli output dei processi di Analisi di flusso, è possibile usare il [portale di Azure](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), l'[API .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), l'[API REST](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output) e [Visual Studio](stream-analytics-quick-create-vs.md).
+Per creare, modificare e testare il processo di Stream Analitica gli output, è possibile usare la [portale di Azure](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [API .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [API REST](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), e [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Alcuni tipi di output supportano il [partizionamento](#partitioning) e le [dimensioni batch dell'output](#output-batch-size) variano per ottimizzare la velocità effettiva.
 
@@ -56,7 +56,7 @@ L'output di Azure Data Lake Store da Stream Analytics non è attualmente disponi
 | Format | Applicabile solo per la serializzazione JSON. Separato da righe specifica che l'output viene formattato separando ciascun oggetto JSON con una nuova riga. Array specifica che l'output viene formattato come matrice di oggetti JSON. Questa matrice viene chiusa solo quando il processo viene arrestato o Analisi di flusso di Azure passa all'intervallo di tempo successivo. In generale, è preferibile usare JSON separato da righe, perché non richiede alcuna gestione speciale durante la scrittura del file di output.|
 
 ### <a name="renew-data-lake-store-authorization"></a>Rinnovare l'autorizzazione per Data Lake Store
-Se la password dell'account Data Lake Store è stata modificata dopo la creazione o l'ultima autenticazione del processo, è necessario autenticare nuovamente l'account. Se non si ripete l'autenticazione, il processo non restituisce risultati di output e nei log delle operazioni viene visualizzato un errore che indica che è necessario ripetere l'autorizzazione. Attualmente esiste una limitazione secondo cui il token di autenticazione deve essere aggiornato manualmente ogni 90 giorni per tutti i processi con output di Archivio Data Lake.
+Se la password dell'account Data Lake Store è stata modificata dopo la creazione o l'ultima autenticazione del processo, è necessario autenticare nuovamente l'account. Se non si ripete l'autenticazione, il processo non restituisce risultati di output e nei log delle operazioni viene visualizzato un errore che indica che è necessario ripetere l'autorizzazione. Attualmente esiste una limitazione secondo cui il token di autenticazione deve essere aggiornato manualmente ogni 90 giorni per tutti i processi con output di Archivio Data Lake. Tuttavia, è possibile ovviare a questa limitazione [esegue l'autenticazione con gestita (anteprima) identità](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-managed-identities-adls).
 
 Per rinnovare l'autorizzazione, **arrestare** il processo, passare all'output di Data Lake Store, quindi fare clic sul collegamento **Rinnova autorizzazione**. Verrà brevemente visualizzata una pagina che indica **Reindirizzamento all'autorizzazione in corso**. La pagina verrà chiusa automaticamente e, in caso di esito positivo, verrà visualizzato il messaggio **L'autorizzazione è stata rinnovata**. È quindi necessario fare clic su **Salva** nella parte inferiore della pagina e, per continuare, riavviare il processo dall'**ora dell'ultimo arresto** per evitare la perdita di dati.
 
@@ -169,7 +169,7 @@ Analisi di flusso di Azure consente di aggiornare il modello di dati in modo din
 Questa tabella contiene le conversioni dei tipi di dati dai [tipi di dati di analisi di flusso](https://msdn.microsoft.com/library/azure/dn835065.aspx) ai [tipi Entity Data Model (EDM)](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/) di Power BI se non esistono né un set di dati né una tabella di Power BI.
 
 Dall'analisi di flusso | A Power BI
------|-----|------------
+-----|-----
 bigint | Int64
 nvarchar(max) | string
 Datetime | DateTime
@@ -186,7 +186,7 @@ Precedente/Corrente | Int64 | string | DateTime | Double
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | string | string | Double
 Double | Double | string | string | Double
-string | string | string | string |  | string |
+string | string | string | string | string 
 DateTime | string | string |  DateTime | string
 
 
@@ -261,6 +261,7 @@ L'output di Azure Cosmos DB da Stream Analytics non è attualmente disponibile n
 > Altre API di Azure Cosmos DB non sono ancora supportate. Se Analisi di flusso di Azure punta agli account Azure Cosmos DB creati con altre API, i dati potrebbero non essere archiviati correttamente.
 
 Nella tabella seguente sono descritte le proprietà per la creazione di un output di Azure Cosmos DB.
+
 | Nome proprietà | description |
 | --- | --- |
 | Alias di output | Alias per fare riferimento a questo output nella query di Analisi di flusso di Azure. |
@@ -331,7 +332,7 @@ La tabella seguente spiega alcune considerazioni per l'invio in batch dell'outpu
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-
+> 
 > [Avvio rapido: Creare un processo di Analisi di flusso tramite il portale di Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->

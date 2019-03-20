@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 85a326c97ecf8476bdd802a718e082d0e5c7a89c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 3700fb90318da3787830f9b6c202436c0e45e2fe
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467359"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454103"
 ---
 # <a name="best-practices-for-autoscale"></a>Procedure consigliate per la scalabilità automatica
 La scalabilità automatica di Monitoraggio di Azure si applica solo a [set di scalabilità di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Servizi cloud](https://azure.microsoft.com/services/cloud-services/), [app Web del servizio app](https://azure.microsoft.com/services/app-service/web/) e [servizi di gestione API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
@@ -38,7 +38,7 @@ Se il valore minimo di un'impostazione è 2 e il valore massimo è 2 e il conteg
 Se si aggiorna manualmente il conteggio delle istanze impostandolo su un valore al di sopra o al di sotto di quello massimo, il motore di scalabilità automatica utilizza automaticamente il valore minimo (se al di sotto) o il valore massimo (se al di sopra). Ad esempio, se l'utente imposta l'intervallo tra i valori e 3 e 6, in presenza di un'istanza in esecuzione, il motore di scalabilità automatica esegue il ridimensionamento a tre istanze alla successiva esecuzione. Analogamente, se si imposta manualmente la scala su otto istanze, nell'esecuzione successiva la scalabilità automatica rieseguirà il ridimensionamento a sei istanze.  La scalabilità manuale è temporanea, a meno che non si reimpostino anche le regole di scalabilità automatica.
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Usare sempre una combinazione di regole di aumento e di riduzione del numero di istanze
-Se si usa solo una parte della combinazione, la scalabilità automatica eseguirà solo azioni in un'unica direzione (aumento o diminuzione) fino a quando non raggiunge il conteggio di istanze massimo o minimo definito nel profilo. Questo non è ottimale, sarebbe opportuno che la risorsa possa aumentare in orari di utilizzo elevato per garantire la disponibilità. Allo stesso modo, in casi di uso non elevato si desidera che la risorsa sia ridotta per ottenere risparmi sui costi.
+Se si usa solo una parte della combinazione, la scalabilità automatica eseguirà solo azione in un'unica direzione (scalabilità orizzontale o in) fino a quando non raggiunge il valore massimo o conteggio di istanze minima definiti nel profilo. Questo non è ottimale, sarebbe opportuno che la risorsa possa aumentare in orari di utilizzo elevato per garantire la disponibilità. Allo stesso modo, in casi di uso non elevato si desidera che la risorsa sia ridotta per ottenere risparmi sui costi.
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Scegliere la statistica appropriata per la metrica di diagnostica
 Per le metriche di diagnostica, è possibile scegliere tra *Medio*, *Minimo*, *Massimo* e *Totale* come metrica per il ridimensionamento. La statistica più comune è *Medio*.
@@ -147,7 +147,7 @@ Per monitorare l'integrità del motore di scalabilità automatica si può anche 
 
 Oltre a usare gli avvisi di log attività, è possibile configurare le notifiche tramite posta elettronica o webhook per ricevere una notifica delle azioni di scalabilità riuscite tramite la scheda delle notifiche dell'impostazione di scalabilità automatica.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 - [Creare un avviso di log attività per monitorare tutte le operazioni del motore di scalabilità automatica della sottoscrizione.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Creare un avviso di log attività per monitorare tutte le operazioni di scalabilità automatica in riduzione e in aumento non riuscite per la sottoscrizione.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 

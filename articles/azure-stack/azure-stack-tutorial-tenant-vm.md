@@ -17,12 +17,12 @@ ms.author: jeffgilb
 ms.reviewer: unknown
 ms.lastreviewed: 09/11/2018
 ms.custom: mvc
-ms.openlocfilehash: a24b7314775ea7667ab992742586e5b5c8bbb369
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 34ef200ff96b098969c74937934d6178cfaf81ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205157"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117133"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>Esercitazione: rendere le macchine virtuali disponibili per gli utenti di Azure Stack
 
@@ -129,8 +129,8 @@ Ora che è stato creato un'offerta, è possibile eseguirne il test. Dovrai acced
    Dal portale per gli utenti è possibile eseguire il provisioning di una macchina virtuale usando la nuova sottoscrizione.
 
    a. Accedere al portale per gli utenti con un account utente.
-      - Per un sistema integrato, varia a seconda dell'operatore area e nome di dominio esterno, l'URL e sarà nel formato https://portal.&lt; *area geografica*&gt;.&lt; *FQDN*&gt;.
-   - Se si usa Azure Stack Development Kit, l'indirizzo del portale è https://portal.local.azurestack.external.
+   - Per un sistema integrato, varia a seconda dell'operatore area e nome di dominio esterno, l'URL e sarà nel formato https://portal.&lt; *area geografica*&gt;.&lt; *FQDN*&gt;.
+     - Se si usa Azure Stack Development Kit, l'indirizzo del portale è https://portal.local.azurestack.external.
 
    b.  Nel dashboard, selezionare **+ crea una risorsa** > **calcolo** > **Windows Server 2016 Datacenter Eval**e quindi scegliere **Creare**.
 

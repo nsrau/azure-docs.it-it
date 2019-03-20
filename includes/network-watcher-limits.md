@@ -4,14 +4,14 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: ebe40665b6147087c8c72f75ed0ac3b3efe80535
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.openlocfilehash: 3116ddd6c42c29fa45f1f5e2fa9926f6f16a77b9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279702"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553562"
 ---
 | Risorsa | Limite predefinito | Limite massimo | Note |
 | --- | --- | --- | --- |
-| Network Watcher | 1 per area  | 1 per area |  La risorsa Network Watcher viene creata per abilitare l'accesso al servizio. È necessaria una sola risorsa Network Watcher per sottoscrizione per area |
-| Sessioni di acquisizione di pacchetti |100 per area | 10.000 |N. di sessioni, non di acquisizioni salvate |
+| Azure Network Watcher | 1 per area | 1 per area | Istanza di Network Watcher viene creata per abilitare l'accesso al servizio. Solo un'istanza di Network Watcher è obbligatorio per ogni sottoscrizione per ogni area. |
+| Sessioni di acquisizione pacchetti |100 per area | 10,000 |Consente di acquisire numerose sessioni, non è stato salvato. |

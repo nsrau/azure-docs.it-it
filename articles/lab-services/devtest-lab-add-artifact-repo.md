@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: c7b9921d7eacb9b40e39f8e68d13357ce6bcfd78
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5d7665cbfdf855e194f61910f0c8ee2bce5469b1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241549"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852492"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Aggiungere un repository Git per archiviare elementi personalizzati e modelli di Resource Manager
 
@@ -30,7 +30,7 @@ ms.locfileid: "51241549"
 Quando si crea una macchina virtuale, è possibile salvare il modello di Resource Manager, personalizzarlo, se lo si desidera, e quindi usarlo successivamente per creare altre macchine virtuali. È necessario creare il proprio repository privato per archiviare i modelli di Resource Manager personalizzati.  
 
 * Per informazioni su come creare un archivio GitHub, vedere [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
-* Per informazioni su come creare un progetto Azure DevOps Services con un repository Git, vedere [Connessione a Azure DevOps Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
+* Per informazioni su come creare un progetto di servizi di Azure DevOps con un repository Git, vedere [connettersi a servizi di Azure DevOps](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
 La figura seguente illustra un esempio di come potrebbe apparire un repository contenente elementi in GitHub:  
 
@@ -78,18 +78,18 @@ Per aggiungere un repository al lab, è necessario prima ottenere alcune informa
 
     ![Pulsante di aggiunta repository](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. Nel secondo pannello **Repository** specificare le seguenti informazioni:
-  1. **Nome**. Immettere un nome per il repository.
-  2. **URL clone GIT**. Immettere l'URL del clone HTTPS Git copiato in precedenza da GitHub o Azure DevOps Services.
-  3. **Ramo**. Per ottenere le definizioni, immettere il ramo.
-  4. **Token di accesso personale**. Immettere il token di accesso personale ottenuto in precedenza da GitHub o Azure DevOps Services.
-  5. **Percorsi cartella**. Immettere almeno un percorso di cartella relativo all'URL del clone che contiene le definizioni degli elementi o dei modelli di Resource Manager. Quando si specifica una sottodirectory, assicurarsi di includere la barra nel percorso della cartella.
+   1. **Nome**. Immettere un nome per il repository.
+   2. **URL clone GIT**. Immettere l'URL del clone HTTPS Git copiato in precedenza da GitHub o Azure DevOps Services.
+   3. **Ramo**. Per ottenere le definizioni, immettere il ramo.
+   4. **Token di accesso personale**. Immettere il token di accesso personale ottenuto in precedenza da GitHub o Azure DevOps Services.
+   5. **Percorsi cartella**. Immettere almeno un percorso di cartella relativo all'URL del clone che contiene le definizioni degli elementi o dei modelli di Resource Manager. Quando si specifica una sottodirectory, assicurarsi di includere la barra nel percorso della cartella.
 
-     ![Area del repository](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
+      ![Area del repository](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 6. Selezionare **Salva**.
 
 ### <a name="related-blog-posts"></a>Post di blog correlati
 * [Risolvere i problemi relativi agli errori di elemento in DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
-* [Join a VM to an existing Active Directory domain by using a Resource Manager template in DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (Aggiungere una macchina virtuale a un dominio di Active Directory esistente usando un modello di Resource Manager in DevTest Labs)
+* [Join a VM to an existing Active Directory domain by using a Resource Manager template in DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (Aggiungere una macchina virtuale a un dominio di Active Directory esistente usando un modello di Resource Manager in DevTest Labs)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

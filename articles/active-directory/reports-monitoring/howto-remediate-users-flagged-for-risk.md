@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4db4c2fc0781225af6cc59df72467a69e0ba73e1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0fc2aca2b785329b6faebd37c94493269d65c22b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189559"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182983"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Correggere gli utenti contrassegnati per il rischio nel portale di Azure Active Directory
 
@@ -46,7 +46,7 @@ Per altre informazioni, vedere il [report sulla sicurezza Utenti contrassegnati 
 
 È anche possibile usare le credenziali di Office 365 per accedere all'**interfaccia di amministrazione di Azure**. Dopo aver attivato l'accesso ad Azure AD, si viene reindirizzati al portale di Azure AD. Con la sottoscrizione di livello Basic, la quantità di dettagli forniti nei report è limitata. La sottoscrizione Premium di Azure mette a disposizione un maggior livello di dati e analisi.
 
-Per accedere ai report **Utenti contrassegnati per il rischio** nel Centro di amministrazione di Office 365:
+Per l'accesso di **utenti contrassegnati per il rischio** report nell'interfaccia di amministrazione di Microsoft 365:
 
 1.  Nel riquadro di spostamento a sinistra selezionare **Interfacce di amministrazione**. 
 2.  Selezionare **Azure AD**.

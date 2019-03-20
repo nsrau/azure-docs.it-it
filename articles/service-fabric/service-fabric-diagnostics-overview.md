@@ -14,16 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: f558c6fcfa864b142209712a536adf1be97122cf
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
-ms.translationtype: HT
+ms.openlocfilehash: 71bff5473abe9f53804d702625b871f41309a787
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389255"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441832"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitoraggio e diagnostica in Azure Service Fabric
 
 Questo articolo offre una panoramica del monitoraggio e della diagnostica per Azure Service Fabric. Il monitoraggio e la diagnostica sono essenziali per lo sviluppo, il test e la distribuzione di carichi di lavoro in qualsiasi ambiente cloud. Ad esempio, è possibile monitorare le modalità di utilizzo delle applicazioni, le azioni eseguite dalla piattaforma Service Fabric, l'utilizzo delle risorse con i contatori delle prestazioni e l'integrità generale del cluster. È possibile usare queste informazioni per diagnosticare e correggere eventuali problemi e per evitare che si verifichino in futuro. Nelle sezioni seguenti viene descritta brevemente ogni area del monitoraggio di Service Fabric da considerare per i carichi di lavoro di produzione. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="application-monitoring"></a>Monitoraggio delle applicazioni
 Il monitoraggio delle applicazioni tiene traccia del modo in cui vengono usati le funzionalità e i componenti dell'applicazione. Con il monitoraggio delle applicazioni è possibile, ad esempio, identificare i problemi che possono incidere sugli utenti. La responsabilità del monitoraggio di un'applicazione è dell'utente che l'ha sviluppata insieme ai relativi servizi, in quanto è esclusivo della logica di business dell'applicazione. Il monitoraggio delle applicazioni può essere utile negli scenari seguenti:
@@ -50,7 +52,7 @@ Service Fabric offre un set completo di eventi immediatamente disponibili. Tali 
 
 Le funzionalità di diagnostica fornite sono costituite da un set completo di eventi predefiniti. Questi [eventi di Service Fabric](service-fabric-diagnostics-events.md) illustrano le azioni eseguite dalla piattaforma su entità diverse, come Nodi, Applicazioni, Servizi, Partizioni e così via. Nell'ultimo scenario riportato sopra, se un nodo diventasse inattivo, la piattaforma genererebbe un evento `NodeDown` e si riceverebbe immediatamente una notifica dallo strumento di monitoraggio scelto. Altri esempi comuni sono `ApplicationUpgradeRollbackStarted` o `PartitionReconfigured` durante un failover. **Gli stessi eventi sono disponibili sia in cluster di Windows che in cluster di Linux.**
 
-Gli eventi vengono inviati tramite canali standard sia su Windows che su Linux e possono essere letti da qualsiasi strumento di monitoraggio che li supporti. La soluzione di monitoraggio di Azure è Log Analytics. L'[integrazione di Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) include un dashboard operativo personalizzato per il cluster e alcune query di esempio da cui è possibile creare avvisi. Per altri concetti di monitoraggio del cluster, vedere [Monitoraggio del cluster e della piattaforma](service-fabric-diagnostics-event-generation-infra.md).
+Gli eventi vengono inviati tramite canali standard sia su Windows che su Linux e possono essere letti da qualsiasi strumento di monitoraggio che li supporti. La soluzione di monitoraggio di Azure sia i log di monitoraggio di Azure. È possibile per altre informazioni, vedere la [monitoraggio di Azure log integration](service-fabric-diagnostics-event-analysis-oms.md) che include un dashboard personalizzato operativo per il cluster e alcune query di esempio da cui è possibile creare avvisi. Per altri concetti di monitoraggio del cluster, vedere [Monitoraggio del cluster e della piattaforma](service-fabric-diagnostics-event-generation-infra.md).
 
 ### <a name="health-monitoring"></a>Monitoraggio dell’integrità
 La piattaforma Service Fabric include un modello di integrità che fornisce report di integrità estendibili sullo stato delle entità presenti in un cluster. Ogni nodo, applicazione, servizio, partizione, replica o istanza presenta uno stato di integrità costantemente aggiornabile, che può essere "OK", "Avviso" o "Errore". Gli eventi di Service Fabric possono essere definiti come operazioni eseguite dal cluster sulle varie entità, mentre l'integrità è uno stato che si applica a ogni entità. Ad ogni transizione dell'integrità di una particolare entità viene generato anche un evento. In questo modo è possibile configurare query e avvisi per gli eventi di integrità nello strumento di monitoraggio scelto, come avviene con qualsiasi altro evento. 
@@ -71,22 +73,22 @@ Ora che conosciamo le funzionalità di diagnostica disponibili nell'applicazione
 
 Un elenco dei contatori delle prestazioni che è possibile raccogliere a livello di infrastruttura è disponibile in [Metriche delle prestazioni](service-fabric-diagnostics-event-generation-perf.md). 
 
-Service Fabric fornisce anche un set di contatori delle prestazioni per i modelli di programmazione Reliable Services e Reliable Actors. Se si usa uno di questi modelli, i contatori delle prestazioni possono fornire informazioni in grado di assicurare che gli attori vengano attivati e disattivati correttamente o che le richieste di Reliable Services vengano gestite in modo sufficientemente rapido. Per altre informazioni, vedere [Monitoraggio delle prestazioni per Reliable Service Remoting](service-fabric-reliable-serviceremoting-diagnostics.md#performance-counters) e [Monitoraggio delle prestazioni per Reliable Actors](service-fabric-reliable-actors-diagnostics.md#performance-counters). 
+Service Fabric offre anche un set di contatori delle prestazioni per i modelli di programmazione Reliable Services e Reliable Actors. Se si usa uno di questi modelli, i contatori delle prestazioni possono fornire informazioni in grado di assicurare che gli attori vengano attivati e disattivati correttamente o che le richieste di Reliable Services vengano gestite in modo sufficientemente rapido. Per altre informazioni, vedere [Monitoraggio delle prestazioni per Reliable Service Remoting](service-fabric-reliable-serviceremoting-diagnostics.md#performance-counters) e [Monitoraggio delle prestazioni per Reliable Actors](service-fabric-reliable-actors-diagnostics.md#performance-counters). 
 
-La soluzione di Monitoraggio di Azure che raccoglie queste informazioni è Log Analytics, allo stesso modo del monitoraggio a livello di piattaforma. Usare l'[agente di Log Analytics](service-fabric-diagnostics-oms-agent.md) per raccogliere i contatori delle prestazioni appropriati e visualizzarli in Log Analytics.
+La soluzione di monitoraggio di Azure per raccogliere questi è il log di monitoraggio di Azure come piattaforma di monitoraggio a livello. È consigliabile usare la [agente di Log Analitica](service-fabric-diagnostics-oms-agent.md) per raccogliere i contatori delle prestazioni appropriati e visualizzarli nei log di monitoraggio di Azure.
 
 ## <a name="recommended-setup"></a>Configurazione consigliata
 Completata la descrizione di ogni area di monitoraggio, con i relativi scenari di esempio, ecco un riepilogo degli strumenti di monitoraggio di Azure e della configurazione necessari per monitorare tutte queste aree. 
 
 * Monitoraggio delle applicazioni con [Application Insights](service-fabric-tutorial-monitoring-aspnet.md)
-* Monitoraggio dei cluster con l'[agente di Diagnostica](service-fabric-diagnostics-event-aggregation-wad.md) e [Log Analytics](service-fabric-diagnostics-oms-setup.md)
-* Monitoraggio dell'infrastruttura con [Log Analytics](service-fabric-diagnostics-oms-agent.md)
+* Monitoraggio dei cluster con [agente di diagnostica](service-fabric-diagnostics-event-aggregation-wad.md) e [log di monitoraggio di Azure](service-fabric-diagnostics-oms-setup.md)
+* Monitoraggio dell'infrastruttura con [i log di monitoraggio di Azure](service-fabric-diagnostics-oms-agent.md)
 
-È anche possibile usare e modificare il modello ARM di esempio disponibile [qui](service-fabric-diagnostics-oms-setup.md#deploy-log-analytics-with-azure-resource-manager) per automatizzare la distribuzione di tutte le risorse e gli agenti necessari. 
+È anche possibile usare e modificare il modello ARM di esempio disponibile [qui](service-fabric-diagnostics-oms-setup.md#deploy-azure-monitor-logs-with-azure-resource-manager) per automatizzare la distribuzione di tutte le risorse e gli agenti necessari. 
 
 ## <a name="other-logging-solutions"></a>Altre soluzioni di registrazione
 
-Anche se le due soluzioni consigliate, [Azure Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) e [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md), hanno l'integrazione predefinita con Service Fabric, diversi eventi vengono scritti tramite provider ETW e sono estendibili con altre soluzioni di registrazione. È opportuno prendere in considerazione anche [Elastic Stack](https://www.elastic.co/products), soprattutto se si intende eseguire un cluster in un ambiente offline, [Dynatrace](https://www.dynatrace.com/) o qualsiasi altra piattaforma preferita. Un elenco di partner integrati è disponibile [qui](service-fabric-diagnostics-partners.md).
+Anche se le due soluzioni è consigliabile [log di monitoraggio di Azure](service-fabric-diagnostics-event-analysis-oms.md) e [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) siano compilati nell'integrazione con Service Fabric, molti eventi vengono scritti tramite provider ETW e sono estendibili con altre soluzioni di registrazione. È opportuno prendere in considerazione anche [Elastic Stack](https://www.elastic.co/products), soprattutto se si intende eseguire un cluster in un ambiente offline, [Dynatrace](https://www.dynatrace.com/) o qualsiasi altra piattaforma preferita. Un elenco di partner integrati è disponibile [qui](service-fabric-diagnostics-partners.md).
 
 Nella scelta della piattaforma si deve considerare la familiarità con l'interfaccia utente, le funzionalità di query, le visualizzazioni personalizzate e i dashboard disponibili e gli strumenti aggiuntivi offerti per migliorare l'esperienza di monitoraggio. 
 
@@ -95,8 +97,8 @@ Nella scelta della piattaforma si deve considerare la familiarità con l'interfa
 * Per un'introduzione alla strumentazione delle applicazioni, vedere [Generazione di eventi e log a livello di applicazione](service-fabric-diagnostics-event-generation-app.md).
 * Completare i passaggi per configurare Application Insights per l'applicazione in [Monitorare e diagnosticare un'applicazione ASP.NET Core in Service Fabric](service-fabric-tutorial-monitoring-aspnet.md).
 * Per altre informazioni sul monitoraggio della piattaforma e gli eventi messi a disposizione da Service Fabric, vedere [Generazione di eventi e log a livello piattaforma](service-fabric-diagnostics-event-generation-infra.md).
-* Configurare l'integrazione di Log Analytics con Service Fabric in [Configurare Log Analytics per un cluster](service-fabric-diagnostics-oms-setup.md)
-* Per informazioni su come configurare Log Analytics per il monitoraggio dei contenitori, vedere [Esercitazione: Monitorare i contenitori di Windows in Service Fabric usando Log Analytics](service-fabric-tutorial-monitoring-wincontainers.md).
+* Configurare l'integrazione dei log di monitoraggio di Azure con Service Fabric, vedere [configurare i log di monitoraggio di Azure per un cluster](service-fabric-diagnostics-oms-setup.md)
+* Informazioni su come configurare i log di monitoraggio di Azure per monitorare i contenitori- [di monitoraggio e diagnostica per contenitori Windows in Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
 * Vedere gli esempi di problemi di diagnostica e le soluzioni con Service Fabric negli [ scenari comuni di diagnosi](service-fabric-diagnostics-common-scenarios.md)
 * Per informazioni sugli altri prodotti di diagnostica che si integrano con Service Fabric, vedere l'articolo sui [partner di diagnostica di Service Fabric](service-fabric-diagnostics-partners.md)
 * Per suggerimenti generali sul monitoraggio delle risorse di Azure, vedere [Procedure consigliate: monitoraggio e diagnostica](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). 

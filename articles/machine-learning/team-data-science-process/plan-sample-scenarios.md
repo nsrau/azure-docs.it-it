@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 514242eb759a2349d96b38ebe54bb98cf0e83423
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 6838f4db240a0712eece7a97bc2cfe99efb87215
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468819"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454945"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Scenari per l'analisi avanzata in Azure Machine Learning
 Questo articolo descrive le varie origini dati di esempio e gli scenari di destinazione che possono essere gestiti con il [Processo di analisi scientifica dei dati per i team (TDSP)](overview.md). Il TDSP offre un approccio sistematico per consentire ai team di collaborare sulla compilazione di applicazioni intelligenti. Gli scenari presentati illustrano le opzioni disponibili nel flusso di lavoro dell'elaborazione dei dati basato su caratteristiche dei dati, posizioni delle origini e repository di destinazione in Azure.
@@ -146,7 +146,7 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
 1. Leggere i dati direttamente da SQL Server usando il modulo [Import Data][import-data] (Importa dati). Incollare la query richiesta che estrae i campi, crea le funzionalità ed esegue il campionamento dei dati, se necessario, direttamente nella query di [Import Data][import-data] (Importa dati).
 1. Semplificare il flusso di esperimento di Azure Machine Learning iniziando con il set di dati caricato
 
-## <a name="largedbtodb"></a>Scenario \#6: Set di dati di grandi dimensioni in un database SQL Server locale, con SQL Server in una macchina virtuale di Azure come destinazione
+## <a name="largedbtodb"></a>Scenario \#6: Set di dati di grandi dimensioni in un database di SQL Server in locale, come destinazione di SQL Server in una macchina virtuale di Azure
 ![Database SQL locale di grandi dimensioni  al database SQL locale in Azure][6]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Risorse di Azure aggiuntive: macchina virtuale di Azure (SQL Server/server IPython Notebook)
@@ -154,7 +154,7 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
 1. Usare uno dei metodi di esportazione dei dati per esportare i dati da SQL Server in file di dump.
    
    > [!NOTE]
-   > Se si decide di spostare tutti i dati dal database locale, un metodo alternativo più rapido consiste nello spostamento dell'intero database nell'istanza di SQL Server in Azure. Ignorare i passaggi per esportare i dati, creare il database e caricare/importare i dati nel database di destinazione e seguire il metodo alternativo.
+   > Se si decide di spostare tutti i dati dal database on premises, un metodo alternativo (più rapido) per spostare il database completo all'istanza di SQL Server in Azure. Ignorare i passaggi per esportare i dati, creare il database e caricare/importare i dati nel database di destinazione e seguire il metodo alternativo.
    > 
    > 
 1. Caricare file di dump nel contenitore di archiviazione di Azure.

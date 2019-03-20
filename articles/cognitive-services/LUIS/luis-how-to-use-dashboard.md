@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 8927213dc4f1cf01eccdd8f54a946f9dbbaaa04d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c173152d0a59e391fe77ee855311a867a1b2b6c0
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869960"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338434"
 ---
 # <a name="model-and-usage-statistics-in-the-dashboard"></a>Modello e statistiche dell'utilizzo nella dashboard
 La dashboard dell'app consente di monitorare l'applicazione in un solo momento. La **Dashboard** viene visualizzata quando viene aperta un'app tramite la selezione del nome dell'applicazione nella pagina **App personali**, quindi della **Dashboard** nel riquadro superiore. 
@@ -69,21 +69,8 @@ La **Scomposizione delle finalità** consente di visualizzare una suddivisione d
 
 ![Scomposizione della finalità](./media/luis-how-to-use-dashboard/intent-breakdown.png)
 
-Per controllare se la suddivisione è basata su espressioni o riscontri di endpoint etichettate/i è necessario:
-
-1. Fare clic su **Impostazioni aggiuntive** ![pulsante Impostazioni aggiuntive per accedere all'elenco](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) per accedere all'elenco come nell'immagine seguente:
-
-    ![Elenco di scomposizione della finalità](./media/luis-how-to-use-dashboard/intent-breakdown-based-on.png)
-2. Selezionare un valore dall'elenco e quindi fare clic sulla freccia indietro ![Freccia indietro](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) per visualizzare il grafico.
-
 ## <a name="entity-breakdown"></a>Scomposizione delle entità
 La dashboard consente di visualizzare una suddivisione delle entità sulla base di espressioni o riscontri di endpoint etichettate/i. Questo grafico di riepilogo mostra l'importanza relativa di ogni entità nell'app. Quando si passa il puntatore del mouse su una sezione, vengono visualizzati il nome dell'entità e la percentuale in espressioni/riscontri di endpoint etichettate/i. 
 
 ![Scomposizione delle entità](./media/luis-how-to-use-dashboard/entity-breakdown.png)
 
-Per controllare se la suddivisione è basata su espressioni o riscontri di endpoint etichettate/i è necessario:
-
-1. Fare clic su **Impostazioni aggiuntive** ![pulsante Impostazioni aggiuntive per visualizzare l'elenco](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) per accedere all'elenco come nell'immagine seguente:
-
-    ![Elenco di scomposizione di entità](./media/luis-how-to-use-dashboard/entity-breakdown-based-on.png)
-2. Selezionare un valore dall'elenco e quindi fare clic sulla freccia indietro ![Freccia indietro](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) per visualizzare il grafico.

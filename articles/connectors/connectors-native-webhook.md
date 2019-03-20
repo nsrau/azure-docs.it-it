@@ -11,12 +11,12 @@ ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
 ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
-ms.openlocfilehash: 7b1886321ca4afd4b4710bd9fddf16d2d5eb224b
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: c0985df445ae34795d5287144d4664755cc006da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126588"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182116"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>Creare azioni o flussi di lavoro basati su eventi usando webhook e App per la logica di Azure
 
@@ -29,9 +29,9 @@ Altre informazioni su [come creare API personalizzate che supportano un webhook]
 
 ## <a name="use-the-webhook-trigger"></a>Usare il trigger webhook
 
-Un [*trigger*](connectors-overview.md) è un evento che avvia un flusso di lavoro nell'app per la logica. Un trigger webhook è basato su eventi e non si basa sul polling per nuovi elementi. Come il [trigger di richiesta](connectors-native-reqres.md), l'app per la logica viene attivata nel momento in cui si verifica un evento. Il trigger webhook registra un *URL di callback* a un servizio e usa l'URL per attivare l'app per la logica in base alle esigenze.
+Un [*trigger*](connectors-overview.md) è un evento che avvia un flusso di lavoro nell'app per la logica. Il trigger webhook è basato su eventi, che non variano a polling per nuovi elementi. Quando si salva l'app per la logica con un trigger di webhook o quando si modifica l'app per la logica da disabilitato ad abilitato, il trigger webhook *sottoscrive* per il servizio specificato o l'endpoint registrando un *URL callback* con tale servizio o dell'endpoint. Il trigger Usa quindi tale URL per eseguire l'app per la logica in base alle esigenze. Ad esempio la [trigger di richiesta](connectors-native-reqres.md), app per la logica viene attivata immediatamente quando si verifica l'evento previsto. Il trigger *Annulla la sottoscrizione* se si rimuove il trigger e salvare l'app per la logica, o quando si modifica l'app per la logica da abilitato a disabilitato.
 
-Ecco un esempio che mostra come configurare un trigger HTTP in Progettazione app per la logica. I passaggi presuppongono che un'API sia già stata distribuita o che si stia accedendo all'API che segue il [modello di "subscribe" e "unsubscribe" del webhook nelle app per la logica](../logic-apps/logic-apps-create-api-app.md#webhook-triggers). La chiamata "subscribe" viene eseguita ogni volta che un'app per la logica viene salvata con un nuovo webhook o che passa da uno stato disabilitato ad abilitato. La chiamata "unsubscribe" viene eseguita quando un trigger webhook dell'app per la logica viene rimosso e salvato o passa dallo stato abilitato a disabilitato.
+Ecco un esempio che mostra come configurare un trigger HTTP in Progettazione app per la logica. I passaggi presuppongono che un'API sia già stata distribuita o che si stia accedendo all'API che segue il [modello di "subscribe" e "unsubscribe" del webhook nelle app per la logica](../logic-apps/logic-apps-create-api-app.md#webhook-triggers). 
 
 **Per aggiungere il trigger webhook**
 
@@ -48,9 +48,15 @@ Ecco un esempio che mostra come configurare un trigger HTTP in Progettazione app
 
 ## <a name="use-the-webhook-action"></a>Usare l'azione webhook
 
-Un'[*azione*](connectors-overview.md) è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. Un'azione webhook registra un *URL di callback* con un servizio e attende che l'URL venga chiamato prima di riprendere le operazioni. ["Send Approval Email"](connectors-create-api-office365-outlook.md) è un esempio di connettore che segue questo modello. È possibile estendere questo modello in qualsiasi servizio tramite l'azione webhook. 
+Un' [ *azione* ](connectors-overview.md) è un'operazione definita e l'esecuzione da parte del flusso di lavoro dell'app per la logica. Quando un'app per la logica viene eseguita un'azione webhook, tale azione *sottoscrive* per il servizio specificato o dell'endpoint tramite la registrazione di un *URL di callback* con tale servizio o dell'endpoint. Quindi l'azione di webhook attende che l'URL prima i curricula di app per la logica che esegue chiamate al servizio. Annulla la sottoscrizione dell'app per la logica del servizio o un endpoint in questi casi: 
 
-Ecco un esempio che mostra come configurare un azione webhook in Progettazione app per la logica. I passaggi presuppongono che un'API sia già stata distribuita o che si stia accedendo a un'API che segue il [modello di "subscribe" e "unsubscribe" del webhook usato nelle app per la logica](../logic-apps/logic-apps-create-api-app.md#webhook-actions). Quando un'app per la logica esegue l'azione webhook, viene eseguita la chiamata "subscribe". Quando un'esecuzione viene annullata in attesa di una risposta o prima che si verifichi il timeout dell'app per la logica, viene eseguita la chiamata "unsubscribe".
+* Quando l'azione webhook è stata completata correttamente
+* Se l'esecuzione dell'app per la logica è stata annullata durante l'attesa di una risposta
+* Prima la logica app verifica il timeout
+
+Ad esempio, il [ **inviare posta elettronica di approvazione** ](connectors-create-api-office365-outlook.md) azione è riportato un esempio di azione webhook che segue questo modello. È possibile estendere questo modello in qualsiasi servizio tramite l'azione webhook. 
+
+Ecco un esempio che mostra come configurare un azione webhook in Progettazione app per la logica. I passaggi presuppongono che un'API sia già stata distribuita o che si stia accedendo a un'API che segue il [modello di "subscribe" e "unsubscribe" del webhook usato nelle app per la logica](../logic-apps/logic-apps-create-api-app.md#webhook-actions). 
 
 **Per aggiungere un'azione webhook**
 
@@ -76,7 +82,7 @@ Di seguito altre informazioni sui trigger e sulle azioni che supporta webhook.
 
 ## <a name="webhook-triggers"></a>Trigger webhook
 
-| Azione | Descrizione |
+| Azione | DESCRIZIONE |
 | --- | --- |
 | HTTP Webhook |Sottoscrivere un URL callback a un servizio in grado di chiamare l'URL per attivare l'app per la logica in base alle esigenze. |
 

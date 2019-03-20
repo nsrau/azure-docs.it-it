@@ -14,23 +14,21 @@ ms.tgt_pltfrm: may be required
 ms.workload: required
 ms.date: mm/dd/yyyy
 ms.author: Your MSFT alias or your full email address;semicolon separates two or more
-ms.openlocfilehash: e791ff0377137557b6e9f38a8e1b6b35be948ab6
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
-ms.translationtype: HT
+ms.openlocfilehash: 46a7bc52e94189b932b0475e80f55d880a2e3ee9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
-ms.locfileid: "26730550"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58191731"
 ---
 # <a name="title-maximum-120-characters-target-the-primary-keyword"></a>Titolo (al massimo 120 caratteri, usare la parola chiave primaria)
 *Usare 2-3 parole chiave secondarie nella descrizione.*
 
 *Selezionare una delle dichiarazioni seguenti, in base allo scenario specifico. Se l'articolo è indipendente dal modello di distribuzione, ignorare questa sezione.*
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Modello di distribuzione classica.
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modello di distribuzione classica.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-[!INCLUDE [learn-about-deployment-models](../../learn-about-deployment-models-both-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 [Paragrafo iniziale]
 
@@ -73,7 +71,7 @@ Questi {errori}|{problemi} si verificano perché {motivo molto generico}.
 
 *Selezionare una delle versioni applicabili alla situazione specifica.*
 
-| <em>Versione 1: l'articolo è indipendente dal modello di distribuzione.</em> | <em>Versione 2: le procedure per la distribuzione Resource Manager e classica sono sostanzialmente uguali.</em> | <em>Versione 3: le procedure per la distribuzione Resource Manager e classica sono diverse. <br />In questo caso, usare la <a href="https://github.com/Azure/azure-content-pr/blob/master/contributor-guide/custom-markdown-extensions.md#simple-selectors">tecnica basata su selettori semplici in GitHub</a>. <br />Nota: gli articoli relativi alle VM per Azure Resource Manager sono eccezioni e non devono usare il selettore per la distribuzione Azure Resource Manager/classica.</em> |
+| <em>Versione 1: L'articolo è indipendente dal modello di distribuzione</em> | <em>Versione 2: Procedure per Resource Manager e classica sono sostanzialmente uguali</em> | <em>Versione 3: Procedure per Resource Manager e classica sono diverse. <br />In questo caso, usare la <a href="https://github.com/Azure/azure-content-pr/blob/master/contributor-guide/custom-markdown-extensions.md#simple-selectors">tecnica basata su selettori semplici in GitHub</a>. <br />Note: Articoli della macchina virtuale per ARM sono eccezioni e non devono usare il selettore classica/ARM.</em> |
 |:--- |:--- |:--- |
 | <p><h3>[Problema 1] \ |[Errore 1]</h3><h4>Causa</h4>[Dettagli della causa]</p><p><h4>Soluzione 1</h4><em>(la più semplice e la più efficace)</em></p><ol><li>[Passaggio 1]</li><li>[Passaggio 2]</li></ol><p><h4>Soluzione 2</h4><em>(la meno semplice o efficace)</em></p><ol><li>[Passaggio 1]</li><li>[Passaggio 2]</li></ol><p><h3>[Problema 2] \ |[Errore 2]</h3><h4>Causa</h4>[Dettagli della causa]</p><p><h4>Soluzione 1</h4><em>(la più semplice e la più efficace)</em></p><ol><li>[Passaggio 1]</li><li>[Passaggio 2]</li></ol><p><h4>Soluzione 2</h4><em>(la più semplice e la più efficace)</em></p><ol><li>[Passaggio 1]</li><li>[Passaggio 2]</li></ol><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> |
 

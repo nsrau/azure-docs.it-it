@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 29e01177d4b096449cd906a22b47223078c6493e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 8325e2d1dccf1184c5297a60161200b41fc1d412
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107821"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338281"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Pianificare la capacità e la scalabilità per il ripristino di emergenza di VMware in Azure
 
@@ -114,7 +114,7 @@ Prima di configurare l'infrastruttura di Azure Site Recovery è necessario acced
 1. Per misurare questi parametri, eseguire Site Recovery Deployment Planner nel proprio ambiente. Per linee guida utili, consultare [Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure](site-recovery-deployment-planner.md).
 2. Distribuire un server di configurazione che soddisfi le [dimensioni consigliate per il server di configurazione](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server). Se il carico di lavoro di produzione è superiore a 650 macchine virtuali, distribuire un altro server di configurazione.
 3. In base alla frequenza di modifica dei dati giornaliera misurata, distribuire i [server di elaborazione scale-out](vmware-azure-set-up-process-server-scale.md#download-installation-file) seguendo le [linee guida sulle dimensioni](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-process-server).
-4. Se per una macchina virtuale con disco si prevede una frequenza di modifica dei dati superiore a 2 MBps, [configurare un account di archiviazione Premium](tutorial-prepare-azure.md#create-a-storage-account). Site Recovery Deployment Planner viene eseguito per un periodo di tempo specifico. I picchi della frequenza di modifica dei dati in altri momenti potrebbero non comparire nel report.
+4. Se si prevede che la modifica dei dati tariffa per una macchina virtuale del disco superare i 2 MBps, assicurarsi di usare managed disks premium. Site Recovery Deployment Planner viene eseguito per un periodo di tempo specifico. I picchi della frequenza di modifica dei dati in altri momenti potrebbero non comparire nel report.
 5. [Impostare la larghezza di banda di rete](site-recovery-plan-capacity-vmware.md#control-network-bandwidth) a seconda dell'RPO che si desidera ottenere.
 6. Al termine della configurazione dell'infrastruttura abilitare il ripristino di emergenza per il carico di lavoro. Per informazioni sulla procedura, consultare [Configurare l'ambiente di origine per la replica da VMware in Azure](vmware-azure-set-up-source.md).
 

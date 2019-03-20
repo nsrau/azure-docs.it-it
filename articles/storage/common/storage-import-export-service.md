@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/14/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e2c770625cf92e0db269d14d2f63dc0c896cbe9c
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 4850dd82ca52a060c921569433035256f5b74cce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267513"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58164927"
 ---
 # <a name="what-is-azure-importexport-service"></a>Che cos'è il servizio Importazione/Esportazione di Azure?
 
@@ -76,7 +76,7 @@ In generale, un processo di importazione prevede i passaggi seguenti:
 > [!NOTE]
 > Per le spedizioni locali (all'interno del paese del data center), condividere un account del vettore nazionale 
 >
-> Per le spedizioni estere (all'esterno del paese del data center), condividere un account del vettore internazionale
+> Per le spedizioni all'estero (all'esterno di data center paese), Microsoft invita un account del vettore internazionali
 
  ![Figura 1: importazione del flusso di processo](./media/storage-import-export-service/importjob.png)
 
@@ -106,7 +106,7 @@ In generale, un processo di esortazione prevede i passaggi seguenti:
 > [!NOTE]
 > Per le spedizioni locali (all'interno del paese del data center), condividere un account del vettore nazionale 
 >
-> Per le spedizioni estere (all'esterno del paese del data center), condividere un account del vettore internazionale
+> Per le spedizioni all'estero (all'esterno di data center paese), Microsoft invita un account del vettore internazionali
   
  ![Figura 2: esportazione del flusso di processo](./media/storage-import-export-service/exportjob.png)
 

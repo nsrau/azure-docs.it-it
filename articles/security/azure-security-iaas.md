@@ -4,7 +4,7 @@ description: " La migrazione dei carichi di lavoro ad Azure IaaS offre l'opportu
 services: security
 documentationcenter: na
 author: barclayn
-manager: barbkess
+manager: MBaldwin
 editor: TomSh
 ms.assetid: 02c5b7d2-a77f-4e7f-9a1e-40247c57e7e2
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 6bf73bcc691e2ab27f3ec379530a59d3b616a070
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: da165634f5323183b633ee3c8a59e0d2607e8ef1
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341217"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409755"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedure consigliate per la sicurezza dei carichi di lavoro IaaS in Azure
 
@@ -39,7 +39,7 @@ Le procedure consigliate si basano su opinioni concordanti e funzionino con le c
 Il primo passo per proteggere le VM consiste nel garantire che solo gli utenti autorizzati possano configurare nuove VM e accedervi.
 
 **Procedura consigliata**: controllare l'accesso alla macchina virtuale.   
-**Dettagli**: usare i [criteri di Azure](../governance/policy/overview.md) per stabilire convenzioni per le risorse all'interno dell'organizzazione e creare criteri personalizzati. Applicare questi criteri alle risorse, ad esempio ai [gruppi di risorse](../azure-resource-manager/resource-group-overview.md). Le VM che appartengono a un gruppo di risorse ereditano i suoi criteri.
+**Dettagli**: usare i [criteri di Azure](../azure-policy/azure-policy-introduction.md) per stabilire convenzioni per le risorse all'interno dell'organizzazione e creare criteri personalizzati. Applicare questi criteri alle risorse, ad esempio ai [gruppi di risorse](../azure-resource-manager/resource-group-overview.md). Le VM che appartengono a un gruppo di risorse ereditano i suoi criteri.
 
 Se l'organizzazione dispone di molte sottoscrizioni, potrebbe essere necessario gestire in modo efficace l'accesso, i criteri e la conformità per tali sottoscrizioni. I [gruppi di gestione di Azure](../azure-resource-manager/management-groups-overview.md) forniscono un livello di ambito al di sopra delle sottoscrizioni. Le sottoscrizioni sono organizzate in gruppi di gestione, o contenitori, a cui vengono applicate le condizioni di governance. Tutte le sottoscrizioni all'interno di un gruppo di gestione ereditano automaticamente le condizioni applicate al gruppo. I gruppi di gestione offrono gestione di livello aziendale su larga scala, indipendentemente dal tipo di sottoscrizioni che si posseggono.
 
@@ -128,7 +128,7 @@ Per monitorare le condizioni di sicurezza delle [VM Windows](../security-center/
 
 Il Centro sicurezza può monitorare attivamente le minacce e le minacce potenziali sono esposte negli avvisi di sicurezza. Le minacce correlate sono aggregate in un'unica visualizzazione denominata evento imprevisto per la sicurezza.
 
-Il Centro sicurezza archivia i dati in [Analisi dei log di Azure](../log-analytics/log-analytics-overview.md). Analisi dei log fornisce un linguaggio di query e un motore di analisi che restituisce informazioni dettagliate sul funzionamento di applicazioni e risorse. I dati vengono raccolti anche da [Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview.md), dalle soluzioni di gestione e dagli agenti installati su macchine virtuali nel cloud o in locale. Questa funzionalità condivisa permette di ottenere il quadro completo dell'ambiente.
+Il Centro sicurezza archivia i dati in [monitoraggio di Azure registra](../log-analytics/log-analytics-overview.md). Log di monitoraggio di Azure fornisce un motore di analitica e linguaggio di query che fornisce informazioni dettagliate sul funzionamento delle applicazioni e risorse. I dati vengono raccolti anche da [Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview.md), dalle soluzioni di gestione e dagli agenti installati su macchine virtuali nel cloud o in locale. Questa funzionalità condivisa permette di ottenere il quadro completo dell'ambiente.
 
 Le organizzazioni che non applicano condizioni di sicurezza avanzate per le proprie VM rimangono all'oscuro della presenza di potenziali tentativi da parte di utenti non autorizzati di aggirare i controlli di sicurezza.
 
@@ -153,10 +153,10 @@ Di seguito sono illustrate le procedure consigliate per l'uso della Crittografia
 **Dettagli**: Crittografia dischi di Azure genera e scrive le chiavi di crittografia nell'insieme di credenziali delle chiavi. La gestione delle chiavi di crittografia nell'insieme di credenziali delle chiavi richiede l'autenticazione di Azure AD. Creare un'applicazione Azure AD per questo scopo. Ai fini dell'autenticazione, è possibile usare l'autenticazione basata sul segreto client o l'[autenticazione di Azure AD basata sul certificato client](../active-directory/active-directory-certificate-based-authentication-get-started.md).
 
 **Procedura consigliata**: usare una chiave di crittografia della chiave per aggiungere un livello di sicurezza ulteriore per le chiavi di crittografia. Aggiungere una chiave di crittografia della chiave all'insieme di credenziali delle chiavi.   
-**Dettagli**: Usare il cmdlet [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) per creare una chiave di crittografia della chiave nell'insieme di credenziali delle chiavi. Per gestire le chiavi, è anche possibile importare una chiave di crittografia della chiave dal modulo di protezione hardware. Per altre informazioni, vedere la [documentazione di Azure Key Vault](../key-vault/key-vault-hsm-protected-keys.md). Quando viene specificata una chiave di crittografia della chiave, Crittografia dischi di Azure la usa per eseguire il wrapping dei segreti di crittografia prima di scrivere nell'insieme di credenziali delle chiavi. Mantenere una copia di deposito della chiave in un modulo di protezione hardware locale offre un ulteriore livello di protezione contro l'eliminazione accidentale delle chiavi.
+**Dettagli**: Usare la [Add-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet per creare una chiave di crittografia della chiave nell'insieme di credenziali chiave. Per gestire le chiavi, è anche possibile importare una chiave di crittografia della chiave dal modulo di protezione hardware. Per altre informazioni, vedere la [documentazione di Azure Key Vault](../key-vault/key-vault-hsm-protected-keys.md). Quando viene specificata una chiave di crittografia della chiave, Crittografia dischi di Azure la usa per eseguire il wrapping dei segreti di crittografia prima di scrivere nell'insieme di credenziali delle chiavi. Mantenere una copia di deposito della chiave in un modulo di protezione hardware locale offre un ulteriore livello di protezione contro l'eliminazione accidentale delle chiavi.
 
 **Procedura consigliata**: catturare uno [snapshot](../virtual-machines/windows/snapshot-copy-managed-disk.md) e/o eseguire il backup prima che i dischi vengono crittografati. Se si verifica un errore imprevisto durante la crittografia, i backup offrono un'opzione di ripristino.   
-**Dettagli**: Le macchine virtuali con dischi gestiti richiedono il backup prima della crittografia. Dopo aver eseguito il backup, è possibile usare il cmdlet **Set-AzureRmVMDiskEncryptionExtension** per crittografare i dischi gestiti specificando il parametro *-skipVmBackup*. Per altre informazioni su come eseguire il backup e il ripristino di macchine virtuali crittografate, vedere l'articolo [Backup di Azure](../backup/backup-azure-vms-encryption.md).
+**Dettagli**: Le macchine virtuali con dischi gestiti richiedono il backup prima della crittografia. Dopo che viene eseguito un backup, è possibile usare la **Set-AzVMDiskEncryptionExtension** cmdlet per crittografare i dischi gestiti specificando la *- skipVmBackup* parametro. Per altre informazioni su come eseguire il backup e il ripristino di macchine virtuali crittografate, vedere l'articolo [Backup di Azure](../backup/backup-azure-vms-encryption.md).
 
 **Procedura consigliata**: per assicurarsi che i segreti di crittografia non superino i confini a livello di area, Crittografia dischi di Azure richiede che l'insieme di credenziali delle chiavi e le macchine virtuali si trovino nella stessa area.   
 **Dettagli**: Creare e usare un insieme di credenziali delle chiavi nella stessa area della macchina virtuale da crittografare.

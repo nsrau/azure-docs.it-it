@@ -4,14 +4,14 @@ description: Informazioni sull'indicizzazione in Azure Cosmos DB. Informazioni s
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2018
+ms.date: 3/1/2019
 ms.author: mjbrown
-ms.openlocfilehash: 6c145b58a1f0eaaf93fb5797028e11ba8338d6be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 0ba5cdd4f92390634d6d2bea8add8309cb1f4d3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460234"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014483"
 ---
 # <a name="index-policy-in-azure-cosmos-db"></a>Criteri di indicizzazione in Azure Cosmos DB
 
@@ -23,9 +23,9 @@ ms.locfileid: "55460234"
 
 * **Configurare le modalità di indicizzazione**: tramite i criteri di indicizzazione in un contenitore, è possibile configurare diverse modalità di indicizzazione, ad esempio *Coerente* oppure *Nessuna*.
 
-## <a name="indexing-modes"></a>Modalità di indicizzazione 
+## <a name="indexing-modes"></a>Modalità di indicizzazione
 
-Azure Cosmos DB supporta due modalità di indicizzazione che è possibile configurare in un contenitore di Azure Cosmos. È possibile configurare le due modalità di indicizzazione seguenti tramite i criteri di indicizzazione: 
+Azure Cosmos DB supporta due modalità di indicizzazione che è possibile configurare in un contenitore di Azure Cosmos. È possibile configurare le due modalità di indicizzazione seguenti tramite i criteri di indicizzazione:
 
 * **Coerente**: se i criteri di un contenitore di Azure Cosmos sono impostati su Coerente, le query su un determinato contenitore seguono lo stesso livello di coerenza di quello specificato per le letture punto (ad esempio assoluta, con obsolescenza associata, di sessione o finale). 
 

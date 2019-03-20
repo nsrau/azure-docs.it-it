@@ -16,12 +16,12 @@ ms.date: 02/25/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: ed149398a1244ad0cb09c3e0fe128973c6caa00d
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: b61bf4f05f52b9d28ee09bb6c0de30544396e815
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408004"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091597"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>Esercitazione: Offrire database SQL a disponibilità elevata
 
@@ -65,7 +65,7 @@ Usare i passaggi descritti in questa sezione per distribuire il gruppo di dispon
 - Un set che contiene il controllo di condivisione file e SQL le macchine virtuali di disponibilità  
 
 1. 
-[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Selezionare **\+** **crea una risorsa** > **Custom**, quindi **distribuzione modello**.
 
@@ -156,7 +156,7 @@ Dopo aver SQL AlwaysOn gruppo di disponibilità è stato creato, configurato e a
 > Eseguire questi passaggi dal portale per gli utenti Azure Stack come un utente di tenant con una sottoscrizione che fornisce funzionalità di SQL Server (servizio Microsoft.SQLAdapter).
 
 1. 
-[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
+   [!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Selezionare **\+** **crea una risorsa** > **dati \+ archiviazione**e quindi **SQL Database**.<br><br>Fornire le informazioni sulle proprietà di database necessari inclusi nome, le regole di confronto, la dimensione massima e la sottoscrizione, gruppo di risorse e percorso da usare per la distribuzione. 
 

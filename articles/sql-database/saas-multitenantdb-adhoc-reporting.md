@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 10/30/2018
-ms.openlocfilehash: 2780215e409886be82ac70642dabe05c9257945e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: d4c5a2ca88f982626c8c2a8b37e4a7d6dfdbe599
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568448"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076361"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Eseguire query di reporting ad hoc su più database SQL di Azure
 
@@ -27,7 +27,7 @@ In questa esercitazione si eseguono query distribuite sull'intero set di databas
 In questa esercitazione si apprenderà:
 
 > [!div class="checklist"]
-
+> 
 > * Come distribuire un database di reporting ad hoc
 > * Come eseguire query distribuite su tutti i database tenant
 
@@ -147,7 +147,7 @@ Quando si esamina il piano di esecuzione, passare il mouse sulle icone del piano
 In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
-
+> 
 > * Eseguire query distribuite su tutti i database tenant
 > * Distribuire un database di reporting ad hoc e aggiungervi lo schema per eseguire query distribuite.
 

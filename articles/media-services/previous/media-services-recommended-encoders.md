@@ -9,15 +9,15 @@ ms.author: johndeu
 ms.date: 02/09/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: f07b2d128bd770854b7c240fd3c964d880029d3c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 76c5c5d90045e1697f698895e522ffda47d47565
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999012"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447722"
 ---
 # <a name="recommended-on-premises-encoders"></a>Codificatori locali consigliati
-Quando si esegue lo streaming live con Servizi multimediali di Azure è possibile specificare in che modo si vuole che il canale riceva il flusso di input. Se si sceglie di usare un codificatore locale con un canale di codifica live, il codificatore deve eseguire il push di un flusso a bitrate singolo di alta qualità come output. Se si sceglie di usare un codificatore locale con un canale pass-through, il codificatore deve eseguire il push di un flusso a bitrate multipli come output con tutte le qualità di output desiderate. Per altre informazioni, vedere [Streaming live con codificatori locali](media-services-live-streaming-with-onprem-encoders.md).
+Quando si esegue lo streaming live con Servizi multimediali di Azure è possibile specificare in che modo si vuole che il canale riceva il flusso di input. Se si sceglie di usare un codificatore locale su un canale di codifica live, il codificatore deve eseguire il push un flusso a bitrate singolo di alta qualità come output. Se si sceglie di usare un codificatore locale via con un canale pass-through, il codificatore deve eseguire il push un flusso a bitrate multipli come output con tutte le qualità di output desiderato. Per altre informazioni, vedere [lo streaming Live con in locale codificatori](media-services-live-streaming-with-onprem-encoders.md).
 
 Servizi multimediali di Azure consiglia di usare uno dei codificatori live seguenti che hanno RTMP come output:
 - Adobe Flash Media Live Encoder 3.2
@@ -44,8 +44,8 @@ Servizi multimediali di Azure consiglia di usare uno dei codificatori live segue
 > [!NOTE]
 > Un codificatore live può inviare un flusso a bitrate singolo a un canale pass-through, ma questa configurazione non è consigliata perché non è consentito per lo streaming a bitrate adattivo nel client.
 
-## <a name="how-to-become-an-on-prem-encoder-partner"></a>Come diventare un partner del codificatore locale
-Come partner del codificatore locale di Servizi multimediali di Azure, Servizi multimediali alza di livello il prodotto consigliando il codificatore ai clienti aziendali. Per diventare un partner del codificatore locale, è necessario verificare la compatibilità del codificatore locale con Servizi multimediali. A questo scopo, completare le verifiche seguenti:
+## <a name="how-to-become-an-on-premises-encoder-partner"></a>Come diventare un partner del codificatore locale su
+Come un servizi multimediali di Azure su partner del codificatore locale, servizi multimediali Alza di livello il prodotto consigliando il codificatore ai clienti aziendali. Per diventare un partner del codificatore in locale, è necessario verificare la compatibilità del codificatore on premises con servizi multimediali. A questo scopo, completare le verifiche seguenti:
 
 Verifica del canale pass-through
 1. Creare o visitare l'account di Servizi multimediali di Azure

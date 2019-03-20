@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 0b92d36287646038d9195f7ba39352d8ced9a3b6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: a8be44201a2181ab252dfba501469719dd675ffa
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270267"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410163"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Risoluzione dei problemi con Gestione aggiornamenti
 
@@ -44,7 +44,7 @@ Questo errore può dipendere dalle cause seguenti:
 
 1. Vedere [Configurare la rete](../automation-hybrid-runbook-worker.md#network-planning) per informazioni sugli indirizzi e sulle porte da abilitare per il funzionamento di Gestione aggiornamenti.
 2. Se si usa un'immagine clonata:
-   1. Nell'area di lavoro di Log Analytics rimuovere la macchina virtuale dalla ricerca salvata per la configurazione dell'ambito `MicrosoftDefaultScopeConfig-Updates`. Le ricerche salvate sono disponibili in **Generale** nell'area di lavoro.
+   1. Nell'area di lavoro di Log Analitica, rimuovere la macchina virtuale dalla ricerca salvata per la configurazione dell'ambito `MicrosoftDefaultScopeConfig-Updates` se viene visualizzato. Le ricerche salvate sono disponibili in **Generale** nell'area di lavoro.
    2. Eseguire `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`
    3. Eseguire `Restart-Service HealthService` per riavviare `HealthService`. In questo modo viene ricreata la chiave e viene creato un nuovo UUID.
    4. Se il problema persiste, preparare prima l'immagine con Sysprep e installare l'agente MMA al termine dell'operazione.
@@ -78,11 +78,11 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
-### <a name="nologs"></a>Scenario: i dati di Gestione aggiornamenti non vengono visualizzati in Log Analytics per un computer
+### <a name="nologs"></a>Scenario: Aggiornare i dati di gestione non vengono visualizzati nel log di monitoraggio di Azure per una macchina
 
 #### <a name="issue"></a>Problema
 
-Sono presenti computer che vengono visualizzati come **Non valutati** in **Conformità**. Tuttavia, si possono vedere i dati di heartbeat in Log Analytics per il ruolo di lavoro ibrido per runbook ma non per Gestione aggiornamenti.
+Si hanno macchine che mostrano come **non valutati** sotto **conformità**, ma vengono visualizzati i dati di heartbeat nei log di monitoraggio di Azure per il lavoro ibrido per Runbook ma non la gestione degli aggiornamenti.
 
 #### <a name="cause"></a>Causa
 

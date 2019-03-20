@@ -1,5 +1,5 @@
 ---
-title: Ottenere assistenza durante l'accesso e l'uso del portale delle app personali in Azure Active Directory | Microsoft Docs
+title: Ottieni assistenza per l'accesso e uso del portale di MyApps - Azure Active Directory | Microsoft Docs
 description: Ottenere assistenza durante l'accesso e l'esecuzione di attività comuni nel riquadro di accesso.
 services: active-directory
 author: eross-msft
@@ -12,13 +12,14 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64090e67c7bdc019498d35d7e9f5dfc8402ea57e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cad68afd02694ec471d032a554ed468691ff914b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175763"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105472"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>Risolvere i problemi di accesso e utilizzo del portale delle app personali
 
@@ -95,8 +96,8 @@ Se l'estensione è stata installata e continuano a verificarsi problemi, procede
 
 ## <a name="how-do-i-add-a-new-app"></a>Come aggiungere una nuova app
 
-1.  Nella pagina **App** selezionare **Aggiungi app**.
-2.  Cercare l'applicazione che si desidera aggiungere e quindi selezionare **Aggiungi**.
+1. Nella pagina **App** selezionare **Aggiungi app**.
+2. Cercare l'applicazione che si desidera aggiungere e quindi selezionare **Aggiungi**.
 
    > [!NOTE]
    > * È possibile accedere a questa opzione solo se l'amministratore l'ha abilitata per l'account.

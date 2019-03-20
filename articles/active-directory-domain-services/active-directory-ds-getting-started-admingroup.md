@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ergreenl
-ms.openlocfilehash: 1609d413604e172b9c718bd11768c495dfa8afe8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 734fb5ce641d48800cef68ea79cdb258e44ac267
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191423"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867100"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Abilitare Azure Active Directory Domain Services tramite il portale di Azure
 
@@ -83,7 +83,7 @@ Il processo di provisioning del dominio gestito può richiedere fino a un'ora.
 
 3. La scheda **Panoramica** indica che il dominio gestito è attualmente sottoposto a provisioning. Non è possibile configurare il dominio gestito fino a quando non ne è stato completato il provisioning. Per completare il provisioning del dominio gestito può essere necessaria fino a un'ora.
 
-    ![Domain Services - Scheda Panoramica durante lo stato di provisioning ](./media/getting-started/domain-services-provisioning-state-details.png)
+    ![Domain Services - Scheda Panoramica durante lo stato di provisioning](./media/getting-started/domain-services-provisioning-state-details.png)
 
 4. Al termine del provisioning del dominio gestito, nella scheda **Panoramica** il dominio gestito è impostato su **In esecuzione**.
 

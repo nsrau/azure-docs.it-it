@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ca7a1913e94242af46e777be308ef92fc5a5abb3
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: dd2ba0ec3427cd99da3321b50fb43f4c00f2d1a9
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427067"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822822"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Panoramica di Configurazione stato di Automazione di Azure
 
@@ -37,13 +37,45 @@ Dal portale di Azure o da PowerShell è possibile gestire tutte le configurazion
 
 ![Screenshot della pagina di accesso di Automazione di Azure](./media/automation-dsc-overview/azure-automation-blade.png)
 
-### <a name="import-reporting-data-into-log-analytics"></a>Importare i dati dei report in Log Analytics
+### <a name="import-reporting-data-into-azure-monitor-logs"></a>Importare i dati di segnalazione dei log di monitoraggio di Azure
 
-I nodi gestiti con Configurazione stato di Automazione di Azure inviano dati dettagliati sullo stato dei report al server di pull predefinito. È possibile configurare Configurazione stato di Automazione di Azure per inviare questi dati all'area di lavoro di Log Analytics. Per informazioni su come inviare i dati sullo stato di Configurazione stato all'area di lavoro Log Analytics, vedere [Inoltrare i dati di report di Configurazione stato di Automazione di Azure a Log Analytics](automation-dsc-diagnostics.md).
+I nodi gestiti con Configurazione stato di Automazione di Azure inviano dati dettagliati sullo stato dei report al server di pull predefinito. È possibile configurare Configurazione stato di Automazione di Azure per inviare questi dati all'area di lavoro di Log Analytics. Per informazioni su come inviare i dati dello stato di configurazione dello stato nell'area di lavoro di Log Analitica, vedere [inoltrare Azure Automation configurazione dello stato i dati dei report per i log di monitoraggio di Azure](automation-dsc-diagnostics.md).
 
-## <a name="network-planning"></a>Configurare la rete
+## <a name="prerequisites"></a>Prerequisiti
 
-La porta e gli URL seguenti sono necessari affinché Configurazione stato (DSC) comunichi con Automazione:
+Prendere in considerazione i requisiti seguenti quando si usa Azure Automation State Configuration (DSC).
+
+### <a name="operating-system-requirements"></a>Requisiti del sistema operativo
+
+Per i nodi che eseguono Windows, sono supportate le versioni seguenti:
+
+- Windows Server 2019
+- Windows Server 2016
+- Windows Server 2012 R2
+- Windows Server 2012
+- Windows Server 2008 R2 SP1
+- Windows 10
+- Windows 8.1
+- Windows 7
+
+Per i nodi che eseguono Linux, sono supportate le seguenti distribuzioni/versioni:
+
+L'estensione DSC Linux supporta tutte le distribuzioni di Linux [approvate in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) tranne:
+
+Distribuzione | Versione
+-|-
+Debian  | tutte le versioni
+Ubuntu  | 18,04
+
+### <a name="dsc-requirements"></a>Requisiti di DSC
+
+Per tutti i nodi di Windows in esecuzione in Azure, [WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure) verrà installato durante l'onboarding.  Per i nodi che eseguono Windows Server 2012 e Windows 7, [WinRM verrà abilitato](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
+
+Per tutti i nodi di Linux in esecuzione in Azure, [PowerShell DSC per Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) verrà installato durante l'onboarding.
+
+### <a name="network-planning"></a>Configurare le reti private
+
+Se i nodi si trovano all'interno di una rete privata, le porte e gli URL seguenti sono necessari per lo stato Configuration (DSC) per comunicare con automazione:
 
 * Porta: è necessaria solo la porta TCP 443 per l'accesso a Internet in uscita.
 * URL globale: *.azure-automation.net
@@ -85,7 +117,7 @@ Si preferisce guardare che leggere? Guardare il video seguente del mese di maggi
 > [!NOTE]
 > Anche se i concetti e il ciclo di vita descritti in questo video sono corretti, Configurazione stato di Automazione di Azure ha compiuto molti progressi da quando il video è stato registrato. È ora disponibile a livello generale, ha un'interfaccia utente molto più estesa nel portale di Azure e supporta molte funzionalità aggiuntive.
 
-[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
+<iframe src="https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 ## <a name="next-steps"></a>Passaggi successivi
 

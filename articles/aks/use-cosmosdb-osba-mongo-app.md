@@ -10,12 +10,12 @@ ms.date: 01/25/2019
 ms.author: zarhoads
 ms.custom: mvc
 keywords: Cosmos DB, Open Service Broker, Open Service Broker for Azure
-ms.openlocfilehash: 3146d11f33809391d93305d63bad757ed281fb70
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 46fa5564e5dd3429f812b263295044d867a8511c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977016"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57991973"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>Integrare l'applicazione MongoDB esistente con l'API Azure Cosmos DB per MongoDB e Open Service Broker for Azure (OSBA)
 
@@ -81,7 +81,7 @@ Avviare l'applicazione e comunicarle di usare il profilo *mongodb*:
 java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 ```
 
-Passare a http://localhost:8080 nel browser.
+Passare a `http://localhost:8080` nel browser.
 
 ![App Spring Music con i dati predefiniti](media/music-app.png)
 
@@ -184,12 +184,12 @@ java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 
 Si noti che l'applicazione usa ancora il profilo *mongodb* e un URI che inizia con *mongodb://* per connettersi al database Cosmos DB. L'[API Azure Cosmos DB per MongoDB](../cosmos-db/mongodb-introduction.md) consente questa compatibilità. Consente all'applicazione di continuare a funzionare come se stesse usando un database MongoDB, ma in realtà sta usando Cosmos DB.
 
-Passare a http://localhost:8080 nel browser. Si noti che sono stati ripristinati i dati predefiniti. Interagire eliminando alcuni album esistenti e creandone alcuni nuovi. È possibile verificare che le modifiche siano persistenti arrestando, riavviando e tornando all'applicazione nel browser. Si noti che le modifiche apportate sono ancora presenti. Le modifiche vengono rese persistenti nel database Cosmos DB creato usando Open Service Broker for Azure.
+Passare a `http://localhost:8080` nel browser. Si noti che sono stati ripristinati i dati predefiniti. Interagire eliminando alcuni album esistenti e creandone alcuni nuovi. È possibile verificare che le modifiche siano persistenti arrestando, riavviando e tornando all'applicazione nel browser. Si noti che le modifiche apportate sono ancora presenti. Le modifiche vengono rese persistenti nel database Cosmos DB creato usando Open Service Broker for Azure.
 
 
 ## <a name="run-your-application-on-your-aks-cluster"></a>Eseguire l'applicazione nel cluster del servizio Azure Kubernetes
 
-È possibile usare [Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md) per distribuire l'applicazione nel cluster del servizio Azure Kubernetes. Azure Dev Spaces consente di generare elementi, ad esempio grafici Dockefiles e Helm, e di distribuire ed eseguire un'applicazione nel servizio Azure Kubernetes.
+È possibile usare [Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md) per distribuire l'applicazione nel cluster del servizio Azure Kubernetes. Azure Dev consentono di generare elementi, ad esempio i grafici Helm e i Dockerfile e distribuire ed eseguire un'applicazione nel servizio contenitore di AZURE.
 
 Per abilitare Azure Dev Spaces nel cluster del servizio Azure Kubernetes:
 

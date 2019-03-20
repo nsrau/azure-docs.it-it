@@ -7,20 +7,23 @@ author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
-ms.service: monitoring
+ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 75ed69d749e23f39c03afb09f70a18cc1aed600b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 67378a5911e5bd83888342aa3773f7f5ed4ccf29
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078576"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102585"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Raccogliere dati in Log Analytics con un runbook di Automazione di Azure
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 È possibile raccogliere una quantità significativa di dati in Log Analytics da una serie di origini, tra cui [origini dati](../../azure-monitor/platform/agent-data-sources.md) negli agenti e [dati raccolti da Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md). Esistono tuttavia scenari in cui è necessario raccogliere dati non accessibili tramite queste origini standard. In questi casi è possibile usare l'[API di raccolta dati HTTP](../../azure-monitor/platform/data-collector-api.md) per inviare dati a Log Analytics da qualsiasi client dell'API REST. Un modo comune per eseguire questa raccolta dati è usare un runbook in Automazione di Azure.
 
 Questa esercitazione illustra il processo di creazione e pianificazione di un runbook in Automazione di Azure per l'invio di dati a Log Analytics.
@@ -63,9 +66,9 @@ Le [variabili di Automazione](../../automation/automation-variables.md) contengo
 | Proprietà | Valore ID area di lavoro | Valore chiave area di lavoro |
 |:--|:--|:--|
 | NOME | WorkspaceId | WorkspaceKey |
-| type | string | string |
+| Type | string | string |
 | Valore | Incollare l'ID dell'area di lavoro di Log Analytics. | Incollare la chiave primaria o secondaria dell'area di lavoro di Log Analytics. |
-| Crittografato | No  | Yes |
+| Crittografato | No  | Sì |
 
 ## <a name="3-create-runbook"></a>3. Creare un runbook
 
@@ -92,7 +95,7 @@ Automazione di Azure offre un editor nel portale in cui è possibile modificare 
     # Code copied from the runbook AzureAutomationTutorial.
     $connectionName = "AzureRunAsConnection"
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName
-    Connect-AzureRmAccount `
+    Connect-AzAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -109,7 +112,7 @@ Automazione di Azure offre un editor nel portale in cui è possibile modificare 
     $logType = "AutomationJob"
     
     # Get the jobs from the past hour.
-    $jobs = Get-AzureRmAutomationJob -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -StartTime (Get-Date).AddHours(-1)
+    $jobs = Get-AzAutomationJob -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -StartTime (Get-Date).AddHours(-1)
     
     if ($jobs -ne $null) {
         # Convert the job data to json
@@ -128,13 +131,13 @@ Automazione di Azure include un ambiente che consente di [testare il runbook](..
 
 ![Testare il runbook](media/runbook-datacollect/test-runbook.png)
 
-6. Fare clic su **Salva** per salvare il runbook.
+1. Fare clic su **Salva** per salvare il runbook.
 1. Fare clic su **Riquadro di test** per aprire il runbook nell'ambiente di test.
-3. Il runbook include parametri, quindi verrà chiesto di inserire i relativi valori. Immettere il nome del gruppo di risorse e l'account di Automazione dal quale verranno raccolte le informazioni sui processi.
-4. Fare clic su **Avvia** per avviare il runbook.
-3. Il runbook verrà avviato con lo stato **In coda** prima di passare allo stato **In esecuzione** e
-3. Il runbook visualizzerà un output dettagliato con i processi raccolti in formato JSON. Se non è elencato alcun processo, probabilmente non sono stati creati processi nell'account di Automazione nell'ultima ora. Provare ad avviare un runbook nell'account di Automazione e quindi eseguire di nuovo il test.
-4. Assicurarsi che l'output non visualizzi eventuali errori nel comando POST per Log Analytics. Verrà visualizzato un messaggio simile al seguente.
+1. Il runbook include parametri, quindi verrà chiesto di inserire i relativi valori. Immettere il nome del gruppo di risorse e l'account di Automazione dal quale verranno raccolte le informazioni sui processi.
+1. Fare clic su **Avvia** per avviare il runbook.
+1. Il runbook verrà avviato con lo stato **In coda** prima di passare allo stato **In esecuzione** e
+1. Il runbook visualizzerà un output dettagliato con i processi raccolti in formato JSON. Se non è elencato alcun processo, probabilmente non sono stati creati processi nell'account di Automazione nell'ultima ora. Provare ad avviare un runbook nell'account di Automazione e quindi eseguire di nuovo il test.
+1. Assicurarsi che l'output non visualizzi eventuali errori nel comando POST per Log Analytics. Verrà visualizzato un messaggio simile al seguente.
 
     ![Output del comando POST](media/runbook-datacollect/post-output.png)
 
@@ -186,9 +189,9 @@ Il modo più comune per avviare un runbook che raccoglie dati di monitoraggio è
 
 Dopo aver creato la pianificazione è necessario impostare i valori dei parametri che verranno usati ogni volta che la pianificazione avvia il runbook.
 
-6. Fare clic su **Configura i parametri e le impostazioni di esecuzione**.
-7. Specificare i valori per **ResourceGroupName** e **AutomationAccountName**.
-8. Fare clic su **OK**.
+1. Fare clic su **Configura i parametri e le impostazioni di esecuzione**.
+1. Specificare i valori per **ResourceGroupName** e **AutomationAccountName**.
+1. Fare clic su **OK**.
 
 ## <a name="9-verify-runbook-starts-on-schedule"></a>9. Verificare che il runbook venga avviato secondo la pianificazione
 Ogni volta che un runbook viene avviato, [viene creato un processo](../../automation/automation-runbook-execution.md) e l'output viene registrato. Si tratta in realtà degli stessi processi che vengono raccolti dal runbook. È possibile verificare che il runbook si avvii come previsto controllando i processi del runbook quando è trascorsa l'ora di inizio della pianificazione.

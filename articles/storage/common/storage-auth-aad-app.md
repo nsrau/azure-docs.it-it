@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 4c39f47169071ceb9430f419a144e11f425d65b0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 6d283840116a5e1f996602fd792456d3b8e8d9a0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240727"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456092"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>Eseguire l'autenticazione con Azure Active Directory da un'applicazione per l'accesso ai BLOB e alle code (anteprima)
 
@@ -39,7 +39,7 @@ Quando si registra l'applicazione, si danno informazioni sull'applicazione ad Az
 
 Per registrare l'applicazione di Archiviazione di Azure, seguire i passaggi descritti nella sezione [Aggiunta di un'applicazione](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md) in [Integrazione di applicazioni con Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). Se si registra l'applicazione come applicazione nativa, è possibile specificare qualsiasi URI valido come **URI di reindirizzamento**. Il valore non deve essere un endpoint reale.
 
-![Screenshot che mostra come registrare l'applicazione di archiviazione in Azure AD](./media/storage-auth-aad-app/app-registration.png)
+![Screenshot che mostra come registrare l'applicazione di archiviazione di Azure AD](./media/storage-auth-aad-app/app-registration.png)
 
 Al termine della registrazione dell'applicazione, verrà visualizzato l'ID applicazione (o ID client) in **Impostazioni**:
 
@@ -57,14 +57,14 @@ Per altre informazioni sulla registrazione di un'applicazione in Azure AD, veder
 4. Nel pannello **Autorizzazioni necessarie** fare clic sul pulsante **Aggiungi**.
 5. In **Selezionare un'API**, cercare "Archiviazione di Azure" e selezionare **Archiviazione di Azure** nell'elenco dei risultati.
 
-    ![Screenshot che mostra le autorizzazioni per l'archiviazione](media/storage-auth-aad-app/registered-app-permissions-1.png)
+    ![Screenshot che mostra autorizzazioni per l'archiviazione](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
 6. In **Selezionare le autorizzazioni** selezionare la casella accanto a **Access Azure Storage** (Accesso ad Archiviazione di Azure) e quindi fare clic su **Seleziona**.
 7. Fare clic su **Done**.
 
 La finestra **Autorizzazioni necessarie** mostra ora che l'applicazione di Azure AD ha accesso sia ad Azure Active Directory sia ad Archiviazione di Azure. Le autorizzazioni vengono automaticamente concesse ad Azure AD quando si registra l'app per la prima volta in Azure AD.
 
-![Screenshot che mostra le autorizzazioni dell'app registrata](media/storage-auth-aad-app/registered-app-permissions-2.png)
+![Screenshot di registrare le autorizzazioni dell'app](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
 ## <a name="net-code-example-create-a-block-blob"></a>Esempio di codice .NET: Creare un BLOB in blocchi
 
@@ -101,7 +101,7 @@ Per ottenere l'ID tenant, seguire questa procedura:
 2. Fare clic su **Proprietà**.
 3. Copiare il valore GUID specificato per **ID directory**. Questo valore viene chiamato anche ID tenant.
 
-![Screenshot che mostra come copiare l'ID tenant](./media/storage-auth-aad-app/aad-tenant-id.png)
+![Screenshot che illustra come copiare l'ID tenant](./media/storage-auth-aad-app/aad-tenant-id.png)
 
 ### <a name="add-references-and-using-statements"></a>Aggiungere riferimenti e istruzioni using  
 

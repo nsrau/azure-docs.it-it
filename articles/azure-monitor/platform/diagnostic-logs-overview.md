@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: e9fcf36d6ece441c73e7d1224bd5918d2e74bf84
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 07ea18a767044f0f74249859bb46d8285d52d7ab
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001984"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310183"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Raccogliere e usare i dati dei log dalle risorse di Azure
 
@@ -23,7 +23,7 @@ ms.locfileid: "56001984"
 * **I log del tenant**. Questi log provengono dai servizi a livello di tenant che esistono di fuori di una sottoscrizione ad Azure, ad esempio i log di Azure Active Directory.
 * **I log di risorsa**. Questi log provengono dai servizi di Azure che distribuiscono le risorse all'interno di una sottoscrizione ad Azure, ad esempio i gruppi di sicurezza di rete o gli account di archiviazione.
 
-    ![Log di diagnostica di risorsa e altri tipi di log ](./media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
+    ![Log di diagnostica di risorsa e altri tipi di log](./media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
 
 Il contenuto di questi log varia in base al servizio di Azure e al tipo di risorsa. I contatori delle regole di gruppo di sicurezza di rete e i controlli di insieme di credenziali delle chiavi, ad esempio, sono due tipi di log di diagnostica.
 
@@ -113,12 +113,14 @@ Impostazioni di diagnostica del tenant possono essere configurate solo nel panne
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-powershell"></a>Abilitare la raccolta dei log di diagnostica di risorsa con PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Per abilitare la raccolta dei log di diagnostica di risorsa tramite Azure PowerShell, usare i comandi seguenti:
 
 Per abilitare la memorizzazione dei log di diagnostica in un account di archiviazione, usare questo comando:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 ```
 
 L'ID account di archiviazione è l'ID risorsa per l'account di archiviazione a cui devono essere inviati i log.
@@ -126,7 +128,7 @@ L'ID account di archiviazione è l'ID risorsa per l'account di archiviazione a c
 Per abilitare lo streaming dei log di diagnostica a un Hub eventi, usare questo comando:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
 ```
 
 L'ID regola del bus di servizio è una stringa nel formato seguente: `{Service Bus resource ID}/authorizationrules/{key name}`.
@@ -134,13 +136,13 @@ L'ID regola del bus di servizio è una stringa nel formato seguente: `{Service B
 Per consentire l'invio dei log di diagnostica a un'area di lavoro di Log Analytics, usare questo comando:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 ```
 
 È possibile ottenere l'ID risorsa dell'area di lavoro di Log Analytics usando il comando seguente:
 
 ```powershell
-(Get-AzureRmOperationalInsightsWorkspace).ResourceId
+(Get-AzOperationalInsightsWorkspace).ResourceId
 ```
 
 È possibile combinare questi parametri per abilitare più opzioni di output.

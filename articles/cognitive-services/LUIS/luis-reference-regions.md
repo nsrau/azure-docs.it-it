@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 03/07/2019
 ms.author: diberry
-ms.openlocfilehash: 093c60287b16073a6c04e824dc439f5dc069ec96
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bbe46db1972951b466b431c9efc0420e15ff6dee
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863670"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765171"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Creazione e pubblicazione di aree e chiavi associate
 
@@ -95,6 +95,9 @@ La tabella seguente illustra i parametri indicati con parentesi graffe `{}` nell
 |appID|ID dell'app LUIS usato nella route dell'URL e disponibile nel dashboard dell'app|
 |q|testo dell'espressione inviato dall'applicazione client, ad esempio chatbot|
 
+## <a name="failover-regions"></a>Aree di failover
+
+Ogni area ha un'area secondaria per eseguire il failover. Si verifica un errore Europa over in Europa e in Australia viene eseguito il failover all'interno di Australia.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

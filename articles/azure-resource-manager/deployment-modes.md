@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/13/2019
+ms.date: 02/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: bc28349e1bfc935ac8298f991575c1e0cb42d38c
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 5213affe953636c46486614ee2a020d7727e1478
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56299230"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407519"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modelli di distribuzione Azure Resource Manager
 
@@ -26,7 +26,7 @@ Per entrambe le modalità, Resource Manager prova a creare tutte le risorse spec
 
 ## <a name="complete-mode"></a>Modalità completa
 
-Nella modalità di completamento, Resource Manager **elimina** le risorse esistenti nel gruppo di risorse che non sono specificate nel modello. Le risorse specificate nel modello, ma non distribuite in quanto una [condizione](resource-manager-templates-resources.md#condition) restituisce false, non vengono eliminate.
+Nella modalità di completamento, Resource Manager **elimina** le risorse esistenti nel gruppo di risorse che non sono specificate nel modello. Le risorse specificate nel modello, ma non distribuite in quanto una [condizione](resource-group-authoring-templates.md#condition) restituisce false, non vengono eliminate.
 
 Esistono alcune differenze nel modo in cui i tipi di risorsa gestiscono le eliminazioni in modalità completa. Le risorse padre vengono eliminate automaticamente quando non sono specificate in un modello distribuito in modalità completa. Alcune risorse figlio non vengono eliminate automaticamente quando non sono specificate nel modello. Tuttavia, queste risorse figlio vengono eliminate se viene eliminata la risorsa padre. 
 
@@ -36,6 +36,10 @@ Per informazioni dettagliate sul modo in cui i tipi di risorsa gestiscono l'elim
 
 > [!NOTE]
 > Solo i modelli a livello di radice supportano la modalità di distribuzione completa. Per modelli [collegati o annidati](resource-group-linked-templates.md), è necessario usare la modalità di distribuzione incrementale. 
+>
+> [Le distribuzioni a livello di sottoscrizione](deploy-to-subscription.md) non supportano la modalità completa.
+>
+> Attualmente, il portale non supporta la modalità completa.
 >
 
 ## <a name="incremental-mode"></a>Modalità incrementale

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: diberry
-ms.openlocfilehash: b363f68b625a6f0987e58609477f51c7098423bf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 9da79e5b744f8ba70c0e265f0d1f0126b37eba49
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874084"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870653"
 ---
 # <a name="understand-how-and-when-to-use-a-luis-version"></a>Comprendere come e quando usare una versione di LUIS
 
@@ -35,7 +35,7 @@ Una [versione](luis-how-to-manage-versions.md#set-active-version) impostata come
 
 Il nome della versione attualmente attiva viene visualizzato nel riquadro in alto a sinistra dopo il nome dell'app. 
 
-[ ![Modificare la versione attiva](./media/luis-concept-version/version-in-nav-bar-inline.png) ](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
+[![Versione attiva modifica](./media/luis-concept-version/version-in-nav-bar-inline.png)](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
 
 ## <a name="versions-and-publishing-slots"></a>Versioni e slot di pubblicazione
 La pubblicazione avviene in slot di produzione e di staging. Ogni slot può presentare una versione diversa o la stessa versione. È utile per verificare le modifiche tra versioni modello tramite l'endpoint, disponibile ai bot o ad altre applicazioni di chiamata LUIS. 

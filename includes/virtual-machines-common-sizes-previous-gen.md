@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 937ac1d892cdea849d7e5a89c8e69c6b069f2efd
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: c16483f4b8ef160c78ff95582faf54c9a9d24a04
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56334009"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57964191"
 ---
 Questo articolo fornisce informazioni sulle generazioni precedenti delle dimensioni delle macchine virtuali. Queste dimensioni possono ancora essere usate, ma sono disponibili generazioni più recenti.
 
 
 ## <a name="ds-series"></a>Serie DS
 
-ACU: 160
+ACU: 160-250 <sup>1</sup>
 
 Archiviazione Premium:  Supportato
 
@@ -33,11 +33,12 @@ Memorizzazione nella cache Archiviazione Premium:  Supportato
 | Standard_DS3 |4 |14 |28 |16 |16.000/128 (172) |12.800/128 |4 / 2000 |
 | Standard_DS4 |8 |28 |56 |32 |32.000/256 (344) |25.600/256 |8 / 4000 |
 
+<sup>1</sup> famiglia di macchine Virtuali eseguibili in una delle seguenti della CPU: 2,2 Intel GHz Xeon® E5 2660 v2, Intel a 2,4 GHz Xeon®-2673 E5 v3 (Haswell) a 2,3 GHz Intel XEON® o E5 2673 v4 (Broadwell)
 <br>
 
 ## <a name="ds-series---memory-optimized"></a>Serie DS - Con ottimizzazione per la memoria
 
-ACU: 160 <sup>1</sup>
+ACU: 160-250 <sup>1,2</sup>
 
 Archiviazione Premium:  Supportato
 
@@ -52,11 +53,11 @@ Memorizzazione nella cache Archiviazione Premium:  Supportato
 
 <sup>1</sup> La massima velocità effettiva del disco (IOPS o MBps) possibile con una VM serie DS può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati.  Per maggiori dettagli, vedere [Progettazione per prestazioni elevate](../articles/virtual-machines/windows/premium-storage-performance.md).
 
-
+<sup>2</sup> famiglia di macchine Virtuali eseguibili in una delle seguenti della CPU: 2,2 Intel GHz Xeon® E5 2660 v2, Intel a 2,4 GHz Xeon®-2673 E5 v3 (Haswell) a 2,3 GHz Intel XEON® o E5 2673 v4 (Broadwell)
 
 ## <a name="d-series"></a>Serie D 
 
-ACU: 160
+ACU: 160-250 <sup>1</sup>
 
 Archiviazione Premium:  Non supportato
 
@@ -69,11 +70,12 @@ Memorizzazione nella cache Archiviazione Premium:  Non supportato
 | Standard_D3  | 4         | 14          | 200            | 12000 / 187 / 93                                         | 16/16 x 500                         | 4 / 2000                     |
 | Standard_D4  | 8         | 28          | 400            | 24000 / 375 / 187                                        | 32/32 x 500                       | 8 / 4000                     |
 
+<sup>1</sup> famiglia di macchine Virtuali eseguibili in una delle seguenti della CPU: 2,2 Intel GHz Xeon® E5 2660 v2, Intel a 2,4 GHz Xeon®-2673 E5 v3 (Haswell) a 2,3 GHz Intel XEON® o E5 2673 v4 (Broadwell)
 <br>
 
 ## <a name="d-series---memory-optimized"></a>Serie D - Con ottimizzazione per la memoria
 
-ACU: 160
+ACU: 160-250 <sup>1</sup>
 
 Archiviazione Premium:  Non supportato
 
@@ -86,6 +88,7 @@ Memorizzazione nella cache Archiviazione Premium:  Non supportato
 | Standard_D13 | 8         | 56          | 400            | 24000 / 375 / 187                                        | 32/32 x 500                       | 8 / 4000                     |
 | Standard_D14 | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64/64x500                       | 8 / 8000                |
 
+<sup>1</sup> famiglia di macchine Virtuali eseguibili in una delle seguenti della CPU: 2,2 Intel GHz Xeon® E5 2660 v2, Intel a 2,4 GHz Xeon®-2673 E5 v3 (Haswell) a 2,3 GHz Intel XEON® o E5 2673 v4 (Broadwell)
 <br>
 
 ## <a name="a-series---compute-intensive-instances"></a>Serie A - Istanze a elevato utilizzo di calcolo
@@ -96,7 +99,7 @@ Archiviazione Premium:  Non supportato
 
 Memorizzazione nella cache Archiviazione Premium:  Non supportato
 
-Le dimensioni delle serie A8-A11 e H sono note anche come *istanze a elevato uso di calcolo*. L'hardware che esegue queste dimensioni è progettato e ottimizzato per applicazioni a elevato utilizzo di calcolo e di rete, come applicazioni cluster HPC, modellazione e simulazioni. La serie A8-A11 usa Intel Xeon E5-2670 a 2,6 GHZ, mentre la serie H usa Intel Xeon E5-2667 v3 a 3,2 GHz.  Questo articolo offre informazioni sul numero di vCPU, dischi dati e schede di rete, nonché sulla velocità effettiva di archiviazione e sulla larghezza di banda della rete per ogni dimensione di questo raggruppamento. 
+Le dimensioni delle serie A8-A11 e H sono note anche come *istanze a elevato uso di calcolo*. L'hardware che esegue queste dimensioni è progettato e ottimizzato per applicazioni a elevato utilizzo di calcolo e di rete, come applicazioni cluster HPC, modellazione e simulazioni. La serie A8-A11 usa Intel Xeon E5-2670 a 2,6 GHZ, mentre la serie H usa Intel Xeon E5-2667 v3 a 3,2 GHz.  
 
 | Dimensione | vCPU | Memoria: GiB | Spazio di archiviazione temp (HDD): GiB | Numero massimo di dischi dati | Velocità effettiva massima del disco dati: IOPS | Schede di interfaccia di rete max|
 | --- | --- | --- | --- | --- | --- | --- |
@@ -127,6 +130,7 @@ Memorizzazione nella cache Archiviazione Premium:  Non supportato
 | Standard_A5 |2 |14 |135 |4 |4x500 |2 / 500 |
 | Standard_A6 |4 |28 |285 |8 |8x500 |2 / 1000 |
 | Standard_A7 |8 |56 |605 |16 |16x500 |4 / 2000 |
+
 <br>
 
 <sup>1</sup> La sottoscrizione della dimensione A0 è eccessiva nell'hardware fisico. Solo per questa dimensione specifica, altre distribuzioni dei clienti possono compromettere le prestazioni del carico di lavoro in esecuzione. Le prestazioni relative sono indicate di seguito come linea di base prevista, con variabilità approssimativa del 15%.

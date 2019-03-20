@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 2f747eb09fd13647c4b6764ce3cc4fe72c00bcf0
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
-ms.translationtype: HT
+ms.openlocfilehash: b2aa3eb6a117bbbdcf9c4aa44161dc25ddea2f1a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054847"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081220"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gestire lo schema in un'applicazione SaaS usando il modello con un database per ogni tenant con il database SQL di Azure
  
@@ -28,7 +28,7 @@ Questa esercitazione illustra due scenari: distribuzione degli aggiornamenti dei
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-
+> 
 > * Creare un agente processo
 > * Eseguire i processi T-SQL in tutti i database tenant
 > * Aggiornare i dati di riferimento in tutti i database tenant
@@ -73,7 +73,7 @@ Lo script *Demo-SchemaManagement.ps1* chiama lo script *Deploy-SchemaManagement.
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Creare un processo per distribuire nuovi dati di riferimento a tutti i tenant
 
-Nell'app Wingtip Tickets ogni database tenant include un set di tipi di sedi supportati. Ogni sede è di un tipo specifico, che definisce il tipo di eventi che possono essere ospitati e determina l'immagine di sfondo usata nell'app. Per fare in modo che l'applicazione supporti nuovi tipi di eventi, è necessario aggiornare i dati di riferimento e aggiungere nuovi tipi di sede.  Questo esercizio illustra come distribuire un aggiornamento a tutti i database tenant per aggiungere due tipi di eventi aggiuntivi: *Motorcycle Racing* (Gare motociclistiche) e *Swimming Club* (Club nuoto).
+Nell'app Wingtip Tickets ogni database tenant include un set di tipi di sedi supportati. Ogni sede è di un tipo specifico, che definisce il tipo di eventi che possono essere ospitati e determina l'immagine di sfondo usata nell'app. Per fare in modo che l'applicazione supporti nuovi tipi di eventi, è necessario aggiornare i dati di riferimento e aggiungere nuovi tipi di sede.  In questo esercizio, si distribuisce un aggiornamento per tutti i database tenant per aggiungere due tipi di eventi aggiuntivi: *Motorcycle Racing* (Gare motociclistiche) e *Swimming Club* (Club nuoto).
 
 Esaminare prima i tipi di sede inclusi in ogni database tenant. Connettersi a uno dei database tenant in SQL Server Management Studio (SSMS) ed esaminare la tabella VenueTypes.  È anche possibile eseguire query su questa tabella nell'editor di query nel portale di Azure, accessibile dalla pagina di database. 
 
@@ -86,8 +86,8 @@ Per creare un nuovo processo, usare un set di stored procedure di sistema per i 
 
 1. In SSMS connettersi al server di catalogo *catalog-dpt-&lt;user&gt;.database.windows.net* nel server 
 1. In SSMS, aprire il file …\\Learning Modules\\Schema Management\\DeployReferenceData.sql
-1. Modificare l'istruzione: SET @wtpUser = &lt;utente&gt; e sostituire il valore Utente usato per la distribuzione dell'app del database per tenant SaaS Wingtip Tickets
-1. Verificare di essere connessi al database _jobagent_ e premere **F5** per eseguire lo script
+1. Modificare l'istruzione: IMPOSTARE @wtpUser = &lt;utente&gt; e sostituire il valore utente usato durante la distribuzione dell'app Wingtip Tickets SaaS Database Per Tenant
+1. Assicurarsi di essere connessi per il _jobagent_ database e premere **F5** per eseguire lo script
 
 Esaminare gli elementi seguenti nello script *DeployReferenceData.sql*:
 * **sp\_add\_target\_group** crea il nome del gruppo di destinazione DemoServerGroup.
@@ -122,12 +122,12 @@ Esaminare gli elementi seguenti nello script _OnlineReindex.sql_:
 In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
-
+> 
 > * Creare un processo agente per eseguire processi T-SQL in più database
 > * Aggiornare i dati di riferimento in tutti i database tenant
 > * Creare un indice su una tabella in tutti i database tenant
 
-Provare quindi a eseguire l'[esercitazione per database di report ad-hoc](saas-tenancy-cross-tenant-reporting.md) per esaminare l'esecuzione di query distribuite tra database tenant.
+Successivamente, provare il [reporting Ad hoc esercitazione](saas-tenancy-cross-tenant-reporting.md) per esaminare l'esecuzione di query distribuite tra tenant di database.
 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive

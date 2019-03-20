@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: a5033b9eab637a62c6bea4f95f4e604313125994
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 810f9bb81d367cfe70e59d62d81a9e129cf80e6b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542048"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225982"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Installare applicazioni Apache Hadoop di terze parti in Azure HDInsight
 
@@ -26,7 +26,7 @@ L'elenco seguente mostra le applicazioni pubblicate:
 
 |Applicazione |Tipi di cluster | DESCRIZIONE |
 |---|---|---|
-|AtScale Intelligence Platform |Hadoop |AtScale attiva il cluster HDInsight in un server OLAP scale-out, consentendo di eseguire query a miliardi di righe di dati in modo interattivo tramite gli strumenti di BI che già conosci, proprietario e apprezzi: in Microsoft Excel, PowerBI, Tableau Software per QlikView. |
+|AtScale Intelligence Platform |Hadoop |AtScale attiva il cluster HDInsight in un server OLAP scale-out, consentendo di eseguire query a miliardi di righe di dati in modo interattivo tramite gli strumenti di BI che già conosci, proprietario e apprezzi: in Microsoft Excel, Power BI, Tableau Software per QlikView. |
 |CDAP 4.2, 4.3 per HDInsight |hbase |CDAP è la prima piattaforma di integrazione unificata per big data che accelera la fase di valore per Hadoop e consente al reparto IT fornire dati self-service. Open source e CDAP estendibile, rimuove le barriere all'innovazione. Requirements: Nodi di 4 aree, min D3 v2. |
 |Datameer |Hadoop |Piattaforma self-service scalabile datameer contribuiscono per la preparazione, esplorazione e che controllano i dati di analitica accelera la trasformazione dati multisource complessi in informazioni aziendali importanti, recapito più veloce, più intelligente insights a un livello aziendale. |
 |Dataiku DSS in HDInsight |Hadoop, Spark |Dataiku DSS in una piattaforma di analisi scientifica dei dati aziendali che consente ai data Scientist e analisti dei dati collaborano per progettare ed eseguire di nuovo i dati prodotti e servizi in modo più efficiente, trasformare i dati non elaborati in previsioni con impatto elevate. |

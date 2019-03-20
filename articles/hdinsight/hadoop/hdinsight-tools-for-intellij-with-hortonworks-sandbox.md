@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: aaebad004e5d426ca1c593941b15a2515c4476de
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 98f22f531ca15bf88cd7d0a9add2851651e2eec7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635664"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118324"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Usare gli strumenti HDInsight per IntelliJ con Hortonworks Sandbox
 
@@ -53,20 +53,20 @@ In questa sezione verrà creato un progetto Scala di esempio usando IntelliJ IDE
    1. Selezionare **HDInsight** > **Spark on HDInsight (Scala)** (Spark in HDInsight - Scala).
    2. Nell'elenco **Build tool** (Strumento di compilazione) selezionare uno degli strumenti seguenti, a seconda dello scenario:
 
-    * **Maven**: per ottenere supporto per la creazione guidata di un progetto Scala.
-    * **SBT**: per la gestione delle dipendenze e la compilazione per il progetto Scala.
+      * **Maven**: per ottenere supporto per la creazione guidata di un progetto Scala.
+      * **SBT**: per la gestione delle dipendenze e la compilazione per il progetto Scala.
 
    ![Finestra di dialogo del nuovo progetto](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
 2. Selezionare **Avanti**.
 3. Nella finestra di dialogo **New Project**(Nuovo progetto) successiva completare questi passaggi:
 
-    1. Nella casella **Project name** (Nome progetto) immettere un nome per il progetto.
-    2. Nella casella **Project location** (Percorso progetto) immettere un percorso per il progetto.
-    3. Accanto all'elenco a discesa **Project SDK** (SDK progetto) selezionare **New** (Nuovo), **JDK** e quindi specificare la cartella per Java JDK 1.7 o versione successiva. Selezionare **Java 1.8** per il cluster Spark 2.x. Selezionare **Java 1.7** per il cluster Spark 1.x. Il percorso predefinito è C:\Programmi\Java\jdk1.8.x_xxx.
-    4. Nell'elenco a discesa **Spark version** (Versione di Spark) la creazione guidata del progetto Scala inserisce la versione corretta per Spark SDK e Scala SDK. Se la versione del cluster Spark è precedente alla 2.0, selezionare **Spark 1.x**. In caso contrario, selezionare **Spark 2.x**. In questo esempio viene usata la versione Spark 1.6.2 (Scala 2.10.5). Assicurarsi di usare il repository contrassegnato come **Scala 2.10.x**. Non usare il repository contrassegnato come Scala 2.11.x.
+   1. Nella casella **Project name** (Nome progetto) immettere un nome per il progetto.
+   2. Nella casella **Project location** (Percorso progetto) immettere un percorso per il progetto.
+   3. Accanto all'elenco a discesa **Project SDK** (SDK progetto) selezionare **New** (Nuovo), **JDK** e quindi specificare la cartella per Java JDK 1.7 o versione successiva. Selezionare **Java 1.8** per il cluster Spark 2.x. Selezionare **Java 1.7** per il cluster Spark 1.x. Il percorso predefinito è C:\Programmi\Java\jdk1.8.x_xxx.
+   4. Nell'elenco a discesa **Spark version** (Versione di Spark) la creazione guidata del progetto Scala inserisce la versione corretta per Spark SDK e Scala SDK. Se la versione del cluster Spark è precedente alla 2.0, selezionare **Spark 1.x**. In caso contrario, selezionare **Spark 2.x**. In questo esempio viene usata la versione Spark 1.6.2 (Scala 2.10.5). Assicurarsi di usare il repository contrassegnato come **Scala 2.10.x**. Non usare il repository contrassegnato come Scala 2.11.x.
     
-    ![Proprietà della creazione del progetto IntelliJ Scala](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
+      ![Proprietà della creazione del progetto IntelliJ Scala](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
 
 4. Selezionare **Fine**.

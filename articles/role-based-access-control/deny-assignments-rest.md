@@ -12,19 +12,28 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 29b8e0953109238b724cc8df9f456706f71a041e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 59bcf2b33d203ae216b4965b963a727a6b34ae72
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341624"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998402"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Elencare le assegnazioni di rifiuto per le risorse di Azure usando l'API REST
 
-Attualmente le assegnazioni di rifiuto sono di **sola lettura** e possono essere impostate solo da Azure. Sebbene non sia possibile creare le proprie assegnazioni di rifiuto, queste possono essere elencate in quanto potrebbero avere un impatto sulle autorizzazioni valide. Questo articolo descrive come elencare le assegnazioni di rifiuto tramite il controllo degli accessi in base al ruolo e l'API REST.
+Le [assegnazioni di rifiuto](deny-assignments.md) impediscono agli utenti di eseguire azioni specifiche sulle risorse di Azure, anche se un'assegnazione di ruolo concede loro l'accesso. Questo articolo descrive come usare l'API REST a elenco negare le assegnazioni.
+
+> [!NOTE]
+> A questo punto, l'unico modo è possibile aggiungere il proprio negare assegnazioni consiste nell'usare progetti di architetture di Azure. Per altre informazioni, vedere [proteggere le nuove risorse con i blocchi di risorse di Azure progetti](../governance/blueprints/tutorials/protect-new-resources.md).
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Per ottenere informazioni su un'assegnazione di negazione, è necessario disporre di:
+
+- `Microsoft.Authorization/denyAssignments/read` autorizzazione di accesso, che è incluso nella maggior parte [ruoli predefiniti per le risorse di Azure](built-in-roles.md).
 
 ## <a name="list-a-single-deny-assignment"></a>Elencare una singola assegnazione di rifiuto
 

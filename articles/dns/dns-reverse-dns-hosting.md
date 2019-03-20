@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: victorh
-ms.openlocfilehash: 2d576a0d51eb723efdd1652898c2c019ee7475a8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: cb2f04c692d4b5f385a89ba6a3071c20ef1bdf21
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999216"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118256"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Hosting di zone DNS di ricerca inversa in DNS di Azure
 
@@ -131,7 +131,7 @@ L'esempio seguente illustra la procedura di creazione di un record PTR in una zo
 1. In **Nome dominio** immettere il nome di dominio completo della risorsa che usa l'indirizzo IP.
 1. Selezionare **OK** nella parte inferiore del riquadro per creare il record DNS.
 
- ![Riquadro "Aggiungi set di record" con caselle compilate](./media/dns-reverse-dns-hosting/figure5.png)
+   ![Riquadro "Aggiungi set di record" con caselle compilate](./media/dns-reverse-dns-hosting/figure5.png)
 
 Gli esempi seguenti mostrano come completare questa attività con PowerShell o l'interfaccia della riga di comando di Azure.
 
@@ -269,6 +269,6 @@ Per altre informazioni, vedere [Importare ed esportare un file di zona DNS usand
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul DNS inverso, vedere [Risoluzione DNS inversa su Wikipedia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
+Per altre informazioni sul DNS inverso, vedere [Risoluzione DNS inversa su Wikipedia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
 Informazioni su come [gestire i record di DNS inverso per i servizi di Azure](dns-reverse-dns-for-azure-services.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: e773986d11a11c6cc84df367aa48ac1b01a9183e
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: fa897b4b77f7f5869eab2ba2e7db9afbd84febfa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157123"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121503"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Gestire il servizio StorSimple Data Manager nel portale di Azure
 
@@ -46,19 +46,19 @@ Eseguire la procedura seguente per creare un servizio StorSimple Data Manager.
 
 3. Per il nuovo servizio, specificare quanto segue:
 
-    1. Fornire un **nome servizio** univoco per StorSimple Data Manager. Si tratta di un nome descrittivo che può essere utilizzato per identificare il servizio. Il nome può contenere da 3 a 24 caratteri che possono essere lettere, numeri e trattini. Il nome deve iniziare e terminare con una lettera o un numero.
+   1. Fornire un **nome servizio** univoco per StorSimple Data Manager. Si tratta di un nome descrittivo che può essere utilizzato per identificare il servizio. Il nome può contenere da 3 a 24 caratteri che possono essere lettere, numeri e trattini. Il nome deve iniziare e terminare con una lettera o un numero.
 
-    2. Scegliere una **sottoscrizione** dall'elenco a discesa. La sottoscrizione viene collegata all'account di fatturazione. Se si dispone di una sola sottoscrizione, questo campo viene popolato automaticamente (e non è selezionabile).
+   2. Scegliere una **sottoscrizione** dall'elenco a discesa. La sottoscrizione viene collegata all'account di fatturazione. Se si dispone di una sola sottoscrizione, questo campo viene popolato automaticamente (e non è selezionabile).
 
-    3. Selezionare un gruppo di risorse esistente o crearne uno nuovo. Per altre informazioni, vedere [Azure resource groups](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/) (Gruppi di risorse di Azure).
+   3. Selezionare un gruppo di risorse esistente o crearne uno nuovo. Per altre informazioni, vedere [Azure resource groups](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/) (Gruppi di risorse di Azure).
 
-    4. Specificare il **percorso** del servizio che ospita gli account di archiviazione e il servizio StorSimple Data Manager. Il servizio Gestione dispositivi StorSimple, il servizio Data Manager e l'account di archiviazione associato devono trovarsi tutti nelle aree supportate.
+   4. Specificare il **percorso** del servizio che ospita gli account di archiviazione e il servizio StorSimple Data Manager. Il servizio Gestione dispositivi StorSimple, il servizio Data Manager e l'account di archiviazione associato devono trovarsi tutti nelle aree supportate.
     
-    5. Per inserire un collegamento al servizio nel dashboard, selezionare **Aggiungi al dashboard**.
+   5. Per inserire un collegamento al servizio nel dashboard, selezionare **Aggiungi al dashboard**.
     
-    6. Fare clic su **Create**(Crea).
+   6. Fare clic su **Create**(Crea).
 
-    ![Creare un servizio StorSimple Data Manager 3](./media/storsimple-data-manager-ui/create-service-4.png)
+      ![Creare un servizio StorSimple Data Manager 3](./media/storsimple-data-manager-ui/create-service-4.png)
 
 La creazione del servizio richiede alcuni minuti. Al termine della creazione del servizio, verranno visualizzati una notifica e il nuovo servizio.
 
@@ -88,33 +88,33 @@ Per creare una definizione del processo, seguire questa procedura.
 
     ![Aggiungere un nuovo repository dei dati](./media/storsimple-data-manager-ui/create-job-definition-3.png)
   
-    1. Scegliere **StorSimple Manager serie 8000** come tipo di repository dei dati.
+   1. Scegliere **StorSimple Manager serie 8000** come tipo di repository dei dati.
     
-    2. Immettere un nome descrittivo per il repository dei dati di origine.
+   2. Immettere un nome descrittivo per il repository dei dati di origine.
     
-    3. Nell'elenco a discesa, scegliere una sottoscrizione associata al servizio Gestione dispositivi StorSimple.
+   3. Nell'elenco a discesa, scegliere una sottoscrizione associata al servizio Gestione dispositivi StorSimple.
     
-    4. Specificare il nome del servizio Gestione dispositivi StorSimple in **Risorsa**.
+   4. Specificare il nome del servizio Gestione dispositivi StorSimple in **Risorsa**.
 
-    5. Immettere un valore in **Chiave DEK del servizio** per il servizio Gestione dispositivi StorSimple. 
+   5. Immettere un valore in **Chiave DEK del servizio** per il servizio Gestione dispositivi StorSimple. 
 
-    ![Configurare il repository dei dati di origine 1](./media/storsimple-data-manager-ui/create-job-definition-4.png)
+      ![Configurare il repository dei dati di origine 1](./media/storsimple-data-manager-ui/create-job-definition-4.png)
 
-    Fare clic su **OK** al termine dell'operazione. In questo modo viene salvato il repository dei dati. Riutilizzare queste impostazioni di Gestione dispositivi StorSimple in altre definizioni del processo, in modo da non dover immettere nuovamente tali parametri. Dopo aver fatto clic su **OK** attendere pochi secondi prima che il repository dei dati di origine creato venga visualizzato nell'elenco a discesa.
+      Fare clic su **OK** al termine dell'operazione. In questo modo viene salvato il repository dei dati. Riutilizzare queste impostazioni di Gestione dispositivi StorSimple in altre definizioni del processo, in modo da non dover immettere nuovamente tali parametri. Dopo aver fatto clic su **OK** attendere pochi secondi prima che il repository dei dati di origine creato venga visualizzato nell'elenco a discesa.
 
 7. Nell'elenco a discesa **Repository dei dati** selezionare il repository dei dati creato. 
 
-    1. Immettere il nome del dispositivo StorSimple serie 8000 contenente i dati di interesse.
+   1. Immettere il nome del dispositivo StorSimple serie 8000 contenente i dati di interesse.
 
-    2. Specificare il nome del volume che si trova nel dispositivo StorSimple contenente i dati di interesse.
+   2. Specificare il nome del volume che si trova nel dispositivo StorSimple contenente i dati di interesse.
 
-    3. Nella sottosezione **Filtro** immettere la directory radice contenente i dati di interesse nel formato _\DirectoryRadice\Dati_. Le lettere di unità, ad esempio _\C:\Dati_, non sono supportate. È inoltre possibile aggiungere qualsiasi filtro file qui.
+   3. Nella sottosezione **Filtro** immettere la directory radice contenente i dati di interesse nel formato _\DirectoryRadice\Dati_. Le lettere di unità, ad esempio _\C:\Dati_, non sono supportate. È inoltre possibile aggiungere qualsiasi filtro file qui.
 
-    4. Il servizio di trasformazione dati funziona sui dati inseriti in Azure tramite snapshot. Quando si esegue questo processo, è possibile scegliere di completare un backup a ogni esecuzione del processo (per lavorare sui dati più recenti) o usare l'ultimo backup esistente nel cloud (se si lavora con alcuni dati archiviati).
+   4. Il servizio di trasformazione dati funziona sui dati inseriti in Azure tramite snapshot. Quando si esegue questo processo, è possibile scegliere di completare un backup a ogni esecuzione del processo (per lavorare sui dati più recenti) o usare l'ultimo backup esistente nel cloud (se si lavora con alcuni dati archiviati).
 
-    5. Fare clic su **OK**.
+   5. Fare clic su **OK**.
 
-    ![Configurare il repository dei dati di origine 2](./media/storsimple-data-manager-ui/create-job-definition-8.png)
+      ![Configurare il repository dei dati di origine 2](./media/storsimple-data-manager-ui/create-job-definition-8.png)
 
 8. Successivamente, è necessario configurare il repository dei dati di destinazione. Scegliere gli account di archiviazione per l'inserimento dei file nei BLOB di tale account. Nell'elenco a discesa selezionare **Aggiungi nuovo** e quindi **Configura impostazioni**.
 

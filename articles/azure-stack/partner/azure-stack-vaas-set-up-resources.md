@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: ad97381d983446dfcc32dd1ba82af587a500b9da
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 55c9120547472bb9a9a74533fe532d346844e89c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762144"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081764"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Esercitazione: Configurare le risorse per la convalida come servizio
 
@@ -56,13 +56,13 @@ Creare un tenant che verranno utilizzati per accedere ai servizi VaaS nell'organ
 
     Per assegnare i ruoli nel **servizio di Azure Stack convalida** applicazione:
 
-    1. Accedere al [portale di Azure](https://portal.azure.com).
-    2. Selezionare **tutti i servizi** > **Azure Active Directory** sotto il **identità** sezione.
-    3. Selezionare **applicazioni aziendali** > **servizio di Azure Stack convalida** dell'applicazione.
-    4. Selezionare **Utenti e gruppi**. Il **Azure Stack di servizio di convalida - utenti e i gruppi** pannello elenca gli utenti con autorizzazione a utilizzare l'applicazione.
-    5. Selezionare **+ Add user** per aggiungere un utente dal tenant e assegnare un ruolo.
+   1. Accedere al [portale di Azure](https://portal.azure.com).
+   2. Selezionare **tutti i servizi** > **Azure Active Directory** sotto il **identità** sezione.
+   3. Selezionare **applicazioni aziendali** > **servizio di Azure Stack convalida** dell'applicazione.
+   4. Selezionare **Utenti e gruppi**. Il **Azure Stack di servizio di convalida - utenti e i gruppi** pannello elenca gli utenti con autorizzazione a utilizzare l'applicazione.
+   5. Selezionare **+ Add user** per aggiungere un utente dal tenant e assegnare un ruolo.
 
-    Se si vuole isolare le risorse VaaS e azioni tra gruppi diversi all'interno di un'organizzazione, è possibile creare più directory di tenant di Azure AD.
+      Se si vuole isolare le risorse VaaS e azioni tra gruppi diversi all'interno di un'organizzazione, è possibile creare più directory di tenant di Azure AD.
 
 ### <a name="register-your-tenant"></a>Registrazione del tenant
 

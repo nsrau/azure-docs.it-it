@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67a8c4d4fe5476d00677c08bef9668066c4ec4f3
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: c6053313c6971f1bcf66bc447b4f4f5fe5817666
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458298"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339743"
 ---
 # <a name="manage-your-organizations-from-the-my-profile-preview-portal"></a>Gestire le organizzazioni dal portale Profilo personale (anteprima)
 È possibile gestire le organizzazioni nella pagina **Organizzazioni** del portale **Profilo personale**.
@@ -35,7 +35,7 @@ Nella pagina **Organizzazioni** sono visualizzati due tipi di organizzazioni:
 
 2. Selezionare **Organizzazioni** nel riquadro di spostamento sinistro oppure selezionare il collegamento **Gestisci le organizzazioni** nel blocco **Organizzazioni**.
 
-    ![Pagina Profilo personale con il collegamento Organizzazioni evidenziato](media/myprofile-portal/myprofile-portal-organizations-links.png)
+    ![Pagina Profilo personale con il collegamento Organizzazioni evidenziato](media/myprofile-portal/myprofile-portal-organizations.png)
 
 3. Verificare le informazioni in **Organizzazione principale**. 
 
@@ -57,4 +57,4 @@ Nella pagina **Organizzazioni** sono visualizzati due tipi di organizzazioni:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Dopo aver visualizzato le attività di accesso recenti, è possibile scegliere di visualizzare o gestire le [informazioni di sicurezza](user-help-security-info-overview.md), le [attività di accesso recenti](myprofile-portal-recent-activity-page.md), i [dispositivi](myprofile-portal-devices-page.md) connessi oppure di controllare in che modo l'organizzazione [usa i dati dell'utente](myprofile-portal-privacy-page.md).
+- Dopo la visualizzazione dell'organizzazione, è possibile selezionare per visualizzare o gestire le [info di sicurezza](user-help-security-info-overview.md)e connessi [dispositivi](myprofile-portal-devices-page.md), o una vista come organizzazione [Usa i dati](myprofile-portal-privacy-page.md).

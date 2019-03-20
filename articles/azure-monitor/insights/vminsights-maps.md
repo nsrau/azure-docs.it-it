@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 73c94b79bb315c317d39ade704e2ee70a241a348
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 0bf7c335f552fee103118e57239bcd872e880edb
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187746"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984850"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Uso della mappa di Monitoraggio di Azure per le macchine virtuali (anteprima) per comprendere i componenti delle applicazioni
 I componenti di applicazione individuati in macchine virtuali Windows e Linux in esecuzione in Azure nell'ambiente dell'utente possono essere visualizzati in due modi con Monitoraggio di Azure per le macchine virtuali, ovvero direttamente da una macchina virtuale o tra gruppi di macchine virtuali in Monitoraggio di Azure. 
@@ -39,7 +39,7 @@ Quando si fa clic sulla macchina virtuale, il riquadro **Proprietà** viene espa
 
 ![Proprietà di sistema del computer](./media/vminsights-maps/properties-pane-01.png)
 
-Sul lato destro del riquadro fare clic sull'icona **Registra eventi** per trasferire lo stato attivo del riquadro in modo da visualizzare un elenco di tabelle con i dati raccolti dalla macchina virtuale, inviati a Log Analytics e disponibili per l'esecuzione di query.  Se si fa clic su uno dei tipi di record elencati, viene visualizzata la pagina **Log** che contiene i risultati per tale tipo con una query preconfigurata filtrata rispetto alla macchina virtuale specifica.  
+Sul lato destro del riquadro, fare clic sui **gli eventi del Log** icona per passare lo stato attivo del riquadro per visualizzare un elenco di tabelle dei dati raccolti dalla macchina virtuale è inviata al monitoraggio di Azure ed è disponibile per l'esecuzione di query.  Se si fa clic su uno dei tipi di record elencati, viene visualizzata la pagina **Log** che contiene i risultati per tale tipo con una query preconfigurata filtrata rispetto alla macchina virtuale specifica.  
 
 ![Elenco di ricerca log nel riquadro Proprietà](./media/vminsights-maps/properties-pane-logs-01.png)
 

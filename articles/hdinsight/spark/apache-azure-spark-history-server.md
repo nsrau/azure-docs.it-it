@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: a896c949e1f05a5d9ee179fa475150ad8da34283
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 8fd737bb784938f7cbff243837678f41d5ac55c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792782"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076803"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Usare il Server cronologia Apache Spark esteso per il debug e la diagnosi di applicazioni Apache Spark
 
@@ -106,11 +106,11 @@ Selezionare l'ID di processo, quindi fare clic su **Graph** (Grafico)nel menu de
 
 + Riprodurre il processo facendo sul pulsante **Playback** (Riproduci) e arrestare la riproduzione in qualsiasi momento facendo clic sul pulsante di arresto. Durante la riproduzione, le attività vengono visualizzate in colori che indicano lo stato:
 
-    + Il verde indica l'esito positivo: il processo è stato completato correttamente.
-    + L'arancione indica i tentativi ripetuti: istanze di attività non riuscite, ma che non influiscono sul risultato finale del processo.L'arancione indica i tentativi ripetuti: istanze di attività non riuscite, ma che non influiscono sul risultato finale del processo. Queste attività avevano istanze duplicate o ripetute che potrebbero essere completate in un secondo momento.
-    + Il blu indica lo stato di esecuzione: l'attività è in esecuzione.
-    + Il bianco indica un processo in attesa o ignorato: l'attività è in attesa di esecuzione o la fase è stata ignorata.
-    + Il rosso indica l'esito negativo: l'attività non è stata completata.
+  + Il verde indica l'esito positivo: il processo è stato completato correttamente.
+  + L'arancione indica i tentativi ripetuti: istanze di attività non riuscite, ma che non influiscono sul risultato finale del processo.L'arancione indica i tentativi ripetuti: istanze di attività non riuscite, ma che non influiscono sul risultato finale del processo. Queste attività avevano istanze duplicate o ripetute che potrebbero essere completate in un secondo momento.
+  + Il blu indica lo stato di esecuzione: l'attività è in esecuzione.
+  + Il bianco indica un processo in attesa o ignorato: l'attività è in attesa di esecuzione o la fase è stata ignorata.
+  + Il rosso indica l'esito negativo: l'attività non è stata completata.
 
     ![Esempio di colore del grafico, in esecuzione](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
@@ -132,20 +132,20 @@ Selezionare l'ID di processo, quindi fare clic su **Graph** (Grafico)nel menu de
     ![Descrizione comando del grafico](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
 
 + Nella scheda del grafo del processo per le fasi verranno visualizzate una descrizione comando e una piccola icona se hanno attività che soddisfano le condizioni seguenti:
-    + Asimmetria dei dati: dimensioni dei dati letti > dimensioni medie dei dati letti di tutte le attività in questa fase * 2 e dimensioni dei dati letti > 10 MB.
-    + Sfasamento dell'ora: tempo di esecuzione > tempo di esecuzione medio di tutte le attività in questa fase * 2 e tempo di esecuzione > 2 min.
+  + Asimmetria dei dati: dimensioni dei dati letti > dimensioni medie dei dati letti di tutte le attività in questa fase * 2 e dimensioni dei dati letti > 10 MB.
+  + Sfasamento dell'ora: tempo di esecuzione > tempo di esecuzione medio di tutte le attività in questa fase * 2 e tempo di esecuzione > 2 min.
 
     ![Icona dello sfasamento nel grafo](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
 + Il nodo del grafico del processo visualizzerà le informazioni seguenti per ogni fase:
-    + ID.
-    + Nome o descrizione.
-    + Numero totale di attività.
-    + Dati letti: la somma delle dimensioni di input e delle dimensioni dei dati casuali letti.
-    + Dati scritti: la somma delle dimensioni di output e delle dimensioni dei dati casuali scritti.
-    + Tempo di esecuzione: il tempo trascorso dall'ora di inizio del primo tentativo all'ora di completamento dell'ultimo tentativo.
-    + Conteggio delle righe: la somma dei record di input, dei record di output, dei record di letture casuali letti e dei record di scritture casuali.
-    + Avanzamento.
+  + ID.
+  + Nome o descrizione.
+  + Numero totale di attività.
+  + Dati letti: la somma delle dimensioni di input e delle dimensioni dei dati casuali letti.
+  + Dati scritti: la somma delle dimensioni di output e delle dimensioni dei dati casuali scritti.
+  + Tempo di esecuzione: il tempo trascorso dall'ora di inizio del primo tentativo all'ora di completamento dell'ultimo tentativo.
+  + Conteggio delle righe: la somma dei record di input, dei record di output, dei record di letture casuali letti e dei record di scritture casuali.
+  + Avanzamento.
 
     > [!NOTE]  
     > Per impostazione predefinita, il nodo del grafico del processo mostrerà informazioni dall'ultimo tentativo di ogni fase (ad eccezione del tempo di esecuzione delle fasi), ma durante la riproduzione il nodo del grafico mostrerà informazioni su ogni tentativo.
@@ -312,10 +312,10 @@ Se si vuole eseguire l'aggiornamento tramite hotfix, usare lo script seguente pe
     https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh
    ```
 
-    + Selezionare **Head** e **Lavoro**.
-    + **Parametri**: impostare i parametri per l'utilizzo del file Bash.
+   + Selezionare **Head** e **Lavoro**.
+   + **Parametri**: impostare i parametri per l'utilizzo del file Bash.
 
-    ![Caricamento log o hotfix di aggiornamento](./media/apache-azure-spark-history-server/sparkui-upload2.png)
+     ![Caricamento log o hotfix di aggiornamento](./media/apache-azure-spark-history-server/sparkui-upload2.png)
 
 
 ## <a name="known-issues"></a>Problemi noti

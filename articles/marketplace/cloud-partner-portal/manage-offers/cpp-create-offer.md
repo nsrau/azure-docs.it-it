@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 9b53a26f5163eae17198302fc26c079185cb7bd8
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: af9b34d90098409135020fa8a45ecd0253f25b22
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355221"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454545"
 ---
 # <a name="create-azure-marketplace-and-appsource-offers"></a>Creare offerte di Azure Marketplace e AppSource
 
@@ -55,7 +55,7 @@ Quando si crea un'offerta, è necessario specificare i dati obbligatori e facolt
 |      --------       |   -------                                                            |
 | **Impostazioni dell'offerta**  | Raccoglie le informazioni relative all'offerta e all'identità dell'editore.                    |
 | **SKU**            | Definisce le caratteristiche tecniche e aziendali di ogni versione SKU (Stock-Keeping Unit) dell'offerta. |
-| **Test Drive**      | Per i tipi di offerta che supportano questa funzionalità facoltativa, definisce una dimostrazione dell'offerta.  Per altre informazioni, vedere [Informazioni sul test drive](../../cloud-partner-portal-orig/what-is-test-drive.md).  |
+| **Test Drive**      | Per i tipi di offerta che supportano questa funzionalità facoltativa, definisce una dimostrazione dell'offerta.  Per altre informazioni, vedere [Informazioni sul test drive](../test-drive/what-is-test-drive.md).  |
 | **Marketplace** o **Vetrina** | Raccoglie le stringhe di testo, le immagini e i documenti usati per inserire l'offerta nel marketplace. |
 | **Supporto**         | Raccoglie le informazioni di contatto per l'assistenza clienti, il supporto tecnico e quello online.  |
 |  |  |

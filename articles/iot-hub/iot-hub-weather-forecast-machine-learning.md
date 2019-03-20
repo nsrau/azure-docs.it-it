@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: a331f8a8a69ffe41a368c1b36f1680890aaac8bf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 7fdd2a96044acdae223243d751bfcffb7a99da78
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666875"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534260"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Previsioni meteo usando i dati sensore dell'hub IoT in Azure Machine Learning
 
@@ -79,17 +79,17 @@ Si apprende come usare Azure Machine Learning per formulare previsioni meteo (po
 1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Crea una risorsa** > **Internet delle cose** > **Processo di Analisi di flusso**.
 1. Immettere le seguenti informazioni per il processo.
 
-   **Nome processo**: il nome del processo. Il nome deve essere univoco a livello globale.
+   **Nome processo**: Nome del processo. Il nome deve essere univoco a livello globale.
 
-   **Gruppo di risorse**: usare lo stesso gruppo di risorse usato da hub IoT.
+   **Gruppo di risorse**: usare lo stesso gruppo di risorse usato dall'hub IoT.
 
-   **Percorso**: utilizzare lo stesso percorso del gruppo di risorse.
+   **Località**: usare lo stesso percorso del gruppo di risorse.
 
    **Aggiungi al dashboard**: selezionare questa opzione per semplificare l'accesso all'hub IoT dal dashboard.
 
    ![Creare un processo di analisi di flusso in Azure](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
 
-1. Fare clic su **Crea**.
+1. Fare clic su **Create**(Crea).
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Aggiungere un input al processo di analisi di flusso
 
@@ -97,15 +97,15 @@ Si apprende come usare Azure Machine Learning per formulare previsioni meteo (po
 1. In **Topologia processo** fare clic su **Input**.
 1. Nel riquadro **Input** fare clic su **Aggiungi**, quindi immettere le informazioni seguenti:
 
-   **Alias di input**: l'alias univoco per l'input.
+   **Alias di input**: L'alias univoco per l'input.
 
-   **Origine**: selezionare **Hub IoT**.
+   **Origine**: Selezionare **Hub IoT**.
 
-   **Gruppo di consumer**: selezionare il gruppo di consumer creato.
+   **Gruppo di consumer**: Selezionare il gruppo di consumer creato.
 
    ![Aggiungere un input al processo di Analisi di flusso in Azure](media/iot-hub-weather-forecast-machine-learning/8_add-input-stream-analytics-job-azure.png)
 
-1. Fare clic su **Crea**.
+1. Fare clic su **Create**(Crea).
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Aggiungere un output al processo di analisi di flusso
 
@@ -114,36 +114,36 @@ Si apprende come usare Azure Machine Learning per formulare previsioni meteo (po
 
    **Alias di output**: l'alias univoco per l'output.
 
-   **Sink**: selezionare **Archivio BLOB**.
+   **Sink**: Selezionare **archiviazione Blob**.
 
-   **Account di archiviazione**: l'account per l'archiviazione BLOB. È possibile usare un account di archiviazione esistente o crearne uno nuovo.
+   **Account di archiviazione**: L'account di archiviazione per l'archivio blob. È possibile usare un account di archiviazione esistente o crearne uno nuovo.
 
-   **Contenitore**: il contenitore in cui viene salvato l'archivio BLOB. È possibile usare un contenitore esistente o crearne uno nuovo.
+   **Contenitore**: Il contenitore in cui è salvato il blob. È possibile usare un contenitore esistente o crearne uno nuovo.
 
-   **Formato di serializzazione eventi**: selezionare **CSV**.
+   **Formato di serializzazione eventi**: Selezionare **CSV**.
 
    ![Aggiungere un output al processo di Analisi di flusso in Azure](media/iot-hub-weather-forecast-machine-learning/9_add-output-stream-analytics-job-azure.png)
 
-1. Fare clic su **Crea**.
+1. Fare clic su **Create**(Crea).
 
 ### <a name="add-a-function-to-the-stream-analytics-job-to-call-the-web-service-you-deployed"></a>Aggiungere una funzione al processo di Analisi di flusso per chiamare il servizio Web che è stato distribuito
 
 1. In **Topologia processo** fare clic su **Funzioni** > **Aggiungi**.
 1. Immettere le seguenti informazioni:
 
-   **Alias della funzione**: immettere `machinelearning`.
+   **Alias della funzione**: Immettere `machinelearning`.
 
-   **Tipo funzione**: selezionare **Azure ML**.
+   **Tipo di funzione**: Selezionare **Azure ML**.
 
-   **Opzione di importazione**: selezionare **Importa da un'altra sottoscrizione**.
+   **Opzione di importazione**: Selezionare **Importa da un'altra sottoscrizione**.
 
-   **URL**: immettere l'URL del servizio Web annotato dalla cartella di lavoro di Excel.
+   **URL**: Immettere l'URL del servizio WEB annotato dalla cartella di lavoro di Excel.
 
-   **Chiave**: immettere la chiave di accesso annotata in precedenza dalla cartella di lavoro di Excel.
+   **Chiave**: Immettere la chiave di accesso che si è preso nota della cartella di lavoro di Excel.
 
    ![Aggiungere una funzione al processo di Analisi di flusso in Azure](media/iot-hub-weather-forecast-machine-learning/10_add-function-stream-analytics-job-azure.png)
 
-1. Fare clic su **Crea**.
+1. Fare clic su **Create**(Crea).
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configurare la query del processo di analisi di flusso
 
@@ -175,7 +175,7 @@ Nel processo di analisi di flusso, **Avvia** > **Ora** > **Avvia**. Dopo aver av
 
 Eseguire l'applicazione client per avviare la raccolta e l'invio dei dati di temperatura e umidità all'hub IoT. Ogni volta che l'hub IoT riceve un messaggio il processo di Analisi di flusso chiama il servizio Web di previsioni meteo per elaborare la probabilità di pioggia. Il risultato viene quindi salvato nell'archiviazione BLOB di Azure. Azure Storage Explorer è uno strumento che consente di visualizzare il risultato.
 
-1. [Scaricare e installare Microsoft Azure Storage Explorer](http://storageexplorer.com/).
+1. [Scaricare e installare Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 1. Aprire Azure Storage Explorer.
 1. Accedere all'account Azure.
 1. Selezionare la propria sottoscrizione.
