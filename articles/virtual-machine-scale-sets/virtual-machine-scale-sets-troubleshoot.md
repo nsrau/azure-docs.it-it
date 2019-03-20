@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: e4b1153e46625f88c717fd9b7a5336ffe4ca7f6a
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.openlocfilehash: 3308b22606e87853aad7e3d3a3995aab8d1b5401
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739550"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005304"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Risoluzione dei problemi di scalabilità automatica con set di scalabilità di macchine virtuali
 **Problema**: è stata creata un'infrastruttura per il ridimensionamento automatico in Azure Resource Manager tramite set di scalabilità di macchine virtuali di Azure, ad esempio distribuendo un modello simile al seguente:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. Le regole di scalabilità impostate  funzionano ma, indipendentemente dal carico delle VM, il ridimensionamento automatico non funziona.
@@ -52,7 +52,7 @@ Alcuni aspetti da considerare:
     Esplora risorse di Azure è uno strumento di risoluzione dei problemi indispensabile che mostra lo stato delle risorse di Azure Resource Manager. Fare clic sulla sottoscrizione ed esaminare il gruppo di risorse di cui si sta provando a risolvere i problemi. In Provider di risorse di calcolo esaminare il set di scalabilità di macchine virtuali la relativa visualizzazione delle istanze, che mostra lo stato di una distribuzione. Controllare anche la visualizzazione delle istanze delle macchine virtuali incluse nel set di scalabilità. Accedere quindi al provider di risorse Microsoft.Insights e verificare lo stato delle regole di scalabilità automatica.
 * L'estensione della diagnostica funziona e genera dati sulle prestazioni?
   
-    **Aggiornamento:** la funzione di scalabilità automatica di Azure è stata migliorata per l'uso di una pipeline di metriche basate su host che non richiede più l'installazione di un'estensione di diagnostica. I paragrafi seguenti non avranno più validità se si crea un'applicazione di scalabilità automatica usando la nuova pipeline. Un esempio di modelli di Azure che sono stati convertiti per l'utilizzo della pipeline su host è disponibile qui: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
+    **Aggiornamento:** Scalabilità automatica di Azure è stata migliorata per l'uso di una pipeline di metriche basate su host, che non richiede più un'estensione di diagnostica da installare. I paragrafi seguenti non avranno più validità se si crea un'applicazione di scalabilità automatica usando la nuova pipeline. Un esempio di modelli di Azure che sono stati convertiti per l'utilizzo della pipeline su host è disponibile qui: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
   
     È consigliabile usare le metriche basate su host per eseguire la scalabilità automatica per i motivi seguenti:
   
@@ -72,14 +72,14 @@ Alcuni aspetti da considerare:
     
     ![Cloud Explorer][explorer]
     
-   Verrà visualizzata una serie di tabelle in cui vengono archiviati i dati di ogni macchina virtuale. Prendendo ad esempio Linux e la relativa metrica della CPU, esaminare le righe più recenti. Visual Studio Cloud Explorer supporta un linguaggio di query che permette di eseguire una query. Ad esempio, è possibile eseguire una query del tipo "Timestamp gt datetime'2016-02-02T21:20:00Z'" per assicurarsi di ottenere gli eventi più recenti. Il fuso orario è impostato su UTC. I dati visualizzati corrispondono alle regole di scalabilità impostate? Nell'esempio seguente, l'uso della CPU nel computer 20 è aumentato fino al 100% negli ultimi cinque minuti.
+    Verrà visualizzata una serie di tabelle in cui vengono archiviati i dati di ogni macchina virtuale. Prendendo ad esempio Linux e la relativa metrica della CPU, esaminare le righe più recenti. Visual Studio Cloud Explorer supporta un linguaggio di query che permette di eseguire una query. Ad esempio, è possibile eseguire una query del tipo "Timestamp gt datetime'2016-02-02T21:20:00Z'" per assicurarsi di ottenere gli eventi più recenti. Il fuso orario è impostato su UTC. I dati visualizzati corrispondono alle regole di scalabilità impostate? Nell'esempio seguente, l'uso della CPU nel computer 20 è aumentato fino al 100% negli ultimi cinque minuti.
     
     ![Tabelle di archiviazione][tables]
     
     Se i dati non sono presenti, il problema riguarda l'estensione della diagnostica in esecuzione nelle macchine virtuali. Se i dati sono presenti, il problema può riguardare le regole di scalabilità oppure il servizio Insights. Verificare lo [Stato di Azure](https://azure.microsoft.com/status/).
     
     Dopo aver seguito questa procedura, qualora ci siano ancora problemi di scalabilità automatica è possibile provare le risorse seguenti: 
-    * Leggere i forum in [MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows) o [Stack overflow](http://stackoverflow.com/questions/tagged/azure) 
+    * Leggere i forum in [MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows) o [Stack overflow](https://stackoverflow.com/questions/tagged/azure) 
     * Registrare una chiamata del supporto. Sarà necessario, condividere il modello e la visualizzazione dei dati sulle prestazioni.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

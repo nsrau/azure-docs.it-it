@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 798c7e4b5efa3ca016f5e1b7e5c0967599fa6436
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 21fcc6ae09718ffbb22e1d438926586dd3cde71d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993113"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182660"
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>Procedura: Distribuire un asset tramite download  
 Questo articolo illustra le opzioni per la distribuzione di asset di file multimediali caricati in Servizi multimediali. È possibile distribuire contenuti di Servizi multimediali in numerosi scenari di applicazione. Dopo la codifica, scaricare gli asset di file multimediali generati o accedervi tramite un localizzatore di streaming. Per ottenere livelli più elevati di prestazioni e scalabilità, è anche possibile distribuire contenuti usando una rete per la distribuzione di contenuti (CDN).

@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: af36f38bf206da588d327dc319d2418460f79b13
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e6e1b304b90b37c93bed22bcb720a646680ee083
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58165029"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223615"
 ---
 # <a name="access-data-from-your-datastores"></a>Accedere ai dati da archivi di dati
 
@@ -151,7 +151,7 @@ Dopo aver effettuato l'archivio dati disponibile in attività di calcolo remoto,
 
 La tabella seguente elenca i comuni [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) i metodi che rendono disponibili gli archivi dati in attività di calcolo remoto.
 
-##
+# #
 
 metodo|Metodo|DESCRIZIONE
 ----|-----|--------

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 0154aac14168c9d897698a15e31b3124b208db46
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 589fd350d50eee62006906ff94007c66b3f064cd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142764"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58115494"
 ---
 ## <a name="add-the-applications-registration-to-your-code"></a>Aggiungere le informazioni di registrazione dell'applicazione al codice
 
@@ -27,9 +27,9 @@ In questo passaggio è necessario aggiungere l'ID client/applicazione al progett
 
 1. Aprire `MainActivity` (in `app` > `java` > *`{host}.{namespace}`*)
 2. Sostituire la riga che inizia con `final static String CLIENT_ID` con:
-```java
-final static String CLIENT_ID = "[Enter the application Id here]";
-```
+   ```java
+   final static String CLIENT_ID = "[Enter the application Id here]";
+   ```
 3. Aprire: `app` > `manifests` > `AndroidManifest.xml`
 4. Aggiungere l'attività seguente a `manifest\application`. `BrowserTabActivity` consente a Microsoft di eseguire il callback all'applicazione dopo il completamento dell'autenticazione:
 

@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 0ba3c7321b0771c839289abb7891cd8e6b280afe
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 4d3d45434a90e89e011bf8aa7c3fd37909e25386
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822681"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203065"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>Analizzare i log di Apache Hadoop
 
-Ogni cluster Apache Hadoop in Azure HDInsight ha un account di archiviazione di Azure usato come file system predefinito. L'account di archiviazione viene definito account di archiviazione predefinito. Il cluster usa l'archivio tabelle e l'archivio BLOB di Azure nell'account di archiviazione predefinito per archiviare i log.  Per trovare l'account di archiviazione predefinito per il cluster, vedere [Gestire cluster Apache Hadoop in HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). I log vengono conservati nell'account di archiviazione anche dopo l'eliminazione del cluster.
+Ogni cluster Apache Hadoop in Azure HDInsight ha un account di archiviazione di Azure usato come file system predefinito. L'account di archiviazione viene definito account di archiviazione predefinito. Il cluster usa l'archivio tabelle e l'archivio BLOB di Azure nell'account di archiviazione predefinito per archiviare i log.  Per trovare l'account di archiviazione predefinito per il cluster, vedere [Gestire cluster Apache Hadoop in HDInsight](../hdinsight-administer-use-portal-linux.md#find-the-storage-accounts). I log vengono conservati nell'account di archiviazione anche dopo l'eliminazione del cluster.
 
 ## <a name="logs-written-to-azure-tables"></a>Log scritti tabelle di Azure
 

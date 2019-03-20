@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: df95329128c93f326b6f2c75fb7faef1a46029cc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 66fc5c92410118f4e0042738d2107b272d68f9bf
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456504"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240338"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Concetti relativi alla sicurezza per le applicazioni e i cluster nel servizio Azure Kubernetes
 
@@ -28,13 +28,13 @@ Questo articolo introduce i principali concetti per proteggere le applicazioni n
 
 ## <a name="master-security"></a>Sicurezza master
 
-Nel servizio Azure Kubernetes i componenti master di Kubernetes fanno parte del servizio gestito fornito da Microsoft. Ogni cluster del servizio Azure Kubernetes ha un proprio master di Kubernetes dedicato con tenant singolo per fornire il server dell'API, l'utilità di pianificazione e così via. Questo master è gestito da Microsoft
+Nel servizio Azure Kubernetes i componenti master di Kubernetes fanno parte del servizio gestito fornito da Microsoft. Ogni cluster del servizio Azure Kubernetes ha un proprio master di Kubernetes dedicato con tenant singolo per fornire il server dell'API, l'utilità di pianificazione e così via. Questo schema è gestito e gestito da Microsoft.
 
 Per impostazione predefinita, il server dell'API Kubernetes usa un indirizzo IP pubblico con nome di dominio completo (FQDN). È possibile controllare l'accesso al server dell'API usando i controlli degli accessi in base al ruolo di Kubernetes e Azure Active Directory. Per altre informazioni, vedere [Integrazione di Azure AD con il servizio Azure Kubernetes][aks-aad].
 
 ## <a name="node-security"></a>Sicurezza dei nodi
 
-I nodi del servizio Azure Kubernetes sono macchine virtuali di Azure gestite dall'utente. I nodi eseguono una distribuzione di Ubuntu Linux ottimizzata con il runtime del contenitore Docker. Quando un cluster del servizio Azure Kubernetes viene creato o fatto passare a un piano superiore, i nodi vengono distribuiti automaticamente con le configurazioni e gli aggiornamenti della sicurezza del sistema operativo più recenti.
+I nodi del servizio Azure Kubernetes sono macchine virtuali di Azure gestite dall'utente. I nodi Esegui una distribuzione Ubuntu Linux ottimizzata tramite il runtime del contenitore Moby. Quando un cluster del servizio Azure Kubernetes viene creato o fatto passare a un piano superiore, i nodi vengono distribuiti automaticamente con le configurazioni e gli aggiornamenti della sicurezza del sistema operativo più recenti.
 
 La piattaforma Azure applica automaticamente le patch di sicurezza del sistema operativo ai nodi durante la notte. Se un aggiornamento della sicurezza del sistema operativo richiede un riavvio dell'host, tale riavvio non viene eseguito automaticamente. È possibile riavviare manualmente i nodi oppure usare [Kured][kured], un daemon di riavvio open source per Kubernetes. Kured, eseguito come [DaemonSet][aks-daemonsets], esegue il monitoraggio di ogni nodo per verificare la presenza di un file che indica che è necessario un riavvio. I riavvii sono gestiti all'interno del cluster usando lo stesso [processo di blocco e svuotamento](#cordon-and-drain) come aggiornamento del cluster.
 
@@ -65,7 +65,7 @@ Per la connettività e sicurezza con le reti locali, è possibile distribuire il
 
 ### <a name="azure-network-security-groups"></a>Gruppi di sicurezza di rete di Azure
 
-Per filtrare il flusso del traffico nelle reti virtuali, Azure usa le regole dei gruppi di sicurezza di rete. Queste regole definiscono gli intervalli IP, le porte e i protocolli di origine e di destinazione a cui è consentito o negato l'accesso alle risorse. Vengono create regole predefinite per consentire il traffico TLS al server dell'API Kubernetes e per l'accesso SSH ai nodi. Quando si creano servizi con servizi di bilanciamento del carico, mapping delle porte o route in ingresso, il servizio Azure Kubernetes modifica automaticamente il gruppo di sicurezza di rete per trasmettere il traffico in modo appropriato.
+Per filtrare il flusso del traffico nelle reti virtuali, Azure usa le regole dei gruppi di sicurezza di rete. Queste regole definiscono gli intervalli IP, le porte e i protocolli di origine e di destinazione a cui è consentito o negato l'accesso alle risorse. Per consentire il traffico TLS per il server API Kubernetes vengono create regole predefinite. Quando si creano servizi con servizi di bilanciamento del carico, mapping delle porte o route in ingresso, il servizio Azure Kubernetes modifica automaticamente il gruppo di sicurezza di rete per trasmettere il traffico in modo appropriato.
 
 ## <a name="kubernetes-secrets"></a>Segreti di Kubernetes
 
@@ -75,7 +75,9 @@ L'uso dei segreti riduce le informazioni riservate definite nel pod o nel manife
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare a proteggere i cluster del servizio Kubernetes di Azure, vedere [Aggiornare un cluster del servizio contenitore di Azure][aks-upgrade-cluster].
+Per iniziare a proteggere i cluster del servizio Azure Kubernetes, vedere [Aggiornare un cluster del servizio Azure Container][aks-upgrade-cluster].
+
+Per procedure consigliate associati, vedere [procedure consigliate per la sicurezza del cluster e aggiornamenti nel servizio contenitore di AZURE][operator-best-practices-cluster-security].
 
 Per altre informazioni sui concetti fondamentali relativi a Kubernetes e al servizio Azure Kubernetes, vedere gli articoli seguenti:
 
@@ -99,3 +101,4 @@ Per altre informazioni sui concetti fondamentali relativi a Kubernetes e al serv
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
+[operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md

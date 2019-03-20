@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/17/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 256d709ac976736715f441ecde5eee22a6d86fa6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: be1c46c5bc2c8edcfeca81c82095687c4ddfd894
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009078"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225825"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Progettazione di applicazioni a disponibilità elevata con RA-GRS
 
@@ -123,7 +123,7 @@ Esistono essenzialmente due scenari da considerare quando si decide come rispond
 
     In questo scenario, le prestazioni vengono penalizzate perché tutte le richieste di lettura proveranno prima a contattare l'endpoint primario, attenderanno la scadenza del timeout, quindi passeranno all'endpoint secondario.
 
-Per questi scenari è necessario identificare la presenza di un problema con l'endpoint primario e inviare tutte le richieste di lettura direttamente all'endpoint secondario impostando la proprietà **LocationMode** su **SecondaryOnly**. In questa fase è anche necessario attivare l'esecuzione in modalità di sola lettura per l'applicazione. Questo approccio è noto come [modello a interruttore](https://msdn.microsoft.com/library/dn589784.aspx).
+Per questi scenari è necessario identificare la presenza di un problema con l'endpoint primario e inviare tutte le richieste di lettura direttamente all'endpoint secondario impostando la proprietà **LocationMode** su **SecondaryOnly**. In questa fase è anche necessario attivare l'esecuzione in modalità di sola lettura per l'applicazione. Questo approccio è noto come [modello a interruttore](/azure/architecture/patterns/circuit-breaker).
 
 ### <a name="update-requests"></a>Richieste di aggiornamento
 

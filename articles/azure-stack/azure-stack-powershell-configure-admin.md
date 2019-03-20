@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/15/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 728f97773c2eec62c54235a868daca52dd6029a5
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
-ms.translationtype: MT
+ms.openlocfilehash: fca1865236adeb196b2260e6c6b27b3180fe3ef9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731844"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086089"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Connettersi ad Azure Stack con PowerShell come un operatore
 
@@ -81,8 +81,5 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ## <a name="next-steps"></a>Passaggi successivi
 
  - [Sviluppo di modelli per Azure Stack](user/azure-stack-develop-templates.md)
- - [Distribuire modelli con PowerShell](user/azure-stack-deploy-template-powershell.md) <<<<<<< HEAD
- - [Riferimento al modulo PowerShell di Azure Stack](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)
-=======
+ - [Distribuire modelli con PowerShell](user/azure-stack-deploy-template-powershell.md)
 - [Riferimento al modulo di Azure Stack](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)  
->>>>>>> ac8c5a2d00d4eb5b4ef65359c5349ddff1bf30cf

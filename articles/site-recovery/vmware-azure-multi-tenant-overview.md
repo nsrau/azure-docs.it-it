@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 2e68ad6d999a5ff003abe35a0cce75bc5f2cebef
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: d227b8d038dd686bde9b031ca2c58adc7dd6d76b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723927"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104455"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Panoramica del supporto multi-tenant per il ripristino di emergenza da VMware ad Azure con CSP
 
@@ -75,17 +75,17 @@ Configurare il server di configurazione con un account a cui sia assegnato un ru
 1. Creare un nuovo ruolo clonando il ruolo *Read-only* predefinito e assegnargli un nome appropriato, ad esempio Azure_Site_Recovery come in questo esempio.
 2. Assegnare al ruolo le autorizzazioni seguenti:
 
-    * **Datastore** (Archivio dati): Allocate space (Alloca spazio), Browse datastore (Sfoglia archivio dati), Low level file operations (Operazioni file di livello basso), Remove file (Rimuovi file), Update virtual machine files (Aggiorna file macchina virtuale)
-    * **Network** (Rete): Network assign (Assegnazione rete)
-    * **Resource** (Risorsa): Assign VM to resource pool (Assegna macchina virtuale a pool di risorse), Migrate powered off VM (Esegui migrazione macchina virtuale spenta), Migrate powered on VM (Esegui migrazione macchina virtuale accesa)
-    * **Tasks** (Attività): Create task (Crea attività), Update task (Aggiorna attività)
-    * **VM - Configuration** (VM - Configurazione): Tutti
-    - **VM - Interaction (Interazione)** > Answer question (Rispondi alla domanda), Device connection (Connessione dispositivo), Configure CD media (Configura supporto CD), Configure floppy media (Configura supporto floppy), Power off (Spegni), Power on (Accendi), VMware tools install (Installazione strumenti VMware)
-    - **VM - Inventory (Inventario)** > Create from existing (Crea da esistente), Create new (Crea nuovo), Register (Registra), Unregister (Annulla registrazione)
-    - **VM - Provisioning** > Allow virtual machine download (Consenti download macchina virtuale), Allow virtual machine files upload (Consenti upload file macchina virtuale)
-    - **VM - Snapshot management (Gestione snapshot)** > Remove snapshots (Rimuovi snapshot)
+   * **Datastore** (Archivio dati): Allocate space (Alloca spazio), Browse datastore (Sfoglia archivio dati), Low level file operations (Operazioni file di livello basso), Remove file (Rimuovi file), Update virtual machine files (Aggiorna file macchina virtuale)
+   * **Network** (Rete): Network assign (Assegnazione rete)
+   * **Resource** (Risorsa): Assign VM to resource pool (Assegna macchina virtuale a pool di risorse), Migrate powered off VM (Esegui migrazione macchina virtuale spenta), Migrate powered on VM (Esegui migrazione macchina virtuale accesa)
+   * **Tasks** (Attività): Create task (Crea attività), Update task (Aggiorna attività)
+   * **VM - Configuration** (VM - Configurazione): Tutti
+   * **VM - Interaction (Interazione)** > Answer question (Rispondi alla domanda), Device connection (Connessione dispositivo), Configure CD media (Configura supporto CD), Configure floppy media (Configura supporto floppy), Power off (Spegni), Power on (Accendi), VMware tools install (Installazione strumenti VMware)
+   * **VM - Inventory (Inventario)** > Create from existing (Crea da esistente), Create new (Crea nuovo), Register (Registra), Unregister (Annulla registrazione)
+   * **VM - Provisioning** > Allow virtual machine download (Consenti download macchina virtuale), Allow virtual machine files upload (Consenti upload file macchina virtuale)
+   * **VM - Snapshot management (Gestione snapshot)** > Remove snapshots (Rimuovi snapshot)
 
-        ![Finestra di dialogo Edit Role (Modifica ruolo)](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
+       ![Finestra di dialogo Edit Role (Modifica ruolo)](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
 
 3. Assegnare i livelli di accesso all'account vCenter (usato nel server di configurazione del tenant) per diversi oggetti, come segue:
 

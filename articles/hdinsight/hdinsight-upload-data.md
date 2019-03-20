@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/08/2019
-ms.openlocfilehash: 513cc1f0155c5e5499d0bf076d21aff46756d769
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 820bb22fee75e5c1159ba90f23b478339f6345b5
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312175"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201926"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Caricare dati per processi Apache Hadoop in HDInsight
 
@@ -37,7 +37,7 @@ Prima di iniziare, tenere presenti i requisiti seguenti:
 ## <a name="utilities"></a>Servizi pubblici
 Microsoft fornisce le utilità seguenti da usare con Archiviazione di Azure:
 
-| Strumento | Linux | OS X |  Windows |
+| Strumento | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [Portale di Azure](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [Interfaccia della riga di comando di Azure](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
@@ -53,10 +53,7 @@ Microsoft fornisce le utilità seguenti da usare con Archiviazione di Azure:
 ## <a id="commandline"></a>Riga di comando di Hadoop
 La riga di comando di Hadoop è utile solo per archiviare i dati nel BLOB di archiviazione di Azure quando i dati sono già presenti nel nodo head del cluster.
 
-Per usare il comando Hadoop, è innanzitutto necessario connettersi nel nodo head mediante uno dei metodi seguenti:
-
-* **HDInsight basato su Windows**: [connettersi tramite Desktop remoto](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **HDInsight basato su Linux**: connettersi tramite [SSH o PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
+Per usare il comando di Hadoop, è necessario innanzitutto connettersi al nodo head usando [SSH o PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Dopo essersi connessi, è possibile usare la sintassi seguente per caricare un file nell'archiviazione.
 
@@ -82,7 +79,7 @@ Per un elenco di altri comandi di Hadoop che funzionano con i file, vedere [http
 ## <a name="graphical-clients"></a>Client con interfaccia grafica
 Esistono diverse applicazioni che forniscono un'interfaccia grafica per usare Archiviazione di Azure. Nella tabella seguente è riportato un elenco di alcune di queste applicazioni:
 
-| Client | Linux | OS X |  Windows |
+| Client | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [Microsoft Visual Studio Tools per HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
 | [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/14/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 0e3d6255d6e2787d407d24a4217a0262ae4c974d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 411a3d606ac8ec2f262ec9a1aabac7b74ccd110a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098478"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010941"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Connettere un account di Amazon Web Services
 
@@ -127,11 +127,11 @@ Occorre creare un bucket S3 in cui archiviare le informazioni di fatturazione de
 6. Nella pagina Review (Verifica) fare clic su **Create bucket** (Crea bucket). Viene visualizzato l'elenco dei bucket.
 7. Fare clic sul bucket creato e selezionare la scheda **Permissions** (Autorizzazioni), quindi selezionare **Bucket Policy** (Criteri bucket). Si apre l'editor dei criteri di bucket.
 8. Copiare l'esempio JSON seguente e incollarlo nell'editor dei criteri di bucket.
-  - Sostituire `<BillingBucketName>` con il nome del bucket S3.
-  - Sostituire `<ReadOnlyUserOrRole>` con l'ARN del ruolo o dell'utente copiato in precedenza.
+   - Sostituire `<BillingBucketName>` con il nome del bucket S3.
+   - Sostituire `<ReadOnlyUserOrRole>` con l'ARN del ruolo o dell'utente copiato in precedenza.
 
-  ```json
-  {
+   ```json
+   {
     "Version": "2012-10-17",
     "Id": "Policy1426774604000",
     "Statement": [
@@ -169,8 +169,8 @@ Occorre creare un bucket S3 in cui archiviare le informazioni di fatturazione de
             "Resource": "arn:aws:s3:::<BillingBucketName>/*"
         }
     ]
-  }
-  ```
+   }
+   ```
 
 9. Fare clic su **Save**.  
     ![In Bucket policy editor (Editor criteri bucket) fare clic su Save (Salva)](./media/connect-aws-account/bucket-policy-editor.png)

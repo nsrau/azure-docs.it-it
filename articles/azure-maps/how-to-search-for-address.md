@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: cd6927cccfa85c8409d612a40a4e708e81af746a
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: ba5ea7205a5d0e5fdbadc8a1ba955091ae95b569
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413550"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875787"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Trovare un indirizzo usando il servizio di ricerca di Mappe di Azure
 
@@ -37,7 +37,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
 2. Nella scheda Builder (Generatore) selezionare il metodo HTTP **GET** e immettere l'URI della richiesta per l'endpoint API.
 
-    ![Ricerca fuzzy ](./media/how-to-search-for-address/fuzzy_search_url.png)
+    ![Ricerca fuzzy](./media/how-to-search-for-address/fuzzy_search_url.png)
 
     | Parametro | Valore consigliato |
     |---------------|------------------------------------------------|
@@ -49,7 +49,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
 3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare come parametri di query o percorso nell'URL della richiesta:
 
-    ![Ricerca fuzzy ](./media/how-to-search-for-address/fuzzy_search_params.png)
+    ![Ricerca fuzzy](./media/how-to-search-for-address/fuzzy_search_params.png)
 
     | Chiave | Valore |
     |------------------|-------------------------|
@@ -75,7 +75,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
   
 6. In Params (Parametri) immettere le coppie chiave/valore seguenti e fare clic su **Send** (Invia):
 
-    ![Ricerca fuzzy ](./media/how-to-search-for-address/fuzzy_search_latlon.png)
+    ![Ricerca fuzzy](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
     | Chiave | Valore |
     |-----|------------|
@@ -89,7 +89,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 1. In Postman fare clic su **New Request** (Nuova richiesta)  | **GET request** (Richiesta GET) e quindi denominare la richiesta **Address Search** (Ricerca indirizzi).
 2. Nella scheda Builder (Generatore) selezionare il metodo HTTP **GET**, immettere l'URL della richiesta per l'endpoint API e selezionare il protocollo di autorizzazione, se necessario.
 
-    ![Ricerca di indirizzi ](./media/how-to-search-for-address/address_search_url.png)
+    ![Ricerca di indirizzi](./media/how-to-search-for-address/address_search_url.png)
   
     | Parametro | Valore consigliato |
     |---------------|------------------------------------------------|
@@ -99,7 +99,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
 3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare come parametri di query o percorso nell'URL della richiesta:
   
-    ![Ricerca di indirizzi ](./media/how-to-search-for-address/address_search_params.png)
+    ![Ricerca di indirizzi](./media/how-to-search-for-address/address_search_params.png)
   
     | Chiave | Valore |
     |------------------|-------------------------|
@@ -130,7 +130,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
 2. Nella scheda Builder (Generatore) selezionare il metodo HTTP **GET** e immettere l'URI della richiesta per l'endpoint API.
   
-    ![URL di ricerca di indirizzi inversa ](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![URL di ricerca di indirizzi inversa](./media/how-to-search-for-address/reverse_address_search_url.png)
   
     | Parametro | Valore consigliato |
     |---------------|------------------------------------------------|
@@ -140,7 +140,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
   
 3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare come parametri di query o percorso nell'URL della richiesta:
   
-    ![Parametri di ricerca di indirizzi inversa ](./media/how-to-search-for-address/reverse_address_search_params.png)
+    ![Parametri di ricerca di indirizzi inversa](./media/how-to-search-for-address/reverse_address_search_params.png)
   
     | Chiave | Valore |
     |------------------|-------------------------|
@@ -190,7 +190,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
 2. Nella scheda Builder (Generatore) selezionare il metodo HTTP **GET** e immettere l'URI della richiesta per l'endpoint API.
   
-    ![Ricerca di strade secondarie inversa ](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![Ricerca di strade secondarie inversa](./media/how-to-search-for-address/reverse_address_search_url.png)
   
     | Parametro | Valore consigliato |
     |---------------|------------------------------------------------|

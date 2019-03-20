@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: 96cb07ca4ede26e9bf0e5ceba28f1549061d0bf3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 07e598d6fd4ed2937d86f31593a220c0c28ba328
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815677"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074659"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Configurare i criteri IPsec/IKE per connessioni VPN site-to-site
 
@@ -76,7 +76,7 @@ La tabella seguente elenca i algoritmi di crittografia supportati e delle forze 
 | Crittografia IPsec                                     | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None |
 | Integrità IPsec                                      | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                       |
 | Gruppo PFS                                            | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None                         |
-| Durata associazione di sicurezza in modalità rapida                                       | (Facoltativo: i valori predefiniti vengono usati se non specificati)<br />                         Secondi (integer; min. 300/default salifetimeseconds è 27000 secondi)<br />                         Kbyte (integer; min. 1024/default 102400000 KB) |                                                                          |
+| Durata associazione di sicurezza in modalità rapida                                       | (Facoltativo: i valori predefiniti vengono usati se non specificati)<br />                         Secondi (integer; min. 300/default salifetimeseconds è 27000 secondi)<br />                         Kbyte (integer; min. 1024/default 102400000 KB) |
 | Selettore di traffico                                     | Selettori di traffico basati su criteri non sono supportati in Azure Stack.         |
 
 - La configurazione del dispositivo VPN locale deve contenere o corrispondere agli algoritmi e ai parametri seguenti specificati nei criteri IPsec/IKE di Azure:

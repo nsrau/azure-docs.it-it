@@ -12,18 +12,24 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5b3a77a28945b597fe4fdd57aadfc3e05196a353
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 30a16c2a8b82ff4b32b95b14937166b94aba06b5
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478254"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726958"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Abilitare l'ottimizzazione automatica monitorare le query e migliorare le prestazioni del carico di lavoro
 
 Il database SQL di Azure è un servizio dati gestito automaticamente che esegue un monitoraggio costante delle query e identifica l'azione che è possibile eseguire per migliorare le prestazioni del carico di lavoro. È possibile esaminare le raccomandazioni e applicarle manualmente oppure delegare al database SQL di Azure l'applicazione automatica delle azioni correttive, condizione nota come **modalità di ottimizzazione automatica**.
 
 L'ottimizzazione automatica può essere abilitata a livello di server o di database dal [portale di Azure](sql-database-automatic-tuning-enable.md#azure-portal) o tramite chiamate [API REST](sql-database-automatic-tuning-enable.md#rest-api) e comandi [T-SQL](sql-database-automatic-tuning-enable.md#t-sql).
+
+> [!NOTE]
+> Per istanza gestita, l'opzione supportata FORCE_LAST_GOOD_PLAN può essere configurato tramite [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) solo. Configurazione basata sul portale e opzioni di ottimizzazione indice automatici descritte in questo articolo non si applicano all'istanza gestita.
+
+> [!NOTE]
+> Configurazione delle opzioni di ottimizzazione automatica tramite modelli ARM (Azure Resource Manager) non è supportata in questo momento.
 
 ## <a name="enable-automatic-tuning-on-server"></a>Abilitare l'ottimizzazione automatica nel server
 
@@ -51,7 +57,7 @@ Per altre informazioni sull'uso dell'API REST per abilitare l'ottimizzazione aut
 
 Il database SQL di Azure consente di specificare singolarmente la configurazione di ottimizzazione automatica per ogni database. A livello di database è possibile scegliere di ereditare o meno la configurazione dell'ottimizzazione automatica dal server padre o da "Impostazioni predefinite di Azure". Le impostazioni predefinite di Azure sono FORCE_LAST_GOOD_PLAN (abilitata), CREATE_INDEX (abilitata) e DROP_INDEX (disabilitata).
 
-> [!NOTE]
+> [!TIP]
 > In genere è consigliabile gestire la configurazione di ottimizzazione automatica a **livello del server**, in modo che le stesse impostazioni di configurazione possano essere applicate automaticamente in ogni database. Configurare l'ottimizzazione automatica in un singolo database solo se è necessario che per tale database le impostazioni siano diverse rispetto ai database che ereditano le impostazioni dallo stesso server.
 >
 

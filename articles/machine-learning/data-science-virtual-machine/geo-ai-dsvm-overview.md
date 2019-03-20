@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 2aa5522b8200f87df633759ee136f744cd1b8099
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 6588690629d2e266469a4b8ea533c5650f3fc0ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471233"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890883"
 ---
 # <a name="introduction-to-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Introduzione alla macchina virtuale di data science con intelligenza artificiale geografica
 
@@ -44,7 +44,7 @@ L'integrazione delle informazioni geografiche e spaziali con i dati disponibili 
 
 La [macchina virtuale di data science (DSVM)](overview.md) di Microsoft è un comune ambiente di sperimentazione e modellazione in Azure in cui sono disponibili numerosi strumenti di intelligenza artificiale, Machine Learning e data science. Queste piattaforme e questi strumenti sono adeguatamente preconfigurati in modo da poter essere usati immediatamente. 
 
-Combinando le funzionalità predittive della macchina virtuale di data science con la scalabilità di Azure Cloud e il software di analisi geospaziale di [ESRI](http://www.esri.com), i data scientist e gli analisti geospaziali ora dispongono di una piattaforma produttiva da cui possono ottenere nuovi dettagli dai dati a loro disposizione e individuare tempestivamente nuove opportunità. 
+Combinando le funzionalità predittive della macchina virtuale di data science con la scalabilità di Azure Cloud e il software di analisi geospaziale di [ESRI](https://www.esri.com), i data scientist e gli analisti geospaziali ora dispongono di una piattaforma produttiva da cui possono ottenere nuovi dettagli dai dati a loro disposizione e individuare tempestivamente nuove opportunità. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

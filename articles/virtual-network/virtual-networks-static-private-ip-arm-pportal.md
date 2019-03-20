@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff9d025980f80cb77246ea12dbf2e9bcedd73f86
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: e5efe0516d1b2dd387532d31a0a6654e6651fe41
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38705885"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011730"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Configurare indirizzi IP privati per una VM mediante il portale di Azure
 
@@ -49,7 +49,7 @@ Non è possibile impostare un indirizzo IP statico privato durante la creazione 
 
 Per creare una VM denominata *DNS01* nel subnet *FrontEnd* di una VNet denominata *TestVNet*, seguire questa procedura:
 
-1. In un browser passare a http://portal.azure.com e, se necessario, accedere con l'account Azure.
+1. In un browser passare a https://portal.azure.com e, se necessario, accedere con l'account Azure.
 2. Fare clic su **Crea una risorsa** > **Calcolo** > **Windows Server 2012 R2 Datacenter** (notare che l'elenco **Selezionare un modello di distribuzione** mostra già **Gestione risorse**) e quindi fare clic su **Crea**, come mostrato nella figura seguente.
    
     ![Creare VM nel portale di Azure](./media/virtual-networks-static-ip-arm-pportal/figure01.png)
@@ -66,7 +66,7 @@ Per creare una VM denominata *DNS01* nel subnet *FrontEnd* di una VNet denominat
    
     -**Account di archiviazione**: *vnetstorage*
    
-   * **Rete**: *TestVNet*
+   * **Network** (Rete): *TestVNet*
    * **Subnet**: *FrontEnd*
      
      ![Riquadro Scegli una dimensione](./media/virtual-networks-static-ip-arm-pportal/figure05.png)     

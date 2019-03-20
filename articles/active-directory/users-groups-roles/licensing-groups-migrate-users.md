@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione di utenti a licenze basate sui gruppi - Azure Active Directory | Microsoft Docs
+title: Eseguire la migrazione di utenti singolarmente con licenza alle licenze basate su gruppo - Azure Active Directory | Microsoft Docs
 description: Come passare da licenze per utenti singoli a licenze basate sui gruppi usando Azure Active Directory
 services: active-directory
 keywords: Licenze di Azure AD
@@ -11,21 +11,21 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fd800097ca5107f7df1e67c91ff4c96b9cfcd74
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: b6fd2eb51c7178421b0656e3b1d0e0ea36176c16
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107747"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199973"
 ---
-# <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Come aggiungere gli utenti con licenza a un gruppo per la gestione delle licenze in Azure Active Directory
+# <a name="how-to-add-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Come aggiungere la migrazione degli utenti con singole licenze ai gruppi per le licenze
 
-Le licenze esistenti potrebbero essere state distribuite agli utenti nelle organizzazioni tramite "assegnazione diretta", vale a dire usando script di PowerShell o altri strumenti per assegnare le licenze utente individuali. Se si vuole iniziare a usare le licenze basate sui gruppi per la gestione delle licenze dell'organizzazione, è necessario un piano di migrazione che permetta di sostituire facilmente le soluzioni esistenti con le licenze basate sui gruppi.
+Le licenze esistenti potrebbero essere state distribuite agli utenti nelle organizzazioni tramite "assegnazione diretta", vale a dire usando script di PowerShell o altri strumenti per assegnare le licenze utente individuali. Prima di iniziare a usare licenze basate su gruppo per gestire le licenze nell'organizzazione, è possibile utilizzare il piano di migrazione per sostituire facilmente le soluzioni esistenti con le licenze basate su gruppo.
 
 È importante evitare situazioni in cui la migrazione di licenze basate sui gruppi possa causare una perdita temporanea delle licenze attualmente assegnate agli utenti. Per non rischiare che gli utenti perdano l'accesso ai servizi e ai loro dati, è consigliabile evitare qualsiasi processo che possa comportare la rimozione delle licenze.
 
@@ -69,18 +69,17 @@ Di seguito è riportato un esempio di processo di migrazione:
 
    - Di seguito è riportato lo stato previsto per l'utente durante la migrazione:
 
-      ![Stato previsto per l'utente](./media/licensing-groups-migrate-users/expected-user-state.png)
+      ![lo stato previsto per l'utente durante la migrazione](./media/licensing-groups-migrate-users/expected-user-state.png)
 
    Questo conferma che l'utente ha sia le licenze dirette che quelle ereditate. Risultano assegnate le licenze sia per **EMS** che per **E3**.
 
    - Selezionare ogni licenza per visualizzare i dettagli relativi ai servizi abilitati. Queste informazioni possono essere usate per verificare se le licenze dirette e quelle di gruppo abilitano esattamente gli stessi piani di servizio per l'utente.
 
-      ![Verificare i piani di servizio](./media/licensing-groups-migrate-users/check-service-plans.png)
+      ![controllare i piani di servizio per l'utente](./media/licensing-groups-migrate-users/check-service-plans.png)
 
 4. Dopo aver confermato che le licenze dirette e quelle di gruppo sono equivalenti, è possibile iniziare a rimuovere le licenze dirette dagli utenti. A scopo di test, è possibile rimuovere le licenze per singoli utenti dal portale e quindi eseguire gli script di automazione per rimuoverle in blocco. Di seguito è riportato un esempio dello stesso utente a cui sono state rimosse le licenze dirette mediante il portale. Si noti che lo stato della licenza rimane invariato, ma non vengono più visualizzate le assegnazioni dirette.
 
-   ![Licenze dirette rimosse](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
-
+   ![Verificare che vengano rimosse le licenze dirette](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

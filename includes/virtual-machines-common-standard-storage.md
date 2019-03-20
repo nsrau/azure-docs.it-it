@@ -9,11 +9,11 @@ ms.date: 01/08/2019
 ms.author: yuemlu
 ms.custom: include file
 ms.openlocfilehash: ad57d373422e0fc310e51ac31f2a2e76999abf22
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193404"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "58115186"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Archiviazione Standard conveniente e dischi gestiti e non gestiti delle macchine virtuali di Azure
 
@@ -58,7 +58,7 @@ Questa sezione descrive gli obiettivi di scalabilità e prestazioni da considera
 
 ### <a name="account-limits--does-not-apply-to-managed-disks"></a>Limiti dell'account (non applicati ai dischi gestiti)
 
-| **Risorsa** | **Limite predefinito** |
+| **Risorsa** | **Limite Predefinito** |
 |--------------|-------------------|
 | TB per account di archiviazione  | 500 TB |
 | Traffico in ingresso massimo<sup>1</sup>  per account di archiviazione (aree degli Stati Uniti) | 10 Gbps con archiviazione GRS/ZRS abilitata, 20 Gbps per LRS |

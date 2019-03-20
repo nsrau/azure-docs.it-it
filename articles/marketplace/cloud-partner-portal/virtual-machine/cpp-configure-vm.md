@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 5ccfef8a6ad367e8fac100217713cd323341a535
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 9cf363bc5f4230306c2fec99eb6287b23e598a4c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183472"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833502"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configurare la macchina virtuale ospitata in Azure
 
@@ -28,7 +28,8 @@ Questo articolo illustra come ridimensionare, aggiornare e generalizzare una mac
 
 ## <a name="sizing-the-vhds"></a>Ridimensionamento dei dischi rigidi virtuali
 
-<!--TD: Check if the following assertion is true. I didn't understand the original content. --> Se è stata selezionata una delle macchine virtuali preconfigurate con un sistema operativo (e, facoltativamente, se sono stati selezionati altri servizi), è già stata scelta una dimensione di macchina virtuale di Azure standard, come descritto nella [scheda SKU della macchina virtuale](./cpp-skus-tab.md).  Avviare una soluzione con un sistema operativo preconfigurato è l'approccio consigliato.  Se tuttavia si intende installare un sistema operativo manualmente, è necessario ridimensionare il disco rigido virtuale principale nell'immagine di macchina virtuale:
+<!--TD: Check if the following assertion is true. I didn't understand the original content. -->
+Se è stata selezionata una delle macchine virtuali preconfigurate con un sistema operativo (e facoltativamente altri servizi), allora si è già stata prelevata una dimensione di macchina virtuale di Azure standard, come descritto in [scheda SKU delle macchine virtuali](./cpp-skus-tab.md).  Avviare una soluzione con un sistema operativo preconfigurato è l'approccio consigliato.  Se tuttavia si intende installare un sistema operativo manualmente, è necessario ridimensionare il disco rigido virtuale principale nell'immagine di macchina virtuale:
 
 - Per Windows, il disco rigido virtuale del sistema operativo deve essere creato come disco rigido virtuale con formato fisso da 127-128 GB. 
 - Per Linux, questo disco rigido virtuale deve essere creato come disco rigido virtuale con formato fisso da 30-50 GB.
@@ -44,7 +45,7 @@ Le immagini di base delle macchine virtuali del sistema operativo contengono gli
 
 Per Windows Server 2016, eseguire il comando **Controlla aggiornamenti**.  Per versioni di Windows precedenti, vedere [Come ottenere un aggiornamento tramite Windows Update](https://support.microsoft.com/help/3067639/how-to-get-an-update-through-windows-update).  Windows Update installerà automaticamente gli aggiornamenti di sicurezza critici e importanti più recenti.
 
-Per le distribuzioni Linux, gli aggiornamenti vengono in genere scaricati e installati tramite uno strumento da riga di comando o un'utilità grafica.  Ubuntu Linux, ad esempio, per l'aggiornamento del sistema operativo mette a disposizione il comando [apt-get](http://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) e lo strumento [Update Manager](http://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html).
+Per le distribuzioni Linux, gli aggiornamenti vengono in genere scaricati e installati tramite uno strumento da riga di comando o un'utilità grafica.  Ubuntu Linux, ad esempio, per l'aggiornamento del sistema operativo mette a disposizione il comando [apt-get](https://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) e lo strumento [Update Manager](https://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html).
 
 
 ## <a name="perform-additional-security-checks"></a>Eseguire controlli di sicurezza aggiuntivi
@@ -65,14 +66,14 @@ Per altre informazioni sulle personalizzazioni di Linux, vedere [Estensioni dell
 
 Tutte le immagini in Azure Marketplace devono poter essere riutilizzate in modo generico. Per ottenere questa riusabilità, il disco rigido virtuale del sistema operativo deve essere *generalizzato*. La generalizzazione è un'operazione che rimuove tutti gli identificatori specifici di istanze e tutti i driver software da una macchina virtuale.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 La generalizzazione dei dischi con sistema operativo Windows viene eseguita con lo [strumento sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview). Se in seguito si aggiorna o si riconfigura il sistema operativo, è necessario eseguire nuovamente sysprep. 
 
 > [!WARNING]
 >  Poiché gli aggiornamenti possono essere eseguiti automaticamente, dopo aver eseguito sysprep, è necessario arrestare la macchina virtuale finché non viene distribuita.  Questo arresto eviterà che gli aggiornamenti successivi possano apportare modifiche specifiche di istanza al sistema operativo o ai servizi installati nel disco rigido virtuale.
 
-Per altre informazioni sull'esecuzione di sysprep, vedere [Procedura per generalizzare un disco rigido virtuale] (https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
+Per altre informazioni sull'esecuzione di sysprep, vedere [questa procedura per generalizzare un disco rigido virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
 
 ### <a name="linux"></a>Linux
 

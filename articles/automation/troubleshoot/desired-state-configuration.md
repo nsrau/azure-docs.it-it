@@ -9,18 +9,38 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 997f332e14fd1accf32d8cc3f51557fe005acab5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: a34dea7e1eb53531db55dc62df8fbad8541f7a35
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421646"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586801"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Risolvere i problemi della configurazione dello stato desiderato (DSC)
 
 Questo articolo contiene informazioni sulla risoluzione dei problemi della configurazione dello stato desiderato (DSC, Desired State Configuration).
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Errori comuni durante l'utilizzo di Desired State Configuration (DSC)
+
+### <a name="unsupported-characters"></a>Scenario: Una configurazione con caratteri speciali non può essere eliminata dal portale
+
+#### <a name="issue"></a>Problema
+
+Quando si tenta di eliminare una configurazione DSC dal portale, viene visualizzato l'errore seguente:
+
+```
+An error occured while deleteing the DSC configuration '<name>'.  Error-details: The arguement configurationName with the value <name> is not valid.  Valid configuration names can contain only letters,  numbers, and underscores.  The name must start with a letter.  The length of the name must be between 1 and 64 characters.
+```
+
+#### <a name="cause"></a>Causa
+
+Si tratta di un problema temporaneo che è pianificato per essere risolto.
+
+#### <a name="resolution"></a>Risoluzione
+
+* Usare il Cmdlet di Az "Remove-AzAutomationDscConfiguration" per eliminare la configurazione.
+* La documentazione relativa a questo cmdlet non è ancora stata aggiornata.  Fino ad allora, consultare la documentazione per il modulo AzureRM.
+  * [Remove-AzureRmAutomationDSCConfiguration](https://docs.microsoft.com/en-us/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration?view=azurermps-6.13.0)
 
 ### <a name="failed-not-found"></a>Scenario: lo stato del nodo indica che non è riuscito con errore "Non trovato"
 

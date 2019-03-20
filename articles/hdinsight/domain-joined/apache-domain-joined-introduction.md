@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d1d515786fde06f4622402f2c1d0c3add7cd8843
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: f3d9a2447bdbc2a1a5ce930ffa161d5a9e30069b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913145"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225060"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Introduzione alla sicurezza Apache Hadoop con Enterprise Security Package
 
 Fino a questo momento, Azure HDInsight ha supportato solo un unico amministratore locale degli utenti. Questo funzionava bene per i team di applicazioni o i reparti di dimensioni ridotte. Man mano che i carichi di lavoro basati su Apache Hadoop hanno continuato ad affermarsi nel settore aziendale, l'esigenza di funzionalità di livello aziendale come autenticazione basata su Active Directory, supporto multiutente e controllo degli accessi in base al ruolo è diventata sempre più importante. 
 
-È possibile creare un cluster HDInsight con Enterprise Security Package (ESP) aggiunto a un dominio Active Directory. È quindi possibile configurare un elenco di dipendenti dell'azienda autorizzati a eseguire l'autenticazione tramite Azure Active Directory per accedere al cluster HDInsight. Nessun utente esterno all'azienda può accedere al cluster HDInsight. 
+È possibile creare un cluster HDInsight con Enterprise Security Package (ESP) aggiunto a un dominio Active Directory. È quindi possibile configurare un elenco di dipendenti dall'organizzazione che possono eseguire l'autenticazione tramite Azure Active Directory per accedere al cluster HDInsight. Nessuno dall'esterno dell'azienda poter iscriversi o accedere al cluster HDInsight. 
 
 L'amministratore può configurare il controllo degli accessi basato sui ruoli per la sicurezza di Apache Hive usando [Apache Ranger](https://hortonworks.com/apache/ranger/). La configurazione di RBAC limita l'accesso ai dati solo ai ruoli interessati. Infine, l'amministratore può controllare l'accesso ai dati per i dipendenti e le eventuali modifiche apportate ai criteri di controllo degli accessi. L'amministratore può quindi ottenere un elevato livello di governance delle risorse aziendali.
 
@@ -39,7 +39,7 @@ Un altro livello di protezione perimetrale viene garantito grazie al servizio ga
 ## <a name="authentication"></a>Authentication
 Un amministratore può creare un cluster HDInsight con ESP in una [rete virtuale](https://azure.microsoft.com/services/virtual-network/). Tutti i nodi del cluster HDInsight vengono aggiunti al dominio gestito dall'azienda. Questo è possibile grazie all'uso di [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). 
 
-Con questa configurazione, i dipendenti dell'azienda possono accedere ai nodi del cluster usando le credenziali del dominio. Possono usare le credenziali del dominio anche per eseguire l'autenticazione con altri endpoint approvati, ad esempio visualizzazioni di Apache Ambari, ODBC, JDBC, PowerShell e API REST per l'interazione con il cluster. L'amministratore ha il pieno controllo sulla limitazione del numero di utenti che interagiscono con il cluster tramite questi endpoint.
+Con questa configurazione, i dipendenti dell'organizzazione possono accedere ai nodi del cluster usando le credenziali del dominio. Possono usare le credenziali del dominio anche per eseguire l'autenticazione con altri endpoint approvati, ad esempio visualizzazioni di Apache Ambari, ODBC, JDBC, PowerShell e API REST per l'interazione con il cluster. L'amministratore ha il pieno controllo sulla limitazione del numero di utenti che interagiscono con il cluster tramite questi endpoint.
 
 ## <a name="authorization"></a>Authorization
 Una procedura consigliata seguita dalla maggior parte delle aziende è assicurarsi di limitare l'accesso a tutte le risorse aziendali da parte dei dipendenti. In modo analogo, l'amministratore può definire i criteri di controllo degli accessi in base al ruolo per le risorse del cluster. 

@@ -2,16 +2,17 @@
 title: Usare le applicazioni per il rendering - Azure Batch
 description: Come usare le applicazioni per il rendering con Azure Batch
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4c7fdbfcc34cdb6e10177d50bea707f1fa5f223e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 4c93abdfb5c523d48ce115ed7d3251a346937f5f
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53534767"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57789591"
 ---
 # <a name="rendering-applications"></a>Applicazioni per il rendering
 
@@ -58,7 +59,7 @@ Oltre ai renderer integrati in Maya, nelle immagini delle macchine virtuali per 
 
 ### <a name="task-command-line"></a>Riga di comando dell'attività
 
-Il renderer della riga di comando `renderer.exe` viene usato nella riga di comando dell'attività. Il renderer della riga di comando è descritto nella [documentazione di Maya](http://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4).
+Il renderer della riga di comando `renderer.exe` viene usato nella riga di comando dell'attività. Il renderer della riga di comando è descritto nella [documentazione di Maya](https://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4).
 
 Nell'esempio seguente viene usata un'attività di preparazione per copiare i file di scena e gli asset nella directory di lavoro di preparazione del processo, viene usata una cartella di output per archiviare l'immagine di rendering e viene eseguito il rendering del fotogramma 10.
 

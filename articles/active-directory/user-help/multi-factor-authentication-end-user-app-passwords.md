@@ -1,6 +1,6 @@
 ---
-title: Come gestire le password per le app in Azure Active Directory | Microsoft Docs
-description: Questa pagina descrive che cosa sono le password per le app e per cosa vengono usate nell'ambito della verifica in due passaggi.
+title: Come gestire le password di app - Azure Active Directory | Microsoft Docs
+description: Informazioni sulle password dell'app e quali operazioni sono usati per quanto riguarda la verifica in due passaggi.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,13 +12,14 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdcd078714d8311cf59471492187314183de28b2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 47128bce8dbbee1b28f6b0a3a5783e5ccee501bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187305"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177399"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gestire le password per le app per la verifica in due passaggi
 
@@ -88,7 +89,7 @@ Se si usa la verifica in due passaggi con l'account aziendale o dell'istituto di
 
 1. Accedere all'account aziendale o dell'istituto di istruzione.
 
-2. Passare a https://portal.office.com, selezionare l'icona **Impostazioni** nell'angolo in alto a destra del **portale di Office 365** e quindi espandere **Verifica aggiuntiva di sicurezza**.
+2. Passare a [ https://portal.office.com ](https://portal.office.com), selezionare il **impostazioni** icona nell'angolo superiore destro di **portale di Office 365** pagina e quindi espandere **aggiuntiva di sicurezza verifica**.
 
     ![Portale di Office che mostra l'area Verifica aggiuntiva di sicurezza espansa](media/security-info/security-info-o365password.png)
 
@@ -104,7 +105,7 @@ Se si usa la verifica in due passaggi con l'account aziendale o dell'istituto di
 
 1. Accedere all'account aziendale o dell'istituto di istruzione.
 
-2. Passare a https://portal.office.com, selezionare l'icona **Impostazioni** nell'angolo in alto a destra del **portale di Office 365** e quindi selezionare **Verifica aggiuntiva di sicurezza**.
+2. Passare a [ https://portal.office.com ](https://portal.office.com), selezionare il **impostazioni** icona nell'angolo superiore destro di **portale di Office 365** pagina e quindi selezionare **aggiuntiva di sicurezza verifica**.
 
 3. Selezionare il testo **Create and manage app passwords** (Crea e gestisci password per le app) per aprire la pagina **Password dell'app**.
 

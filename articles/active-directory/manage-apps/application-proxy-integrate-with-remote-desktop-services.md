@@ -16,12 +16,12 @@ ms.author: celested
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e433eded9ffccde0eccb3b807c8eb8e3219771f5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 295422e0f456c4dfd4166911ef8150e8a896ba1a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162103"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111107"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Pubblicare Desktop remoto con il proxy applicazione di Azure AD
 
@@ -86,7 +86,7 @@ Connettersi alla distribuzione di Servizi Desktop remoto come amministratore e m
 6. Nella scheda Gateway Desktop remoto modificare il campo **Nome server** con l'URL esterno che è stato impostato per l'endpoint host di Desktop remoto nel proxy applicazione.
 7. Impostare il campo **Metodo di accesso** su **Autenticazione della password**.
 
-  ![Schermata Proprietà di distribuzione in Servizi Desktop remoto](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
+   ![Schermata Proprietà di distribuzione in Servizi Desktop remoto](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
 
 8. Per ogni raccolta, eseguire questo comando. Sostituire *\<yourcollectionname\>* e *\<proxyfrontendurl\>* con le proprie informazioni. Questo comando abilita l'accesso Single Sign-On tra Web Desktop remoto e Gateway Desktop remoto e ottimizza le prestazioni:
 
@@ -98,8 +98,8 @@ Connettersi alla distribuzione di Servizi Desktop remoto come amministratore e m
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
->[!NOTE]
->Il comando precedente usa un apice inverso in "`nrequire".
+   >[!NOTE]
+   >Il comando precedente usa un apice inverso in "`nrequire".
 
 9. Per verificare la modifica delle proprietà RDP personalizzate, nonché visualizzare il contenuto del file RDP che sarà scaricato da Web Desktop remoto per questa raccolta, eseguire il comando seguente:
     ```

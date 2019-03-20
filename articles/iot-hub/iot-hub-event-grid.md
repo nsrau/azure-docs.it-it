@@ -2,21 +2,22 @@
 title: Hub IoT e Griglia di eventi di Azure | Microsoft Docs
 description: Usare Griglia di eventi di Azure per attivare processi basati su azioni eseguite nell'hub IoT.
 author: kgremban
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/14/2018
+ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 14bdbb5d629cb5a3fccd6f874e30ded0648e0124
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
-ms.translationtype: HT
+ms.openlocfilehash: a2c49a6ba269321d1903565ace3ebaae3f3b917e
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249469"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673854"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Rispondere agli eventi dell'hub IoT usando Griglia di eventi per attivare le azioni
 
-L'hub IoT di Azure si integra con Griglia di eventi di Azure per poter inviare le notifiche degli eventi agli altri servizi e attivare processi downstream. Configurare le applicazioni aziendali per l'ascolto degli eventi dell'hub IoT in modo che sia possibile rispondere agli eventi critici in modo sicuro, scalabile e affidabile. Compilare, ad esempio, un'applicazione per eseguire più azioni, come l'aggiornamento di un database, la creazione di un ticket e il recapito di una notifica di posta elettronica, ogni volta che un nuovo dispositivo IoT viene registrato nell'hub IoT. 
+L'hub IoT di Azure si integra con Griglia di eventi di Azure per poter inviare le notifiche degli eventi agli altri servizi e attivare processi downstream. Configurare le applicazioni aziendali per l'ascolto degli eventi dell'hub IoT in modo che sia possibile rispondere agli eventi critici in modo sicuro, scalabile e affidabile. Ad esempio compilare un'applicazione che aggiorna un database, crea un ticket di lavoro e invia una notifica di posta elettronica ogni volta che viene registrato un nuovo dispositivo IoT all'hub IoT. 
 
 [Griglia di eventi di Azure](../event-grid/overview.md) è un servizio di routing di eventi completamente gestito che usa un modello di pubblicazione-sottoscrizione. Griglia di eventi include il supporto predefinito per i servizi di Azure, ad esempio [Funzioni di Azure](../azure-functions/functions-overview.md) e [App per la logica di Azure](../logic-apps/logic-apps-what-are-logic-apps.md), e può recapitare gli avvisi relativi agli eventi ai servizi non di Azure usando i webhook. Per un elenco completo dei gestori di eventi supportati da Griglia di eventi, vedere [Introduzione a Griglia di eventi di Azure](../event-grid/overview.md). 
 
@@ -118,7 +119,7 @@ L'esempio seguente illustra lo schema di un evento creato da un dispositivo:
 }]
 ```
 
-Per una descrizione dettagliata di ogni proprietà, vedere [Schema di eventi di Griglia di eventi di Azure per l'hub IoT](../event-grid/event-schema-iot-hub.md)
+Per una descrizione dettagliata di ogni proprietà, vedere [schema di eventi di griglia di eventi di Azure per l'IoT Hub](../event-grid/event-schema-iot-hub.md).
 
 ## <a name="filter-events"></a>Filtrare gli eventi
 
@@ -131,15 +132,15 @@ devices/{deviceId}
 ```
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Limitazioni per gli eventi correlati a dispositivi connessi e disconnessi
 
-Per ricevere eventi correlati a dispositivi connessi e disconnessi, è necessario aprire il collegamento D2C o C2D per il dispositivo. Se il dispositivo usa il protocollo MQTT, l'hub IoT mantiene aperto il collegamento C2D. Per il protocollo AMQP, è possibile aprire il collegamento C2D chiamando l'[API ReceiveAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet). 
+Per ricevere eventi correlati a dispositivi connessi e disconnessi, è necessario aprire il collegamento D2C o C2D per il dispositivo. Se il dispositivo usa il protocollo MQTT, l'hub IoT mantiene aperto il collegamento C2D. Per AMQP, è possibile aprire il collegamento C2D chiamando il [ricezione API Async](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet). 
 
-Il collegamento D2C è aperto se si inviano dati di telemetria. Se la connessione del dispositivo è intermittente, ovvero se il dispositivo si connette e si disconnette frequentemente, non verrà inviato lo stato di ogni singola connessione, ma verrà pubblicati lo stato di connessione rilevato ogni minuto. In caso di interruzione del servizio dell'hub IoT, lo stato di connessione del dispositivo viene pubblicato al termine dell'interruzione. Se il dispositivo si disconnette durante il periodo di interruzione, l'evento di dispositivo disconnesso viene pubblicato entro 10 minuti.
+Il collegamento D2C è aperto se si inviano dati di telemetria. Se la connessione del dispositivo è sfarfallio, ovvero il dispositivo si connette e disconnette frequentemente, è, non verrà inviato ogni stato di singola connessione, ma verranno pubblicati lo stato di connessione che è in snapshot ogni minuto. In caso di interruzione del servizio dell'hub IoT, lo stato di connessione del dispositivo viene pubblicato al termine dell'interruzione. Se il dispositivo si disconnette durante il periodo di interruzione, l'evento di dispositivo disconnesso viene pubblicato entro 10 minuti.
 
 ## <a name="tips-for-consuming-events"></a>Suggerimenti per l'utilizzo di eventi
 
 Le applicazioni che gestiscono gli eventi dell'hub IoT devono seguire queste procedure consigliate:
 
-* Poiché più sottoscrizioni potrebbero essere configurate per instradare gli eventi allo stesso gestore eventi, è importante non presupporre che gli eventi provengano da una determinata origine. Controllare sempre l'argomento del messaggio per assicurarsi che provengano dall'hub IoT previsto. 
+* Più sottoscrizioni possono essere configurate per instradare gli eventi allo stesso gestore eventi, in modo da non dare per scontato che gli eventi provengono da una determinata origine. Controllare sempre l'argomento del messaggio per assicurarsi che provengano dall'hub IoT previsto. 
 
 * Non presupporre che tutti gli eventi ricevuti siano del tipo previsto. Controllare sempre eventType prima di elaborare il messaggio.
 

@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: b0ec8bf52b0b41aef4ea4cc2bfb6ed8fdcd170ec
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 15cdc78559a8f299e2bf0f357bbb7c0664881712
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343290"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116895"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Eseguire Apache Oozie nei cluster HDInsight Hadoop con Enterprise Security Package
 
@@ -38,9 +38,9 @@ Oozie può anche essere usato per pianificare processi specifici di un sistema, 
 Per altre informazioni su SSH (Secure Shell), vedere [Connettersi a HDInsight (Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 1. Connettersi al cluster HDInsight usando SSH:  
- ```bash
-ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
- ```
+   ```bash
+   ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
+   ```
 
 2. Per verificare se l'autenticazione Kerberos ha avuto esito positivo, usare il comando `klist`. In caso contrario, usare `kinit` per avviare l'autenticazione Kerberos.
 
@@ -54,23 +54,25 @@ ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
 ## <a name="define-the-workflow"></a>Definire il flusso di lavoro
 Le definizioni dei flussi di lavoro di Oozie sono scritte nel linguaggio Apache hPDL (Hadoop Process Definition Language). hPDL è un linguaggio di definizione di processi XML. Seguire questa procedura per definire il flusso di lavoro:
 
-1.  Configurare l'area di lavoro dell'utente del dominio:
- ```bash
-hdfs dfs -mkdir /user/<DomainUser>
-cd /home/<DomainUserPath>
-cp /usr/hdp/<ClusterVersion>/oozie/doc/oozie-examples.tar.gz .
-tar -xvf oozie-examples.tar.gz
-hdfs dfs -put examples /user/<DomainUser>/
- ```
-Sostituire `DomainUser` con il nome utente di dominio. Sostituire `DomainUserPath` con il percorso della directory principale per l'utente di dominio. Sostituire `ClusterVersion` con la versione HDP (Hortonworks Data Platform) del cluster in uso.
+1. Configurare l'area di lavoro dell'utente del dominio:
+   ```bash
+   hdfs dfs -mkdir /user/<DomainUser>
+   cd /home/<DomainUserPath>
+   cp /usr/hdp/<ClusterVersion>/oozie/doc/oozie-examples.tar.gz .
+   tar -xvf oozie-examples.tar.gz
+   hdfs dfs -put examples /user/<DomainUser>/
+   ```
+   Sostituire `DomainUser` con il nome utente di dominio. 
+   Sostituire `DomainUserPath` con il percorso della directory principale per l'utente di dominio. 
+   Sostituire `ClusterVersion` con la versione HDP (Hortonworks Data Platform) del cluster in uso.
 
-2.  Usare l'istruzione seguente per creare e modificare un nuovo file:
- ```bash
-nano workflow.xml
- ```
+2. Usare l'istruzione seguente per creare e modificare un nuovo file:
+   ```bash
+   nano workflow.xml
+   ```
 
 3. All'apertura dell'editor nano, immettere il codice XML seguente come contenuto del file:
- ```xml
+   ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <workflow-app xmlns="uri:oozie:workflow:0.4" name="map-reduce-wf">
        <credentials>
@@ -165,25 +167,25 @@ nano workflow.xml
        </kill>
        <end name="end" />
     </workflow-app>
- ```
+   ```
 4. Sostituire `clustername` con il nome del cluster. 
 
 5. Per salvare il file, selezionare CTRL+X. Immettere `Y`. Selezionare quindi **INVIO**.
 
     Il flusso di lavoro è suddiviso in due parti.
-    *   **Sezione relativa alle credenziali.** Questa sezione include le credenziali usate per l'autenticazione delle azioni di Oozie:
+   * **Sezione relativa alle credenziali.** Questa sezione include le credenziali usate per l'autenticazione delle azioni di Oozie:
 
-       Questo esempio usa l'autenticazione per le azioni di Hive. Per altre informazioni, vedere [Action Authentication](https://oozie.apache.org/docs/4.2.0/DG_ActionAuthentication.html) (Autenticazione delle azioni).
+     Questo esempio usa l'autenticazione per le azioni di Hive. Per altre informazioni, vedere [Action Authentication](https://oozie.apache.org/docs/4.2.0/DG_ActionAuthentication.html) (Autenticazione delle azioni).
 
-       Il servizio credenziali consente alle azioni di Oozie di rappresentare l'utente per l'accesso ai servizi Hadoop.
+     Il servizio credenziali consente alle azioni di Oozie di rappresentare l'utente per l'accesso ai servizi Hadoop.
 
-    *   **Sezione relativa alle azioni.** Questa sezione include tre azioni, ovvero map-reduce, Hive server 2 e Hive server 1:
+   * **Sezione relativa alle azioni.** Questa sezione include tre azioni, ovvero map-reduce, Hive server 2 e Hive server 1:
 
-      - L'azione map-reduce esegue un esempio da un pacchetto Oozie per map-reduce che restituisce il numero di parole aggregate.
+     - L'azione map-reduce esegue un esempio da un pacchetto Oozie per map-reduce che restituisce il numero di parole aggregate.
 
-       - Le azioni Hive server 2 e Hive server 1 eseguono una query su una tabella Hive di esempio fornita con HDInsight.
+     - Le azioni Hive server 2 e Hive server 1 eseguono una query su una tabella Hive di esempio fornita con HDInsight.
 
-        Le azioni Hive usano le credenziali definite nella sezione relativa alle credenziali per l'autenticazione usando la parola chiave `cred` nell'elemento action.
+     Le azioni Hive usano le credenziali definite nella sezione relativa alle credenziali per l'autenticazione usando la parola chiave `cred` nell'elemento action.
 
 6. Usare il comando seguente per copiare il file `workflow.xml` in `/user/<domainuser>/examples/apps/map-reduce/workflow.xml`:
      ```bash

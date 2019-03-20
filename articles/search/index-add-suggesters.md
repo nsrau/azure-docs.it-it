@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 7128e4d3b0675775dc713451ef672b28a4991499
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: fd4b29134fd45ed2888fbc81ded413ecf7286959
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269927"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308653"
 ---
 # <a name="add-suggesters-to-an-azure-search-index"></a>Aggiungere strumenti suggerimenti a un indice di Ricerca di Azure
 
@@ -34,52 +34,52 @@ Anche se uno **strumento suggerimenti** ha diverse proprietà, è principalmente
 
 Si può avere un solo **strumento suggerimenti** per ogni indice, in particolare uno **strumento suggerimenti** nella raccolta **strumento suggerimenti**.
 
-## <a name="creating-a-suggester"></a>Creazione di uno strumento suggerimenti 
+## <a name="creating-a-suggester"></a>Creazione di uno strumento suggerimenti
 
-È possibile creare uno **strumento suggerimenti** in qualsiasi momento, ma l'impatto sull'indice varia in base ai campi. 
+È possibile creare uno **strumento suggerimenti** in qualsiasi momento, ma l'impatto sull'indice varia in base ai campi.
 
 + I nuovi campi aggiunti a uno strumento suggerimenti come parte dello stesso aggiornamento sono i meno impattanti, in quanto non è richiesta la ricompilazione di un indice.
 + L'aggiunta di campi esistenti a uno strumento suggerimenti, tuttavia, cambia la definizione di un campo e richiede quindi la ricompilazione completa dell'indice.
 
- Gli **strumenti suggerimenti** funzionano in modo ottimale quando vengono usati per suggerire documenti specifici anziché espressioni o termini separati. I campi che rappresentano i candidati migliori sono i titoli, i nomi e le altre frasi relativamente brevi che possono identificare un elemento. I campi meno efficaci sono quelli ripetitivi, come le categorie e i tag, o quelli molto lunghi, come le descrizioni o i commenti.  
+Gli **strumenti suggerimenti** funzionano in modo ottimale quando vengono usati per suggerire documenti specifici anziché espressioni o termini separati. I campi che rappresentano i candidati migliori sono i titoli, i nomi e le altre frasi relativamente brevi che possono identificare un elemento. I campi meno efficaci sono quelli ripetitivi, come le categorie e i tag, o quelli molto lunghi, come le descrizioni o i commenti.
 
-Dopo aver creato uno strumento suggerimenti, aggiungere l'[API per i suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions) nella logica di query per richiamare la funzionalità.  
+Dopo aver creato uno strumento suggerimenti, aggiungere l'[API per i suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions) nella logica di query per richiamare la funzionalità.
 
-Le proprietà che definiscono lo **strumento suggerimenti** sono le seguenti:  
+Le proprietà che definiscono lo **strumento suggerimenti** sono le seguenti:
 
-|Proprietà|DESCRIZIONE|  
-|--------------|-----------------|  
-|`name`|Nome dello **strumento suggerimenti**. Si usa il nome dello **strumento suggerimenti** quando si chiama [Suggestions &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/suggestions) (Suggerimenti: API REST per il servizio di Ricerca di Azure).|  
-|`searchMode`|La strategia usata per la ricerca di espressioni candidate. L'unica modalità attualmente supportata è `analyzingInfixMatching`, che ricerca una corrispondenza flessibile di espressioni all'inizio o all'interno di frasi.|  
-|`sourceFields`|Un elenco di uno o più campi che sono l'origine del contenuto per i suggerimenti. Solo i campi di tipo `Edm.String` e `Collection(Edm.String)` possono essere origini per i suggerimenti. È possibile usare solo campi per i quali non è impostato un analizzatore di lingua personalizzato. |  
+|Proprietà|DESCRIZIONE|
+|--------------|-----------------|
+|`name`|Nome dello **strumento suggerimenti**. Si usa il nome dello **strumento suggerimenti** quando si chiama [Suggestions &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/suggestions) (Suggerimenti: API REST per il servizio di Ricerca di Azure).|
+|`searchMode`|La strategia usata per la ricerca di espressioni candidate. L'unica modalità attualmente supportata è `analyzingInfixMatching`, che ricerca una corrispondenza flessibile di espressioni all'inizio o all'interno di frasi.|
+|`sourceFields`|Un elenco di uno o più campi che sono l'origine del contenuto per i suggerimenti. Solo i campi di tipo `Edm.String` e `Collection(Edm.String)` possono essere origini per i suggerimenti. È possibile usare solo campi per i quali non è impostato un analizzatore di lingua personalizzato. |
 
-## <a name="suggester-example"></a>Esempio di strumento suggerimenti  
- Uno **strumento suggerimenti** fa parte della definizione dell'indice. Nella versione attuale della raccolta **strumenti suggerimenti** può essere presente un solo **strumento suggerimenti**, insieme alla raccolta dei **campi** e degli **scoringProfiles**.  
+## <a name="suggester-example"></a>Esempio di strumento suggerimenti
+Uno **strumento suggerimenti** fa parte della definizione dell'indice. Nella versione attuale della raccolta **strumenti suggerimenti** può essere presente un solo **strumento suggerimenti**, insieme alla raccolta dei **campi** e degli **scoringProfiles**.
 
-```  
-{  
-  "name": "hotels",  
-  "fields": [  
-     . . .   
-   ],  
-  "suggesters": [  
-    {  
-    "name": "sg",  
-    "searchMode": "analyzingInfixMatching",  
-    "sourceFields": ["hotelName", "category"]  
-    }  
-  ],  
-  "scoringProfiles": [  
-     . . .   
-  ]  
-}  
+```
+{
+  "name": "hotels",
+  "fields": [
+    . . .
+  ],
+  "suggesters": [
+    {
+      "name": "sg",
+      "searchMode": "analyzingInfixMatching",
+      "sourceFields": ["hotelName", "category"]
+    }
+  ],
+  "scoringProfiles": [
+    . . .
+  ]
+}
 
-```  
+```
 
-## <a name="see-also"></a>Vedere anche   
- [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  (Creare l'indice: API REST per il servizio Ricerca di Azure)  
- [Update Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/update-index)  (Aggiornare l'indice: API REST per il servizio Ricerca di Azure)  
- [Suggestions &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/suggestions)  (Suggerimenti: API REST per il servizio Ricerca di Azure)  
- [Index operations &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/index-operations)  (Operazioni sugli indici API REST per il servizio Ricerca di Azure)  
- [Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice/)  (REST per il servizio Ricerca di Azure)  
- [Ricerca di Azure .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
+## <a name="see-also"></a>Vedere anche 
+[Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) (Creare indice API REST per il servizio Ricerca di Azure)  
+[Aggiornare l'indice &#40;API REST di ricerca di Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/update-index)  
+[Suggerimenti &#40;API REST di ricerca di Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/suggestions)  
+[Operazioni sugli indici &#40;API REST del servizio ricerca di Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/index-operations)  
+[REST del servizio ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/)  
+[Ricerca di Azure .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)

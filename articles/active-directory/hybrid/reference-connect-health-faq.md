@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c1b653ee16864f5076cdad9d1dbc33e63b175ca
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ec88caafa9a6168860a8e9e2ff9e2abe0cfd0e77
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167598"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852965"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Domande frequenti su Azure AD Connect Health
 Questo articolo include risposte alle domande frequenti su Azure Active Directory (Azure AD) Connect Health. Le domande sono relative all'uso del servizio, inclusi il modello di fatturazione, le funzionalità, le limitazioni e il supporto.
@@ -155,7 +155,7 @@ Azure AD Connect Health per AD FS genera questo avviso quando l'agente installat
 
 Spesso questo test ha esito negativo perché l'agente di Azure AD Connect Health non può risolvere il nome della farm AD FS. Questa situazione può verificarsi se i server AD FS si trovano dietro un bilanciamento del carico di rete e la richiesta viene avviata da un nodo che si trova dietro il bilanciamento del carico, in contrapposizione a un client normale che si trova davanti al bilanciamento del carico. Questo problema può essere risolto aggiornando il file "hosts" in "C:\Windows\System32\drivers\etc" per includere l'indirizzo IP del server AD FS o un indirizzo IP di loopback (127.0.0.1) per il nome della farm AD FS, come ad esempio sts.contoso.com. Quando si aggiunge il file host, la chiamata di rete viene messa in corto circuito, consentendo in tal modo all'agente di Azure AD Connect Health di ottenere il token.
 
-**D: Viene ricevuto un messaggio di posta elettronica che indica che il computer non ha le patch corrette per gli attacchi ransomware recenti. Qual è il motivo per cui si riceve tale messaggio di posta elettronica?**
+**D: È stato visualizzato un messaggio di posta elettronica che indica di che macchine virtuali non vengono corretti per gli attacchi ransomware recenti. Qual è il motivo per cui si riceve tale messaggio di posta elettronica?**
 
 Il servizio di Azure AD Connect Health ha analizzato tutti i computer di cui esegue il monitoraggio per verificare che le patch necessarie siano installate. Se almeno un computer non dispone delle patch critiche, viene inviato tale messaggio di posta elettronica agli amministratori del tenant. Per arrivare a tale decisione, è stata usata la logica seguente.
 1. Trovare tutti gli hotfix installati nel computer.
@@ -192,6 +192,9 @@ CheckForMS17-010
 **D: Perché i controlli AD FS non vengono generati?**
 
 Usare il cmdlet di PowerShell <i>Get-AdfsProperties -AuditLevel</i> per assicurarsi che i log di controllo non siano disabilitati. Sono disponibili altre informazioni sui [log di controllo AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Si noti che in presenza di impostazioni di controllo avanzate di cui è stato eseguito il push nel server AD FS, le eventuali modifiche con auditpol.exe verranno sovrascritte, anche se l'impostazione Generato dall'applicazione non è configurata. In questo caso, impostare i criteri di sicurezza locale per la registrazione degli esiti negativi e positivi di Generato dall'applicazione.
+
+**D: Quando il certificato dell'agente sarà rinnovata prima la scadenza automatica?**
+La certificazione dell'agente verrà eseguito automaticamente rinnovato **6 mesi** prima della data di scadenza. Se non viene rinnovato, verificare che la connessione di rete dell'agente sia stabile. Riavviare i servizi dell'agente o l'aggiornamento alla versione più recente può anche risolvere il problema.
 
 
 ## <a name="related-links"></a>Collegamenti correlati

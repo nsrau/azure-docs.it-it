@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 57279a4e92b1f42505003f12d41c8203aa5603d4
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 02977032c5975de4098600ddbebccfcbb9b0fafd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881870"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122893"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects-preview"></a>Creare una pipeline CI/CD per IoT Edge con Azure DevOps Projects (Anteprima)
 
@@ -127,7 +127,7 @@ Nelle sezioni precedenti, Azure DevOps Projects ha configurato automaticamente u
 
 12. Nel menu della pipeline di versione selezionare **Attività**, quindi scegliere la fase **dev** dall'elenco a discesa. DevOps Projects ha creato una fase di versione che crea un hub IoT, crea un dispositivo IoT Edge in tale hub, distribuisce il modulo di esempio dalla pipeline di compilazione ed effettua il provisioning di una macchina virtuale da eseguire come dispositivo IoT Edge. Per altre informazioni sulle attività Azure IoT Edge per la distribuzione continua, vedere [Configurare la distribuzione continua](how-to-ci-cd.md#configure-continuous-deployment).
 
-   ![Visualizza attività di distribuzione continua](media/how-to-devops-project/dev-release.png)
+    ![Visualizza attività di distribuzione continua](media/how-to-devops-project/dev-release.png)
 
 13. A destra, selezionare **Visualizza versioni**. Questa visualizzazione mostra una cronologia delle versioni.
 

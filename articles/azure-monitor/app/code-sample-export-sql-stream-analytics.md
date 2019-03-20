@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mbullwin
-ms.openlocfilehash: 502ccf15fe3e2f803febb711d4ea8850abbaea85
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 0166622539a439a99aef7e476519881518baa0b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116586"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106339"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Procedura dettagliata: Eseguire l'esportazione in SQL da Application Insights tramite l'analisi di flusso
 Questo articolo illustra come spostare i dati di telemetria da [Azure Application Insights][start] in un database SQL di Azure usando l'[esportazione continua][export] e l'[analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/). 
@@ -181,8 +181,8 @@ Per ottenere il nome e la chiave di strumentazione (iKey) della risorsa di Appli
 > Utilizzare la funzione di esempio per verificare di aver impostato correttamente il percorso di input. In caso di esito negativo: verificare che ci siano dati nell'archivio per l'intervallo di tempo di esempio che si seleziona. Modificare la definizione di input e controllare di impostare l'account di archiviazione, il prefisso del percorso e il formato di data corretto.
 > 
 > 
-## <a name="set-query"></a>Impostare la query
-Aprire la sezione delle query:
+> ## <a name="set-query"></a>Impostare la query
+> Aprire la sezione delle query:
 
 Sostituire la query predefinita con:
 

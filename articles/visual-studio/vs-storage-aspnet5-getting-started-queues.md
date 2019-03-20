@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: 237294c1bc603402c349f7a56f20c34ed8d210fe
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
-ms.translationtype: HT
+ms.openlocfilehash: 8a91614e7dfb804e6a902967ce60f898ed0e54ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42140573"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999754"
 ---
 # <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-core"></a>Introduzione all'archiviazione code e ai servizi connessi di Visual Studio (ASP.NET Core)
 
@@ -27,7 +27,7 @@ Questo articolo descrive come iniziare a usare Archiviazione code di Azure in Vi
 
 Il servizio di archiviazione di accodamento di Azure consente di archiviare grandi quantità di messaggi ai quali è possibile accedere da qualsiasi parte del mondo mediante chiamate autenticate tramite HTTP o HTTPS. La dimensione massima di un singolo messaggio della coda è di 64 KB e una coda può contenere milioni di messaggi, nei limiti della capacità complessiva di un account di archiviazione. Per i dettagli sulla modifica delle code a livello di codice, vedere anche [Introduzione all'archiviazione code di Azure con .NET](../storage/queues/storage-dotnet-how-to-use-queues.md).
 
-Per iniziare, creare una coda di Azure nell'account di archiviazione. Questo articolo illustrerà come creare una coda in C# e come eseguire le operazioni di base relative alle code, ad esempio l'aggiunta, la modifica, la lettura e la rimozione di messaggi nelle code.  Il codice usa la Libreria client di archiviazione di Azure per .NET. Per ulteriori informazioni su ASP.NET, vedere [ASP.NET](http://www.asp.net).
+Per iniziare, creare una coda di Azure nell'account di archiviazione. Questo articolo illustrerà come creare una coda in C# e come eseguire le operazioni di base relative alle code, ad esempio l'aggiunta, la modifica, la lettura e la rimozione di messaggi nelle code.  Il codice usa la Libreria client di archiviazione di Azure per .NET. Per ulteriori informazioni su ASP.NET, vedere [ASP.NET](https://www.asp.net).
 
 Alcune API di Archiviazione di Azure sono asincrone e il codice riportato in questo articolo presuppone che vengano usati metodi asincroni. Per altre informazioni, vedere [Programmazione asincrona](https://docs.microsoft.com/dotnet/csharp/async).
 
@@ -66,7 +66,7 @@ Per accedere alle code nei progetti ASP.NET Core, includere gli elementi seguent
 
 ### <a name="create-a-queue-in-code"></a>Creare una coda in codice
 
-Per creare la coda di Azure nel codice, chiamare ``CreateIfNotExistsAsync`:
+Per creare la coda di Azure nel codice, chiamare `CreateIfNotExistsAsync`:
 
 ```cs
 // Create the CloudQueue if it does not exist.

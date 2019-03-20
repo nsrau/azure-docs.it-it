@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 4eb4db9a4057d072f348de48bee2f746f77cbb84
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 6001d291581dc317da89cadbf3891e334362062b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715342"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897589"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Aggiungere librerie Apache Hive personalizzate durante la creazione del cluster HDInsight
 
@@ -51,7 +51,7 @@ Per i **cluster basati su Windows**: [https://hdiconfigactions.blob.core.windows
 
 * L'account di archiviazione contenente la libreria dei file con estensione jar **deve** essere collegato al cluster HDInsight durante la creazione. Deve essere l'account di archiviazione predefinito o un account aggiunto tramite la __configurazione facoltativa__.
 
-* Il percorso WASB al contenitore deve essere specificato come parametro dell'azione script. Ad esempio, se i file con estensione jar sono archiviati in un contenitore denominato **libs** in un account di archiviazione denominato **mystorage**, il parametro deve essere **wasb://libs@mystorage.blob.core.windows.net/**.
+* Il percorso WASB al contenitore deve essere specificato come parametro dell'azione script. Ad esempio, se il file con estensione jar sono archiviati in un contenitore denominato **libs** su un account di archiviazione denominato **mystorage**, il parametro sarebbe **wasb://libs\@ mystorage.BLOB.Core.Windows.NET/**.
 
   > [!NOTE]  
   > In questo documento si presuppone che un account di archiviazione e un contenitore BLOB siano già stati creati e che i file siano stati caricati nel contenitore.
@@ -79,11 +79,11 @@ Per i **cluster basati su Windows**: [https://hdiconfigactions.blob.core.windows
 
    * **ZOOKEEPER**: Lasciare vuoto.
 
-   * **PARAMETRI**: immettere l'indirizzo WASB per l'account di archiviazione e il contenitore che contiene i file con estensione jar. Ad esempio, **wasb://libs@mystorage.blob.core.windows.net/**.
+   * **PARAMETRI**: immettere l'indirizzo WASB per l'account di archiviazione e il contenitore che contiene i file con estensione jar. Ad esempio, **wasb://libs\@mystorage.blob.core.windows.net/**.
 
 3. Nella parte inferiore di **Azioni di script** usare il pulsante **Seleziona** per salvare la configurazione.
 
-4. Nella sezione **Configurazione facoltativa** selezionare **Account di archiviazione collegati** e il collegamento **Aggiungi una chiave di archiviazione**. Selezionare l'account di archiviazione che contiene i file con estensione jar. Usare quindi i pulsanti **seleziona** per salvare le impostazioni e tornare alla **Configurazione facoltativa**.
+4. Nella sezione **Configurazione facoltativa** selezionare **Account di archiviazione collegati** e il collegamento **Aggiungi una chiave di archiviazione**. Selezionare l'account di archiviazione che contiene i JAR. Usare quindi i pulsanti **seleziona** per salvare le impostazioni e tornare alla **Configurazione facoltativa**.
 
 5. Per salvare la configurazione facoltativa, usare il pulsante **Seleziona** nella parte inferiore della sezione **Configurazione facoltativa**.
 

@@ -11,16 +11,16 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e5528cdfc2efa2d5c257732c8b6b6df117421839
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: a5ddc17f6200ba2d43d67fcd2e4bcc35c224e6cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250028"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004064"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Eseguire il training di modelli di PyTorch con il servizio Azure Machine Learning
 
-Per il training con reti neurali avanzate (DNN) tramite PyTorch, Azure Machine Learning fornisce una classe `PyTorch` personalizzata di `Estimator`. Estimator di `PyTorch` di Azure SDK consente di inviare facilmente processi di training PyTorch per l'esecuzione su nodo singolo e distribuita nelle risorse di calcolo di Azure.
+Per il training di reti neurali profonde (DNN) mediante PyTorch, Azure Machine Learning fornisce una classe personalizzata [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) della classe di `Estimator`. Estimator di `PyTorch` di Azure SDK consente di inviare facilmente processi di training PyTorch per l'esecuzione su nodo singolo e distribuita nelle risorse di calcolo di Azure.
 
 ## <a name="single-node-training"></a>Training su nodo singolo
 Il training con Estimator di `PyTorch` è simile all'uso di [ `Estimator` di base](how-to-train-ml-models.md). È quindi consigliabile leggere prima l'articolo sulle procedure e assicurarsi di avere compreso i concetti introdotti in tale articolo.
@@ -42,6 +42,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-proj',
 ```
 
 Qui si specificano i parametri seguenti al costruttore PyTorch:
+
 Parametro | DESCRIZIONE
 --|--
 `source_directory` |  Directory locale contenente tutto il codice necessario per il processo di training. Questa cartella viene copiata dal computer locale nelle risorse di calcolo remote
@@ -82,6 +83,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-project',
 ```
 
 Questo codice espone i nuovi parametri seguenti al costruttore di PyTorch:
+
 Parametro | DESCRIZIONE | Predefinito
 --|--|--
 `node_count` |  Numero di nodi da usare per il processo di training. | `1`

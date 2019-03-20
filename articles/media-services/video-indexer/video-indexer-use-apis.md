@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: dc3e654e741fd1a326c83e51c72284f41ad74798
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 6a7d79d8a9328eaf0808c79ed359299e1ec37d1a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55988052"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862720"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Esercitazione: Usare l'API Video Indexer
 
@@ -23,7 +23,7 @@ ms.locfileid: "55988052"
 
 Video Indexer consolida diverse tecnologie di intelligenza artificiale audio e video offerte da Microsoft in un unico servizio integrato, semplificando così lo sviluppo. Le API sono progettate per consentire agli sviluppatori di concentrarsi sull'uso delle tecnologie di intelligenza artificiale per i contenuti multimediali senza doversi preoccupare della scalabilità, della portata globale, della disponibilità e dell'affidabilità della piattaforma cloud. È possibile usare l'API per caricare file, ottenere informazioni dettagliate sui video, ottenere gli URL dei widget delle informazioni dettagliate e del lettore per incorporarli nell'applicazione ed eseguire altre attività.
 
-Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuita) o un'opzione a pagamento (in cui non si è limitati dalla quota). Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2400 minuti di indicizzazione gratuita per gli utenti di API. Con l'opzione a pagamento, si crea un account di Video Indexer [connesso alla sottoscrizione di Azure e a un account di Servizi multimediali di Azure](connect-to-azure.md). Il pagamento viene effettuato per i minuti di indicizzazione, nonché in base ai costi correlati all'account di Azure Media Services. 
+Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuita) o un'opzione a pagamento (in cui non si è limitati dalla quota). Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2400 minuti di indicizzazione gratuita per gli utenti di API. Con l'opzione a pagamento, crei un account Video Indexer [connesso alla sottoscrizione di Azure e un account servizi multimediali di Azure](connect-to-azure.md). Il pagamento viene effettuato per i minuti di indicizzazione, nonché in base ai costi correlati all'account di Azure Media Services. 
 
 Questo articolo illustra in che modo gli sviluppatori possono trarre vantaggio dall'[API Video Indexer](https://api-portal.videoindexer.ai/).
 
@@ -33,10 +33,10 @@ Questo articolo illustra in che modo gli sviluppatori possono trarre vantaggio d
     
     ![Accesso](./media/video-indexer-use-apis/video-indexer-api01.png)
 
-    > [!Important]
-    > * È necessario usare lo stesso provider usato per l'iscrizione a Video Indexer.
-    > * Gli account Google e Microsoft (Outlook/Live) personali possono essere usati solo per gli account di valutazione. Gli account connessi ad Azure richiedono Azure AD.
-    > * Può essere presente un solo account attivo per ogni indirizzo di posta elettronica. Se un utente tenta di effettuare l'accesso con user@gmail.com per LinkedIn e successivamente con user@gmail.com per Google, verrà visualizzata una pagina di errore che indica che l'utente già esiste.
+   > [!Important]
+   > * È necessario usare lo stesso provider usato per l'iscrizione a Video Indexer.
+   > * Gli account Google e Microsoft (Outlook/Live) personali possono essere usati solo per gli account di valutazione. Gli account connessi ad Azure richiedono Azure AD.
+   > * Può essere presente un solo account attivo per ogni indirizzo di posta elettronica. Se un utente tenta di effettuare l'accesso con user@gmail.com per LinkedIn e successivamente con user@gmail.com per Google, verrà visualizzata una pagina di errore che indica che l'utente già esiste.
 
 2. Eseguire la sottoscrizione.
 
@@ -72,7 +72,7 @@ Per semplificare le operazioni, è possibile usare l'API **Autorizzazione** > **
 
 I token di accesso scadono dopo un'ora. Assicurarsi che il token di accesso sia valido prima di usare l'API delle operazioni. Se scade, chiamare di nuovo l'API di autorizzazione per ottenere un nuovo token di accesso.
  
-A questo punto, si è pronti per avviare l'integrazione con l'API. Leggere la [descrizione dettagliata di ogni API REST di Video Indexer](http://api-portal.videoindexer.ai/).
+A questo punto, si è pronti per avviare l'integrazione con l'API. Leggere la [descrizione dettagliata di ogni API REST di Video Indexer](https://api-portal.videoindexer.ai/).
 
 ## <a name="location"></a>Località
 

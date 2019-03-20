@@ -10,12 +10,12 @@ ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: a13ce85124dc84362ec1ee2aa39a16c2c3f09f88
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: a413261d251c8dfc1de9209168ee8137b85009f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701013"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860619"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Compilare pianificazioni avanzate e ricorrenze per i processi in Utilità di pianificazione di Azure
 
@@ -63,15 +63,15 @@ Per creare una pianificazione di base con l'[API REST dell'Utilità di pianifica
 
 Questa tabella fornisce una panoramica generale degli elementi JSON principali che è possibile usare durante la configurazione di ricorrenze e pianificazioni per i processi. 
 
-| Elemento | Obbligatoria | DESCRIZIONE | 
+| Elemento | Obbligatorio | DESCRIZIONE | 
 |---------|----------|-------------|
-| **startTime** | No  | Valore di stringa DateTime nel [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) che specifica quando il processo inizia per le prima volta in una pianificazione di base. <p>Per le pianificazioni complesse, il processo viene attivato non prima del valore di **startTime**. | 
+| **startTime** | No  | Valore di stringa DateTime nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) che specifica quando il processo inizia per le prima volta in una pianificazione di base. <p>Per le pianificazioni complesse, il processo viene attivato non prima del valore di **startTime**. | 
 | **recurrence** | No  | Regole di ricorrenza per l'esecuzione del processo. L'oggetto **recurrence** supporta i seguenti elementi: **frequency**, **interval**, **schedule**, **count**, e **endTime**. <p>Se si usa l'elemento **recurrence**, è necessario usare anche l’elemento **frequency**, mentre altri elementi **recurrence** sono facoltativi. |
 | **frequency** | Sì, quando si usa **recurrence** | L'unità di tempo tra le occorrenze supporta questi valori: "Minute", "Hour", "Day", "Week", "Month" e "Year" | 
 | **interval** | No  | Un numero intero positivo che determina il numero di unità di tempo tra le occorrenze sulla base della **frequency**. <p>Se ad esempio **interval** è 10 e **frequency** è "Week", il processo si ripete ogni 10 settimane. <p>Di seguito il numero massimo di intervalli per ogni frequenza: <p>- 18 mesi <br>- 78 settimane <br>- 548 giorni <br>Per ore e minuti, l'intervallo è 1 <= <*interval*><= 1000. | 
 | **schedule** | No  | Definisce le modifiche alla ricorrenza in base agli indicatori di minuti, ore, giorni della settimana e giorni del mese | 
 | **count** | No  | Numero intero positivo che specifica il numero di volte in cui viene eseguito il processo prima del completamento. <p>Ad esempio, quando il **count** di un processo giornaliero è impostato su 7, e la data di inizio è lunedì, il processo viene completato di domenica. Se la data di inizio è già passata, la prima esecuzione verrà calcolata dall'ora di creazione. <p>Senza **endTime** o un **count**, il processo viene eseguito all'infinito. Non è possibile usare sia **count** che **endTime** in uno stesso processo, ma viene applicata la regola che termina per prima. | 
-| **endTime** | No  | Valore di stringa Date o DateTime nel [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) che specifica quando avviene l'arresto del processo. Per **endTime** è possibile impostare un valore nel passato. <p>Senza **endTime** o un **count**, il processo viene eseguito all'infinito. Non è possibile usare sia **count** che **endTime** in uno stesso processo, ma viene applicata la regola che termina per prima. |
+| **endTime** | No  | Valore di stringa Date o DateTime nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) che specifica quando avviene l'arresto del processo. Per **endTime** è possibile impostare un valore nel passato. <p>Senza **endTime** o un **count**, il processo viene eseguito all'infinito. Non è possibile usare sia **count** che **endTime** in uno stesso processo, ma viene applicata la regola che termina per prima. |
 |||| 
 
 Ad esempio, questo schema JSON descrive una pianificazione di base e la ricorrenza di un processo: 
@@ -94,9 +94,9 @@ Ad esempio, questo schema JSON descrive una pianificazione di base e la ricorren
 
 *Valori di Date and DateTime*
 
-* Le date nei processi dell'Utilità di pianificazione di Azure includono solo la data e seguono la [specifica ISO-8601](http://en.wikipedia.org/wiki/ISO_8601).
+* Le date nei processi dell'Utilità di pianificazione di Azure includono solo la data e seguono la [specifica ISO-8601](https://en.wikipedia.org/wiki/ISO_8601).
 
-* Data e ora nei processi dell'Utilità di pianificazione includono sia data che ora, seguono la [specifica ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) e si presuppone che siano in formato UTC quando non viene specificata alcuna differenza dall'ora UTC. 
+* Data e ora nei processi dell'Utilità di pianificazione includono sia data che ora, seguono la [specifica ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e si presuppone che siano in formato UTC quando non viene specificata alcuna differenza dall'ora UTC. 
 
 Per altre informazioni, vedere [Concetti, terminologia ed entità](../scheduler/scheduler-concepts-terms.md).
 

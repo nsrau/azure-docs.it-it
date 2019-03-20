@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: a61e78ff54cdc2a3db6c166686c2c51a19856a9c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: b03da04c97475dcb9ce15f2ed69d7ca333d6f431
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252308"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456211"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Panoramica dei BLOB di pagine di Azure
 
@@ -29,7 +29,7 @@ Verrà ora esaminato qualche caso d'uso per i BLOB di pagine a partire dai disch
 
 I servizi forniti da Microsoft, ad esempio Azure Site Recovery e Backup di Azure, e molti sviluppatori di terze parti hanno implementato le innovazioni leader del settore usando l'interfaccia REST del BLOB di pagine. Di seguito sono elencati alcuni degli scenari univoci implementati in Azure: 
 * Gestione degli snapshot incrementali controllata dall'applicazione: le applicazioni possono sfruttare gli snapshot dei BLOB di pagine e le API REST per il salvataggio dei checkpoint dell'applicazione senza dover sostenere la costosa duplicazione dei dati. Archiviazione di Azure supporta gli snapshot locali per i BLOB di pagine, che non richiedono la copia dell'intero BLOB. Queste API snapshot pubbliche consentono anche l'accesso e la copia dei valori differenziali tra gli snapshot.
-* Migrazione in tempo reale dell'applicazione e dei dati dall'ambiente locale al cloud: copiare i dati locali e usare le API REST per scrivere direttamente in un BLOB di pagine di Azure mentre la macchina virtuale locale è ancora in esecuzione. Dopo l'aggiornamento della destinazione, è possibile effettuare rapidamente il failover nella VM di Azure usando tali dati. In questo modo, è possibile eseguire la migrazione delle VM e dei dischi virtuali dall'ambiente locale al cloud con un tempo di inattività minimo perché la migrazione dei dati avviene in background mentre si continua a usare la VM e il tempo di inattività necessario per il failover sarà di pochi minuti.
+* Migrazione in tempo reale dell'applicazione e dati da locale al cloud: Copiare i dati localmente via e usare le API REST per scrivere direttamente in un blob di pagine di Azure mentre continua l'esecuzione della macchina virtuale locale. Dopo l'aggiornamento della destinazione, è possibile effettuare rapidamente il failover nella VM di Azure usando tali dati. In questo modo, è possibile eseguire la migrazione delle macchine virtuali e dischi virtuali dall'ambiente locale al cloud con tempo di inattività minimo perché la migrazione dei dati avviene in background mentre si continua a usare la macchina virtuale e il tempo di inattività necessario per il failover sarà brevi (in minuti).
 * Accesso condiviso [basato sulla firma di accesso condiviso](../common/storage-dotnet-shared-access-signature-part-1.md), che consente scenari come quelli con più lettori e un singolo writer con il supporto per il controllo della concorrenza.
 
 ## <a name="page-blob-features"></a>Funzionalità dei BLOB di pagine

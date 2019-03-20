@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: b1fc52ac46a6cdb73b9210833e437765398781ef
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 0fec9173eb94aa60c3689089e4eacd2d9d47724a
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819128"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200022"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gestire i cluster HDInsight con Enterprise Security Package
 Informazioni su utenti e ruoli in HDInsight Enterprise Security Package (ESP) e su come gestire i cluster ESP.
@@ -143,7 +143,7 @@ Per trovare il nome di dominio completo di un nodo head, usare le informazioni c
 ## <a name="users-of-hdinsight-clusters-with-esp"></a>Utenti dei cluster HDInsight con ESP
 Un cluster HDInsight non ESP dispone di due account utente creati durante la creazione del cluster:
 
-* **Amministratore Ambari**: questo account è denominato anche *Utente Hadoop* o *Utente HTTP*. Può essere usato per accedere ad Ambari all'indirizzo https://&lt;nomecluster>.azurehdinsight.net. Può essere usato anche per eseguire query sulle viste Ambari, eseguire i processi tramite strumenti esterni (ad esempio PowerShell, Templeton, Visual Studio) ed eseguire l'autenticazione con Hive ODBC Driver e gli strumenti di business intelligence (ad esempio Excel, PowerBI o Tableau).
+* **Amministratore Ambari**: questo account è denominato anche *Utente Hadoop* o *Utente HTTP*. Questo account può essere usato per accedere ad Ambari all'indirizzo https://&lt;NomeCluster >. azurehdinsight. Può anche essere utilizzato per eseguire query sulle viste di Ambari, eseguire i processi tramite strumenti esterni (ad esempio, PowerShell, Templeton, Visual Studio) e l'autenticazione con il driver ODBC di Hive e strumenti di Business Intelligence (ad esempio, Excel, Power BI o Tableau).
 
 Un cluster HDInsight con ESP ha tre nuovi utenti, oltre all'amministratore di Ambari.
 
@@ -179,9 +179,9 @@ Enterprise Security Package per HDInsight ha i seguenti ruoli:
 ## <a name="open-the-ambari-management-ui"></a>Aprire l'interfaccia utente per la gestione di Ambari.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Aprire il cluster HDInsight. Vedere [Elencare e visualizzare i cluster](../hdinsight-administer-use-management-portal.md#list-and-show-clusters).
+2. Aprire il cluster HDInsight.
 3. Fare clic su **Dashboard** nel menu principale per aprire Ambari.
-4. Eseguire l'accesso usando il nome utente e la password di amministratore del cluster.
+4. Accedere ad Ambari usando il nome utente di dominio amministratore cluster e la password.
 5. Fare clic sul menu a discesa **Admin** (Amministratore) in alto a destra e quindi fare clic su **Manage Ambari** (Gestisci Ambari).
 
     ![Gestire Ambari nel cluster HDInsight per ESP](./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)

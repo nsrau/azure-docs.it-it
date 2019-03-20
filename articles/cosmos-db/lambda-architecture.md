@@ -6,12 +6,12 @@ author: tknandu
 ms.author: ramkris
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 3c59b96146928a066c70113cb3fb1cd1915d9c8b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 6902b1a26d02efbf1a31fe9a3a25253a6b5a5604
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034013"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100344"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: Implementare un'architettura lambda nella piattaforma Azure 
 
@@ -258,14 +258,14 @@ Con questa struttura, sono necessari solo due servizi gestiti, Azure Cosmos DB e
 
 ### <a name="resources"></a>Risorse
 
- * **Nuovi dati:** il [feed di streaming da Twitter a CosmosDB](https://github.com/tknandu/TwitterCosmosDBFeed), ovvero il meccanismo di push dei nuovi dati in Azure Cosmos DB.
- * **Livello batch:** il livello batch è composto dal *set di dati master* (un set di dati non elaborati non modificabile, che consente solo l'accodamento) e la possibilità di pre-calcolare le viste batch dei dati di cui viene eseguito il push nel **livello di gestione**.
-    * Il notebook **Lambda Architecture Rearchitected - Batch Layer** (Architettura lambda riprogettata - Livello batch) [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) esegue query sul *set di dati master* delle viste batch.
- * **Livello di gestione:** il **livello di gestione** è costituito dai dati pre-calcolati risultanti nelle viste batch (ad esempio aggregazioni, filtri dei dati specifici e così via) per le query rapide.
-    * Il notebook **Lambda Architecture Rearchitected - Batch to Serving Layer** (Architettura lambda riprogettata - Da livello batch a livello di gestione) [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html) esegue il push dei dati batch nel livello di gestione. Ciò significa che Spark esegue una query su una raccolta batch di tweet, la elabora e la archivia in un'altra raccolta (un batch calcolato).
-* **Livello di elaborazione rapida:** il **livello di elaborazione rapida** è costituito da Spark che usa il feed di modifiche di Azure Cosmos DB per leggere e agire immediatamente. I dati possono anche essere salvati nella *vista in tempo reale calcolata*, in modo che altri sistemi possano eseguire query sui dati in tempo reale elaborati invece di dover eseguire essi stessi una query in tempo reale.
-    * Lo script Scala [Streaming Query from Cosmos DB Change Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Query%20from%20Cosmos%20DB%20Change%20Feed.scala) (Query di streaming dal feed di modifiche di Cosmos DB) esegue una query di streaming dal feed di modifiche di Azure Cosmos DB per calcolare un numero di intervalli da spark-shell.
-    * Lo script Scala [Streaming Tags Query from Cosmos DB Change Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Tags%20Query%20from%20Cosmos%20DB%20Change%20Feed%20.scala) (Query di streaming su tag dal feed di modifiche di Cosmos DB - Scala) esegue una query di streaming dal feed di modifiche di Azure Cosmos DB per calcolare un numero di intervalli di tag da spark-shell.
+* **Nuovi dati:** il [feed di streaming da Twitter a CosmosDB](https://github.com/tknandu/TwitterCosmosDBFeed), ovvero il meccanismo di push dei nuovi dati in Azure Cosmos DB.
+* **Livello batch:** il livello batch è composto dal *set di dati master* (un set di dati non elaborati non modificabile, che consente solo l'accodamento) e la possibilità di pre-calcolare le viste batch dei dati di cui viene eseguito il push nel **livello di gestione**.
+   * Il notebook **Lambda Architecture Rearchitected - Batch Layer** (Architettura lambda riprogettata - Livello batch) [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) esegue query sul *set di dati master* delle viste batch.
+* **Livello di gestione:** il **livello di gestione** è costituito dai dati pre-calcolati risultanti nelle viste batch (ad esempio aggregazioni, filtri dei dati specifici e così via) per le query rapide.
+  * Il notebook **Lambda Architecture Rearchitected - Batch to Serving Layer** (Architettura lambda riprogettata - Da livello batch a livello di gestione) [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html) esegue il push dei dati batch nel livello di gestione. Ciò significa che Spark esegue una query su una raccolta batch di tweet, la elabora e la archivia in un'altra raccolta (un batch calcolato).
+    * **Livello di elaborazione rapida:** il **livello di elaborazione rapida** è costituito da Spark che usa il feed di modifiche di Azure Cosmos DB per leggere e agire immediatamente. I dati possono anche essere salvati nella *vista in tempo reale calcolata*, in modo che altri sistemi possano eseguire query sui dati in tempo reale elaborati invece di dover eseguire essi stessi una query in tempo reale.
+  * Lo script Scala [Streaming Query from Cosmos DB Change Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Query%20from%20Cosmos%20DB%20Change%20Feed.scala) (Query di streaming dal feed di modifiche di Cosmos DB) esegue una query di streaming dal feed di modifiche di Azure Cosmos DB per calcolare un numero di intervalli da spark-shell.
+  * Lo script Scala [Streaming Tags Query from Cosmos DB Change Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Tags%20Query%20from%20Cosmos%20DB%20Change%20Feed%20.scala) (Query di streaming su tag dal feed di modifiche di Cosmos DB - Scala) esegue una query di streaming dal feed di modifiche di Azure Cosmos DB per calcolare un numero di intervalli di tag da spark-shell.
   
 ## <a name="next-steps"></a>Passaggi successivi
 Se ancora non lo si è fatto, scaricare il connettore Spark per Azure Cosmos DB dal repository GitHub [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark) ed esplorare le risorse aggiuntive nel repository:

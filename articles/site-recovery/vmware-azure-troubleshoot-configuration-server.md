@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: ab72091c58420459620352c8169773111149316d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 3676a1e4bf69f7d31bb347f99787c4e2f08721a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245729"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107594"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Risolvere i problemi del server di configurazione
 
@@ -25,9 +25,9 @@ Il computer di origine esegue la registrazione con il server di configurazione q
 1. Aprire il file C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log. (La cartella ProgramData potrebbe essere una cartella nascosta. Se la cartella ProgramData in Esplora File non viene visualizzata, nella scheda **Visualizza** all'interno della sezione **Mostra/Nascondi** selezionare la casella di controllo **Elementi nascosti**). Le cause degli errori posso essere molteplici.
 
 2. Cercare la stringa **Nessun indirizzo IP valido trovato**. Se si trova la stringa:
-    1. Verificare che l'ID host richiesto sia quello usato per l'ID host della macchina di origine.
-    2. Verificare che la macchina di origine disponga di almeno un indirizzo IP assegnato alla scheda di interfaccia di rete fisica. Per la registrazione dell'agente con il server di configurazione, il computer di origine deve avere almeno un indirizzo IP v4 assegnato alla scheda di interfaccia di rete fisica.
-    3. Eseguire uno dei seguenti comandi nella macchina di origine per ottenere tutti gli indirizzi IP della stessa:
+   1. Verificare che l'ID host richiesto sia quello usato per l'ID host della macchina di origine.
+   2. Verificare che la macchina di origine disponga di almeno un indirizzo IP assegnato alla scheda di interfaccia di rete fisica. Per la registrazione dell'agente con il server di configurazione, il computer di origine deve avere almeno un indirizzo IP v4 assegnato alla scheda di interfaccia di rete fisica.
+   3. Eseguire uno dei seguenti comandi nella macchina di origine per ottenere tutti gli indirizzi IP della stessa:
       - Per Windows: `> ipconfig /all`
       - Per Linux: `# ifconfig -a`
 
@@ -82,7 +82,7 @@ Impossibile creare un certificato richiesto per l'autenticazione di Site Recover
 
 ## <a name="failure-to-activate-windows-licence-from-server-standard-evaluation-to-server-standard"></a>Errore durante l'attivazione della licenza di Windows dalla versione Server Standard Evaluation a Server Standard
 
-1. Nell'ambito della distribuzione di server di configurazione tramite OVF viene usata una licenza di valutazione, valida per 180 giorni. È necessario attivare la licenza prima che scada. In caso contrario, questo può comportare l'arresto frequente del server di configurazione, pregiudicando le attività di replica.
+1. Come parte della distribuzione di server di configurazione tramite OVF, viene usata una licenza di valutazione, che è valido per 180 giorni. È necessario attivare la licenza prima che scada. In caso contrario, questo può comportare l'arresto frequente del server di configurazione, pregiudicando le attività di replica.
 2. Se non è possibile attivare la licenza di Windows, rivolgersi al [team di supporto di Windows](https://aka.ms/Windows_Support) per risolvere il problema.
 
 ## <a name="register-source-machine-with-configuration-server"></a>Registrare il computer di origine con il server di configurazione

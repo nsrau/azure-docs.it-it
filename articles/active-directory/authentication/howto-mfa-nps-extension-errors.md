@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf2e1b97d228de47634e570a407ec03d7a13e540
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4c831a5a939e946d7189e4d35eaf051508e904a4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199641"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999519"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Risolvere i messaggi di errore dall'estensione NPS per Multi-Factor Authentication di Azure
 
@@ -68,7 +68,7 @@ In alcuni casi, gli utenti possono ricevere messaggi da Multi-Factor Authenticat
 
 | Codice di errore | Messaggio di errore | Procedure consigliate | 
 | ---------- | ------------- | ----------------- |
-| **OathCodeIncorrect** | Wrong code entered\OATH Code Incorrect (Codice inserito non corretto\Codice OATH errato) | Non è un errore, l'utente ha immesso un codice errato. | L'utente ha immesso il codice errato. Fare in modo che l'utente ripeta l'operazione richiedendo un nuovo codice o effettuando di nuovo l'accesso. | 
+| **OathCodeIncorrect** | Wrong code entered\OATH Code Incorrect (Codice inserito non corretto\Codice OATH errato) | L'utente ha immesso il codice errato. Fare in modo che l'utente ripeta l'operazione richiedendo un nuovo codice o effettuando di nuovo l'accesso. | 
 | **SMSAuthFailedMaxAllowedCodeRetryReached** | Maximum allowed code retry reached (Numero massimo di tentativi di inserimento del codice raggiunto) | L'utente ha superato il numero di richieste di verifica consentito. A seconda delle impostazioni, potrebbe essere necessaria una procedura di sblocco da parte dell'amministratore.  |
 | **SMSAuthFailedWrongCodeEntered** | Wrong code entered/Text Message OTP Incorrect (Codice inserito errato/OTP del messaggio di testo errato) | L'utente ha immesso il codice errato. Fare in modo che l'utente ripeta l'operazione richiedendo un nuovo codice o effettuando di nuovo l'accesso. |
 

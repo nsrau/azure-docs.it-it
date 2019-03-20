@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2e9c1b2513f769b065883dc98b649a68d565ccc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 7d8259cdb61d2481805dd2e07c11b539e057215c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456487"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817066"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs-preview"></a>Integrare i log di Azure AD con i log di Monitoraggio di Azure (anteprima)
 
@@ -37,6 +37,8 @@ Il video seguente di una sessione di Ignite illustra i vantaggi derivanti dall'u
 > [!VIDEO https://www.youtube.com/embed/MP5IaCTwkQg?start=1894]
 
 Questo articolo illustra come integrare i log di Azure Active Directory (Azure AD) con Monitoraggio di Azure.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="supported-reports"></a>Report supportati
 
@@ -78,7 +80,7 @@ Per usare questa funzionalità, sono necessari:
 
 7. Dopo circa 15 minuti, verificare che gli eventi vengano trasmessi all'area di lavoro di Log Analytics.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 * [Analizzare i log attività di Azure AD con i log di Monitoraggio di Azure](howto-analyze-activity-logs-log-analytics.md)
 * [Installare e usare le viste di analisi dei log per Azure Active Directory](howto-install-use-log-analytics-views.md)

@@ -10,12 +10,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: c3b27291fc413310393cd0270ec750de14a4985b
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 016ec9c1d215cc8fe04d0c7cedebe904221c6557
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270063"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121639"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack datacenter integration - pubblicano endpoint
 
@@ -73,12 +73,12 @@ Azure Stack supporta solo i server proxy trasparente. In una distribuzione in cu
 
 |Scopo|URL di destinazione|Protocollo|Porte|Rete di origine|
 |---------|---------|---------|---------|---------|
-|Identità|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https://secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|VIP - /27 pubblici<br>Pubblica dell'infrastruttura di rete|
-|Diffusione di Marketplace|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|VIP - /27 pubblici|
+|Identità|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br><https://secure.aadcdn.microsoftonline-p.com><br>office.com|HTTP<br>HTTPS|80<br>443|VIP - /27 pubblici<br>Pubblica dell'infrastruttura di rete|
+|Diffusione di Marketplace|<https://management.azure.com><br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|VIP - /27 pubblici|
 |Aggiorna & patch|https://&#42;.azureedge.net|HTTPS|443|VIP - /27 pubblici|
-|Registrazione|https://management.azure.com|HTTPS|443|VIP - /27 pubblici|
+|Registrazione|<https://management.azure.com>|HTTPS|443|VIP - /27 pubblici|
 |Uso|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net |HTTPS|443|VIP - /27 pubblici|
-|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>`https://www.microsoft.com/pkiops/crl`<br>`https://www.microsoft.com/pkiops/certs`<br>`https://crl.microsoft.com/pki/crl/products`<br>`https://www.microsoft.com/pki/certs`<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|VIP - /27 pubblici<br>Pubblica dell'infrastruttura di rete|
+|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br><https://msdl.microsoft.com/download/symbols><br>`https://www.microsoft.com/pkiops/crl`<br>`https://www.microsoft.com/pkiops/certs`<br>`https://crl.microsoft.com/pki/crl/products`<br>`https://www.microsoft.com/pki/certs`<br><https://secure.aadcdn.microsoftonline-p.com><br>|HTTPS|80<br>443|VIP - /27 pubblici<br>Pubblica dell'infrastruttura di rete|
 |NTP|(Server IP di NTP fornito per deployment)|UDP|123|VIP - /27 pubblici|
 |DNS|(Server DNS dell'indirizzo IP fornito per deployment)|TCP<br>UDP|53|VIP - /27 pubblici|
 |CRL|(URL sotto i punti di distribuzione CRL nel certificato)|HTTP|80|VIP - /27 pubblici|

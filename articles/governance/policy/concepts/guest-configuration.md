@@ -1,27 +1,24 @@
 ---
-title: Informazioni su come eseguire controlli all'interno di una macchina virtuale
+title: Informazioni su come controllare il contenuto di una macchina virtuale
 description: Informazioni su come Criteri di Azure usa la configurazione guest per controllare le impostazioni all'interno di una macchina virtuale di Azure.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/29/2019
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: ca8066caf77852c3ec1a8bd7cb534e8d74704bf2
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: d97ac99cae963ddb9df4de06736c64d5d8ceafb5
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447277"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187660"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendere la configurazione guest di Criteri di Azure
 
-Oltre al controllo e alla [correzione](../how-to/remediate-resources.md) delle risorse di Azure, Criteri di Azure è in grado di controllare le impostazioni all'interno di una macchina virtuale. La convalida viene eseguita dall'estensione della configurazione guest e dal client. L'estensione tramite il client convalida le impostazioni quali la configurazione del sistema operativo, la configurazione o la presenza dell'applicazione, le impostazioni di ambiente e altro ancora.
-
-> [!IMPORTANT]
-> Attualmente con la configurazione g sono supportati solo i criteri **incorporati**.
+Oltre a il controllo e [correzione](../how-to/remediate-resources.md) le risorse di Azure, criteri di Azure possono controllare le impostazioni all'interno di una macchina virtuale. La convalida viene eseguita dall'estensione della configurazione guest e dal client. L'estensione tramite il client convalida le impostazioni quali la configurazione del sistema operativo, la configurazione o la presenza dell'applicazione, le impostazioni di ambiente e altro ancora.
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -31,7 +28,7 @@ Per controllare le impostazioni all'interno di una macchina virtuale, è abilita
 
 ### <a name="register-guest-configuration-resource-provider"></a>Registrare il provider di risorse della configurazione guest
 
-Prima di poter usare la configurazione guest, è necessario registrare il provider di risorse. È possibile eseguire la registrazione nel portale o con PowerShell.
+Prima di poter usare la configurazione guest, è necessario registrare il provider di risorse. È possibile eseguire la registrazione nel portale o con PowerShell. Il provider di risorse viene registrato automaticamente se viene eseguita tramite il portale di assegnazione di un criterio di configurazione di Guest.
 
 #### <a name="registration---portal"></a>Registrazione - Portale
 
@@ -62,18 +59,12 @@ La tabella seguente elenca gli strumenti locali usati on ciascun sistema operati
 
 |Sistema operativo|Strumento di convalida|Note|
 |-|-|-|
-| Windows|[Microsoft DSC (Desired State Configuration)](/powershell/dsc) v2| |
+|Windows|[Microsoft DSC (Desired State Configuration)](/powershell/dsc) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| Ruby e Python vengono installati dall'estensione della configurazione guest. |
 
 ### <a name="validation-frequency"></a>Frequenza di convalida
 
-Il client della configurazione guest verifica la presenza di nuovi contenuti ogni cinque minuti.
-Dopo aver ricevuto un'assegnazione guest, le impostazioni vengono controllate a intervalli di 15 minuti.
-Al termine del controllo, i risultati vengono inviati al provider di risorse di configurazione guest.
-Quando vengono applicati criteri di tipo [trigger di valutazione](../how-to/get-compliance-data.md#evaluation-triggers), nel provider di risorse di configurazione guest viene scritto lo stato del computer.
-In questo modo, Criteri di Azure può valutare le proprietà di Azure Resource Manager.
-Una valutazione on demand di Criteri recupera il valore più recente dal provider di risorse di configurazione guest,
-ma non attiva un nuovo controllo della configurazione nella macchina virtuale.
+Il client della configurazione guest verifica la presenza di nuovi contenuti ogni cinque minuti. Dopo aver ricevuto un'assegnazione guest, le impostazioni vengono controllate a intervalli di 15 minuti. Al termine del controllo, i risultati vengono inviati al provider di risorse di configurazione guest. Quando vengono applicati criteri di tipo [trigger di valutazione](../how-to/get-compliance-data.md#evaluation-triggers), nel provider di risorse di configurazione guest viene scritto lo stato del computer. In questo modo, Criteri di Azure può valutare le proprietà di Azure Resource Manager. Una valutazione on demand di Criteri recupera il valore più recente dal provider di risorse di configurazione guest, ma non attiva un nuovo controllo della configurazione nella macchina virtuale.
 
 ### <a name="supported-client-types"></a>Tipi di client supportati
 
@@ -83,26 +74,33 @@ La tabella seguente elenca i sistemi operativi supportati su Immagini di Azure:
 |-|-|-|
 |Canonical|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
-|Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 Datacenter|
+|Microsoft|Windows Server|Data Center 2012, 2012 R2 Datacenter, 2016 Datacenter, Datacenter 2019|
+|Microsoft|Client Windows|Windows 10|
 |OpenLogic|CentOS|7.3, 7.4, 7.5|
 |Red Hat|Red Hat Enterprise Linux.|7.4, 7.5|
 |SUSE|SLES|12 SP3|
 
 > [!IMPORTANT]
-> La configurazione guest non è attualmente supportata nelle immagini di macchina virtuale personalizzate.
+> Configurazione Guest può controllare i nodi che eseguono un sistema operativo supportato.  Se vuoi controllare le macchine virtuali che usano un'immagine personalizzata, è necessario duplicare i **DeployIfNotExists** definizione e modificare le **se** sezione per includere le proprietà dell'immagine.
 
 ### <a name="unsupported-client-types"></a>Tipi di client non supportati
 
-Nella tabella seguente sono elencati i sistemi operativi non supportati:
+Windows Server Nano Server non è supportato in una versione precedente.
 
-|Sistema operativo|Note|
-|-|-|
-|Client Windows | I sistemi operativi client, ad esempio Windows 7 e Windows 10, non sono supportati.
-|Windows Server 2016 Nano Server | Non supportati.|
+### <a name="guest-configuration-extension-network-requirements"></a>Requisiti di rete guest configurazione estensione
+
+Per comunicare con il provider di risorse di configurazione Guest in Azure, macchine virtuali richiedono l'accesso in uscita al Data Center di Azure sulla porta **443**. Se si usa una rete virtuale privata in Azure e non consentire il traffico in uscita, è necessario configurare le eccezioni usando [Network Security Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) regole. A questo punto, non esiste un tag di servizio per la configurazione di Guest dei criteri di Azure.
+
+Per un elenco di indirizzi IP, è possibile scaricare [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). Questo file viene aggiornato ogni settimana e presenta gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP. È sufficiente consentire l'accesso in uscita agli indirizzi IP nelle aree in cui vengono distribuite le macchine virtuali.
+
+> [!NOTE]
+> Il file XML degli indirizzi IP dei data center di Azure elenca gli intervalli di indirizzi IP usati nei data center di Microsoft Azure. Il file include gli intervalli per le risorse di calcolo, SQL e di archiviazione.
+> Viene pubblicata una versione aggiornata del file ogni settimana. Il file include gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP. I nuovi intervalli riportati nel file non vengono usati nei data center per almeno una settimana.
+> È consigliabile scaricare il nuovo file XML ogni settimana e aggiornare quindi il sito per identificare correttamente i servizi in esecuzione in Azure. Per gli utenti di ExpressRoute è importante sottolineare che questo file viene usato per aggiornare l'annuncio BGP (Border Gateway Protocol) dello spazio di Azure la prima settimana del mese.
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisiti per la definizione della configurazione guest
 
-Ogni controllo eseguito dalla configurazione guest richiede due definizioni di criteri, **DeployIfNotExists** e **Audit**. **DeployIfNotExists** viene usato per preparare la macchina virtuale con l'agente di configurazione guest e altri componenti per supportare gli [strumenti di convalida](#validation-tools).
+Ogni controllo eseguito dalla configurazione Guest due definizioni di criteri, è necessario un **DeployIfNotExists** definizione e un **Audit** definizione. Il **DeployIfNotExists** definizione viene utilizzata per preparare la macchina virtuale con l'agente di configurazione Guest e altri componenti per supportare le [strumenti di convalida](#validation-tools).
 
 La definizione dei criteri **DeployIfNotExists** convalida e corregge gli elementi seguenti:
 
@@ -111,7 +109,10 @@ La definizione dei criteri **DeployIfNotExists** convalida e corregge gli elemen
   - Installazione della versione più recente dell'estensione **Microsoft.GuestConfiguration**
   - Installazione degli [strumenti di convalida](#validation-tools) e delle dipendenze, se necessario
 
-Una volta che **DeployIfNotExists** è conforme, la definizione dei criteri **Audit** usa gli strumenti di convalida locali per determinare se l'assegnazione della configurazione assegnata è conforme o non conforme. Lo strumento di convalida fornisce i risultati al client della configurazione guest. Il client inoltra i risultati all'estensione guest, che li rende disponibili tramite il provider di risorse di configurazione guest.
+Se il **DeployIfNotExists** assegnazione è Non conforme, un [attività di monitoraggio e aggiornamento](../how-to/remediate-resources.md#create-a-remediation-task) può essere utilizzato.
+
+Una volta il **DeployIfNotExists** assegnazione è conforme, il **Audit** assegnazione di criteri Usa gli strumenti di convalida locale per determinare se l'assegnazione di configurazione è conforme o Non conformi.
+Lo strumento di convalida fornisce i risultati al client della configurazione guest. Il client inoltra i risultati all'estensione guest, che li rende disponibili tramite il provider di risorse di configurazione guest.
 
 Criteri di Azure usa la proprietà **complianceStatus** dei provider di risorse della configurazione guest per segnalare la conformità nel nodo **Conformità**. Per altre informazioni, vedere [Ottenere dati sulla conformità](../how-to/getting-compliance-data.md).
 
@@ -120,12 +121,27 @@ Criteri di Azure usa la proprietà **complianceStatus** dei provider di risorse 
 
 Tutti i criteri predefiniti per la configurazione guest sono inclusi in un'iniziativa per raggruppare le definizioni da usare nelle assegnazioni. L'iniziativa predefinita denominata *[Anteprima]: Controllo delle impostazioni di sicurezza della password nelle macchine virtuali Linux e Windows* contiene 18 criteri. Esistono sei coppie **DeployIfNotExists** e **Audit** per Windows e tre coppie per Linux. In ogni caso, la logica all'interno della definizione convalida solo che il sistema operativo di destinazione venga valutato in base alla definizione di [regola dei criteri](definition-structure.md#policy-rule).
 
+## <a name="client-log-files"></a>File di log client
+
+L'estensione di configurazione Guest scrive i file di log nelle posizioni seguenti:
+
+Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\1.10.0.0\dsc\logs\dsc.log`
+
+Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-1.8.0/GCAgent/logs/dsc.log`
+
+## <a name="guest-configuration-samples"></a>Esempi di configurazione di guest
+
+Esempi di configurazione dei criteri Guest sono disponibili nei percorsi seguenti:
+
+- [Indice esempi - configurazione di Guest](../samples/index.md#guest-configuration)
+- [Repository GitHub di esempi di criteri di Azure](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere gli esempi in [Esempi di Criteri di Azure](../samples/index.md)
-- Vedere la [struttura delle definizioni dei criteri](definition-structure.md)
-- Vedere [Informazioni sugli effetti di Criteri](effects.md)
-- Informazioni su come [creare criteri a livello di programmazione](../how-to/programmatically-create.md)
-- Informazioni su come [ottenere dati sulla conformità](../how-to/getting-compliance-data.md)
-- Informazioni su come [correggere le risorse non conformi](../how-to/remediate-resources.md)
-- Scoprire le caratteristiche di un gruppo di gestione con [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/index.md)
+- Esaminare gli esempi nella [esempi di criteri di Azure](../samples/index.md).
+- Vedere [Struttura delle definizioni di criteri di Azure](definition-structure.md).
+- Leggere [Informazioni sugli effetti di Criteri](effects.md).
+- Comprendere come [a livello di codice, creare criteri](../how-to/programmatically-create.md).
+- Informazioni su come [ottenere i dati di conformità](../how-to/getting-compliance-data.md).
+- Informazioni su come [monitora e aggiorna le risorse non conformi](../how-to/remediate-resources.md).
+- Esaminare un gruppo di gestione riguarda [organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/index.md).

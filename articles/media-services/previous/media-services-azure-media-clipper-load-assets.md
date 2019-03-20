@@ -6,15 +6,15 @@ keywords: clip;clip secondaria;codifica;multimediale
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 016238305e12435b740da45da4ad600152cf04ce
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: ec8cd06be78bbd8df0bca390696e736c3a6ee075
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003840"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002637"
 ---
 # <a name="loading-assets-into-azure-media-clipper"></a>Caricamento di asset in Azure Media Clipper  
 

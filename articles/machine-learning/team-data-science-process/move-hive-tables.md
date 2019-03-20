@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be953621dbadee74361b2170c2a532cfec6ef77a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d67bd26dcb2ac0b3bf909e1ef3d5ca75a0882eb3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477856"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840648"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Creare tabelle Hive e caricare i dati dall'archiviazione BLOB di Azure
 
@@ -36,7 +36,7 @@ Si supponga che i dati delle tabelle Hive siano in un formato tabulare **non com
 
 Se si desidera far pratica con i **dati relativi alle corse dei Taxi di NYC**, è necessario:
 
-* **scaricare** i 24 file di [dati elativi alle corse dei Taxi di NYC](http://www.andresmh.com/nyctaxitrips) (12 file relativi alle corse e 12 file delle tariffe);
+* **scaricare** i 24 file di [dati elativi alle corse dei Taxi di NYC](https://www.andresmh.com/nyctaxitrips) (12 file relativi alle corse e 12 file delle tariffe);
 * **decomprimere** tutti i file in file con estensione .csv;
 * **caricarli** all'impostazione predefinita (o contenitore appropriato) dell'account di archiviazione Azure; le opzioni per un account di questo tipo vengono visualizzate nell'argomento [Usare una risorsa di archiviazione di Azure con cluster Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). Il processo per caricare i file con estensione csv per il contenitore predefinito nell'account di archiviazione sono disponibili in questa [pagina](hive-walkthrough.md#upload).
 

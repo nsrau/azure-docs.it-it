@@ -1,5 +1,5 @@
 ---
-title: Integrazione con una pipeline di integrazione e distribuzione continua tramite configurazione delle App di Azure | Microsoft Docs
+title: Integrare con una pipeline di integrazione e recapito continuata tramite configurazione delle App di Azure | Microsoft Docs
 description: Informazioni su come generare un file di configurazione utilizzando i dati nella configurazione di App di Azure durante l'integrazione e recapito continui
 services: azure-app-configuration
 documentationcenter: ''
@@ -12,32 +12,32 @@ ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 7b2e919bc46810e8478956675ffeb1cb0542da85
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: cb9fe6dc234c317daa5eabec01812324e7c81663
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957369"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224329"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integrare una pipeline CI/CD
 
-Per migliorare la resilienza dell'applicazione contro la possibilità di non essere in grado di raggiungere configurazione delle App di Azure remota, è necessario creare un pacchetto i dati di configurazione corrente in un file che viene distribuito con l'applicazione e in locale caricato all'avvio . Questo approccio garantisce che l'applicazione avrà almeno i valori delle impostazioni predefinite. Questi valori verranno sovrascritti da tutte le modifiche più recenti in un archivio di configurazione delle app quando è disponibile.
+È possibile migliorare la resilienza dell'applicazione contro la possibilità di non essere in grado di raggiungere configurazione delle App di Azure remota. A tale scopo, comprimere i dati di configurazione corrente in un file che viene distribuito con l'applicazione e caricati in locale durante l'avvio. Questo approccio garantisce che l'applicazione abbia almeno i valori delle impostazioni predefinite. Questi valori vengono sovrascritti da tutte le modifiche più recenti in un archivio di configurazione delle app quando è disponibile.
 
-Usando il [ **esportare** ](./howto-import-export-data.md#export-data) funzione di configurazione di App di Azure, è possibile automatizzare il processo di recupero corrente dei dati di configurazione come singolo file. È quindi possibile incorporare questo file in un passaggio di compilazione o distribuzione di continuo pipeline di integrazione e distribuzione continua.
+Usando il [esportare](./howto-import-export-data.md#export-data) funzione di configurazione di App di Azure, è possibile automatizzare il processo di recupero corrente dei dati di configurazione come singolo file. Quindi incorporare questo file in un passaggio di compilazione o distribuzione di continuo pipeline di integrazione e distribuzione continua (CI/CD).
 
-Nell'esempio seguente viene illustrato come includere la configurazione dell'App i dati come una compilazione passaggio per l'app web, introdotto in Guide introduttive. Prima di continuare, completare le procedure descritte in [Creare un'app ASP.NET Core con Configurazione app](./quickstart-aspnet-core-app.md).
+Nell'esempio seguente viene illustrato come includere la configurazione dell'App i dati come una compilazione passaggio per l'app web, introdotto in Guide introduttive. Prima di continuare, completare [creare un'app ASP.NET Core con configurazione delle App](./quickstart-aspnet-core-app.md) prima.
 
-Per completare i passaggi descritti in questa guida di avvio rapido è possibile usare qualsiasi editor di codice. Tuttavia, [Visual Studio Code](https://code.visualstudio.com/) è un'ottima scelta per le piattaforme Windows, macOS e Linux.
+È possibile usare qualsiasi editor di codice per eseguire i passaggi in questa Guida introduttiva. [Visual Studio Code](https://code.visualstudio.com/) è disponibile un'ottima scelta in di Windows, macOS e le piattaforme Linux.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Se si compila in locale, scaricare e installare [CLI Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) se hai già fatto.
+Se si compila in locale, scaricare e installare il [CLI Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) se hai già fatto.
 
-Se si desidera eseguire la compilazione cloud, con la metodologia DevOps di Azure, ad esempio, assicurarsi che [CLI Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) è installato nel sistema di compilazione.
+Per eseguire la compilazione cloud, con la metodologia DevOps di Azure, ad esempio, assicurarsi che il [CLI Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) è installato nel sistema di compilazione.
 
-## <a name="export-app-configuration-store"></a>Esportare un archivio di configurazione app
+## <a name="export-an-app-configuration-store"></a>Esportare un archivio di configurazione app
 
-1. Aprire il *file con estensione csproj* file e aggiungere quanto segue:
+1. Aprire il *file con estensione csproj* file, quindi aggiungere lo script seguente:
 
     ```xml
     <Target Name="Export file" AfterTargets="Build">
@@ -46,9 +46,9 @@ Se si desidera eseguire la compilazione cloud, con la metodologia DevOps di Azur
     </Target>
     ```
 
-    Il *ConnectionString* associati con la configurazione dell'app store deve essere aggiunti come una variabile di ambiente.
+    Aggiungere il *ConnectionString* associata con l'archivio di configurazione di app come una variabile di ambiente.
 
-2. Aprire *Program.cs* e aggiornare le `CreateWebHostBuilder` metodo da usare il file json esportati chiamando il `config.AddJsonFile()` (metodo).
+2. Aprire Program.cs e aggiornare il `CreateWebHostBuilder` metodo da usare il file JSON esportato chiamando il `config.AddJsonFile()` (metodo).
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -66,7 +66,7 @@ Se si desidera eseguire la compilazione cloud, con la metodologia DevOps di Azur
 
 ## <a name="build-and-run-the-app-locally"></a>Compilare ed eseguire l'app in locale
 
-1. Impostare una variabile di ambiente denominata **ConnectionString** sulla chiave di accesso all'archivio di configurazione app. Se si usa il prompt dei comandi di Windows, eseguire il comando seguente e riavviare il prompt per rendere effettiva la modifica:
+1. Impostare una variabile di ambiente denominata **ConnectionString**e impostarlo per la chiave di accesso all'archivio di configurazione app. Se si usa il prompt dei comandi di Windows, eseguire il comando seguente e riavviare il prompt dei comandi per consentire le modifiche abbiano effetto:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -78,18 +78,18 @@ Se si desidera eseguire la compilazione cloud, con la metodologia DevOps di Azur
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
-2. Per compilare l'app usando l'interfaccia della riga di comando di .NET Core, eseguire il comando seguente nella shell dei comandi:
+2. Per compilare l'app tramite la CLI di .NET Core, eseguire il comando seguente nella shell dei comandi:
 
         dotnet build
 
-3. Dopo che la compilazione è stata completata correttamente, eseguire il comando seguente per avviare l'app Web in locale:
+3. Dopo la compilazione viene completata correttamente, eseguire il comando seguente per eseguire localmente l'app web:
 
         dotnet run
 
-4. Avviare una finestra del browser e passare a `http://localhost:5000`, ossia l'URL predefinito per l'app Web ospitata in locale.
+4. Aprire una finestra del browser e passare a `http://localhost:5000`, ovvero l'URL predefinito per l'app web ospitata in locale.
 
     ![Guida introduttiva: avvio dell'app in locale](./media/quickstarts/aspnet-core-app-launch-local.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Identità gestite per l'integrazione di risorse di Azure](./integrate-azure-managed-service-identity.md)
+* [Identità gestite per l'integrazione con le risorse di Azure](./integrate-azure-managed-service-identity.md)

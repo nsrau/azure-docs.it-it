@@ -306,9 +306,6 @@ items:
     - name: Eseguire esempi di MapReduce in Apache Hadoop
       href: ../hdinsight-run-samples.md
       maintainContext: true
-    - name: Usare Apache Solr nei cluster
-      href: ../hdinsight-hadoop-solr-install-linux.md
-      maintainContext: true
     - name: Usare Apache Giraph per elaborare grafici su larga scala
       href: ../hdinsight-hadoop-giraph-install.md
       maintainContext: true
@@ -321,26 +318,14 @@ items:
     - name: Usare Apache Maven per compilare applicazioni Java
       href: ../hdinsight-hbase-build-java-maven.md
       maintainContext: true
-    - name: Personalizzare usando l'azione script
-      href: ../hdinsight-hadoop-customize-cluster.md
-      maintainContext: true
     - name: Accedere ai log applicazioni di Apache Hadoop YARN
       href: ../hdinsight-hadoop-access-yarn-app-logs.md
       maintainContext: true
     - name: Generare raccomandazioni di film con Apache Mahout
       href: ../hdinsight-mahout.md
       maintainContext: true
-    - name: Analizzare i dati relativi ai ritardi dei voli
-      href: ../hdinsight-analyze-flight-delay-data.md
-      maintainContext: true
     - name: Sviluppare azioni di script
       href: ../hdinsight-hadoop-script-actions.md
-      maintainContext: true
-    - name: Analizzare dati di Twitter
-      href: ../hdinsight-analyze-twitter-data.md
-      maintainContext: true
-    - name: Gestire i cluster con il portale di Azure
-      href: ../hdinsight-administer-use-management-portal.md
       maintainContext: true
     - name: Monitorare i cluster con l'API Apache Ambari
       href: ../hdinsight-monitor-use-ambari-api.md
@@ -367,9 +352,9 @@ items:
   - name: Strumenti Windows per HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: cf1967a53e638f6415a9d7b77f0e9d2a4fe87db4
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 2cc10c35e19f3f36c791fa391adaad846c61069e
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889529"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201637"

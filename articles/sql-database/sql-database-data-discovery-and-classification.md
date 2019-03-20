@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 8417b849ad7589ce6a770eb805c38a13e3c672dd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: HT
+ms.openlocfilehash: ac52d8fa03c3c3ad1d618d014381fadfa752b7d7
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448765"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202980"
 ---
 # <a name="azure-sql-database-data-discovery--classification"></a>Individuazione dati e classificazione nel database SQL di Azure
 
@@ -145,6 +145,13 @@ Un aspetto importante del paradigma di Information Protection è la possibilità
 - [Recupero](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): ottiene l'etichetta Riservatezza di una colonna specifica
 - [List Current By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) - (Elenca elementi correnti per database): consente di ottenere le etichette Riservatezza correnti di un database specifico
 - [Elenco consigliato dal Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -Ottiene le etichette di riservatezza consigliato di un determinato database
+
+## <a name="permissions"></a>Autorizzazioni
+I seguenti ruoli predefiniti possono leggere la classificazione dei dati di un database SQL di Azure: `Owner`, `Reader`, `Contributor`, `SQL Security Manager` e `User Access Administrator`.
+
+I seguenti ruoli predefiniti possono modificare la classificazione dei dati di un database SQL di Azure: `Owner`, `Contributor`, `SQL Security Manager`.
+
+Altre informazioni su [RBAC per le risorse di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 ## <a id="subheading-5"></a>Passaggi successivi
 

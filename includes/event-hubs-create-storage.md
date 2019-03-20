@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/16/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: e499a0f7bec47e672c599c729a15cc3e3d04a28a
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 690e0da160042b7ac432b1a36c024a8a8f439823
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471625"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125038"
 ---
 ## <a name="create-a-storage-account-for-event-processor-host"></a>Creare un account di archiviazione per l'host del processore di eventi
 L'host del processore di eventi è un agente intelligente che semplifica la ricezione di eventi da Hub eventi gestendo checkpoint persistenti e ricezioni parallele. Per eseguire il checkpoint, l'host del processore di eventi richiede un account di archiviazione. Nell'esempio seguente viene illustrato come creare un account di archiviazione e come ottenere le relative chiavi di accesso:
@@ -26,18 +26,18 @@ L'host del processore di eventi è un agente intelligente che semplifica la rice
 
 3. Nella pagina **Crea account di archiviazione** eseguire la procedura seguente: 
 
-    1. Immettere il nome dell'account di archiviazione. 
-    2. Scegliere una sottoscrizione di Azure che contenga l'hub eventi.
-    3. Selezionare il gruppo di risorse che contiene l'hub eventi.
-    4. Selezionare una posizione in cui creare la risorsa. 
-    5. Quindi fare clic su **Rivedi e crea**.
+   1. Immettere il nome dell'account di archiviazione. 
+   2. Scegliere una sottoscrizione di Azure che contenga l'hub eventi.
+   3. Selezionare il gruppo di risorse che contiene l'hub eventi.
+   4. Selezionare una posizione in cui creare la risorsa. 
+   5. Quindi fare clic su **Rivedi e crea**.
    
-    ![Crea account di archiviazione: pagina](./media/event-hubs-create-storage/create-storage2.png)
+      ![Crea account di archiviazione: pagina](./media/event-hubs-create-storage/create-storage2.png)
 
 4. Nella pagina **Rivedi e crea** rivedere i valori e selezionare **Crea**. 
 
     ![Rivedere le impostazioni dell'account di archiviazione e creare](./media/event-hubs-create-storage/review-create-storage-account.png)
-5. Dopo la visualizzazione del messaggio **Le distribuzioni sono riuscite** selezionare **Vai alla risorsa** all'inizio della pagina. È anche possibile aprire la pagina Account di archiviazione selezionando l'account di archiviazione nell'elenco delle risorse.  
+5. Dopo aver visualizzato il **le distribuzioni sono riuscite** messaggio, seleziona **Vai alla risorsa** nella parte superiore della pagina. È anche possibile aprire la pagina Account di archiviazione selezionando l'account di archiviazione nell'elenco delle risorse.  
 
     ![Selezionare l'account di archiviazione dalla distribuzione](./media/event-hubs-create-storage/select-storage-deployment.png) 
 7. Nella finestra **Informazioni di base** selezionare **BLOB**. 

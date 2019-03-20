@@ -4,14 +4,14 @@ description: Prerequisiti per Avere vFXT per Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 9c3301ba16bfaeb7014658a380e287a36a505be8
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 5642f3acd108d0d3f504fc132522936d1b5ab870
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299206"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082586"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparare la creazione di Avere vFXT
 
@@ -57,7 +57,7 @@ Sono disponibili due soluzioni alternative se non si vuole concedere l'accesso c
 
 |Componente di Azure|Quota|
 |----------|-----------|
-|Macchine virtuali|3 o più D16s_v3 o E32s_v3|
+|Macchine virtuali|3 o più E32s_v3|
 |Archiviazione SSD Premium|200 GB di spazio del sistema operativo più 1-4 TB di spazio di memorizzazione nella cache per nodo |
 |Account di archiviazione (facoltativo) |v2|
 |Archiviazione back-end dei dati (facoltativa) |Un nuovo contenitore BLOB di archiviazione con ridondanza locale |
@@ -151,6 +151,30 @@ Per poter creare il cluster Avere vFXT per Azure, è necessario prima creare il 
    ```
 
 Il nome del ruolo viene usato durante la creazione del cluster. In questo esempio il nome è ``avere-operator``.
+
+## <a name="create-a-storage-service-endpoint-in-your-virtual-network-if-needed"></a>Creare un endpoint di servizio di archiviazione in una rete virtuale (se necessario)
+
+Oggetto [endpoint del servizio](../virtual-network/virtual-network-service-endpoints-overview.md) mantiene il traffico di Blob di Azure in locale anziché il routing all'esterno della rete virtuale. È consigliabile per qualsiasi vFXT Avere per cluster di Azure che usa i Blob di Azure per archiviare i dati di back-end. 
+
+Se si specifica una rete virtuale esistente e creare un nuovo contenitore Blob di Azure per l'archiviazione back-end come parte della creazione del cluster, è necessario un endpoint del servizio nella rete virtuale per archiviazione di Microsoft. Questo endpoint deve esistere prima della creazione del cluster o la creazione avrà esito negativo. 
+
+Un endpoint di servizio di archiviazione è consigliato per qualsiasi vFXT Avere per cluster di Azure che usa l'archiviazione Blob di Azure, anche se si aggiungerla lo spazio di archiviazione in un secondo momento. 
+
+> [!TIP] 
+> * Ignorare questo passaggio se si sta creando una nuova rete virtuale come parte della creazione del cluster. 
+> * Questo passaggio è facoltativo se non si intende creare nell'archivio Blob durante la creazione del cluster. In tal caso, è possibile creare l'endpoint del servizio in un secondo momento se si decide di usare Blob di Azure.
+
+Creare l'endpoint di servizio di archiviazione dal portale di Azure. 
+
+1. Nel portale fare clic su **Reti virtuali** a sinistra.
+1. Selezionare la rete virtuale per il cluster. 
+1. Fare clic su **Endpoint servizio** a sinistra.
+1. Fare clic su **Aggiungi** nella parte superiore.
+1. Lasciare il servizio come ``Microsoft.Storage`` e scegli subnet del cluster.
+1. Nella parte inferiore fare clic su **Aggiungi**.
+
+   ![Screenshot del portale di Azure con annotazioni per la procedura di creazione dell'endpoint di servizio](media/avere-vfxt-service-endpoint.png)
+
 
 ## <a name="next-step-create-the-vfxt-cluster"></a>Passaggio successivo: Creare il cluster vFXT
 

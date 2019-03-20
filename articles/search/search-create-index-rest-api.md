@@ -10,14 +10,14 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 6e3b1e3d501355994cd81c5eb9d712a684474524
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 0524bd224e3da3e6a9b18a4225c88e9c43d07606
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136191"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223411"
 ---
-# <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Guida introduttiva: Creare un indice di ricerca di Azure con PowerShell e l'API REST
+# <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Avvio rapido: Creare un indice di ricerca di Azure con PowerShell e l'API REST
 > [!div class="op_single_selector"]
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
@@ -25,7 +25,7 @@ ms.locfileid: "58136191"
 > * [Portale](search-create-index-portal.md)
 > 
 
-Questo articolo illustra il processo di creazione, caricamento e l'esecuzione di query su una ricerca di Azure [indice](search-what-is-an-index.md) tramite PowerShell e il [API REST del servizio ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/). La definizione dell'indice e il contenuto è contenuto nel corpo della richiesta come contenuto JSON ben formato.
+Questo articolo illustra il processo di creazione, caricamento e l'esecuzione di query su una ricerca di Azure [indice](search-what-is-an-index.md) tramite PowerShell e il [API REST del servizio ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/). La definizione dell'indice e il contenuto ricercabile viene fornito nel corpo della richiesta come contenuto JSON ben formato.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -35,13 +35,13 @@ Questo articolo illustra il processo di creazione, caricamento e l'esecuzione di
 
 Un endpoint dell'URL e admin chiave api del servizio di ricerca. Con entrambi gli elementi viene creato un servizio di ricerca, quindi se si è aggiunto Ricerca di Azure alla sottoscrizione, seguire questi passaggi per ottenere le informazioni necessarie:
 
-  1. Nel portale di Azure, nel servizio di ricerca **Panoramica** pagina, ottenere l'URL. Un endpoint di esempio potrebbe essere simile a `https://my-service-name.search.windows.net`.
+1. Nel portale di Azure, nel servizio di ricerca **Panoramica** pagina, ottenere l'URL. Un endpoint di esempio potrebbe essere simile a https:\//my-service-name.search.windows.net.
 
-  2. Nelle **le impostazioni** > **chiavi**, ottenere una chiave amministratore per tutti i diritti sul servizio. Sono disponibili due chiavi amministratore intercambiabili, fornite per la continuità aziendale nel caso in cui è necessario eseguire il rollover di uno. È possibile usare la chiave primaria o secondaria per le richieste per l'aggiunta, modifica e l'eliminazione degli oggetti.
+2. Nelle **le impostazioni** > **chiavi**, ottenere una chiave amministratore per tutti i diritti sul servizio. Sono disponibili due chiavi amministratore intercambiabili, fornite per la continuità aziendale nel caso in cui è necessario eseguire il rollover di uno. È possibile usare la chiave primaria o secondaria per le richieste per l'aggiunta, modifica e l'eliminazione degli oggetti.
 
-  ![Ottenere una chiave di accesso e di endpoint HTTP](media/search-fiddler/get-url-key.png "ottenere una chiave di accesso e di endpoint HTTP")
+   ![Ottenere una chiave di accesso e di endpoint HTTP](media/search-fiddler/get-url-key.png "ottenere una chiave di accesso e di endpoint HTTP")
 
-  Tutte le richieste richiedono una chiave api a ogni richiesta inviata al servizio. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
+   Tutte le richieste richiedono una chiave api a ogni richiesta inviata al servizio. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
 ## <a name="connect-to-azure-search"></a>Connettersi a ricerca di Azure
 
@@ -83,7 +83,7 @@ A meno che non si usa il portale, deve esistere un indice nel servizio prima di 
 
 Gli elementi necessari di un indice includono un nome e una raccolta di campi. Raccolta fields definisce la struttura di un *documento*. Ogni campo ha un nome, tipo e gli attributi che determinano la modalità di utilizzo (ad esempio, se è full-text ricercabile, filtrabile oppure recuperabile nei risultati della ricerca). All'interno di un indice, uno dei campi di tipo `Edm.String` deve essere designato come il *chiave* per identità del documento.
 
-Questo indice è denominato "hotels" e contiene le definizioni di campo visualizzato di seguito. La definizione di indice specifica un [analizzatori di linguaggi](index-add-language-analyzers.md) per il `description_fr` campo perché viene utilizzato per archiviare testo in francese, che verrà aggiunto in un esempio più avanti.
+Questo indice è denominato "hotels" e contiene le definizioni di campo visualizzato di seguito. La definizione di indice specifica un [analizzatore della lingua](index-add-language-analyzers.md) per il `description_fr` campo perché viene utilizzato per archiviare testo in francese, che verrà aggiunto in un esempio più avanti.
 
 Incollare questo esempio di PowerShell per creare un **$body** oggetto contenente lo schema dell'indice.
 
@@ -344,7 +344,7 @@ $url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-1
 ```
 ## <a name="clean-up"></a>Eseguire la pulizia 
 
-Se è non è più necessario, è necessario eliminare l'indice. Un servizio gratuito è limitato a tre indici. È possibile eliminare gli indici che non si stia usando attivamente.
+Se è non è più necessario, è necessario eliminare l'indice. Un servizio gratuito è limitato a tre indici. È possibile eliminare gli indici che non si usa attivamente, in modo che è possibile eseguire le altre esercitazioni.
 
 ```powershell
 # Set the URI to the hotel index

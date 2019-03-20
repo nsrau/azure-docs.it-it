@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: f5b128306389a87c432b869b4756a6d232dc903c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: f5eefd1d3fa26738729d98e60d8a56cd8d33d86c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566041"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084879"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Soluzione di ripristino di emergenza automatizzato usando Azure Site Recovery per le condivisioni file ospitate su StorSimple
 ## <a name="overview"></a>Panoramica
@@ -179,7 +179,7 @@ Per la VM del file server configurare le impostazioni di rete in Azure Site Reco
    - *RecoveryPlanName***-StorageAccountKey**: la chiave di accesso per l'account di archiviazione specificato sopra.
    - *RecoveryPlanName***-VMGUIDS**: quando protegge una macchina virtuale, Azure Site Recovery assegna a ogni macchina virtuale un ID univoco che fornisce i dettagli della macchina sottoposta a failover. Per ottenere VMGUID, selezionare la scheda **Servizi di ripristino** e quindi fare clic su **Elemento protetto** &gt; **Gruppi di protezione** &gt; **Macchine** &gt; **Proprietà**. Se sono presenti più VM, aggiungere i GUID come stringa con valori delimitati da virgole.
 
-    Se, ad esempio, il nome del piano di ripristino è fileServerpredayRP, le schede **Variabili**, **Connessioni** e **Certificati** dovrebbero essere visualizzate come segue dopo aver aggiunto tutti gli asset.
+     Se, ad esempio, il nome del piano di ripristino è fileServerpredayRP, le schede **Variabili**, **Connessioni** e **Certificati** dovrebbero essere visualizzate come segue dopo aver aggiunto tutti gli asset.
 
       ![Asset](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
 
@@ -332,30 +332,30 @@ La pianificazione della capacità prevede almeno due processi importanti:
    - Determinazione della larghezza di banda Internet necessaria.
 
 ## <a name="limitations"></a>Limitazioni
-   - Attualmente, solo un dispositivo StorSimple può essere sottoposto a failover (per un singolo appliance cloud StorSimple). Lo scenario di un file server che si estende a più dispositivi StorSimple non è ancora supportato.
-   - Se si verifica un errore durante l'abilitazione della protezione per una VM, assicurarsi di aver disconnesso le destinazioni iSCSI.
-   - Tutti i contenitori di volumi che sono stati raggruppati per effetto dei criteri di backup estesi ai vari contenitori di volumi verranno sottoposti a failover insieme.
-   - Tutti i volumi dei contenitori di volumi scelti verranno sottoposti a failover.
-   - I volumi superiori a 64 TB non possono essere sottoposti a failover perché la capacità massima di una singola appliance cloud StorSimple è di 64 TB.
-   - Se il failover pianificato o non pianificato non riesce e le VM vengono create in Azure, non eliminare le VM, ma eseguire un failback. Se si eliminano le VM, le VM locali non possono essere riattivate.
-   - Dopo un failover, se non si riesce a visualizzare i volumi, passare alle VM, aprire Gestione disco, eseguire nuovamente la scansione dei dischi e portarli online.
-   - In alcuni casi, le lettere delle unità nel sito di ripristino di emergenza potrebbero essere diverse da quelle delle VM locali. In questo caso, sarà necessario correggere manualmente il problema al termine del failover.
-   - Timeout del processo di failover: si verifica il timeout dello script StorSimple se il failover dei contenitori di volumi impiega più tempo rispetto al limite di Azure Site Recovery per ogni script (attualmente è di 120 minuti).
-   - Timeout del processo di backup: si verifica il timeout dello script StorSimple se il backup dei volumi impiega più tempo rispetto al limite di Azure Site Recovery per ogni script (attualmente è di 120 minuti).
+- Attualmente, solo un dispositivo StorSimple può essere sottoposto a failover (per un singolo appliance cloud StorSimple). Lo scenario di un file server che si estende a più dispositivi StorSimple non è ancora supportato.
+- Se si verifica un errore durante l'abilitazione della protezione per una VM, assicurarsi di aver disconnesso le destinazioni iSCSI.
+- Tutti i contenitori di volumi che sono stati raggruppati per effetto dei criteri di backup estesi ai vari contenitori di volumi verranno sottoposti a failover insieme.
+- Tutti i volumi dei contenitori di volumi scelti verranno sottoposti a failover.
+- I volumi superiori a 64 TB non possono essere sottoposti a failover perché la capacità massima di una singola appliance cloud StorSimple è di 64 TB.
+- Se il failover pianificato o non pianificato non riesce e le VM vengono create in Azure, non eliminare le VM, ma eseguire un failback. Se si eliminano le VM, le VM locali non possono essere riattivate.
+- Dopo un failover, se non si riesce a visualizzare i volumi, passare alle VM, aprire Gestione disco, eseguire nuovamente la scansione dei dischi e portarli online.
+- In alcuni casi, le lettere delle unità nel sito di ripristino di emergenza potrebbero essere diverse da quelle delle VM locali. In questo caso, sarà necessario correggere manualmente il problema al termine del failover.
+- Timeout del processo di failover: si verifica il timeout dello script StorSimple se il failover dei contenitori di volumi impiega più tempo rispetto al limite di Azure Site Recovery per ogni script (attualmente è di 120 minuti).
+- Timeout del processo di backup: si verifica il timeout dello script StorSimple se il backup dei volumi impiega più tempo rispetto al limite di Azure Site Recovery per ogni script (attualmente è di 120 minuti).
    
-   > [!IMPORTANT]
-   > Eseguire il backup manualmente dal portale di Azure e quindi eseguire nuovamente il piano di ripristino.
+  > [!IMPORTANT]
+  > Eseguire il backup manualmente dal portale di Azure e quindi eseguire nuovamente il piano di ripristino.
    
-   - Timeout del processo di clonazione: si verifica il timeout dello script StorSimple se la clonazione dei volumi impiega più tempo rispetto al limite di Azure Site Recovery per ogni script (attualmente è di 120 minuti).
-   - Errore di sincronizzazione dell'ora: lo script StorSimple restituisce un errore che informa dell'esito negativo dei backup anche in caso di esito positivo del backup nel portale. Una possibile causa dell'errore potrebbe essere la mancata sincronizzazione dell'ora dell'appliance StorSimple con l'ora corrente del fuso orario.
+- Timeout del processo di clonazione: si verifica il timeout dello script StorSimple se la clonazione dei volumi impiega più tempo rispetto al limite di Azure Site Recovery per ogni script (attualmente è di 120 minuti).
+- Errore di sincronizzazione dell'ora: lo script StorSimple restituisce un errore che informa dell'esito negativo dei backup anche in caso di esito positivo del backup nel portale. Una possibile causa dell'errore potrebbe essere la mancata sincronizzazione dell'ora dell'appliance StorSimple con l'ora corrente del fuso orario.
    
-   > [!IMPORTANT]
-   > Sincronizzare l'ora dell'appliance con l'ora corrente nel fuso orario.
+  > [!IMPORTANT]
+  > Sincronizzare l'ora dell'appliance con l'ora corrente nel fuso orario.
    
-   - Errore di failover dell'appliance: lo script di StorSimple potrebbe non riuscire se si verifica un failover dell'appliance durante l'esecuzione del piano di ripristino.
+- Errore di failover dell'appliance: lo script di StorSimple potrebbe non riuscire se si verifica un failover dell'appliance durante l'esecuzione del piano di ripristino.
    
-   > [!IMPORTANT]
-   > Rieseguire il piano di ripristino al termine del failover dell'appliance.
+  > [!IMPORTANT]
+  > Rieseguire il piano di ripristino al termine del failover dell'appliance.
 
 
 ## <a name="summary"></a>Summary

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 065b2511da568ee2cdc0a989b34905b4010ea32e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: c0d50f3a66d940618f2bc421537b113120a2eaca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562488"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006290"
 ---
 # <a name="building-scalable-cloud-databases"></a>Creazione di database cloud scalabili
 
@@ -62,7 +62,7 @@ In generale, i clienti che utilizzano gli strumenti dei database elastici quando
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Libreria client dei database elastici ([Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22) o [.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)), per **scaricare** la libreria.
+- Libreria client dei database elastici ([Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22) o [.NET](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)), per **scaricare** la libreria.
 
 - [Iniziare a usare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md) per provare l'**app di esempio** che illustra le funzioni del client.
 

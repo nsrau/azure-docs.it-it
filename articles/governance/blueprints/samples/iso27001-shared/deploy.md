@@ -8,12 +8,12 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 64259d029ce67ecfd5db4b97fc165be0ee391ab8
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: 7fea9b0d00d92c63bb4c8bbdadada9e8eb6a05fe
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58008071"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202504"
 ---
 # <a name="deploy-the-azure-blueprints-iso-27001-shared-services-blueprint-sample"></a>Distribuire l'esempio di progetto di servizi condivisi di Azure progetti ISO 27001
 
@@ -97,7 +97,7 @@ Dopo la copia dell'esempio di progetto è stato correttamente **Published**, pu�
 
      I parametri definiti in questa sezione si applicano all'elemento in cui è definito. Questi parametri sono [parametri dinamici](../../concepts/parameters.md#dynamic-parameters) poiché sono definiti durante l'assegnazione del progetto. Per un elenco completo o parametri dell'elemento e le relative descrizioni, vedere [tabella di parametri dell'elemento](#artifact-parameters-table).
 
-1. Dopo avere immesso tutti i parametri, selezionare **assegnare** nella parte inferiore della pagina.
+1. Dopo avere immesso tutti i parametri, selezionare **assegnare** nella parte inferiore della pagina. Viene creato l'assegnazione di progetto e dell'avvio della distribuzione dell'elemento. Distribuzione richiede circa un'ora. Per controllare lo stato della distribuzione, aprire l'assegnazione di progetto.
 
 > [!WARNING]
 > Il servizio di progetti di architetture di Azure e gli esempi di progetto predefinite siano **gratuito**. Risorse di Azure sono [i prezzi dipendono dal prodotto](https://azure.microsoft.com/en-us/pricing/). Usare la [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/) per stimare il costo delle risorse distribuite da questo esempio di progetto.

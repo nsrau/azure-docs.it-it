@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: c4f32113c0750b825f217330f94b45484dc3be29
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: ad6fd4a75ca139c4943ca0d079a2d041ccb46d09
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313467"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101092"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Caricare dati in Azure Data Lake Storage Gen2 con Azure Data Factory
 
@@ -77,12 +77,12 @@ Questo articolo illustra come usare lo strumento Copia dati di Data Factory per 
     
 4. Nella pagina **Specificare la connessione ad Amazon S3**, effettuare i passaggi seguenti:
 
-    1. Specificare il valore **ID della chiave di accesso**.
-    2. Specificare il valore **Chiave di accesso segreta**.
-    3. Fare clic su **Connessione di test** per convalidare le impostazioni, quindi selezionare **Fine**.
-    4. Si noterà che viene creata una nuova connessione. Selezionare **Avanti**.
+   1. Specificare il valore **ID della chiave di accesso**.
+   2. Specificare il valore **Chiave di accesso segreta**.
+   3. Fare clic su **Connessione di test** per convalidare le impostazioni, quindi selezionare **Fine**.
+   4. Si noterà che viene creata una nuova connessione. Selezionare **Avanti**.
    
-    ![Specificare l'account di Amazon S3](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
+      ![Specificare l'account di Amazon S3](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
       
 5. Nella pagina **Choose the input file or folder** (Scegliere il file o la cartella di input) passare alla cartella e al file da copiare. Selezionare la cartella o il file e selezionare **Scegli**:
 

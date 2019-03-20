@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/12/2015
 ms.author: rasquill
-ms.openlocfilehash: 19c704d965ff3e2fc9ac8c5b623aeb386cb0b974
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
-ms.translationtype: HT
+ms.openlocfilehash: b96e8e6e31817f6d261f41dbf3b3047dd49c29ba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
-ms.locfileid: "26730520"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "58114230"
 ---
 ## <a name="setting-up-powershell"></a>Configurazione di PowerShell
 Prima di usare Azure PowerShell, seguire questi passaggi.
@@ -39,7 +39,7 @@ Dovrebbe essere visualizzata una schermata analoga alla seguente.
     PSCompatibleVersions           {1.0, 2.0, 3.0}
     PSRemotingProtocolVersion      2.2
 
-Verificare che il valore di **PSVersion** sia 3.0 o 4.0. Per installare una versione compatibile, vedere [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+Verificare che il valore di **PSVersion** sia 3.0 o 4.0. Per installare una versione compatibile, vedere [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) o [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855).
 
 È necessario disporre anche di Azure PowerShell versione 0.8.0 o successiva. Per verificare quale versione di Azure PowerShell è installata, è possibile utilizzare il comando del relativo prompt di Microsoft PowerShell.
 

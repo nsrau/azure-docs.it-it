@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/02/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d43a8a316ff28d2cdb9e231057aea3de85d7d444
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f2739b5d2d944ea9a8b8cefdcc741abc8a2b632a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205580"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113402"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Spostare le app da Active Directory Federation Services (AD FS) ad Azure Active Directory (Azure AD) 
 
@@ -99,7 +99,7 @@ La migrazione ha inizio con la valutazione della configurazione dell'applicazion
 |Elemento di configurazione dell'app|DESCRIZIONE|Posizione nella configurazione di AD FS|Posizione corrispondente nella configurazione di Azure AD|Elemento nel token SAML|
 |-----|-----|-----|-----|-----|
 |URL di accesso dell'app|URL della pagina di accesso dell'applicazione. È la pagina a cui l'utente passa per accedere all'app in un flusso SAML avviato dal provider di servizi.|N/D|In Azure AD, l'URL di accesso viene configurato nel portale di Azure, nel campo URL di accesso delle proprietà **Single Sign-On** dell'applicazione.</br></br>Per visualizzare l'URL di accesso potrebbe essere necessario selezionare **Mostra impostazioni URL avanzate**.|N/D|
-|URL di risposta dell'app|URL dell'app dal punto di vista del provider di identità (IdP). È l'URL a cui vengono inviati l'utente e il token dopo l'accesso dell'utente nel provider di identità.</br></br> È talvolta definito "endpoint consumer di asserzione SAML".|Si trova nel trust della relying party di AD FS per l'app. Fare clic con il pulsante destro del mouse sulla relying party, scegliere **Proprietà** e quindi selezionare la scheda **Endpoint**.|In Azure AD, l'URL di risposta viene configurato nel portale di Azure, nel campo URL di risposta delle proprietà **Single Sign-On** dell'applicazione.</br></br>Per visualizzare l'URL di risposta potrebbe essere necessario selezionare **Mostra impostazioni URL avanzate**.|Viene eseguito il mapping all'elemento **Destination** nel token SAML.</br></br> Valore di esempio: https://contoso.my.salesforce.com|
+|URL di risposta dell'app|URL dell'app dal punto di vista del provider di identità (IdP). È l'URL a cui vengono inviati l'utente e il token dopo l'accesso dell'utente nel provider di identità.</br></br> È talvolta definito "endpoint consumer di asserzione SAML".|Si trova nel trust della relying party di AD FS per l'app. Fare clic con il pulsante destro del mouse sulla relying party, scegliere **Proprietà** e quindi selezionare la scheda **Endpoint**.|In Azure AD, l'URL di risposta viene configurato nel portale di Azure, nel campo URL di risposta delle proprietà **Single Sign-On** dell'applicazione.</br></br>Per visualizzare l'URL di risposta potrebbe essere necessario selezionare **Mostra impostazioni URL avanzate**.|Viene eseguito il mapping all'elemento **Destination** nel token SAML.</br></br> Valore di esempio: `https://contoso.my.salesforce.com`|
 |URL di disconnessione dell'app|URL a cui vengono inviate le richieste di "pulizia di disconnessione" quando un utente si disconnette da un'app, per disconnettere tutte le altre app a cui il provider di identità ha effettuato l'accesso dell'utente.|Si trova in **Attendibilità componente** in Gestione AD FS. Fare clic con il pulsante destro del mouse sulla relying party, scegliere **Proprietà** e quindi selezionare la scheda **Endpoint**.|N/D. Azure AD non supporta un "punto di disconnessione singolo", ossia la disconnessione di tutte le app. L'utente viene disconnesso semplicemente da Azure AD.|N/D|
 |Identificatore dell'app|Identificatore dell'app dal punto di vista del provider di identità. Come identificatore viene usato spesso il valore dell'URL di accesso, ma non sempre.</br></br> Talvolta nell'app viene chiamato "ID entità".|In AD FS è l'ID della relying party. Fare clic con il pulsante destro del mouse sul trust della relying party, scegliere **Proprietà** e quindi selezionare la scheda **Identificatori**.|In Azure AD, l'identificatore viene configurato nel portale di Azure, nel campo Identificatore sotto **URL e dominio** nelle proprietà **Single Sign-On** dell'applicazione. Potrebbe essere necessario selezionare la casella di controllo **Mostra impostazioni URL avanzate**.|Corrisponde all'elemento **Audience** nel token SAML.|
 |Metadati di federazione dell'app|Posizione dei metadati di federazione dell'app. Viene usata dal provider di identità per aggiornare automaticamente specifiche impostazioni di configurazione come gli endpoint o i certificati di crittografia.|L'URL dei metadati di federazione dell'app si trova nel trust della relying party di AD FS per l'app. Fare clic con il pulsante destro del mouse sul trust, scegliere **Proprietà** e quindi selezionare la scheda **Monitoraggio**.|N/D. Azure AD non supporta l'utilizzo diretto dei metadati di federazione dell'applicazione.|N/D|

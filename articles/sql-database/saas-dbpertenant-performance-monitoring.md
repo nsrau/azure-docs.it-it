@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5b9d5d6252f22901d2b8ac5a61d924ce12cc7065
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 075d0e2471457e1a585f7fdea9b523b1d13499c7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004637"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100429"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitorare e gestire le prestazioni di database SQL di Azure e di pool in un'app SaaS multi-tenant
 
@@ -28,7 +28,7 @@ L'app del database per tenant SaaS Wingtip Tickets usa un modello di dati a tena
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-
+> 
 > * Simulare l'utilizzo nei database tenant tramite l'esecuzione di un generatore di carico specificato
 > * Monitorare la risposta dei database tenant a un aumento del carico di lavoro
 > * Potenziare il pool elastico in risposta al carico maggiore per i database
@@ -57,7 +57,7 @@ I pool e i database nei pool devono essere monitorati per assicurarsi che rimang
 
 Il [portale di Azure](https://portal.azure.com) include funzionalità di monitoraggio e avviso predefinite per la maggior parte delle risorse. Per il database SQL, il monitoraggio e gli avvisi sono disponibili per database e pool. Le funzionalità di monitoraggio e avviso predefinite sono specifiche delle risorse, quindi è comodo usarle per un numero limitato di risorse, mentre non sono altrettanto utili quando si usano molte risorse.
 
-Per gli scenari con volumi elevati, in cui si lavora con molte risorse, è possibile usare [Log Analytics](saas-dbpertenant-log-analytics.md). Si tratta di un servizio di Azure separato che fornisce funzionalità di analisi per log di diagnostica e dati di telemetria raccolti in un'area di lavoro di Log Analytics. Log Analytics consente di raccogliere dati di telemetria da molti servizi e supporta l'esecuzione di query e l'impostazione di avvisi.
+Per scenari con volumi elevati, in cui si lavora con molte risorse, [monitoraggio di Azure registra](saas-dbpertenant-log-analytics.md) può essere utilizzato. Si tratta di un servizio di Azure separato che fornisce funzionalità analitica di log di diagnostica e dati di telemetria raccolti in un'area di lavoro di Log Analitica. Log di monitoraggio di Azure può raccogliere i dati di telemetria da molti servizi e consente di eseguire query e impostare gli avvisi.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Ottenere gli script dell'applicazione del database per tenant SaaS Wingtip Tickets
 
@@ -171,17 +171,17 @@ In alternativa al potenziamento del pool, è possibile creare un secondo pool e 
 1. Fare clic su **+ Nuovo pool** per creare un pool nel server corrente.
 1. Nel modello **Pool elastici**:
 
-    1. Impostare **Nome** su *Pool2*.
-    1. Lasciare il piano tariffario **Pool Standard**.
-    1. Fare clic su **Configura pool**.
-    1. Impostare **eDTU pool** su *50 eDTU*.
-    1. Fare clic su **Aggiungi database** per visualizzare un elenco di database nel server che possono essere aggiunti a *Pool2*.
-    1. Selezionare 10 database per spostarli nel nuovo pool e quindi fare clic su **Seleziona**. Se si è eseguito il generatore di carico, al servizio è già noto che il profilo delle prestazioni richiede un pool di dimensioni superiori alle 50 eDTU predefinite e viene suggerito di iniziare con un'impostazione di 100 eDTU.
+   1. Impostare **Nome** su *Pool2*.
+   1. Lasciare il piano tariffario **Pool Standard**.
+   1. Fare clic su **Configura pool**.
+   1. Impostare **eDTU pool** su *50 eDTU*.
+   1. Fare clic su **Aggiungi database** per visualizzare un elenco di database nel server che possono essere aggiunti a *Pool2*.
+   1. Selezionare 10 database per spostarli nel nuovo pool e quindi fare clic su **Seleziona**. Se si è eseguito il generatore di carico, al servizio è già noto che il profilo delle prestazioni richiede un pool di dimensioni superiori alle 50 eDTU predefinite e viene suggerito di iniziare con un'impostazione di 100 eDTU.
 
-    ![Suggerimento](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
+      ![Suggerimento](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
 
-    1. Per questa esercitazione, lasciare l'impostazione predefinita di 50 eDTU e fare di nuovo clic su **Seleziona**.
-    1. Fare clic su **OK** per creare il nuovo pool e spostarvi i database selezionati.
+   1. Per questa esercitazione, lasciare l'impostazione predefinita di 50 eDTU e fare di nuovo clic su **Seleziona**.
+   1. Fare clic su **OK** per creare il nuovo pool e spostarvi i database selezionati.
 
 La creazione del pool e lo spostamento dei database richiedono alcuni minuti. Quando i database vengono spostati, rimangono online e completamente accessibili fino all'ultimo momento, quando viene chiusa qualsiasi connessione aperta. Purché esista una logica per i tentativi, i client si connetteranno quindi al database nel nuovo pool.
 
@@ -196,7 +196,7 @@ Se un singolo database in un pool è sottoposto a un carico elevato prolungato, 
 Questo esercizio simula l'effetto di un carico elevato per Contoso Concert Hall in concomitanza con l'inizio della vendita dei biglietti per un concerto di grande richiamo.
 
 1. Aprire lo script...\\*Demo-PerformanceMonitoringAndManagement.ps1* in **PowerShell ISE**.
-1. Impostare **$DemoScenario = 5, Generare un carico normale e un carico elevato in un singolo tenant (circa 95 DTU).**
+1. Impostare **$DemoScenario = 5, generare un carico normale e un carico elevato in un singolo tenant (circa 95 DTU).**
 1. Impostare **$SingleTenantDatabaseName = contosoconcerthall**
 1. Eseguire lo script con **F5**.
 
@@ -247,4 +247,4 @@ In questa esercitazione si apprenderà come:
 * Altre [esercitazioni basate sulla distribuzione dell'applicazione del database per tenant SaaS Wingtip Tickets](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Pool elastici SQL](sql-database-elastic-pool.md)
 * [Automazione di Azure](../automation/automation-intro.md)
-* [Log Analytics](saas-dbpertenant-log-analytics.md) - Esercitazione sulla configurazione e l'uso di Log Analytics
+* [Log di monitoraggio di Azure](saas-dbpertenant-log-analytics.md) - impostazione e sull'utilizzo esercitazione i log di monitoraggio di Azure

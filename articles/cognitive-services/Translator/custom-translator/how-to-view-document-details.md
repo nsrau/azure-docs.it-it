@@ -5,16 +5,16 @@ description: Nella pagina contenente l'elenco di documenti vengono visualizzati 
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: how to edit a model
-ms.openlocfilehash: e656c6dd7050851eb9885fe253ab29f4e3675216
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: d380c8bcdcb4954901df0b460269493c5be0a6de
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219805"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777389"
 ---
 # <a name="view-document-details"></a>Visualizzare i dettagli del documento
 
@@ -22,7 +22,7 @@ Nella pagina contenente l'elenco di documenti vengono visualizzati i primi 10 do
 
 Fare clic su un documento specifico per visualizzare la pagina dei relativi dettagli. Nella pagina dei dettagli del documento viene visualizzato l'elenco delle frasi estratte dal documento.
 
-- Per impostazione predefinita, la lingua di "origine" viene selezionata nel campo a discesa, ma è possibile cambiare impostazione per visualizzare le frasi nella lingua di destinazione. 
+- Per impostazione predefinita, la lingua di "origine" viene selezionata nel campo a discesa, ma è possibile cambiare impostazione per visualizzare le frasi nella lingua di destinazione.
 - Per impostazione predefinita vengono visualizzate 20 frasi per pagina. È possibile usare il controllo di paginazione per sfogliare le pagine.
 
 ![dettagli del documento](media/how-to/how-to-view-document-details.png)

@@ -9,19 +9,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cb15f3e786313fca4ae9f0c224c68c96bac7836
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 833c2e460ae306a7673e580aaa304be93c3cd044
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077718"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199733"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Eliminare un tenant di Azure Active Directory
+
 Quando viene eliminato un tenant, vengono eliminate anche tutte le risorse in esso contenute. È necessario preparare il tenant, riducendo al minimo le risorse ad esso associate prima di eliminarlo. Solo un amministratore globale di Azure Active Directory (Azure AD) può eliminare un tenant di Azure AD dal portale.
 
 ## <a name="prepare-the-tenant-for-deletion"></a>Preparare il tenant per l'eliminazione
@@ -39,13 +40,13 @@ Non è possibile eliminare un tenant di Azure AD fino a quando non supera divers
 
 2. Selezionare **Azure Active Directory**.
 
-3. Passare al tenant di Azure che si desidera eliminare.
+3. Passare all'organizzazione che si desidera eliminare.
   
-   ![pulsante elimina directory](./media/directory-delete-howto/delete-directory-command.png)
+   ![Conferma dell'organizzazione prima dell'eliminazione](./media/directory-delete-howto/delete-directory-command.png)
 
 4. Selezionare **Elimina directory**.
   
-   ![pulsante elimina directory](./media/directory-delete-howto/delete-directory-list.png)
+   ![Selezionare il comando per eliminare l'organizzazione](./media/directory-delete-howto/delete-directory-list.png)
 
 5. Se il tenant non supera uno o più controlli, viene fornito un collegamento per ottenere altre informazioni su come passare le verifiche. Dopo aver superato tutti i controlli, selezionare **Elimina** per completare il processo.
 
@@ -74,7 +75,7 @@ Deprovisioning eseguito (30 giorni dopo la disattivazione) | Dati eliminati (eli
   
 3. Selezionare **Elimina** per eliminare la sottoscrizione e accettare i termini e le condizioni. Tutti i dati verranno definitivamente eliminati entro tre giorni. Se si cambia idea, è possibile riattivare la sottoscrizione nel corso dei tre giorni.
   
-   ![termini e condizioni](./media/directory-delete-howto/delete-terms.png)
+   ![leggere attentamente le condizioni](./media/directory-delete-howto/delete-terms.png)
 
 4. Una volta modificato lo stato, la sottoscrizione è contrassegnata per l'eliminazione. La sottoscrizione passa allo stato **Deprovisioning eseguito** 72 ore dopo.
 
@@ -83,4 +84,5 @@ Deprovisioning eseguito (30 giorni dopo la disattivazione) | Dati eliminati (eli
    ![superare il controllo della sottoscrizione nella schermata di eliminazione](./media/directory-delete-howto/delete-checks-passed.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 [Documentazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)

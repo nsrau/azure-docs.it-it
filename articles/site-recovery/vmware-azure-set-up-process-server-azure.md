@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 099576b1a4c5c28aab7672aaeb9274bc0beb96bf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 037f0ff64b114ce9341702564147825099695aa0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842323"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105642"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Configurare un server di elaborazione in Azure per il failback
 
@@ -33,7 +33,7 @@ Per altre informazioni, vedere il processo di [riprotezione](vmware-azure-reprot
 3. Nella pagina **Aggiungere il server di elaborazione** selezionare di distribuire il server di elaborazione in Azure.
 4. Specificare le impostazioni di Azure, tra cui la sottoscrizione usata per il failover, un gruppo di risorse, l'area di Azure usata per il failover e la rete virtuale in cui si trovano le macchine virtuali di Azure. Se si usano più reti di Azure, è necessario un server di elaborazione in ciascuna di esse.
 
-  ![Elemento della raccolta per l'aggiunta del server di elaborazione](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
+   ![Elemento della raccolta per l'aggiunta del server di elaborazione](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
 
 4. In **Nome server**, **Nome utente**e **Password** specificare un nome per il server di elaborazione e le credenziali a cui verranno assegnate le autorizzazioni di amministrazione sul server.
 5. Specificare un account di archiviazione da usare per i dischi della macchina virtuale del server, la subnet in cui la macchina virtuale del server di elaborazione sarà disponibile e l'indirizzo IP del server che verrà assegnato all'avvio della macchina virtuale.
