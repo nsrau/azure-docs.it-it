@@ -1,19 +1,18 @@
 ---
 title: Panoramica - Crittografia dischi di Azure per macchine virtuali IaaS | Microsoft Docs
 description: Questo articolo offre una panoramica della Crittografia dischi di Microsoft Azure per macchine virtuali IaaS.
-author: mestew
+author: msmbaldwin
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.author: mstewart
-ms.date: 12/07/2018
+ms.author: mbaldwin
+ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1674a54ea78e7fea2cc39cb26fefc52b8764bc4c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: a7dd061d84167b172aff52e8a62ed6d43fddc108
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200854"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862013"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Crittografia dischi di Azure per macchine virtuali IaaS
 
@@ -72,7 +71,7 @@ La soluzione supporta gli scenari seguenti per le macchine virtuali IaaS, se abi
    > [!NOTE]
    > La crittografia dell'unità del sistema operativo per alcune distribuzioni Linux non è supportata. Per altre informazioni, vedere l'articolo [Domande frequenti su Crittografia dischi di Azure](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
    
-* Abilitare la crittografia nelle macchine virtuali di Windows configurate usando spazi di archiviazione Windows.
+* Abilitare la crittografia nelle macchine virtuali configurate con inizio spazi di archiviazione Windows in Windows Server 2016.
 * Aggiornare le impostazioni di crittografia per una macchina virtuale dotata di archiviazione Premium e non Premium crittografata esistente.
 * Eseguire il backup e il ripristino di macchine virtuali crittografate per scenari con e senza KEK (Key Encryption Key).
 * Sono supportate tutte le aree di Azure pubbliche e di Azure per enti pubblici.

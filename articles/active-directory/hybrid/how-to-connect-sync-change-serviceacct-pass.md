@@ -17,12 +17,12 @@ ms.date: 10/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecc7eb45b439140cf9d1de048a6d4a7db48c34c3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 15d0d537a23e21eeda3b284e7ec706cde2b443e7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204415"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014088"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Modifica della password dell'account del servizio di sincronizzazione Azure AD Connect
 Se si modifica la password dell'account del servizio di sincronizzazione Azure AD Connect, il servizio di sincronizzazione non verrà avviato correttamente finché non si abbandona la chiave di crittografia e non si reinizializza la password dell'account del servizio. 
@@ -46,7 +46,7 @@ In secondo luogo, se in condizioni specifiche la password viene aggiornata, il s
 Verranno visualizzati gli errori seguenti:
 
 - Se in Gestione controllo servizi di Windows si prova ad avviare il servizio di sincronizzazione e questo non riesce a recuperare la chiave di crittografia, viene restituito l'errore <strong>Impossibile avviare il servizio Microsoft Azure AD Sync su computer locale. Per maggiori informazioni, consultare il registro eventi di sistema. Se non si tratta di un servizio Microsoft, contattare il fornitore del servizio e fare riferimento al codice di errore -21451857952</strong>.
-- Nel Visualizzatore eventi di Windows il registro eventi dell'applicazione contiene un errore con **ID evento 6028** e il messaggio di errore *"**Impossibile accedere alla chiave di crittografia del server**"*.
+- Nel Visualizzatore eventi di Windows, log eventi dell'applicazione contiene un errore con **ID evento 6028** e il messaggio di errore *"la chiave di crittografia del server non è accessibile."*
 
 Per assicurarsi di non ricevere più questi errori, seguire le procedure contenute in [Abbandono della chiave di crittografia del servizio di sincronizzazione Azure AD Connect](#abandoning-the-azure-ad-connect-sync-encryption-key) quando si modifica la password.
  

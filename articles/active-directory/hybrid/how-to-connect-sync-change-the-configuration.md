@@ -16,12 +16,12 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17f832947e289933fb7cde9513bc6e091aec30ae
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 31fe3877fd6098b18686b9d99a012cbfbef7c300
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206379"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122978"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Servizio di sincronizzazione Azure AD Connect: apportare modifiche alla configurazione predefinita
 Questo articolo illustra in dettaglio come apportare modifiche alla configurazione predefinita nel servizio di sincronizzazione Azure Active Directory (Azure AD) Connect. Include i passaggi per alcuni scenari comuni. Con queste informazioni si potranno apportare semplici modifiche alla propria configurazione in base alle regole di business.
@@ -294,7 +294,7 @@ La regola di sincronizzazione in ingresso consente la trasmissione del valore de
 
     | Tipo di flusso | Attributo di destinazione | Source (Sorgente) | Applicare una sola volta | Tipi di unione |
     | --- | --- | --- | --- | --- |
-    | Diretto | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Membro","Guest"),Error("UserPrincipalName non è presente per determinare UserType")) | Non selezionato | Aggiornamento |
+    | Expression | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Membro","Guest"),Error("UserPrincipalName non è presente per determinare UserType")) | Non selezionato | Aggiornamento |
 
 7. Fare clic su **Aggiungi** per creare la regola in entrata.
 
@@ -349,8 +349,8 @@ In generale, un ciclo di sincronizzazione completo è necessario perché sono st
    3. Nella finestra di dialogo popup selezionare **Importazione completa** e fare clic su **OK**.
    4. Attendere il completamento dell'operazione.
 
-    > [!NOTE]
-    > È possibile ignorare l'importazione completa in AD Connector locale se l'attributo di origine è già incluso nell'elenco degli attributi importati. In altre parole, non è stato necessario apportare alcuna modifica durante il [Passaggio 2: Aggiungere l'attributo di origine allo schema di AD Connector locale](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
+      > [!NOTE]
+      > È possibile ignorare l'importazione completa in AD Connector locale se l'attributo di origine è già incluso nell'elenco degli attributi importati. In altre parole, non è stato necessario apportare alcuna modifica durante il [Passaggio 2: Aggiungere l'attributo di origine allo schema di AD Connector locale](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
 
 2. Eseguire un'**importazione completa** in **Azure AD Connector**:
 

@@ -22,7 +22,7 @@ items:
   expanded: true
 - name: Esercitazioni
   items:
-  - name: 1 - Creare un account
+  - name: 1 - Creare e gestire i dati
     items:
     - name: Creare un'app console
       items:
@@ -238,7 +238,7 @@ items:
         href: create-mongodb-golang.md
     - name: Esercitazioni
       items:
-      - name: 1 - Creare un account
+      - name: 1 - Creare e gestire i dati
         items:
         - name: App console Node.js
           href: mongodb-samples.md
@@ -337,7 +337,7 @@ items:
         href: create-cassandra-python.md
     - name: Esercitazioni
       items:
-      - name: 1 - Creare account e database
+      - name: 1 - Creare e gestire i dati
         href: create-cassandra-api-account-java.md
       - name: 2 - Caricare i dati
         href: cassandra-api-load-data.md
@@ -389,7 +389,7 @@ items:
         href: create-table-python.md
     - name: Esercitazioni
       items:
-      - name: 1 - Creare un account
+      - name: 1 - Creare e gestire i dati
         href: tutorial-develop-table-dotnet.md
       - name: 2 - Eseguire la migrazione dei dati
         displayName: import
@@ -656,9 +656,9 @@ items:
       href: use-cases.md
     - name: App di social media
       href: social-media-apps.md
-ms.openlocfilehash: f42bc31661ecc14fde4d2466ccd89d91dfd5deb5
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 96160b85319ddd7e09b1ecd4e57b974608648021
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406814"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57876919"

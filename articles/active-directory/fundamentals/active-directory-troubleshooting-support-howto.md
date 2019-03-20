@@ -15,12 +15,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb89d3eee87c0796bcd21914e719784756bc288e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 548ea67092a2cdb8cedeed869becd8933c08c5c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165740"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181793"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Trovare informazioni e aprire un ticket di supporto per Azure Active Directory
 Microsoft fornisce supporto tecnico, pre-vendita, per la fatturazione e per le sottoscrizioni per Azure Active Directory (Azure AD) a livello globale. Il supporto è disponibile sia online che telefonicamente per le sottoscrizioni di Microsoft Azure di valutazione e a pagamento. Il supporto telefonico e il supporto online per la fatturazione sono disponibili in altre lingue. 
@@ -41,7 +41,7 @@ In caso non si riesca a trovare le informazioni desiderate attraverso le risorse
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-azure-portal"></a>Come aprire un ticket di supporto per Azure AD nel portale di Azure
 
 > [!NOTE]
-> Per i problemi relativi alla fatturazione o alla sottoscrizione, è necessario usare l'[interfaccia di amministrazione di Office 365](https://portal.office.com).
+> Per i problemi di fatturazione o alla sottoscrizione, è necessario usare il [interfaccia di amministrazione di Microsoft 365](https://admin.microsoft.com).
 > 
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e aprire **Azure Active Directory**.
@@ -61,22 +61,21 @@ In caso non si riesca a trovare le informazioni desiderate attraverso le risorse
 8. Specificare le informazioni di contatto e selezionare **Crea**.
   ![screenshot delle risorse self-help per la categoria del problema](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
 
-### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-office-365-portal"></a>Come aprire un ticket di supporto per Azure AD nel portale di Office 365
+### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>Come aprire un ticket di supporto per Azure AD nel centro di amministrazione di Microsoft 365
 
 > [!NOTE]
-> Il supporto per Azure AD nell'interfaccia di amministrazione di Office 365 è disponibile solo per gli amministratori.
+> Supporto per Azure AD nel [interfaccia di amministrazione di Microsoft 365](https://admin.microsoft.com) è disponibile solo per gli amministratori.
 > 
 
-1. Accedere all'[interfaccia di amministrazione di Office 365](https://portal.office.com) con un account che dispone di una licenza Enterprise Mobility + Security (EMS).
+1. Accedi per il [interfaccia di amministrazione di Microsoft 365](https://admin.microsoft.com) con un account che dispone di un Enterprise licenza Mobility + Security (EMS).
 
-2. Nel riquadro **Supporto** selezionare **Nuova richiesta di assistenza**: ![Screenshot del portale di Office 365](./media/active-directory-troubleshooting-support-howto/office-portal.png)
+2. Nel riquadro **Supporto** selezionare **Nuova richiesta di assistenza**:
 
-3. Nella pagina **Panoramica del supporto** selezionare **Gestione delle identità** o **Gestione di utenti e domini**: ![Screenshot delle categorie di supporto di Azure AD](./media/active-directory-troubleshooting-support-howto/select-identity.png)
+3. Nella pagina **Panoramica del supporto** selezionare **Gestione delle identità** o **Gestione di utenti e domini**:
 
 4. Per **Funzionalità** selezionare la funzionalità di Azure AD per cui è necessario ottenere assistenza.
 
 5. Per **Sintomo** selezionare un sintomo appropriato, riepilogare il problema, fornire i dettagli pertinenti e quindi selezionare **Avanti**.
-  ![screenshot delle risorse self-help per funzionalità e sintomo](./media/active-directory-troubleshooting-support-howto/open-service-request.png)
 
 6. Selezionare una delle risorse self-help disponibili oppure selezionare **Sì, continua** o **No, annulla la richiesta**.
 

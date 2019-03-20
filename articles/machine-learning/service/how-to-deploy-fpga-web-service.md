@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 1/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7403d4f791151b167f03ee79c30623bbd644008
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: abf1ed8e06bf9f78c7df07194567ffb5bfdc2709
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100687"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842720"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Come distribuire un modello come servizio Web in un dispositivo FPGA con il servizio Azure Machine Learning
 
@@ -28,7 +28,7 @@ ms.locfileid: "56100687"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](http://aka.ms/AMLFree).
+- Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
 
 - Un'area di lavoro del servizio di Azure Machine Learning e Azure Machine Learning SDK per Python installato. Informazioni su come ottenere questi prerequisiti usando il documento [Come configurare un ambiente di sviluppo](how-to-configure-environment.md).
  
@@ -51,7 +51,7 @@ ms.locfileid: "56100687"
 Per comodità, questa esercitazione è disponibile anche come notebook di Jupyter. Seguire il codice qui o avviare il [notebook di avvio rapido](https://github.com/Azure/aml-real-time-ai/blob/master/notebooks/project-brainwave-quickstart.ipynb).
 
 ## <a name="create-and-deploy-your-model"></a>Creare e distribuire un modello
-Creare una pipeline per pre-elaborare l'immagine di input, trasformarla usando ResNet 50 in un FPGA, quindi eseguire le funzionalità attraverso una classificazione sottoposta a training sul set di dati ImageNet.
+Creare una pipeline per pre-elaborare l'immagine di input, renderlo una funzionalità con ResNet 50 in un FPGA e quindi eseguire le funzionalità attraverso un classificatore con training eseguito su set di dati ImageNet.
 
 Seguire le istruzioni per:
 

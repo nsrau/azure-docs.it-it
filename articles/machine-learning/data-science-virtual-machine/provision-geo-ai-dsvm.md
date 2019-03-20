@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 47d5616f86c8f4cb62773d0b92a24a5fb63b2ea7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: c4b178cc7e0604f38e4da25452a3bad01f8145de
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240472"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858144"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Eseguire il provisioning di una macchina virtuale con intelligenza artificiale geografica in Azure 
 
@@ -33,7 +33,7 @@ La macchina virtuale Geo-DSVM contiene diversi strumenti per l'intelligenza arti
 - strumenti per l'acquisizione e la pre-elaborazione di immagini e dati testuali 
 - strumenti per attività di sviluppo, ad esempio Microsoft R Server Developer Edition, Python Anaconda, Jupyter Notebook per Python e R, IDE per Python e R, database SQL
 - software desktop ArcGIS Pro di ESRI e interfacce Python e R utilizzabili con i dati geospaziali provenienti da applicazioni di intelligenza artificiale. 
-
+ 
 
 ## <a name="create-your-geo-ai-data-science-vm"></a>Creare una macchina virtuale di data science con intelligenza artificiale geografica
 
@@ -67,16 +67,16 @@ Ecco la procedura per creare un'istanza della VM di data science con intelligenz
    - **Riepilogo**: Verificare che tutte le informazioni immesse siano corrette.
 
    - **Acquisto**: fare clic su **Acquista** per avviare il provisioning. Viene fornito un collegamento alle condizioni del servizio. La macchina virtuale non prevede costi aggiuntivi oltre a quelli per il calcolo delle dimensioni del server scelto nel passaggio **Size** . 
-
+ 
 >[!NOTE]
 > Per il provisioning sono necessari circa 20-30 minuti. Lo stato del provisioning viene visualizzato nel portale di Azure.
 
-
+ 
 ## <a name="how-to-access-the-geo-ai-data-science-virtual-machine"></a>Come accedere alla macchina virtuale di data science con intelligenza artificiale geografica
 
-Una volta creata la VM, si è pronti per iniziare a usare gli strumenti installati e preconfigurati nella VM. Sono disponibili riquadri del menu di avvio e icone del desktop per molti strumenti. È possibile connettersi tramite desktop remoto con le credenziali dell'account amministratore configurato nella sezione **Nozioni di base** precedente. 
+ Una volta creata la VM, si è pronti per iniziare a usare gli strumenti installati e preconfigurati nella VM. Sono disponibili riquadri del menu di avvio e icone del desktop per molti strumenti. È possibile connettersi tramite desktop remoto con le credenziali dell'account amministratore configurato nella sezione **Nozioni di base** precedente. 
 
-
+ 
 ## <a name="using-arcgis-pro-installed-in-the-vm"></a>Uso del software ArcGIS Pro installato nella macchina virtuale
 
 Nella macchina virtuale Geo-DSVM è preinstallato il software ArcGIS Pro desktop e l'ambiente è preconfigurato per funzionare con tutti gli strumenti nella DSVM. Quando si avvia ArcGIS vengono chieste le credenziali di accesso all'account ArcGIS. Se si dispone già di un account ArcGIS e di licenze per il software, è possibile usare le credenziali esistenti.  
@@ -87,7 +87,7 @@ In caso contrario, è possibile iscriversi per ricevere un nuovo account ArcGIS 
 
 ![ArcGIS-Free-Trial](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
 
-Dopo aver effettuato l'iscrizione per un account ArcGIS a pagamento o di valutazione gratuita, è possibile autorizzare ArcGIS Pro per l'account seguendo le istruzioni nella [documentazione introduttiva di ArcGIS Pro](http://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
+Dopo aver effettuato l'iscrizione per un account ArcGIS a pagamento o di valutazione gratuita, è possibile autorizzare ArcGIS Pro per l'account seguendo le istruzioni nella [documentazione introduttiva di ArcGIS Pro](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
 
 Una volta eseguito l'accesso ad ArcGIS Pro desktop con l'account ArcGIS, si è pronti per iniziare a usare gli strumenti di data science installati e configurati nella macchina virtuale per progetti di analisi geospaziale e apprendimento automatico.
 

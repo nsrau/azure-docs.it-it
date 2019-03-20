@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4ad9de80a77d054ef723d9ed5bd53e410c653baa
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 5fc027e52d838a85e7b880e3dd0daf4438e850dc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195082"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57851992"
 documentType: LandingData
 title: Azure Dev Spaces
 metadata:
@@ -25,7 +25,7 @@ sections:
     text: >-
       > [!IMPORTANT]
 
-      > Azure Dev Spaces è attualmente disponibile in anteprima ed è supportato solo da cluster servizio Azure Kubernetes nelle aree **Stati Uniti orientali**, **Stati Uniti orientali 2**, **Stati Uniti centrali**, **Stati Uniti occidentali 2**, **Europa occidentale**, **Asia sud-orientale**, **Canada centrale** e **Canada orientale**. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
+      > Azure Dev Spaces è attualmente disponibile in anteprima ed è supportato solo da cluster del servizio Azure Kubernetes nelle aree **Stati Uniti orientali**, **Stati Uniti orientali 2**, **Stati Uniti centrali**, **Stati Uniti occidentali 2**, **Europa settentrionale**, **Europa occidentale**, **Asia sud-orientale**, **Canada centrale** e **Canada orientale**. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
 - title: Guida introduttiva ad Azure Dev Spaces
   items:
   - type: paragraph

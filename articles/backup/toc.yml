@@ -194,9 +194,11 @@ items:
       href: backup-azure-arm-userestapi-managejobs.md
   - name: Eseguire il backup di database SQL Server in macchine virtuali di Azure
     items:
+    - name: Informazioni sul backup di SQL Server in macchine virtuali di Azure
+      href: backup-sql-server-azure-vms.md
     - name: Eseguire il backup di database SQL Server in macchine virtuali di Azure
-      href: backup-azure-sql-database.md
-    - name: Ripristinare database SQL Server di cui è stato eseguito il backup
+      href: backup-sql-server-database-azure-vms.md
+    - name: Ripristinare il backup di database SQL Server in macchine virtuali di Azure
       href: restore-sql-database-azure-vm.md
     - name: Gestire database SQL Server di cui è stato eseguito il backup
       href: manage-monitor-sql-database-backup.md
@@ -276,9 +278,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=backup
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=backup
-ms.openlocfilehash: c30132c7dcad3873daa39e7d8ecf112032183963
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 033235611271b00275a0ef759af80f2c8c9a2474
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873390"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014651"

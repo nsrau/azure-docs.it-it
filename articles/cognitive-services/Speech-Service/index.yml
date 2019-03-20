@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9a99e7133b24d37af5ce36c717d03bb0fdae7da5
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: c68bf4cf8bcc50069f3741ac0f1746363c1f82ac
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733572"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57861809"
 documentType: LandingData
 title: Documentazione dei servizi Voce
 metadata:
@@ -24,7 +24,7 @@ metadata:
   ms.author: erhopf
   ms.custom: seodec18
 abstract:
-  description: Informazioni su come usare i servizi Voce e Speech SDK per aggiungere alle app funzionalità abilitate al riconoscimento vocale. È possibile usare Speech SDK per aggiungere funzionalità di <i>conversione della voce in testo scritto</i> (riconoscimento vocale), <i>finalità</i>, <i>traduzione</i> e <i>sintesi vocale</i> alle app. Il Servizio di riconoscimento vocale ha anche un'API REST che funziona con qualsiasi linguaggio di programmazione in grado di effettuare richieste HTTP.
+  description: Informazioni su come usare i servizi Voce e Speech SDK per aggiungere alle app funzionalità abilitate al riconoscimento vocale. È possibile usare Speech SDK per aggiungere funzionalità di <i>conversione della voce in testo scritto</i> (riconoscimento vocale), <i>finalità</i>, <i>traduzione</i> e <i>sintesi vocale</i> alle app. I servizi Voce includono anche API REST che funzionano con qualsiasi linguaggio di programmazione in grado di effettuare richieste HTTP.
 sections:
 - items:
   - type: list

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: fd7e7151d8ec676239ed810fb700149aab0fe0fa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 71e71b417f12b58fc03c581826c0e5c2412e684b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427403"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876647"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Usare l'acquisizione di pacchetti per il monitoraggio proattivo della rete con avvisi e Funzioni di Azure
 
@@ -75,7 +75,7 @@ Il primo passaggio è la creazione di una funzione di Azure per elaborare l'avvi
     |**Impostazione** | **Valore** | **Dettagli** |
     |---|---|---|
     |**Nome app**|PacketCaptureExample|Nome dell'app per le funzioni.|
-    |**Sottoscrizione**|[Sottoscrizione]: sottoscrizione in cui creare l'app per le funzioni.||
+    |**Sottoscrizione**|[Sottoscrizione] sottoscrizione in cui creare l'app per le funzioni.||
     |**Gruppo di risorse**|PacketCaptureRG|Nome del gruppo di risorse che conterrà l'app per le funzioni.|
     |**Piano di hosting**|Piano a consumo| Tipo di piano usato dall'app per le funzioni. Le opzioni sono Consumo e Piano di servizio app di Azure. |
     |**Posizione**|Stati Uniti centrali| Area in cui creare l'app per le funzioni.|
@@ -110,13 +110,13 @@ Per usare i cmdlet PowerShell di Network Watcher, caricare il modulo PowerShell 
 
     Questo esempio visualizza il percorso locale dei moduli di Azure PowerShell. Queste cartelle verranno usate in un passaggio successivo. I moduli usati in questo scenario sono:
 
-    * AzureRM.Network
+   * AzureRM.Network
 
-    * AzureRM.Profile
+   * AzureRM.Profile
 
-    * AzureRM.Resources
+   * AzureRM.Resources
 
-    ![Cartelle di PowerShell][functions5]
+     ![Cartelle di PowerShell][functions5]
 
 1. Selezionare **Impostazioni dell'app per le funzioni** > **Passa all'editor del servizio app**.
 
@@ -344,7 +344,7 @@ Passare a una macchina virtuale esistente, quindi aggiungere una regola di avvis
   |**Impostazione** | **Valore** | **Dettagli** |
   |---|---|---|
   |**Nome**|TCP_Segments_Sent_Exceeded|Nome della regola di avviso.|
-  |**Descrizione**|Soglia superata segmenti TCP inviati|Descrizione della regola di avviso.||
+  |**Descrizione**|Soglia superata segmenti TCP inviati|Descrizione della regola di avviso.|
   |**Metrica**|Segmenti TCP inviati| La metrica da utilizzare per attivare l'avviso. |
   |**Condition**|Maggiore di| La condizione da utilizzare per valutare la metrica.|
   |**Soglia**|100| Valore della metrica che attiva l'avviso. Deve trattarsi di un valore valido per l'ambiente in uso.|
@@ -362,7 +362,7 @@ Dopo i criteri di attivazione dell'avviso, viene creata l'acquisizione di pacche
 
 Se il file di acquisizione è archiviato in locale, è possibile recuperarlo accedendo alla macchina virtuale.
 
-Per istruzioni relative al download di file dagli account di archiviazione di Azure, vedere [Introduzione all'archivio BLOB di Azure con .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Un altro strumento è [Storage Explorer](http://storageexplorer.com/).
+Per istruzioni relative al download di file dagli account di archiviazione di Azure, vedere [Introduzione all'archivio BLOB di Azure con .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Un altro strumento è [Storage Explorer](https://storageexplorer.com/).
 
 Dopo il download dell'acquisizione, è possibile visualizzarla con qualsiasi strumento per la lettura di un file **.cap**. Di seguito i collegamenti a due di questi strumenti:
 

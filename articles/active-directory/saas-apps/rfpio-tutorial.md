@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3af5c3d5d92dea804221b2285d4fa5b9cedae665
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c6b8109c8d3834f932ba492eddb8d6332acc1707
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168091"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443619"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Esercitazione: Integrazione di Azure Active Directory con RFPIO
 
@@ -234,7 +234,7 @@ Nel caso di RFPIO, il provisioning è un'attività manuale.
 
     a. Immettere l'**indirizzo di posta elettronica** nella casella che richiede **un indirizzo di posta elettronica per riga**.
 
-    b. Selezionare il **ruolo** in base alle esigenze.
+    b. Selezionarne **ruolo** in base alle esigenze.
 
     c. Fare clic su **AGGIUNGI MEMBRI**.
         

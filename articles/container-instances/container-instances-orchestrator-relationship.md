@@ -2,18 +2,18 @@
 title: Istanze di Azure Container e orchestrazione dei contenitori
 description: Informazioni sull'interazione tra Istanze di Azure Container e agenti di orchestrazione dei contenitori.
 services: container-instances
-author: seanmck
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 11/30/2018
-ms.author: seanmck
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 08bc344a20ade3d8bb0f7dd23a854fd03ddac006
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 0a1e3c2facc10b68fe4b33d4cd0531f181b1e813
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845808"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838149"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Istanze di Azure Container e agenti di orchestrazione dei contenitori
 

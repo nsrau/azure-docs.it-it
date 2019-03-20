@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/07/2019
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 1d7f58780819202eb02e3a48b4b5e0ac108a0432
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 40c08f87a1711ae57ceb8b288851686d1e2ad391
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447464"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993952"
 ---
 # <a name="understand-cost-management-data"></a>Informazioni sui dati di Gestione costi
 
@@ -62,8 +62,9 @@ La tabella seguente mostra le offerte non supportate.
 | **Piani di supporto** | Supporto Pro-Direct di Azure per enti pubblici | MS-AZR-USGOV-0042P |
 | **Piani di supporto** | Supporto tecnico Developer di Azure per enti pubblici | MS-AZR-USGOV-0043P |
 
-Per i clienti con le categorie di offerta con pagamento in base al consumo, MSDN e Visual Studio, i dati sono disponibili in Gestione costi a partire dal 10/02/2018.
+Per i clienti con le categorie di offerta con pagamento in base al consumo, MSDN e Visual Studio, i dati sono disponibili in Gestione costi a partire dal 10/02/2018. Per accedere ai dati per la sottoscrizione prima 02/10 marzo 2018, è possibile usare la [centro Account di Azure](https://account.azure.com/subscriptions) per scaricare l'utilizzo in dettaglio in un file CSV oppure è possibile utilizzare il [API per dettagli sull'uso](/rest/api/consumption/usagedetails).
 
+## <a name="determine-your-offer-type"></a>Determinare il tipo di offerta
 Se i dati relativi a una sottoscrizione non vengono visualizzati e si vuole determinare se la sottoscrizione rientra tra le offerte supportate, è possibile convalidare che la sottoscrizione sia supportata. Per convalidare che una sottoscrizione di Azure sia supportata, accedere al [portale di Azure](https://portal.azure.com). Selezionare quindi **Tutti i servizi** nel riquadro del menu a sinistra. Nell'elenco dei servizi selezionare **Sottoscrizioni**. Nel menu dell'elenco delle sottoscrizioni fare clic sulla sottoscrizione da verificare. La sottoscrizione verrà visualizzata nella scheda Panoramica e sarà possibile vedere le informazioni in **Offerta** e **ID offerta**. La figura seguente mostra un esempio.
 
 ![Esempio della scheda Panoramica della sottoscrizione che mostra l'offerta e l'ID offerta](./media/understand-cost-mgt-data/offer-and-offer-id.png)
@@ -94,7 +95,7 @@ Le tabelle seguenti illustrano i dati inclusi o meno in Gestione costi.
 
 ## <a name="rated-usage-data-refresh-schedule"></a>Pianificazione dell'aggiornamento dei dati sull'utilizzo valutato
 
-I dati sui costi e sull'utilizzo sono disponibili in Gestione dei costi e fatturazione nel portale di Azure e nelle [API di supporto](https://aka.ms/costmgmt/docs). Durante l'analisi dei costi, tenere presente quanto segue:
+I dati sui costi e sull'utilizzo sono disponibili in Gestione dei costi e fatturazione nel portale di Azure e nelle [API di supporto](index.yml). Durante l'analisi dei costi, tenere presente quanto segue:
 
 - Gli addebiti stimati per il periodo di fatturazione corrente vengono aggiornati sei volte al giorno.
 - Gli addebiti stimati per il periodo di fatturazione corrente possono variare a causa di un aumento dell'utilizzo.

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: e4bba685ed49e72d00255f386061a0a8f9ec9078
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 565e1bf7a4972e230b3cf56232ebd24519fcab5c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53535498"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007894"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Concetti relativi ai server nel database di Azure per MySQL
 
@@ -37,6 +37,7 @@ In un database di Azure per il server MySQL è possibile creare uno o più datab
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a>Come connettersi ed eseguire l'autenticazione a un database di Azure per il server MySQL?
 
 I seguenti elementi contribuiscono a garantire un accesso sicuro al database.
+
 |     |     |
 | :-- | :-- |
 | **Autenticazione e autorizzazione** | Il database di Azure per il server MySQL supporta l'autenticazione nativa a MySQL. È possibile connettersi ed eseguire l'autenticazione a un server con l'account amministratore del server. |
