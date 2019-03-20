@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 76af79cc9ef1ebea30b30a291f451b7b0a4f3ba6
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 832614c46f0269460245d081f20897b591e31fce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694483"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101568"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migrazione Contoso: eseguire il rehosting di un'app locale in una macchina virtuale di Azure e in Istanza gestita di database SQL
 
@@ -222,7 +222,7 @@ Contoso considera questi fattori:
 - Una subnet può essere associata a una sola tabella di route.
 - Non sono previsti costi aggiuntivi per la creazione di tabelle di route in Microsoft Azure.
 
- Per configurare il routing, gli amministratori di Contoso eseguono le operazioni seguenti:
+  Per configurare il routing, gli amministratori di Contoso eseguono le operazioni seguenti:
 
 1. Creano una tabella UDR (route) nel gruppo di risorse **ContosoNetworkingRG**.
 
@@ -441,11 +441,11 @@ Una volta impostate l'origine e la destinazione, gli amministratori Contoso crea
 
 1. In **Preparare l'infrastruttura** > **Impostazioni della replica** > **Criteri di replica** >  **Crea e associa**, creano i criteri **ContosoMigrationPolicy**.
 2. Usa le impostazioni predefinite:
-    - **Soglia RPO**: Il valore predefinito è 60 minuti. Questo valore definisce la frequenza con cui vengono creati punti di ripristino. Se la replica continua supera questo limite, viene generato un avviso.
-    - **Conservazione del punto di ripristino**: Impostazione predefinita di 24 ore. Questo valore specifica il periodo di conservazione per ogni punto di ripristino. Le VM replicate possono essere ripristinate in qualsiasi punto all'interno di un intervallo.
-    - **Frequenza snapshot coerenti con l'app**: il valore predefinito è un'ora. Questo valore specifica la frequenza di creazione di snapshot coerenti con l'applicazione.
+   - **Soglia RPO**: Il valore predefinito è 60 minuti. Questo valore definisce la frequenza con cui vengono creati punti di ripristino. Se la replica continua supera questo limite, viene generato un avviso.
+   - **Conservazione del punto di ripristino**: Impostazione predefinita di 24 ore. Questo valore specifica il periodo di conservazione per ogni punto di ripristino. Le VM replicate possono essere ripristinate in qualsiasi punto all'interno di un intervallo.
+   - **Frequenza snapshot coerenti con l'app**: il valore predefinito è un'ora. Questo valore specifica la frequenza di creazione di snapshot coerenti con l'applicazione.
  
-    ![Criteri di replica: creazione](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
+     ![Criteri di replica: creazione](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
 
 3. I criteri vengono automaticamente associati al server di configurazione. 
 

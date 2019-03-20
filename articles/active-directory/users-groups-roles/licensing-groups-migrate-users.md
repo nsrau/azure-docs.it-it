@@ -16,12 +16,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4067a54326d0a4a8ab9029dd4afceea384cf6aa
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7fd800097ca5107f7df1e67c91ff4c96b9cfcd74
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188631"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107747"
 ---
 # <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Come aggiungere gli utenti con licenza a un gruppo per la gestione delle licenze in Azure Active Directory
 
@@ -39,17 +39,17 @@ Le licenze esistenti potrebbero essere state distribuite agli utenti nelle organ
 
 4. Verificare che le licenze siano state applicate a tutti gli utenti in tali gruppi. Tale applicazione è possibile verificando lo stato di elaborazione in ogni gruppo e consultando i log di controllo.
 
-  - È possibile eseguire un controllo a campione su singoli utenti esaminandone i dettagli della licenza. Si noterà che le stesse licenze sono sia assegnate direttamente che ereditate dai gruppi.
+   - È possibile eseguire un controllo a campione su singoli utenti esaminandone i dettagli della licenza. Si noterà che le stesse licenze sono sia assegnate direttamente che ereditate dai gruppi.
 
-  - È possibile eseguire uno script di PowerShell per [verificare la modalità di assegnazione delle licenze agli utenti](licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses).
+   - È possibile eseguire uno script di PowerShell per [verificare la modalità di assegnazione delle licenze agli utenti](licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses).
 
-  - Quando la licenza di uno stesso prodotto viene assegnata all'utente sia direttamente che tramite un gruppo, l'utente utilizza solo una licenza. Di conseguenza, non sono necessarie licenze aggiuntive per eseguire la migrazione.
+   - Quando la licenza di uno stesso prodotto viene assegnata all'utente sia direttamente che tramite un gruppo, l'utente utilizza solo una licenza. Di conseguenza, non sono necessarie licenze aggiuntive per eseguire la migrazione.
 
 5. Assicurarsi che non ci siano assegnazioni di licenze non riuscite verificando l'assenza di utenti in stato di errore in ogni gruppo. Per altre informazioni, vedere [Identificazione e risoluzione dei problemi relativi alle licenze per un gruppo in Azure Active Directory](licensing-groups-resolve-problems.md)
 
 6. Valutare la possibilità di rimuovere le assegnazioni dirette originali. È possibile eseguire questa operazione in più fasi, per monitorare prima il risultato in un subset di utenti.
 
-  È possibile mantenere le assegnazioni dirette originali. In tal caso, tuttavia, quando gli utenti lasciano i gruppi con licenza mantengono la licenza originale e questo potrebbe non essere auspicabile.
+   È possibile mantenere le assegnazioni dirette originali. In tal caso, tuttavia, quando gli utenti lasciano i gruppi con licenza mantengono la licenza originale e questo potrebbe non essere auspicabile.
 
 ## <a name="an-example"></a>Esempio
 
@@ -61,25 +61,25 @@ Di seguito è riportato un esempio di processo di migrazione:
 
 2. Per ogni gruppo, assicurarsi che l'assegnazione della licenza sia stata completata per tutti gli utenti. Passare al pannello di ogni singolo gruppo, selezionare **Licenze**e controllare lo stato di elaborazione nella parte superiore del pannello **Licenze**.
 
-  - Cercare "Le ultime modifiche della licenza sono state applicate a tutti gli utenti" per confermare che l'elaborazione è stata completata.
+   - Cercare "Le ultime modifiche della licenza sono state applicate a tutti gli utenti" per confermare che l'elaborazione è stata completata.
 
-  - Nella parte superiore del pannello cercare una notifica relativa a eventuali utenti per i quali l'assegnazione della licenza non è riuscita. È possibile che il numero di licenze non sia sufficiente per tutti gli utenti. È anche possibile che alcuni utenti abbiano SKU di licenza in conflitto che impediscono loro di ereditare le licenze di gruppo.
+   - Nella parte superiore del pannello cercare una notifica relativa a eventuali utenti per i quali l'assegnazione della licenza non è riuscita. È possibile che il numero di licenze non sia sufficiente per tutti gli utenti. È anche possibile che alcuni utenti abbiano SKU di licenza in conflitto che impediscono loro di ereditare le licenze di gruppo.
 
 3. Eseguire un controllo a campione su alcuni utenti per verificare che siano state applicate sia le licenze dirette che quelle di gruppo. Passare al pannello di un utente, selezionare **Licenze**ed esaminare lo stato delle licenze.
 
-  - Di seguito è riportato lo stato previsto per l'utente durante la migrazione:
+   - Di seguito è riportato lo stato previsto per l'utente durante la migrazione:
 
       ![Stato previsto per l'utente](./media/licensing-groups-migrate-users/expected-user-state.png)
 
-  Questo conferma che l'utente ha sia le licenze dirette che quelle ereditate. Risultano assegnate le licenze sia per **EMS** che per **E3**.
+   Questo conferma che l'utente ha sia le licenze dirette che quelle ereditate. Risultano assegnate le licenze sia per **EMS** che per **E3**.
 
-  - Selezionare ogni licenza per visualizzare i dettagli relativi ai servizi abilitati. Queste informazioni possono essere usate per verificare se le licenze dirette e quelle di gruppo abilitano esattamente gli stessi piani di servizio per l'utente.
+   - Selezionare ogni licenza per visualizzare i dettagli relativi ai servizi abilitati. Queste informazioni possono essere usate per verificare se le licenze dirette e quelle di gruppo abilitano esattamente gli stessi piani di servizio per l'utente.
 
       ![Verificare i piani di servizio](./media/licensing-groups-migrate-users/check-service-plans.png)
 
 4. Dopo aver confermato che le licenze dirette e quelle di gruppo sono equivalenti, è possibile iniziare a rimuovere le licenze dirette dagli utenti. A scopo di test, è possibile rimuovere le licenze per singoli utenti dal portale e quindi eseguire gli script di automazione per rimuoverle in blocco. Di seguito è riportato un esempio dello stesso utente a cui sono state rimosse le licenze dirette mediante il portale. Si noti che lo stato della licenza rimane invariato, ma non vengono più visualizzate le assegnazioni dirette.
 
-  ![Licenze dirette rimosse](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
+   ![Licenze dirette rimosse](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

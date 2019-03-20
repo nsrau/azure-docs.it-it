@@ -17,12 +17,12 @@ ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17b7f7fa4889742989a61f8cc076224d46f8eac2
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 018281406bb810f6357ad00948060cedae57fc6d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234103"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003805"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure Active Directory ibrido
 
@@ -41,6 +41,8 @@ Se in un ambiente Active Directory locale Per aggiungere ad Azure AD i dispositi
 
 Questo articolo presuppone che l'utente abbia familiarità con quanto descritto in [Introduzione alla gestione dei dispositivi in Azure Active Directory](../device-management-introduction.md).
 
+>[!NOTE]
+>  Minima richiesta per i livelli di funzionalità foresta e dominio funzionale per il join di Windows 10 ad Azure AD ibrido è Windows Server 2008 R2. In versioni precedenti, l'utente potrebbe non ottenere un Token di aggiornamento primario durante l'accesso di Windows a causa di problemi LSA 
 
 ## <a name="plan-your-implementation"></a>Pianificare l'implementazione
 
@@ -92,7 +94,7 @@ Come primo passaggio della pianificazione, è consigliabile esaminare l'ambiente
 
 Non è possibile usare un'aggiunta ad Azure AD ibrido se l'ambiente è costituito da una sola foresta che ha sincronizzato i dati sull'identità con più di un tenant di Azure AD.
 
-Se si intende usare l'Utilità preparazione sistema (Sysprep), creare immagini da un'installazione di Windows che non è stata configurata per l'aggiunta di Azure AD ibrido.
+Se si intende usare l'utilità preparazione sistema (Sysprep), assicurarsi che immagini create da un'installazione di Windows 10 1803 o versioni precedenti non sono stati configurati per l'aggiunta ad Azure AD ibrido.
 
 Se ci si basa sullo snapshot di una macchina virtuale (VM) per creare altre VM, assicurarsi di usare lo snapshot di una VM che non è stato configurato per l'aggiunta di Azure AD ibrido.
 
@@ -116,6 +118,7 @@ Se i dispositivi aggiunti a un dominio di Windows 10 sono già [registrati in Az
  - L'eventuale stato esistente di registrato in Azure AD viene rimosso automaticamente dopo l'aggiunta del dispositivo ad Azure AD ibrido. 
  - È possibile evitare che il dispositivo aggiunto a un dominio venga registrato in Azure AD aggiungendo questa chiave del Registro di sistema: HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001
 
+I moduli TPM compatibili con FIPS non sono supportati per l'aggiunta ad Azure AD ibrido. Se i dispositivi dispongono di moduli TPM compatibili con FIPS, è necessario disabilitare prima di procedere con l'aggiunta ad Azure AD ibrido. Microsoft non fornisce gli strumenti per la disabilitazione della modalità FIPS per TPM come dipende dal produttore del TPM. Per supporto, contattare l'OEM di hardware.
 
 ## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Esaminare come controllare l'aggiunta dei dispositivi all'identità ibrida di Azure AD
 

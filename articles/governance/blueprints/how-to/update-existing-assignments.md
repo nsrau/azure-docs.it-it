@@ -1,6 +1,6 @@
 ---
-title: Come aggiornare un'assegnazione esistente
-description: Informazioni sul meccanismo per l'aggiornamento di un'assegnazione esistente in Azure Blueprint.
+title: Come aggiornare un'assegnazione esistente dal portale
+description: Scopri il meccanismo per l'aggiornamento di un'assegnazione esistente dal portale nelle linee guida di Azure.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2ada0ccc1286677300c005da4fa0e92be94a3ca8
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 572a962e98332fc70c276346f497ed2e67e3c329
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314830"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999855"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Come aggiornare un'assegnazione di progetto esistente
 
@@ -26,21 +26,21 @@ Quando viene assegnato un progetto, l'assegnazione può essere aggiornata. Esist
 
 ## <a name="updating-assignments"></a>Aggiornamento delle assegnazioni
 
-1. Fare clic su **Tutti i servizi** e quindi cercare e selezionare **Criteri** nel riquadro sinistro. Nella pagina **Criteri** fare clic su **Progetti**.
+1. Selezionare **Tutti i servizi** nel riquadro a sinistra. Cercare e selezionare **Progetti**.
 
 1. Selezionare **Progetti assegnati** nella pagina a sinistra.
 
-1. Nell'elenco dei progetti fare clic sull'assegnazione del progetto e quindi fare clic sul pulsante **Aggiorna assegnazione** oppure fare clic con il pulsante destro del mouse sull'assegnazione del progetto e scegliere **Aggiorna assegnazione**.
+1. Nell'elenco dei progetti fare clic sull'assegnazione del progetto Scegliere il **aggiornare l'assegnazione** pulsante o l'assegnazione di progetto e scegliere **aggiornare l'assegnazione**.
 
    ![Aggiorna assegnazione](../media/update-existing-assignments/update-assignment.png)
 
-1. La pagina **Assegna progetto** verrà caricata precompilata con tutti i valori dall'assegnazione originale. È possibile modificare la **versione della definizione di progetto**, lo stato di **Blocca assegnazione** e i parametri dinamici presenti nella definizione del progetto. Al termine delle modifiche, fare clic su **Assegna**.
+1. Il **Assign blueprint** pagina caricherà precompilato con tutti i valori dall'assegnazione originale. È possibile modificare la **versione della definizione di progetto**, lo stato di **Blocca assegnazione** e i parametri dinamici presenti nella definizione del progetto. Al termine delle modifiche, fare clic su **Assegna**.
 
 1. Nella pagina dei dettagli dell'assegnazione aggiornata, vedere il nuovo stato. In questo esempio, è stato aggiunto il parametro **Blocco** all'assegnazione.
 
    ![Assegnazione aggiornata - bloccata](../media/update-existing-assignments/updated-assignment.png)
 
-1. Vedere i dettagli delle altre operazioni di assegnazione usando l'elenco a discesa **Operazione di assegnazione**. La tabella **Risorse gestite** viene aggiornata in base all'operazione di assegnazione selezionata.
+1. Esplorare i dettagli sulle altre **gli operatori di assegnazione** usando l'elenco a discesa. La tabella di **le risorse gestite** aggiornamenti dall'operazione di assegnazione selezionato.
 
    ![Operazioni di assegnazione](../media/update-existing-assignments/assignment-operations.png)
 
@@ -69,8 +69,8 @@ Non è previsto alcun limite al numero di volte che è possibile aggiornare un'a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sul [ciclo di vita del progetto](../concepts/lifecycle.md)
-- Informazioni su come usare [parametri statici e dinamici](../concepts/parameters.md)
-- Imparare a personalizzare l'[ordine in sequenza del progetto](../concepts/sequencing-order.md)
-- Scoprire come usare il [blocco delle risorse del progetto](../concepts/resource-locking.md)
-- Risolvere i problemi durante l'assegnazione di un progetto con la [risoluzione generale dei problemi](../troubleshoot/general.md)
+- Scopri le [ciclo di vita del progetto](../concepts/lifecycle.md).
+- Informazioni su come usare [parametri statici e dinamici](../concepts/parameters.md).
+- Informazioni su come personalizzare il [blueprint ordine sequenziazione](../concepts/sequencing-order.md).
+- Scopri come rendere sfrutta [blueprint blocco delle risorse](../concepts/resource-locking.md).
+- Risolvere i problemi durante l'assegnazione di un progetto con [risoluzione dei problemi generali](../troubleshoot/general.md).

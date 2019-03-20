@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e5949016281b5f8ba5d8770403a146e52d279c73
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
-ms.translationtype: HT
+ms.openlocfilehash: b3c9f2f8671d5a7aa313a9f49e07230a4f9b6220
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079988"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109342"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gestire account RunAs di Automazione di Azure
 
@@ -197,6 +197,12 @@ Questo script di PowerShell include il supporto per le configurazioni seguenti:
         return
     }
 
+    # To use the new Az modules to create your Run As accounts please uncomment the following lines and ensure you comment out the previous two lines to avoid any issues. To learn about about using Az modules in your Automation Account see https://docs.microsoft.com/azure/automation/az-modules
+
+    # Import-Module Az.Automation
+    # Enable-AzureRmAlias 
+
+
     Connect-AzureRmAccount -Environment $EnvironmentName 
     $Subscription = Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
@@ -320,13 +326,13 @@ Questa sezione illustra come eliminare e creare nuovamente un account RunAs o un
 
 3. Nella pagina delle proprietà **Account RunAs** selezionare l'account RunAs o l'account RunAs classico che si vuole eliminare. Nel riquadro **Proprietà** per l'account selezionato fare quindi clic su **Elimina**.
 
- ![Eliminare un account RunAs](media/manage-runas-account/automation-account-delete-runas.png)
+   ![Eliminare un account RunAs](media/manage-runas-account/automation-account-delete-runas.png)
 
 1. Durante l'eliminazione dell'account, è possibile tenere traccia dello stato di avanzamento in **Notifiche** dal menu.
 
 1. Dopo aver eliminato l'account, è possibile crearlo di nuovo nella pagina delle proprietà **Account RunAs** selezionando l'opzione di creazione **Account RunAs di Azure**.
 
- ![Ricreare l'account RunAs di Automazione](media/manage-runas-account/automation-account-create-runas.png)
+   ![Ricreare l'account RunAs di Automazione](media/manage-runas-account/automation-account-create-runas.png)
 
 ## <a name="cert-renewal"></a>Rinnovo del certificato autofirmato
 

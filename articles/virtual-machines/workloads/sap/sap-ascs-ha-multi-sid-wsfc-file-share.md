@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ce4391e8fb2047320c4d84ac18ce0b1f8c8eaad
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: eac9f80e4b57c725de3bc05f55e09d49fb8e2ee5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745019"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004600"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -48,7 +48,7 @@ ms.locfileid: "55745019"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -196,7 +196,7 @@ ms.locfileid: "55745019"
 
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Disponibilità elevata multi-SID dell'istanza ASCS/SCS di SAP con Windows Server Failover Clustering e condivisione file in Azure
 
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 
 È possibile gestire più indirizzi IP virtuali usando un [servizio di bilanciamento del carico interno di Azure][load-balancer-multivip-overview]. 
@@ -347,7 +347,7 @@ Creare il secondo **Volume2**. Eseguire questo script di PowerShell:
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
 
-![Figura 5: Il file server di scalabilità orizzontale multi-SID è lo stesso del nome host SAP GLOBAL 2][sap-ha-guide-figure-8016]
+![Figura 5: Secondo Volume2 in Gestione Cluster di Failover][sap-ha-guide-figure-8016]
 
 _**Figura 5:** Secondo Volume2 in Gestione cluster di failover_
 
@@ -403,26 +403,31 @@ Fare clic con il pulsante destro del mouse sul gruppo di cluster di file server 
 _**Figura 6:** Avviare la procedura guidata "Aggiungi condivisione file"_
 
 <br>
-![Figura 7: "Selezionare Condivisione SMB - rapida"][sap-ha-guide-figure-8018]
+
+![Figura 7: "Scegliere condivisione SMB-rapida"][sap-ha-guide-figure-8018]
 
 _**Figura 7:** Selezionare "Condivisione SMB - rapida"_
 
 <br>
-![Figura 8: Selezionare "sapglobalhost2" e specificare il percorso in Volume2][sap-ha-guide-figure-8019]
+
+![Figura 8: Selezionare "sapglobalhost2" e specificare un percorso su Volume2][sap-ha-guide-figure-8019]
 
 _**Figura 8:** Selezionare "sapglobalhost2" e specificare il percorso in Volume2_
 
 <br>
-![Figura 9: Impostare il nome della condivisione file su "sapmnt"][sap-ha-guide-figure-8020]
+
+![Figura 9: Impostare il nome di condivisione di file su "sapmnt"][sap-ha-guide-figure-8020]
 
 _**Figura 9:** Impostare il nome della condivisione file su "sapmnt"_
 
 <br>
+
 ![Figura 10: Disabilitare tutte le impostazioni][sap-ha-guide-figure-8021]
 
 _**Figura 10:** Disabilitare tutte le impostazioni_
 
 <br>
+
 Assegnare le autorizzazioni *Controllo completo* sui file e sulla condivisione sapmnt per:
 * Il gruppo utenti del dominio **SAP_\<SID>_GlobalAdmin**
 * L'oggetto computer dei nodi cluster ASCS/SCS **ascs-1$** e **ascs-2$**
@@ -432,16 +437,19 @@ Assegnare le autorizzazioni *Controllo completo* sui file e sulla condivisione s
 _**Figura 11:** Assegnare il "Controllo completo" agli account di computer e di gruppo utenti_
 
 <br>
-![Figura 12: Selezionare "Crea"][sap-ha-guide-figure-8023]
+
+![Figura 12: Scegliere "Crea"][sap-ha-guide-figure-8023]
 
 _**Figura 12:** Selezionare "Crea"_
 
 <br>
-![Figura 13: Viene creato il secondo sapmnt collegato all'host sapglobal2 e a Volume2][sap-ha-guide-figure-8024]
+
+![Figura 13: Il secondo sapmnt associato all'host sapglobal2 e Volume2 viene creato][sap-ha-guide-figure-8024]
 
 _**Figura 13:** Viene creato il secondo sapmnt collegato all'host sapglobal2 e a Volume2_
 
 <br>
+
 ## <a name="install-sap-netweaver-multi-sid"></a>Installare multi-SID di SAP NetWeaver
 
 ### <a name="install-sap-sid2-ascsscs-and-ers-instances"></a>Installare le istanze \<SID2> ASCS/SCS di SAP e ERS

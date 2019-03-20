@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db8438bfa567c207e543ed716a2940bce991cc19
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 78b069e6534d8394de1f9a9fcdf51b871441c386
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196043"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838035"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Esercitazione: Integrazione di Azure Active Directory con Questetra BPM Suite
 
@@ -210,9 +210,9 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in Questetra
    
     ![Creare un utente test][300] 
    
-    a. Nella casella di testo **Name** (Nome) digitare il **nome** dell'utente **britta.simon@contoso.com**.
+    a. Nel **Name** nella casella di testo, digitare **nome** dell'utente **britta.simon\@contoso.com**.
    
-    b. Nella casella di testo **Email** (Indirizzo di posta elettronica) digitare l'**indirizzo di posta elettronica** dell'utente **britta.simon@contoso.com**
+    b. Nel **messaggio di posta elettronica** nella casella di testo, digitare **indirizzo di posta elettronica** dell'utente **britta.simon\@contoso.com**
    
     c. Nella casella di testo **Password** digitare una **password** per l'utente.
     

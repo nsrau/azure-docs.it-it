@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/27/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 0832fbcacd8b58ffaf36ce2e55e3add151a881db
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b94e4c6f178119d6205c302cf35a9effaf2aa885
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470196"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57870931"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Usare Funzioni di Azure per gestire le risorse di calcolo in Azure SQL Data Warehouse
 
@@ -57,14 +57,14 @@ Al termine della distribuzione del modello, dovrebbero essere presenti tre nuove
 
 4. Nell'area relativa alla pianificazione aggiungere l'espressione CRON di data e ora desiderata per riflettere la frequenza con cui si vogliono aumentare le prestazioni di SQL Data Warehouse. 
 
-  ![Modificare la pianificazione della funzione](media/manage-compute-with-azure-functions/change-schedule.png)
+   ![Modificare la pianificazione della funzione](media/manage-compute-with-azure-functions/change-schedule.png)
 
-  Il valore di `schedule` è un'[espressione CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) che include i 6 campi seguenti: 
-  ```json
-  {second} {minute} {hour} {day} {month} {day-of-week}
-  ```
+   Il valore di `schedule` è un'[espressione CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression) che include i 6 campi seguenti: 
+   ```json
+   {second} {minute} {hour} {day} {month} {day-of-week}
+   ```
 
-  Ad esempio, *"0 30 9 * * 1-5"* corrisponde a un trigger alle 9.30 di ogni giorno feriale. Per altre informazioni, vedere gli [esempi di pianificazione][schedule examples] di Funzioni di Azure.
+   Ad esempio, *"0 30 9 * * 1-5"* corrisponde a un trigger alle 9.30 di ogni giorno feriale. Per altre informazioni, vedere gli [esempi di pianificazione][schedule examples] di Funzioni di Azure.
 
 
 ## <a name="change-the-time-of-the-scale-operation"></a>Modificare la data e l'ora dell'operazione di ridimensionamento

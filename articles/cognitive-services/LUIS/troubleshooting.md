@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: diberry
-ms.openlocfilehash: 71fb289f03467147acb2ef254ab87a2c753bc75c
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: b9304e151bbce691b752f12aeec8a5376e517a8d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416548"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120772"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Risposte alle domande frequenti per Language Understanding (LUIS)
 
@@ -102,10 +102,12 @@ Se non sono presenti occorrenze sull'endpoint aggiornato nel dashboard, accedere
 
 ### <a name="is-there-a-powershell-command-get-to-the-endpoint-quota"></a>È disponibile un comando di PowerShell per ottenere la quota di endpoint?
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 È possibile usare un comando di PowerShell per visualizzare la quota di endpoint:
 
 ```powershell
-Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
+Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
 ``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>Ieri l'app LUIS funzionava, mentre oggi si ricevono errori 403. L'app non è stata modificata. Risoluzione
@@ -145,7 +147,7 @@ Vedere l'esercitazione sul [test in batch](luis-tutorial-batch-testing.md).
 
 ### <a name="when-an-app-is-exported-then-reimported-into-a-new-app-with-a-new-app-id-the-luis-prediction-scores-are-different-why-does-this-happen"></a>Quando un'app viene esportata e reimportata in una nuova app (con un nuovo ID), i punteggi di stima di LUIS cambiano. Perché si verifica questa situazione?
 
-Vedere [Differenze di stima tra copie della stessa app](luis-concept-prediction-score.md#differences-with-predictions).
+Vedere [Differenze di stima tra copie della stessa app](luis-concept-prediction-score.md#review-intents-with-similar-scores).
 
 ### <a name="some-utterances-go-to-the-wrong-intent-after-i-made-changes-to-my-app-the-issue-seems-to-disappear-at-random-how-do-i-fix-it"></a>Alcune espressioni ottengono la finalità errata dopo aver apportato modifiche all'applicazione. Il problema sembra scomparire in modo casuale. Risoluzione 
 

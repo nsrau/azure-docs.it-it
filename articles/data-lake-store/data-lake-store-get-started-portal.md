@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 91c069f845ef6291f867099e59e79fd059d8caf1
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: a99d8a265cdc72b6bd1dd45ab670f514d828f808
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320226"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005694"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Iniziare a usare Azure Data Lake Storage Gen1 tramite il portale di Azure
 
@@ -76,9 +76,9 @@ Se sono state usate le chiavi di un'istanza di Azure Key Vault per configurare l
 
 > [!NOTE]
 > È anche possibile creare un account Data Lake Storage Gen1 usando modelli di Azure Resource Manager. Tali modelli sono accessibili dalla pagina [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?term=data+lake+store).
-    - Senza crittografia dati: [Deploy Azure Data Lake Storage Gen1 account with no data encryption](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/) (Distribuire un account Azure Data Lake Storage Gen1 senza crittografia dati).
-    - Con crittografia dati tramite Data Lake Storage Gen1: [Deploy Data Lake Storage Gen1 account with data encryption (Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/) (Distribuire un account Data Lake Storage Gen1 con crittografia dati).
-    - Con crittografia dati tramite Azure Key Vault: [Deploy Data Lake Storage Gen1 account with data encryption (Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/) (Distribuire un account Data Lake Storage Gen1 con crittografia dati).
+> - Senza crittografia dati: [Deploy Azure Data Lake Storage Gen1 account with no data encryption](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/) (Distribuire un account Azure Data Lake Storage Gen1 senza crittografia dati).
+> - Con crittografia dati tramite Data Lake Storage Gen1: [Deploy Data Lake Storage Gen1 account with data encryption (Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/) (Distribuire un account Data Lake Storage Gen1 con crittografia dati).
+> - Con crittografia dati tramite Azure Key Vault: [Deploy Data Lake Storage Gen1 account with data encryption (Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/) (Distribuire un account Data Lake Storage Gen1 con crittografia dati).
 > 
 > 
 

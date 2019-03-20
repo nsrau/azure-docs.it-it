@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 602b4303dd1940791c11b8b71ac6a27f0474a6d5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
-ms.translationtype: HT
+ms.openlocfilehash: 3163b33f69f4cc2d6cd4127253c7b6fadfddd6b0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29733680"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994240"
 ---
 # <a name="azure-cdn-rules-engine-reference"></a>Informazioni di riferimento sul motore regole della rete CDN di Azure
 Questo articolo fornisce descrizioni dettagliate delle funzionalità e dalle condizioni di corrispondenza disponibili per il [motore regole](cdn-rules-engine.md) della rete per la distribuzione di contenuti (rete CDN) di Azure.
@@ -58,7 +58,7 @@ Character | DESCRIZIONE
 ----------|------------
 \ | Una barra rovesciata viene utilizzata per eseguire l'escape di ogni carattere specificato in questa tabella. Una barra rovesciata deve essere specificata direttamente prima del carattere speciale che deve essere sottoposto a escape.<br/>La sintassi seguente, ad esempio, ignora un asterisco: `\*`
 % | Per indicare la codifica URL viene usato un simbolo di percentuale (ad esempio, `%20`).
-* | L'asterisco è un carattere jolly che rappresenta uno o più caratteri.
+\* | L'asterisco è un carattere jolly che rappresenta uno o più caratteri.
 Spazio | Un carattere di spazio indica che una condizione di corrispondenza può essere soddisfatta da uno dei valori o modelli specificati.
 "value" | Una virgoletta singola non ha un significato speciale. Tuttavia, un set di virgolette singole viene utilizzato per indicare che un valore deve essere considerato come valore letterale. Può essere usato nei modi seguenti:<br><br/>- Consente una condizione di corrispondenza da soddisfare ogni volta che il valore specificato corrisponde a una parte qualsiasi del valore di confronto.  Ad esempio, `'ma'` corrisponde a una qualsiasi delle seguenti stringhe: <br/><br/>/business/**ma**rathon/asset.htm<br/>**ma**p.gif<br/>/business/template.**ma**p<br /><br />- Consente a un carattere speciale di essere specificato come carattere letterale. Ad esempio, è possibile specificare un carattere spazio letterale racchiudendo uno spazio all'interno di un set di virgolette singole (ad esempio, `' '` o `'sample value'`).<br/>- Consente di specificare un valore vuoto. Specificare un valore vuoto indicando un set di virgolette singole (ovvero '').<br /><br/>**Importante:**<br/>-Se il valore specificato non contiene un carattere jolly, viene automaticamente considerato un valore letterale. Questo significa che non è necessario specificare un set di virgolette singole.<br/>- Se una barra rovesciata non effettua l'escape di un altro carattere in questa tabella, questo viene ignorato se specificato all'interno di un set di virgolette singole.<br/>- Un altro modo per specificare un carattere speciale come un carattere letterale è quello di effettuare l'escape con una barra rovesciata (ovvero `\`).
 
@@ -69,8 +69,8 @@ Le espressioni regolari definiscono un modello che viene cercato all'interno di 
 Carattere speciale | DESCRIZIONE
 ------------------|------------
 \ | Una barra rovesciata esegue l'escape del carattere che la segue. In questo modo il carattere viene trattato come un valore letterale anziché assumere il significato di espressione regolare. La sintassi seguente, ad esempio, ignora un asterisco: `\*`
-% | Il significato di un simbolo di percentuale dipende dal relativo utilizzo.<br/><br/> `%{HTTPVariable}`: questa sintassi identifica una variabile HTTP.<br/>`%{HTTPVariable%Pattern}`: questa sintassi usa un simbolo di percentuale per identificare una variabile HTTP e come delimitatore.<br />`\%`: l'escape di un simbolo di percentuale consente di usare tale simbolo come valore letterale o per indicare la codifica URL (ad esempio, `\%20`).
-* | Un asterisco consente al carattere precedente di essere messo in corrispondenza zero o più volte. 
+% | Il significato di un simbolo di percentuale dipende dal relativo utilizzo.<br/><br/> `%{HTTPVariable}`: Questa sintassi identifica una variabile HTTP.<br/>`%{HTTPVariable%Pattern}`: Questa sintassi Usa un simbolo di percentuale per identificare una variabile HTTP e come delimitatore.<br />`\%`: Eseguire l'escape di un simbolo di percentuale consente tale da utilizzare come valore letterale o per indicare la codifica URL (ad esempio, `\%20`).
+\* | Un asterisco consente al carattere precedente di essere messo in corrispondenza zero o più volte. 
 Spazio | Un carattere di spazio in genere è considerato come un carattere letterale. 
 "value" | Le virgolette singole vengono trattate come caratteri letterali. Un set di virgolette singole non ha un significato speciale.
 

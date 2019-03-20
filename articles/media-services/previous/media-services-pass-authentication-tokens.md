@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: dwgeo
-ms.openlocfilehash: b4bcc1bbed732e09f4c4d915342a422ce6c36901
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 6fc13010d5dd888f28b5634b1f70aaa3326e54cf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002072"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837508"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Informazioni sul passaggio dei token al servizio di distribuzione delle chiavi di Servizi multimediali di Azure da parte dei client
 I clienti chiedono spesso informazioni su come passare i token da un lettore al servizio di distribuzione delle chiavi di Servizi multimediali di Azure per la verifica, in modo che il lettore possa ottenere la chiave. Servizi multimediali supporta i formati SWT (Simple Web Token, token Web semplice) e JWT (JSON Web Token, token JSON Web). L'autenticazione di token può essere applicata a qualsiasi tipo di chiave, indipendentemente dal fatto che si esegua la crittografia comune o la crittografia envelope AES (Advanced Encryption Standard).
@@ -29,7 +29,7 @@ I clienti chiedono spesso informazioni su come passare i token da un lettore al 
 
 - Tramite l'intestazione dell'autorizzazione HTTP.
     > [!NOTE]
-    > Per le specifiche di OAuth 2.0 è previsto il prefisso "Bearer". Un lettore di esempio con la configurazione del token è ospitato nella [pagina di prova](http://ampdemo.azureedge.net/) di Azure Media Player. Scegliere **AES (token JWT)** o **AES (token SWT)** per impostare l'origine video. Il token viene passato tramite l'intestazione dell'autorizzazione.
+    > Per le specifiche di OAuth 2.0 è previsto il prefisso "Bearer". Un lettore di esempio con la configurazione del token è ospitato nella [pagina di prova](https://ampdemo.azureedge.net/) di Azure Media Player. Scegliere **AES (token JWT)** o **AES (token SWT)** per impostare l'origine video. Il token viene passato tramite l'intestazione dell'autorizzazione.
 
 - Tramite l'aggiunta di un parametro query URL con "token = tokenvalue".  
     > [!NOTE]

@@ -10,16 +10,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 23b627d480acf7bbbff7ade2ba6e596a57a15327
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 85113a5007a171459b831684f584773ba4328b94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993350"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079947"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>Creare un gateway applicazione con l'hosting di più siti usando il portale di Azure
 
-È possibile usare il portale di Azure per configurare l'[hosting di più siti Web](application-gateway-multi-site-overview.md) quando si crea un [gateway applicazione](application-gateway-introduction.md). In questa esercitazione si creano pool back-end usando set di scalabilità di macchine virtuali, e quindi si configurano i listener e le regole in base ai domini di cui si è proprietari per assicurarsi che il traffico Web raggiunga i server appropriati nei pool. Questa esercitazione presuppone che l'utente sia proprietario di più domini e che usi gli esempi di *www.contoso.com* e *www.fabrikam.com*.
+È possibile usare il portale di Azure per configurare l'[hosting di più siti Web](application-gateway-multi-site-overview.md) quando si crea un [gateway applicazione](application-gateway-introduction.md). In questa esercitazione si creano pool back-end usando set di scalabilità di macchine virtuali, e quindi si configurano i listener e le regole in base ai domini di cui si è proprietari per assicurarsi che il traffico Web raggiunga i server appropriati nei pool. Questa esercitazione si presuppone che si è proprietari di più domini e usi gli esempi del *www\.contoso.com* e *www\.fabrikam.com*.
 
 In questo articolo viene spiegato come:
 
@@ -46,20 +46,20 @@ Per le comunicazioni tra le risorse create è necessaria una rete virtuale. In q
 2. Selezionare **Rete** e quindi **Gateway applicazione** nell'elenco In primo piano.
 3. Immettere i valori seguenti per il gateway applicazione:
 
-    - *myAppGateway* come nome del gateway applicazione.
-    - *myResourceGroupAG* come nuovo gruppo di risorse.
+   - *myAppGateway* come nome del gateway applicazione.
+   - *myResourceGroupAG* come nuovo gruppo di risorse.
 
-    ![Creare il nuovo gateway applicazione](./media/application-gateway-create-multisite-portal/application-gateway-create.png)
+     ![Creare il nuovo gateway applicazione](./media/application-gateway-create-multisite-portal/application-gateway-create.png)
 
 4. Accettare i valori predefiniti per le altre impostazioni e quindi fare clic su **OK**.
 5. Fare clic su **Scegliere una rete virtuale**, **Crea nuova** e quindi immettere i valori seguenti per la rete virtuale:
 
-    - *myVNet* come nome della rete virtuale.
-    - *10.0.0.0/16* come spazio indirizzi della rete virtuale.
-    - *myAGSubnet* come nome della subnet.
-    - *10.0.0.0/24* come spazio indirizzi della subnet.
+   - *myVNet* come nome della rete virtuale.
+   - *10.0.0.0/16* come spazio indirizzi della rete virtuale.
+   - *myAGSubnet* come nome della subnet.
+   - *10.0.0.0/24* come spazio indirizzi della subnet.
 
-    ![Creare una rete virtuale](./media/application-gateway-create-multisite-portal/application-gateway-vnet.png)
+     ![Creare una rete virtuale](./media/application-gateway-create-multisite-portal/application-gateway-vnet.png)
 
 6. Fare clic su **OK** per creare la rete virtuale e la subnet.
 7. Fare clic su **Scegliere un indirizzo IP pubblico**, **Crea nuovo** e quindi immettere il nome dell'indirizzo IP pubblico. In questo esempio il nome dell'indirizzo IP pubblico è *myAGPublicIPAddress*. Accettare i valori predefiniti per le altre impostazioni e quindi fare clic su **OK**.
@@ -96,6 +96,8 @@ In questo esempio vengono create due macchine virtuali da usare come server back
 
 ### <a name="install-iis"></a>Installare IIS
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. Aprire la shell interattiva e assicurarsi che sia impostata su **PowerShell**.
 
     ![Installare l'estensione personalizzata](./media/application-gateway-create-multisite-portal/application-gateway-extension.png)
@@ -104,7 +106,7 @@ In questo esempio vengono create due macchine virtuali da usare come server back
 
     ```azurepowershell-interactive
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
       -ExtensionName IIS `
@@ -115,7 +117,7 @@ In questo esempio vengono create due macchine virtuali da usare come server back
       -Settings $publicSettings
     ```
 
-3. Creare la seconda macchina virtuale e installare IIS seguendo la procedura appena completata. Immettere *fabrikamVM* come nome e valore di VMName in Set-AzureRmVMExtension.
+3. Creare la seconda macchina virtuale e installare IIS seguendo la procedura appena completata. Immettere i nomi dei *fabrikamVM* per il nome e per il valore di VMName in Set-AzVMExtension.
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Creare pool back-end con le macchine virtuali
 
@@ -134,11 +136,11 @@ In questo esempio vengono create due macchine virtuali da usare come server back
 1. Fare clic su **Listener** e quindi su **Multisito**.
 2. Immettere i valori seguenti per il listener:
     
-    - *contosoListener*: per il nome del listener.
-    - *www.contoso.com*: sostituire questo esempio di nome host con il proprio nome di dominio.
+   - *contosoListener*: per il nome del listener.
+   - *www\.contoso.com* -sostituire questo esempio di nome host con il nome di dominio.
 
 3. Fare clic su **OK**.
-4. Creare un secondo listener usando il nome *fabrikamListener* e usare il secondo nome di dominio. In questo esempio viene usato *www.fabrikam.com*.
+4. Creare un secondo listener usando il nome *fabrikamListener* e usare il secondo nome di dominio. In questo esempio *www\.fabrikam.com* viene usato.
 
 Le regole vengono elaborate nell'ordine in cui sono elencate e il traffico viene indirizzato usando la prima regola corrispondente indipendentemente dalla specificità. Se ad esempio si dispone di due regole, una che usa un listener di base e una che usa un listener multisito, entrambe sulla stessa porta, la regola con il listener multisito deve essere elencata prima della regola con il listener di base per funzionare come previsto. 
 
@@ -167,7 +169,7 @@ Dopo aver creato il gateway applicazione con l'indirizzo IP pubblico, è possibi
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-1. Immettere il nome di dominio nella barra degli indirizzi del browser. Ad esempio, http://www.contoso.com.
+1. Immettere il nome di dominio nella barra degli indirizzi del browser. Ad esempio, http://www.contoso.com .
 
     ![Testare il sito contoso nel gateway applicazione](./media/application-gateway-create-multisite-portal/application-gateway-iistest.png)
 

@@ -4,20 +4,20 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: eb1fe7f83ed83efe078be0aadf26cc7db6f498e2
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: acf5a7e8d7feebaac3d82629c5b561a22112de0f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52886344"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553594"
 ---
 | Risorsa | Limite predefinito | Limite massimo |
 | --- | --- | --- |
-| [Ruoli di lavoro/Web per distribuzione](../articles/cloud-services/cloud-services-choose-me.md)<sup>1</sup> |25 |25 |
-| [Endpoint di input istanza](https://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint) per distribuzione |25 |25 |
-| [Endpoint di input](https://msdn.microsoft.com/library/gg557552.aspx#InputEndpoint) per distribuzione |25 |25 |
-| [Endpoint interni](https://msdn.microsoft.com/library/gg557552.aspx#InternalEndpoint) per distribuzione |25 |25 |
+| [Ruoli Web o di lavoro per la distribuzione](../articles/cloud-services/cloud-services-choose-me.md)<sup>1</sup> |25 |25 |
+| [Endpoint di input istanza](https://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint) per ogni distribuzione |25 |25 |
+| [Endpoint di input](https://msdn.microsoft.com/library/gg557552.aspx#InputEndpoint) per ogni distribuzione |25 |25 |
+| [Gli endpoint interni](https://msdn.microsoft.com/library/gg557552.aspx#InternalEndpoint) per ogni distribuzione |25 |25 |
 | [Certificati di servizi ospitati](../articles/cloud-services/cloud-services-certs-create.md#what-are-service-certificates) per distribuzione |199 |199 |
 
-<sup>1</sup>Per ogni servizio cloud con ruoli di lavoro/Web possono esistere due distribuzioni, una per la produzione e l'altra per la gestione temporanea. Si noti, inoltre, che questo limite si riferisce al numero di ruoli distinti (configurazione) e non al numero di istanze per ruolo (scalabilità).
+<sup>1</sup>ogni servizio Cloud di Azure con ruoli web o di lavoro può avere due distribuzioni, uno per la produzione e uno per la gestione temporanea. Questo limite si riferisce al numero di ruoli distinti, ovvero configurazione. Questo limite non fa riferimento al numero di istanze per ruolo, vale a dire, la scalabilità.
 

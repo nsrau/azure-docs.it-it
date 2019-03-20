@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: artek
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: f1f4cb036f4df226d651f8f4d0f5c7492f453a0a
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: c77981574ff2e507af7012f26f742dda62d952fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269741"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57991955"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Uso dell'interfaccia della riga di comando di Hadoop Distributed File System con Anteprima di Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 consente di gestire i dati e accedervi esattamente come si farebbe con [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Se si dispone di un cluster HDInsight collegato o si esegue un processo di Apache Spark tramite Azure Databricks per eseguire l'analisi dei dati archiviati in un account di Archiviazione di Azure è possibile usare l'interfaccia della riga di comando (CLI) per recuperare e modificare i dati caricati.
+Azure Data Lake Storage Gen2 consente di gestire i dati e accedervi esattamente come si farebbe con [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Se si dispone di un cluster HDInsight collegato o si esegue un processo di Apache Spark tramite Azure Databricks per eseguire l'analisi dei dati archiviati in un account di Archiviazione di Azure è possibile usare l'interfaccia della riga di comando (CLI) per recuperare e modificare i dati caricati.
 
 ## <a name="hdfs-cli-with-hdinsight"></a>Interfaccia della riga di comando di Hadoop Distributed File System con HDInsight
 
@@ -77,10 +77,6 @@ Per altre informazioni sull'interfaccia della riga di comando di Hadoop Distribu
 ## <a name="hdfs-cli-with-azure-databricks"></a>Interfaccia della riga di comando di Hadoop Distributed File System con Azure Databricks
 
 Databricks fornisce un'interfaccia della riga di comando di semplice utilizzo che integra l'API REST Databricks. Il progetto open source è ospitato in [GitHub](https://github.com/databricks/databricks-cli). Di seguito sono riportati i comandi di uso comune.
-
-### <a name="create-a-file-system"></a>Creare un file system
-
-Inserire qui le istruzioni.
 
 ### <a name="get-a-list-of-files-or-directories"></a>Ottenere un elenco di file o directory
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d8cb0829698b13e2193850c29f98492df6c48d4f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 688ef059387dc4c312873051c7c9d1eae259b1ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468513"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844784"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Spostare dati da o verso un archivio BLOB di Azure con connettori SSIS
 [SQL Server Integration Services Feature Pack for Azure](https://msdn.microsoft.com/library/mt146770.aspx) fornisce componenti per la connessione ad Azure, il trasferimento di dati tra Azure e origini dati locali e l'elaborazione di dati archiviati in Azure.
@@ -55,7 +55,7 @@ Per materiale di formazione su SSIS, vedere [Risorse pratiche per la formazione 
 Per informazioni su come iniziare subito a usare SSIS per creare semplici pacchetti di estrazione, trasformazione e caricamento (ETL), vedere [Esercitazione SSIS: Creazione di un pacchetto ETL semplice](https://msdn.microsoft.com/library/ms169917.aspx).
 
 ## <a name="download-nyc-taxi-dataset"></a>Scaricare il set di dati NYC Taxi
-Questo esempio usa un set di dati disponibile pubblicamente, ovvero il set di dati [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) . Il set di dati è costituito da circa 173 milioni di corse su taxi a NYC nell'anno 2013. Sono disponibili due tipi di dati: i dettagli sul tragitto e i dettagli sul costo del tragitto. Poiché è disponibile un file per ogni mese, sono presenti 24 file in tutto, ognuno dei quali ha dimensioni pari a circa 2 GB, senza compressione.
+Questo esempio usa un set di dati disponibile pubblicamente, ovvero il set di dati [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) . Il set di dati è costituito da circa 173 milioni di corse su taxi a NYC nell'anno 2013. Sono disponibili due tipi di dati: i dettagli sul tragitto e i dettagli sul costo del tragitto. Poiché è disponibile un file per ogni mese, sono presenti 24 file in tutto, ognuno dei quali ha dimensioni pari a circa 2 GB, senza compressione.
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Caricare dati nell'archivio BLOB di Azure
 Per spostare i dati usando il Feature Pack di SSIS da una posizione locale a un archivio BLOB di Azure, usare un'istanza dell' [**Azure Blob Upload Task**](https://msdn.microsoft.com/library/mt146776.aspx), illustrata qui:

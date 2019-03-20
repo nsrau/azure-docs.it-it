@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: e1013047bb66581e7f9d26854f2cd91655c8bd93
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: a249cf96981957de2c445079c0172b9c0c2ce543
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810083"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111889"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Usare la Console seriale per accedere a GRUB e alla modalità utente singolo
 GRUB è l'acronimo di GRand Unified Bootloader. Da GRUB è possibile, tra le altre cose, modificare la configurazione di avvio per eseguire l'avvio in modalità utente singolo.
@@ -172,7 +172,7 @@ Si passerà automaticamente alla shell di emergenza se non è possibile avviare 
 1. Cercare la riga del kernel che verrà avviata con `linux`
 1. Aggiungere `systemd.unit=emergency.target` alla fine della riga
 1. Premere Ctrl + X per riavviare il sistema con queste impostazioni e accedere alla shell di emergenza
-> Si passerà alla shell di emergenza con file system di _sola lettura_. Se si vuole apportare le modifiche ai file, è necessario rimontare il file system con autorizzazioni di lettura/scrittura. A tale scopo, immettere `mount -o remount,rw /` nella shell
+   > Si passerà alla shell di emergenza con file system di _sola lettura_. Se si vuole apportare le modifiche ai file, è necessario rimontare il file system con autorizzazioni di lettura/scrittura. A tale scopo, immettere `mount -o remount,rw /` nella shell
 
 ## <a name="access-for-oracle-linux"></a>Accesso per Oracle Linux
 Red Hat Enterprise Linux, modalità utente singolo in Oracle Linux richiede GRUB e l'utente root deve essere abilitato. 

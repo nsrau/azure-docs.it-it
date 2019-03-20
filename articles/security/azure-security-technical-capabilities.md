@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: e7f8eef2c3422084846462e2f6159a8b8be7167f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 76944d98d6a5fe7c3f83ce12bb2fdf1a34d5e234
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301826"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839101"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funzionalità tecniche per la sicurezza di Azure
 
@@ -75,7 +75,7 @@ I vantaggi della sicurezza di Azure Active Directory (AD) includono la possibili
 
 - Consentire l'accesso remoto sicuro ad applicazioni Web locali con il proxy di applicazione di Azure AD.
 
-Il [portale di Azure Active Directory](http://aad.portal.azure.com/) è disponibile come parte del portale di Azure. Da questo dashboard è possibile ottenere una panoramica dello stato dell'organizzazione e passare facilmente alla gestione della directory, degli utenti o dell'accesso alle applicazioni.
+Il [portale di Azure Active Directory](https://aad.portal.azure.com/) è disponibile come parte del portale di Azure. Da questo dashboard è possibile ottenere una panoramica dello stato dell'organizzazione e passare facilmente alla gestione della directory, degli utenti o dell'accesso alle applicazioni.
 
 ![Azure Active Directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
@@ -113,7 +113,7 @@ Non solo gli utenti non devono più gestire diversi set di nomi utente e passwor
 
 Monitoraggio della sicurezza, avvisi e report basati su Machine Learning che identificano i modelli di accesso non coerenti per contribuire alla protezione dell'azienda. È possibile usare i report di utilizzo e accesso di Azure Active Directory per ottenere informazioni sull'integrità e sicurezza della directory dell'organizzazione. Con queste informazioni un amministratore di directory può stabilire meglio dove potrebbero esserci possibili rischi per la sicurezza in modo da poterne pianificare adeguatamente la riduzione.
 
-Nel portale di Azure o nel [portale di Azure Active Directory](http://aad.portal.azure.com/) i [report](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) sono classificati come descritto di seguito:
+Nel portale di Azure o nel [portale di Azure Active Directory](https://aad.portal.azure.com/) i [report](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) sono classificati come descritto di seguito:
 
 - Report anomalie: contengono eventi di accesso considerati anomali. L'obiettivo è rendere gli utenti consapevoli di tali attività e consentire loro di stabilire se un evento è sospetto.
 
@@ -169,7 +169,7 @@ Le sottoscrizioni dispongono anche di un'associazione a una directory. Una direc
 
 Le aziende orientate sulla sicurezza devono concedere ai propri dipendenti la quantità esatta di autorizzazioni di cui necessitano. un numero eccessivo di autorizzazioni può esporre un account agli attacchi. Un numero di autorizzazioni insufficiente impedisce ai dipendenti di svolgere il proprio lavoro in modo efficiente. Il [controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) consente di risolvere questo problema offrendo una gestione specifica degli accessi per Azure.
 
-![Accesso protetto alle risorse ](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
+![Accesso protetto alle risorse](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
 Usando il Controllo degli accessi in base al ruolo, è possibile separare i compiti all'interno del team e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il proprio lavoro. Invece di concedere a tutti autorizzazioni senza restrizioni per la sottoscrizione o le risorse di Azure, è possibile consentire solo determinate azioni. Ad esempio, usare il Controllo degli accessi in base al ruolo per consentire a un dipendente di gestire le macchine virtuali in una sottoscrizione, mentre un altro utente può gestire i database SQL della stessa sottoscrizione.
 
@@ -192,7 +192,7 @@ Per crittografare i dati, supportare almeno uno dei modelli di crittografia cons
 | Modelli di crittografia |  |  |  |
 | ----------------  | ----------------- | ----------------- | --------------- |
 | Crittografia server | Crittografia server | Crittografia server | Crittografia client
-| Crittografia lato server con chiavi gestite dal servizio | Crittografia lato server con chiavi gestite dal cliente in Azure Key Vault | Crittografia lato server con chiavi gestite dal cliente in locale |
+| Crittografia lato server con chiavi gestite dal servizio | Crittografia lato server con chiavi gestite dal cliente in Azure Key Vault | Crittografia lato server con su customer premises chiavi gestite |
 | • I provider di risorse di Azure eseguono le operazioni di crittografia e decrittografia <br> •    Microsoft gestisce le chiavi <br>•    Funzionalità cloud complete | •    I provider di risorse di Azure eseguono le operazioni di crittografia e decrittografia<br>•  Il cliente controlla le chiavi tramite Azure Key Vault<br>• Funzionalità cloud complete | •    I provider di risorse di Azure eseguono le operazioni di crittografia e decrittografia <br>• Il cliente controlla le chiavi in locale <br> •   Funzionalità cloud complete| • I servizi di Azure non possono visualizzare i dati decrittografati <br>•  I clienti mantengono le chiavi in locale o in altri archivi sicuri. Le chiavi non sono disponibili per i servizi di Azure <br>• Funzionalità cloud ridotte|
 
 ### <a name="enabling-encryption-at-rest"></a>Abilitazione della crittografia dei dati inattivi
@@ -274,7 +274,7 @@ Per altre informazioni sull'opzione VPN di Azure, vedere l'articolo [Pianificazi
 
 [Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) usa criteri di crittografia, identità e autorizzazione per proteggere i file e la posta elettronica. Azure RMS opera su più dispositivi, tra cui telefoni, tablet e PC, applicando una protezione all'interno e all'esterno dell'organizzazione. Questa funzionalità è resa possibile dal fatto che Azure RMS aggiunge un livello di protezione che rimane insieme ai dati, anche quando fuoriescono dai confini dell'organizzazione.
 
-Quando si usa Azure RMS per proteggere i file, viene sfruttata una crittografia standard di settore con pieno supporto di [FIPS 140-2](http://csrc.nist.gov/groups/STM/cmvp/standards.html). Quando si usa Azure RMS per proteggere i dati, la protezione rimane associata al file anche se questo viene copiato in una risorsa di archiviazione che non è sotto il controllo dell'IT, ad esempio un servizio di archiviazione cloud. Lo stesso accade per i file condivisi tramite posta elettronica: il file viene protetto come allegato di un messaggio di posta elettronica, con istruzioni su come aprire l'allegato protetto.
+Quando si usa Azure RMS per proteggere i file, viene sfruttata una crittografia standard di settore con pieno supporto di [FIPS 140-2](https://csrc.nist.gov/groups/STM/cmvp/standards.html). Quando si usa Azure RMS per proteggere i dati, la protezione rimane associata al file anche se questo viene copiato in una risorsa di archiviazione che non è sotto il controllo dell'IT, ad esempio un servizio di archiviazione cloud. Lo stesso accade per i file condivisi tramite posta elettronica: il file viene protetto come allegato di un messaggio di posta elettronica, con istruzioni su come aprire l'allegato protetto.
 Quando si pianifica l'adozione di Azure RMS, si consiglia quanto segue:
 
 - Installare l'[app RMS sharing](https://technet.microsoft.com/library/dn339006.aspx). Questa app si integra con le applicazioni Office installando un componente aggiuntivo di Office che offre agli utenti un modo semplice per proteggere direttamente i file.
@@ -398,19 +398,19 @@ La [sicurezza operativa di Azure](https://docs.microsoft.com/azure/security/azur
 
 La sicurezza operativa di Azure è basata su un framework che incorpora le conoscenze acquisite tramite varie funzionalità esclusive di Microsoft, tra cui Microsoft Security Development Lifecycle (SDL), il programma Microsoft Security Response Center e una profonda consapevolezza del panorama delle minacce per la sicurezza informatica.
 
-### <a name="microsoft-azure-log-analytics"></a>Log Analytics di Microsoft Azure
+### <a name="microsoft-azure-monitor"></a>Monitoraggio di Microsoft Azure
 
-[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) è la soluzione di gestione IT per il cloud ibrido. Usato autonomamente o come estensione per la distribuzione esistente di System Center, Log Analytics offre la massima flessibilità e il massimo controllo per la gestione basata su cloud dell'infrastruttura.
+[Monitoraggio di Azure](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) è la soluzione di gestione IT per il cloud ibrido. Usato da solo o per estendere la distribuzione di System Center esistente, i log di monitoraggio di Azure offre la massima flessibilità e controllo per la gestione basata su cloud dell'infrastruttura.
 
-![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
+![Monitoraggio di Azure](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
 
-Con Log Analytics è possibile gestire qualsiasi istanza di qualsiasi cloud, inclusi i cloud locali, Azure, AWS, Windows Server, Linux, VMware e OpenStack, a un costo inferiore rispetto alle soluzioni della concorrenza. Log Analytics, realizzato per le realtà orientate principalmente al cloud, offre un nuovo approccio alla gestione dell'azienda, vale a dire il modo più veloce e più economico per affrontare nuove problematiche aziendali e gestire nuovi carichi di lavoro, applicazioni e ambienti cloud.
+Monitoraggio di Azure, è possibile gestire qualsiasi istanza in qualsiasi cloud, incluse in locale, Azure, AWS, Windows Server, Linux, VMware e OpenStack, a un costo inferiore rispetto alle soluzioni della concorrenza. Pensato per tutto il mondo incentrato sul cloud, monitoraggio di Azure offre un nuovo approccio alla gestione dell'azienda che è il modo più veloce e più economico per affrontare nuove problematiche aziendali e gestire nuovi carichi di lavoro, applicazioni e ambienti cloud.
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Log di Monitoraggio di Azure
 
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics) offre servizi di monitoraggio raccogliendo i dati delle risorse gestite in un repository centrale. Questi dati possono includere eventi, dati sulle prestazioni o dati personalizzati forniti tramite l'API. Dopo essere stati raccolti, i dati sono disponibili per generare avvisi, per l'analisi e per l'esportazione.
+[Log di monitoraggio di Azure](https://azure.microsoft.com/documentation/services/log-analytics) fornisce servizi di monitoraggio raccogliendo i dati da risorse gestite in un repository centrale. Questi dati possono includere eventi, dati sulle prestazioni o dati personalizzati forniti tramite l'API. Dopo essere stati raccolti, i dati sono disponibili per generare avvisi, per l'analisi e per l'esportazione.
 
-![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
+![Log di Monitoraggio di Azure](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 
 Questo metodo consente di consolidare i dati di diverse origini per poter combinare i dati dei servizi di Azure con l'ambiente locale esistente. Separa anche nettamente la raccolta dei dati dall'azione eseguita su tali dati in modo che tutte le azioni siano disponibili per tutti i tipi di dati.
 

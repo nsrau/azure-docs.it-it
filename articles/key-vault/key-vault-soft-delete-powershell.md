@@ -1,18 +1,18 @@
 ---
 title: Azure Key Vault - Come usare la funzionalità di eliminazione temporanea con PowerShell
 description: Esempi di casi d'uso della funzionalità di eliminazione temporanea con frammenti di codice di PowerShell
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2018
-ms.author: bryanla
-ms.openlocfilehash: 70437403d3b78b7f8b9eef921c933a68793450da
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.author: mbaldwin
+ms.openlocfilehash: 3da4662885b2b09c6474a1a6ceafd627e71cf236
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113584"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081033"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Come usare l'eliminazione temporanea di Key Vault con PowerShell
 
@@ -177,19 +177,19 @@ Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@conto
 Come le chiavi, i segreti vengono gestiti con comandi specifici:
 
 - Eliminare un segreto denominato SQLPassword: 
-```powershell
-Remove-AzKeyVaultSecret -VaultName ContosoVault -name SQLPassword
-```
+  ```powershell
+  Remove-AzKeyVaultSecret -VaultName ContosoVault -name SQLPassword
+  ```
 
 - Elencare tutti i segreti eliminati in un insieme di credenziali delle chiavi: 
-```powershell
-Get-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState
-```
+  ```powershell
+  Get-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState
+  ```
 
 - Ripristinare un segreto in stato "eliminato": 
-```powershell
-Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
-```
+  ```powershell
+  Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
+  ```
 
 - Eliminare in modo definitivo un segreto in stato "eliminato": 
 
@@ -205,7 +205,7 @@ Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
 > [!IMPORTANT]
 > Dopo l'operazione di pulizia, un insieme di credenziali delle chiavi o un oggetto dell'insieme non è più recuperabile.
 
-La funzione di pulizia viene usata per eliminare in modo permanente un oggetto dell'insieme di credenziali delle chiavi, o un intero insieme, che in precedenza è stato eliminato temporaneamente. Come illustrato nella sezione precedente, gli oggetti archiviati in un insieme di credenziali delle chiavi con la funzionalità di eliminazione temporanea abilitata, possono passare attraverso più stati:
+La funzione di eliminazione viene usata per eliminare definitivamente un oggetto insieme di credenziali delle chiavi o un'intera istanza Key vault, che è stata precedentemente eliminati temporaneamente. Come illustrato nella sezione precedente, gli oggetti archiviati in un insieme di credenziali delle chiavi con la funzionalità di eliminazione temporanea abilitata, possono passare attraverso più stati:
 - **Attivo**: prima dell'eliminazione.
 - **Eliminato temporaneamente**: dopo l'eliminazione, può essere recuperato e ripristinato allo stato attivo.
 - **Eliminato definitivamente**: dopo la pulizia, non può più essere recuperato.

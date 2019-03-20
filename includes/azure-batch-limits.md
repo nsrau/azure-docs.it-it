@@ -8,28 +8,28 @@ ms.topic: include
 ms.date: 10/11/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: c98a2146a019817152be9fae76638dbaa4d9de3d
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
-ms.translationtype: HT
+ms.openlocfilehash: 6b48dbfc33890df12209c3a242d812ad2103e07a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49458858"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553498"
 ---
 | **Risorsa** | **Limite predefinito** | **Limite massimo** |
 | --- | --- | --- |
-| Account Batch per area per sottoscrizione | 1 - 3 |50 |
-| Core dedicati per account Batch | 10 - 100 | N/D<sup>1</sup> |
-| Core a bassa priorità per account Batch | 10 - 100 | N/A<sup>2</sup> |
-| I processi attivi e le pianificazioni dei processi<sup>3</sup> per account Batch | 100 - 300 | 1000<sup>4</sup> |
-| Pool per account Batch | 20 - 100 | 500<sup>4</sup> |
+| Account Azure Batch per area per sottoscrizione | 1-3 |50 |
+| Core dedicati per account Batch | 10-100 | N/D<sup>1</sup> |
+| Core a bassa priorità per account Batch | 10-100 | N/A<sup>2</sup> |
+| I processi attivi e le pianificazioni dei processi<sup>3</sup> per account Batch | 100-300 | 1,000<sup>4</sup> |
+| Pool per account Batch | 20-100 | 500<sup>4</sup> |
 
 > [!NOTE]
 > I limiti predefiniti variano a seconda del tipo di sottoscrizione usata per creare un account Batch. Le quote di core indicate sono per gli account in modalità servizio Batch. [Visualizzare le quote nell'account Batch](../articles/batch/batch-quota-limit.md#view-batch-quotas). 
 
-<sup>1</sup> Il numero di core dedicati per ogni account Batch può essere aumentato, ma il numero massimo non è specificato. Contattare il supporto di Azure per ottenere informazioni sulle opzioni di aumento.
+<sup>1</sup>il numero di core dedicati per account Batch può essere aumentato, ma il numero massimo è specificato. Per discutere le opzioni di aumento, contattare il supporto di Azure.
 
-<sup>2</sup> Il numero di core a bassa priorità per ogni account Batch può essere aumentato, ma il numero massimo non è specificato. Contattare il supporto di Azure per ottenere informazioni sulle opzioni di aumento.
+<sup>2</sup>il numero di core a bassa priorità per account Batch può essere aumentato, ma il numero massimo è specificato. Per discutere le opzioni di aumento, contattare il supporto di Azure.
 
-<sup>3</sup> I processi completati e le pianificazioni non sono limitati.
+<sup>3</sup>i processi completati e le pianificazioni dei processi non sono limitate.
 
-<sup>4</sup> Se si vuole richiedere un aumento oltre questo limite, contattare il supporto di Azure.
+<sup>4</sup>per richiedere un aumento oltre questo limite, contattare il supporto tecnico di Azure.

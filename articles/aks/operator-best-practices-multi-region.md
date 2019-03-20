@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 9958f5f0f1435af231c1426a249c745f4a2352c5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 926f470b8a4dbdb6d6cbfe09ee61349a819600e7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816612"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098628"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la continuità aziendale e il ripristino di emergenza nel servizio Azure Kubernetes
 
@@ -21,11 +21,11 @@ Il tempo di attività delle applicazioni assume particolare importanza per la ge
 Questo articolo sulle procedure consigliate contiene considerazioni utili per pianificare la continuità aziendale e il ripristino di emergenza nel servizio Azure Kubernetes. Si apprenderà come:
 
 > [!div class="checklist"]
-* Eseguire la pianificazione per i cluster del servizio Azure Kubernetes in più aree
-* Indirizzare il traffico tra più cluster con Gestione traffico di Microsoft Azure
-* Usare la replica geografica per i registri di immagini del contenitore
-* Eseguire la pianificazione dello stato dell'applicazione in più cluster
-* Replicare l'archiviazione tra più aree
+> * Eseguire la pianificazione per i cluster del servizio Azure Kubernetes in più aree
+> * Indirizzare il traffico tra più cluster con Gestione traffico di Microsoft Azure
+> * Usare la replica geografica per i registri di immagini del contenitore
+> * Eseguire la pianificazione dello stato dell'applicazione in più cluster
+> * Replicare l'archiviazione tra più aree
 
 ## <a name="plan-for-multi-region-deployment"></a>Eseguire la pianificazione per la distribuzione in più aree
 
@@ -62,7 +62,7 @@ Per istruzioni su come configurare questi endpoint e il routing, vedere [Configu
 
 ### <a name="layer-7-application-routing-with-azure-front-door"></a>Routing dell'applicazione di livello 7 con Frontdoor di Azure
 
-Gestione traffico di Microsoft Azure usa DNS (livello 3) per gestire il traffico. Il servizio [Frontdoor di Azure (anteprima)](https://docs.microsoft.com/azure/frontdoor/front-door-overview) offre un'opzione di routing HTTP/HTTPS (livello 7). Le funzionalità aggiuntive del servizio Frontdoor includono terminazione SSL, dominio personalizzato, web application firewall, riscrittura URL e affinità di sessione.
+Gestione traffico di Microsoft Azure usa DNS (livello 3) per gestire il traffico. [Porta principale Azure (attualmente in anteprima)](https://docs.microsoft.com/azure/frontdoor/front-door-overview) offre un'opzione di routing HTTP/HTTPS (livello 7). Le funzionalità aggiuntive del servizio Frontdoor includono terminazione SSL, dominio personalizzato, web application firewall, riscrittura URL e affinità di sessione.
 
 Esaminare le esigenze di traffico dell'applicazione per determinare la soluzione più adatta.
 

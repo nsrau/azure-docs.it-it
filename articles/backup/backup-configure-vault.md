@@ -1,260 +1,251 @@
 ---
-title: Usare l'agente di Backup di Azure per eseguire il backup di file e cartelle
-description: Usare l'agente di Backup di Microsoft Azure per eseguire il backup di file e cartelle Windows in Azure. Creare un insieme di credenziali di Servizi di ripristino, installare l'agente di Backup, definire i criteri di backup ed eseguire il backup iniziale di file e cartelle.
+title: Eseguire il backup delle macchine Windows con l'agente Azure Backup MARS
+description: Usare l'agente di servizi di ripristino Microsoft (MARS) di Azure Backup per eseguire il backup delle macchine Windows.
 services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/5/2018
+ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 006d47d397bab0869ae8a75d6c17d239e71608c3
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 4aff7c486762d9ea7bd38ae152d169968432307e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310576"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898959"
 ---
-# <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Eseguire il backup di un client o server Windows in Azure con Backup di Azure usando il modello di distribuzione Resource Manager
-Questo articolo illustra come eseguire il backup di file e cartelle di Windows Server o di un client Windows in Azure con Backup di Azure tramite il modello di distribuzione di Resource Manager.
+# <a name="back-up-windows-machines-with-the-azure-backup-mars-agent"></a>Eseguire il backup delle macchine Windows con l'agente Azure Backup MARS
+
+Questo articolo illustra come eseguire il backup di macchine Windows utilizzando il [Backup di Azure](backup-overview.md) servizio e l'agente di Microsoft Azure Recovery Services (MARS), noto anche come Azure Backup agent.
+
+In questo articolo viene spiegato come:
+
+> [!div class="checklist"]
+> * Verificare i prerequisiti e creare un insieme di credenziali di servizi di ripristino.
+> * Scaricare e configurare l'agente di MARS
+> * Creare un criterio di backup e pianificazione.
+> * Eseguire il backup, eseguire un ad-hoc.
+
+## <a name="about-the-mars-agent"></a>Informazioni sull'agente di Servizi di ripristino di Microsoft Azure
+
+L'agente MARS viene usato da Backup di Azure per eseguire il backup di file, cartelle e dello stato del sistema dalle macchine locali e macchine virtuali di Azure in un insieme di credenziali di servizi di ripristino backup in Azure. È possibile eseguire l'agente come segue:
+
+- Eseguire l'agente direttamente in macchine virtuali Windows locali in modo che è possibile eseguire il backup direttamente a un insieme di credenziali di servizi di ripristino backup in Azure.
+- Eseguire macchine virtuali di Azure di agente che esegue Windows (side-by-side con l'estensione di backup di macchine Virtuali di Azure) per eseguire il backup di file e cartelle specifici nella macchina virtuale.
+- Eseguire l'agente in un server di Backup di Microsoft Azure o in un server di System Center Data Protection Manager (DPM). In questo scenario, le macchine e carichi di lavoro di eseguire il backup in DPM/MABS e quindi DPM/MABS esegue il backup in un insieme di credenziali in Azure usando l'agente MARS.
+Gli elementi di cui è possibile eseguire il backup dipendono dalla posizione in cui è installato l'agente.
+
+> [!NOTE]
+> Il metodo principale per backup di macchine virtuali di Azure consiste nell'usare un'estensione di Backup di Azure nella macchina virtuale. In questo modo viene eseguito il backup dell'intera macchina virtuale. È possibile installare e usare l'agente MARS insieme all'estensione, se si desidera eseguire il backup di file e cartelle specifici nella macchina virtuale. [Altre informazioni](backup-architecture.md#architecture-direct-backup-of-azure-vms)
 
 ![Passaggi del processo di backup](./media/backup-configure-vault/initial-backup-process.png)
 
 ## <a name="before-you-start"></a>Prima di iniziare
-Per eseguire il backup di un server o un client in Azure, è necessario un account Azure. Se non si ha un account, è possibile crearne uno [gratuito](https://azure.microsoft.com/free/) in pochi minuti.
+
+- [Informazioni su come](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders) Backup di Azure esegue il backup delle macchine Windows con l'agente MARS.
+- [Informazioni su](backup-architecture.md#architecture-back-up-to-dpmmabs) l'architettura del backup in esecuzione l'agente di MARS in un server secondario di backup di Microsoft AZURE o Data Protection Manager.
+- [Revisione](backup-support-matrix-mars-agent.md) sugli elementi supportati e quali possono essere sottoposte a backup con l'agente MARS.
+- Verificare l'accesso a internet nei computer di cui che si desidera eseguire il backup.
+- Per eseguire il backup di un server o un client in Azure, è necessario un account Azure. Se non si ha un account, è possibile crearne uno [gratuito](https://azure.microsoft.com/free/) in pochi minuti.
+
+### <a name="verify-internet-access"></a>Verificare l'accesso a Internet
+
+Se il computer ha limitato l'accesso a internet, assicurarsi che le impostazioni del firewall nel computer o nel proxy di consentiranno tali URL:
+
+- www\.msftncsi.com
+- *.Microsoft.com
+- *.windowsazure.com
+- *.microsoftonline.com
+- *.windows.net
 
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
-Un insieme di credenziali dei servizi di ripristino è un'entità che archivia tutti i backup e i punti di ripristino che sono stati creati nel corso del tempo. L'insieme di credenziali dei servizi di ripristino contiene anche i criteri di backup applicati ai file e alle cartelle protette. Quando si crea un insieme di credenziali dei servizi di ripristino, è necessario selezionare anche l'opzione di ridondanza di archiviazione appropriata.
 
-### <a name="to-create-a-recovery-services-vault"></a>Per creare un insieme di credenziali di Servizi di ripristino
-1. Se questa operazione non è già stata eseguita, accedere al [portale di Azure](https://portal.azure.com/) , tramite la sottoscrizione di Azure.
-2. Fare clic su **Tutti i servizi** nel menu Hub e nell'elenco di risorse digitare **Servizi di ripristino**, quindi fare clic su **Insiemi di credenziali dei servizi di ripristino**.
+Un insieme di credenziali di servizi di ripristino vengono archiviati tutti i backup e i punti di ripristino creati nel tempo e contiene il criterio di backup applicato alle macchine sottoposti a backup. Creare un insieme di credenziali nel modo seguente:
 
-    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
+1. Accedere al [portale di Azure](https://portal.azure.com/) usando la sottoscrizione di Azure.
+2. Nella ricerca, digitare **servizi di ripristino** e fare clic su **insiemi di credenziali dei servizi di ripristino**.
 
-    Se presenti nella sottoscrizione, gli insiemi di credenziali dei servizi di ripristino vengono elencati.
+    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png)
 
-3. Scegliere **Aggiungi** dal menu **Insiemi di credenziali dei servizi di ripristino**.
+3. Nel **insiemi di credenziali dei servizi di ripristino** menu, fare clic su **+ Aggiungi**.
 
     ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
-    Verrà visualizzato il pannello degli insiemi di credenziali dei servizi di ripristino, in cui viene richiesto di specificare **Nome**, **Sottoscrizione**, **Gruppo di risorse** e **Località**.
+4. Nel campo **Nome**digitare un nome descrittivo per identificare l'insieme di credenziali.
+
+   - Il nome deve essere univoco per la sottoscrizione di Azure.
+   - Può contenere da 2 a 50 caratteri.
+   - Deve iniziare con una lettera e può contenere solo lettere, numeri e trattini.
+
+5. Selezionare la sottoscrizione di Azure, gruppo di risorse e area geografica in cui deve essere creato l'insieme di credenziali. I dati di backup viene inviati all'insieme di credenziali. Fare quindi clic su **Crea**.
 
     ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 3](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
 
-4. Nel campo **Nome**digitare un nome descrittivo per identificare l'insieme di credenziali. Il nome deve essere univoco per la sottoscrizione di Azure. Digitare un nome che contenga tra i 2 e i 50 caratteri. Deve iniziare con una lettera e può contenere solo lettere, numeri e trattini.
+   - La creazione dell'insieme di credenziali può richiedere alcuni minuti.
+   - Monitorare le notifiche di stato nell'area superiore destra del portale. Se dopo alcuni minuti non viene visualizzato l'insieme di credenziali, fare clic su **Aggiorna**.
 
-5. Nella sezione **Sottoscrizione** usare il menu a discesa per scegliere la sottoscrizione di Azure. Se si usa una sola sottoscrizione, questa verrà visualizzata e sarà possibile andare al passaggio successivo. Se non si è certi di quale sottoscrizione usare, usare la sottoscrizione predefinita (o suggerita). Sono disponibili più scelte solo se l'account dell'organizzazione è associato a più sottoscrizioni di Azure.
-
-6. Nella sezione **Gruppo di risorse**:
-
-    * Fare clic sul menu a discesa **Seleziona esistente**  per visualizzare l'elenco di gruppi di risorse disponibili.
-    Oppure
-    * Selezionare **Crea nuovo** per creare un nuovo gruppo di risorse.
-
-  Per informazioni complete sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-
-7. Fare clic su **Località** per selezionare l'area geografica per l'insieme di credenziali. La scelta determina l'area geografica in cui vengono inviati i dati di backup.
-
-8. Nella parte inferiore del pannello Insieme di credenziali dei servizi di ripristino fare clic su **Crea**.
-
-  La creazione dell'insieme di credenziali dei servizi di ripristino può richiedere alcuni minuti. Monitorare le notifiche di stato nell'area superiore destra del portale. L'insieme di credenziali, dopo essere stato creato, viene visualizzato negli insiemi di credenziali di Servizi di ripristino. Se l'insieme di credenziali non viene visualizzato dopo qualche minuto, fare clic su **Aggiorna**.
-
-  ![Fare clic sul pulsante Aggiorna](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
-
-  Dopo la visualizzazione dell'insieme di credenziali nell'elenco corrispondente per i Servizi di ripristino, è possibile configurare la ridondanza di archiviazione.
-
+     ![Fare clic sul pulsante Aggiorna](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)
 
 ### <a name="set-storage-redundancy"></a>Impostare la ridondanza di archiviazione
-Quando si crea per la prima volta un insieme di credenziali di Servizi di ripristino, si determina come replicare lo spazio di archiviazione.
 
-1. Nel pannello **Insieme di credenziali dei servizi di ripristino** fare clic sul nuovo insieme di credenziali.
+Backup di Azure gestisce automaticamente l'archiviazione per l'insieme di credenziali. È necessario specificare una modalità di replica archiviazione.
 
-    ![Selezionare il nuovo insieme di credenziali dall'elenco corrispondente per Servizi di ripristino](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault.png)
+1. Nel pannello **Insieme di credenziali dei servizi di ripristino** fare clic sul nuovo insieme di credenziali. Sotto il **le impostazioni** fare clic su **proprietà**.
+2. Nelle **delle proprietà**, in **configurazione Backup**, fare clic su **Update**.
 
-    Quando si seleziona l'insieme di credenziali, il pannello Insiemi di credenziali di Servizi di ripristino si restringe e vengono aperti il pannello **Panoramica** (*con il nome dell'insieme di credenziali in alto*) e il pannello dei dettagli dell'insieme di credenziali.
+3. Selezionare il tipo di replica di archiviazione e fare clic su **salvare**.
 
-    ![Visualizzare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-overview.png)
+      ![Impostare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
-2. Nel nuovo insieme di credenziali nella sezione **Impostazioni** passare a **Proprietà**.
+- È consigliabile che se si usa Azure come endpoint di archiviazione di backup primario, continuare a usare il valore predefinito **geograficamente ridondante** impostazione.
+- Se non si usa Azure come endpoint di archiviazione di backup primario, scegliere l'opzione **Con ridondanza locale**, che riduce i costi di archiviazione di Azure.
+- Altre informazioni sulle [geografica](../storage/common/storage-redundancy-grs.md) e [locale](../storage/common/storage-redundancy-lrs.md) ridondanza.
 
-  Verrà aperto il pannello **Proprietà**.
+## <a name="download-the-mars-agent"></a>Scaricare l'agente di MARS
 
-3. Nel pannello **Proprietà** fare clic su **Aggiornamento** nel pannello **Configurazione di backup**. Verrà aperto il pannello **Configurazione di backup**.
+Scaricare l'agente di MARS per l'installazione nei computer che si desidera eseguire il backup.
 
-  ![Impostare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+- Se già stato installato l'agente in eventuali computer, assicurarsi che si esegue la versione più recente.
+- La versione più recente è disponibile nel portale o tramite un [download diretto](https://aka.ms/azurebackup_agent)
 
-4. Scegliere l'opzione di replica di archiviazione appropriata per l'insieme di credenziali e fare clic su **Salva**.
+1. Nell'insieme di credenziali, sotto **Guida introduttiva**, fare clic su **Backup**.
 
-  ![opzioni di configurazione dell'archiviazione](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
+    ![Aprire il Pannello Obiettivo di backup](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
 
-  Per impostazione predefinita, l'insieme di credenziali prevede l'archiviazione con ridondanza geografica. Se si usa Azure come endpoint di archiviazione di backup primario, continuare a usare l'opzione **Con ridondanza geografica**. Se non si usa Azure come endpoint di archiviazione di backup primario, scegliere l'opzione **Con ridondanza locale**, che riduce i costi di archiviazione di Azure. Per altre informazioni sulle opzioni di archiviazione [con ridondanza geografica](../storage/common/storage-redundancy-grs.md) e [con ridondanza locale](../storage/common/storage-redundancy-lrs.md), vedere [Panoramica della ridondanza di archiviazione](../storage/common/storage-redundancy.md).
+2. Nelle **in cui viene eseguito il carico di lavoro?**, selezionare **On-premises**. È consigliabile selezionare questa opzione anche se si vuole installare l'agente di MARS in una VM di Azure.
+3. Nelle **cosa si desidera eseguire il backup?**, selezionare **i file e cartelle** e/o **dello stato del sistema**. Sono disponibili numerose altre opzioni, ma questi sono supportati solo se si esegue un server di backup secondario. Fare clic su **preparare l'infrastruttura**.
 
-Dopo avere creato un insieme di credenziali, preparare l'infrastruttura per il backup di file e cartelle scaricando e installando l'agente di Servizi di ripristino di Microsoft Azure, scaricando le credenziali dell'insieme di credenziali e usandole per registrare l'agente con l'insieme di credenziali.
+      ![Configurazione di file e cartelle](./media/backup-try-azure-backup-in-10-mins/set-file-folder.png)
 
-## <a name="configure-the-vault"></a>Configurare l'insieme di credenziali
+4. Nel **preparare l'infrastruttura**, in **agente installare servizi di ripristino**, scaricare l'agente MARS.
 
-1. Nel pannello dell'insieme di credenziali dei servizi di ripristino appena creato, nella sezione Attività iniziali fare clic su **Backup** e nel pannello **Introduzione al backup** selezionare **Obiettivo del backup**.
+    ![Preparare l'infrastruttura](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
 
-  ![Aprire il Pannello Obiettivo di backup](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
+5. Fare clic su **Salva** nel menu a comparsa del download. Per impostazione predefinita, il file **MARSagentinstaller.exe** viene salvato nella cartella Downloads.
 
-  Verrà visualizzato il pannello **Obiettivo del backup**. Se l'insieme di credenziali di Servizi di ripristino è stato configurato in precedenza, viene visualizzato il pannello **Obiettivo del backup** quando si fa clic su **Backup** nel pannello dell'insieme di credenziali di Servizi di ripristino.
+6. A questo punto, controllare **Already download o tramite l'agente di servizi di ripristino più recente**e quindi scaricare le credenziali dell'insieme di credenziali.
 
-  ![Aprire il Pannello Obiettivo di backup](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
+    ![Scaricare le credenziali dell'insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-2. Scegliere **Locale** dal menu a discesa **Posizione di esecuzione del carico di lavoro**.
-
-  Si sceglie **Locale** perché il server di Windows o il computer Windows è un computer fisico che non si trova in Azure.
-
-3. Scegliere **File e cartelle** dal menu **Elementi di cui eseguire il backup**, quindi fare clic su **OK**.
-
-  ![Configurazione di file e cartelle](./media/backup-try-azure-backup-in-10-mins/set-file-folder.png)
-
-  Dopo aver fatto clic su OK verrà visualizzato un segno di spunta accanto a **Obiettivo del backup** e si aprirà il pannello **Preparare l'infrastruttura**.
-
-  ![Preparare l'infrastruttura dopo aver configurato l'obiettivo del backup](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
-
-4. Nel pannello **Preparare l'infrastruttura** fare clic su **Scaricare l'agente per Windows Server o Windows Client**.
-
-  ![Preparare l'infrastruttura](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
-
-  Se si usa Windows Server Essentials, scegliere di scaricare l'agente per Windows Server Essentials. Un menu a comparsa chiederà di eseguire o salvare MARSAgentInstaller.exe.
-
-  ![Finestra di dialogo di MARSAgentInstaller](./media/backup-try-azure-backup-in-10-mins/mars-installer-run-save.png)
-
-5. Fare clic su **Salva** nel menu a comparsa del download.
-
-  Per impostazione predefinita, il file **MARSagentinstaller.exe** viene salvato nella cartella Downloads. Al termine del programma di installazione verrà visualizzato un messaggio popup che chiede se eseguire il programma di installazione o aprire la cartella.
-
-  ![Preparare l'infrastruttura](./media/backup-try-azure-backup-in-10-mins/mars-installer-complete.png)
-
-  Non è ancora necessario installare l'agente. È possibile installare l'agente al termine del download delle credenziali dell'insieme di credenziali.
-
-6. Fare clic su **Scarica** nel pannello **Preparare l'infrastruttura**.
-
-  ![Scaricare le credenziali dell'insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
-
-  Le credenziali dell'insieme di credenziali verranno scaricate nella cartella Download locale. Al termine del download delle credenziali dell'insieme di credenziali verrà visualizzato un messaggio popup che chiede se aprire o salvare le credenziali. Fare clic su **Save**. Se si fa clic accidentalmente su **Apri**, attendere che il tentativo di apertura delle credenziali termini con un errore. Non è possibile aprire le credenziali dell'insieme di credenziali. Procedere con il passaggio successivo. Le credenziali dell'insieme di credenziali si trovano nella cartella Downloads.   
-
-  ![Il download delle credenziali dell'insieme di credenziali è terminato](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
-
-
-[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
+7. Fare clic su **Save**. Il file viene scaricato alla cartella di Download. È Impossibile aprire il file delle credenziali dell'insieme di credenziali.
 
 ## <a name="install-and-register-the-agent"></a>Installare e registrare l'agente
 
-> [!NOTE]
-> L'abilitazione del backup tramite il portale di Azure non è ancora disponibile. Usare l'agente di Servizi di ripristino di Microsoft Azure per eseguire il backup di file e cartelle.
->
+1. Eseguire la **MARSagentinstaller.exe** file nei computer che si desidera eseguire il backup.
+2. Nell'installazione guidata agente MARS > **impostazioni di installazione**, specificare dove si desidera installare l'agente e un percorso da usare per la cache. Quindi fare clic su **Next**.
+   - Backup di Azure Usa la cache per archiviare gli snapshot di dati prima di inviarli ad Azure.
+   - Il percorso della cache deve avere uno spazio disponibile pari almeno al 5% delle dimensioni dei dati che è possibile eseguire il backup.
 
-1. Cercare e fare doppio clic sul file **MARSagentinstaller.exe** nella cartella Downloads o nella cartella in cui è stato salvato.
+     ![Impostazioni di installazione guidata di MARS](./media/backup-configure-vault/mars1.png)
 
-  Il programma di installazione visualizzerà una serie di messaggi durante l'estrazione, l'installazione e la registrazione dell'agente di Servizi di ripristino.
+2. Nelle **configurazione del Proxy**, specificare in modo in cui l'agente in esecuzione nel computer Windows si connetterà a internet. Quindi fare clic su **Next**.
 
-  ![Eseguire il programma di installazione dell'agente di Servizi di ripristino](./media/backup-try-azure-backup-in-10-mins/mars-installer-registration.png)
+   - Se si usa un oggetto personalizzato proxy specificare le impostazioni di proxy e le credenziali se necessario.
+   - Tenere presente che l'agente deve accedervi [questi URL](#verify-internet-access).
 
-2. Completare l'Installazione guidata di Agente servizi di ripristino di Microsoft Azure. Per completare la procedura guidata, è necessario:
+     ![Accesso a internet guidata MARS](./media/backup-configure-vault/mars2.png)
 
-  * Scegliere un percorso per la cartella di installazione e della cache.
-  * Fornire le informazioni sul server proxy se si usa un server proxy per connettersi a Internet.
-  * Se si usa un proxy autenticato, immettere il nome utente e la password.
-  * Fornire le credenziali dell'insieme di credenziali scaricate.
-  * Salvare la passphrase di crittografia in un luogo sicuro.
+3. Nelle **installazione** esaminare il controllo dei prerequisiti e fare clic su **installare**.
+4. Dopo aver installato l'agente, fare clic su **continua con la registrazione**.
+5. Nel **registrazione guidata Server** > **identificazione insieme di credenziali**, Sfoglia e selezionare il file di credenziali scaricato. Quindi fare clic su **Next**.
 
-  > [!NOTE]
-  > Se la passphrase viene persa o dimenticata, Microsoft non potrà offrire assistenza per il recupero dei dati di backup. Salvare il file in una posizione sicura. È necessario per ripristinare un backup.
-  >
-  >
+    ![Register - insieme di credenziali](./media/backup-configure-vault/register1.png)
 
-L'agente ora è installato e il computer è registrato nell'insieme di credenziali. Ora è possibile configurare e pianificare il backup.
+6. Nelle **impostazione di crittografia**, specificare una passphrase che verrà utilizzata per crittografare e decrittografare i backup per la macchina.
 
-## <a name="network-and-connectivity-requirements"></a>Requisiti di rete e connettività
+    - Salvare la passphrase di crittografia in un luogo sicuro.
+    - Se si perde o dimentica la passphrase, Microsoft non consente di ripristinare i dati di backup. Salvare il file in una posizione sicura. È necessario per ripristinare un backup.
 
-Se il computer/proxy ha un accesso a Internet limitato, verificare che le impostazioni del firewall sul computer/proxy siano configurate per consentire gli URL seguenti: <br>
-    1. www.msftncsi.com
-    2. *.Microsoft.com
-    3. *.windowsazure.com
-    4. *.microsoftonline.com
-    5. *.windows.net
+7. Fare clic su **fine**. L'agente ora è installato e il computer è registrato nell'insieme di credenziali. Ora è possibile configurare e pianificare il backup.
 
+## <a name="create-a-backup-policy"></a>Creare un criterio di backup
 
-## <a name="create-the-backup-policy"></a>Creare i criteri di backup
-I criteri di backup costituiscono la pianificazione per l'acquisizione degli snapshot di backup e la durata di conservazione di questi snapshot. Usare l'agente di Backup di Microsoft Azure per creare il criterio di backup di file e cartelle.
+Il criterio di backup specifica quando eseguire snapshot dei dati per creare i punti di ripristino e il tempo di mantenere i punti di ripristino.
 
-### <a name="to-create-a-backup-schedule"></a>Per creare una pianificazione di backup
+- Si configura un criterio di backup utilizzando l'agente MARS.
+- Backup di Azure non diventano automaticamente l'ora legale (DST) nell'account. Ciò potrebbe comportare alcune discrepanze tra il tempo effettivo e l'ora del backup pianificato.
 
-Impostare la pianificazione di backup nel computer di cui si vuole eseguire il backup. Si noti che l'orario impostato per il backup potrebbe differire dall'orario del computer locale perché Backup di Azure non tiene conto dell'ora legale.
-1. Aprire l'agente Backup di Microsoft Azure. È possibile trovarlo se si cerca **Backup di Microsoft Azure**nel computer.
+Creare un criterio come indicato di seguito:
 
-    ![Avviare Azure Backup Agent](./media/backup-configure-vault/snap-in-search.png)
-2. Nel riquadro **Azioni** dell'agente di Backup fare clic su **Pianifica backup** per avviare la Pianificazione guidata backup.
+1. In ogni computer, aprire l'agente MARS. È possibile trovarlo se si cerca **Backup di Microsoft Azure**nel computer.
+2. Nelle **azioni**, fare clic su **pianifica Backup**.
 
     ![Pianificare un backup di Windows Server](./media/backup-configure-vault/schedule-first-backup.png)
 
-3. Nella pagina **Attività iniziali** della Pianificazione guidata backup fare clic su **Avanti**.
-4. Nella pagina **Seleziona elementi per backup** fare clic su **Aggiungi elementi**.
+3. In Pianificazione guidata Backup > **Guida introduttiva**, fare clic su **successivo**.
+4. Nelle **Seleziona elementi per Backup**, fare clic su **Aggiunta elementi**.
+5. Nelle **Seleziona elementi**, selezionare quello che vuoi eseguire il backup. Fare quindi clic su **OK**.
+6. Nelle **Seleziona elementi per Backup** pagina, fare clic su **successivo**.
+7. Nelle **specificare la pianificazione del Backup** specificare quando si desidera eseguire i backup giornalieri o settimanali. Quindi fare clic su **Next**.
 
-  Verrà visualizzata la finestra di dialogo Seleziona elementi.
+    - Quando viene eseguito un backup, viene creato un punto di ripristino.
+    - Il numero di punti di ripristino creati nell'ambiente in uso dipende dalla pianificazione del backup.
 
-5. Selezionare i file e le cartelle da proteggere e fare clic su **OK**.
-6. Nella pagina **Seleziona elementi per backup** fare clic su **Avanti**.
-7. Nella pagina **Specificare la pianificazione del backup** specificare la pianificazione del backup e fare clic su **Avanti**.
+1. È possibile pianificare i backup giornalieri, fino a tre volte al giorno. Ad esempio, lo screenshot Mostra due backup giornalieri, una a mezzanotte e alle ore 18.00.
 
-    È possibile pianificare backup giornalieri, da eseguire non più di tre volte al giorno, o settimanali.
+    ![Pianificazione giornaliera](./media/backup-configure-vault/day-schedule.png)
 
-    ![Elementi per il backup di Windows Server](./media/backup-configure-vault/specify-backup-schedule-close.png)
+9. È possibile eseguire i backup settimanali troppo. Lo screenshot Mostra ad esempio, i backup eseguiti ogni domenica e mercoledì alternativo alle 9:30 e all'1: 00.
 
-   > [!NOTE]
-   > Per altre informazioni su come specificare la pianificazione del backup vedere l'articolo [Usare Backup di Azure per sostituire l'infrastruttura basata su nastro](backup-azure-backup-cloud-as-tape.md).
-   >
-   >
+    ![Pianificazione settimanale](./media/backup-configure-vault/week-schedule.png)
 
-8. Nella pagina **Seleziona i criteri di conservazione** selezionare i criteri di conservazione specifici per la copia di backup e fare clic su **Avanti**.
+8. Nel **selezionare i criteri di conservazione** , specificare come si archiviano copie della cronologia dei dati. Quindi fare clic su **Next**.
 
-    I criteri di conservazione specificano il periodo di tempo per cui il backup verrà archiviato. Anziché specificare solo un "criterio semplice" per tutti i punti di backup, è possibile specificare criteri di conservazione diversi in base al momento in cui viene eseguito il backup. È possibile modificare i criteri di conservazione giornalieri, settimanali, mensili e annuali in base alle proprie esigenze.
-9. Nella pagina Scegliere il tipo di backup iniziale selezionare il tipo di backup iniziale. Lasciare selezionata l'opzione **Automaticamente tramite la rete** e fare clic su **Avanti**.
+   - Le impostazioni di conservazione specificano quali punti di ripristino devono essere archiviati e quanto tempo devono essere archiviati per.
+   - Ad esempio, quando si imposta un'impostazione di conservazione giornalieri, si indicano che all'ora specificata per il periodo di conservazione giornaliero, l'ultimo punto di ripristino verrà conservato per il numero di giorni specificato. In alternativa, un altro esempio, è possibile specificare un criterio di conservazione mensile per indicare che il punto di ripristino creato il 30 del mese deve essere archiviato per 12 mesi.
+   - Conservazione del punto di ripristino giornalieri e settimanali in genere coincide con la pianificazione del backup. Vale a dire che, quando viene attivato il backup in base alla pianificazione, il punto di ripristino creato per il backup viene archiviato per la durata indicata nei criteri di conservazione giornalieri o settimanali.
+   - Ad esempio, nella schermata seguente:
+     - Backup giornaliero a mezzanotte e alle 18.00 vengono conservati per sette giorni.
+     - I backup eseguiti su un sabato a mezzanotte e le 18 vengono conservati per quattro settimane.
+     - I backup eseguiti sabato nell'ultima settimana del mese a mezzanotte e le 18 vengono conservati per 12 mesi. -I backup di sabato nell'ultima settimana del mese di marzo vengono conservati per 10 anni.
 
-    È possibile eseguire il backup automaticamente in rete oppure offline. Il resto di questo articolo descrive il processo di backup automatico. Se si preferisce eseguire un backup offline, vedere l'articolo [Flusso di lavoro di backup offline in Backup di Azure](backup-azure-backup-import-export.md) per altre informazioni.
-10. Nella pagina Conferma esaminare le informazioni e fare clic su **Fine**.
+   ![Esempio di memorizzazione](./media/backup-configure-vault/retention-example.png)
+
+11. Nelle **tipo di Backup iniziale** specificano come eseguire backup, iniziale sulla rete o offline. Quindi fare clic su **Next**.
+
+10. Nelle **conferma**, esaminare le informazioni e quindi fare clic su **fine**.
 11. Dopo aver creato la pianificazione del backup tramite la procedura guidata, fare clic su **Chiudi**.
 
+### <a name="perform-the-initial-backup-offline"></a>Eseguire il backup iniziale offline
+
+È possibile eseguire automaticamente un'iniziale eseguire il backup in rete o non in linea. Il seeding offline per un backup iniziale è utile se sono presenti grandi quantità di dati che richiedono una grande quantità di larghezza di banda di rete per il trasferimento. Eseguire un trasferimento offline come indicato di seguito:
+
+1. Scrivere i dati di backup in un percorso di gestione temporanea.
+2. Utilizzare lo strumento AzureOfflineBackupDiskPrep per copiare i dati dal percorso di staging a uno o più dischi SATA.
+3. Lo strumento crea un processo di importazione di Azure. [Altre informazioni](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) sull'esportazione e importazione di Azure.
+4. Si inviano i dischi SATA a Data Center di Azure.
+5. Presso il Data Center, i dati del disco viene copiati in un account di archiviazione di Azure.
+6. Backup di Azure copia i dati dall'account di archiviazione all'insieme di credenziali e di backup incrementali.
+
+[Altre informazioni](backup-azure-backup-import-export.md) sul seeding offline.
+
 ### <a name="enable-network-throttling"></a>Abilitare la limitazione della larghezza di banda
-L'agente di Microsoft Backup di Azure consente di limitare la larghezza di banda della rete. La limitazione controlla l'uso della larghezza di banda della rete durante il trasferimento dati. Questo controllo può essere utile se è necessario eseguire il backup dei dati durante l'orario di lavoro, ma senza che il processo di backup interferisca con il resto del traffico Internet. La limitazione si applica alle attività di backup e ripristino.
 
-> [!NOTE]
-> La limitazione di rete non è disponibile su Windows Server 2008 R2 SP1, Windows Server 2008 SP2 o Windows 7 (con i pacchetti di servizio). La funzione di limitazione della rete di Backup di Azure attiva il QoS ( Quality of Service) sul sistema operativo locale. Anche se il Backup di Azure è in grado di proteggere questi sistemi operativi, la versione del QoS disponibile su queste piattaforme non funziona con la limitazione di rete di Backup di Azure. La limitazione di rete può essere utilizzata in tutti gli altri [sistemi operativi supportati](backup-azure-backup-faq.md).
->
->
+È possibile controllare l'utilizzo della larghezza di banda di rete dall'agente MARS, consentendo la limitazione delle richieste di rete. La limitazione delle richieste è utile se è necessario eseguire il backup dei dati durante le ore lavorative, ma la necessità di controllare quanta larghezza di banda viene utilizzata per il backup e ripristino di attività.
 
-**Per abilitare la limitazione larghezza di banda**
+- Rete di Backup di Azure la limitazione delle richieste viene utilizzata [Quality of Service (QoS)](https://docs.microsoft.com/windows-server/networking/technologies/qos/qos-policy-top) nel sistema operativo locale.
+- La limitazione per il backup di rete è disponibile in Windows Server 2008 R2 e versioni successive e Windows 7 e versioni successive. Sistemi operativi devono essere in esecuzione il service pack più recenti.
 
-1. Nell'agente di Backup di Microsoft Azure fare clic su **Modifica proprietà**.
+Abilitare la limitazione come indicato di seguito:
 
-    ![Modifica proprietà](./media/backup-configure-vault/change-properties.png)
-2. Nella scheda **Limitazione larghezza di banda rete** selezionare la casella di controllo **Abilita la limitazione all'utilizzo della larghezza di banda Internet per le operazioni di backup**.
+1. Nell'agente di MARS, fare clic su **modificare le proprietà**.
+2. Nel **limitazione** scheda, verificare **abilita la limitazione delle richieste per operazioni di backup all'utilizzo della larghezza di banda di internet**.
 
     ![Limitazione della larghezza di banda della rete](./media/backup-configure-vault/throttling-dialog.png)
-3. Dopo aver abilitato la limitazione, specificare la larghezza di banda consentita per trasferire i dati di backup durante le **ore lavorative** e le **ore non lavorative**.
+3. Specificare la larghezza di banda consentita durante il processo e fuori dall'orario di lavoro. I valori di larghezza di banda partono da 512 Kbps e arrivare fino a 1023 MBps. Fare quindi clic su **OK**.
 
-    I valori della larghezza di banda partono da 512 kilobit al secondo (Kbps) e possono arrivare fino a 1.023 megabyte al secondo (Mbps). È anche possibile definire l'inizio e la fine delle **ore lavorative**e i giorni della settimana da considerare come giorni lavorativi. Gli orari al di fuori delle ore lavorative definite vengono considerati ore non lavorative.
-4. Fare clic su **OK**.
+## <a name="run-an-ad-hoc-backup"></a>Eseguire un backup ad hoc
 
-### <a name="to-back-up-files-and-folders-for-the-first-time"></a>Per eseguire il backup di file e cartelle per la prima volta
-1. Nell'agente di Backup fare clic su **Esegui backup** per completare il seeding iniziale sulla rete.
+1. Nell'agente di MARS, fare clic su **subito il backup**. Questo comando avvia la replica iniziale sulla rete.
 
     ![Eseguire ora il backup di Windows Server](./media/backup-configure-vault/backup-now.png)
-2. Nella pagina Conferma riesaminare le impostazioni che l'Esecuzione guidata backup userà per il backup del computer. Fare clic su **Backup**.
-3. Fare clic su **Chiudi** per chiudere la procedura guidata. Se quest'operazione viene svolta prima che venga completato il processo di backup, l'esecuzione guidata proseguirà in background.
+
+2. Nelle **conferma**, rivedere le impostazioni e fare clic su **eseguire il backup**.
+3. Fare clic su **Chiudi** per chiudere la procedura guidata. In questo caso prima che venga completato il backup, l'esecuzione guidata proseguirà in background.
 
 Al termine del backup iniziale, nella console Backup comparirà lo stato **Processo completato** .
 
-![Completamento infrarossi](./media/backup-configure-vault/ircomplete.png)
-
-## <a name="questions"></a>Domande?
-In caso di domande o se si vuole che venga inclusa una funzionalità, è possibile [inviare commenti e suggerimenti](https://aka.ms/azurebackup_feedback).
-
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sul backup di macchine virtuali o altri carichi di lavoro, vedere:
 
-* Ora che si è eseguito il backup dei file e delle cartelle, è possibile [gestire l'insieme di credenziali e i server](backup-azure-manage-windows-server.md).
-* Se è necessario ripristinare un backup, usare questo articolo per [ripristinare i file in un computer Windows](backup-azure-restore-windows-server.md).
+[Informazioni su come](backup-azure-restore-windows-server.md) ripristinare i file.

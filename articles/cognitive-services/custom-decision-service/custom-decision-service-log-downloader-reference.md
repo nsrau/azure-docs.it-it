@@ -10,12 +10,12 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
-ms.openlocfilehash: c03278c0d0faced20f4e02fcc1f61531c88ae141
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 8a8f669c33f40fb80dc826ec04203880dee74d82
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869671"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109410"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
@@ -44,12 +44,12 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 | Input | DESCRIZIONE | Predefinito |
 | --- | --- | --- |
 | `-h`, `--help` | Mostrare il messaggio della Guida e uscire. | |
-| `-a APP_ID`, `--app_id APP_ID` | L'ID app, vale a dire il nome del contenitore BLOB di Archiviazione di Azure. | Obbligatoria |
-| `-l LOG_DIR`, `--log_dir LOG_DIR` | La directory di base per il download dei dati: viene creata una sottocartella.  | Obbligatoria |
+| `-a APP_ID`, `--app_id APP_ID` | L'ID app, vale a dire il nome del contenitore BLOB di Archiviazione di Azure. | Obbligatorio |
+| `-l LOG_DIR`, `--log_dir LOG_DIR` | La directory di base per il download dei dati: viene creata una sottocartella.  | Obbligatorio |
 | `-s START_DATE`, `--start_date START_DATE` | La data di inizio del download, inclusa, nel formato *AAAA-MM-GG*. | `None` |
 | `-e END_DATE`, `--end_date END_DATE` | La data di fine del download, inclusa, nel formato *AAAA-MM-GG*. | `None` |
 | `-o OVERWRITE_MODE`, `--overwrite_mode OVERWRITE_MODE` | La modalità di sovrascrittura da usare. | |
-| | `0`: non usare mai la sovrascrittura; chiedere all'utente se i BLOB sono attualmente in uso. | Predefinito | |
+| | `0`: non usare mai la sovrascrittura; chiedere all'utente se i BLOB sono attualmente in uso. | Predefinito |
 | | `1`: chiedere all'utente come procedere quando i file hanno dimensioni diverse o quando i BLOB sono attualmente in uso. | |
 | | `2`: usare sempre la sovrascrittura; scaricare i BLOB attualmente in uso. | |
 | | `3`: non usare mai la sovrascrittura e accodare se le dimensioni sono maggiori, senza chiedere; scaricare i BLOB attualmente in uso. | |

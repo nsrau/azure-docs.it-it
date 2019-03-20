@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ce65f71349ae6d7e86ebae1ee2067653a63b89b4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 777aca4754d4d5dc893f930994ffe61db18362fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161062"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089336"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurare il flusso delle credenziali password del proprietario della risorsa in Azure AD B2C
 
@@ -37,15 +37,15 @@ I flussi seguenti non sono supportati:
 
 ##  <a name="create-a-resource-owner-user-flow"></a>Creare un flusso utente per il proprietario della risorsa
 
-1.  Accedere al portale di Azure come amministratore globale del tenant di Azure AD B2C.
-2.  Per passare al tenant di Azure AD B2C, selezionare la directory B2C nell'angolo superiore destro del portale.
-3.  Fare clic su **Flussi utente** e selezionare **Nuovo flusso utente**.
-4.  Fare clic sulla scheda **Tutti** e selezionare **Proprietario della risorsa**.
-5.  Specificare un nome per il flusso utente, ad esempio *ROPC_Auth*.
-6.  In **Attestazioni dell'applicazione** fare clic su **Mostra dettagli**.
-7.  Selezionare le attestazioni necessarie per l'applicazione, ad esempio Nome visualizzato, Indirizzo di posta elettronica e Provider di identità.
-8.  Selezionare **OK**, quindi **Crea**.
-9.  Fare clic su **Esegui il flusso utente**.
+1. Accedere al portale di Azure come amministratore globale del tenant di Azure AD B2C.
+2. Per passare al tenant di Azure AD B2C, selezionare la directory B2C nell'angolo superiore destro del portale.
+3. Fare clic su **Flussi utente** e selezionare **Nuovo flusso utente**.
+4. Fare clic sui **tutte** scheda e selezionare **Accedi di mediante ROPC**.
+5. Specificare un nome per il flusso utente, ad esempio *ROPC_Auth*.
+6. In **Attestazioni dell'applicazione** fare clic su **Mostra dettagli**.
+7. Selezionare le attestazioni necessarie per l'applicazione, ad esempio Nome visualizzato, Indirizzo di posta elettronica e Provider di identità.
+8. Selezionare **OK**, quindi **Crea**.
+9. Fare clic su **Esegui il flusso utente**.
 
    Verrà visualizzato un endpoint come nell'esempio seguente:
 
@@ -83,7 +83,7 @@ Usare l'applicazione di sviluppo API preferita per generare una chiamata API ed 
 La richiesta POST effettiva è simile alla seguente:
 
 ```
-POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
+POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth HTTP/1.1
 Host: yourtenant.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 

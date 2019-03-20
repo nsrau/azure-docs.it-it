@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: e28342b2f2a4846f80940e701dfb638e8f860e5c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 7efa5114a903ba88010ec44f2f1038331df62948
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864350"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075698"
 ---
 # <a name="moderate-with-custom-image-lists-in-the-api-console"></a>Moderare le immagini con elenchi personalizzati nella console dell'API
 
@@ -42,9 +42,9 @@ Prima di poter eseguire il test drive dell'API nella console online, è necessar
 
 Dopo avere modificato un elenco di immagini, è necessario aggiornarne l'indice in modo da includere le modifiche nelle analisi successive. Questo passaggio è paragonabile al modo in cui un motore di ricerca sul desktop (se abilitato) o un motore di ricerca Web aggiorna continuamente il proprio indice per includere nuovi file o pagine.
 
-1.  Nella pagina di [riferimento dell'API di gestione degli elenchi di immagini](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672) selezionare **Image Lists** (Elenchi di immagini) nel menu a sinistra e quindi **Refresh Search Index** (Aggiorna indice di ricerca).
+1. Nella pagina di [riferimento dell'API di gestione degli elenchi di immagini](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672) selezionare **Image Lists** (Elenchi di immagini) nel menu a sinistra e quindi **Refresh Search Index** (Aggiorna indice di ricerca).
 
-  Viene visualizzata la pagina **Image Lists - Refresh Search Index** (Elenchi di immagini - Aggiorna indice di ricerca).
+   Viene visualizzata la pagina **Image Lists - Refresh Search Index** (Elenchi di immagini - Aggiorna indice di ricerca).
 
 2. Per **Open API testing console** (Apri console di test dell'API) selezionare l'area che identifica con maggiore precisione la propria posizione. 
  
@@ -52,66 +52,66 @@ Dopo avere modificato un elenco di immagini, è necessario aggiornarne l'indice 
 
     Viene visualizzata la console dell'API **Image Lists - Refresh Search Index** (Elenchi di immagini - Aggiorna indice di ricerca).
 
-3.  Nella casella **listId** immettere l'ID dell'elenco. Immettere la chiave di sottoscrizione e quindi selezionare **Send** (Invia).
+3. Nella casella **listId** immettere l'ID dell'elenco. Immettere la chiave di sottoscrizione e quindi selezionare **Send** (Invia).
 
-  ![Casella del contenuto della risposta nella console Image Lists - Refresh Search Index (Elenchi di immagini - Aggiorna indice di ricerca)](images/try-image-list-refresh-1.png)
+   ![Casella del contenuto della risposta nella console Image Lists - Refresh Search Index (Elenchi di immagini - Aggiorna indice di ricerca)](images/try-image-list-refresh-1.png)
 
 
 ## <a name="create-an-image-list"></a>Creare un elenco di immagini
 
-1.  Passare alla pagina di [riferimento dell'API di gestione degli elenchi di immagini](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672).
+1. Passare alla pagina di [riferimento dell'API di gestione degli elenchi di immagini](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672).
 
-  Viene visualizzata la pagina **Image Lists - Create** (Elenchi di immagini - Crea). 
+   Viene visualizzata la pagina **Image Lists - Create** (Elenchi di immagini - Crea). 
 
-3.  Per **Open API testing console** (Apri console di test dell'API) selezionare l'area che identifica con maggiore precisione la propria posizione.
+3. Per **Open API testing console** (Apri console di test dell'API) selezionare l'area che identifica con maggiore precisione la propria posizione.
 
-    ![Selezione dell'area nella pagina Image Lists - Create (Elenchi di immagini - Crea)](images/test-drive-region.png)
+   ![Selezione dell'area nella pagina Image Lists - Create (Elenchi di immagini - Crea)](images/test-drive-region.png)
 
-    Viene visualizzata la console dell'API **Image Lists - Create** (Elenchi di immagini - Crea).
+   Viene visualizzata la console dell'API **Image Lists - Create** (Elenchi di immagini - Crea).
  
-4.  Nella casella **Ocp-Apim-Subscription-Key** immettere la chiave di sottoscrizione.
+4. Nella casella **Ocp-Apim-Subscription-Key** immettere la chiave di sottoscrizione.
 
-5.  Nella casella **Request body** (Corpo della richiesta) immettere i valori per **Name** (Nome), ad esempio MyList, e **Description** (Descrizione).
+5. Nella casella **Request body** (Corpo della richiesta) immettere i valori per **Name** (Nome), ad esempio MyList, e **Description** (Descrizione).
 
-  ![Nome e descrizione del corpo della richiesta nella console Image Lists - Create (Elenchi di immagini - Crea)](images/try-terms-list-create-1.png)
+   ![Nome e descrizione del corpo della richiesta nella console Image Lists - Create (Elenchi di immagini - Crea)](images/try-terms-list-create-1.png)
 
-6.  Usare i segnaposto della coppia chiave-valore per assegnare metadati più descrittivi all'elenco.
+6. Usare i segnaposto della coppia chiave-valore per assegnare metadati più descrittivi all'elenco.
 
-        {
-           "Name": "MyExclusionList",
-           "Description": "MyListDescription",
-           "Metadata": 
-           {
-             "Category": "Competitors",
-             "Type": "Exclude"
-           }
-        }
+       {
+          "Name": "MyExclusionList",
+          "Description": "MyListDescription",
+          "Metadata": 
+          {
+            "Category": "Competitors",
+            "Type": "Exclude"
+          }
+       }
 
-  Aggiungere i metadati dell'elenco come coppie chiave-valore e non le immagini effettive.
+   Aggiungere i metadati dell'elenco come coppie chiave-valore e non le immagini effettive.
  
-7.  Selezionare **Send** (Invia). L'elenco è stato creato. Si noti il valore di **ID** associato al nuovo elenco. Questo ID è necessario per altre funzioni di gestione degli elenchi di immagini.
+7. Selezionare **Send** (Invia). L'elenco è stato creato. Si noti il valore di **ID** associato al nuovo elenco. Questo ID è necessario per altre funzioni di gestione degli elenchi di immagini.
 
-  ![ID dell'elenco visualizzato nella casella del contenuto della risposta nella console Image Lists - Create (Elenchi di immagini - Crea)](images/try-terms-list-create-2.png)
+   ![ID dell'elenco visualizzato nella casella del contenuto della risposta nella console Image Lists - Create (Elenchi di immagini - Crea)](images/try-terms-list-create-2.png)
  
-8.  Aggiungere quindi le immagini a MyList. Nel menu a sinistra selezionare **Image** (Immagine) e quindi **Add Image** (Aggiungi immagine).
+8. Aggiungere quindi le immagini a MyList. Nel menu a sinistra selezionare **Image** (Immagine) e quindi **Add Image** (Aggiungi immagine).
 
-  Viene visualizzata la pagina **Image - Add Image** (Immagine - Aggiungi immagine). 
+   Viene visualizzata la pagina **Image - Add Image** (Immagine - Aggiungi immagine). 
 
 9. Per **Open API testing console** (Apri console di test dell'API) selezionare l'area che identifica con maggiore precisione la propria posizione.
 
-  ![Selezione dell'area nella pagina Image - Add Image (Immagine - Aggiungi immagine)](images/test-drive-region.png)
+   ![Selezione dell'area nella pagina Image - Add Image (Immagine - Aggiungi immagine)](images/test-drive-region.png)
 
-  Viene visualizzata la console dell'API **Image - Add Image** (Immagine - Aggiungi immagine).
+   Viene visualizzata la console dell'API **Image - Add Image** (Immagine - Aggiungi immagine).
  
 10. Nella casella **listId** immettere l'ID elenco che è stato generato e quindi specificare l'URL dell'immagine che si vuole aggiungere. Immettere la chiave di sottoscrizione e quindi selezionare **Send** (Invia).
 
 11. Per verificare che l'immagine sia stata aggiunta all'elenco, nel menu a sinistra selezionare **Image** (Immagine) e quindi **Get All Image Ids** (Ottieni tutti gli ID immagine).
 
-  Viene visualizzata la console dell'API **Image - Get All Image Ids** (Immagine - Ottieni tutti gli ID immagine).
+    Viene visualizzata la console dell'API **Image - Get All Image Ids** (Immagine - Ottieni tutti gli ID immagine).
   
 12. Nella casella **listId** immettere l'ID dell'elenco e quindi la chiave di sottoscrizione. Selezionare **Send** (Invia).
 
-  ![Elenco delle immagini specificate nella casella del contenuto della risposta nella console Image - Get All Image Ids (Immagine - Ottieni tutti gli ID immagine)](images/try-image-list-create-11.png)
+    ![Elenco delle immagini specificate nella casella del contenuto della risposta nella console Image - Get All Image Ids (Immagine - Ottieni tutti gli ID immagine)](images/try-image-list-create-11.png)
  
 10. Aggiungere altre immagini. Ora che è stato creato un elenco personalizzato di immagini, provare a [valutare le immagini](try-image-api.md) usando questo elenco. 
 
@@ -127,29 +127,29 @@ Questo esempio elimina una singola immagine:
 
 1. Nella pagina di [riferimento dell'API di gestione degli elenchi di immagini](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672) selezionare **Image** (Immagine) nel menu a sinistra e quindi **Delete** (Elimina). 
 
-  Viene visualizzata la pagina **Image - Delete** (Immagine - Elimina).
+   Viene visualizzata la pagina **Image - Delete** (Immagine - Elimina).
 
 2. Per **Open API testing console** (Apri console di test dell'API) selezionare l'area che identifica con maggiore precisione la propria posizione. 
 
-  ![Selezione dell'area nella pagina Image - Delete (Immagine - Elimina)](images/test-drive-region.png)
+   ![Selezione dell'area nella pagina Image - Delete (Immagine - Elimina)](images/test-drive-region.png)
  
-  Viene visualizzata la console dell'API **Image - Delete** (Immagine - Elimina).
+   Viene visualizzata la console dell'API **Image - Delete** (Immagine - Elimina).
  
-3.  Nella casella **listId** immettere l'ID dell'elenco da cui si vuole eliminare un'immagine.  Questo ID corrisponde al numero che viene restituito nella console **Image - Get All Image Ids** (Immagine - Ottieni tutti gli ID immagine) per MyList. Immettere quindi il valore di **Image Id** dell'immagine da eliminare. 
+3. Nella casella **listId** immettere l'ID dell'elenco da cui si vuole eliminare un'immagine.  Questo ID corrisponde al numero che viene restituito nella console **Image - Get All Image Ids** (Immagine - Ottieni tutti gli ID immagine) per MyList. Immettere quindi il valore di **Image Id** dell'immagine da eliminare. 
 
 In questo esempio l'ID dell'elenco è **58953**, ovvero il valore per **ContentSource**. L'ID dell'immagine è **59021**, ovvero il valore per **ContentIds**.
 
-4.  Immettere la chiave di sottoscrizione e quindi selezionare **Send** (Invia).
+1. Immettere la chiave di sottoscrizione e quindi selezionare **Send** (Invia).
 
-5.  Per verificare che l'immagine sia stata eliminata, usare la console **Image - Get All Image Ids** (Immagine - Ottieni tutti gli ID immagine).
+1. Per verificare che l'immagine sia stata eliminata, usare la console **Image - Get All Image Ids** (Immagine - Ottieni tutti gli ID immagine).
  
 ## <a name="change-list-information"></a>Modificare le informazioni di un elenco
 
 È possibile modificare il nome e la descrizione di un elenco e aggiungere elementi di metadati.
 
-1.  Nella pagina di [riferimento dell'API di gestione degli elenchi di immagini](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672) selezionare **Image Lists** (Elenchi di immagini) nel menu a sinistra e quindi **Update Details** (Aggiorna dettagli). 
+1. Nella pagina di [riferimento dell'API di gestione degli elenchi di immagini](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672) selezionare **Image Lists** (Elenchi di immagini) nel menu a sinistra e quindi **Update Details** (Aggiorna dettagli). 
 
-  Viene visualizzata la pagina **Image Lists - Update Details** (Elenchi di immagini - Aggiorna dettagli).
+   Viene visualizzata la pagina **Image Lists - Update Details** (Elenchi di immagini - Aggiorna dettagli).
 
 2. Per **Open API testing console** (Apri console di test dell'API) selezionare l'area che identifica con maggiore precisione la propria posizione.  
 
@@ -157,11 +157,11 @@ In questo esempio l'ID dell'elenco è **58953**, ovvero il valore per **ContentS
 
     Viene visualizzata la console dell'API **Image Lists - Update Details** (Elenchi di immagini - Aggiorna dettagli).
  
-3.  Nella casella **listId** immettere l'ID dell'elenco e quindi la chiave di sottoscrizione.
+3. Nella casella **listId** immettere l'ID dell'elenco e quindi la chiave di sottoscrizione.
 
-4.  Nella casella **Request body** (Corpo della richiesta) apportare le modifiche e quindi selezionare il pulsante **Send** (Invia) nella pagina.
+4. Nella casella **Request body** (Corpo della richiesta) apportare le modifiche e quindi selezionare il pulsante **Send** (Invia) nella pagina.
 
-  ![Modifiche del corpo della richiesta nella console Image Lists - Update Details (Elenchi di immagini - Aggiorna dettagli)](images/try-terms-list-change-1.png)
+   ![Modifiche del corpo della richiesta nella console Image Lists - Update Details (Elenchi di immagini - Aggiorna dettagli)](images/try-terms-list-change-1.png)
  
 
 ## <a name="next-steps"></a>Passaggi successivi

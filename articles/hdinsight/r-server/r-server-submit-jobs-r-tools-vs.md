@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 351734ea394b8820e87799a6d9a87979dd9c3807
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 3165adf09281f4ad35b77c2e0fbb89e40c04c631
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604532"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120959"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Inviare processi da R Tools per Visual Studio
 
@@ -31,21 +31,21 @@ RTVS migliora il flusso di lavoro R offrendo strumenti come la [finestra R inter
 2. Selezionare il carico di lavoro *Analisi scientifica dei dati e applicazioni analitiche*, quindi selezionare le opzioni **Supporto del linguaggio R**, **Supporto runtime per lo sviluppo R** e  **Microsoft R Client**.
 
 3. È necessario disporre di chiavi pubbliche e private per l'autenticazione SSH.
-<!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
+   <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
 
 4. Installare [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) nel computer. ML Server offre le funzioni [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) e `RxSpark`.
 
 5. Installare [PuTTY](https://www.putty.org/) per fornire un contesto di calcolo per eseguire le funzioni `RevoScaleR` dal client locale al cluster HDInsight.
 
 6. È possibile applicare le Impostazioni di Data Science all'ambiente di Visual Studio, ottenendo un nuovo layout per l'area di lavoro per gli strumenti R.
-    1. Per salvare le impostazioni correnti di Visual Studio, usare il comando **Strumenti > Importa/Esporta impostazioni**, quindi selezionare **Esporta le impostazioni di ambiente selezionate** e specificare un nome file. Per ripristinare tali impostazioni, usare lo stesso comando e selezionare **Importa le impostazioni di ambiente selezionate**.
+   1. Per salvare le impostazioni correnti di Visual Studio, usare il comando **Strumenti > Importa/Esporta impostazioni**, quindi selezionare **Esporta le impostazioni di ambiente selezionate** e specificare un nome file. Per ripristinare tali impostazioni, usare lo stesso comando e selezionare **Importa le impostazioni di ambiente selezionate**.
 
-    2. Passare alla voce di menu **Strumenti R**, quindi selezionare **Impostazioni di Data Science**.
+   2. Passare alla voce di menu **Strumenti R**, quindi selezionare **Impostazioni di Data Science**.
 
-        ![Impostazioni di Data Science](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
+       ![Impostazioni di Data Science](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
-    > [!NOTE]  
-    > Usando l'approccio del passaggio 1 è possibile anche salvare e ripristinare il layout personalizzato, piuttosto che ripetere il comando **Impostazioni di Data Science**.
+      > [!NOTE]  
+      > Usando l'approccio del passaggio 1 è possibile anche salvare e ripristinare il layout personalizzato, piuttosto che ripetere il comando **Impostazioni di Data Science**.
 
 ## <a name="execute-local-r-methods"></a>Eseguire i metodi R locali
 

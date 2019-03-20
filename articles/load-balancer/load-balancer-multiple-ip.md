@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 4920d2a6c26da12effc2b44be8d3c6cbdb5e2a6f
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 0cf5aa45e1e8a28dfcdadac0ea32658e5993d06c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199137"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856122"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Bilanciamento del carico in più configurazioni IP tramite il portale di Azure
 
@@ -62,7 +62,7 @@ Per ottenere lo scenario descritto in questo articolo, completare la procedura s
 
 Per ogni VM nella rete virtuale aggiungere la configurazione IP impostata per la scheda di interfaccia di rete secondaria:  
 
-1. Accedere al portale di Azure: http://portal.azure.com. Accedere con l'account Azure.
+1. Accedere al portale di Azure: https://portal.azure.com. Accedere con l'account Azure.
 
 2. Nella parte superiore sinistra della schermata selezionare l'icona **Gruppi di risorse**. Selezionare quindi il gruppo di risorse in cui si trovano le VM, ad esempio **contosofabrikam**. Il riquadro **Gruppi di risorse** visualizza tutte le risorse e le schede di interfaccia di rete per le VM.
 
@@ -86,7 +86,7 @@ Quando la seconda configurazione IP della scheda di interfaccia di rete secondar
 
 Creare il servizio di bilanciamento del carico per la configurazione:
 
-1. Accedere al portale di Azure: http://portal.azure.com. Accedere con l'account Azure.
+1. Accedere al portale di Azure: https://portal.azure.com. Accedere con l'account Azure.
 
 2. In alto a sinistra nella schermata selezionare **Crea una risorsa** > **Rete** > **Load Balancer**. Quindi selezionare **Crea**.
 
@@ -106,15 +106,15 @@ Per ognuno dei siti Web (contoso.com e fabrikam.com) configurare il pool di indi
 
 2. Configurare due indirizzi IP pubblici (**PublicIP1** e **PublicIP2**) per entrambi i siti Web (contoso.com e fabrikam.com):
 
-    1. Digitare un nome per l'indirizzo IP front-end.
+   1. Digitare un nome per l'indirizzo IP front-end.
 
-    2. Per **Gruppo di risorse** selezionare il gruppo di risorse esistente per le VM, ad esempio, **contosofabrikam**.
+   2. Per **Gruppo di risorse** selezionare il gruppo di risorse esistente per le VM, ad esempio, **contosofabrikam**.
 
-    3. Per **Percorso** selezionare lo stesso percorso delle macchine virtuali.
+   3. Per **Percorso** selezionare lo stesso percorso delle macchine virtuali.
 
-    4. Selezionare **OK**.
+   4. Selezionare **OK**.
 
-    Dopo la creazione, i due indirizzi IP pubblici vengono visualizzati con gli indirizzi in **IP pubblico**.
+      Dopo la creazione, i due indirizzi IP pubblici vengono visualizzati con gli indirizzi in **IP pubblico**.
 
 3. <a name="step3-3"></a>Nel portale selezionare **Altri servizi**. Nella casella del filtro digitare **bilanciamento del carico** e quindi selezionare **Bilanciamento del carico**. 
 
@@ -194,4 +194,4 @@ L'ultimo passaggio prevede la configurazione dei record di risorse DNS in modo c
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni su come combinare i servizi di bilanciamento del carico di Azure sono disponibili in [Uso dei servizi di bilanciamento del carico in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Le informazioni su come usare diversi tipi di log per gestire e risolvere i problemi di bilanciamento del carico sono disponibili in [Analisi dei log per il servizio di bilanciamento del carico di Azure](../load-balancer/load-balancer-monitor-log.md).
+- Informazioni su come è possibile usare diversi tipi di log per gestire e risolvere i problemi di bilanciamento del carico nel [log di monitoraggio di Azure per Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

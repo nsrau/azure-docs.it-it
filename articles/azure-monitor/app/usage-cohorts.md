@@ -13,12 +13,12 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 810ccae08b540c417a0e7dfecb6ad5a8b110cd7b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: a575161be0a339973f9c59cc13c2320b38939d04
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54045283"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108526"
 ---
 # <a name="application-insights-cohorts"></a>Coorti di Application Insights
 
@@ -105,16 +105,16 @@ Le due coorti precedenti sono state definite usando caselle di riepilogo a disce
     ![Coorte utenti vuota](./media/usage-cohorts/001.png)
 
     Sono disponibili tre sezioni:
-    * Una sezione di testo Markdown, in cui si descrive più dettagliatamente la coorte per gli altri membri del team.
+   * Una sezione di testo Markdown, in cui si descrive più dettagliatamente la coorte per gli altri membri del team.
 
-    * Una sezione di parametri, in cui si creano i propri parametri, ad esempio **Activities** e le altre caselle di riepilogo a discesa dei due esempi precedenti.
+   * Una sezione di parametri, in cui si creano i propri parametri, ad esempio **Activities** e le altre caselle di riepilogo a discesa dei due esempi precedenti.
 
-    * Una sezione di query, in cui si definisce la coorte con una query di analisi.
+   * Una sezione di query, in cui si definisce la coorte con una query di analisi.
 
-    Nella sezione di query si [scrive una query di analisi](/azure/kusto/query). La query seleziona il set specifico di righe che descrivono la coorte che si vuole definire. Lo strumento Coorti aggiunge quindi in modo implicito una clausola "| summarize by user_Id" alla query. L'anteprima dei dati viene visualizzata sotto la query in una tabella, per poter verificare che la query restituisca risultati.
+     Nella sezione di query si [scrive una query di analisi](/azure/kusto/query). La query seleziona il set specifico di righe che descrivono la coorte che si vuole definire. Lo strumento Coorti aggiunge quindi in modo implicito una clausola "| summarize by user_Id" alla query. L'anteprima dei dati viene visualizzata sotto la query in una tabella, per poter verificare che la query restituisca risultati.
 
-    > [!NOTE]
-    > Se la query non viene visualizzata, provare a ridimensionare la sezione per aumentarne l'altezza e poter vedere la query. L'immagine animata all'inizio di questa sezione illustra il comportamento di ridimensionamento.
+     > [!NOTE]
+     > Se la query non viene visualizzata, provare a ridimensionare la sezione per aumentarne l'altezza e poter vedere la query. L'immagine animata all'inizio di questa sezione illustra il comportamento di ridimensionamento.
 
 2. Copiare e incollare il seguente testo nell'editor di query:
 

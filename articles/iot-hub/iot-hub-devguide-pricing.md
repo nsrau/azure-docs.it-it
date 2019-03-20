@@ -1,19 +1,19 @@
 ---
 title: Informazioni sui prezzi dell'hub IoT di Azure | Microsoft Docs
 description: Guida per sviluppatori - Informazioni sulle misurazioni e sui prezzi nell'hub IoT ed esempi reali.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
-ms.author: dobett
-ms.openlocfilehash: 247c12fb15fe8aa82c3a29c4c2d1e704db40e424
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.date: 03/11/2019
+ms.openlocfilehash: 23b53e852672c129ff148b0b493a44172f9baf9a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141510"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769745"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Informazioni sui prezzi dell'hub IoT di Azure
 
@@ -28,8 +28,8 @@ ms.locfileid: "53141510"
 | Operazioni del registro delle identità <br/> (creazione, recupero, elenco, aggiornamento, eliminazione) | Nessun addebito. |
 | Messaggi da dispositivo a cloud | Per i messaggi inviati correttamente è previsto un addebito in base a blocchi di 4 KB in ingresso nell'hub IoT. Un messaggio di 6 KB, ad esempio, viene addebitato come 2 messaggi. |
 | Messaggi da cloud a dispositivo | Per i messaggi inviati correttamente è previsto un addebito in base a blocchi di 4 KB, ad esempio un messaggio di 6 KB viene addebitato come 2 messaggi. |
-| Caricamenti di file | Il trasferimento di file in Archiviazione di Azure non viene misurato dall'hub IoT. I messaggi di avvio e di completamento del trasferimento di file vengono addebitati come messaggi misurati in incrementi di 4 KB. Il trasferimento di un file di 10 MB, ad esempio, viene addebitato come due messaggi, oltre al costo di Archiviazione di Azure. |
-| Metodi diretti | Le richieste di metodo completate vengono addebitate in blocchi di 4 KB, le risposte con corpi non vuoti vengono addebitate in blocchi di 4 KB come messaggi aggiuntivi. Le richieste ai dispositivi disconnessi vengono addebitate come messaggi in blocchi di 4 KB. Un metodo con corpo da 6 KB che dà come risultato una risposta senza corpo dal dispositivo, ad esempio, viene addebitato come due messaggi. Un metodo con corpo da 6 KB che dà come risultato una risposta da 1 KB dal dispositivo viene addebitato come due messaggi per la richiesta, con in più un altro messaggio per la risposta. |
+| Caricamenti di file | Il trasferimento di file in Archiviazione di Azure non viene misurato dall'hub IoT. I messaggi di avvio e di completamento del trasferimento di file vengono addebitati come messaggi misurati in incrementi di 4 KB. Ad esempio, il trasferimento di un file di 10 MB viene addebitato come due messaggi, oltre al costo di archiviazione di Azure. |
+| Metodi diretti | Le richieste di metodo completate vengono addebitate in blocchi da 4 KB e risposte vengono addebitate in blocchi di 4 KB come messaggi aggiuntivi. Le richieste ai dispositivi disconnessi vengono addebitate come messaggi in blocchi di 4 KB. Ad esempio, un metodo con un corpo di 4 KB che produce una risposta senza corpo dal dispositivo viene addebitato come due messaggi. Un metodo con corpo da 6 KB che dà come risultato una risposta da 1 KB dal dispositivo viene addebitato come due messaggi per la richiesta, con in più un altro messaggio per la risposta. |
 | Letture di dispositivi e moduli gemelli | Le letture del dispositivo gemello dal dispositivo o dal modulo e dal back-end della soluzione vengono addebitate come messaggi in blocchi di 512 byte. La lettura di un messaggio di 6 KB del dispositivo gemello, ad esempio, viene addebitata come 12 messaggi. |
 | Aggiornamenti di dispositivi e moduli gemelli (tag e proprietà) | Gli aggiornamenti del dispositivo gemello dal dispositivo o dal modulo e dal back-end della soluzione vengono addebitati come messaggi in blocchi di 512 byte. La lettura di un messaggio di 6 KB del dispositivo gemello, ad esempio, viene addebitata come 12 messaggi. |
 | Query su dispositivi e moduli gemelli | Le query vengono addebitate come messaggi in base alle dimensioni del risultato in blocchi di 512 byte. |
@@ -42,7 +42,7 @@ ms.locfileid: "53141510"
 
 ## <a name="example-1"></a>Esempio 1
 
-Un dispositivo invia all'hub IoT un messaggio da 1 KB dal dispositivo al cloud al minuto e il messaggio viene quindi letto da Analisi di flusso di Azure. Il back-end della soluzione chiama un metodo con un payload di 512 byte per il dispositivo ogni 10 minuti per attivare un'azione specifica. Il dispositivo risponde al metodo con un risultato di 200 byte.
+Un dispositivo invia all'hub IoT un messaggio da 1 KB dal dispositivo al cloud al minuto e il messaggio viene quindi letto da Analisi di flusso di Azure. Back-end della soluzione chiama un metodo, con un payload di 512 byte, sul dispositivo ogni 10 minuti per attivare un'azione specifica. Il dispositivo risponde al metodo con un risultato di 200 byte.
 
 Il dispositivo usa:
 

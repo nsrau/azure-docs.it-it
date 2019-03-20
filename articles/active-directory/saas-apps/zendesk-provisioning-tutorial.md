@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fb6108855cf3237af230f3356f0afb68e2b1ec4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: f2e05e5e430760d16d5d494a6f27ef985aafc487
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445543"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097992"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Esercitazione: configurare Zendesk per il provisioning utenti automatico
 
@@ -111,12 +111,12 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 5. Nella sezione **Credenziali amministratore** completare i campi **Nome utente amministratore**, **Token segreto** e **Dominio** dell'account Zendesk. Ecco alcuni esempi di questi valori:
 
-    *   Nel campo **Nome utente amministratore** immettere il nome utente dell'account amministratore nel tenant di Zendesk. Esempio: admin@contoso.com.
+   * Nel campo **Nome utente amministratore** immettere il nome utente dell'account amministratore nel tenant di Zendesk. Esempio: admin@contoso.com.
 
-    *   Nel campo **Token segreto** immettere il token del segreto come descritto nel passaggio 6.
+   * Nel campo **Token segreto** immettere il token del segreto come descritto nel passaggio 6.
 
-    *   Nel campo **Dominio** immettere il sottodominio del tenant di Zendesk.
-    Esempio: per un account con un URL del tenant https://my-tenant.zendesk.com, il sottodominio sarà **tenant**.
+   * Nel campo **Dominio** immettere il sottodominio del tenant di Zendesk.
+     Esempio: per un account con un URL del tenant https://my-tenant.zendesk.com, il sottodominio sarà **tenant**.
 
 6. Il valore di **Token segreto** per l'account Zendesk si trova in **Amministratore > API > Impostazioni**.
    Verificare che **Token Access** (Accesso tramite token) sia impostato su **Abilitato**.

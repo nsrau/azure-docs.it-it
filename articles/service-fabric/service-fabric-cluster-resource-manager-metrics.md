@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7a7d3ad59d743287e5fe13c52c6c6a1a115d53f3
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: 642f479aba62e5cc9dde63aed7c30de39b513a5e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053313"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093350"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Gestione dell'utilizzo delle risorse e del carico in Service Fabric con le metriche
 Con *metriche* si intendono le risorse rilevanti per i servizi, che sono fornite dai nodi nel cluster. Una metrica è un qualsiasi elemento che si vuole gestire per controllare o migliorare le prestazioni dei servizi. Ad esempio, è possibile osservare il consumo di memoria per capire se il servizio è sovraccarico. Le metriche possono essere usate per determinare se il servizio può essere spostato in un'altra posizione con memoria meno vincolata, per ottenere prestazioni migliori.
@@ -45,7 +45,8 @@ Per i carichi di lavoro di base, le metriche predefinite forniscono una distribu
 Il risultato è il seguente:
 
 <center>
-![Layout dei cluster con metriche predefinite][Image1]
+
+![Layout di cluster con metriche predefinite][Image1]
 </center>
 
 Alcuni punti di cui tenere conto:
@@ -56,7 +57,7 @@ Alcuni punti di cui tenere conto:
 
 Ottimo.
 
-Le metriche predefinite sono un punto di partenza ideale, ma non consentono di andare troppo oltre. Sono infatti un approccio efficace fino a quando non si prende in considerazione l'effettiva probabilità che lo schema di partizionamento selezionato produca un consumo perfettamente uniforme in tutte le partizioni, e che il carico per un determinato servizio sia costante nel tempo o resti invariato.
+Le metriche predefinite sono un punto di partenza ideale, ma non consentono di andare troppo oltre. Ad esempio:  Che cos'è la probabilità che lo schema di partizionamento è prelevati risultati in utilizzo perfettamente uniforme in tutte le partizioni? e che il carico per un determinato servizio sia costante nel tempo o resti invariato.
 
 È possibile operare solo con le metriche predefinite, tuttavia, in genere ciò significa che il consumo del cluster è inferiore e non uniforme come desiderato. Ciò è dovuto al fatto che le metriche predefinite non sono adattive e presuppongono che tutti gli elementi siano equivalenti. Ad esempio, una replica primaria e una che non lo è contribuiscono entrambe con "1" alla metrica PrimaryCount. Nel peggiore dei casi, l'uso delle sole metriche predefinite può determinare anche la sovrapianificazione dei nodi e di conseguenza problemi di prestazioni. Se si è interessati a sfruttare al meglio il cluster e a evitare problemi di prestazioni, è opportuno prendere in considerazione metriche personalizzate e creazione di report sul carico dinamico.
 
@@ -65,13 +66,13 @@ Le metriche sono configurate in base alle singole istanze del servizio durante l
 
 Qualsiasi metrica è descritta da alcune proprietà: nome, carico predefinito e peso.
 
-* Nome della metrica: il nome della metrica, che è un identificatore univoco della metrica nel cluster dal punto di vista di Resource Manager.
-* Peso: il peso della metrica ne definisce l'importanza rispetto alle altre metriche per il servizio.
-* Default Load: il carico predefinito è rappresentato in modo diverso a seconda che il servizio sia con o senza stato.
+* Nome della metrica: Nome della metrica. che è un identificatore univoco della metrica nel cluster dal punto di vista di Resource Manager.
+* Peso: Peso della metrica definisce quanto questa metrica è importante rispetto alle altre metriche per questo servizio.
+* Default Load: Il carico predefinito è rappresentato in modo diverso a seconda che il servizio sia con o senza stato.
   * Per i servizi senza stato, ogni metrica ha un'unica proprietà denominata DefaultLoad
   * Per i servizi con stato si definiscono le proprietà seguenti.
-    * PrimaryDefaultLoad: quantità predefinita della metrica utilizzata dal servizio quando è primario
-    * SecondaryDefaultLoad: quantità predefinita della metrica utilizzata dal servizio quando è secondario
+    * PrimaryDefaultLoad: La quantità predefinita della metrica servizio consuma quando è una replica primaria
+    * SecondaryDefaultLoad: La quantità predefinita della metrica servizio consuma quando è un database secondario
 
 > [!NOTE]
 > Se si definiscono metriche personalizzate e si vogliono usare _anche_ le metriche predefinite, è necessario aggiungerle _esplicitamente_, e definire per queste pesi e valori, così da stabilire la relazione tra le metriche predefinite e quelle personalizzate. Ad esempio, si può essere più interessati a una metrico di tipo ConnectionCount o WorkQueueDepth che alla distribuzione della metrica primaria. Per impostazione predefinita il peso della metrica PrimaryCount è elevato, pertanto si desidera ridurlo a medio se si aggiungono altre metriche, per garantire che abbiano la precedenza.
@@ -215,7 +216,8 @@ Si ricordi che la sintassi è ("MetricName, MetricWeight, PrimaryDefaultLoad, Se
 Un layout di cluster può avere un aspetto analogo al seguente:
 
 <center>
-![Cluster bilanciato con metriche sia predefinite che personalizzate][Image2]
+
+![Cluster bilanciato con metriche sia predefinite e personalizzate][Image2]
 </center>
 
 Occorre notare alcuni aspetti:
@@ -232,14 +234,15 @@ Restano ancora da spiegare alcuni aspetti:
 ## <a name="metric-weights"></a>Pesi metrici
 La possibilità di tenere traccia delle stesse metriche in diversi servizi è importante, perché consente a Cluster Resource Manager di tenere traccia del consumo nel cluster, bilanciare il consumo tra i nodi e garantire che non ne venga superata la capacità. La stessa metrica, tuttavia, può assumere una diversa importanza per i diversi servizi. In un cluster con molte metriche e numerosi servizi, inoltre, potrebbero non esistere soluzioni perfettamente bilanciate per tutte le metriche. Come devono essere gestite queste situazioni in Cluster Resource Manager?
 
-I pesi delle metriche consentono a Cluster Resource Manager di decidere come bilanciare il cluster quando non esiste una risposta perfetta, nonché di bilanciare in modo diverso servizi specifici. Le metriche possono avere quattro livelli di peso diversi: Zero, Low, Medium e High. Una metrica con peso zero non ha impatto quando si valuta se gli elementi sono bilanciati o meno, ma il suo carico ha conseguenze sulla gestione della capacità. Le metriche con peso zero sono comunque utili e vengono spesso usate come componenti del comportamento del servizio e del monitoraggio delle prestazioni. [Questo articolo](service-fabric-diagnostics-event-generation-infra.md) offre altre informazioni sull'uso delle metriche per il monitoraggio e la diagnostica dei servizi. 
+I pesi delle metriche consentono a Cluster Resource Manager di decidere come bilanciare il cluster quando non esiste una risposta perfetta, nonché di bilanciare in modo diverso servizi specifici. Le metriche possono avere quattro livelli di peso diversi: Zero, Low, Medium e alta. Una metrica con peso zero non ha impatto quando si valuta se gli elementi sono bilanciati o meno, ma il suo carico ha conseguenze sulla gestione della capacità. Le metriche con peso zero sono comunque utili e vengono spesso usate come componenti del comportamento del servizio e del monitoraggio delle prestazioni. [Questo articolo](service-fabric-diagnostics-event-generation-infra.md) offre altre informazioni sull'uso delle metriche per il monitoraggio e la diagnostica dei servizi. 
 
 L'impatto effettivo di pesi delle metriche diversi nel cluster consiste nel fatto che Cluster Resource Manager genera soluzioni diverse. I pesi indicano a Cluster Resource Manager che determinate metriche sono più importanti di altre. Quando non esiste una soluzione perfetta, Cluster Resource Manager può preferire soluzioni con un migliore bilanciamento delle metriche con peso superiore. Se una particolare metrica non è importante per un servizio, potrebbe sbilanciarne l'uso in modo da garantire a un altro servizio, per cui è importante, una distribuzione uniforme.
 
 L'esempio seguente illustra alcuni report di carico e come pesi diversi delle metriche possono determinare allocazioni diverse nel cluster. In questo esempio si può notare che la modifica del peso relativo delle metriche fa sì che Cluster Resource Manager crei disposizioni diverse dei servizi.
 
 <center>
-![Esempio di peso delle metriche e del relativo impatto sulle soluzioni di bilanciamento][Image3]
+
+![Esempio di peso delle metriche e il relativo impatto sulle soluzioni di bilanciamento][Image3]
 </center>
 
 In questo esempio sono presenti quattro diversi servizi, tutti con valori diversi nei report di due diverse metriche, MetricA e MetricB. In un caso, tutti i servizi definiscono MetricA come la più importante (Peso = High) e MetricB come non importante (Peso = Low). Di conseguenza, Cluster Resource Manager posiziona i servizi in modo da ottenere per MetricA un bilanciamento migliore rispetto a MetricB. "Bilanciamento migliore" significa che MetricA presenta una deviazione standard inferiore rispetto a MetricB. Nel secondo caso, i pesi delle metriche sono invertiti. Di conseguenza, Cluster Resource Manager scambia i servizi A e B in modo da ottenere un'allocazione in cui il bilanciamento di MetricB è migliore rispetto a MetricA.
@@ -256,7 +259,8 @@ Per ogni metrica esistono più pesi di cui tenere traccia. Il primo peso è quel
 Se Cluster Resource Manager non tiene conto del bilanciamento globale e locale, si possono avere soluzioni bilanciate a livello globale, ma che determinano allocazioni inefficienti delle risorse per i singoli servizi. L'esempio seguente illustra un servizio configurato esclusivamente con le metriche predefinite e mostra cosa accade se viene considerato solo il bilanciamento globale:
 
 <center>
-![Impatto di una soluzione solo globale][Image4]
+
+![L'impatto di una soluzione solo globale][Image4]
 </center>
 
 Nell'esempio in alto, basato solo sul bilanciamento globale, il cluster nel suo complesso è effettivamente bilanciato. Tutti i nodi hanno lo stesso numero di repliche primarie e di repliche totali. Se tuttavia si esamina l'impatto effettivo di questa allocazione, si notano alcuni problemi. La perdita di un nodo influisce in modo sproporzionato su un carico di lavoro specifico, perché rende inattive tutte le repliche primarie. In caso di errore nel primo nodo, ad esempio, tutte e tre le repliche primarie per le tre diverse partizioni del servizio rappresentato con il cerchio andrebbero perse. Le partizioni dei servizi rappresentati con il triangolo e con l'esagono perdono invece una replica. L'unica interruzione di servizio, in questo caso, consiste nel ripristinare la replica perduta.

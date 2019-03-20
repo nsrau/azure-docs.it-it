@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: aeea0a0b00ceaa936352d549a86040c2cc460167
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: f044aa006727fafb52c2c5e6c015c3e4cc70edf7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153863"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57882014"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Creare la prima applicazione di Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -44,19 +44,19 @@ Service Fabric offre gli strumenti di scaffolding che consentono di creare appli
    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash 
    nvm install node 
    ```
-2. Installare il generatore di modelli [Yeoman](http://yeoman.io/) nella macchina virtuale da NPM
+2. Installare il generatore di modelli [Yeoman](https://yeoman.io/) nella macchina virtuale da NPM
 
-  ```bash
-  npm install -g yo
-  ```
+   ```bash
+   npm install -g yo
+   ```
 3. Installare il generatore di applicazioni C# Yeoman di Service Fabric da NPM
 
-  ```bash
-  npm install -g generator-azuresfcsharp
-  ```
+   ```bash
+   npm install -g generator-azuresfcsharp
+   ```
 
 ## <a name="create-the-application"></a>Creazione dell'applicazione
-Un'applicazione Infrastruttura di servizi può contenere uno o più servizi, ognuno dei quali contribuisce alle funzionalità dell'applicazione con un ruolo specifico. Il generatore [Yeoman](http://yeoman.io/) di Service Fabric per C#, installato nell'ultimo passaggio, semplifica la creazione del primo servizio e l'aggiunta di altri servizi in un secondo momento. Verrà usato Yeoman per creare un'applicazione con un solo servizio.
+Un'applicazione Infrastruttura di servizi può contenere uno o più servizi, ognuno dei quali contribuisce alle funzionalità dell'applicazione con un ruolo specifico. Il generatore [Yeoman](https://yeoman.io/) di Service Fabric per C#, installato nell'ultimo passaggio, semplifica la creazione del primo servizio e l'aggiunta di altri servizi in un secondo momento. Verrà usato Yeoman per creare un'applicazione con un solo servizio.
 
 1. In un terminale, digitare il comando seguente per iniziare a creare lo scaffolding: `yo azuresfcsharp`
 2. Assegnare un nome all'applicazione.

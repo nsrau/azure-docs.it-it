@@ -4,15 +4,15 @@ description: L'articolo contiene informazioni sull'appliance Agente di raccolta 
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/04/2019
+ms.date: 03/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 0568df92db2114c57a0aa027ade369e4b256af84
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 228d7b6994c67f9e14424624d264061634d80f27
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813331"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080066"
 ---
 # <a name="about-the-collector-appliance"></a>Informazioni sull'appliance Agente di raccolta
 
@@ -85,22 +85,22 @@ Agente di raccolta deve superare alcuni controlli dei prerequisiti per verificar
 - L'indirizzo IP o il nome FQDN del server proxy deve essere specificato come *http://IPaddress* o *http://FQDN*.
 - È supportato solo il proxy HTTP. I server proxy basati su HTTPS non sono supportati da Agente di raccolta.
 - Se il server proxy è un proxy di intercettazione, è necessario importare il certificato proxy nella macchina virtuale di Agente di raccolta.
-    1. Nella macchina virtuale di Agente di raccolta andare al **menu Start** > **Gestisci i certificati computer**.
-    2. Nell'area **Certificati - Computer locale** dello strumento Certificati trovare **Autori attendibili** > **Certificati**.
+  1. Nella macchina virtuale di Agente di raccolta andare al **menu Start** > **Gestisci i certificati computer**.
+  2. Nell'area **Certificati - Computer locale** dello strumento Certificati trovare **Autori attendibili** > **Certificati**.
 
-        ![Strumento Certificati](./media/concepts-intercepting-proxy/certificates-tool.png)
+      ![Strumento Certificati](./media/concepts-intercepting-proxy/certificates-tool.png)
 
-    3. Copiare il certificato proxy per la macchina virtuale di Agente di raccolta. È possibile ottenerlo dall'amministratore di rete.
-    4. Fare doppio clic per aprire il certificato e quindi fare clic su **Installa certificato**.
-    5. Nell'Importazione guidata certificati scegliere **Computer locale** come percorso archivio.
+  3. Copiare il certificato proxy per la macchina virtuale di Agente di raccolta. È possibile ottenerlo dall'amministratore di rete.
+  4. Fare doppio clic per aprire il certificato e quindi fare clic su **Installa certificato**.
+  5. Nell'Importazione guidata certificati scegliere **Computer locale** come percorso archivio.
 
-    ![Percorso dell'archivio certificati](./media/concepts-intercepting-proxy/certificate-store-location.png)
+     ![Percorso dell'archivio certificati](./media/concepts-intercepting-proxy/certificate-store-location.png)
 
-    6. Selezionare **Place all certificates in the following store (Colloca tutti i certificati nell'archivio seguente)** > **Sfoglia** > **Autori attendibili**. Fare clic su **Fine** per importare il certificato.
+  6. Selezionare **Place all certificates in the following store (Colloca tutti i certificati nell'archivio seguente)** > **Sfoglia** > **Autori attendibili**. Fare clic su **Fine** per importare il certificato.
 
-    ![Archivio certificati](./media/concepts-intercepting-proxy/certificate-store.png)
+     ![Archivio certificati](./media/concepts-intercepting-proxy/certificate-store.png)
 
-    7. Verificare che l'importazione del certificato e il controllo dei prerequisiti vengano eseguiti nel modo previsto.
+  7. Verificare che l'importazione del certificato e il controllo dei prerequisiti vengano eseguiti nel modo previsto.
 
 
 ### <a name="urls-for-connectivity"></a>URL per la connettività
@@ -111,7 +111,7 @@ La verifica della connettività viene eseguita tramite la connessione a un elenc
 --- | --- | ---
 *.portal.azure.com | Applicabile ad Azure Globale. Viene controllata la connettività al servizio Azure e l'ora di sincronizzazione. | Accesso agli URL necessari.<br/><br/> Il controllo dei prerequisiti ha esito negativo se non è disponibile alcuna connettività.
 *.portal.azure.us | Applicabile solo ad Azure per enti pubblici. Viene controllata la connettività al servizio Azure e l'ora di sincronizzazione. | Accesso agli URL necessari.<br/><br/> Il controllo dei prerequisiti ha esito negativo se non è disponibile alcuna connettività.
-*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Usato per scaricare il modulo PowerShell vCenter PowerCLI. | Accesso agli URL facoltativi.<br/><br/> Il controllo dei prerequisiti non riesce.<br/><br/> L'installazione automatica del modulo nella macchina virtuale di Agente di raccolta non riesce. Installare manualmente il modulo.
+*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Usato per scaricare il modulo PowerShell vCenter PowerCLI. | È necessario l'accesso agli URL.<br/><br/> Il controllo dei prerequisiti non riesce.<br/><br/> L'installazione automatica del modulo nella macchina virtuale di Agente di raccolta non riesce. È necessario installare manualmente il modulo in un computer con connettività internet e quindi copiare i moduli per l'appliance. [Per altre informazioni, passare al passaggio 4 in questa Guida alla risoluzione dei problemi](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception).
 
 
 ### <a name="install-vmware-powercli-module-manually"></a>Installare manualmente il modulo VMware PowerCLI
@@ -179,10 +179,10 @@ net.transmitted.average | Calcola le dimensioni della macchina virtuale
 
 L'elenco completo dei contatori di VMware raccolti da Azure Migrate è disponibile di seguito:
 
-**Categoria** |  **Metadati** | **Punto dati vCenter**
+**Categoria** |  **Metadata** | **Punto dati vCenter**
 --- | --- | ---
 Dettagli computer | ID macchina virtuale | vm.Config.InstanceUuid
-Dettagli computer | Nome macchina virtuale | vm.Config.Name
+Dettagli computer | Nome della VM. | vm.Config.Name
 Dettagli computer | ID server vCenter | VMwareClient.InstanceUuid
 Dettagli computer |  Descrizione macchina virtuale |  vm.Summary.Config.Annotation
 Dettagli computer | Nome prodotto con licenza | vm.Client.ServiceContent.About.LicenseProductName
@@ -211,7 +211,7 @@ Dettagli scheda di rete (per ogni scheda di interfaccia di rete) | Indirizzi IPv
 Dettagli scheda di rete (per ogni scheda di interfaccia di rete) | Indirizzi IPv6 | vm.Guest.Net
 Dettagli scheda di rete (per ogni scheda di interfaccia di rete) | Megabyte al secondo di velocità effettiva in lettura | net.received.average
 Dettagli scheda di rete (per ogni scheda di interfaccia di rete) | Megabyte al secondo di velocità effettiva in scrittura | net.transmitted.average
-Dettagli percorso di inventario | Nome | container.GetType().Name
+Dettagli percorso di inventario | NOME | container.GetType().Name
 Dettagli percorso di inventario | Tipo di oggetto figlio | container.ChildType
 Dettagli percorso di inventario | Informazioni di riferimento | container.MoRef
 Dettagli percorso di inventario | Percorso di inventario completo | container.Name con percorso completo

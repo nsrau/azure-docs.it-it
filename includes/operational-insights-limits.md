@@ -8,37 +8,37 @@ ms.topic: include
 ms.date: 05/16/2018
 ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: 66cd09df128d454973d008adf4ffc5dd1017a18f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 34f2ab8f7ccafb8b30e298cd71e09171ad8c87cb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38755760"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553694"
 ---
-I limiti seguenti si applicano alle risorse di Log Analytics per ogni sottoscrizione:
+I limiti seguenti si applicano alle risorse di Azure Log Analitica per ogni sottoscrizione.
 
 | Risorsa | Limite predefinito | Commenti
 | --- | --- | --- |
-| Numero di aree di lavoro gratuite per sottoscrizione | 10 | Non è possibile aumentare questo limite |
-| Numero di aree di lavoro a pagamento per sottoscrizione | N/D | Il limite è dato dal numero di risorse all'interno di un gruppo di risorse e dal numero di gruppi di risorse per ogni sottoscrizione | 
+| Numero di aree di lavoro gratuite per sottoscrizione | 10 | Non è possibile aumentare questo limite. |
+| Numero di aree di lavoro a pagamento per sottoscrizione | N/D | Si è limitata dal numero di risorse all'interno di un gruppo di risorse e il numero di gruppi di risorse per ogni sottoscrizione. | 
 
 >[!NOTE]
->A partire dal 2 aprile 2018 le nuove aree di lavoro in una nuova sottoscrizione useranno automaticamente il piano tariffario *Per GB*.  Per le sottoscrizioni esistenti create prima del 2 aprile o per una sottoscrizione collegata a un registrazione di un Contratto Enterprise esistente, è possibile continuare a scegliere tra tre piani tariffari per le nuove aree di lavoro. 
+>A partire dal 2 aprile 2018, nuove aree di lavoro in una nuova sottoscrizione usare automaticamente il *Per GB* piano tariffario. Per le sottoscrizioni esistenti create prima del 2 aprile o per una sottoscrizione collegata a un'iscrizione con contratto Enterprise esistente, è possibile continuare a scegliere tra tre piani tariffari per nuove aree di lavoro. 
 >
 
-I limiti seguenti si applicano a ogni area di lavoro di Log Analytics:
+I limiti seguenti si applicano a ogni area di lavoro di Log Analitica.
 
 |  | Gratuito | Standard | Premium | Autonoma | OMS | Per GB |
 | --- | --- | --- | --- | --- | --- |--- |
 | Volume di dati raccolti ogni giorno |500 MB<sup>1</sup> |Nessuna |Nessuna | Nessuna | Nessuna | Nessuna
-| Periodo di conservazione dei dati |7 giorni |1 mese |12 mesi | 1 mese<sup>2</sup> | 1 mese <sup>2</sup>| 1 mese <sup>2</sup>|
+| Periodo di conservazione dei dati |7 giorni |1 mese |12 mesi | 1 mese<sup>2</sup> | 1 mese<sup>2</sup>| 1 mese<sup>2</sup>|
 
-<sup>1</sup> Quando i clienti raggiungono il limite giornaliero di trasferimento dati di 500 MB, l'analisi dei dati si interrompe e riprende all'inizio del giorno successivo. Un giorno si basa su UTC.
+<sup>1</sup>quando i clienti raggiungono il limite di trasferimento dei dati giornaliera 500 MB, analisi dei dati si interrompe e riprende all'inizio del giorno successivo. Un giorno si basa su UTC.
 
-<sup>2</sup> Il periodo di conservazione dei dati per i piani tariffari Autonomo, OMS e Per GB può essere aumentato a 730 giorni.
+<sup>2</sup>il periodo di conservazione per i piani dei prezzi Per GB, autonomo e OMS può essere aumentato a 730 giorni.
 
 | Categoria | Limiti | Commenti
 | --- | --- | --- |
-| API dell'Agente di raccolta dati | La dimensione massima per un singolo post è di 30 MB<br>La dimensione massima per i valori dei campi è di 32 KB | Dividere i volumi più grandi in più post<br>I campi con una lunghezza superiore a 32 KB vengono troncati. |
-| API di ricerca | 5000 record restituiti per i dati non aggregati<br>500000 record per i dati aggregati | I dati aggregati sono una ricerca che include il comando `summarize`
+| API dell'Agente di raccolta dati | Dimensioni massime per un singolo post sono di 30 MB.<br>Dimensione massima per i valori dei campi è 32 KB. | Dividere i volumi più grandi in più post.<br>I campi con una lunghezza superiore a 32 KB vengono troncati. |
+| API di ricerca | 5000 record restituiti per i dati non aggregate.<br>500.000 record per i dati aggregati. | I dati aggregati sono una ricerca che include il `summarize` comando.
  

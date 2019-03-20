@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c926f0c80ce56cac3106ad97ec3ec2e18a8e2cc6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a61dcca1f78b6ba444a2deefcf6b8bb4fd5c5087
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109569"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121979"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Eseguire il backup di condivisioni o volumi nell'array virtuale StorSimple
 
@@ -32,7 +32,7 @@ Le informazioni contenute in questa esercitazione si applicano solo all'array vi
 
 ## <a name="back-up-shares-and-volumes"></a>Backup di condivisioni e volumi
 
-I backup garantiscono la protezione temporizzata, migliorano la recuperabilità e riducono al minimo i tempi di ripristino per le condivisioni e i volumi. È possibile eseguire il backup di una condivisione o di un volume sul dispositivo StorSimple in due modi: **Pianificato** o **Manuale**. Ognuno di questi metodi è descritto nelle sezioni seguenti.
+I backup garantiscono la protezione temporizzata, migliorano la recuperabilità e riducono al minimo i tempi di ripristino per le condivisioni e i volumi. È possibile eseguire il backup di una condivisione o volume nel dispositivo StorSimple in due modi: **Pianificata** oppure **manuale**. Ognuno di questi metodi è descritto nelle sezioni seguenti.
 
 ## <a name="change-the-backup-start-time"></a>Modificare l'ora di inizio dei backup
 
@@ -100,13 +100,13 @@ Per visualizzare i backup esistenti, eseguire la procedura seguente nel portale 
     ![passare a Catalogo di backup](./media/storsimple-virtual-array-backup/viewbackups1.png)
 2. Specificare i criteri seguenti da usare per il filtro:
    
-    - **Intervallo di tempo**: può essere **Ultima ora**, **Ultime 24 ore**, **Ultimi 7 giorni**, **Ultimi 30 giorni**, **Ultimo anno** e **Data personalizzata**.
+   - **Intervallo di tempo**: può essere **Ultima ora**, **Ultime 24 ore**, **Ultimi 7 giorni**, **Ultimi 30 giorni**, **Ultimo anno** e **Data personalizzata**.
     
-    - **Dispositivi**: selezionare dall'elenco dei file server o server iSCSI registrati con il servizio Gestione dispositivi StorSimple.
+   - **Dispositivi**: selezionare dall'elenco dei file server o server iSCSI registrati con il servizio Gestione dispositivi StorSimple.
    
-    - **Avviato**: può essere **Pianificato** automaticamente tramite criteri di backup o avviato **Manualmente** dall'utente.
+   - **Avviato**: può essere **Pianificato** automaticamente tramite criteri di backup o avviato **Manualmente** dall'utente.
    
-    ![Filtro backup](./media/storsimple-virtual-array-backup/viewbackups2.png)
+     ![Filtro backup](./media/storsimple-virtual-array-backup/viewbackups2.png)
 
 3. Fare clic su **Apply**. Viene visualizzato l'elenco filtrato dei backup nel pannello **Catalogo di backup**. Si noti che è possibile visualizzare solo 100 elementi di backup alla volta.
    

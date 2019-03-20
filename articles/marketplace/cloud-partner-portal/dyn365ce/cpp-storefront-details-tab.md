@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 66119ffab8c6117e223468834b59e6d6b19409a0
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: f9cbf5033d0ffb84959de94db052626dd1d131c8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54445063"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997942"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Scheda Storefront Details (Dettagli vetrina) di Dynamics 365 for Customer Engagement
 
@@ -56,7 +56,7 @@ La tabella seguente descrive i campi della scheda:
 |  Tipo di app             | Selezionare il tipo di versione di valutazione abilitato per l'app in AppSource. **Free** (Gratuito) indica che l'app può essere usata senza alcun costo aggiuntivo; **Trial**  (Versione di valutazione)indica che i clienti possono provare l'app per un breve periodo senza alcun costo aggiuntivo e **Contact me** (Contattami) indica che i clienti possono richiedere una versione di valutazione dell'app in AppSource.  |
 | Help link for your app (Collegamento alla Guida per l'app) | URL per la documentazione online o altre risorse di assistenza per l'app.  |
 | Supported countries/regions (Paesi supportati) | Una finestra di dialogo popup consente di selezionare le aree geografiche in cui è disponibile l'app.  La distribuzione in tutto il mondo è l'impostazione predefinita. |
-| Lingue supportate   | Selezionare le lingue supportate dall'app. Attualmente sono supportate solo alcune opzioni per la lingua.  Se l'app supporta lingue aggiuntive non incluse in questo elenco, continuare a pubblicare l'offerta e segnalare la situazione scrivendo all'indirizzo appsource@microsoft.com.  |
+| Lingue supportate   | Selezionare le lingue supportate dall'app. Attualmente sono supportate solo alcune opzioni per la lingua.  (Se l'app supporta lingue aggiuntive non incluse nell'elenco, continuare a pubblicare l'offerta e posta elettronica queste informazioni per: appsource\@microsoft.com.)  |
 | Versione dell'app           | Numero di versione per l'app    |
 | Data di rilascio dell'app      | Data di rilascio/pubblicazione dell'app |
 | Prodotti interrelati con l'app | Prodotti o servizi con cui l'app interagisce. È possibile elencare fino a tre prodotti. Per elencare un prodotto, fare clic su **+New** (Nuovo) e immettere il nome di un prodotto nella casella di testo visualizzata.  |

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 196d08f47ddfdbb86b8e96ae0e5ca3d3e3e5917e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: f449449c542ce6ac04daa58ff37a3577f0d75aee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886765"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896229"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integrazione e distribuzione continue in Azure IoT Edge
 
@@ -47,7 +47,7 @@ In questa sezione viene creata una nuova pipeline di compilazione. Configurare l
 >
 >Per altre informazioni, vedere [Creare una pipeline di compilazione](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline).
 
-1. Accedere all'organizzazione Azure DevOps (**https://dev.azure.com/{your organization}/**) e aprire il progetto che contiene il repository della soluzione IoT Edge.
+1. Accesso all'organizzazione di Azure DevOps (**https:\/organizzazione /dev.azure.com/{your} /**) e aprire il progetto che contiene il repository della soluzione IoT Edge.
 
    Per questo articolo è stato creato un repository denominato **IoTEdgeRepo**. Questo repository contiene **IoTEdgeSolution**, in cui c'è il codice per un modulo denominato **filtermodule**. 
 
@@ -69,13 +69,13 @@ In questa sezione viene creata una nuova pipeline di compilazione. Configurare l
 
 4. Dopo la creazione della pipeline, viene visualizzato l'editor pipeline. Nella descrizione della pipeline scegliere il pool di agenti corretto in base alla piattaforma di destinazione: 
     
-    * Se si desidera compilare i propri moduli nella piattaforma amd64 per i contenitori Linux, scegliere **Hosted Ubuntu 1604**
+   * Se si desidera compilare i propri moduli nella piattaforma amd64 per i contenitori Linux, scegliere **Hosted Ubuntu 1604**
 
-    * Se si desidera compilare i moduli nella piattaforma amd64 per i contenitori Windows 1809, è necessario [configurare un agente auto-ospitato in Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
+   * Se si desidera compilare i moduli nella piattaforma amd64 per i contenitori Windows 1809, è necessario [configurare un agente auto-ospitato in Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
 
-    * Se si desidera compilare i moduli nella piattaforma arm32v7 per i contenitori Linux, è necessario [configurare un agente auto-ospitato in Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
+   * Se si desidera compilare i moduli nella piattaforma arm32v7 per i contenitori Linux, è necessario [configurare un agente auto-ospitato in Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
     
-    ![Configurare il pool di agenti di compilazione](./media/how-to-ci-cd/configure-env.png)
+     ![Configurare il pool di agenti di compilazione](./media/how-to-ci-cd/configure-env.png)
 
 5. La pipeline è preconfigurata con un processo denominato **Processo agente 1**. Selezionare il segno più (**+**) per aggiungere tre attività al processo: **Azure IoT Edge** due volte e **Pubblica artefatti di compilazione** una volta. Passare il mouse sul nome di ogni attività per vedere il pulsante **Aggiungi**.
 
@@ -158,11 +158,11 @@ Creare una nuova pipeline e configurare la prima fase per le distribuzioni di co
 
 10. Selezionare la nuova attività Azure IoT Edge e configurarla con i valori seguenti:
 
-   * **Nome visualizzato**: il nome visualizzato viene aggiornato automaticamente quando il campo dell'azione cambia. 
-   * **Azione**: Usare l'elenco a discesa per selezionare **Deploy to IoT Edge device** (Distribuisci a dispositivo IoT Edge). Modificando il valore dell'azione viene aggiornato anche il nome visualizzato dell'attività, in modo che corrispondano.
-   * **Sottoscrizione di Azure**: Selezionare la sottoscrizione che contiene l'hub IoT.
-   * **Nome hub IoT**: Selezionare l'hub IoT. 
-   * **Choose single/multiple device** (Scegliere tra dispositivo singolo e più dispositivi): scegliere se si vuole che la pipeline di versione esegua la distribuzione in uno o più dispositivi. 
+    * **Nome visualizzato**: il nome visualizzato viene aggiornato automaticamente quando il campo dell'azione cambia. 
+    * **Azione**: Usare l'elenco a discesa per selezionare **Deploy to IoT Edge device** (Distribuisci a dispositivo IoT Edge). Modificando il valore dell'azione viene aggiornato anche il nome visualizzato dell'attività, in modo che corrispondano.
+    * **Sottoscrizione di Azure**: Selezionare la sottoscrizione che contiene l'hub IoT.
+    * **Nome hub IoT**: Selezionare l'hub IoT. 
+    * **Choose single/multiple device** (Scegliere tra dispositivo singolo e più dispositivi): scegliere se si vuole che la pipeline di versione esegua la distribuzione in uno o più dispositivi. 
       * Se si distribuisce a un singolo dispositivo, immettere l'**ID del dispositivo IoT Edge**. 
       * Se si distribuisce a più dispositivi, specificare la **condizione di destinazione** del dispositivo. La condizione di destinazione è un filtro per la corrispondenza di un set di dispositivi Edge nell'hub IoT. Se si vogliono usare i Tag del dispositivo come condizione, è necessario aggiornare i tag di dispositivo corrispondenti con il dispositivo gemello hub IoT. Aggiornare l'**ID distribuzione di IoT Edge** e la **priorità della distribuzione IoT Edge** nelle impostazioni avanzate. Per altre informazioni sulla creazione di una distribuzione per più dispositivi, vedere [Informazioni sulle distribuzioni automatiche IoT Edge](module-deployment-monitoring.md).
 

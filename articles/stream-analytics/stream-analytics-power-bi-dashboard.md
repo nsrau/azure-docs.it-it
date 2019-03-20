@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: d7f67015d4df20ea39c1225d52be36340b8f65d1
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 487c142400dc2bfa6f44e17963535051af017196
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556977"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116182"
 ---
 # <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Esercitazione: Analisi di flusso e Power BI: un dashboard di analisi in tempo reale per il flusso di dati
 Analisi di flusso di Azure permette di usare uno dei principali strumenti di Business Intelligence, [Microsoft Power BI](https://powerbi.com/). Questo articolo illustra come creare strumenti di Business Intelligence usando Power BI come output per i processi di Analisi di flusso di Azure. Illustra anche come creare e usare un dashboard in tempo reale.
@@ -56,16 +56,16 @@ Nell'esercitazione sul rilevamento delle frodi in tempo reale l'output viene inv
 
 7. Quando si torna al pannello **Nuovo output** immettere le informazioni seguenti:
 
-    * **Area di lavoro del gruppo**: selezionare un'area di lavoro nel tenant Power BI in cui si desidera creare il set di dati.
-    * **Nome del set di dati**:  Immettere `sa-dataset`. È possibile usare un nome diverso. In questo caso prenderne nota perché servirà in un momento successivo.
-    * **Nome della tabella**: Immettere `fraudulent-calls`. L'output di Power BI da processi di Analisi di flusso può avere al momento solo una tabella in un set di dati.
+   * **Area di lavoro del gruppo**: selezionare un'area di lavoro nel tenant Power BI in cui si desidera creare il set di dati.
+   * **Nome del set di dati**:  Immettere `sa-dataset`. È possibile usare un nome diverso. In questo caso prenderne nota perché servirà in un momento successivo.
+   * **Nome della tabella**: Immettere `fraudulent-calls`. L'output di Power BI da processi di Analisi di flusso può avere al momento solo una tabella in un set di dati.
 
-    ![Set di tati e tabella dell'area di lavoro di Power BI](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
+     ![Set di tati e tabella dell'area di lavoro di Power BI](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
 
-    > [!WARNING]
-    > Se Power BI dispone di un set di dati e di una tabella con gli stessi nomi specificati nel processo di Analisi di flusso, i dati esistenti vengono sovrascritti.
-    > È consigliabile non creare in modo esplicito il set di dati e la tabella nell'account di Power BI. Vengono creati automaticamente quando il processo di Analisi di flusso viene avviato e inizia a generare output in Power BI. Se la query del processo non genera alcun risultato, il set di dati e la tabella non vengono creati.
-    >
+     > [!WARNING]
+     > Se Power BI dispone di un set di dati e di una tabella con gli stessi nomi specificati nel processo di Analisi di flusso, i dati esistenti vengono sovrascritti.
+     > È consigliabile non creare in modo esplicito il set di dati e la tabella nell'account di Power BI. Vengono creati automaticamente quando il processo di Analisi di flusso viene avviato e inizia a generare output in Power BI. Se la query del processo non genera alcun risultato, il set di dati e la tabella non vengono creati.
+     >
 
 8. Fare clic su **Create**(Crea).
 
@@ -189,13 +189,13 @@ Il processo di Analisi di flusso inizia a cercare le chiamate fraudolente nel fl
     * Aggiungere un valore e selezionare **fraudulentcalls**.
     * Per **Intervallo di tempo da visualizzare**  selezionare gli ultimi 10 minuti.
 
-    ![Creare il riquadro per il grafico a linee in Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
+      ![Creare il riquadro per il grafico a linee in Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
 
 9. Fare clic su **Avanti**, aggiungere un titolo e un sottotitolo e fare clic su **Applica**.
 
-    Il dashboard di Power BI offre ora due visualizzazioni di dati sulle chiamate fraudolente in base al rilevamento nei dati di streaming.
+     Il dashboard di Power BI offre ora due visualizzazioni di dati sulle chiamate fraudolente in base al rilevamento nei dati di streaming.
 
-    ![Dashboard di Power BI completo che mostra due riquadri per le chiamate fraudolente](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
+     ![Dashboard di Power BI completo che mostra due riquadri per le chiamate fraudolente](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
 
 
 ## <a name="learn-more-about-power-bi"></a>Altre informazioni su Power BI

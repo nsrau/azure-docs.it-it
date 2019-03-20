@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 8fc3246c76d7d09ea4518b5c548d5dbe05cc7a84
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ff1b137fb6461c4ebd17451b89a180364d833d4e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164261"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116793"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>Esercitazione: Database MySQL a disponibilità elevata dell'offerta
 
@@ -67,7 +67,7 @@ Usare la procedura descritta in questa sezione per distribuire il MySQL Server c
 - Tre macchine virtuali di Linux per ospitare il cluster MySQL
 
 1. 
-[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Selezionare **\+** **crea una risorsa** > **calcolo**, quindi **MySQL con replica**.
 
@@ -168,7 +168,7 @@ Dopo che il cluster MySQL è stato creato, configurato e aggiunto come un Server
 > Eseguire questi passaggi dal portale per gli utenti Azure Stack come un utente del tenant con una sottoscrizione che fornisce funzionalità di MySQL Server (Microsoft.MySQLAdapter servizio).
 
 1. 
-[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
+   [!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Selezionare **\+** **crea una risorsa** > **dati \+ archiviazione**e quindi **MySQL Database** .<br><br>Fornire le informazioni sulle proprietà di database necessari inclusi nome, le regole di confronto, la sottoscrizione da usare e percorso da utilizzare per la distribuzione. 
 

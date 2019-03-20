@@ -16,12 +16,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d9855f107f9888fbfbcb10a3df849e78c87c0605
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7981df6aa1e08688bdbe3b18629450b996f7609e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246763"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123403"
 ---
 # <a name="optimize-sql-server-performance"></a>Ottimizzare le prestazioni di SQL Server
 
@@ -104,20 +104,20 @@ Unità di archiviazione temporanea, etichettata come le **1!d** unità, non è p
 
 - **Striping del disco:** Per una velocità effettiva maggiore, è possibile aggiungere ulteriori dischi dati e usare lo striping del disco. Per determinare il numero di dischi dati che ti servono, analizzare il numero di IOPS e larghezza di banda necessaria per i file di log e per i file di dati e TempDB. Si noti che sono previsti limiti di IOPS per disco dati la famiglia della serie di macchine virtuali in base e non basati sulle dimensioni della macchina virtuale. I limiti della larghezza di banda di rete, tuttavia, si basano su dimensioni della macchina virtuale. Vedere le tabelle relative [dimensioni delle macchine virtuali in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) per altri dettagli. Usare le linee guida seguenti:
 
-    - Per Windows Server 2012 o versioni successive, usare [spazi di archiviazione](https://technet.microsoft.com/library/hh831739.aspx) con le linee guida seguenti:
+  - Per Windows Server 2012 o versioni successive, usare [spazi di archiviazione](https://technet.microsoft.com/library/hh831739.aspx) con le linee guida seguenti:
 
-        1.  Impostare l'interleave (dimensione di striping) su 64 KB (65.536 byte) per i carichi di lavoro (OLTP) e su 256 KB (262.144 byte) per carichi di lavoro data warehouse per evitare effetti sulle prestazioni a causa di un mancato allineamento delle partizioni di elaborazione delle transazioni online. Questo valore deve essere impostato con PowerShell.
+    1. Impostare l'interleave (dimensione di striping) su 64 KB (65.536 byte) per i carichi di lavoro (OLTP) e su 256 KB (262.144 byte) per carichi di lavoro data warehouse per evitare effetti sulle prestazioni a causa di un mancato allineamento delle partizioni di elaborazione delle transazioni online. Questo valore deve essere impostato con PowerShell.
 
-        2.  Impostare il numero di colonne sul numero di dischi fisici. Usare PowerShell durante la configurazione di più di otto dischi (non Server Manager UI).
+    2. Impostare il numero di colonne sul numero di dischi fisici. Usare PowerShell durante la configurazione di più di otto dischi (non Server Manager UI).
 
-            Ad esempio, il comando PowerShell seguente crea un nuovo pool di archiviazione con la dimensione di interleave impostata su 64 KB e il numero di colonne impostato su 2:
+       Ad esempio, il comando PowerShell seguente crea un nuovo pool di archiviazione con la dimensione di interleave impostata su 64 KB e il numero di colonne impostato su 2:
 
-          ```PowerShell  
-          $PoolCount = Get-PhysicalDisk -CanPool $True
-          $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
+       ```PowerShell  
+       $PoolCount = Get-PhysicalDisk -CanPool $True
+       $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
 
-          New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false
-          ```
+       New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false
+       ```
 
 - Determinare il numero di dischi associati al pool di archiviazione dell'utente in base alle aspettative di carico. Tenere presente che le dimensioni di macchina virtuale diversa consentono diversi numeri di dischi dati collegati. Per altre informazioni, vedere [le dimensioni di macchina virtuale supportate in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes).
 - Per ottenere il numero massimo di IOPS possibili per i dischi dati, si consiglia di aggiungere il numero massimo di dischi dati supportati per i [dimensioni della macchina virtuale](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) e usare lo striping del disco.

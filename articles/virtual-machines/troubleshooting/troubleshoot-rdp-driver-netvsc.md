@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
-ms.openlocfilehash: 777d5cb9449bcf9424e2514b2b8f90a9ca6c479c
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
-ms.translationtype: HT
+ms.openlocfilehash: e6685a5e77d92bb9e05ab9578e48c99e80a64b74
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285415"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994618"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Non è possibile stabilire una connessione remota a una macchina virtuale Windows 10 o Windows Server 2016 in Azure a causa di netvsc.sys
 
@@ -26,9 +26,9 @@ Questo articolo illustra come risolvere un problema dovuto all'assenza di connes
 
 ## <a name="symptoms"></a>Sintomi
 
-Non è possibile connettersi a una macchina virtuale Windows 10 o Windows Server 2016 in Azure usando il protocollo RDP (Remote Desktop Protocol). In [Diagnostica di avvio](boot-diagnostics.md) viene visualizzata una croce rossa sulla scheda di interfaccia di rete (NIC). Ciò indica che la macchina virtuale non dispone di connettività dopo che il sistema operativo è completamente caricato.
+È possibile connettersi a un Azure Windows 10 o una macchina virtuale di Windows Server 2016 tramite Remote Desktop Protocol (RDP). In [Diagnostica di avvio](boot-diagnostics.md) viene visualizzata una croce rossa sulla scheda di interfaccia di rete (NIC). Ciò indica che la macchina virtuale non dispone di connettività dopo che il sistema operativo è completamente caricato.
 
-Questo problema si verifica nelle build [14393](http://support.microsoft.com/help/4093120/) e [15063](http://support.microsoft.com/help/4015583/) di Windows. Se si usa una versione successiva del sistema operativo, questo articolo non si applica allo specifico scenario. Per controllare la versione del sistema, aprire una sessione CMD nella [console seriale di accesso](serial-console-windows.md) e quindi eseguire **Ver**.
+Questo problema si verifica nelle build [14393](https://support.microsoft.com/help/4093120/) e [15063](https://support.microsoft.com/help/4015583/) di Windows. Se si usa una versione successiva del sistema operativo, questo articolo non si applica allo specifico scenario. Per controllare la versione del sistema, aprire una sessione CMD nella [console seriale di accesso](serial-console-windows.md) e quindi eseguire **Ver**.
 
 ## <a name="cause"></a>Causa
 
@@ -45,7 +45,7 @@ Prima di seguire questa procedura, [creare uno snapshot del disco di sistema](..
 Connettersi alla [console seriale, aprire un'istanza di PowerShell](serial-console-windows.md) e quindi seguire questa procedura.
 
 > [!NOTE]
-> Se la console seriale non è abilitata nella macchina virtuale, passare alla sezione [Riparare la macchina virtuale in modalità offline](#repair-the-vm-offline).
+> Se la console seriale non è abilitata nella macchina virtuale, andare alla sezione [Riparare la macchina virtuale in modalità offline](#repair-the-vm-offline).
 
 1. Eseguire il comando seguente in un'istanza di PowerShell per ottenere la versione del file (**c:\windows\system32\drivers\netvsc.sys**):
 
@@ -55,8 +55,8 @@ Connettersi alla [console seriale, aprire un'istanza di PowerShell](serial-conso
 
 2. Scaricare dalla stessa area l'aggiornamento appropriato in un disco dati nuovo o già esistente collegato a una macchina virtuale in esecuzione:
 
-   - **10.0.14393.594**: [KB4073562](http://support.microsoft.com/help/4073562) o un aggiornamento successivo
-   - **10.0.15063.0**: [KB4016240](http://support.microsoft.com/help/4016240) o un aggiornamento successivo
+   - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) o un aggiornamento successivo
+   - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) o un aggiornamento successivo
 
 3. Scollegare il disco di utilità dalla macchina virtuale in esecuzione e collegarlo alla macchina virtuale non funzionante.
 
@@ -66,7 +66,7 @@ Connettersi alla [console seriale, aprire un'istanza di PowerShell](serial-conso
    dism /ONLINE /add-package /packagepath:<Utility Disk Letter>:\<KB .msu or .cab>
    ```
 
-5. Riavviare la macchina virtuale.
+5. Riavviare la VM.
 
 ### <a name="repair-the-vm-offline"></a>Riparare la macchina virtuale in modalità offline
 
@@ -98,22 +98,22 @@ Connettersi alla [console seriale, aprire un'istanza di PowerShell](serial-conso
 
 12. Scaricare l'aggiornamento appropriato:
 
-   - **10.0.14393.594**: [KB4073562](http://support.microsoft.com/help/4073562) o un aggiornamento successivo
-   - **10.0.15063.0**: [KB4016240](http://support.microsoft.com/help/4016240) o un aggiornamento successivo
+    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) o un aggiornamento successivo
+    - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) o un aggiornamento successivo
 
 13. Collegare il disco di sistema come disco dati in una macchina virtuale di ripristino in cui è possibile scaricare l'aggiornamento.
 
 14. Eseguire il comando seguente per installare l'aggiornamento nella macchina virtuale:
 
-   ```
-   dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
-   ```
+    ```
+    dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
+    ```
 
 15. Eseguire il comando seguente per smontare gli hive:
 
-   ```
-   reg unload HKLM\BROKENSYSTEM
-   ```
+    ```
+    reg unload HKLM\BROKENSYSTEM
+    ```
 
 16. [Scollegare il disco di sistema e creare di nuovo la macchina virtuale](../windows/troubleshoot-recovery-disks-portal.md).
 

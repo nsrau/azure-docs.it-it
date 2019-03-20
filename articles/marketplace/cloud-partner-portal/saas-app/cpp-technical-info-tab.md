@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f0f6bbf5f235d6ae3e86114e583d55c502296470
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 891d9b7b34e3d30efb46b69ef1aa75566fe634c4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895398"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120755"
 ---
 # <a name="saas-application-technical-info-tab"></a>Scheda Informazioni tecniche per le applicazioni SaaS
 
@@ -44,7 +44,7 @@ Per creare questa esperienza, è necessario configurare gli elementi seguenti:
 - Connettere il sito Web del servizio SaaS alle API SaaS Microsoft. L'articolo [Vendita SaaS tramite Azure - API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis) illustra come creare questa connessione.
 - Abilitare Sell through Azure (Vendi tramite Azure) nel modulo Configurazione tecnica del portale Cloud Partner e specificare le informazioni richieste. Per altre informazioni su questo modello di fatturazione e la relativa implementazione, vedere [Vendita di app SaaS tramite Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions).
 
- ![Modulo Sell through Microsoft (Vendi tramite Microsoft)](./media/saas-techinfo-sellthrough-ms.png)
+  ![Modulo Sell through Microsoft (Vendi tramite Microsoft)](./media/saas-techinfo-sellthrough-ms.png)
 
 La tabella seguente descrive i campi obbligatori per l'opzione Sell through Microsoft (Vendi tramite Microsoft).
 
@@ -73,6 +73,9 @@ Il campo Invito all'azione consente di selezionare il messaggio visualizzato sul
 - Contact me (Contattami)
 
 Per altre informazioni sulle opzioni di Invito all'azione, vedere Scegliere un'opzione di pubblicazione.
+
+>[!Note]
+>Canale di partner cloud Solution Provider (CSP) acconsentire esplicitamente a questo punto disponibili.  Vedi [Cloud Solution Provider](../../cloud-solution-providers.md) per altre informazioni sul marketing dell'offerta tramite Microsoft CSP partner canali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

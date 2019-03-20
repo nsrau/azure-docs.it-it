@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 01b90d6bb18addd6a0235101f86b9d51953cc096
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 8d15eb03055aed32c8a99121b750ee5767a87b50
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818558"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094974"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Flusso di lavoro di backup offline per DPM e server di Backup di Azure
 In Backup di Azure sono incorporate diverse funzionalità che consentono di ridurre in modo efficiente i costi di archiviazione e di rete durante i backup completi iniziali dei dati in Azure. I backup completi iniziali comportano in genere il trasferimento di grandi quantità di dati e richiedono una larghezza di banda di rete superiore rispetto ai backup successivi con cui vengono trasferiti solo backup differenziali/incrementali. Backup di Azure comprime i backup iniziali. Con il processo di seeding offline, Backup di Azure può usare i dischi per caricare in Azure i dati compressi dei backup iniziali.
@@ -55,7 +55,7 @@ Verificare che i seguenti prerequisiti siano soddisfatti prima di avviare il flu
 
 * Nella sottoscrizione da cui è stato scaricato il file di impostazioni di pubblicazione è stato creato un account di archiviazione di Azure con modello di distribuzione *classico*, come illustrato di seguito: 
 
- ![Creazione di un account di archiviazione classico](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
+  ![Creazione di un account di archiviazione classico](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
 
 * Viene creato un percorso di gestione temporanea, che può essere una condivisione di rete o qualsiasi unità aggiuntiva nel computer, interna o esterna, con spazio su disco sufficiente per contenere la copia iniziale. Se ad esempio si prevede di eseguire il backup di un file server da 500 GB, verificare che la dimensione dell'area di staging sia di almeno 500 GB. Verrà tuttavia usata una quantità inferiore in virtù della compressione.
 * Per quanto riguarda i dischi che verranno spediti a Azure, assicurarsi che vengano usate solo unità SSD da 2,5 pollici o unità disco rigido interne SATA II/III da 2,5 o 3,5 pollici. È possibile usare dischi rigidi fino a 10 TB. Per informazioni sul set più recente di unità supportato dal servizio, vedere la [documentazione del servizio Importazione/Esportazione di Azure](../storage/common/storage-import-export-requirements.md#supported-hardware).
@@ -74,12 +74,12 @@ Le informazioni presenti in questa sezione consentono di completare il flusso di
 
     Di seguito è riportata la descrizione degli input.
 
-    * **Posizione per la gestione temporanea**: posizione di archiviazione temporanea in cui viene scritta la copia di backup iniziale. Il percorso di gestione temporanea può trovarsi in una condivisione di rete o in un computer locale. Se il computer di copia e il computer di origine sono diversi, è consigliabile specificare il percorso di rete completo per la gestione temporanea.
-    * **Nome del processo di importazione di Azure**: nome univoco con cui il servizio di importazione di Azure e Backup di Azure tengono traccia del trasferimento dei dati inviati in Azure usando dischi.
-    * **Impostazioni di pubblicazione di Azure**: Specificare il percorso locale del file di impostazioni di pubblicazione.
-    * **ID sottoscrizione di Azure**: ID della sottoscrizione di Azure da cui è stato scaricato il file delle impostazioni di pubblicazione di Azure. 
-    * **Account di Archiviazione di Microsoft Azure**: Il nome dell'account di archiviazione nella sottoscrizione di Azure associato al file delle impostazioni di pubblicazione di Azure.
-    * **Contenitore di archiviazione di Azure**: Nome del BLOB di archiviazione di destinazione nell'account di archiviazione di Azure in cui verranno importati i dati del backup.
+   * **Posizione per la gestione temporanea**: posizione di archiviazione temporanea in cui viene scritta la copia di backup iniziale. Il percorso di gestione temporanea può trovarsi in una condivisione di rete o in un computer locale. Se il computer di copia e il computer di origine sono diversi, è consigliabile specificare il percorso di rete completo per la gestione temporanea.
+   * **Nome del processo di importazione di Azure**: nome univoco con cui il servizio di importazione di Azure e Backup di Azure tengono traccia del trasferimento dei dati inviati in Azure usando dischi.
+   * **Impostazioni di pubblicazione di Azure**: Specificare il percorso locale del file di impostazioni di pubblicazione.
+   * **ID sottoscrizione di Azure**: ID della sottoscrizione di Azure da cui è stato scaricato il file delle impostazioni di pubblicazione di Azure. 
+   * **Account di Archiviazione di Microsoft Azure**: Il nome dell'account di archiviazione nella sottoscrizione di Azure associato al file delle impostazioni di pubblicazione di Azure.
+   * **Contenitore di archiviazione di Azure**: Nome del BLOB di archiviazione di destinazione nell'account di archiviazione di Azure in cui verranno importati i dati del backup.
 
      Salvare il *percorso di gestione temporanea* e il *nome del processo di importazione di Azure* specificato perché sono necessari per preparare i dischi.  
      
@@ -102,14 +102,14 @@ L'utilità *AzureOfflineBackupDiskPrep* consente di preparare le unità SATA da 
 
 1. Passare alla directory e copiare la directory **AzureOfflineBackupDiskPrep** in un computer di copia a cui sono collegate le unità SATA da preparare. Assicurarsi che il computer di copia soddisfi i requisiti seguenti:
 
-    * Il percorso di gestione temporanea specificato per il flusso di lavoro del seeding offline è accessibile dal computer di copia usando lo stesso percorso di rete specificato durante il flusso di lavoro di **avvio del backup offline** .
-    * Nel computer di copia è abilitato BitLocker.
-    * Il computer di copia può accedere al portale di Azure.
+   * Il percorso di gestione temporanea specificato per il flusso di lavoro del seeding offline è accessibile dal computer di copia usando lo stesso percorso di rete specificato durante il flusso di lavoro di **avvio del backup offline** .
+   * Nel computer di copia è abilitato BitLocker.
+   * Il computer di copia può accedere al portale di Azure.
 
-    Se necessario, il computer di copia può coincidere con il computer di origine. 
+     Se necessario, il computer di copia può coincidere con il computer di origine. 
     
-    > [!IMPORTANT] 
-    > Se il computer di origine è una macchina virtuale, è obbligatorio usare un server fisico diverso o un computer client come computer di copia.
+     > [!IMPORTANT] 
+     > Se il computer di origine è una macchina virtuale, è obbligatorio usare un server fisico diverso o un computer client come computer di copia.
     
     
 2. Aprire un prompt dei comandi con privilegi elevati nel computer di copia con la directory dell'utilità *AzureOfflineBackupDiskPrep* come directory corrente ed eseguire il comando seguente:

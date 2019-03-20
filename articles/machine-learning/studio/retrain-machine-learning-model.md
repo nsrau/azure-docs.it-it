@@ -5,17 +5,17 @@ description: Informazioni su come aggiornare un servizio Web per usare un modell
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: b57dd40c8610953563a3d5b8861e144d775b4eb7
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: ea73c16687d393cd1e61c4aee83fbf74cc4ae9a7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330512"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108121"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Ripetere il training e distribuire un modello di Machine Learning
 
@@ -42,7 +42,7 @@ Usare la procedura seguente per distribuire un servizio Web di ripetizione del t
 
     Dopo aver eseguito l'esperimento, il flusso di lavoro risultante dovrebbe essere simile a quello dell'immagine seguente:
 
-    ![Flusso di lavoro risultante](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE04.png)
+    ![Flusso di lavoro risultante](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE04.png)
 
     Ora è possibile distribuire l'esperimento di training come un servizio Web di ripetizione del training che ottiene come output un modello sottoposto a training e i risultati di valutazione del modello.
 
@@ -68,7 +68,7 @@ Aggiungere il pacchetto NuGet Microsoft.AspNet.WebApi.Client come specificato ne
 
 La schermata seguente illustra la pagina **Consume** (Utilizzo) del portale di servizi Web Azure Machine Learning.
 
-![Pagina Consume (Utilizzo)](media/retrain-existing-arm-web-service/machine-learning-retrain-models-consume-page.png)
+![Pagina Consume (Utilizzo)](media/retrain-machine-learning/machine-learning-retrain-models-consume-page.png)
 
 ### <a name="update-the-apikey-declaration"></a>Aggiornare la dichiarazione apikey
 
@@ -114,7 +114,7 @@ Quando si specifica il percorso di output nel payload della richiesta, l'estensi
 
 Di seguito è riportato un esempio di output della ripetizione del training:
 
-![Output della ripetizione del training.](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE06.png)
+![Output della ripetizione del training.](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE06.png)
 
 ### <a name="evaluate-the-retraining-results"></a>Valutare i risultati della ripetizione del training
 

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: c6dbd95cfd17f5ce49245fcadea299c5a0dfd582
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 06478cb3366054bd20239bf80f026562efd26232
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007749"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087398"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>Sintassi delle espressioni OData filter e order-by in Ricerca di Azure
 
@@ -36,81 +36,81 @@ Un'espressione **$filter** può essere eseguita in modo autonomo come query espr
 
 
 ```POST
-POST /indexes/hotels/docs/search?api-version=2017-11-11  
-    {  
-      "filter": "(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'"  
-    }  
+POST /indexes/hotels/docs/search?api-version=2017-11-11
+    {
+      "filter": "(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'"
+    }
 ```
 
 Un altro caso d'uso comune è la combinazione dei filtri con i facet, in cui il filtro riduce la superficie di attacco della query secondo una selezione dell'esplorazione in base a facet gestita dall'utente:
 
 ```POST
-POST /indexes/hotels/docs/search?api-version=2017-11-11  
-    {  
-      "search": "test",  
-      "facets": [ "tags", "baseRate,values:80|150|220" ],  
-      "filter": "rating eq 3 and category eq 'Motel'"  
-    }  
+POST /indexes/hotels/docs/search?api-version=2017-11-11
+    {
+      "search": "test",
+      "facets": [ "tags", "baseRate,values:80|150|220" ],
+      "filter": "rating eq 3 and category eq 'Motel'"
+    }
 ```
 
 ### <a name="filter-operators"></a>Operatori di filtro  
 
--   Operatori logici (and, or, not).  
+- Operatori logici (and, or, not).  
 
--   Espressioni di confronto (`eq, ne, gt, lt, ge, le`). Per i confronti tra stringhe viene fatta distinzione tra maiuscole e minuscole.  
+- Espressioni di confronto (`eq, ne, gt, lt, ge, le`). Per i confronti tra stringhe viene fatta distinzione tra maiuscole e minuscole.  
 
--   Costanti dei tipi [Entity Data Model](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDM) supportati. Per un elenco dei tipi supportati, vedere [Supported data types &#40;Azure Search&#41;](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) (Tipi di dati supportati - Ricerca di Azure). Le costanti dei tipi di raccolte non sono supportate.  
+- Costanti dei tipi [Entity Data Model](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDM) supportati. Per un elenco dei tipi supportati, vedere [Supported data types &#40;Azure Search&#41;](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) (Tipi di dati supportati - Ricerca di Azure). Le costanti dei tipi di raccolte non sono supportate.  
 
--   Riferimenti ai nomi di campo. Nelle espressioni filtro si possono usare solo campi `filterable`.  
+- Riferimenti ai nomi di campo. Nelle espressioni filtro si possono usare solo campi `filterable`.  
 
--   `any` senza parametri per testare se un campo di tipo `Collection(Edm.String)` contiene elementi.  
+- `any` senza parametri per testare se un campo di tipo `Collection(Edm.String)` contiene elementi.  
 
--   `any` e `all` con supporto di espressioni lambda limitato. 
+- `any` e `all` con supporto di espressioni lambda limitato. 
     
-    -   `any/all` sono supportati nei campi di tipo `Collection(Edm.String)`. 
+  -   `any/all` sono supportati nei campi di tipo `Collection(Edm.String)`. 
     
-    -   `any` può essere usato con espressioni di uguaglianza semplici o con una funzione `search.in`. Le espressioni semplici sono costituite da un confronto tra un singolo campo e un valore letterale, ad esempio `Title eq 'Magna Carta'`.
+  -   `any` può essere usato con espressioni di uguaglianza semplici o con una funzione `search.in`. Le espressioni semplici sono costituite da un confronto tra un singolo campo e un valore letterale, ad esempio `Title eq 'Magna Carta'`.
     
-    -   `all` può essere usato con espressioni di disuguaglianza semplici o con `not search.in`.   
+  -   `all` può essere usato con espressioni di disuguaglianza semplici o con `not search.in`.   
 
--   Funzioni geospaziali `geo.distance` e `geo.intersects`. La funzione `geo.distance` restituisce la distanza in chilometri tra due punti, di cui uno è un campo e l'altro è una costante passata come parte del filtro. La funzione `geo.intersects` restituisce true se un punto specificato si trova all'interno di un poligono specificato, dove il punto è un campo e il poligono è specificato come costante passata come parte del filtro.  
+- Funzioni geospaziali `geo.distance` e `geo.intersects`. La funzione `geo.distance` restituisce la distanza in chilometri tra due punti, di cui uno è un campo e l'altro è una costante passata come parte del filtro. La funzione `geo.intersects` restituisce true se un punto specificato si trova all'interno di un poligono specificato, dove il punto è un campo e il poligono è specificato come costante passata come parte del filtro.  
 
-    Il poligono è una superficie bidimensionale archiviata come sequenza di punti che definiscono un anello delimitatore (vedere l'esempio seguente). Il poligono deve essere chiuso, quindi il primo e l'ultimo set di punti devono coincidere. [I punti in un poligono devono essere in senso antiorario](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+  Il poligono è una superficie bidimensionale archiviata come sequenza di punti che definiscono un anello delimitatore (vedere l'esempio seguente). Il poligono deve essere chiuso, quindi il primo e l'ultimo set di punti devono coincidere. [I punti in un poligono devono essere in senso antiorario](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
-    `geo.distance` restituisce la distanza in chilometri in Ricerca di Azure, diversamente che negli altri servizi che supportano le operazioni geospaziali OData, che in genere restituiscono le distanze in metri.  
+  `geo.distance` restituisce la distanza in chilometri in Ricerca di Azure, diversamente che negli altri servizi che supportano le operazioni geospaziali OData, che in genere restituiscono le distanze in metri.  
 
-    > [!NOTE]  
-    >  Quando si usa geo.distance in un filtro, è necessario confrontare la distanza restituita dalla funzione con una costante usando `lt`, `le`, `gt` o `ge`. Gli operatori `eq` e `ne` non sono supportati quando si confrontano le distanze. Questo, ad esempio, è un utilizzo corretto di geo.distance: `$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 5`.  
+  > [!NOTE]  
+  >  Quando si usa geo.distance in un filtro, è necessario confrontare la distanza restituita dalla funzione con una costante usando `lt`, `le`, `gt` o `ge`. Gli operatori `eq` e `ne` non sono supportati quando si confrontano le distanze. Questo, ad esempio, è un utilizzo corretto di geo.distance: `$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 5`.  
 
--   La funzione `search.in` verifica se il campo di una determinata stringa è uguale a quello di un determinato elenco di valori. Può essere usata anche in any o in all per confrontare un singolo valore di un campo di una raccolta di stringhe con un determinato elenco di valori. Per determinare l'uguaglianza tra il campo e ogni valore dell'elenco viene applicata la distinzione tra minuscole e maiuscole, come per l'operatore `eq`. Un'espressione come `search.in(myfield, 'a, b, c')` equivale quindi a `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`, tranne per il fatto che `search.in` garantisce prestazioni di gran lunga migliori. 
+- La funzione `search.in` verifica se il campo di una determinata stringa è uguale a quello di un determinato elenco di valori. Può essere usata anche in any o in all per confrontare un singolo valore di un campo di una raccolta di stringhe con un determinato elenco di valori. Per determinare l'uguaglianza tra il campo e ogni valore dell'elenco viene applicata la distinzione tra minuscole e maiuscole, come per l'operatore `eq`. Un'espressione come `search.in(myfield, 'a, b, c')` equivale quindi a `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`, tranne per il fatto che `search.in` garantisce prestazioni di gran lunga migliori. 
 
-    Il primo parametro della funzione `search.in` è il riferimento di campo di tipo stringa (o una variabile di intervallo in un campo di una raccolta di stringhe se `search.in` viene usata in un'espressione `any` o `all`). Il secondo parametro è una stringa che contiene l'elenco di valori, separati da spazi e/o virgole. Se è necessario usare separatori diversi da spazi e virgole perché i valori includono tali caratteri, è possibile specificare un terzo parametro facoltativo per `search.in`. 
+  Il primo parametro della funzione `search.in` è il riferimento di campo di tipo stringa (o una variabile di intervallo in un campo di una raccolta di stringhe se `search.in` viene usata in un'espressione `any` o `all`). Il secondo parametro è una stringa che contiene l'elenco di valori, separati da spazi e/o virgole. Se è necessario usare separatori diversi da spazi e virgole perché i valori includono tali caratteri, è possibile specificare un terzo parametro facoltativo per `search.in`. 
 
-    Il terzo parametro è una stringa in cui ogni carattere della stringa o ogni subset di questa stringa viene considerato come separatore durante l'analisi dell'elenco di valori nel secondo parametro.
+  Il terzo parametro è una stringa in cui ogni carattere della stringa o ogni subset di questa stringa viene considerato come separatore durante l'analisi dell'elenco di valori nel secondo parametro.
 
-    > [!NOTE]   
-    >  Alcuni scenari richiedono di confrontare un campo con un numero elevato di valori costanti. Ad esempio, l'implementazione della limitazione per motivi di sicurezza con i filtri potrebbe richiedere di confrontare il campo dell'ID del documento con un elenco di ID per cui il richiedente ottiene l'accesso in lettura. In scenari come questo è consigliabile usare la funzione `search.in` invece di una disgiunzione più complessa di espressioni di uguaglianza. Usare, ad esempio, `search.in(Id, '123, 456, ...')` invece di `Id eq 123 or Id eq 456 or ....`. 
+  > [!NOTE]   
+  > Alcuni scenari richiedono di confrontare un campo con un numero elevato di valori costanti. Ad esempio, l'implementazione della limitazione per motivi di sicurezza con i filtri potrebbe richiedere di confrontare il campo dell'ID del documento con un elenco di ID per cui il richiedente ottiene l'accesso in lettura. In scenari come questo è consigliabile usare la funzione `search.in` invece di una disgiunzione più complessa di espressioni di uguaglianza. Usare, ad esempio, `search.in(Id, '123, 456, ...')` invece di `Id eq 123 or Id eq 456 or ....`. 
+  >
+  > Se si usa `search.in`, è previsto un tempo di risposta inferiore al secondo quando il secondo parametro contiene un elenco di centinaia o migliaia di valori. Si noti che non esistono limiti espliciti al numero di elementi che è possibile passare a `search.in`, anche se esiste un limite per le dimensioni massime della richiesta. Tuttavia, la latenza aumenterà man mano che aumenta il numero di valori.
 
->  Se si usa `search.in`, è previsto un tempo di risposta inferiore al secondo quando il secondo parametro contiene un elenco di centinaia o migliaia di valori. Si noti che non esistono limiti espliciti al numero di elementi che è possibile passare a `search.in`, anche se esiste un limite per le dimensioni massime della richiesta. Tuttavia, la latenza aumenterà man mano che aumenta il numero di valori.
+- La funzione `search.ismatch` valuta la query di ricerca come parte di un'espressione filtro. I documenti che corrispondono alla query di ricerca verranno restituiti nel set di risultati. Sono disponibili gli overload seguenti di questa funzione:
+  - `search.ismatch(search)`
+  - `search.ismatch(search, searchFields)`
+  - `search.ismatch(search, searchFields, queryType, searchMode)`
 
--   La funzione `search.ismatch` valuta la query di ricerca come parte di un'espressione filtro. I documenti che corrispondono alla query di ricerca verranno restituiti nel set di risultati. Sono disponibili gli overload seguenti di questa funzione:
-    - `search.ismatch(search)`
-    - `search.ismatch(search, searchFields)`
-    - `search.ismatch(search, searchFields, queryType, searchMode)`
-
-    dove: 
+  dove: 
   
-    - `search`: query di ricerca (nella sintassi di query [semplice](query-simple-syntax.md) o [completa](query-lucene-syntax.md)). 
-    - `queryType`: "simple" o "full". Il valore predefinito è "simple". Specifica il linguaggio di query usato nel parametro `search`.
-    - `searchFields`: elenco di campi ricercabili in cui eseguire la ricerca. Il valore predefinito corrisponde a tutti i campi ricercabili nell'indice.    
-    - `searchMode`: "any" o "all". Il valore predefinito è "any". Indica se è necessario trovare una corrispondenza con tutti i termini di ricerca o con uno qualsiasi per includere il documento nelle corrispondenze.
+  - `search`: query di ricerca (nella sintassi di query [semplice](query-simple-syntax.md) o [completa](query-lucene-syntax.md)). 
+  - `queryType`: "simple" o "full". Il valore predefinito è "simple". Specifica il linguaggio di query usato nel parametro `search`.
+  - `searchFields`: elenco di campi ricercabili in cui eseguire la ricerca. Il valore predefinito corrisponde a tutti i campi ricercabili nell'indice.    
+  - `searchMode`: "any" o "all". Il valore predefinito è "any". Indica se è necessario trovare una corrispondenza con tutti i termini di ricerca o con uno qualsiasi per includere il documento nelle corrispondenze.
 
-    Tutti i parametri precedenti sono equivalenti ai corrispondenti [parametri della richiesta di ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+  Tutti i parametri precedenti sono equivalenti ai corrispondenti [parametri della richiesta di ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
--   La funzione `search.ismatchscoring`, come la funzione `search.ismatch`, restituisce true per i documenti corrispondenti alla query di ricerca passata come parametro. La differenza tra di esse è che il punteggio di pertinenza dei documenti corrispondenti alla query `search.ismatchscoring` contribuirà al punteggio complessivo dei documenti, mentre nel caso di `search.ismatch`, il punteggio dei documenti non verrà modificato. Sono disponibili gli overload seguenti di questa funzione con parametri identici a quelli di `search.ismatch`:
-    - `search.ismatchscoring(search)`
-    - `search.ismatchscoring(search, searchFields)`
-    - `search.ismatchscoring(search, searchFields, queryType, searchMode)`
+- La funzione `search.ismatchscoring`, come la funzione `search.ismatch`, restituisce true per i documenti corrispondenti alla query di ricerca passata come parametro. La differenza tra di esse è che il punteggio di pertinenza dei documenti corrispondenti alla query `search.ismatchscoring` contribuirà al punteggio complessivo dei documenti, mentre nel caso di `search.ismatch`, il punteggio dei documenti non verrà modificato. Sono disponibili gli overload seguenti di questa funzione con parametri identici a quelli di `search.ismatch`:
+  - `search.ismatchscoring(search)`
+  - `search.ismatchscoring(search, searchFields)`
+  - `search.ismatchscoring(search, searchFields, queryType, searchMode)`
 
   Le funzioni `search.ismatch` e `search.ismatchscoring` sono completamente ortogonali tra loro e con il resto dell'algebra dei filtri. Ciò significa che entrambe le funzioni possono essere usate nella stessa espressione filtro. 
 
@@ -130,99 +130,106 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
  Trovare tutti gli alberghi con una tariffa di base inferiore a 100 dollari e di categoria 4 o superiore:  
 
-```  
-$filter=baseRate lt 100.0 and rating ge 4  
-```  
+```
+$filter=baseRate lt 100.0 and rating ge 4
+```
 
  Trovare tutti gli alberghi diversi da "Roach Motel" ristrutturati a partire dal 2010:  
 
-```  
-$filter=hotelName ne 'Roach Motel' and lastRenovationDate ge 2010-01-01T00:00:00Z  
-```  
+```
+$filter=hotelName ne 'Roach Motel' and lastRenovationDate ge 2010-01-01T00:00:00Z
+```
 
  Trovare tutti gli alberghi con una tariffa di base inferiore a 200 dollari che sono stati ristrutturati a partire dal 2012, con un valore letterale datetime che include informazioni sul fuso orario per l'ora solare Pacifico:  
 
-```  
-$filter=baseRate lt 200 and lastRenovationDate ge 2012-01-01T00:00:00-08:00  
-```  
+```
+$filter=baseRate lt 200 and lastRenovationDate ge 2012-01-01T00:00:00-08:00
+```
 
  Trovare tutti gli alberghi per non fumatori, con parcheggio incluso:  
 
-```  
-$filter=parkingIncluded and not smokingAllowed  
-```  
+```
+$filter=parkingIncluded and not smokingAllowed
+```
 
  \- OPPURE -  
 
-```  
-$filter=parkingIncluded eq true and smokingAllowed eq false  
-```  
+```
+$filter=parkingIncluded eq true and smokingAllowed eq false
+```
 
  Trovare tutti gli alberghi di lusso o con parcheggio incluso e di categoria 5 o superiore:  
 
-```  
-$filter=(category eq 'Luxury' or parkingIncluded eq true) and rating eq 5  
-```  
+```
+$filter=(category eq 'Luxury' or parkingIncluded eq true) and rating eq 5
+```
 
  Trovare tutti gli alberghi con il tag "wifi", in cui ogni albergo ha i tag archiviati in un campo Collection(Edm.String):  
 
-```  
-$filter=tags/any(t: t eq 'wifi')  
-```  
+```
+$filter=tags/any(t: t eq 'wifi')
+```
 
  Trovare tutti gli alberghi con il tag "motel":  
 
-```  
-$filter=tags/all(t: t ne 'motel')  
-```  
+```
+$filter=tags/all(t: t ne 'motel')
+```
 
  Trovare tutti gli alberghi con qualsiasi tag:  
 
-```  
-$filter=tags/any()  
-```  
+```
+$filter=tags/any()
+```
+
+Trovare tutti gli alberghi che non hanno tag:  
+
+```
+$filter=not tags/any()
+```
+
 
  Trovare tutti gli alberghi entro 10 chilometri da un punto di riferimento specificato (in cui la località è un campo di tipo Edm.GeographyPoint):  
 
-```  
-$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 10  
-```  
+```
+$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 10
+```
 
  Trovare tutti gli alberghi entro un determinato riquadro di visualizzazione designato come poligono (in cui la località è un campo di tipo Edm.GeographyPoint). Si noti che il poligono è chiuso (il primo e l'ultimo set di punti devono coincidere) e che [i punti devono essere elencati in senso antiorario](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
-```  
-$filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')  
-```  
+```
+$filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
+```
 
  Trovare tutti gli alberghi senza valori nel campo "description" o con il valore esplicitamente impostato su null:  
 
-```  
-$filter=description eq null  
-```  
+```
+$filter=description eq null
+```
 
 Trovare tutti gli alberghi con nome uguale a "Roach motel" o "Budget hotel":  
 
-```  
-$filter=search.in(name, 'Roach motel,Budget hotel', ',') 
+```
+$filter=search.in(name, 'Roach motel,Budget hotel', ',')
 ```
 
 Trovare tutti gli alberghi con nome uguale a "Roach motel" o "Budget hotel" separati da "|":  
 
-```  
-$filter=search.in(name, 'Roach motel|Budget hotel', '|') 
+```
+$filter=search.in(name, 'Roach motel|Budget hotel', '|')
 ```
 
 Trovare tutti gli alberghi con il tag "wifi" o "pool":  
 
-```  
-$filter=tags/any(t: search.in(t, 'wifi, pool'))  
+```
+$filter=tags/any(t: search.in(t, 'wifi, pool'))
 ```
 
 Trovare tutti gli alberghi senza il tag "motel" o "cabin":  
 
-```  
-$filter=tags/all(t: not search.in(t, 'motel, cabin'))  
-```  
+```
+$filter=tags/all(t: not search.in(t, 'motel, cabin'))
+```
 
 Trovare documenti con la parola "waterfront". Questa query di filtro è identica a una [richiesta di ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents) con `search=waterfront`.
 

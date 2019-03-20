@@ -8,16 +8,19 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 5862c6ef3c420c1722ddfbc1238be4e2bf43a507
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: ae3b4787928b3a578df30dd7f8a2791ce487305d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447421"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100497"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Estendere Azure HDInsight usando Rete virtuale di Azure
 
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
+
+> [!IMPORTANT]  
+> Dopo il 28 febbraio 2019 è verranno eseguito il provisioning di risorse di rete (ad esempio, schede di rete, servizi Location based e così via) per i nuovi cluster creato in una rete virtuale nello stesso gruppo di risorse cluster HDInsight. In precedenza, queste risorse sono state sottoposte a provisioning nel gruppo di risorse della rete virtuale. Non sussiste alcuna modifica per i cluster in esecuzione correnti e i cluster creati senza una rete virtuale.
 
 Informazioni su come usare HDInsight con [Rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). Il servizio Rete virtuale di Azure consente di implementare gli scenari seguenti:
 
@@ -112,8 +115,8 @@ Seguire la procedura in questa sezione per aggiungere un nuovo cluster HDInsight
     * [Creare HDInsight usando l'interfaccia della riga di comando classica di Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [Creare cluster HDInsight tramite un modello Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
-  > [!IMPORTANT]  
-  > L'aggiunta di un cluster HDInsight a una rete virtuale è un passaggio di configurazione facoltativo. Assicurarsi di selezionare la rete virtuale quando si configura il cluster.
+   > [!IMPORTANT]  
+   > L'aggiunta di un cluster HDInsight a una rete virtuale è un passaggio di configurazione facoltativo. Assicurarsi di selezionare la rete virtuale quando si configura il cluster.
 
 ## <a id="multinet"></a>Connessione a più reti
 
@@ -125,8 +128,8 @@ Azure assicura la risoluzione dei nomi per i servizi di Azure che vengono instal
 
 * Qualsiasi risorsa che si trovi nella stessa rete virtuale di Azure tramite l'utilizzo del __nome DNS interno__ della risorsa. Quando ad esempio si usa la risoluzione dei nomi predefinita, i seguenti sono nomi DNS interni di esempio assegnati a nodi del ruolo di lavoro di HDInsight:
 
-    * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
-    * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+  * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+  * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
 
     Entrambi questi nodi possono comunicare direttamente tra loro e con altri nodi in HDInsight, usando i nomi DNS interni.
 
@@ -145,29 +148,29 @@ Per abilitare la risoluzione dei nomi tra la rete virtuale e le risorse in reti 
 
 4. Configurare l'inoltro tra i server DNS. La configurazione dipende dal tipo di rete remota.
 
-    * Se la rete remota è una rete locale, configurare il DNS come indicato di seguito:
+   * Se la rete remota è una rete locale, configurare il DNS come indicato di seguito:
         
-        * __DNS personalizzato__ (nella rete virtuale):
+     * __DNS personalizzato__ (nella rete virtuale):
 
-            * Inoltrare le richieste per il suffisso DNS della rete virtuale al sistema di risoluzione ricorsiva di Azure (168.63.129.16). Azure gestisce le richieste per le risorse nella rete virtuale
+         * Inoltrare le richieste per il suffisso DNS della rete virtuale al sistema di risoluzione ricorsiva di Azure (168.63.129.16). Azure gestisce le richieste per le risorse nella rete virtuale
 
-            * Inoltrare tutte le altre richieste al server DNS locale. Il server DNS locale gestisce tutte le altre richieste di risoluzione dei nomi, persino le richieste per le risorse Internet quali Microsoft.com.
+         * Inoltrare tutte le altre richieste al server DNS locale. Il server DNS locale gestisce tutte le altre richieste di risoluzione dei nomi, persino le richieste per le risorse Internet quali Microsoft.com.
 
-        * __DNS locale__: inoltrare le richieste per il suffisso DNS di rete virtuale al server DNS personalizzato. Il server DNS personalizzato le inoltra quindi al sistema di risoluzione ricorsiva di Azure.
+     * __DNS locale__: inoltrare le richieste per il suffisso DNS di rete virtuale al server DNS personalizzato. Il server DNS personalizzato le inoltra quindi al sistema di risoluzione ricorsiva di Azure.
 
-        Questa configurazione indirizza le richieste di nomi di dominio completi che contengono il suffisso DNS della rete virtuale al server DNS personalizzato. Tutte le altre richieste (anche per gli indirizzi Internet pubblici) vengono gestite dal server DNS locale.
+       Questa configurazione indirizza le richieste di nomi di dominio completi che contengono il suffisso DNS della rete virtuale al server DNS personalizzato. Tutte le altre richieste (anche per gli indirizzi Internet pubblici) vengono gestite dal server DNS locale.
 
-    * Se la rete remota è un'altra rete virtuale di Azure, configurare il DNS come indicato di seguito:
+   * Se la rete remota è un'altra rete virtuale di Azure, configurare il DNS come indicato di seguito:
 
-        * __DNS personalizzato__ (in ogni rete virtuale):
+     * __DNS personalizzato__ (in ogni rete virtuale):
 
-            * Le richieste per il suffisso DNS delle reti virtuali vengono inoltrate ai server DNS personalizzati. Il DNS in ogni rete virtuale è responsabile della risoluzione delle risorse all'interno della propria rete.
+         * Le richieste per il suffisso DNS delle reti virtuali vengono inoltrate ai server DNS personalizzati. Il DNS in ogni rete virtuale è responsabile della risoluzione delle risorse all'interno della propria rete.
 
-            * Inoltrare tutte le altre richieste al sistema di risoluzione ricorsiva di Azure. Il sistema di risoluzione ricorsiva è responsabile della risoluzione delle risorse Internet e locali.
+         * Inoltrare tutte le altre richieste al sistema di risoluzione ricorsiva di Azure. Il sistema di risoluzione ricorsiva è responsabile della risoluzione delle risorse Internet e locali.
 
-        Il server DNS per ogni rete inoltra le richieste all'altro, in base al suffisso DNS. Le altre richieste vengono risolte usando il sistema di risoluzione ricorsiva di Azure.
+       Il server DNS per ogni rete inoltra le richieste all'altro, in base al suffisso DNS. Le altre richieste vengono risolte usando il sistema di risoluzione ricorsiva di Azure.
 
-    Per un esempio di ogni configurazione, vedere la sezione [Esempio: DNS personalizzato](#example-dns).
+     Per un esempio di ogni configurazione, vedere la sezione [Esempio: DNS personalizzato](#example-dns).
 
 Per altre informazioni, vedere il documento [Risoluzione dei nomi per le macchine virtuali e le istanze del ruolo](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
@@ -232,7 +235,7 @@ Se si intende usare **gruppi di sicurezza di rete** o **route definite dall'uten
 3. Creare o modificare i gruppi di sicurezza di rete o le route definite dall'utente per la subnet in cui si intende installare HDInsight.
 
     * __Gruppi di sicurezza di rete__: consentono il traffico __in ingresso__ sulla porta __443__ dagli indirizzi IP. Ciò garantisce che i servizi di gestione di HDInsight possano raggiungere il cluster dall'esterno della rete virtuale.
-    * __Route definite dall'utente__: se si pianifica di usare delle route definite dall'utente, creare una route per ogni indirizzo IP e impostare __Tipo hop successivo__ su __Internet__. È anche consigliabile consentire altro traffico in uscita dalla rete virtuale senza restrizioni. Ad esempio, è possibile instradare tutto il traffico all'appliance virtuale di rete o al firewall di Azure (ospitato in Azure) per il monitoraggio, ma il traffico in uscita non deve essere bloccato.
+    * __Route definite dall'utente__: se si pianifica di usare delle route definite dall'utente, creare una route per ogni indirizzo IP e impostare __Tipo hop successivo__ su __Internet__. È anche consigliabile consentire altro traffico in uscita dalla rete virtuale senza restrizioni. Ad esempio, è possibile instradare tutto il traffico per il firewall o rete appliance virtuale di Azure (ospitato in Azure) per il monitoraggio, ma il traffico in uscita non deve essere bloccato.
 
 Per altre informazioni sui gruppi di sicurezza di rete o sulle route definite dall'utente, vedere la documentazione seguente:
 
@@ -242,7 +245,7 @@ Per altre informazioni sui gruppi di sicurezza di rete o sulle route definite da
 
 #### <a name="forced-tunneling-to-on-premise"></a>Tunneling forzato a un'istanza locale
 
-Il tunneling forzato è una configurazione di routing definita dall'utente in cui tutto il traffico da una subnet viene spinto verso una rete o un percorso specifico, ad esempio la rete locale. HDInsight __non__ supporta il tunneling forzato alle reti locali. Se si usa Firewall di Azure o un'appliance virtuale di rete ospitato in Azure, è possibile usare le route definite dall'utente per instradare il traffico per il monitoraggio e consentire tutto il traffico in uscita.
+Il tunneling forzato è una configurazione di routing definita dall'utente in cui tutto il traffico da una subnet viene spinto verso una rete o un percorso specifico, ad esempio la rete locale. HDInsight __non__ supporta il tunneling forzato alle reti locali. Se si usa il Firewall di Azure o un'appliance virtuale di rete ospitato in Azure, è possibile utilizzare route definite dall'utente per instradare il traffico a esso per il monitoraggio e consentire tutto il traffico in uscita.
 
 ## <a id="hdinsight-ip"></a> Indirizzi IP richiesti
 
@@ -281,6 +284,7 @@ Se si usano gruppi di sicurezza di rete, è necessario consentire al traffico da
     | &nbsp; | Cina settentrionale 2 | 40.73.37.141</br>40.73.38.172 | 443 | In ingresso |
     | Europa | Europa settentrionale | 52.164.210.96</br>13.74.153.132 | 443 | In ingresso |
     | &nbsp; | Europa occidentale| 52.166.243.90</br>52.174.36.244 | 443 | In ingresso |
+    | Francia | Francia centrale| 20.188.39.64</br>40.89.157.135 | 443 | In ingresso |
     | Germania | Germania centrale | 51.4.146.68</br>51.4.146.80 | 443 | In ingresso |
     | &nbsp; | Germania nord-orientale | 51.5.150.132</br>51.5.144.101 | 443 | In ingresso |
     | India | India centrale | 52.172.153.209</br>52.172.152.49 | 443 | In ingresso |
@@ -643,9 +647,9 @@ Questo esempio si basa sui presupposti seguenti:
     };
     ```
     
-    * Sostituire i valori `10.0.0.0/16` e `10.1.0.0/16` all'interno degli intervalli di indirizzi IP delle reti virtuali. Questa voce consente alle risorse in ogni rete di eseguire richieste dei server DNS.
+   * Sostituire i valori `10.0.0.0/16` e `10.1.0.0/16` all'interno degli intervalli di indirizzi IP delle reti virtuali. Questa voce consente alle risorse in ogni rete di eseguire richieste dei server DNS.
 
-    Tutte le richieste che non riguardano i suffissi DNS delle reti virtuali (ad esempio microsoft.com) vengono gestite dal sistema di risoluzione ricorsiva di Azure.
+     Tutte le richieste che non riguardano i suffissi DNS delle reti virtuali (ad esempio microsoft.com) vengono gestite dal sistema di risoluzione ricorsiva di Azure.
 
 4. Per usare la configurazione, riavviare Bind. Ad esempio `sudo service bind9 restart` su entrambi i server DNS.
 

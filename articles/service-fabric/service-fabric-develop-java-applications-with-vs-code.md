@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 54c94c50f6292694e947d97a10fd6976c14e19df
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
-ms.translationtype: HT
+ms.openlocfilehash: 9e5a2138de7e2c0e892bd0efeb0db1e2aee87422
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115469"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014684"
 ---
 # <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>Sviluppare applicazioni Java di Service Fabric con Visual Studio Code
 
@@ -62,19 +62,19 @@ Dopo aver compilato l'applicazione, è possibile distribuirla nel cluster locale
 > [!IMPORTANT]
 > La distribuzione di applicazioni Java nel cluster locale non è supportata nei computer Windows.
 
-1. Dal **riquadro comandi** selezionare il comando **Service Fabric: Deploy Application (Localhost)** (Service Fabric: Distribuisci applicazione - Localhost). L'output del processo di installazione viene inviato al terminale integrato.
+1. Dal **Riquadro comandi** selezionare il comando **Service Fabric: Deploy Application (Localhost)** (Service Fabric: Distribuisci applicazione (localhost)). L'output del processo di installazione viene inviato al terminale integrato.
 
    ![Comando per la distribuzione dell'applicazione in Visual Studio Code](./media/service-fabric-develop-java-applications-with-vs-code/sf-deploy-application.png)
 
-4. Al termine della distribuzione, avviare un browser e aprire Service Fabric Explorer: http://localhost:19080/Explorer. Si noterà che l'applicazione è in esecuzione. Questa operazione potrebbe richiedere tempo. 
+4. Al termine della distribuzione, avviare un browser e aprire Service Fabric Explorer: `http://localhost:19080/Explorer`. Si noterà che l'applicazione è in esecuzione. Questa operazione potrebbe richiedere tempo. 
 
    ![Applicazione Voting in Service Fabric Explorer](./media/service-fabric-develop-java-applications-with-vs-code/sfx-localhost-java.png)
 
-4. Dopo aver verificato se l'applicazione è in esecuzione, avviare un browser e aprire questa pagina: http://localhost:8080. Questo è il front-end Web dell'applicazione. È possibile aggiungere elementi e fare clic su di essi per votare.
+4. Dopo aver verificato se l'applicazione è in esecuzione, avviare un browser e aprire questa pagina: `http://localhost:8080`. Questo è il front-end Web dell'applicazione. È possibile aggiungere elementi e fare clic su di essi per votare.
 
    ![Applicazione Voting nel browser](./media/service-fabric-develop-java-applications-with-vs-code/voting-sample-in-browser.png)
 
-5. Per rimuovere l'applicazione dal cluster, selezionare il comando **Service Fabric: Remove Application** (Service Fabric: Rimuovi applicazione) dal **riquadro comandi**. L'output del processo di disinstallazione viene inviato al terminale integrato. È possibile usare Service Fabric Explorer per verificare che l'applicazione sia stata rimossa dal cluster locale.
+5. Per rimuovere l'applicazione dal cluster, selezionare il **Service Fabric: Rimuovi applicazione** comando il **riquadro comandi**. L'output del processo di disinstallazione viene inviato al terminale integrato. È possibile usare Service Fabric Explorer per verificare che l'applicazione sia stata rimossa dal cluster locale.
 
 ## <a name="debug-the-application"></a>Eseguire il debug dell'applicazione
 Quando si esegue il debug in Visual Studio Code, l'applicazione deve essere in esecuzione su un cluster locale. È quindi possibile aggiungere punti di interruzione al codice.
@@ -105,7 +105,7 @@ Impostare come commento il comando sulla riga 6 usando il simbolo di cancelletto
 
    ![Configurazione di debug per launch.json](./media/service-fabric-develop-java-applications-with-vs-code/launch-json-java.png)
 
-4. Distribuire l'applicazione nel cluster locale tramite il comando **Service Fabric: Deploy Application (Localhost)** (Service Fabric: Distribuisci applicazione - Localhost). Verificare se l'applicazione è in esecuzione in Service Fabric Explorer. L'applicazione è ora pronta per il debug.
+4. Distribuire l'applicazione nel cluster locale tramite la **Service Fabric: Distribuire l'applicazione (Localhost)** comando. Verificare se l'applicazione è in esecuzione in Service Fabric Explorer. L'applicazione è ora pronta per il debug.
 
 Per impostare un punto di interruzione, seguire questa procedura:
 
@@ -119,7 +119,7 @@ Per impostare un punto di interruzione, seguire questa procedura:
 
    ![Configurazione Debug (Attach)](./media/service-fabric-develop-java-applications-with-vs-code/debug-attach-java.png)
 
-3. In un Web browser passare a http://localhost:8080. Digitare un nuovo elemento nella casella di testo e fare clic su **+ Aggiungi**. Verrà raggiunto il punto di interruzione. È possibile usare la barra degli strumenti di debug nella parte superiore di Visual Studio Code per procedere al debug, eseguire le istruzioni, entrare nei metodi o uscire dal metodo corrente. 
+3. In un Web browser passare a `http://localhost:8080`. Digitare un nuovo elemento nella casella di testo e fare clic su **+ Aggiungi**. Verrà raggiunto il punto di interruzione. È possibile usare la barra degli strumenti di debug nella parte superiore di Visual Studio Code per procedere al debug, eseguire le istruzioni, entrare nei metodi o uscire dal metodo corrente. 
    
    ![Punto di interruzione raggiunto](./media/service-fabric-develop-java-applications-with-vs-code/breakpoint-hit.png)
        
@@ -127,7 +127,7 @@ Per impostare un punto di interruzione, seguire questa procedura:
    
    ![Disconnessione dal debugger](./media/service-fabric-develop-java-applications-with-vs-code/debug-bar-disconnect.png)
        
-5. Al termine del debug, è possibile usare il comando **Service Fabric: Remove Application** (Service Fabric: Rimuovi applicazione) per rimuovere l'applicazione Voting dal cluster locale. 
+5. Al termine del debug, è possibile usare il comando **Service Fabric: Rimuovi applicazione** comando per rimuovere l'applicazione di voto nel cluster locale. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

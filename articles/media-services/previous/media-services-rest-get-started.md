@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: d27b508362193b79d7464ae49683479b2f8fc7ba
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 0efbabf658210c733a7a7f201cb4a36f63456b28
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991244"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835344"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introduzione alla distribuzione di contenuti su richiesta usando REST  
 
@@ -41,7 +41,7 @@ Per iniziare l'attività di sviluppo con Servizi multimediali e le API REST sono
 * Un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Account di Servizi multimediali. Per creare un account Servizi multimediali, vedere [Creare un account Servizi multimediali di Azure con il portale di Azure](media-services-portal-create-account.md).
 * Informazioni su come eseguire attività di sviluppo con l'API REST di Servizi multimediali. Per altre informazioni, vedere [Informazioni generali sull'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
-* Un'applicazione di propria scelta per l'invio di richieste e risposte HTTP. In questa esercitazione viene usato [Fiddler](http://www.telerik.com/download/fiddler).
+* Un'applicazione di propria scelta per l'invio di richieste e risposte HTTP. In questa esercitazione viene usato [Fiddler](https://www.telerik.com/download/fiddler).
 
 Questa guida introduttiva illustra come effettuare le seguenti attività.
 
@@ -331,7 +331,7 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 Una volta impostati AccessPolicy e Locator, il file effettivo viene caricato nel contenitore di archiviazione BLOB di Azure usando le API REST di Archiviazione di Azure. È necessario caricare i file come BLOB in blocchi. I BLOB di pagine non sono supportati da Servizi multimediali di Azure.  
 
 > [!NOTE]
-> È necessario aggiungere il nome del file da caricare nel valore **Path** di Locator ricevuto nella sezione precedente. Ad esempio: https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
+> È necessario aggiungere il nome del file da caricare nel valore **Path** di Locator ricevuto nella sezione precedente. Ad esempio: `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?`.
 >
 >
 
@@ -408,7 +408,7 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 
 Dopo aver inserito gli asset in Servizi multimediali, i file multimediali possono essere codificati, sottoposti a transmux e all'applicazione di filigrana e così via prima di essere distribuiti ai client. Queste attività vengono pianificate ed eseguite in più istanze del ruolo in background per assicurare prestazioni e disponibilità elevate. Queste attività vengono chiamate processi. Ogni processo è formato da attività atomiche che svolgono le procedure effettive nel file di asset (per altre informazioni, vedere le descrizioni di [processi](https://docs.microsoft.com/rest/api/media/operations/job) e [attività](https://docs.microsoft.com/rest/api/media/operations/task)).
 
-Come indicato prima, quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Servizi multimediali può creare dinamicamente un pacchetto di un set di file MP4 a bitrate adattivo in uno dei formati seguenti: HTTP Live Streaming (HLS), Smooth Streaming e MPEG DASH.
+Come indicato prima, quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Servizi multimediali può creare dinamicamente un pacchetto di un set di file MP4 a bitrate adattivo in uno dei formati seguenti: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
 
 La seguente sezione mostra come creare un processo contenente una singola attività di codifica, che indica di transcodificare il file in formato intermedio in un set di file MP4 a velocità in bit adattiva con **Media Encoder Standard**. Mostra inoltre come monitorare lo stato di avanzamento dell'elaborazione del processo. Una volta completato il processo, sarà possibile creare i localizzatori necessari per ottenere l'accesso agli asset.
 
@@ -459,7 +459,7 @@ Il seguente codice include la richiesta dell'ID del codificatore.
     }
 
 ### <a name="create-a-job"></a>Creare un processo
-Ogni processo può includere una o più attività in base al tipo di elaborazione che si desidera eseguire. Usando l'API REST è possibile creare i processi e le attività correlate procedendo in due modi diversi. Le attività possono essere definite inline mediante la proprietà di navigazione Tasks in entità Job o mediante l'elaborazione batch OData. Media Services SDK usa l'elaborazione batch. Tuttavia, per semplificare la leggibilità degli esempi di codice inclusi in questo articolo le attività sono state definite inline. Per informazioni sull'elaborazione batch, vedere l'articolo relativo all' [elaborazione batch OData (Open Data Protocol)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Ogni processo può includere una o più attività in base al tipo di elaborazione che si desidera eseguire. Usando l'API REST è possibile creare i processi e le attività correlate procedendo in due modi diversi. Le attività possono essere definite inline mediante la proprietà di navigazione Tasks in entità Job o mediante l'elaborazione batch OData. Media Services SDK usa l'elaborazione batch. Tuttavia, per semplificare la leggibilità degli esempi di codice inclusi in questo articolo le attività sono state definite inline. Per informazioni sull'elaborazione batch, vedere l'articolo relativo all' [elaborazione batch OData (Open Data Protocol)](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
 Il seguente esempio mostra come creare e pubblicare un processo con un'attività impostata per codificare un video con determinati valori di risoluzione e qualità. La sezione di documentazione seguente contiene l'elenco di tutti i [set di impostazioni di attività](https://msdn.microsoft.com/library/mt269960) supportati dal processore di Media Encoder Standard.  
 
@@ -817,8 +817,6 @@ Una volta impostate le entità AccessPolicy e Locator, è possibile scaricare i 
 
 > [!NOTE]
 > È necessario aggiungere il nome del file da scaricare nel valore **Path** di Locator ricevuto nella sezione precedente. Ad esempio: https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
->
->
 
 Per altre informazioni sull'uso dei BLOB di Archiviazione di Azure, vedere [API REST del servizio BLOB](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
@@ -912,7 +910,7 @@ Per trasmettere in streaming contenuti MPEG DASH, aggiungere (format=mpd-time-cs
 
 
 ## <a id="play"></a>Riprodurre i contenuti
-Per riprodurre il video, utilizzare [Lettore di Servizi multimediali di Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+Per riprodurre il video, utilizzare [Lettore di Servizi multimediali di Azure](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 Per testare il download progressivo, incollare un URL in un browser (ad esempio, IE, Chrome, Safari).
 

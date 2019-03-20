@@ -2,24 +2,24 @@
 title: Migliorare le prestazioni dell'indice columnstore in Azure SQL Data Warehouse| Microsoft Docs
 description: Ridurre i requisiti di memoria o aumentare la memoria disponibile per accrescere al massimo il numero di righe che un indice columnstore comprime in ogni gruppo di righe.
 services: sql-data-warehouse
-author: ckarst
+author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 03/18/2019
+ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: d956322233cb6b4f8502775dcf2f89d96fd5cafe
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 859f0d168dcf1cc999f79ef22b5ba6669da79593
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463362"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189564"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Ottimizzazione della qualità di un gruppo di righe per columnstore
 
-La qualità di un gruppo di righe è determinata dal numero di righe nel gruppo. Ridurre i requisiti di memoria o aumentare la memoria disponibile per accrescere al massimo il numero di righe che un indice columnstore comprime in ogni gruppo di righe.  Usare questi metodi per migliorare il tasso di compressione e le prestazioni delle query per gli indici columnstore.
+La qualità di un gruppo di righe è determinata dal numero di righe nel gruppo. Aumentare la memoria disponibile, è possibile ottimizzare il numero di righe di che un indice columnstore comprime ogni rowgroup.  Usare questi metodi per migliorare il tasso di compressione e le prestazioni delle query per gli indici columnstore.
 
 ## <a name="why-the-rowgroup-size-matters"></a>Perché sono importanti le dimensioni del gruppo di righe
 Poiché un indice columnstore analizza una tabella eseguendo la scansione di segmenti di colonna di singoli gruppi di righe, accrescendo al massimo il numero di righe in ogni gruppo di righe le prestazioni delle query migliorano. Quando i gruppi di righe hanno un numero elevato di righe, la compressione dei dati migliora, il che significa meno dati da leggere dal disco.
@@ -35,11 +35,11 @@ Durante un caricamento bulk o la ricompilazione di un indice columnstore, talvol
 
 Quando la memoria è insufficiente per la compressione di almeno 10.000 righe in ogni gruppo di righe, SQL Data Warehouse genera un errore.
 
-Per altre informazioni sul caricamento bulk, vedere [Caricamento bulk in un indice columnstore cluster](https://msdn.microsoft.com/library/dn935008.aspx#Bulk load into a clustered columnstore index).
+Per altre informazioni sul caricamento bulk, vedere [Caricamento bulk in un indice columnstore cluster](https://msdn.microsoft.com/library/dn935008.aspx#Bulk ).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Come monitorare la qualità di un gruppo di righe
 
-È presente una DMV (sys.dm_pdw_nodes_db_column_store_row_group_physical_stats) che espone informazioni utili come il numero di righe presenti nei gruppi ed eventualmente il motivo per cui un gruppo di righe è stato tagliato. Per effettuare una query su questa DMV allo scopo di ottenere informazioni sul trimming di un gruppo di righe, è possibile creare la vista seguente.
+La DMV pdw_nodes_db_column_store_row_group_physical_stats ([DM db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) contiene la definizione della vista corrispondenti database SQL in SQL Data Warehouse) che espone informazioni utili ad esempio il numero di righe nel rowgroup e il motivo per cui è stato tagliato. Per effettuare una query su questa DMV allo scopo di ottenere informazioni sul trimming di un gruppo di righe, è possibile creare la vista seguente.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -137,14 +137,6 @@ La dimensione delle DWU e la classe della risorsa utente insieme determinano la 
 
 - Per aumentare le DWU, vedere [Ridimensionare le prestazioni](quickstart-scale-compute-portal.md)
 - Per cambiare la classe risorsa per una query, vedere [Esempio di modifica della classe di risorse di un utente](resource-classes-for-workload-management.md#change-a-users-resource-class).
-
-Ad esempio, sulla DWU 100 un utente nella classe risorsa smallrc può usare 100 MB di memoria per ogni distribuzione. Per informazioni dettagliate, vedere [Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse](resource-classes-for-workload-management.md).
-
-Si supponga di determinare la necessità di 700 MB di memoria per ottenere le dimensioni di un gruppo di righe di alta qualità. Questi esempi illustrano come eseguire la query di caricamento con memoria sufficiente.
-
-- Usando la DWU 1000 e mediumrc, la concessione di memoria è di 800 MB
-- Usando la DWU 600 e largerc, la concessione di memoria è di 800 MB.
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 
