@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 761843aad24dc89131079eb59954bd17883e595d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2dfbb618bafd9ae3cbb0c691e63a243ab2c2c31e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178397"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996548"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Come usare le identità gestite per le risorse di Azure in una macchina virtuale di Azure per l'accesso 
 
@@ -87,7 +87,7 @@ Per un elenco di risorse che supportano Azure AD e che sono state testate con le
 Risposte come quelle riportate di seguito possono indicare che l'identità gestita per le risorse di Azure della macchina virtuale non è stata configurata correttamente:
 
 - PowerShell: *Invoke-WebRequest: Impossibile connettersi al server remoto*
-- Interfaccia della riga di comando: *MSI: Failed to retrieve a token from 'http://localhost:50342/oauth2/token' with an error of 'HTTPConnectionPool(host='localhost', port=50342)* (MSI: impossibile recuperare un token da "http://localhost:50342/oauth2/token" con un errore "HTTPConnectionPool(host="localhost", porta=50342)") 
+- Interfaccia della riga di comando: *MSI: Non è riuscito a recuperare un token da `http://localhost:50342/oauth2/token` con un errore ' HTTPConnectionPool (host = 'localhost', porta = 50342)* 
 
 Se si riceve uno di questi errori, tornare alla macchina virtuale di Azure nel [portale di Azure](https://portal.azure.com) e:
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: absha
-ms.openlocfilehash: 515243cb043bac8e9f28a3c63808e4fbd9b8f525
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7bc3ea054056ac67cf0a116fb1538bc1483ab4d4
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905036"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223530"
 ---
 # <a name="application-gateway-configuration-overview"></a>Panoramica configurazione del Gateway applicazione
 
@@ -85,8 +85,7 @@ Un listener è un'entità logica che controlla le richieste di connessione in in
 
 - Se si ospita un singolo sito dietro un gateway applicazione, scegliere listener di base. Scopri [come creare un gateway applicazione con listener di base](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
-- Se si sta configurando più di un'applicazione web o più sottodomini dello stesso dominio padre nella stessa istanza del gateway applicazione, quindi scegliere listener multisito. Per il listener multisito, sarà inoltre necessario immettere un nome host. Questo avviene perché il Gateway applicazione si basa su intestazioni host HTTP 1.1 per ospitare più siti Web sul stesso indirizzo IP pubblico e sulla porta.![1551057450710](C:/Users/absha/AppData/Roaming/Typora/typora-user-images/1551057450710.png)
-
+- Se si sta configurando più di un'applicazione web o più sottodomini dello stesso dominio padre nella stessa istanza del gateway applicazione, quindi scegliere listener multisito. Per il listener multisito, sarà inoltre necessario immettere un nome host. Questo avviene perché il Gateway applicazione si basa su intestazioni host HTTP 1.1 per ospitare più siti Web sul stesso indirizzo IP pubblico e sulla porta.
 
 > [!NOTE]
 > In caso di SKU v1, i listener vengono elaborati nell'ordine in cui sono visibili. Per tale motivo, se un listener di base corrisponde a una richiesta in ingresso, questa viene elaborata per prima. Di conseguenza, i listener multisito devono essere configurati prima di un listener di base per verificare che il traffico viene indirizzato al back-end corretto.

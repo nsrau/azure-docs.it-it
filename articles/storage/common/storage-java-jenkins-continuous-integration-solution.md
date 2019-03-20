@@ -5,15 +5,16 @@ ms.topic: article
 ms.author: tarcher
 author: tarcher
 services: devops
+ms.service: storage
 custom: jenkins
 ms.date: 07/31/2018
 ms.subservice: common
-ms.openlocfilehash: 22db4690ccbd05b25f907e2d2134fa7ce5233d60
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 8ea80d557185f4489a96384b77ddd2519e7bd049
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476894"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992162"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Uso di Archiviazione di Azure con una soluzione di Integrazione continua Jenkins
 
@@ -39,7 +40,7 @@ Di seguito sono indicati i vantaggi dell'utilizzo del servizio BLOB per ospitare
   
     Se si è sprovvisti di una soluzione di Integrazione continuata Jenkins è possibile eseguire una soluzione di Integrazione continuata Jenkins applicando la tecnica seguente:
   
-  1. In un computer in cui è abilitato Java scaricare il file jenkins.war dall'indirizzo <http://jenkins-ci.org>.
+  1. In un computer in cui è abilitato Java scaricare il file jenkins.war dall'indirizzo <https://jenkins-ci.org>.
   2. Al prompt dei comandi aperto nella cartella che contiene jenkins.war eseguire:
      
       `java -jar jenkins.war`
@@ -47,7 +48,7 @@ Di seguito sono indicati i vantaggi dell'utilizzo del servizio BLOB per ospitare
   3. Nel browser aprire `http://localhost:8080/` per visualizzare il dashboard di Jenkins, che verrà usato per installare e configurare il plug-in di Archiviazione di Azure.
      
       Sebbene sia necessario configurare una tipica soluzione di Integrazione continuata Jenkins per eseguirla come servizio, ai fini di questa esercitazione sarà sufficiente eseguire il file WAR di Jenkins nella riga di comando.
-* Un account Azure. È possibile registrarsi per un account Azure all'indirizzo <http://www.azure.com>.
+* Un account Azure. È possibile registrarsi per un account Azure all'indirizzo <https://www.azure.com>.
 * Un account di archiviazione di Azure. Se non si dispone di un account di archiviazione, è possibile crearne uno attenendosi ai passaggi illustrati in [Creare un account di archiviazione](../common/storage-quickstart-create-account.md).
 * La conoscenza della soluzione di Integrazione continuata Jenkins è consigliata ma non richiesta, poiché nel contenuto seguente verrà usato un esempio semplice per illustrare i passaggi da seguire nell'uso del servizio BLOB come archivio per elementi di compilazione dell'Integrazione continuata Jenkins.
 
@@ -117,7 +118,7 @@ La procedura seguente illustra come configurare un passaggio di compilazione per
 1. Nella sezione **Build** (Compilazione) della configurazione del processo fare clic su **Add build step** (Aggiungi un passaggio di compilazione) e scegliere **Download from Azure Blob storage** (Scarica dallo spazio di archiviazione BLOB di Azure).
 2. In **Storage Account Name**scegliere l'account di archiviazione da utilizzare.
 3. In **Container name**specificare il nome del contenitore in cui si trovano i BLOB da scaricare. A questo scopo, è possibile usare le variabili di ambiente.
-4. In **Blob name**specificare il nome del BLOB. A questo scopo, è possibile usare le variabili di ambiente. È anche possibile usare un asterisco come carattere jolly dopo avere specificato le lettere iniziali del nome del BLOB. Ad esempio, digitando **project\*** si specificano tutti i BLOB i cui nomi iniziano per **project**.
+4. In **Blob name**specificare il nome del BLOB. A questo scopo, è possibile usare le variabili di ambiente. È anche possibile usare un asterisco come carattere jolly dopo avere specificato le lettere iniziali del nome del BLOB. Ad esempio, **project\\*** specificare tutti i BLOB i cui nomi iniziano con **progetto**.
 5. [Facoltativo] In **Download path**specificare il percorso nel computer Jenkins in cui si vuole scaricare i file dall'archivio BLOB di Azure. A questo scopo, è anche possibile usare le variabili di ambiente. Se non si specifica un valore per **Download path**, i file dall'archivio BLOB di Azure verranno scaricati nell'area di lavoro del processo.
 
 Per scaricare elementi aggiuntivi dall'archiviazione BLOB di Azure, è possibile creare altri passaggi di compilazione.

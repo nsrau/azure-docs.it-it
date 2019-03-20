@@ -6,14 +6,14 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: a57b52b3b0cc493fdde60e9bddfb0125ff2ce3e4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 36a3a50ffaf3f8dab068f067ec0440149e7a58a1
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58175965"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226641"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sui Backup di SQL Server in macchine virtuali di Azure
 
@@ -38,35 +38,103 @@ Questa soluzione sfrutta le API native di SQL per eseguire i backup dei database
 Prima di iniziare, verificare quanto segue:
 
 1. Assicurarsi che sia in esecuzione un'istanza di SQL Server in Azure. È possibile [creare rapidamente un'istanza di SQL Server](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md) nel Marketplace.
-2. Rivedere le [considerazione delle funzionalità](#feature-consideration) e [supporto dello scenario](#scenario_support).
+2. Rivedere le [considerazione delle funzionalità](#feature-consideration-and-limitations) e [supporto dello scenario](#scenario_support).
 3. [Esaminare le domande comuni](faq-backup-sql-server.md) su questo scenario.
-
-
-## <a name="feature-consideration-and-limitations"></a>Considerazioni sulla funzionalità e limitazioni
-
-- La macchina virtuale che esegue SQL Server richiede la connettività Internet per accedere agli indirizzi IP pubblici di Azure.
-- I backup dei [gruppi di disponibilità distribuiti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017) gruppi non funzionano completamente.
-- Le istanze del cluster di failover di SQL Server Always On non sono supportate per il backup.
-- Backup di SQL Server deve essere configurato nel portale o tramite PowerShell.
-- Operazioni di backup e ripristino per i database mirror di infrastruttura di classificazione file, gli snapshot del database e i database non sono supportate.
-- Non è possibile proteggere i database con un numero elevato di file. Il numero massimo di file è 1000.
-- È possibile eseguire il database di SQL Server fino a circa 2000 in un insieme di credenziali. Se sono presenti altri database, creare un altro insieme di credenziali.
-- È possibile configurare il backup per un massimo di 50 database in un'unica operazione; Questa restrizione consente di ottimizzare carichi di backup.
-- È possibile proteggere i database con più di 1000 file.
-- Dimensione database consigliato per garantire prestazioni migliori è 2TB.
-- Consente di proteggere fino a 300 database per server, se si dispone di backup del log configurati per ogni 15 minuti. Il numero di database possa aumentare se la frequenza di backup è meno frequente. Si condividerà di calculatethis a breve in modo dettagliato.
-
 
 ## <a name="scenario-support"></a>Supporto degli scenari
 
 **Supporto** | **Dettagli**
 --- | ---
 **Distribuzioni supportate** | Sono supportate VM di Azure del Marketplace SQL e non del Marketplace (SQL Server installato manualmente).
-**Aree geografiche supportate** | Australia sud-orientale (ASE), Australia orientale (AE) <br> Brasile meridionale (BRS)<br> Canada Central (CNC), Canada East (CE)<br> Asia sud-orientale (SEA), Asia orientale (EA) <br> Stati Uniti orientali (EUS), Stati Uniti orientali 2 (EUS2), Stati Uniti centro occidentali (WCUS), Stati Uniti occidentali (WUS); Stati Uniti occidentali 2 (WUS 2) North Central US (NCUS) degli Stati Uniti centrali (CUS) meridionali (SCUS) <br> India centrale (INC), India meridionale (INS) <br> Giappone orientale (JPE), Giappone occidentale (JPW) <br> Corea centrale (KRC), Corea meridionale (KRS) <br> Europa settentrionale (NE), Europa occidentale <br> Sudafrica settentrionale (SAN), Sudafrica occidentale (SAW) <br> Emirati Arabi Uniti centrali (UAC), Emirati Arabi Uniti nord (UAN) <br> Regno Unito meridionale (UKS), Regno Unito occidentale (UKW)
+**Aree geografiche supportate** | Australia sud-orientale (ASE), Australia orientale (AE) <br> Brasile meridionale (BRS)<br> Canada Central (CNC), Canada East (CE)<br> Asia sud-orientale (SEA), Asia orientale (EA) <br> Stati Uniti orientali (EUS), Stati Uniti orientali 2 (EUS2), Stati Uniti centro occidentali (WCUS), Stati Uniti occidentali (WUS); Stati Uniti occidentali 2 (WUS 2) North Central US (NCUS) degli Stati Uniti centrali (CUS) meridionali (SCUS) <br> India centrale (INC), India meridionale (INS) <br> Giappone orientale (JPE), Giappone occidentale (JPW) <br> Corea centrale (KRC), Corea meridionale (KRS) <br> Europa settentrionale (NE), Europa occidentale <br> Regno Unito meridionale (UKS), Regno Unito occidentale (UKW)
 **Sistemi operativi supportati** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux non è attualmente supportato.
 **Versioni di SQL Server supportate** | SQL Server 2017; SQL Server 2016, SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
 **Versioni di .NET supportate** | .NET framework 4.5.2 e versioni successive installato nella macchina virtuale
 
+## <a name="feature-consideration-and-limitations"></a>Considerazioni sulla funzionalità e limitazioni
+
+- Backup di SQL Server può essere configurato nel portale di Azure oppure **PowerShell**. Non Supportiamo CLI.
+- Macchina virtuale che esegue SQL Server richiede la connettività internet per accedere a indirizzi IP pubblici di Azure.
+- SQL Server AlwaysOn **istanze del Cluster di Failover (FCI)** non sono supportati.
+- Non sono supportate le operazioni di backup e ripristino per i database di mirroring e snapshot del database.
+- Utilizzando più soluzioni di backup per eseguire il backup di SQL Server autonomo istanza o sempre SQL nel gruppo di disponibilità potrebbe comporta errori di backup; evitare di questa operazione.
+- Backup di due nodi di un gruppo di disponibilità singolarmente con soluzioni uguali o diverse, possono causare errori di backup. Backup di Azure può rilevare e proteggere tutti i nodi che si trovano nella stessa area dell'insieme di credenziali. Se l'AlwaysOn di SQL Server nel gruppo di disponibilità si estende su più aree di Azure, configurare il backup dall'area che contiene il nodo primario. Backup di Azure può rilevare e proteggere tutti i database nel gruppo di disponibilità in base alle preferenze di backup.  
+- Backup di Azure supporta solo completo e i tipi di sola copia backup completo per **Read-only** database
+- Non è possibile proteggere i database con un numero elevato di file. È il numero massimo di file supportato **~ 1000**.  
+- È possibile eseguire il backup **~ 2000** i database di SQL Server in un insieme di credenziali. È possibile creare più insiemi di credenziali nel caso in cui si dispone di un maggior numero di database.
+- È possibile configurare un massimo di backup per **50** dei database in uno da inserire; questa restrizione consente di ottimizzare carichi di backup.
+- Supportiamo i database fino a **2TB** dimensioni; per maggiore di quello delle dimensioni, i problemi di prestazioni potrebbero avviarsi.
+- Per avere un'idea per quanto riguarda il numero di database può essere protetti per ogni server, è necessario prendere in considerazione fattori quali la larghezza di banda, le dimensioni della macchina virtuale, frequenza di backup, dimensioni del database e così via. Microsoft sta lavorando a una pianificazione che può essere utile per calcolare questi numero su possedute. Si verrà eseguita la pubblicazione, a breve.
+- In caso di gruppi di disponibilità, i backup vengono eseguiti da nodi diversi in base a una serie di fattori. Di seguito viene riepilogato il comportamento di backup per un gruppo di disponibilità.
+
+### <a name="backup-behavior-in-case-of-always-on-availability-groups"></a>Comportamento di backup in caso di sempre i gruppi di disponibilità
+
+A seconda della preferenza di backup e i tipi di backup (completa/differenziale/log/solo copia completi), i backup vengono eseguiti da un nodo specifico (principale/secondario).
+
+- **Preferenze di backup: Primario**
+
+**Tipo di backup** | **Node**
+    --- | ---
+    Completa | Primaria
+    Backup differenziale | Primaria
+    Log |  Primaria
+    Completo di sola copia |  Primaria
+
+- **Preferenze di backup: Solo secondario**
+
+**Tipo di backup** | **Node**
+--- | ---
+Completa | Primaria
+Backup differenziale | Primaria
+Log |  Secondario
+Completo di sola copia |  Secondario
+
+- **Preferenze di backup: Database secondario**
+
+**Tipo di backup** | **Node**
+--- | ---
+Completa | Primaria
+Backup differenziale | Primaria
+Log |  Secondario
+Completo di sola copia |  Secondario
+
+- **Nessuna preferenza di Backup**
+
+**Tipo di backup** | **Node**
+--- | ---
+Completa | Primaria
+Backup differenziale | Primaria
+Log |  Secondario
+Completo di sola copia |  Secondario
+
+## <a name="fix-sql-sysadmin-permissions"></a>Correzione delle autorizzazioni sysadmin SQL
+
+  Se è necessario correggere le autorizzazioni a causa di un errore **UserErrorSQLNoSysadminMembership**, seguire questa procedura:
+
+  1. Usare un account con le autorizzazioni sysadmin SQL Server per accedere a SQL Server Management Studio (SSMS). A meno che non siano necessarie autorizzazioni speciali, l'autenticazione di Windows dovrebbe funzionare.
+  2. In SQL Server aprire la cartella **Sicurezza/Account di accesso**.
+
+      ![Aprire la cartella Sicurezza/Account di accesso per vedere gli account](./media/backup-azure-sql-database/security-login-list.png)
+
+  3. Fare clic con il pulsante destro del mouse sulla cartella **Account di accesso** e scegliere **Nuovo account di accesso**. In **Account di accesso - Nuovo** selezionare **Cerca**.
+
+      ![Nella finestra di dialogo Account di accesso - Nuovo selezionare Cerca](./media/backup-azure-sql-database/new-login-search.png)
+
+  4. L'account di servizio virtuale di Windows **NT SERVICE\AzureWLBackupPluginSvc** è stato creato durante la fase di registrazione della macchina virtuale e di individuazione SQL. Immettere il nome dell'account come mostrato nella casella **Immettere il nome dell'oggetto da selezionare**. Selezionare **Controlla nomi** per risolvere il nome. Fare clic su **OK**.
+
+      ![Selezionare Controlla nomi per risolvere il nome del servizio sconosciuto](./media/backup-azure-sql-database/check-name.png)
+
+  5. In **Ruoli server** assicurarsi che sia selezionato il ruolo **sysadmin**. Fare clic su **OK**. Le autorizzazioni necessarie a questo punto devono essere presenti.
+
+      ![Verificare che sia selezionato il ruolo del server sysadmin](./media/backup-azure-sql-database/sysadmin-server-role.png)
+
+  6. Associare ora il database all'insieme di credenziali di Servizi di ripristino. Nell'elenco dei **server protetti** del portale di Azure fare clic con il pulsante destro del mouse sul server in stato di errore e scegliere **Individua di nuovo i database**.
+
+      ![Verificare che il server abbia le autorizzazioni appropriate](./media/backup-azure-sql-database/check-erroneous-server.png)
+
+  7. Verificare l'avanzamento nell'area **Notifiche**. Quando i database selezionati sono stati individuati, viene visualizzato un messaggio di conferma.
+
+      ![Messaggio di distribuzione riuscita](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

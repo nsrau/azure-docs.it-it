@@ -16,12 +16,12 @@ ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 0e14e7eb20e87f5555fa6b494c0d09ccde08d2dd
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: ddcf3428f32698c9825f13975929bc4677139acf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731645"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081050"
 ---
 # <a name="azure-stack-1811-update"></a>Aggiornamento di Azure Stack 1811
 
@@ -122,13 +122,13 @@ Questo aggiornamento include le seguenti nuove funzionalità e miglioramenti per
 - Questa versione introduce avviso **Repair** azioni per l'operatore di Azure Stack. Alcuni avvisi in 1811 forniscono un **Repair** pulsante nell'avviso che è possibile selezionare per risolvere il problema. Per altre informazioni, vedere [monitorare l'integrità e gli avvisi in Azure Stack](azure-stack-monitor-health.md).
 
 - Aggiornamenti per l'esperienza di aggiornamento in Azure Stack. L'aggiornamento i miglioramenti includono: 
-    - Schede suddividere gli aggiornamenti dalla cronologia degli aggiornamenti per una migliore rilevamento aggiornamenti in corso e completati gli aggiornamenti.
-    - Visualizzazioni di stato avanzate nella sezione essentials con nuove icone e il layout per le versioni correnti e OEM, nonché di ultima data dell'aggiornamento.
-    - **Visualizzazione** collegamento per la colonna di note sulla versione accetta direttamente all'utente la documentazione specifica di tale aggiornamento anziché la pagina di un aggiornamento generico.
-    - Il **cronologia aggiornamenti** scheda utilizzata per determinare i tempi di esecuzione per ognuno degli aggiornamenti, nonché funzionalità di filtraggio avanzate.  
-    - Unità di scala Azure Stack connessi riceveranno comunque automaticamente **aggiornamento disponibile** appena diventano disponibili.
-    - Unità di scala Azure Stack che non sono connessi può importare gli aggiornamenti esattamente come prima. 
-    - Sono state apportate modifiche al processo per scaricare i log JSON dal portale. Operatori di Azure Stack verranno visualizzato l'espansione di passaggi che esprime lo stato di avanzamento.
+  - Schede suddividere gli aggiornamenti dalla cronologia degli aggiornamenti per una migliore rilevamento aggiornamenti in corso e completati gli aggiornamenti.
+  - Visualizzazioni di stato avanzate nella sezione essentials con nuove icone e il layout per le versioni correnti e OEM, nonché di ultima data dell'aggiornamento.
+  - **Visualizzazione** collegamento per la colonna di note sulla versione accetta direttamente all'utente la documentazione specifica di tale aggiornamento anziché la pagina di un aggiornamento generico.
+  - Il **cronologia aggiornamenti** scheda utilizzata per determinare i tempi di esecuzione per ognuno degli aggiornamenti, nonché funzionalità di filtraggio avanzate.  
+  - Unità di scala Azure Stack connessi riceveranno comunque automaticamente **aggiornamento disponibile** appena diventano disponibili.
+  - Unità di scala Azure Stack che non sono connessi può importare gli aggiornamenti esattamente come prima. 
+  - Sono state apportate modifiche al processo per scaricare i log JSON dal portale. Operatori di Azure Stack verranno visualizzato l'espansione di passaggi che esprime lo stato di avanzamento.
 
     Per altre informazioni, vedere [applicare gli aggiornamenti in Azure Stack](azure-stack-apply-updates.md).
 
@@ -256,17 +256,17 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 <!-- 1264761 - IS ASDK -->  
 - Si potrebbero visualizzare avvisi per i **controller integrità** componente con i dettagli seguenti:  
 
-    - Avviso #1:
-       - NOME:  Ruolo di infrastruttura non integro
-       - GRAVITÀ: Avviso
-       - COMPONENTE: Controller di integrità
-       - DESCRIZIONE: Il controller di integrità dello Scanner di Heartbeat non è disponibile. Ciò può influire sulle metriche e i report sull'integrità.  
+  - Avviso #1:
+     - NOME:  Ruolo di infrastruttura non integro
+     - GRAVITÀ: Avviso
+     - COMPONENTE: Controller di integrità
+     - DESCRIZIONE: Il controller di integrità dello Scanner di Heartbeat non è disponibile. Ciò può influire sulle metriche e i report sull'integrità.  
 
-    - Avviso #2:
-       - NOME:  Ruolo di infrastruttura non integro
-       - GRAVITÀ: Avviso
-       - COMPONENTE: Controller di integrità
-       - DESCRIZIONE: Il controller di integrità errore Scanner è disponibile. Ciò può influire sulle metriche e i report sull'integrità.
+  - Avviso #2:
+     - NOME:  Ruolo di infrastruttura non integro
+     - GRAVITÀ: Avviso
+     - COMPONENTE: Controller di integrità
+     - DESCRIZIONE: Il controller di integrità errore Scanner è disponibile. Ciò può influire sulle metriche e i report sull'integrità.
 
     Entrambi gli avvisi possono essere tranquillamente ignorati. Verranno chiusi automaticamente nel corso del tempo.  
 
@@ -346,7 +346,7 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 - Durante l'Azure Stack *rotazione segreta*, è previsto un periodo in cui gli indirizzi IP pubblici non sono raggiungibili da due a cinque minuti.
 
 <!-- 2664148 - IS ASDK --> 
--   Negli scenari in cui il tenant è l'accesso a macchine virtuali tramite un tunnel VPN S2S, si può verificare uno scenario in cui i tentativi di connessione non riuscire se la subnet locale è stata aggiunta al gateway di rete locale dopo che il gateway è già stato creato. 
+- Negli scenari in cui il tenant è l'accesso a macchine virtuali tramite un tunnel VPN S2S, si può verificare uno scenario in cui i tentativi di connessione non riuscire se la subnet locale è stata aggiunta al gateway di rete locale dopo che il gateway è già stato creato. 
 
 - Nel portale di Azure Stack, quando si modifica un indirizzo IP statico per una configurazione IP che è associato a una scheda di rete collegata a un'istanza di macchina virtuale, verrà visualizzato un messaggio di avviso che indica 
 
@@ -358,9 +358,9 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 
 - Nel portale, se si aggiunge una regola di sicurezza in ingresso e selezionare **Tag del servizio** come origine, vengono visualizzate le opzioni diverse nel **Tag origine** elenco che non sono disponibili per Azure Stack. Le uniche opzioni valide in Azure Stack sono come segue:
 
-    - **Internet**
-    - **VirtualNetwork**
-    - **AzureLoadBalancer**
+  - **Internet**
+  - **VirtualNetwork**
+  - **AzureLoadBalancer**
   
     Le altre opzioni non sono supportate come i tag di origine in Azure Stack. Analogamente, se si aggiunge una regola di sicurezza in uscita e selezionare **Tag del servizio** come destinazione, lo stesso elenco di opzioni per **Tag origine** viene visualizzato. Le uniche opzioni valide sono uguali a quelle per **Tag origine**, come descritto nell'elenco precedente.
 

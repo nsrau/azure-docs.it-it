@@ -16,12 +16,12 @@ ms.date: 01/10/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69645c4aa9034b9a3459c7ee5fb0378c790a6e18
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 345c97a19f789bb3d850df000824d4c23989a81f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178091"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086820"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Accesso Single Sign-On facile di Azure Active Directory: Avvio rapido
 
@@ -74,8 +74,9 @@ Se Azure AD Connect è già installato, scegliere la pagina **Cambia l'accesso u
 ![Azure AD Connect: Cambia l'accesso utente](./media/how-to-connect-sso-quick-start/changeusersignin.png)
 
 Continuare la procedura guidata finché non si visualizza la pagina **Abilita Single Sign-On**. Specificare le credenziali dell'amministratore di dominio per ogni foresta di Active Directory che:
-    * Si sincronizza con Azure AD tramite Azure AD Connect.
-    * Contiene gli utenti che si intende abilitare per l'accesso SSO facile.
+
+* Si sincronizza con Azure AD tramite Azure AD Connect.
+* Contiene gli utenti che si intende abilitare per l'accesso SSO facile.
 
 Al termine della procedura guidata, l'accesso SSO facile è abilitato nel tenant.
 
@@ -120,17 +121,17 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 
 1. Aprire l'Editor Gestione Criteri di gruppo.
 2. Modificare i criteri di gruppo applicati a tutti gli utenti o solo ad alcuni. Questo esempio è basato su **Criterio dominio predefinito**.
-3. Passare a **Configurazione utente** > **Modelli amministrativi** > **Componenti di Windows** > **Internet Explorer** > **Pannello di controllo Internet** > **Scheda Sicurezza**. Selezionare quindi **Elenco di assegnazione siti ad aree**.
+3. Passare a **configurazione utente** > **criteri** > **modelli amministrativi** > **Windows I componenti** > **Internet Explorer** > **Pannello di controllo Internet** > **pagina sicurezza**. Selezionare quindi **Elenco di assegnazione siti ad aree**.
     ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Abilitare i criteri e quindi immettere i valori seguenti nella finestra di dialogo:
    - **Nome valore**: è l'URL di Azure AD a cui vengono inoltrati i ticket Kerberos.
    - **Valore** (dati): **1** indica l'area Intranet.
 
-    Il risultato sarà analogo a questo:
+     Il risultato sarà analogo a questo:
 
-    Nome valore: `https://autologon.microsoftazuread-sso.com`
+     Nome valore: `https://autologon.microsoftazuread-sso.com`
   
-    Valore (dati): 1
+     Valore (dati): 1
 
    >[!NOTE]
    > Se si vuole impedire ad alcuni utenti di usare l'accesso SSO facile, ad esempio se questi utenti accedono da chioschi multimediali condivisi, impostare i valori precedenti su **4**. In questo modo si aggiunge l'URL di Azure AD all'area con restrizioni e l'accesso SSO facile avrà sempre esito negativo.
@@ -140,7 +141,7 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 
     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Passare a **Configurazione utente** > **Modelli amministrativi** > **Componenti di Windows** > **Internet Explorer** > **Pannello di controllo Internet** > **Scheda Sicurezza** > **Area Intranet**. Selezionare quindi **Consenti aggiornamenti alla barra di stato tramite script**.
+6. Passare a **configurazione utente** > **modelli amministrativi** **criteri** > * * > **componenti Windows**  >  **Internet Explorer** > **Pannello di controllo Internet** > **pagina sicurezza**  >   **Area Intranet**. Selezionare quindi **Consenti aggiornamenti alla barra di stato tramite script**.
 
     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -162,9 +163,9 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
    - **Tipo valore**: ***REG_DWORD***.
    - **Dati valore**: ***00000001***.
  
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso16.png)
  
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso17.png)
+     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso17.png)
 
 ### <a name="browser-considerations"></a>Considerazioni sui browser
 

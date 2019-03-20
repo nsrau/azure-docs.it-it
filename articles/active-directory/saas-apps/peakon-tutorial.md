@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e32f0ac6fcc6839bad973c3d014436d08ae43896
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b841cbe838156cd00876a9a13c7a9cbe1790ea80
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211309"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842196"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Esercitazione: Integrazione di Azure Active Directory con Peakon
 
@@ -170,7 +170,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     e. Fare clic sull' **icona** per copiare il valore di **Reply URL (ACS)** (URL di risposta - ACS) e incollarlo nella casella di testo  **URL di risposta** nella sezione  **Configurazione SAML di base**  del portale di Azure.
 
-    f. Fare clic su **Save**
+    f. Fare clic su **Save** (Salva).
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 
@@ -190,7 +190,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel **nome utente** , digitare **brittasimon\@yourcompanydomain.extension**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare **Proprietà**, selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
@@ -220,7 +220,7 @@ Nel caso di Peakon, il provisioning è un'attività manuale.
 
     a. Nella casella di testo **Name** (Nome) digitare **Britta** come nome e **simon** come cognome.
 
-    b. Nella casella di testo **Email** (Posta elettronica) digitare l'indirizzo di posta elettronica, ad esempio **Brittasimon@contoso.com**.
+    b. Nel **messaggio di posta elettronica** nella casella di testo digitare l'indirizzo di posta elettronica, ad esempio **Brittasimon\@contoso.com**.
 
     c. Fare clic su **Create employee** (Crea dipendente).
 

@@ -11,29 +11,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 03/19/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 840445b2c1a28d294027c7fbfda9e6bf6e431f14
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.lastreviewed: 03/19/2019
+ms.openlocfilehash: 34e49060a28869015f067f058b81239ec13eff47
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57990702"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226401"
 ---
-# <a name="manage-storage-accounts-in-azure-stack"></a>Gestire gli account di archiviazione in Azure Stack
+# <a name="manage-azure-stack-storage-accounts"></a>Gestire gli account di archiviazione di Azure Stack
 
-Informazioni su come gestire gli account di archiviazione in Azure Stack per trovare, ripristinare e recuperare la capacità di archiviazione in base alle esigenze aziendali.
+Informazioni su come gestire gli account di archiviazione di Azure Stack. Trovare, ripristinare e recuperare la capacità di archiviazione in base alle esigenze aziendali.
 
 ## <a name="find-a-storage-account"></a>Trovare un account di archiviazione
+
 L'elenco degli account di archiviazione nell'area può essere visualizzato in Azure Stack da:
 
 1. Accedi per il [del portale di amministrazione](https://adminportal.local.azurestack.external).
 
-2. Selezionare **tutti i servizi** > **account di archiviazione**.
+2. Selezionare **tutti i servizi** > **archiviazione** > **gli account di archiviazione**.
 
-   ![](media/azure-stack-manage-storage-accounts/image4.png)
+   ![Account di archiviazione di Azure Stack](media/azure-stack-manage-storage-accounts/image4.png)
 
 Per impostazione predefinita, vengono visualizzati i primi 10 account. È possibile scegliere di recuperare informazioni facendo il **carica altro** collegamento nella parte inferiore dell'elenco.
 
@@ -46,16 +47,17 @@ Se si è interessati a un account di archiviazione specifico è possibile **filt
 
 1. Selezionare **filtro** nella parte superiore del riquadro.
 2. Nel riquadro di filtro consente di specificare **nome dell'account**, **ID sottoscrizione**, o **stato** per ottimizzare l'elenco degli account di archiviazione da visualizzare. Usarli come appropriato.
-3. Selezionare **Aggiorna**. L'elenco è necessario aggiornare di conseguenza.
+3. Durante la digitazione, l'elenco viene automaticamente applicato il filtro.  .
    
-    ![](media/azure-stack-manage-storage-accounts/image5.png)
+    ![Filtrare gli account di archiviazione di Azure Stack](media/azure-stack-manage-storage-accounts/image5.png)
+
 4. Per reimpostare il filtro: selezionare **filtro**, cancellare le selezioni e aggiornare.
 
 La casella di testo di ricerca (nella parte superiore di riquadro dell'elenco di account di archiviazione) consente di evidenziare il testo selezionato nell'elenco degli account. Quando il nome completo o l'ID non è facilmente disponibile, è possibile usare questo.
 
 È possibile usare testo libero qui per consentire di individuare l'account che si è interessati.
 
-![](media/azure-stack-manage-storage-accounts/image6.png)
+![Trovare gli account di archiviazione di Azure Stack](media/azure-stack-manage-storage-accounts/image6.png)
 
 ## <a name="look-at-account-details"></a>Esaminare i dettagli dell'account
 Dopo avere individuato l'account che si è interessati a visualizzare, è possibile selezionare l'account specifico per visualizzare determinate informazioni. Apre un nuovo riquadro con i dettagli dell'account, ad esempio: il tipo di account, ora di creazione, località, ecc.
@@ -97,9 +99,8 @@ L'impostazione del periodo di conservazione consente a un operatore cloud specif
 
 1. Accedi per il [del portale di amministrazione](https://adminportal.local.azurestack.external).
 2. Selezionare **tutti i servizi** > **gestione delle aree** sotto **amministrazione**.
-3. Selezionare **memorizzazione** dalle **provider di risorse** elenco.
-4. Selezionare **impostazioni** in alto per aprire il riquadro di impostazione.
-5. Selezionare **configurazione** quindi modificare il valore del periodo di conservazione.
+3. Selezionare **provider di risorse** > **archiviazione** > **impostazioni**. Il percorso è Home > *regione* -provider di risorse > archiviazione.
+4. Selezionare **configurazione** quindi modificare il valore del periodo di conservazione.
 
    Impostare il numero di giorni e quindi salvare il file.
    

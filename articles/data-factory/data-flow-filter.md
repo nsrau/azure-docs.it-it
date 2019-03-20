@@ -7,20 +7,20 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: b7e7b123560aae3a2d3086c8536969297d31f7ba
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: d1751c47ad4507260d9f8d6ea44fcb32ed0e7338
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56271164"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864729"
 ---
-# <a name="azure-data-factory-mapping-data-flow-filter-transformation"></a>Trasformazione Filtro per il flusso di dati di mapping di Azure Data Factory
+# <a name="azure-data-factoryfilter-transformation"></a>Trasformazione FactoryFilter dei dati di Azure
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-La trasformazione Filtro consente di filtrare le righe. Creare un'espressione che definisce la condizione di filtro. Fare clic nella casella di testo per avviare il generatore di espressioni. Nel generatore di espressioni creare un'espressione di filtro per controllare le righe del flusso di dati corrente che possono passare (tramite filtro) alla trasformazione successiva.
+La trasformazione Filtro consente di filtrare le righe. Creare un'espressione che definisce la condizione di filtro. Fare clic nella casella di testo per avviare il generatore di espressioni. Nel generatore di espressioni creare un'espressione di filtro per controllare le righe del flusso di dati corrente che possono passare (tramite filtro) alla trasformazione successiva. Considerare la trasformazione di filtro come la clausola WHERE di un'istruzione SQL.
 
-Ad esempio, filtrare le righe in base alla colonna loan_status:
+## <a name="filter-on-loanstatus-column"></a>Filtrare loan_status colonna:
 
 ```
 in([‘Default’, ‘Charged Off’, ‘Fully Paid’], loan_status).
@@ -31,3 +31,7 @@ Filtrare in base alla colonna year nella demo Movies:
 ```
 year > 1980
 ```
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Provare a una colonna di trasformazione, filtro di [selezionare trasformazione](data-flow-select.md)

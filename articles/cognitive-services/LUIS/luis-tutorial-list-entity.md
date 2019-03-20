@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: fc6d68e862f6a2f3c95f5ca6d130e42c96649eb1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 929dc7a86d141446a2070b046c6febfda4a07f0f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874621"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092566"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Usare un'entità elenco per migliorare il rilevamento di entità 
 Questa esercitazione illustra l'uso di una [entità elenco](luis-concept-entity-types.md) per migliorare il rilevamento di entità. Non è necessario etichettare le entità elenco, in quanto rappresentano una corrispondenza esatta di termini.  
@@ -23,9 +23,9 @@ Questa esercitazione illustra l'uso di una [entità elenco](luis-concept-entity-
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-* Creare un'entità elenco 
-* Aggiungere sinonimi e valori normalizzati
-* Convalidare l'identificazione di entità migliorata
+> * Creare un'entità elenco 
+> * Aggiungere sinonimi e valori normalizzati
+> * Convalidare l'identificazione di entità migliorata
 
 ## <a name="prerequisites"></a>Prerequisiti
 

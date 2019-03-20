@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 02/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: d6897e35aa60be11cf556335d211c5ea616295b6
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 4d2e238182ec37a2ac652806bb1eed18110759de
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652696"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897164"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Elaborare e analizzare documenti JSON tramite apache Hive in HDInsight di Azure
 
@@ -57,9 +57,9 @@ Informazioni su come elaborare e analizzare i file JavaScript Object Notation (J
 }
 ```
 
-Il file è disponibile in **wasb://processjson@hditutorialdata.blob.core.windows.net/**. Per altre informazioni su come usare l'archivio BLOB di Azure con HDInsight, vedere [Usare un archivio BLOB di Azure compatibile con Hadoop Distributed File System con Apache Hadoop in HDInsight](../hdinsight-hadoop-use-blob-storage.md). È possibile copiare il file nel contenitore predefinito del cluster.
+Il file è reperibile in **wasb://processjson\@hditutorialdata.blob.core.windows.net/**. Per altre informazioni su come usare l'archivio BLOB di Azure con HDInsight, vedere [Usare un archivio BLOB di Azure compatibile con Hadoop Distributed File System con Apache Hadoop in HDInsight](../hdinsight-hadoop-use-blob-storage.md). È possibile copiare il file nel contenitore predefinito del cluster.
 
-In questa esercitazione viene usata la console di Apache Hive. Per istruzioni su come aprire la console Hive, vedere [Usare Apache Hive con Apache Hadoop in HDInsight con Desktop remoto](apache-hadoop-use-hive-remote-desktop.md).
+In questa esercitazione viene usata la console di Apache Hive. Per istruzioni su come aprire la console di Hive, vedere [usare Apache Ambari Hive View con Apache Hadoop in HDInsight](apache-hadoop-use-hive-ambari-view.md).
 
 ## <a name="flatten-json-documents"></a>Rendere flat i documenti JSON
 I metodi elencati nella sezione seguente presuppongono che il documento JSON sia composto da una singola riga. È quindi necessario rendere flat il documento JSON in una stringa. Se il documento JSON è già flat, è possibile saltare questo passaggio e passare alla sezione successiva relativa all'analisi dei dati JSON. Per rendere flat il documento JSON, eseguire lo script seguente:
@@ -83,7 +83,7 @@ SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
 SELECT * FROM StudentsOneLine
 ```
 
-Il file JSON non elaborato è disponibile in **wasb://processjson@hditutorialdata.blob.core.windows.net/**. La tabella Hive **StudentsRaw** punta al documento JSON non elaborato che non è reso flat.
+Il file JSON non elaborato è disponibile all'indirizzo **wasb://processjson\@hditutorialdata.blob.core.windows.net/**. La tabella Hive **StudentsRaw** punta al documento JSON non elaborato che non è reso flat.
 
 La tabella Hive **StudentsOneLine** archivia i dati nel file system predefinito di HDInsight nel percorso **/json/students/**.
 

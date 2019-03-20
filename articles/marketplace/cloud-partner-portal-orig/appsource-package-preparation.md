@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0b24c5d2f174c9a656e81d0c85e12b589d7d7799
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: cc06ddf2fce93bef27e7aaee85b47179608e192b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48808067"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837032"
 ---
 # <a name="appsource-package-preparation"></a>Preparazione di pacchetti AppSource
 
@@ -39,8 +39,8 @@ Il pacchetto per Package Deployer è una parte del pacchetto AppSource.
 
 Per creare un pacchetto per Package Deployer, usare le istruzioni seguenti: [https://msdn.microsoft.com/library/dn688182.aspx](https://msdn.microsoft.com/library/dn688182.aspx). Al termine dell'esercitazione, il pacchetto sarà costituito dagli asset seguenti:
 
-1. Cartella del pacchetto: contiene tutte le soluzioni, i dati di configurazione, i file flat e il contenuto del pacchetto. _Nota: nell'esempio seguente si presuppone che la cartella del pacchetto sia chiamata "PkgFolder"._
-2. Dll: l'assembly che contiene il codice personalizzato del pacchetto. _Nota: nell'esempio seguente si presuppone che il file sia chiamato "MicrosoftSample.dll"._
+1. Cartella del pacchetto: contiene tutte le soluzioni, i dati di configurazione, i file flat e il contenuto del pacchetto. _Nota: Nell'esempio seguente si presuppone che la cartella del pacchetto viene chiamata "PkgFolder"_
+2. DLL: L'assembly contiene codice personalizzato per il pacchetto. _Nota: Nell'esempio seguente si presuppone che questo file è denominato "MicrosoftSample.dll."_
 
 A questo punto è necessario creare un file denominato "**Content_Types.xml**", che elenca tutte le estensioni degli asset che fanno parte del pacchetto. Di seguito è indicato il codice di esempio del file.
 
@@ -71,11 +71,11 @@ Passaggi per la creazione di package.zip:
 
 ![CRMScreenShot2](media/CRMScreenShot2.png)
 
-2. Selezionare tutti gli elementi nella cartella, fare clic con il pulsante destro del mouse e scegliere Invia a Cartella compressa
+1. Selezionare tutti gli elementi nella cartella, fare clic con il pulsante destro del mouse e scegliere Invia a Cartella compressa
 
 ![CRMScreenShot3](media/CRMScreenShot3.png)
 
-3. Modificare il nome in package.zip
+1. Modificare il nome in package.zip
 
 ![CRMScreenShot4](media/CRMScreenShot4.png)
 
@@ -97,7 +97,7 @@ Di seguito è indicato il codice di esempio del file input.xml. Vedere le defini
         <StartDate>01/01/2016</StartDate>
         <EndDate>01/01/2021</EndDate>
         <SupportedCountries>US,CA</SupportedCountries>
-        <LearnMoreLink>http://www.microsoft.com</LearnMoreLink>
+        <LearnMoreLink>https://www.microsoft.com</LearnMoreLink>
         <Locales>
         <PackageLocale Code="1033" IsDefault="true">
         <Logo>logo32x32.png</Logo>
@@ -117,13 +117,13 @@ Di seguito è indicato il codice di esempio del file input.xml. Vedere le defini
 |SolutionAnchorName |Nome del file della soluzione con estensione zip in Package Deployer, che viene usato per il nome visualizzato e la descrizione degli asset della soluzione.|
 | StartDate| Data a partire dalla quale il pacchetto della soluzione è disponibile. Il formato è MM/GG/AAAA.|
 |EndDate|Data a partire dalla quale il pacchetto della soluzione non è più disponibile. Il formato è MM/GG/AAAA. |
-|SupportedCountries |Un elenco delimitato da virgole dei Paesi che possono visualizzare il pacchetto. Contattare i servizi online per un elenco di tutti i codici paese correnti. Al momento della stesura del presente articolo, l'elenco è il seguente: AE,AL,AM,AO,AR,AT,AU,AZ,BA,BB,BD,BE,BG,BH,BM,BN,BO,BR,BY,CA,CH,CI,CL,CM,CO,CR,CV,CW,CY,CZ,DE,DK,DO,DZ,EC,EE,EG,ES,FI,FR,GB,GE,GH,GR,GT,HK,HN,HR,HU,ID,IE,IL,IN,IQ,IS,IT,JM,JO,JP,KE,KG,KN,KR,KW,KY,KZ,LB,LK,LT,LU,LV,LY,MA,MC,MD,ME,MK,MN,MO,MT,MU,MX,MY,NG,NI,NL,NO,NZ,OM,PA,PE,PH,PK,PL,PR,PS,PT,PY,QA,RO,RS,RU,RW,SA,SE,SG,SI,SK,SN,SV,TH,TM,TN,TR,TT,TW,UA,US,UY,UZ,VE,VI,VN,ZA,ZW |
+|SupportedCountries |Un elenco delimitato da virgole dei Paesi che possono visualizzare il pacchetto. Contattare i servizi online per un elenco di tutti i codici paese correnti. Al momento, di stesura di questo articolo l'elenco è stato: ALWAYS ENCRYPTED, AL, AM, AO, AR, AT, AUSTRALIA, AZ, BA, BB, BD, ESSERE, BG, ORARIO DI UFFICIO, BM, BN, BO, BR, DA, CA, CH, INTEGRAZIONE CONTINUA, CL, CM, COAMMINISTRATORE, CR, CV, CW, CY, CZ, DE, DK,, DZ, CE, EE, AD ESEMPIO, ES, FI, FR, GB, GE, GH, LG, GT, HK , HN, RISORSE UMANE, HU, ID, INTERNET EXPLORER, LIVELLO DI INTEGRITÀ, IN, IQ, È, LO, JM, JO, JP, KE, KG, KN, COREA, KW, KY, KZ, BILANCIAMENTO DEL CARICO, LK, LT, LU, LV, LY, MA, MC, MD, ME, MK, MN, MESE, SERVER DI DESTINAZIONE MASTER, MU, MX, MY, NG, NI, NL, NO, NZ, OM, PA, PE, PH , CHIAVE PRIMARIA, PL, DELLA RICHIESTA PULL, PS, PT, PY, CONTROLLO QUALITÀ, RO, RS, UR, RW, SA, SA, SG, SISTEMA INTERNAZIONALE DI MISURA, SK, SN, SV, TH, TM, TN, TR, TT, TW, UA, STATI UNITI, UY, UZ, VE, VI, VN, ZA, ZW |
 |LearnMoreLink | URL della pagina che contiene altre informazioni sul pacchetto. |
 |Locales|Un'istanza di questo nodo per ogni lingua dell'esperienza utente che si vuole supportare nell'esperienza utente della soluzione preferita. Questo nodo contiene elementi figlio che descrivono le impostazioni locali, il logo e i termini di ogni lingua.|
-|Locales: PackageLocale.Code|Identificatore delle impostazioni locali della lingua di questo nodo. Esempio: Inglese (Stati Uniti) corrisponde a 1033.|
-|Locales: PackageLocale.IsDefault|Indica che questa è la lingua predefinita. Viene usata come lingua di fallback se quella dell'esperienza utente scelta dal cliente non è disponibile.|
-|Locales: Logo|Logo che si vuole usare per questo pacchetto. Le dimensioni dell'icona sono 32x32. Sono consentiti i formati PNG e JPG.|
-|Locales:Terms: PackageTerm.File|Nome file del documento HTML che contiene le condizioni di licenza.|
+|Impostazioni locali: PackageLocale.Code|Identificatore delle impostazioni locali della lingua di questo nodo. Esempio: L'inglese degli Stati Uniti è 1033|
+|Impostazioni locali: PackageLocale.IsDefault|Indica che questa è la lingua predefinita. Viene usata come lingua di fallback se quella dell'esperienza utente scelta dal cliente non è disponibile.|
+|Impostazioni locali: Logo|Logo che si vuole usare per questo pacchetto. Le dimensioni dell'icona sono 32x32. Sono consentiti i formati PNG e JPG.|
+|Le impostazioni locali: condizioni: PackageTerm.File|Nome file del documento HTML che contiene le condizioni di licenza.|
 
 Ecco dove viene visualizzato il logo:
 

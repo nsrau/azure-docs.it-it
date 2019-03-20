@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 3d0c72f0178cddd668c0ac029c803ff339a1f6f4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: b2ab07e40ac2652d97e912f8c7bd3b8893bfc114
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311614"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094161"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Trigger Griglia di eventi per Funzioni di Azure
 
@@ -30,17 +30,17 @@ Se si preferisce, è possibile usare un trigger HTTP per gestire gli eventi di G
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Pacchetti: Funzioni 1.x
-
-Il trigger Griglia di eventi è disponibile nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) versione 1.x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master).
-
-[!INCLUDE [functions-package](../../includes/functions-package.md)]
-
 ## <a name="packages---functions-2x"></a>Pacchetti: Funzioni 2.x
 
 Il trigger Griglia di eventi è disponibile nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) versione 2.x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x).
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
+
+## <a name="packages---functions-1x"></a>Pacchetti: Funzioni 1.x
+
+Il trigger Griglia di eventi è disponibile nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) versione 1.x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master).
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>Esempio
 
@@ -53,31 +53,6 @@ Fare riferimento all'esempio di trigger Griglia di eventi specifico per ogni lin
 * [Python](#python-example)
 
 Per un esempio di trigger HTTP, vedere [Come usare un trigger HTTP](#use-an-http-trigger-as-an-event-grid-trigger) più avanti in questo articolo.
-
-### <a name="c-version-1x"></a>C# (versione 1.x)
-
-L'esempio seguente mostra una [funzione C#](functions-dotnet-class-library.md) di Funzioni 1.x associata a `JObject`:
-
-```cs
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Azure.WebJobs.Host;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Microsoft.Extensions.Logging;
-
-namespace Company.Function
-{
-    public static class EventGridTriggerCSharp
-    {
-        [FunctionName("EventGridTriggerCSharp")]
-        public static void Run([EventGridTrigger]JObject eventGridEvent, ILogger log)
-        {
-            log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
-        }
-    }
-}
-```
 
 ### <a name="c-2x"></a>C# (2.x)
 
@@ -105,6 +80,31 @@ namespace Company.Function
 
 Per altre informazioni, consultare le sezioni Pacchetti, [Attributi](#attributes), [Configurazione](#configuration) e [Uso](#usage).
 
+### <a name="c-version-1x"></a>C# (versione 1.x)
+
+L'esempio seguente mostra una [funzione C#](functions-dotnet-class-library.md) di Funzioni 1.x associata a `JObject`:
+
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Azure.WebJobs.Host;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Microsoft.Extensions.Logging;
+
+namespace Company.Function
+{
+    public static class EventGridTriggerCSharp
+    {
+        [FunctionName("EventGridTriggerCSharp")]
+        public static void Run([EventGridTrigger]JObject eventGridEvent, ILogger log)
+        {
+            log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
+        }
+    }
+}
+```
+
 ### <a name="c-script-example"></a>Esempio di script C#
 
 L'esempio seguente mostra un'associazione di trigger in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione.
@@ -124,22 +124,6 @@ Ecco i dati di associazione nel file *function.json*:
 }
 ```
 
-#### <a name="c-script-version-1x"></a>Script C# (versione 1.x)
-
-Ecco il codice script C# di Funzioni 1.x associato a un oggetto `JObject`:
-
-```cs
-#r "Newtonsoft.Json"
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-
-public static void Run(JObject eventGridEvent, TraceWriter log)
-{
-    log.Info(eventGridEvent.ToString(Formatting.Indented));
-}
-```
-
 #### <a name="c-script-version-2x"></a>Script C# (versione 2.x)
 
 Ecco il codice script C# di Funzioni 2.x associato a un oggetto `EventGridEvent`:
@@ -156,6 +140,22 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 ```
 
 Per altre informazioni, consultare le sezioni Pacchetti, [Attributi](#attributes), [Configurazione](#configuration) e [Uso](#usage).
+
+#### <a name="c-script-version-1x"></a>Script C# (versione 1.x)
+
+Ecco il codice script C# di Funzioni 1.x associato a un oggetto `JObject`:
+
+```cs
+#r "Newtonsoft.Json"
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+public static void Run(JObject eventGridEvent, TraceWriter log)
+{
+    log.Info(eventGridEvent.ToString(Formatting.Indented));
+}
+```
 
 ### <a name="javascript-example"></a>Esempio JavaScript
 
@@ -321,7 +321,7 @@ Per un esempio completo, vedere l'esempio in C#.
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json*. Non sono presenti parametri o proprietà di costruttori da impostare nell'attributo `EventGridTrigger`.
 
 |Proprietà di function.json |DESCRIZIONE|
-|---------|---------|----------------------|
+|---------|---------|
 | **type** | Obbligatoria. Deve essere impostata su `eventGridTrigger`. |
 | **direction** | Obbligatoria. Deve essere impostata su `in`. |
 | **nome** | Obbligatoria: nome della variabile usato nel codice della funzione per il parametro che riceve i dati dell'evento. |
@@ -484,10 +484,10 @@ In alternativa, è possibile inviare una richiesta HTTP PUT per specificare il v
 
 Per testare un trigger Griglia di eventi in locale, è necessario ottenere le richieste HTTP di Griglia di eventi inviate dalla rispettiva origine nel cloud al computer locale. A tale scopo, è possibile acquisire le richieste online e rinviarle manualmente al computer locale:
 
-2. [Creare un'app visualizzatore Web](#create-a-viewer-web-app) che acquisisce i messaggi di evento.
-3. [Creare una sottoscrizione di Griglia di eventi](#create-an-event-grid-subscription) per inviare gli eventi all'app visualizzatore.
-4. [Generare una richiesta](#generate-a-request) e copiare il corpo della richiesta dall'app visualizzatore.
-5. [Inviare manualmente la richiesta](#manually-post-the-request) all'URL localhost della funzione trigger Griglia di eventi.
+1. [Creare un'app visualizzatore Web](#create-a-viewer-web-app) che acquisisce i messaggi di evento.
+1. [Creare una sottoscrizione di Griglia di eventi](#create-an-event-grid-subscription) per inviare gli eventi all'app visualizzatore.
+1. [Generare una richiesta](#generate-a-request) e copiare il corpo della richiesta dall'app visualizzatore.
+1. [Inviare manualmente la richiesta](#manually-post-the-request) all'URL localhost della funzione trigger Griglia di eventi.
 
 Al termine del test, è possibile usare la stessa sottoscrizione per scopi di produzione aggiornando l'endpoint. Usare il comando dell'interfaccia della riga di comando di Azure [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update).
 
@@ -528,11 +528,18 @@ Usare uno strumento, ad esempio [Postman](https://www.getpostman.com/) o [curl](
 * Impostare un'intestazione `Content-Type: application/json`.
 * Impostare un'intestazione `aeg-event-type: Notification`.
 * Incollare i dati di RequestBin nel corpo della richiesta.
-* Inviare all'URL della funzione trigger Griglia di eventi usando il modello seguente:
+* Post all'URL della funzione trigger griglia di eventi.
+  * Per la versione 2.x usano il modello seguente:
 
-```
-http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-```
+    ```
+    http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
+    ```
+
+  * Per l'uso di 1.x:
+
+    ```
+    http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
+    ```
 
 Il parametro `functionName` deve corrispondere al nome specificato nell'attributo `FunctionName`.
 
@@ -550,10 +557,10 @@ La funzione trigger Griglia di eventi viene eseguita e vengono visualizzati log 
 
 Un altro modo per eseguire il test di un trigger Griglia di eventi in locale è quello di automatizzare la connessione HTTP tra Internet e il computer di sviluppo. A tale scopo, è possibile usare uno strumento open source denominato [ngrok](https://ngrok.com/):
 
-3. [Creare un endpoint ngrok](#create-an-ngrok-endpoint).
-4. [Eseguire la funzione trigger Griglia di eventi](#run-the-event-grid-trigger-function).
-5. [Creare una sottoscrizione di Griglia di eventi](#create-a-subscription) per inviare gli eventi all'endpoint ngrok.
-6. [Attivare un evento](#trigger-an-event).
+1. [Creare un endpoint ngrok](#create-an-ngrok-endpoint).
+1. [Eseguire la funzione trigger Griglia di eventi](#run-the-event-grid-trigger-function).
+1. [Creare una sottoscrizione di Griglia di eventi](#create-a-subscription) per inviare gli eventi all'endpoint ngrok.
+1. [Attivare un evento](#trigger-an-event).
 
 Al termine del test, è possibile usare la stessa sottoscrizione per scopi di produzione aggiornando l'endpoint. Usare il comando dell'interfaccia della riga di comando di Azure [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update).
 
@@ -591,19 +598,19 @@ L'URL di ngrok non riceve un trattamento speciale da parte di Griglia di eventi.
 
 Creare una sottoscrizione di Griglia di eventi del tipo che si vuole testare e assegnare a tale sottoscrizione l'endpoint ngrok.
 
-Usare questo modello di endpoint per Funzioni 1.x:
-
-```
-https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-```
-
 Usare questo modello di endpoint per Funzioni 2.x:
 
 ```
-https://{subdomain}.ngrok.io/runtime/webhooks/eventgrid?functionName={functionName}
+https://{SUBDOMAIN}.ngrok.io/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
 ```
 
-Il parametro `functionName` deve corrispondere al nome specificato nell'attributo `FunctionName`.
+Usare questo modello di endpoint per Funzioni 1.x:
+
+```
+https://{SUBDOMAIN}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
+```
+
+Il parametro `{FUNCTION_NAME}` deve corrispondere al nome specificato nell'attributo `FunctionName`.
 
 Di seguito è riportato un esempio basato sull'uso dell'interfaccia della riga di comando di Azure:
 

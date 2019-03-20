@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5727965373752d40e3ce508c1bc79046c2b3b70b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 760ad30daabee61300768b7c67824f39437ac87f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177752"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006945"
 ---
 # <a name="preview-azure-ad-password-protection-troubleshooting"></a>Anteprima: Risoluzione dei problemi relativi a Password di protezione di Azure AD
 
@@ -27,27 +27,65 @@ ms.locfileid: "56177752"
 
 Dopo la distribuzione di Password di protezione di Azure AD, può essere necessario risolvere alcuni problemi. Questo articolo presenta informazioni dettagliate su alcuni passaggi comuni per la risoluzione dei problemi.
 
-## <a name="weak-passwords-are-not-getting-rejected-as-expected"></a>Le password vulnerabili non vengono rifiutate come previsto
+## <a name="the-dc-agent-cannot-locate-a-proxy-in-the-directory"></a>L'agente controller di dominio non è possibile posizionare un proxy nella directory
 
-Le cause possono essere diverse:
+Il sintomo principale di questo problema è 30017 eventi nel registro eventi di amministrazione di agente controller di dominio.
 
-1. Uno o più agenti del controller di dominio non hanno ancora scaricato i criteri. Il sintomo è dato dalla presenza di 30001 eventi nel registro eventi di amministrazione degli agenti del controller di dominio.
+La causa del problema è che un proxy non è ancora stato registrato. Se è stato registrato un proxy, potrebbe esserci un ritardo a causa della latenza di replica di Active Directory fino a quando un agente controller di dominio specifico è in grado di visualizzare tale proxy.
 
-    Le possibili cause di questo problema includono:
+## <a name="the-dc-agent-is-not-able-to-communicate-with-a-proxy"></a>L'agente controller di dominio non è in grado di comunicare con un proxy
 
-    1. La foresta non è ancora registrata
-    2. Il proxy non è ancora registrato
-    3. I problemi di connettività di rete impediscono al servizio Proxy di comunicare con Azure (verificare i requisiti del proxy HTTP)
+Il sintomo principale di questo problema è 30018 eventi nel registro eventi di amministrazione di agente controller di dominio. Le cause possono essere diverse:
 
-2. La modalità di imposizione dei criteri password è ancora impostata su Controllo. In tal caso, riconfigurarla in modo da imporre l'uso del portale di Password di protezione di Azure AD. Vedere [Abilitare la password di protezione](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. L'agente controller di dominio si trova in una parte della rete che non consente la connettività di rete per la proxy(s) registrati. Questo problema potrebbe pertanto essere expected\benign purché altri agenti di DC possano comunicare con il proxy(s) per scaricare i criteri password di Azure, che viene quindi ottenuto dal controller di dominio isolato tramite la replica dei file dei criteri nella condivisione sysvol.
 
-3. I criteri password sono stati disabilitati. In tal caso, riconfigurarli in modo da abilitare l'uso del portale di Password di protezione di Azure AD. Vedere [Abilitare la password di protezione](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. Il computer host proxy sta bloccando l'accesso all'endpoint di BizTalk mapper di endpoint RPC (porta 135)
 
-4. L'algoritmo di convalida delle password potrebbe non funzionare come previsto. Vedere [Come vengono valutate le password](concept-password-ban-bad.md#how-are-passwords-evaluated).
+   Il programma di installazione di Proxy di protezione delle Password di Azure AD crea automaticamente una regola in ingresso di Windows Firewall che consenta l'accesso alla porta 135. Se questa regola in un secondo momento viene eliminata o disabilitata, gli agenti di DC saranno non riesce a comunicare con il servizio Proxy. Se il comando predefinito Windows Firewall è stata disabilitata al posto di un altro prodotto di firewall, è necessario configurare il firewall per consentire l'accesso alla porta 135.
+
+1. Il computer host proxy sta bloccando l'accesso all'endpoint RPC (dinamico o statico) in ascolto dal servizio Proxy
+
+   Il programma di installazione di Proxy di protezione delle Password di Azure AD crea automaticamente un Firewall di Windows regola in ingresso che consenta l'accesso alle porte in ingresso in ascolto il servizio Proxy di protezione delle Password di Azure AD. Se questa regola in un secondo momento viene eliminata o disabilitata, gli agenti di DC saranno non riesce a comunicare con il servizio Proxy. Se il comando predefinito Windows Firewall è stata disabilitata al posto di un altro prodotto di firewall, che è necessario configurare firewall per consentire l'accesso alle porte in ingresso in ascolto il servizio Proxy di protezione delle Password di Azure AD. Questa configurazione possa essere resi più specifica se il servizio Proxy è stato configurato per restare in attesa su una porta RPC statica specifica (usando il `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet).
+
+## <a name="the-proxy-service-can-receive-calls-from-dc-agents-in-the-domain-but-is-unable-to-communicate-with-azure"></a>Il servizio Proxy può ricevere chiamate dagli agenti di controller di dominio nel dominio ma non è in grado di comunicare con Azure
+
+Verificare che il computer proxy ha la connettività agli endpoint elencato nella [requisiti di distribuzione](howto-password-ban-bad-on-premises-deploy.md).
+
+## <a name="the-dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files-and-other-state"></a>L'agente controller di dominio non è in grado di crittografare o decrittografare il file dei criteri password e altro stato
+
+Questo problema può risolversi con un'ampia gamma di sintomi ma in genere ha una causa radice comune.
+
+Protezione di Password di AD Azure ha una dipendenza critica sulla funzionalità di crittografia e decrittografia fornito dal servizio distribuzione chiavi di Microsoft, che è disponibile nei controller di dominio che esegue Windows Server 2012 e versioni successive. Il servizio distribuzione CHIAVI deve essere abilitato e funzionali in tutti i Windows Server 2012 e versioni successive controller di dominio in un dominio.
+
+Per impostazione predefinita il KDS modalità di avvio del servizio del servizio è configurata come manuale (avvio Trigger). Questa configurazione indica che la prima volta che un client prova a usare il servizio, viene avviato su richiesta. Questa modalità di avvio del servizio predefinito è accettabile per la protezione di Password di Azure AD a funzionare.
+
+Se la modalità di avvio del servizio distribuzione CHIAVI del servizio è stata configurata su Disabled, questa configurazione deve essere corretta prima che la protezione con Password di Azure Active Directory funzionino correttamente.
+
+Un semplice test per risolvere questo problema consiste nell'avviare manualmente il servizio del servizio distribuzione CHIAVI, tramite la console MMC di gestione del servizio, o usando altri strumenti di gestione del servizio (ad esempio, eseguire "net start kdssvc" da una console del prompt dei comandi). Il servizio distribuzione CHIAVI è previsto vengano avviate correttamente e restare in esecuzione.
+
+La causa radice più comune per il servizio distribuzione CHIAVI sia in grado di avviare è che l'oggetto controller di dominio Active Directory si trova di fuori l'unità Organizzativa dei controller di dominio predefinito. Questa configurazione non è supportata dal servizio distribuzione CHIAVI e non viene imposto da Azure AD Password di protezione. La correzione per questa condizione consiste nello spostare l'oggetto controller di dominio in un percorso con il valore predefinito dell'unità Organizzativa controller di dominio.
+
+## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Password vulnerabili vengono accettate, ma non deve essere
+
+Questo problema può avere cause diverse.
+
+1. L'agente di DC / non è possibile scaricare i criteri o non è in grado di decrittografare i criteri esistenti. Cercare le cause possibili negli argomenti precedenti.
+
+1. La modalità di imposizione dei criteri password è ancora impostata su Controllo. Se questa configurazione è in effetti, riconfigurarlo a Imponi usando il portale di Azure AD Password di protezione. Visualizzare [abilitare la Password di protezione](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+
+1. I criteri password sono stati disabilitati. Se questa configurazione è in effetti, riconfigurarlo abilitato usando il portale di Azure AD Password di protezione. Visualizzare [abilitare la Password di protezione](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+
+1. Non è installato il software dell'agente controller di dominio su tutti i controller di dominio nel dominio. In questo caso, è difficile garantire che i client remoti di Windows come destinazione un particolare controller di dominio durante un'operazione di modifica della password. Se pensi è stato assegnato correttamente un controller di dominio particolare in cui è installato il software dell'agente controller di dominio, è possibile verificare ricontrollare il log eventi di amministrazione agente controller di dominio: indipendentemente dal risultato, sarà presente almeno un evento per documentare il risultato della password convalida. Se è presente alcun evento per l'utente la cui password viene modificata, la modifica della password è stata probabilmente elaborata da un controller di dominio diverso.
+
+   Come un test di alternativo, provare a setting\changing password mentre si è connessi direttamente a un controller di dominio in cui è installato il software dell'agente controller di dominio. Questa tecnica non è consigliabile per i domini di Active Directory di produzione.
+
+   Mentre la distribuzione incrementale del software agente controller di dominio è supportata soggette a queste limitazioni, Microsoft consiglia vivamente che sia installato il software dell'agente controller di dominio su tutti i controller di dominio in un dominio appena possibile.
+
+1. L'algoritmo di convalida delle password può effettivamente essere funzionino come previsto. Visualizzare [modo in cui vengono valutate le password](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
 ## <a name="directory-services-repair-mode"></a>Modalità di ripristino dei servizi directory
 
-Se il controller di dominio viene avviato in modalità di ripristino dei servizi directory, il servizio agente del controller di dominio rileva questo comportamento e disabilita automaticamente tutte le attività di applicazione e convalida delle password, indipendentemente dalla configurazione dei criteri attiva.
+Se il controller di dominio è avviato in modalità ripristino servizi Directory, il servizio agente controller di dominio rileva questa condizione e causerà tutti la convalida della password o le attività di imposizione deve essere disabilitata, indipendentemente dalla configurazione dei criteri attualmente attivo.
 
 ## <a name="emergency-remediation"></a>Correzione di emergenza
 
@@ -80,7 +118,7 @@ Se si decide di disinstallare il software in versione di anteprima pubblica e di
 
    Non omettere l'asterisco ("*") alla fine del valore della variabile $keywords.
 
-   L'oggetto risultante individuabile tramite il comando `Get-ADObject` può quindi essere inoltrato tramite pipe a `Remove-ADObject` oppure può essere eliminato manualmente. 
+   L'oggetto risultante individuabile tramite il comando `Get-ADObject` può quindi essere inoltrato tramite pipe a `Remove-ADObject` oppure può essere eliminato manualmente.
 
 4. Rimuovere manualmente tutti i punti di connessione dell'agente del controller di dominio in ogni contesto dei nomi di dominio. Potrebbe essere presente uno di questi oggetti per ogni controller di dominio nella foresta, a seconda dell'ampiezza della distribuzione del software in versione di anteprima pubblica. Il percorso dell'oggetto può essere individuato con il comando di PowerShell per Active Directory seguente:
 

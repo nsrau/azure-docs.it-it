@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: ebf376f0bdba8c41f88d6f97cef2c17ecd259022
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 0785d0805027dd0bd621203ade7287e5a1840a9a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816646"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57870147"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guida di Azure AI per soluzioni di manutenzione predittiva
 
@@ -401,13 +401,13 @@ Il processo precedente è descritto in diversi modi nella letteratura accademica
 
 Come indicato in precedenza, l'operazionalizzazione del modello per PdM è diversa da attività simili. Gli scenari che implicano il rilevamento delle anomalie e il rilevamento degli errori in genere implementano un _punteggio online_ (detto anche _punteggio in tempo reale_). In questo caso, il modello _assegna un punteggio_ a ogni record in ingresso e restituisce una stima. Per il rilevamento anomalie, la stima è un'indicazione del fatto che si è verificata un'anomalia (esempio: SVM a una classe). Per il rilevamento degli errori, è il tipo o la classe di errore.
 
-Al contrario, PdM comporta un _punteggio batch_. Per essere conformi alla firma del modello, le funzioni nei nuovi dati devono essere progettate nello stesso modo dei dati di training. Per i set di dati di grandi dimensioni che sono tipici per i nuovi dati, le funzioni sono aggregate in intervalli di tempo e i punteggi vengono assegnati in batch. Il punteggio batch in genere viene assegnato in sistemi distribuiti, come [Spark](http://spark.apache.org/) o [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics). Esistono un paio di alternative, entrambi non ottimali:
+Al contrario, PdM comporta un _punteggio batch_. Per essere conformi alla firma del modello, le funzioni nei nuovi dati devono essere progettate nello stesso modo dei dati di training. Per i set di dati di grandi dimensioni che sono tipici per i nuovi dati, le funzioni sono aggregate in intervalli di tempo e i punteggi vengono assegnati in batch. Il punteggio batch in genere viene assegnato in sistemi distribuiti, come [Spark](https://spark.apache.org/) o [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics). Esistono un paio di alternative, entrambi non ottimali:
 - I motori per i dati di streaming supportano l'aggregazione sulle finestre in memoria, pertanto si potrebbe sostenere che supportano il punteggio online. Tuttavia, questi sistemi sono adatti per dati ad alta densità in finestre temporali ristrette o per elementi di tipo sparse in finestre più ampie. Potrebbero non offrire una scalabilità adeguata per i dati ad alta densità in finestre temporali più ampie, come illustrato negli scenari PdM.
 - Se il punteggio batch non è disponibile, la soluzione è adattare il punteggio online per gestire i nuovi dati in piccoli batch, uno alla volta.
 
 ## <a name="solution-templates-for-predictive-maintenance"></a>Modelli di soluzioni per la manutenzione predittiva
 
-La sezione finale di questa guida fornisce un elenco di modelli di soluzioni PdM, esercitazioni ed esperimenti implementati in Azure. In alcuni casi, queste applicazioni PdM possono essere distribuite in una sottoscrizione di Azure in pochi minuti. Possono essere usate come demo di modelli di verifica, ambienti sandbox per sperimentare alternative o acceleratori per le implementazioni effettive in produzione. Questi modelli sono disponibili in [Azure AI Gallery](http://gallery.azure.ai) o nel repository [GitHub di Azure](https://github.com/Azure). Questi diversi esempi verranno distribuiti nel modello di soluzione nel corso del tempo.
+La sezione finale di questa guida fornisce un elenco di modelli di soluzioni PdM, esercitazioni ed esperimenti implementati in Azure. In alcuni casi, queste applicazioni PdM possono essere distribuite in una sottoscrizione di Azure in pochi minuti. Possono essere usate come demo di modelli di verifica, ambienti sandbox per sperimentare alternative o acceleratori per le implementazioni effettive in produzione. Questi modelli sono disponibili in [Azure AI Gallery](https://gallery.azure.ai) o nel repository [GitHub di Azure](https://github.com/Azure). Questi diversi esempi verranno distribuiti nel modello di soluzione nel corso del tempo.
 
 | # | Title | DESCRIZIONE |
 |--:|:------|-------------|
@@ -431,9 +431,9 @@ Microsoft Azure offre percorsi di apprendimento per i concetti fondamentali alla
 | [Sviluppatore per intelligenza artificiale in Azure](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Pubblico |
 | [Microsoft AI School](https://aischool.microsoft.com/learning-paths) | Pubblico |
 | [Formazione su Azure AI da GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Pubblico |
-| [LinkedIn Learning](http://www.linkedin.com/learning) | Pubblico |
-| [Webinar YouTube sull'intelligenza artificiale Microsoft](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Pubblico |
-| [Microsoft AI Show](http://channel9.msdn.com/Shows/AI-Show) | Pubblico |
+| [LinkedIn Learning](https://www.linkedin.com/learning) | Pubblico |
+| [Webinar di YouTube per intelligenza artificiale Microsoft](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Pubblico |
+| [Microsoft AI Show](https://channel9.msdn.com/Shows/AI-Show) | Pubblico |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | Partner |
 | [Microsoft Partner Network](https://learningportal.microsoft.com) | Partner |
 

@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 519f0354f2a19e106ca1072170721b27357d173e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: dcc8b9fef75ba13b607d7fdda5bd55cc710165b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849208"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837015"
 ---
 <a name="private-skus-and-plans"></a>SKU e piani privati
 ============
 
-Gli SKU privati consentono di limitare la disponibilità degli SKU a clienti specifici. Quando uno SKU è contrassegnato come privato, non è disponibile in nessun catalogo pubblico, inclusi [Azure Marketplace](https://azuremarketplace.microsoft.com) e il [portale di Azure](http://portal.azure.com). Nel portale di Azure, solo i clienti con accesso allo SKU possono visualizzarlo. Verranno anche informati di avere accesso a offerte private.
+Gli SKU privati consentono di limitare la disponibilità degli SKU a clienti specifici. Quando uno SKU è contrassegnato come privato, non è disponibile in nessun catalogo pubblico, inclusi [Azure Marketplace](https://azuremarketplace.microsoft.com) e il [portale di Azure](https://portal.azure.com). Nel portale di Azure, solo i clienti con accesso allo SKU possono visualizzarlo. Verranno anche informati di avere accesso a offerte private.
 
 >[!NOTE]
 >Gli SKU privati devono avere nuovi ID piano/SKU univoci per evitare ogni eventuale conflitto con gli SKU pubblici.

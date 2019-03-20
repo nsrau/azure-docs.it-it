@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: d017a2758ccd1530c4558f3dc92559f807df36b9
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: 1ad9661d85c7ec91f361cdc4d126e0a91e376b66
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332099"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853291"
 ---
 # <a name="scp-programming-guide"></a>Guida alla programmazione SCP
 SCP è una piattaforma per la compilazione di applicazioni di elaborazione dati dalle prestazioni elevate, affidabili, coerenti e in tempo reale. È basata su [Apache Storm](https://storm.incubator.apache.org/) , un sistema di elaborazione dei flussi progettato dalle community di sviluppo di software open source (OSS). Storm è stato progettato da Nathan Marz ed è stato reso open source da Twitter. Il sistema si avvale di [Apache Zookeeper](https://zookeeper.apache.org/), un altro progetto Apache per il coordinamento e la gestione dello stato altamente affidabili delle applicazioni distribuite. 
@@ -32,7 +32,7 @@ In Storm, una topologia applicazione definisce un grafo di elaborazione. Ogni no
 
 SCP supporta l'elaborazione dati di tipo best effort, at-least-once ed exactly-once. In un'applicazione di elaborazione di streaming distribuita, possono verificarsi diversi errori durante l'elaborazione di dati, ad esempio un'interruzione di rete, un errore del computer o del codice utente e così via. L'elaborazione at-least-once assicura che tutti i dati vengano elaborati almeno una volta, riproducendo automaticamente gli stessi dati in caso di errore. L'elaborazione at-least-once è semplice e affidabile e offre risultati positivi in molte applicazioni. Quando tuttavia un'applicazione richiede il conteggio esatto, l'elaborazione at-least-once non è sufficiente, perché potenzialmente nella topologia dell'applicazione potrebbero essere riprodotti gli stessi dati. In questi casi si può usare l'elaborazione exactly-once, progettata per garantire che i risultati siano corretti anche se è possibile che i dati vengano riprodotti ed elaborati più volte.
 
-SCP consente agli sviluppatori .NET di sviluppare applicazioni di elaborazione dati in tempo reale mentre usano una JVM (Java Virtual Machine) con Storm in modo invisibile. .NET e la JVM comunicano tramite socket locali TCP. Essenzialmente, ogni Spout/Bolt è una coppia di processi .Net/Java, in cui la logica utente viene eseguita nel processo .Net come plug-in.
+SCP consente agli sviluppatori .NET di sviluppare applicazioni di elaborazione dati in tempo reale mentre usano una JVM (Java Virtual Machine) con Storm in modo invisibile. .NET e la JVM comunicano tramite socket locali TCP. In sostanza ogni Spout/Bolt è una coppia di processi .NET/Java, in cui la logica utente viene eseguita nel processo .NET come un plug-in.
 
 Per compilare un'applicazione di elaborazione dati in SCP sono necessari diversi passaggi:
 
@@ -71,7 +71,7 @@ ISCPSpout è l'interfaccia per lo Spout non transazionale.
 
 Quando viene chiamato `NextTuple()`, il codice utente C\# può emettere una o più tuple. Se non ci sono tuple da emettere, il metodo deve essere restituito senza emettere alcunché. Si noti che `NextTuple()`, `Ack()` e `Fail()` vengono chiamati in un ciclo ridotto in un singolo thread nel processo C\#. Quando non ci sono tuple da emettere, è utile una breve sospensione del metodo NextTuple (ad esempio 10 millisecondi), in modo da limitare il consumo di CPU.
 
-`Ack()` e `Fail()` vengono chiamati solo se il meccanismo di acknowledgement è abilitato nel file delle specifiche. `seqId` identifica la tupla confermata o non confermata. Dunque, se l'acknowledgement è abilitato in una topologia non transazionale, nello Spout deve essere usata la funzione di emissione seguente:
+`Ack()` e `Fail()` vengono chiamati solo se il meccanismo di acknowledgement è abilitato nel file delle specifiche. Il `seqId` viene usato per identificare la tupla è riconosciuta o non è riuscita. Dunque, se l'acknowledgement è abilitato in una topologia non transazionale, nello Spout deve essere usata la funzione di emissione seguente:
 
     public abstract void Emit(string streamId, List<object> values, long seqId); 
 
@@ -431,7 +431,7 @@ Nell'oggetto Context SCP.NET sono stati aggiunti due metodi. Vengono usati per l
 L'emissione in un flusso non esistente causa eccezioni di runtime.
 
 ### <a name="fields-grouping"></a>Raggruppamento dei campi
-Il raggruppamento dei campi predefinito di Storm non funziona correttamente in SCP.NET. Sul lato Proxy Java tutti i dati dei campi sono in effetti di tipo byte[] e per il raggruppamento dei campi viene usato il codice hash dell'oggetto byte[]. Il codice hash dell'oggetto byte[] corrisponde all'indirizzo dell'oggetto in memoria. Per questo motivo, il raggruppamento di due oggetti byte[] che condividono lo stesso contenuto, ma non lo stesso indirizzo, sarà errato.
+Il raggruppamento di campi predefiniti in Storm non funziona correttamente in SCP.NET. Sul lato Proxy Java tutti i dati dei campi sono in effetti di tipo byte[] e per il raggruppamento dei campi viene usato il codice hash dell'oggetto byte[]. Il codice hash dell'oggetto byte[] corrisponde all'indirizzo dell'oggetto in memoria. Per questo motivo, il raggruppamento di due oggetti byte[] che condividono lo stesso contenuto, ma non lo stesso indirizzo, sarà errato.
 
 SCP.NET aggiunge un metodo di raggruppamento personalizzato e usa il contenuto di byte[] per eseguire il raggruppamento. Nel file **SPEC** la sintassi è come segue:
 
@@ -450,7 +450,7 @@ Qui
 3. [0,1] indica un set di hash di ID campo, a partire da 0.
 
 ### <a name="hybrid-topology"></a>Topologia ibrida
-Il sistema Storm nativo è scritto in Java. E SCP.Net lo ha migliorato per consentire agli sviluppatori C\# di scrivere codice C\# per gestire la logica di business. SCP supporta però anche le topologie ibride, che contengono non solo spout/bolt C\#, ma anche spout/bolt Java.
+Il sistema Storm nativo è scritto in Java. E SCP.NET lo ha migliorato in modo da abilitare C\# agli sviluppatori di scrivere C\# codice per gestire la logica di business. SCP supporta però anche le topologie ibride, che contengono non solo spout/bolt C\#, ma anche spout/bolt Java.
 
 ### <a name="specify-java-spoutbolt-in-spec-file"></a>Specificare gli Spout e i Bolt Java nel file delle specifiche
 Nel file delle specifiche è possibile usare "scp-spout" e "scp-bolt" anche per specificare gli Spout e i Bolt Java. Di seguito è riportato un esempio:
@@ -562,7 +562,7 @@ In modalità host il codice utente viene compilato come DLL e richiamato dalla p
 
 ## <a name="scp-programming-examples"></a>Esempi di programmazione SCP
 ### <a name="helloworld"></a>HelloWorld
-**HelloWorld** è un esempio semplice di utilizzo di SCP.Net. Usa una topologia non transazionale con uno spout denominato **generator** e due bolt denominati **splitter** e **counter**. Lo spout **generator** genera frasi casuali e le emette verso **splitter**. Il bolt **splitter** divide le frasi in parole ed emette le parole verso il bolt **counter**. Il Bolt “counter” usa un dizionario per registrare il numero di occorrenze di ogni parola.
+**HelloWorld** è un esempio semplice per visualizzare l'utilizzo di SCP.NET. Usa una topologia non transazionale con uno spout denominato **generator** e due bolt denominati **splitter** e **counter**. Lo spout **generator** genera frasi casuali e le emette verso **splitter**. Il bolt **splitter** divide le frasi in parole ed emette le parole verso il bolt **counter**. Il Bolt “counter” usa un dizionario per registrare il numero di occorrenze di ogni parola.
 
 Per questo esempio sono presenti due file di specifiche, **HelloWorld.spec** e **HelloWorld\_EnableAck.spec**. Nel codice C\# può determinare se il meccanismo di acknowledgement è abilitato ottenendo pluginConf dal lato Java.
 
@@ -573,7 +573,7 @@ Per questo esempio sono presenti due file di specifiche, **HelloWorld.spec** e *
     }
     Context.Logger.Info("enableAck: {0}", enableAck);
 
-Nello Spout, se l'acknowledgement è abilitato viene usato un dizionario per memorizzare nella cache le tuple non confermate. Se viene chiamato Fail(), la tupla in errore viene riprodotta:
+Nello spout, se l'acknowledgement è abilitato, viene usato un dizionario per memorizzare nella cache le tuple che non sono stata confermate. Se viene chiamato Fail(), la tupla in errore viene riprodotta:
 
     public void Fail(long seqId, Dictionary<string, Object> parms)
     {
@@ -641,7 +641,7 @@ Questa topologia contiene uno spout Java e un bolt C\#. Usa l'implementazione di
 ### <a name="scphostdemo"></a>SCPHostDemo
 In sostanza, questo esempio è uguale a HelloWorld. L'unica differenza è che il codice utente viene compilato come DLL e la topologia viene inviata usando SCPHost.exe. Per una spiegazione più dettagliata, vedere la sezione "Modalità host di SCP".
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Per esempi di topologie Apache Storm create con SCP, vedere i documenti seguenti:
 
 * [Sviluppare topologie C# per Apache Storm in HDInsight tramite Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)

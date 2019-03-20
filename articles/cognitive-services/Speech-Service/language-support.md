@@ -1,5 +1,5 @@
 ---
-title: Supporto per la lingua - API servizio di riconoscimento vocale
+title: Supporto di Language - servizi di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: I servizi di riconoscimento vocale di Azure supportano numerose lingue per la conversione della voce in testo scritto e la sintesi vocale, insieme a funzionalità di traduzione vocale. Questo articolo fornisce un elenco completo delle lingue supportate per ogni servizio.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 22916a188c79d5894faf48dd71d6ab17a582cf8b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 927781c61a9ca2a1ef23db47294468dad7140dff
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878035"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885352"
 ---
-# <a name="language-and-region-support-for-speech-service-api"></a>Supporto di lingua e area geografica per API servizio di riconoscimento vocale
+# <a name="language-and-region-support-for-the-speech-services"></a>Supporto lingua e area geografica per i servizi di riconoscimento vocale
 
 Le diverse funzioni dei servizi di riconoscimento vocale supportano lingue diverse. Le tabelle seguenti riepilogano il supporto della lingua.
 
@@ -179,7 +179,7 @@ zh-TW | Cinese (Taiwan)|Femmina | "Microsoft Server Speech Text to Speech Voice 
 La personalizzazione della voce è disponibile per l'inglese (Stati Uniti) (en-US), il cinese (zh-CN), il francese (fr-FR), il tedesco (de-DE) e l'italiano (it-IT).
 
 > [!NOTE]
-> Il training per la voce in francese, tedesco e italiano inizia con un set di dati di oltre 2000 espressioni. Anche i modelli bilingui in lingua cinese-inglese sono supportati con un set di dati iniziale di oltre 2000 espressioni.
+> Francese, tedesco e italiano formazione vocale inizia con un set di dati di oltre 2000 espressioni. Anche i modelli bilingui in lingua cinese-inglese sono supportati con un set di dati iniziale di oltre 2000 espressioni.
 
 ## <a name="speech-translation"></a>Traduzione vocale
 
@@ -255,5 +255,5 @@ L'API **Traduzione vocale** supporta lingue diverse per la traduzione vocale e c
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
+* [Ottenere una sottoscrizione di prova gratuita al Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
 * [Informazioni sul riconoscimento vocale in C#](quickstart-csharp-dotnet-windows.md)

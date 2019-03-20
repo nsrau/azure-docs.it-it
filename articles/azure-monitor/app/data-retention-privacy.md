@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 03/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 1de12f2dd2e31c3f5413424793f3bf78fdc8ff27
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 3c74d3a6c5b66053fb968ad52f72eca181799a3c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300262"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003589"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Raccolta, conservazione e archiviazione di dati in Application Insights
 
@@ -118,9 +118,7 @@ I dati in forma aggregata in tutte le applicazioni dei clienti, ad esempio le fr
 Se si condivide codice con altri progetti, è necessario ricordare di rimuovere la chiave di strumentazione.
 
 ## <a name="is-the-data-encrypted"></a>I dati vengono crittografati?
-Non all'interno dei server, attualmente.
-
-Tutti i dati vengono crittografati durante lo spostamento tra data center.
+Tutti i dati vengono crittografati a riposo e come si sposta tra data center.
 
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>I dati vengono crittografati durante il transito dall'applicazione ai server di Application Insights?
 Sì, viene usato HTTPS per l'invio dei dati al portale da quasi tutti gli SDK, inclusi i server Web, i dispositivi e le pagine Web HTTPS. L'unica eccezione è costituita dai dati inviati da semplici pagine Web HTTP.
@@ -158,12 +156,12 @@ Tramite il codice:
 
 - Rimuovere ServerTelemetryChannel dal file di configurazione
 - Aggiungere questo frammento di codice alla configurazione:
-```csharp
-ServerTelemetryChannel channel = new ServerTelemetryChannel();
-channel.StorageFolder = @"D:\NewTestFolder";
-channel.Initialize(TelemetryConfiguration.Active);
-TelemetryConfiguration.Active.TelemetryChannel = channel;
-```
+  ```csharp
+  ServerTelemetryChannel channel = new ServerTelemetryChannel();
+  channel.StorageFolder = @"D:\NewTestFolder";
+  channel.Initialize(TelemetryConfiguration.Active);
+  TelemetryConfiguration.Active.TelemetryChannel = channel;
+  ```
 
 ### <a name="netcore"></a>NetCore
 
@@ -239,6 +237,7 @@ Non direttamente. Non viene fornita alcuna opzione che gli utenti possono usare 
 Gli SDK sono diversi a seconda delle piattaforme e sono disponibili vari componenti da installare. Vedere [Application Insights: panoramica][start]. Ogni componente invia dati diversi.
 
 #### <a name="classes-of-data-sent-in-different-scenarios"></a>Classi di dati inviati nei diversi scenari
+
 | Azione | Classi di dati raccolte (vedere la tabella seguente) |
 | --- | --- |
 | [Aggiungere Application Insights SDK a un progetto Web .NET][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Eccezioni**<br/>sessione<br/>users |
@@ -254,6 +253,7 @@ Gli SDK sono diversi a seconda delle piattaforme e sono disponibili vari compone
 Per informazioni sugli [SDK per altre piattaforme][platforms], vedere i relativi documenti.
 
 #### <a name="the-classes-of-collected-data"></a>Classi dei dati raccolti
+
 | Classe di dati raccolti | Include (elenco non completo) |
 | --- | --- |
 | **Properties** |**Qualsiasi dato, in base al codice** |

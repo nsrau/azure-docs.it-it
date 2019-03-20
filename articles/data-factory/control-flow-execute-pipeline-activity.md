@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: f36d9eed11685d1bb35a46a97eb58fe870970075
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: a0ece499262464bc28f55c37188698a3313e2c04
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019436"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998712"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Attività ExecutePipeline in Azure Data Factory
 L'attività ExecutePipeline consente a una pipeline di Data Factory di richiamare un'altra pipeline.
@@ -59,13 +59,14 @@ L'attività ExecutePipeline consente a una pipeline di Data Factory di richiamar
 ```
 
 ## <a name="type-properties"></a>Proprietà del tipo
-Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
+
+Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | --------
-name | Nome dell'attività di esecuzione della pipeline. | string | Yes
-type | deve essere impostato su: **ExecutePipeline**. | string | Yes
-pipeline | Pipeline di riferimento per la pipeline dipendente chiamata da questa pipeline. Un oggetto di riferimento della pipeline ha due proprietà: **referenceName** e **type**. La proprietà referenceName specifica il nome della pipeline di riferimento. La proprietà type deve essere impostata su PipelineReference. | PipelineReference | Yes
+name | Nome dell'attività di esecuzione della pipeline. | string | Sì
+type | deve essere impostato su: **ExecutePipeline**. | string | Sì
+pipeline | Pipeline di riferimento per la pipeline dipendente chiamata da questa pipeline. Un oggetto di riferimento della pipeline ha due proprietà: **referenceName** e **type**. La proprietà referenceName specifica il nome della pipeline di riferimento. La proprietà type deve essere impostata su PipelineReference. | PipelineReference | Sì
 Parametri | Parametri da passare alla pipeline chiamata | Oggetto JSON che esegue il mapping dei nomi di parametro ai valori degli argomenti | No 
-waitOnCompletion | Definisce se l'esecuzione dell'attività attende che l'esecuzione della pipeline dipendente termini. | Il valore predefinito è false. | boolean | No 
+waitOnCompletion | Definisce se l'esecuzione dell'attività attende che l'esecuzione della pipeline dipendente termini. Il valore predefinito è false. | Boolean | No 
 
 ## <a name="sample"></a>Esempio
 Questo scenario include due pipeline:

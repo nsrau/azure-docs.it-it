@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: ergreenl
-ms.openlocfilehash: 23d30d3b881fbe5aab4e537073b2582eb01bfe7c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: b5544be37015368173f3f8eb39288b7a97ae11c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183425"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084998"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Sincronizzazione in un dominio gestito di Azure Active Directory Domain Services
 Il diagramma seguente illustra il funzionamento della sincronizzazione nei domini gestiti di Azure Active Directory Domain Services.
@@ -70,8 +70,6 @@ La tabella seguente riporta alcuni attributi comuni e il modo in cui vengono sin
 
 > [!NOTE]
 > **Accedere al dominio gestito usando il formato UPN:** per alcuni account utente nel dominio gestito l'attributo SAMAccountName può essere generato automaticamente. Se più utenti hanno lo stesso attributo mailNickname o sono presenti utenti con un prefisso UPN troppo lungo, l'attributo SAMAccountName per questi utenti potrebbe essere generato automaticamente. Il formato SAMAccountName, ad esempio "CONTOSO100\joeuser", non è quindi un modo sempre affidabile per accedere al dominio. L'attributo SAMAccountName autogenerato dell'utente potrebbe infatti essere diverso dal relativo prefisso UPN. Per accedere al dominio gestito in modo affidabile, usare il formato UPN, ad esempio 'joeuser@contoso100.com'.
->
->
 
 ### <a name="attribute-mapping-for-user-accounts"></a>Mapping degli attributi per gli account utente
 La tabella seguente mostra come vengono sincronizzati attributi specifici per gli oggetti utente nel tenant di Azure AD con gli attributi corrispondenti nel dominio gestito.

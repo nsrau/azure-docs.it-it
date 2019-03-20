@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 73fffda6ec0ae0a65af9b5aa8505e3b9551bd3b4
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 84f74392b93212558851f89dab924ae3db5620ed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558176"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995121"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introduzione all'uso di Analisi di flusso di Azure: Rilevamento delle frodi in tempo reale
 
@@ -68,7 +68,7 @@ In questa procedura si creerà uno spazio dei nomi dell'hub eventi e quindi si a
 
 5. Scegliere il nuovo spazio dei nomi e, nel relativo riquadro, fare clic su **Hub eventi**.
 
-   ![Pulsante Aggiungi hub eventi per creare un nuovo hub eventi ](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
+   ![Pulsante Aggiungi hub eventi per creare un nuovo hub eventi](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
  
 6. Assegnare il nome `asa-eh-frauddetection-demo` al nuovo hub eventi. È possibile usare un nome diverso. In questo caso, tenerne traccia, poiché sarà necessario in un secondo momento. Per ora non è necessario impostare altre opzioni per l'hub eventi.
 
@@ -114,20 +114,20 @@ Prima di avviare l'app TelcoGenerator è necessario configurarla per l'invio di 
 
 ### <a name="configure-the-telcogenerator-app"></a>Configurare l'app TelcoGenerator
 
-1.  Nell'editor in cui è stata copiata la stringa di connessione annotare il valore `EntityPath` e quindi rimuovere la coppia `EntityPath` (non dimenticare di rimuovere il punto e virgola che la precede). 
+1. Nell'editor in cui è stata copiata la stringa di connessione annotare il valore `EntityPath` e quindi rimuovere la coppia `EntityPath` (non dimenticare di rimuovere il punto e virgola che la precede). 
 
-2.  Nella cartella in cui è stato decompresso il file TelcoGenerator.zip aprire il file telcodatagen.exe.config in un editor. È presente più di un file con estensione config, di conseguenza è necessario assicurarsi di aprire quello giusto.
+2. Nella cartella in cui è stato decompresso il file TelcoGenerator.zip aprire il file telcodatagen.exe.config in un editor. È presente più di un file con estensione config, di conseguenza è necessario assicurarsi di aprire quello giusto.
 
-3.  Nell'elemento `<appSettings>`:
+3. Nell'elemento `<appSettings>`:
 
-    * Impostare il valore della chiave `EventHubName` sul nome dell'hub eventi (ovvero il valore del percorso dell'entità).
-    * Impostare il valore della chiave `Microsoft.ServiceBus.ConnectionString` sulla stringa di connessione. 
+   * Impostare il valore della chiave `EventHubName` sul nome dell'hub eventi (ovvero il valore del percorso dell'entità).
+   * Impostare il valore della chiave `Microsoft.ServiceBus.ConnectionString` sulla stringa di connessione. 
 
-    La sezione `<appSettings>` dovrebbe essere simile all'esempio seguente. Per maggiore chiarezza è stato eseguito il wrapping delle righe e alcuni caratteri sono stati rimossi dal token di autorizzazione.
+   La sezione `<appSettings>` dovrebbe essere simile all'esempio seguente. Per maggiore chiarezza è stato eseguito il wrapping delle righe e alcuni caratteri sono stati rimossi dal token di autorizzazione.
 
    ![File di configurazione TelcoGenerator con la stringa di connessione e il nome dell'hub eventi](./media/stream-analytics-real-time-fraud-detection/stream-analytics-telcogenerator-config-file-app-settings.png)
  
-4.  Salvare il file. 
+4. Salvare il file. 
 
 ### <a name="start-the-app"></a>Avviare l'app
 1.  Aprire una finestra di comando e passare alla cartella in cui è stata decompressa l'app TelcoGenerator.
@@ -191,6 +191,7 @@ Dopo aver creato un flusso di eventi di chiamata, sarà possibile configurare un
    |Spazio dei nomi dell'hub eventi  |  asa-eh-ns-demo |  Inserire il nome dello spazio dei nomi dell'hub eventi.   |
    |Nome dell'hub eventi  | asa-eh-frauddetection-demo | Selezionare il nome dell'hub eventi.   |
    |Nome criteri hub eventi  | asa-policy-manage-demo | Selezionare i criteri di accesso creati in precedenza.   |
+
     </br>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="Create Stream Analytics input in portal" width="300px"/>
 
@@ -359,6 +360,7 @@ Se esiste già un account di archiviazione BLOB, è possibile usarlo. In questa 
    |Sottoscrizione   |  \<Sottoscrizione in uso\> |  Selezionare la sottoscrizione di Azure che include l'account di archiviazione creato. L'account di archiviazione può essere incluso nella stessa sottoscrizione o in una diversa. Questo esempio presuppone che l'account di archiviazione sia stato creato all'interno della stessa sottoscrizione. |
    |Account di archiviazione  |  asaehstorage |  Immettere il nome dell'account di archiviazione creato. |
    |Contenitore  | asa-fraudulentcalls-demo | Scegliere Crea nuovo e immettere un nome di contenitore. |
+
     <br/>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="Create blob output for Stream Analytics job" width="300px"/>
     
