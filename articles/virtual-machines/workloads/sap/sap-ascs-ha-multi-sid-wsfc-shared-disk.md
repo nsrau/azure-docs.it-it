@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee5dc346def58ea7362a763d088145eb0d04a608
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 777fda4317abf431c83b7328084085841eb1f757
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656731"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007975"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -56,7 +56,7 @@ ms.locfileid: "34656731"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -223,9 +223,9 @@ Questo articolo si concentra sul passaggio da un'installazione di ASCS/SCS singo
 >Il numero massimo di istanze di SAP ASCS/SCS in un cluster WSFC è uguale al numero massimo di indirizzi IP front-end privati per ogni servizio di bilanciamento del carico interno di Azure.
 >
 
-Per informazioni sui limiti del servizio di bilanciamento del carico, vedere "IP front-end privato per ogni servizio di bilanciamento del carico" in [Limiti relativi alle reti - Azure Resource Manager][networking-limits-azure-resource-manager].
+Per informazioni sui limiti del servizio di bilanciamento del carico, vedere la sezione relativa all'IP front-end privato per ogni servizio di bilanciamento del carico in [Limiti relativi alle reti - Azure Resource Manager][networking-limits-azure-resource-manager].
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 È già stato configurato un cluster WSFC da usare per una istanza ASCS/SCS di SAP con la **condivisione file**, come illustrato nella figura seguente.
 
@@ -243,7 +243,7 @@ L'obiettivo è l'installazione di più istanze cluster di SAP ABAP ASCS o SAP Ja
 
 ![Più istanze in cluster di SAP ASCS/SCS in Azure][sap-ha-guide-figure-6002]
 
-Per informazioni sui limiti del servizio di bilanciamento del carico, vedere "IP front-end privato per ogni servizio di bilanciamento del carico" in [Limiti relativi alle reti - Azure Resource Manager][networking-limits-azure-resource-manager].
+Per informazioni sui limiti del servizio di bilanciamento del carico, vedere la sezione relativa all'IP front-end privato per ogni servizio di bilanciamento del carico in [Limiti relativi alle reti - Azure Resource Manager][networking-limits-azure-resource-manager].
 
 Il panorama generale con due sistemi SAP a disponibilità elevata si presenta come segue:
 
@@ -279,7 +279,7 @@ Per preparare l'infrastruttura, è possibile installare un'istanza aggiuntiva di
 È possibile creare una voce DNS per il nome host virtuale dell'istanza di ASCS/SCS usando i parametri seguenti:
 
 | Nuovo nome host virtuale di SAP ASCS/SCS | Indirizzo IP associato |
-| --- | --- | --- |
+| --- | --- |
 |pr5-sap-cl |10.0.0.50 |
 
 Il nuovo nome host e l'indirizzo IP vengono visualizzati in Gestore DNS, come illustrato nella schermata seguente:
@@ -435,5 +435,5 @@ La procedura di alto livello è la seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Limiti relativi alle reti: Azure Resource Manager][networking-limits-azure-resource-manager]
+- [Limiti relativi alla rete: Azure Resource Manager][networking-limits-azure-resource-manager]
 - [Più indirizzi VIP per Azure Load Balancer][load-balancer-multivip-overview]

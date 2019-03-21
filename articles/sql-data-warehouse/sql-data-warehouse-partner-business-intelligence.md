@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: a45ed3ad5360f613a4949799c60ec09f4a30afb9
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 956cf6c8fac34d5fc3e4d3c5bee663247665b69e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56427769"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002876"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>Partner di business intelligence per SQL Data Warehouse
 Per creare una soluzione di data warehouse end-to-end, è possibile scegliere tra una vasta gamma di strumenti leader nel settore.  Questo articolo evidenzia aziende partner di Microsoft con soluzioni di business intelligence (BI) che supportano Azure SQL Data Warehouse.
@@ -34,11 +34,11 @@ Per creare una soluzione di data warehouse end-to-end, è possibile scegliere tr
 | ![SiSense][9] |**SiSense**<br>SiSense è un software di business intelligence completo che include gli strumenti necessari alle aziende per analizzare e visualizzare i dati, ovvero un database analitico a prestazioni elevate, la possibilità di unire più origini, l'estrazione semplice dei dati (ETL) e la visualizzazione dei dati basata sul Web. È possibile iniziare subito ad analizzare e visualizzare set di dati di grandi dimensioni con SiSense BI and Analytics. |[Sito Web][sisense_website]<br>[Foglio dati][sisense_datasheet]<br>[Twitter][sisense_twitter]<br>[YouTube][sisense_youtube] |[![video di isense](./media/sql-data-warehouse-partner-business-intelligence/sisense_video.jpg)](https://www.youtube.com/watch?v=6N3mkTWI5R4) |
 | ![Tableau][10] |**Tableau**<br>Le analisi self-service di Tableau permettono a chiunque di visualizzare e comprendere i propri dati, di qualsiasi tipo essi siano, da file flat a database. Tableau offre un connettore nativo e ottimizzato per Microsoft Azure SQL Data Warehouse, che supporta le analisi dei dati in tempo reale e in memoria. |[Marketplace][tableau_marketplace]<br>[Sito Web][tableau_website]<br>[Foglio dati][tableau_datasheet]<br>[Twitter][tableau_twitter]<br>[YouTube][tableau_youtube] |[![Video di tableau](./media/sql-data-warehouse-partner-business-intelligence/tableau_video.jpg)](https://www.youtube.com/watch?v=TwbkI3ZzCHE) |
 | ![Targit][11] |**Targit**<br>Targit Decision Suite offre una piattaforma di business intelligence e analisi che fornisce dashboard in tempo reale, analisi self-service, report semplici da usare, straordinarie capacità mobili e una semplice tecnologia per il rilevamento di dati in un'unica soluzione coerente. Targit offre alle aziende il coraggio di agire. |[Marketplace][targit_marketplace]<br>[Sito Web][targit_website]<br>[Twitter][targit_twitter]<br>[YouTube][targit_youtube] |[![video di targit](./media/sql-data-warehouse-partner-business-intelligence/targit_video.jpg)](https://www.youtube.com/watch?v=A0vET80Ker4) |
-| ![Albacora][12] |**Albacora**<br>Yellowfin è un importante fornitore di business intelligence sul cloud per la creazione ad-hoc di report e dashboard, in base al sondaggio BARC su business intelligence. È possibile connettersi ad Azure SQL Data Warehouse, quindi creare e condividere report e dashboard straordinari con funzionalità collaborative avanzate di business intelligence e location intelligence. |[Marketplace][yellowfin_marketplace]<br>[Sito Web][yellowfin_website]<br>[Foglio dati][yellowfin_datasheet]<br>[Twitter][yellowfin_twitter]<br>[YouTube][yellowfin_youtube] |[![video di yellowfin](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_video.jpg)](https://www.youtube.com/watch?v=i1q33AftI0A) |
+| ![Albacora][12] |**Albacora**<br>Yellowfin è un fornitore di Business Intelligence Cloud per ad hoc di report e dashboard da BARC Il sondaggio di BI. È possibile connettersi ad Azure SQL Data Warehouse, quindi creare e condividere report e dashboard straordinari con funzionalità collaborative avanzate di business intelligence e location intelligence. |[Marketplace][yellowfin_marketplace]<br>[Sito Web][yellowfin_website]<br>[Foglio dati][yellowfin_datasheet]<br>[Twitter][yellowfin_twitter]<br>[YouTube][yellowfin_youtube] |[![video di yellowfin](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_video.jpg)](https://www.youtube.com/watch?v=i1q33AftI0A) |
 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Per informazioni su altri partner, vedere [Partner di integrazione di dati][di_partners] e [Partner di gestione di dati][dm_partners].
 
 <!--Image references-->
@@ -63,29 +63,29 @@ Per informazioni su altri partner, vedere [Partner di integrazione di dati][di_p
 
 <!--Website links -->
 [birst_website]:https://www.birst.com/
-[clearstory_website]:http://www.clearstorydata.com/
+[clearstory_website]:https://www.clearstorydata.com/
 [dell_statistica_website]:http://www.statsoft.com/Products/STATISTICA-Features
-[dundas_bi_website]:http://www.dundas.com/dundas-bi
-[jinfonet_website]:http://www.jinfonet.com/product/jreport-designer
-[logianalytics_website]:http://www.logianalytics.com/
+[dundas_bi_website]:https://www.dundas.com/dundas-bi
+[jinfonet_website]:https://www.jinfonet.com/product/jreport-designer
+[logianalytics_website]:https://www.logianalytics.com/
 [looker_website]:https://looker.com/partners/microsoft-azure/
-[qlik_website]:http://www.qlik.com/us/products/qlik-sense/enterprise
+[qlik_website]:https://www.qlik.com/us/products/qlik-sense/enterprise
 [sisense_website]:https://www.sisense.com/product/
-[tableau_website]:http://www.tableau.com/
+[tableau_website]:https://www.tableau.com/
 [targit_website]:https://www.targit.com/en/software/deployment/targitonazure
-[yellowfin_website]:http://www.yellowfinbi.com/
+[yellowfin_website]:https://www.yellowfinbi.com/
 
 <!--Get Started Links-->
-[qlik_getstarted]:http://www.qlik.com/us/products/qlik-sense/getting-started
+[qlik_getstarted]:https://www.qlik.com/us/products/qlik-sense/getting-started
 
 <!--Datasheet Links-->
 
 <!--[birst_datasheet]:-->
 
-[clearstory_datasheet]:http://www.clearstorydata.com/wp-content/uploads/2016/05/ClearStoryData-PO01-062015-01-2.pdf
+[clearstory_datasheet]:https://www.clearstorydata.com/wp-content/uploads/2016/05/ClearStoryData-PO01-062015-01-2.pdf
 [dell_statistica_datasheet]:http://www.statsoft.com/Portals/0/Support/Download/Brochures/STATISTICA_Data_Miner.pdf
-[dundas_bi_datasheet]:http://www.dundas.com/resource/getwhitepaper?whitePaperName=27-05-2016-Dundas-BI-Product-Brief-_-Embedded-Analytics%2FEckerson-Group-EBI-Report-DundasProduct-Brief.pdf
-[jinfonet_datasheet]:http://www.jinfonet.com/products/JReport%20Brief.pdf
+[dundas_bi_datasheet]:https://www.dundas.com/resource/getwhitepaper?whitePaperName=27-05-2016-Dundas-BI-Product-Brief-_-Embedded-Analytics%2FEckerson-Group-EBI-Report-DundasProduct-Brief.pdf
+[jinfonet_datasheet]:https://www.jinfonet.com/products/JReport%20Brief.pdf
 [logianalytics_datasheet]:https://www.logianalytics.com/datasheet/logi-info/
 
 [looker_datasheet]:https://info.looker.com/h/i/229169578-looker-for-microsoft-azure
@@ -93,11 +93,11 @@ Per informazioni su altri partner, vedere [Partner di integrazione di dati][di_p
 [qlik_datasheet]:http://www.qlik.com/en/resource-library/the-qlikview-product-family
 [sisense_datasheet]:https://pages.sisense.com/rs/601-OXE-081/images/Product%20Highlights.pdf
 
-[tableau_datasheet]:http://www.tableau.com/stories/workbook/azure-sql-data
+[tableau_datasheet]:https://www.tableau.com/stories/workbook/azure-sql-data
 
 <!--[targit_datasheet]:-->
 
-[yellowfin_datasheet]:http://www.yellowfinbi.com/Document.i4?DocumentId=877299
+[yellowfin_datasheet]:https://www.yellowfinbi.com/Document.i4?DocumentId=877299
 
 <!--Marketplace Links -->
 
@@ -121,7 +121,7 @@ Per informazioni su altri partner, vedere [Partner di integrazione di dati][di_p
 
 <!--[birst_press]:-->
 
-[clearstory_press]:http://www.clearstorydata.com/press/clearstory-data-paired-with-new-microsoft-azure-sql-data-warehouse-release-provides-highly-scalable-data-analysis-at-apache-spark-speed/
+[clearstory_press]:https://www.clearstorydata.com/press/clearstory-data-paired-with-new-microsoft-azure-sql-data-warehouse-release-provides-highly-scalable-data-analysis-at-apache-spark-speed/
 
 <!--[dell_statistica_press]:-->
 
@@ -129,7 +129,7 @@ Per informazioni su altri partner, vedere [Partner di integrazione di dati][di_p
 
 <!--[jinfonet_press]:-->
 
-[logianalytics_press]:http://www.logianalytics.com/logi-news/announcing-logi-info-integration-with-azure-sql-data-warehouse/
+[logianalytics_press]:https://www.logianalytics.com/logi-news/announcing-logi-info-integration-with-azure-sql-data-warehouse/
 [looker_press]:https://looker.com/news/press/looker-brings-self-serve-analytics-to-microsoft-azure
 
 <!--[qlik_press]:-->

@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 03/14/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: f2bd1d863a7900b50712eb23c1088c6b271befa3
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 777bf38fbc8a90335af79bbd0fb2ce74310bd991
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755891"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006808"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mappa delle applicazioni: Valutazione delle applicazioni distribuite
 
@@ -42,13 +42,13 @@ Quando si fa clic sul pulsante per aggiornare i componenti della mappa, la mappa
 
 Se tutti i componenti sono ruoli all'interno di una singola risorsa di Application Insights, questo passaggio di individuazione non è necessario. Il caricamento iniziale per tale applicazione includerà tutti i relativi componenti.
 
-![Screenshot della mappa delle applicazioni](media/app-map/001.png)
+![Screenshot della mappa delle applicazioni](media/app-map/app-map-001.png)
 
 Uno dei principali obiettivi di questa esperienza è quello di consentire di visualizzare le topologie complesse con centinaia di componenti.
 
 Fare clic su qualsiasi componente per visualizzare le informazioni dettagliate correlate e passare all'esperienza di valutazione delle prestazioni e degli errori per il componente.
 
-![Riquadro a comparsa](media/app-map/application-map-001.png)
+![Riquadro a comparsa](media/app-map/application-map-002.png)
 
 ### <a name="investigate-failures"></a>Esaminare gli errori
 

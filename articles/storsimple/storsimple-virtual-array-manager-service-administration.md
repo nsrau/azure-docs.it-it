@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/1/2016
 ms.author: alkohli
-ms.openlocfilehash: a74a160eae88a2d03460a1346479c333d8f9d524
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: bb6bb491ca71e5ced5aecc8137e9e1cbd950e80b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109899"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091869"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per amministrare l'array virtuale StorSimple
 ![flusso del processo di installazione](./media/storsimple-virtual-array-manager-service-administration/manage4.png)
@@ -53,7 +53,7 @@ Per ulteriori informazioni su ogni flusso di lavoro, scegliere la procedura appr
 
 #### <a name="storsimple-device-manager-workflows"></a>Flussi di lavoro di Gestione dispositivi StorSimple
 | Se si desidera eseguire questa operazione... | Seguire questa procedura |
-| --- | --- | --- |
+| --- | --- |
 | Creare un servizio</br>Eliminare un servizio</br>Ottenere la chiave di registrazione del servizio</br>Rigenerare la chiave di registrazione del servizio |[Distribuire il servizio Gestione dispositivi StorSimple](storsimple-virtual-array-manage-service.md) |
 | Visualizzare i log attività |[Usare il riepilogo servizio StorSimple](storsimple-virtual-array-service-summary.md) |
 | Disattivare un array virtuale</br>Eliminare un array virtuale |[Disattivare o eliminare un array virtuale](storsimple-virtual-array-deactivate-and-delete-device.md) |

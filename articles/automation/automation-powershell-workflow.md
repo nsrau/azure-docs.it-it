@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 12/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7ab6b387a28df06758e5e0c1ce197781fc4be3c5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: c5764c36a646b9639c0eb6463c39b9f014c4272d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436808"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168086"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Informazioni sui concetti chiave del flusso di lavoro di PowerShell per i runbook di Automazione
 
@@ -226,7 +226,7 @@ Workflow Copy-Files
 
 ## <a name="checkpoints"></a>Checkpoint
 
-Un *checkpoint* è uno snapshot dello stato corrente del flusso di lavoro che include il valore corrente per le variabili e gli output generati fino al punto corrispondente. Se un flusso di lavoro termina con errori o viene sospeso, alla successiva esecuzione verrà avviato dall'ultimo checkpoint anziché dall'inizio del flusso di lavoro.  È possibile impostare un checkpoint in un flusso di lavoro con l'attività **Checkpoint-Workflow** .
+Un *checkpoint* è uno snapshot dello stato corrente del flusso di lavoro che include il valore corrente per le variabili e gli output generati fino al punto corrispondente. Se un flusso di lavoro termina con errori o viene sospeso, alla successiva esecuzione verrà avviato dall'ultimo checkpoint anziché dall'inizio del flusso di lavoro.  È possibile impostare un checkpoint in un flusso di lavoro con l'attività **Checkpoint-Workflow** . Automazione di Azure offre una funzionalità denominata [condivisione equa](automation-runbook-execution.md#fair-share), in cui viene scaricato i runbook in esecuzione per 3 ore per consentire altri runbook per l'esecuzione. Infine, il runbook scaricato verrà ricaricato e questo caso, l'esecuzione dall'ultimo checkpoint eseguito il runbook verrà ripresa. Per garantire che il runbook verrà infine completata, è necessario aggiungere checkpoint a intervalli di esecuzione per meno di 3 ore. Se durante ogni esecuzione viene aggiunto un nuovo checkpoint, e se il runbook Ottiene eliminato dopo 3 ore a causa di un errore, quindi il runbook verrà ripresa per un periodo illimitato.
 
 Nel codice di esempio seguente si verifica un'eccezione dopo Activity2 con la conseguente sospensione del Runbook. Quando il flusso di lavoro viene nuovamente avviato, inizierà con l'esecuzione di Activity2, poiché questa attività si trovava immediatamente dopo l'ultimo checkpoint impostato.
 

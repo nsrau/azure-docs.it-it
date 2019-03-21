@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: d1dc92e134b7ebca8e0eed30ef125210bc00eb37
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c960ae10fc892a5f4bd044fff80a44a0628ea38e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989985"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875907"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Come eseguire lo streaming live con codificatori locali tramite il portale di Azure
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Per completare l'esercitazione è necessario quanto segue:
 
 * Un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
 * Account di Servizi multimediali. Per creare un account Servizi multimediali, vedere [Creare un account Servizi multimediali di Azure con il portale di Azure](media-services-portal-create-account.md).
-* Una webcam. Ad esempio, [codificatore Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm).
+* Una webcam. Ad esempio, [codificatore Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm).
 
 È consigliabile vedere gli articoli seguenti:
 

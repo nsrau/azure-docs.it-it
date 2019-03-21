@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05fda1b4f71f67714b4723e15533d3555d497249
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: e5d8357d17f8a6b463546789dd4627b74924a763
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321671"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080999"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Creare una configurazione di SAP NetWeaver a più SID
 
@@ -114,7 +114,7 @@ Per preparare l'infrastruttura, è possibile installare un'istanza aggiuntiva di
 È possibile creare una voce DNS per il nome host virtuale dell'istanza di ASCS/SCS usando i parametri seguenti:
 
 | Nuovo nome host virtuale di SAP ASCS/SCS | Indirizzo IP associato |
-| --- | --- | --- |
+| --- | --- |
 |pr5-sap-cl |10.0.0.50 |
 
 Il nuovo nome host e l'indirizzo IP vengono visualizzati in Gestore DNS, come illustrato nello screenshot seguente:

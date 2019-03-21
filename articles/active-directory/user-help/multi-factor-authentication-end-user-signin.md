@@ -1,5 +1,5 @@
 ---
-title: Accesso con Azure MFA tramite verifica in due passaggi | Microsoft Docs
+title: Azure MFA Accedi con la verifica in due passaggi - Azure Active Directory | Microsoft Docs
 description: Questa pagina offre indicazioni su dove trovare le istruzioni per visualizzare i diversi metodi di accesso disponibili con Azure MFA.
 keywords: autenticazione utente, esperienza di accesso con telefono cellulare, accesso con telefono dell'ufficio
 services: active-directory
@@ -13,13 +13,14 @@ ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
+ms.custom: end-user, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2545e85ff466ed7455161eb725b824da465457bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1350b2d86e18f213d99f1c27d64e371451f5f9b7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177311"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840877"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Esperienza di accesso con Azure Multi-Factor Authentication
 > [!NOTE]
@@ -32,7 +33,7 @@ L'esperienza di accesso varia a seconda di ciò che si desidera usare come secon
 | --- |
 | [Con una telefonata al cellulare o al telefono dell'ufficio](#signing-in-with-a-phone-call) |
 | [Con un messaggio sul cellulare](#signing-in-with-a-text-message)
-| Con le notifiche dell'app Microsoft Authenticator |
+| [Con le notifiche dell'app Microsoft Authenticator](#to-sign-in-with-a-notification-from-the-microsoft-authenticator-app) |
 | Con i codici di verifica dell'app Microsoft Authenticator |
 | [Con un metodo alternativo, perché non è possibile usare subito il metodo preferito](#signing-in-with-an-alternate-method) |
 
@@ -57,7 +58,7 @@ Le informazioni seguenti descrivono l'esperienza d'uso dell'app Microsoft Authen
 1. Accedere a un'applicazione o servizio come Office 365 usando nome utente e password.
 2. Microsoft invia una notifica all'app Microsoft Authenticator sul dispositivo dell'utente.
 
-  ![Microsoft invia una notifica](./media/multi-factor-authentication-end-user-signin/notify.png)
+   ![Microsoft invia una notifica](./media/multi-factor-authentication-end-user-signin/notify.png)
 
 3. Aprire la notifica sul telefono e quindi selezionare la chiave **Verifica**. Se la società richiede un PIN, immetterlo qui.
 4. Ora dovrebbe essere stato effettuato l'accesso.
@@ -69,7 +70,7 @@ Se si usa l'app Microsoft Authenticator per ottenere i codici di verifica, quand
 1. Accedere a un'applicazione o servizio come Office 365 usando nome utente e password.
 2. Microsoft richiede un codice di verifica.
 
-  ![Inserire il codice di verifica dell'app](./media/multi-factor-authentication-end-user-signin/verify3.png)
+   ![Inserire il codice di verifica dell'app](./media/multi-factor-authentication-end-user-signin/verify3.png)
 
 3. Aprire l'app Microsoft Authenticator sul telefono e immettere il codice nella casella da cui si sta effettuando l'accesso.
 
@@ -80,12 +81,11 @@ A volte non si dispone del telefono o del dispositivo configurato come metodo di
 2. Selezionare **Usa un'opzione di verifica diversa**. Vengono visualizzate diverse opzioni di verifica in base al numero di opzioni configurate.
 3. Scegliere un metodo alternativo ed effettuare l’accesso.
 
-  ![Utilizzare un metodo alternativo](./media/multi-factor-authentication-end-user-signin/alt.png)
+   ![Utilizzare un metodo alternativo](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
+- In caso di problemi di accesso con la verifica in due passaggi, è possibile ottenere altre informazioni in [Problemi con Multi-Factor Authentication di Azure](multi-factor-authentication-end-user-troubleshoot.md).
 
-In caso di problemi di accesso con la verifica in due passaggi, è possibile ottenere altre informazioni in [Problemi con Multi-Factor Authentication di Azure](multi-factor-authentication-end-user-troubleshoot.md).
+- Informazioni su come [Gestire le impostazioni della verifica in due passaggi](multi-factor-authentication-end-user-manage-settings.md).
 
-Informazioni su come [Gestire le impostazioni della verifica in due passaggi](multi-factor-authentication-end-user-manage-settings.md).
-
-Altre informazioni sull'[introduzione all'app Microsoft Authenticator](user-help-auth-app-download-install.md) per poter effettuare l'accesso tramite notifiche, invece che con messaggi e telefonate.
+- Altre informazioni sull'[introduzione all'app Microsoft Authenticator](user-help-auth-app-download-install.md) per poter effettuare l'accesso tramite notifiche, invece che con messaggi e telefonate.

@@ -1,7 +1,7 @@
 ---
-title: Linee guida per la trascrizione per il training del servizio Voce
+title: Indicazioni sulla trascrizione per il training di modelli di servizi di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come preparare il testo per personalizzare i modelli acustici e linguistici e i caratteri voce per il servizio Voce.
+description: Informazioni su come preparare il testo per personalizzare acustici e modelli di lingua e le voci per i servizi di riconoscimento vocale.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: 31813cbbe4bdb647d43e99e7585d1eb3bb6e8a5c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0d7508ed9cf1807fa05c57a1d60c804af7d2244f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857176"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897215"
 ---
 # <a name="transcription-guidelines-for-using-the-speech-service"></a>Linee guida per la trascrizione per l'uso del servizio Voce
 
 Per personalizzare le funzioni di **Riconoscimento vocale** o **Sintesi vocale**, è necessario fornire testo insieme alla voce. Ogni linea di testo corrisponde a una singola espressione. Il testo deve corrispondere il più possibile al parlato. Il testo viene definito *trascrizione* ed è necessario crearlo in un formato specifico.
 
-Il servizio Voce normalizza l'input per mantenere coerente il testo. 
+I servizi di riconoscimento vocale Normalizza l'input per mantenere coerente il testo.
 
 In questo articolo vengono descritti entrambi i tipi di normalizzazione. Le linee guida variano leggermente per le diverse lingue.
 
@@ -39,7 +39,7 @@ Evitare l'uso di caratteri di punteggiatura estesi (Latin-1) o Unicode. Questi c
 
 ### <a name="text-normalization-rules-for-english"></a>Regole di normalizzazione del testo per la lingua inglese
 
-Il servizio Voce esegue le regole di normalizzazione seguenti:
+I servizi di riconoscimento vocale eseguire le seguenti regole di normalizzazione:
 
 * Uso delle lettere minuscole per tutto il testo
 * Rimozione di tutti i segni di punteggiatura tranne apostrofi interni alla parola
@@ -64,7 +64,7 @@ Applicare la normalizzazione seguente alle trascrizioni di testo:
 * Le stringhe numeriche non standard, ad esempio alcuni formati di data o contabili, devono essere scritte in parole.
 * Le parole con caratteri non alfabetici o con caratteri alfanumerici misti devono essere trascritte come vengono pronunciate.
 * Lasciare invariate le abbreviazioni che vengono pronunciate come parole, ad esempio "radar", "laser", "RAM" o "NATO".
-* Scrivere le abbreviazioni pronunciate come lettere separate con lettere separate da spazi, ad esempio "IBM", "CPU", "FBI", "TBD" o "NaN". 
+* Scrivere le abbreviazioni pronunciate come lettere separate con lettere separate da spazi, ad esempio "IBM", "CPU", "FBI", "TBD" o "NaN".
 
 Di seguito sono riportati alcuni esempi:
 
@@ -83,7 +83,7 @@ Di seguito sono riportati alcuni esempi:
 
 ## <a name="chinese-zh-cn"></a>Cinese (zh-cn)
 
-I dati di testo caricati nel Servizio di riconoscimento vocale personalizzato devono usare la codifica UTF-8 con un marcatore dell'ordine dei byte. Il file deve essere scritto con un'espressione per linea.
+I dati di testo che viene caricati per i servizi di riconoscimento vocale personalizzato devono usare la codifica UTF-8 con un byte order mark. Il file deve essere scritto con un'espressione per linea.
 
 Evitare l'uso di caratteri di punteggiatura a mezza larghezza. Questi caratteri possono essere inseriti inavvertitamente durante la preparazione dei dati in un programma di elaborazione di testo o durante l'eliminazione di dati da pagine Web. Sostituirli con elementi appropriati a larghezza intera. Ad esempio: 
 
@@ -94,7 +94,7 @@ Evitare l'uso di caratteri di punteggiatura a mezza larghezza. Questi caratteri 
 
 ### <a name="text-normalization-rules-for-chinese"></a>Regole di normalizzazione del testo per la lingua cinese
 
-Il servizio Voce esegue le regole di normalizzazione seguenti:
+I servizi di riconoscimento vocale eseguire le seguenti regole di normalizzazione:
 
 * Rimozione di tutti i segni di punteggiatura
 * Espansione dei numeri alla forma parlata
@@ -134,7 +134,7 @@ I dati di testo caricati nel servizio **Riconoscimento vocale** devono usare la 
 
 ### <a name="text-normalization-rules-for-german"></a>Regole di normalizzazione del testo per la lingua tedesca
 
-Il servizio Voce esegue le regole di normalizzazione seguenti:
+I servizi di riconoscimento vocale eseguire le seguenti regole di normalizzazione:
 
 * Uso delle lettere minuscole per tutto il testo
 * Rimozione di tutti i segni di punteggiatura, inclusi i vari tipi di virgolette ("prova", 'prova', "prova„ e «prova»)
@@ -162,13 +162,13 @@ Applicare la normalizzazione seguente al testo prima di importarlo:
 
 Di seguito sono riportati alcuni esempi:
 
-| Testo originale | Dopo la normalizzazione dell'utente | Dopo la normalizzazione del sistema
+| Testo originale | Dopo la normalizzazione dell'utente | Dopo la normalizzazione del sistema |
 |--------  | ----- | -------- |
 | Es ist 12.23 Uhr | Es ist 12:23 Uhr | es ist zwölf uhr drei und zwanzig uhr |
-| {12.45} | {12,45} | zwölf komma vier fünf ||
+| {12.45} | {12,45} | zwölf komma vier fünf |
 | 2 + 3 - 4 | 2 plus 3 minus 4 | zwei plus drei minus vier|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ottenere una sottoscrizione di prova al servizio Voce](https://azure.microsoft.com/try/cognitive-services/)
+- [Ottenere una sottoscrizione di prova gratuita al Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
 - [Riconoscimento vocale in C#](quickstart-csharp-dotnet-windows.md)

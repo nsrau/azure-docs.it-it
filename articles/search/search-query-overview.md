@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 5cddf69f700c971d22384dadb00d3becc4a8385f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: a197be06d9c6f4b70b8ffc06712ef315547b4140
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300876"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136513"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Come comporre una query in Ricerca di Azure
 
@@ -38,15 +38,15 @@ La tabella seguente elenca le API e i metodi basati su strumenti per inviare que
 Gli esempi sono utili per introdurre nuovi concetti. Come una query rappresentativa costruita nell’[API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents), questo esempio fa riferiemnto all’[indice demo immobiliare](search-get-started-portal.md) e include i parametri comuni.
 
 ```
-{  
+{
     "queryType": "simple" 
-    "search": "seattle townhouse* +\"lake\"", 
-    "searchFields": "description, city",  
-    "count": "true", 
+    "search": "seattle townhouse* +\"lake\"",
+    "searchFields": "description, city",
+    "count": "true",
     "select": "listingId, street, status, daysOnMarket, description",
     "top": "10",
     "orderby": "daysOnMarket"
- } 
+}
 ```
 
 + **`queryType`** imposta il parser, che in Ricerca di Azure può essere il [parser predefinito di query semplice](search-query-simple-examples.md) (ottimale per la ricerca full-text), o il [parser di query Lucene completo](search-query-lucene-examples.md) usato per i costrutti di query avanzate, come le espressioni regolari, ricerca per prossimità, fuzzy e ricerca con caratteri jolly, per citarne alcuni.
@@ -118,7 +118,7 @@ La Ricerca di Azure supporta un'ampia gamma di tipi di query.
 
 | Tipo di query | Uso | Altre informazioni ed esempi |
 |------------|--------|-------------------------------|
-| Ricerca di testo in formato libero | Parametro di ricerca ed entrambi i parser| La ricerca full-text scansiona uno o più termini in tutti i campi *ricercabili* dell'indice e funziona come un motore di ricerca, ad esempio Google o Bing. L'esempio nella sezione introduttiva è di ricerca full-text.<br/><br/>La ricerca full-text viene sottoposta ad analisi del testo usando l'analizzatore Lucene standard (per impostazione predefinita) per rendere tutti i termini minuscoli, rimuovere parole non significative, ad esempio "il". È possibile sostituire l'impostazione predefinita con [analizzatori di lingua diversa dall'inglese](index-add-language-analyzers.md#language-analyzer-list) oppure [analizzatori specializzati indipendenti dalla lingua](index-add-custom-analyzers.md#AnalyzerTable) che modificano l'analisi del testo. Ad esempio [parola chiave](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) gestisce l'intero contenuto di un campo come un token singolo. Ciò è utile per i dati come i codici postali, ID e alcuni nomi di prodotto. | 
+| Ricerca di testo in formato libero | Parametro di ricerca ed entrambi i parser| La ricerca full-text scansiona uno o più termini in tutti i campi *ricercabili* dell'indice e funziona come un motore di ricerca, ad esempio Google o Bing. L'esempio nella sezione introduttiva è di ricerca full-text.<br/><br/>La ricerca full-text viene sottoposta ad analisi del testo usando l'analizzatore Lucene standard (per impostazione predefinita) per rendere tutti i termini minuscoli, rimuovere parole non significative, ad esempio "il". È possibile sostituire l'impostazione predefinita con [analizzatori di lingua diversa dall'inglese](index-add-language-analyzers.md#language-analyzer-list) oppure [analizzatori specializzati indipendenti dalla lingua](index-add-custom-analyzers.md#AnalyzerTable) che modificano l'analisi del testo. Ad esempio [parola chiave](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) gestisce l'intero contenuto di un campo come un token singolo. Ciò è utile per i dati come i codici postali, gli ID e alcuni nomi di prodotto. | 
 | Ricerca filtrata | [Espressione di filtro OData](query-odata-filter-orderby-syntax.md) ed entrambi i parser | Le query filtro valutano un'espressione booleana su tutti i campi *filtrabili* in un indice. Contrariamente alla ricerca, una query filtro corrisponde al contenuto esatto di un campo, inclusa la distinzione tra maiuscole e minuscole nei campi della stringa. Un'altra differenza è che le query filtro vengono espresse nella sintassi di OData. <br/>[Esempio di espressione filtro](search-query-simple-examples.md#example-3-filter-queries) |
 | Ricerca geografica | [Tipo Edm.Geographypoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) sul campo, l'espressione filtro ed entrambi i parser | Le coordinate archiviate in un campo con un Edm.geographypoint sono utilizzate per "ricerca nelle vicinanze" o per controlli di ricerca basati su mappa. <br/>[Esempio di ricerca geografica](search-query-simple-examples.md#example-5-geo-search)|
 | Ricerca immagini | espressione di filtro e parser semplice | In Ricerca di Azure, le query di intervallo vengono create usando il parametro di filtro. <br/>[Esempio di filtro di intervallo](search-query-simple-examples.md#example-4-range-filters) | 
@@ -146,7 +146,7 @@ Occasionalmente, la sostanza dei risultati, e non la struttura, è imprevista. Q
 
 + Cambiare **`searchMode=any`** (predefinito) in **`searchMode=all`** per richiedere corrispondenze su tutti i criteri e non su alcuni. Questo è particolarmente vero quando gli operatori booleani sono inclusi nella query.
 
-+ Modificare la tecnica di query se l'analisi lessicale o del testo è necessaria, ma il tipo di query preclude l'elaborazione linguistica. Nella ricerca full-text, l'analisi del testo o lessicale corregge automaticamente gli errori di ortografia, il singolare/plurale delle parole e persino i sostantivi o i verbi irregolari. Per alcune query, ad esempio le ricerche fuzzy o con caratteri jolly, l'analisi del testo non fa parte della pipeline di analisi della query. Per alcuni scenari, le espressioni regolari vengono usati come soluzione alternativa. 
++ Modificare la tecnica di query se l'analisi lessicale o del testo è necessaria, ma il tipo di query preclude l'elaborazione linguistica. Nella ricerca full-text, testo o autocorrects analisi lessicale per gli errori di ortografia, forme singolare al plurale e persino irregolari verbi o sostantivi. Per alcune query, ad esempio le ricerche fuzzy o con caratteri jolly, l'analisi del testo non fa parte della pipeline di analisi della query. Per alcuni scenari, le espressioni regolari vengono usati come soluzione alternativa. 
 
 ### <a name="paging-results"></a>Risultati di paging
 Ricerca di Azure rende più facile implementare il paging dei risultati della ricerca. Tramite i parametri **`top`** e **`skip`** è possibile eseguire in modo uniforme le richieste di ricerca che consentono di ricevere il set totale di risultati della ricerca in subset gestibili e ordinati in grado di abilitare facilmente ottime procedure di ricerca nell'interfaccia utente. Quando si ricevono questi subset di risultati più piccoli, è anche possibile ottenere il numero di documenti nel set di totale dei risultati della ricerca.
@@ -167,4 +167,4 @@ In Ricerca di Azure è semplice mettere in evidenza la parte esatta dei risultat
 + [Come funziona la ricerca full-text in Ricerca di Azure (architettura di analisi delle query)](search-lucene-query-architecture.md)
 + [Esplora ricerche](search-explorer.md)
 + [Come eseguire query in .NET](search-query-dotnet.md)
-+ [Come eseguire query in REST](search-query-rest-api.md)
++ [Come eseguire query in REST](search-create-index-rest-api.md)

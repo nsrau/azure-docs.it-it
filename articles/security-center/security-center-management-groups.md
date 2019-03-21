@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: 76239f80076cbe0f86d6e091a29b008a5a5d06c1
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 3282afb87672ba25294e65ea1474a9e06df03362
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116644"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871063"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Ottenere visibilità a livello di tenant per il Centro sicurezza di Azure
 Questo articolo illustra come iniziare a eseguire diverse azioni che ottimizzano i vantaggi offerti dal Centro sicurezza di Azure. Queste azioni consentono di ottenere visibilità su tutte le sottoscrizioni di Azure collegate al tenant di Azure Active Directory e di gestire in modo efficiente la sicurezza dell'organizzazione su vasta scala applicando i criteri di sicurezza in più sottoscrizioni secondo una logica aggregativa.
@@ -38,7 +38,7 @@ Per una panoramica dettagliata dei gruppi di gestione, vedere l'articolo [Organi
 È possibile organizzare le sottoscrizioni in gruppi di gestione a cui vengono applicati i criteri di governance. Tutte le sottoscrizioni all'interno di un gruppo di gestione ereditano automaticamente i criteri applicati al gruppo di gestione. Anche se i gruppi di gestione non sono necessari per l'onboarding del Centro sicurezza, è consigliabile creare almeno un gruppo di gestione per poter creare il gruppo di gestione radice. Dopo la creazione del gruppo, vi saranno collegate tutte le sottoscrizioni nel tenant di Azure AD. Per le istruzioni relative a PowerShell e per altre informazioni, vedere [Creare gruppi di gestione per la gestione e l'organizzazione delle risorse](../azure-resource-manager/management-groups-create.md).
 
  
-1. Accedere al [portale di Azure](http://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare **Tutti i servizi** > **Gruppi di gestione**.
 3. Nella pagina principale selezionare **Nuovo Gruppo di gestione.** 
 
@@ -51,7 +51,7 @@ Per una panoramica dettagliata dei gruppi di gestione, vedere l'articolo [Organi
 5.  Selezionare **Salva**
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Visualizzare i gruppi di gestione nel portale di Azure
-1. Accedere al [portale di Azure](http://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Per visualizzare i gruppi di gestione, selezionare **Tutti i servizi** nel menu principale di Azure.
 3. In **Generale** selezionare **Gruppi di gestione**.
 
@@ -77,7 +77,7 @@ Un amministratore del tenant di Azure Active Directory non ha accesso diretto al
 
    - Quando si imposta l'interruttore su Sì, si viene assegnati al ruolo Amministratore Accesso utenti in Controllo degli accessi in base al ruolo Azure nell'ambito radice (/). In questo modo si ottiene l'autorizzazione ad assegnare ruoli in tutte le sottoscrizioni e i gruppi di gestione di Azure associati a questa directory di Azure AD. Questo interruttore è disponibile solo per gli utenti a cui è assegnato il ruolo Amministratore globale in Azure AD.
 
-  - Quando si imposta l'interruttore su No, il ruolo Amministratore Accesso utenti in Controllo degli accessi in base al ruolo Azure viene rimosso dall'account utente. Non è quindi più possibile assegnare ruoli in tutte le sottoscrizioni e i gruppi di gestione di Azure associati a questa directory di Azure AD. È possibile visualizzare e gestire solo le sottoscrizioni e i gruppi di gestione di Azure ai quali si ha accesso.
+   - Quando si imposta l'interruttore su No, il ruolo Amministratore Accesso utenti in Controllo degli accessi in base al ruolo Azure viene rimosso dall'account utente. Non è quindi più possibile assegnare ruoli in tutte le sottoscrizioni e i gruppi di gestione di Azure associati a questa directory di Azure AD. È possibile visualizzare e gestire solo le sottoscrizioni e i gruppi di gestione di Azure ai quali si ha accesso.
 
 4. Fare clic su **Salva** per salvare l'impostazione.
 
@@ -108,15 +108,15 @@ Per ottenere visibilità in tutte le sottoscrizioni, gli amministratori tenant d
 
 
 #### <a name="assign-rbac-roles-to-users-with-powershell"></a>Assegnare ruoli Controllo degli accessi in base al ruolo agli utenti con PowerShell: 
-1. Installare [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+1. Installare [Azure PowerShell](/powershell/azure/install-az-ps).
 2. Eseguire i comandi seguenti: 
 
     ```azurepowershell
-    # Install Management Groups Powershell module
-    Install-Module AzureRM.Resources
-    
     # Login to Azure as a Global Administrator user
-    Login-AzureRmAccount
+    Connect-AzAccount
     ```
 
 3. Quando richiesto, accedere con le credenziali di amministratore globale. 
@@ -128,12 +128,12 @@ Per ottenere visibilità in tutte le sottoscrizioni, gli amministratori tenant d
     ```azurepowershell
     # Add Reader role to the required user on the Root Management Group
     # Replace "user@domian.com” with the user to grant access to
-    New-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"
+    New-AzRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"
     ```
 5. Per rimuovere il ruolo, usare il comando seguente: 
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
+    Remove-AzRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
     ```
 
 ### <a name="open-or-refresh-security-center"></a>Aprire o aggiornare il Centro sicurezza
@@ -141,12 +141,17 @@ Dopo avere ottenuto l'accesso con privilegi elevati, aprire o aggiornare il Cent
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 2. Assicurarsi di selezionare nel selettore delle sottoscrizioni tutte le sottoscrizioni da visualizzare nel Centro sicurezza.
-    ![Screenshot del selettore delle sottoscrizioni](./media/security-center-management-groups/subscription-selector.png)
+
+    ![Screenshot del selettore di sottoscrizione](./media/security-center-management-groups/subscription-selector.png)
+
 1. Selezionare **Tutti i servizi** nel menu principale di Azure, quindi selezionare **Centro sicurezza**.
-2. In **Panoramica** è presente un grafico relativo alla copertura delle sottoscrizioni. 
-    ![Screenshot del grafico sulla copertura delle sottoscrizioni](./media/security-center-management-groups/security-center-subscription-coverage.png)
+2. In **Panoramica** è presente un grafico relativo alla copertura delle sottoscrizioni.
+
+    ![Screenshot del grafico di code coverage sottoscrizione](./media/security-center-management-groups/security-center-subscription-coverage.png)
+
 3. Fare clic su **Copertura** per visualizzare l'elenco di sottoscrizioni coperte. 
-    ![Screenshot dell'elenco con la copertura delle sottoscrizioni](./media/security-center-management-groups/security-center-coverage.png)
+
+    ![Schermata di elenco di code coverage sottoscrizione](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="remove-elevated-access"></a>Rimuovere l'accesso con privilegi elevati 
 Dopo che i ruoli Controllo degli accessi in base al ruolo sono stati assegnati agli utenti, l'amministratore del tenant deve rimuovere se stesso dal ruolo Amministratore Accesso utenti.
@@ -176,8 +181,8 @@ Dopo che i ruoli Controllo degli accessi in base al ruolo sono stati assegnati a
 
 4. Ripetere i passaggi da 1 a 3 finché non sono state aggiunte tutte le sottoscrizioni nell'ambito.
 
- > [!NOTE]
- > I gruppi di gestione possono contenere sia sottoscrizioni che gruppi di gestione figlio. Quando si assegna a un utente un ruolo Controllo degli accessi in base al ruolo per il gruppo di gestione padre, l'accesso viene ereditato dalle sottoscrizioni del gruppo di gestione figlio. Anche i criteri impostati nel gruppo di gestione padre vengono ereditati dagli elementi figlio. 
+   > [!NOTE]
+   > I gruppi di gestione possono contenere sia sottoscrizioni che gruppi di gestione figlio. Quando si assegna a un utente un ruolo Controllo degli accessi in base al ruolo per il gruppo di gestione padre, l'accesso viene ereditato dalle sottoscrizioni del gruppo di gestione figlio. Anche i criteri impostati nel gruppo di gestione padre vengono ereditati dagli elementi figlio. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stato illustrato come ottenere visibilità a livello di tenant per il Centro sicurezza di Azure. Per altre informazioni sul Centro sicurezza, vedere gli articoli seguenti:

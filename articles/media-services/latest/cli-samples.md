@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 02/11/2019
+ms.date: 03/11/2019
 ms.author: juliako
-ms.openlocfilehash: 919dbd057f2fa1d762775ed799505796a420864a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: dee7f831562dc1f4b2478d13b204aab1d8455e1e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109249"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840631"
 ---
 # <a name="azure-cli-examples-for-azure-media-services"></a>Esempi di interfaccia della riga di comando di Azure per Servizi multimediali di Azure
 
@@ -30,13 +30,14 @@ La tabella seguente include collegamenti a esempi dell'interfaccia della riga di
 |**Ridimensionare**||
 | [Ridimensionare le Media Reserved Units (S1/S2/S3)](media-reserved-units-cli-how-to.md)|Per i processi di analisi audio e video generati da Servizi multimediali v3 o Video Indexer, è fortemente consigliato effettuare il provisioning dell'account con 10 MRU S3. <br/>Lo script mostra come usare l'interfaccia della riga di comando per ridimensionare le Media Reserved Units (S1/S2/S3).|
 |**Account**||
-| [Creare un account di Servizi multimediali di Azure.](./scripts/cli-create-account.md) | Crea un account di Servizi multimediali di Azure. Crea anche un'entità servizio che può essere usata per accedere alle API e gestire l'account a livello di codice. |
+| [Creare un account di Servizi multimediali di Azure.](create-account-cli-how-to.md) | Lo script crea un account servizi multimediali di Azure. |
 | [Reimpostare le credenziali dell'account](./scripts/cli-reset-account-credentials.md)|Reimposta le credenziali dell'account e ripristina le impostazioni di app.config.|
 |**Asset**||
 | [Creare gli asset](./scripts/cli-create-asset.md)|Crea un asset di Servizi multimediali dove caricare il contenuto.|
 | [Caricare un file](./scripts/cli-upload-file-asset.md)|Carica un file locale in un contenitore di archiviazione.|
 | **Trasformazioni** e **processi**||
-| [Creare trasformazioni](./scripts/cli-create-transform.md)|Mostra come creare trasformazioni. Le trasformazioni descrivono un semplice flusso di lavoro di attività per l'elaborazione dei file video o audio, detto spesso "recipe".<br/> È necessario verificare sempre se esiste già una trasformazione con il nome e il "recipe" desiderati. Se esiste, riutilizzarla. |
+| [Creare trasformazioni](./scripts/cli-create-transform.md)|Mostra come creare trasformazioni. Le trasformazioni descrivono un semplice flusso di lavoro di attività per l'elaborazione dei file video o audio, detto spesso "recipe".<br/> È consigliabile controllare sempre se una trasformazione con un nome desiderato e "ricetta" esiste già. Se esiste, riutilizzarla. |
+| [Codificare contenuti con una trasformazione personalizzata](custom-preset-cli-howto.md) | Viene illustrato come creare un set di impostazioni per i requisiti specifici di uno scenario o un dispositivo di destinazione personalizzato.|
 | [Creare processi](./scripts/cli-create-jobs.md)|Invia un processo a una semplice trasformazione di codifica usando URL HTTPs.|
 | [Creare una Griglia di eventi](./scripts/cli-create-event-grid.md)|Crea una sottoscrizione di Griglia di eventi a livello di account per le modifiche dello stato del processo.|
 | **Distribuire**||
@@ -45,4 +46,5 @@ La tabella seguente include collegamenti a esempi dell'interfaccia della riga di
 
 ## <a name="see-also"></a>Vedere anche 
 
-[Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+- [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+- [Guida introduttiva: File video di Stream - CLI](stream-files-cli-quickstart.md)

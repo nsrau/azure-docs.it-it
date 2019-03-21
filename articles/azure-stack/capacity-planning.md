@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: b8bd57953845278aa75e8cbdf41ae28300edad58
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3d825a0f8a23380b4d9cf453076ab4b18ee67831
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184908"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095518"
 ---
 # <a name="azure-stack-capacity-planning"></a>Azure Stack la pianificazione della capacità
 Durante la valutazione di una soluzione di Azure Stack, sono disponibili opzioni di configurazione hardware che hanno un impatto diretto sulla capacità complessiva del Cloud Azure Stack. Questi sono disponibili i classiche della CPU, memoria densità, configurazione dell'archiviazione e complessiva scalabilità soluzione o numero di server. A differenza di una soluzione di virtualizzazione tradizionale, non è applicabile l'aritmetica semplice di questi componenti per determinare la capacità utilizzabile. Il primo motivo è che Azure Stack è progettato per ospitare i componenti di infrastruttura o di gestione all'interno della soluzione stessa. Il secondo motivo è che alcune delle capacità della soluzione è riservato per il supporto di resilienza; l'aggiornamento del software della soluzione in modo da ridurre al minimo l'interruzione dei carichi di lavoro tenant.
@@ -49,7 +49,7 @@ Una descrizione più dettagliata delle complessità dei calcoli di capacità è 
 |     |     |     |     |     |     |     |     |
 
 > <sup>1</sup> macchine virtuali D2 standard.
-
+> 
 > <sup>2</sup> core virtuale a un rapporto tra core fisici.
 
 Come indicato in precedenza, la capacità di macchina virtuale è determinata dalla memoria disponibile. I core virtuali per core fisici rapporti fornire come la densità della macchina virtuale cambierà capacità CPU disponibile, a meno che la soluzione viene costruita con un numero elevato di core fisici (viene scelta un'altra CPU). Lo stesso vale della capacità di archiviazione e capacità di archiviazione della cache.

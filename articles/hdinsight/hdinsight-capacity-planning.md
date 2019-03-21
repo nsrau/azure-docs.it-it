@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7eb18b5560e849796770ce9d24574d7a3d0db262
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: b35c5073f2b19523010528800c2a989d5de5b448
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716141"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848014"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Pianificazione della capacità per cluster HDInsight
 
@@ -109,11 +109,11 @@ Dopo aver determinato il tipo, la dimensione e la scalabilità della macchina vi
 1. Fare clic su **Guida e supporto tecnico** nell'angolo in basso a sinistra della pagina.
 1. Fare clic su **Nuova richiesta di supporto**.
 1. Nella pagina **Nuova richiesta di supporto** selezionare le opzioni seguenti nella scheda **Informazioni di base**:
-    - **Tipo di problema**: **Limiti del servizio e della sottoscrizione (quote)**
-    - **Sottoscrizione**: la sottoscrizione che si vuole modificare
-    - **Tipo di quota**: **HDInsight**
+   - **Tipo di problema**: **Limiti del servizio e della sottoscrizione (quote)**
+   - **Sottoscrizione**: la sottoscrizione che si vuole modificare
+   - **Tipo di quota**: **HDInsight**
     
-    ![Creare una richiesta di supporto per aumentare la quota di core HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
+     ![Creare una richiesta di supporto per aumentare la quota di core HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
 1. Fare clic su **Avanti**.
 1. Nella pagina **Dettagli** immettere una descrizione del problema, selezionare la gravità del problema e selezionare la modalità di contatto preferita.
@@ -125,7 +125,7 @@ Dopo aver determinato il tipo, la dimensione e la scalabilità della macchina vi
 
 È possibile [contattare il supporto tecnico per richiedere un aumento dei limiti di quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
-Esistono tuttavia alcuni limiti di quota fissi: una singola sottoscrizione di Azure, ad esempio, non può avere più di 10.000 core. Per informazioni dettagliate sui limiti, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager).
+Esistono tuttavia alcuni limiti di quota fissi: una singola sottoscrizione di Azure, ad esempio, non può avere più di 10.000 core. Per informazioni dettagliate sui limiti, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

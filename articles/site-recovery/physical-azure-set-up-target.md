@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 43276aad26bc06400c1bc4b5feaace0d5646c213
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 41220ccdca945610d7d8ca87af0857114e2cef85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849238"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57866293"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Preparare la destinazione (da VMware ad Azure)
 
@@ -21,7 +21,7 @@ Questo articolo descrive come preparare l'ambiente di Azure per avviare la repli
 ## <a name="prerequisites"></a>Prerequisiti
 
 L'articolo presuppone quanto segue:
-- È stato creato un insieme di credenziali dei servizi di ripristino per proteggere i server fisici. È possibile creare un insieme di credenziali di Servizi di ripristino nel [portale di Azure](http://portal.azure.com "portale di Azure").
+- È stato creato un insieme di credenziali dei servizi di ripristino per proteggere i server fisici. È possibile creare un insieme di credenziali di Servizi di ripristino nel [portale di Azure](https://portal.azure.com "portale di Azure").
 - Per replicare i server fisici in Azure, è necessario aver [configurato l'ambiente locale](physical-azure-disaster-recovery.md).
 
 ## <a name="prepare-target"></a>Preparare la destinazione

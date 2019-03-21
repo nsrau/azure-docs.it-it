@@ -1,5 +1,5 @@
 ---
-title: Eseguire un servizio di Microsoft Azure Service Fabric in un account gMSA | Microsoft Docs
+title: Eseguire un servizio di Azure Service Fabric in un account gMSA | Microsoft Docs
 description: Informazioni su come eseguire un servizio come gMSA in un cluster autonomo Windows di Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: 56a7478ab7221a1ccb4394a245540d3181e4ad8e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 8d14d9191e74cb59c6696568ead425fca61d6f7c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155579"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57873904"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Eseguire un servizio come account del servizio gestito del gruppo
 In un cluster autonomo di Windows Server è possibile eseguire un servizio come account del servizio gestito del gruppo usando criteri RunAs.  Per impostazione predefinita, le applicazioni di Service Fabric vengono eseguite con lo stesso account con cui viene eseguito il processo Fabric.exe. L'esecuzione di applicazioni con account diversi, anche in ambienti ospitati condivisi, aumenta la sicurezza reciproca. Si noti che è in uso Active Directory in locale nel dominio e non Microsoft Azure Active Directory (Azure AD). Se si usa un account del servizio gestito del gruppo, nel manifesto dell'applicazione non viene archiviata alcuna password o password crittografata.  È anche possibile eseguire un servizio come [utente o gruppo di Active Directory](service-fabric-run-service-as-ad-user-or-group.md).
@@ -48,7 +48,7 @@ Prerequisiti:
     
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
-    <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+    <ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
         <ServiceManifestImport>
           <ServiceManifestRef ServiceManifestName="MyServiceTypePkg" ServiceManifestVersion="1.0.0" />
           <ConfigOverrides />
@@ -68,7 +68,8 @@ Prerequisiti:
 > Se si applica un criterio RunAs a un servizio e il manifesto del servizio dichiara le risorse dell'endpoint con il protocollo HTTP, è necessario specificare **SecurityAccessPolicy**.  Per altre informazioni, vedere [Assegnare criteri di accesso di sicurezza per gli endpoint HTTP e HTTPS](service-fabric-assign-policy-to-endpoint.md). 
 >
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged--> Come passaggio successivo, leggere gli articoli seguenti:
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+Come passaggio successivo, leggere gli articoli seguenti:
 * [Informazioni sul modello applicativo](service-fabric-application-model.md)
 * [Specificare le risorse in un manifesto del servizio](service-fabric-service-manifest-resources.md)
 * [Distribuire un'applicazione](service-fabric-deploy-remove-applications.md)

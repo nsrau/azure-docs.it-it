@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 16c37f5ccaed7c161ecaae65a07c5da7400aad3c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 776523bb001848e6ecc153f670a96e3143e2ac0d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815074"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006341"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Eseguire Azure Site Recovery Deployment Planner per il ripristino di emergenza da Hyper-V ad Azure
 
@@ -34,6 +34,7 @@ La tabella seguente contiene un elenco dei parametri obbligatori e facoltativi d
 ```
 ASRDeploymentPlanner.exe -Operation GetVMList /?
 ```
+
 | Nome parametro | DESCRIZIONE |
 |---|---|
 | -Operation | GetVMList |
@@ -83,6 +84,7 @@ La tabella seguente elenca i parametri obbligatori e facoltativi dello strumento
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
+
 | Nome parametro | DESCRIZIONE |
 |---|---|
 | -Operation | StartProfiling |
@@ -164,6 +166,7 @@ La tabella seguente contiene un elenco dei parametri obbligatori e facoltativi d
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport /?
 ```
+
 | Nome parametro | DESCRIZIONE |
 |---|---|
 | -Operation | GenerateReport |
@@ -271,6 +274,7 @@ Aprire una console della riga di comando e passare alla cartella dello strumento
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput /?
 ```
+
  Nome parametro | DESCRIZIONE |
 |---|---|
 | -Operation | GetThroughput |

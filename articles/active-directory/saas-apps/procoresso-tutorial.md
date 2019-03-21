@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d72f4ac39ac992d0386b3971cd4d3bc6616f0a28
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 36e1c8d6cae79147c5cd4b5a46f5e1c330811ab8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186456"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877650"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Esercitazione: integrazione di Azure Active Directory con Procore SSO
 
@@ -179,7 +179,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel **nome utente** , digitare **brittasimon\@yourcompanydomain.extension**  
        Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare **Proprietà**, selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
@@ -204,7 +204,7 @@ Eseguire la procedura seguente per creare un utente test di Procore sul lato Pro
 
     b. Digitare il cognome di Britta Simon nella casella di testo **Last Name** (Cognome), ad esempio **Simon**.
 
-    c. Nella casella di testo **Email Address** (Indirizzo di posta elettronica) digitare l'indirizzo di posta elettronica dell'utente, ad esempio **BrittaSimon@contoso.com**.
+    c. Nel **indirizzo di posta elettronica** come indirizzo di posta elettronica dell'utente di tipo casella di testo **BrittaSimon\@contoso.com**.
 
     d. Selezionare **Permission Template** (Modello di autorizzazione) per **Apply Permission Template Later** (Applica modello di autorizzazione più tardi).
 
@@ -214,7 +214,7 @@ Eseguire la procedura seguente per creare un utente test di Procore sul lato Pro
 
     ![Configure Single Sign-On](./media/procoresso-tutorial/Procore_user_check.png)
 
-5. Se è richiesto un invito via posta elettronica, fare clic su **Save and Send Invitation** (Salva e invia invito) oppure scegliere **Save** (Salva) per salvare direttamente e completare la registrazione dell'utente.
+5. Fare clic su **Salva e Invia invito** (se è richiesto un invito tramite posta elettronica) o **salvare** (salvare direttamente) per completare la registrazione dell'utente.
     
     ![Configure Single Sign-On](./media/procoresso-tutorial/Procore_user_save.png)
 

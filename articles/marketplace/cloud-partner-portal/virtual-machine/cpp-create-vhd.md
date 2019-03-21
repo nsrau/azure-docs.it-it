@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 84e0d02f2608a6ee94ee409345e530357d394671
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5643b7c80307cea36f60bcc116c82ea7b31171f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233185"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096572"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>Creare un disco rigido virtuale compatibile con Azure
 
@@ -48,25 +48,25 @@ In alternativa, Azure offre una gamma di distribuzioni Linux approvate.  Per un 
 Nel [portale di Microsoft Azure](https://ms.portal.azure.com/) creare l'immagine di base con eseguendo questa procedura.
 
 1. Accedere al portale con l'account Microsoft per la sottoscrizione di Azure per cui si intende pubblicare l'offerta di macchina virtuale.
-2. Creare un nuovo gruppo di risorse e specificare i valori per **Nome del gruppo di risorse**, **Sottoscrizione** e **Località del gruppo di risorse**.  Per altre indicazioni, vedere [Gestire gruppi di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal#manage-resource-groups).
+2. Creare un nuovo gruppo di risorse e specificare i valori per **Nome del gruppo di risorse**, **Sottoscrizione** e **Località del gruppo di risorse**.  Per altre indicazioni, vedere [Gestire gruppi di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 3. Fare clic su **Macchine virtuali** nella barra dei menu a sinistra per visualizzare la pagina dei dettagli delle macchine virtuali. 
 4. In questa nuova pagina fare clic su **+ Aggiungi** per visualizzare il pannello **Calcolo** pannello.  Se non è possibile visualizzare il tipo di macchina virtuale nella schermata iniziale, è possibile cercare il nome della macchina di base, ad esempio:
 
     ![Pannello di calcolo della nuova macchina virtuale](./media/publishvm_014.png)
 
 5. Dopo aver selezionato l'immagine virtuale appropriata, specificare i valori seguenti:
-  * Nel pannello **Informazioni di base** immettere un valore in **Nome** per la macchina virtuale con lunghezza compresa tra 1 e 15 caratteri alfanumerici. Questo esempio usa `DemoVm009`.
-  * Immettere un valore in **Nome utente** e una password complessa in **Password**, da usare per creare un account locale nella macchina virtuale.  In questo caso viene usato `adminUser`.  La password deve avere una lunghezza compresa tra 8 e 123 caratteri e soddisfare almeno tre dei quattro requisiti di complessità seguenti: una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale. Per altre informazioni, vedere i [requisiti relativi a nome utente e password](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
-  * Selezionare il gruppo di risorse creato in precedenza (in questo caso `DemoResourceGroup`).
-  * Selezionare un valore di **Località** per il data center di Azure (in questo caso `West US`).
-  * Fare clic su **OK** per salvare questi valori. 
+   * Nel pannello **Informazioni di base** immettere un valore in **Nome** per la macchina virtuale con lunghezza compresa tra 1 e 15 caratteri alfanumerici. Questo esempio usa `DemoVm009`.
+   * Immettere un valore in **Nome utente** e una password complessa in **Password**, da usare per creare un account locale nella macchina virtuale.  In questo caso viene usato `adminUser`.  La password deve avere una lunghezza compresa tra 8 e 123 caratteri e soddisfare almeno tre dei quattro requisiti di complessità seguenti: una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale. Per altre informazioni, vedere i [requisiti relativi a nome utente e password](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
+   * Selezionare il gruppo di risorse creato in precedenza (in questo caso `DemoResourceGroup`).
+   * Selezionare un valore di **Località** per il data center di Azure (in questo caso `West US`).
+   * Fare clic su **OK** per salvare questi valori. 
 
-6.  Selezionare le dimensioni della macchina virtuale per eseguire la distribuzione seguendo queste indicazioni:
-  * Se si prevede di sviluppare il VHD in locale, la dimensione non è rilevante. Valutare l'opportunità di usare una delle macchine virtuali di dimensioni minori.
-  * Se si prevede di sviluppare l'immagine in Azure, valutare l'opportunità di usare una delle dimensioni di macchina virtuale consigliate per l'immagine selezionata.
-  * Per informazioni sui prezzi, vedere il selettore del **piano tariffario consigliato** visualizzato nel portale. Verranno indicate le tre dimensioni consigliate, specificate dall'autore. In questo caso l'autore è Microsoft.
+6. Selezionare le dimensioni della macchina virtuale per eseguire la distribuzione seguendo queste indicazioni:
+   * Se si prevede di sviluppare il VHD in locale, la dimensione non è rilevante. Valutare l'opportunità di usare una delle macchine virtuali di dimensioni minori.
+   * Se si prevede di sviluppare l'immagine in Azure, valutare l'opportunità di usare una delle dimensioni di macchina virtuale consigliate per l'immagine selezionata.
+   * Per informazioni sui prezzi, vedere il selettore del **piano tariffario consigliato** visualizzato nel portale. Verranno indicate le tre dimensioni consigliate, specificate dall'autore. In questo caso l'autore è Microsoft.
 
-    ![Pannello delle dimensioni della nuova macchina virtuale](./media/publishvm_015.png)
+   ![Pannello delle dimensioni della nuova macchina virtuale](./media/publishvm_015.png)
 
 7. Nel pannello **Impostazioni** impostare l'opzione **Usa dischi gestiti** su **No**.  Ciò consente di gestire manualmente il nuovo disco rigido virtuale. Il pannello **Impostazioni** consente anche di modificare altre opzioni di archiviazione e di rete, ad esempio selezionando **Premium (SSD)** in **Tipo di disco**.  Fare clic su **OK** per continuare.
 

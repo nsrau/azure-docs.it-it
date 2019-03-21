@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 478034d1c9f99f40a4827515433357c76235e9ee
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 7d846f28e78959b6962add51070f04857f6463d7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52430526"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852808"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Procedure consigliate per l'autenticazione e l'autorizzazione nel servizio Azure Kubernetes (AKS)
 
@@ -27,7 +27,7 @@ Questo articolo sulle procedure consigliate è incentrato su come un operatore d
 
 ## <a name="use-azure-active-directory"></a>Usare Azure Active Directory
 
-**Indicazioni sulle procedure consigliate**. Distribuire i cluster AKS con l'integrazione di Azure AD. L'uso di Azure AD consente di centralizzare il componente di gestione delle identità. Qualsiasi modifica all'account utente o allo stato del gruppo viene aggiornata automaticamente nell'accesso al cluster servizio Azure Kubernetes. Usare ruoli o ClusterRole e associazioni, come descritto nella sezione successiva, per assegnare a utenti o gruppi il minor numero di autorizzazioni richieste.
+**Indicazioni sulle procedure consigliate**. Distribuire i cluster servizio Azure Kubernetes con l'integrazione di Azure AD. L'uso di Azure AD consente di centralizzare il componente di gestione delle identità. Qualsiasi modifica all'account utente o allo stato del gruppo viene aggiornata automaticamente nell'accesso al cluster servizio Azure Kubernetes. Usare ruoli o ClusterRole e associazioni, come descritto nella sezione successiva, per assegnare a utenti o gruppi il minor numero di autorizzazioni richieste.
 
 Gli sviluppatori e i proprietari delle applicazioni del cluster Kubernetes hanno bisogno di accedere a risorse diverse. Kubernetes non offre una soluzione di gestione delle identità per controllare quali utenti possono interagire con determinate risorse. In alternativa, in genere si integra il cluster con una soluzione di gestione delle identità esistente. Azure Active Directory (AD) offre una soluzione di gestione delle identità di livello aziendale e può essere integrato con i cluster servizio Azure Kubernetes.
 
@@ -64,7 +64,7 @@ rules:
   verbs: ["*"]
 ```
 
-Viene quindi creato un RoleBinding che associa l'utente di Azure AD *developer1@contoso.com* al RoleBinding, come illustrato nel manifesto YAML seguente:
+Viene quindi creato che associa l'utente di Azure AD un RoleBinding *developer1\@contoso.com* a RoleBinding, come illustrato nel manifesto YAML seguente:
 
 ```yaml
 ind: RoleBinding
@@ -82,7 +82,7 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-Quando *developer1@contoso.com* viene autenticato nel cluster servizio Azure Kubernetes, si dispone di autorizzazioni complete per le risorse nello spazio dei nomi *finance-app*. In questo modo, l'accesso alle risorse viene separato e controllato logicamente. Il controllo degli accessi in base al ruolo di Kubernetes deve essere usato in combinazione con l'integrazione di Azure AD, come descritto nella sezione precedente.
+Quando *developer1\@contoso.com* viene autenticato nel cluster AKS, dispongono delle autorizzazioni complete per le risorse nel *finance-app* dello spazio dei nomi. In questo modo, l'accesso alle risorse viene separato e controllato logicamente. Il controllo degli accessi in base al ruolo di Kubernetes deve essere usato in combinazione con l'integrazione di Azure AD, come descritto nella sezione precedente.
 
 ## <a name="use-pod-identities"></a>Usare le identità del pod
 
@@ -92,7 +92,7 @@ Quando i pod richiedono l'accesso ad altri servizi di Azure, ad esempio Cosmos D
 
 Le identità gestite per le risorse di Azure consentono di richiedere automaticamente l'accesso ai servizi tramite Azure AD. Le credenziali per i pod non vengono definite manualmente, ma è possibile richiedere un token di accesso in tempo reale da usare per accedere solo ai relativi servizi assegnati. In servizio Azure Kubernetes vengono distribuiti due componenti dall'operatore del cluster per consentire ai pod di usare le identità gestite:
 
-* Il **server NMI (Node Management Identity)** è un pod che viene eseguito come DaemonSet su ogni nodo nel cluster AKS. Il server NMI ascolta le richieste del pod ai servizi di Azure.
+* Il **server NMI (Node Management Identity)** è un pod che viene eseguito come DaemonSet su ogni nodo nel cluster servizio Azure Kubernetes. Il server NMI ascolta le richieste del pod ai servizi di Azure.
 * Il **controller MIC (Managed Identity Controller)** è un pod centrale che dispone di autorizzazioni per eseguire query nel server API Kubernetes e verifica la presenza di un mapping delle identità di Azure corrispondente a un pod.
 
 Quando i pod richiedono l'accesso a un servizio di Azure, le regole di rete reindirizzano il traffico verso il server NMI (Node Management Identity). Il server NMI identifica i pod che richiedono l'accesso ai servizi di Azure in base al relativo indirizzo remoto ed esegue una query nel controller MIC (Managed Identity Controller). Il MIC verifica la presenza dei mapping delle identità di Azure nel cluster servizio Azure Kubernetes e il server NMI richiede quindi un token di accesso da Azure Active Directory (AD) in base al mapping delle identità del pod. Azure AD fornisce l'accesso al server NMI, che viene restituito al pod. Questo token di accesso può essere quindi usato dal pod per richiedere l'accesso ai servizi di Azure.
@@ -112,8 +112,8 @@ Per usare le identità del pod, vedere l'articolo sulle [identità di Azure Acti
 
 Questo articolo sulle procedure consigliate ha illustrato l'autenticazione e l'autorizzazione per il cluster e le risorse. Per implementare alcune di queste procedure consigliate, vedere gli articoli seguenti:
 
-* [Integrare Azure Active Directory con AKS][aks-aad]
-* [Usare identità gestite per le risorse di Azure con AKS][aad-pod-identity]
+* [Integrare Azure Active Directory con servizio Azure Kubernetes][aks-aad]
+* [Usare identità gestite per le risorse di Azure con servizio Azure Kubernetes][aad-pod-identity]
 
 Per altre informazioni sulle operazioni cluster in servizio Azure Kubernetes, vedere le procedure consigliate seguenti:
 

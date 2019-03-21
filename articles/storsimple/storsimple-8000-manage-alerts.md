@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/09/2018
+ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: e86b6af562208e51e36b4679fd088ea399ce70b8
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
-ms.translationtype: HT
+ms.openlocfilehash: 4128ad53f30e74fb72f6256b78587cc222f4c282
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27745779"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838715"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare e gestire gli avvisi di StorSimple
 
@@ -56,7 +56,7 @@ Gli avvisi possono avere diversi livelli di gravità, in base all'impatto determ
 > [!NOTE]
 > È possibile immettere un massimo di 20 indirizzi di posta elettronica per ogni dispositivo.
 
-Dopo aver attivato la notifica di posta elettronica per un dispositivo, i membri dell'elenco delle notifiche riceveranno un messaggio di posta elettronica ogni volta che si verifica un avviso critico. I messaggi verranno inviati da *storsimple-alerts-noreply@mail.windowsazure.com* e conterranno una descrizione della condizione di avviso. I destinatari possono fare clic su **Annulla sottoscrizione** per essere rimossi dall'elenco delle notifiche e-mail.
+Dopo aver attivato la notifica di posta elettronica per un dispositivo, i membri dell'elenco delle notifiche riceveranno un messaggio di posta elettronica ogni volta che si verifica un avviso critico. I messaggi verranno inviati da *storsimple-alerts-noreply\@mail.windowsazure.com* e descriveranno la condizione di avviso. I destinatari possono fare clic su **Annulla sottoscrizione** per essere rimossi dall'elenco delle notifiche e-mail.
 
 #### <a name="to-enable-email-notification-of-alerts-for-a-device"></a>Per abilitare la notifica di posta elettronica degli avvisi per un dispositivo
 1. Passare al servizio Gestione dispositivi StorSimple. Nell'elenco dei dispositivi, selezionare e fare clic sul dispositivo da configurare.
@@ -68,9 +68,9 @@ Dopo aver attivato la notifica di posta elettronica per un dispositivo, i membri
    
    1. Nel campo **Invia notifica tramite posta elettronica** selezionare **SÌ**.
    2. Nel campo **Invia messaggio di posta elettronica agli amministratori del servizio** selezionare **SÌ** se si vuole che l'amministratore del servizio e tutti i co-amministratori ricevano le notifiche di avviso.
-   3. Nel campo **Altri destinatari di posta elettronica** immettere gli indirizzi di posta elettronica di tutti gli altri destinatari che devono ricevere le notifiche di avviso. Immettere i nomi nel formato *someone@somewhere.com*. Utilizzare il punto e virgola per separare gli indirizzi di posta elettronica. È possibile configurare un massimo di 20 indirizzi di posta elettronica per ogni dispositivo. 
+   3. Nel campo **Altri destinatari di posta elettronica** immettere gli indirizzi di posta elettronica di tutti gli altri destinatari che devono ricevere le notifiche di avviso. Immettere i nomi nel formato *qualcuno\@somewhere.com*. Utilizzare il punto e virgola per separare gli indirizzi di posta elettronica. È possibile configurare un massimo di 20 indirizzi di posta elettronica per ogni dispositivo. 
       
-3. Per inviare una notifica di posta elettronica di prova, fare clic su **Invia messaggio di posta elettronica di prova**. Il servizio Gestione dispositivi StorSimple visualizza i messaggi di stato e li inoltra alla 	notifica test.
+3. Per inviare una notifica di posta elettronica di prova, fare clic su **Invia messaggio di posta elettronica di prova**. Il servizio Gestione dispositivi StorSimple visualizza i messaggi di stato e inoltra la notifica di prova.
 
     ![Impostazione avviso](./media/storsimple-8000-manage-alerts/configure-alerts-email3.png)
 
@@ -142,11 +142,11 @@ Cosa accade se si verifica un errore di connettività cloud per il dispositivo S
 
 Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, quindi a seconda dello stato del dispositivo, può verificarsi quanto segue:
 
-* **Per i dati locali nel dispositivo**: per un certo periodo, non ci sarà alcuna interruzione del servizio e le letture continueranno a essere gestite. Tuttavia, come il numero di IOs attesa aumenta e supera un limite, le operazioni di lettura è possibile avviare esito negativo.
+* **Per i dati locali sul dispositivo**: Per un certo tempo, non vi sarà alcuna interruzione del servizio e le letture continueranno a essere gestite. Tuttavia, come il numero di IOs attesa aumenta e supera un limite, le operazioni di lettura è possibile avviare esito negativo.
 
     A seconda della quantità di dati nel dispositivo, anche le operazioni di scrittura continueranno a essere eseguite per alcune ore dopo l'interruzione della connettività cloud. Le operazioni di scrittura verrà quindi rallentano e alla fine iniziano ad avere esito negativo se viene interrotta la connettività cloud per diverse ore. Nel dispositivo è presente un archivio temporaneo per i dati di cui è necessario effettuare il push nel cloud. Quest'area viene scaricata quando i dati vengono inviati. Se si verifica un errore di connettività, non verrà effettuato il push nel cloud dei dati in quest'area di archiviazione e l'I/O avrà esito negativo.
-* **Per i dati nel cloud**: per la maggior parte dei problemi di connettività cloud, viene restituito un errore. Una volta la connettività viene ripristinata, senza che sia necessario portare il volume in linea viene ripresi IOs. In rari casi, l'intervento dell'utente potrebbe essere necessario per riportare in linea il volume dal portale di Azure.
-* **Per gli snapshot cloud in corso**: l'operazione viene ripetuta alcune volte nell'arco di 4-5 ore e, se non viene ripristinata la connettività, gli snapshot cloud avranno esito negativo.
+* **Per i dati nel cloud**: Per la maggior parte degli errori di connettività cloud, viene restituito un errore. Una volta la connettività viene ripristinata, senza che sia necessario portare il volume in linea viene ripresi IOs. In rari casi, l'intervento dell'utente potrebbe essere necessario per riportare in linea il volume dal portale di Azure.
+* **Per gli snapshot cloud in corso**: L'operazione viene ritentata più volte all'interno di 4-5 ore e se non viene ripristinata la connettività, gli snapshot cloud avranno esito negativo.
 
 ### <a name="cluster-alerts"></a>Avvisi di cluster
 
@@ -202,13 +202,14 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 | Impossibile avviare i servizi StorSimple. |Errore di percorso dati |Se il problema persiste, contattare il supporto tecnico Microsoft. |
 | Indirizzo IP duplicato rilevato per "Data0". | |Il sistema ha rilevato un conflitto per l'indirizzo IP "10.0.0.1". La risorsa di rete "Data0" sul dispositivo *<device1>* è offline. Assicurarsi che questo indirizzo IP non venga usato da nessuna altra entità nella rete. Per risolvere i problemi di rete, vedere [Risoluzione dei problemi con il cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Per risolvere il problema, contattare l'amministratore di rete. Se il problema persiste, contattare il supporto tecnico Microsoft. |
 | L'indirizzo IPv4 (o IPv6) per "Data0" è offline. | |La risorsa di rete "Data0" con indirizzo IP "10.0.0.1." e prefisso di lunghezza "22" sul dispositivo *<device1>* è offline. Verificare che le porte di commutazione a cui questa interfaccia è connessa siano operative. Per risolvere i problemi di rete, vedere [Risoluzione dei problemi con il cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
-| Impossibile connettersi al servizio di autenticazione. |Errore di percorso dati |L'URL usato per l'autenticazione non è raggiungibile. Verificare che nelle regole del firewall siano inclusi i modelli di URL specificati per il dispositivo StorSimple. Per altre informazioni sui modelli di URL disponibili nel portale di Azure, visitare https://aka.ms/ss-8000-network-reqs. Se si usa Azure per enti pubblici, passare ai modelli di URL disponibili in https://aka.ms/ss8000-gov-network-reqs.|
+| Impossibile connettersi al servizio di autenticazione. |Errore di percorso dati |L'URL usato per l'autenticazione non è raggiungibile. Verificare che nelle regole del firewall siano inclusi i modelli di URL specificati per il dispositivo StorSimple. Per altre informazioni sui criteri URL nel portale di Azure, passare a https://aka.ms/ss-8000-network-reqs. Se si usa Azure Government Cloud, passare ai modelli di URL in https://aka.ms/ss8000-gov-network-reqs.|
 
 ### <a name="performance-alerts"></a>Avvisi di prestazioni
 
-| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
-|:--- |:--- |:--- |
-| Il carico del dispositivo ha superato <*soglia*>. |Tempi di risposta più lenti del previsto. |Il dispositivo segnala un carico di input/output eccessivo e potrebbe non funzionare come previsto. Verificare i carichi di lavoro collegati al dispositivo e determinare se alcuni di loro non sono più necessari o possono essere spostati in un altro dispositivo.| Impossibile avviare i servizi StorSimple. |Errore di percorso dati |Se il problema persiste, contattare il supporto tecnico Microsoft. |Per comprendere lo stato corrente, vedere [Usare il servizio Gestione dispositivi StorSimple per monitorare il dispositivo](storsimple-8000-monitor-device.md) |
+| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate | |
+|:--- |:--- |:--- | --- |
+| Il carico del dispositivo ha superato <*soglia*>. |Tempi di risposta più lenti del previsto. |Il dispositivo segnala un carico di input/output eccessivo e potrebbe non funzionare come previsto. Verificare i carichi di lavoro collegati al dispositivo e determinare se alcuni di loro non sono più necessari o possono essere spostati in un altro dispositivo.|
+| Impossibile avviare i servizi StorSimple. |Errore di percorso dati |Se il problema persiste, contattare il supporto tecnico Microsoft. |
 
 ### <a name="security-alerts"></a>Avvisi di sicurezza
 

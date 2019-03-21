@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 3fa890b02c791f26f3f25bf2418b105d1116ca75
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.openlocfilehash: f66101d9847c57c5e078c3484a243e7b38823f53
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094427"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001798"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>Spostare una VM Windows da Amazon Web Services (AWS) a una macchina virtuale di Azure
 
@@ -46,7 +46,7 @@ Questo articolo illustra lo spostamento di una singola macchina virtuale da AWS 
 
 ## <a name="export-and-download-the-vhd"></a>Esportare e scaricare il disco rigido virtuale 
 
-Esportare l'istanza EC2 in un disco rigido virtuale in un bucket Amazon S3. Seguire la procedura illustrata nell'articolo [Exporting an Instance as a VM Using VM Import/Export](http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) (Esportazione di un'istanza come VM tramite l'importazione/esportazione della VM) della documentazione di Amazon ed eseguire il comando [create-instance-export-task](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) per esportare l'istanza EC2 in un file di disco rigido virtuale. 
+Esportare l'istanza EC2 in un disco rigido virtuale in un bucket Amazon S3. Seguire la procedura illustrata nell'articolo [Exporting an Instance as a VM Using VM Import/Export](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) (Esportazione di un'istanza come VM tramite l'importazione/esportazione della VM) della documentazione di Amazon ed eseguire il comando [create-instance-export-task](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) per esportare l'istanza EC2 in un file di disco rigido virtuale. 
 
 Il file di disco rigido virtuale esportato viene salvato nel bucket Amazon S3 indicato. La sintassi di base per l'esportazione del disco rigido virtuale viene riportata di seguito. È sufficiente sostituire il testo segnaposto in <brackets> con le informazioni specifiche.
 
@@ -55,7 +55,7 @@ aws ec2 create-instance-export-task --instance-id <instanceID> --target-environm
   --export-to-s3-task DiskImageFormat=VHD,ContainerFormat=ova,S3Bucket=<bucket>,S3Prefix=<prefix>
 ```
 
-Dopo l'esportazione del disco rigido virtuale, seguire le istruzioni disponibili in [How Do I Download an Object from an S3 Bucket?](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html) (Come scaricare un oggetto da un bucket S3) per scaricare il file disco rigido virtuale dal bucket S3. 
+Dopo l'esportazione del disco rigido virtuale, seguire le istruzioni disponibili in [How Do I Download an Object from an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html) (Come scaricare un oggetto da un bucket S3) per scaricare il file disco rigido virtuale dal bucket S3. 
 
 > [!IMPORTANT]
 > AWS applica addebiti per il trasferimento di dati per il download del disco rigido virtuale. Per altre informazioni, vedere [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/) (Prezzi di Amazon S3).

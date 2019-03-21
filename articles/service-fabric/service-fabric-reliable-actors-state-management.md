@@ -1,5 +1,5 @@
 ---
-title: Gestione dello stato di Reliable Actors | Microsoft Docs
+title: Gestione dello stato di Reliable Actors | Documentazione Microsoft
 description: Descrive come viene gestito lo stato di Reliable Actors, reso persistente e replicato per la disponibilità elevata.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: aae0ec93f3de708096ff9546a3a4f4e090095a89
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
-ms.translationtype: HT
+ms.openlocfilehash: 77fa369a3085a3d11d5bf03406b4ddb885a24009
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041160"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57847400"
 ---
 # <a name="reliable-actors-state-management"></a>Gestione dello stato di Reliable Actors
 I Reliable Actors sono oggetti a thread singolo che possono incapsulare sia la logica che lo stato. Poiché gli attori vengono eseguiti nei servizi Reliable Services, possono mantenere lo stato in modo affidabile con gli stessi meccanismi di persistenza e replica. In questo modo, gli attori non perdono il proprio stato dopo gli errori, dopo la riattivazione in seguito a un'operazione di garbage collection o quando vengono spostati tra i nodi di un cluster a causa del bilanciamento delle risorse o degli aggiornamenti.
@@ -29,9 +29,9 @@ Tutti i Reliable Actors vengono considerati *con stato* perché ogni istanza del
 
 Anche se gli attori sono considerati con stato, non significa che devono archiviare lo stato in modo affidabile. Gli attori possono scegliere il livello di replica e persistenza dello stato in base ai requisiti di archiviazione dei dati:
 
-* **Stato persistente**: lo stato viene salvato nel disco e replicato in almeno tre repliche. Questa è l'opzione di archiviazione dello stato più durevole, in cui lo stato può persistere anche in caso di interruzione di un cluster completo.
-* **Stato volatile**: lo stato viene replicato in almeno tre repliche e viene mantenuto solo in memoria. Fornisce la resilienza in caso di errore del nodo, di errore dell'attore e durante gli aggiornamenti e il bilanciamento delle risorse. Lo stato tuttavia non è persistente nel disco. Perciò, se vengono perse contemporaneamente tutte le repliche, si perderà anche lo stato.
-* **Stato non persistente**: lo stato non viene replicato o scritto su disco. Usare solo per gli attori che non devono mantenere lo stato in modo affidabile.
+* **Uno stato persistente**: Lo stato è persistente nel disco e viene replicato per tre o più repliche. Questa è l'opzione di archiviazione dello stato più durevole, in cui lo stato può persistere anche in caso di interruzione di un cluster completo.
+* **Stato volatile**: Lo stato viene replicato in almeno tre repliche e viene mantenuto solo in memoria. Fornisce la resilienza in caso di errore del nodo, di errore dell'attore e durante gli aggiornamenti e il bilanciamento delle risorse. Lo stato tuttavia non è persistente nel disco. Perciò, se vengono perse contemporaneamente tutte le repliche, si perderà anche lo stato.
+* **Stato non persistente**: Stato non è replicato o scritto su disco, usare solo per gli attori che non devono mantenere lo stato affidabile.
 
 Ogni livello di persistenza è semplicemente un altro *provider di stato* e un'altra configurazione di *replica* del servizio. La scrittura su disco dello stato dipende dal provider di stato, ovvero il componente di un servizio Reliable Services che archivia lo stato. La replica dipende dal numero di repliche con cui viene distribuito un servizio. In modo analogo ai servizi Reliable Services, il provider di stato e il numero di repliche possono essere impostati manualmente con facilità. Il framework per gli attori fornisce un attributo che, quando viene usato in un attore, seleziona automaticamente un provider di stato predefinito e genera automaticamente le impostazioni per il numero di repliche in modo da ottenere una di queste tre impostazioni di persistenza. L'attributo StatePersistence non viene ereditato dalla classe derivata e ogni tipo di attore deve specificare il proprio livello StatePersistence.
 
@@ -86,7 +86,7 @@ Quando si usa l'attributo `StatePersistence`, viene selezionato automaticamente 
 È possibile cambiare questi parametri manualmente. Tuttavia, ogni volta che l'attributo `StatePersistence` viene modificato, i parametri vengono impostati sui valori predefiniti delle dimensioni del set di repliche per l'attributo `StatePersistence` selezionato, eseguendo l'override di eventuali valori precedenti. In altri termini, l'override dei valori impostati in ServiceManifest.xml viene eseguito *solo* in fase di compilazione quando si modifica l'attributo `StatePersistence`.
 
 ```xml
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <Parameters>
       <Parameter Name="MyActorService_PartitionCount" DefaultValue="10" />
       <Parameter Name="MyActorService_MinReplicaSetSize" DefaultValue="3" />

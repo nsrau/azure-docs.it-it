@@ -11,72 +11,63 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 1eac1da2d8d9a289cb456fc08d7e7c2bc7784aa6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.date: 03/14/2019
+ms.openlocfilehash: 02dcdfa6f356d48b8fa22603323a7f3035e0fe51
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454022"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858771"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Ridimensionare le risorse di database singoli nel database SQL di Azure
 
 Questo articolo illustra come ridimensionare le risorse di calcolo e di archiviazione disponibili per un database singolo nel database SQL di Azure.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Viene fatturata ogni ora per cui un database esiste usando il livello di servizio più elevato e la dimensione di calcolo applicati in quell'ora, indipendentemente dall'uso o dal fatto che il database sia stato attivo per meno di un'ora. Ad esempio, se si crea un database singolo che viene eliminato cinque minuti dopo, in fattura viene riportato l'addebito relativo a un'ora di database.
+> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
 
-## <a name="vcore-based-purchasing-model-change-storage-size"></a>Modello di acquisto in base ai vCore: modifica delle dimensioni di archiviazione
+## <a name="change-compute-resources-vcores-or-dtus"></a>Modifica le risorse di calcolo (Vcore o Dtu)
 
-- Il provisioning dell'archiviazione può essere effettuato fino al limite massimo delle dimensioni tramite incrementi di 1 GB. Lo spazio di archiviazione dei dati minimo configurabile è 5 GB
-- Il provisioning dell'archiviazione per un database singolo può essere effettato aumentandone o diminuendone le dimensioni massime tramite il [portale di Azure](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), l'[interfaccia della riga di comando di Azure](/cli/azure/sql/db#az-sql-db-update) o l'[API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
-- Il database SQL alloca automaticamente il 30% di archiviazione aggiuntiva per i file di log e 32 GB per ogni vCore per TempDB, ma senza superare 384 GB. TempDB è disponibile in un'unità SSD collegata in tutti i livelli di servizio.
-- Il prezzo dell'archiviazione per un database singolo corrisponde alla somma delle dimensioni di archiviazione dei dati e delle dimensioni di archiviazione dei log moltiplicata per il prezzo unitario dell'archiviazione del livello di servizio. Il costo di TempDB è compreso nel prezzo dei vCore. Per informazioni dettagliate sul prezzo delle risorse di archiviazione extra, vedere [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
-
-> [!IMPORTANT]
-> In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [Gestire lo spazio file nel database SQL di Azure](sql-database-file-space-management.md).
-
-## <a name="vcore-based-purchasing-model-change-compute-resources"></a>Modello di acquisto in base ai vCore: modifica delle risorse di calcolo
-
-Dopo avere inizialmente selezionato il numero di vCore, è possibile aumentare o diminuire dinamicamente le dimensioni di un database singolo in base all'effettiva esperienza tramite il [portale di Azure](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), l'[interfaccia della riga di comando di Azure](/cli/azure/sql/db#az-sql-db-update) o l'[API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
-
-La modifica del livello di servizio e/o della dimensione di calcolo crea una replica del database originale alla nuova dimensione di calcolo, quindi passa le connessioni alla replica. Durante il processo non si verificano perdite di dati, tuttavia durante il breve intervallo nel quale si passa alla replica, le connessioni sono disabilitate e può verificarsi il rollback di alcune transazioni in-flight. Il tempo impiegato per il passaggio è variabile, ma è in genere inferiore a 30 secondi nel 99% dei casi. Se quando le connessioni vengono disabilitate è in elaborazione un elevato numero di transazioni, il tempo impiegato potrebbe essere superiore.
-
-La durata dell'intero processo di scalabilità verticale dipende in genere dalla dimensione e dal livello di servizio del database prima e dopo la modifica. Ad esempio qualsiasi database delle dimensioni che modifica le dimensioni di calcolo all'interno del livello di servizio per utilizzo generico verrà completato in alcuni minuti, ma la latenza per modificare le dimensioni di calcolo all'interno del livello business critical è in genere di 90 minuti o meno per 100 GB.
-
-> [!TIP]
-> Per monitorare le operazioni in corso, vedere: [Gestire le operazioni tramite l'API REST SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [Gestire le operazioni tramite l'interfaccia della riga di comando](/cli/azure/sql/db/op), [Monitorare le operazioni tramite T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e i due comandi PowerShell seguenti: [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) e [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).
-
-- Se si esegue l'aggiornamento a un livello di servizio o una dimensione di calcolo superiore, le dimensioni massime del database non aumentano a meno che non si specifichino esplicitamente dimensioni più elevate (massime).
-- Per effettuare il downgrade di un database, la relativa quantità di spazio usato deve essere inferiore alle dimensioni massime consentite per il livello di servizio e la dimensione di calcolo di destinazione.
-- Quando si aggiorna un database con la [replica geografica](sql-database-geo-replication-portal.md) abilitata, aggiornare i database secondari al livello di servizio e alla dimensione di calcolo desiderati prima di aggiornare il database primario (indicazione generale per ottenere prestazioni ottimali). Durante l'aggiornamento a un'edizione diversa è necessario aggiornare per primo il database secondario.
-- Quando si effettua il downgrade di un database con la [replica geografica](sql-database-geo-replication-portal.md) abilitata, eseguire il downgrade dei database primari al livello di servizio e alla dimensione di calcolo desiderati prima del downgrade del database secondario (indicazione generale per ottenere prestazioni ottimali). Al momento del downgrade a un'edizione diversa, è necessario eseguire questa operazione iniziando dal database primario.
-- Le nuove proprietà del database non vengono applicate finché non sono state completate le modifiche.
-
-## <a name="dtu-based-purchasing-model-change-storage-size"></a>Modello di acquisto basato su DTU: modifica delle dimensioni di archiviazione
-
-- Il prezzo DTU per un singolo database include una determinata quantità di risorse di archiviazione senza costi aggiuntivi. Le risorse di archiviazione extra rispetto alla quantità inclusa possono essere sottoposte a provisioning per un costo aggiuntivo fino alla quantità massima in incrementi di 250 GB fino a 1 TB e quindi in incrementi di 256 GB oltre 1 TB. Per le quantità di risorse di archiviazione incluse e i limiti di dimensioni massime, vedere [Database singolo: dimensioni di archiviazione e dimensioni di calcolo](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
-- Il provisioning delle risorse di archiviazione extra per un database singolo può essere effettuato aumentandone le dimensioni massime tramite il portale di Azure, [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), l'[interfaccia della riga di comando di Azure](/cli/azure/sql/db#az-sql-db-update) o l'[API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
-- Il prezzo delle risorse di archiviazione extra per un singolo database corrisponde alla quantità di risorse di archiviazione extra moltiplicata per il prezzo unitario del livello di servizio. Per informazioni dettagliate sul prezzo delle risorse di archiviazione extra, vedere [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
-
-> [!IMPORTANT]
-> In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [Gestire lo spazio file nel database SQL di Azure](sql-database-file-space-management.md).
-
-## <a name="dtu-based-purchasing-model-change-compute-resources-dtus"></a>Modello di acquisto basato su DTU: modifica delle risorse di calcolo (DTU)
-
-Dopo aver inizialmente selezionato un livello di servizio, una dimensione di calcolo e una quantità di spazio di archiviazione, è possibile eseguire l'aumento o la riduzione per un database singolo in modo dinamico in base all'esperienza effettiva tramite il portale di Azure, [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), l'[interfaccia della riga di comando di Azure](/cli/azure/sql/db#az-sql-db-update) o l'[API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
+Dopo aver selezionato inizialmente il numero di Dtu o Vcore, è possibile ridimensionare un singolo database verso l'alto o verso il basso in modo dinamico base effettiva esperienza tramite il [portale di Azure](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [ PowerShell](/powershell/module/az.sql/set-azsqldatabase), il [CLI di Azure](/cli/azure/sql/db#az-sql-db-update), oppure il [API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
 
 Il video seguente mostra come modificare in modo dinamico il livello di servizio e la dimensione di calcolo per aumentare le DTU disponibili per un singolo database.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
 
-La modifica del livello di servizio e/o della dimensione di calcolo crea una replica del database originale alla nuova dimensione di calcolo, quindi passa le connessioni alla replica. Durante il processo non si verificano perdite di dati, tuttavia durante il breve intervallo nel quale si passa alla replica, le connessioni sono disabilitate e può verificarsi il rollback di alcune transazioni in-flight. Il tempo impiegato per il passaggio è variabile, ma è inferiore a 30 secondi nel 99% dei casi. Se quando le connessioni vengono disabilitate è in elaborazione un elevato numero di transazioni, il tempo impiegato potrebbe essere superiore.
+> [!IMPORTANT]
+> In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [Gestire lo spazio file nel database SQL di Azure](sql-database-file-space-management.md).
 
-La durata dell'intero processo di scalabilità verticale dipende dalla dimensione e dal livello di servizio del database prima e dopo la modifica. Ad esempio, il passaggio di un database di 250 GB al livello di servizio Standard o dal livello di servizio Standard a un altro livello o nell'ambito dello stesso livello di servizio Standard viene completato entro 6 ore. Per un database delle stesse dimensioni in fase di modifica delle dimensioni di calcolo all'interno del livello di servizio Premium, il completamento dovrebbe avvenire entro 3 ore.
+### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Impatto della modifica delle dimensioni di calcolo ridimensionamento o un livello di servizio
+
+Modifica del servizio livello o di calcolo delle dimensioni di un database singolo principalmente prevede che il servizio eseguendo i passaggi seguenti:
+
+1. Creare una nuova istanza di calcolo per il database  
+
+    Viene creata una nuova istanza di calcolo per il database con le dimensioni di calcolo e il livello di servizio richiesto. Per alcune combinazioni di livello di servizio e delle modifiche alle dimensioni di calcolo, una replica del database deve essere creata in una nuova istanza di calcolo che comporta la copia dei dati e può influire pesantemente sulla latenza complessiva. Indipendentemente da ciò, il database rimane online durante questo passaggio e connessioni continuano a essere indirizzate al database nell'istanza di calcolo originale.
+
+2. Passare il routing delle connessioni alla nuova istanza di calcolo
+
+    Le connessioni esistenti ai database nell'istanza originale di calcolo vengono eliminate. Tutte le nuove connessioni vengono stabilite con il database nella nuova istanza di calcolo. Per alcune combinazioni di livello di servizio e delle modifiche alle dimensioni di calcolo, file di database sono scollegati e ricollegati durante l'operazione switch.  Indipendentemente da ciò, l'opzione può causare una breve interruzione del servizio quando il database non è disponibile a livello generale per meno di 30 secondi e spesso solo alcuni secondi. Se sono presenti con esecuzione prolungata le transazioni in esecuzione quando le connessioni vengono rimosse, la durata di questo passaggio può richiedere più tempo per eseguire il ripristino transazioni interrotte. [Accelerazione di recupero del Database](sql-database-accelerated-database-recovery.md) può ridurre l'impatto di interruzione in corso transazioni a esecuzione prolungata.
+
+> [!IMPORTANT]
+> Durante un qualsiasi passaggio nel flusso di lavoro viene perso alcun dato.
+
+### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Latenza di modifica delle dimensioni di calcolo ridimensionamento o un livello di servizio
+
+La latenza per modificare il livello di servizio o ridimensionare le dimensioni di calcolo di un database singolo o pool elastico con i parametri come indicato di seguito:
+
+|Livello di servizio|Database singolo Basic,</br>Standard (S0-S1)|Pool elastici Basic,</br>Standard (S2-S12), </br>Con Iperscalabilità, </br>Database singolo a scopo generale o il pool elastico|Premium o Business Critical database singolo o pool elastico|
+|:---|:---|:---|:---|
+|**Database singolo Basic</br> Standard (S0-S1)**|&bull; &nbsp;Latenza tempo costante indipendente dello spazio utilizzato</br>&bull; &nbsp;In genere meno di 5 minuti|&bull; &nbsp;Latenza proporzionale allo spazio del database utilizzato destinata alla copia dei dati</br>&bull; &nbsp;In genere meno di 1 minuto per ogni GB di spazio utilizzato|&bull; &nbsp;Latenza proporzionale allo spazio del database utilizzato destinata alla copia dei dati</br>&bull; &nbsp;In genere meno di 1 minuto per ogni GB di spazio utilizzato|
+|**Pool elastici Basic, </br>Standard (S2-S12), </br>con Iperscalabilità e </br>generico singolo database o pool elastico**|&bull; &nbsp;Latenza proporzionale allo spazio del database utilizzato destinata alla copia dei dati</br>&bull; &nbsp;In genere meno di 1 minuto per ogni GB di spazio utilizzato|&bull; &nbsp;Latenza tempo costante indipendente dello spazio utilizzato</br>&bull; &nbsp;In genere meno di 5 minuti|&bull; &nbsp;Latenza proporzionale allo spazio del database utilizzato destinata alla copia dei dati</br>&bull; &nbsp;In genere meno di 1 minuto per ogni GB di spazio utilizzato|
+|**Premium o Business Critical database singolo o pool elastico**|&bull; &nbsp;Latenza proporzionale allo spazio del database utilizzato destinata alla copia dei dati</br>&bull; &nbsp;In genere meno di 1 minuto per ogni GB di spazio utilizzato|&bull; &nbsp;Latenza proporzionale allo spazio del database utilizzato destinata alla copia dei dati</br>&bull; &nbsp;In genere meno di 1 minuto per ogni GB di spazio utilizzato|&bull; &nbsp;Latenza proporzionale allo spazio del database utilizzato destinata alla copia dei dati</br>&bull; &nbsp;In genere meno di 1 minuto per ogni GB di spazio utilizzato|
 
 > [!TIP]
-> Per monitorare le operazioni in corso, vedere: [Gestire le operazioni tramite l'API REST SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [Gestire le operazioni tramite l'interfaccia della riga di comando](/cli/azure/sql/db/op), [Monitorare le operazioni tramite T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e i due comandi PowerShell seguenti: [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) e [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).
+> Per monitorare le operazioni in corso, vedere: [Gestire le operazioni tramite l'API REST SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [Gestire le operazioni tramite l'interfaccia della riga di comando](/cli/azure/sql/db/op), [Monitorare le operazioni tramite T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e i due comandi PowerShell seguenti: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) e [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
+
+### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Considerazioni aggiuntive durante la modifica del servizio livello o ridimensionamento delle dimensioni di calcolo
 
 - Se si esegue l'aggiornamento a un livello di servizio o una dimensione di calcolo superiore, le dimensioni massime del database non aumentano a meno che non si specifichino esplicitamente dimensioni più elevate (massime).
 - Per effettuare il downgrade di un database, la relativa quantità di spazio usato deve essere inferiore alle dimensioni massime consentite per il livello di servizio e la dimensione di calcolo di destinazione.
@@ -86,9 +77,34 @@ La durata dell'intero processo di scalabilità verticale dipende dalla dimension
 - Le offerte per il ripristino del servizio sono diverse per i vari livelli di servizio. In caso di downgrade al livello **Basic**, il periodo di conservazione dei backup sarà inferiore. Vedere [Informazioni sui backup automatici del database SQL](sql-database-automated-backups.md).
 - Le nuove proprietà del database non vengono applicate finché non sono state completate le modifiche.
 
+### <a name="billing-during-rescaling"></a>Durante il ridimensionamento di fatturazione
+
+Viene fatturata ogni ora per cui un database esiste usando il livello di servizio più elevato e la dimensione di calcolo applicati in quell'ora, indipendentemente dall'uso o dal fatto che il database sia stato attivo per meno di un'ora. Ad esempio, se si crea un database singolo che viene eliminato cinque minuti dopo, in fattura viene riportato l'addebito relativo a un'ora di database.
+
+## <a name="change-storage-size"></a>modifica delle dimensioni di archiviazione
+
+### <a name="vcore-based-purchasing-model"></a>Modello di acquisto in base ai vCore
+
+- Il provisioning dell'archiviazione può essere effettuato fino al limite massimo delle dimensioni tramite incrementi di 1 GB. Lo spazio di archiviazione dei dati minimo configurabile è 5 GB
+- Il provisioning dell'archiviazione per un database singolo può essere effettato aumentandone o diminuendone le dimensioni massime tramite il [portale di Azure](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), l'[interfaccia della riga di comando di Azure](/cli/azure/sql/db#az-sql-db-update) o l'[API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
+- Il database SQL alloca automaticamente il 30% di archiviazione aggiuntiva per i file di log e 32 GB per ogni vCore per TempDB, ma senza superare 384 GB. TempDB è disponibile in un'unità SSD collegata in tutti i livelli di servizio.
+- Il prezzo dell'archiviazione per un database singolo corrisponde alla somma delle dimensioni di archiviazione dei dati e delle dimensioni di archiviazione dei log moltiplicata per il prezzo unitario dell'archiviazione del livello di servizio. Il costo di TempDB è compreso nel prezzo dei vCore. Per informazioni dettagliate sul prezzo delle risorse di archiviazione extra, vedere [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+
+> [!IMPORTANT]
+> In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [Gestire lo spazio file nel database SQL di Azure](sql-database-file-space-management.md).
+
+### <a name="dtu-based-purchasing-model"></a>modello di acquisto basato su DTU
+
+- Il prezzo DTU per un singolo database include una determinata quantità di risorse di archiviazione senza costi aggiuntivi. Le risorse di archiviazione extra rispetto alla quantità inclusa possono essere sottoposte a provisioning per un costo aggiuntivo fino alla quantità massima in incrementi di 250 GB fino a 1 TB e quindi in incrementi di 256 GB oltre 1 TB. Per le quantità di risorse di archiviazione incluse e i limiti di dimensioni massime, vedere [Database singolo: dimensioni di archiviazione e dimensioni di calcolo](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
+- Il provisioning delle risorse di archiviazione extra per un database singolo può essere effettuato aumentandone le dimensioni massime tramite il portale di Azure, [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), l'[interfaccia della riga di comando di Azure](/cli/azure/sql/db#az-sql-db-update) o l'[API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
+- Il prezzo delle risorse di archiviazione extra per un singolo database corrisponde alla quantità di risorse di archiviazione extra moltiplicata per il prezzo unitario del livello di servizio. Per informazioni dettagliate sul prezzo delle risorse di archiviazione extra, vedere [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+
+> [!IMPORTANT]
+> In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [Gestire lo spazio file nel database SQL di Azure](sql-database-file-space-management.md).
+
 ## <a name="dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb"></a>Modello di acquisto basato su DTU: limitazioni di P11 e P15 quando la dimensione massima è maggiore di 1 TB
 
-Nelle aree seguenti è supportata una dimensione massima maggiore di 1 TB per database P11 e P15: Australia orientale, Australia sud-orientale, Brasile meridionale, Canada centrale, Canada orientale, Stati Uniti centrali, Francia centrale, Germania centrale, Giappone orientale, Giappone occidentale, Corea del Sud centrale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sud-orientale, Regno Unito meridionale, Regno Unito occidentale, Stati Uniti orientali 2, Stati Uniti occidentali, US Gov Virginia ed Europa occidentale. Ai database P11 e P15 con dimensioni massime maggiori di 1 TB vengono applicate le considerazioni e le limitazioni seguenti:
+Nel livello Premium è attualmente disponibile uno spazio di archiviazione superiore a 1 TB in tutte le aree tranne Cina orientale, Cina settentrionale, Germania centrale, Germania nord-orientale, Stati Uniti centro-occidentali, aree US DoD e US Government (area centrale). In queste aree la quantità massima di spazio di archiviazione nel livello Premium è limitata a 1 TB. Per altre informazioni, vedere le [limitazioni correnti di P11 e P15](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb). Ai database P11 e P15 con dimensioni massime maggiori di 1 TB vengono applicate le considerazioni e le limitazioni seguenti:
 
 - Se durante la creazione di un database si sceglie una dimensione massima di 1 TB (usando un valore di 4 TB o 4.096 GB) e si effettua il provisioning del database in un'area non supportata, il comando di creazione avrà esito negativo e restituirà un errore.
 - Per i database P11 e P15 esistenti che si trovano in una delle aree supportate, è possibile aumentare la quantità massima di risorse di archiviazione oltre 1 TB, in incrementi di 256 GB fino a 4 TB. Per verificare se nella propria area è supportata una dimensione maggiore, usare la funzione [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql) o controllare le dimensioni del database nel portale di Azure. È possibile eseguire l'aggiornamento di un database P11 o P15 esistente solo tramite un accesso entità a livello del server o come membri del ruolo del database dbmanager.

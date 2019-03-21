@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 0cffb4fdff4bddc33c6938e27425035c929808b7
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 7bfed1144ebfc69ed51b7bbc1adf78538ed28425
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301928"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861078"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 
@@ -129,6 +129,18 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 
   > [!IMPORTANT]
   > Istanza gestita non supporta più gruppi di failover.
+  
+## <a name="permissions"></a>Autorizzazioni
+Le autorizzazioni per un gruppo di failover vengono gestite tramite [controllo di accesso basato sui ruoli (RBAC)](../role-based-access-control/overview.md). Il [collaboratore SQL Server](../role-based-access-control/built-in-roles.md#sql-server-contributor) ruolo ha tutte le autorizzazioni necessarie per gestire i gruppi di failover. 
+
+### <a name="create-failover-group"></a>Creare gruppo di failover
+Per creare un gruppo di failover, è necessario l'accesso in scrittura RBAC per entrambi i server primari e secondari e a tutti i database nel gruppo di failover. Per un'istanza gestita, è necessario l'accesso di scrittura RBAC a entrambi i primario e secondario istanza gestita, ma le autorizzazioni per singoli database non sono rilevanti perché i database di istanza gestita non sono aggiunto a o rimosso da un gruppo di failover. 
+
+### <a name="update-a-failover-group"></a>Aggiornare un gruppo di failover
+Per aggiornare un gruppo di failover, è necessario RBAC accesso in scrittura per il gruppo di failover e tutti i database nel server primario corrente o istanza gestita.  
+
+### <a name="failover-a-failover-group"></a>Failover di un gruppo di failover
+Per eseguire il failover a un gruppo di failover, è necessario RBAC accesso in scrittura al gruppo di failover nel nuovo server primario o istanza gestita. 
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>Procedure consigliate per l'uso di gruppi di failover con database singoli e pool elastici
 
@@ -202,8 +214,8 @@ Se l'applicazione usa Istanza gestita come livello dati, seguire queste linee gu
 
   > [!NOTE]
   > In determinati livelli di servizio il database SQL di Azure supporta l'uso di [repliche di sola lettura](sql-database-read-scale-out.md) per bilanciare i carichi di lavoro di query di sola lettura usando la capacità di una replica di sola lettura e il parametro `ApplicationIntent=ReadOnly` nella stringa di connessione. Dopo aver configurato un database secondario con replica geografica, sarà possibile usare questa funzionalità per connettersi a una replica di sola lettura nella posizione primaria o nella posizione con replica geografica.
-  > - Per connettersi a una replica di sola lettura nella posizione primaria, usare `failover-group-name.zone_id.database.windows.net`.
-  > - Per connettersi a una replica di sola lettura nella posizione con replica geografica, usare `failover-group-name.secondary.zone_id.database.windows.net`.
+  > - Per connettersi a una replica di sola lettura nella posizione con replica geografica, usare `failover-group-name.zone_id.database.windows.net`.
+  > - Per connettersi a una replica di sola lettura nella posizione secondaria, usare `failover-group-name.secondary.zone_id.database.windows.net`.
 
 - **Prepararsi a un calo delle prestazioni**
 
@@ -270,7 +282,9 @@ Quando si configura un gruppo di failover tra le istanze gestite primaria e seco
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Aggiornamento o downgrade di un database primario
 
-È possibile eseguire l'aggiornamento o il downgrade di un database primario a una dimensione dell'ambiente di calcolo diversa (entro lo stesso livello di servizio e non tra il livello per utilizzo generico e business critical) senza disconnettere eventuali database secondari. Quando si esegue l'aggiornamento, è consigliabile aggiornare prima di tutto il database secondario e quindi il database primario. Quando si esegue il downgrade, seguire l'ordine inverso, ovvero eseguire prima di tutto il downgrade del database primario e quindi del database secondario. Quando si aggiorna o si effettua il downgrade del database a un livello di servizio diverso, viene applicata questa raccomandazione.
+È possibile eseguire l'aggiornamento o il downgrade di un database primario a una dimensione dell'ambiente di calcolo diversa (entro lo stesso livello di servizio e non tra il livello per utilizzo generico e business critical) senza disconnettere eventuali database secondari. Durante l'aggiornamento, è consigliabile aggiornare tutti i database secondari prima di tutto e quindi aggiornare il database primario. Quando si esegue il downgrade, invertire l'ordine: effettuare il downgrade di quello primario prima di tutto e quindi effettuare il downgrade di tutti i database secondari. Quando si aggiorna o si effettua il downgrade del database a un livello di servizio diverso, viene applicata questa raccomandazione.
+
+Questa sequenza è consigliata specificamente per evitare il problema in cui il database secondario in uno SKU inferiore Ottiene sottoposti a overload e deve essere reseeding durante un processo di aggiornamento o il downgrade. È anche possibile evitare il problema, rendendo il database primario, sola lettura, a scapito conseguenze per tutti i carichi di lavoro di lettura / scrittura per il database primario. 
 
 > [!NOTE]
 > Se è stato creato il database secondario come parte della configurazione del gruppo di failover, non è consigliabile eseguire il downgrade del database secondario. In questo modo si garantisce che il livello dei dati abbia una capacità sufficiente per elaborare il carico di lavoro normale dopo che il failover viene attivato.
@@ -294,12 +308,12 @@ Come indicato in precedenza, i gruppi di failover automatico e la replica geogra
 
 | Cmdlet | DESCRIZIONE |
 | --- | --- |
-| [New-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |Questo comando crea un gruppo di failover e lo registra nei server primario e secondario|
-| [Remove-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Rimuove il gruppo di failover dal server ed elimina tutti i database secondari incluso il gruppo |
-| [Get-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Recupera la configurazione del gruppo di failover |
-| [Set-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |Modifica la configurazione del gruppo di failover |
-| [Switch-AzureRMSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Attiva il failover del gruppo di failover per il server secondario |
-| [Add-AzureRmSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqldatabasetofailovergroup)|Aggiunge uno o più database a un gruppo di failover del database SQL di Azure|
+| [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Questo comando crea un gruppo di failover e lo registra nei server primario e secondario|
+| [Remove-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | Rimuove il gruppo di failover dal server ed elimina tutti i database secondari incluso il gruppo |
+| [Get-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Recupera la configurazione del gruppo di failover |
+| [Set-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Modifica la configurazione del gruppo di failover |
+| [Switch-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/switch-azsqldatabasefailovergroup) | Attiva il failover del gruppo di failover per il server secondario |
+| [Add-AzSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/add-azsqldatabasetofailovergroup)|Aggiunge uno o più database a un gruppo di failover del database SQL di Azure|
 |  | |
 
 > [!IMPORTANT]
@@ -308,17 +322,17 @@ Come indicato in precedenza, i gruppi di failover automatico e la replica geogra
 
 ### <a name="powershell-managing-failover-groups-with-managed-instances-preview"></a>PowerShell: Gestione dei gruppi di failover con istanze gestite (anteprima)
 
-#### <a name="install-the-newest-pre-release-version-of-powershell"></a>Installare la versione non definitiva più recente di PowerShell
+#### <a name="install-the-newest-pre-release-version-of-powershell"></a>Installare la versione più recente di versioni non definitive di PowerShell
 
 1. Aggiornare il modulo PowerShellGet alla versione 1.6.5 (o versione di anteprima più recente). Vedere il [sito di anteprima di PowerShell](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
 
-   ```Powershell
+   ```PowerShell
       install-module PowerShellGet -MinimumVersion 1.6.5 -force
    ```
 
 2. In una nuova finestra di PowerShell eseguire i comandi seguenti:
 
-   ```Powershell
+   ```PowerShell
       import-module PowerShellGet
       get-module PowerShellGet #verify version is 1.6.5 (or newer)
       install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force
@@ -329,11 +343,11 @@ Come indicato in precedenza, i gruppi di failover automatico e la replica geogra
 
 | API | DESCRIZIONE |
 | --- | --- |
-| New-AzureRmSqlDatabaseInstanceFailoverGroup |Questo comando crea un gruppo di failover e lo registra nei server primario e secondario|
-| Set-AzureRmSqlDatabaseInstanceFailoverGroup |Modifica la configurazione del gruppo di failover|
-| Get-AzureRmSqlDatabaseInstanceFailoverGroup |Recupera la configurazione del gruppo di failover|
-| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Attiva il failover del gruppo di failover per il server secondario|
-| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Rimuove un gruppo di failover|
+| New-AzSqlDatabaseInstanceFailoverGroup |Questo comando crea un gruppo di failover e lo registra nei server primario e secondario|
+| Set-AzSqlDatabaseInstanceFailoverGroup |Modifica la configurazione del gruppo di failover|
+| Get-AzSqlDatabaseInstanceFailoverGroup |Recupera la configurazione del gruppo di failover|
+| Switch-AzSqlDatabaseInstanceFailoverGroup |Attiva il failover del gruppo di failover per il server secondario|
+| Remove-AzSqlDatabaseInstanceFailoverGroup | Rimuove un gruppo di failover|
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>API REST: Gestire gruppi di failover del database SQL con database singoli e in pool
 

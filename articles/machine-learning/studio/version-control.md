@@ -5,17 +5,16 @@ description: Applicare le procedure consigliate per la gestione del ciclo di vit
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
-ms.custom: previous-ms.author=haining, previous-author=hning86
 ms.date: 10/27/2016
-ms.openlocfilehash: 26e469076e16f57300cf3e385620a723ddf51a4c
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 102d06f6d4a51f7edc1fc269180f8fb3e5b0626c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510725"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121469"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Gestione del ciclo di vita dell'applicazione in Azure Machine Learning Studio
 Azure Machine Learning Studio è uno strumento per lo sviluppo di esperimenti di Machine Learning che siano operativi nel cloud di Azure. Si tratta di una specie di fusione del servizio cloud scalabile e dell'IDE di Visual Studio in un'unica piattaforma. È possibile incorporare le procedure ALM (Application Lifecycle Management) standard dal controllo delle versioni delle varie risorse all'esecuzione e distribuzione automatica in Azure Machine Learning Studio. Questo articolo descrive alcune opzioni e approcci.
@@ -42,7 +41,7 @@ Gli snapshot della cronologia di esecuzione mantengono una versione non modifica
 Il file JSON è una rappresentazione testuale del grafico dell'esperimento contenente il riferimento agli asset nell'area di lavoro, ad esempio set di dati o modelli sottoposti a training. Non contiene una versione serializzata dell'asset. Se si tenta di importare nuovamente il documento JSON nell'area di lavoro, gli asset referenziati devono già esistere e avere gli stessi ID asset referenziati nell'esperimento. In caso contrario non sarà possibile accedere all'esperimento importato.
 
 ## <a name="versioning-trained-model"></a>Controllo della versione del modello sottoposto a training
-Un modello con training in Azure Machine Learning viene serializzato in un formato noto come file iLearner (`.iLearner`) e archiviato nell'account di archiviazione BLOB di Azure associato all'area di lavoro. Un modo per ottenere una copia del file iLearner è usare l'API di ripetizione del training. [Questo articolo](retrain-models-programmatically.md) spiega il funzionamento dell'API di ripetizione del training. Procedura generale:
+Un modello con Training in Azure Machine Learning Studio viene serializzato in un formato noto come file iLearner (`.iLearner`) e viene archiviato nell'account di archiviazione Blob di Azure associato con l'area di lavoro. Un modo per ottenere una copia del file iLearner è usare l'API di ripetizione del training. [Questo articolo](/azure/machine-learning/studio/retrain-machine-learning-model) spiega il funzionamento dell'API di ripetizione del training. Procedura generale:
 
 1. Impostare l'esperimento di training.
 2. Aggiungere la porta di output del servizio Web al modulo Train Model o al modulo che genera il modello sottoposto a training, ad esempio Tune Model Hyperparameter (Regola iperparametri del modello) o Create R Model (Crea modello R).
@@ -57,7 +56,7 @@ Dopo aver creato il file iLearner contenente il modello con training, è possibi
 Il file iLearner salvato può quindi essere usato per il punteggio tramite i servizi Web distribuiti.
 
 ## <a name="versioning-web-service"></a>Controllo della versione del servizio Web
-È possibile distribuire due tipi di servizi Web da un esperimento di Azure Machine Learning. Il servizio Web classico è strettamente abbinato all'esperimento e all'area di lavoro. Il nuovo servizio Web usa il framework di Azure Resource Manager e non è più abbinato all'esperimento o all'area di lavoro originale.
+È possibile distribuire due tipi di web services da un database di Azure Machine Learning Studio fare delle prove. Il servizio Web classico è strettamente abbinato all'esperimento e all'area di lavoro. Il nuovo servizio Web usa il framework di Azure Resource Manager e non è più abbinato all'esperimento o all'area di lavoro originale.
 
 ### <a name="classic-web-service"></a>Servizio Web classico
 Per controllare la versione di un servizio Web classico, è possibile usare il costrutto dell'endpoint del servizio Web. Ecco un metodo tipico:
@@ -79,7 +78,7 @@ Se si crea un nuovo servizio Web basato su Azure Resource Manager, il costrutto 
 Dopo aver esportato il file WSD e aver eseguito il relativo controllo della versione, è anche possibile distribuire il file WSD come nuovo servizio Web in un diverso piano di servizio Web di un'altra area di Azure. Assicurarsi semplicemente di specificare la configurazione appropriata per l'account di archiviazione, nonché l'ID del nuovo piano di servizio Web. Per riempire diversi file iLearner, è possibile modificare il file WSD, aggiornare il riferimento al percorso del modello con training e distribuirlo come nuovo servizio Web.
 
 ## <a name="automate-experiment-execution-and-deployment"></a>Automatizzare la distribuzione e l'esecuzione dell'esperimento
-Un aspetto importante di ALM è la possibilità di automatizzare il processo di distribuzione ed esecuzione dell'applicazione. In Azure Machine Learning è possibile eseguire questa operazione tramite il [modulo di PowerShell](https://aka.ms/amlps). Di seguito è riportato un esempio di procedure complete riguardanti un processo automatizzato di esecuzione/distribuzione standard di ALM tramite il [modulo PowerShell di Azure Machine Learning Studio](https://aka.ms/amlps). Ogni passaggio è collegato a uno o più commandlet di PowerShell che possono essere usati per portare a termine questa operazione.
+Un aspetto importante di ALM è la possibilità di automatizzare il processo di distribuzione ed esecuzione dell'applicazione. In Azure Machine Learning Studio, è possibile farlo tramite il [modulo di PowerShell](https://aka.ms/amlps). Di seguito è riportato un esempio di procedure complete riguardanti un processo automatizzato di esecuzione/distribuzione standard di ALM tramite il [modulo PowerShell di Azure Machine Learning Studio](https://aka.ms/amlps). Ogni passaggio è collegato a uno o più commandlet di PowerShell che possono essere usati per portare a termine questa operazione.
 
 1. [Caricare un set di dati](https://github.com/hning86/azuremlps#upload-amldataset).
 2. Copiare un esperimento di training nell'area di lavoro da un'[area di lavoro](https://github.com/hning86/azuremlps#copy-amlexperiment) o dalla [raccolta](https://github.com/hning86/azuremlps#copy-amlexperimentfromgallery), oppure [importare](https://github.com/hning86/azuremlps#import-amlexperimentgraph) un esperimento [esportato](https://github.com/hning86/azuremlps#export-amlexperimentgraph) dal disco locale.

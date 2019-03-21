@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 810a4708974d18a4bba048e3e402a172868178f3
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 400583f50e898bfc750a387bf0ee83a3147e5006
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429690"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57905061"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Domande frequenti
 
@@ -257,7 +257,7 @@ Esaminare l'elenco completo dei servizi offerti e gli indirizzi IP in [questo ar
 
 Consentire al server Web di inviare la telemetria agli endpoint. 
 
-### <a name="proxy-redirect"></a>Reindirizzamento del proxy
+### <a name="gateway-redirect"></a>Reindirizzamento di gateway
 
 Instradare il traffico dal server a un gateway nella rete Intranet, sovrascrivendo gli endpoint nella configurazione.
 Se queste proprietà "Endpoint" non sono presenti nel file config, queste classi useranno i valori predefiniti illustrati di seguito nell'esempio ApplicationInsights.config. 
@@ -288,7 +288,19 @@ Il gateway deve indirizzare il traffico all'indirizzo di base dell'endpoint. Nel
 
 _ApplicationIdProvider è disponibile a partire da v2.6.0_
 
+### <a name="proxy-passthrough"></a>Proxy pass-through
 
+Proxy pass-through può essere ottenuta configurando un livello di computer o a livello di applicazione proxy.
+Per altre informazioni vedere l'articolo di dotnet su [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
+ 
+ Web. config di esempio:
+ ```xml
+<system.net>
+    <defaultProxy>
+      <proxy proxyaddress="http://xx.xx.xx.xx:yyyy" bypassonlocal="true"/>
+    </defaultProxy>
+</system.net>
+```
  
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>È possibile eseguire test Web di disponibilità in un server Intranet?

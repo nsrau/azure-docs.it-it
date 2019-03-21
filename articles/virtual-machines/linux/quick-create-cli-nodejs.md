@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
-ms.openlocfilehash: 94362256dfb5b8deff233f7c575d0720f29eec5c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 569e90c7908ce435689a80f7917b20275703f537
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987852"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990412"
 ---
 # <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>Creare una VM Linux usando l'interfaccia della riga di comando classica di Azure
 
 Questo articolo illustra come distribuire rapidamente una macchina virtuale (VM) Linux in Azure usando il comando `azure vm quick-create` nell'interfaccia della riga di comando di Azure. Il comando `quick-create` distribuisce una VM all'interno di un'infrastruttura di base protetta, che può essere usata per creare un prototipo o testare un concetto rapidamente.
 
 > [!NOTE]
-Per creare una VM usando l'interfaccia della riga di comando di Azure, vedere [Creare una VM con l'interfaccia della riga di comando di Azure](../windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Per creare una VM usando l'interfaccia della riga di comando di Azure, vedere [Creare una VM con l'interfaccia della riga di comando di Azure](../windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 È anche possibile distribuire rapidamente una VM Linux usando il [portale di Azure](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -50,7 +50,7 @@ La seguente procedura riguarda la distribuzione di una VM UbuntuLTS, passo passo
 
 Per scegliere rapidamente una distribuzione è possibile usare gli alias dell'interfaccia della riga di comando di Azure con mapping alle distribuzioni di sistemi operativi più diffuse. La tabella seguente elenca gli alias, a partire dall'interfaccia della riga di comando di Azure versione 0.10. Per impostazione predefinita, tutte le distribuzioni che usano `quick-create` fanno uso di macchine virtuali con risorse di archiviazione basate su unità SSD, che garantiscono un provisioning più veloce e accesso al disco a prestazioni elevate. Questi alias rappresentano una minima parte delle distribuzioni disponibili in Azure. Per trovare altre immagini in Azure Marketplace, è possibile [cercare un'immagine in PowerShell](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [sul Web](https://azure.microsoft.com/marketplace/virtual-machines/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) o [caricare un'immagine personalizzata](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
 
-| Alias | Editore | Offerta | SKU | Version |
+| Alias | Editore | Offerta | SKU | Versione |
 |:--- |:--- |:--- |:--- |:--- |
 | CentOS |OpenLogic |CentOS |7,2 |più recenti |
 | CoreOS |CoreOS |CoreOS |Stabile |più recenti |
@@ -184,7 +184,7 @@ Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.19.0-65-generic x86_64)
     https://landscape.canonical.com/
 
   Get cloud support with Ubuntu Advantage Cloud Guest:
-    http://www.ubuntu.com/business/services/cloud
+    https://www.ubuntu.com/business/services/cloud
 
 0 packages can be updated.
 0 updates are security updates.

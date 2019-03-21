@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 01af5052d8b092d10609769f211d6ffcde03cf8e
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: bd4c024e14e70b5937d85e9917340d25f552096d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190375"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110869"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installare e configurare un gateway dati locale
 
@@ -70,14 +70,14 @@ Per creare una risorsa per il gateway in Azure, è necessario registrare l'istan
 
 1.  Selezionare l'opzione che **consente di registrare un nuovo gateway in questo computer**.
 
-    ![Register ](media/analysis-services-gateway-install/aas-gateway-register-new.png)
+    ![Register](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
 2. Digitare un nome e la chiave di ripristino per il gateway. Per impostazione predefinita, il gateway usa l'area predefinita della sottoscrizione. Se è necessario selezionare un'area diversa, selezionare **Cambia area**.
 
     > [!IMPORTANT]
     > Salvare la chiave di ripristino in un luogo sicuro. La chiave di ripristino è necessaria per poter acquisire la proprietà, eseguire la migrazione o ripristinare un gateway. 
 
-   ![Register ](media/analysis-services-gateway-install/aas-gateway-register-name.png)
+   ![Register](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 
 ## <a name="create-resource"></a>Creare una risorsa per il gateway di Azure
@@ -90,19 +90,19 @@ Dopo aver installato e registrato il gateway, è necessario creare una risorsa p
 
 2. In **Crea gateway di connessione** immettere queste impostazioni:
 
-    * **Nome**: immettere un nome per la risorsa del gateway. 
+   * **Nome**: immettere un nome per la risorsa del gateway. 
 
-    * **Sottoscrizione**: selezionare la sottoscrizione di Azure da associare alla risorsa del gateway. 
+   * **Sottoscrizione** selezionare la sottoscrizione di Azure da associare alla risorsa del gateway. 
    
-      La sottoscrizione predefinita si basa sull'account di Azure usato per accedere.
+     La sottoscrizione predefinita si basa sull'account di Azure usato per accedere.
 
-    * **Gruppo di risorse**: Creare un gruppo di risorse o selezionarne uno esistente.
+   * **Gruppo di risorse**: Creare un gruppo di risorse o selezionarne uno esistente.
 
-    * **Località**: selezionare l'area in cui è stato registrato il gateway.
+   * **Località**: selezionare l'area in cui è stato registrato il gateway.
 
-    * **Nome installazione**: se l'installazione del gateway non è già selezionata, selezionare il gateway registrato. 
+   * **Nome installazione**: se l'installazione del gateway non è già selezionata, selezionare il gateway registrato. 
 
-    Al termine dell'operazione, scegliere **Crea**.
+     Al termine dell'operazione, scegliere **Crea**.
 
 ## <a name="connect-servers"></a>Connettere i server alla risorsa per il gateway
 

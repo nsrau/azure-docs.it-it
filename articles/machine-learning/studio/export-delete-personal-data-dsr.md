@@ -1,21 +1,21 @@
 ---
-title: Esportare ed eliminare i dati da Machine Learning Studio
+title: Esporta ed elimina i tuoi dati
 titleSuffix: Azure Machine Learning Studio
 description: I dati interni al prodotto archiviati da Azure Machine Learning Studio sono disponibili per l'esportazione e l'eliminazione tramite il portale di Azure e anche tramite API REST autenticate. I dati di telemetria sono accessibili tramite il portale Privacy di Azure. Questo articolo illustra i passaggi da eseguire.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 49f045e8da5094f583c01c514bf92f6bf3fe1c09
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 827714fea9618724ef058e1f76dc099f692482bc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453360"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850531"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>Esportare ed eliminare i dati utente interni al prodotto da Azure Machine Learning Studio
 

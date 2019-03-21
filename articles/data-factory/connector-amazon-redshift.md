@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 7c790d03143eece9b0c827a033bdd46bfd1a8f45
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 9e1dde57dc1903e87704bd55fb0b942b7cc349e5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024366"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010583"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copiare dati da Amazon Redshift usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,7 +38,7 @@ In particolare, il connettore Amazon Redshift supporta il recupero di dati da Re
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Se si copiano dati in un archivio dati locale usando il [runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md), concedere al runtime di integrazione (usare l'indirizzo IP del computer) l'accesso al cluster Amazon Redshift. Vedere [Autorizzare l'accesso al cluster](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) per le istruzioni.
+* Se si copiano dati in un archivio dati locale usando il [runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md), concedere al runtime di integrazione (usare l'indirizzo IP del computer) l'accesso al cluster Amazon Redshift. Vedere [Autorizzare l'accesso al cluster](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) per le istruzioni.
 * Se si copiano dati in un archivio dati di Azure, vedere [Azure Data Center IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) (Intervalli IP del centro dati di Azure) per gli intervalli di indirizzi IP ed SQL di calcolo usati dai data center di Azure.
 
 ## <a name="getting-started"></a>Introduzione
@@ -51,13 +51,13 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di Amazon Redshift sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **AmazonRedshift** | Yes |
-| server |Indirizzo IP o nome host del server Amazon Redshift. |Yes |
+| type | La proprietà type deve essere impostata su: **AmazonRedshift** | Sì |
+| server |Indirizzo IP o nome host del server Amazon Redshift. |Sì |
 | port |Il numero della porta TCP che il server Amazon Redshift usa per ascoltare le connessioni client. |No, il valore predefinito è 5439 |
-| database |Nome del database Amazon Redshift. |Yes |
-| Nome utente |Nome dell'utente che ha accesso al database. |Yes |
+| database |Nome del database Amazon Redshift. |Sì |
+| Nome utente |Nome dell'utente che ha accesso al database. |Sì |
 | password |La password per l'account utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
 
@@ -87,15 +87,15 @@ Per il servizio collegato di Amazon Redshift sono supportate le proprietà segue
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui set di dati. Questa sezione presenta un elenco delle proprietà supportate dal set di dati Amazon Redshift.
 
 Per copiare dati da Amazon Redshift, impostare la proprietà type del set di dati su **RelationalTable**. Sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **RelationalTable** | Yes |
+| type | La proprietà type del set di dati deve essere impostata su: **RelationalTable** | Sì |
 | tableName | Nome della tabella in Amazon Redshift. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -123,10 +123,10 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Amazon Redshift, impostare il tipo di origine nell'attività di copia su **AmazonRedshiftSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **AmazonRedshiftSource** | Yes |
-| query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: selezionare * da MyTable. |No (se nel set di dati è specificato "tableName") |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **AmazonRedshiftSource** | Sì |
+| query |Usare la query personalizzata per leggere i dati. Ad esempio: selezionare * da MyTable. |No (se nel set di dati è specificato "tableName") |
 | redshiftUnloadSettings | Gruppo di proprietà quando si usa lo strumento UNLOAD di Amazon Redshift. | No  |
 | s3LinkedServiceName | Fa riferimento a un'istanza di Amazon S3 da usare come archivio provvisorio specificando un nome di servizio collegato di tipo "AmazonS3". | Sì, se si usa UNLOAD |
 | bucketName | Indicare il bucket S3 per archiviare i dati provvisori. Se non viene specificato, il servizio Data Factory lo genera automaticamente.  | Sì, se si usa UNLOAD |
@@ -151,7 +151,7 @@ Per altre informazioni su come usare UNLOAD per copiare in modo efficiente dati 
 
 ## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Usare UNLOAD per copiare i dati da Amazon Redshift
 
-[UNLOAD](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) è un meccanismo fornito da Amazon Redshift, che consente di scaricare i risultati di una query in uno o più file in Amazon Simple Storage Service (Amazon S3). Si tratta del metodo consigliato da Amazon per la copia di set di dati di grandi dimensioni da Redshift.
+[UNLOAD](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) è un meccanismo fornito da Amazon Redshift, che consente di scaricare i risultati di una query in uno o più file in Amazon Simple Storage Service (Amazon S3). Si tratta del metodo consigliato da Amazon per la copia di set di dati di grandi dimensioni da Redshift.
 
 **Esempio: copiare dati da Amazon Redshift in Azure SQL Data Warehouse usando UNLOAD, la copia di staging e PolyBase**
 
@@ -212,14 +212,14 @@ Quando si copiano dati da Amazon Redshift, vengono usati i mapping seguenti tra 
 | BIGINT |Int64 |
 | BOOLEAN |string |
 | CHAR |string |
-| DATE |Datetime |
+| DATE |DateTime |
 | DECIMAL |Decimal |
 | DOUBLE PRECISION |Double |
 | INTEGER |Int32 |
 | REAL |Single |
 | SMALLINT |Int16 |
 | TEXT |string |
-| TIMESTAMP |Datetime |
+| TIMESTAMP |DateTime |
 | VARCHAR |string |
 
 ## <a name="next-steps"></a>Passaggi successivi

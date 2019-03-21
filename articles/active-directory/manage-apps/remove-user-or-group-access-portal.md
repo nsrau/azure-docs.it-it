@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c622b95572a078d3f5a3e4791f959fd264eddc3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4b72ec628e048560fbfb9da63123bbb7461811b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182171"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074285"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Rimuovere l'assegnazione di un utente o un gruppo da un'app aziendale in Azure Active Directory
 Rimuovere un utente o un gruppo dalla possibilità di accedere a una delle applicazioni aziendali in Azure Active Directory (Azure AD) è un'operazione facile. È necessario disporre delle autorizzazioni appropriate per gestire l'app aziendale ed essere amministratore globale della directory.
@@ -51,7 +51,7 @@ Rimuovere un utente o un gruppo dalla possibilità di accedere a una delle appli
     > È necessario installare il modulo AzureAD. Usare il comando `Install-Module -Name AzureAD`. Se viene chiesto se installare un modulo NuGet o il nuovo modulo Azure Active Directory V2 PowerShell, digitare Y e premere INVIO.
 
 2. Eseguire `Connect-AzureAD` e accedere con un account utente Amministratore globale.
-3. Usare lo script seguente per assegnare un utente e un ruolo a un'applicazione:
+3. Usare lo script seguente per rimuovere un ruolo e l'utente da un'applicazione:
 
     ```powershell
     # Store the proper parameters
@@ -67,7 +67,7 @@ Rimuovere un utente o un gruppo dalla possibilità di accedere a una delle appli
     #To remove the App role assignment run the following command.
     Remove-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId -AppRoleAssignmentId $assignments[assignment #].ObjectId
     ``` 
-## <a name="next-steps"></a>Passaggi successivi
+   ## <a name="next-steps"></a>Passaggi successivi
 
 - [Visualizzare tutti i gruppi personali](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Assegnare un utente o gruppo a un'app aziendale](assign-user-or-group-access-portal.md)

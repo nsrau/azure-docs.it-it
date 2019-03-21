@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: bb2ebeedb1b34288a3d402ffdf4df80aa3be83cd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 1102a8c80b0040c7044d64c674d956d339238623
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154076"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086650"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Aggiungere una macchina virtuale di Red Hat Enterprise Linux 7 a un dominio gestito
 Questo articolo illustra come aggiungere una macchina virtuale di Red Hat Enterprise Linux (RHEL) 7 a un dominio gestito di Servizi di dominio Azure AD.
@@ -86,12 +86,11 @@ Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività s
     sudo realm discover CONTOSO100.COM
     ```
 
-     > [!NOTE]
-     > **Risoluzione dei problemi:** Se *realm discover* non riesce a trovare il dominio gestito:
-     * Verificare che il dominio sia raggiungibile dalla macchina virtuale (provare a effettuare il ping).
-     * Verificare che la macchina virtuale sia stata effettivamente distribuita nella stessa rete virtuale in cui è disponibile il dominio gestito.
-     * Verificare che le impostazioni del server DNS per la rete virtuale siano state aggiornate affinché puntino ai controller di dominio del dominio gestito.
-     >
+   > [!NOTE]
+   > **Risoluzione dei problemi:** Se *realm discover* non riesce a trovare il dominio gestito:
+   >   * Verificare che il dominio sia raggiungibile dalla macchina virtuale (provare a effettuare il ping).
+   >   * Verificare che la macchina virtuale sia stata effettivamente distribuita nella stessa rete virtuale in cui è disponibile il dominio gestito.
+   >   * Verificare che le impostazioni del server DNS per la rete virtuale siano state aggiornate affinché puntino ai controller di dominio del dominio gestito.
 
 2. Inizializzare Kerberos. Nel terminale SSH digitare il comando seguente:
 

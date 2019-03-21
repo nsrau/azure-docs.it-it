@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 7e135432ce8490c505e7d3a1022407dd5d9b9776
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
+ms.openlocfilehash: 6c57dff2e0f0c1edb887ddd8f0e5ca206ba8b912
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584395"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110393"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Gestire cluster ML Services in Azure HDInsight
 
-In questo articolo viene illustrato come gestire un cluster ML Services esistente in Azure HDInsight per eseguire attività come l'aggiunta di più utenti simultanei, la connessione remota a un cluster ML Services, la modifica del contesto di calcolo e così via.
+In questo articolo descrive come gestire un cluster esistente di servizi di Machine Learning in Azure HDInsight per eseguire attività quali l'aggiunta di più utenti simultanei, la connessione remota a un cluster di servizi di Machine Learning, la modifica di contesto di calcolo e così via.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -310,7 +310,7 @@ Per installare pacchetti R nei nodi di lavoro del cluster, è necessario usare u
 
    * Per **Nome** specificare un nome per l'azione script.
 
-    * Per **URI script Bash** immettere `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. Questo è lo script che installa i pacchetti R aggiuntivi nel nodo di lavoro
+     * Per **URI script Bash** immettere `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. Questo è lo script che installa i pacchetti R aggiuntivi nel nodo di lavoro
 
    * Selezionare la casella di controllo solo per **Lavoro**.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: 3c4f1be97308062adc28a0b49ee36c3492906d63
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 791c63b7b7fed55f95905ba7131d6a1d4bb414ff
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990209"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010501"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configurazione di Pacemaker in Red Hat Enterprise Linux in Azure
 
@@ -183,7 +183,7 @@ Il dispositivo STONITH usa un'entità servizio per l'autorizzazione in Microsoft
    Passare a Proprietà e annotare l'ID directory. Si tratta dell'**ID tenant**.
 1. Fare clic su Registrazioni per l'app
 1. Fare clic su Aggiungi.
-1. Immettere un nome, selezionare il tipo di applicazione "App Web/API", immettere un URL di accesso (ad esempio, http://localhost) e fare clic su Crea.
+1. Immettere un nome, selezionare il tipo di applicazione "app Web/API", immettere un URL di accesso (ad esempio `http://localhost`) e fare clic su Crea
 1. L'URL di accesso non viene usato e può essere qualsiasi URL valido
 1. Selezionare la nuova app e fare clic su Chiavi nella scheda Impostazioni
 1. Immettere una descrizione per una nuova chiave, selezionare "Non scade mai" e fare clic su Salva
