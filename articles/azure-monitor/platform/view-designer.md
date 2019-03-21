@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 1996befa78409e572798a9043f7e6ee3b6f647bc
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: f07fc2f03ad72e7ee0fd408782b8fe845c88e780
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887905"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286568"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Creare visualizzazioni personalizzate usando Progettazione viste in Monitoraggio di Azure
 Utilizzando Progettazione vista in Monitoraggio di Azure, è possibile creare un'ampia gamma di visualizzazioni personalizzate nel portale di Azure che consentono di visualizzare i dati nell'area di lavoro di Log Analitica. Questo articolo presenta una panoramica su Progettazione visualizzazioni e sulle procedure per la creazione e la modifica delle visualizzazioni personalizzate.
@@ -43,6 +43,9 @@ Le visualizzazioni create con Progettazione visualizzazioni contengono gli eleme
 | Riquadri | Vengono visualizzati in Monitoraggio di Azure **Panoramica** pagina. Ogni riquadro mostra un riepilogo visivo della visualizzazione personalizzata che rappresenta. Ciascun tipo di riquadro offre una visualizzazione diversa dei record. Selezionare un riquadro per mostrare una visualizzazione personalizzata. |
 | Visualizzazione personalizzata | Viene mostrata quando si seleziona un riquadro. Ciascuna visualizzazione contiene una o più parti della visualizzazione. |
 | Parti della visualizzazione | Presentano una visualizzazione dei dati nell'area di lavoro di Log Analitica basato su uno o più [registrare query](../log-query/log-query-overview.md). La maggior parte delle parti include un'intestazione, che offre una visualizzazione di alto livello, e un elenco che mostra i risultati principali. Ciascun tipo di parte offre una visualizzazione diversa dei record nell'area di lavoro di Log Analytics. Selezionare gli elementi della parte per eseguire una query di log che restituisca record dettagliati. |
+
+## <a name="required-permissions"></a>Autorizzazioni necessarie
+Richiesto almeno [le autorizzazioni a livello di collaboratore](manage-access.md#manage-accounts-and-users) nell'area di lavoro di Log Analitica per creare o modificare le visualizzazioni. Se non si ha questa autorizzazione, l'opzione di Progettazione viste non verranno visualizzata nel menu di scelta.
 
 
 ## <a name="work-with-an-existing-view"></a>Usare una visualizzazione esistente

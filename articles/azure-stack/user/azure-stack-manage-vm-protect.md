@@ -15,24 +15,19 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 50b3499a52ac646b6c896dd79b2191651c5b277e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.lastreviewed: 3/19/2018
+ms.openlocfilehash: de57ebbf0c0c4e8a18c955200d1692ea4ae9afae
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782939"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295012"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Proteggere le macchine virtuali distribuite in Azure Stack
 
 Usare questo articolo come guida per lo sviluppo di un piano per la protezione di macchine virtuali (VM) che gli utenti distribuiscono in Azure Stack.
 
-Per proteggersi dalla perdita di dati e i tempi di inattività non pianificato, è necessario implementare un piano di ripristino di backup o ripristino di emergenza per le applicazioni utente e i relativi dati. Questo piano potrebbe essere univoco per ogni applicazione, ma segue un modello definito dalla strategia BC/ripristino di emergenza di emergenza e continuità aziendale completa della tua organizzazione. È un buon punto di partenza [progettazione di applicazioni resilienti per Azure](https://docs.microsoft.com/azure/architecture/resiliency), che fornisce modelli generali e procedure consigliate per la disponibilità dell'applicazione e la resilienza.
-
->[!IMPORTANT]
-> Testare i piani di ripristino di backup e ripristino di emergenza in modo continuativo. È necessario per questa opzione per assicurarsi che:
-> * I piani di lavoro
-> * I piani comunque soddisfano le esigenze che per cui sono stati progettati.
+Per proteggersi dalla perdita di dati e i tempi di inattività non pianificato, è necessario implementare un piano di ripristino di backup o ripristino di emergenza per le applicazioni utente e i relativi dati. Questo piano potrebbe essere univoco per ogni applicazione, ma segue un modello definito dalla strategia BC/ripristino di emergenza di emergenza e continuità aziendale completa della tua organizzazione. È un buon punto di partenza [Azure Stack: Considerazioni per il ripristino di emergenza e continuità aziendale](https://aka.ms/azurestackbcdrconsiderationswp).
 
 ## <a name="azure-stack-infrastructure-recovery"></a>Ripristino dell'infrastruttura di Azure Stack
 
@@ -47,6 +42,9 @@ Se il cloud di Azure Stack è offline per un periodo di tempo prolungato o perde
 * Consente alle applicazioni di mantenere le richieste degli utenti di manutenzione
 
 L'operatore del cloud Azure Stack è responsabile per la creazione di un piano di ripristino per i servizi e infrastruttura di Azure Stack sottostante. Per altre informazioni, leggere l'articolo [risarcimento grave perdita dei dati](https://docs.microsoft.com/azure/azure-stack/azure-stack-backup-recover-data).
+
+## <a name="considerations-for-iaas-vms"></a>Considerazioni per le macchine virtuali IaaS
+Il sistema operativo installato nella VM IaaS limiterà i prodotti che è possibile usare per proteggere i dati che contiene. Per Windows basato su macchine virtuali IaaS, è possibile usare i prodotti Microsoft e dei partner per proteggere i dati. Per le macchine virtuali IaaS basati su Linux, l'unica opzione consiste nell'utilizzare i prodotti di partner. Fare riferimento a [questo foglio dati per tutti i partner di BC e ripristino di emergenza per Azure Stack con convalidato](https://aka.ms/azurestackbcdrpartners).
 
 ## <a name="sourcetarget-combinations"></a>Combinazioni di origine/destinazione
 

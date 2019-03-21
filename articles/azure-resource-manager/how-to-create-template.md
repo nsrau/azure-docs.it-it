@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: abfc7ce78e8676e9560621be1ec9a81717d958e5
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
-ms.translationtype: HT
+ms.openlocfilehash: b198f860c10bd207a191057e21a8a159c5ebde26
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994284"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403516"
 ---
 # <a name="create-azure-resource-manager-template"></a>Creare un modello di Azure Resource Manager
 
@@ -38,15 +38,15 @@ Per un'esercitazione sull'installazione dell'estensione Strumenti di Resource Ma
 
 Esaminiamo ora le parti del modello per comprendere il suo funzionamento. Il modello potrebbe non avere tutte le sezioni. Le sezioni che su cui si desidera concentrarsi sono:
 
-* La sezione dei [parameters](resource-manager-templates-parameters.md), che mostra i valori che possono essere specificati durante la distribuzione per personalizzare l'infrastruttura distribuita. 
+* La sezione dei [parameters](resource-group-authoring-templates.md#parameters), che mostra i valori che possono essere specificati durante la distribuzione per personalizzare l'infrastruttura distribuita. 
 
-* La sezione delle [variables](resource-manager-templates-variables.md), che mostra i valori usati nel modello.
+* La sezione delle [variables](resource-group-authoring-templates.md#variables), che mostra i valori usati nel modello.
 
 * La sezione delle [functions](resource-group-authoring-templates.md#functions), che mostra le espressioni personalizzate usate nel modello.
 
-* La sezione delle [resources](resource-manager-templates-resources.md), che mostra le risorse di Azure distribuite alla sottoscrizione.
+* La sezione delle [resources](resource-group-authoring-templates.md#resources), che mostra le risorse di Azure distribuite alla sottoscrizione.
 
-* La sezione degli [outputs](resource-manager-templates-outputs.md), che mostra i valori restituiti al termine della distribuzione.
+* La sezione degli [outputs](resource-group-authoring-templates.md#outputs), che mostra i valori restituiti al termine della distribuzione.
 
 ## <a name="look-for-similar-templates"></a>Cercare modelli simili
 
@@ -98,7 +98,7 @@ Potrebbe anche essere necessario regolare i parametri per il modello. È possibi
 }
 ```
 
-È anche possibile applicare tag in modo dinamico dai parametri. Per altre informazioni, vedere [Tag nel modello](resource-manager-templates-resources.md#tags).
+È anche possibile applicare tag in modo dinamico dai parametri. Per altre informazioni, vedere [Tag nel modello](resource-group-using-tags.md#templates).
 
 ## <a name="review-template-functions"></a>Esaminare le funzioni del modello
 
@@ -176,7 +176,7 @@ L'esempio seguente distribuisce un account di archiviazione in modo condizionale
 }
 ```
 
-Per altre informazioni, vedere l'[elemento di condizione](resource-manager-templates-resources.md#condition).
+Per altre informazioni, vedere l'[elemento di condizione](resource-group-authoring-templates.md#condition).
 
 ## <a name="review-dependencies"></a>Esaminare le dipendenze
 

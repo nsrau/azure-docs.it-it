@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 8164e2db064523fe648ec9ef0c72754be846dff6
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 5902ba86b51ca1998364e393ac02bbb0d0a23a28
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327562"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432635"
 ---
 # <a name="aks-troubleshooting"></a>Risoluzione dei problemi di servizio Azure Kubernetes
 
@@ -63,10 +63,30 @@ Il modo più semplice per accedere al servizio all'esterno del cluster consiste 
 
 Se non viene visualizzato il dashboard di Kubernetes, controllare se il pod `kube-proxy` è eseguito nello spazio dei nomi `kube-system`. Se non è esecuzione, eliminare il pod in modo che venga riavviato.
 
-## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Non è possibile ottenere i log usando i log di kubectl o non è possibile connettersi al server API. Viene visualizzato l’errore “Errore del server: errore durante il contatto con il backend: contattare tcp…” Cosa devo fare?
+## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Non è possibile ottenere i log usando i log di kubectl o non è possibile connettersi al server API. Viene visualizzato "errore dal server: errore nella composizione back-end: comporre tcp...". Cosa devo fare?
 
-Assicurarsi che il gruppo di sicurezza di rete predefinito (NSG) non sia stato modificato e che la porta 22 sia aperta per la connessione al server API. Controllare se il pod `tunnelfront` è in esecuzione nello spazio dei nomi `kube-system`. In caso contrario, forzare l’eliminazione del pod per riavviarlo.
+Assicurarsi che il gruppo di sicurezza di rete predefinito non è stato modificato e che la porta 22 sia aperta per la connessione al server API. Controllare se il `tunnelfront` pod in esecuzione nel *kube system* dello spazio dei nomi usando il `kubectl get pods --namespace kube-system` comando. In caso contrario, forzare l’eliminazione del pod per riavviarlo.
 
-## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-problem"></a>Sto cercando di eseguire l'aggiornamento o il ridimensionamento e ricevo un "messaggio: La modifica della proprietà 'imageReference' non è consentita".  Come si risolve il problema?
+## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Sto cercando di eseguire l'aggiornamento o il ridimensionamento e ricevo un "messaggio: La modifica della proprietà 'imageReference' non è consentita". Come si risolve il problema?
 
 È possibile che questo errore venga visualizzato in seguito alla modifica di tag nei nodi dell'agente all'interno del cluster AKS. La modifica e l'eliminazione di tag e altre proprietà delle risorse nel gruppo di risorse MC_* può causare risultati imprevisti. La modifica delle risorse nel gruppo MC_* del cluster del servizio Kubernetes di Azure è una violazione dell'obiettivo del livello di servizio (SLO).
+
+## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Si verificano errori che il cluster non è in stato di errore e l'aggiornamento o ridimensionamento non funzioneranno finché non si è risolto
+
+*Questo tipo di servizio di risoluzione dei problemi viene indirizzato da https://aka.ms/aks-cluster-failed*
+
+Questo errore si verifica quando i cluster di entrano in uno stato non riuscito per diversi motivi. Attenersi alla procedura seguente per risolvere lo stato del cluster non riuscito prima di ritentare l'operazione non riuscita in precedenza:
+
+1. Fino a quando il cluster si trova fuori `failed` stato `upgrade` e `scale` operazioni non riescono. Le risoluzioni e i problemi radice comuni includono:
+    * Scalandola **quota di calcolo sufficienti (CRP)**. Per risolvere, prima di tutto ridimensionare il cluster tornato a uno stato stabile obiettivo entro la quota. Quindi seguire queste [aumenta la seguente procedura per richiedere una quota di calcolo](../azure-supportability/resource-manager-core-quotas-request.md) prima di provare ad aumentare le prestazioni oltre nuovamente i limiti di quota iniziale.
+    * Ridimensionamento di un cluster con una rete avanzata e **le risorse della subnet insufficiente (rete)**. Per risolvere, prima di tutto ridimensionare il cluster tornato a uno stato stabile obiettivo entro la quota. Segui [aumenta la procedura seguente per richiedere una quota di risorse](../azure-resource-manager/resource-manager-quota-errors.md#solution) prima di provare ad aumentare le prestazioni oltre nuovamente i limiti di quota iniziale.
+2. Dopo avere risolta la causa principale dell'errore di aggiornamento, il cluster deve essere nello stato riuscito. Una volta verificato uno stato completato, ripetere l'operazione originale.
+
+## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Si verificano errori durante il tentativo di eseguire l'aggiornamento o la scala che indicano il cluster è in corso attualmente in corso aggiornato o dispone di aggiornamento non riuscito
+
+*Questo tipo di servizio di risoluzione dei problemi viene indirizzato da https://aka.ms/aks-pending-upgrade*
+
+Le operazioni del cluster sono limitate quando si verificano operazioni di aggiornamento attive o è stato tentato un aggiornamento, ma successivamente non è riuscito. Per diagnosticare il problema eseguire `az aks show -g myResourceGroup -n myAKSCluster -o table` per recuperare informazioni dettagliate sullo stato nel cluster. In base al risultato:
+
+* Se è attiva l'aggiornamento di cluster, attendere finché non termina l'operazione. Se la connessione riesce, ripetere l'operazione non riuscita in precedenza.
+* Se cluster ha esito negativo di aggiornamento, seguire i passaggi descritti in precedenza

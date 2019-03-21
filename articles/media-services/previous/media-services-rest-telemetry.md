@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 4b2028b16c395b770e935fdba47dc0e965284fc2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b1eb6e1458fab6de3472d68352ba7764b71007c8
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993666"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58292582"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Configurare la telemetria di Servizi multimediali di Azure con REST
 
@@ -125,8 +125,8 @@ Questo argomento descrive come:
         "EndPointType":2
     }
 
->[!NOTE]
->Non dimenticare di modificare il valore "https://telemetryvalidationstore.table.core.windows.net" sostituendolo con l'account di archiviazione.
+> [!NOTE]
+> Non dimenticare di modificare il valore "https://telemetryvalidationstore.table.core.windows.net" sostituendolo con l'account di archiviazione.
 
 ### <a name="response"></a>Risposta
 

@@ -2,19 +2,19 @@
 title: Gestire i log per un cluster HDInsight - Azure HDInsight
 description: Determinare i tipi, le dimensioni e i criteri di conservazione per i file di log attività di HDInsight.
 services: hdinsight
-author: ashishthaps
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.author: ashishth
-ms.openlocfilehash: 7b6f9ca914e9fed48463d2134eeba1cd4c103690
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.date: 03/19/2019
+ms.author: hrasheed
+ms.openlocfilehash: 0f0a22ea4a24a82cb4acf7a3b20a743ee7425c72
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225320"
+ms.locfileid: "58294910"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gestire i log per un cluster HDInsight
 
@@ -43,13 +43,12 @@ I dettagli dei cluster seguenti sono utili per raccogliere informazioni nell'amb
 * Stato del cluster, inclusi i dettagli dell'ultima modifica dello stato
 * Tipo e numero di istanze di HDInsight specificate per i nodi master, principali e attività
 
-È possibile ottenere la maggior parte di queste informazioni generali usando il portale di Azure.  In alternativa, è possibile usare l'interfaccia della riga di comando di Azure classica per ottenere informazioni sui cluster HDInsight:
+È possibile ottenere la maggior parte di queste informazioni generali usando il portale di Azure.  In alternativa, è possibile usare [CLI Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) per ottenere informazioni sui cluster di HDInsight:
 
+```azurecli
+    az hdinsight list --resource-group <ResourceGroup>
+    az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
-    azure hdinsight cluster list
-    azure hdinsight cluster show <ClusterName>
-```
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 Per visualizzare queste informazioni, è anche possibile usare PowerShell.  Per altre informazioni, vedere [Gestire cluster Apache Hadoop in HDInsight usando Azure PowerShell](hdinsight-administer-use-powershell.md).
 
@@ -77,7 +76,7 @@ Un tipico cluster HDInsight usa diversi servizi e pacchetti software open source
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Visualizzare le impostazioni di configurazione cluster con l'interfaccia utente di Ambari
 
-Apache Ambari semplifica la gestione, la configurazione e il monitoraggio di un cluster HDInsight grazie a un'interfaccia utente Web e a un'API REST. Ambari è incluso nei cluster HDInsight basati su Linux. Selezionare il **Dashboard Cluster** riquadro nella pagina HDInsight del portale Azure per aprire il**dashboard Cluster** pagina di collegamento.  Selezionare quindi il riquadro **Dashboard cluster HDInsight** per aprire l'interfaccia utente di Ambari.  Vengono chieste le credenziali di accesso del cluster.
+Apache Ambari semplifica la gestione, la configurazione e il monitoraggio di un cluster HDInsight grazie a un'interfaccia utente Web e a un'API REST. Ambari è incluso nei cluster HDInsight basati su Linux. Selezionare il **Dashboard Cluster** riquadro nella pagina HDInsight del portale Azure per aprire il **dashboard Cluster** pagina di collegamento.  Selezionare quindi il riquadro **Dashboard cluster HDInsight** per aprire l'interfaccia utente di Ambari.  Vengono chieste le credenziali di accesso del cluster.
 
 Per aprire un elenco di visualizzazioni di servizi, selezionare il riquadro **Visualizzazioni di Ambari** nella pagina del portale di Azure per HDInsight.  Questo elenco varia a seconda delle librerie installate.  È ad esempio possibile visualizzare YARN Queue Manager, Hive View e Tez View.  Selezionare un collegamento al servizio per visualizzare le informazioni sulla configurazione e sul servizio.  La pagina **Stack and Version** (Stack e versione) dell'interfaccia utente di Ambari contiene informazioni sulla configurazione dei servizi cluster e la cronologia delle versioni dei servizi. Per passare a questa sezione dell'interfaccia utente di Ambari, scegliere **Stacks and Versions** (Stack e versioni) dal menu **Admin** (Amministratore).  Selezionare la scheda **Versions** (Versioni) per visualizzare le informazioni sulle versioni dei servizi.
 
@@ -99,7 +98,7 @@ Il passaggio successivo prevede la revisione dei file di log di esecuzione dei p
 
 ### <a name="access-the-hadoop-log-files"></a>Accedere ai file di log di Hadoop
 
-HDInsight archivia i file di log sia nel file system del cluster che in Archiviazione di Azure. È possibile esaminare i file di log nel cluster aprendo una connessione SSH al cluster ed esplorando il file system o usando il portale dello stato di Hadoop YARN nel server del nodo head remoto. È possibile esaminare i file di log in Archiviazione di Azure usando uno degli strumenti che consentono di accedere ai dati e di scaricarli da Archiviazione di Azure, ad esempio AZCopy, CloudXplorer ed Esplora server di Visual Studio. È anche possibile usare PowerShell e le librerie client di Archiviazione di Azure o gli SDK di Azure .NET per accedere ai dati nell'archivio BLOB di Azure.
+HDInsight archivia i file di log sia nel file system del cluster che in Archiviazione di Azure. È possibile esaminare i file di log del cluster aprendo un' [SSH](/hdinsight-hadoop-linux-use-ssh-unix.md) connessione al cluster e l'esplorazione del file system o usando il portale di Hadoop YARN Status sul server del nodo head remoto. È possibile esaminare i file di log in Archiviazione di Azure usando uno degli strumenti che consentono di accedere ai dati e di scaricarli da Archiviazione di Azure, Sono esempi [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)e Visual Studio Server Explorer. È anche possibile usare PowerShell e le librerie client di Archiviazione di Azure o gli SDK di Azure .NET per accedere ai dati nell'archivio BLOB di Azure.
 
 Hadoop esegue i processi come *tentativi di attività* in diversi nodi del cluster. HDInsight può avviare tentativi di attività speculativi, terminando qualsiasi altro tentativo di attività non ancora completato. Viene così generata una significativa attività che viene immediatamente registrata nei file di log del controller, di stderr e di syslog. Vengono inoltre eseguiti simultaneamente più tentativi di attività, ma un file di log può visualizzare i risultati solo in modo lineare.
 
@@ -168,9 +167,9 @@ Per controllare le dimensioni e il numero di file di log conservati, impostare l
 
 ### <a name="other-log-management-techniques"></a>Altre tecniche di gestione dei log
 
-Per evitare di esaurire lo spazio su disco, è possibile usare alcuni strumenti del sistema operativo, ad esempio `logrotate`, per gestire i file di log. È possibile configurare `logrotate` per l'esecuzione giornaliera, in cui vengono compressi i file di log e vengono rimossi quelli obsoleti. L'approccio dipende dai requisiti, ad esempio per quanto tempo conservare i file di log nei nodi locali. 
+Per evitare l'esaurimento dello spazio su disco, è possibile usare alcuni strumenti del sistema operativo, ad esempio [logrotate](https://linux.die.net/man/8/logrotate) per gestire la gestione dei file di log. È possibile configurare `logrotate` per l'esecuzione giornaliera, in cui vengono compressi i file di log e vengono rimossi quelli obsoleti. L'approccio dipende dai requisiti, ad esempio per quanto tempo conservare i file di log nei nodi locali.  
 
-È anche possibile controllare se per uno o più servizi è abilitata la registrazione di DEBUG, che aumenta considerevolmente le dimensioni del log di output. 
+È anche possibile controllare se per uno o più servizi è abilitata la registrazione di DEBUG, che aumenta considerevolmente le dimensioni del log di output.  
 
 Per raccogliere i log da tutti i nodi in una posizione centrale, è possibile creare un flusso di dati, ad esempio inserendo tutte le voci di log in Solr.
 

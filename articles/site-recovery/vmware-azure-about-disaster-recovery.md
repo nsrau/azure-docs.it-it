@@ -1,18 +1,18 @@
 ---
 title: Informazioni sul ripristino di emergenza di macchine virtuali VMware in Azure tramite Azure Site Recovery | Microsoft Docs
 description: Questo articolo offre una panoramica del ripristino di emergenza di macchine virtuali VMware in Azure tramite il servizio Azure Site Recovery.
-author: rayne-wiselman
+author: mayurigupta13
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 12/31/2018
-ms.author: raynew
-ms.openlocfilehash: 38f344ef9e24816a17975c60a5863be46da1364b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 3/3/2019
+ms.author: mayg
+ms.openlocfilehash: aa7ea43f3c41c6200e4cf796b0f09dca995791df
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210336"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339675"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Informazioni sul ripristino di emergenza di macchine virtuali VMware in Azure
 
@@ -34,7 +34,7 @@ Una strategia di continuità aziendale e ripristino di emergenza (BCDR, Business
     - L'analisi consente di garantire che il failover funzioni come previsto quando si verifica un'esigenza reale.
     - Viene eseguito un failover di test senza alcun impatto sull'ambiente di produzione.
 5. Se si verifica un'interruzione del servizio, si esegue un failover completo in Azure. È possibile eseguire il failover di un singolo computer oppure è possibile creare un piano di ripristino che esegua il failover di più computer contemporaneamente.
-6. In caso di failover, vengono create macchine virtuali di Azure dai dati della macchina virtuale in Archiviazione di Azure. Gli utenti possono continuare ad accedere alle app e ai carichi di lavoro dalla macchina virtuale di Azure.
+6. In caso di failover, vengono create VM di Azure dai dati della macchina virtuale in dischi gestiti o gli account di archiviazione. Gli utenti possono continuare ad accedere alle app e ai carichi di lavoro dalla macchina virtuale di Azure.
 7. Quando il sito locale è di nuovo disponibile, si esegue il failback da Azure.
 8. Dopo aver eseguito il failback per usare ancora il sito primario, si avvia nuovamente la replica di macchine virtuali locali in Azure.
 
@@ -56,13 +56,12 @@ Site Recovery può replicare qualsiasi carico di lavoro in esecuzione in una mac
 Per iniziare, in Azure è necessario eseguire queste operazioni:
 
 1. Verificare che l'account di Azure disponga delle autorizzazioni per creare macchine virtuali in Azure.
-2. Creare un account di archiviazione per conservare le immagini dei computer replicati.
-3. Creare una rete di macchine virtuali di Azure cui aggiungere le macchine virtuali di Azure quando vengono create dall'archiviazione dopo il failover.
-4. Configurare un insieme di credenziali di Servizi di ripristino di Azure per Site Recovery. L'insieme di credenziali si trova nel portale di Azure e viene usato per distribuire, configurare, orchestrare, monitorare e risolvere i problemi di distribuzione di Site Recovery.
+2. Creare una rete di Azure che verrà aggiunto macchine virtuali di Azure quando vengono create dall'account di archiviazione o dischi gestiti dopo il failover.
+3. Configurare un insieme di credenziali di Servizi di ripristino di Azure per Site Recovery. L'insieme di credenziali si trova nel portale di Azure e viene usato per distribuire, configurare, orchestrare, monitorare e risolvere i problemi di distribuzione di Site Recovery.
 
 *Ulteriore assistenza?*
 
-Sono disponibili altre informazioni su come configurare Azure tramite la [verifica dell'account](tutorial-prepare-azure.md#verify-account-permissions), la creazione di un [account di archiviazione](tutorial-prepare-azure.md#create-a-storage-account) e di [rete](tutorial-prepare-azure.md#set-up-an-azure-network) e l'[impostazione di insieme di credenziali](tutorial-prepare-azure.md#create-a-recovery-services-vault).
+Informazioni su come impostare backup di Azure da [verifica dell'account](tutorial-prepare-azure.md#verify-account-permissions), creando un [network](tutorial-prepare-azure.md#set-up-an-azure-network), e [configurazione di un insieme di credenziali](tutorial-prepare-azure.md#create-a-recovery-services-vault).
 
 
 
@@ -94,10 +93,10 @@ Dopo aver creato l'infrastruttura di Azure e in locale, è possibile configurare
     - Il server di configurazione è un singolo computer locale. Per il ripristino di emergenza di VMware, è consigliabile distribuirlo come una macchina virtuale VMware che può essere distribuito da un modello OVF scaricabile.
     - Il server di configurazione coordina le comunicazioni tra l'ambiente locale e Azure.
     - Nel server di configurazione sono in esecuzione un paio di altri componenti.
-        - Il server di elaborazione riceve, ottimizza e invia i dati di replica ad Archiviazione di Azure. Il server gestisce anche l'installazione automatica del servizio Mobility nei computer da replicare ed esegue l'individuazione automatica delle macchine virtuali su server VMware.
+        - Il server di elaborazione riceve, li Ottimizza e invia i dati di replica in account di archiviazione della cache di Azure. Il server gestisce anche l'installazione automatica del servizio Mobility nei computer da replicare ed esegue l'individuazione automatica delle macchine virtuali su server VMware.
         - Il server di destinazione master gestisce i dati di replica durante il failback da Azure.
     - La configurazione include la registrazione del server di configurazione nell'insieme di credenziali, il download di server MySQL e di VMware PowerCLI e la specifica degli account creati per l'individuazione automatica e installazione del servizio Mobility.
-4. **Ambiente di destinazione**: è necessario configurare l'ambiente di Azure di destinazione specificando le impostazioni della sottoscrizione di Azure, dell'archiviazione e della rete.
+4. **Ambiente di destinazione**: Impostare la destinazione ambiente Azure, specificando le impostazioni di rete e la sottoscrizione di Azure.
 5. **Criteri di replica**: specificare come eseguire la replica. Le impostazioni includono la frequenza di creazione e di archiviazione dei punti di ripristino e indicano se devono essere creati snapshot coerenti con le app.
 6. **Abilitare la replica**. Abilitare la replica per i computer locali. Se è stato creato un account per installare il servizio Mobility, tale account verrà installato quando si abilita la replica per un computer. 
 

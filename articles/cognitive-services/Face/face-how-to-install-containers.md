@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 7a41bfaada64528e90f43064b34c394f9a9b8f8f
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: f3534f3001de1c3e58f0be3fb7bc9639b7dfcd03
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099089"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295422"
 ---
-# <a name="install-and-run-containers"></a>Installare ed eseguire i contenitori
+# <a name="install-and-run-face-containers"></a>Installare ed eseguire i contenitori di viso
 
 Viso offre un contenitore Linux standardizzato per Docker, denominato Viso, che rileva i visi umani nelle immagini e identifica gli attributi, ad esempio i punti di riferimento del viso (come naso e occhi), il sesso, l'età e altre caratteristiche con previsioni basate sul computer. Oltre al rilevamento, Viso può verificare se due volti nella stessa immagine o in immagini diverse sono uguali mediante un punteggio di attendibilità oppure confrontare i visi in un database per verificare se esistano già visi simili o identici. È anche possibile organizzare i visi simili in gruppi mediante caratteristiche condivise.
 
@@ -28,7 +28,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Prima di usare i contenitori API Viso, è necessario soddisfare i prerequisiti seguenti:
 
-|Obbligatoria|Scopo|
+|Obbligatorio|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
@@ -48,11 +48,12 @@ Prima di usare i contenitori API Viso, è necessario soddisfare i prerequisiti s
 
 La tabella seguente indica il valore minimo e consigliato per CPU e memoria da allocare per ogni contenitore di API Viso.
 
-| Contenitore | Minima | Consigliato |
-|-----------|---------|-------------|
-|Viso | 1 core, 2 GB di memoria | 1 core, 4 GB di memoria |
+| Contenitore | Minima | Consigliato | TPS<br>(Minimum, Maximum)|
+|-----------|---------|-------------|--|
+|Viso | 1 core, 2 GB di memoria | 1 core, 4 GB di memoria |10, 20|
 
-Ogni core deve essere di almeno 2,6 gigahertz (GHz) o superiore.
+* Ogni core deve essere di almeno 2,6 gigahertz (GHz) o superiore.
+* Programmi di transazione - transazioni al secondo
 
 Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono usate come parte del comando `docker run`.
 
@@ -110,11 +111,14 @@ Sono disponibili altri [esempi](./face-resource-container-config.md#example-dock
 > [!IMPORTANT]
 > È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](#billing).
 
+[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
+
 ## <a name="query-the-containers-prediction-endpoint"></a>Eseguire query sull'endpoint di stima del contenitore
 
 Il contenitore fornisce API dell'endpoint di stima di query basate su REST. 
 
-Usare l'host, https://localhost:5000, per le API del contenitore.
+Usare l'host, `https://localhost:5000`, per le API del contenitore.
 
 ## <a name="stop-the-container"></a>Arrestare il contenitore
 

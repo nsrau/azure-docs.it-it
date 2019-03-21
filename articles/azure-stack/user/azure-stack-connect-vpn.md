@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 03/21/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: d2766416c84233281e55ff6f8be8519b7aadfb8c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d35ab3f477f327cb85cd8dfebd255542489debdc
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763555"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286143"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Connettere Azure Stack ad Azure tramite VPN
 
@@ -92,8 +92,7 @@ Innanzitutto, creare le risorse di rete per Azure. Le istruzioni seguenti illust
 5. Per scegliere una rete virtuale, selezionare **rete virtuale**. Quindi selezionare **AzureVnet** dall'elenco.
 6. Selezionare **Indirizzo IP pubblico**. Quando la **Scegli indirizzo IP pubblico** verrà visualizzata la sezione, selezionare **Crea nuovo**.
 7. Nelle **Name**, digitare **Azure-GW-PiP**e quindi selezionare **OK**.
-8. Per impostazione predefinita, per **tipo di VPN**, **basato su Route** sia selezionata. Mantenere il **basato su Route** tipo VPN.
-9. Verificare che la **Sottoscrizione** e la **Località** siano corrette. È possibile aggiungere la risorsa al dashboard. Selezionare **Create**.
+8. Verificare che la **Sottoscrizione** e la **Località** siano corrette. È possibile aggiungere la risorsa al dashboard. Selezionare **Create**.
 
 ### <a name="create-the-local-network-gateway-resource"></a>Creare la risorsa gateway di rete locale
 

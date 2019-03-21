@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: deca97b0749ceab9f2dfaf3c3940ac6b02b9c104
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 8840944f6757813b10b01c8e512b1ef64c05a85f
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822188"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888288"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Creare, modificare o eliminare un'interfaccia di rete
 
@@ -27,11 +27,13 @@ Se è necessario aggiungere, modificare o rimuovere indirizzi IP per un'interfac
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire le attività seguenti:
 
 - Se non si ha un account Azure, registrarsi per ottenere un [account per la versione di prova gratuita](https://azure.microsoft.com/free).
 - Se si usa il portale, aprire https://portal.azure.com e accedere con l'account Azure.
-- Se si usano i comandi di PowerShell per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/powershell) o tramite PowerShell dal computer in uso. Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Questa esercitazione richiede il modulo di Azure PowerShell 5.4.1 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure.
+- Se si usano i comandi di PowerShell per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/powershell) o tramite PowerShell dal computer in uso. Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Questa esercitazione richiede il modulo Azure PowerShell versione 1.0.0 o versione successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 - Se si usano i comandi dell'interfaccia della riga di comando di Azure per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/bash) o tramite l'interfaccia della riga di comando dal computer in uso. Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.28 o versioni successive. Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Se si esegue l'interfaccia della riga di comando di Azure in locale, è anche necessario eseguire `az login` per creare una connessione con Azure.
 
 L'account con cui si accede o con cui ci si collega ad Azure deve essere assegnato al ruolo [collaboratore di rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un [ruolo personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le operazioni appropriate elencate nelle [Autorizzazioni](#permissions).
@@ -69,7 +71,7 @@ Il portale non offre la possibilità di assegnare l'interfaccia di rete ai grupp
 |Strumento|Comando|
 |---|---|
 |CLI|[az network nic create](/cli/azure/network/nic)|
-|PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)|
+|PowerShell|[New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)|
 
 ## <a name="view-network-interface-settings"></a>Visualizzare le impostazioni dell'interfaccia di rete
 
@@ -78,14 +80,16 @@ Il portale non offre la possibilità di assegnare l'interfaccia di rete ai grupp
 1. Nella casella che contiene il testo *Cerca risorse* nella parte superiore del portale di Azure digitare *interfacce di rete*. Selezionare **Interfacce di rete** quando viene visualizzato nei risultati della ricerca.
 2. Selezionare l'interfaccia di rete di cui si vogliono visualizzare o modificare le impostazioni dall'elenco.
 3. Per l'interfaccia di rete selezionata vengono visualizzati gli elementi seguenti:
-    - **Panoramica:** fornisce informazioni sull'interfaccia di rete, ad esempio gli indirizzi IP assegnati, la rete virtuale/subnet a cui l'interfaccia di rete è assegnata e la macchina virtuale a cui è collegata l'interfaccia di rete (se collegata). L'immagine seguente illustra la panoramica delle impostazioni per un'interfaccia di rete denominata **mywebserver256**: ![Panoramica dell'interfaccia di rete](./media/virtual-network-network-interface/nic-overview.png) È possibile spostare un'interfaccia di rete in un diverso gruppo di risorse o sottoscrizione selezionando (**modifica**) accanto a **Gruppo di risorse** o **Nome sottoscrizione**. Se si sposta l'interfaccia di rete, è necessario spostare tutte le risorse correlate all'interfaccia di rete. Se ad esempio l'interfaccia di rete viene collegata a una macchina virtuale, è necessario spostare anche la macchina virtuale e le altre risorse correlate alla macchina virtuale. Per spostare un'interfaccia di rete, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json#use-portal). L'articolo elenca i prerequisiti e descrive come spostare le risorse tramite il portale di Azure, PowerShell e l'interfaccia della riga di comando di Azure.
-    - **Configurazioni IP:** gli indirizzi IPv4 e IPv6 pubblici e privati vengono assegnati alle configurazioni IP sono elencati qui. Se un indirizzo IPv6 viene assegnato a una configurazione IP, l'indirizzo non viene visualizzato. Per altre informazioni sulle configurazioni IP e su come aggiungere e rimuovere indirizzi IP, vedere [Configurare gli indirizzi IP per le interfacce di rete di Azure](virtual-network-network-interface-addresses.md). In questa sezione vengono configurati anche l'inoltro IP e l'assegnazione di subnet. Per altre informazioni su queste impostazioni, vedere [Abilitare o disabilitare l'inoltro IP](#enable-or-disable-ip-forwarding) e [Cambiare l'assegnazione delle subnet](#change-subnet-assignment).
-    - **Server DNS:** è possibile specificare il server DNS al quale i server DHCP di Azure assegnano un'interfaccia di rete. L'interfaccia di rete può ereditare l'impostazione dalla rete virtuale a cui è assegnata l'interfaccia di rete, oppure dispone di un'impostazione personalizzata che sostituisce l'impostazione per la rete virtuale a cui è assegnata. Per modificare il contenuto visualizzato, vedere [Modificare i server DNS](#change-dns-servers).
-    - **Gruppo di sicurezza di rete**: mostra il gruppo di sicurezza di rete (se esiste) associato all'interfaccia di rete. Un gruppo di sicurezza di rete contiene regole per filtrare il traffico di rete in entrata e in uscita per l'interfaccia di rete. Se all'interfaccia di rete è associato un gruppo di sicurezza di rete, viene visualizzato il nome del gruppo associato. Per modificare gli elementi visualizzati, vedere [Associare o dissociare un gruppo di sicurezza di rete](#associate-or-dissociate-a-network-security-group).
-    - **Proprietà:** visualizza le impostazioni chiave relative all'interfaccia di rete, incluso il suo indirizzo MAC (vuoto se l'interfaccia di rete è collegata a una macchina virtuale) e la sottoscrizione in cui si trova.
-    - **Regole di sicurezza effettive:**  le regole di sicurezza sono elencate se l'interfaccia di rete è collegata a una macchina virtuale in esecuzione e un gruppo di sicurezza di rete è associato all'interfaccia, alla subnet cui l'interfaccia è assegnata o a entrambe. Per ulteriori informazioni sul contenuto, vedere [Visualizzare regole di sicurezza valide](#view-effective-security-rules). Per altre informazioni sui gruppi di sicurezza di rete, vedere [Gruppi di sicurezza di rete](security-overview.md).
-    - **Route valide:** le route vengono elencate se l'interfaccia di rete è collegata a una macchina virtuale in esecuzione. Le route sono una combinazione di route predefinite di Azure, route definite dall'utente e route BGP esistenti per la subnet a cui è assegnata l'interfaccia di rete. Per ulteriori informazioni sul contenuto, vedere [Visualizzare route valide](#view-effective-routes). Per altre informazioni sulle route predefinite di Azure e le route definite dall'utente, vedere [Panoramica delle route](virtual-networks-udr-overview.md).
-    - **Impostazioni comuni di Azure Resource Manager:**  per altre informazioni sulle impostazioni comuni di Azure Resource Manager, vedere [Log attività](../azure-monitor/platform/activity-logs-overview.md), [Controllo di accesso (IAM)](../role-based-access-control/overview.md), [Tag](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Blocchi](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Script di automazione](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
+   - **Panoramica:** fornisce informazioni sull'interfaccia di rete, ad esempio gli indirizzi IP assegnati, la rete virtuale/subnet a cui l'interfaccia di rete è assegnata e la macchina virtuale a cui è collegata l'interfaccia di rete (se collegata). L'immagine seguente illustra la panoramica delle impostazioni per un'interfaccia di rete denominata **mywebserver256**: ![Panoramica dell'interfaccia di rete](./media/virtual-network-network-interface/nic-overview.png)
+
+     È possibile spostare un'interfaccia di rete in un altro gruppo di risorse o sottoscrizione selezionando (**cambiare**) accanto al **gruppo di risorse** oppure **nome sottoscrizione**. Se si sposta l'interfaccia di rete, è necessario spostare tutte le risorse correlate all'interfaccia di rete. Se ad esempio l'interfaccia di rete viene collegata a una macchina virtuale, è necessario spostare anche la macchina virtuale e le altre risorse correlate alla macchina virtuale. Per spostare un'interfaccia di rete, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json#use-portal). L'articolo elenca i prerequisiti e descrive come spostare le risorse tramite il portale di Azure, PowerShell e l'interfaccia della riga di comando di Azure.
+   - **Configurazioni IP:** gli indirizzi IPv4 e IPv6 pubblici e privati vengono assegnati alle configurazioni IP sono elencati qui. Se un indirizzo IPv6 viene assegnato a una configurazione IP, l'indirizzo non viene visualizzato. Per altre informazioni sulle configurazioni IP e su come aggiungere e rimuovere indirizzi IP, vedere [Configurare gli indirizzi IP per le interfacce di rete di Azure](virtual-network-network-interface-addresses.md). In questa sezione vengono configurati anche l'inoltro IP e l'assegnazione di subnet. Per altre informazioni su queste impostazioni, vedere [Abilitare o disabilitare l'inoltro IP](#enable-or-disable-ip-forwarding) e [Cambiare l'assegnazione delle subnet](#change-subnet-assignment).
+   - **Server DNS:** è possibile specificare il server DNS al quale i server DHCP di Azure assegnano un'interfaccia di rete. L'interfaccia di rete può ereditare l'impostazione dalla rete virtuale a cui è assegnata l'interfaccia di rete, oppure dispone di un'impostazione personalizzata che sostituisce l'impostazione per la rete virtuale a cui è assegnata. Per modificare il contenuto visualizzato, vedere [Modificare i server DNS](#change-dns-servers).
+   - **Gruppo di sicurezza di rete**: mostra il gruppo di sicurezza di rete (se esiste) associato all'interfaccia di rete. Un gruppo di sicurezza di rete contiene regole per filtrare il traffico di rete in entrata e in uscita per l'interfaccia di rete. Se all'interfaccia di rete è associato un gruppo di sicurezza di rete, viene visualizzato il nome del gruppo associato. Per modificare gli elementi visualizzati, vedere [Associare o dissociare un gruppo di sicurezza di rete](#associate-or-dissociate-a-network-security-group).
+   - **Proprietà:** visualizza le impostazioni chiave relative all'interfaccia di rete, incluso il suo indirizzo MAC (vuoto se l'interfaccia di rete è collegata a una macchina virtuale) e la sottoscrizione in cui si trova.
+   - **Regole di sicurezza effettive:**  le regole di sicurezza sono elencate se l'interfaccia di rete è collegata a una macchina virtuale in esecuzione e un gruppo di sicurezza di rete è associato all'interfaccia, alla subnet cui l'interfaccia è assegnata o a entrambe. Per ulteriori informazioni sul contenuto, vedere [Visualizzare regole di sicurezza valide](#view-effective-security-rules). Per altre informazioni sui gruppi di sicurezza di rete, vedere [Gruppi di sicurezza di rete](security-overview.md).
+   - **Route valide:** le route vengono elencate se l'interfaccia di rete è collegata a una macchina virtuale in esecuzione. Le route sono una combinazione di route predefinite di Azure, route definite dall'utente e route BGP esistenti per la subnet a cui è assegnata l'interfaccia di rete. Per ulteriori informazioni sul contenuto, vedere [Visualizzare route valide](#view-effective-routes). Per altre informazioni sulle route predefinite di Azure e le route definite dall'utente, vedere [Panoramica delle route](virtual-networks-udr-overview.md).
+   - **Impostazioni comuni di Azure Resource Manager:**  per altre informazioni sulle impostazioni comuni di Azure Resource Manager, vedere [Log attività](../azure-monitor/platform/activity-logs-overview.md), [Controllo di accesso (IAM)](../role-based-access-control/overview.md), [Tag](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Blocchi](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Script di automazione](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
 
 <a name="view-settings-commands"></a>**Comandi**
 
@@ -94,7 +98,7 @@ Se un indirizzo IPv6 viene assegnato a un'interfaccia di rete, l'output di Power
 |Strumento|Comando|
 |---|---|
 |CLI|[az network nic list](/cli/azure/network/nic) per visualizzare le interfacce di rete nella sottoscrizione; [az network nic show](/cli/azure/network/nic) per visualizzare le impostazioni di un'interfaccia di rete|
-|PowerShell|[Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) per visualizzare le interfacce di rete nella sottoscrizione o le impostazioni di un'interfaccia di rete|
+|PowerShell|[Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) per visualizzare le interfacce di rete nelle impostazioni di sottoscrizione o una vista di un'interfaccia di rete|
 
 ## <a name="change-dns-servers"></a>Modificare i server DNS
 
@@ -104,8 +108,8 @@ Il server DNS viene assegnato dal server DHCP di Azure all'interfaccia di rete a
 2. Selezionare l'interfaccia di rete per cui si vuole modificare un server DNS dall'elenco.
 3. Selezionare **Server DNS** in **IMPOSTAZIONI**.
 4. Selezionare una delle due opzioni seguenti:
-    - **Eredita da rete virtuale**: scegliere questa opzione per ereditare l'impostazione del server DNS definita per la rete virtuale alla quale è assegnata l'interfaccia di rete. A livello di rete virtuale viene definito un server DNS personalizzato o il server DNS fornito da Azure. Il server DNS fornito da Azure può risolvere i nomi host per le risorse assegnate alla stessa rete virtuale. Il FQDN deve essere usato per la risoluzione delle risorse assegnate a reti virtuali diverse.
-    - **Personalizzato**: è possibile configurare il server DNS per risolvere i nomi tra più reti virtuali. Immettere l'indirizzo IP del server da usare come server DNS. L'indirizzo del server DNS specificato viene assegnato solo a questa interfaccia di rete e sostituisce tutte le impostazioni DNS per la rete virtuale a cui è assegnata l'interfaccia di rete.
+   - **Eredita da rete virtuale**: scegliere questa opzione per ereditare l'impostazione del server DNS definita per la rete virtuale alla quale è assegnata l'interfaccia di rete. A livello di rete virtuale viene definito un server DNS personalizzato o il server DNS fornito da Azure. Il server DNS fornito da Azure può risolvere i nomi host per le risorse assegnate alla stessa rete virtuale. Il FQDN deve essere usato per la risoluzione delle risorse assegnate a reti virtuali diverse.
+   - **Personalizzato**: è possibile configurare il server DNS per risolvere i nomi tra più reti virtuali. Immettere l'indirizzo IP del server da usare come server DNS. L'indirizzo del server DNS specificato viene assegnato solo a questa interfaccia di rete e sostituisce tutte le impostazioni DNS per la rete virtuale a cui è assegnata l'interfaccia di rete.
 5. Selezionare **Salva**.
 
 **Comandi**
@@ -113,7 +117,7 @@ Il server DNS viene assegnato dal server DHCP di Azure all'interfaccia di rete a
 |Strumento|Comando|
 |---|---|
 |CLI|[az network nic update](/cli/azure/network/nic)|
-|PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
+|PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
 
 ## <a name="enable-or-disable-ip-forwarding"></a>Abilitare o disabilitare l'inoltro IP
 
@@ -134,7 +138,7 @@ L'impostazione deve essere abilitata per ogni interfaccia di rete collegata alla
 |Strumento|Comando|
 |---|---|
 |CLI|[az network nic update](/cli/azure/network/nic)|
-|PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
+|PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
 
 ## <a name="change-subnet-assignment"></a>Cambiare l'assegnazione delle subnet
 
@@ -143,9 +147,9 @@ L'impostazione deve essere abilitata per ogni interfaccia di rete collegata alla
 1. Nella casella che contiene il testo *Cerca risorse* nella parte superiore del portale di Azure digitare *interfacce di rete*. Selezionare **Interfacce di rete** quando viene visualizzato nei risultati della ricerca.
 2. Selezionare l'interfaccia di rete per cui si vuole modificare l'assegnazione della subnet.
 3. Selezionare **Configurazioni IP** in **IMPOSTAZIONI**. Se sono presenti indirizzi IP privati per le configurazioni IP elencate che mostrano l'indicazione **(Statico)** a fianco, è necessario modificare il metodo in dinamico seguendo questa procedura. Tutti gli indirizzi IP privati devono essere assegnati con il metodo di assegnazione dinamico per poter modificare l'assegnazione della subnet per l'interfaccia di rete. Se gli indirizzi sono assegnati con il metodo dinamico, procedere al passaggio 5. Se ci sono indirizzi IPv4 assegnati con il metodo statico, completare i passaggi seguenti per modificare il metodo di assegnazione in dinamico:
-    - Nell'elenco delle configurazioni IP selezionare la configurazione IP di cui cambiare il metodo di assegnazione degli indirizzi IPv4.
-    - Selezionare **Dinamico** per il metodo **Assegnazione** per gli indirizzi IP privati. Non è possibile assegnare un indirizzo IPv6 con il metodo di assegnazione statico.
-    - Selezionare **Salva**.
+   - Nell'elenco delle configurazioni IP selezionare la configurazione IP di cui cambiare il metodo di assegnazione degli indirizzi IPv4.
+   - Selezionare **Dinamico** per il metodo **Assegnazione** per gli indirizzi IP privati. Non è possibile assegnare un indirizzo IPv6 con il metodo di assegnazione statico.
+   - Selezionare **Salva**.
 4. Selezionare la subnet nella quale spostare l'interfaccia di rete nell'elenco a discesa **Subnet**.
 5. Selezionare **Salva**. I nuovi indirizzi dinamici vengono assegnati dall'intervallo di indirizzi della nuova subnet. Dopo aver assegnato l'interfaccia di rete a una nuova subnet, è possibile assegnare un indirizzo IPv4 statico dall'intervallo di indirizzi della nuova subnet. Per altre informazioni su come aggiungere, modificare e rimuovere indirizzi IP per una scheda di interfaccia di rete, vedere [Gestire gli indirizzi IP](virtual-network-network-interface-addresses.md).
 
@@ -154,7 +158,7 @@ L'impostazione deve essere abilitata per ogni interfaccia di rete collegata alla
 |Strumento|Comando|
 |---|---|
 |CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config)|
-|PowerShell|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
+|PowerShell|[Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig)|
 
 ## <a name="add-to-or-remove-from-application-security-groups"></a>Aggiunta o rimozione dai gruppi di sicurezza dell'applicazione
 
@@ -168,7 +172,7 @@ L'impostazione deve essere abilitata per ogni interfaccia di rete collegata alla
 |Strumento|Comando|
 |---|---|
 |CLI|[az network nic update](/cli/azure/network/nic)|
-|PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
+|PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
 
 ## <a name="associate-or-dissociate-a-network-security-group"></a>Associare o dissociare un gruppo di sicurezza di rete
 
@@ -182,7 +186,7 @@ L'impostazione deve essere abilitata per ogni interfaccia di rete collegata alla
 **Comandi**
 
 - Interfaccia della riga di comando di Azure: [az network nic update](/cli/azure/network/nic#az-network-nic-update)
-- PowerShell: [Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)
+- PowerShell: [Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)
 
 ## <a name="delete-a-network-interface"></a>Eliminare un'interfaccia di rete
 
@@ -200,7 +204,7 @@ Quando si elimina un'interfaccia di rete vengono rilasciati tutti gli indirizzi 
 |Strumento|Comando|
 |---|---|
 |CLI|[az network nic delete](/cli/azure/network/nic)|
-|PowerShell|[Remove-AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface)|
+|PowerShell|[Remove-AzNetworkInterface](/powershell/module/az.network/remove-aznetworkinterface)|
 
 ## <a name="resolve-connectivity-issues"></a>Risolvere i problemi di connettività
 
@@ -221,7 +225,7 @@ La funzione di verifica del flusso IP di Azure Network Watcher consente inoltre 
 **Comandi**
 
 - Interfaccia della riga di comando di Azure: [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg)
-- PowerShell: [Get-AzureRmEffectiveNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup) 
+- PowerShell: [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup)
 
 ### <a name="view-effective-routes"></a>Visualizzare le route valide
 
@@ -238,7 +242,7 @@ La funzione hop successiva di Azure Network Watcher consente inoltre di determin
 **Comandi**
 
 - Interfaccia della riga di comando di Azure: [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table)
-- PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable)
+- PowerShell: [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable)
 
 ## <a name="permissions"></a>Autorizzazioni
 

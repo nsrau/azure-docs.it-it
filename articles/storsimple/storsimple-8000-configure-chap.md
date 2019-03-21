@@ -1,5 +1,5 @@
 ---
-title: Configurare CHAP per il dispositivo StorSimple serie 8000 | Microsoft Docs
+title: Configurare CHAP per il dispositivo StorSimple serie 8000 | Documentazione Microsoft
 description: Viene descritto come configurare Challenge Handshake Authentication Protocol su un dispositivo StorSimple.
 services: storsimple
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: TBD
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: c1a558769ffaa52ed2e996a2b537a5ea409101bd
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
-ms.translationtype: HT
+ms.openlocfilehash: efc116c278bfe72419800603a3b365f461fe0a28
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012659"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095161"
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Configurare CHAP per il dispositivo StorSimple
 
@@ -53,8 +53,8 @@ Nell’autenticazione unidirezionale, la destinazione autentica l'iniziatore. Qu
    1. Specificare un nome utente per l'iniziatore CHAP.
    2. Specificare una password per l'iniziatore CHAP.
       
-    > [!IMPORTANT]
-    > Il nome dell'utente CHAP deve contenere meno di 233 caratteri. La password CHAP deve essere compresa tra 12 e 16 caratteri. Se si prova a usare un nome utente o una password più lunga si verifica un errore di autenticazione sull'host Windows.
+      > [!IMPORTANT]
+      > Il nome dell'utente CHAP deve contenere meno di 233 caratteri. La password CHAP deve essere compresa tra 12 e 16 caratteri. Se si prova a usare un nome utente o una password più lunga si verifica un errore di autenticazione sull'host Windows.
    
    3. Confermare la password.
 

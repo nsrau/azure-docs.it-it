@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 75e85ae15ded81faf372ba018829a185e8badd60
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: HT
+ms.openlocfilehash: 6709bb2beae6dd1964f475ce2ba07b569b9ad4ab
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224618"
+ms.locfileid: "58285072"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Eseguire il backup di database SQL Server in macchine virtuali di Azure
 
@@ -31,9 +31,9 @@ Questo articolo illustra come eseguire il backup di un database SQL Server in es
 
 Prima di eseguire il backup del database di SQL Server, verificare le condizioni seguenti:
 
-1. Identificare o [creare](backup-azure-sql-database.md#create-a-recovery-services-vault) un insieme di credenziali di servizi di ripristino nella stessa area o delle impostazioni locali della macchina virtuale che ospita l'istanza di SQL Server.
-2. [Controllare le autorizzazioni VM](#fix-sql-sysadmin-permissions) necessarie per eseguire il backup dei database SQL.
-3. Verificare che la VM abbia [connettività di rete](backup-azure-sql-database.md#establish-network-connectivity).
+1. Identificare o [creare](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) un insieme di credenziali di servizi di ripristino nella stessa area o delle impostazioni locali della macchina virtuale che ospita l'istanza di SQL Server.
+2. [Controllare le autorizzazioni VM](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) necessarie per eseguire il backup dei database SQL.
+3. Verificare che la VM abbia [connettività di rete](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 4. Verificare che i database di SQL Server siano denominati in base alle [linee guida per la denominazione](#verify-database-naming-guidelines-for-azure-backup) per Backup di Backup.
 5. Verificare che non siano abilitate altre soluzioni di backup per il database. Disabilitare tutti gli altri backup di SQL Server prima di configurare questo scenario. È possibile abilitare Backup di Azure per una VM di Azure e Backup di Azure per un database SQL Server in esecuzione nella VM senza alcun conflitto.
 
@@ -60,7 +60,7 @@ Backup di Azure esegue una serie di operazioni quando si configura il backup per
 - Per individuare i database nella macchina virtuale, Backup di Azure crea l'account **NT SERVICE\AzureWLBackupPluginSvc**. Questo account viene usato per il backup e il ripristino e richiede le autorizzazioni sysadmin SQL.
 - Backup di Azure sfrutta l'account **NT AUTHORITY\SYSTEM** per l'individuazione o l'interrogazione dei database, quindi questo account deve essere un account di accesso pubblico in SQL.
 
-Se la VM SQL Server non è stata creata da Azure Marketplace, è possibile ricevere un errore **UserErrorSQLNoSysadminMembership**. In tal caso [seguire queste istruzioni](#fix-sql-sysadmin-permissions).
+Se la VM SQL Server non è stata creata da Azure Marketplace, è possibile ricevere un errore **UserErrorSQLNoSysadminMembership**. In tal caso [seguire queste istruzioni](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>Verificare le linee guida per la denominazione dei database per Backup di Azure
 

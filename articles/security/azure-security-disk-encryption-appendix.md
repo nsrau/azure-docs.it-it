@@ -1,23 +1,24 @@
 ---
 title: Appendice - Crittografia dischi di Azure per le macchine virtuali IaaS | Microsoft Docs
 description: Questo articolo rappresenta un'appendice per Crittografia dischi di Azure per macchine virtuali IaaS Windows e Linux.
-author: mestew
+author: msmbaldwin
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.author: mstewart
-ms.date: 01/14/2019
+ms.author: mbaldwin
+ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 64ae354c9233821ea7e53abfdc0dde105b22e466
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 63d4f8e2f1b88084b2bac5f1a29514b5e289cbd4
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208075"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286517"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Appendice per Crittografia dischi di Azure 
 
 Questo articolo rappresenta un'appendice per [Crittografia dischi di Azure per macchine virtuali IaaS](azure-security-disk-encryption-overview.md). Assicurarsi di aver letto innanzitutto gli articoli sulla Crittografia dischi di Azure per macchine virtuali per comprendere il contesto. Questo articolo descrive come preparare dischi rigidi virtuali pre-crittografati e altre attività.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="connect-to-your-subscription"></a>Eseguire la connessione alla sottoscrizione
 Prima di iniziare, vedere l'articolo [Prerequisiti](azure-security-disk-encryption-prerequisites.md). Dopo che tutti i prerequisiti risultano rispettati, connettersi alla sottoscrizione eseguendo i cmdlet seguenti:
@@ -27,22 +28,22 @@ Prima di iniziare, vedere l'articolo [Prerequisiti](azure-security-disk-encrypti
 1. Avviare una sessione di Azure PowerShell e accedere all'account Azure con il comando seguente:
 
      ```powershell
-     Connect-AzureRmAccount 
+     Connect-AzAccount 
      ```
 2. Se sono disponibili più sottoscrizioni e se ne vuole specificare una da usare, digitare quanto segue per visualizzare le sottoscrizioni per il proprio account:
      
      ```powershell
-     Get-AzureRmSubscription
+     Get-AzSubscription
      ```
 3. Per specificare la sottoscrizione che si vuole usare, digitare:
  
      ```powershell
-      Select-AzureRmSubscription -SubscriptionName <Yoursubscriptionname>
+      Select-AzSubscription -SubscriptionName <Yoursubscriptionname>
      ```
 4. Per verificare che la sottoscrizione configurata sia corretta, digitare:
      
      ```powershell
-     Get-AzureRmSubscription
+     Get-AzSubscription
      ```
 5. Se necessario, connettersi ad Azure AD con [Connect-AzureAD](/powershell/module/azuread/connect-azuread).
      
@@ -91,15 +92,15 @@ Prima di iniziare, vedere l'articolo [Prerequisiti](azure-security-disk-encrypti
 - **Elencare tutte le macchine virtuali crittografate nella sottoscrizione**
 
      ```azurepowershell-interactive
-     $osVolEncrypted = {(Get-AzureRmVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).OsVolumeEncrypted}
-     $dataVolEncrypted= {(Get-AzureRmVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).DataVolumesEncrypted}
-     Get-AzureRmVm | Format-Table @{Label="MachineName"; Expression={$_.Name}}, @{Label="OsVolumeEncrypted"; Expression=$osVolEncrypted}, @{Label="DataVolumesEncrypted"; Expression=$dataVolEncrypted}
+     $osVolEncrypted = {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).OsVolumeEncrypted}
+     $dataVolEncrypted= {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).DataVolumesEncrypted}
+     Get-AzVm | Format-Table @{Label="MachineName"; Expression={$_.Name}}, @{Label="OsVolumeEncrypted"; Expression=$osVolEncrypted}, @{Label="DataVolumesEncrypted"; Expression=$dataVolEncrypted}
      ```
 
 - **Elencare tutti i segreti di crittografia dischi usati per crittografare le macchine virtuali in un insieme di credenziali delle chiavi** 
 
      ```azurepowershell-interactive
-     Get-AzureKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
+     Get-AzKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
      ```
 
 ### <a name="bkmk_prereq-script"></a> Uso dello script di PowerShell per i prerequisiti di Crittografia dischi di Azure
@@ -112,8 +113,8 @@ La tabella seguente illustra i parametri che possono essere usati nello script d
 |------|------|------|
 |$resourceGroupName| Nome del gruppo di risorse a cui appartiene l'insieme di credenziali delle chiavi.  Verrà creato un nuovo gruppo di risorse con questo nome, se non esiste già.| True |
 |$keyVaultName|Nome dell'insieme di credenziali delle chiavi in cui inserire le chiavi di crittografia. Verrà creato un nuovo insieme con questo nome, se non esiste già.| True |
-|$location|Percorso dell'insieme di credenziali delle chiavi. Assicurarsi che l'insieme di credenziali delle chiavi e le macchine virtuali da crittografare si trovino nello stesso percorso. Ottenere un elenco di percorsi con `Get-AzureRMLocation`.|True |
-|$subscriptionId|Identificatore della sottoscrizione di Azure da usare.  È possibile ottenere l'ID della sottoscrizione con `Get-AzureRMSubscription`.|True |
+|$location|Percorso dell'insieme di credenziali delle chiavi. Assicurarsi che l'insieme di credenziali delle chiavi e le macchine virtuali da crittografare si trovino nello stesso percorso. Ottenere un elenco di percorsi con `Get-AzLocation`.|True |
+|$subscriptionId|Identificatore della sottoscrizione di Azure da usare.  È possibile ottenere l'ID della sottoscrizione con `Get-AzSubscription`.|True |
 |$aadAppName|Nome dell'applicazione Azure AD che verrà usata per scrivere segreti nell'insieme di credenziali delle chiavi. Viene creata una nuova applicazione con questo nome, se non esiste già. Se l'app esiste già, passare il parametro aadClientSecret allo script.|False|
 |$aadClientSecret|Segreto client dell'applicazione Azure AD che è stato creato in precedenza.|False|
 |$keyEncryptionKeyName|Nome della chiave di crittografia della chiave facoltativa nell'insieme di credenziali delle chiavi. Verrà creata una nuova chiave con questo nome, se non esiste già.|False|
@@ -129,7 +130,7 @@ La tabella seguente illustra i parametri che possono essere usati nello script d
 - [Abilitare la crittografia del disco su macchine virtuali IaaS Windows esistenti](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad)
 - [Disabilitare la crittografia dei dischi su macchine virtuali IaaS Windows esistenti o in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad)
 - [Abilitare la crittografia del disco su macchine virtuali IaaS Linux esistenti](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
- -  [Disabilitare la crittografia su macchine virtuali Linux in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
+  - [Disabilitare la crittografia su macchine virtuali Linux in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - È possibile disabilitare la crittografia solo nei volumi di dati per macchine virtuali Linux.  
 
 ### <a name="encrypt-or-decrypt-vm-scale-sets"></a>Crittografare o decrittografare set di scalabilità di macchine virtuali
@@ -138,9 +139,9 @@ La tabella seguente illustra i parametri che possono essere usati nello script d
 
 - [Abilitare la crittografia dei dischi in un set di scalabilità di macchine virtuali Windows in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
 
- - [Distribuire un set di scalabilità di macchine virtuali Linux con una jumpbox e abilitare la crittografia nel set di scalabilità](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+  - [Distribuire un set di scalabilità di macchine virtuali Linux con una jumpbox e abilitare la crittografia nel set di scalabilità](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
 
- - [Distribuire un set di scalabilità di macchine virtuali Windows con una jumpbox e abilitare la crittografia nel set di scalabilità](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+  - [Distribuire un set di scalabilità di macchine virtuali Windows con una jumpbox e abilitare la crittografia nel set di scalabilità](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
 
 - [Disabilitare la crittografia dei dischi in un set di scalabilità di macchine virtuali Linux in esecuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
 
@@ -162,14 +163,6 @@ La tabella seguente illustra i parametri che possono essere usati nello script d
 
 - [Creare una nuova macchina virtuale crittografata con disco gestito IaaS Windows da un'immagine della raccolta](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
     - Questo modello crea una nuova macchina virtuale Windows crittografata con dischi gestiti usando l'immagine della raccolta di Windows Server 2012.
-
-- [Distribuzione di RHEL 7.2 con crittografia dei dischi completa usando dischi gestiti](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel)
-    - Questo modello crea in Azure una macchina virtuale RHEL 7.2 con crittografia completa usando dischi gestiti. Include un'unità di sistema operativo da 30 GB crittografata e una matrice da 200 GB (RAID-0) crittografata montata su /mnt/raidencrypted. Per le distribuzioni di server Linux supportate, vedere l'articolo [Domande frequenti](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). 
-
-- [Distribuzione di RHEL 7.2 con crittografia dei dischi completa usando dischi non gestiti](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel-unmanaged)
-    - Questo modello crea in Azure una macchina virtuale RHEL 7.2 con crittografia completa con un'unità di sistema operativo da 30 GB crittografata e una matrice da 200 GB (RAID-0) crittografata montata su /mnt/raidencrypted. Per le distribuzioni di server Linux supportate, vedere l'articolo [Domande frequenti](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). 
-
-- [Abilitare la crittografia del disco in un disco rigido virtuale per Windows o Linux pre-crittografato](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-pre-encrypted-vm)
 
 - [Creare un nuovo disco gestito crittografato da un BLOB di archiviazione/disco rigido virtuale pre-crittografato](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
     - Crea un nuovo disco gestito crittografato a partire da un disco rigido virtuale pre-crittografato con le corrispondenti impostazioni di crittografia
@@ -222,28 +215,28 @@ Usare il comando [`manage-bde`](https://technet.microsoft.com/library/ff829849.a
 ### <a name="steps"></a>Passaggi
 1. Creare una macchina virtuale usando una delle distribuzioni specificate in precedenza.
 
- Per CentOS 7.2, la crittografia del disco del sistema operativo è supportata tramite un'immagine speciale. Per usare questa immagine, specificare "7.2n" come SKU durante la creazione della VM:
+   Per CentOS 7.2, la crittografia del disco del sistema operativo è supportata tramite un'immagine speciale. Per usare questa immagine, specificare "7.2n" come SKU durante la creazione della VM:
 
- ```powershell
-    Set-AzureRmVMSourceImage -VM $VirtualMachine -PublisherName "OpenLogic" -Offer "CentOS" -Skus "7.2n" -Version "latest"
- ```
+   ```powershell
+    Set-AzVMSourceImage -VM $VirtualMachine -PublisherName "OpenLogic" -Offer "CentOS" -Skus "7.2n" -Version "latest"
+   ```
 2. Configurare la VM in base alle esigenze. Se si intende crittografare tutte le unità (sistema operativo e dati), le unità dati dovranno essere specificate e montabili da /etc/fstab.
 
- > [!NOTE]
- > Usare UUID=... per specificare le unità di dati in /etc/fstab anziché specificare il nome del dispositivo a blocchi, ad esempio /dev/sdb1. L'ordine delle unità viene modificato nella macchina virtuale durante la crittografia. Se la VM si basa su un ordine specifico di dispositivi a blocchi, questi dispositivi non potranno essere montati dopo la crittografia.
+   > [!NOTE]
+   > Usare UUID=... per specificare le unità di dati in /etc/fstab anziché specificare il nome del dispositivo a blocchi, ad esempio /dev/sdb1. L'ordine delle unità viene modificato nella macchina virtuale durante la crittografia. Se la VM si basa su un ordine specifico di dispositivi a blocchi, questi dispositivi non potranno essere montati dopo la crittografia.
 
 3. Disconnettersi dalle sessioni SSH.
 
 4. Per crittografare il sistema operativo, specificare il parametro volumeType come **Tutto** oppure **OS** quando si abilita la crittografia.
 
- > [!NOTE]
- > Tutti i processi dello spazio dell'utente non in esecuzione come servizi `systemd` devono essere terminati con `SIGKILL`. Riavviare la macchina virtuale. Quando si abilita la crittografia del disco del sistema operativo in una macchina virtuale in esecuzione, pianificare i tempi di inattività della VM.
+   > [!NOTE]
+   > Tutti i processi dello spazio dell'utente non in esecuzione come servizi `systemd` devono essere terminati con `SIGKILL`. Riavviare la macchina virtuale. Quando si abilita la crittografia del disco del sistema operativo in una macchina virtuale in esecuzione, pianificare i tempi di inattività della VM.
 
 5. Monitorare periodicamente lo stato della crittografia tramite le istruzioni indicate nella [sezione successiva](#monitoring-os-encryption-progress).
 
-6. Quando Get-AzureRmVmDiskEncryptionStatus indica "VMRestartPending", riavviare la macchina virtuale eseguendo l'accesso alla macchina oppure usando il portale, PowerShell o l'interfaccia della riga di comando.
+6. Quando Get-AzVmDiskEncryptionStatus indica "VMRestartPending", riavviare la macchina virtuale tramite l'accesso ad esso o usando il portale, PowerShell o CLI.
     ```powershell
-    C:\> Get-AzureRmVmDiskEncryptionStatus  -ResourceGroupName $ResourceGroupName -VMName $VMName
+    C:\> Get-AzVmDiskEncryptionStatus  -ResourceGroupName $ResourceGroupName -VMName $VMName
     -ExtensionName $ExtensionName
 
     OsVolumeEncrypted          : VMRestartPending
@@ -251,26 +244,26 @@ Usare il comando [`manage-bde`](https://technet.microsoft.com/library/ff829849.a
     OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
     ProgressMessage            : OS disk successfully encrypted, reboot the VM
     ```
-Prima di riavviare, è consigliabile salvare i dati di [diagnostica di avvio](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/) della macchina virtuale.
+   Prima di riavviare, è consigliabile salvare i dati di [diagnostica di avvio](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/) della macchina virtuale.
 
 ## <a name="monitoring-os-encryption-progress"></a>Monitoraggio dello stato della crittografia del sistema operativo
 Esistono tre modi per monitorare lo stato della crittografia del sistema operativo:
 
-* Usare il cmdlet `Get-AzureRmVmDiskEncryptionStatus` ed esaminare il campo ProgressMessage:
+* Usare il cmdlet `Get-AzVmDiskEncryptionStatus` ed esaminare il campo ProgressMessage:
     ```powershell
     OsVolumeEncrypted          : EncryptionInProgress
     DataVolumesEncrypted       : NotMounted
     OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
     ProgressMessage            : OS disk encryption started
     ```
- Quando la macchina virtuale raggiunge lo stato "OS disk encryption started", sono necessari circa 40 o 50 minuti in una macchina virtuale con archiviazione Premium.
+  Quando la macchina virtuale raggiunge lo stato "OS disk encryption started", sono necessari circa 40 o 50 minuti in una macchina virtuale con archiviazione Premium.
 
- A causa dell'[errore #388](https://github.com/Azure/WALinuxAgent/issues/388) in WALinuxAgent, `OsVolumeEncrypted` e `DataVolumesEncrypted`vengono visualizzati come `Unknown` in alcune distribuzioni. Con WALinuxAgent 2.1.5 e versioni successive questo errore viene risolto automaticamente. Se viene visualizzato `Unknown` nell'output, è possibile verificare lo stato della crittografia del disco usando Esplora risorse di Azure.
+  A causa dell'[errore #388](https://github.com/Azure/WALinuxAgent/issues/388) in WALinuxAgent, `OsVolumeEncrypted` e `DataVolumesEncrypted`vengono visualizzati come `Unknown` in alcune distribuzioni. Con WALinuxAgent 2.1.5 e versioni successive questo errore viene risolto automaticamente. Se viene visualizzato `Unknown` nell'output, è possibile verificare lo stato della crittografia del disco usando Esplora risorse di Azure.
 
- Passare a [Esplora risorse di Azure](https://resources.azure.com/), quindi espandere questa gerarchia nel pannello di selezione a sinistra:
+  Passare a [Esplora risorse di Azure](https://resources.azure.com/), quindi espandere questa gerarchia nel pannello di selezione a sinistra:
 
- ~~~~
- |-- subscriptions
+  ~~~~
+  |-- subscriptions
      |-- [Your subscription]
           |-- resourceGroups
                |-- [Your resource group]
@@ -279,11 +272,11 @@ Esistono tre modi per monitorare lo stato della crittografia del sistema operati
                               |-- virtualMachines
                                    |-- [Your virtual machine]
                                         |-- InstanceView
-~~~~                
+  ~~~~                
 
- In InstanceView scorrere verso il basso per visualizzare lo stato della crittografia delle unità.
+  In InstanceView scorrere verso il basso per visualizzare lo stato della crittografia delle unità.
 
- ![Visualizzazione dell'istanza della VM](./media/azure-security-disk-encryption/vm-instanceview.png)
+  ![Visualizzazione dell'istanza della VM](./media/azure-security-disk-encryption/vm-instanceview.png)
 
 * Esaminare la [diagnostica di avvio](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). I messaggi provenienti dall'estensione ADE hanno il prefisso `[AzureDiskEncryption]`.
 
@@ -291,7 +284,7 @@ Esistono tre modi per monitorare lo stato della crittografia del sistema operati
 
     /var/log/azure/Microsoft.Azure.Security.AzureDiskEncryptionForLinux
 
- È consigliabile non accedere alla macchina virtuale mentre è in corso la crittografia del sistema operativo. Copiare i log solo in caso di errore degli altri due metodi.
+  È consigliabile non accedere alla macchina virtuale mentre è in corso la crittografia del sistema operativo. Copiare i log solo in caso di errore degli altri due metodi.
 
 ## <a name="bkmk_preLinux"></a> Preparare un disco rigido virtuale Linux pre-crittografato
 La preparazione di dischi rigidi virtuali pre-crittografati può variare a seconda della distribuzione. Sono disponibili esempi di preparazione [Ubuntu 16](#bkmk_Ubuntu), [openSUSE 13.2](#bkmk_openSUSE) e [CentOS 7](#bkmk_CentOS). 
@@ -301,23 +294,23 @@ Configurare la crittografia durante l'installazione della distribuzione seguendo
 
 1. Selezionare **Configure encrypted volumes** (Configura volumi crittografati) durante il partizionamento dei dischi.
 
- ![Configurazione di Ubuntu 16.04 - Configurare i volumi crittografati](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
+   ![Configurazione di Ubuntu 16.04 - Configurare i volumi crittografati](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
 
 2. Creare un'unità di avvio separata che non deve essere crittografata. Crittografare l'unità radice.
 
- ![Configurazione di Ubuntu 16.04 - Selezionare i dispositivi da crittografare](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)
+   ![Configurazione di Ubuntu 16.04 - Selezionare i dispositivi da crittografare](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)
 
 3. Specificare una passphrase. Si tratta della passphrase caricata nell'insieme di credenziali delle chiavi.
 
- ![Configurazione di Ubuntu 16.04 - Specificare la passphrase](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)
+   ![Configurazione di Ubuntu 16.04 - Specificare la passphrase](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)
 
 4. Terminare il partizionamento.
 
- ![Configurazione di Ubuntu 16.04 - Terminare il partizionamento](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)
+   ![Configurazione di Ubuntu 16.04 - Terminare il partizionamento](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)
 
 5. Quando si avvia la macchina virtuale e viene richiesta una passphrase, usare la passphrase specificata nel passaggio 3.
 
- ![Configurazione di Ubuntu 16.04 - Specificare la passphrase all'avvio](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
+   ![Configurazione di Ubuntu 16.04 - Specificare la passphrase all'avvio](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
 6. Preparare la macchina virtuale per il caricamento in Azure seguendo [queste istruzioni](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Non eseguire ancora l'ultimo passaggio, ovvero il deprovisioning della VM.
 
@@ -358,32 +351,32 @@ Configurare la crittografia per l'uso in Azure eseguendo i passaggi seguenti:
      else
         echo "Success loading keyfile!" >&2
     fi
-```
+   ```
 
 2. Modificare la configurazione di crittografia in */etc/crypttab*. L'aspetto dovrebbe risultare simile al seguente:
- ```
+   ```
     xxx_crypt uuid=xxxxxxxxxxxxxxxxxxxxx none luks,discard,keyscript=/usr/local/sbin/azure_crypt_key.sh
     ```
 
 3. Se si modifica *azure_crypt_key.sh* in Windows e questo valore è stato copiato in Linux, eseguire `dos2unix /usr/local/sbin/azure_crypt_key.sh`.
 
 4. Aggiungere autorizzazioni di esecuzione allo script:
- ```
+   ```
     chmod +x /usr/local/sbin/azure_crypt_key.sh
- ```
+   ```
 5. Modificare */etc/initramfs-tools/modules* accodando le righe:
- ```
+   ```
     vfat
     ntfs
     nls_cp437
     nls_utf8
     nls_iso8859-1
-```
+   ```
 6. Eseguire `update-initramfs -u -k all` per aggiornare initramfs e rendere operativo il `keyscript`.
 
 7. È ora possibile effettuare il deprovisioning della VM.
 
- ![Configurazione di Ubuntu 16.04 - update-initramfs](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
+   ![Configurazione di Ubuntu 16.04 - update-initramfs](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
 
 8. Continuare con il passaggio successivo e caricare il disco rigido virtuale in Azure.
 
@@ -391,11 +384,11 @@ Configurare la crittografia per l'uso in Azure eseguendo i passaggi seguenti:
 Per configurare la crittografia durante l'installazione della distribuzione, eseguire i passaggi seguenti:
 1. Durante il partizionamento dei dischi, selezionare **Encrypt Volume Group** (Crittografa gruppo di volumi), quindi immettere una password. Questa è la password che verrà caricata nell'insieme di credenziali delle chiavi.
 
- ![Configurazione di openSUSE 13.2 - Crittografare un gruppo di volumi](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
+   ![Configurazione di openSUSE 13.2 - Crittografare un gruppo di volumi](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
 
 2. Avviare la VM usando la password.
 
- ![Configurazione di openSUSE 13.2 - Specificare la passphrase all'avvio](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
+   ![Configurazione di openSUSE 13.2 - Specificare la passphrase all'avvio](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
 
 3. Preparare la macchina virtuale per il caricamento in Azure seguendo le istruzioni disponibili in [Preparare una macchina virtuale SLES oppure openSUSE per Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Non eseguire ancora l'ultimo passaggio, ovvero il deprovisioning della VM.
 
@@ -405,7 +398,7 @@ Per configurare la crittografia per l'uso in Azure, eseguire i passaggi seguenti
     add_drivers+=" vfat ntfs nls_cp437 nls_iso8859-1"
     ```
 2. Impostare come commento queste righe verso la fine del file /usr/lib/dracut/modules.d/90crypt/module-setup.sh:
- ```bash
+   ```bash
     #        inst_multiple -o \
     #        $systemdutildir/system-generators/systemd-cryptsetup-generator \
     #        $systemdutildir/systemd-cryptsetup \
@@ -415,20 +408,20 @@ Per configurare la crittografia per l'uso in Azure, eseguire i passaggi seguenti
     #        $systemdsystemunitdir/sysinit.target.wants/cryptsetup.target \
     #        systemd-ask-password systemd-tty-ask-password-agent
     #        inst_script "$moddir"/crypt-run-generator.sh /sbin/crypt-run-generator
- ```
+   ```
 
 3. Aggiungere la riga seguente all'inizio del file /usr/lib/dracut/modules.d/90crypt/parse-crypt.sh:
- ```bash
+   ```bash
     DRACUT_SYSTEMD=0
- ```
-Modificare quindi tutte le occorrenze di:
- ```bash
+   ```
+   Modificare quindi tutte le occorrenze di:
+   ```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
- ```
-in:
-```bash
+   ```
+   in:
+   ```bash
     if [ 1 ]; then
-```
+   ```
 4. Modificare /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh e aggiungere questo codice dopo "# Open LUKS device":
 
     ```bash
@@ -459,19 +452,19 @@ in:
 Per configurare la crittografia durante l'installazione della distribuzione, eseguire i passaggi seguenti:
 1. Selezionare **Encrypt my data** (Crittografa dati personali) durante il partizionamento dei dischi.
 
- ![Configurazione di CentOS 7 - Destinazione di installazione](./media/azure-security-disk-encryption/centos-encrypt-fig1.png)
+   ![Configurazione di CentOS 7 - Destinazione di installazione](./media/azure-security-disk-encryption/centos-encrypt-fig1.png)
 
 2. Assicurarsi **Encrypt** (Crittografa) sia selezionato per la partizione radice.
 
- ![Configurazione di CentOS 7 - Selezionare la crittografia per la partizione radice](./media/azure-security-disk-encryption/centos-encrypt-fig2.png)
+   ![Configurazione di CentOS 7 - Selezionare la crittografia per la partizione radice](./media/azure-security-disk-encryption/centos-encrypt-fig2.png)
 
 3. Specificare una passphrase. Questa è la passphrase che verrà caricata nell'insieme di credenziali delle chiavi.
 
- ![Configurazione di CentOS 7 - Specificare la passphrase](./media/azure-security-disk-encryption/centos-encrypt-fig3.png)
+   ![Configurazione di CentOS 7 - Specificare la passphrase](./media/azure-security-disk-encryption/centos-encrypt-fig3.png)
 
 4. Quando si avvia la macchina virtuale e viene richiesta una passphrase, usare la passphrase specificata nel passaggio 3.
 
- ![Configurazione di CentOS 7 - Immettere la passphrase all'avvio](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
+   ![Configurazione di CentOS 7 - Immettere la passphrase all'avvio](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
 
 5. Preparare la macchina virtuale per il caricamento in Azure usando le istruzioni relative a "CentOS 7.0+" disponibili in [Preparare una macchina virtuale basata su CentOS per Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Non eseguire ancora l'ultimo passaggio, ovvero il deprovisioning della VM.
 
@@ -485,7 +478,7 @@ Per configurare la crittografia per l'uso in Azure, eseguire i passaggi seguenti
     ```
 
 2. Impostare come commento queste righe verso la fine del file /usr/lib/dracut/modules.d/90crypt/module-setup.sh:
-```bash
+   ```bash
     #        inst_multiple -o \
     #        $systemdutildir/system-generators/systemd-cryptsetup-generator \
     #        $systemdutildir/systemd-cryptsetup \
@@ -495,20 +488,20 @@ Per configurare la crittografia per l'uso in Azure, eseguire i passaggi seguenti
     #        $systemdsystemunitdir/sysinit.target.wants/cryptsetup.target \
     #        systemd-ask-password systemd-tty-ask-password-agent
     #        inst_script "$moddir"/crypt-run-generator.sh /sbin/crypt-run-generator
-```
+   ```
 
 3. Aggiungere la riga seguente all'inizio del file /usr/lib/dracut/modules.d/90crypt/parse-crypt.sh:
-```bash
+   ```bash
     DRACUT_SYSTEMD=0
-```
-Modificare quindi tutte le occorrenze di:
-```bash
+   ```
+   Modificare quindi tutte le occorrenze di:
+   ```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
-```
-to
-```bash
+   ```
+   to
+   ```bash
     if [ 1 ]; then
-```
+   ```
 4. Modificare /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh e aggiungere il codice seguente dopo "# Open LUKS device":
     ```bash
     MountPoint=/tmp-keydisk-mount
@@ -537,7 +530,7 @@ to
 ## <a name="bkmk_UploadVHD"></a> Caricare il disco rigido virtuale crittografato in un account di archiviazione di Azure
 Dopo aver abilitato la crittografia BitLocker o la crittografia DM-Crypt, il disco rigido virtuale crittografato locale dovrà essere caricato nell'account di archiviazione.
 ```powershell
-    Add-AzureRmVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
+    Add-AzVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```
 ## <a name="bkmk_UploadSecret"></a> Caricare il segreto per la macchina virtuale pre-crittografata nell'insieme di credenziali delle chiavi
 Quando si esegue la crittografia usando un'app Azure AD, il segreto di crittografia del disco ottenuto in precedenza deve essere caricato come segreto nell'insieme di credenziali delle chiavi. L'insieme di credenziali delle chiavi deve avere la crittografia dei dischi e le autorizzazioni abilitate per il client di Azure AD.
@@ -546,14 +539,14 @@ Quando si esegue la crittografia usando un'app Azure AD, il segreto di crittogra
  $AadClientId = "My-AAD-Client-Id"
  $AadClientSecret = "My-AAD-Client-Secret"
 
- $key vault = New-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $ResourceGroupName -Location $Location
+ $key vault = New-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $ResourceGroupName -Location $Location
 
- Set-AzureRmKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $ResourceGroupName -ServicePrincipalName $AadClientId -PermissionsToKeys all -PermissionsToSecrets all
- Set-AzureRmKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $ResourceGroupName -EnabledForDiskEncryption
+ Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $ResourceGroupName -ServicePrincipalName $AadClientId -PermissionsToKeys all -PermissionsToSecrets all
+ Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $ResourceGroupName -EnabledForDiskEncryption
 ``` 
 
 ### <a name="bkmk_SecretnoKEK"></a> Segreto di crittografia del disco non crittografato con una chiave di crittografia della chiave
-Per configurare il segreto nell'insieme di credenziali delle chiavi, usare [Set-AzureKeyVaultSecret](/powershell/module/azurerm.keyvault/set-azurekeyvaultsecret). Se si ha una macchina virtuale Windows, il file con estensione bek viene codificato come stringa base64, quindi viene caricato nell'insieme di credenziali delle chiavi usando il cmdlet `Set-AzureKeyVaultSecret`. Per Linux la passphrase viene codificata come stringa Base 64 e quindi caricata nell'insieme di credenziali delle chiavi. Assicurarsi anche che i tag seguenti siano impostati quando si crea il segreto nell'insieme di credenziali delle chiavi.
+Per configurare il segreto nell'insieme di credenziali delle chiavi, usare [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). Se si ha una macchina virtuale Windows, il file con estensione bek viene codificato come stringa base64, quindi viene caricato nell'insieme di credenziali delle chiavi usando il cmdlet `Set-AzKeyVaultSecret`. Per Linux la passphrase viene codificata come stringa Base 64 e quindi caricata nell'insieme di credenziali delle chiavi. Assicurarsi anche che i tag seguenti siano impostati quando si crea il segreto nell'insieme di credenziali delle chiavi.
 
 #### <a name="windows-bek-file"></a>File Windows con estensione bek
 ```powershell
@@ -576,9 +569,9 @@ $FileContentEncoded = [System.convert]::ToBase64String((Get-Content -Path $BEKFi
 
 $SecretName = [guid]::NewGuid().ToString()
 $SecureSecretValue = ConvertTo-SecureString $FileContentEncoded -AsPlainText -Force
-$Secret = Set-AzureKeyVaultSecret -VaultName $VeyVaultName -Name $SecretName -SecretValue $SecureSecretValue -tags $tags
+$Secret = Set-AzKeyVaultSecret -VaultName $VeyVaultName -Name $SecretName -SecretValue $SecureSecretValue -tags $tags
 
-# Show the secret's URL and store it as a variable. This is used as -DiskEncryptionKeyUrl in Set-AzureRmVMOSDisk when you attach your OS disk. 
+# Show the secret's URL and store it as a variable. This is used as -DiskEncryptionKeyUrl in Set-AzVMOSDisk when you attach your OS disk. 
 $SecretUrl=$secret.Id
 $SecretUrl
 ```
@@ -594,7 +587,7 @@ $SecretUrl
  $secretValue = [Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($passphrase))
  $secureSecretValue = ConvertTo-SecureString $secretValue -AsPlainText -Force
 
- $secret = Set-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $secretName -SecretValue $secureSecretValue -tags $tags
+ $secret = Set-AzKeyVaultSecret -VaultName $KeyVaultName -Name $secretName -SecretValue $secureSecretValue -tags $tags
  $secretUrl = $secret.Id
 ```
 
@@ -602,14 +595,14 @@ $SecretUrl
 Usare `$secretUrl` nel passaggio successivo per [collegare il disco del sistema operativo senza usare una chiave di crittografia della chiave](#bkmk_URLnoKEK).
 
 ### <a name="bkmk_SecretKEK"></a> Segreto di crittografia del disco crittografato con una chiave di crittografia della chiave (KEK)
-Prima di caricare il segreto nell'insieme di credenziali delle chiavi, è possibile crittografarlo usando una chiave di crittografia della chiave. Usare l'[API](https://msdn.microsoft.com/library/azure/dn878066.aspx) WRAP per crittografare prima di tutto il segreto con la chiave di crittografia della chiave. L'output di questa operazione WRAP si basa su una stringa con codifica Base 64 dell'URL che può essere quindi caricata come segreto con il cmdlet [`Set-AzureKeyVaultSecret`](/powershell/module/azurerm.keyvault/set-azurekeyvaultsecret).
+Prima di caricare il segreto nell'insieme di credenziali delle chiavi, è possibile crittografarlo usando una chiave di crittografia della chiave. Usare l'[API](https://msdn.microsoft.com/library/azure/dn878066.aspx) WRAP per crittografare prima di tutto il segreto con la chiave di crittografia della chiave. L'output di questa operazione WRAP si basa su una stringa con codifica Base 64 dell'URL che può essere quindi caricata come segreto con il cmdlet [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret).
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation
     $passphrase = "contoso-password"
 
-    Add-AzureKeyVaultKey -VaultName $KeyVaultName -Name "keyencryptionkey" -Destination Software
-    $KeyEncryptionKey = Get-AzureKeyVaultKey -VaultName $KeyVault.OriginalVault.Name -Name "keyencryptionkey"
+    Add-AzKeyVaultKey -VaultName $KeyVaultName -Name "keyencryptionkey" -Destination Software
+    $KeyEncryptionKey = Get-AzKeyVaultKey -VaultName $KeyVault.OriginalVault.Name -Name "keyencryptionkey"
 
     $apiversion = "2015-06-01"
 
@@ -699,7 +692,7 @@ Usare `$KeyEncryptionKey` e `$secretUrl` nel passaggio successivo per [collegare
 ###  <a name="bkmk_URLnoKEK"></a>Senza l'uso di una chiave di crittografia della chiave (KEK)
 Quando si collega il disco del sistema operativo è necessario passare `$secretUrl`. L'URL è stato generato nella sezione "Segreto di crittografia del disco non crittografato con una chiave di crittografia della chiave".
 ```powershell
-    Set-AzureRmVMOSDisk `
+    Set-AzVMOSDisk `
             -VM $VirtualMachine `
             -Name $OSDiskName `
             -SourceImageUri $VhdUri `
@@ -712,7 +705,7 @@ Quando si collega il disco del sistema operativo è necessario passare `$secretU
 ### <a name="bkmk_URLKEK"></a>Con l'uso di una chiave di crittografia della chiave (KEK)
 Quando si collega il disco del sistema operativo, vedere `$KeyEncryptionKey` e `$secretUrl`. L'URL è stato generato nella sezione "Segreto di crittografia del disco crittografato con una chiave di crittografia della chiave".
 ```powershell
-    Set-AzureRmVMOSDisk `
+    Set-AzVMOSDisk `
             -VM $VirtualMachine `
             -Name $OSDiskName `
             -SourceImageUri $CopiedTemplateBlobUri `

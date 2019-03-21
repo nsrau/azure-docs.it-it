@@ -3,17 +3,17 @@ title: Stili delle mappe supportati in Mappe di Azure | Microsoft Docs
 description: Stili delle mappe supportati da Mappe di Azure
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2018
+ms.date: 02/12/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 923b9fef75fa610ee817a86ce0b4d6b322153f01
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 76ab49c7f28260249483bf3bc4387e8cbaca13b2
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113432"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570539"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Stili delle mappe supportati da Mappe di Azure
 Mappe di Azure supporta vari stili di mappa predefiniti, come descritto di seguito.
@@ -27,6 +27,7 @@ Una mappa **stradale** è una mappa standard che indica le strade, caratteristic
 * [Immagine mappa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
 * [Riquadro della mappa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Controllo mappa JS
+* Controllo mappa di Android
 
 ## <a name="satellite"></a>satellite 
 Lo stile del **satellite** è una combinazione di immagini aeree e satellitari.
@@ -36,6 +37,7 @@ Lo stile del **satellite** è una combinazione di immagini aeree e satellitari.
 **API idonee:**
 * [Riquadro del satellite](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
 * Controllo mappa JS
+* Controllo mappa di Android
 
 ## <a name="satelliteroadlabels"></a>satellite_road_labels
 Questo stile di mappa è un ibrido tra le strade e le indicazioni sovrapposte alle immagini del satellite e aeree.
@@ -44,6 +46,7 @@ Questo stile di mappa è un ibrido tra le strade e le indicazioni sovrapposte al
 
 **API idonee:**
 * Controllo mappa JS
+* Controllo mappa di Android
 
 ## <a name="grayscaledark"></a>grayscale_dark
 **gradazioni di grigio scuro** è una versione scura dello stile della mappa stradale.
@@ -52,6 +55,7 @@ Questo stile di mappa è un ibrido tra le strade e le indicazioni sovrapposte al
 
 **API idonee:**
 * Controllo mappa JS 
+* Controllo mappa di Android
 
 ## <a name="night"></a>notte
 **notte** è una versione scura dello stile della mappa stradale con strade colorate e simboli.
@@ -60,6 +64,7 @@ Questo stile di mappa è un ibrido tra le strade e le indicazioni sovrapposte al
 
 **API idonee:**
 * Controllo mappa JS
+* Controllo mappa di Android
 
 ## <a name="roadshadedrelief"></a>road_shaded_relief
 **road shaded relief** è uno dei principali stili di Mappe di Azure, completato con contorni della Terra.
@@ -67,5 +72,6 @@ Questo stile di mappa è un ibrido tra le strade e le indicazioni sovrapposte al
 ![rilievo ombreggiato](./media/supported-map-styles/shaded-relief.png)
 
 **API idonee:**
-* Controllo mappa JS
 * [Riquadro della mappa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* Controllo mappa JS
+* Controllo mappa di Android

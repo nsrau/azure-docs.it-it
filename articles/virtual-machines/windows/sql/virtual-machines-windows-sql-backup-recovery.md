@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: e291072f7eb075adeff9efb37f1f7dffc72d714c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ab239d0546508d74874c6b6be03f6afc06b08fa7
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093525"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286296"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Backup e ripristino per SQL Server in Macchine virtuali di Azure
 
@@ -59,7 +59,7 @@ Per altre informazioni su come configurare Backup automatizzato per le macchine 
 - **SQL Server 2016/2017**: [Backup automatico v2 per macchine virtuali di Azure](virtual-machines-windows-sql-automated-backup-v2.md)
 - **SQL Server 2014**: [backup automatico per macchine virtuali SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
 
-## <a id="azbackup"></a> Backup di Azure per le macchine virtuali SQL (anteprima pubblica)
+## <a id="azbackup"></a> Backup di Azure per macchine virtuali di SQL
 
 [Backup di Azure](/azure/backup/) offre una funzionalità di backup adatta alle grandi aziende per SQL Server in esecuzione in macchine virtuali di Azure. Tutti i backup vengono archiviati e gestiti in un insieme di credenziali di Servizi di ripristino. Esistono diversi vantaggi offerti da questa soluzione, in particolare per le aziende di grandi dimensioni:
 
@@ -76,9 +76,9 @@ Per altre informazioni su come configurare Backup automatizzato per le macchine 
 
 Per una rapida panoramica del funzionamento con una demo, guardare il video seguente:
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2dNbw]
+> [!VIDEO https://www.youtube.com/embed/wmbANpHos_E]
 
-Questa soluzione di Backup di Azure per le macchine virtuali SQL è attualmente in anteprima pubblica. Per altre informazioni, vedere [Back up SQL Server database to Azure](../../../backup/backup-azure-sql-database.md) (Eseguire il backup del database di SQL Server in Azure).
+Questa soluzione di Backup di Azure per macchine virtuali di SQL è disponibile a livello generale. Per altre informazioni, vedere [Back up SQL Server database to Azure](../../../backup/backup-azure-sql-database.md) (Eseguire il backup del database di SQL Server in Azure).
 
 ## <a id="manual"></a> Backup manuale
 

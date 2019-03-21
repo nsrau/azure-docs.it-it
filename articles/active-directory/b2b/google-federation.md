@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c1d6f541123a3f31c22352d646d701c37356e51
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d61f233b2eb901bcf1e6b5b4ff147893f918e8f
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088316"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293312"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Aggiungere Google come provider di identità per utenti guest B2B
 
@@ -31,32 +32,32 @@ Quando si invia un invito a un utente di Google Gmail, l'utente guest deve acced
 
 Se viene visualizzato un errore a causa dell'intestazione troppo lunga, l'utente guest può provare a cancellare i cookie oppure aprire una finestra privata o in incognito e tentare nuovamente l'accesso.
 
-![Accedere con Google](media/google-federation/google-sign-in.png)
+![Screenshot di Google nella pagina di accesso](media/google-federation/google-sign-in.png)
 
 ## <a name="step-1-configure-a-google-developer-project"></a>Passaggio 1: Configurare un progetto di Google Developers
 Prima di tutto creare un nuovo progetto nella console di Google Developers per ottenere un ID client e un segreto client che sarà possibile aggiungere ad Azure AD in un secondo momento. 
 1. Passare alle API di Google all'indirizzo https://console.developers.google.com e accedere con l'account Google. È consigliabile usare l'account condiviso di un team Google.
 2. Creare un nuovo progetto: nel dashboard selezionare **Crea progetto** e successivamente **Crea**. Nella pagina New Project (Nuovo progetto) immettere un nome in **Project Name** (Nome progetto) e quindi selezionare **Create** (Crea).
    
-   ![Nuovo progetto di Google](media/google-federation/google-new-project.png)
+   ![Screenshot che mostra la pagina di un nuovo progetto di Google](media/google-federation/google-new-project.png)
 
 3. Assicurarsi che il nuovo progetto sia selezionato nel menu dei progetti. Aprire quindi il menu in alto a sinistra e selezionare **APIs & Services** (API e servizi) > **Credentials** (Credenziali).
 
-   ![Credenziali delle API di Google](media/google-federation/google-api.png)
+   ![Screenshot che illustra l'API di Google opzione delle credenziali](media/google-federation/google-api.png)
  
 4. Scegliere la scheda **OAuth consent screen** (Schermata consenso OAuth) e immettere un **Application name** (Nome applicazione). Lasciare invariate le altre impostazioni.
 
-   ![Schermata di consenso Google OAuth](media/google-federation/google-oauth-consent-screen.png)
+   ![Screenshot che mostra di opzione schermata consenso Google OAuth](media/google-federation/google-oauth-consent-screen.png)
 
 5. Scorrere fino alla sezione **Authorized domains** (Domini autorizzati) e immettere microsoftonline.com.
 
-   ![Sezione Domini autorizzati](media/google-federation/google-oauth-authorized-domains.png)
+   ![Screenshot che mostra la sezione di domini Authorized](media/google-federation/google-oauth-authorized-domains.png)
 
 6. Selezionare **Salva**.
 
 7. Selezionare la scheda **Credentials** (Credenziali). Dal menu **Create credentials** (Crea credenziali) scegliere **OAuth client ID** (ID client OAuth).
 
-   ![Credenziali delle API di Google](media/google-federation/google-api-credentials.png)
+   ![Screenshot di Google APIs creare opzione relativa alle credenziali](media/google-federation/google-api-credentials.png)
 
 8. In **Application type** (Tipo di applicazione) scegliere **Web application** (Applicazione Web) e quindi in **Authorized redirect URIs** (URI di reindirizzamento autorizzati) immettere gli URI seguenti:
    - `https://login.microsoftonline.com` 
@@ -65,11 +66,11 @@ Prima di tutto creare un nuovo progetto nella console di Google Developers per o
      > [!NOTE]
      > Per trovare l'ID directory, passare a https://portal.azure.com e quindi in **Azure Active Directory** scegliere **Proprietà** e copiare il valore di **ID directory**.
 
-   ![Creare un ID client OAuth](media/google-federation/google-create-oauth-client-id.png)
+   ![Screenshot che mostra il Authorized sezione relativa agli URI di reindirizzamento](media/google-federation/google-create-oauth-client-id.png)
 
 9. Selezionare **Create**. Copiare l'ID client e il segreto client, che verranno usati quando si aggiungerà il provider di identità nel portale di Azure AD.
 
-   ![ID client e segreto client OAuth](media/google-federation/google-auth-client-id-secret.png)
+   ![Screenshot che mostra il client di OAuth ID e il segreto client](media/google-federation/google-auth-client-id-secret.png)
 
 ## <a name="step-2-configure-google-federation-in-azure-ad"></a>Passaggio 2: Configurare la federazione con Google in Azure AD 
 Si imposteranno ora l'ID client e il segreto client di Google immettendoli nel portale di Azure AD o tramite PowerShell. Assicurarsi di testare la configurazione della federazione con Google inviando un invito al proprio indirizzo Gmail e quindi provando a riscattare l'invito con l'account Google invitato. 
@@ -80,7 +81,7 @@ Si imposteranno ora l'ID client e il segreto client di Google immettendoli nel p
 3. Selezionare **Provider di identità** e quindi fare clic sul pulsante **Google**.
 4. Immettere un nome. Immettere quindi l'ID client e il segreto client ottenuti in precedenza. Selezionare **Salva**. 
 
-   ![Aggiungi provider di identità Google](media/google-federation/google-identity-provider.png)
+   ![Screenshot che mostra la pagina provider di identità Google aggiungere](media/google-federation/google-identity-provider.png)
 
 #### <a name="to-configure-google-federation-by-using-powershell"></a>Per configurare la federazione con Google tramite PowerShell
 1. Installare la versione più recente del modulo di Azure AD PowerShell per Graph ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
@@ -102,7 +103,7 @@ Si imposteranno ora l'ID client e il segreto client di Google immettendoli nel p
 3. Selezionare **provider di identità**.
 4. Nel **Google** , selezionare il menu di scelta rapida (**...** ) e quindi selezionare **eliminare**. 
    
-   ![Provider di identità basato su social network eliminato](media/google-federation/google-social-identity-providers.png)
+   ![Screenshot che mostra l'opzione di eliminazione per il provider di identità di social networking](media/google-federation/google-social-identity-providers.png)
 
 1. Selezionare **Sì** per confermare l'eliminazione. 
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: de730004b55f72cb645c6a31c02fd1fe28a52ecd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 60aafd983d1c21777276683a8685376a247d11f5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013180"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541707"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Trasformare i dati eseguendo un'attività Python in Azure Databricks
 
@@ -62,13 +62,13 @@ Ecco la definizione JSON di esempio di un'attività Python di Databricks:
 
 La tabella seguente fornisce le descrizioni delle proprietà JSON usate nella definizione JSON:
 
-|Proprietà|DESCRIZIONE|Obbligatoria|
+|Proprietà|Descrizione|Obbligatorio|
 |---|---|---|
-|name|Nome dell'attività nella pipeline.|Yes|
+|name|Nome dell'attività nella pipeline.|Sì|
 |description|Testo che descrive l'attività.|No |
-|type|Per l'attività Python di Databricks il tipo di attività è DatabricksSparkPython.|Yes|
-|linkedServiceName|Nome del servizio collegato Databricks su cui è in esecuzione l'attività Python. Per informazioni su questo servizio collegato, vedere l'articolo  [Servizi collegati di calcolo](compute-linked-services.md) .|Yes|
-|pythonFile|L'URI del file Python da eseguire. Sono supportati solo i percorsi DBFS.|Yes|
+|type|Per l'attività Python di Databricks il tipo di attività è DatabricksSparkPython.|Sì|
+|linkedServiceName|Nome del servizio collegato Databricks su cui è in esecuzione l'attività Python. Per informazioni su questo servizio collegato, vedere l'articolo  [Servizi collegati di calcolo](compute-linked-services.md) .|Sì|
+|pythonFile|L'URI del file Python da eseguire. Sono supportati solo i percorsi DBFS.|Sì|
 |Parametri|Parametri della riga di comando che verranno passati al file Python. È una matrice di stringhe.|No |
 |libraries|Un elenco di librerie da installare nel cluster che eseguirà il processo. Può essere una matrice di <stringa, oggetto>|No |
 
@@ -100,7 +100,7 @@ Nella definizione dell'attività di Databricks precedente si specificano questi 
         {
             "cran": {
                 "package": "ada",
-                "repo": "http://cran.us.r-project.org"
+                "repo": "https://cran.us.r-project.org"
             }
         }
     ]

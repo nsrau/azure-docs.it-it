@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: dbbfea183454b1068558111bf62b45f5fa6415cc
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: e05281b2279f5d40f8a3ba4ed3f49a38e5abf0ee
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56334028"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58261387"
 ---
 Le dimensioni delle macchine virtuali ottimizzate per l'archiviazione offrono I/O e velocità effettiva del disco elevati, ideali per i database NoSQL, SQL e Big Data, data warehousing e database transazionali di grandi dimensioni.  Tra gli esempi sono inclusi Cassandra, MongoDB, Cloudera e Redis. Questo articolo offre informazioni sul numero di vCPU, dischi dati e schede di rete, nonché sulla velocità effettiva di archiviazione e sulla larghezza di banda di rete per ogni dimensione ottimizzata.
 
@@ -31,13 +31,13 @@ Archiviazione Premium: Supportato
 
 Memorizzazione nella cache Archiviazione Premium: Non supportato
 
-| Dimensione          | vCPU | Memoria (GiB) | Disco temporaneo<sup>1</sup> (GiB) | Dischi NVMe<sup>2</sup> | Velocità effettiva dischi NVMe<sup>3</sup> (IOPS di lettura/MBps) | Dimensione cache host<sup>4</sup> | Numero massimo di dischi dati | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) | 
+| Dimensione          | vCPU | Memoria (GiB) | Disco temporaneo<sup>1</sup> (GiB) | Dischi NVMe<sup>2</sup> | Velocità effettiva dischi NVMe<sup>3</sup> (IOPS di lettura/MBps) | Max rimosso dalla cache di velocità effettiva del disco dati (IOPs o MBps)<sup>4</sup> | Numero massimo di dischi dati | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) | 
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
-| Standard_L8s_v2   |  8 |  64 |  80 |  1 x 1,92 TB  | 340.000 / 2.000 | N/D | 16 | 2 / 3.200  | 
-| Standard_L16s_v2  | 16 | 128 | 160 |  2 x 1,92 TB  | 680.000 / 4.500 | N/D | 32 | 4 / 6.400  | 
-| Standard_L32s_v2  | 32 | 256 | 320 |  4 x 1,92 TB  | 1,4 M / 9.000    | N/D | 32 | 8 / 12.800 | 
-| Standard_L64s_v2  | 64 | 512 | 640 |  8 x 1,92 TB  | 2,7 M / 18.000   | N/D | 32 | 8 / 25.600 |
-| Standard_L80s_v2  | 80 | 640 | 800 | 10 x 1,92 TB   | 3,4 M / 22.000   | N/D | 32 | 8 / 32.000 |
+| Standard_L8s_v2   |  8 |  64 |  80 |  1 x 1,92 TB  | 400,000 / 2,000 | 8,000/160 | 16 | 2 / 3.200  | 
+| Standard_L16s_v2  | 16 | 128 | 160 |  2 x 1,92 TB  | 800,000 / 4,000 | 16,000/320 | 32 | 4 / 6.400  | 
+| Standard_L32s_v2  | 32 | 256 | 320 |  4 x 1,92 TB  | 1,5 M / 8.000    | 32,000/640 | 32 | 8 / 12.800 | 
+| Standard_L64s_v2  | 64 | 512 | 640 |  8 x 1,92 TB  | 2.9 M / 16.000   | 64,000/1,280 | 32 | 8 / 25.600 |
+| Standard_L80s_v2  | 80 | 640 | 800 | 10 x 1,92 TB   | 3.8 M / 20.000   | 80,000/1,400 | 32 | 8 / 32.000 |
  
 <sup>1</sup> Le macchine virtuali serie Lsv2 hanno un disco risorse temporaneo basato su SCSI standard per l'uso di un file di scambio/paging del sistema operativo (D: in Windows, /dev/sdb in Linux). Il disco offre 80 GiB di archiviazione, 4.000 IOPS e una velocità di trasferimento di 80 MBps ogni 8 vCPU (ad esempio, il modello Standard_L80s_v2 fornisce 800 GiB a 40.000 IOPS e 800 MBPS). In questo modo, le unità NVMe possono essere completamente dedicate all'utilizzo dell'applicazione. Questo disco è temporaneo e tutti i dati andranno persi al momento dell'arresto/deallocazione.
 

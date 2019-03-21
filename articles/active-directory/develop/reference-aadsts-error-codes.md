@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16f7dc81d8174e3d8da39d3af95b945f8034cecd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1ff37184cd8789c5408d02a427080db86de00b7d
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452015"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295454"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Codici di errore di autenticazione e autorizzazione
 
@@ -30,6 +30,8 @@ Se sono necessarie informazioni sui codici di errore AADSTS restituiti dal servi
 
 > [!NOTE]
 > Queste informazioni sono preliminari e soggette a modifiche. In caso di domande o se non è possibile trovare le informazioni necessarie, creare un problema in GitHub oppure fare riferimento alle [opzioni di supporto e assistenza per sviluppatori](active-directory-develop-help-support.md) per informazioni su come ottenere supporto.
+>
+> Questa documentazione viene fornita per gli sviluppatori e indicazioni di amministratore, ma non deve mai essere utilizzata dal client stesso. Codici di errore sono soggetti a modifiche in qualsiasi momento per fornire messaggi di errore più granulari che consentono allo sviluppatore durante la compilazione dell'applicazione. Le app che accettano una dipendenza sui numeri di codice di errore o di testo verrà interrotte nel corso del tempo.  
 
 ## <a name="aadsts-error-codes"></a>Codici di errore AADSTS
 

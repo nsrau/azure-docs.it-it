@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 02/10/2019
 ms.author: ikbarmen
-ms.openlocfilehash: 3b6daa60e8c8945d49170a00da5bd3ffb57b48ac
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: e98cf44db01de1f99836e247066ba01006eac97b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000115"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733300"
 ---
 # <a name="manage-multiple-tenants"></a>Gestire più tenant
 
@@ -56,7 +56,7 @@ Con questa opzione, i modelli di personalizzazione (utente, lingua e i marchi) p
 
 Durante il [caricamento dei video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) è possibile specificare un attributo di partizione diverso per ciascun tenant. Ciò consente l'isolamento nella [API di ricerca](https://api-portal.videoindexer.ai/docs/services/operations/operations/Search-videos?). Specificando l'attributo di partizione nella API di ricerca si otterranno solo i risultati della partizione specificata. 
 
- ### <a name="considerations"></a>Considerazioni
+### <a name="considerations"></a>Considerazioni
 
 * Possibilità di condividere i contenuti e i modelli di personalizzazione tra i tenant.
 * Un tenant influisce sulle prestazioni di altri tenant.

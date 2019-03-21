@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: genli
-ms.openlocfilehash: bd2b28a7f8d0a765e10ffa58b5a72b4bd5bc47b0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 543135db8df69db7e0e6182c9d52b9c956ee80b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228182"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996987"
 ---
 # <a name="reserved-ip-addresses-classic-deployment"></a>Indirizzi IP riservati (distribuzione classica)
 
@@ -28,7 +28,7 @@ ms.locfileid: "51228182"
 Per impedire che gli indirizzi IP cambino, è possibile riservarli. Gli indirizzi IP riservati possono essere usati solo come indirizzi VIP, pertanto assicurano che l'indirizzo IP per il servizio cloud resti invariato anche se le risorse vengono arrestate o interrotte (deallocate). È inoltre possibile convertire in indirizzo IP riservato gli indirizzi IP dinamici esistenti usati come indirizzi VIP.
 
 > [!IMPORTANT]
-> Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Informazioni su come riservare un indirizzo IP pubblico statico usando [il modello di distribuzione di Resource Manager](virtual-network-ip-addresses-overview-arm.md).
+> Azure offre due modelli di distribuzione diversi per creare e usare le risorse:  [Resource Manager e distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Informazioni su come riservare un indirizzo IP pubblico statico usando [il modello di distribuzione di Resource Manager](virtual-network-ip-addresses-overview-arm.md).
 
 Per altre informazioni sugli indirizzi IP in Azure, leggere l'articolo sugli [indirizzi IP](virtual-network-ip-addresses-overview-classic.md).
 
@@ -39,7 +39,7 @@ Per altre informazioni sugli indirizzi IP in Azure, leggere l'articolo sugli [in
 
 ## <a name="faqs"></a>Domande frequenti
 - È possibile usare un indirizzo IP riservato per tutti i servizi di Azure?
-    No. Gli indirizzi IP riservati possono essere usati solo per le macchine virtuali e per i ruoli delle istanze del servizio cloud esposti mediante un indirizzo VIP.
+     No. Gli indirizzi IP riservati possono essere usati solo per le macchine virtuali e per i ruoli delle istanze del servizio cloud esposti mediante un indirizzo VIP.
 - Di quanti indirizzi IP riservati è possibile disporre?
     Per informazioni dettagliate, vedere l'articolo [Limiti di Azure](../azure-subscription-service-limits.md#networking-limits).
 - È previsto un addebito per gli indirizzi IP riservati?
@@ -47,7 +47,7 @@ Per altre informazioni sugli indirizzi IP in Azure, leggere l'articolo sugli [in
 - Come è possibile riservare un indirizzo IP?
     È possibile usare PowerShell, l'[API REST di gestione di Azure](https://msdn.microsoft.com/library/azure/dn722420.aspx) o il [portale di Azure](https://portal.azure.com) per riservare un indirizzo IP di una determinata area di Azure. Un indirizzo IP riservato è associato alla sottoscrizione.
 - È possibile usare gli indirizzi IP riservati con reti virtuali basate su gruppi di affinità?
-    No. Gli indirizzi IP riservati sono supportati solo nelle reti virtuali di area. Gli indirizzi IP riservati non sono supportati per le reti virtuali associate a gruppi di affinità. Per altre informazioni sull'associazione di una rete virtuale a una regione o a un gruppo di affinità, vedere l'articolo sulle [reti virtuali dell'area e sui gruppi di affinità](virtual-networks-migrate-to-regional-vnet.md).
+     No. Gli indirizzi IP riservati sono supportati solo nelle reti virtuali di area. Gli indirizzi IP riservati non sono supportati per le reti virtuali associate a gruppi di affinità. Per altre informazioni sull'associazione di una rete virtuale a una regione o a un gruppo di affinità, vedere l'articolo sulle [reti virtuali dell'area e sui gruppi di affinità](virtual-networks-migrate-to-regional-vnet.md).
 
 ## <a name="manage-reserved-vips"></a>Gestire gli indirizzi VIP riservati
 
@@ -83,7 +83,7 @@ Output previsto:
     OperationStatus      : Succeeded
 
 >[!NOTE]
->Quando si crea un indirizzo IP riservato con PowerShell, non è possibile specificare un gruppo di risorse in cui creare l'indirizzo IP riservato. Azure lo posiziona automaticamente in un gruppo di risorse denominato *Default-Networking*. Se si crea l'indirizzo IP riservato usando il [portale Azure](http://portal.azure.com), è possibile specificare qualsiasi gruppo di risorse desiderato. Tuttavia, se si crea l'indirizzo IP riservato in un gruppo di risorse diverso da *Default-Networking*, quando si fa riferimento all'indirizzo IP riservato con comandi quali `Get-AzureReservedIP` e `Remove-AzureReservedIP`, è necessario fare riferimento al nome *Group resource-group-name reserved-ip-name*.  Ad esempio, se si crea un indirizzo IP riservato denominato *myReservedIP* in un gruppo di risorse denominato *myResourceGroup*, è necessario fare riferimento al nome di un IP riservato come ad esempio *Group myResourceGroup myReservedIP*.   
+>Quando si crea un indirizzo IP riservato con PowerShell, non è possibile specificare un gruppo di risorse in cui creare l'indirizzo IP riservato. Azure lo posiziona automaticamente in un gruppo di risorse denominato *Default-Networking*. Se si crea l'indirizzo IP riservato usando il [portale Azure](https://portal.azure.com), è possibile specificare qualsiasi gruppo di risorse desiderato. Tuttavia, se si crea l'indirizzo IP riservato in un gruppo di risorse diverso da *Default-Networking*, quando si fa riferimento all'indirizzo IP riservato con comandi quali `Get-AzureReservedIP` e `Remove-AzureReservedIP`, è necessario fare riferimento al nome *Group resource-group-name reserved-ip-name*.  Ad esempio, se si crea un indirizzo IP riservato denominato *myReservedIP* in un gruppo di risorse denominato *myResourceGroup*, è necessario fare riferimento al nome di un IP riservato come ad esempio *Group myResourceGroup myReservedIP*.   
 
 
 Dopo essere stato riservato, un indirizzo IP rimane associato alla sottoscrizione finché non viene eliminato. Eliminare un IP riservato con il comando seguente:

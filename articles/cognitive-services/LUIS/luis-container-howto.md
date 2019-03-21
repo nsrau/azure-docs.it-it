@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 19206278f838b77954c28e95e9171a857ba1338a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 1cf5fb00e9f1a202fe7ad46253f916e3e6bee7a7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670652"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295573"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installare ed eseguire i contenitori docker LUIS
  
@@ -46,15 +46,14 @@ Per eseguire il contenitore LUIS, è necessario quanto segue:
 
 Il contenitore supporta i valori minimi e consigliati seguenti per le impostazioni:
 
-|Impostazione| Minima | Consigliato |
-|-----------|---------|-------------|
-|Core<BR>`--cpus`|1 core|1 core|
-|Memoria<BR>`--memory`|2 GB|4 GB|
-|Transazioni al secondo<BR>(TPS)|20 TPS|40 TPS|
+|Contenitore| Minima | Consigliato | TPS<br>(Minimum, Maximum)|
+|-----------|---------|-------------|--|
+|LUIS|1 core, 2 GB di memoria|1 core, 4 GB di memoria|20,40|
 
-Ogni core deve essere di almeno 2,6 gigahertz (GHz) o superiore.
+* Ogni core deve essere di almeno 2,6 gigahertz (GHz) o superiore.
+* Programmi di transazione - transazioni al secondo
 
-Le impostazioni `--cpus` e `--memory` vengono usate come parte del comando `docker run`.
+Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono usate come parte del comando `docker run`.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Ottenere l'immagine del contenitore con `docker pull`
 

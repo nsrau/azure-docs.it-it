@@ -7,12 +7,12 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 4b37b6cd35526d6a76625dd03d1325f1688e698e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 4532962b6fd9f40fad625ab000116e5a617682e5
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044468"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258777"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Connettere Qlik Sense ad Azure Cosmos DB e visualizzare i dati
 
@@ -42,9 +42,9 @@ Prima di seguire le istruzioni di questo articolo, verificare che le risorse seg
 
 * Scaricare i [dati sui videogiochi](https://www.kaggle.com/gregorut/videogamesales): questi dati di esempio sono in formato CSV. Archiviare i dati in un account Cosmos DB e visualizzarli in Qlik Sense.
 
-* Creare un account API SQL di Azure Cosmos DB tramite la procedura descritta nella sezione [Creare un account](create-sql-api-dotnet.md#create-a-database-account) dell'articolo della guida introduttiva.
+* Creare un account API SQL di Azure Cosmos DB tramite la procedura descritta nella sezione [Creare un account](create-sql-api-dotnet.md#create-account) dell'articolo della guida introduttiva.
 
-* [Creare un database e una raccolta](create-sql-api-dotnet.md#add-a-collection): è possibile impostare il valore della velocità effettiva della raccolta su 1000 UR/sec. 
+* [Creare un database e una raccolta](create-sql-api-dotnet.md#create-collection-database): è possibile impostare il valore della velocità effettiva della raccolta su 1000 UR/sec. 
 
 * Caricare i dati di vendita dei videogiochi di esempio nell'account Cosmos DB. È possibile importare i dati usando lo strumento di migrazione dei dati di Azure Cosmos DB; è possibile eseguire un'[importazione sequenziale](import-data.md#SQLSeqTarget) o [in massa](import-data.md#SQLBulkTarget) dei dati. L'importazione dei dati nell'account Cosmos DB richiede circa 3-5 minuti.
 
@@ -76,7 +76,7 @@ Prima di seguire le istruzioni di questo articolo, verificare che le risorse seg
 
 Cosmos DB è un database distribuito senza schema con i driver modellati in base alle esigenze degli sviluppatori. Il driver ODBC richiede un database con schema da cui dedurre le colonne, i relativi tipi di dati e altre proprietà. La normale query SQL o la sintassi DML con funzionalità relazionali non è applicabile all'API SQL di Cosmos DB perché l'API SQL non è SQL ANSI. Per questo motivo le istruzioni SQL emesse tramite il driver ODBC vengono convertite in sintassi SQL specifica per Cosmos DB che non ha equivalenti per tutti i costrutti. Per evitare questi problemi di conversione, è necessario applicare uno schema quando si configura la connessione ODBC. L'articolo [eseguire la connessione con il driver ODBC](odbc-driver.md) offre suggerimenti e metodi che consentono di configurare lo schema. Assicurarsi di creare questo mapping per ogni raccolta o database all'interno dell'account Cosmos DB.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Se si usa uno strumento di visualizzazione diverso, ad esempio Power BI, è possibile connettersi a esso usando le istruzioni nel documento seguente:
 

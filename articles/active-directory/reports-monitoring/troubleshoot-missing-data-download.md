@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ba5f803f59263f9bfebfd4ec8635d5cdd6d90a0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cfb56ea81abeeba83bee73356c682b3e9fae866f
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171775"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58292914"
 ---
 # <a name="i-cant-find-all-the-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>Non è possibile trovare tutti i dati nei log attività di Azure Active Directory scaricati
 
@@ -34,11 +34,11 @@ I log attività (controllo o accessi) sono stati scaricati ma non vengono visual
  
 ## <a name="cause"></a>Causa
 
-Quando si scaricano i log attività nel portale di Azure, viene applicata una limitazione a 5000 record, ordinati a partire dal più recente come primo. 
+Quando si scaricano i log attività nel portale di Azure, è necessario limitare la scala fino a 250.000 record, ordinate dalla più recente. 
 
 ## <a name="resolution"></a>Risoluzione
 
-È possibile sfruttare le [API di Creazione rapporti di Azure AD](concept-reporting-api.md) per recuperare fino a un milione di record per un momento specifico. L'approccio consigliato consiste nell'[eseguire uno script in base a una pianificazione](tutorial-signin-logs-download-script.md) per chiamare le API creazione report per recuperare i record in modo incrementale in un periodo di tempo specifico (ad esempio ogni giorno oppure ogni settimana). 
+È possibile sfruttare le [API di Creazione rapporti di Azure AD](concept-reporting-api.md) per recuperare fino a un milione di record per un momento specifico.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

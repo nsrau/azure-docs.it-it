@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2018
 ms.author: victorh
-ms.openlocfilehash: 92d0e079f9fafbb6c000c6b1746f37a16add4cf7
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 3b9108e08e1b1ad13fac75d00816755043d84672
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417348"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308721"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Creare un gateway applicazione con un servizio di bilanciamento del carico interno
 
@@ -29,7 +29,9 @@ In questo articolo verrà illustrata la procedura per configurare un gateway app
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-1. Installare la versione più recente dei cmdlet di Azure PowerShell usando l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [Pagina di download](https://azure.microsoft.com/downloads/).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+1. Installare la versione più recente del modulo Azure PowerShell seguendo la [istruzioni di installazione](/powershell/azure/install-az-ps).
 2. Creare una rete virtuale e una subnet per il gateway applicazione. Assicurarsi che nessuna macchina virtuale o distribuzione cloud stia usando la subnet. Il gateway applicazione deve essere da solo in una subnet di rete virtuale.
 3. È necessario che i server configurati per l'uso del gateway applicazione esistano oppure che i relativi endpoint siano stati creati nella rete virtuale o con un indirizzo IP/VIP pubblico assegnato.
 
@@ -60,7 +62,7 @@ Assicurarsi di passare alla modalità PowerShell per usare i cmdlet di Gestione 
 ### <a name="step-1"></a>Passaggio 1
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ### <a name="step-2"></a>Passaggio 2
@@ -68,7 +70,7 @@ Connect-AzureRmAccount
 Controllare le sottoscrizioni per l'account.
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.
@@ -78,7 +80,7 @@ Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.
 Scegliere quali sottoscrizioni Azure usare.
 
 ```powershell
-Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+Select-AzSubscription -Subscriptionid "GUID of subscription"
 ```
 
 ### <a name="step-4"></a>Passaggio 4
@@ -86,7 +88,7 @@ Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 Creare un nuovo gruppo di risorse. Ignorare questo passaggio se si sta usando un gruppo di risorse esistente.
 
 ```powershell
-New-AzureRmResourceGroup -Name appgw-rg -location "West US"
+New-AzResourceGroup -Name appgw-rg -location "West US"
 ```
 
 Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un percorso che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Assicurarsi che tutti i comandi per creare un gateway applicazione usino lo stesso gruppo di risorse.
@@ -100,7 +102,7 @@ L'esempio seguente illustra come creare una rete virtuale usando Gestione risors
 ### <a name="step-1"></a>Passaggio 1
 
 ```powershell
-$subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
+$subnetconfig = New-AzVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 ```
 
 Questo passaggio assegna l'intervallo di indirizzi 10.0.0.0/24 a una variabile di subnet da usare per creare una rete virtuale.
@@ -108,7 +110,7 @@ Questo passaggio assegna l'intervallo di indirizzi 10.0.0.0/24 a una variabile d
 ### <a name="step-2"></a>Passaggio 2
 
 ```powershell
-$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
+$vnet = New-AzVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
 ```
 
 Questo passaggio crea una rete virtuale denominata "appgwvnet" nel gruppo di risorse "appgw-rg" per l'area Stati Uniti occidentali usando il prefisso 10.0.0.0/16 con subnet 10.0.0.0/24.
@@ -126,7 +128,7 @@ Questo passaggio assegna l'oggetto subnet alla variabile $subnet per i passaggi 
 ### <a name="step-1"></a>Passaggio 1
 
 ```powershell
-$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
+$gipconfig = New-AzApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 ```
 
 Questo passaggio crea una configurazione IP del gateway applicazione denominata "gatewayIP01". All'avvio, il gateway applicazione seleziona un indirizzo IP dalla subnet configurata e instrada il traffico di rete agli indirizzi IP nel pool di indirizzi IP back-end. Tenere presente che ogni istanza ha un indirizzo IP.
@@ -134,7 +136,7 @@ Questo passaggio crea una configurazione IP del gateway applicazione denominata 
 ### <a name="step-2"></a>Passaggio 2
 
 ```powershell
-$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.1.1.8,10.1.1.9,10.1.1.10
+$pool = New-AzApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.1.1.8,10.1.1.9,10.1.1.10
 ```
 
 Questo passaggio configura il pool di indirizzi IP back-end denominato "pool01" con gli indirizzi IP "10.1.1.8, 10.1.1.9, 10.1.1.10". Questi saranno gli indirizzi IP che ricevono il traffico di rete proveniente dall'endpoint IP front-end. Sostituire gli indirizzi IP precedenti e aggiungere gli endpoint di indirizzi IP dell'applicazione.
@@ -142,7 +144,7 @@ Questo passaggio configura il pool di indirizzi IP back-end denominato "pool01" 
 ### <a name="step-3"></a>Passaggio 3
 
 ```powershell
-$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
+$poolSetting = New-AzApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 ```
 
 Questo passaggio configura l'impostazione "poolsetting01" del gateway applicazione per il traffico di rete con bilanciamento del carico nel pool back-end.
@@ -150,7 +152,7 @@ Questo passaggio configura l'impostazione "poolsetting01" del gateway applicazio
 ### <a name="step-4"></a>Passaggio 4
 
 ```powershell
-$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
+$fp = New-AzApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 ```
 
 Questo passaggio configura la porta IP front-end denominata "frontendport01" per il bilanciamento del carico interno.
@@ -158,7 +160,7 @@ Questo passaggio configura la porta IP front-end denominata "frontendport01" per
 ### <a name="step-5"></a>Passaggio 5
 
 ```powershell
-$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
+$fipconfig = New-AzApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
 ```
 
 Questo passaggio crea la configurazione IP front-end denominata "fipconfig01" e la associa a un indirizzo IP privato dalla subnet di rete virtuale corrente.
@@ -166,7 +168,7 @@ Questo passaggio crea la configurazione IP front-end denominata "fipconfig01" e 
 ### <a name="step-6"></a>Passaggio 6
 
 ```powershell
-$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
+$listener = New-AzApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 ```
 
 Questo passaggio crea il listener denominato "listener01" e associa la porta front-end alla configurazione IP front-end.
@@ -174,7 +176,7 @@ Questo passaggio crea il listener denominato "listener01" e associa la porta fro
 ### <a name="step-7"></a>Passaggio 7
 
 ```powershell
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
+$rule = New-AzApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 ```
 
 Questo passaggio crea la regola di routing del servizio di bilanciamento del carico denominata "rule01" che configura il comportamento del servizio di bilanciamento del carico.
@@ -182,7 +184,7 @@ Questo passaggio crea la regola di routing del servizio di bilanciamento del car
 ### <a name="step-8"></a>Passaggio 8
 
 ```powershell
-$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
+$sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 ```
 
 Questo passaggio configura le dimensioni dell'istanza del gateway applicazione.
@@ -195,7 +197,7 @@ Questo passaggio configura le dimensioni dell'istanza del gateway applicazione.
 Crea un gateway applicazione con tutti gli elementi di configurazione illustrati nei passaggi precedenti. Nell'esempio, il gateway applicazione è denominato "appgwtest".
 
 ```powershell
-$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
+$appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
 Questo passaggio crea un gateway applicazione con tutti gli elementi di configurazione illustrati nei passaggi precedenti. Nell'esempio il gateway applicazione è denominato "appgwtest".
@@ -204,8 +206,8 @@ Questo passaggio crea un gateway applicazione con tutti gli elementi di configur
 
 Per eliminare un gateway applicazione sarà necessario eseguire questi passaggi nell'ordine indicato:
 
-1. Usare il cmdlet `Stop-AzureRmApplicationGateway` per arrestare il gateway.
-2. Usare il cmdlet `Remove-AzureRmApplicationGateway` per rimuovere il gateway.
+1. Usare il cmdlet `Stop-AzApplicationGateway` per arrestare il gateway.
+2. Usare il cmdlet `Remove-AzApplicationGateway` per rimuovere il gateway.
 3. Assicurarsi che il gateway sia stato rimosso usando il cmdlet `Get-AzureApplicationGateway`.
 
 ### <a name="step-1"></a>Passaggio 1
@@ -213,15 +215,15 @@ Per eliminare un gateway applicazione sarà necessario eseguire questi passaggi 
 Ottenere l'oggetto gateway applicazione e associarlo a una variabile "$getgw".
 
 ```powershell
-$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
+$getgw =  Get-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 ```
 
 ### <a name="step-2"></a>Passaggio 2
 
-Usare `Stop-AzureRmApplicationGateway` per arrestare il gateway applicazione. Questo esempio illustra il cmdlet `Stop-AzureRmApplicationGateway` nella prima riga seguito dall'output.
+Usare `Stop-AzApplicationGateway` per arrestare il gateway applicazione. Questo esempio illustra il cmdlet `Stop-AzApplicationGateway` nella prima riga seguito dall'output.
 
 ```powershell
-Stop-AzureRmApplicationGateway -ApplicationGateway $getgw  
+Stop-AzApplicationGateway -ApplicationGateway $getgw  
 ```
 
 ```
@@ -232,10 +234,10 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 ```
 
-Quando il gateway applicazione si trova in stato di interruzione, usare il cmdlet `Remove-AzureRmApplicationGateway` per rimuovere il servizio.
+Quando il gateway applicazione si trova in stato di interruzione, usare il cmdlet `Remove-AzApplicationGateway` per rimuovere il servizio.
 
 ```powershell
-Remove-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Force
+Remove-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Force
 ```
 
 ```
@@ -249,10 +251,10 @@ Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 > [!NOTE]
 > L'opzione **-force** può essere usata per eliminare il messaggio di conferma della rimozione.
 
-Per verificare che il servizio sia stato rimosso, è possibile usare il cmdlet `Get-AzureRmApplicationGateway`. Questo passaggio non è obbligatorio.
+Per verificare che il servizio sia stato rimosso, è possibile usare il cmdlet `Get-AzApplicationGateway`. Questo passaggio non è obbligatorio.
 
 ```powershell
-Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
+Get-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 ```
 
 ```

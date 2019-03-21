@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: cc9f65caabe7acaf99952692389838b808af0750
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: d342cff6d322195ee88a74215f814be7d702aa5e
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996339"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294128"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Come ottenere un'istanza del processore di contenuti multimediali
 > [!div class="op_single_selector"]
@@ -87,6 +87,6 @@ Risposta:
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Dopo avere ottenuto un'istanza del processore di contenuti multimediali, passare all'articolo [Come codificare un asset](media-services-rest-get-started.md), che illustra come usare Media Encoder Standard per codificare un asset.
 

@@ -14,12 +14,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10346ea0aa292be33f820bd4e92434e2c58a89ab
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1e7a3f80067adb3093bd27e34a45b3afd72b4993
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194309"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286857"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Assegnare o rimuovere licenze usando il portale di Azure Active Directory
 Molti servizi di Azure Active Directory (Azure AD) richiedono l'attivazione di un prodotto Azure AD e la concessione della licenza ai singoli utenti o gruppi (e relativi membri associati) per quel prodotto. Solo gli utenti con licenze attive saranno in grado di eseguire l'accesso e usare i servizi di Azure AD concessi in licenza.
@@ -47,7 +47,7 @@ Per informazioni specifiche su ogni edizione del prodotto e i dettagli di licenz
 
     Viene visualizzata la pagina **Licenze**.
 
-    ![Pagina Licenze con il numero di prodotti acquistati e le licenze assegnate](media/license-users-groups/license-details-blade.png)
+    ![Pagina licenze con numero di prodotti acquistati e le licenze assegnate](media/license-users-groups/license-details-blade.png)
     
 3. Selezionare il collegamento **Purchased products** (Prodotti acquistati) per visualizzare la pagina **Prodotti** e visualizzare i dettagli **Assegnata**, **Disponibile** e **Scadenza imminente** per ogni specifica edizione del prodotto.
 
@@ -76,7 +76,7 @@ Verificare che chiunque necessiti di usare un servizio Azure AD concesso in lice
 
 4. Selezionare **Opzioni di assegnazione**, verificare che siano attivate le opzioni di licenza appropriate e fare clic su **OK**.
 
-    ![Pagina delle opzioni di licenza con tutte le opzioni disponibili nell'edizione](media/license-users-groups/license-option-blade-assignments.png)
+    ![Pagina di opzioni di licenza, con tutte le opzioni disponibili nell'edizione](media/license-users-groups/license-option-blade-assignments.png)
 
     La pagina **Assegna licenza** viene aggiornata per indicare che un utente è selezionato e che le assegnazioni sono configurate.
 
@@ -102,7 +102,7 @@ Verificare che chiunque necessiti di usare un servizio Azure AD concesso in lice
 
 4. Selezionare **Opzioni di assegnazione**, verificare che siano attivate le opzioni di licenza appropriate e fare clic su **OK**.
 
-    ![Pagina delle opzioni di licenza con tutte le opzioni disponibili nell'edizione](media/license-users-groups/license-option-blade-group-assignments.png)
+    ![Pagina di opzioni di licenza, con tutte le opzioni disponibili nell'edizione](media/license-users-groups/license-option-blade-group-assignments.png)
 
     La pagina **Assegna licenza** viene aggiornata per indicare che un utente è selezionato e che le assegnazioni sono configurate.
 
@@ -112,7 +112,6 @@ Verificare che chiunque necessiti di usare un servizio Azure AD concesso in lice
 5. Selezionare **Assegna**.
 
     Il gruppo viene aggiunto all'elenco di gruppi con licenza e tutti i membri hanno accesso ai servizi di Azure AD inclusi.
-
 
 ## <a name="remove-a-license"></a>Rimuovere una licenza
 È possibile rimuovere una licenza da un utente o un gruppo dalla pagina **Licenze**.

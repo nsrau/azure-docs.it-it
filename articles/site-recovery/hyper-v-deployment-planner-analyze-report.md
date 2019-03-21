@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 3/20/2019
 ms.author: mayg
-ms.openlocfilehash: 6065d83cf74b6bb7c3d80d4e452df8377dc9823e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7bfe382ac1a175aafb4944dffa8d12a372f4fb70
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732654"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286500"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analizzare il report di Azure Site Recovery Deployment Planner
 Questo articolo descrive i fogli contenuti nel report Excel generato da Azure Site Recovery Deployment Planner per uno scenario di distribuzione da Hyper-V ad Azure.
@@ -275,7 +275,7 @@ La tabella seguente indica i limiti di Site Recovery. Questi limiti si basano su
 ---|---|---|---
 Archiviazione standard | 8 KB | 2 MB/s per VM | 168 GB per VM
 Archiviazione Premium | 8 KB  | 5 MB/s per VM | 421 GB per VM
-Archiviazione Premium | 16 KB o superiore| 10 MB/s per VM | 842 GB per VM
+Archiviazione Premium | 16 KB o superiore| 20 MB al secondo per macchina virtuale | 1684 GB per ogni macchina virtuale
 
 Questi limiti rappresentano valori medi presupponendo una sovrapposizione di I/O del 30%. Site Recovery può gestire una velocità effettiva maggiore in base alla percentuale di sovrapposizione, alle dimensioni di scrittura maggiori e all'effettivo I/O del carico di lavoro. I numeri precedenti presuppongono un backlog tipico di circa cinque minuti, ovvero i dati, dopo essere stati caricati, verranno elaborati e verrà creato un punto di ripristino entro cinque minuti.
 

@@ -1,5 +1,5 @@
 ---
-title: Monitoraggio e registrazione in Protezione password di Azure AD disponibile in anteprima
+title: Monitoraggio e registrazione in Azure AD Password di protezione
 description: Informazioni sul monitoraggio e la registrazione in Protezione password di Azure AD
 services: active-directory
 ms.service: active-directory
@@ -11,23 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1f946eceab68b0fe49ea67dc33a7094458cd14c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: b1e12addc15afe0c0745e0e8d5a9b6718483d477
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451487"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293720"
 ---
-# <a name="preview-azure-ad-password-protection-monitoring-and-logging"></a>Anteprima: Monitoraggio e registrazione in Protezione password di Azure AD
-
-|     |
-| --- |
-| Protezione password di Azure AD è una funzionalità di Azure Active Directory disponibile in anteprima pubblica. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+# <a name="azure-ad-password-protection-monitoring-and-logging"></a>Monitoraggio e registrazione in Protezione password di Azure AD
 
 Dopo la distribuzione di Protezione password di Azure AD, il monitoraggio e la creazione di report sono attività essenziali. Questo articolo spiega nel dettaglio varie tecniche di monitoraggio, indicando i percorsi in cui ogni servizio registra le informazioni e illustrando come creare report sull'uso di Protezione password di Azure AD.
 
-# <a name="dc-agent-event-logging"></a>Registrazione eventi dell'agente del controller di dominio
+## <a name="dc-agent-event-logging"></a>Registrazione eventi dell'agente del controller di dominio
 
 In ogni controller di dominio il software del servizio agente del controller di dominio scrive i risultati di ogni singola operazione di convalida delle password (e altri stati) in un log eventi locale:
 

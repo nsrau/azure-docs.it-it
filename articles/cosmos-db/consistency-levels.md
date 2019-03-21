@@ -5,25 +5,25 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/27/2018
-ms.openlocfilehash: cbe7b0e243f34d9b48e837c1211b5a186946f69f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 03/18/2019
+ms.openlocfilehash: b43fe513b15d55ee595acaa6733d96cdb58f4e83
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903709"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294508"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Livelli di coerenza in Azure Cosmos DB
 
-I database distribuiti che si basano sulla replica per garantire disponibilità elevata, bassa latenza o entrambe, applicano il compromesso fondamentale tra coerenza di lettura e disponibilità, latenza e velocità effettiva. La maggior parte dei database distribuiti disponibili in commercio richiede che gli sviluppatori scelgano tra due modelli di coerenza estremi: la coerenza assoluta e la coerenza finale. La  [linearizzabilità](https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) o il modello di coerenza assoluta rappresenta lo standard assoluto di programmabilità dei dati, ma aggiunge il caro prezzo di una latenza elevata (in uno stato stabile) e di una disponibilità ridotta (in caso di errori). La coerenza finale, d'altra parte, offre maggiore disponibilità e migliori prestazioni, ma è difficile da programmare. 
+I database distribuiti che si basano sulla replica per garantire disponibilità elevata, bassa latenza o entrambe, applicano il compromesso fondamentale tra coerenza di lettura e disponibilità, latenza e velocità effettiva. La maggior parte dei database distribuiti disponibili in commercio chiedere agli sviluppatori di scegliere tra i due modelli di coerenza estremi: *strong* coerenza e *finale* coerenza. Il  [linearità](https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) oppure il modello di coerenza assoluta è lo standard di programmabilità dei dati. Ma aggiunge un prezzo di latenza elevata (in stato stabile) e una disponibilità ridotta (caso di errori). D'altra parte, la coerenza finale offre una maggiore disponibilità e prestazioni migliori, ma rende difficile per programmare le applicazioni. 
 
-Azure Cosmos DB affronta la coerenza dei dati offrendo uno spettro di scelte che si collocano tra i due estremi. La coerenza assoluta e la coerenza finale rappresentano le due estremità, ma all'interno dello spettro sono disponibili molte altre opzioni. Gli sviluppatori possono usare queste opzioni per effettuare scelte precise e compromessi di granularità in relazione alla disponibilità elevata o alle prestazioni. 
+Azure Cosmos DB affronta la coerenza dei dati offrendo uno spettro di scelte che si collocano tra i due estremi. Coerenza assoluta e coerenza finale sono alle estremità dello spettro, ma sono disponibili molte opzioni di coerenza nell'ambito. Gli sviluppatori possono usare queste opzioni per rendere le scelte precise e granulari compromessi rispetto alla disponibilità elevata e prestazioni. 
 
-Con Azure Cosmos DB, gli sviluppatori possono scegliere tra cinque modelli di coerenza ben definiti nello spettro della coerenza. Dal più forte al più debole, un modello può essere assoluto, con obsolescenza associata, sessione, coerenza del prefisso ed eventuale. I modelli sono ben definiti e intuitivi e possono essere usati per scenari reali specifici. Ogni modello prevede [compromessi di disponibilità e prestazioni ](consistency-levels-tradeoffs.md) ed è supportato da un contratto di servizio completo. L'immagine seguente illustra diversi livelli di coerenza sotto forma di spettro.
+Con Azure Cosmos DB, gli sviluppatori possono scegliere tra cinque modelli di coerenza ben definiti nello spettro della coerenza. Dal più forte al più flessibili, i modelli includono *strong*, *decadimento ristretto*, *sessione*, *prefisso coerente*e *finale* coerenza. I modelli sono ben definiti e intuitivo e possono essere usati per specifici scenari reali. Ogni modello fornisce [compromessi tra prestazioni e disponibilità](consistency-levels-tradeoffs.md) e supportata da contratti di servizio. L'immagine seguente mostra i livelli di coerenza diverse come una gamma.
 
 ![La coerenza come spettro](./media/consistency-levels/five-consistency-levels.png)
 
-I livelli di coerenza sono indipendenti dall'area. Il livello di coerenza dell'account Azure Cosmos è garantito per tutte le operazioni di lettura, indipendentemente dall'area da cui vengono gestite le operazioni di lettura e scrittura, dal numero di aree associate all'account Azure Cosmos o dal fatto che l'account sia configurato con una o più aree di scrittura.
+I livelli di coerenza sono indipendenti dall'area e sono garantiti per tutte le operazioni indipendentemente dal fatto l'area da cui le operazioni di lettura e scrittura viene gestite, il numero di aree associate all'account Azure Cosmos, o se l'account è configurato con un singolo o più aree di scrittura.
 
 ## <a name="scope-of-the-read-consistency"></a>Ambito della coerenza di lettura
 

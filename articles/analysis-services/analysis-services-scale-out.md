@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 03/20/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: eae1569cf6f7ada89f64b96fe81b154b84932a12
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dd89d9645d2054f301ed999121fefc417ea5c6fa
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182847"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293907"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Ridimensionamento orizzontale di Azure Analysis Services
 
@@ -46,6 +46,8 @@ Quando si esegue una successiva operazione di scalabilità orizzontale, ad esemp
 * Anche se non sono presenti repliche nel pool di query, è consentita la sincronizzazione. Se sono scalabilità orizzontale da zero a una o più repliche con i nuovi dati da un'operazione di elaborazione nel server primario, eseguire prima di tutto la sincronizzazione senza repliche nel pool di query e quindi scalabilità orizzontale. La sincronizzazione prima di scalabilità orizzontale consente di evitare un'attivazione ridondante delle repliche appena aggiunte.
 
 * Quando si elimina un database modello dal server primario, questo non ottenere eliminato automaticamente da repliche nel pool di query. È necessario eseguire un'operazione di sincronizzazione che rimuove i file/sec per un database dalla posizione di archiviazione blob di condiviso della replica e quindi Elimina il database modello nelle repliche nel pool di query.
+
+* Quando si rinomina un database nel server primario, è un passaggio aggiuntivo necessario per assicurare che il database è sincronizzato correttamente a tutte le repliche. Dopo la ridenominazione, eseguire una sincronizzazione che specifica il `-Database` parametro con il vecchio nome del database. Questa sincronizzazione rimuove il database e i file con il nome precedente da tutte le repliche. Eseguire quindi un'altra sincronizzazione specifica il `-Database` parametro con il nuovo nome del database. La sincronizzazione secondo il database copiato nel nuovo nome per il secondo set di file e generati idratano tutte le repliche. Impossibile eseguire il comando Sincronizza modello nel portale le sincronizzazioni.
 
 ### <a name="separate-processing-from-query-pool"></a>Separare l'elaborazione dal pool di query
 

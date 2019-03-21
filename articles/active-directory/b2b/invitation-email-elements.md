@@ -12,18 +12,18 @@ manager: daveba
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43fa8148fff1389982d967b2e69f4a9425841c91
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7015abcfe3c53e2180d617bd2c78ecd44c42af7a
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014910"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295624"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementi del messaggio di posta elettronica di invito di Collaborazione B2B - Azure Active Directory
 
 I messaggi di posta elettronica di invito sono strumenti fondamentali per entrare in contatto con i partner e introdurli alla funzionalità di collaborazione B2B di Azure AD. È possibile usarli per aumentare l'attendibilità del destinatario. È possibile aggiungere elementi di legittimità e riprova sociale al messaggio di posta elettronica, per assicurarsi che il destinatario scelga di selezionare con tranquillità il pulsante **Get Started** (Inizia) per accettare l'invito. L'attendibilità è uno strumento fondamentale per ridurre i problemi di condivisione. Il messaggio di posta elettronica deva anche avere un aspetto accattivante.
 
-![Messaggio di posta elettronica di invito per la collaborazione B2B](media/invitation-email-elements/invitation-email.png)
+![Screenshot che mostra il messaggio di posta elettronica di invito di B2B](media/invitation-email-elements/invitation-email.png)
 
 ## <a name="explaining-the-email"></a>Descrizione del messaggio di posta elettronica
 Per sfruttare al meglio le potenzialità del messaggio di posta elettronica, di seguito ne vengono descritti alcuni elementi.
@@ -51,12 +51,12 @@ Il nome visualizzato del mittente dell'invito è incluso nel messaggio di posta 
 
 Se non è ancora stata impostata un'immagine del profilo, al posto dell'immagine viene visualizzata un'icona con le iniziali del mittente dell'invito:
 
-  ![visualizzazione iniziali del mittente dell'invito](media/invitation-email-elements/inviters-initials.png)
+  ![Screenshot che mostra l'invito con il mittente dell'invito iniziali visualizzate](media/invitation-email-elements/inviters-initials.png)
 
 ### <a name="body"></a>Corpo
 Il corpo contiene il messaggio digitato dal mittente dell'invito quando [viene invitato un utente guest alla directory, al gruppo o all'app](add-users-administrator.md) oppure [usando l'API di invito](customize-invitation-api.md). Si tratta di un'area di testo, che quindi non supporta l'elaborazione dei tag HTML per motivi di sicurezza.
 
-  ![immagine del corpo del messaggio di posta elettronica](media/invitation-email-elements/invitation-email-body.png)
+  ![Screenshot che illustra il corpo del messaggio di posta elettronica di invito](media/invitation-email-elements/invitation-email-body.png)
 
 ### <a name="footer-section"></a>Sezione piè di pagina
 Il piè di pagina contiene il marchio aziendale di Microsoft e indica al destinatario se il messaggio di posta elettronica è stato inviato da un alias non monitorato. 
@@ -65,12 +65,12 @@ Casi speciali:
 
 - Il mittente dell'invito non dispone di un indirizzo di posta elettronica nella tenancy di invito
 
-  ![l'immagine del profilo del mittente dell'invito non è associata a un indirizzo di posta elettronica nella tenancy di invito](media/invitation-email-elements/inviter-no-email.png)
+  ![Schermata di quando un mittente dell'invito non ha l'indirizzo di posta elettronica nella tenancy di invito](media/invitation-email-elements/inviter-no-email.png)
 
 
 - Il destinatario non deve riscattare l'invito
 
-  ![caso in cui il destinatario non deve riscattare l'invito](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
+  ![Schermata di quando il destinatario non deve riscattare l'invito](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
 
 ## <a name="how-the-language-is-determined"></a>Come viene determinata la lingua
 La lingua presentata all'utente guest nel messaggio di posta elettronica di invito è determinata dalle impostazioni seguenti. Queste impostazioni sono elencate in base all'ordine di precedenza. Se un'impostazione non è configurata, viene usata l'impostazione successiva per determinare la lingua. 

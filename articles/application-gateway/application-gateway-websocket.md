@@ -1,25 +1,18 @@
 ---
 title: Supporto di WebSocket nel gateway applicazione di Azure | Microsoft Docs
 description: Questa pagina offre una panoramica del supporto di WebSocket nel gateway applicazione.
-documentationcenter: na
-services: application-gateway
 author: amsriva
-manager: rossort
-editor: amsriva
-ms.assetid: 8968dac1-e9bc-4fa1-8415-96decacab83f
-ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/08/2017
 ms.author: amsriva
-ms.openlocfilehash: cc6e2480ea117a288ae94c9cd66be6a354d8230f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.service: application-gateway
+ms.topic: conceptual
+ms.workload: infrastructure-services
+ms.date: 03/18/2019
+ms.openlocfilehash: bae4b3d955076679a5640717ac6f5446e3951fb9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993332"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168120"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Panoramica del supporto di WebSocket nel gateway dell'applicazione
 
@@ -29,7 +22,15 @@ Il protocollo WebSocket standardizzato nella specifica [RFC6455](https://tools.i
 
 È possibile continuare a usare un listener HTTP standard nella porta 80 o 443 per ricevere il traffico WebSocket. Il traffico WebSocket viene quindi indirizzato al server back-end abilitato per WebSocket usando il pool back-end appropriato, come specificato nelle regole del gateway applicazione. Il server back-end deve rispondere ai probe del gateway applicazione, descritti nella sezione di [panoramica dei probe di integrità](application-gateway-probe-overview.md). I probe di integrità del gateway applicazione sono solo HTTP e HTTPS. Ogni server back-end deve rispondere a probe HTTP per il gateway applicazione per instradare il traffico WebSocket al server.
 
-## <a name="listener-configuration-element"></a>Elemento di configurazione del listener
+Viene usato nelle App che traggono vantaggio dalla comunicazione veloce e in tempo reale, ad esempio chat, il dashboard e App di gioco.
+
+## <a name="how-does-websocket-work"></a>Funzionamento di WebSocket
+
+Per stabilire una connessione WebSocket, un handshake specifico basato su HTTP verrà scambiato tra il client e server. Se l'operazione riesce, il protocollo a livello di applicazione viene "aggiornato" da HTTP a WebSocket, usando la connessione TCP in precedenza. Una volta in questo caso, HTTP non rientra completamente dall'immagine. i dati possono essere inviati o ricevuti mediante il protocollo WebSocket, entrambi gli endpoint, fino a quando non viene chiusa la connessione WebSocket. 
+
+![addcert](./media/application-gateway-websocket/websocket.png)
+
+### <a name="listener-configuration-element"></a>Elemento di configurazione del listener
 
 Per supportare il traffico WebSocket è possibile usare un listener HTTP esistente. Di seguito è riportato il frammento dell'elemento httpListeners di un file modello di esempio. Per supportare WebSocket e il traffico WebSocket sicuro saranno necessari listener sia HTTP che HTTPS. Per creare un gateway applicazione con listener sulla porta 80/443 per supportare il traffico WebSocket, è possibile usare in modo analogo il [portale](application-gateway-create-gateway-portal.md) o [PowerShell](application-gateway-create-gateway-arm.md).
 

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 21b036763a1e8a7480d11fef4c36599f92fc3657
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cb83f0c38f6860340444c15b6c5eef0b990d0ad0
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57853189"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295250"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Creazione e uso di replica geografica attiva
 
@@ -115,6 +115,12 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 
 > [!NOTE]
 > Se è stato creato il database secondario come parte della configurazione del gruppo di failover, non è consigliabile eseguire il downgrade del database secondario. In questo modo si garantisce che il livello dei dati abbia una capacità sufficiente per elaborare il carico di lavoro normale dopo che il failover viene attivato.
+
+> [!IMPORTANT]
+> Il database primario in un gruppo di failover non è possibile passare a un livello superiore, a meno che il database secondario prima di tutto viene ridimensionato al livello superiore. Se si prova a scalare il database primario prima che il database secondario viene ridimensionato, si potrebbe ricevere l'errore seguente:
+>
+> `Error message: The source database 'Primaryserver.DBName' cannot have higher edition than the target database 'Secondaryserver.DBName'. Upgrade the edition on the target before upgrading the source.`
+>
 
 ## <a name="preventing-the-loss-of-critical-data"></a>Evitare la perdita di dati critici
 

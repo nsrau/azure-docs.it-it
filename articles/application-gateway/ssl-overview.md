@@ -5,24 +5,71 @@ services: application-gateway
 author: amsriva
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/12/2019
+ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: 16ba6b73dd0c64298f319d4b18750d753f166987
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 92799019d13de71d911767d8e400598513587667
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57849381"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258397"
 ---
-# <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Panoramica di SSL end-to-end con il gateway applicazione
+# <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Panoramica della terminazione SSL e SSL end to end con il Gateway applicazione
 
-Il gateway applicazione supporta la terminazione SSL nel gateway, dopo la quale il traffico scorre generalmente non crittografato verso i server back-end. Questa funzionalità consente ai server Web di non gestire il costoso carico di crittografia e decrittografia. Tuttavia, per alcuni clienti le comunicazioni non crittografate verso i server back-end non rappresentano un'opzione accettabile. Le comunicazioni non crittografate potrebbero essere causate da requisiti di sicurezza o conformità oppure da un'applicazione che può accettare solo una connessione protetta. Per tali applicazioni, il gateway applicazione supporta ora la crittografia SSL end-to-end.
+Sicuro Sockets Layer (SSL) è la tecnologia di protezione standard per stabilire un collegamento crittografato tra un server web e un browser. Questo collegamento garantisce che tutti i dati passati tra il server web e i browser rimangono crittografati e privati. Il gateway applicazione supporta entrambi terminazione SSL nel gateway, nonché di crittografia SSL end-to-end.
+
+## <a name="ssl-termination"></a>Terminazione SSL
+
+Il gateway applicazione supporta la terminazione SSL nel gateway, dopo la quale il traffico scorre generalmente non crittografato verso i server back-end. Esistono una serie di vantaggi di esecuzione della terminazione SSL nel gateway applicazione:
+
+- **Miglioramento delle prestazioni** – la maggiore sulle prestazioni quando si esegue la decrittografia SSL sono handshake iniziale. Per migliorare le prestazioni, il server esegue la decrittografia vengono memorizzati nella cache gli ID di sessione SSL e gestisce i ticket di sessione TLS. Se questa operazione viene eseguita in corrispondenza del gateway applicazione, tutte le richieste dallo stesso client possono usare i valori memorizzati nella cache. Se questa operazione viene eseguita nei server back-end, ogni volta che le richieste del client passare a un altro server il client deve quindi re‑authenticate. L'utilizzo di ticket TLS può aiutare a ridurre questo problema, ma non sono supportati da tutti i client e può essere difficile configurare e gestire.
+- **Miglior utilizzo dei server back-end** – l'elaborazione di SSL/TLS con utilizzo intensivo della CPU e sta diventando sempre più complesse come aumentare le dimensioni della chiave. Rimozione di questo lavoro dai server back-end consente loro di concentrarsi su ciò che sono più efficienti nella distribuzione di contenuti.
+- **Il routing intelligente** – eseguendo la decrittografia del traffico, il gateway applicazione può accedere al contenuto della richiesta, ad esempio intestazioni, URI e così via e può usare questi dati per indirizzare le richieste.
+- **Gestione dei certificati** – i certificati devono solo essere acquistato e installati nel gateway applicazione e non tutti i server back-end. Ciò consente di risparmiare tempo e denaro.
+
+Per configurare la terminazione SSL, è necessario un certificato SSL da aggiungere al listener per consentire al gateway applicazione derivare una chiave simmetrica in base alla specifica del protocollo SSL. La chiave simmetrica viene quindi usata per crittografare e decrittografare il traffico inviato al gateway. Il certificato SSL deve essere nel formato di scambio di informazioni personali (PFX). Questo formato di file consente l'esportazione della chiave privata necessaria al gateway applicazione per eseguire la crittografia e la decrittografia del traffico.
+
+> [!NOTE] 
+>
+> Il gateway applicazione non fornisce alcuna funzionalità per creare un nuovo certificato o inviare una richiesta di certificato a un'autorità di certificazione.
+
+Per la connessione SSL a funzionare, è necessario assicurarsi che il certificato SSL soddisfi le condizioni seguenti:
+
+- La data e ora correnti è all'interno della "Valido da" e l'intervallo di date "Valid a" per il certificato.
+- Che il "nome comune del certificato" (CN) corrisponde all'intestazione host nella richiesta. Ad esempio, se il client effettua una richiesta al `https://www.contoso.com/`, quindi deve essere CN `www.contoso.com`.
+
+### <a name="certificates-supported-for-ssl-termination"></a>Certificati è supportati per la terminazione SSL
+
+Il gateway applicazione supporta i tipi di certificati seguenti:
+
+- Certificato della CA (autorità di certificazione): Un certificato della CA è un certificato digitale emesso da un'autorità di certificazione (CA)
+- Certificato EV (Extended convalida): Linee guida per un certificato standard di settore, è un certificato di convalida estesa. Verrà barra localizzatore del browser in verde e pubblicare anche nome della società.
+- Certificato con caratteri jolly: Questo certificato supporta un numero qualsiasi di sottodomini basata *. site.com, in cui il sottodominio sostituirebbe il *. , Tuttavia, nepodporuje funkci site.com, in modo che nel caso in cui gli utenti sono che accedono al sito senza digitare il prefisso "www", il certificato con caratteri jolly non offriranno copertura che.
+- Certificati autofirmati: I browser client non attendibili questi certificati e avvertiranno l'utente che il certificato del servizio virtuale non fa parte di una catena di trust. I certificati autofirmati sono utili per il test o ambienti in cui gli amministratori di controllano i client in modo sicuro possono ignorare gli avvisi di sicurezza del browser. I carichi di lavoro di produzione non utilizzare mai certificati autofirmati.
+
+Per altre informazioni, vedere [configura la terminazione SSL con il gateway applicazione](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
+
+## <a name="end-to-end-ssl-encryption"></a>-To-end della crittografia SSL
+
+Alcuni clienti non può essere consigliabile lanciare comunicazioni non crittografate verso i server back-end. Questo potrebbe dipendere da requisiti di sicurezza e conformità o da un'applicazione in grado di accettare solo connessioni protette. Per tali applicazioni, il gateway applicazione supporta ora la crittografia SSL end-to-end.
 
 La crittografia SSL end-to-end consente di trasmettere in modo sicuro dati sensibili crittografati al back-end, usufruendo comunque dei vantaggi delle funzionalità di bilanciamento del carico di livello 7 offerte dal gateway applicazione. Alcune di queste funzionalità sono l'affinità di sessione basata su cookie, il routing basato su URL, il supporto per il routing basato su siti o la possibilità di inserire intestazioni X-Forwarded-*.
 
-Se configurato con la modalità di comunicazione SSL end-to-end, il gateway applicazione termina le sessioni SSL nel gateway ed esegue la decrittografia del traffico utente. Applica quindi le regole configurate per selezionare un'istanza del pool di back-end adeguata su cui instradare il traffico. Il gateway applicazione avvia a questo punto una nuova connessione SSL al server back-end e crittografa nuovamente i dati usando il certificato di chiave pubblica del server back-end prima di trasmettere la richiesta al back-end. -To-end SSL viene abilitata impostando l'impostazione del protocollo **BackendHTTPSetting** su HTTPS, che viene quindi applicato a un pool di back-end. Per una comunicazione protetta, ogni server back-end nel pool di back-end con SSL end-to-end abilitato deve essere configurato con un certificato.
+Se configurato con la modalità di comunicazione SSL end-to-end, il gateway applicazione termina le sessioni SSL nel gateway ed esegue la decrittografia del traffico utente. Applica quindi le regole configurate per selezionare un'istanza del pool di back-end adeguata su cui instradare il traffico. Il gateway applicazione avvia a questo punto una nuova connessione SSL al server back-end e crittografa nuovamente i dati usando il certificato di chiave pubblica del server back-end prima di trasmettere la richiesta al back-end. Eventuali risposte dal server Web subiscono lo stesso processo in ritorno verso l'utente finale. -To-end SSL viene abilitata impostando l'impostazione del protocollo [impostazione HTTP back-end](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) su HTTPS, che viene quindi applicato a un pool di back-end.
 
 I criteri SSL viene applicata al traffico front-end e back-end. Nel front-end, il Gateway applicazione funge da server e vengono applicati i criteri. Al back-end, il Gateway applicazione funge da client e invia le informazioni sul protocollo/pacchetti di crittografia come la preferenza durante l'handshake SSL.
+
+Il gateway applicazione comunichi solo con le istanze back-end che sono entrambi consentiti il certificato con il gateway applicazione o i cui certificati sono firmati dalle autorità per autorità di certificazione nota in comune del certificato corrisponde al nome host nel HTTP impostazioni di back-end. Sono inclusi i servizi di Azure attendibili, ad esempio App web del servizio App di Azure e gestione API di Azure.
+
+Se i certificati dei membri nel pool di back-end non sono firmati da autorità di autorità di certificazione ben note, ogni istanza nel pool di back-end con SSL end to end abilitato deve essere configurata con un certificato per consentire la comunicazione sicura. L'aggiunta del certificato garantisce che il gateway applicazione comunichi solo con istanze di back-end note, proteggendo ulteriormente la comunicazione end-to-end.
+
+> [!NOTE] 
+>
+> Installazione di certificati di autenticazione non è necessaria per servizi di Azure attendibili, ad esempio App web del servizio App di Azure e gestione API di Azure.
+
+> [!NOTE] 
+>
+> Il certificato aggiunto al **impostazione HTTP back-end** per eseguire l'autenticazione back-end di server possono essere lo stesso come il certificato aggiunto al **listener** per la terminazione SSL nel gateway applicazione o diverso per sicurezza avanzata.
 
 ![Scenario di SSL end-to-end][1]
 
