@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2752588ded56962b3d49785f44c128136090b48
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5117f8c161161555b39bef539c542920984279c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211649"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835995"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-useall"></a>Esercitazione: Integrazione di Azure Active Directory con Useall
 
@@ -146,7 +146,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel **nome utente** , digitare **brittasimon\@yourcompanydomain.extension**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare **Proprietà**, selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

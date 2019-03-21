@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 35dd6ff1-a14a-4a2e-b173-6d8467de3e89
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 54b211584b170d6e2ee0bcaa6c80bcaed376814f
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: b4d40f011b9a9e69953496fbdb0dc63ffc8a5027
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904370"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774558"
 ---
 # <a name="manage-and-configure-projects"></a>Gestire e configurare progetti
 
@@ -59,6 +59,17 @@ Quando si seleziona un'istanza di DSVM, Azure Notebooks può richiedere le crede
 
 Per creare una nuova istanza di DSVM, seguire le istruzioni in [Creare una macchina virtuale data science Ubuntu](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Usare l'immagine **Data Science Virtual Machine per Linux (Ubuntu)** se si vuole visualizzare DSVM nell'elenco a discesa in Azure Notebooks.  Se per altri motivi, è necessario usare l'immagine Windows o CentOS, è possibile usare l'opzione **Direct Compute** (Calcolo diretto) per connettersi manualmente a DSVM.
 
+> [!IMPORTANT]
+> Quando si usano macchine virtuali di calcolo diretta o l'analisi scientifica dei dati, il notebook che è eseguire su di essi deve essere completamente autonomi. Al momento, Azure Notebooks copia solo le *ipynb* file per la macchina virtuale ma non copiare tutti gli altri file nel progetto. Di conseguenza, i notebook in esecuzione in altre macchine virtuali non è possibile trovare altri file di progetto.
+>
+> È possibile risolvere questo problema in due modi:
+>
+> 1. Copiare manualmente i file di progetto per la macchina virtuale.
+>
+> 2. Incorporare i file all'interno di un notebook di programma di installazione che si esegue prima di eseguire il notebook primario. Nel notebook di programma di installazione, creare una cella di codice per ogni file in cui la cella contiene il contenuto del file. Quindi, nella parte superiore di ogni cella, inserire il comando `%%writefile <filename>`, dove `<filename>` è il nome del file per ricevere il contenuto. Quando si esegue il blocco appunti, crea tutti questi file nella macchina virtuale. Per un esempio, vedere la [setup.ipynb file nella demo Microsoft Pet Detector](https://github.com/Microsoft/connect-petdetector/blob/master/setup.ipynb) (GitHub).
+>
+>     ![Usando un % % writefile comando all'inizio di una cella di codice](media/setup-notebook-writefile-command.png)
+
 ## <a name="edit-project-metadata"></a>Modificare i metadati del progetto
 
 Nel dashboard del progetto selezionare **Project Settings** (Impostazioni progetto) e quindi selezionare la scheda **Information** (Informazioni), che contiene i metadati del progetto come descritto nella tabella seguente. È possibile modificare i metadati del progetto in qualsiasi momento.
@@ -66,7 +77,7 @@ Nel dashboard del progetto selezionare **Project Settings** (Impostazioni proget
 | Impostazione | DESCRIZIONE |
 | --- | --- |
 | Project name (Nome progetto) | Nome descrittivo del progetto usato da Azure Notebooks per scopi di visualizzazione. Ad esempio: "Hello World in Python". |
-| ID progetto | Identificatore personalizzato che diventa parte dell'URL usato per condividere un progetto (il formato è `https://notebooks.azure.com/<user_id>/projects/<project_id>`). L'ID può contenere solo lettere, numeri e trattini e fino a 30 caratteri. Se si hanno dubbi sul tipo di ID da usare, in genere si sceglie la versione in caratteri minuscoli del nome del progetto convertendo gli spazi in segni meno, ad esempio, "Nome progetto personale" diventa "nome-progetto-personale". |
+| ID progetto | Identificatore personalizzato che diventa parte dell'URL usato per condividere un progetto. Questo ID può usare solo lettere, numeri e trattini, è limitato a 30 caratteri e non può essere un' [riservato ID progetto](create-clone-jupyter-notebooks.md#reserved-project-ids). Se si hanno subbi sul tipo di ID da usare, in genere si sceglie la versione in caratteri minuscoli del nome del progetto convertendo gli spazi in segni meno, ad esempio "my-notebook-project" (troncato, se necessario per rispettare i limiti di lunghezza). |
 | Public project (Progetto pubblico) | Se impostato, consente a chiunque disponga del collegamento di accedere al progetto. Quando si crea un progetto privato, deselezionare questa opzione. |
 | Hide clones (Nascondi cloni) | Se impostata, gli altri utenti non possono vedere l'elenco dei cloni creati per il progetto. Questa impostazione è particolarmente utile nei progetti che vengono condivisi con molti utenti non appartenenti alla stessa organizzazione, ad esempio quando si usa un notebook per l'insegnamento in aula. |
 

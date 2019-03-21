@@ -14,16 +14,16 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 194898f658c08a3a5a9d8c1d601ea53c817e7649
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 605669a740663040ab7a167bf266fe1940123afc
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076816"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551875"
 ---
 # <a name="integrating-apache-spark-with-azure-event-hubs"></a>Integrazione di Apache Spark con Hub eventi di Azure
 
-Hub eventi di Azure si integra perfettamente con [Apache Spark](https://spark.apache.org/) per consentire la creazione di applicazioni di streaming distribuite. Questa integrazione supporta [Spark Core](http://spark.apache.org/docs/latest/rdd-programming-guide.html), [Spark Streaming](http://spark.apache.org/docs/latest/streaming-programming-guide.html) e il [flusso strutturato](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html). Il connettore Hub eventi per Apache Spark è disponibile in [GitHub](https://github.com/Azure/azure-event-hubs-spark). La libreria è disponibile anche per l'uso in progetti Maven dal [repository centrale di Maven](http://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-eventhubs-spark_2.11%7C2.1.6%7C).
+Hub eventi di Azure si integra perfettamente con [Apache Spark](https://spark.apache.org/) per consentire la creazione di applicazioni di streaming distribuite. Questa integrazione supporta [Spark Core](https://spark.apache.org/docs/latest/rdd-programming-guide.html), [Spark Streaming](https://spark.apache.org/docs/latest/streaming-programming-guide.html) e il [flusso strutturato](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html). Il connettore Hub eventi per Apache Spark è disponibile in [GitHub](https://github.com/Azure/azure-event-hubs-spark). La libreria è disponibile anche per l'uso in progetti Maven dal [repository centrale di Maven](https://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-eventhubs-spark_2.11%7C2.1.6%7C).
 
 Questo articolo descrive come creare un'applicazione continua in [Azure Databricks](https://azure.microsoft.com/services/databricks/). Sebbene in questo articolo venga usato Azure Databricks, i cluster Spark sono disponibili anche con [HDInsight](../hdinsight/spark/apache-spark-overview.md).
 

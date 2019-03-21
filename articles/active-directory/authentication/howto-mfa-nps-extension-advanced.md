@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b236cc799a4ff84c3833f181ebec6305f1ec6942
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2690cb4243597c942b6679b5864016bf14fcbad1
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171317"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732424"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Opzioni di configurazione avanzate per l'estensione NPS per Multi-Factor Authentication
 
@@ -46,7 +46,7 @@ Per configurare un elenco di indirizzi IP consentiti, passare a `HKLM\SOFTWARE\M
 
 | NOME | Type | Valore predefinito | DESCRIZIONE |
 | ---- | ---- | ------------- | ----------- |
-| IP_WHITELIST | stringa | Empty | Specificare un elenco separato da punti e virgola degli indirizzi IP. Includere gli indirizzi IP dei computer in cui hanno origine le richieste di servizio, ad esempio il server NAS/VPN. Gli intervalli IP di subnet non sono supportati. <br><br> Ad esempio: *10.0.0.1;10.0.0.2;10.0.0.3*.
+| IP_WHITELIST | stringa | Empty | Specificare un elenco separato da punti e virgola degli indirizzi IP. Includere gli indirizzi IP dei computer in cui hanno origine le richieste di servizio, ad esempio il server NAS/VPN. Intervalli di indirizzi IP e subnet non sono supportate. <br><br> Ad esempio: *10.0.0.1;10.0.0.2;10.0.0.3*.
 
 Quando arriva una richiesta da un indirizzo IP presente nell'elenco degli indirizzi consentiti, la verifica in due passaggi viene ignorata. L'elenco degli indirizzi IP consentiti viene confrontato con l'indirizzo IP specificato nell'attributo *ratNASIPAddress* della richiesta RADIUS. Se arriva una richiesta RADIUS senza l'attributo ratNASIPAddress, viene registrato un avviso P_WHITE_LIST_WARNING che indica che l'indirizzo IP viene ignorato poiché l'IP di origine non è presente nella richiesta RADIUS nell'attributo NasIpAddress.
 

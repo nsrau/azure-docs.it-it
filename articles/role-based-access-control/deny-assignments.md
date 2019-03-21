@@ -11,31 +11,34 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 53716fa343df25026dcc668ed8483673d934d1ad
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: fff213c8d1a408bf96e385f2097a5ef30dcc05d2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339125"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992101"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Informazioni sulle assegnazioni di rifiuto per le risorse di Azure
 
-Simile a un'assegnazione di ruolo, un'*assegnazione di rifiuto* allega un set di azioni di rifiuto a un utente, gruppo o entità servizio in un determinato ambito con lo scopo di rifiutare l'accesso. Le assegnazioni di rifiuto impediscono agli utenti di eseguire azioni specifiche sulle risorse di Azure, anche se un'assegnazione di ruolo concede loro l'accesso. Alcuni provider di risorse di Azure includono ora le assegnazioni di rifiuto. Attualmente le assegnazioni di rifiuto sono di **sola lettura** e possono essere impostate solo da Microsoft.
+Simile a un'assegnazione di ruolo, un'*assegnazione di rifiuto* allega un set di azioni di rifiuto a un utente, gruppo o entità servizio in un determinato ambito con lo scopo di rifiutare l'accesso. Le assegnazioni di rifiuto impediscono agli utenti di eseguire azioni specifiche sulle risorse di Azure, anche se un'assegnazione di ruolo concede loro l'accesso. Alcuni provider di risorse di Azure includono ora le assegnazioni di rifiuto.
 
 Per certi versi, le assegnazioni di rifiuto sono diverse dalle assegnazioni di ruolo. Le assegnazioni di rifiuto possono escludere le entità di sicurezza e impedire l'ereditarietà per gli ambiti figlio. Le assegnazioni di rifiuto si applicano anche alle assegnazioni [amministratore della sottoscrizione classica](rbac-and-directory-admin-roles.md).
 
 Questo articolo descrive il modo in cui le assegnazioni di rifiuto sono definite.
+
+> [!NOTE]
+> A questo punto, l'unico modo è possibile aggiungere il proprio negare assegnazioni consiste nell'usare progetti di architetture di Azure. Per altre informazioni, vedere [proteggere le nuove risorse con i blocchi di risorse di Azure progetti](../governance/blueprints/tutorials/protect-new-resources.md).
 
 ## <a name="deny-assignment-properties"></a>Proprietà dell'assegnazione di rifiuto
 
  Un'assegnazione di rifiuto ha le seguenti proprietà:
 
 > [!div class="mx-tableFixed"]
-> | Proprietà | Obbligatoria | Type | DESCRIZIONE |
+> | Proprietà | Obbligatorio | Type | DESCRIZIONE |
 > | --- | --- | --- | --- |
 > | `DenyAssignmentName` | Sì | string | Il nome visualizzato dell'assegnazione di rifiuto. I nomi devono essere univoci per un determinato ambito. |
 > | `Description` | No  | string | La descrizione dell'assegnazione di rifiuto. |

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 03/12/2019
 ms.author: celested
-ms.reviewer: asteen
+ms.reviewer: japere, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7df7469a6975fa5e84b43487b524ca888718d7d2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5f9c4f2c618851b596cd8f2dfa1fd45820a05049
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162323"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791682"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Procedura: Configurazione dell'accesso Single Sign-On all'applicazione Proxy di applicazione
 
@@ -43,11 +43,16 @@ Configurare il tipo specifico di Single Sign-On. I metodi di accesso sono classi
 
 -   **Accesso basato su intestazione**: l'accesso basato su intestazione viene abilitato mediante una relazione e non richiede un'ulteriore configurazione. Per informazioni dettagliate sulla relazione e istruzioni dettagliate per la configurazione dell'accesso Single Sign-On per un'applicazione che usa le intestazioni per l'autenticazione, vedere la [documentazione di PingAccess per Azure AD](application-proxy-configure-single-sign-on-with-ping-access.md).
 
-Ognuna di queste opzioni è reperibile da "Applicazioni aziendali" nella propria applicazione e aprendo la pagina **Single Sign-On** nel menu a sinistra. Si noti che se l'applicazione è stata creata nel portale precedente, potrebbero non essere visibili tutte queste opzioni.
+-   **Single sign-on SAML**: Con SAML single sign-on, Azure AD autentica l'applicazione usando l'account dell'utente Azure AD. Azure AD comunica le informazioni di accesso all'applicazione tramite un protocollo di connessione. Con l'accesso Single Sign-On basato su SAML è possibile eseguire il mapping degli utenti a ruoli specifici dell'applicazione in base alle regole definite nelle attestazioni SAML. Per informazioni sulla configurazione di SAML single sign-on, vedere [SAML per single sign-on con il Proxy di applicazione](application-proxy-configure-single-sign-on-on-premises-apps.md).
+
+Ognuna di queste opzioni è reperibile da "Applicazioni aziendali" nella propria applicazione e aprendo la pagina **Single Sign-On** nel menu a sinistra. Si noti che se l'applicazione è stata creata nel vecchio portale, potrebbe non essere visualizzata tutte queste opzioni.
 
 In questa pagina viene visualizzata anche un'opzione di accesso aggiuntiva: Accesso collegato. Questa opzione è supportata anche da Proxy di applicazione. Tuttavia, questa opzione non aggiunge l'accesso Single Sign-On all'applicazione. L'applicazione potrebbe comunque avere già implementato l'accesso Single Sign-On usando un altro servizio, ad esempio Active Directory Federation Services. 
 
 Questa opzione consente a un amministratore di creare un collegamento a una prima applicazione a cui accedono gli utenti quando accedono all'applicazione. Ad esempio, se è presente un'applicazione configurata per l'autenticazione degli utenti tramite Active Directory Federation Services 2.0, un amministratore può usare l'opzione "Linked sign-on (Accesso collegato)" per creare un collegamento ad essa sul pannello di accesso.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Fornire l'accesso Single Sign-On alle app con il proxy di applicazione](application-proxy-configure-single-sign-on-with-kcd.md)
+- [Insieme di credenziali delle password per l'accesso Single Sign-On con il proxy di applicazione](application-proxy-configure-single-sign-on-password-vaulting.md)
+- [Delega vincolata Kerberos per l'accesso Single Sign-On con il proxy di applicazione](application-proxy-configure-single-sign-on-with-kcd.md)
+- [Autenticazione basata su intestazione per l'accesso Single Sign-On con il proxy di applicazione](application-proxy-configure-single-sign-on-with-ping-access.md) 
+- [SAML per single sign-on con il Proxy di applicazione](application-proxy-configure-single-sign-on-on-premises-apps.md).

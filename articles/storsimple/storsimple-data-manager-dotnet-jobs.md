@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: d15a5cbda2f0c2a363b40e94c38fed6631aa81b5
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
-ms.translationtype: HT
+ms.openlocfilehash: 80f01a926b94deebab59f8ef91bfc36a4600b5f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27928237"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57885051"
 ---
-# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Usare .Net SDK per avviare la trasformazione dei dati
+# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Usare .NET SDK per avviare la trasformazione dei dati
 
 ## <a name="overview"></a>Panoramica
 
@@ -29,12 +29,12 @@ Questo articolo illustra come usare la funzione di trasformazione dei dati all'i
 
 È possibile avviare un processo di trasformazione dei dati in due modi:
 
- - Usare .NET SDK
- - Usare un runbook di Automazione di Azure
+- Usare .NET SDK
+- Usare un runbook di Automazione di Azure
  
- L'articolo descrive una procedura dettagliata per creare un'applicazione console .NET di esempio allo scopo di avviare un processo di trasformazione dei dati e tenere traccia dei risultati per il completamento. Per altre informazioni su come avviare la trasformazione dei dati tramite automazione, passare a [Usare Automazione di Azure per attivare processi d trasformazione dei dati](storsimple-data-manager-job-using-automation.md).
+  L'articolo descrive una procedura dettagliata per creare un'applicazione console .NET di esempio allo scopo di avviare un processo di trasformazione dei dati e tenere traccia dei risultati per il completamento. Per altre informazioni su come avviare la trasformazione dei dati tramite automazione, passare a [Usare Automazione di Azure per attivare processi d trasformazione dei dati](storsimple-data-manager-job-using-automation.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, assicurarsi di disporre di:
 *   Un computer che esegue:
@@ -80,16 +80,16 @@ Eseguire la procedura seguente per usare .NET allo scopo di avviare un processo 
 
         ![Creare un progetto 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-1.png)
 
-4.  Aggiungere quindi tutte le DLL presenti nella cartella [dlls](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) come **Riferimenti** nel progetto creato. Per aggiungere i file DLL, eseguire le operazioni seguenti:
+4. Aggiungere quindi tutte le DLL presenti nella cartella [dlls](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) come **Riferimenti** nel progetto creato. Per aggiungere i file DLL, eseguire le operazioni seguenti:
 
-    1. In Visual Studio passare a **Visualizza > Esplora soluzioni**.
-    2. Fare clic sulla freccia a sinistra del progetto Data Transformation App. Fare clic su **Riferimenti** e quindi fare clic con il pulsante destro del mouse su **Aggiungi riferimento**.
+   1. In Visual Studio passare a **Visualizza > Esplora soluzioni**.
+   2. Fare clic sulla freccia a sinistra del progetto Data Transformation App. Fare clic su **Riferimenti** e quindi fare clic con il pulsante destro del mouse su **Aggiungi riferimento**.
     
-        ![Aggiungere DLL 1](media/storsimple-data-manager-dotnet-jobs/create-new-project-4.png)
+       ![Aggiungere DLL 1](media/storsimple-data-manager-dotnet-jobs/create-new-project-4.png)
 
-    3. Passare al percorso della cartella dei pacchetti, selezionare tutte le DLL e fare clic su **Aggiungi**, quindi su **OK**.
+   3. Passare al percorso della cartella dei pacchetti, selezionare tutte le DLL e fare clic su **Aggiungi**, quindi su **OK**.
 
-        ![Aggiungere DLL 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-6.png)
+       ![Aggiungere DLL 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-6.png)
 
 5. Aggiungere le istruzioni **using** seguenti al file di origine (Program.cs) nel progetto.
 
@@ -196,9 +196,9 @@ Eseguire la procedura seguente per usare .NET allo scopo di avviare un processo 
     Console.Read();
 
     ```
- Di seguito è riportata una schermata dell'intero codice di esempio usato per attivare il processo tramite .NET.
+    Di seguito è riportata una schermata dell'intero codice di esempio usato per attivare il processo tramite .NET.
 
- ![Frammento di codice completo per attivare un processo .NET](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet.png)
+    ![Frammento di codice completo per attivare un processo .NET](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

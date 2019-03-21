@@ -3,22 +3,22 @@ title: Trasformare dati usando lo script U-SQL - Azure | Documentazione Microsof
 description: Informazioni su come elaborare o trasformare i dati eseguendo gli script U-SQL nel servizio di calcolo di Azure Data Lake Analytics.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.assetid: e17c1255-62c2-4e2e-bb60-d25274903e80
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/01/2017
-ms.author: douglasl
+author: nabhishek
+ms.author: abnarain
+manager: craigg
 robots: noindex
-ms.openlocfilehash: 7631b103d6d14cceb2c320d56e9f68d9ea57e4d8
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 5835c37363c7e9d2dd3253c08ab97f17852725f5
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020847"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777295"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Trasformare i dati eseguendo script U-SQL in Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -46,10 +46,10 @@ Creare un servizio collegato di **Azure Data Lake Analytics** per collegare un s
 
 La tabella seguente fornisce le descrizioni delle proprietà generiche usate nella definizione JSON. È possibile scegliere anche tra l'autenticazione basata sull'entità servizio e l'autenticazione basata sulle credenziali utente.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
-| **type** |La proprietà type deve essere impostata su: **AzureDataLakeAnalytics**. |Yes |
-| **accountName** |Nome dell'account di Azure Data Lake Analytics. |Yes |
+| **type** |La proprietà type deve essere impostata su: **AzureDataLakeAnalytics**. |Sì |
+| **accountName** |Nome dell'account di Azure Data Lake Analytics. |Sì |
 | **dataLakeAnalyticsUri** |URI di Azure Data Lake Analytics. |No  |
 | **subscriptionId** |ID sottoscrizione di Azure |No (se non specificata, viene usata la sottoscrizione della Data factory). |
 | **resourceGroupName** |Nome del gruppo di risorse di Azure |No (se non specificata, viene usato il gruppo di risorse di Data Factory). |
@@ -62,11 +62,11 @@ Per usare l'autenticazione basata su entità servizio, registrare un'entità app
 
 Usare l'autenticazione basata su entità servizio specificando le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| **servicePrincipalId** | Specificare l'ID client dell'applicazione. | Yes |
-| **servicePrincipalKey** | Specificare la chiave dell'applicazione. | Yes |
-| **tenant** | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Yes |
+| **servicePrincipalId** | Specificare l'ID client dell'applicazione. | Sì |
+| **servicePrincipalKey** | Specificare la chiave dell'applicazione. | Sì |
+| **tenant** | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì |
 
 **Esempio: autenticazione di un'entità servizio**
 ```json
@@ -90,10 +90,10 @@ Usare l'autenticazione basata su entità servizio specificando le proprietà seg
 ### <a name="user-credential-authentication"></a>Autenticazione basata su credenziali utente
 In alternativa, è possibile usare l'autenticazione delle credenziali dell'utente per Data Lake Analytics specificando le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| **authorization** | Fare clic sul pulsante **Autorizza** nell'editor di Data Factory e immettere le credenziali per assegnare l'URL di autorizzazione generato automaticamente a questa proprietà. | Yes |
-| **sessionId** | ID sessione OAuth dalla sessione di autorizzazione oauth. Ogni ID di sessione è univoco e può essere usato solo una volta. Questa impostazione viene generata automaticamente quando si usa l'editor di Data Factory. | Yes |
+| **authorization** | Fare clic sul pulsante **Autorizza** nell'editor di Data Factory e immettere le credenziali per assegnare l'URL di autorizzazione generato automaticamente a questa proprietà. | Sì |
+| **sessionId** | ID sessione OAuth dalla sessione di autorizzazione oauth. Ogni ID di sessione è univoco e può essere usato solo una volta. Questa impostazione viene generata automaticamente quando si usa l'editor di Data Factory. | Sì |
 
 **Esempio: Autenticazione basata su credenziali utente**
 ```json
@@ -206,10 +206,10 @@ Il frammento JSON seguente definisce una pipeline con un'attività U-SQL di Data
 
 Nella tabella seguente vengono descritti i nomi e le descrizioni delle proprietà specifiche per questa attività. 
 
-| Proprietà            | DESCRIZIONE                              | Obbligatoria                                 |
+| Proprietà            | Descrizione                              | Obbligatoria                                 |
 | :------------------ | :--------------------------------------- | :--------------------------------------- |
-| Tipo                | La proprietà type deve essere impostata su **DataLakeAnalyticsU-SQL**. | Yes                                      |
-| linkedServiceName   | Riferimento all'istanza di Azure Data Lake Analytics registrata come servizio collegato in Data Factory | Yes                                      |
+| Tipo                | La proprietà type deve essere impostata su **DataLakeAnalyticsU-SQL**. | Sì                                      |
+| linkedServiceName   | Riferimento all'istanza di Azure Data Lake Analytics registrata come servizio collegato in Data Factory | Sì                                      |
 | scriptPath          | Percorso della cartella contenente lo script U-SQL. Il nome del file distingue tra maiuscole e minuscole. | No (se si usa uno script)                   |
 | scriptLinkedService | Servizi collegati che collegano la risorsa di archiviazione contenente lo script alla Data factory | No (se si usa uno script)                   |
 | script              | Specificare lo script inline anziché scriptPath e scriptLinkedService. Ad esempio: `"script": "CREATE DATABASE test"`. | No (se si usano le proprietà scriptPath e scriptLinkedService) |
@@ -317,7 +317,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-I valori dei parametri **@in** e **@out** nello script U-SQL vengono passati in modo dinamico da ADF usando la sezione "parameters". Vedere la sezione "parameters" nella definizione della pipeline.
+I valori per  **\@nelle** e  **\@out** parametri nello script U-SQL vengono passati in modo dinamico da ADF usando la sezione "parameters". Vedere la sezione "parameters" nella definizione della pipeline.
 
 È possibile specificare anche altre proprietà come degreeOfParallelism e priorità nella definizione della pipeline per i processi in esecuzione sul servizio Azure Data Lake Analytics.
 

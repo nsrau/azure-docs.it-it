@@ -8,15 +8,15 @@ ms.author: hshapiro
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: a0d20d6cdb719f34a50052ff2eb693071c7ece96
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: ec509fc8957d20f95123e9f0f645c3e9b6e832f2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268159"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122370"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurare le destinazioni di calcolo per il training del modello
 
@@ -46,6 +46,7 @@ Il servizio Azure Machine Learning offre un supporto variabile per le diverse de
 |[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
 |[Azure Data Lake Analytics.](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
 **Tutte le destinazioni di calcolo possono essere riutilizzate per più processi di training**. Ad esempio, dopo aver collegato una macchina virtuale remota all'area di lavoro, è possibile riutilizzarla per più processi.
 
@@ -138,16 +139,16 @@ Un ambiente di calcolo di Machine Learning permanente può essere usato nuovamen
     * **vm_size**: la famiglia di macchine virtuali dei nodi creati dall'ambiente di calcolo di Azure Machine Learning.
     * **max_nodes**: il numero massimo di nodi per la scalabilità automatica durante l'esecuzione di un processo in un ambiente di calcolo di Machine Learning.
     
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
+   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
-  Durante la creazione di un ambiente di calcolo di Machine Learning è anche possibile configurare diverse proprietà avanzate. Le proprietà consentono di creare un cluster permanente di dimensione fissa o all'interno di una Rete virtuale di Azure esistente nella sottoscrizione.  Per informazioni dettagliate, consultare [AmlCompute class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
+   Durante la creazione di un ambiente di calcolo di Machine Learning è anche possibile configurare diverse proprietà avanzate. Le proprietà consentono di creare un cluster permanente di dimensione fissa o all'interno di una Rete virtuale di Azure esistente nella sottoscrizione.  Per informazioni dettagliate, consultare [AmlCompute class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
     ) (Classe AmlCompute).
     
- Oppure è possibile creare e collegare una risorsa dell'ambiente di calcolo di Machine Learning permanente [nel portale di Azure](#portal-create).
+   Oppure è possibile creare e collegare una risorsa dell'ambiente di calcolo di Machine Learning permanente [nel portale di Azure](#portal-create).
 
 1. **Configurare**: Creare una configurazione di esecuzione per la destinazione di calcolo permanente.
 
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
+   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
 
 Dopo aver collegato le risorse di calcolo e aver configurato l'esecuzione, il passaggio successivo consiste nell'[invio dell'esecuzione di training](#submit).
 
@@ -167,34 +168,34 @@ Per questo scenario usare Data Science Virtual Machine (DSVM) come macchina virt
 
 1. **Collegare**: Per associare una macchina virtuale esistente come destinazione di calcolo, è necessario specificare il nome di dominio completo (FQDN), il nome utente e la password per la macchina virtuale. Nell'esempio sostituire \<fqdn> con il nome di dominio completo pubblico della macchina virtuale o l'indirizzo IP pubblico. Nel comando seguente sostituire \<username> e \<password> con il nome utente e la password SSH per la macchina virtuale.
 
- ```python
- from azureml.core.compute import RemoteCompute, ComputeTarget
+   ```python
+   from azureml.core.compute import RemoteCompute, ComputeTarget
 
- # Create the compute config 
- compute_target_name = "attach-dsvm"
- attach_config = RemoteCompute.attach_configuration(address = "<fqdn>",
+   # Create the compute config 
+   compute_target_name = "attach-dsvm"
+   attach_config = RemoteCompute.attach_configuration(address = "<fqdn>",
                                                     ssh_port=22,
                                                     username='<username>',
                                                     password="<password>")
 
- # If you authenticate with SSH keys instead, use this code:
- #                                                  ssh_port=22,
- #                                                  username='<username>',
- #                                                  password=None,
- #                                                  private_key_file="<path-to-file>",
- #                                                  private_key_passphrase="<passphrase>")
+   # If you authenticate with SSH keys instead, use this code:
+   #                                                  ssh_port=22,
+   #                                                  username='<username>',
+   #                                                  password=None,
+   #                                                  private_key_file="<path-to-file>",
+   #                                                  private_key_passphrase="<passphrase>")
 
- # Attach the compute
- compute = ComputeTarget.attach(ws, compute_target_name, attach_config)
+   # Attach the compute
+   compute = ComputeTarget.attach(ws, compute_target_name, attach_config)
 
- compute.wait_for_completion(show_output=True)
- ```
+   compute.wait_for_completion(show_output=True)
+   ```
 
- Oppure è possibile collegare la Data Science VM all'area di lavoro [usando il portale di Azure](#portal-reuse).
+   Oppure è possibile collegare la Data Science VM all'area di lavoro [usando il portale di Azure](#portal-reuse).
 
 1. **Configurare**: Creare una configurazione di esecuzione per la destinazione di calcolo Data Science Virtual Machine. Docker e conda vengono usati per creare e configurare l'ambiente di training nella Data Science Virtual Machine.
 
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
+   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
 
 
 Dopo aver collegato le risorse di calcolo e aver configurato l'esecuzione, il passaggio successivo consiste nell'[invio dell'esecuzione di training](#submit).
@@ -211,11 +212,11 @@ Azure HDInsight è una piattaforma comune per l'analisi dei Big Data. La piattaf
 
 1. **Collegare**: Per collegare un cluster HDInsight come destinazione di calcolo, è necessario specificare il nome host, il nome utente e la password per il cluster HDInsight. Nell'esempio seguente viene usato l'SDK per associare un cluster all'area di lavoro. Nell'esempio sostituire \<clustername> con il nome del cluster. Sostituire \<username> e \<password> con un nuovo nome utente e una nuova password SSH il cluster.
 
-  ```python
- from azureml.core.compute import ComputeTarget, HDInsightCompute
- from azureml.exceptions import ComputeTargetException
+   ```python
+   from azureml.core.compute import ComputeTarget, HDInsightCompute
+   from azureml.exceptions import ComputeTargetException
 
- try:
+   try:
     # if you want to connect using SSH key instead of username/password you can provide parameters private_key_file and private_key_passphrase
     attach_config = HDInsightCompute.attach_configuration(address='<clustername>-ssh.azureinsight.net', 
                                                           ssh_port=22, 
@@ -225,21 +226,57 @@ Azure HDInsight è una piattaforma comune per l'analisi dei Big Data. La piattaf
                                        name='myhdi', 
                                        attach_configuration=attach_config)
 
- except ComputeTargetException as e:
+   except ComputeTargetException as e:
     print("Caught = {}".format(e.message))
 
- hdi_compute.wait_for_completion(show_output=True)
-  ```
+   hdi_compute.wait_for_completion(show_output=True)
+   ```
 
-  Oppure è possibile collegare il cluster HDInsight all'area di lavoro [usando il portale di Azure](#portal-reuse).
+   Oppure è possibile collegare il cluster HDInsight all'area di lavoro [usando il portale di Azure](#portal-reuse).
 
 1. **Configurare**: Creare una configurazione di esecuzione per la destinazione di calcolo HDI. 
 
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
+   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 
 
 Dopo aver collegato le risorse di calcolo e aver configurato l'esecuzione, il passaggio successivo consiste nell'[invio dell'esecuzione di training](#submit).
 
+
+### <a id="azbatch"></a>Azure Batch 
+
+Azure Batch consente di eseguire in modo efficiente applicazioni su larga scala parallele e ad alte prestazioni computing (HPC) nel cloud. AzureBatchStep può essere utilizzato in una Pipeline di Azure Machine Learning per inviare processi a un pool di Batch di Azure di macchine.
+
+Per connettere Azure Batch come una destinazione di calcolo, è necessario usare il SDK di Azure Machine Learning e fornire le informazioni seguenti:
+
+-   **Nome del calcolo di Azure Batch**: Un nome descrittivo da usare per le risorse di calcolo nell'area di lavoro
+-   **Nome dell'account Azure Batch**: Il nome dell'account Azure Batch
+-   **Gruppo di risorse**: Il gruppo di risorse che contiene l'account Azure Batch.
+
+Il codice seguente illustra come collegare Azure Batch come una destinazione di calcolo:
+
+```python
+from azureml.core.compute import ComputeTarget, BatchCompute
+from azureml.exceptions import ComputeTargetException
+
+batch_compute_name = 'mybatchcompute' # Name to associate with new compute in workspace
+
+# Batch account details needed to attach as compute to workspace
+batch_account_name = "<batch_account_name>" # Name of the Batch account
+batch_resource_group = "<batch_resource_group>" # Name of the resource group which contains this account
+
+try:
+    # check if the compute is already attached
+    batch_compute = BatchCompute(ws, batch_compute_name)
+except ComputeTargetException:
+    print('Attaching Batch compute...')
+    provisioning_config = BatchCompute.attach_configuration(resource_group=batch_resource_group, account_name=batch_account_name)
+    batch_compute = ComputeTarget.attach(ws, batch_compute_name, provisioning_config)
+    batch_compute.wait_for_completion()
+    print("Provisioning state:{}".format(batch_compute.provisioning_state))
+    print("Provisioning errors:{}".format(batch_compute.provisioning_errors))
+
+print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
+```
 
 ## <a name="set-up-compute-in-the-azure-portal"></a>Configurare l'ambiente di calcolo nel portale di Azure
 

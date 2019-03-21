@@ -7,14 +7,14 @@ ms.service: site-recovery
 services: site-recovery
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 1/29/2019
+ms.date: 03/04/2019
 ms.author: mayg
-ms.openlocfilehash: 62b69364f0b3d3e14d0b2d877604cecfcc346dce
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 75c97a7feb63a100d322610b7e6d2e5c57bebda2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207497"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889693"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Risolvere gli errori durante il failover di un computer fisico o di una macchina virtuale VMware in Azure
 
@@ -24,7 +24,7 @@ Durante il failover di una macchina virtuale in Azure è possibile che l'utente 
 
 Site Recovery non è riuscito a creare un'operazione di failover sulla macchina virtuale in Azure. Questo può verificarsi a causa di uno dei motivi seguenti:
 
-* Non è disponibile una quota sufficiente per creare la macchina virtuale: È possibile controllare la quota disponibile in Sottoscrizione -> Utilizzo e quote. È possibile aprire una [nuova richiesta di supporto](http://aka.ms/getazuresupport) per aumentare la quota.
+* Non è disponibile una quota sufficiente per creare la macchina virtuale: È possibile controllare la quota disponibile in Sottoscrizione -> Utilizzo e quote. È possibile aprire una [nuova richiesta di supporto](https://aka.ms/getazuresupport) per aumentare la quota.
 
 * Si sta tentando di effettuare il failover delle macchine virtuali delle famiglie di dimensioni diverse nello stesso set di disponibilità. Assicurarsi di aver scelto la stessa famiglia di dimensioni per tutte le macchine virtuali nello stesso set di disponibilità. È possibile modificare le dimensioni passando alle impostazioni Calcolo e rete della macchina virtuale e ritentando il failover.
 
@@ -32,7 +32,7 @@ Site Recovery non è riuscito a creare un'operazione di failover sulla macchina 
 
 ## <a name="failover-failed-with-error-id-28092"></a>Il failover non è riuscito con errore ID 28092
 
-Site Recovery non è riuscito a creare un'interfaccia di rete per il failover della macchina virtuale. Assicurarsi di disporre di una quota sufficiente per creare interfacce di rete nella sottoscrizione. È possibile controllare la quota disponibile in Sottoscrizione -> Utilizzo e quote. È possibile aprire una [nuova richiesta di supporto](http://aka.ms/getazuresupport) per aumentare la quota. Se si dispone di una quota sufficiente, potrebbe trattarsi di un problema intermittente, riprovare. Se il problema persiste anche dopo vari tentativi, lasciare un commento alla fine di questo documento.  
+Site Recovery non è riuscito a creare un'interfaccia di rete per il failover della macchina virtuale. Assicurarsi di disporre di una quota sufficiente per creare interfacce di rete nella sottoscrizione. È possibile controllare la quota disponibile in Sottoscrizione -> Utilizzo e quote. È possibile aprire una [nuova richiesta di supporto](https://aka.ms/getazuresupport) per aumentare la quota. Se si dispone di una quota sufficiente, potrebbe trattarsi di un problema intermittente, riprovare. Se il problema persiste anche dopo vari tentativi, lasciare un commento alla fine di questo documento.  
 
 ## <a name="failover-failed-with-error-id-70038"></a>Il failover non è riuscito con errore ID 70038
 
@@ -48,7 +48,7 @@ Per visualizzare tutte le macchine in Azure, l'ambiente Azure richiede che alcun
 
 Per modificare manualmente il tipo di avvio dei driver per il **sistema operativo guest Windows**, seguire la procedura seguente:
 
-1. [Scaricare](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) lo script no-hydration ed eseguirlo nel modo seguente. Questo script verifica se è necessario eseguire l'idratazione della macchina virtuale.
+1. [Scaricare](https://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) lo script no-hydration ed eseguirlo nel modo seguente. Questo script verifica se è necessario eseguire l'idratazione della macchina virtuale.
 
     `.\Script-no-hydration.ps1`
 
@@ -110,7 +110,50 @@ Se su una macchina virtuale in cui è stato eseguito il failover, il pulsante **
 
 Quando si esegue l'avvio di una macchina virtuale Windows dopo il failover e si riceve un messaggio di arresto imprevisto nella macchina virtuale ripristinata, significa che non è stato acquisito uno stato di arresto della macchina virtuale nel punto di ripristino usato per il failover. Questo accade quando si effettua il ripristino ad un punto in cui la macchina virtuale non è stata completamente arrestata.
 
-In genere, non è motivo di preoccupazione e può essere ignorato per i failover non pianificati. In caso di failover pianificato, assicurarsi che la macchina virtuale sia arrestata in modo corretto prima del failover e di fornire il tempo necessario per i dati di replica in sospeso di essere inviati ad Azure in locale. Usare l'opzione **Più recente** nella [schermata Failover](site-recovery-failover.md#run-a-failover) in modo che tutti i dati in sospeso in Azure siano elaborati in un punto di recupero, che viene quindi usato per il failover della macchina virtuale.
+In genere, non è motivo di preoccupazione e può essere ignorato per i failover non pianificati. Se è previsto il failover, assicurarsi che la macchina virtuale viene arrestata in modo corretto prima del failover e fornire il tempo necessario per in attesa di replica dei dati in locale da inviare ad Azure. Usare l'opzione **Più recente** nella [schermata Failover](site-recovery-failover.md#run-a-failover) in modo che tutti i dati in sospeso in Azure siano elaborati in un punto di recupero, che viene quindi usato per il failover della macchina virtuale.
+
+## <a name="unable-to-select-the-datastore"></a>Non è possibile selezionare l'archivio dati
+
+Questo problema è indicato quando è in grado di visualizzare il portale l'archivio dati in Azure durante il tentativo di abilitare la riprotezione la macchina virtuale che ha riscontrato un failover. Infatti, il Master target non è riconosciuto come una macchina virtuale in vCenter aggiunto ad Azure Site Recovery.
+
+Per altre informazioni su come eseguire la riprotezione di una macchina virtuale, vedere [ma la Riprotezione ed eseguire indietro macchine a un sito locale dopo il failover in Azure](vmware-azure-reprotect.md).
+
+Per risolvere il problema:
+
+Creare manualmente il Master target in vCenter che gestisce la macchina di origine. L'archivio dati saranno disponibile dopo il successivo vCenter individuazione e l'aggiornamento operazioni sull'infrastruttura.
+
+> [!Note]
+> 
+> Le operazioni di individuazione e l'aggiornamento dell'infrastruttura possono richiedere fino a 30 minuti. 
+
+## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>Registrazione di destinazione Master Linux con CS ha esito negativo con un errore SSL 35 
+
+La registrazione di destinazione Master di Site Recovery di Azure con il server di configurazione non riesce a causa di un Proxy autenticato abilitato nella destinazione Master. 
+ 
+Questo errore è indicato da stringhe seguenti nel log di installazione: 
+
+RegisterHostStaticInfo rilevata eccezione config/talwrapper.cpp(107) [post] CurlWrapper Post non è riuscita: server: 10.38.229.221, porta: phpUrl 443,: request_handler.php, sicuro: true, ignoreCurlPartialError: false con errore: [at curlwrapperlib/curlwrapper.cpp:processCurlResponse:231] non è riuscito a richiesta post: (35) - errore di connessione SSL. 
+ 
+Per risolvere il problema:
+ 
+1. Nel server di configurazione della macchina virtuale, aprire un prompt dei comandi e verificare le impostazioni del proxy usando i comandi seguenti:
+
+    Cat /etc/environment echo $http_proxy echo https_proxy $ 
+
+2. Se l'output del comando precedente mostra che vengono definite le impostazioni di http_proxy o https_proxy, usare uno dei metodi seguenti per sbloccare le comunicazioni del server di destinazione Master con server di configurazione:
+   
+   - Scaricare il [lo strumento PsExec](https://aka.ms/PsExec).
+   - Utilizzare lo strumento per accedere al contesto utente di sistema e determinare se l'indirizzo del proxy è configurato. 
+   - Se il proxy è configurato, aprire Internet Explorer in un contesto utente di sistema utilizzando lo strumento PsExec.
+  
+     **psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"**
+
+   - Per assicurarsi che il server di destinazione master può comunicare con il server di configurazione:
+  
+     - Modificare le impostazioni di proxy in Internet Explorer per ignorare l'indirizzo IP del server di destinazione Master tramite il proxy.   
+     Oppure
+     - Disabilitare il proxy nel server di destinazione Master. 
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Risoluzione problemi [di connessione RDP a una macchina virtuale Windows](../virtual-machines/windows/troubleshoot-rdp-connection.md)

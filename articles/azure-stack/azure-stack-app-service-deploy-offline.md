@@ -16,12 +16,12 @@ ms.date: 02/27/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: af3e7528e2312cef1832dc104e83384a91acf263
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: b6950e3445f2320f2e3a45f55726befd7077119a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991343"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835910"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Aggiungere un provider di risorse del servizio App a un ambiente Azure Stack disconnesso protetto da AD FS
 
@@ -82,28 +82,28 @@ Per distribuire il servizio App in un ambiente disconnesso, è innanzitutto nece
     ![Programma di installazione del servizio App][3]
 
 7. Nella pagina successiva:
-    1. Fare clic sui **Connect** accanto alle **sottoscrizioni di Azure Stack** casella.
-        - Specificare l'account di amministratore. Ad esempio: cloudadmin@azurestack.local. Immettere la password e fare clic su **Accedi**.
-    2. Nel **delle sottoscrizioni di Azure Stack** , quindi selezionare la **sottoscrizione del Provider predefinito**.
+   1. Fare clic sui **Connect** accanto alle **sottoscrizioni di Azure Stack** casella.
+      - Specificare l'account di amministratore. Ad esempio: cloudadmin@azurestack.local. Immettere la password e fare clic su **Accedi**.
+   2. Nel **delle sottoscrizioni di Azure Stack** , quindi selezionare la **sottoscrizione del Provider predefinito**.
     
-    > [!NOTE]
-    > Servizio App può essere distribuito solo nel **sottoscrizione del Provider predefinito**.
-    >
+      > [!NOTE]
+      > Servizio App può essere distribuito solo nel **sottoscrizione del Provider predefinito**.
+      >
     
-    3. Nel **località di Azure Stack** selezionare il percorso che corrisponde all'area di cui si esegue la distribuzione. Ad esempio, selezionare **locale** se la distribuzione in Azure Stack Development Kit.
-    4. Fare clic su **Avanti**.
+   3. Nel **località di Azure Stack** selezionare il percorso che corrisponde all'area di cui si esegue la distribuzione. Ad esempio, selezionare **locale** se la distribuzione in Azure Stack Development Kit.
+   4. Fare clic su **Avanti**.
 
-    ![Programma di installazione del servizio App][4]
+      ![Programma di installazione del servizio App][4]
 
 8. È ora possibile distribuire in una rete virtuale esistente configurato tramite la procedura [qui](azure-stack-app-service-before-you-get-started.md#virtual-network), o consentire il programma di installazione del servizio App di creare una rete virtuale e subnet associate.
-    1. Selezionare **crea rete virtuale con le impostazioni predefinite**, accettare le impostazioni predefinite e quindi fare clic su **successivo**, o;
-    2. Selezionare **usare rete virtuale esistente e le subnet**.
-        1. Selezionare il **gruppo di risorse** che contiene la rete virtuale;
-        2. Scegliere i valori corretti **rete virtuale** nome si desidera distribuire in;
-        3. Selezionare i valori corretti **Subnet** i valori per ogni subnet ruolo necessari;
-        4. Fare clic su **Avanti**
+   1. Selezionare **crea rete virtuale con le impostazioni predefinite**, accettare le impostazioni predefinite e quindi fare clic su **successivo**, o;
+   2. Selezionare **usare rete virtuale esistente e le subnet**.
+       1. Selezionare il **gruppo di risorse** che contiene la rete virtuale;
+       2. Scegliere i valori corretti **rete virtuale** nome si desidera distribuire in;
+       3. Selezionare i valori corretti **Subnet** i valori per ogni subnet ruolo necessari;
+       4. Fare clic su **Avanti**
 
-    ![Programma di installazione del servizio App][5]
+      ![Programma di installazione del servizio App][5]
 
 9. Immettere le informazioni per la condivisione file e quindi fare clic su **successivo**. L'indirizzo della condivisione file deve usare il nome di dominio completo o indirizzo IP del File Server. Ad esempio, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, o \\\10.0.0.1\websites.  Se si usa un file server che fa parte del dominio, è necessario fornire il nome utente completo, inclusi dominio, ad esempio, myfileserverdomain\FileShareOwner.
 
@@ -152,7 +152,7 @@ Per distribuire il servizio App in un ambiente disconnesso, è innanzitutto nece
     > ```
     > Vedere le [note sulla versione per il servizio App di Azure in Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) per altri dettagli.
    
-   ![Programma di installazione del servizio App][12]
+    ![Programma di installazione del servizio App][12]
 
 13. Esaminare l'istanza del ruolo e le opzioni dello SKU. I valori predefiniti vengono popolati con il numero minimo di istanze e lo SKU per ogni ruolo in una distribuzione ASDK minimo. Viene fornito un riepilogo dei requisiti di memoria e vCPU per la pianificazione della distribuzione. Dopo aver effettuato le selezioni, fare clic su **successivo**.
 
@@ -253,7 +253,7 @@ Dopo che si distribuisce e si registra il provider di risorse del servizio App, 
 
 1. Nel portale tenant di Azure Stack, fare clic su **+**, aprire il Marketplace di Azure, distribuire un sito Web Django e attendere il completamento corretto. La piattaforma web di Django Usa un database di sistema in base al file. Non richiede alcun provider di risorse aggiuntive, ad esempio SQL o MySQL.
 
-2. Se è stata distribuita anche un provider di risorse MySQL, è possibile distribuire un sito Web WordPress dal Marketplace. Quando richiesto per i parametri del database, immettere il nome utente *User1@Server1*, con il nome utente e il nome del server di propria scelta.
+2. Se è stata distribuita anche un provider di risorse MySQL, è possibile distribuire un sito Web WordPress dal Marketplace. Quando richiesto per i parametri del database, immettere il nome utente *User1\@Server1*, con il nome utente e il nome del server di propria scelta.
 
 3. Se è stata distribuita anche un provider di risorse di SQL Server, è possibile distribuire un sito di rete neurale profonda dal Marketplace. Quando richiesto per i parametri del database, scegliere un database in computer che esegue SQL Server che è connesso al provider di risorse.
 

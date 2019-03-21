@@ -12,16 +12,16 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1935c670b5c7622f45f8c96b8c2faf03da6282f3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fff4aa947f878974d2d0f18f373b8c0917ed7d70
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993633"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316049"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Risolvere i problemi di prestazioni del database SQL di Azure con Intelligent Insights
 
-Questa pagina contiene informazioni sui problemi di prestazioni del database SQL di Azure e dell'istanza gestita rilevati tramite il log di diagnostica delle prestazioni del database di [Intelligent Insights](sql-database-intelligent-insights.md). I dati di telemetria del log di diagnostica possono essere trasmessi ad [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Hub eventi di Azure](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [Archiviazione di Azure](sql-database-metrics-diag-logging.md#stream-into-storage) oppure a una soluzione di terze parti per funzionalità di avvisi e report di DevOps personalizzate.
+Questa pagina contiene informazioni sui problemi di prestazioni del database SQL di Azure e dell'istanza gestita rilevati tramite il log di diagnostica delle prestazioni del database di [Intelligent Insights](sql-database-intelligent-insights.md). I dati di telemetria di log di diagnostica possono essere trasmessi al [log di monitoraggio di Azure](../azure-monitor/insights/azure-sql.md), [hub eventi di Azure](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [archiviazione di Azure](sql-database-metrics-diag-logging.md#stream-into-storage), o una soluzione di terze parti per gli avvisi personalizzati di DevOps e funzionalità di creazione di report.
 
 > [!NOTE]
 > Per una rapida guida alla risoluzione dei problemi di prestazioni del database SQL tramite Intelligent Insights, vedere il diagramma [Flusso di risoluzione dei problemi consigliato](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) in questo documento.
@@ -73,7 +73,7 @@ Il log di diagnostica genera hash di query per le query con effetti sulle presta
 
 Se sono stati raggiunti i limiti delle sessioni disponibili, è possibile ottimizzare le applicazioni riducendo il numero di accessi al database. Se non si riesce a ridurre il numero di accessi dalle applicazioni al database, valutare il passaggio a un piano tariffario di livello superiore per il database. In alternativa, è possibile suddividere e spostare il database in più database per una distribuzione più equilibrata del carico di lavoro.
 
-Per altri suggerimenti sulla risoluzione dei problemi per i limiti delle sessioni, vedere [How to deal with the limits of Azure SQL Database maximum logins](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/).(Come gestire i limiti al numero massimo di accessi al database SQL di Azure). Per informazioni sui limiti a livello di server e sottoscrizione, vedere [Panoramica dei limiti delle risorse in un server di database SQL](sql-database-resource-limits-database-server.md).
+Per altri suggerimenti sulla risoluzione dei problemi per i limiti delle sessioni, vedere [How to deal with the limits of Azure SQL Database maximum logins](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/).(Come gestire i limiti al numero massimo di accessi al database SQL di Azure). Per informazioni sui limiti a livello di server e sottoscrizione, vedere [Panoramica dei limiti delle risorse in un server di database SQL](sql-database-resource-limits-database-server.md).
 
 ## <a name="workload-increase"></a>Aumento del carico di lavoro
 
@@ -109,7 +109,7 @@ Il log di diagnostica restituisce i dettagli dell'archivio di oggetti di memoria
 
 È anche possibile ridurre il carico di lavoro ottimizzandolo o distribuendolo su più database. Oppure è possibile distribuire il carico di lavoro tra più database. Se queste soluzioni non sono praticabili, valutare il passaggio a un piano tariffario di livello superiore per la sottoscrizione del database SQL per incrementare la quantità di risorse di memoria disponibili per il database.
 
-Per altri suggerimenti sulla risoluzione dei problemi, vedere [Memory grants meditation: The mysterious SQL Server memory consumer with many names](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/) (Riflessione sulle concessioni di memoria: il misterioso consumer di memoria di SQL Server con molti nomi).
+Per altri suggerimenti sulla risoluzione dei problemi, vedere [Memory grants meditation: The mysterious SQL Server memory consumer with many names](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/) (Riflessione sulle concessioni di memoria: il misterioso consumer di memoria di SQL Server con molti nomi).
 
 ## <a name="locking"></a>Blocco
 
@@ -259,7 +259,7 @@ Questo modello di prestazioni rilevabili combina tre casi diversi di regressione
 
 La condizione di regressione di nuovi piani fa riferimento a uno stato in cui il database SQL inizia l'esecuzione di un nuovo piano non efficiente come quello precedente. La condizione di regressione di piani precedenti fa riferimento allo stato in cui il database SQL passa dall'uso di un nuovo piano più efficiente all'uso del piano precedente non efficiente come quello nuovo. La regressione correlata al carico di lavoro modificato di piani esistenti fa riferimento allo stato in cui il piano precedente e quello nuovo vengono continuamente alternati, con una preferenza verso il piano con prestazioni inferiori.
 
-Per altre informazioni sulle regressioni di piani, vedere [What is plan regression in SQL server?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/06/09/what-is-plan-regression-in-sql-server/) (Informazioni sulla regressione di piani in SQL Server). 
+Per altre informazioni sulle regressioni di piani, vedere [What is plan regression in SQL server?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../what-is-plan-regression-in-sql-server/) (Informazioni sulla regressione di piani in SQL Server). 
 
 ### <a name="troubleshooting"></a>risoluzione dei problemi
 
@@ -267,7 +267,7 @@ Il logo di diagnostica include gli hash delle query, l'ID del piano appropriato,
 
 È possibile analizzare i dati per individuare il piano con prestazioni migliori per le query specifiche che è possibile identificare in base agli hash forniti. Dopo aver determinato il piano più adatto alle query, è possibile applicarlo manualmente. 
 
-Per altre informazioni, vedere [How SQL Server prevents plan regressions](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/25/you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/) (Come SQL Server impedisce le regressioni di piani).
+Per altre informazioni, vedere [How SQL Server prevents plan regressions](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/) (Come SQL Server impedisce le regressioni di piani).
 
 > [!TIP]
 > L'intelligence incorporata nel database SQL può gestire automaticamente i piani di esecuzione delle query con le prestazioni migliori per i database in uso.

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.openlocfilehash: 9d941c36499f851f20c41fa6dd01faf14e4192ba
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 808c2f38be875e70b4f52698b7a6278aa781a6ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992771"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124083"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Aggiornamento offline del servizio App di Azure in Azure Stack
 
@@ -97,14 +97,14 @@ Per aggiornare il servizio App in un ambiente disconnesso, è innanzitutto neces
 7. Nella pagina successiva:
 
    1. Fare clic sui **Connect** accanto alle **sottoscrizioni di Azure Stack** casella.
-        * Se si usa Azure Active Directory (Azure AD), immettere l'account amministratore di Azure AD e la password specificata quando è stato distribuito Azure Stack. Fare clic su **Accedi**.
-        * Se si usa Active Directory Federation Services (ADFS), specificare l'account di amministratore. Ad esempio, _cloudadmin@azurestack.local_. Immettere la password e fare clic su **Accedi**.
+      * Se si usa Azure Active Directory (Azure AD), immettere l'account amministratore di Azure AD e la password specificata quando è stato distribuito Azure Stack. Fare clic su **Accedi**.
+      * Se si usa Active Directory Federation Services (ADFS), specificare l'account di amministratore. Ad esempio, _cloudadmin@azurestack.local_. Immettere la password e fare clic su **Accedi**.
    2. Nel **delle sottoscrizioni di Azure Stack** , quindi selezionare la **sottoscrizione del Provider predefinito**.
    3. Nel **località di Azure Stack** selezionare il percorso che corrisponde all'area di cui si esegue la distribuzione. Ad esempio, selezionare **locale** se la distribuzione in Azure Stack Development Kit.
    4. Se viene rilevata una distribuzione di servizio App esistente, quindi l'account di archiviazione e del gruppo di risorse verrà popolata e in grigio.
    5. Fare clic su **successivo** per esaminare il riepilogo dell'aggiornamento.
 
-    ![Installazione del servizio App rilevate][4]
+      ![Installazione del servizio App rilevate][4]
 
 8. Nella pagina di riepilogo:
    1. Verificare le selezioni effettuate. Per apportare modifiche, usare il **Previous** pulsanti visitare le pagine precedenti.

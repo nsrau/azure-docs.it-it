@@ -6,12 +6,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.openlocfilehash: 6b74d83de0495e3436c9bef623a827e8a1496767
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 65064707374ba76701566e061b77bfd6cdf520ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343298"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833386"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire avvisi classici per le metriche con Monitoraggio di Azure
 
@@ -35,7 +35,7 @@ Gli avvisi delle metriche classici in Monitoraggio di Azure consentono di riceve
 
 6. Selezionare **Invia messaggio di posta elettronica a proprietari, collaboratori e lettori** se si vuole che gli amministratori e i coamministratori ricevano una notifica tramite posta elettronica quando si attiva l'avviso.
 
-7. Per aggiungere altri indirizzi di posta elettronica ai quali inviare una notifica quando viene attivato l'avviso, usare il campo **Indirizzi di posta elettronica aggiuntivi dell'amministratore**. Separare gli indirizzi di posta elettronica con punti e virgola, con il formato seguente: *email@contoso.com;email2@contoso.com*
+7. Per aggiungere altri indirizzi di posta elettronica ai quali inviare una notifica quando viene attivato l'avviso, usare il campo **Indirizzi di posta elettronica aggiuntivi dell'amministratore**. Separare più messaggi di posta elettronica con punti e virgola, nel formato seguente: *messaggio di posta elettronica\@contoso.com;email2\@contoso.com*
 
 8. Inserire un URI valido nel campo **Webhook** per eseguire la chiamata quando viene attivato l'avviso.
 
@@ -85,6 +85,8 @@ az monitor alert delete --name <alert name> --resource-group <group name>
 
 ## <a name="with-powershell"></a>Con PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Questa sezione illustra come usare i comandi PowerShell per creare, visualizzare e gestire gli avvisi delle metriche classiche. Gli esempi in questo articolo illustrano come usare i cmdlet di Monitoraggio di Azure per gli avvisi classici per le metriche.
 
 1. Se non è ancora stato fatto, configurare PowerShell per l'esecuzione sul computer. Per altre informazioni, vedere [Come installare e configurare PowerShell](/powershell/azure/overview). È anche possibile esaminare l'elenco completo di cmdlet di PowerShell di Monitoraggio di Azure nell'argomento relativo ai [cmdlet di Monitoraggio di Azure(Azure Insights)](https://docs.microsoft.com/powershell/module/azurerm.insights).
@@ -92,40 +94,40 @@ Questa sezione illustra come usare i comandi PowerShell per creare, visualizzare
 2. Per prima cosa, accedere alla sottoscrizione di Azure.
 
     ```PowerShell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
 3. Verrà visualizzata una schermata di accesso. Dopo aver effettuato l'accesso, vengono visualizzati l'account, l'ID tenant e l'ID della sottoscrizione predefinito. Tutti i cmdlet di Azure funzionano nel contesto della sottoscrizione predefinita. Per visualizzare l'elenco delle sottoscrizioni accessibili, usare il comando seguente:
 
     ```PowerShell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
 4. Per modificare il contesto di lavoro in una sottoscrizione diversa, usare il comando seguente:
 
     ```PowerShell
-    Set-AzureRmContext -SubscriptionId <subscriptionid>
+    Set-AzContext -SubscriptionId <subscriptionid>
     ```
 
 5. È possibile recuperare tutte le regole di avviso classico per la metrica in un gruppo di risorse:
 
     ```PowerShell
-    Get-AzureRmAlertRule -ResourceGroup montest
+    Get-AzAlertRule -ResourceGroup montest
     ```
 
 6. È possibile visualizzare i dettagli di una regole di avviso classico per le metriche
 
     ```PowerShell
-    Get-AzureRmAlertRule -Name simpletestCPU -ResourceGroup montest -DetailedOutput
+    Get-AzAlertRule -Name simpletestCPU -ResourceGroup montest -DetailedOutput
     ```
 
 7. È possibile recuperare tutte le regole di avviso impostate per una risorsa di destinazione. Ad esempio, tutte le regole di avviso impostate su una VM.
 
     ```PowerShell
-    Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
+    Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 
-8. Le regole di avviso classiche non possono più essere create tramite PowerShell. Per creare una regola di avviso è necessario usare il nuovo comando ['Add-AzureRmMetricAlertRule'](https://docs.microsoft.com/powershell/module/azurerm.insights/add-azurermmetricalertrule?view=azurermps-6.13.0).
+8. Le regole di avviso classiche non possono più essere create tramite PowerShell. Per creare una regola di avviso è necessario usare le nuove ['Add-AzMetricAlertRule'](/powershell/module/az.monitor/add-azmetricalertrule) comando.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

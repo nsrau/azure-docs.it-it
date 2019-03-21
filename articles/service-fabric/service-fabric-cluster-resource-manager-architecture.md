@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 6c4421f9-834b-450c-939f-1cb4ff456b9b
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 48da92be0eef1154b490fb4829363598d6d66569
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 82183cefc11a1f3c39fadd639c988d8bf83fc109
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211430"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116597"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Panoramica dell'architettura di Cluster Resource Manager
 Il Cluster Resource Manager di Service Fabric è un servizio centrale in esecuzione nel cluster. Gestisce lo stato desiderato dei servizi del cluster, in particolare in relazione all'uso delle risorse e alle regole di selezione. 
@@ -51,6 +51,7 @@ Cluster Resource Manager deve monitorare i requisiti di ogni servizio e il consu
 Si veda il diagramma seguente:
 
 <center>
+
 ![Architettura di Resource Balancer][Image1]
 </center>
 
@@ -59,6 +60,7 @@ Durante il runtime possono essere apportate numerose modifiche. Ad esempio, si s
 Verrà ora descritto il diagramma seguente. Si supponga che Cluster Resource Manager stabilisca che sono necessarie modifiche. Interagisce con altri servizi di sistema (in particolare Gestione failover) per apportare le modifiche necessarie. I comandi necessari vengono quindi inviati ai nodi appropriati (4). Ad esempio, si supponga che Resource Manager abbia notato che il nodo 5 è sovraccarico e che abbia pertanto deciso di spostare il servizio B da Node5 a Node4. Alla fine della riconfigurazione (5), il cluster avrà l'aspetto seguente:
 
 <center>
+
 ![Architettura di Resource Balancer][Image2]
 </center>
 

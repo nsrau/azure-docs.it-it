@@ -3,100 +3,97 @@ title: Gestire l'autenticazione in Mappe di Azure | Microsoft Docs
 description: È possibile usare il portale di Azure per gestire l'autenticazione in Mappe di Azure.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/14/2018
+ms.date: 02/14/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 68c3c8ac39f5803e01ee1038ec85ddb96ac80b30
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: fe0e325543d245e4415fea925fcdade32eb00614
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242686"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570505"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gestire l'autenticazione in Mappe di Azure
 
-Dopo aver creato un account Mappe di Azure, vengono creati l'ID client e le chiavi per supportare l'autenticazione con chiave condivisa o di Azure Active Directory (Azure AD).
-
-È possibile trovare i dettagli di autenticazione passando alla pagina **Autenticazione** in **Impostazioni** nel portale di Azure. Passare all'account personale. Selezionare **Autenticazione** dal menu.
-
+Dopo aver creato un account mappe di Azure, un ID client e le chiavi vengono create per supportare l'autenticazione chiave condivisa o Azure Active Directory (Azure AD).
 
 ## <a name="view-authentication-details"></a>Visualizzare i dettagli di autenticazione
 
-Per visualizzare i dettagli di autenticazione, passare all'opzione **Autenticazione** nel menu delle impostazioni.
+È possibile visualizzare i dettagli di autenticazione nel portale di Azure. Passare al proprio account e selezionare **Authentication** nel **impostazioni** menu.
 
-![Visualizzare l'autenticazione](./media/how-to-manage-authentication/how-to-view-auth.png)
+![Dettagli di autenticazione](./media/how-to-manage-authentication/how-to-view-auth.png)
 
- Per altre informazioni su Mappe di Azure e l'autenticazione, vedere [Autenticazione con Mappe di Azure](https://aka.ms/amauth).
+ Per altre informazioni, vedere [l'autenticazione con le mappe di Azure](https://aka.ms/amauth).
 
 
-## <a name="configure-azure-ad-app-registration"></a>Configurare la registrazione dell'app Azure AD
+## <a name="set-up-azure-ad-app-registration"></a>Configurare la registrazione app di Azure AD
 
-Dopo aver creato un account Mappe di Azure, è necessario un collegamento tra il tenant di Azure AD e la risorsa di Azure Mappe di Azure. 
+Dopo aver creato un account mappe di Azure, è necessario stabilire un collegamento tra il tenant di Azure AD e la risorsa di mappe di Azure.
 
-1. Passare al pannello Azure AD e creare una registrazione di app con un nome e l'URL di accesso corrispondente alla home page dell'app o API Web, ad esempio "https://localhost/". Se si ha già un'app registrata, procedere al passaggio 2.
+1. Passare al pannello Azure AD e creare una registrazione dell'app. Specificare un nome per la registrazione. Nel **URL Sign-on** immettere la home page dell'app web / API (ad esempio, https://localhost/). Se si dispone già di un'app registrata, andare al passaggio 2.
 
     ![Registrazione delle app](./media/how-to-manage-authentication/app-registration.png)
 
-    ![Registrazione delle app](./media/how-to-manage-authentication/app-create.png)
+    ![Dettagli di registrazione di App](./media/how-to-manage-authentication/app-create.png)
 
-2. Assegnare autorizzazioni API delegate a Mappe di Azure passando all'applicazione in Registrazioni app e facendo clic su **Impostazioni**.  Selezionare **Autorizzazioni necessarie** e quindi **Aggiungi**. Cercare e quindi selezionare Mappe di Azure in **Selezionare un'API** e fare clic su **Seleziona**.
+2. Per assegnare le autorizzazioni delegate di API per le mappe di Azure, passare all'applicazione sottoposta **registrazioni per l'App**, quindi selezionare **impostazioni**.  Selezionare **autorizzazioni necessarie**, quindi selezionare **Add**. Cercare e selezionare **mappe di Azure** sotto **selezionare un'API**, quindi selezionare il **selezionare** pulsante.
 
-    ![Autorizzazioni per l'API dell'app](./media/how-to-manage-authentication/app-permissions.png)
+    ![Autorizzazioni di App per le API](./media/how-to-manage-authentication/app-permissions.png)
 
-3. Infine, in Selezionare le autorizzazioni scegliere Access Azure Maps (Accesso a Mappe di Azure) e fare clic su Seleziona.
+3. Sotto **selezionare le autorizzazioni**, selezionare **le mappe di Azure di accedere**e quindi selezionare il **selezionare** pulsante.
 
-    ![Selezionare le autorizzazioni per l'API dell'app](./media/how-to-manage-authentication/select-app-permissions.png)
+    ![Selezionare le autorizzazioni di app per le API](./media/how-to-manage-authentication/select-app-permissions.png)
 
-4. Seguire il passaggio a o b, in base all'implementazione dell'autenticazione.
+4. Completare il passaggio una a o b, a seconda del metodo di autenticazione.
 
-    1. Se l'applicazione userà l'autenticazione basata su token utente con Web SDK per Mappe di Azure, è necessario abilitare `oauthEnableImplicitFlow` impostandolo su true nella sezione Manifesto della pagina dei dettagli della registrazione dell'app.
+    1. Se l'applicazione usa l'autenticazione token dell'utente con mappe di Azure SDK per Web, abilitare `oauthEnableImplicitFlow` impostando su true nella sezione manifesto della pagina di dettaglio registrazione dell'app.
     
        ![Manifesto dell'app](./media/how-to-manage-authentication/app-manifest.png)
 
-    2. Se l'applicazione usa l'autenticazione server/applicazione, passare al pannello **Chiavi** all'interno della registrazione dell'app e creare una password o caricare un certificato di chiave pubblica nella registrazione dell'app. Se si crea una password, dopo aver salvato,****  copiare la password per usarla in seguito e archiviarla in modo sicuro. Verrà usata usato per acquisire token da Azure AD.
+    2. Se l'applicazione usa l'autenticazione server / dell'applicazione, passare al **chiavi** pannello nella registrazione dell'app e creare una password o caricare un certificato di chiave pubblica per la registrazione dell'app. Se si crea una password, dopo aver selezionato **salvare**, copiare la password per un momento successivo e archiviarlo in modo sicuro. Userai questa password per acquisire i token da Azure AD.
 
        ![Chiavi dell'app](./media/how-to-manage-authentication/app-keys.png)
 
 
 ## <a name="grant-rbac-to-azure-maps"></a>Concedere il controllo degli accessi in base al ruolo a Mappe di Azure
 
-Una volta associato un account Mappe di Azure al tenant di Azure AD, è possibile concedere il controllo degli accessi assegnando l'utente o l'applicazione ai ruoli del controllo degli accessi di Mappe di Azure disponibili.
+Dopo aver associato un account mappe di Azure con il tenant di Azure AD, è possibile concedere il controllo di accesso tramite l'assegnazione di un utente o un'applicazione a uno o più ruoli di controllo di accesso di mappe di Azure.
 
-1. Passare all'opzione **Controllo di accesso**, fare clic su **Assegnazioni di ruolo** e quindi su **Aggiungi un'assegnazione di ruolo**.
+1. Passare a **controllo di accesso (IAM)**, selezionare **le assegnazioni di ruolo**, quindi selezionare **aggiungere un'assegnazione di ruolo**.
 
     ![Concedere il controllo degli accessi in base al ruolo](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
-2. Nella finestra popup Assegnazioni di ruolo selezionare il **Ruolo** Lettore di dati per Mappe di Azure (anteprima), in **Assegna accesso a**: selezionare Utente, gruppo o entità servizio di Azure AD, quindi selezionare**** Utente o Applicazione dall'elenco a discesa e fare clic su **Salva**.
+2. Nel **aggiungere un'assegnazione di ruolo** finestra, sotto **ruolo**, selezionare **lettura data mappe di Azure (anteprima)**. In **Assegna accesso a** selezionare **Utente, gruppo o entità servizio di Azure AD**. Sotto **seleziona**, selezionare l'utente o applicazione. Selezionare **Salva**.
 
     ![Aggiungi un'assegnazione di ruolo](./media/how-to-manage-authentication/add-role-assignment.png)
 
 ## <a name="view-available-azure-maps-rbac-roles"></a>Visualizzare i ruoli Controllo degli accessi in base al ruolo di Mappe di Azure disponibili
 
-Per visualizzare i ruoli Controllo degli accessi in base al ruolo disponibili per Mappe di Azure a cui è possibile concedere l'accesso, passare all'opzione **Controllo di accesso (IAM)**, fare clic su **Ruoli** e cercare i ruoli che contengono **Mappe di Azure**.
+Per visualizzare i ruoli controllo degli accessi in base al ruolo di accesso disponibili per le mappe di Azure, passare a **controllo di accesso (IAM)**, selezionare **ruoli**, e quindi cercare i ruoli che iniziano con **mappediAzure**. Questi sono i ruoli che è possibile concedere l'accesso a.
 
 ![Visualizzare i ruoli disponibili](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
 
-## <a name="view-azure-maps-role-based-access-control-rbac"></a>Visualizzare il controllo degli accessi in base al ruolo di Mappe di Azure
+## <a name="view-azure-maps-rbac"></a>Visualizzare mappe di Azure RBAC
 
-Azure AD consente il controllo granulare degli accessi tramite il controllo degli accessi in base al ruolo. 
+RBAC fornisce controllo di accesso granulare.
 
-Per visualizzare gli utenti o le app a cui è stato concesso il controllo degli accessi in base al ruolo per Mappe Azure, passare all'opzione **Controllo di accesso (IAM)**, selezionare **Assegnazioni di ruolo** e filtrare in base a **Mappe di Azure**. Di seguito compariranno tutti i ruoli disponibili.
+Per visualizzare gli utenti e le app che sono stati concessi RBAC per le mappe di Azure, passare a **controllo di accesso (IAM)**, selezionare **le assegnazioni di ruolo**e quindi filtrare in base **mappe di Azure**.
 
-![Visualizzare il controllo degli accessi in base al ruolo](./media/how-to-manage-authentication/how-to-view-amrbac.png)
+![Visualizzare gli utenti e le app concesse RBAC](./media/how-to-manage-authentication/how-to-view-amrbac.png)
 
 
 ## <a name="request-tokens-for-azure-maps"></a>Richiedere token per Mappe di Azure
 
-Una volta registrata e associata l'app con Mappe di Azure, è possibile richiedere i token di accesso.
+Dopo aver registrato l'app e ad essa associato con le mappe di Azure, è possibile richiedere i token di accesso.
 
-* Se l'applicazione userà l'autenticazione basata su token utente con Web SDK per Mappe di Azure, è necessario configurare la pagina html con l'ID Client di Mappe di Azure e l'ID app di Azure AD.
+* Se l'applicazione usa l'autenticazione token dell'utente con mappe di Azure SDK per Web, è necessario configurare la pagina HTML con l'ID client di mappe di Azure e l'ID dell'app Azure AD.
 
-* Per le applicazioni che usano l'autenticazione server/applicazione, richiedere un token dall'endpoint di accesso di Azure AD `https://login.microsoftonline.com` con ID risorsa di Azure AD `https://atlas.microsoft.com/`, ID client Mappe di Azure, ID app Azure AD e certificato o password della registrazione dell'app Azure AD.
+* Se l'applicazione usa l'autenticazione server / dell'applicazione, è necessario richiedere un token dall'endpoint di accesso di Azure AD `https://login.microsoftonline.com` con l'ID di risorsa di Azure AD `https://atlas.microsoft.com/`, l'ID client di mappe di Azure, l'ID di app di Azure AD e la registrazione dell'app Azure AD password o certificato.
 
-Per altre informazioni sulla richiesta di token di accesso da Azure AD per utenti ed entità servizio, vedere [Scenari di autenticazione per Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
+Per altre informazioni su come richiedere i token di accesso da Azure AD per gli utenti ed entità servizio, vedere [scenari di autenticazione per Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

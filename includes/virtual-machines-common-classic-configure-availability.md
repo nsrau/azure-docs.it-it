@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 32f533d06b7db0284459951e65f9c04fe0bb0285
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227015"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "58114649"
 ---
 Un set di disponibilità aiuta a mantenere disponibili le macchine virtuali durante il tempo di inattività, ad esempio durante la manutenzione. L'inserimento di due o più macchine virtuali con configurazione simile in un set di disponibilità crea la ridondanza necessaria a mantenere la disponibilità delle applicazioni o dei servizi eseguiti sulla macchina virtuale. Per informazioni dettagliate sul funzionamento, vedere [Gestire la disponibilità delle macchine virtuali][Manage the availability of virtual machines].
 
@@ -17,7 +17,7 @@ Per assicurare la continua disponibilità e l'esecuzione efficiente dell'applica
 
 È possibile aggiungere le macchine virtuali in un set di disponibilità usando una di queste due opzioni:
 
-* [Opzione 1: Creare una macchina virtuale e un set di disponibilità contemporaneamente][Option 1: Create a virtual machine and an availability set at the same time]. Quindi, aggiungere le nuove macchine virtuali al set.
+* [Opzione 1: Creare una macchina virtuale e un set allo stesso tempo di disponibilità][Option 1: Create a virtual machine and an availability set at the same time]. Quindi, aggiungere le nuove macchine virtuali al set.
 * [Opzione 2: Aggiungere una macchina virtuale esistente a un set di disponibilità][Option 2: Add an existing virtual machine to an availability set].
 
 > [!NOTE]
@@ -25,7 +25,7 @@ Per assicurare la continua disponibilità e l'esecuzione efficiente dell'applica
 > 
 > 
 
-## <a id="createset"></a>Opzione 1: Creare una macchina virtuale e un set di disponibilità contemporaneamente.
+## <a id="createset"> </a>Opzione 1: Creare una macchina virtuale e un set allo stesso tempo di disponibilità
 A tale scopo, è possibile usare il portale di Azure o i comandi di Azure PowerShell.
 
 Per usare il Portale di Azure:
@@ -46,7 +46,7 @@ Per usare il Portale di Azure:
 
 Per usare i comandi di Azure PowerShell per creare una macchina virtuale di Azure e aggiungerla a un set di disponibilità nuovo o esistente, vedere [Use Azure PowerShell to create and preconfigure Windows-based virtual machines](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) (Usare Azure PowerShell per creare e preconfigurare macchine virtuali Windows)
 
-## <a id="addmachine"></a>Opzione 2: Aggiungere una macchina virtuale esistente a un set di disponibilità.
+## <a id="addmachine"> </a>Opzione 2: Aggiungere una macchina virtuale esistente a un set di disponibilità
 Nel Portale di Azure è possibile aggiungere le macchine virtuali classiche a un set di disponibilità esistente oppure creare un set nuovo per le macchine. (si noti che le macchine virtuali presenti nello stesso set di disponibilità devono appartenere allo stesso servizio cloud). La procedura è quasi la stessa: con Azure PowerShell è possibile aggiungere la macchina virtuale a un set di disponibilità esistente.
 
 1. Accedere al [portale di Azure](https://portal.azure.com), se questa operazione non è già stata eseguita.

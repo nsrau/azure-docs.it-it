@@ -7,19 +7,19 @@ author: sumukhs
 manager: timlt
 editor: ''
 ms.assetid: 79b48ffa-2474-4f1c-a857-3471f9590ded
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 13cf9c148e36201bd8ee81d4072d8b8cd8660bd1
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: 224899e92684d83d33fbd61408e67d4ec11ec0a3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053149"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898738"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Configurare ReliableDictionaryActorStateProvider di Reliable Actors
 È possibile modificare la configurazione predefinita di ReliableDictionaryActorStateProvider cambiando il file settings.xml generato nella radice del pacchetto di Visual Studio all'interno della cartella Config per l'attore specificato.
@@ -93,14 +93,14 @@ La configurazione predefinita viene generata dal modello di Visual Studio e dovr
 | MaxSecondaryReplicationQueueSize |Numero di operazioni |16384 |Numero massimo di operazioni nella coda secondaria. Un'operazione viene liberata quando il relativo stato viene reso altamente disponibile tramite persistenza. Questo valore deve essere maggiore di 64 ed essere una potenza di 2. |
 | CheckpointThresholdInMB |MB |200 |Quantità di spazio del file di log dopo il quale viene eseguito un checkpoint dello stato. |
 | MaxRecordSizeInKB |KB |1024 |La dimensione massima dei record che il replicatore può scrivere nel log. Questo valore deve essere un multiplo di 4 ed essere maggiore di 16. |
-| OptimizeLogForLowerDiskUsage |boolean |true |Se il valore è true, il log viene configurato in modo che il file di log dedicato della replica venga creato mediante un file NTFS sparse. Questo riduce l'utilizzo effettivo di spazio su disco per il file. Quando il valore è false, il file viene creato con allocazioni predefinite che assicurano le migliori prestazioni in scrittura. |
+| OptimizeLogForLowerDiskUsage |Boolean |true |Se il valore è true, il log viene configurato in modo che il file di log dedicato della replica venga creato mediante un file NTFS sparse. Questo riduce l'utilizzo effettivo di spazio su disco per il file. Quando il valore è false, il file viene creato con allocazioni predefinite che assicurano le migliori prestazioni in scrittura. |
 | SharedLogId |GUID |"" |Specifica un GUID da usare per l'identificazione del file di log condiviso usato con la replica in oggetto. In genere, i servizi non devono usare questa impostazione. Tuttavia, se è stato specificato SharedLogId, lo deve essere anche SharedLogPath. |
 | SharedLogPath |Nome di percorso completo |"" |Specifica il percorso completo in cui verrà creato il file di log condiviso per la replica in oggetto. In genere, i servizi non devono usare questa impostazione. Tuttavia, se è stato specificato SharedLogPath, lo deve essere anche SharedLogId. |
 
 ## <a name="sample-configuration-file"></a>Esempio file di configurazione
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <Section Name="MyActorServiceReplicatorConfig">
       <Parameter Name="ReplicatorEndpoint" Value="MyActorServiceReplicatorEndpoint" />
       <Parameter Name="BatchAcknowledgementInterval" Value="0.05"/>

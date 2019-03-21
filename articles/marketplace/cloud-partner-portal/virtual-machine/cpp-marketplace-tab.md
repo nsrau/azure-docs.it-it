@@ -14,16 +14,16 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b68f7004366dcb502ffc8332cf8266a434c7ecfb
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
-ms.translationtype: HT
+ms.openlocfilehash: b1b62c68ef4e18f4d4d36a78078ad7431717b754
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977149"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995638"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Scheda Marketplace per una macchina virtuale
 
-La scheda **Marketplace** della pagina **Nuova offerta**  consente di offrire ai clienti potenziali contratti e informazioni legali, di vendita e di marketing e di gestire i clienti potenziali generati dal marketplace. Questa modulo di grandi dimensioni è suddiviso in quattro sezioni: **Overview** (Panoramica), **Marketing Artifacts** (Artefatti di marketing), **Lead Management** (Gestione clienti potenziali) e **Legal** (Legale). 
+La scheda **Marketplace** della pagina **Nuova offerta** consente di offrire ai clienti potenziali informazioni e contratti legali, di vendita e marketing e di gestire i clienti potenziali generati dal marketplace. Questa forma estesa è suddivisa in quattro sezioni: **Cenni preliminari sulla**, **gli elementi di Marketing**, **condurre una gestione**, e **legali**. 
 
 ## <a name="overview-section"></a>Sezione Panoramica
 In questa sezione immettere le informazioni generali sull'offerta di Azure Marketplace.  Un asterisco (*) alla fine del nome del campo indica che il campo è obbligatorio.
@@ -38,6 +38,7 @@ La tabella seguente descrive lo scopo e il contenuto di questi campi.
 | **Summary**               | Descrizione breve dello scopo o della funzione della soluzione.  La lunghezza massima consentita è di 100 caratteri. |
 | **Long Summary** (Riepilogo lungo)          | Scopo o funzione della soluzione.  La lunghezza massima consentita è di 256 caratteri. |
 | **Descrizione**           | Descrizione della soluzione.  La lunghezza massima consentita è di 3000 caratteri. Supporta la formattazione HTML semplice. |
+| **Canale rivenditore CSP di Microsoft** | Cloud Solution Provider (CSP) partner canale acconsentire esplicitamente a questo punto è disponibile.  Vedi [Cloud Solution Provider](../../cloud-solution-providers.md) per altre informazioni sul marketing dell'offerta tramite Microsoft CSP partner canali. |
 | **Marketing Identifier** (Identificatore di marketing)  | URL univoco da associare a questa offerta. Include in genere il nome dell'organizzazione e della soluzione. La lunghezza massima consentita è di 50 caratteri.  Ad esempio:  <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
 | **Preview Subscription IDs** (ID sottoscrizione di anteprima) | Aggiungere da uno a 100 identificatori di sottoscrizione di visualizzatori anteprima. Queste sottoscrizioni consentite avranno accesso all'offerta dopo la pubblicazione, prima che venga attivata. |
 | **Collegamenti utili**          | Aggiungere gli URL per la documentazione, le note sulla versione, le domande frequenti e così via. |
@@ -47,7 +48,7 @@ La tabella seguente descrive lo scopo e il contenuto di questi campi.
 
 ## <a name="marketing-artifacts-section"></a>Sezione Marketing Artifacts (Artefatti di marketing)
 
-Questa seconda sezione è suddivisa in tre sottosezioni: **Logos** (Logo), **Screenshots** (Screenshot) e **Videos** (Video). I logo sono gli unici artefatti di marketing obbligatori, ma tutti sono vivamente consigliati per catturare meglio l'attenzione dei clienti.
+Questa seconda sezione è suddivisa in tre sottosezioni: **Logo**, **Screenshot**, e **video**. I logo sono gli unici artefatti di marketing obbligatori, ma tutti sono vivamente consigliati per catturare meglio l'attenzione dei clienti.
 
 ![Sezione Marketing Artifacts (Artefatti di marketing) della scheda Marketplace nel modulo Nuova offerta per le macchine virtuali](./media/publishvm_009.png)
 
@@ -63,7 +64,7 @@ Questa seconda sezione è suddivisa in tre sottosezioni: **Logos** (Logo), **Scr
 | **Nome**                  | Nome o titolo <!-- TODO - max char length? none specified in UI -->                               |
 | **Immagine**                 | Acquisizione di schermata, 533x324 pixel                                         |
 | *Video*  |  |
-| **Nome**                  | Nome o titolo <!-- TODO - max char length? -->                              |
+| **Nome**                  | Nome o titolo  <!-- TODO - max char length? -->                              |
 | **Collegamento**                  | URL del video, ospitato in YouTube o Vimeo                                        |
 | **Anteprima**             | Bitmap, 533x324                                                               |
 |  |  |
@@ -71,7 +72,7 @@ Questa seconda sezione è suddivisa in tre sottosezioni: **Logos** (Logo), **Scr
 
 ### <a name="logo-guidelines"></a>Linee guida per il logo
 
-<!-- TD: It seems like this section could be better located in some common area, maybe a AMP Marketing/Design section 
+<!-- TD: It seems like this section could be better located in some common area, maybe an AMP Marketing/Design section 
 +1 this should all be in a common area and referenced from here to that location.-->
 
 Ogni logo caricato nel portale Cloud Partner deve rispettare le linee guida seguenti:
@@ -121,7 +122,7 @@ Dopo aver pubblicato l'offerta, verrà convalidata la connessione al cliente pot
 
 ## <a name="legal-section"></a>Sezione legale
 
-Quest'ultima sezione consente di fornire i due documenti legali necessari per ogni offerta: informativa sulla privacy e Condizioni per l'utilizzo.
+Questa sezione consente di fornire i due documenti legali necessari per ogni offerta: informativa sulla privacy e condizioni per l'utilizzo.
 
 |  **Campo**                |     **Descrizione**                                                          |
 |  ---------                |     ---------------                                                          |

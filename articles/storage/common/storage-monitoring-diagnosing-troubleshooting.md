@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: 25ec52b44f8d5a36868cc609c42b6db5ab939fa4
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: bfaa738b0f99594a3bd11541d519701ff5eb98f5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490255"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896161"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -123,9 +123,9 @@ La parte rimanente di questa sezione descrive le metriche che è necessario moni
 Usare il [portale di Azure](https://portal.azure.com) per visualizzare lo stato del servizio di archiviazione (e altri servizi di Azure) in tutte le aree Azure del mondo. Il monitoraggio consente di vedere immediatamente se un problema al di fuori del proprio controllo incide sul servizio di archiviazione nell'area in uso per l'applicazione.
 
 Il [portale di Azure](https://portal.azure.com) può anche fornire notifiche sugli incidenti che influiscono sui vari servizi di Azure.
-Note: queste informazioni in precedenza erano disponibili, insieme ai dati cronologici, sul [dashboard dei servizi di Azure](http://status.azure.com).
+Note: queste informazioni in precedenza erano disponibili, insieme ai dati cronologici, sul [dashboard dei servizi di Azure](https://status.azure.com).
 
-Benché il [portale di Azure](https://portal.azure.com) raccolga le informazioni sullo stato dall'interno dei data center di Azure (monitoraggio da interno a esterno), si può anche considerare l'adozione di un approccio da esterno a interno per generare transazioni sintetiche che accedano periodicamente all'applicazione Web in hosting su Azure da più posizioni. I servizi offerti da [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) e Application Insights per Azure DevOps sono esempi di questo approccio. Per altre informazioni su Application Insights per Azure DevOps, vedere la sezione "[Appendice 5: Monitoraggio con Application Insights per Azure DevOps](#appendix-5)".
+Benché il [portale di Azure](https://portal.azure.com) raccolga le informazioni sullo stato dall'interno dei data center di Azure (monitoraggio da interno a esterno), si può anche considerare l'adozione di un approccio da esterno a interno per generare transazioni sintetiche che accedano periodicamente all'applicazione Web in hosting su Azure da più posizioni. I servizi offerti da [Dynatrace](https://www.dynatrace.com/en/synthetic-monitoring) e Application Insights per Azure DevOps sono esempi di questo approccio. Per altre informazioni su Application Insights per Azure DevOps, vedere la sezione "[Appendice 5: Monitoraggio con Application Insights per Azure DevOps](#appendix-5)".
 
 ### <a name="monitoring-capacity"></a>Monitoraggio della capacità
 Lo strumento Metriche di archiviazione memorizza solo le metriche di capacità per il servizio BLOB poiché gli oggetti BLOB normalmente raccolgono la proporzione maggiore di dati archiviati. Attualmente non è possibile usare Metriche di archiviazione per monitorare la capacità di tabelle e code. È possibile trovare questi dati nella tabella **$MetricsCapacityBlob** se è stato attivato il monitoraggio per il servizio BLOB. Le metriche di archiviazione registrano i dati una volta al giorno ed è possibile usare il valore di **RowKey** per determinare se la riga contiene un'entità che fa riferimento ai dati utente (valore **data**) o dati analitici (valore **analytics**). Ogni entità archiviata contiene informazioni sulla quantità di spazio di archiviazione usato (valore **Capacity** in byte) e il numero attuale di contenitori (**ContainerCount**) e oggetti BLOB (**ObjectCount**) usati nell'account di archiviazione. Per ulteriori informazioni sulle metriche di capacità archiviate nella tabella **$MetricsCapacityBlob**, vedere [Schema di tabella della metrica di Analisi di archiviazione](https://msdn.microsoft.com/library/azure/hh343264.aspx).
@@ -220,10 +220,10 @@ Storage Client Library per .NET consente di raccogliere i dati della registrazio
 ### <a name="using-network-logging-tools"></a>Uso degli strumenti di registrazione in rete
 È possibile acquisire il traffico tra client e server per fornire informazioni dettagliate sui dati scambiati da client e server e sulle condizione della rete sottostante. Sono disponibili alcuni strumenti utili per la registrazione in rete:
 
-* [Fiddler](http://www.telerik.com/fiddler) è un proxy di debug Web gratuito che consente di esaminare le intestazioni e i dati di payload dei messaggi HTTP e HTTPS di richiesta e risposta. Per altre informazioni, vedere [Appendice 1: Uso di Fiddler per l'acquisizione del traffico HTTP e HTTPS](#appendix-1).
-* [Microsoft Network Monitor (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) e [Wireshark](http://www.wireshark.org/) sono strumenti gratuiti per l'analisi dei protocolli di rete che consentono di visualizzare informazioni dettagliate sui pacchetti per un'ampia gamma di protocolli di rete. Per altre informazioni su Wireshark, vedere "[Appendice 2: Uso di Wireshark per l'acquisizione del traffico di rete](#appendix-2)".
+* [Fiddler](https://www.telerik.com/fiddler) è un proxy di debug Web gratuito che consente di esaminare le intestazioni e i dati di payload dei messaggi HTTP e HTTPS di richiesta e risposta. Per altre informazioni, vedere [Appendice 1: Uso di Fiddler per l'acquisizione del traffico HTTP e HTTPS](#appendix-1).
+* [Microsoft Network Monitor (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) e [Wireshark](https://www.wireshark.org/) sono strumenti gratuiti per l'analisi dei protocolli di rete che consentono di visualizzare informazioni dettagliate sui pacchetti per un'ampia gamma di protocolli di rete. Per altre informazioni su Wireshark, vedere "[Appendice 2: Uso di Wireshark per l'acquisizione del traffico di rete](#appendix-2)".
 * Microsoft Message Analyzer è uno strumento di Microsoft che sostituisce Netmon e che, oltre ad acquisire i dati dei pacchetti di rete, consente di visualizzare e analizzare i dati di log acquisiti da altri strumenti. Per altre informazioni, vedere "[Appendice 3: Uso di Microsoft Message Analyzer per l'acquisizione del traffico di rete](#appendix-3)".
-* Per eseguire un test di base delle connessioni per verificare che il computer client sia in grado di connettersi al servizio di archiviazione Azure in rete, non è possibile utilizzare il normale strumento **ping** sul client. [Tuttavia, è possibile usare lo strumento **tcping**](http://www.elifulkerson.com/projects/tcping.php) per verificare la connettività.
+* Per eseguire un test di base delle connessioni per verificare che il computer client sia in grado di connettersi al servizio di archiviazione Azure in rete, non è possibile utilizzare il normale strumento **ping** sul client. [Tuttavia, è possibile usare lo strumento **tcping**](https://www.elifulkerson.com/projects/tcping.php) per verificare la connettività.
 
 In molti casi, i dati di log provenienti dalla registrazione dell'archiviazione e da Storage Client Library saranno sufficienti per diagnosticare un problema, ma in alcune situazione può essere necessario disporre di informazioni più dettagliate rispetto a quelle fornite da questi strumenti. Ad esempio, l'utilizzo di Fiddler per visualizzare i messaggi HTTP e HTTPS consente di visualizzare i dati di intestazione e di payload inviati e ricevuti dai servizi di archiviazione e quindi di esaminare il modo in cui un'applicazione client ritenti le operazioni di archiviazione. Gli strumenti di analisi dei protocolli, come Wireshark, funzionano a livello di pacchetto e consentono di visualizzare i dati TCP, quindi di risolvere i problemi dovuti alla perdita di pacchetti e a errori di connessione. Message Analyzer è in grado di funzionare sia sul livello HTTP che sul livello TCP.
 
@@ -469,7 +469,7 @@ Se l'applicazione client genera errori HTTP 403 (Accesso negato), probabilmente 
 | Source (Sorgente) | Livello di dettaglio | Livello di dettaglio | ID richiesta client | testo dell'operazione |
 | --- | --- | --- | --- | --- |
 | Microsoft.WindowsAzure.Storage |Informazioni |3 |85d077ab-… |Avvio operazione con posizione primaria in base alla modalità di posizionamento PrimaryOnly. |
-| Microsoft.WindowsAzure.Storage |Informazioni |3 |85d077ab-… |Avvio di richieste sincrone in https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14. |
+| Microsoft.WindowsAzure.Storage |Informazioni |3 |85d077ab-… |Avvio richiesta sincrona a <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
 | Microsoft.WindowsAzure.Storage |Informazioni |3 |85d077ab-… |In attesa di risposta. |
 | Microsoft.WindowsAzure.Storage |Avviso |2 |85d077ab-… |Eccezione generata durante l'attesa di una risposta: Il server remoto ha restituito un errore: 403 - Accesso negato. |
 | Microsoft.WindowsAzure.Storage |Informazioni |3 |85d077ab-… |Risposta ricevuta. Codice stato = 403, ID richiesta = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
@@ -589,7 +589,7 @@ SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
 > 
 > 
 
-Tali errori si verificano poiché il Web browser implementa come restrizione di sicurezza il [criterio della stessa origine](http://www.w3.org/Security/wiki/Same_Origin_Policy) che impedisce che una pagina Web esegua una chiamata a un'API in un dominio diverso da quello da cui proviene la pagina.
+Tali errori si verificano poiché il Web browser implementa come restrizione di sicurezza il [criterio della stessa origine](https://www.w3.org/Security/wiki/Same_Origin_Policy) che impedisce che una pagina Web esegua una chiamata a un'API in un dominio diverso da quello da cui proviene la pagina.
 
 Per evitare il problema di JavaScript, è possibile configurare il servizio CORS (Cross Origin Resource Sharing) per il servizio di archiviazione a cui accede il client. Per altre informazioni, vedere [Supporto della condivisione delle risorse tra le origini (CORS) per i servizi di archiviazione Azure](https://msdn.microsoft.com/library/azure/dn535601.aspx).
 
@@ -708,7 +708,7 @@ Per altre informazioni sull'uso di Microsoft Message Analyzer, vedere "[Appendic
 Le appendici descrivono alcuni strumenti che possono risultare utili per la diagnosi e la risoluzione dei problemi del servizio di archiviazione Azure (e di altri servizi). Tali strumenti non fanno parte del servizio di archiviazione Azure e alcuni sono prodotti di terze parti. Quindi, gli strumenti descritti nelle appendici non sono coperti da eventuali contratti di assistenza stipulati per Microsoft Azure o il servizio di archiviazione Azure ed è necessario che l'utente, come parte del proprio processo di valutazione, esamini le opzioni di licenza e di assistenza disponibili presso i fornitori degli strumenti.
 
 ### <a name="appendix-1"></a>Appendice 1: Uso di Fiddler per l'acquisizione del traffico HTTP e HTTPS
-[Fiddler](http://www.telerik.com/fiddler) è uno strumento utile per l'analisi del traffico HTTP e HTTPS tra l'applicazione cliente e il servizio di archiviazione di Azure in uso.
+[Fiddler](https://www.telerik.com/fiddler) è uno strumento utile per l'analisi del traffico HTTP e HTTPS tra l'applicazione cliente e il servizio di archiviazione di Azure in uso.
 
 > [!NOTE]
 > Fiddler è in grado di decodificare il traffico HTTPS. È consigliabile leggere attentamente la documentazione di Fiddler per capire in che modo esegue questa operazione e quali sono le implicazioni in termini di sicurezza.
@@ -727,14 +727,14 @@ Per limitare il volume del traffico acquisito da Fiddler, utilizzare i filtri co
 ![][5]
 
 ### <a name="appendix-2"></a>Appendice 2: Uso di Wireshark per l'acquisizione del traffico di rete
-[Wireshark](http://www.wireshark.org/) è uno strumento di analisi dei protocolli di rete che consente di visualizzare informazioni dettagliate sui pacchetti per un'ampia gamma di protocolli di rete.
+[Wireshark](https://www.wireshark.org/) è uno strumento di analisi dei protocolli di rete che consente di visualizzare informazioni dettagliate sui pacchetti per un'ampia gamma di protocolli di rete.
 
 La procedura che segue indica come acquisire informazioni dettagliate sui pacchetti per il traffico dal computer locale su cui è installato Wireshark al servizio tabelle nell'account di archiviazione Azure.
 
 1. Avviare Wireshark sul computer locale.
 2. Nella sezione **Start** , selezionare l'interfaccia (o le interfacce) di rete locale connessa a Internet.
 3. Fare clic su **Capture Options**.
-4. Aggiungere un filtro nella casella di testo **Capture Filter** . Ad esempio, **host contosoemaildist.table.core.windows.net** configura Wireshark per acquisire solo i pacchetti inviati o ricevuti dall'endpoint del servizio tabelle nell'account di archiviazione **contosoemaildist**. Vedere l' [elenco completo dei filtri di acquisizione](http://wiki.wireshark.org/CaptureFilters).
+4. Aggiungere un filtro nella casella di testo **Capture Filter** . Ad esempio, **host contosoemaildist.table.core.windows.net** configura Wireshark per acquisire solo i pacchetti inviati o ricevuti dall'endpoint del servizio tabelle nell'account di archiviazione **contosoemaildist**. Vedere l' [elenco completo dei filtri di acquisizione](https://wiki.wireshark.org/CaptureFilters).
    
    ![][6]
 5. Fare clic su **Avvia**. Wireshark acquisirà tutti i pacchetti inviati a o dall'endpoint del servizio tabelle non appena l'applicazione client viene utilizzata sul computer locale.
@@ -745,12 +745,12 @@ WireShark evidenzia tutti gli errori presenti nella finestra **packetlist** . È
 
 ![][7]
 
-È anche possibile scegliere di visualizzare i dati TCP nello stesso modo in cui vengono visualizzati dal livello dell'applicazione, facendo clic con il pulsante destro del mouse sui dati TCP e selezionando **Follow TCP Stream** (Segui flusso TCP). Ciò è utile se si acquisisce il dump senza un filtro di acquisizione. Per altre informazioni, vedere [Seguire i flussi TCP](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
+È anche possibile scegliere di visualizzare i dati TCP nello stesso modo in cui vengono visualizzati dal livello dell'applicazione, facendo clic con il pulsante destro del mouse sui dati TCP e selezionando **Follow TCP Stream** (Segui flusso TCP). Ciò è utile se si acquisisce il dump senza un filtro di acquisizione. Per altre informazioni, vedere [Seguire i flussi TCP](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
 
 ![][8]
 
 > [!NOTE]
-> Per ulteriori informazioni sull'uso di Wireshark, vedere la [guida dell'utente di Wireshark](http://www.wireshark.org/docs/wsug_html_chunked).
+> Per ulteriori informazioni sull'uso di Wireshark, vedere la [guida dell'utente di Wireshark](https://www.wireshark.org/docs/wsug_html_chunked).
 > 
 > 
 

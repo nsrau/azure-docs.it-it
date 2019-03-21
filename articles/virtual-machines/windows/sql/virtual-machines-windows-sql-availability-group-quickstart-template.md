@@ -1,6 +1,6 @@
 ---
-title: Creare il cluster WSFC, il listener e configurare il servizio di bilanciamento del carico interno per un gruppo di disponibilità Always On in una macchina virtuale (VM) di SQL Server con il modello di avvio rapido di Azure
-description: Usare i modelli di avvio rapido di Azure per semplificare il processo di creazione di gruppi di disponibilità per VM di SQL Server in Azure usando un modello per creare il cluster, aggiungere VM di SQL Server al cluster, creare il listener e configurare il servizio di bilanciamento del carico interno.
+title: Usare modelli di avvio rapido di Azure per configurare gruppi di disponibilità AlwaysOn per SQL Server in una VM di Azure
+description: Usare modelli di avvio rapido di Azure per creare il cluster di Failover di Windows, si aggiungono macchine virtuali SQL Server al cluster, creare il listener e configurare il bilanciamento del carico interno in Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/04/2018
+ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 093fa1414ec624f66bc7cb4559fa8c0535834c10
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 4b4527bfaacc592c13552e362de0cba620314cd8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981928"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122047"
 ---
-# <a name="create-wsfc-listener-and-configure-ilb-for-an-always-on-availability-group-on-a-sql-server-vm-with-azure-quickstart-template"></a>Creare il cluster WSFC, il listener e configurare il servizio di bilanciamento del carico interno per un gruppo di disponibilità Always On in una macchina virtuale (VM) di SQL Server con il modello di avvio rapido di Azure
+# <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Usare modelli di avvio rapido di Azure per configurare gruppi di disponibilità AlwaysOn per SQL Server in una VM di Azure
 Questo articolo descrive come usare i modelli di avvio rapido di Azure per automatizzare parzialmente la distribuzione di una configurazione di gruppo di disponibilità Always On per macchine virtuali di SQL Server in Azure. In questo processo vengono usati due modelli di avvio rapido di Azure. 
 
    | Modello | DESCRIZIONE |
@@ -38,7 +38,14 @@ Altre parti della configurazione del gruppo di disponibilità devono essere eseg
 Per automatizzare la configurazione di un gruppo di disponibilità Always On usando i modelli di avvio rapido sono necessari i prerequisiti seguenti: 
 - Una [sottoscrizione di Azure](https://azure.microsoft.com/free/).
 - Un gruppo di risorse con un controller di dominio. 
-- Una o più [macchine virtuali in Azure che eseguono SQL Server 2016 (o superiore) Enterprise Edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) aggiunte al dominio, nella stessa zona di disponibilità o set di disponibilità[ registrato con il provider di risorse di macchine virtuali SQL](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider).  
+- Una o più [macchine virtuali in Azure che eseguono SQL Server 2016 (o superiore) Enterprise Edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) aggiunte al dominio, nella stessa zona di disponibilità o set di disponibilità[ registrato con il provider di risorse di macchine virtuali SQL](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider).  
+- (Non usato da qualsiasi entità) disponibili due indirizzi IP, uno per il bilanciamento del carico interno e uno per il listener del gruppo di disponibilità all'interno della stessa subnet del gruppo di disponibilità. Se viene usato un bilanciamento del carico esistente, è necessario un solo indirizzo IP disponibile.  
+
+## <a name="permissions"></a>Autorizzazioni
+Le autorizzazioni seguenti sono necessari per configurare il gruppo disponibilità Always On usando i modelli di avvio rapido di Azure: 
+
+- Un dominio account utente che dispone dell'autorizzazione 'Crea Computer oggetto' nel dominio.  Ad esempio, un account amministratore di dominio ha in genere autorizzazioni sufficienti (ad esempio: account@domain.com). _Questo account deve anche fare parte del gruppo degli amministratori locali in ogni macchina virtuale per creare il cluster._
+- L'account utente di dominio che controlla il servizio SQL Server. 
 
 
 ## <a name="step-1---create-the-wsfc-and-join-sql-server-vms-to-the-cluster-using-quickstart-template"></a>Passaggio 1: Creare il cluster WSFC e aggiungere VM di SQL Server al cluster usando il modello di avvio rapido 
@@ -69,18 +76,18 @@ Dopo aver registrato le macchine virtuali di SQL Server per il nuovo provider di
 1. Se si accettano i termini e le condizioni, selezionare la casella di controllo accanto a **Accetto le condizioni riportate sopra** e selezionare **Acquista** per completare la distribuzione del modello di avvio rapido. 
 1. Per monitorare la distribuzione, selezionare la distribuzione dall'icona a forma di campanello **Notifiche** nella parte superiore della pagina oppure passare al **Gruppo di risorse** nel portale di Azure, selezionare **Distribuzioni** nel campo **Impostazioni** e scegliere la distribuzione 'Microsoft.Template'. 
 
-  >[!NOTE]
-  > Le credenziali specificate durante la distribuzione del modello vengono archiviate solo per la durata della distribuzione. Al termine della distribuzione, le password vengono rimosse e verrà richiesto di specificarle di nuovo in caso di aggiunta di altre macchine virtuali di SQL Server al cluster. 
+   >[!NOTE]
+   > Le credenziali specificate durante la distribuzione del modello vengono archiviate solo per la durata della distribuzione. Al termine della distribuzione, le password vengono rimosse e verrà richiesto di specificarle di nuovo in caso di aggiunta di altre macchine virtuali di SQL Server al cluster. 
 
 
 ## <a name="step-2---manually-create-the-availability-group"></a>Passaggio 2: Creare manualmente il gruppo di disponibilità 
-Creare manualmente il gruppo di disponibilità come di consueto, usando [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell?view=sql-server-2017), [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio?view=sql-server-2017) oppure [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql?view=sql-server-2017). 
+Creare manualmente il gruppo di disponibilità come di consueto, usando [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell), o [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql). 
 
   >[!IMPORTANT]
   > **Non** creare un listener in questo momento perché la procedura viene automatizzata dal modello di avvio rapido **101-sql-vm-aglistener-setup** nel passaggio 4. 
 
 ## <a name="step-3---manually-create-the-internal-load-balancer-ilb"></a>Passaggio 3: Creare manualmente il servizio di bilanciamento del carico interno (ILB)
-Il listener del gruppo di disponibilità (AG) Always On richiede un'istanza del servizio Azure Load Balancer interno (ILB). L'ILB fornisce un indirizzo IP mobile per il listener del gruppo di disponibilità che consente il failover e la riconnessione più veloci. Se le VM di SQL Server in un gruppo di disponibilità fanno parte dello stesso set di disponibilità, è possibile usare un servizio Load Balancer Basic. In caso contrario, è necessario usare un Load Balancer Standard.  **L'ILB deve trovarsi nella stessa rete virtuale delle istanze di VM di SQL Server.** Occorre creare solo l'ILB. Il resto della configurazione, ad esempio il pool back-end, il probe di integrità e le regole di bilanciamento del carico, viene gestita dal modello di avvio rapido **101-sql-vm-aglistener-setup** nel passaggio 4. 
+Always On listener gruppo di disponibilità (AG) richiede un interno Azure (bilanciamento del carico). L'ILB fornisce un indirizzo IP mobile per il listener del gruppo di disponibilità che consente il failover e la riconnessione più veloci. Se le VM di SQL Server in un gruppo di disponibilità fanno parte dello stesso set di disponibilità, è possibile usare un servizio Load Balancer Basic. In caso contrario, è necessario usare un Load Balancer Standard.  **L'ILB deve trovarsi nella stessa rete virtuale delle istanze di VM di SQL Server.** Occorre creare solo l'ILB. Il resto della configurazione, ad esempio il pool back-end, il probe di integrità e le regole di bilanciamento del carico, viene gestita dal modello di avvio rapido **101-sql-vm-aglistener-setup** nel passaggio 4. 
 
 1. Nel portale di Azure aprire il gruppo di risorse contenente le macchine virtuali di SQL Server. 
 2. Nel gruppo di risorse fare clic su **Aggiungi**.
@@ -104,7 +111,7 @@ Il listener del gruppo di disponibilità (AG) Always On richiede un'istanza del 
 6. Selezionare **Create**. 
 
 
-  >[!NOTE]
+  >[!IMPORTANT]
   > La risorsa IP pubblico per ogni VM di SQL Server deve avere uno SKU standard per essere compatibile con il Load Balancer Standard. Per determinare lo SKU della risorsa IP pubblico della VM, passare a **Gruppo di risorse**, selezionare la risorsa **Indirizzo IP pubblico** per la VM di SQL Server desiderata e individuare il valore sotto **SKU**  nel pannello **Panoramica**. 
 
 ## <a name="step-4---create-the-ag-listener-and-configure-the-ilb-with-the-quickstart-template"></a>Passaggio 4: Creare il listener AG e configurare l'ILB con il modello di avvio rapido
@@ -143,8 +150,8 @@ Per configurare l'ILB e creare il listener AG, eseguire le operazioni seguenti:
 1. Se si accettano i termini e le condizioni, selezionare la casella di controllo accanto a **Accetto le condizioni riportate sopra** e selezionare **Acquista** per completare la distribuzione del modello di avvio rapido. 
 1. Per monitorare la distribuzione, selezionare la distribuzione dall'icona a forma di campanello **Notifiche** nella parte superiore della pagina oppure passare al **Gruppo di risorse** nel portale di Azure, selezionare **Distribuzioni** nel campo **Impostazioni** e scegliere la distribuzione 'Microsoft.Template'. 
 
-  >[!NOTE]
-  >Se la distribuzione si interrompe a metà, sarà necessario [rimuovere il listener appena creato](#remove-availability-group-listener) manualmente tramite PowerShell prima di ridistribuire il modello di avvio rapido **101-sql-vm-aglistener-setup**. 
+   >[!NOTE]
+   >Se la distribuzione si interrompe a metà, sarà necessario [rimuovere il listener appena creato](#remove-availability-group-listener) manualmente tramite PowerShell prima di ridistribuire il modello di avvio rapido **101-sql-vm-aglistener-setup**. 
 
 ## <a name="remove-availability-group-listener"></a>Rimuovere il listener del gruppo di disponibilità
 Se in un secondo momento è necessario rimuovere il listener del gruppo di disponibilità configurato dal modello, è necessario passare attraverso il provider di risorse di macchine virtuali SQL. Poiché il listener è stato registrato tramite il provider di risorse di macchine virtuali SQL, eliminarlo semplicemente tramite SQL Server Management Studio non è sufficiente. Occorre eliminarlo tramite il provider di risorse di macchine virtuali SQL usando PowerShell. Questa operazione rimuove i metadati del listener AG dal provider di risorse di macchine virtuali SQL ed elimina fisicamente il listener dal gruppo di disponibilità. 
@@ -176,17 +183,17 @@ Questo errore può essere causato da uno di due motivi. L'account di dominio spe
 
  Verificare che l'account esista. Se esiste, potrebbe trattarsi del secondo caso. Per risolvere il problema, seguire questa procedura:
 
- 1. Nel controller di dominio aprire la finestra **Utenti e computer di Active Directory** dall'opzione **Strumenti** in **Server Manager**. 
- 2. Passare all'account selezionando **Utenti** nel riquadro sinistro.
- 3. Fare clic con il pulsante destro del mouse sull'account desiderato e scegliere **Proprietà**.
- 4. Selezionare la scheda **Account** e verificare se **Nome accesso utente** è vuoto. In caso affermativo, questa è la causa dell'errore. 
+1. Nel controller di dominio aprire la finestra **Utenti e computer di Active Directory** dall'opzione **Strumenti** in **Server Manager**. 
+2. Passare all'account selezionando **Utenti** nel riquadro sinistro.
+3. Fare clic con il pulsante destro del mouse sull'account desiderato e scegliere **Proprietà**.
+4. Selezionare la scheda **Account** e verificare se **Nome accesso utente** è vuoto. In caso affermativo, questa è la causa dell'errore. 
 
-     ![Un account utente vuoto indica un UPN mancante](media/virtual-machines-windows-sql-availability-group-quickstart-template/account-missing-upn.png)
+    ![Un account utente vuoto indica un UPN mancante](media/virtual-machines-windows-sql-availability-group-quickstart-template/account-missing-upn.png)
 
- 5. Immettere il **Nome accesso utente** corrispondente al nome dell'utente e quindi selezionare il dominio appropriato nell'elenco a discesa. 
- 6. Selezionare **Applica** per salvare le modifiche e chiudere la finestra di dialogo selezionando **OK**. 
+5. Immettere il **Nome accesso utente** corrispondente al nome dell'utente e quindi selezionare il dominio appropriato nell'elenco a discesa. 
+6. Selezionare **Applica** per salvare le modifiche e chiudere la finestra di dialogo selezionando **OK**. 
 
- Dopo aver apportato queste modifiche, tentare di distribuire il modello di avvio rapido di Azure ancora una volta. 
+   Dopo aver apportato queste modifiche, tentare di distribuire il modello di avvio rapido di Azure ancora una volta. 
 
 
 

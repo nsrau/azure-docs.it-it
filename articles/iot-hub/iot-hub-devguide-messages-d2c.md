@@ -8,14 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: cabfe4381f7f941f2a5e049eed73be546902f6ae
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: dc5bfe6b431659b7b99140eb29a0e64922a42275
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55485348"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576337"
 ---
-# <a name="use-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Usare il routing dei messaggi per inviare messaggi da dispositivo a cloud a endpoint diversi
+# <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Usare il routing dei messaggi dell'IoT Hub per inviare messaggi da dispositivo a cloud a endpoint diversi
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -35,19 +35,39 @@ Un hub IoT ha un endpoint incorporato predefinito (**messaggi/eventi**) compatib
 
 ### <a name="built-in-endpoint"></a>Endpoint predefinito
 
-È possibile usare l'[integrazione standard di Hub eventi e gli SDK](iot-hub-devguide-messages-read-builtin.md) per ricevere i messaggi da dispositivo a cloud dall'endpoint predefinito (**messaggi/eventi**). Si noti che quando viene creata una route, i dati non vengono più trasmessi all'endpoint predefinito, a meno che non venga creata una route verso tale endpoint.
+È possibile usare l'[integrazione standard di Hub eventi e gli SDK](iot-hub-devguide-messages-read-builtin.md) per ricevere i messaggi da dispositivo a cloud dall'endpoint predefinito (**messaggi/eventi**). Una volta che viene creata una Route, si arresta i dati che passano a built-in-endpoint a meno che non viene creata una Route verso tale endpoint.
 
 ### <a name="azure-blob-storage"></a>Archiviazione BLOB di Azure
 
-L'hub IoT supporta solo la scrittura dei dati in Archiviazione BLOB di Azure nel formato [Apache Avro](http://avro.apache.org/). L'hub IoT crea batch di messaggi e scrive i dati in un BLOB non appena il batch raggiunge una determinata dimensione oppure dopo che è trascorso un determinato intervallo di tempo.
+L'IoT Hub supporta la scrittura dei dati Blob in archiviazione di Azure nel [Apache Avro](https://avro.apache.org/) , nonché il formato JSON. La funzionalità per codificare il formato JSON è disponibile in anteprima in tutte le aree che dell'IoT Hub è disponibile, ad eccezione degli Stati Uniti orientali, Stati Uniti occidentali ed Europa occidentale. Il valore predefinito è AVRO. Il formato di codifica può essere impostato solo quando viene configurato l'endpoint di archiviazione blob. Il formato non può essere modificato per un endpoint esistente. Quando si usa la codifica JSON, è necessario impostare contentType su JSON e contentEncoding UTF-8 del messaggio [le proprietà di sistema](iot-hub-devguide-routing-query-syntax.md#system-properties). È possibile selezionare il formato di codifica usando la creazione dell'Hub IoT o l'API REST di aggiornamento, in particolare il [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), il portale di Azure [CLI di Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). Il diagramma seguente mostra come selezionare il formato di codifica nel portale di Azure.
 
-Per impostazione predefinita, l'hub IoT usa la convenzione di denominazione di file seguente:
+![Codifica di endpoint di archiviazione BLOB](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
+
+L'hub IoT crea batch di messaggi e scrive i dati in un BLOB non appena il batch raggiunge una determinata dimensione oppure dopo che è trascorso un determinato intervallo di tempo. Per impostazione predefinita, l'hub IoT usa la convenzione di denominazione di file seguente:
 
 ```
 {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
 ```
 
 È possibile usare qualsiasi convenzione di denominazione. È tuttavia necessario usare tutti i token elencati. L'hub IoT scriverà in un BLOB vuoto se non sono presenti dati da scrivere.
+
+Quando il routing nell'archiviazione BLOB, è consigliabile l'integrazione di BLOB e quindi si esegue l'iterazione su di essi, per assicurarsi che tutti i contenitori sono in lettura senza eventuali supposizioni errate della partizione. L'intervallo di partizione potrebbe in teoria cambiare durante una [Microsoft ha avviato il failover](iot-hub-ha-dr.md#microsoft-initiated-failover) o l'IoT Hub [failover manuale](iot-hub-ha-dr.md#manual-failover-preview). È possibile usare la [API di elenco BLOB](https://docs.microsoft.com/rest/api/storageservices/list-blobs) per enumerare l'elenco di BLOB. Come materiale sussidiario, vedere l'esempio seguente.
+
+   ```csharp
+        public void ListBlobsInContainer(string containerName, string iothub)
+        {
+            var storageAccount = CloudStorageAccount.Parse(this.blobConnectionString);
+            var cloudBlobContainer = storageAccount.CreateCloudBlobClient().GetContainerReference(containerName);
+            if (cloudBlobContainer.Exists())
+            {
+                var results = cloudBlobContainer.ListBlobs(prefix: $"{iothub}/");
+                foreach (IListBlobItem item in results)
+                {
+                    Console.WriteLine(item.Uri);
+                }
+            }
+        }
+   ```
 
 ### <a name="service-bus-queues-and-service-bus-topics"></a>Code e argomenti del bus di servizio
 
@@ -56,8 +76,6 @@ Nelle code e negli argomenti del bus di servizio usati come endpoint dell'hub Io
 ### <a name="event-hubs"></a>Hub eventi
 
 Oltre all'endpoint compatibile con Hub eventi predefinito, è anche possibile indirizzare i dati a endpoint personalizzati di tipo Hub eventi. 
-
-Quando si usa il routing insieme a endpoint personalizzati, i messaggi vengono recapitati solo all'endpoint predefinito se non corrispondono ad alcuna regola. Per recapitare i messaggi all'endpoint predefinito e a endpoint personalizzati, aggiungere una route per l'invio dei messaggi all'endpoint Eventi.
 
 ## <a name="reading-data-that-has-been-routed"></a>Lettura dei dati indirizzati
 
@@ -77,7 +95,7 @@ Usare le esercitazioni seguenti per informazioni su come leggere messaggi da un 
 
 ## <a name="fallback-route"></a>Route di fallback
 
-La route di fallback invia tutti i messaggi che non soddisfano le condizioni di query su una delle route esistenti all'istanza predefinita di Hub eventi (**messaggi/eventi**), compatibile con [Hub eventi](/azure/event-hubs/). Se il routing dei messaggi è attivato, è possibile abilitare la funzionalità di route di fallback. Si noti che quando viene creata una route, i dati non vengono più trasmessi all'endpoint predefinito, a meno che non venga creata una route verso tale endpoint. Se non esistono route verso l'endpoint predefinito ed è abilitata una route di fallback, solo i messaggi che non corrispondono ad alcuna condizione di query sulle route verranno inviati all'endpoint predefinito. Inoltre, se vengono eliminate tutte le route esistenti, è necessario abilitare la route di fallback per ricevere tutti i dati sull'endpoint predefinito. 
+La route di fallback invia tutti i messaggi che non soddisfano le condizioni di query su una delle route esistenti all'istanza predefinita di Hub eventi (**messaggi/eventi**), compatibile con [Hub eventi](/azure/event-hubs/). Se il routing dei messaggi è attivato, è possibile abilitare la funzionalità di route di fallback. Una volta che viene creata una route, viene interrotto dei dati che passano a built-in-endpoint, a meno che non viene creata una route verso tale endpoint. Se non esistono route verso l'endpoint predefinito ed è abilitata una route di fallback, solo i messaggi che non corrispondono ad alcuna condizione di query sulle route verranno inviati all'endpoint predefinito. Inoltre, se vengono eliminate tutte le route esistenti, è necessario abilitare la route di fallback per ricevere tutti i dati sull'endpoint predefinito. 
 
 È possibile abilitare/disabilitare la route di fallback nel portale di Azure -> pannello Routing messaggi. È anche possibile usare Azure Resource Manager per [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) per usare un endpoint personalizzato per la route di fallback.
 
@@ -89,19 +107,21 @@ Oltre alla telemetria del dispositivo, il routing dei messaggi consente anche l'
 
 ## <a name="testing-routes"></a>Test delle route
 
-Quando si crea una nuova route o si modifica una route esistente, è consigliabile testare la query di route con un messaggio di esempio. È possibile testare singole route o testarle tutte contemporaneamente. Nessuno messaggio viene indirizzato agli endpoint durante il test. Per i test è possibile usare il portale di Azure, Azure Resource Manager, Azure PowerShell e l'interfaccia della riga di comando di Azure. I risultati consentono di scoprire se il messaggio di esempio corrisponde alla query, se non corrisponde oppure se non è possibile eseguire il test perché il messaggio di esempio o la sintassi della query non sono corretti. Per altre informazioni, vedere [Test Route](/rest/api/iothub/iothubresource/testroute) (Testare una route) e [Test all routes](/rest/api/iothub/iothubresource/testallroutes) (Testare tutte le route).
+Quando si crea una nuova route o si modifica una route esistente, è consigliabile testare la query di route con un messaggio di esempio. È possibile testare singole route o testarle tutte contemporaneamente. Nessuno messaggio viene indirizzato agli endpoint durante il test. Per i test è possibile usare il portale di Azure, Azure Resource Manager, Azure PowerShell e l'interfaccia della riga di comando di Azure. I risultati di identificare se il messaggio di esempio corrispondenza alla query, messaggio non corrisponde alla query o test non può essere eseguita perché la sintassi di query o messaggio di esempio non sono corrette. Per altre informazioni, vedere [Test Route](/rest/api/iothub/iothubresource/testroute) (Testare una route) e [Test all routes](/rest/api/iothub/iothubresource/testallroutes) (Testare tutte le route).
 
 ## <a name="latency"></a>Latenza
 
 Quando si indirizzano i messaggi di telemetria da dispositivo a cloud tramite endpoint predefiniti, si verifica un lieve aumento della latenza end-to-end dopo la creazione della prima route.
 
-Nella maggior parte dei casi l'aumento medio della latenza è inferiore a 500 ms. È possibile monitorare la latenza con la metrica dell'hub IoT **Routing: message latency for messages/events** (Routing: latenza messaggi per messaggi/eventi) o **d2c.endpoints.latency.builtIn.events**. La creazione o l'eliminazione di una route successiva alla prima non influisce sulla latenza end-to-end.
+Nella maggior parte dei casi, l'aumento medio della latenza è inferiore a 500 ms. È possibile monitorare la latenza con la metrica dell'hub IoT **Routing: message latency for messages/events** (Routing: latenza messaggi per messaggi/eventi) o **d2c.endpoints.latency.builtIn.events**. La creazione o l'eliminazione di una route successiva alla prima non influisce sulla latenza end-to-end.
 
 ## <a name="monitoring-and-troubleshooting"></a>Monitoraggio e risoluzione dei problemi
 
-L'hub IoT offre diverse metriche correlate al routing e agli endpoint per offrire una panoramica dell'integrità dell'hub e dei messaggi inviati. È possibile combinare le informazioni da più metriche per individuare la causa radice dei problemi. Ad esempio usare la metrica **Routing: telemetry messages dropped** (Routing: messaggi di telemetria eliminati) oppure **d2c.telemetry.egress.dropped** per identificare il numero di messaggi eliminati perché non corrispondenti alle query su qualsiasi route e con la route di fallback disabilitata. In [Metriche di Hub IoT](iot-hub-metrics.md) sono elencate tutte le metriche abilitate per impostazione predefinita per l'hub IoT.
+L'hub IoT offre diverse metriche correlate al routing e agli endpoint per offrire una panoramica dell'integrità dell'hub e dei messaggi inviati. È possibile combinare le informazioni da più metriche per individuare la causa radice dei problemi. Ad esempio, usare la metrica **Routing: messaggi telemetria eliminati** oppure **d2c.telemetry.egress.dropped** per identificare il numero di messaggi che sono stati eliminati quando non rispettavano query su una delle route e route di fallback è stata disabilitata. In [Metriche di Hub IoT](iot-hub-metrics.md) sono elencate tutte le metriche abilitate per impostazione predefinita per l'hub IoT.
 
-È possibile usare i log di diagnostica delle **route** nelle [impostazioni di diagnostica](../iot-hub/iot-hub-monitor-resource-health.md) di Monitoraggio di Azure per tenere traccia degli errori che si verificano durante la valutazione dell'integrità di una query e un endpoint di routing nella percezione dell'hub IoT, ad esempio quando un endpoint è inattivo. Questi log di diagnostica generati possono essere inviati a Log Analytics, Hub eventi o Archiviazione di Azure per l'elaborazione personalizzata.
+È possibile usare l'API REST [integrità degli Endpoint ottenere](https://docs.microsoft.com/de-de/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) ottenere [lo stato di integrità](iot-hub-devguide-endpoints.md#custom-endpoints) degli endpoint. È consigliabile usare la [le metriche dell'IoT Hub](iot-hub-metrics.md) relativi alla latenza di routing di messaggi per identificare e il debug degli errori quando l'integrità dell'endpoint è inattivo o non integro. Per endpoint di tipo hub eventi, ad esempio, è possibile monitorare **d2c.endpoints.latency.eventHubs**. Lo stato di un endpoint integro verrà aggiornato in integro quando l'IoT Hub ha stabilito uno stato di integrità con coerenza finale.
+
+È possibile usare i log di diagnostica delle **route** nelle [impostazioni di diagnostica](../iot-hub/iot-hub-monitor-resource-health.md) di Monitoraggio di Azure per tenere traccia degli errori che si verificano durante la valutazione dell'integrità di una query e un endpoint di routing nella percezione dell'hub IoT, ad esempio quando un endpoint è inattivo. Questi log di diagnostica può essere inviato al log monitoraggio di Azure, hub eventi o archiviazione di Azure per l'elaborazione personalizzata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

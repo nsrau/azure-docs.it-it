@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 8e18822fff852a82b367acfa45e3d55048b4e54c
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: 3a773c24993d229f20df698113ff7535fea634ca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232601"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170038"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Aggiungere un livello riquadro a una mappa
 
@@ -73,4 +73,4 @@ Per altre informazioni sulle classi e sui metodi usati in questo articolo, veder
 Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguenti:
 
 > [!div class="nextstepaction"]
-> [Aggiungere un livello immagine](./map-add-image-layer.md)
+> [Aggiungere un livello di immagine](./map-add-image-layer.md)

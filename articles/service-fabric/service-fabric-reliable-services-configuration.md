@@ -7,19 +7,19 @@ author: sumukhs
 manager: timlt
 editor: vturecek
 ms.assetid: 9f72373d-31dd-41e3-8504-6e0320a11f0e
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: ee8010fbbadc011e04d6d43599d671a1f926bb5f
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: c131cf96f11dcddfb0de87ccf47f2d2c8a99617d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049657"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850803"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurazione di servizi Reliable Services con stato
 Esistono due set di impostazioni di configurazione per i servizi Reliable Services. Un set è globale per tutti i servizi Reliable Services del cluster, mentre l'altro è specifico per un particolare servizio Reliable Services.
@@ -36,7 +36,7 @@ La configurazione globale dei servizi Reliable Services viene specificata nel ma
 | SharedLogPath |Nome di percorso completo |"" |Specifica il percorso completo in cui il file di log condiviso viene utilizzato da tutti i servizi Reliable Services su tutti i nodi del cluster che non specificano lo SharedLogPath nella configurazione specifica del servizio. Tuttavia, se è stato specificato SharedLogPath, lo deve essere anche SharedLogId. |
 | SharedLogSizeInMB |Megabyte |8192 |Specifica il numero di MB di spazio su disco da allocare in modo statico per il log condiviso. Il valore deve essere maggiore di 2048. |
 
-In ARM di Azure o nel modello JSON locale, l'esempio seguente illustra come modificare il log delle transazioni condiviso che viene creato per eseguire il backup di eventuali raccolte affidabili per i servizi con stato.
+In ARM di Azure o un modello JSON locale, l'esempio seguente viene illustrato come modificare il log delle transazioni condiviso creato per eseguire il backup di eventuali raccolte affidabili per i servizi con stato.
 
     "fabricSettings": [{
         "name": "KtlLogger",
@@ -161,7 +161,7 @@ class MyStatefulService : StatefulService
 ### <a name="sample-configuration-file"></a>File di configurazione di esempio
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <Section Name="ReplicatorConfig">
       <Parameter Name="ReplicatorEndpoint" Value="ReplicatorEndpoint" />
       <Parameter Name="BatchAcknowledgementInterval" Value="0.05"/>

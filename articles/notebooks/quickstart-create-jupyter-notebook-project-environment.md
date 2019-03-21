@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: e049f591-27a7-440f-a1a3-c5bef25e8a28
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 9e5f4d6f2086048e428f313bc49cc6f599ee1bec
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 35b5f1e29ae125dcac79c278578e900a73ffc7be
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085332"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771387"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment"></a>Avvio rapido: Creare un progetto con un ambiente personalizzato
 
@@ -26,17 +26,17 @@ Un progetto in Azure Notebooks è una raccolta di file, ad esempio notebook, fil
 
 ## <a name="create-a-project"></a>Creare un progetto
 
-1. Passare ad [Azure Notebooks](https://notebooks.azure.com) ed eseguire l'accesso. Per informazioni dettagliate, vedere [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md) (Avvio rapido: Accedere ad Azure Notebooks).
+1. Passare ad [Azure Notebooks](https://notebooks.azure.com) ed eseguire l'accesso. Per informazioni dettagliate, vedere [Avvio rapido: Accedere ad Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
 
-1. Nella parte superiore della pagina del profilo pubblico selezionare **My Projects** (Progetti personali):
+1. Dalla pagina del profilo pubblico selezionare **My Projects** (Progetti personali) nella parte superiore:
 
     ![Collegamento My Projects (Progetti personali) nella parte superiore della finestra del browser](media/quickstarts/my-projects-link.png)
 
-1. Nella pagina **My Projects** (Progetti personali) selezionare **+ New Project** (+ Nuovo progetto) (scelta rapida da tastiera: n); se la finestra del browser è di dimensioni ridotte, il pulsante potrebbe essere visualizzato solo come **+**:
+1. Nella pagina **My Projects** (Progetti personali) selezionare **+ New Project** (+ Nuovo progetto) (tasto di scelta rapida: n); se la finestra del browser è di dimensioni ridotte, il pulsante potrebbe essere visualizzato solo come **+**:
 
     ![Comando New Project (Nuovo progetto) nella pagina My Projects (Progetti personali)](media/quickstarts/new-project-command.png)
 
-1. Nella pagina **Create New Project** (Crea nuovo progetto) visualizzata immettere o impostare i dettagli seguenti e quindi selezionare **Create** (Crea):
+1. Nella finestra popup **Create New Project** (Crea nuovo progetto) visualizzata immettere o impostare i dettagli seguenti e quindi selezionare **Create** (Crea):
 
     - **Project name** (Nome progetto): Progetto con un ambiente personalizzato
     - **Project ID** (ID progetto): project-custom-environment

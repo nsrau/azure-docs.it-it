@@ -2,16 +2,17 @@
 title: Archiviazione e spostamento dati per il rendering - Azure Batch
 description: Opzioni di archiviazione e spostamento dati per i carichi di lavoro del rendering
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0d343ff5d7513500fa7803495dd42eb94b772935
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 5a0d4dc82995e63697cc673bc54695c9c6d586df
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546097"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790247"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Opzioni di archiviazione e spostamento dati per i file di asset e output del rendering
 
@@ -25,7 +26,7 @@ ms.locfileid: "53546097"
   * Questa opzione ha il vantaggio di essere molto conveniente, in quanto non sono necessarie VM per il file system, inoltre la memorizzazione nella cache di Blobfuse nelle VM consente di evitare download ripetuti degli stessi file per più processi e attività.  Anche lo spostamento dei dati è semplice, poiché i file sono semplicemente BLOB ed è possibile usare API e strumenti standard, come azcopy, per copiare i file tra un file system locale e Archiviazione di Azure.
 * File system o condivisione file:
   * A seconda del sistema operativo della macchina virtuale e dei requisiti di prestazioni e scalabilità, le opzioni includono [File di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction), l'uso di una VM con dischi collegati per NFS, l'uso di più VM con dischi collegati per un file system distribuito, ad esempio GlusterFS, o l'uso di un'offerta di terze parti.
-  * [Avere Systems](http://www.averesystems.com/) fa ora parte di Microsoft e saranno presto disponibili soluzioni ideali per il rendering su larga scala e a elevate prestazioni.  La soluzione Avere consentirà la creazione di una cache NFS o SMB basata su Azure che funziona in combinazione con l'archiviazione BLOB o con i dispositivi NAS locali.
+  * [Avere Systems](https://www.averesystems.com/) fa ora parte di Microsoft e saranno presto disponibili soluzioni ideali per il rendering su larga scala e a elevate prestazioni.  La soluzione Avere consentirà la creazione di una cache NFS o SMB basata su Azure che funziona in combinazione con l'archiviazione BLOB o con i dispositivi NAS locali.
   * Con un file system, i file possono essere letti o scritti direttamente nel file system o possono essere copiati tra il file system e le VM del pool.
   * Un file system condiviso consente la condivisione di un numero elevato di asset tra progetti e processi destinato all'utilizzo, con l'accesso delle attività di rendering solo agli asset necessari.
 

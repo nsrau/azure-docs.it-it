@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: f9abc6d79bd821ef612e9e7648b1b5af98bb5cf6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 27c1481314ba1dd77cdcf229842aeec7de3e4444
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456232"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117456"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Eseguire la replica di macchine virtuali abilitate per Crittografia dischi di Azure (ADE) in un'altra area di Azure
 
@@ -123,8 +123,8 @@ Questa procedura presuppone che l'area di Azure primaria sia Asia orientale e l'
 
 
 2. Fare clic su **Personalizza** accanto a Impostazioni crittografia per modificare le impostazioni predefinite seguenti:
-    - In **Insieme di credenziali delle chiavi di crittografia del disco di destinazione** selezionare l'insieme di credenziali delle chiavi di crittografia del disco di destinazione dall'elenco degli insiemi di credenziali delle chiavi presenti nella posizione di destinazione della sottoscrizione.
-  - In **Insieme di credenziali delle chiavi di crittografia della chiave di destinazione** selezionare l'insieme di credenziali delle chiavi di crittografia della chiave di destinazione dall'elenco degli insiemi di credenziali delle chiavi presenti nella posizione di destinazione della sottoscrizione.
+   - In **Insieme di credenziali delle chiavi di crittografia del disco di destinazione** selezionare l'insieme di credenziali delle chiavi di crittografia del disco di destinazione dall'elenco degli insiemi di credenziali delle chiavi presenti nella posizione di destinazione della sottoscrizione.
+     - In **Insieme di credenziali delle chiavi di crittografia della chiave di destinazione** selezionare l'insieme di credenziali delle chiavi di crittografia della chiave di destinazione dall'elenco degli insiemi di credenziali delle chiavi presenti nella posizione di destinazione della sottoscrizione.
 
 3. Fare clic su **Crea risorsa di destinazione** > **Abilitazione della replica**.
 4. Una volta abilitate le macchine virtuali per la replica è possibile controllare lo stato di integrità della macchina virtuale in **Elementi replicati**
